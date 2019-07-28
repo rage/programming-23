@@ -230,7 +230,7 @@ Nimi:
 Suo (luotu: 06.07.2018 12:34:56)
 Kuokka (luotu: 06.07.2018 12:34:57)
 
-</sample-output
+</sample-output>
 
 </programming-exercise>
 
