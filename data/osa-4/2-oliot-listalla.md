@@ -442,7 +442,7 @@ Toteuta ohjelma, joka ensin lukee kirjojen tietoja käyttäjältä. Jokaisesta k
 
 Tämän jälkeen käyttäjältä kysytään mitä tulostetaan. Jos käyttäjä syöttää merkkijonon "kaikki", tulostetaan kirjojen nimet, sivujen lukumäärät sekä julkaisuvuodet. Jos taas käyttäjä syöttää merkkijonon "nimi", tulostetaan vain kirjojen nimet.
 
-Ohjelmaa varten kannattanee toteuttaa Kirjaa kuvaava luokka. Tehtävä on kokonaisuudessaan kahden tehtäväpisteen arvoinen.
+Ohjelmaa varten kannattanee toteuttaa yksittäistä kirjaa kuvaava Kirja-luokka. Tehtävä on kokonaisuudessaan kahden tehtäväpisteen arvoinen.
 
 <sample-output>
 
