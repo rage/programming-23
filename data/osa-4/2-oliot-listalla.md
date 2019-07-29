@@ -438,9 +438,9 @@ Miehen puolikkaat, 30 minuuttia
 
 <programming-exercise name='Kirjat (2 osaa)' tmcname='osa04-Osa04_20.Kirjat'>
 
-Toteuta ohjelma, joka ensin lukee kirjojen tietoja käyttäjältä. Jokaisesta kirjasta tulee lukea kirjan nimi, sivujen lukumäärä sekä kirjoitusvuosi. Kirjojen lukeminen lopetetaan kun käyttäjä syöttää tyhjän kirjan nimen.
+Toteuta ohjelma, joka ensin lukee kirjojen tietoja käyttäjältä. Jokaisesta kirjasta tulee lukea kirjan nimi, sivujen lukumäärä sekä julkaisuvuosi. Kirjojen lukeminen lopetetaan kun käyttäjä syöttää tyhjän kirjan nimen.
 
-Tämän jälkeen käyttäjältä kysytään mitä tulostetaan. Jos käyttäjä syöttää merkkijonon "kaikki", tulostetaan kirjojen nimet, sivujen lukumäärät sekä kirjoitusvuodet. Jos taas käyttäjä syöttää merkkijonon "nimi", tulostetaan vain kirjojen nimet.
+Tämän jälkeen käyttäjältä kysytään mitä tulostetaan. Jos käyttäjä syöttää merkkijonon "kaikki", tulostetaan kirjojen nimet, sivujen lukumäärät sekä julkaisuvuodet. Jos taas käyttäjä syöttää merkkijonon "nimi", tulostetaan vain kirjojen nimet.
 
 Ohjelmaa varten kannattanee toteuttaa Kirjaa kuvaava luokka. Tehtävä on kokonaisuudessaan kahden tehtäväpisteen arvoinen.
 
@@ -448,16 +448,16 @@ Ohjelmaa varten kannattanee toteuttaa Kirjaa kuvaava luokka. Tehtävä on kokona
 
 Nimi: **Minä en sitten muutu**
 Sivuja: **201**
-Kirjoitusvuosi: **2010**
+Julkaisuvuosi: **2010**
 Nimi: **Nalle Puh ja elämisen taito**
 Sivuja: **100**
-Kirjoitusvuosi: **2005**
+Julkaisuvuosi: **2005**
 Nimi: **Beautiful Code**
 Sivuja: **593**
-Kirjoitusvuosi: **2007**
+Julkaisuvuosi: **2007**
 Nimi: **KonMari**
 Sivuja: **222**
-Kirjoitusvuosi: **2011**
+Julkaisuvuosi: **2011**
 Nimi:
 
 Mitä tulostetaan? **kaikki**
@@ -473,16 +473,16 @@ KonMari, 222 sivua, 2011
 
 Nimi: **Minä en sitten muutu**
 Sivuja: **201**
-Kirjoitusvuosi: **2010**
+Julkaisuvuosi: **2010**
 Nimi: **Nalle Puh ja elämisen taito**
 Sivuja: **100**
-Kirjoitusvuosi: **2005**
+Julkaisuvuosi: **2005**
 Nimi: **Beautiful Code**
 Sivuja: **593**
-Kirjoitusvuosi: **2007**
+Julkaisuvuosi: **2007**
 Nimi: **KonMari**
 Sivuja: **222**
-Kirjoitusvuosi: **2011**
+Julkaisuvuosi: **2011**
 Nimi:
 
 Mitä tulostetaan? **nimi**
