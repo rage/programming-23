@@ -458,6 +458,7 @@ Kirjoitusvuosi: **2007**
 Nimi: **KonMari**
 Sivuja: **222**
 Kirjoitusvuosi: **2011**
+Nimi:
 
 Mitä tulostetaan? **kaikki**
 Minä en sitten muutu, 201 sivua, 2010
@@ -482,6 +483,7 @@ Kirjoitusvuosi: **2007**
 Nimi: **KonMari**
 Sivuja: **222**
 Kirjoitusvuosi: **2011**
+Nimi:
 
 Mitä tulostetaan? **nimi**
 Minä en sitten muutu
