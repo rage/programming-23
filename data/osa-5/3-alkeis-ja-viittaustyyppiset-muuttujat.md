@@ -1,6 +1,6 @@
 ---
 path: '/osa-5/3-alkeis-ja-viittaustyyppiset-muuttujat'
-title: 'TODO: uusi nimi? Muuttujien eroista: Alkeis- ja viittaustyyppiset muuttujat'
+title: 'Kahdenlaisia muuttujia: Alkeis- ja viittaustyyppiset muuttujat'
 hidden: false
 ---
 

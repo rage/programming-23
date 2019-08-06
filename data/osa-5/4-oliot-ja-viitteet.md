@@ -27,10 +27,14 @@ public class Henkilo {
     private int pituus;
 
     public Henkilo(String nimi) {
+        this(nimi, 0, 0, 0);
+    }
+
+    public Henkilo(String nimi, int ika, int pituus, int paino) {
         this.nimi = nimi;
-        this.ika = 0;
-        this.paino = 0;
-        this.pituus = 0;
+        this.ika = ika;
+        this.paino = paino;
+        this.pituus = pituus;
     }
 
     // muita konstruktoreja ja metodeja
@@ -41,6 +45,10 @@ public class Henkilo {
 
     public int getIka() {
         return this.ika;
+    }
+
+    public int getPituus() {
+        return this.pituus;
     }
 
     public void vanhene() {
@@ -271,213 +279,64 @@ Toteuta ohjelma, jonka suorittaminen aiheuttaa virheen NullPointerException. Vir
 </programming-exercise>
 
 
-## Olio oliomuuttujana
-
-
-Oliot voivat sisältää viitteitä olioihin.
-
-Jatketaan henkilöiden parissa ja lisätään henkilölle syntymäpäivä. Syntymäpäivä on luonnollista esittää `Paivays`-luokan avulla:
-
-
-```java
-public class Paivays {
-    private int paiva;
-    private int kuukausi;
-    private int vuosi;
-
-    public Paivays(int paiva, int kuukausi, int vuosi) {
-        this.paiva = paiva;
-        this.kuukausi = kuukausi;
-        this.vuosi = vuosi;
-    }
-
-    public int getPaiva() {
-        return this.paiva;
-    }
-
-    public int getKuukausi() {
-        return this.kuukausi;
-    }
-
-    public int getVuosi() {
-        return this.vuosi;
-    }
-
-    @Override
-    public String toString() {
-        return this.paiva + "." + this.kuukausi + "." + this.vuosi;
-    }
-}
-```
-
-Koska tiedämme syntymäpäivän, henkilön ikää ei tarvitse säilöä erillisenä oliomuuttujana. Henkilön ikä on pääteltävissä syntymäpäivästä. Oletetaan, luokassa `Henkilo` on nyt seuraavat muuttujat.
-
-
-```java
-public class Henkilo {
-    private String nimi;
-    private Paivays syntymapaiva;
-    private int paino = 0;
-    private int pituus = 0;
-
-// ...
-```
-
-Tehdään henkilölle uusi konstruktori, joka mahdollistaa syntymäpäivän asettamisen:
-
-
-```java
-public Henkilo(String nimi, int paiva, int kuukausi, int vuosi) {
-    this.nimi = nimi;
-    this.syntymapaiva = new Paivays(paiva, kuukausi, vuosi);
-    this.paino = 0;
-    this.pituus = 0;
-}
-```
-
-Konstruktorin parametrina annetaan erikseen päiväyksen osat (päivä, kuukausi, vuosi), niistä luodaan päiväysolio, ja lopulta päiväysolion viite kopioidaan oliomuuttujan `syntymapaiva` arvoksi.
-
-
-Muokataan Henkilo-luokassa olevaa `toString`-metodia siten, että metodi palauttaa iän sijaan syntymäpäivän:
-
-
-```java
-public String toString() {
-    return this.nimi + ", syntynyt " + this.syntymapaiva;
-}
-```
-
-Kokeillaan miten uusittu Henkilöluokka toimii.
-
-```java
-Henkilo muhammad = new Henkilo("Muhammad ibn Musa al-Khwarizmi", 1, 1, 780);
-Henkilo pascal = new Henkilo("Blaise Pascal", 19, 6, 1623);
-
-System.out.println(muhammad);
-System.out.println(pascal);
-```
-
-<sample-output>
-
-Muhammad ibn Musa al-Khwarizmi, syntynyt 1.1.780
-Blaise Pascal, syntynyt 19.6.1623
-
-</sample-output>
-
-
-Henkilöoliolla on nyt oliomuuttujat `nimi` ja `syntymapaiva`. Muuttuja `nimi` on merkkijono, joka sekin on siis olio, ja muuttuja `syntymapaiva` on Päiväysolio.
-
-
-Molemmat muuttujat sisältävät arvon olioon. Henkilöolio sisältää siis kaksi viitettä. Alla olevassa kuvassa paino ja pituus on jätetty huomiotta.
-
-
-<img src="../img/drawings/muhammad-ja-pascal.png"/>
-
-
-Pääohjelmalla on nyt siis langan päässä kaksi Henkilö-olioa. Henkilöllä on nimi ja syntymäpäivä. Koska molemmat ovat olioita, ovat ne henkilöllä langan päässä.
-
-
-Syntymäpäivä vaikuttaa hyvältä laajennukselta Henkilö-luokkaan. Totesimme aiemmin, että oliomuuttuja `ika` voidaan laskea syntymäpäivästä, joten siitä hankkiuduttiin eroon.
-
-
-Javassa nykyinen päivä selviää Javan valmiin `LocalDate`-luokan avulla seuraavasti:
-
-
-```java
-import java.time.LocalDate;
-
-public class Esimerkki {
-
-    public static void main(String[] args) {
-
-        LocalDate nyt = LocalDate.now();
-        int vuosi = nyt.getYear();
-        int kuukausi = nyt.getMonthValue();
-        int paiva = nyt.getDayOfMonth();
-
-        System.out.println("tänään on " + paiva + "." + kuukausi + "." + vuosi);
-
-    }
-}
-```
-
-
-<text-box variant='hint' name='Päivämäärän käyttö Java-ohjelmissa'>
-
-Käytämme edellä omaa luokkaa `Paivays` päivämäärän esittämiseen, sillä sen avulla voi havainnollistaa ja harjoitella olioiden toimintaa. Mikäli omissa ohjelmissaan haluaa käsitellä päivämääriä, kannattaa tutustua Javan valmiiseen luokkaan <a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html" target="_blank">LocalDate</a>, joka sisältää merkittävän määrän päivämäärien käsittelyyn liittyvää toiminnallisuutta. Tutustumme päivämäärien käsittelyyn valmiiden luokkien avulla Ohjelmoinnin jatkokurssilla.
-
-</text-box>
-
-TODO: tämä seuraava tehtävä ei liity päivämääriin
-
-<programming-exercise name='Henkilö ja lemmikki' tmcname='osa05-Osa05_08.HenkiloJaLemmikki'>
-
-
-Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan `Henkilo` metodia `public String toString` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun.
-
-
-```java
-Lemmikki hulda = new Lemmikki("Hulda", "sekarotuinen koira");
-Henkilo leevi = new Henkilo("Leevi", hulda);
-
-System.out.println(leevi);
-```
-
-<sample-output>
-
-Leevi, kaverina Hulda, joka on sekarotuinen koira
-
-</sample-output>
-
-</programming-exercise>
-
-
 
 ##  Olio metodin parametrina
 
-TODO: kirjoita esimerkki uudestaan, heivataan painonvartijat -teema pois. -- kiipeilyseura?
 
 Olemme nähneet että metodien parametrina voi olla alkeis- ja viittaustyyppisiä muuttujia. Koska oliot ovat viittaustyyppisiä muuttujia, voi metodin parametriksi määritellä minkä tahansa tyyppisen olion. Demonstroidaan tätä esimerkillä.
 
-Painonvartijoihin hyväksytään jäseniksi henkilöitä, joiden painoindeksi ylittää annetun rajan. Kaikissa painonvartijayhdistyksissä raja ei ole sama. Tehdään painonvartijayhdistystä vastaava luokka. Olioa luotaessa konstruktorille annetaan parametriksi pienin painoindeksi, jolla yhdistyksen jäseneksi pääsee.
+Huvipuiston laitteisiin hyväksytään henkilöitä, joiden pituus ylittää annetun rajan. Kaikissa laitteissa raja ei ole sama. Tehdään huvipuiston laitetta vastaava luokka. Olioa luotaessa konstruktorille annetaan parametriksi laitteen nimi sekä pienin pituus, jolla laitteeseen pääsee.
 
 
 
 ```java
-public class PainonvartijaYhdistys {
-    private double alinPainoindeksi;
+public class Huvipuistolaite {
+    private String nimi;
+    private int alinPituus;
 
-    public PainonvartijaYhdistys(double indeksiRaja) {
-        this.alinPainoindeksi = indeksiRaja;
+    public Huvipuistolaite(String nimi, int alinPituus) {
+        this.nimi = nimi;
+        this.alinPituus = alinPituus;
+    }
+
+    public String toString() {
+        return this.nimi + ", pituusalaraja: " + this.alinPituus;
     }
 }
 ```
 
-Tehdään seuraavaksi metodi, jonka avulla voidaan tarkastaa hyväksytäänkö tietty henkilö yhdistyksen jäseneksi, eli onko henkilön painoindeksi tarpeeksi suuri. Metodi palauttaa `true` jos parametrina annettu henkilö hyväksytään, `false` jos ei.
+Tehdään seuraavaksi metodi, jonka avulla voidaan tarkastaa pääseekö tietty henkilö laitteen kyytiin, eli onko henkilö tarpeeksi pitkä. Metodi palauttaa `true` jos parametrina annettu henkilö hyväksytään, `false` jos ei.
+
+Alla oletetaan, että henkilöllä metodi ``public int getPituus()`, joka palauttaa henkilön pituuden.
 
 
 ```java
-public class PainonvartijaYhdistys {
-    private double alinPainoindeksi;
+public class Huvipuistolaite {
+    private String nimi;
+    private int alinPituus;
 
-    public PainonvartijaYhdistys(double indeksiRaja) {
-        this.alinPainoindeksi = indeksiRaja;
+    public Huvipuistolaite(String nimi, int alinPituus) {
+        this.nimi = nimi;
+        this.alinPituus = alinPituus;
     }
 
-    public boolean hyvaksytaanJaseneksi(Henkilo henkilo) {
-        if (henkilo.painoindeksi() < this.alinPainoindeksi) {
+    public boolean paaseeKyytiin(Henkilo henkilo) {
+        if (henkilo.getPituus() < this.alinPituus) {
             return false;
         }
 
         return true;
     }
+
+    public String toString() {
+        return this.nimi + ", pituusalaraja: " + this.alinPituus;
+    }
 }
 ```
 
-Painonvartijayhdistys-olion metodille `hyvaksytaanJaseneksi` annetaan siis parametrina `Henkilo`-olio. Kuten aiemmin, muuttujan arvo -- eli tässä viite -- kopioituu metodin käyttöön. Metodissa käsitellään kopioitua viitettä ja kutsutaan parametrina saadun henkilön metodia `painoIndeksi`.
+Huvipuistolaite-olion metodille `paaseeKyytiin` annetaan siis parametrina `Henkilo`-olio. Kuten aiemmin, muuttujan arvo -- eli tässä viite -- kopioituu metodin käyttöön. Metodissa käsitellään kopioitua viitettä ja kutsutaan parametrina saadun henkilön metodia `getPituus`.
 
-
-Seuraavassa testipääohjelma jossa painonvartijayhdistyksen metodille annetaan ensin parametriksi henkilöolio `matti` ja sen jälkeen henkilöolio `juhana`:
+Seuraavassa testipääohjelma jossa huvipuistolaitteen metodille annetaan ensin parametriksi henkilöolio `matti` ja sen jälkeen henkilöolio `juhana`:
 
 
 ```java
@@ -486,33 +345,107 @@ matti.setPaino(86);
 matti.setPituus(180);
 
 Henkilo juhana = new Henkilo("Juhana");
-juhana.setPaino(64);
-juhana.setPituus(172);
+juhana.setPaino(34);
+juhana.setPituus(132);
 
-PainonvartijaYhdistys kumpulanPaino = new PainonvartijaYhdistys(25);
+Huvipuistolaite hurjakuru = new Huvipuistolaite("Hurjakuru", 140);
 
-if (kumpulanPaino.hyvaksytaanJaseneksi(matti)) {
-    System.out.println(matti.getNimi() + " pääsee jäseneksi");
+if (hurjakuru.paaseeKyytiin(matti)) {
+    System.out.println(matti.getNimi() + " pääsee laitteeseen");
 } else {
-    System.out.println(matti.getNimi() + " ei pääse jäseneksi");
+    System.out.println(matti.getNimi() + " ei pääse laitteeseen");
 }
 
-if (kumpulanPaino.hyvaksytaanJaseneksi(juhana)) {
-    System.out.println(juhana.getNimi() + " pääsee jäseneksi");
+if (hurjakuru.paaseeKyytiin(juhana)) {
+    System.out.println(juhana.getNimi() + " pääsee laitteeseen");
 } else {
-    System.out.println(juhana.getNimi() + " ei pääse jäseneksi");
+    System.out.println(juhana.getNimi() + " ei pääse laitteeseen");
 }
+
+System.out.println(hurjakuru);
 ```
 
 Ohjelma tulostaa:
 
 <sample-output>
 
-Matti pääsee jäseneksi
-Juhana ei pääse jäseneksi
+Matti pääsee laitteeseen
+Juhana ei pääse laitteeseen
+Hurjakuru, pituusalaraja: 140
 
 </sample-output>
 
+Entäpä jos haluaisimme tietää kuinka moni on päässyt laitteen kyytiin?
+
+Lisätään huvipuistolaitteelle oliomuuttuja, joka pitää kirjaa kyytiin päässeiden henkilöiden lukumäärästä.
+
+
+```java
+public class Huvipuistolaite {
+    private String nimi;
+    private int alinPituus;
+    private int kavijoita;
+
+    public Huvipuistolaite(String nimi, int alinPituus) {
+        this.nimi = nimi;
+        this.alinPituus = alinPituus;
+        this.kavijoita = 0;
+    }
+
+    public boolean paaseeKyytiin(Henkilo henkilo) {
+        if (henkilo.getPituus() < this.alinPituus) {
+            return false;
+        }
+
+        this.kavijoita++;
+        return true;
+    }
+
+    public String toString() {
+        return this.nimi + ", pituusalaraja: " + this.alinPituus +
+            ", kävijöitä: " + this.kavijoita;
+    }
+}
+```
+
+Nyt aiemmin käyttämässämme esimerkkiohjelmassa pidetään kirjaa myös laitteen kävijöiden määrästä.
+
+
+```java
+Henkilo matti = new Henkilo("Matti");
+matti.setPaino(86);
+matti.setPituus(180);
+
+Henkilo juhana = new Henkilo("Juhana");
+juhana.setPaino(34);
+juhana.setPituus(132);
+
+Huvipuistolaite hurjakuru = new Huvipuistolaite("Hurjakuru", 140);
+
+if (hurjakuru.paaseeKyytiin(matti)) {
+    System.out.println(matti.getNimi() + " pääsee laitteeseen");
+} else {
+    System.out.println(matti.getNimi() + " ei pääse laitteeseen");
+}
+
+if (hurjakuru.paaseeKyytiin(juhana)) {
+    System.out.println(juhana.getNimi() + " pääsee laitteeseen");
+} else {
+    System.out.println(juhana.getNimi() + " ei pääse laitteeseen");
+}
+
+System.out.println(hurjakuru);
+```
+
+Ohjelma tulostaa:
+
+<sample-output>
+
+Matti pääsee laitteeseen
+Juhana ei pääse laitteeseen
+Hurjakuru, pituusalaraja: 140, kävijöitä: 1
+
+</sample-output>
 
 
 <text-box variant='hint' name='Konstruktorien, getterien ja setterien avustettu luominen'>
@@ -527,9 +460,6 @@ Joillain Linux-koneilla, kuten Kumpulassa olevilla koneilla, tämä saadaan aika
 
 
 </text-box>
-
-
-<youtube id='aSFT6UnyvE0'></youtube>
 
 
 <programming-exercise name='Kasvatuslaitos (3 osaa)' tmcname='osa05-Osa05_09.Kasvatuslaitos'>
@@ -925,6 +855,173 @@ riittikö raha: false
 riittikö raha: true
 kortilla rahaa 97.7 euroa
 kassassa rahaa 1100.0 edullisia lounaita myyty 0 maukkaita lounaita myyty 1
+
+</sample-output>
+
+</programming-exercise>
+
+
+## Olio oliomuuttujana
+
+
+Oliot voivat sisältää viitteitä olioihin.
+
+Jatketaan henkilöiden parissa ja lisätään henkilölle syntymäpäivä. Syntymäpäivä on luonnollista esittää `Paivays`-luokan avulla:
+
+
+```java
+public class Paivays {
+    private int paiva;
+    private int kuukausi;
+    private int vuosi;
+
+    public Paivays(int paiva, int kuukausi, int vuosi) {
+        this.paiva = paiva;
+        this.kuukausi = kuukausi;
+        this.vuosi = vuosi;
+    }
+
+    public int getPaiva() {
+        return this.paiva;
+    }
+
+    public int getKuukausi() {
+        return this.kuukausi;
+    }
+
+    public int getVuosi() {
+        return this.vuosi;
+    }
+
+    @Override
+    public String toString() {
+        return this.paiva + "." + this.kuukausi + "." + this.vuosi;
+    }
+}
+```
+
+Koska tiedämme syntymäpäivän, henkilön ikää ei tarvitse säilöä erillisenä oliomuuttujana. Henkilön ikä on pääteltävissä syntymäpäivästä. Oletetaan, luokassa `Henkilo` on nyt seuraavat muuttujat.
+
+
+```java
+public class Henkilo {
+    private String nimi;
+    private Paivays syntymapaiva;
+    private int paino = 0;
+    private int pituus = 0;
+
+// ...
+```
+
+Tehdään henkilölle uusi konstruktori, joka mahdollistaa syntymäpäivän asettamisen:
+
+
+```java
+public Henkilo(String nimi, Paivays paivays) {
+    this.nimi = nimi;
+    this.syntymapaiva = paivays;
+}
+```
+
+Edellisen konstruktorin lisäksi henkilölle voisi luoda myös konstruktorin, missä syntymäpäivä annettaisiin parametrina.
+
+```java
+public Henkilo(String nimi, int paiva, int kuukausi, int vuosi) {
+    this.nimi = nimi;
+    this.syntymapaiva = new Paivays(paiva, kuukausi, vuosi);
+}
+```
+
+Konstruktorin parametrina annetaan erikseen päiväyksen osat (päivä, kuukausi, vuosi), niistä luodaan päiväysolio, ja lopulta päiväysolion viite kopioidaan oliomuuttujan `syntymapaiva` arvoksi.
+
+
+Muokataan Henkilo-luokassa olevaa `toString`-metodia siten, että metodi palauttaa iän sijaan syntymäpäivän:
+
+
+```java
+public String toString() {
+    return this.nimi + ", syntynyt " + this.syntymapaiva;
+}
+```
+
+Kokeillaan miten uusittu Henkilöluokka toimii.
+
+```java
+Paivays paivays = new Paivays(1, 1, 780);
+Henkilo muhammad = new Henkilo("Muhammad ibn Musa al-Khwarizmi", paivays);
+Henkilo pascal = new Henkilo("Blaise Pascal", 19, 6, 1623);
+
+System.out.println(muhammad);
+System.out.println(pascal);
+```
+
+<sample-output>
+
+Muhammad ibn Musa al-Khwarizmi, syntynyt 1.1.780
+Blaise Pascal, syntynyt 19.6.1623
+
+</sample-output>
+
+
+Henkilöoliolla on nyt oliomuuttujat `nimi` ja `syntymapaiva`. Muuttuja `nimi` on merkkijono, joka sekin on siis olio, ja muuttuja `syntymapaiva` on Päiväysolio.
+
+
+Molemmat muuttujat sisältävät arvon olioon. Henkilöolio sisältää siis kaksi viitettä. Alla olevassa kuvassa paino ja pituus on jätetty huomiotta.
+
+
+<img src="../img/drawings/muhammad-ja-pascal.png"/>
+
+
+Pääohjelmalla on nyt siis langan päässä kaksi Henkilö-olioa. Henkilöllä on nimi ja syntymäpäivä. Koska molemmat ovat olioita, ovat ne henkilöllä langan päässä.
+
+
+Syntymäpäivä vaikuttaa hyvältä laajennukselta Henkilö-luokkaan. Totesimme aiemmin, että oliomuuttuja `ika` voidaan laskea syntymäpäivästä, joten siitä hankkiuduttiin eroon.
+
+
+<text-box variant='hint' name='Päivämäärän käyttö Java-ohjelmissa'>
+
+Käytämme edellä omaa luokkaa `Paivays` päivämäärän esittämiseen, sillä sen avulla voi havainnollistaa ja harjoitella olioiden toimintaa. Mikäli omissa ohjelmissaan haluaa käsitellä päivämääriä, kannattaa tutustua Javan valmiiseen luokkaan [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html), joka sisältää merkittävän määrän päivämäärien käsittelyyn liittyvää toiminnallisuutta.
+
+Esimerkiksi nykyinen päivä selviää Javan valmiin `LocalDate`-luokan avulla seuraavasti:
+
+```java
+import java.time.LocalDate;
+
+public class Esimerkki {
+
+    public static void main(String[] args) {
+
+        LocalDate nyt = LocalDate.now();
+        int vuosi = nyt.getYear();
+        int kuukausi = nyt.getMonthValue();
+        int paiva = nyt.getDayOfMonth();
+
+        System.out.println("tänään on " + paiva + "." + kuukausi + "." + vuosi);
+
+    }
+}
+```
+
+</text-box>
+
+TODO: tämä seuraava tehtävä ei liity päivämääriin -- vaihda päivämääriin liittyväksi
+
+<programming-exercise name='Henkilö ja lemmikki' tmcname='osa05-Osa05_08.HenkiloJaLemmikki'>
+
+
+Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan `Henkilo` metodia `public String toString` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun.
+
+
+```java
+Lemmikki hulda = new Lemmikki("Hulda", "sekarotuinen koira");
+Henkilo leevi = new Henkilo("Leevi", hulda);
+
+System.out.println(leevi);
+```
+
+<sample-output>
+
+Leevi, kaverina Hulda, joka on sekarotuinen koira
 
 </sample-output>
 

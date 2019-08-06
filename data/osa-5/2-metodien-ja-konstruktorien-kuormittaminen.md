@@ -1,6 +1,6 @@
 ---
 path: '/osa-5/2-metodien-ja-konstruktorien-kuormittaminen'
-title: 'Toistuvan koodin vähentäminen (metodien ja konstruktorien kuormittaminen)'
+title: 'Toistuvan koodin vähentäminen: Metodien ja konstruktorien kuormittaminen'
 hidden: false
 ---
 
@@ -192,8 +192,6 @@ Esko, ikä 0 vuotta
 </sample-output>
 
 <quiznator id='5c534d44017ffc13eddc9f9f'></quiznator>
-
-TODO: tänne tehtävä
 
 
 <programming-exercise name='Monta konstruktoria' tmcname='osa05-Osa05_05.MontaKonstruktoria'>
