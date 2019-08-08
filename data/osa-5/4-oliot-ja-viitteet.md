@@ -1004,7 +1004,6 @@ public class Esimerkki {
 
 </text-box>
 
-TODO: tämä seuraava tehtävä ei liity päivämääriin -- vaihda päivämääriin liittyväksi
 
 <programming-exercise name='Henkilö ja lemmikki' tmcname='osa05-Osa05_08.HenkiloJaLemmikki'>
 
@@ -1556,7 +1555,6 @@ if (leevi.equals(leeviEriPainolla)) {
 
 Jokainen luomamme luokka (ja Javan valmis luokka) perii luokan Object, vaikkei sitä erikseen ohjelmakoodissa näy. Tämän takia mistä tahansa luokasta tehty ilmentymä voidaan asettaa parametriksi metodiin, joka saa parametrina Object-tyyppisen muuttujan. Object-luokan periminen näkyy myös muissa asioissa: esimerkiksi metodi `toString` on olemassa vaikkei sitä erikseen toteuteta, aivan samalla tavalla kuin metodi `equals`.
 
-
 Esimerkiksi seuraava lähdekoodi kääntyy, sillä `equals`-metodi löytyy kaikkien luokkien perimästä Object-luokasta.
 
 
@@ -1584,6 +1582,260 @@ if (red.equals(chuck)) {
 ```
 
 </text-box>
+
+## Olion samankaltaisuus ja listat
+
+Tarkastellaan `equals`-metodin käyttöä vielä listojen yhteydessä. Oletetaan, että käytössämme on edellä kuvattu luokka `Lintu`, jolle ei ole määritelty `equals`-metodia.
+
+```java
+public class Lintu {
+    private String nimi;
+
+    public Lintu(String nimi) {
+        this.nimi = nimi;
+    }
+}
+```
+
+Luodaan lista, johon lisätään lintu. Tarkastellaan tämän jälkeen linnun olemassaoloa listalla.
+
+```java
+ArrayList<Lintu> linnut = new ArrayList<>()
+Lintu red = new Lintu("Red");
+
+if (linnut.contains(red)) {
+    System.out.println("Red on listalla.");
+} else {
+    System.out.println("Red ei ole listalla.");
+}
+
+linnut.add(red);
+if (linnut.contains(red)) {
+    System.out.println("Red on listalla.");
+} else {
+    System.out.println("Red ei ole listalla.");
+}
+
+
+System.out.println("Mutta!");
+
+red = new Lintu("Red");
+if (linnut.contains(red)) {
+    System.out.println("Red on listalla.");
+} else {
+    System.out.println("Red ei ole listalla.");
+}
+```
+
+<sample-output>
+
+Red ei ole listalla.
+Red on listalla.
+Mutta!
+Red ei ole listalla.
+
+</sample-output>
+
+Yllä olevasta esimerkistä huomaamme, että voimme etsiä listalta omia olioitamme. Aluksi kun lintua ei ole lisätty listalle, sitä ei löydy -- lisäämisen jälkeen se löytyy. Kun ohjelmassa `red`-olio vaihdetaan uudeksi täysin samansisältöiseksi olioksi, ei se enää vastaa listalla olevaa oliota, ja sitä ei löydy listalta.
+
+Listan `contains`-metodi hyödyntää olioiden etsimiseen oliolle määriteltyä `equals`-metodia. Yllä olevassa esimerkissä luokalle `Lintu` ei tätä metodia ole määritelty, joten täysin samansisältöinen lintu, jonka viite on eri, ei listalta löydy.
+
+Lisätään luokalle `Lintu` metodi `equals`. Metodi tarkastelee onko olioiden nimet samat -- mikäli nimet ovat samat, käsitellään ne samanlaisina.
+
+
+```java
+public class Lintu {
+    private String nimi;
+
+    public Lintu(String nimi) {
+        this.nimi = nimi;
+    }
+
+    public boolean equals(Object verrattava) {
+        // jos muuttujat sijaitsevat samassa paikassa, ovat ne samat
+        if (this == verrattava) {
+            return true;
+        }
+
+        // jos verrattava olio ei ole Lintu-tyyppinen, oliot eivät ole samat
+        if (!(verrattava instanceof Lintu)) {
+            return false;
+        }
+
+        // muunnetaan olio Lintu-olioksi
+        Lintu verrattavaLintu = (Lintu) verrattava;
+
+        // jos olioiden oliomuuttujien arvot ovat samat, ovat oliot samat
+        return this.nimi.equals(verrattavaLintu.nimi);
+
+        /*
+        // yllä oleva nimen vertailu vastaa alla olevaa
+        // koodia
+
+        if (this.nimi.equals(verrattavaLintu.nimi)) {
+            return true;
+        }
+
+        // muulloin oliot eivät ole samat
+        return false;
+        */
+    }
+}
+```
+
+Nyt listan contains-metodi tunnistaa samansisältöiset linnut.
+
+```java
+ArrayList<Lintu> linnut = new ArrayList<>()
+Lintu red = new Lintu("Red");
+
+if (linnut.contains(red)) {
+    System.out.println("Red on listalla.");
+} else {
+    System.out.println("Red ei ole listalla.");
+}
+
+linnut.add(red);
+if (linnut.contains(red)) {
+    System.out.println("Red on listalla.");
+} else {
+    System.out.println("Red ei ole listalla.");
+}
+
+
+System.out.println("Mutta!");
+
+red = new Lintu("Red");
+if (linnut.contains(red)) {
+    System.out.println("Red on listalla.");
+} else {
+    System.out.println("Red ei ole listalla.");
+}
+```
+
+<sample-output>
+
+Red ei ole listalla.
+Red on listalla.
+Mutta!
+Red on listalla.
+
+</sample-output>
+
+
+<programming-exercise name='Kirjat' tmcname='osa05-Osa05_14.Kirjat'>
+
+Tehtäväpohjassa on ohjelma, joka lukee käyttäjältä kirjoja ja lisää niitä listalle.
+
+Muokkaa ohjelmaa siten, että listalle ei lisätä kirjoja, jotka ovat jo listalla. Kaksi kirjaa tulee käsittää samaksi mikäli niiden nimi ja julkaisuvuosi on sama.
+
+Esimerkkitulostus:
+
+<sample-output>
+
+Syötä kirjan nimi, tyhjä lopettaa.
+**Bossypants**
+Syötä kirjan julkaisuvuosi.
+**2013**
+Syötä kirjan nimi, tyhjä lopettaa.
+**Seriously...I'm Kidding**
+Syötä kirjan julkaisuvuosi.
+**2012**
+Syötä kirjan nimi, tyhjä lopettaa.
+**Seriously...I'm Kidding**
+Syötä kirjan julkaisuvuosi.
+**2012**
+Kirja on jo listalla. Ei lisätä samaa kirjaa uudestaan.
+Syötä kirjan nimi, tyhjä lopettaa.
+
+Kiitos! Kirjoja lisätty: 2
+
+</sample-output>
+
+</programming-exercise>
+
+
+<programming-exercise name='Keräilijän varasto (2 osaa)' tmcname='osa05-Osa05_15.KerailijanVarasto'>
+
+Tässä tehtävässä toteutat ohjelman, jota käytetään keräilijän varaston käsittelyyn. Varastoon voi lisätä esineitä. Kun esineiden lisääminen lopetetaan, varastossa olevat esineet tulostetaan.
+
+<h2>Esineiden lisääminen ja listaaminen</h2>
+
+Ohjelman tulee lukea käyttäjältä esineitä. Kun kaikki käyttäjän esineet on luettu, ohjelma tulostaa esineiden tiedot.
+
+Kustakin esineestä tulee lukea tunnus ja nimi. Mikäli syötetty tunnus tai nimi on tyhjä, ohjelma lopettaa syötteen pyytämisen ja tulostaa esineiden tiedot.
+
+Esimerkkitulostus:
+
+<sample-output>
+
+Syötä esineen tunnus, tyhjä lopettaa.
+**B07H8ND8HH**
+Syötä esineen nimi, tyhjä lopettaa.
+**He-Man hahmo**
+Syötä esineen tunnus, tyhjä lopettaa.
+**B07H8ND8HH**
+Syötä esineen nimi, tyhjä lopettaa.
+**He-Man**
+Syötä esineen tunnus, tyhjä lopettaa.
+**B07NQFMZYG**
+Syötä esineen nimi, tyhjä lopettaa.
+**He-Man hahmo**
+Syötä esineen tunnus, tyhjä lopettaa.
+**B07NQFMZYG**
+Syötä esineen nimi, tyhjä lopettaa.
+**He-Man hahmo**
+Syötä esineen tunnus, tyhjä lopettaa.
+
+==Esineet==
+B07H8ND8HH: He-Man hahmo
+B07H8ND8HH: He-Man
+B07NQFMZYG: He-Man hahmo
+B07NQFMZYG: He-Man hahmo
+
+</sample-output>
+
+Esineiden tulostusmuodon tulee olla `tunnus: nimi`.
+
+Huom! Älä käytä kaksoispistettä ohjelman muussa tulostuksessa.
+
+
+<h2>Kukin esine tulostetaan vain kerran</h2>
+
+Muokkaa ohjelmaa siten, että esineiden syöttämisen jälkeen kukin esine tulostetaan korkeintaan kerran. Kaksi esinettä tulee käsittää samoina mikäli niiden tunnukset ovat samat (nimet voivat vaihdella esimerkiksi maittain).
+
+Mikäli käyttäjä syöttää saman esineen useaan otteeseen, tulostuksessa käytetään ensimmäisenä syötettyä esinettä.
+
+<sample-output>
+
+Syötä esineen tunnus, tyhjä lopettaa.
+**B07H8ND8HH**
+Syötä esineen nimi, tyhjä lopettaa.
+**He-Man hahmo**
+Syötä esineen tunnus, tyhjä lopettaa.
+**B07H8ND8HH**
+Syötä esineen nimi, tyhjä lopettaa.
+**He-Man**
+Syötä esineen tunnus, tyhjä lopettaa.
+**B07NQFMZYG**
+Syötä esineen nimi, tyhjä lopettaa.
+**He-Man hahmo**
+Syötä esineen tunnus, tyhjä lopettaa.
+**B07NQFMZYG**
+Syötä esineen nimi, tyhjä lopettaa.
+**He-Man hahmo**
+Syötä esineen tunnus, tyhjä lopettaa.
+
+==Esineet==
+B07H8ND8HH: He-Man hahmo
+B07NQFMZYG: He-Man hahmo
+
+</sample-output>
+
+
+Vinkki! Tämä kannattaa toteuttaa siten, että kukin esine lisätään listalle korkeintaan kerran -- vertaile esineiden samuutta niiden tunnuksien perusteella.
+
+</programming-exercise>
 
 
 ## Olio metodin paluuarvona
@@ -1677,7 +1929,7 @@ public class Tehdas {
 ```
 
 
-<programming-exercise name='Päiväys (3 osaa)' tmcname='osa05-Osa05_14.Paivays'>
+<programming-exercise name='Päiväys (3 osaa)' tmcname='osa05-Osa05_16.Paivays'>
 
 Tehtäväpohjan mukana tulee luokka `Paivays`, jossa päivämäärä talletetaan oliomuuttujien `vuosi`, `kuukausi`, ja `paiva` avulla:
 
@@ -1816,7 +2068,7 @@ Tämä johtuu siitä, että tavallinen sijoitus kopioi ainoastaan viitteen olioo
 </programming-exercise>
 
 
-<programming-exercise name='Raha (3 osaa)' tmcname='osa05-Osa05_15.Raha'>
+<programming-exercise name='Raha (3 osaa)' tmcname='osa05-Osa05_17.Raha'>
 
 
 Maksukortti-tehtävässä käytimme rahamäärän tallettamiseen double-tyyppistä oliomuuttujaa. Todellisissa sovelluksissa näin ei kannata tehdä, sillä kuten jo olemme nähneet, doubleilla laskenta ei ole tarkkaa. Onkin järkevämpää toteuttaa rahamäärän käsittely oman luokkansa avulla. Seuraavassa on luokan runko:
