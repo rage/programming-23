@@ -230,13 +230,13 @@ Nimi:
 Suo (luotu: 06.07.2018 12:34:56)
 Kuokka (luotu: 06.07.2018 12:34:57)
 
-</sample-output
+</sample-output>
 
 </programming-exercise>
 
-## Monta konstruktorin parametria
+## Useamman arvon lukeminen
 
-Mikäli konstruktori vaatii useampia parametreja, voi käyttäjältä kysyä enemmän tietoa. Oletetaan, että luokan `Henkilo` konstruktori on seuraavanlainen.
+Mikäli luokan konstruktori vaatii useampia parametreja, voi käyttäjältä kysyä enemmän tietoa. Oletetaan, että luokan `Henkilo` konstruktori on seuraavanlainen.
 
 ```java
 public class Henkilo {
