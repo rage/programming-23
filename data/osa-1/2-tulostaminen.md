@@ -270,6 +270,7 @@ public class Kommentteja {
         - ...
         */
         System.out.println("Muuta tulostettavaa");
+        //System.out.println("Tämä tulostus on laitettu väliaikaisesti piiloon");
     }
 }
 ```
