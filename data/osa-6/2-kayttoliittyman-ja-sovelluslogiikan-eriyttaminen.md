@@ -1,5 +1,5 @@
 ---
-path: '/osa-6/3-kayttoliittyman-ja-sovelluslogiikan-eriyttaminen'
+path: '/osa-6/2-kayttoliittyman-ja-sovelluslogiikan-eriyttaminen'
 title: 'Käyttöliittymän ja sovelluslogiikan eriyttäminen'
 hidden: false
 ---
@@ -11,6 +11,31 @@ hidden: false
 - Osaat luoda tekstikäyttöliittymiä, jotka saavat parametrinaan sovelluskohtaisen sovelluslogiikan sekä syötteen lukemiseen käytettävän Scanner-olion.
 
 </text-box>
+
+
+
+
+TODO: uusi kappale, kerrotaan mitä tekstikäyttöliittymät ovat (näitä on käsitelty aiemminkin -- recappina käytännössä while-true)
+
+TODO: näytetään erillisen luokan avulla
+
+
+TODO: tehdään ohjelma, joka pitää kirjaa sille tallennetuista merkkijonoista ja tulostaa niihin liittyviä tilastoja
+
+-- ensin suoraan mainiin, sitten oliona
+
+
+TODO: tehdään ohjelma, joka pitää kirjaa sille lisätyistä henkilöistä, ja tulostaa sitten niihin liittyviä tilastoja
+
+-- ensin suoraan mainiin, sitten oliona
+
+
+TODO:
+ohjelma, vippi, lisays ja poistotoiminnallisuus -- voidaan myös kerrata equalsia
+
+lisaa
+poista
+
 
 TODO: lead-in halutaan erillinen sovelluslogikka
 

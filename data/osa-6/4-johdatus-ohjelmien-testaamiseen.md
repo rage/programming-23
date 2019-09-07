@@ -1,6 +1,6 @@
 ---
-path: '/osa-6/5-johdatus-ohjelmien-automaattiseen-testaamiseen'
-title: 'Johdatus ohjelmien automaattiseen testaamiseen'
+path: '/osa-6/4-johdatus-ohjelmien-testaamiseen'
+title: 'Johdatus ohjelmien testaamiseen'
 hidden: false
 ---
 
