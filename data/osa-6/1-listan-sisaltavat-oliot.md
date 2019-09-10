@@ -84,29 +84,65 @@ public class Ruokalista {
 
 Ruokalistaoliolla on oliomuuttujana ArrayList, jonka on tarkoitus tallentaa ruokalistalla olevien ruokalajien nimet. Ruokalistan tulee tarjota seuraavat metodit:
 
-- `public void lisaaAteria(String ateria)` lisää aterian ruokalistalle.
+- `public void lisaaAteria(String ateria)` lisää aterian ruokalistalle. Mikäli ateria on jo listalla, sitä ei lisätä uudestaan.
 
 - `public void tulostaAteriat()` tulostaa ateriat.
 
 - `public void tyhjennaRuokalista()` tyhjentää ruokalistan.
 
+Kun ruokalista on valmis, sitä voi käyttää seuraavalla tavalla.
+
+```java
+Ruokalista menu = new Ruokalista();
+menu.lisaaAteria("Tofuratatouille");
+menu.lisaaAteria("Chili-kookoskana");
+menu.lisaaAteria("Chili-kookoskana");
+menu.lisaaAteria("Lihapyörykät sinappikastikeella");
+
+menu.tulostaAteriat();
+menu.tyhjennaRuokalista();
+
+System.out.println();
+menu.lisaaAteria("Tomaatti-mozzarellasalaatti");
+menu.tulostaAteriat();
+```
+
+<sample-output>
+
+Tofuratatouille
+Chili-kookoskana
+Lihapyörykät sinappikastikeella
+
+Tomaatti-mozzarellasalaatti
+
+</sample-output>
+
 
 <h2>Aterian lisääminen</h2>
 
-
-Toteuta metodi `public void lisaaAteria(String ateria)`, joka lisää uuden aterian listalle `ateriat`. Jos lisättävä ateria on jo listalla, sitä ei tule lisätä uudelleen. Jos et muista miten listalla olemassaoloa tarkastellaan, lue edellisestä osasta kohta "Onko listalla".
+Toteuta metodi `public void lisaaAteria(String ateria)`, joka lisää uuden aterian listalle `ateriat`. Jos lisättävä ateria on jo listalla, sitä ei tule lisätä uudelleen. Listan metodi `contains` on näppärä olemassaolon tarkastamiseen.
 
 
 <h2>Aterioiden tulostaminen</h2>
 
-Toteuta metodi `public void tulostaAteriat()`, joka tulostaa ateriat. Kolmen aterian lisäyksen jälkeen tulostuksen tulee olla seuraavanlainen.
+Toteuta metodi `public void tulostaAteriat()`, joka tulostaa ateriat. Voit kokeilla ohjelmaa seuraavalla esimerkkikoodilla.
 
+
+```java
+Ruokalista menu = new Ruokalista();
+menu.lisaaAteria("Tofuratatouille");
+menu.lisaaAteria("Chili-kookoskana");
+menu.lisaaAteria("Chili-kookoskana");
+menu.lisaaAteria("Lihapyörykät sinappikastikeella");
+
+menu.tulostaAteriat();
+```
 
 <sample-output>
 
-ensimmäisenä lisätty ateria
-toisena lisätty ateria
-kolmantena lisätty ateria
+Tofuratatouille
+Chili-kookoskana
+Lihapyörykät sinappikastikeella
 
 </sample-output>
 
@@ -114,6 +150,34 @@ kolmantena lisätty ateria
 <h2>Ruokalistan tyhjentäminen</h2>
 
 Toteuta metodi `public void tyhjennaRuokalista()` joka tyhjentää ruokalistan. `ArrayList`-luokalla on metodi josta on tässä hyötyä. NetBeans osaa vihjata käytettävissä olevista metodeista kun kirjoitat olion nimen ja pisteen. Yritä kirjoittaa `ateriat.` metodirungon sisällä ja katso mitä käy.
+
+Kun ruokalista on valmis, kokeile sitä seuraavalla esimerkkikoodilla.
+
+```java
+Ruokalista menu = new Ruokalista();
+menu.lisaaAteria("Tofuratatouille");
+menu.lisaaAteria("Chili-kookoskana");
+menu.lisaaAteria("Chili-kookoskana");
+menu.lisaaAteria("Lihapyörykät sinappikastikeella");
+
+menu.tulostaAteriat();
+menu.tyhjennaRuokalista();
+
+System.out.println();
+menu.lisaaAteria("Tomaatti-mozzarellasalaatti");
+menu.tulostaAteriat();
+```
+
+<sample-output>
+
+Tofuratatouille
+Chili-kookoskana
+Lihapyörykät sinappikastikeella
+
+Tomaatti-mozzarellasalaatti
+
+</sample-output>
+
 
 </programming-exercise>
 
@@ -205,7 +269,7 @@ while (!p.onTyhja()) {
 
 </sample-output>
 
-Vinkki! Kun ArrayListiin lisätään arvo, se menee listan loppuun. Viimeksi lisätty arvo on siis viimeisessä indeksissä -- myös listan `remove`-metodista on tässä apua.
+Vinkki! Kun ArrayListiin lisätään arvo, se menee listan loppuun. Viimeksi lisätty arvo on siis listan viimeisessä indeksissä -- listan tarjoamasta `length`-metodista on hyötyä viimeisen indeksin selvittämisessä. Poistaminen tietystä indeksistä onnistuu listan tarjoaman `remove`-metodin avulla.
 
 </programming-exercise>
 
@@ -901,7 +965,7 @@ Pisin: mystique
 
 <programming-exercise name='Pituusjärjestys (3 osaa)' tmcname='osa06-Osa06_07.Pituusjarjestys'>
 
-Tehtäväpohjaan on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä, ja jota voi käyttää henkilöiden pituusjärjestykseen asettamiseen -- henkilön ottaminen palauttaa aina lyhyimmän henkilön.
+Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä, ja jota voi käyttää henkilöiden pituusjärjestykseen asettamiseen -- henkilön ottaminen huoneesta palauttaa aina lyhyimmän henkilön.
 
 Luokka tulee lopulta toimimaan seuraavalla tavalla.
 

@@ -1,5 +1,5 @@
 ---
-path: '/osa-6/4-johdatus-ohjelmien-testaamiseen'
+path: '/osa-6/3-johdatus-ohjelmien-testaamiseen'
 title: 'Johdatus ohjelmien testaamiseen'
 hidden: false
 ---
@@ -9,12 +9,10 @@ hidden: false
 - Osaat kertoa joitakin ohjelmistovirheistä johtuvia ongelmia.
 - Tiedät mikä on stack trace, tunnet askeleet virheiden selvittämiseen ja osaat antaa tekstimuotoista testisyötettä Scannerille.
 - Tiedät mistä yksikkötestauksessa on kyse ja osaat kirjoittaa yksikkötestejä.
-- Tunnet testivetoisen ohjelmistokehitysmenetelmän.
+- Tiedät testivetoisen ohjelmistokehitysmenetelmän.
 
 </text-box>
 
-
-TODO: framea niin, että helpompaa kun ohjelma pienissä osissa -- viittaa takaisin sovelluslogiikan ja käyttöliittymän eriyttämiseen
 
 Otetaan seuraavaksi ensiaskeleet ohjelmien testaamiseen.
 
@@ -75,12 +73,9 @@ Jos koodisi ei toimi etkä tiedä missä on virhe, näillä askeleilla pääset 
 ## Testisyötteen antaminen Scannerille
 
 
+Ohjelman testaaminen käsin on usein työlästä. Syötteen antaminen on mahdollista automatisoida esimerkiksi syöttämällä Scanner-oliolle luettava merkkijono. Alla on annettu esimerkki siitä, miten ohjelmaa voi testata automaattisesti. Ohjelmassa syötetään ensin viisi merkkijonoa, jonka jälkeen syötetään aiemmin nähty merkkijono. Tämän jälkeen yritetään syöttää vielä uusi merkkijono. Merkkijonoa "kuusi" ei pitäisi esiintyä sanajoukossa.
 
-  Ohjelman testaaminen käsin on usein työlästä. Syötteen antaminen on mahdollista automatisoida esimerkiksi syöttämällä Scanner-oliolle luettava merkkijono. Alla on annettu esimerkki siitä, miten ohjelmaa voi testata automaattisesti. Ohjelmassa syötetään ensin viisi merkkijonoa, jonka jälkeen syötetään aiemmin nähty merkkijono. Tämän jälkeen yritetään syöttää vielä uusi merkkijono. Merkkijonoa "kuusi" ei pitäisi esiintyä sanajoukossa.
-
-
-
-  Testisyötteen voi antaa merkkijonona Scanner-oliolle konstruktorissa. Jokainen testisyötteessä annettava rivinvaihto merkitään merkkijonoon kenoviivan ja n-merkin yhdistelmänä "\n".
+Testisyötteen voi antaa merkkijonona Scanner-oliolle konstruktorissa. Jokainen testisyötteessä annettava rivinvaihto merkitään merkkijonoon kenoviivan ja n-merkin yhdistelmänä "\n".
 
 
 ```java
@@ -291,6 +286,12 @@ BUILD SUCCESSFUL (total time: 0 seconds)
 
 </sample-output>
 
+<text-box variant='hint' name='Yksikkötestaus ja sovelluksen osat'>
+
+Yksikkötestaaminen on hyvin monimutkaista mikäli sovellus on kirjoitettu "mainiin". Jotta testaaminen olisi helpompaa, tulee sovellus pilkkoa pieniin osiin, joista kullakin on selkeä vastuu. Harjoittelimme edellisessä osassa juuri tätä käyttöliittymää ja sovelluslogiikkaa eriyttäessämme. Testien kirjoittaminen sovelluksen osille, kuten vaikkapa edellisessä osassa toteutetulle luokalle `Vitsipankki`, on merkittävästi helpompaa kuin "mainiin" kirjoitetulle ohjelmalle.
+
+</text-box>
+
 
 ## Testivetoinen ohjelmistokehitys
 
@@ -319,7 +320,7 @@ Testivetoinen ohjelmistokehitys koostuu viidestä askeleesta, joita toistetaan k
 
 <br/>
 
-<programming-exercise name='Tehtavat (2 osaa)' tmcname='osa07-Osa07_06.Tehtavat'>
+<programming-exercise name='Tehtavat (2 osaa)' tmcname='osa06-Osa06_13.Tehtavat'>
 
 Tehtäväpohjassa tulee edellisen esimerkin alkutilanne -- tehtäväpohjaan on jo lisätty yksikkötestaukseen tarvittava JUnit-kirjasto. Seuraa esimerkkiä ja luo Tehtavienhallinnalta haluttu toiminnallisuus testivetoista ohjelmistokehitystä noudattaen. Kun olet saanut edellisen esimerkin loppuun asti, lisää sovellukseen vielä testit tehtävien poistamiseen sekä testien vaatima toiminnallisuus.
 
