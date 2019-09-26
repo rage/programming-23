@@ -6,7 +6,7 @@ hidden: false
 ---
 
 <only-for-course-variant variant="dl">
-  <deadline>15.4.2020</deadline>
+  <deadline>8.4.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="nodl">
@@ -14,7 +14,7 @@ hidden: false
 </only-for-course-variant>
 
 <only-for-course-variant variant="ohja-dl">
-  <deadline>15.4.2020</deadline>
+  <deadline>8.4.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="ohja-nodl">
@@ -22,11 +22,11 @@ hidden: false
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-dl">
-  <deadline>5.8.2020</deadline>
+  <deadline>29.7.2020</deadline>
 </only-for-course-variant>
 
 <only-for-course-variant variant="kesa-ohja-dl">
-  <deadline>5.8.2020</deadline>
+  <deadline>29.7.2020</deadline>
 </only-for-course-variant>
 
 <only-for-not-logged-in>
@@ -34,13 +34,13 @@ hidden: false
 </only-for-not-logged-in>
 
 
-Tämän osan jälkeen osaat luoda graafisia käyttöliittymiä, lisätä graafisiin käyttöliittymiin käyttöliittymäkomponentteja, sekä reagoida käyttöliittymissä tapahtuviin tapahtumiin. Osaat myös tehdä käyttöliittymiä, jotka sisältävät useamman näkymän.
+Tämän osan jälkeen tiedät mitä geneeriset tyyppiparametrit ovat ja mitä merkintä ArrayList&lt;String&gt; tarkoittaa. Osaat myös luoda luokkia, joissa käytetään geneerisiä tyyppiparametreja. Tutustut ArrayListin ja HashMapin sisäiseen toteutukseen ja luot niistä yksinkertaiset omat versiot. Opit luomaan satunnaislukuja ja harjoittelet Javan valmiiden välineiden käyttöä satunnaislukujen luomiseen. Tutustut  moniulotteisen tiedon esittämiseen ja opit luomaan ja käsittelemään moniulotteisia taulukoita.
 
 
 <please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
 
-Yllä oleva sisällysluettelo sisältää kurssin kahdennentoista osan aihealueet. Kukin kurssin osa on suunniteltu siten, että siinä on työtä yhden viikon ajaksi. Kuhunkin kurssin osaan on hyvä varata reilusti yli kymmenen tuntia aikaa, riippuen aiemmasta tietokoneen käyttökokemuksesta. Ohjelmointia aiemmin kokeilleet saattavat edetä materiaalissa aluksi nopeamminkin.
+Yllä oleva sisällysluettelo sisältää kurssin yhdennentoista osan aihealueet. Kukin kurssin osa on suunniteltu siten, että siinä on työtä yhden viikon ajaksi. Kuhunkin kurssin osaan on hyvä varata reilusti yli kymmenen tuntia aikaa, riippuen aiemmasta tietokoneen käyttökokemuksesta. Ohjelmointia aiemmin kokeilleet saattavat edetä materiaalissa aluksi nopeamminkin.
 
 <exercises-in-this-section></exercises-in-this-section>

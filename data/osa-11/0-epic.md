@@ -1,1808 +1,1955 @@
 ---
-path: '/osa-11/0-epic'
+path: '/osa-10/0-epic'
 title: 'Epic'
 hidden: false
 ---
 
-# Geneeriset tyyppiparametrit
+# Luokkakaaviot
+
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Tiedät mitä käsitteellä geneerinen tyyppiparametri tarkoitetaan.
-- Tunnet Javassa olevia geneerisiä tyyppiparametreja hyödyntäviä luokkia.
-- Osaat luoda omia luokkia, joissa käytetään geneerisiä tyyppiparametreja.
+- Tunnet luokkakaavioiden merkintätavan ja osaat merkitä luokkakaavioon luokat, attribuutit, konstruktorit, ja metodit.
+- Tunnet luokkien väliset yhteydet ja osaat merkitä luokkakaavioon perinnän sekä rajapinnan toteutuksen.
+- Osaat luoda luokkia luokkakaavioiden perusteella.
 
 </text-box>
 
-<quiznator id='5c93ae0b3972a9147410b2fd'></quiznator>
 
+Luokkakaavio on ohjelmistojen suunnittelussa ja mallinnuksessa käytettävä kaavio, jonka avulla kuvataan luokkia ja niiden yhteyksiä. Luokkakaaviot mahdollistavat ohjelmien kuvaamisen korkealla abstraktiotasolla ilman lähdekoodin katsomista.
 
-Olemme listoihin tutustumisesta lähtien kertoneet tietorakenteille niiden sisältämän arvon tyypin. Esimerkiksi merkkijono-olioita sisältävä lista on esitelty muodossa `ArrayList<String>` ja merkkijonoja avaimina ja arvoina sisältävä hajautustaulu on esitelty muodossa `HashMap<String, String>`. Miten ihmeessä luokan voi toteuttaa niin, että luokka voi sisältää annetun tyyppisiä olioita?
+Luokkaaviossa kuvattavat luokat vastaavat ohjelmakoodin luokkia. Kaavioissa kuvataan luokkien nimet, attribuutit, luokkien väliset yhteydet sekä mahdollisesti myös metodit.
 
-Geneerisyys (*generics*) liittyy olioita säilövien luokkien tapaan säilöä vapaavalintaisen tyyppisiä olioita. Vapaavalintaisuus perustuu luokkien määrittelyssä käytettyyn geneeriseen tyyppiparametriin, jonka avulla voidaan määritellä *olion luontivaiheessa* valittavia tyyppejä. Luokan geneerisyys määritellään antamalla luokan nimen jälkeen haluttu määrä luokan tyyppiparametreja luokan nimen jälkeen tulevien pienempi kuin ja suurempi kuin -merkkien väliin `public class Luokka<Tyyppiparametri1, Tyyppiparametri2, ...>`. Tyyppiparametrit määritellään tyypillisesti yhdellä kirjaimella.
+Tutustumme seuraavaksi luokkakaavioiden merkintään ja tulkintaan. Opimme samalla <a href="https://fi.wikipedia.org/wiki/UML-mallinnus" target="_blank" norel>UML</a>-kielen luokkakaavioiden kuvaamiseen -- yhteisen kielen avulla eri ihmisten piirtämät luokkakaaviot ovat kaikkien ymmärrettävissä.
 
-Toteutetaan oma geneerinen luokka `Lokero`, johon voi asettaa yhden minkälaisen tahansa olion.
+<br/>
+
+## Luokan ja sen attribuuttien kuvaaminen
+
+Tutustutaan ensin luokan ja sen attribuuttien kuvaamiseen. Luodaan luokka nimeltä `Henkilo`, jolla on oliomuuttujat nimi ja ikä.
 
 
 ```java
-public class Lokero<T> {
-    private T alkio;
+public class Henkilo {
+    private String nimi;
+    private int ika;
+}
+```
 
-    public void asetaArvo(T alkio) {
-        this.alkio = alkio;
-    }
+Luokkakaavioissa luokka kuvataan suorakulmiona, jonka ylälaidassa on luokan nimi. Luokan nimen alla on viiva, ja viivan alapuolella on attribuuttien eli oliomuuttujien nimet ja tyypit. Kukin oliomuuttuja kuvataan omalla rivillään.
 
-    public T haeArvo() {
-        return alkio;
+Luokkaakaaviossa luokkaan liittyvät oliomuuttujat määritellään muodossa "muuttujanNimi: muuttujanTyyppi". Muuttujien näkyvyysmääreet merkitään muuttujan nimeä edeltävällä miinuksella (private) tai plussalla (public).
+
+<img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi.png" alt="[Henkilo|-nimi:String;-ika:int]">
+
+
+## Luokan konstruktorin kuvaaminen
+
+Määrittellään luokalle seuraavaksi parametrillinen konstruktori. Konstruktori saa parametrinaan nimen.
+
+
+```java
+public class Henkilo {
+    private String nimi;
+    private int ika;
+
+    public Henkilo(String nimi) {
+        this.nimi = nimiAlussa;
+        this.ika = 0;
     }
 }
 ```
 
+Luokkakaaviossa konstruktori (ja metodit) merkitään oliomuuttujien jälkeen. Oliomuuttujien alapuolelle lisätään viiva, jonka jälkeen tulee konstruktori (ja metodit). Konstruktori saa näkyvyysmääreen public takia eteen plussan, jonka lisäksi siitä merkitään nimi sekä parametrien nimet ja niiden tyypit. Yllä olevan luokan konstruktori merkitään muodossa `+ Henkilo(nimi: String)`.
 
-Määrittely `public class Lokero<T>` kertoo että luokalle `Lokero` tulee antaa konstruktorissa tyyppiparametri. Konstruktorikutsun jälkeen kaikki olion sisäiset muuttujat tulevat olemaan kutsun yhteydessä annettua tyyppiä. Luodaan merkkijonon tallentava lokero.
+Parametrit noudattavat siis samaa määrittelymuotoa kuin oliomuuttujat, eli "muuttujanNimi: muuttujanTyyppi".
 
-
-```java
-Lokero<String> merkkijono = new Lokero<>();
-merkkijono.asetaArvo(":)");
-
-System.out.println(merkkijono.haeArvo());
-```
-
-<sample-output>
-
-:)
-
-</sample-output>
+<img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String)]">
 
 
-Yllä olevalla ohjelmalla merkkijono-nimisen `Lokero`-olion **ajonaikainen** toteutus on seuraavanlainen.
+## Luokan metodien kuvaaminen
 
+
+Lisätään luokalle metodi, jonka palautustyyppi on void.
 
 ```java
-public class Lokero<String> {
-    private String alkio;
+public class Henkilo {
+    private String nimi;
+    private int ika;
 
-    public void asetaArvo(String alkio) {
-        this.alkio = alkio;
+    public Henkilo(String nimi) {
+        this.nimi = nimi;
+        this.ika = 0;
     }
 
-    public String haeArvo() {
-        return alkio;
+    public void tulostaHenkilo() {
+        System.out.println(this.nimi + ", ikä " + this.ika + " vuotta");
     }
 }
 ```
 
-Tyyppiparametria vaihtamalla voidaan luoda myös muuntyyppisiä olioita tallentavia `Lokero`-olioita. Esimerkiksi kokonaisluvun saa tallennettua seuraavasti.
+Luokkakaaviossa metodi merkitään konstruktorin kanssa samaan alueeseen -- konstruktorit listataan ennen metodeja. Toisin kuin konstruktorille, metodeille merkitään myös palautustyyppi.
+
+<img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori-ja-tulosta.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void]">
+
+
+<text-box variant='hint' name='Luokkakaavio kertoo luokat, muuttujat, konstruktorit, ja metodit'>
+
+Luokkakaaviossa kuvataan luokat, muuttujat, konstruktorit, ja metodit sekä luokkien väliset yhteydet. Luokkakaavio ei kuitenkaan kerro mitään konstruktorien ja metodien sisäisestä toteutuksesta. Luokkakaaviolla kerrotaan siis olioiden rakenteesta, mutta luokkakaaviot eivät itsessään määrittele toiminnallisuutta.
+
+Esimerkiksi metodi `tulostaHenkilo` hyödyntää oliomuuttujia `nimi` ja `ika`, mutta luokkakaaviossa tämä ei näy millään tavalla.
+
+</text-box>
+
+
+Lisätään luokalle vielä nimen palauttava metodi `getNimi`.
 
 
 ```java
-Lokero<Integer> luku = new Lokero<>();
-luku.asetaArvo(5);
+public class Henkilo {
+    private String nimi;
+    private int ika;
 
-System.out.println(luku.haeArvo());
-```
-
-<sample-output>
-
-5
-
-</sample-output>
-
-
-Vastaavasti esimerkiksi `Random`-olion sisältävän lokeron saa luotua seuraavalla tavalla.
-
-
-```java
-Lokero<Random> luku = new Lokero<>();
-luku.asetaArvo(new Random());
-
-System.out.println(luku.haeArvo().nextDouble());
-```
-
-
-Tyyppiparametrien määrää ei ole rajattu, vaan määrä riippuu toteutuksesta. Ohjelmoija voisi halutessaan toteuttaa esimerkiksi `Pari`-luokan, johon voi laittaa kaksi halutun tyyppistä oliota.
-
-
-```java
-public class Pari<T, K> {
-    private T eka;
-    private K toka;
-
-    public void asetaArvot(T eka, K toka) {
-        this.eka = eka;
-        this.toka = toka;
+    public Henkilo(String nimi) {
+        this.nimi = nimi;
+        this.ika = 0;
     }
 
-    public T haeEka() {
-        return this.eka;
+    public void tulostaHenkilo() {
+        System.out.println(this.nimi + ", ikä " + this.ika + " vuotta");
     }
 
-    public K haeToka() {
-        return this.toka;
+    public String getNimi() {
+        return this.nimi;
     }
 }
 ```
 
-<quiznator id="5c93b1e4fd9fd71425c6af09"></quiznator>
+<img src="../img/diagrams/luokkakaavio-henkilo-ika-ja-nimi-ja-konstruktori-ja-tulosta-ja-getnimi.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String]">
 
 
-Huomattava osa Javan tietorakenteista käyttää tyyppiparametreja ja mahdollistaa eri tyyppisten muuttujien lisäämisen niihin. Esimerkiksi ArrayList saa yhden tyyppiparametrin, HashMap kaksi.
+<programming-exercise name='Asiakas' tmcname='osa10-Osa10_01.Asiakas'>
+
+Alla olevassa luokkakaaviossa on kuvattuna luokka Asiakas. Toteuta luokka tehtäväpohjaan.
+
+<img src="../img/exercises/luokkakaavio-asiakas.png" alt="[Asiakas|-nimi:String;-osoite:String;-email:String]">
+
+</programming-exercise>
+
+<programming-exercise name='Kirja ja lentokone' tmcname='osa10-Osa10_02.KirjaJaLentokone'>
+
+Alla olevassa luokkakaaviossa on kuvattuna luokat Kirja ja Lentokone. Toteuta luokat tehtäväpohjaan.
+
+<img src="../img/exercises/luokkakaavio-kirja-ja-lentokone.png" alt="[Kirja|-nimi:String;-kirjoittaja:String;-sivuja:int]
+    [Lentokone|-tunnus:String;-malli:String;-kayttoonottovuosi:int]">
+
+</programming-exercise>
+
+
+## Luokkien väliset yhteydet
+
+Luokkakaavioissa yhteydet merkitään viivoilla, joissa nuolet kuvaavat yhteyden suuntaa. Oletetaan, että käytössämme luokka Kirja.
 
 
 ```java
-List<String> merkkijonot = new ArrayList<>();
-Map<String, String> avainArvoParit = new HashMap<>();
+public class Kirja {
+    private String nimi;
+    private String kustantaja;
+
+    // konstruktorit ja metodit
+}
 ```
 
+<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja.png" alt="[Kirja|-nimi:String;-julkaisija:String]">
 
-Jatkossa kun näet esimerkiksi tyypin `ArrayList<String>` tiedät että sen sisäisessä rakenteessa on käytetty geneeristä tyyppiparametria. Sama periaate löytyy esimerkiksi rajapinnassa Comparable.
 
-
-Geneeristen rajapintojen tekeminen onnistuu samalla tavalla kuin geneeristen luokkien tekeminen. Alla on esimerkki geneerisestä rajapinnasta `Lista`.
+Jos luokalle kirja merkitään kirjoittaja, joka on tyyppiä Henkilo, ohjelmakoodissa oliomuuttuja merkitään muiden muuttujien seuraksi.
 
 
 ```java
-public interface Lista<T> {
-    void lisaa(T arvo);
-    T hae(int indeksi);
-    T poista(int indeksi);
+public class Kirja {
+    private String nimi;
+    private String kustantaja;
+    private Henkilo kirjoittaja;
+
+    // konstruktorit ja metodit
+}
+```
+
+Luokkakaaviossa toisiin olioihin viittaavia muuttujia ei merkitä attribuutteihin, vaan ne merkitään yhteyksinä. Alla olevassa luokkakaaviossa on merkittynä luokat Henkilo ja Kirja, sekä näiden välinen yhteys.
+
+
+<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja-ja-kirjoittaja.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String][Kirja|-nimi:String;-julkaisija:String][Kirja]-kirjoittaja->[Henkilo]">
+
+Nuoli kertoo "tietämyssuunnan". Yllä oleva yhteys kertoo, että kirja tietää kirjoittajansa, mutta henkilö ei tiedä mitään kirjoittamistaan kirjoista. Viivaan voi kirjoittaa myös tekstin, joka antaa lisätietoa yhteydestä. Yllä olevassa esimerkissä viivaan on kirjattu tieto siitä, että kirjaan liittyy "kirjoittaja".
+
+Mikäli kirjalla voi olla useita kirjoittajia, kirjoittajat merkitään luokkaan listana.
+
+```java
+public class Kirja {
+    private String nimi;
+    private String kustantaja;
+    private ArrayList<Henkilo> kirjoittajat;
+
+    // konstruktorit ja metodit
+}
+```
+
+Luokkakaaviossa tilanne merkitään yhteyden päätyyn asetettavalla tähdellä. Tähti kertoo, että kirjalla voi olla nollasta äärettömään kirjoittajaa. Alla olevassa esimerkissä yhteyteen ei ole merkitty yhteyttä kuvaavaa tekstiä "kirjoittajat", mutta se kannattaisi selkeyden takia lisätä kaavioon.
+
+<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja-ja-kirjoittajat.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String][Kirja|-nimi:String;-julkaisija:String][Kirja]-*>[Henkilo]">
+
+
+Metodit merkitään luokkakaavioon normaalisti. Alla luokkaan Kirja on lisätty metodit `getKirjoittajat` ja `lisaaKirjoittaja`.
+
+
+```java
+public class Kirja {
+    private String nimi;
+    private String kustantaja;
+    private ArrayList<Henkilo> kirjoittajat;
+
+    // konstruktori
+
+    public ArrayList<Henkilo> getKirjoittajat() {
+        return this.kirjoittajat;
+    }
+
+    public void lisaaKirjoittaja(Henkilo kirjoittaja) {
+        this.kirjoittajat.add(kirjoittaja);
+    }
+}
+```
+
+<img src="../img/diagrams/luokkakaavio-kirja-nimi-ja-kustantaja-ja-kirjoittajat-ja-metodit.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String][Kirja|-nimi:String;-julkaisija:String|+getKirjoittajat():ArrayList;+lisaaKirjoittaja(kirjoittaja:Henkilo)][Kirja]-*>[Henkilo]">
+
+
+Ylläolevaan kaavioon voisi lisätä vielä ArrayListin sisältämien arvojen tyypin `ArrayList<Henkilo>` sekä yhteyttä tarkentavan määreen "kirjoittajat".
+
+
+<programming-exercise name='Naytos ja lippu' tmcname='osa10-Osa10_03.NaytosJaLippu'>
+
+Alla on kuvattu kaksi luokkaa, Naytos ja Lippu, sekä niiden välinen yhteys. Alla olevassa kuvassa tähti on luokan Lippu-päädyssä -- tässä tapauksessa tähti antaa lisätietoa yhteydestä; vaikkei näytös tiedä näytökseen myydyistä lipuista, voi lippuja silti myydä näytökseen monia.
+
+Toteuta kuvatut luokat tehtäväpohjaan.
+
+<img src="../img/exercises/luokkakaavio-naytos-ja-lippu.png" alt="[Naytos|-elokuva:String;-aika:String]<-*[Lippu|-paikka:int;-koodi:int]">
+
+</programming-exercise>
+
+
+Mikäli luokkakaavioon ei merkitä nuolta, näkyy yhteys kummassakin oliossa. Alla esimerkki tilanteesta, missä kirja tietää kirjoittajansa ja henkilö tietää kirjoittamansa kirjan.
+
+
+<img src="../img/diagrams/luokkakaavio-kirja-henkilo-kaksisuuntainen.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String],[Kirja|-nimi:String;-julkaisija:String|+getKirjoittajat():ArrayList;+lisaaKirjoittaja(kirjoittaja:Henkilo)],[Kirja]-*[Henkilo]">
+
+
+```java
+public class Henkilo {
+    private String nimi;
+    private int ika;
+    private Kirja kirja;
+
+    // ...
 }
 ```
 
 
-Luokka voi toteuttaa geneerisen rajapinnan kahdella tavalla. Luokka voi määritellä rajapinnan toteutuksen yhteydessä rajapinnalle tyyppiparametrin tai luokalle voidaan myös määritellä tyyppiparametri. Alla olevassa esimerkissä on luokka `Elokuvalista`, joka määrittelee listan toteutuksen yhteydessä rajapinnalle tyyppiparametrin. Elokuvalista on vain elokuvien käsittelyyn tarkoitettu.
-
-
 ```java
-public class Elokuvalista implements Lista<Elokuva> {
-    // oliomuuttujat
+public class Kirja {
+    private String nimi;
+    private String kustantaja;
+    private ArrayList<Henkilo> kirjoittajat;
 
-    @Override
-    public void lisaa(Elokuva arvo) {
-        // toteutus
-    }
-
-    @Override
-    public Elokuva hae(int indeksi) {
-        // toteutus
-    }
-
-    @Override
-    public Elokuva poista(int indeksi) {
-        // toteutus
-    }
+    // ..
 }
 ```
 
-Toinen vaihtoehto on määritellä rajapinnan toteuttavalle luokalle tyyppiparametri, joka ohjataan myös rajapinnalle. Tällöin myös konkreettinen toteutus on geneerinen.
+Kuten yllä huomaat, oletuksena -- eli kun viivan päätyyn ei merkitä tähteä -- kyse on yhdestä viitteestä. Yllä olevat luokat ovat mielenkiintoiset, sillä henkilöllä voi olla vain yksi kirja.
 
-```java
-public class Yleislista<T> implements Lista<T> {
-    // oliomuuttujat
 
-    @Override
-    public void lisaa(T arvo) {
-        // toteutus
-    }
+Mikäli henkilöllä voi olla monta kirjaa ja kirjalla monta kirjoittajaa, merkitään tähti yhteyden kumpaankin päätyyn seuraavasti:
 
-    @Override
-    public T hae(int indeksi) {
-        // toteutus
-    }
+<img src="../img/diagrams/luokkakaavio-kirja-henkilo-kaksisuuntainen-monesta-moneen.png" alt="[Henkilo|-nimi:String;-ika:int|+Henkilo(nimi:String);+tulostaHenkilo():void;+getNimi():String],[Kirja|-nimi:String;-julkaisija:String|+getKirjoittajat():ArrayList;+lisaaKirjoittaja(kirjoittaja:Henkilo)],[Kirja]*-*[Henkilo]">
 
-    @Override
-    public T poista(int indeksi) {
-        // toteutus
-    }
-}
-```
+Nyt luokka Henkilo olisi muotoa:
 
-Yleislistan voisi toteuttaa myös halutessaan esimerkiksi Javan valmiin ArrayList-luokan avulla. Tällöin toteutus olisi kutakuinkin seuraava.
 
 ```java
 import java.util.ArrayList;
 
-public class Yleislista<T> implements Lista<T> {
-    ArrayList<T> arvot;
+public class Henkilo {
+    private String nimi;
+    private int ika;
+    private ArrayList<Kirja> kirja;
 
-    public Yleislista() {
-        this.arvot = new ArrayList<>();
-    }
-
-    @Override
-    public void lisaa(T arvo) {
-        this.arvot.add(arvo);
-    }
-
-    @Override
-    public T hae(int indeksi) {
-        retun this.arvot.get(indeksi);
-    }
-
-    @Override
-    public T poista(int indeksi) {
-        T arvo = this.arvot.get(indeksi);
-        this.arvot.remove(indeksi);
-        return arvo;
-    }
+    // ...
 }
 ```
 
 
-<programming-exercise name='Piilo' tmcname='osa11-Osa11_01.Piilo'>
+<programming-exercise name='Opiskelija ja korkeakoulu' tmcname='osa10-Osa10_04.OpiskelijaJaKorkeakoulu'>
 
+Alla on kuvattu kaksi luokkaa, Opiskelija ja Korkeakoulu, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan.
 
-Toteuta luokka Piilo, jolla on yksi geneerinen tyyppiparametri. Luokasta tehdyssä oliossa voi olla yksi olio kerralaan piilossa. Luokan tulee tarjota parametriton konstruktori sekä seuraavat kolme metodia:
-
-
-- `public void laitaPiiloon(T piilotettava)` laittaa piiloon luokan tyyppiparametrin mukaisen olion. Mikäli piilossa on jo olio, vanha olio katoaa.
-- `public T otaPiilosta()` ottaa piilosta luokan tyyppiparametrin mukaisen olion. Mikäli piilossa ei ole mitään, palautetaan `null`. Metodin kutsuminen palauttaa piilossa olevan olion ja poistaa olion piilosta.
-- `public boolean onkoPiilossa()` palauttaa arvon `true` mikäli piilossa on olio. Mikäli piilossa ei ole oliota, palauttaa arvon `false`.
-
-**Luokalle ei ole tehtäväpohjassa testejä**. Palauta tehtävä kun seuraavat esimerkit toimivat toivotulla tavalla.
-
-
-```java
-Piilo<String> jemma = new Piilo<>();
-System.out.println(jemma.onkoPiilossa());
-jemma.laitaPiiloon("kukkuu");
-System.out.println(jemma.onkoPiilossa());
-System.out.println(jemma.otaPiilosta());
-System.out.println(jemma.onkoPiilossa());
-jemma.laitaPiiloon("kukkuluuruu");
-jemma.laitaPiiloon("huhuu");
-System.out.println(jemma.onkoPiilossa());
-System.out.println(jemma.otaPiilosta());
-System.out.println(jemma.onkoPiilossa());
-```
-
-<sample-output>
-
-false
-true
-kukkuu
-false
-true
-huhuu
-false
-
-</sample-output>
-
-```java
-Piilo<Integer> jemma = new Piilo<>();
-System.out.println(jemma.onkoPiilossa());
-jemma.laitaPiiloon(1);
-System.out.println(jemma.onkoPiilossa());
-System.out.println(jemma.onkoPiilossa());
-System.out.println(jemma.otaPiilosta());
-System.out.println(jemma.onkoPiilossa());
-```
-
-<sample-output>
-
-false
-true
-true
-1
-false
-
-</sample-output>
+<img src="../img/exercises/luokkakaavio-opiskelija-ja-korkeakoulu.png" alt="[Opiskelija|-opiskelijanumero:int;-nimi:String]*-[Korkeakoulu|-nimi:String]">
 
 </programming-exercise>
 
 
-<programming-exercise name='Putki' tmcname='osa11-Osa11_02.Putki'>
+## Perintä luokkakaavioissa
 
-Toteuta luokka Putki, jolla on yksi geneerinen tyyppiparametri. Putki toimii siten, että sinne voi lisätä arvoja ja sieltä voi ottaa arvoja. Lisääminen tapahtuu putken toisesta päästä ja ottaminen toisesta päästä, eli toisin sanoen putkesta otetaan aina siellä pisimpään ollut arvo kun taas sinne lisätään aina uusin arvo. Luokan tulee tarjota parametriton konstruktori sekä seuraavat kolme metodia:
+Perintä merkitään luokkakaavioon kolmion muotoisella nuolella. Kolmio on perittävän luokan päädyssä. Alla olevassa esimerkissä luokka Moottori perii luokan Osa.
 
-- `public void lisaaPutkeen(T arvo)` lisää putkeen luokan tyyppiparametrin mukaisen olion.
-- `public T otaPutkesta()` ottaa putkesta siellä pisimpään olleen arvon. Mikäli putkessa ei ole mitään, palautetaan `null`. Metodin kutsuminen palauttaa putkessa pisimpään olleen olion ja poistaa sen putkesta.
-- `public boolean onkoPutkessa()` palauttaa arvon `true` mikäli putkessa on arvoja. Mikäli putki on tyhjä, palauttaa arvon `false`.
+<img src="../img/diagrams/luokkakaavio-moottori-perii-osan.png" alt="[Osa|-tunnus:String;-valmistaja:String;-kuvaus:String][Moottori|-moottorityyppi:String][Osa]^-[Moottori]" />
 
-Tee luokan sisäinen toteutus ArrayListin avulla.
 
-**Luokalle ei ole tehtäväpohjassa testejä**. Palauta tehtävä kun seuraavat esimerkit toimivat toivotulla tavalla.
+Alla olevaan esimerkkiin on kirjoitettu auki muistavaa tuotevarastoa käsittelevän tehtävän luokkakaavio. Muistava tuotevarasto perii tuotevaraston, joka taas perii varaston. Muutoshistoria on erillinen luokka, jonka muistava tuotevarasto sisältää. Muistava tuotevarasto tietää muutoshistorian, mutta muutoshistoria ei tiedä muistavasta tuotevarastosta.
 
-```java
-Putki<String> putki = new Putki<>();
-putki.lisaaPutkeen("dibi");
-putki.lisaaPutkeen("dab");
-putki.lisaaPutkeen("dab");
-putki.lisaaPutkeen("daa");
-while(putki.onkoPutkessa()) {
-    System.out.println(putki.otaPutkesta());
-}
-```
+<img src="../img/diagrams/luokkakaavio-muistava-tuotevarasto.png" alt="[Varasto|-tilavuus:double;-saldo:double|+Varasto(tilavuus:double);+getSaldo():double;+getTilavuus():double;+paljonkoMahtuu():double;+lisaaVarastoon(maara:double):void;+otaVarastosta(maara:double):double;+toString():String][Tuotevarasto|-nimi:String|+Tuotevarasto(nimi:String، tilavuus:double);+getNimi():String;+setNimi(nimi:String):String;+toString():String][Muutoshistoria|-tilanteet:ArrayList|+Muutoshistoria();+lisaa(tilanne:double);+nollaa():void;...][MuistavaTuotevarasto||+MuistavaTuotevarasto(nimi:String، tilavuus:double،alkusaldo:double);+historia():String;+tulostaAnalyysi():void;+lisaaVarastoon(maara:double);+otaVarastosta(maara:double):double][Varasto]^-[Tuotevarasto][Tuotevarasto]^-[MuistavaTuotevarasto][Muutoshistoria]<-[MuistavaTuotevarasto]" />
 
-<sample-output>
 
-dibi
-dab
-dab
-daa
+Abstraktien luokkien perintä toimii lähes samalla tavalla. Abstraktit luokat kuitenkin merkitään luokkakaavioon siten, että luokan nimen yläpuolella lukee `<<abstract>>`. Tämän lisäksi luokan nimi ja luokassa määritellyt abstraktit metodit kuvataan kursiivilla.
 
-</sample-output>
 
-```java
-Putki<Integer> numeroputki = new Putki<>();
-numeroputki.lisaaPutkeen(1);
-numeroputki.lisaaPutkeen(2);
-numeroputki.lisaaPutkeen(3);
+<img src="../img/diagrams/luokkakaavio-abstraktit.png" />
 
-int summa = 0;
-while(numeroputki.onkoPutkessa()) {
-    summa = summa + numeroputki.otaPutkesta();
-}
-System.out.println(summa);
-System.out.println(numeroputki.otaPutkesta());
-```
 
-<sample-output>
+<programming-exercise name='Pelaaja ja tekoäly' nocoins='true' tmcname='osa10-Osa10_05.PelaajaJaTekoaly'>
 
-6
-null
+Alla on kuvattu kaksi luokkaa, Pelaaja ja Tekoaly, sekä niiden välinen yhteys. Toteuta kuvatut luokat tehtäväpohjaan.
 
-</sample-output>
+<img src="../img/exercises/luokkakaavio-pelaaja-ja-tekoaly.png" alt="[Pelaaja|-nimi:String|+pelaa():void;+tulostaNimi():void]^-[Tekoaly||+pelaa():void;+lisaaSiirto(siirto:String):void]">
+
+Tähän tehtävään ei ole erillistä mallivastausta.
 
 </programming-exercise>
 
 
-<quiznator id='5c93b56cfd9fd71425c6af16'></quiznator>
+## Rajapinnat luokkakaavioissa
+
+Rajapinnat merkitään luokkakaavioissa muodossa `<<interface>>` RajapintaLuokanNimi. Tarkastellaan esimerkkinä rajapintaa Luettava.
 
 
-# ArrayList ja Hajautustaulu
+```java
+public interface Luettava {
+
+}
+```
+
+<img src="../img/diagrams/luokkakaavio-rajapinta-luettava.png" alt="[&lt;&lt;interface&gt;&gt; Luettava]">
+
+Metodit voidaan merkitä alle kuten luokkakaavioissa.
+
+Rajapinnan toteuttaminen merkitään katkoviivalla ja kolmiolla. Alla on kuvattu tilanne, missä luokka Kirja toteuttaa rajapinnan Luettava.
+
+<img src="../img/diagrams/luokkakaavio-kirja-toteuttaa-luettavan.png" alt="[<<interface>> Luettava][Kirja]-.-^[<<interface>> Luettava]">
+
+
+<programming-exercise name='Tallennettava henkilo' tmcname='osa10-Osa10_06.TallennettavaHenkilo'>
+
+Alla on kuvattuna rajapinta Tallennettava sekä luokka Henkilo. Toteuta luokkakaaviossa kuvattu sisältö tehtäväpohjaan.
+
+<img  src="../img/exercises/luokkakaavio-tallennettava-henkilo.png" alt="[<<interface>> Tallennettava||+tallenna():void;+poista():void;+lataa(osoite:String):void]^-.-[Henkilo|-nimi:String;-osoite:String]">
+
+
+</programming-exercise>
+
+
+<text-box variant='hint' name='Miten näitä kannattaa piirtää?'>
+
+Luokkakaaviot ovat erinomainen tapa kuvata ongelma-aluetta ja ongelman muotoa muille. Niiden käyttö on erittäin hyödyllistä myös silloin, kun ohjelmoija suunnittelee useammasta luokasta koostuvan ohjelman rakennetta.
+
+
+Luokkakaavioita piirretään ohjelman suunnitteluvaiheessa usein esimerkiksi valkotaulua tai isompaa paperiarkkia käyttäen. Luokkakaaviot kannattaa ajatella poisheitettävinä tuotoksina, jotka auttavat ohjelman rakennuksessa. Kaavion piirtämiseen -- eli tyylin oikeellisuuteen ja yksityiskohtiin -- ei kannata käyttää liian pitkään aikaa. Vastaavasti kaavio kannattaa piirtää sopivalla abstraktiotasolla. Esimerkiksi kymmeniä luokkia sisältävään luokkakaavioon ei kannata merkitä jokaisen luokan jokaista metodia ja muuttujaa: oleellista on, että kaaviosta saa luotua nopean yleiskuvan.
+
+
+Materiaalissa käytetyt luokkakaaviot on piirretty <a href="https://yuml.me/" target="_blank" norel>yUML</a>:n, <a href="https://creately.com" target="_blank" norel>Creately</a>n, ja <a href="https://www.draw.io/" target="_blank" norel>draw.io</a>:n. Myös NetBeansiin löytyy välineitä luokkakaavioiden luomiseen -- esimerkiksi <a href="http://plugins.netbeans.org/plugin/55435/easyuml" target="_blank" norel>easyUML</a> mahdollistaa luokkakaavioiden luomisen suoraan projektin koodista.
+
+
+</text-box>
+
+
+<programming-exercise name='Isompi luokkakaavio' tmcname='osa10-Osa10_07.IsompiLuokkakaavio'>
+
+Alla on kuvattuna isompi luokkakaavio, jossa on luokat A, B, C, D ja E, sekä rajapinnat IA, IB ja IC. Toteuta luokkakaavion kuvaama sisältö tehtäväpohjaan.
+
+<img  src="../img/exercises/luokkakaavio-iso-abstrakti.png" alt="[<<interface>>;IA][<<interface>>;IB][<<interface>>;IC][A]-.-^[<<interface>>;IA][B]-.-^[<<interface>>;IB][C]-.-^[<<interface>>;IC][D]->[<<interface>>;IA][E]*-*[C][C]-^[B][B]-^[A]">
+
+</programming-exercise>
+
+
+<quiznator id="5c8b61cb244fe21455cbe44c"></quiznator>
+
+# Pakkaukset
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Tiedät miten miten muuttuvankokoinen geneerinen lista toteutetaan.
-- Tunnet erään mahdollisen tavan Javan ArrayListin kaltaisen luokan toteutukselle.
-- Tiedät miten miten hajautustaulu toteutetaan.
-- Tunnet erään mahdollisen tavan Javan HashMapin kaltaisen luokan toteutukselle.
+- Tiedät mitä pakkaukset ovat ja osaat asettaa luokkia pakkauksiin.
+- Tiedät mistä Javassa käytetyn `import`-lauseen osat muodostuvat.
 
 </text-box>
 
-ArrayList ja Hajautustaulu ovat ohjemoinnissa hyvin yleisesti käytettyjä tietorakenteita. Tarkastellaan tässä niiden todellista toteutusta. Kerrataan ensin lyhyesti taulukon käyttöä, jonka jälkeen rakennetaan esimerkinomaisesti ensin ArrayListiä imitoiva tietorakenne `Lista`, jota hyödynnetään sitten tietorakenteen `Hajautustaulu` tekemisessä.
 
+Ohjelmaa varten toteutettujen luokkien määrän kasvaessa toiminnallisuuksien ja metodien muistaminen vaikeutuu. Muistamista helpottaa luokkien järkevä nimentä sekä luokkien suunnittelu siten, että jokaisella luokalla on yksi selkeä vastuu. Tämän lisäksi luokat kannattaa jakaa toiminnallisuutta, käyttötarkoitusta tai jotain muuta loogista kokonaisuutta kuvaaviin pakkauksiin.
 
-## Lyhyt kertaus taulukoista
+Pakkaukset (*package*) ovat käytännössä hakemistoja (directory, puhekielessä myös kansio), joihin lähdekooditiedostot organisoidaan.
 
-Taulukko on olio, joka sisältää rajatun määrän numeroituja paikkoja arvoille. Taulukon pituus (tai koko) on siinä olevien paikkojen lukumäärä, eli kuinka monta arvoa taulukkoon voi laittaa. Taulukon koko on aina ennalta määrätty: koko määrätään taulukon luomisen yhteydessä eikä sitä voi muuttaa.
+Ohjelmointiympäristöt tarjoavat valmiit työkalut pakkausten hallintaan. Olemme tähän mennessä luoneet luokkia ja rajapintoja vain projektiin liittyvän lähdekoodipakkaukset-osion (*Source Packages*) oletuspakkaukseen (*default package*). Uuden pakkauksen voi luoda NetBeansissa projektin pakkauksiin liittyvässä Source Packages -osiossa oikeaa hiirennappia painamalla ja valitsemalla *New -&gt; Java Package...*.
 
-Taulukkotyyppi määritellään hakasuluilla, jota edeltää taulukossa olevien alkioiden tyyppi (alkioidentyyppi[]). Taulukko luodaan `new`-kutsulla, jota seuraa taulukon alkioiden tyyppi, hakasulut, sekä hakasulkujen sisään asetettava luotavan taulukon alkioiden lukumäärä.
+Pakkauksen sisälle voidaan luoda luokkia aivan kuten oletuspakkaukseenkin (`default package`). Alla luodaan juuri luotuun pakkaukseen `kirjasto` luokka `Sovellus`.
 
-```java
-int[] luvut = new int[3];
-String[] merkkijonot = new String[5];
-```
-
-Taulukon alkioihin viitataan taulukon indeksien perusteella. Alla olevassa esimerkissä luodaan kolmepaikkainen kokonaislukutaulukko, jonka jälkeen taulukon indekseihin 0 ja 2 asetetaan arvot. Tämän jälkeen arvot tulostetaan.
-
-```java
-int[] luvut = new int[3];
-luvut[0] = 2;
-luvut[2] = 5;
-
-System.out.println(luvut[0]);
-System.out.println(luvut[2]);
-```
-
-<sample-output>
-
-2
-5
-
-</sample-output>
-
-
-Yksittäisen arvon asettaminen taulukon tiettyyn paikkaan tapahtuu kuten arvon asetus tavalliseen muuttujaan, mutta taulukkoon asetettaessa kerrotaan paikkaa kuvaava indeksi.
-
-Taulukko-olion koon saa selville taulukko-olioon liittyvän julkisen oliomuuttujan `length` avulla, ja taulukon alkioiden läpikäynti voidaan toteuttaa esimerkiksi for-toistolauseen avulla.
+Luokan pakkaus -- eli pakkaus, jossa luokka sijaitsee -- ilmaistaan lähdekooditiedoston alussa lauseella `package *pakkaus*;`. Alla oleva luokka `Sovellus` sijaitsee pakkauksessa `kirjasto`.
 
 
 ```java
-int[] luvut = new int[4];
-luvut[0] = 42;
-luvut[1] = 13;
-luvut[2] = 12;
-luvut[3] = 7;
+package kirjasto;
 
-System.out.println("Taulukossa on " + luvut.length + " alkiota.");
+public class Sovellus {
 
-for (int i = 0; i < luvut.length; i++) {
-    System.out.println(luvut[i]);
-}
-```
-
-
-<sample-output>
-
-Taulukossa on 4 alkiota.
-42
-13
-12
-7
-
-</sample-output>
-
-
-<quiznator id='5c94ab76fd9fd71425c6b085'></quiznator>
-
-
-<programming-exercise name='Rajatut taulukossa' tmcname='osa11-Osa11_03.RajatutTaulukossa'>
-
-Luo luokkaan `Ohjelma` luokkametodi `public static int summa(int[] taulukko, int mista, int mihin, int pienin, int suurin)`. Metodin tulee laskea sille parametrina annetusta taulukosta indeksien mista ja mihin välillä olevien arvojen summa. Summaan otetaan mukaan vain ne arvot, jotka ovat suurempia tai yhtäsuuria kuin pienin ja pienempiä kuin suurin.
-
-Metodin tulee lisäksi varmistaa, että käsiteltävät indeksit ovat valideja. Mikäli parametri `mista` on pienempi kuin 0, tulee taulukon indeksien läpikäynti alkaa parametrin mista arvon sijaan nollasta. Vastaavasti, mikäli parametri `mihin` on suurempi kuin käsiteltävä taulukko, tulee taulukon indeksien läpikäynti lopettaa  parametrin mihin arvon sijaan taulukon kokoon.
-
-```java
-int[] luvut = {3, -1, 8, 4};
-
-System.out.println(summa(luvut, 0, 0, 0, 0));
-System.out.println(summa(luvut, 0, 0, 0, 10));
-System.out.println(summa(luvut, 0, 1, 0, 10));
-System.out.println(summa(luvut, 0, 1, -10, 10));
-System.out.println(summa(luvut, -1, 999, -10, 10));
-```
-
-<sample-output>
-
-0
-0
-3
-3
-14
-
-</sample-output>
-
-</programming-exercise>
-
-
-Taulukoita voi käyttää täysin samalla tavalla kuin muitakin muuttujia, eli niitä voi käyttää esimerkiksi oliomuuttujina, metodin parametreina, metodin paluuarvona ym.
-
-Merkittävä osa yleisesti käytetyistä tietorakenteista käyttää taulukoita niiden sisäisessä toteutuksessa.
-
-
-## Listarakenne
-
-
-Tarkastellaan erästä tapaa Javan tarjoaman ArrayList-tietorakenteen toteuttamiseen. Javan ArrayList hyödyntää sisäisesti taulukkoa, jonka alkioiden tyyppi on määritelty luokalle ArrayList annettavan tyyppiparametrin avulla. Tämän takia listalle saa lisätä käytännössä minkä tyyppisiä arvoja tahansa. Lista tarjoaa useita metodeja, joista tämän esimerkin kannalta oleellisia ovat `add` eli lisääminen, `contains` eli olemassaolon tarkastaminen, `remove` eli poistaminen sekä `get`, eli tietystä indeksistä hakeminen.
-
-
-```java
-ArrayList<String> merkkijonot = new ArrayList<>();
-System.out.println(merkkijonot.contains("Hei!"));
-merkkijonot.add("Hei!");
-System.out.println(merkkijonot.contains("Hei!"));
-merkkijonot.remove("Hei!");
-System.out.println(merkkijonot.contains("Hei!"));
-```
-
-<sample-output>
-
-false
-true
-false
-
-</sample-output>
-
-
-### Listan luominen
-
-Luodaan luokka `Lista`. Listarakenne sisältää geneerisen taulukon -- eli taulukon, jonka alkioiden tyyppi määräytyy ajonaikaisesti tyyppiparametreista. Asetetaan taulukon alkukooksi `10`. Taulukko luodaan object-tyyppisenä ja muunnetaan geneerisen tyyppiseksi `(T[]) new Object[10];` -- tämä tehdään, sillä kutsu `new T[10];` ei ainakaan toistaiseksi toimi Javassa.
-
-
-```java
-public class Lista<T> {
-    private T[] arvot;
-
-    public Lista() {
-        this.arvot = (T[]) new Object[10];
-    }
-}
-```
-
-Lista kapseloi taulukon. Alkutilanteessa jokainen taulukon indeksi sisältää `null`-viitteen.
-
-
-### Arvojen lisääminen listalle
-
-Lisätään luokalle metodi `public void lisaa(T arvo)`, mikä mahdollistaa arvojen lisäämisen listalle. Luodaan luokalle tätä varten erillinen kokonaislukumuuttuja, joka pitää kirjaa taulukon ensimmäisestä tyhjästä paikasta.
-
-
-```java
-public class Lista<T> {
-
-    private T[] arvot;
-    private int arvoja;
-
-    public Lista() {
-        this.arvot = (T[]) new Object[10];
-        this.arvoja = 0;
-    }
-
-    public void lisaa(T arvo) {
-        this.arvot[this.arvoja] = arvo;
-        this.arvoja++; // sama kuin this.arvoja = this.arvoja + 1;
-    }
-}
-```
-
-Nyt arvojen lisääminen listalle onnistuu -- tai, ainakin listan luominen ja metodin kutsuminen onnistuu -- emme vielä voi testata ovatko arvot todellisuudessa listalla.
-
-```java
-Lista<String> lista = new Lista<>();
-lista.lisaa("hei");
-lista.lisaa("maailma");
-```
-
-### Arvojen lisääminen listalle, osa 2
-
-Edellä kuvatussa `lisaa`-metodissa on pieni ongelma. Ongelma ilmenee kun seuraava ohjelmakoodi suoritetaan.
-
-
-```java
-Lista<String> lista = new Lista<>();
-for (int i = 0; i < 11; i++) {
-    lista.lisaa("hei");
-}
-```
-
-<sample-output>
-Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 10
-    at tietorakenteita.Lista.lisaa(Lista.java:14)
-    at tietorakenteita.Ohjelma.main(Ohjelma.java:8)
-</sample-output>
-
-Listan koko ei kasva. Eräs `ArrayList`-luokan oleellisimmista toiminnallisuuksista on se, että sen koko kasvaa aina tarvittaessa -- ohjelmoijan ei siis tarvitse varoa listan täyttymistä.
-
-Lisätään ohjelmaan listan koon kasvattamiseen liittyvä toiminnallisuus. Listan kokoa kasvatetaan aina jos täyteen listaan (eli listan sisällä olevaan täyteen taulukkoon) yritetään lisätä arvo. Kasvattaminen toteutetaan luomalla uusi taulukko, johon vanhan taulukon arvot kopioidaan. Tämän jälkeen vanha taulukko jätetään heitteille, ja uudesta taulukosta tulee olion käyttämä taulukko.
-
-Uuden taulukon koko määräytyy Javassa kaavalla `vanhaKoko + vanhaKoko / 2`. Hyödynnetään samaa kaavaa omassa toteutuksessamme. Luodaan kasvattamista varten erillinen metodi `kasvata`, joka on vain luokan omien metodien käytössä (eli sillä on `private`-näkyvyys).
-
-```java
-private void kasvata() {
-    int uusiKoko = this.arvot.length + this.arvot.length / 2;
-    T[] uusi = (T[]) new Object[uusiKoko];
-    for (int i = 0; i < this.arvot.length; i++) {
-        uusi[i] = this.arvot[i];
-    }
-
-    this.arvot = uusi;
-}
-```
-
-Toteutus luo uuden taulukon, jonka koko on 1.5-kertainen vanhaan taulukkoon verrattuna. Tämän jälkeen kaikki vanhan taulukon alkiot kopioidaan uuteen taulukkoon ja lopulta olion `arvot`-muuttujan -- eli taulukon -- arvoksi asetetaan uusi taulukko. Javan automaattinen roskienkerääjä poistaa vanhan taulukon kun siihen ei enää viitata.
-
-Muokataan vielä metodia `lisaa` siten, että taulukon kokoa kasvatetaan tarvittaessa.
-
-```java
-public void lisaa(T arvo) {
-    if(this.arvoja == this.arvot.length) {
-        kasvata();
-    }
-
-    this.arvot[this.arvoja] = arvo;
-    this.arvoja++;
-}
-```
-
-Nyt arvoja voi lisätä listalle lähes rajattomasti.
-
-<text-box variant='hint' name='Edellä kuvatun kasvatusmenetelmän tehokkuudesta'>
-
-Edellä kuvattu menetelmä kopioi kasvatuksen yhteydessä jokaisen vanhan taulukon arvon uuteen taulukkoon. Mikäli taulukossa on esimerkiksi kaksi miljoonaa alkiota, kopiointi käy kaksi miljoonaa alkiota läpi.
-
-Menetelmän tehokkuuteen -- ja parannusehdotuksiin -- paneudutaan muunmuassa kursseilla Tietorakenteet ja algoritmit sekä Algoritmien suunnittelu ja analyysi.
-
-</text-box>
-
-
-### Arvon olemassaolon tarkastaminen
-
-Luodaan listalle seuraavaksi metodi `public boolean sisaltaa(T arvo)`, minkä avulla voidaan tarkistaa onko alkio listalla. Hyödynnetään tässä tietoa siitä, että jokainen Javan olio -- riippumatta sen tyypistä -- perii Object-luokan (tai on Object-tyyppinen). Tämän takia jokaisella oliolla on metodi `public boolean equals(Object object)`, jota voidaan käyttää yhtäsuuruuden tarkasteluun.
-
-Luokan `Lista` muuttuja `arvoja` sisältää tiedon arvojen tämän hetkisestä lukumäärästä. Voimme siis toteuttaa `sisaltaa`-metodin siten, että tarkastelemme vain ne listan indeksit, joissa on arvoja.
-
-```java
-public boolean sisaltaa(T arvo) {
-    for (int i = 0; i < this.arvoja; i++) {
-        if (this.arvot[i].equals(arvo)) {
-            return true;
-        }
-    }
-
-    return false;
-}
-```
-
-Ohjelmassa on nyt mahdollisuus listalla olevien alkioiden olemassaolon tarkasteluun.
-
-```java
-Lista<String> lista = new Lista<>();
-System.out.println(lista.sisaltaa("hei"));
-lista.lisaa("hei");
-System.out.println(lista.sisaltaa("hei"));
-```
-
-<sample-output>
-
-false
-true
-
-</sample-output>
-
-Edellä esitetty menetelmä olettaa, että käyttäjä ei lisää listalle `null`-viitettä ja että equals-metodi tarkastaa ettei parametrina saatu arvo ole null.
-
-
-### Arvon poistaminen
-
-Toteuttamallemme listalle voi nyt lisätä arvoja, jonka lisäksi arvon olemassaolon voi tarkastaa. Toteutetaan vielä arvon poistaminen. Toteutetaan metodi `public void poista(T arvo)`, joka poistaa listalta *yhden* `arvo`-arvoisen alkion.
-
-Yksinkertainen toteutus olisi seuraava.
-
-```java
-public void poista(T arvo) {
-    for (int i = 0; i < this.arvoja; i++) {
-        if (arvo == this.arvot[i] || this.arvot[i].equals(arvo)) {
-            this.arvot[i] = null;
-            this.arvoja--;
-            return;
-        }
-    }
-}
-```
-
-Yllä oleva lähestymistapa on kuitenkin ongelmallinen, sillä se jättää listalle "tyhjiä" kohtia, jonka lisäksi esimerkiksi edellä esitetty etsiminen ei enää toimi.
-
-Ongelman voi ratkaista useammalla tavalla, joista yksi on siirtää jokaista poistettua arvoa seuraavaa arvoa vasemmalle. Lisätään tämä toiminnallisuus ohjelmaan.
-
-```java
-public void poista(T arvo) {
-    boolean loytyi = false;
-    for (int i = 0; i < this.arvoja; i++) {
-        if (loytyi) {
-            this.arvot[i - 1] = this.arvot[i];
-        } else if (arvo == this.arvot[i] || this.arvot[i].equals(arvo)) {
-            this.arvoja--;
-            loytyi = true;
-        }
-    }
-}
-```
-
-Emme ole kovin tyytyväisiä edelliseen ratkaisuun, sillä siinä tehdään monta asiaa samaan aikaan. Metodissa sekä etsitään alkiota että siirretään alkioita. Pilkotaan toiminnallisuus kahteen erilliseen metodiin: `private int arvonIndeksi(T arvo)`, joka etsii parametrina annetun arvon indeksin, sekä `private void siirraVasemmalle(int indeksista)`, joka siirtää annetusta indeksistä lähtien alkioita yhden vasemmalle.
-
-Toteutetaan ensin metodi `private int arvonIndeksi(T arvo)`, joka etsii annetun arvon indeksin. Metodi palauttaa negatiivisen luvun mikäli arvoa ei löydy.
-
-```java
-private int arvonIndeksi(T arvo) {
-    for (int i = 0; i < this.arvoja; i++) {
-        if (this.arvot[i].equals(arvo)) {
-            return i;
-        }
-    }
-
-    return -1;
-}
-```
-
-Toteutetaan tämän jälkeen metodi `private void siirraVasemmalle(int indeksistaLahtien)`, joka siirtää arvoja annetusta indeksistä lähtien vasemmalle.
-
-```java
-private void siirraVasemmalle(int indeksistaLahtien) {
-    for (int i = indeksistaLahtien; i < this.arvoja - 1; i++) {
-        this.arvot[i] = this.arvot[i + 1];
-    }
-}
-```
-
-Nyt metodi `poista` voidaan toteuttaa edellisten avulla hieman selkokielisemmäksi.
-
-```java
-public void poista(T arvo) {
-    int arvonIndeksi = arvonIndeksi(arvo);
-    if (arvonIndeksi < 0) {
-        return; // ei löydy
-    }
-
-    siirraVasemmalle(arvonIndeksi);
-    this.arvoja--;
-}
-```
-
-
-<text-box variant='hint' name='Edellä kuvatun poistomenetelmän tehokkuudesta'>
-
-Edellä kuvattu menetelmä kopioi poiston yhteydessä jokaisen poistettua alkiota seuraavan alkion vasemmalle. Pohdi toteutuksen tehokkuutta tilanteessa, missä listaa käytetään jonona.
-
-Tämänkin menetelmän tehokkuuteen -- ja parannusehdotuksiin -- paneudutaan muunmuassa kursseilla Tietorakenteet ja algoritmit sekä Algoritmien suunnittelu ja analyysi.
-
-</text-box>
-
-
-Luokassa lista on nyt hieman toistuvaa koodia. Metodi `sisaltaa` on hyvin samankaltainen metodin `arvonIndeksi` kanssa. Muokataan vielä metodia `sisaltaa` siten, että se toteutetaan metodin `arvonIndeksi` avulla.
-
-
-```java
-public boolean sisaltaa(T arvo) {
-    return arvonIndeksi(arvo) >= 0;
-}
-```
-
-Nyt käytössämme on lista, joka tarjoaa metodit `lisaa`, `sisaltaa`, ja `poista`. Lista myös kasvaa tarvittaessa. Listan toteutusta voisi toki vielä kehittää esimerkiksi lisäämällä toiminnallisuuden, mikä pienentää listan kokoa jos arvojen määrä pienenee hyvin pieneksi.
-
-```java
-Lista<String> lista = new Lista<>();
-System.out.println(lista.sisaltaa("hei"));
-lista.lisaa("hei");
-System.out.println(lista.sisaltaa("hei"));
-lista.poista("hei");
-System.out.println(lista.sisaltaa("hei"));
-```
-
-<sample-output>
-
-false
-true
-false
-
-</sample-output>
-
-
-### Kohdasta hakeminen
-
-Lisätään listalle vielä metodi `public T arvo(int indeksi)`, joka palauttaa listan tietyssä indeksissä sijaitsevan arvon. Mikäli ohjelmoija hakee arvoa listan ulkopuolelta, heitetään virhe `IndexOutOfBoundsException`.
-
-```java
-public T arvo(int indeksi) {
-    if (indeksi < 0 || indeksi >= this.arvoja) {
-        throw new ArrayIndexOutOfBoundsException("Indeksi " + indeksi + " alueen [0, " + this.arvoja + "[ ulkopuolella.");
-    }
-
-    return this.arvot[indeksi];
-}
-```
-
-Metodin käyttöä edesauttaisi, mikäli luokan käyttäjällä olisi tieto haettavien arvojen indekseistä. Muutetaan vielä metodi `arvonIndeksi(T arvo)` kaikkien käytettäväksi, eli vaihdetaan sen näkyvyysmääre `private` muotoon `public`.
-
-```java
-public int arvonIndeksi(T arvo) {
-    for (int i = 0; i < this.arvoja; i++) {
-        if (this.arvot[i].equals(arvo)) {
-            return i;
-        }
-    }
-
-    return -1;
-}
-```
-
-```java
-Lista<String> lista = new Lista<>();
-System.out.println(lista.sisaltaa("hei"));
-lista.lisaa("hei");
-System.out.println(lista.sisaltaa("hei"));
-int indeksi = lista.arvonIndeksi("hei");
-System.out.println(indeksi);
-System.out.println(lista.arvo(indeksi));
-lista.poista("hei");
-System.out.println(lista.sisaltaa("hei"));
-```
-
-<sample-output>
-
-false
-true
-0
-hei
-false
-
-</sample-output>
-
-
-### Listan koko
-
-Lisätään listalle vielä metodi listan koon tarkastamiseen. Listan koon saa selville muuttujasta `arvoja`.
-
-
-```java
-public int koko() {
-    return this.arvoja;
-}
-```
-
-Nyt listan alkioiden läpikäynti onnistuu mm. for-lauseella.
-
-
-```java
-Lista<String> lista = new Lista<>();
-lista.lisaa("hei");
-lista.lisaa("maailma");
-
-for(int i = 0; i < lista.koko(); i++) {
-    System.out.println(lista.arvo(i));
-}
-```
-
-<sample-output>
-
-hei
-maailma
-
-</sample-output>
-
-
-<programming-exercise name='Lista (2 osaa)' tmcname='osa11-Osa11_04.Lista' nocoins='1'>
-
-Toteuta tehtäväpohjaan edellistä esimerkkiä noudattaen luokka `Lista`. Tehtäväpohjassa ei ole testejä -- kokeile listaa materiaalin esimerkkien ja omien kokeilujen avulla. Tehtävä on kahden pisteen arvoinen.
-
-</programming-exercise>
-
-
-## Hajautustaulu
-
-Hajautustaulu on toteutettu taulukkona, missä jokainen alkio sisältää listan. Listalle tallennetaan (avain,arvo)-pareja. Käyttäjä voi hakea hajautustaulusta arvoja avaimen perusteella, ja toisaalta käyttäjä voi lisätä hajautustauluun avain-arvo -pareja. Kukin avain voi esiintyä hajautustaulussa korkeintaan kerran.
-
-Hajautustaulun toiminta perustuu avaimen hajautusarvoon. Kun hajautustauluun lisätään (avain,arvo)-pari, lasketaan avaimeen liittyvä hajautusarvo. Hajautusarvo määrää hajautustaulun sisäisen taulukon indeksin, missä olevaan listaan (avain,arvo)-pari lisätään.
-
-Hahmotellaan hajautustaulun toimintaa.
-
-
-### Avain-arvo -pari
-
-Luodaan ensin avain-arvo -paria kuvaava luokka `Pari`. Haluamme tehdä hajautustaulusta mahdollisimman yleiskäyttöisen, joten avaimen ja arvon tyyppi määrätään ajonaikaisesti. Pari sisältää avaimen ja arvon sekä niihin liittyvät get-metodit. Geneeriset tyypit K ja V ovat nimetty sanojen key ja value perusteella.
-
-
-```java
-public class Pari<K, V> {
-
-    private K avain;
-    private V arvo;
-
-    public Pari(K avain, V arvo) {
-        this.avain = avain;
-        this.arvo = arvo;
-    }
-
-    public K getAvain() {
-        return avain;
-    }
-
-    public V getArvo() {
-        return arvo;
-    }
-
-    public void setArvo(V arvo) {
-        this.arvo = arvo;
-    }
-}
-```
-
-Avain-arvo -parien luominen on suoraviivaista.
-
-```java
-Pari<String, Integer> pari = new Pari<>("yksi", 1);
-System.out.println(pari.getAvain() + " -> " + pari.getArvo());
-```
-
-<sample-output>
-
-yksi -> 1
-
-</sample-output>
-
-
-### Hajautustaulun luominen
-
-Hajautustaulu sisältää taulukon listoja. Jokainen listan arvo on edellä kuvattu pari, joka sisältää avain-arvo -parin. Hajautustaululla on lisäksi tieto arvojen lukumäärästä. Tässä käytössämme on edellä luotu luokka `Lista`.
-
-
-```java
-public class Hajautustaulu<K, V> {
-
-    private Lista<Pari<K, V>>[] arvot;
-    private int arvoja;
-
-    public Hajautustaulu() {
-        this.arvot = new Lista[32];
-        this.arvoja = 0;
-    }
-}
-```
-
-
-### Arvon hakeminen
-
-Toteutetaan ensin metodi `public V hae(K avain)`, jota käytetään arvon hakemiseen avaimen perusteella.
-
-Metodissa lasketaan ensin avaimen hajautusarvo ja päätellään sen perusteella hajautustaulun sisäisen taulukon indeksi, mistä arvoja haetaan. Avaimen hajautusarvon laskemiseen käytetään jokaisella oliolla olevaa `hashCode`-metodia. Jakojäännöstä käytetään hajautusarvon hajautustaulun koon sisällä pysymiseen.
-
-Mikäli hajautusarvon ja jakojäänneksen avulla lasketussa indeksissä ei ole listaa, ei indeksiin ole lisätty vielä yhtäkään avain-arvo -paria, eikä avaimelle ole tallennettu arvoa. Tällöin palautetaan `null`-viite. Muussa tapauksessa taulukon indeksissä oleva lista käydään läpi, ja avaimen yhtäsuuruutta vertaillaan jokaiseen listan avain-arvo -parin avaimeen. Mikäli joku listalla olevista avaimista vastaa avainta, jonka perusteella arvoa haetaan, palautetaan kyseinen arvo. Muulloin avainta (ja siihen liittyvää arvoa) ei löydy, ja palautetaan arvo null.
-
-
-```java
-public V hae(K avain) {
-    int hajautusArvo = Math.abs(avain.hashCode() % this.arvot.length);
-    if (this.arvot[hajautusArvo] == null) {
-        return null;
-    }
-
-    Lista<Pari<K, V>> arvotIndeksissa = this.arvot[hajautusArvo];
-
-    for (int i = 0; i < arvotIndeksissa.koko(); i++) {
-        if (arvotIndeksissa.arvo(i).getAvain().equals(avain)) {
-            return arvotIndeksissa.arvo(i).getArvo();
-        }
-    }
-
-    return null;
-}
-```
-
-
-<text-box variant='hint' name='Miksei hajautustaulua toteuteta listana?'>
-
-Hajautustaulun toimintaperiaate perustuu siihen, että avain-arvo -parit jaetaan hajautusarvon perusteella pieniin joukkoihin. Tällöin avaimen perusteella haettaessa käydään läpi vain hyvin pieni joukko avain-arvo -pareja -- olettaen toki, että hajautusarvo on järkevä.
-
-Jos hajautusarvo on aina sama -- esimerkiksi 1 -- vastaa hajautustaulun sisäinen toteutus listaa -- kaikki arvot ovat samalla listalla. Jos taas hajautusarvo on hyvin satunnainen, arvot hajautetaan mahdollisimman tasaisesti taulukon eri listoille.
-
-Hajautustaulu toimii lisäksi siten, että hajautustaulun käyttämää taulukkoa kasvatetaan mikäli arvojen määrä on tarpeeksi iso (tyypillisesti noin 75% taulukon koosta). Tyypillisesti miljoonia avain-arvo -pareja sisältävän hajautustaulun taulukon yhdessä indeksissä on vain muutama avain-arvo -pari. Tämä tarkoittaa käytännössä sitä, että avain-arvo -parin olemassaolon selvittämiseen tarvitaan vain hajautusarvon laskeminen sekä muutaman olion tarkastelu -- tämä on paljon nopeampaa kuin listan läpikäynti.
-
-</text-box>
-
-
-### Hajautustauluun lisääminen, osa 1
-
-Toteutetaan hajautustauluun lisäämisen käytettävän metodin `public void lisaa(K avain, V arvo)` ensimmäinen versio. Ensimmäisessä versiossa hajautustaulun sisältämän taulukon kokoa ei kasvateta lisäyksen yhteydessä.
-
-Metodi laskee ensin avaimelle hajautusarvon ja päättelee hajautusarvon perusteella hajautustaulun sisäisen taulukon indeksin. Jos taulukon kyseisessä indeksissä ei ole arvoa, taulukon indeksiin lisätään lista. Tämän jälkeen taulukon indeksissä oleva lista käydään läpi ja sieltä etsitään avain-arvo -paria, jonka avain vastaa lisättävän avain-arvo -parin avainta. Mikäli vastaava avain löytyy, päivitetään olemassaolevan avain-arvo -parin arvo vastaamaan uutta avainta. Muulloin listaan lisätään uusi avain-arvo -pari -- tällöin myös hajautustaulussa olevien arvojen lukumäärää kasvatetaan yhdellä.
-
-
-```java
-public void lisaa(K avain, V arvo) {
-    int hajautusArvo = Math.abs(avain.hashCode() % arvot.length);
-    if (arvot[hajautusArvo] == null) {
-        arvot[hajautusArvo] = new Lista<>();
-    }
-
-    Lista<Pari<K, V>> arvotIndeksissa = arvot[hajautusArvo];
-
-    int indeksi = -1;
-    for (int i = 0; i < arvotIndeksissa.koko(); i++) {
-        if (arvotIndeksissa.arvo(i).getAvain().equals(avain)) {
-            indeksi = i;
-            break;
-        }
-    }
-
-    if (indeksi < 0) {
-        arvotIndeksissa.lisaa(new Pari<>(avain, arvo));
-        this.arvoja++;
-    } else {
-        arvotIndeksissa.arvo(indeksi).setArvo(arvo);
-    }
-}
-```
-
-Metodi on melko monimutkainen. Pilkotaan se pienempiin osiin -- ensimmäisen osan vastuulla on avaimeen liittyvän listan hakeminen ja toisen osan vastuulla on avaimen indeksin etsiminen listalta.
-
-
-```java
-private Lista<Pari<K, V>> haeAvaimeenLittyvaLista(K avain) {
-    int hajautusArvo = Math.abs(avain.hashCode() % arvot.length);
-    if (arvot[hajautusArvo] == null) {
-        arvot[hajautusArvo] = new Lista<>();
-    }
-
-    return arvot[hajautusArvo];
-}
-
-private int haeAvaimenIndeksi(Lista<Pari<K, V>> lista, K avain) {
-    for (int i = 0; i < lista.koko(); i++) {
-        if (lista.arvo(i).getAvain().equals(avain)) {
-            return i;
-        }
-    }
-
-    return -1;
-}
-```
-
-Nyt metodi `public void lisaa(K avain, V arvo)` voidaan toteuttaa hieman selkeämmin.
-
-
-```java
-public void lisaa(K avain, V arvo) {
-    Lista<Pari<K, V>> arvotIndeksissa = haeAvaimeenLittyvaLista(avain);
-    int indeksi = haeAvaimenIndeksi(arvotIndeksissa, avain);
-
-    if (indeksi < 0) {
-        arvotIndeksissa.lisaa(new Pari<>(avain, arvo));
-        this.arvoja++;
-    } else {
-        arvotIndeksissa.arvo(indeksi).setArvo(arvo);
-    }
-}
-```
-
-
-### Hajautustauluun lisääminen, osa 2
-
-Edellä kuvattu hajautustauluun lisääminen toimii osittain. Toiminnallisuuden suurin puute on se, että taulukon kokoa ei kasvateta kun arvojen määrä kasvaa liian suureksi. Lisätään ohjelmaan kasvatustoiminnallisuus, mikä tuplaa hajautustaulun sisäisen taulukon koon. Kasvatustoiminnallisuuden tulee myös sijoittaa jokainen hajautustaulussa olevan taulukon arvo uuteen taulukkoon.
-
-Hahmotellaan kasvatustoiminnallisuuden alku. Kasvatustoiminnallisuudessa luodaan uusi taulukko, jonka koko on edelliseen verrattuna kaksinkertainen. Tämän jälkeen alkuperäinen taulukko käydään indeksi indeksiltä läpi ja olemassaolevat avain-arvo -parit kopioidaan uuteen taulukkoon. Lopulta alkuperäinen taulukko korvataan uudella taulukolla.
-
-Alla on hahmoteltu metodin toimintaa. Kopiointia ei ole vielä toteutettu.
-
-
-```java
-private void kasvata() {
-    // luodaan uusi taulukko
-    Lista<Pari<K, V>>[] uusi = new Lista[this.arvot.length * 2];
-
-    for (int i = 0; i < this.arvot.length; i++) {
-        // kopioidaan vanhan taulukon arvot uuteen
-
-    }
-
-    // korvataan vanha taulukko uudella
-    this.arvot = uusi;
-}
-```
-
-Hahmotellaan seuraavaksi metodia, joka kopioi alkuperäisen taulukon yhden indeksin sisältämän listan arvot uuteen taulukkoon. Kopioinnin yhteydessä jokaisen kopioitavan avain-arvo -parin sijainti taulukossa lasketaan uudelleen -- tämä tehdään, sillä taustalla olevan taulukon koko kasvaa ja avain-arvot -parit halutaan sijoittaa taulukkoon mahdollisimman tasaisesti.
-
-
-```java
-private void kopioi(Lista<Pari<K, V>>[] uusi, int indeksista) {
-    for (int i = 0; i < this.arvot[indeksista].koko(); i++) {
-        Pari<K, V> arvo = this.arvot[indeksista].arvo(i);
-
-        int hajautusarvo = Math.abs(arvo.getAvain().hashCode() % uusi.length);
-        if(uusi[hajautusarvo] == null) {
-            uusi[hajautusarvo] = new Lista<>();
-        }
-
-        uusi[hajautusarvo].lisaa(arvo);
-    }
-}
-```
-
-<quiznator id='5c94ad8bddb6b814af32a379'></quiznator>
-
-Nyt kopioi-metodia voidaan kutsua kasvata-metodista.
-
-
-```java
-private void kasvata() {
-    // luodaan uusi taulukko
-    Lista<Pari<K, V>>[] uusi = new Lista[this.arvot.length * 2];
-
-    for (int i = 0; i < this.arvot.length; i++) {
-        // kopioidaan vanhan taulukon arvot uuteen
-        kopioi(uusi, i);
-    }
-
-    // korvataan vanha taulukko uudella
-    this.arvot = uusi;
-}
-```
-
-Lisätään lopuksi kasvatustoiminnallisuus osaksi lisäystoiminnallisuutta. Hajautustaulun kokoa kasvatetaan aina jos hajautustaulussa olevien avain-arvo -parien määrä on yli 75% taulukon koosta.
-
-
-```java
-public void lisaa(K avain, V arvo) {
-    Lista<Pari<K, V>> arvotIndeksissa = haeAvaimeenLittyvaLista(avain);
-    int indeksi = haeAvaimenIndeksi(arvotIndeksissa, avain);
-
-    if (indeksi < 0) {
-        arvotIndeksissa.lisaa(new Pari<>(avain, arvo));
-        this.arvoja++;
-    } else {
-        arvotIndeksissa.arvo(indeksi).setArvo(arvo);
-    }
-
-    if (1.0 * this.arvoja / this.arvot.length > 0.75) {
-        kasvata();
-    }
-}
-```
-
-
-### Poistaminen
-
-
-Lisätään hajautustauluun vielä toiminnallisuus avain-arvo -parin poistamiseen avaimen perusteella. Poistotoiminnallisuus palauttaa null-arvon mikäli arvoa ei löydy, muuten metodi palauttaa poistettavaan avaimeen liittyvän arvon.
-
-Voimme hyödyntää valmiiksi toteuttamiamme metodeja poistotoiminnallisuudessa. Selitä itsellesi (ääneen) alla olevan metodin konkreettinen toiminta.
-
-```java
-public V poista(K avain) {
-    Lista<Pari<K, V>> arvotIndeksissa = haeAvaimeenLittyvaLista(avain);
-    if (arvotIndeksissa.koko() == 0) {
-        return null;
-    }
-
-    int indeksi = haeAvaimenIndeksi(arvotIndeksissa, avain);
-    if (indeksi < 0) {
-        return null;
-    }
-
-    Pari<K, V> pari = arvotIndeksissa.arvo(indeksi);
-    arvotIndeksissa.poista(pari);
-    return pari.getArvo();
-}
-```
-
-<programming-exercise name='Hajautustaulu (3 osaa)' tmcname='osa11-Osa11_05.Hajautustaulu' nocoins='1'>
-
-Toteuta tehtäväpohjaan edellistä esimerkkiä noudattaen luokka Hajautustaulu. Toisin kuin esimerkissä, toteuta luokka siten, että se hyödyntää sisäisessä toteutuksessa Listan sijaan Javan valmista luokkaa ArrayList. Tehtäväpohjassa ei ole testejä -- kokeile listaa materiaalin esimerkkien ja omien kokeilujen avulla. Tehtävä on kolmen pisteen arvoinen.
-
-</programming-exercise>
-
-
-## Hakemisen tehokkuudesta
-
-Tarkastellaan vielä hakemisen tehokkuutta listasta ja hajautustaulusta. Tehokkuusmittauksia voi tehdä metodin `System.nanotime()` palauttaman nanosekunteja kuvaavan arvon avulla. Ohjelma luo ensin miljoona alkiota hajautustauluun ja listaan, jonka jälkeen hajautustaulusta ja listasta etsitään tuhatta satunnaista arvoa. Noin 50% arvoista löytyy listalta ja hajautustaulusta.
-
-```java
-Lista<String> lista = new Lista<>();
-Hajautustaulu<String, String> taulu = new Hajautustaulu<>();
-
-for (int i = 0; i < 1000000; i++) {
-    lista.lisaa("" + i);
-    taulu.lisaa("" + i, "" + i);
-}
-
-Lista<String> haettavat = new Lista<>();
-Random arpoja = new Random();
-for (int i = 0; i < 1000; i++) {
-    haettavat.lisaa("" + arpoja.nextInt(2000000));
-}
-
-long listanHakuAloitus = System.nanoTime();
-for (int i = 0; i < haettavat.koko(); i++) {
-    lista.sisaltaa(haettavat.arvo(i));
-}
-long listanHakuLopetus = System.nanoTime();
-
-long hajautustaulunHakuAloitus = System.nanoTime();
-for (int i = 0; i < haettavat.koko(); i++) {
-    taulu.hae(haettavat.arvo(i));
-}
-long hajautustaulunHakuLopetus = System.nanoTime();
-
-
-long listanHaku = listanHakuLopetus - listanHakuAloitus;
-System.out.println("Lista: haku kesti noin " + listanHaku / 1000000 + " millisekuntia (" +
-    listanHaku + " nanosekuntia.)");
-
-long hajautustaulunHaku = hajautustaulunHakuLopetus - hajautustaulunHakuAloitus;
-System.out.println("Hajautustaulu: haku kesti noin " + hajautustaulunHaku / 1000000 +
-    " millisekuntia (" + hajautustaulunHaku + " nanosekuntia.)");
-```
-
-```java
-Lista: haku kesti noin 6284 millisekuntia (6284420580 nanosekuntia.)
-Hajautustaulu: haku kesti noin 0 millisekuntia (805106 nanosekuntia.)
-```
-
-
-*Edellä kuvatut ja kursseilla käyttämämme listat ja hajautustaulut poikkeavat toki sisäiseltä toteutukselta hieman toisistaan. Ohjelmointikielten tarjoamissa tietorakenteissa on hieman enemmän erilaisia optimointeja -- näihinkin palataan myöhemmillä kursseilla. Tämän kurssin puitteissa riittää em. tietorakenteiden käyttöosaaminen sekä jonkintasoinen ymmärrys niiden tehokkuuseroista sekä käyttötapauksista.*
-
-
-# Satunnaisuus ohjelmissa
-
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
-
-- Tiedät miten satunnaislukuja luodaan ja tiedät joitakin tilanteita missä satunnaislukuja tarvitaan.
-- Osaat käyttää Javan valmista Random-luokkaa satunnaislukujen luomiseen.
-
-</text-box>
-
-Satunnaisuutta tarvitaan esimerkiksi salausalgoritmeissa, koneoppimisessa sekä tietokonepelien ennustettavuuden vähentämisessä. Satunnaisuutta mallinnetaan käytännössä satunnaislukujen avulla, joiden luomiseen Java tarjoaa valmiin `Random`-luokan. Random-luokasta voi tehdä olion jota voi käyttää seuraavalla tavalla.
-
-
-```java
-import java.util.Random;
-
-public class Arvontaa {
     public static void main(String[] args) {
-        Random arpoja = new Random(); // luodaan apuväline arpoja
+        System.out.println("Hello packageworld!");
+    }
+}
+```
 
-        for (int i = 0; i < 10; i++) {
-            // Arvotaan ja tulostetaan satunnainen luku
-            int luku = arpoja.nextInt(10);
-            System.out.println(luku);
+Jokainen pakkaus -- myös oletuspakkaus eli default package -- voi sisältää useampia pakkauksia. Esimerkiksi pakkausmäärittelyssä `package kirjasto.domain` pakkaus `domain` on pakkauksen `kirjasto` sisällä. Edellä käytettyä nimeä `domain` käytetään usein kuvaamaan sovellusalueen käsitteisiin liittyvien luokkien säilytyspaikkaa. Esimerkiksi luokka `Kirja` voisi hyvin olla pakkauksen `kirjasto.domain` sisällä, sillä se kuvaa kirjastosovellukseen liittyvää käsitettä.
+
+
+```java
+package kirjasto.domain;
+
+public class Kirja {
+    private String nimi;
+
+    public Kirja(String nimi) {
+        this.nimi = nimi;
+    }
+
+    public String getNimi() {
+        return this.nimi;
+    }
+}
+```
+
+Pakkauksissa olevia luokkia tuodaan luokan käyttöön `import`-lauseen avulla. Pakkauksessa `kirjasto.domain` oleva luokka `Kirja` tuodaan käyttöön puolipisteeseen päättyvällä lauseella `import kirjasto.domain.Kirja`. Luokkien tuomiseen käytetyt import-lauseet asetetaan lähdekooditiedostoon pakkausmäärittelyn jälkeen.
+
+```java
+package kirjasto;
+
+import kirjasto.domain.Kirja;
+
+public class Sovellus {
+
+    public static void main(String[] args) {
+        Kirja kirja = new Kirja("pakkausten ABC!");
+        System.out.println("Hello packageworld: " + kirja.getNimi());
+    }
+}
+```
+
+<sample-output>
+
+Hello packageworld: pakkausten ABC!
+
+</sample-output>
+
+Jatkossa *lähes kaikissa* tehtävissämme käytetään pakkauksia. Luodaan seuraavaksi ensimmäiset pakkaukset itse.
+
+
+<programming-exercise name='Ensimmäisiä pakkauksia (3 osaa)' tmcname='osa10-Osa10_08.EnsimmaisiaPakkauksia'>
+
+
+<h2>Käyttöliittymä-rajapinta</h2>
+
+Tehtäväpohjassa on valmiina pakkaus `mooc`. Rakennetaan tämän pakkauksen sisälle sovelluksen toiminta. Lisää pakkaukseen mooc pakkaus `ui` (tämän jälkeen käytössä pitäisi olla pakkaus `mooc.ui`), ja lisää sinne rajapinta `Kayttoliittyma`.
+
+Rajapinnan `Kayttoliittyma` tulee määritellä metodi `void paivita()`.
+
+
+<h2>Tekstikäyttöliittymä</h2>
+
+Luo samaan pakkaukseen luokka `Tekstikayttoliittyma`, joka toteuttaa rajapinnan `Kayttoliittyma`. Toteuta luokassa `Tekstikayttoliittyma` rajapinnan `Kayttoliittyma` vaatima metodi `public void paivita()` siten, että sen ainut tehtävä on merkkijonon "`Päivitetään käyttöliittymää`"-tulostaminen `System.out.println`-metodikutsulla.
+
+
+<h2>Sovelluslogiikka</h2>
+
+Luo tämän jälkeen pakkaus `mooc.logiikka`, ja lisää sinne luokka `Sovelluslogiikka`. Sovelluslogiikan tarjoaman toiminnallisuuden tulee olla seuraavanlainen.
+
+
+- `public Sovelluslogiikka(Kayttoliittyma kayttoliittyma)`<br/>Sovelluslogiikka-luokan konstruktori. Saa parametrina Kayttoliittyma-rajapinnan toteuttavan luokan. Huom: jotta sovelluslogiikka näkisi rajapinnan, on sen "importoitava" se, eli tarvitset tiedoston alkuun rivin `import mooc.ui.Kayttoliittyma;`
+
+
+- `public void suorita(int montaKertaa)`<br/>Tulostaa `montaKertaa`-muuttujan määrittelemän määrän merkkijonoa "Sovelluslogiikka toimii". Jokaisen "Sovelluslogiikka toimii"-tulostuksen jälkeen tulee kutsua konstruktorin parametrina saadun rajapinnan `Kayttoliittyma`-toteuttaman olion määrittelemää `paivita()`-metodia.
+
+
+Voit testata sovelluksen toimintaa seuraavalla pääohjelmaluokalla.
+
+
+```java
+import mooc.logiikka.Sovelluslogiikka;
+import mooc.ui.Kayttoliittyma;
+import mooc.ui.Tekstikayttoliittyma;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Kayttoliittyma kayttoliittyma = new Tekstikayttoliittyma();
+        new Sovelluslogiikka(kayttoliittyma).suorita(3);
+    }
+}
+```
+
+<sample-output>
+
+Sovelluslogiikka toimii
+Päivitetään käyttöliittymää
+Sovelluslogiikka toimii
+Päivitetään käyttöliittymää
+Sovelluslogiikka toimii
+Päivitetään käyttöliittymää
+
+</sample-output>
+
+</programming-exercise>
+
+
+<programming-exercise name='Kolme pakkausta' tmcname='osa10-Osa10_09.KolmePakkausta'>
+
+Luo tehtäväpohjaan kolme pakkausta `a`, `b` ja `c`. Luo pakkauksen `a` sisälle luokka `A`, pakkauksen `b` sisälle luokka `B`, ja pakkauksen `c` sisälle luokka `C`. Luokissa ei tarvita oliomuuttujia, konstruktoreja tai metodeja.
+
+</programming-exercise>
+
+
+
+## Hakemistorakenne tiedostojärjestelmässä
+
+
+Kaikki NetBeansissa näkyvät projektit ovat tietokoneesi <a href="http://fi.wikipedia.org/wiki/Tiedostoj%C3%A4rjestelm%C3%A4" target="_blank">tiedostojärjestelmässä</a> tai jollain keskitetyllä levypalvelimella. Jokaiselle projektille on olemassa oma hakemisto, jonka sisällä on projektiin liittyvät tiedostot ja hakemistot.
+
+<br/>
+
+Projektin hakemistossa `src/main/java` on ohjelmaan liittyvät lähdekoodit. Jos luokan pakkauksena on kirjasto, sijaitsee luokka projektin lähdekoodihakemiston `src/main/java/kirjasto`-kansiossa. NetBeansissa voi käydä katsomassa projektien konkreettista rakennetta **Files**-välilehdeltä joka on normaalisti **Projects**-välilehden vieressä. Jos et näe välilehteä **Files**, saa sen näkyville valitsemalla vaihtoehdon **Files** valikosta **Window**.
+
+Sovelluskehitystä tehdään normaalisti **Projects**-välilehdeltä, jossa NetBeans on piilottanut projektiin liittyviä tiedostoja joista ohjelmoijan ei tarvitse välittää.
+
+
+## Pakkaukset ja näkyvyysmääreet
+
+Olemme tähän mennessä käyttäneet kahta näkyvyysmäärettä. Näkyvyysmääreellä `private` määritellään muuttujia (ja metodeja), jotka ovat näkyvissä vain sen luokan sisällä joka määrittelee ne. Niitä ei voi käyttää luokan ulkopuolelta. Näkyvyysmääreellä `public` varustetut metodit ja muuttujat ovat taas kaikkien käytettävissä.
+
+
+```java
+package kirjasto.ui;
+
+public class Kayttoliittyma {
+    private Scanner lukija;
+
+    public Kayttoliittyma(Scanner lukija) {
+        this.lukija = lukija;
+    }
+
+    public void kaynnista() {
+        tulostaOtsikko();
+
+        // muu toiminnallisuus
+    }
+
+    private void tulostaOtsikko() {
+        System.out.println("************");
+        System.out.println("* KIRJASTO *");
+        System.out.println("************");
+    }
+}
+```
+
+
+Yllä olevasta `Kayttoliittyma`-luokasta tehdyn olion konstruktori ja `kaynnista`-metodi on kutsuttavissa mistä tahansa ohjelmasta. Metodi `tulostaOtsikko` ja `lukija`-muuttuja on käytössä vain luokan sisällä.
+
+Jos näkyvyysmäärettä ei määritellä, metodit ja muuttujat ovat näkyvillä saman pakkauksen sisällä. Tätä kutsutaan oletus- tai pakkausnäkyvyydeksi. Muutetaan yllä olevaa esimerkkiä siten, että metodilla `tulostaOtsikko` on pakkausnäkyvyys.
+
+
+```java
+package kirjasto.ui;
+
+public class Kayttoliittyma {
+    private Scanner lukija;
+
+    public Kayttoliittyma(Scanner lukija) {
+        this.lukija = lukija;
+    }
+
+    public void kaynnista() {
+        tulostaOtsikko();
+
+        // muu toiminnallisuus
+    }
+
+    void tulostaOtsikko() {
+        System.out.println("************");
+        System.out.println("* KIRJASTO *");
+        System.out.println("************");
+    }
+}
+```
+
+Nyt saman pakkauksen sisällä olevat luokat -- eli luokat, jotka sijaitsevat pakkauksessa `kirjasto.ui` voivat käyttää metodia `tulostaOtsikko`.
+
+
+```java
+package kirjasto.ui;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner lukija = new Scanner(System.in);
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(lukija);
+
+        kayttoliittyma.tulostaOtsikko(); // onnistuu!
+    }
+}
+```
+
+Jos luokka on eri pakkauksessa, ei metodia `tulostaOtsikko` pysty käyttämään. Alla olevassa esimerkissä luokka Main on pakkauksessa `kirjasto`, jolloin pakkauksessa `kirjasto.ui` pakkausnäkyvyydellä määriteltyyn metodiin `tulostaOtsikko` ei pääse käsiksi.
+
+
+```java
+package kirjasto;
+
+import java.util.Scanner;
+import kirjasto.ui.Kayttoliittyma;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner lukija = new Scanner(System.in);
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(lukija);
+
+        kayttoliittyma.tulostaOtsikko(); // ei onnistu!
+    }
+}
+```
+
+
+## Laajempi esimerkki: lentokentän hallinta
+
+
+Tarkastellaan ohjelmaa, joka tarjoaa tekstikäyttöliittymän lentokoneiden ja lentojen lisäämiseen sekä näiden tarkasteluun. Ohjelman tekstikäyttöliittymä on seuraava.
+
+
+<sample-output>
+
+Lentokentän hallinta
+--------------------
+
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **1**
+Anna lentokoneen tunnus: **HA-LOL**
+Anna lentokoneen kapasiteetti: **42**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **1**
+Anna lentokoneen tunnus: **G-OWAC**
+Anna lentokoneen kapasiteetti: **101**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **2**
+Anna lentokoneen tunnus: **HA-LOL**
+Anna lähtöpaikan tunnus: **HEL**
+Anna kohdepaikan tunnus: **BAL**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **2**
+Anna lentokoneen tunnus: **G-OWAC**
+Anna lähtöpaikan tunnus: **JFK**
+Anna kohdepaikan tunnus: **BAL**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **2**
+Anna lentokoneen tunnus: **HA-LOL**
+Anna lähtöpaikan tunnus: **BAL**
+Anna kohdepaikan tunnus: **HEL**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **x**
+
+Lentopalvelu
+------------
+
+Valitse toiminto:
+[1] Tulosta lentokoneet
+[2] Tulosta lennot
+[3] Tulosta lentokoneen tiedot
+[x] Lopeta
+&gt; **1**
+G-OWAC (101 henkilöä)
+HA-LOL (42 henkilöä)
+Valitse toiminto:
+[1] Tulosta lentokoneet
+[2] Tulosta lennot
+[3] Tulosta lentokoneen tiedot
+[x] Lopeta
+&gt; **2**
+HA-LOL (42 henkilöä) (HEL-BAL)
+HA-LOL (42 henkilöä) (BAL-HEL)
+G-OWAC (101 henkilöä) (JFK-BAL)
+
+Valitse toiminto:
+[1] Tulosta lentokoneet
+[2] Tulosta lennot
+[3] Tulosta lentokoneen tiedot
+[x] Lopeta
+&gt; **3**
+Mikä kone: **G-OWAC**
+G-OWAC (101 henkilöä)
+
+Valitse toiminto:
+[1] Tulosta lentokoneet
+[2] Tulosta lennot
+[3] Tulosta lentokoneen tiedot
+[x] Lopeta
+&gt; **x**
+
+</sample-output>
+
+Ohjelmasta löytyy useita aihealueen käsitteitä, joista oleellisia ovat `Lentokone` ja `Lento`. Kuhunkin lentoon liittyy lisäksi `Paikka` (lähtöpaikka ja kohdepaikka).  Aihealuetta kuvaavien käsitteiden lisäksi ohjelmaan kuuluu tekstikäyttöliittymä sekä luokka, jonka kautta tekstikäyttöliittymä hallinnoi käsitteitä.
+
+Ohjelman pakkausrakenne voi olla -- esimerkiksi -- seuraava:
+
+- `lentokentta` - sisältää ohjelman käynnistämiseen tarvittavan pääohjelmaluokan.
+
+- `lentokentta.domain` - sisältää aihealueen käsitteitä kuvaavat luokat `Lentokone`, `Lento`, ja `Paikka`.
+
+- `lentokentta.logiikka` - sisältää toiminnallisuuden, jonka avulla sovellusta hallinnoidaan
+
+- `lentokentta.ui` - sisältää tekstikäyttöliittymän
+
+
+Alla olevissa aliluvuissa on listattu eräs mahdollinen jako sovelluksen toimintaa varten (poislukien pääohjelmaluokka).
+
+
+### Aihealueen käsitteitä kuvaavat luokat
+
+Aihealueen käsitteitä kuvaavat luokat asetetaan usein pakkaukseen nimeltä `domain`. Koska koko sovellus on pakkauksessa `lentokentta`, asetetaan pakkaus `domain` pakkaukseen `lentokentta`. Aihealueen käsitteitä kuvaavat luokat `Paikka`, `Lentokone`, ja `Lento`.
+
+
+```java
+package lentokentta.domain;
+
+public class Paikka {
+
+    private String tunnus;
+
+    public Paikka(String tunnus) {
+        this.tunnus = tunnus;
+    }
+
+    @Override
+    public String toString() {
+        return this.tunnus;
+    }
+}
+```
+
+```java
+package lentokentta.domain;
+
+public class Lentokone {
+
+    private String tunnus;
+    private int kapasiteetti;
+
+    public Lentokone(String tunnus, int kapasiteetti) {
+        this.tunnus = tunnus;
+        this.kapasiteetti = kapasiteetti;
+    }
+
+    public String getTunnus() {
+        return this.tunnus;
+    }
+
+    public int getKapasiteetti() {
+        return this.kapasiteetti;
+    }
+
+    @Override
+    public String toString() {
+        return this.tunnus + " (" + this.kapasiteetti + " henkilöä)";
+    }
+}
+```
+
+```java
+package lentokentta.domain;
+
+public class Lento {
+
+    private Lentokone lentokone;
+    private Paikka lahtopaikka;
+    private Paikka kohdepaikka;
+
+    public Lento(Lentokone lentokone, Paikka lahtopaikka, Paikka kohdepaikka) {
+        this.lentokone = lentokone;
+        this.lahtopaikka = lahtopaikka;
+        this.kohdepaikka = kohdepaikka;
+    }
+
+    public Lentokone getLentokone() {
+        return this.lentokone;
+    }
+
+    public Paikka getLahtopaikka() {
+        return lahtopaikka;
+    }
+
+    public Paikka getKohdepaikka() {
+        return kohdepaikka;
+    }
+
+    @Override
+    public String toString() {
+        return this.lentokone + " (" + this.lahtopaikka + "-" + this.kohdepaikka + ")";
+    }
+}
+```
+
+
+### Sovelluslogiikka
+
+Sovelluslogiikka eriytetään tyypillisesti aihealuetta kuvaavista luokista. Sovelluslogiikka on esimerkissämme lisätty pakkaukseen `logiikka`. Sovelluslogiikka sisältää toiminnallisuudet lentokoneiden ja lentojen lisäämiseen sekä niiden listaamiseen.
+
+
+```java
+package lentokentta.logiikka;
+
+import java.util.Collection;
+import lentokentta.domain.Lento;
+import lentokentta.domain.Lentokone;
+import java.util.HashMap;
+import java.util.Map;
+import lentokentta.domain.Paikka;
+
+public class Lentohallinta {
+
+    private Map<String, Lentokone> lentokoneet;
+    private Map<String, Lento> lennot;
+    private Map<String, Paikka> paikat;
+
+    public Lentohallinta() {
+        this.lennot = new HashMap<>();
+        this.lentokoneet = new HashMap<>();
+        this.paikat = new HashMap<>();
+    }
+
+    public void lisaaLentokone(String tunnus, int kapasiteetti) {
+        Lentokone lentokone = new Lentokone(tunnus, kapasiteetti);
+        this.lentokoneet.put(tunnus, lentokone);
+    }
+
+    public void lisaaLento(Lentokone lentokone, String lahtotunnus, String kohdetunnus) {
+        this.paikat.putIfAbsent(lahtotunnus, new Paikka(lahtotunnus));
+        this.paikat.putIfAbsent(kohdetunnus, new Paikka(kohdetunnus));
+
+        Lento lento = new Lento(lentokone, this.paikat.get(lahtotunnus), this.paikat.get(kohdetunnus));
+        this.lennot.put(lento.toString(), lento);
+    }
+
+    public Collection<Lentokone> getLentokoneet() {
+        return this.lentokoneet.values();
+    }
+
+    public Collection<Lento> getLennot() {
+        return this.lennot.values();
+    }
+
+    public Lentokone haeLentokone(String tunnus) {
+        return this.lentokoneet.get(tunnus);
+    }
+}
+```
+
+<quiznator id="5c895b0c99236814c5bbfc8f"></quiznator>
+
+
+### Tekstikäyttöliittymä
+
+Käyttöliittymä eriytetään aihealuetta kuvaavista luokista ja sovelluslogiikasta. Käyttöliittymä on alla olevassa esimerkissä lisätty pakkaukseen `ui`.
+
+
+```java
+package lentokentta.ui;
+
+import lentokentta.domain.Lento;
+import lentokentta.domain.Lentokone;
+import java.util.Scanner;
+import lentokentta.logiikka.Lentohallinta;
+
+public class Tekstikayttoliittyma {
+
+    private Lentohallinta lentohallinta;
+    private Scanner lukija;
+
+    public Tekstikayttoliittyma(Lentohallinta lentohallinta, Scanner lukija) {
+        this.lentohallinta = lentohallinta;
+        this.lukija = lukija;
+    }
+
+    public void kaynnista() {
+        // tehdään käynnistys kahdessa osassa -- ensin käynnistetään hallinta,
+        // sitten lentopalvelu
+        kaynnistaLentokentanHallinta();
+        System.out.println();
+        kaynnistaLentoPalvelu();
+        System.out.println();
+    }
+
+    private void kaynnistaLentokentanHallinta() {
+        System.out.println("Lentokentän hallinta");
+        System.out.println("--------------------");
+        System.out.println();
+
+        while (true) {
+            System.out.println("Valitse toiminto:");
+            System.out.println("[1] Lisää lentokone");
+            System.out.println("[2] Lisää lento");
+            System.out.println("[x] Poistu hallintamoodista");
+
+            System.out.print("> ");
+            String vastaus = lukija.nextLine();
+
+            if (vastaus.equals("1")) {
+                lisaaLentokone();
+            } else if (vastaus.equals("2")) {
+                lisaaLento();
+            } else if (vastaus.equals("x")) {
+                break;
+            }
+        }
+    }
+
+    private void lisaaLentokone() {
+        System.out.print("Anna lentokoneen tunnus: ");
+        String tunnus = lukija.nextLine();
+        System.out.print("Anna lentokoneen kapasiteetti: ");
+        int kapasiteetti = Integer.parseInt(lukija.nextLine());
+
+        this.lentohallinta.lisaaLentokone(tunnus, kapasiteetti);
+    }
+
+    private void lisaaLento() {
+        System.out.print("Anna lentokoneen tunnus: ");
+        Lentokone lentokone = kysyLentokone();
+        System.out.print("Anna lähtöpaikan tunnus: ");
+        String lahtotunnus = lukija.nextLine();
+        System.out.print("Anna kohdepaikan tunnus: ");
+        String kohdetunnus = lukija.nextLine();
+
+        this.lentohallinta.lisaaLento(lentokone, lahtotunnus, kohdetunnus);
+    }
+
+    private void kaynnistaLentoPalvelu() {
+        System.out.println("Lentopalvelu");
+        System.out.println("------------");
+        System.out.println();
+
+        while (true) {
+            System.out.println("Valitse toiminto:");
+            System.out.println("[1] Tulosta lentokoneet");
+            System.out.println("[2] Tulosta lennot");
+            System.out.println("[3] Tulosta lentokoneen tiedot");
+            System.out.println("[x] Lopeta");
+
+            System.out.print("> ");
+            String vastaus = lukija.nextLine();
+            if (vastaus.equals("1")) {
+                tulostaLentokoneet();
+            } else if (vastaus.equals("2")) {
+                tulostaLennot();
+            } else if (vastaus.equals("3")) {
+                tulostaLentokone();
+            } else if (vastaus.equals("x")) {
+                break;
+            }
+        }
+    }
+
+    private void tulostaLentokoneet() {
+        for (Lentokone lentokone : lentohallinta.getLentokoneet()) {
+            System.out.println(lentokone);
+        }
+    }
+
+    private void tulostaLennot() {
+        for (Lento lento : lentohallinta.getLennot()) {
+            System.out.println(lento);
+            System.out.println("");
+        }
+    }
+
+    private void tulostaLentokone() {
+        System.out.print("Mikä kone: ");
+        Lentokone kone = kysyLentokone();
+        System.out.println(kone);
+        System.out.println();
+    }
+
+    private Lentokone kysyLentokone() {
+        Lentokone lentokone = null;
+        while (lentokone == null) {
+            String tunnus = lukija.nextLine();
+            lentokone = lentohallinta.haeLentokone(tunnus);
+
+            if (lentokone == null) {
+                System.out.println("Tunnuksella " + tunnus + " ei ole lentokonetta.");
+            }
+        }
+
+        return lentokone;
+    }
+}
+```
+
+
+<programming-exercise name='Lentokenttä (2 osaa)' tmcname='osa10-Osa10_10.Lentokentta'>
+
+Tässä tehtävässä toteutat edellä kuvatun sovelluksen. Saat suunnitella rakenteen vapaasti, tai voit noudattaa edellä kuvattua rakennetta. Käyttöliittymän ulkomuoto sekä vaaditut komennot on määritelty ennalta. Tehtävä on kahden yksittäisen tehtäväpisteen arvoinen.
+
+**Huom: jotta testit toimisivat, saat luoda ohjelmassasi vain yhden Scanner-olion käyttäjän syötteen lukemiseen.**
+
+Lentokenttä-tehtävässä toteutetaan lentokentän hallintasovellus. Lentokentän hallintasovelluksessa hallinnoidaan lentokoneita ja lentoja. Lentokoneista tiedetään aina tunnus ja kapasiteetti. Lennoista tiedetään lennon lentokone, lähtöpaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Helsinki_Airport" target="_blank" rel="noopener">HEL</a>) ja kohdepaikan tunnus (esim. <a href="http://en.wikipedia.org/wiki/Batman_Airport" target="_blank" rel="noopener">BAL</a>).
+
+<br/>
+
+Sekä lentokoneita että lentoja voi olla useita. Samalla lentokoneella voidaan myös lentää useita eri lentoja.
+
+Sovelluksen tulee toimia kahdessa vaiheessa: ensin syötetään lentokoneiden ja lentojen tietoja hallintakäyttöliittymässä, jonka jälkeen siirrytään lentopalvelun käyttöön. Lentopalvelussa on kolme toimintoa; lentokoneiden tulostaminen, lentojen tulostaminen, ja lentokoneen tietojen tulostaminen. Tämän lisäksi käyttäjä voi poistua ohjelmasta valitsemalla vaihtoehdon `x`. Jos käyttäjä syöttää epäkelvon komennon, kysytään komentoa uudestaan.
+
+
+**Ohjelman tulee käynnistyä kun pakkauksessa `lentokentta` olevan luokan Main metodi main suoritetaan.**
+
+Ohjelman esimerkkitulostus alla:
+
+<sample-output>
+
+Lentokentän hallinta
+--------------------
+
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **1**
+Anna lentokoneen tunnus: **HA-LOL**
+Anna lentokoneen kapasiteetti: **42**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **1**
+Anna lentokoneen tunnus: **G-OWAC**
+Anna lentokoneen kapasiteetti: **101**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **2**
+Anna lentokoneen tunnus: **HA-LOL**
+Anna lähtöpaikan tunnus: **HEL**
+Anna kohdepaikan tunnus: **BAL**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **2**
+Anna lentokoneen tunnus: **G-OWAC**
+Anna lähtöpaikan tunnus: **JFK**
+Anna kohdepaikan tunnus: **BAL**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **2**
+Anna lentokoneen tunnus: **HA-LOL**
+Anna lähtöpaikan tunnus: **BAL**
+Anna kohdepaikan tunnus: **HEL**
+Valitse toiminto:
+[1] Lisää lentokone
+[2] Lisää lento
+[x] Poistu hallintamoodista
+&gt; **x**
+
+Lentopalvelu
+------------
+
+Valitse toiminto:
+[1] Tulosta lentokoneet
+[2] Tulosta lennot
+[3] Tulosta lentokoneen tiedot
+[x] Lopeta
+&gt; **1**
+G-OWAC (101 henkilöä)
+HA-LOL (42 henkilöä)
+Valitse toiminto:
+[1] Tulosta lentokoneet
+[2] Tulosta lennot
+[3] Tulosta lentokoneen tiedot
+[x] Lopeta
+&gt; **2**
+HA-LOL (42 henkilöä) (HEL-BAL)
+HA-LOL (42 henkilöä) (BAL-HEL)
+G-OWAC (101 henkilöä) (JFK-BAL)
+
+Valitse toiminto:
+[1] Tulosta lentokoneet
+[2] Tulosta lennot
+[3] Tulosta lentokoneen tiedot
+[x] Lopeta
+&gt; **3**
+Mikä kone: **G-OWAC**
+G-OWAC (101 henkilöä)
+
+Valitse toiminto:
+[1] Tulosta lentokoneet
+[2] Tulosta lennot
+[3] Tulosta lentokoneen tiedot
+[x] Lopeta
+&gt; **x**
+
+</sample-output>
+
+
+**Huom1:** Testien kannalta on oleellista että *käyttöliittymä* toimii **täsmälleen** kuten yllä kuvattu. Ohjelman tulostamat vaihtoehdot kannattanee copypasteta tästä ohjelmakoodiin. Testit eivät oleta, että ohjelmasi on varautunut epäkelpoihin syötteisiin.
+
+**Huom2:** älä käytä luokkien nimissä skandeja, ne saattavat aiheuttaa ongelmia testeihin!
+
+
+</programming-exercise>
+
+
+# Poikkeukset
+
+<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+
+- Tiedät mitä poikkeukset ovat ja osaat varautua poikkeuksiin.
+- Osaat heittää poikkeuksia.
+- Tiedät että osaan poikkeksista tulee varautua, ja tiedät että on olemassa poikkeuksia joihin ei tarvitse erikseen varautua.
+
+</text-box>
+
+Poikkeukset ovat tilanteita, joissa ohjelman suoritus päättyy virheeseen. Ohjelmassa on esimerkiksi kutsuttu *null*-viitteeseen liittyvää metodia, jolloin ohjelmassa tapahtuu poikkeus `NullPointerException`. Vastaavasti taulukon ulkopuolella olevan indeksin hakeminen johtaa poikkeukseen `IndexOutOfBoundsException` ym.
+
+
+Osa Javassa esiintyvistä poikkeuksista on sellaisia, että niihin tulee aina varautua. Näitä ovat esimerkiksi tiedoston lukemisessa tapahtuvaan virheeseen tai verkkoyhteyden katkeamiseen liittyvät poikkeukset. Osa poikkeuksista taas on ajonaikaisia poikkeuksia -- kuten vaikkapa NullPointerException --, joihin ei erikseen tarvitse varautua. Java ilmoittaa aina jos ohjelmassa on lause tai lauseke, jossa mahdollisesti tapahtuvaan poikkeukseen tulee varautua.
+
+
+## Poikkeusten käsittely
+
+Poikkeukset käsitellään `try { } catch (Exception e) { }` -lohkorakenteella. Avainsanan `try` aloittaman lohkon sisällä on lähdekoodi, jonka suorituksessa tapahtuu *mahdollisesti* poikkeus. Avainsanan `catch` aloittaman lohkon sisällä taas määritellään poikkeustilanteessa tapahtuva käsittely, eli mitä tehdään kun try-lohkossa tapahtuu poikkeus. Avainsanaa catch seuraa myös käsiteltävän poikkeuksen tyyppi, esimerkiksi "kaikki poikkeukset" eli Exception (`catch (Exception e)`).
+
+
+```java
+try {
+    // poikkeuksen mahdollisesti heittävä ohjelmakoodi
+} catch (Exception e) {
+    // lohko johon päädytään poikkeustilanteessa
+}
+```
+
+Avainsana `catch` eli *ota kiinni* tulee siitä, että poikkeukset *heitetään* (`throw`).
+
+Kuten edellä todettiin, ajonaikaisiin poikkeuksiin kuten NullPointerException ei tarvitse erikseen varautua. Tällaiset poikkeukset voidaan jättää käsittelemättä, jolloin ohjelman suoritus päättyy virheeseen poikkeustilanteen tapahtuessa. Tarkastellaan erästä poikkeustilannetta nyt jo tutun merkkijonon kokonaisluvuksi muuntamisen kautta.
+
+
+Olemme käyttäneet luokan `Integer` metodia <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-" target="_blank" rel="noopener">parseInt</a> merkkijonon kokonaisluvuksi muuntamiseen. Metodi heittää poikkeuksen `NumberFormatException`, jos sille parametrina annettu merkkijono ei ole muunnettavissa kokonaisluvuksi.
+
+<br/>
+
+```java
+Scanner lukija = new Scanner(System.in);
+System.out.print("Syötä numero: ");
+
+int numero = Integer.parseInt(lukija.nextLine());
+```
+
+<sample-output>
+
+Syötä numero: **tatti**
+  **Exception in thread "..." java.lang.NumberFormatException: For input string: "tatti"**
+
+</sample-output>
+
+
+Yllä ohjelma heittää poikkeuksen, kun käyttäjä syöttää virheellisen numeron. Ohjelman suoritus päättyy tällöin virhetilanteeseen.
+
+Lisätään esimerkkiin poikkeuksen käsittely. Kutsu, joka saattaa heittää poikkeuksen asetetaan `try`-lohkon sisään, ja virhetilanteessa tapahtuva toiminta `catch`-lohkon sisään.
+
+
+```java
+Scanner lukija = new Scanner(System.in);
+
+System.out.print("Syötä numero: ");
+int numero = -1;
+
+try {
+    numero = Integer.parseInt(lukija.nextLine());
+} catch (Exception e) {
+    System.out.println("Et syöttänyt kunnollista numeroa.");
+}
+```
+
+<sample-output>
+
+Syötä numero: **5**
+
+</sample-output>
+
+<sample-output>
+
+Syötä numero: **enpäs!**
+Et syöttänyt kunnollista numeroa.
+
+</sample-output>
+
+
+Avainsanan `try` määrittelemän lohkon sisältä siirrytään `catch`-lohkoon heti poikkeuksen tapahtuessa. Havainnollistetaan tätä lisäämällä tulostuslause `try`-lohkossa metodia `Integer.parseInt` kutsuvan rivin jälkeen.
+
+
+```java
+Scanner lukija = new Scanner(System.in);
+
+System.out.print("Syötä numero: ");
+int numero = -1;
+
+try {
+    numero = Integer.parseInt(lukija.nextLine());
+    System.out.println("Hienosti syötetty!");
+} catch (Exception e) {
+    System.out.println("Et syöttänyt kunnollista numeroa.");
+}
+```
+
+<sample-output>
+
+Syötä numero: **5**
+Hienosti syötetty!
+
+</sample-output>
+
+<sample-output>
+
+Syötä numero: **enpäs!**
+Et syöttänyt kunnollista numeroa.
+
+</sample-output>
+
+
+Ohjelmalle syötetty merkkijono `enpäs!` annetaan parametrina `Integer.parseInt`-metodille, joka heittää poikkeuksen, jos parametrina saadun merkkijonon muuntaminen luvuksi epäonnistuu. Huomaa, että `catch`-lohkossa oleva koodi suoritetaan *vain* poikkeustapauksissa.
+
+Tehdään yllä olevasta luvun muuntajasta hieman hyödyllisempi. Tehdään siitä metodi, joka kysyy numeroa yhä uudestaan, kunnes käyttäjä syöttää oikean numeron. Metodin suoritus loppuu vasta silloin, kun käyttäjä syöttää kokonaisluvun.
+
+
+```java
+public int lueLuku(Scanner lukija) {
+    while (true) {
+        System.out.print("Syötä numero: ");
+
+        try {
+            int numero = Integer.parseInt(lukija.nextLine());
+            return numero;
+        } catch (Exception e) {
+            System.out.println("Et syöttänyt kunnollista numeroa.");
         }
     }
 }
 ```
 
-Yllä olevassa esimerkissä luodaan ensin `Random`-luokasta olio. Random-olio tarjoaa metodin `nextInt`, jolle annetaan parametrina kokonaisluku. Metodi palauttaa satunnaisen kokonaisluvun väliltä `[0,kokonaisluku[` eli *0..(annettu kokonaisluku - 1)*.
-
-Ohjelman tuottama tulostus ei ole aina sama. Yksi mahdollinen tulostusesimerkki on seuraava:
-
 <sample-output>
 
-2
-2
-4
-3
-4
-5
-6
-0
-7
-8
+Syötä numero: **enpäs!**
+Et syöttänyt kunnollista numeroa.
+Syötä numero: **Matilla on ovessa tatti.**
+Et syöttänyt kunnollista numeroa.
+Syötä numero: **43**
 
 </sample-output>
 
 
-<programming-exercise name='Lukuja' tmcname='osa11-Osa11_06.Lukuja'>
+## Poikkeukset ja resurssit
 
-Kirjoita ohjelma, joka kysyy käyttäjältä tulostettavien satunnaislukujen määrän ja tulostaa tämän jälkeen luvut. Tulostettavien lukujen tulee olla välillä `[0, 10]`. Alla muutamia esimerkkejä.
+Erilaisten käyttöjärjestelmäresurssien kuten tiedostojen lukemiseen on toteutettu erillinen versio poikkeustenhallinnasta. ns. try-with-resources -tyyppisessä poikkeustenhallinnassa avattava resurssi lisätään try-osaan määriteltävään ei-pakolliseen suluilla rajattavaan osaan.
+
+Alla olevassa esimerkissä luetaan tiedoston "tiedosto.txt" kaikki rivit, jotka lisätään ArrayList-listaan. Tiedostoja lukiessa voidaan kohdata virhetilanne, joten tiedoston lukeminen vaatii erillisen "yrittämisen" (try) sekä mahdollisen virheen kiinnioton (catch).
+
+
+```java
+ArrayList<String> rivit = new ArrayList<>();
+
+// luodaan lukija tiedoston lukemista varten
+try (Scanner lukija = new Scanner(new File("tiedosto.txt"))) {
+
+    // luetaan kaikki tiedoston rivit
+    while (lukija.hasNextLine()) {
+        rivit.add(lukija.nextLine());
+    }
+} catch (Exception e) {
+    System.out.println("Virhe: " + e.getMessage());
+}
+
+// tee jotain luetuilla riveillä
+```
+
+Yllä kuvattu try-with-resources -lähestymistapa on hyödyllinen resurssien käsittelyssä, sillä tässä tapauksessa ohjelma sulkee käytetyt resurssit automaattisesti. Tällöin esimerkiksi tiedostoihin liittyvät viitteet saavat luvan "kadota", koska niille ei ole enää käyttöä. Mikäli taas resursseja ei suljeta, ovat tiedostot käyttöjärjestelmän näkökulmasta käytössä kunnes ohjelma sammutetaan.
+
+
+## Käsittelyvastuun siirtäminen
+
+
+Metodit ja konstruktorit voivat *heittää* poikkeuksia. Heitettäviä poikkeuksia on karkeasti ottaen kahdenlaisia. On poikkeuksia jotka on pakko käsitellä, ja on poikkeuksia joita ei ole pakko käsitellä. Poikkeukset käsitellään joko `try-catch` -lohkossa, tai *heittämällä ne ulos metodista*.
+
+
+Alla olevassa esimerkissä luetaan parametrina annetun tiedoston rivit yksitellen. Tiedoston lukeminen saattaa heittää poikkeuksen -- voi olla, ettei tiedostoa esimerkiksi löydy, tai voi olla ettei siihen ole lukuoikeuksia. Tällainen poikkeus tulee käsitellä. Poikkeuksen käsittely tapahtuu  `try-catch` -lauseella. Seuraavassa esimerkissä emme juurikaan välitä poikkeustilanteesta, mutta tulostamme kuitenkin poikkeukseen liittyvän viestin.
+
+
+```java
+public List<String> lue(String tiedosto) {
+    List<String> rivit = new ArrayList<>();
+
+    try {
+        Files.lines(Paths.get("tiedosto.txt")).forEach(rivi -> rivit.add(rivi));
+    } catch (Exception e) {
+        System.out.println("Virhe: " + e.getMessage());
+    }
+
+    return rivit;
+}
+```
+
+Ohjelmoija voi myös jättää poikkeuksen käsittelemättä ja *siirtää vastuun* poikkeuksen käsittelystä metodin kutsujalle. Vastuun siirto tapahtuu heittämällä poikkeus metodista eteenpäin lisäämällä tästä tieto metodin määrittelyyn. Tieto poikkeuksen heitosta -- `throws *PoikkeusTyyppi*`, missä poikkeustyyppi esimerkiksi Exception -- lisätään ennen metodirungon avaavaa aaltosulkua.
+
+
+```java
+public List<String> lue(String tiedosto) throws Exception {
+    ArrayList<String> rivit = new ArrayList<>();
+    Files.lines(Paths.get(tiedosto)).forEach(rivi -> rivit.add(rivi));
+    return rivit;
+}
+```
+
+Nyt metodia `lue` kutsuvan metodin tulee joko käsitellä poikkeus `try-catch` -lohkossa tai siirtää poikkeuksen käsittelyn vastuuta eteenpäin. Joskus poikkeuksen käsittelyä vältetään viimeiseen asti, ja `main`-metodikin heittää poikkeuksen käsiteltäväksi eteenpäin:
+
+
+```java
+public class Paaohjelma {
+   public static void main(String[] args) throws Exception {
+       // ...
+   }
+}
+```
+
+Tällöin mahdollinen poikkeus päätyy ohjelman suorittajalle eli Javan virtuaalikoneelle, joka keskeyttää ohjelman suorituksen poikkeukseen johtavan virheen tapahtuessa.
+
+
+## Poikkeusten heittäminen
+
+Voimme heittää poikkeuksen `throw`-komennolla. Esimerkiksi `NumberFormatException`-luokasta luodun poikkeuksen heittäminen tapahtuisi komennolla `throw new NumberFormatException()`. Seuraava ohjelma päätyy aina poikkeustilaan.
+
+
+```java
+public class Ohjelma {
+
+    public static void main(String[] args) throws Exception {
+        throw new NumberFormatException(); // Ohjelmassa heitetään poikkeus
+    }
+}
+```
+
+Eräs poikkeus, johon käyttäjän ei ole pakko varautua on `IllegalArgumentException`. Poikkeuksella `IllegalArgumentException` kerrotaan että metodille tai konstruktorille annettujen parametrien arvot ovat *vääränlaiset*. IllegalArgumentException-poikkeusta käytetään esimerkiksi silloin, kun halutaan varmistaa, että parametreilla on tietyt arvot.
+
+Luodaan luokka `Arvosana`, joka saa konstruktorin parametrina kokonaislukutyyppisen arvosanan.
+
+
+```java
+public class Arvosana {
+    private int arvosana;
+
+    public Arvosana(int arvosana) {
+        this.arvosana = arvosana;
+    }
+
+    public int getArvosana() {
+        return this.arvosana;
+    }
+}
+```
+
+Haluamme seuraavaksi varmistaa, että Arvosana-luokan konstruktorin parametrina saatu arvo täyttää tietyt kriteerit. Arvosanan tulee olla aina välillä 0-5. Jos arvosana on jotain muuta, haluamme *heittää poikkeuksen*. Lisätään `Arvosana`-luokan konstruktoriin ehtolause, joka tarkistaa onko arvosana arvovälin 0-5 ulkopuolella. Jos on, heitetään poikkeus `IllegalArgumentException` sanomalla `throw new IllegalArgumentException("Arvosanan tulee olla välillä 0-5");`.
+
+
+```java
+public class Arvosana {
+    private int arvosana;
+
+    public Arvosana(int arvosana) {
+        if (arvosana < 0 || arvosana > 5) {
+            throw new IllegalArgumentException("Arvosanan tulee olla välillä 0-5");
+        }
+
+        this.arvosana = arvosana;
+    }
+
+    public int getArvosana() {
+        return this.arvosana;
+    }
+}
+```
+
+```java
+Arvosana arvosana = new Arvosana(3);
+System.out.println(arvosana.getArvosana());
+
+Arvosana virheellinenArvo = new Arvosana(22);
+// tapahtuu poikkeus, tästä ei jatketa eteenpäin
+```
 
 <sample-output>
 
-Montako satunnaislukua tulostetaan?
-**4**
-9
-1
-4
 3
+Exception in thread "..." java.lang.IllegalArgumentException: Arvosanan tulee olla välillä 0-5
 
 </sample-output>
 
 
+Jos poikkeus on esimerkiksi tyyppiä IllegalArgumentException, tai yleisemmin ajonaikainen poikkeus, ei sen heittämisestä tarvitse kirjoittaa erikseen metodin määrittelyyn.
+
+
+<programming-exercise name='Parametrien validointi (2 osaa)' tmcname='osa10-Osa10_11.ParametrienValidointi'>
+
+Harjoitellaan hieman parametrien validointia `IllegalArgumentException`-poikkeuksen avulla. Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Laskin`. Muuta luokkia seuraavasti:
+
+<h2>Henkilön validointi</h2>
+
+
+Luokan `Henkilo` konstruktorin tulee varmistaa että parametrina annettu nimi ei ole null, tyhjä tai yli 40 merkkiä pitkä. Myös iän tulee olla väliltä 0-120. Jos joku edelläolevista ehdoista ei päde, tulee konstruktorin heittää `IllegalArgumentException`-poikkeus.
+
+
+<h2>Laskimen validointi</h2>
+
+
+Luokan `Laskin` metodeja tulee muuttaa seuraavasti: Metodin `kertoma` tulee toimia vain jos parametrina annetaan ei-negatiivinen luku (0 tai suurempi). Metodin `binomikerroin` tulee toimia vain jos parametrit ovat ei-negatiivisia ja osajoukon koko on pienempi kuin joukon koko. Jos jompikumpi metodeista saa epäkelpoja arvoja metodikutsujen yhteydessä, tulee metodien heittää poikkeus `IllegalArgumentException`.
+
+
+</programming-exercise>
+
+
+<text-box variant='hint' name='Poikkeusten tyypit'>
+
+Edellä todettiin seuraavaa: *...poikkeuksia on karkeasti ottaen kahdenlaisia. On poikkeuksia jotka on pakko käsitellä, ja on poikkeuksia joita ei ole pakko käsitellä.*.
+
+
+Poikkeukset, jotka on pakko käsitellä, ovat tarkemmin ottaen poikkeuksia, joiden mahdollinen heittäminen ja niihin varautuminen tarkastetaan käännösaikaisesti. Tämän takia joihinkin poikkeuksiin tulee joko varautua `try-catch`-lauseella tai ne tulee heittää edelleen metodiin liitettävällä `throws`-määreellä. Tällaisia poikkeuksia ovat esimerkiksi tiedostojen käsittelyyn liittyvät poikkeukset `IOException` ja `FileNotFoundException`.
+
+Osa poikkeuksista on taas sellaisia, että niitä ei tarkasteta käännösaikaisesti, vaan ne saattavat tapahtua ohjelman suorituksen aikana. Tällaisiin ei ole pakko varautua `try-catch`-lauseella. Tällaisia poikkeuksia ovat esimerkiksi `IllegalArgumentException` ja `NullPointerException`.
+
+
+</text-box>
+
+
+## Poikkeukset ja rajapinnat
+
+Rajapintaluokissa voidaan määritellä metodeja, jotka saattavat heittää poikkeuksen. Esimerkiksi seuraavan rajapinnan `Tiedostopalvelin` toteuttavat luokat heittävät *mahdollisesti* poikkeuksen metodeissa `lataa` ja `tallenna`.
+
+
+```java
+public interface Tiedostopalvelin {
+    String lataa(String tiedosto) throws Exception;
+    void tallenna(String tiedosto, String merkkijono) throws Exception;
+}
+```
+
+Jos rajapinta määrittelee metodeille `throws Exception`-määreet, eli että metodit heittävät mahdollisesti poikkeuksen, tulee samat määreet olla myös rajapinnan toteuttavassa luokassa. Luokan ei kuitenkaan ole pakko heittää poikkeusta kuten alla olevasta esimerkistä näkee.
+
+
+```java
+public class Tekstipalvelin implements Tiedostopalvelin {
+
+    private Map<String, String> data;
+
+    public Tekstipalvelin() {
+        this.data = new HashMap<>();
+    }
+
+    @Override
+    public String lataa(String tiedosto) throws Exception {
+        return this.data.get(tiedosto);
+    }
+
+    @Override
+    public void tallenna(String tiedosto, String merkkijono) throws Exception {
+        this.data.put(tiedosto, merkkijono);
+    }
+}
+```
+
+## Poikkeuksen tiedot
+
+
+Poikkeusten käsittelytoiminnallisuuden sisältämä `catch`-lohko määrittelee catch-osion sisällä poikkeuksen johon varaudutaan `catch (*Exception e*)`. Poikkeuksen tiedot tallennetaan `e`-muuttujaan.
+
+
+```java
+try {
+    // ohjelmakoodi, joka saattaa heittää poikkeuksen
+} catch (Exception e) {
+    // poikkeuksen tiedot ovat tallessa muuttujassa e
+}
+```
+
+Luokka `Exception` tarjoaa hyödyllisiä metodeja. Esimerkiksi metodi `printStackTrace()` tulostaa *stack tracen*, joka kertoo miten poikkeukseen päädyttiin. Tutkitaan seuraavaa metodin `printStackTrace()` tulostamaa virhettä.
+
+
 <sample-output>
 
-Montako satunnaislukua tulostetaan?
-**8**
-9
-6
-0
-9
+Exception in thread "main" java.lang.NullPointerException
+  at pakkaus.Luokka.tulosta(Luokka.java:43)
+  at pakkaus.Luokka.main(Luokka.java:29)
+
+</sample-output>
+
+
+Stack tracen lukeminen tapahtuu alhaalta ylöspäin. Alimpana on ensimmäinen kutsu, eli ohjelman suoritus on alkanut luokan `Luokka` metodista `main()`. Luokan `Luokka` main-metodin rivillä 29 on kutsuttu metodia `tulosta()`. Metodin `tulosta` rivillä 43 on tapahtunut poikkeus `NullPointerException`. Poikkeuksen tiedot ovatkin hyvin hyödyllisiä virhekohdan selvittämisessä.
+
+
+<quiznator id="5c8b64ba3972a9147410a33f"></quiznator>
+
+
+<programming-exercise name='Sensorit ja lämpötila (4 osaa)' tmcname='osa10-Osa10_12.SensoritJaLampotila'>
+
+
+Kaikki luotavat luokat tulee sijoittaa pakkaukseen `sovellus`.
+
+Käytössämme on seuraava rajapinta:
+
+```java
+public interface Sensori {
+    boolean onPaalla();  // palauttaa true jos sensori on päällä
+    void paalle();       // käynnistä sensorin
+    void poisPaalta();   // sulkee sensorin
+    int mittaa();        // palauttaa sensorin lukeman jos sensori on päällä
+                         // jos sensori ei ole päällä heittää poikkeuksen
+                         // IllegalStateException
+}
+```
+
+<h2>Vakiosensori</h2>
+
+Tee luokka `Vakiosensori` joka toteuttaa rajapinnan `Sensori`.
+
+Vakiosensori on koko ajan päällä. Metodien paalle ja poisPaalta kutsuminen ei tee mitään. Vakiosensorilla tulee olla konstruktori, jonka parametrina on kokonaisluku. Metodikutsu `mittaa` palauttaa aina konstruktorille parametrina annetun luvun.
+
+Esimerkki:
+
+```java
+public static void main(String[] args) {
+    Vakiosensori kymppi = new Vakiosensori(10);
+    Vakiosensori miinusViis = new Vakiosensori(-5);
+
+    System.out.println(kymppi.mittaa());
+    System.out.println(miinusViis.mittaa());
+
+    System.out.println(kymppi.onPaalla());
+    kymppi.poisPaalta();
+    System.out.println(kymppi.onPaalla());
+}
+```
+
+<sample-output>
+
 10
-7
-3
-3
+-5
+true
+true
 
 </sample-output>
 
-</programming-exercise>
 
+<h2>Lampomittari</h2>
 
-Metodin `nextInt` avulla pystyy luomaan hyvin monipuolista satunnaisuutta. Ohjelmoija saattaisi esimerkiksi haluta, että ohjelman ilmoittama lämpötila on satunnainen ja väliltä [-30,50]. Tällöin ratkaisu on arpoa lukuja nollan ja kahdeksankymmenen väliltä ja miinustaa arvotusta luvusta 30.
+Tee luokka `Lampomittari`, joka toteuttaa rajapinnan `Sensori`.
 
+Aluksi lämpömittari on poissa päältä. Kutsuttaessa metodia `mittaa` kun mittari on päällä mittari arpoo luvun väliltä -30...30 ja palauttaa sen kutsujalle. Jos mittari ei ole päällä, heitetään poikkeus `IllegalStateException`.
 
-```java
-Random arpoja = new Random();
-int lampotila = arpoja.nextInt(81) - 30;
-System.out.println(lampotila);
-```
-
-<programming-exercise name='Noppa' tmcname='osa11-Osa11_07.Noppa'>
-
-Tehtäväpohjassa on luokka `Noppa`, jonka runko on seuraava:
-
-```java
-import java.util.Random;
-
-public class Noppa {
-    private Random random;
-    private int tahkojenMaara;
-
-    public Noppa(int tahkojenMaara) {
-        this.random = new Random();
-        // Alusta oliomuuttuja tahkojenMaara tässä
-    }
-
-    public int heita() {
-        // arvo täällä luku jonka tulee olla yhdestä tahkojen määrään
-        // ja palauta se
-    }
-}
-```
-
-Muokkaa luokkaa siten, että sen konstruktori`Noppa(int tahkojenMaara)` luo uuden noppa-olion annetulla nopan tahkojen (eri oman numeronsa sisältämien "puolien") määrällä. Muokkaa myös metodia `heita` siten, että se antaa satunnaisen nopanheiton tuloksen, jonka arvon tulee olla väliltä `1...tahkojen määrä`.
-
-Seuraavassa noppaa testaava pääohjelma:
-
-
-```java
-public class Ohjelma {
-    public static void main(String[] args) {
-        Noppa noppa = new Noppa(6);
-
-        for (int i = 0; i < 10; i++) {
-            System.out.println(noppa.heita());
-        }
-    }
-}
-```
-
-Tulostus voisi olla esimerkiksi seuraava:
-
-<sample-output>
-
-1
-6
-3
-5
-3
-3
-2
-2
-6
-1
-
-</sample-output>
-
-</programming-exercise>
-
-
-Random-luokasta tehdyn olion kautta päästään käsiksi myös satunnaisiin liukulukuihin, joita käytetään muunmuassa todennäköisyyslaskennan yhteydessä; tietokoneilla todennäköisyyksiä simuloidaan yleensä väliltä [0..1] olevilla luvuilla.
-
-Random-oliolta satunnaisia liukulukuja saa metodilla `nextDouble`. Tarkastellaan seuraavia säämahdollisuuksia:
-
-- Sataa räntää todennäköisyydellä 0.1 (10%)
-- Sataa lunta todennäköisyydellä 0.3 (30%)
-- Aurinko paistaa todennäköisyydellä 0.6 (60%)
-
-Luodaan edellä olevista arvioista sääennustaja.
-
-```java
-import java.util.ArrayList;
-import java.util.Random;
-
-public class SaaEnnustaja {
-    private Random random;
-
-    public SaaEnnustaja() {
-        this.random = new Random();
-    }
-
-    public String ennustaSaa() {
-        double todennakoisyys = this.random.nextDouble();
-
-        if (todennakoisyys <= 0.1) {
-            return "Sataa räntää";
-        } else if (todennakoisyys <= 0.4) { // 0.1 + 0.3
-            return "Sataa lunta";
-        } else { // loput, 1.0 - 0.4 = 0.6
-            return "Aurinko paistaa";
-        }
-    }
-
-    public int ennustaLampotila() {
-        return (int) (4 * this.random.nextGaussian() - 3);
-    }
-}
-```
-
-Metodi `ennustaLampotila` on monella tapaa mielenkiintoinen. Metodin sisällä tehtävä kutsu `this.random.nextGaussian()` on tavallinen metodikutsu, jonka kaltaisia olemme nähneet aikaisemminkin. Kiinnostavaa tässä `Random`-luokan ilmentymän tarjoamassa metodissa on se, että metodin palauttama luku on normaalijakautunut (normaalijakautuneilla luvuilla voi kuvata esimerkiksi ihmisten pituuksia ja painoja -- jos et koe mielenkiintoa satunnaisuuden eri lajeihin se ei haittaa!).
-
-
-```java
-public int ennustaLampotila() {
-    return (int) (4 * this.random.nextGaussian() - 3);
-}
-```
-
-Edellisessä esimerkissä käytetään eksplisiittistä tyyppimuunnosta liukulukujen muuntamiseen kokonaisluvuiksi `(int)`. Vastaavalla menetelmällä voidaan muuttaa myös kokonaislukuja liukuluvuiksi kirjoittamalla `(double) kokonaisluku`
-
-Luodaan vielä pääohjelma josta luokkaa `SaaEnnustaja` käytetään.
-
-```java
-// importit
-
-public class Ohjelma {
-
-    public static void main(String[] args) {
-        SaaEnnustaja ennustaja = new SaaEnnustaja();
-
-        // tallennetaan päivät listalle
-        ArrayList<String> paivat = new ArrayList<>();
-        paivat.add("Ma");
-        paivat.add("Ti");
-        paivat.add("Ke");
-        paivat.add("To");
-        paivat.add("Pe");
-        paivat.add("La");
-        paivat.add("Su");
-
-        System.out.println("Seuraavan viikon sääennuste:");
-
-        for (String paiva: paivat) {
-            String saaEnnuste = ennustaja.ennustaSaa();
-            int lampotilaEnnuste = ennustaja.ennustaLampotila();
-
-            System.out.println(paiva + ": " + saaEnnuste + " " + lampotilaEnnuste + " astetta.");
-        }
-    }
-}
-```
-
-Ohjelman tulostus voisi olla esimerkiksi seuraavanlainen:
-
-<sample-output>
-
-Seuraavan viikon sääennuste:
-Ma: Sataa lunta 1 astetta.
-Ti: Sataa lunta 1 astetta.
-Ke: Aurinko paistaa -2 astetta.
-To: Aurinko paistaa 0 astetta.
-Pe: Sataa lunta -3 astetta.
-La: Sataa lunta -3 astetta.
-Su: Aurinko paistaa -5 astetta
-
-</sample-output>
-
-<programming-exercise name='Lottoarvonta' tmcname='osa11-Osa11_08.Lottoarvonta'>
-
-Tehtävänäsi on täydentää luokkaa `Lottorivi`, joka arpoo viikon lottonumerot. Lottonumerot ovat väliltä 1--40 ja niitä arvotaan 7. Lottorivi koostuu siis seitsemästä eri numerosta väliltä 1--40.
-
-Luokalle toivotaan seuraava toiminnot:
-
-- konstruktori `Lottorivi` luo uuden Lottorivi-olion joka sisältää uudet, arvotut numerot
-- metodi `numerot` palauttaa tämän lottorivin lottonumerot
-- metodi `sisaltaaNumeron` kertoo onko arvotuissa numeroissa annettu numero
-- metodi `arvoNumerot` arpoo riville uudet numerot
-
-Luokan runko on seuraava:
-
-```java
-import java.util.ArrayList;
-import java.util.Random;
-
-    public class LottoRivi {
-    private ArrayList<Integer> numerot;
-
-    public LottoRivi() {
-        this.arvoNumerot();
-    }
-
-    public ArrayList<Integer> numerot() {
-        return this.numerot;
-    }
-
-    public boolean sisaltaaNumeron(int numero) {
-        // Testaa tässä onko numero jo arvottujen numeroiden joukossa
-        return false;
-    }
-
-    public void arvoNumerot() {
-        // alustetaan lista numeroille
-        this.numerot = new ArrayList<>();
-        // Kirjoita numeroiden arvonta tänne käyttämällä metodia sisaltaaNumeron()
-    }
-
-    public boolean equals(Object toinen) {
-        return false;
-    }
-}
-```
-
-Tehtäväpohjan mukana tulee seuraava pääohjelma:
-
-
-```java
-import java.util.ArrayList;
-
-public class Ohjelma {
-    public static void main(String[] args) {
-        Lottorivi rivi = new Lottorivi();
-        ArrayList<Integer> lottonumerot = rivi.numerot();
-
-        System.out.println("Lottonumerot:");
-        for (int numero: lottonumerot) {
-            System.out.print(numero + " ");
-        }
-
-        System.out.println("");
-    }
-}
-```
-
-Ohjelman mahdollisia tulostuksia ovat seuraavat:
-
-
-<sample-output>
-
-Lottonumerot:
-3 5 10 14 15 27 37
-
-</sample-output>
-
-<sample-output>
-
-Lottonumerot:
-2 9 11 18 23 32 34
-
-</sample-output>
-
-
-**Huom!** Sama numero saa esiintyä lottorivissä vain kerran. Lottorivin numeroiden ei tarvitse olla järjestyksessä.
-
-</programming-exercise>
-
-
-<text-box variant='hint' name='Lukujen satunnaisuudesta'>
-
-Tietokoneiden toiminta on ennustettavissa sillä ne suorittavat niille annettuja komentoja orjallisesti. Ovatko siis tietokoneen luomat luvut todellisuudessa satunnaisia?
-
-Tietokoneohjelmissa käytetyt satunnaisluvut ovat tyypillisesti pseudosatunnaislukuja, eli ne vaikuttavat satunnaisluvuilta, mutta seuraavat todellisuudessa jonkinlaista algoritmisesti luotua toistuvaa lukusarjaa. Suurimmalle osalle tietokoneohjelmista pseudosatunnaisluvut ovat riittävän hyviä -- esimerkiksi youtube-videoiden satunnaisessa toistossa normaali käyttäjä tuskin huomaa eroa. Toisaalta, jos satunnaislukuja käytetään tieteelliseen laskentaan, heikosti toimivat pseudosatunnaislukuja luovat algoritmit saattavat jopa johtaa tulosten kyseenalaistamiseen. Eräs esimerkki tällaisesta on hetken 1960-luvulla käytössä ollut IBM:n <a href="https://en.wikipedia.org/wiki/RANDU" target="_blank" norel>RANDU</a>.
+Käytä Javan valmista luokkaa <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html" target="_blank" rel="noopener">Random</a> satunnaisen luvun arpomiseen. Saat luvun väliltä 0...60 kutsulla `new Random().nextInt(61);` -- väliltä -30...30 arvotun luvun saa vähentämällä väliltä 0...60 olevasta luvusta sopiva luku.
 
 <br/>
 
-Kaikki tietokoneohjelmien satunnaisuus ei kuitenkaan ole pseudosatunnaisuutta. Vahvempaan satunnaisuuteen pyrkivät ohjelmat hyödyntävät muunmuassa jonkinlaisia tosielämän satunnaiseksi ajateltuja ilmiöitä satunnaislukujen luomiseen. Tällaisia ilmiöitä ovat esimerkiksi avaruussäteily tai vaikkapa <a href="https://www.wired.com/2003/08/random/" target="_blank" norel>laavalamppujen toiminta</a>.
 
-<br/>
+<h2>Keskiarvosensori</h2>
 
-Lisää aiheesta osoitteessa <a href="https://www.random.org/randomness/" target="_blank" norel>https://www.random.org/randomness/</a>.
+Tee luokka `Keskiarvosensori`, joka toteuttaa rajapinnan `Sensori`.
 
-</text-box>
+Keskiarvosensori sisältää useita sensoreita. Rajapinnan `Sensori` määrittelemien metodien lisäksi keskiarvosensorilla on metodi `public void lisaaSensori(Sensori lisattava)` jonka avulla keskiarvosensorin hallintaan lisätään uusi sensori.
+
+Keskiarvosensori on päällä silloin kuin *kaikki* sen sisältävät sensorit ovat päällä. Kun keskiarvosensori käynnistetään, täytyy kaikkien sen sisä
+ltävien sensorien käynnistyä jos ne eivät ole käynnissä. Kun keskiarvosensori suljetaan, täytyy ainakin yhden sen sisältävän sensorin mennä pois päältä. Saa myös käydä niin että kaikki sen sisältävät sensorit menevät pois päältä.
+
+Keskiarvosensorin metodi `mittaa` palauttaa sen sisältämien sensoreiden lukemien keskiarvon (koska paluuarvo on `int`, pyöristyy lukema alaspäin kuten kokonaisluvuilla tehdyissä jakolaskuissa). Jos keskiarvosensorin metodia `mittaa` kutsutaan sensorin ollessa poissa päältä, tai jos keskiarvosensorille ei vielä ole lisätty yhtään sensoria heitetään poikkeus `IllegalStateException`.
+
+Seuraavassa sensoreja käyttävä esimerkkiohjelma (huomaa, että sekä Lämpömittarin että Keskiarvosensorin konstruktorit ovat parametrittomia):
 
 
-# Moniulotteinen tieto
+```java
+public static void main(String[] args) {
+    Sensori kumpula = new Lampomittari();
+    kumpula.paalle();
+    System.out.println("lämpötila Kumpulassa " + kumpula.mittaa() + " astetta");
+
+    Sensori kaisaniemi = new Lampomittari();
+    Sensori helsinkiVantaa = new Lampomittari();
+
+    Keskiarvosensori paakaupunki = new Keskiarvosensori();
+    paakaupunki.lisaaSensori(kumpula);
+    paakaupunki.lisaaSensori(kaisaniemi);
+    paakaupunki.lisaaSensori(helsinkiVantaa);
+
+    paakaupunki.paalle();
+    System.out.println("lämpötila Pääkaupunkiseudulla " + paakaupunki.mittaa() + " astetta");
+}
+```
+
+Alla olevan esimerkin tulostukset riippuvat arvotuista lämpötiloista:
+
+
+<sample-output>
+
+lämpötila Kumpulassa 11 astetta
+lämpötila Pääkaupunkiseudulla 8 astetta
+
+</sample-output>
+
+
+<h2>Kaikki mittaukset</h2>
+
+
+Lisää luokalle Keskiarvosensori metodi `public List<Integer> mittaukset()`, joka palauttaa listana kaikkien keskiarvosensorin avulla suoritettujen mittausten tulokset. Seuraavassa esimerkki metodin toiminnasta:
+
+
+```java
+public static void main(String[] args) {
+    Sensori kumpula = new Lampomittari();
+    Sensori kaisaniemi = new Lampomittari();
+    Sensori helsinkiVantaa = new Lampomittari();
+
+    Keskiarvosensori paakaupunki = new Keskiarvosensori();
+    paakaupunki.lisaaSensori(kumpula);
+    paakaupunki.lisaaSensori(kaisaniemi);
+    paakaupunki.lisaaSensori(helsinkiVantaa);
+
+    paakaupunki.paalle();
+    System.out.println("lämpötila Pääkaupunkiseudulla " + paakaupunki.mittaa() + " astetta");
+    System.out.println("lämpötila Pääkaupunkiseudulla " + paakaupunki.mittaa() + " astetta");
+    System.out.println("lämpötila Pääkaupunkiseudulla " + paakaupunki.mittaa() + " astetta");
+
+    System.out.println("mittaukset: " + paakaupunki.mittaukset());
+}
+```
+
+Alla olevan esimerkin tulostukset riippuvat jälleen arvotuista lämpötiloista:
+
+
+<sample-output>
+
+lämpötila Pääkaupunkiseudulla -10 astetta
+lämpötila Pääkaupunkiseudulla -4 astetta
+lämpötila Pääkaupunkiseudulla 5 astetta
+
+mittaukset: [-10, -4, 5]
+
+</sample-output>
+
+</programming-exercise>
+
+
+# Tiedostojen käsittely
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Tunnet menetelmiä moniulotteisen tiedon esittämiseen.
-- Osaat luoda ja käyttää moniulotteisia taulukoita.
+- Kertaat tiedon lukemista tiedostosta.
+- Osaat kirjoittaa tiedostoon.
 
 </text-box>
 
-Aiemmat esimerkkimme ovat käsitelleet yksiulotteisia taulukoita, missä indeksi kertoo sijainnin yhdessä ulottuvuudessa. Taulukon voi luoda myös useampiulotteisena, jolloin taulukossa olevaa tietoa voi tarkastella useamman indeksin avulla. Tämä on kätevää esimerkiksi silloin, jos tieto on useampiulotteista kuten esimerkiksi koordinaatistossa.
+Olemme aiemmin oppineet menetelmiä tekstitiedostojen lukemiseen. Mikäli nämä eivät ole tuoreessa muistissa, kertaa kurssimateriaalin neljäs osa sopivilta osin.
 
-Kaksiulotteinen taulukko, jossa on kaksi riviä ja kolme saraketta, luodaan seuraavasti:
+Tarkastellaan seuraavaksi tiedostoon kirjoittamista. Luokka <a href="https://docs.oracle.com/javase/8/docs/api/java/io/PrintWriter.html">PrintWriter</a> tarjoaa toiminnallisuuden tiedostoon kirjoittamiseen. Luokan `PrintWriter` konstruktorille annetaan parametrina kohdetiedoston sijaintia kuvaava merkkijono.
 
 
 ```java
-int rivit = 2;
-int sarakkeet = 3;
-int[][] kaksiulotteinenTaulukko = new int[rivit][sarakkeet];
+PrintWriter kirjoittaja = new PrintWriter("tiedosto.txt");
+kirjoittaja.println("Hei tiedosto!"); // kirjoittaa tiedostoon merkkijonon "Hei tiedosto!" sekä rivinvaihdon
+kirjoittaja.println("Lisää tekstiä");
+kirjoittaja.print("Ja vielä lisää"); // kirjoittaa tiedostoon merkkijonon "ja vielä lisää" ilman rivinvaihtoa
+kirjoittaja.close(); // sulkee tiedoston ja varmistaa että kirjoitettu teksti menee tiedostoon
 ```
 
-Yllä luomme taulukon, jonka jokainen rivi viittaa taulukkoon, jossa on tietty määrä sarakkeita. Kaksiulotteisen taulukon läpikäynti onnistuu kahden sisäkkäisen for-toistolauseen avulla seuraavasti:
+Esimerkissä kirjoitetaan tiedostoon "tiedosto.txt" merkkijono "Hei tiedosto!", jota seuraa rivinvaihto, ja vielä hieman lisää tekstiä. Huomaa että tiedostoon kirjoitettaessa metodi `print` ei lisää rivinvaihtoja, vaan ne tulee lisätä itse. Metodi `println` lisää myös rivinvaihdot.
+
+`PrintWriter`-luokan konstruktori heittää mahdollisesti poikkeuksen, joka tulee joko käsitellä tai siirtää kutsuvan metodin vastuulle. Metodi, jolle annetaan parametrina kirjoitettavan tiedoston nimi ja kirjoitettava sisältö voisi näyttää seuraavalta.
+
 
 ```java
-int rivit = 2;
-int sarakkeet = 3;
-int[][] kaksiulotteinenTaulukko = new int[rivit][sarakkeet];
+public class Tallentaja {
 
-System.out.println("rivi, sarake, arvo");
-for (int rivi = 0; rivi < kaksiulotteinenTaulukko.length; rivi++) {
-    for (int sarake = 0; sarake < kaksiulotteinenTaulukko[rivi].length; sarake++) {
-        int arvo = kaksiulotteinenTaulukko[rivi][sarake];
-        System.out.println("" + rivi + ", " + sarake + ", " + arvo);
+    public void kirjoitaTiedostoon(String tiedostonNimi, String teksti) throws Exception {
+        PrintWriter kirjoittaja = new PrintWriter(tiedostonNimi);
+        kirjoittaja.println(teksti);
+        kirjoittaja.close();
     }
 }
 ```
 
-Ylläolevan ohjelman tulostus on seuraava.
+Yllä olevassa `kirjoitaTiedostoon`-metodissa luodaan ensin `PrintWriter`-olio, joka kirjoittaa parametrina annetussa sijainnissa sijaitsevaan tiedostoon `tiedostonNimi`. Tämän jälkeen kirjoitetaan tiedostoon `println`-metodilla. Konstruktorin mahdollisesti heittämä poikkeus tulee käsitellä joko `try-catch`-lohkolla tai siirtämällä poikkeuksen käsittelyvastuuta eteenpäin. Metodissa `kirjoitaTiedostoon` käsittelyvastuu on siirretty eteenpäin.
 
-<sample-output>
+Luodaan `main`-metodi jossa kutsutaan `Tallentaja`-olion `kirjoitaTiedostoon`-metodia. Poikkeusta ei ole pakko käsitellä `main`-metodissakaan, vaan se voi ilmoittaa heittävänsä mahdollisesti poikkeuksen määrittelyllä `throws Exception`.
 
-rivi, sarake, arvo
-0, 0, 0
-0, 1, 0
-0, 2, 0
-1, 0, 0
-1, 1, 0
-1, 2, 0
-
-</sample-output>
-
-Yllä huomataan että `int`-tyyppisten muuttujien oletusarvo on 0.
-
-Voimme muuttaa taulukon arvoja kuten ennenkin. Alla asetamme kolmeen kohtaan uudet arvot.
 
 ```java
-int rivit = 2;
-int sarakkeet = 3;
-int[][] kaksiulotteinenTaulukko = new int[rivit][sarakkeet];
-
-kaksiulotteinenTaulukko[0][1] = 4;
-kaksiulotteinenTaulukko[1][1] = 1;
-kaksiulotteinenTaulukko[1][0] = 8;
-
-System.out.println("rivi, sarake, arvo");
-for (int rivi = 0; rivi < kaksiulotteinenTaulukko.length; rivi++) {
-    for (int sarake = 0; sarake < kaksiulotteinenTaulukko[rivi].length; sarake++) {
-        int arvo = kaksiulotteinenTaulukko[rivi][sarake];
-        System.out.println("" + rivi + ", " + sarake + ", " + arvo);
-    }
+public static void main(String[] args) throws Exception {
+    Tallentaja tallentaja = new Tallentaja();
+    tallentaja.kirjoitaTiedostoon("paivakirja.txt", "Rakas päiväkirja, tänään oli kiva päivä.");
 }
 ```
 
-Nyt tulostus näyttää seuraavalta:
+Yllä olevaa metodia kutsuttaessa luodaan tiedosto "paivakirja.txt" johon kirjoitetaan teksti "Rakas päiväkirja, tänään oli kiva päivä.". Jos tiedosto on jo olemassa, pyyhkiytyy vanhan tiedoston sisältö uutta kirjoittaessa.
+
+Mikäli tiedostoja haluaa käsitellä siten, että kirjoitus tapahtuu olemassaolevan tiedoston perään, kannattaa kirjoituksessa käyttää <a href="https://docs.oracle.com/javase/8/docs/api/java/io/FileWriter.html" target="_blank" norel>FileWriter</a>-luokkaa.
+
+<br/>
+
+<quiznator id="5c8b66b7017ffc13eddd143e"></quiznator>
+
+
+<programming-exercise name='Muistava sanakirja (4 osaa)' nocoins='true' tmcname='osa10-Osa10_13.MuistavaSanakirja'>
+
+Tässä tehtävässä laajennetaan sanakirjaa siten, että sanat voidaan lukea tiedostosta ja kirjoittaa tiedostoon. Sanakirjan tulee myös osata kääntää molempiin suuntiin, suomesta vieraaseen kieleen sekä toiseen suuntaan (tehtävässä oletetaan hieman epärealistisesti, että suomen kielessä ja vieraassa kielessä ei ole yhtään samalla tavalla kirjoitettavaa sanaa). Tehtävänäsi on luoda sanakirja luokkaan `MuistavaSanakirja`. Toteuta luokka pakkaukseen `sanakirja`.
+
+
+<h2>Muistiton perustoiminnallisuus</h2>
+
+Tee sanakirjalle parametriton konstruktori sekä metodit:
+
+- `public void lisaa(String sana, String kaannos)` lisää sanan sanakirjaan. Jokaisella sanalla on vain yksi käännös ja jos sama sana lisätään uudelleen, ei tapahdu mitään.
+- `public String kaanna(String sana)` palauttaa käännöksen annetulle sanalle. Jos sanaa ei tunneta, palautetaan null.
+
+
+Sanakirjan tulee tässä vaiheessa toimia seuraavasti:
+
+
+```java
+MuistavaSanakirja sanakirja = new MuistavaSanakirja();
+sanakirja.lisaa("apina", "monkey");
+sanakirja.lisaa("banaani", "banana");
+sanakirja.lisaa("apina", "apfe");
+
+System.out.println(sanakirja.kaanna("apina"));
+System.out.println(sanakirja.kaanna("monkey"));
+System.out.println(sanakirja.kaanna("ohjelmointi"));
+System.out.println(sanakirja.kaanna("banana"));
+```
+
+Tulostuu
 
 <sample-output>
 
-rivi, sarake, arvo
-0, 0, 0
-1, 0, 4
-2, 0, 0
-0, 1, 8
-1, 1, 1
-2, 1, 0
+monkey
+apina
+null
+banaani
 
 </sample-output>
 
+Kuten tulostuksesta ilmenee, käännöksen lisäämisen jälkeen sanakirja osaa tehdä käännöksen molempiin suuntiin.
 
-<programming-exercise name='Taulukko merkkijonona' tmcname='osa11-Osa11_09.TaulukkoMerkkijonona'>
 
-Luo tehtäväpohjaan metodi `public static String taulukkoMerkkijonona(int[][] taulukko)`, joka muodostaa parametrina saamastaan taulukosta merkkijonomuotoisen esityksen ja palauttaa sen.
+<b>Huom:</b> metodit `lisaa` ja `kaanna` eivät lue tiedostoa tai kirjoita tiedostoon! Myöskään konstruktori ei koske tiedostoon.
 
-Kertaa yhdeksännestä osasta StringBuilderin käyttö ennen tehtävän tekoa. Alla muutamia esimerkkejä metodin odotetusta toiminnasta.
+
+
+<h2>Sanojen poistaminen</h2>
+
+
+Lisää sanakirjalle metodi `public void poista(String sana)` joka poistaa annetun sanan ja sen käännöksen sanakirjasta.
+
+Kannattanee kerrata aiemmilta viikoilta materiaalia, mikä liittyy olioiden poistamiseen ArrayListista.
+
+<b>HUOM2:</b> metodi `poista` ei kirjoita tiedostoon.
+
+Sanakirjan tulee tässä vaiheessa toimia seuraavasti:
 
 
 ```java
-int rivit = 2;
-int sarakkeet = 3;
-int[][] matriisi = new int[rivit][sarakkeet];
-matriisi[0][1] = 5;
-matriisi[1][0] = 3;
-matriisi[1][2] = 7;
-System.out.println(taulukkoMerkkijonona(matriisi));
+MuistavaSanakirja sanakirja = new MuistavaSanakirja();
+sanakirja.lisaa("apina", "monkey");
+sanakirja.lisaa("banaani", "banana");
+sanakirja.lisaa("ohjelmointi", "programming");
+sanakirja.poista("apina");
+sanakirja.poista("banana");
+
+System.out.println(sanakirja.kaanna("apina"));
+System.out.println(sanakirja.kaanna("monkey"));
+System.out.println(sanakirja.kaanna("banana"));
+System.out.println(sanakirja.kaanna("banaani"));
+System.out.println(sanakirja.kaanna("ohjelmointi"));
 ```
+
+Tulostuu
 
 <sample-output>
 
-050
-307
+null
+null
+null
+null
+programming
 
 </sample-output>
+
+
+Poisto siis toimii myös molemmin puolin, alkuperäisen sanan tai sen käännöksen poistamalla, poistuu sanakirjasta tieto molempien suuntien käännöksestä
+
+
+<h2>Lataaminen tiedostosta</h2>
+
+
+Tee sanakirjalle konstruktori `public MuistavaSanakirja(String tiedosto)`  ja metodi `public boolean lataa()`, joka lataa sanakirjan konstruktorin parametrina annetun nimisestä tiedostosta. Jos tiedoston avaaminen tai lukeminen ei onnistu, palauttaa metodi false ja muuten true.
+
+<b>Huom: </b> parameterillinen konstruktori ainoastaan kertoo sanakirjalle käytetävän tiedoston nimen. Konstruktori ei lue tiedostoa, tiedoston lukeminen tapahtuu *ainoastaan* metodissa `lataa`.
+
+Sanakirjatiedostossa yksi rivi sisältää sanan ja sen käännöksen merkillä ":" erotettuna. Tehtäväpohjan mukana tuleva testaamiseen tarkoitettu sanakirjatiedosto `sanat.txt` on sisällöltään seuraava:
+
+<sample-output>
+
+apina:monkey
+alla oleva:below
+olut:beer
+
+</sample-output>
+
+Lue sanakirjatiedosto rivi riviltä lukijan metodilla `nextLine`. Voit pilkkoa rivin String metodilla `split` seuraavasti:
+
 
 ```java
-int[][] matriisi = {
-    {3, 2, 7, 6},
-    {2, 4, 1, 0},
-    {3, 2, 1, 0}
-};
+Scanner tiedostonLukija = new ...
+while (tiedostonLukija.hasNextLine()) {
+    String rivi = tiedostonLukija.nextLine();
+    String[] osat = rivi.split(":");   // pilkotaan rivi :-merkkien kohdalta
 
-System.out.println(taulukkoMerkkijonona(matriisi));
+    System.out.println(osat[0]);     // ennen :-merkkiä ollut osa rivistä
+    System.out.println(osat[1]);     // :-merkin jälkeen ollut osa rivistä
+}
 ```
+
+Sanakirjaa käytetään seuraavasti:
+
+
+```java
+MuistavaSanakirja sanakirja = new MuistavaSanakirja("sanat.txt");
+boolean onnistui = sanakirja.lataa();
+
+if (onnistui) {
+    System.out.println("sanakirjan lataaminen onnistui");
+}
+
+System.out.println(sanakirja.kaanna("apina"));
+System.out.println(sanakirja.kaanna("ohjelmointi"));
+System.out.println(sanakirja.kaanna("alla oleva"));
+```
+
+Tulostuu
 
 <sample-output>
 
-3276
-2410
-3210
+sanakirjan lataaminen onnistui
+monkey
+null
+below
 
 </sample-output>
+
+
+<h2>Tallennus tiedostoon</h2>
+
+
+Tee sanakirjalle metodi `public boolean tallenna()`, jota kutsuttaessa sanakirjan sisältö kirjoitetaan konstruktorin parametrina annetun nimiseen tiedostoon. Jos tallennus ei onnistu, palauttaa metodi false ja muuten true. Sanakirjatiedostot tulee tallentaa ylläesitellyssä muodossa, eli ohjelman on osattava lukea itse kirjoittamiaan tiedostoja.
+
+<b>Huom1:</b> mikään muu metodi kuin `tallenna` ei kirjoita tiedostoon. Jos teit edelliset kohdat oikein, sinun ei tulisi tarvita muuttaa mitään olemassaolevaa koodia.
+
+**Huom2:** vaikka sanakirja osaa käännökset molempiin suuntiin, ei sanakirjatiedostoon tule kirjoittaa kuin toinen suunta. Eli jos sanakirja tietää esim. käännöksen *tietokone = computer*, tulee tallennuksessa olla rivi:
+
+
+<sample-output>
+
+tietokone:computer
+
+</sample-output>
+
+tai rivi
+
+<sample-output>
+
+computer:tietokone
+
+</sample-output>
+
+mutta ei molempia!
+
+Talletus kannattanee hoitaa siten, että koko käännöslista kirjoitetaan uudelleen vanhan tiedoston päälle, eli materiaalissa esiteltyä `append`-metodia ei kannata käyttää.
+
+Sanakirjan lopullista versiota on tarkoitus käyttää  seuraavasti:
+
+```java
+MuistavaSanakirja sanakirja = new MuistavaSanakirja("sanat.txt");
+sanakirja.lataa();
+
+// käytä sanakirjaa
+
+sanakirja.tallenna();
+```
+
+Eli käytön aluksi ladataan sanakirja tiedostosta ja lopussa tallennetaan se takaisin tiedostoon jotta sanakirjaan tehdyt muutokset pysyvät voimassa seuraavallekin käynnistyskerralle.
 
 </programming-exercise>
 
 
-<programming-exercise name='Taikaneliö (4 osaa)' tmcname='osa11-Osa11_10.Taikanelio'>
 
-
-<a href="https://fi.wikipedia.org/wiki/Taikaneli%C3%B6" target="_blank">Taikaneliöt</a> ovat kokonaisluvuista järjestettyjä neliöitä, joiden jokaisen rivin, sarakkeen ja lävistäjän summa on sama. Harjoitellaan taulukoiden käyttöä taikaneliöiden yhteydessä.
-
-<br/>
-
-Ohjelmassa on annettu osittain toteutettu luokka `Taikanelio`, jota voidaan käyttää lähtökohtana. Tehtävänäsi on ensin lisätä luokkaan toiminnallisuutta, jolla tarkistetaan onko neliö taikaneliö. Tämän jälkeen toteutat algoritmin taikaneliön luomiseen.
-
-
-<h2>Rivien summat</h2>
-
-Luokassa Taikanelio on valmiina metodi `public ArrayList<Integer> rivienSummat()`, joka palauttaa tyhjän ArrayList-olion. Muuta metodin toiminnallisuutta siten, että se palauttaa listan, jossa on jokaisen taikaneliön rivin summa.
-
-Esimerkiksi seuraavanlaisella taikaneliöllä rivienSummat-metodin pitäisi palauttaa lista, jossa on luvut `15, 15, 15`.
-
-```
-8 1 6
-3 5 7
-4 9 2
-```
-
-Vaikka taikaneliö ei olisi "oikea" taikaneliö, tulee rivien summat silti palauttaa. Allaolevalla esimerkillä rivienSummat-metodin pitäisi palauttaa lista, jossa on luvut `6, 15, 24`.
-
-
-```
-1 2 3
-4 5 6
-7 8 9
-```
-
-
-<h2>Sarakkeiden summat</h2>
-
-Luokassa Taikanelio on valmiina metodi `public ArrayList<Integer> sarakkeidenSummat()`, joka palauttaa tyhjän ArrayList-olion. Muuta metodin toiminnallisuutta siten, että se palauttaa listan, jossa on jokaisen taikaneliön sarakkeen summa.
-
-Esimerkiksi seuraavanlaisella taikaneliöllä sarakkeidenSummat-metodin pitäisi palauttaa lista, jossa on luvut `15, 15, 15`.
-
-```
-8 1 6
-3 5 7
-4 9 2
-```
-
-Vaikka taikaneliö ei olisi "oikea" taikaneliö, tulee sarakkeiden summat silti palauttaa. Allaolevalla esimerkillä sarakkeidenSummat-metodin pitäisi palauttaa lista, jossa on luvut `12, 15, 18`.
-
-
-```
-1 2 3
-4 5 6
-7 8 9
-```
-
-
-<h2>Lävistäjien summat</h2>
-
-Toteuta seuraavaksi metodi `public ArrayList<Integer> lavistajienSummat()`, joka palauttaa listan, jossa on taikaneliön lävistäjien summat.
-
-Esimerkiksi seuraavanlaisella taikaneliöllä lavistajienSummat-metodin pitäisi palauttaa lista, jossa on luvut `15, 15` (8 + 5 + 2) ja (4 + 5 + 6).
-
-```
-8 1 6
-3 5 7
-4 9 2
-```
-
-Vaikka taikaneliö ei olisi "oikea" taikaneliö, tulee lävistäjien summat silti palauttaa. Allaolevalla esimerkillä lavistajienSummat-metodin pitäisi palauttaa lista, jossa on luvut `15, 15` (1 + 5 + 9) ja (7 + 5 + 3).
-
-```
-1 2 3
-4 5 6
-7 8 9
-```
-
-
-<h2>Taikaneliön luominen</h2>
-
-Huom! Tämä tehtävä on melko visainen, kannattanee palauttaa edelliset osat ennen tämän aloitusta.
-
-Taikaneliön pystyy myös luomaan. Tutustutaan <a href="https://en.wikipedia.org/wiki/Siamese_method" target="_blank">Siamese method</a>-menetelmään, jonka avulla voidaan luoda parittomien lukujen kokoisia taikaneliöitä.
-
-<br/>
-
-Siamese method -algoritmi toimii siten, että numero yksi asetetaan ylimmän rivin keskimmäiseen sarakkeeseen. Tämän jälkeen siirrytään yksi ylös ja yksi oikealle ja asetetaan luku kaksi. Tämän jälkeen taas siirrytään yksi ylös ja yksi oikealle, ja asetetaan luku kolme jne.
-
-Lukujen lisäämiseen liittyy kaksi sääntöä:
-
-1. Jos siirtymä tapahtuu siten, että mennään taikaneliön alueen ulkopuolelle, hypätään toiselle laidalle. Jos siis mennään "oikealta yli" mennään vasempaan laitaan ja jos mennään "ylhäältä yli" mennään alalaitaan.
-2. Jos kohdassa on jo luku, ei mennäkään ylös ja oikealle, vaan astutaan yksi askel alaspäin.
-
-Käy katsomassa yllä kuvatun algoritmin visualisaatio Wikipedian sivulta <a href="https://en.wikipedia.org/wiki/Siamese_method" target="_blank">Siamese method</a>.
-
-<br/>
-
-Toteuta luokkaan `Taikaneliotehdas` metodi `luoTaikanelio` joka palauttaa taikaneliön jonka sivun pituus annetaan parametrina. Metodin tarvitsee toimia vain tilanteissa, missä neliön leveys on pariton luku.
-
-</programming-exercise>
-
-
-<text-box variant='hint' name='Taulukko vs. Hajautustaulu'>
-
-Taulukon toiminnallisuutta vastaavan toiminnallisuuden pystyy toteuttamaan hajautustaulun avulla. Eikö hajautustaulun käyttö olisi yleisesti ottaen parempi vaihtoehto, sillä sitä ei esimerkiksi tarvitse kasvattaa lainkaan?
-
-Kun hajautustaulusta haetaan tietoa tietyllä avaimella, metodin hashCode perusteella selvitetään paikka, mistä tietoa haetaan. Samassa paikassa voi olla useampi arvo (listassa), jolloin haettavaa avainta verrataan jokaiseen listalla olevaan arvoon equals-metodia käyttäen. Kun taulukosta haetaan arvoa tietyllä avaimella -- eli indeksillä -- ei vastaavaa toiminnallisuutta tarvitse tehdä. Taulukossa joko on arvo tai arvoa ei ole. Taulukkoon liittyy pieni tehokkuushyöty ohjelman suorituskyvyn kannalta.
-
-Tämä tehokkuushyöty kuitenkin tulee lisääntyneen virhealttiuden sekä työmäärän kustannuksella. Hajautustauluun on valmiiksi toteutettuna sisäisen taulukon kasvattaminen ja sen toiminnallisuutta on testattu hyvin laajasti. Taulukkoa käytettäessä tällaista etua ei ole -- uutta toiminnallisuutta toteuttaessa saattaa päätyä virheisiin, mikä kasvattaa työmäärää. Virheet ovat toki luonnollinen osa ohjelmistokehitystä.
-
-Kun ajattelemme muistin käyttöä, hajautustaululla voi olla -- tapauksesta riippuen -- pieni etu. Kun taulukko luodaan, muistista varataan heti tila koko taulukolle. Mikäli taulukon jokaiseen indeksiin ei tarvitse lisätä tietoa, on osa tästä tiedosta varattuna turhaan. Hajautustaululla taas tällaista muistin varaamista ei ennakkoon tehdä -- hajautustaulun kokoa kasvatetaan tarvittaessa.
-
-</text-box>
-
-
-# Vertaisarviointi
+# Tehtävän luominen ja laajempi tehtävä
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Harjoittelet toisten kirjoittamien testimetodien lukemista ja opit mahdollisesti lisää testaamisesta.
+- Kertaat ArrayListin toimintaa
+- Harjoittelet testien kirjoittamista
 
 </text-box>
 
+Tässä osassa pääset suunnittelemaan CrowdSorcerer-työkalua käyttämällä oman ohjelmointitehtävän. Osaa kurssilaisten luomista ohjelmointitehtävistä tullaan käyttämään myöhemmillä kursseilla.
+Käy kertaamassa CrowdSorcererin käyttöä kurssin <a href="https://ohjelmointi-19.mooc.fi/osa-7/4-ohjelmointitehtavien-luominen">seitsemännestä osasta</a> ennen aloittamista.
 
-Suunnittelimme ja toteutimme kymmenennessä osassa oman listoja käsittelevän tehtävän sekä siihen liittyvät testit. Nyt on taas vertaisarvioinnin aika! Anna vertaispalautetta kahdesta jonkun toisen kurssilaisen lähettämästä tehtävästä ja arvioi lopuksi itse tekemääsi tehtävää. Itse tekemäsi tehtävä näkyy vain jos olet tehnyt sen -- jos et tehnyt tehtävää, pääset arvioimaan yhden ylimääräisen tehtävän.
+<br/>
 
-Tehtävänanto tehtävälle oli seuraava:
 
 ## Suunnittele oma tehtävä: Listat
 
@@ -1853,32 +2000,381 @@ public void palautusOikeinYhdenArvonSisaltavastaListasta() {
 }
 ```
 
+Tehtävien luomistehtävät vastaavat kurssin pisteytyksessä ohjelmointitehtävää.
+
+Kirjoita tehtäväsi alla olevaan ikkunaan.
+
+<crowdsorcerer id='28'></crowdsorcerer>
 
 
-<text-box variant='hint' name='Vertaisarviointi'>
-
-Alla on kolme Crowdsorcereriin tehtyä tehtävää: kaksi jonkun kurssitoverisi lähettämää ja yksi itsearviointia varten. Niiden yhteydessä on muistin virkistykseksi ohjeistus, jonka pohjalta kyseiset tehtävänannot on tehty.
-
-Tarkastele jokaisen tehtävän tehtävänantoa ja testejä. Arvioi niiden selkeyttä, kattavuutta ja sitä, kuinka hyvin ne vastaavat valmiina annettua lähdekoodia.
-
-Palautteenannon avuksi on annettu väittämiä. Voit valita kuinka samaa mieltä niiden kanssa olet painamalla hymiöitä. Annathan myös sanallista palautetta sille varattuun kenttään! Lisää vielä tehtävää mielestäsi kuvaavia tageja ja paina Lähetä.
-
-Anna arvio kummallekin vertaispalautetehtävälle ja lopuksi vielä omallesi.
-
-Muista olla reilu ja ystävällinen. Hyvä palaute on rehellistä, mutta kannustavaa!
-
-Voit halutessasi ladata arvioitavan tehtävän tehtäväpohjan ja malliratkaisun koneellesi, ja testata niiden käyttöä. Molemmat tulevat ZIP-paketeissa, jolloin sinun täytyy purkaa ne, ennen kuin voit avata ne NetBeansissä.
-
-</text-box>
+Kun olet saanut ohjelmointitehtävän luotua, aloita seuraavan hieman laajemman tehtävän toteutus.
 
 
+<programming-exercise name='Maatilasimulaattori (5 osaa)' tmcname='osa10-Osa10_14.Maatilasimulaattori'>
 
-<crowdsorcerer id='28' peerreview='true' exercisecount='3'></crowdsorcerer>
+Maatiloilla on lypsäviä eläimiä, jotka tuottavat maitoa.  Maatilat eivät itse käsittele maitoa, vaan se kuljetetaan Maitoautoilla meijereille.  Meijerit ovat yleisiä maitotuotteita tuottavia rakennuksia.  Jokainen meijeri erikoistuu yhteen tuotetyyppiin, esimerkiksi Juustomeijeri tuottaa Juustoa, Voimeijeri tuottaa voita ja Maitomeijeri tuottaa maitoa.
+
+Rakennetaan maidon elämää kuvaava simulaattori, joskin meijerit jäävät toteutuksestamme toistaiseksi pois.
+
+Simulaattorin lopullinen rakenne kutakuinkin noudattaa seuraavaa luokkakaaviota.
+
+
+<img src="../img/diagrams/luokkakaavio-maatilasimulaattori.png" alt="[Maitosailio|-tilavuus:double;-saldo:double][Lehma][&lt;&lt;interface&gt;&gt; Eleleva][&lt;&lt;interface&gt;&gt; Lypsava][Lypsyrobotti][Maatila|-omistaja:String][Navetta][Navetta]-&gt;[Maitosailio][Navetta]-&gt;[Lypsyrobotti][Maatila]-&gt;[Navetta][Maatila]-&gt;*[Lehma][Maatila]-.-^[&lt;&lt;interface&gt;&gt; Eleleva][Lehma]-.-^[&lt;&lt;interface&gt;&gt; Eleleva][Lehma]-.-^[&lt;&lt;interface&gt;&gt; Lypsava]">
+
+
+<h2>Maitosäiliö</h2>
+
+
+Jotta maito pysyisi tuoreena, täytyy se säilöä sille tarkoitettuun säiliöön. Säiliöitä valmistetaan sekä oletustilavuudella 2000 litraa, että asiakkaalle räätälöidyllä tilavuudella.  Toteuta luokka Maitosailio jolla on seuraavat konstruktorit ja metodit.
+
+- `public Maitosailio()`
+- `public Maitosailio(double tilavuus)`
+- `public double getTilavuus()`
+- `public double getSaldo()`
+- `public double paljonkoTilaaJaljella()`
+- `public void lisaaSailioon(double maara)`
+    lisää säiliöön vain niin paljon maitoa kuin sinne mahtuu,
+    ylimääräiset jäävät lisäämättä, maitosäiliön ei siis tarvitse huolehtia tilanteesta jossa maitoa valuu yli
+- `public double otaSailiosta(double maara)`
+    ottaa säiliöstä pyydetyn määrän, tai niin paljon kuin siellä on jäljellä
+
+Huomaa, että teet *kaksi konstruktoria*. Kutsuttava konstruktori määräytyy sille annettujen parametrien perusteella. Jos kutsut `new Maitosailio()`, suoritetaan ensimmäisen konstruktorin lähdekoodi. Toista konstruktoria taas kutsutaan antamalla konstruktorille parametrina tilavuus, esim. `new Maitosailio(300.0)`.
+
+Toteuta `Maitosailio`-luokalle myös `toString()`-metodi, jolla kuvaat sen tilaa. Ilmaistessasi säiliön tilaa `toString()`-metodissa, pyöristä litramäärät ylöspäin käyttäen `Math`-luokan tarjoamaa `ceil()`-metodia.
+
+Testaa maitosailiötä seuraavalla ohjelmapätkällä:
+
+
+```java
+Maitosailio sailio = new Maitosailio();
+sailio.otaSailiosta(100);
+sailio.lisaaSailioon(25);
+sailio.otaSailiosta(5);
+System.out.println(sailio);
+
+sailio = new Maitosailio(50);
+sailio.lisaaSailioon(100);
+System.out.println(sailio);
+```
+
+<sample-output>
+20.0/2000.0
+50.0/50.0
+</sample-output>
+
+
+<h2>Lehmä</h2>
+
+Saadaksemme maitoa tarvitsemme myös lehmiä. Lehmällä on nimi ja utareet. Utareiden tilavuus on satunnainen luku väliltä 15 ja 40, luokkaa `Random` voi käyttäää satunnaislukujen arpomiseen, esimerkiksi  `int luku = 15 + new Random().nextInt(26);`. Luokalla `Lehma` on seuraavat toiminnot:
+
+- `public Lehma()` luo uuden lehmän satunnaisesti valitulla nimellä
+- `public Lehma(String nimi)` luo uuden lehmän annetulla nimellä
+- `public String getNimi()` palauttaa lehmän nimen
+- `public double getTilavuus()` palauttaa utareiden tilavuuden
+- `public double getMaara()` palauttaa utareissa olevan maidon määrän
+- `public String toString()` palauttaa lehmää kuvaavan merkkijonon (ks. esimerkki alla)
+
+
+`Lehma` toteuttaa myös rajapinnat: `Lypsava`, joka kuvaa lypsämiskäyttäytymistä, ja `Eleleva`, joka kuvaa elelemiskäyttäytymistä.
+
+
+```java
+public interface Lypsava {
+    public double lypsa();
+}
+
+public interface Eleleva {
+    public void eleleTunti();
+}
+```
+
+Lehmää lypsettäessä sen koko maitovarasto tyhjennetään jatkokäsittelyä varten. Lehmän elellessä sen maitovarasto täyttyy hiljalleen. Suomessa maidontuotannossa käytetyt lehmät tuottavat keskimäärin noin 25-30 litraa maitoa päivässä. Simuloidaan tätä tuotantoa tuottamalla noin 0.7 - 2 litraa tunnissa.
+
+Simuloi tuotantoa tuottamalla noin 0.7 - 2 litraa tunnissa. Random-luokan metodista `nextDouble`, joka palauttaa satunnaisluvun 0 ja 1 välillä lienee tässä hyötyä.
+
+Lisäksi, jos lehmälle ei anneta nimeä, valitse sille nimi satunnaisesti seuraavasta taulukosta. Tässä on hyötyä Random-luokan metodista `nextInt`, jolle annetaan parametrina yläraja. Kannattaa tutustua Random-luokan toimintaan erikseen ennen kuin lisää sen osaksi tätä ohjelmaa.
+
+
+```java
+private static final String[] NIMIA = new String[]{
+    "Anu", "Arpa", "Essi", "Heluna", "Hely",
+    "Hento", "Hilke", "Hilsu", "Hymy", "Matti", "Ilme", "Ilo",
+    "Jaana", "Jami", "Jatta", "Laku", "Liekki",
+    "Mainikki", "Mella", "Mimmi", "Naatti",
+    "Nina", "Nyytti", "Papu", "Pullukka", "Pulu",
+    "Rima", "Soma", "Sylkki", "Valpu", "Virpi"};
+```
+
+Toteuta luokka Lehma ja testaa sen toimintaa seuraavan ohjelmapätkän avulla.
+
+
+```java
+Lehma lehma = new Lehma();
+System.out.println(lehma);
+
+Eleleva elelevaLehma = lehma;
+elelevaLehma.eleleTunti();
+elelevaLehma.eleleTunti();
+elelevaLehma.eleleTunti();
+elelevaLehma.eleleTunti();
+
+System.out.println(lehma);
+
+Lypsava lypsavaLehma = lehma;
+lypsavaLehma.lypsa();
+
+System.out.println(lehma);
+System.out.println("");
+
+lehma = new Lehma("Ammu");
+System.out.println(lehma);
+lehma.eleleTunti();
+lehma.eleleTunti();
+System.out.println(lehma);
+lehma.lypsa();
+System.out.println(lehma);
+```
+
+Ohjelman tulostus on erimerkiksi seuraavanlainen.
+
+<sample-output>
+Liekki 0.0/23.0
+Liekki 7.0/23.0
+Liekki 0.0/23.0
+Ammu 0.0/35.0
+Ammu 9.0/35.0
+Ammu 0.0/35.0
+</sample-output>
+
+
+<h2>Lypsyrobotti</h2>
+
+
+Nykyaikaisilla maatiloilla lypsyrobotit hoitavat lypsämisen. Jotta lypsyrobotti voi lypsää lypsävää otusta, tulee lypsyrobotin olla kiinnitetty maitosäiliöön:
+
+
+- `public Lypsyrobotti()` luo uuden lypsyrobotin
+- `public Maitosailio getMaitosailio()` palauttaa kiinnitetyn maitosäiliö tai `null`-viitteen, jos säiliötä ei ole vielä kiinnitetty
+- `public void setMaitosailio(Maitosailio maitosailio)` kiinnittää annetun säiliön lypsyrobottiin
+- `public void lypsa(Lypsava lypsava)` lypsää lehmän robottiin kiinnitettyyn maitosäiliöön. Jos robottiin ei ole kiinnitetty maitosäiliötä, ohjelma ilmoittaa että maito menee hukkaan.
+
+Toteuta luokka Lypsyrobotti ja testaa sitä seuraavien ohjelmanpätkien avulla. Varmista että lypsyrobotti voi lypsää kaikkia Lypsava-rajapinnan toteuttavia olioita!
+
+```java
+Lypsyrobotti lypsyrobotti = new Lypsyrobotti();
+Lehma lehma = new Lehma();
+lypsyrobotti.lypsa(lehma);
+```
+
+<sample-output>
+
+Maidot menevät hukkaan!
+
+</sample-output>
+
+```java
+Lypsyrobotti lypsyrobotti = new Lypsyrobotti();
+Lehma lehma = new Lehma();
+System.out.println("");
+
+Maitosailio sailio = new Maitosailio();
+lypsyrobotti.setMaitosailio(sailio);
+System.out.println("Säiliö: " + sailio);
+
+for (int i = 0; i < 2; i++) {
+    System.out.println(lehma);
+    System.out.println("Elellään..");
+    for (int j = 0; j < 5; j++) {
+        lehma.eleleTunti();
+    }
+    System.out.println(lehma);
+
+    System.out.println("Lypsetään...");
+    lypsyrobotti.lypsa(lehma);
+    System.out.println("Säiliö: " + sailio);
+    System.out.println("");
+}
+```
+
+Ohjelman tulostus on esimerkiksi seuraavanlainen.
+
+<sample-output>
+
+Säiliö: 0.0/2000.0
+Mella 0.0/23.0
+Elellään..
+Mella 6.2/23.0
+Lypsetään...
+Säiliö: 6.2/2000.0
+
+Mella 0.0/23.0
+Elellään..
+Mella 7.8/23.0
+Lypsetään...
+Säiliö: 14.0/2000.0
+
+</sample-output>
+
+
+<h2>Navetta</h2>
+
+
+Lehmät hoidetaan (eli tässä tapauksessa lypsetään) navetassa. Alkukantaisissa navetoissa on maitosäiliö ja tilaa yhdelle lypsyrobotille. Huomaa että lypsyrobottia asennettaessa se kytketään juuri kyseisen navetan maitosäiliöön.  Jos navetassa ei ole lypsyrobottia, ei siellä voida myöskään hoitaa lehmiä. Toteuta luokka `Navetta` jolla on seuraavat konstruktorit ja metodit:
+
+
+- `public Navetta(Maitosailio maitosailio)`
+- `public Maitosailio getMaitosailio()` palauttaa navetan maitosailion
+- `public void asennaLypsyrobotti(Lypsyrobotti lypsyrobotti)` asentaa lypsyrobotin ja kiinnittää sen navetan maitosäiliöön
+- `public void hoida(Lehma lehma)` lypsää parametrina annetun lehmän lypsyrobotin avulla, metodi heittää poikkeuksen `IllegalStateException`, jos lypsyrobottia ei ole asennettu
+- `public void hoida(List<Lehma> lehmat)` lypsää parametrina annetut lehmät lypsyrobotin avulla, metodi heittää poikkeuksen `IllegalStateException`, jos lypsyrobottia ei ole asennettu
+- `public String toString()` palauttaa navetan sisältämän maitosäiliön tilan
+
+
+
+Testaa luokkaa `Navetta` seuraavan ohjelmapätkän avulla.
+
+
+```java
+Navetta navetta = new Navetta(new Maitosailio());
+System.out.println("Navetta: " + navetta);
+
+Lypsyrobotti robo = new Lypsyrobotti();
+navetta.asennaLypsyrobotti(robo);
+
+Lehma ammu = new Lehma();
+ammu.eleleTunti();
+ammu.eleleTunti();
+
+navetta.hoida(ammu);
+System.out.println("Navetta: " + navetta);
+
+List<Lehma> lehmaLista = new ArrayList<>();
+lehmaLista.add(ammu);
+lehmaLista.add(new Lehma());
+
+for (Lehma lehma: lehmaLista) {
+    lehma.eleleTunti();
+    lehma.eleleTunti();
+};
+
+navetta.hoida(lehmaLista);
+System.out.println("Navetta: " + navetta);
+```
+
+Tulostuksen tulee olla esimerkiksi seuraavanlainen:
+
+<sample-output>
+Navetta: 0.0/2000.0
+Navetta: 2.8/2000.0
+Navetta: 9.6/2000.0
+</sample-output>
+
+
+<h2>Maatila</h2>
+
+Maatilalla on omistaja ja siihen kuuluu navetta sekä joukko lehmiä. Maatila toteuttaa myös aiemmin nähdyn rajapinnan `Eleleva`, jonka metodia `eleleTunti()`-kutsumalla kaikki maatilaan liittyvät lehmät elelevät tunnin.  Toteuta luokka maatila siten, että se toimii seuraavien esimerkkiohjelmien mukaisesti.
+
+```java
+Maitosailio sailio = new Maitosailio();
+Navetta navetta = new Navetta(sailio);
+
+Maatila maatila = new Maatila("Esko", navetta);
+System.out.println(maatila);
+
+System.out.println(maatila.getOmistaja() + " on ahkera mies!");
+```
+
+Odotettu tulostus:
+
+<sample-output>
+Maatilan omistaja: Esko
+Navetan maitosäiliö: 0.0/2000.0
+Ei lehmiä.
+Esko on ahkera mies!
+</sample-output>
+
+```java
+Maatila maatila = new Maatila("Esko", new Navetta(new Maitosailio()));
+maatila.lisaaLehma(new Lehma());
+maatila.lisaaLehma(new Lehma());
+maatila.lisaaLehma(new Lehma());
+System.out.println(maatila);
+```
+
+Odotettu tulostus:
+
+<sample-output>
+Maatilan omistaja: Esko
+Navetan maitosäiliö: 0.0/2000.0
+Lehmät:
+    Naatti 0.0/19.0
+    Hilke 0.0/30.0
+    Sylkki 0.0/29.0
+</sample-output>
+
+```java
+Maatila maatila = new Maatila("Esko", new Navetta(new Maitosailio()));
+
+maatila.lisaaLehma(new Lehma());
+maatila.lisaaLehma(new Lehma());
+maatila.lisaaLehma(new Lehma());
+
+maatila.eleleTunti();
+maatila.eleleTunti();
+
+System.out.println(maatila);
+```
+
+
+Odotettu tulostus:
+
+
+<sample-output>
+Maatilan omistaja: Esko
+Navetan maitosäiliö: 0.0/2000.0
+Lehmät:
+    Heluna 2.0/17.0
+    Rima 3.0/32.0
+    Ilo 3.0/25.0
+</sample-output>
+
+```java
+Maatila maatila = new Maatila("Esko", new Navetta(new Maitosailio()));
+Lypsyrobotti robo = new Lypsyrobotti();
+maatila.asennaNavettaanLypsyrobotti(robo);
+
+maatila.lisaaLehma(new Lehma());
+maatila.lisaaLehma(new Lehma());
+maatila.lisaaLehma(new Lehma());
+
+maatila.eleleTunti();
+maatila.eleleTunti();
+
+maatila.hoidaLehmat();
+
+System.out.println(maatila);
+```
+
+Odotettu tulostus:
+
+<sample-output>
+Maatilan omistaja: Esko
+Navetan maitosäiliö: 18.0/2000.0
+Lehmät:
+    Hilke 0.0/30.0
+    Sylkki 0.0/35.0
+    Hento 0.0/34.0
+</sample-output>
+
+
+Edellä otettiin ensiaskeleet simulaattorin tekemiseen. Ohjelmaa voisi jatkaa vaikkapa lisäämällä maitoauton sekä luomalla useampia navettoja. Maitoautot voisivat kulkea tehtaalle, jossa tehtäisiin juustoa, jnejne..
+
+</programming-exercise>
 
 # Yhteenveto
 
-Yhdennessätoista osassa eli Ohjelmoinnin jatkokurssin neljännessä osassa tutustuimme geneeriseen tyyppiin sekä sen käyttöön tietorakenteissa kuten ArrayListissä ja HashMapissa, joista loimme myös omat versiot. Harjoittelimme lisäksi satunnaislukujen luomista sekä useampiulotteisten taulukoiden käyttöä. Lopuksi kertasimme lyhyesti testien kirjoittamista erityisesti muiden kirjoittamien testien lukemiseen keskittyen.
+Kymmenennessä osassa osassa tutustuimme luokkakaavioihin ja pakkauksiin. Otimme ensimmäisiä askeleita ohjelmien rakenteen kuvaamiseen ja ohjelman rakenteen jakamiseen loogisiin osakokonaisuuksiin. Tutustuimme poikkeuksien käsittelyyn ja niiden eteenpäin heittämiseen, ja harjoittelimme tiedostosta lukemista sekä tiedostoon kirjoittamista. Kertasimme myös testien kirjoittamista.
 
 Vastaa vielä alla olevaan kyselyyn.
 
-<quiznator id='5c93ae573972a9147410b2fe'></quiznator>
+<quiznator id='5c895ab2017ffc13eddd1169'></quiznator>
