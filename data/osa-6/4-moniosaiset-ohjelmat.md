@@ -19,9 +19,3 @@ _When you write a software module, you want to make sure that when changes are r
 _[..in other words..] Gather together the things that change for the same reasons. Separate those things that change for different reasons._
 
 Selkeys ohjelmaan luodaan sopivalla ohjelman rakenteella sekä nimeämiskäytänteiden seuraamisella. Opit ohjelmoidessasi että jokaiselle ohjelman osalle voidaan määritellä yksi selkeä vastuu.
-
-Vastaa vielä alla olevaan kyselyyn.
-
-TODO: kysely pitää tehdä uusiksi
-
-<quiznator id='5c571494017ffc13eddca70b'></quiznator>
