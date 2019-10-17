@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, StaticQuery } from "gatsby"
 import { Button } from "@material-ui/core"
+import CourseSettings from "../../course-settings"
 
 import Logo from "./Logo"
 import TreeView from "./TreeView"
@@ -93,36 +94,9 @@ const MenuExpanderWrapper = styled.div`
   }
 `
 
-var content2 = [
-  {
-    title: "Tietoa kurssista",
-    path: "/",
-  },
-  {
-    title: "Osaamistavoitteet",
-    path: "/osaamistavoitteet",
-  },
-  {
-    title: "Arvostelu ja kokeet",
-    path: "/arvostelu-ja-kokeet",
-  },
-  {
-    title: "Mahdollisuus opinto-oikeuteen",
-    path: "/opinto-oikeus",
-  },
-  { title: "Tukiväylät", path: "/tukivaylat" },
-  {
-    title: "Opettajille ja opinto-ohjaajille",
-    path: "/opettajille",
-  },
-  {
-    title: "Usein kysytyt kysymykset",
-    path: "/usein-kysytyt-kysymykset",
-  },
-  { separator: true, title: "Ohjelmoinnin perusteet" },
-]
+var content2 = CourseSettings.default.sidebarEntries
 
-var futurePages = [] // { title: "Osa 14", tba: "19.4.2020" }
+var futurePages = CourseSettings.default.sidebarFuturePages
 
 const MobileWrapper = styled.div`
   @media only screen and (max-width: ${SMALL_MEDIUM_BREAKPOINT}) {
@@ -152,6 +126,7 @@ class Sidebar extends React.Component {
     if (process.env.NODE_ENV === "production") {
       edges = edges.filter(o => !o.hidden)
     }
+    edges = edges.filter(o => !o.information_page)
     edges.sort((a, b) =>
       a.title.localeCompare(b.title, undefined, {
         numeric: true,
@@ -160,11 +135,13 @@ class Sidebar extends React.Component {
     )
     let content = content2.concat(edges)
     content = content.concat(futurePages)
-    let middlepoint = content.findIndex(o => o.title === "Osa 7")
-    content.splice(middlepoint + 1, 0, {
-      separator: true,
-      title: "Ohjelmoinnin jatkokurssi",
-    })
+    if (CourseSettings.default.splitCourses) {
+      let middlepoint = content.findIndex(o => o.title === "Osa 7")
+      content.splice(middlepoint + 1, 0, {
+        separator: true,
+        title: "Ohjelmoinnin jatkokurssi",
+      })
+    }
 
     return (
       <MobileWrapperOrFragment mobileMenuOpen={this.props.mobileMenuOpen}>
@@ -188,7 +165,7 @@ class Sidebar extends React.Component {
           </Button>
         </MenuExpanderWrapper>
         <SidebarContainer mobileMenuOpen={this.props.mobileMenuOpen}>
-          <Brand>Ohjelmoinnin MOOC 2020</Brand>
+          <Brand>{CourseSettings.default.name}</Brand>
           <TreeViewContainer>
             <TreeView data={content} />
           </TreeViewContainer>
@@ -212,6 +189,7 @@ const query = graphql`
           id
           frontmatter {
             title
+            information_page
             path
             hidden
           }

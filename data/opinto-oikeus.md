@@ -3,6 +3,7 @@ path: '/opinto-oikeus'
 title: 'Mahdollisuus opinto-oikeuteen'
 hidden: false
 information_page: true
+banner: false
 ---
 
 Kevään 2020 aikataulutettu Ohjelmoinnin MOOC antaa mahdollisuuden päästä opiskelemaan Helsingin yliopiston matemaattis-luonnontieteellisen tiedekunnan tietojenkäsittelytieteen kandiohjelmaan. Ohjelmoinnin MOOC -kurssin perusteella haetaan opinto-oikeutta korkeakoulujen yhteishaun osana olevassa päähaussa.
