@@ -13,9 +13,8 @@ hidden: false
 
 </text-box>
 
-## TODO: katso ettei overlappia!
+Kerrataan seuraavaksi olioiden vertailuun käytettyä metodia `equals` ja tutustutaan suurpiirteiseen vertailuun käytettyyn metodiin `hashCode`.
 
-TODO: ainakin vitososassa (oliot-ja-viitteet)
 
 ## Samuudesta kertova metodi "equals"
 
@@ -175,7 +174,7 @@ Kirjat olivat samat
 </sample-output>
 
 
-<quiznator id='2554c18b-ed9a-4a45-a6f8-bee671a7c3e9'></quiznator>
+<quiz id='2554c18b-ed9a-4a45-a6f8-bee671a7c3e9'></quiz>
 
 Myös ArrayList käyttää equals-metodia osana sisäistä toteutustaan. Mikäli emme toteuta omissa olioissamme `equals`-metodia, ei ArrayListin tarjoama `contains`-metodi toimi oikein. Mikäli kokeilet alla olevaa koodia kahdella Kirja-luokalla, jossa toisessa on määritelty `equals`-metodi, ja toisessa ei, huomaat eron.
 
@@ -198,7 +197,7 @@ if (!kirjat.contains(olioKirja)) {
 Tämä oletusmetodeihin kuten `equals`iin tukeutuminen on oikeastaan syy sille, miksi Java haluaa, että ArrayListiin ja HashMapiin lisättävät muuttujat ovat viittaustyyppisiä. Jokaisella viittaustyyppisellä muuttujalla on oletusmetodeja kuten equals, joten luokan ArrayList sisäistä toteutusta ei tarvitse muuttaa lainkaan erilaisia muuttujia lisättäessä. Alkeistyyppisillä muuttujilla tällaisia oletusmetodeja ei ole.
 
 
-<quiznator id='21bb20c2-d6b0-4aec-934b-ac7d8232e014'></quiznator>
+<quiz id='21bb20c2-d6b0-4aec-934b-ac7d8232e014'></quiz>
 
 
 ## Suurpiirteinen vertailu hajautusarvon avulla
