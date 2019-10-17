@@ -29,6 +29,7 @@ import TextBox from "./TextBox"
 import SampleData from "./SampleData"
 import SampleOutput from "./SampleOutput"
 import Youtube from "./Youtube"
+import Quiz from "./Quiz"
 import Quiznator from "./Quiznator"
 import PleaseLogin from "./PleaseLogin"
 import FloatImageRight from "./FloatImageRight"
@@ -37,6 +38,8 @@ import PdfSlideshow from "./PdfSlideshow"
 import ExercisesInThisSection from "./ExercisesInThisSection"
 import AbStudy from "./AbStudy"
 import CrowdSorcerer from "./CrowdSorcerer"
+import MoodleExercise from "./MoodleExercise"
+import SqlTrainerExercise from "./SqlTrainerExercise"
 
 import {
   Table,
@@ -81,9 +84,12 @@ const mapping = {
   "table-of-contents": TableOfContents,
   "registration-link": RegistrationLink,
   "registration-link-ohja": RegistrationLink2,
+  "moodle-exercise": MoodleExercise,
+  "sqltrainer-exercise": SqlTrainerExercise,
   notice: Notice,
   crowdsorcerer: CrowdSorcerer,
   youtube: Youtube,
+  quiz: Quiz,
   quiznator: Quiznator,
   table: Table,
   tbody: TableBody,

@@ -3,10 +3,11 @@ import fetchPonyfill from "fetch-ponyfill"
 import axios from "axios"
 import * as store from "store"
 import uuidv4 from "uuid/v4"
+import CourseSettings from "../../course-settings"
 
 const { fetch } = fetchPonyfill()
 const BASE_URL = "https://tmc.mooc.fi/api/v8"
-const ORGANIZATION = "mooc"
+const ORGANIZATION = CourseSettings.default.tmcOrganization
 
 const tmcClient = new TmcClient(
   "59a09eef080463f90f8c2f29fbf63014167d13580e1de3562e57b9e6e4515182",
@@ -19,15 +20,6 @@ export function authenticate(credentials) {
   return new Promise((resolve, reject) => {
     tmcClient.authenticate(credentials).then(
       res => {
-        if (
-          typeof window !== "undefined" &&
-          typeof window.Quiznator !== "undefined"
-        ) {
-          window.Quiznator.setUser({
-            id: res.username,
-            accessToken: res.accessToken,
-          })
-        }
         loginStateChanged()
         resolve(res)
       },
@@ -42,7 +34,7 @@ export function createAccount(data) {
   data.username = uuidv4()
   const body = {
     user: data,
-    origin: "Ohjelmoinnin MOOC 2020",
+    origin: CourseSettings.default.name,
     language: "fi",
   }
   return new Promise((resolve, reject) => {
@@ -85,12 +77,6 @@ export function loggedIn() {
 }
 
 export function signOut() {
-  if (
-    typeof window !== "undefined" &&
-    typeof window.Quiznator !== "undefined"
-  ) {
-    window.Quiznator.removeUser()
-  }
   store.remove("tmc.user")
   store.remove("tmc.user.details")
   loginStateChanged()
@@ -102,7 +88,7 @@ export function onLoginStateChanged(callback) {
 
 export async function userDetails() {
   const res = await axios.get(
-    `${BASE_URL}/users/current?show_user_fields=true&extra_fields=ohjelmoinnin-mooc-2020`,
+    `${BASE_URL}/users/current?show_user_fields=true&extra_fields=${CourseSettings.default.slug}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -143,7 +129,7 @@ export async function updateUserDetails({ extraFields, userField }) {
     {
       user: {
         extra_fields: {
-          namespace: "ohjelmoinnin-mooc-2020",
+          namespace: CourseSettings.default.slug,
           data: extraFields,
         },
       },
@@ -171,13 +157,18 @@ export function updatePassword(currentPassword, password, confirmPassword) {
 }
 
 export async function fetchProgrammingExerciseDetails(exerciseName) {
+  const accessTokenValue = accessToken()
+  const headers = {
+    "Content-Type": "application/json",
+  }
+  if (accessTokenValue) {
+    headers["Authorization"] = `Bearer ${accessTokenValue}`
+  }
+  console.log(exerciseName, headers)
   const res = await axios.get(
     `${BASE_URL}/org/${ORGANIZATION}/courses/${await getCourse()}/exercises/${exerciseName}`,
     {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken()}`,
-      },
+      headers: headers,
     },
   )
   return res.data
@@ -237,21 +228,24 @@ export async function getCourseVariant() {
 }
 
 async function getCourse() {
+  if (!accessToken()) {
+    return CourseSettings.default.tmcCourse
+  }
   const variant = await getCourseVariant()
   if (variant === "nodl") {
-    return "2020-ohjelmointi-nodl"
+    return "2019-ohjelmointi-nodl"
   }
   if (variant === "ohja-dl") {
-    return "2020-mooc-vain-jatkokurssi"
+    return "2019-mooc-vain-jatkokurssi"
   }
   if (variant === "ohja-nodl") {
-    return "2020-mooc-vain-jatkokurssi-nodl"
+    return "2019-mooc-vain-jatkokurssi-nodl"
   }
   if (variant === "kesa-dl") {
-    return "2020-ohjelmointi-kesa"
+    return "2019-ohjelmointi-kesa"
   }
   if (variant === "kesa-ohja-dl") {
-    return "2020-mooc-vain-jatkokurssi-kesa"
+    return "2019-mooc-vain-jatkokurssi-kesa"
   }
-  return "2020-ohjelmointi"
+  return CourseSettings.default.tmcCourse
 }
