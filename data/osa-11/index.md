@@ -33,14 +33,13 @@ hidden: false
   <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
 </only-for-not-logged-in>
 
-
-Tämän osan jälkeen osaat tulkita yksinkertaisia luokkakaavioita ja osaat rakentaa ohjelmia luokkaakavioiden perusteella. Tiedät mitä Javan pakkaukset ovat, tiedät mistä `import`-lauseen osat muodostuvat, ja osaat asettaa luokkasi pakkauksiin. Harjoittelet Javan poikkeusten käyttöä ja opit sekä niiden käsittelyn että niiden eteenpäin heittämisen. Opit kirjoittamaan tietoa tiedostoon ohjelmallisesti ja kertaat yksikkötestien kirjoittamista uutta ohjelmointitehtävää luodessasi.
+Kurssimateriaalin yhdennessätoista osassa opit tulkitsemaan yksinkertaisia luokkakaavioita. Tutustut Javan pakkauksiin ja opit mistä `import`-lauseen osat muodostuvat. Harjoittelet Javan poikkeusten käyttöä ja opit sekä niiden käsittelyn että niiden eteenpäin heittämisen. Kertaat tiedon lukemista tiedostosta ja opit kirjoittamaan tietoa tiedostoon.
 
 
 <please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
 
-Yllä oleva sisällysluettelo sisältää kurssin kymmenennen osan aihealueet. Kukin kurssin osa on suunniteltu siten, että siinä on työtä yhden viikon ajaksi. Kuhunkin kurssin osaan on hyvä varata reilusti yli kymmenen tuntia aikaa, riippuen aiemmasta tietokoneen käyttökokemuksesta. Ohjelmointia aiemmin kokeilleet saattavat edetä materiaalissa aluksi nopeamminkin.
+Yllä oleva sisällysluettelo sisältää kurssin yhdennentoista osan aihealueet. Kukin kurssin osa on suunniteltu siten, että siinä on työtä yhden viikon ajaksi. Kuhunkin kurssin osaan on hyvä varata reilusti yli kymmenen tuntia aikaa, riippuen aiemmasta tietokoneen käyttökokemuksesta. Ohjelmointia aiemmin kokeilleet saattavat edetä materiaalissa aluksi nopeamminkin.
 
 <exercises-in-this-section></exercises-in-this-section>

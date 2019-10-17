@@ -245,3 +245,5 @@ Kun ajattelemme muistin käyttöä, hajautustaululla voi olla -- tapauksesta rii
 
 </text-box>
 
+
+TODO: tänne game of life tai schellingin malli?

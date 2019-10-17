@@ -33,13 +33,12 @@ hidden: false
   <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
 </only-for-not-logged-in>
 
-
-Tässä osassa syvennytään tietokokoelmien käsittelyyn virtojen avulla. Opit luomaan virran tietokokoelmasta, rajaamaan virran arvoja, muuntamaan virran arvoja muodosta toiseen, ja keräämään virran arvoja toiseen tietokokoelmaan. Tutustut käsitteeseen lambdalauseke ja opit käyttämään sitä ohjemissasi. Opit järjestämään olioita Javan valmista Comparable-rajapintaa hyödyntäen ja tutustut muutamaan muuhunkin yleishyödylliseen työvälineeseen kuten säännöllinen lauseke, lueteltu tyyppi, ja iteraattori.
+Kurssimateriaalin kymmenennessä osassa tutustutaan tietokokoelmien käsittelyyn virtojen avulla. Opit luomaan virran tietokokoelmasta, rajaamaan virran arvoja, muuntamaan virran arvoja muodosta toiseen, ja keräämään virran arvoja toiseen tietokokoelmaan. Tutustut käsitteeseen lambdalauseke ja opit käyttämään sitä ohjemissasi. Opit myös järjestämään olioita Javan valmista Comparable-rajapintaa hyödyntäen ja tutustut muutamaan yleishyödylliseen työvälineeseen kuten säännöllinen lauseke, lueteltu tyyppi, ja iteraattori.
 
 <please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
 
-Yllä oleva sisällysluettelo sisältää kurssin yhdeksännen osan aihealueet. Kukin kurssin osa on suunniteltu siten, että siinä on työtä yhden viikon ajaksi. Kuhunkin kurssin osaan on hyvä varata reilusti yli kymmenen tuntia aikaa, riippuen aiemmasta tietokoneen käyttökokemuksesta. Ohjelmointia aiemmin kokeilleet saattavat edetä materiaalissa aluksi nopeamminkin.
+Yllä oleva sisällysluettelo sisältää kurssin kymmenennen osan aihealueet. Kukin kurssin osa on suunniteltu siten, että siinä on työtä yhden viikon ajaksi. Kuhunkin kurssin osaan on hyvä varata reilusti yli kymmenen tuntia aikaa, riippuen aiemmasta tietokoneen käyttökokemuksesta. Ohjelmointia aiemmin kokeilleet saattavat edetä materiaalissa aluksi nopeamminkin.
 
 <exercises-in-this-section></exercises-in-this-section>

@@ -1,7 +1,7 @@
 ---
 path: '/osa-15/x-jotain'
 title: 'TODO: jotain'
-hidden: false
+hidden: true
 ---
 
 Kun olio -- eli viittaustyyppisten muuttujien -- lisätään listalle, listalle kopioidaan viite. Tämä tarkoittaa sitä, että *olion sisäisestä tilasta ei luoda kopiota*, vaan listalle lisätään viite olemassa olevaan olioon.

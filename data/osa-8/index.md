@@ -33,7 +33,8 @@ hidden: false
   <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
 </only-for-not-logged-in>
 
-TODO: Tässä osassa tutustut olio-ohjelmoinnin kahteen keskeiseen käsitteeseen eli perintään ja rajapintoihin. Opit luomaan luokkia, jotka periytyvät toisesta luokasta ja opit luomaan luokkia, jotka toteuttavat yhden tai useamman rajapinnan. Tulet myös huomaamaan, että olio voidaan esittää kaikkien sen todellisten tyyppien avulla.
+
+Kurssimateriaalin kahdeksannessa osassa tutustutaan hajautustaulun käyttöön. Kahdeksannesta osasta alkava Ohjelmoinnin jatkokurssi (TKT-10003) on suoraan jatkoa materiaalin seitsemän ensimmäistä osaa kattavaan kurssin Ohjelmoinnin perusteet (TKT-10002).
 
 <please-login></please-login>
 
