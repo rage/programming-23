@@ -18,40 +18,6 @@ hidden: false
 Tutustutaan seuraavaksi muutamaan ohjelmoinnissa varsin näppärään tekniikaan sekä luokkaan.
 
 
-## For-toistolause
-
-Olemme käyttäneet tähän mennessä ohjelmissamme while-toistolausetta, foreach-toistolausetta sekä virtoja. Tutustutaan nyt vielä yhteen toistolauseeseen eli perinteiseen for-toistolauseeseen.
-
-Olemme käyttäneet indeksistä kirjaa pitävänä toistolauseena toistaiseksi while-toistolausetta. Sen toiminta on seuraavanlainen.
-
-```java
-int i = 0;
-while (i < 10) {
-    System.out.println(i);
-    i++;
-}
-```
-
-Ylläolevan toistolauseen voi pilkkoa kolmeen osaan. Ensin esittelemme toistolauseessa toistokertojen laskemiseen käytettävän muuttujan `i` ja asetamme sen arvon nollaksi: `int i = 0;`. Tätä seuraa toistolauseen määrittely -- toistolauseen ehto on `i < 10` eli toistolausetta suoritetaan niin pitkään kuin muuttujan `i` arvo on pienempi kuin 10. Toistolauseessa on toistettava toiminnallisuus `System.out.println(i);`, jota seuraa toistolauseessa käytettävän muuttujan kasvatus `i++`.
-
-Saman toteuttaminen tapahtuu indeksistä kirjaa pitävällä for-toistolauseella seuraavasti.
-
-```java
-for (int i = 0; i < 10; i++) {
-    System.out.println(i);
-}
-```
-
-Toistolause for koostuu neljästä osasta: (1) toistokertojen laskemiseen käytettävän muuttujan esittelystä; (2) toistolauseen ehdosta; (3) laskemiseen käytetyn muuttujan kasvattamisesta (tai pienentämisestä tai muuttamisesta); ja (4) toistettavasta toiminnallisuudesta.
-
-
-```java
-for (*muuttujan esittely*; *ehto*; *kasvatus*) {
-    // toistettava asia
-}
-```
-
-
 ## StringBuilder
 
 
