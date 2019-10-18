@@ -1,6 +1,7 @@
 ---
 path: "/osa-1/6-ehtolauseet"
 title: "Ehtolauseet ja vaihtoehtoinen toiminta"
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -1068,4 +1069,3 @@ Vero: 1950.0
 
 
 </programming-exercise>
-

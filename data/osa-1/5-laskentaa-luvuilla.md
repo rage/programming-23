@@ -1,6 +1,7 @@
 ---
 path: "/osa-1/5-laskentaa"
 title: "Laskentaa luvuilla"
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
