@@ -1,7 +1,7 @@
 ---
 path: '/osa-5/1-katsaus-olio-ohjelmointiin'
 title: 'Katsaus olio-ohjelmointiin'
-hidden: false
+hidden: true
 ---
 
 
@@ -496,4 +496,3 @@ Tavoite 99.99999999999999% maksimista: 184.97000000000003
 </sample-output>
 
 </programming-exercise>
-

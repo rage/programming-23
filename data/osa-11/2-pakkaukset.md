@@ -1,7 +1,7 @@
 ---
 path: '/osa-11/2-pakkaukset'
 title: 'Pakkaukset'
-hidden: false
+hidden: true
 ---
 
 

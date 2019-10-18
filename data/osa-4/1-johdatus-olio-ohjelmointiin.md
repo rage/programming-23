@@ -1,7 +1,7 @@
 ---
 path: '/osa-4/1-johdatus-olio-ohjelmointiin'
 title: 'Johdatus olio-ohjelmointiin'
-hidden: false
+hidden: true
 ---
 
 
@@ -1786,5 +1786,3 @@ Koska liukulukuja on ääretön määrä -- (mikäli mietit "miten niin ääret�
 Normaalisti esimerkiksi tilien saldot tallennetaan kokonaislukuina siten, että arvo 1 vastaa esimerkiksi yhtä senttiä.
 
 </text-box>
-
-

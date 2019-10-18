@@ -1,7 +1,7 @@
 ---
 path: '/osa-6/1-olioista-koostuvat-oliot'
 title: 'Olioita listalla ja listan sisältävät oliot'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

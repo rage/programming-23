@@ -1,7 +1,7 @@
 ---
 path: '/osa-4/3-tiedon-lukeminen-ja-tiedostot'
 title: 'Tiedon lukeminen ja tiedostot'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -655,6 +655,3 @@ Tappioita: 3
 
 
 </programming-exercise>
-
-
-

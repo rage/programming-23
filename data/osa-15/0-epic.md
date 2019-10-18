@@ -1,7 +1,7 @@
 ---
 path: '/osa-14/0-epic'
 title: 'Epic'
-hidden: false
+hidden: true
 ---
 
 # Simulaatiot ja toistuva piirtäminen
@@ -773,4 +773,3 @@ Tämän kurssin jälkeen on hyvä aloittaa kurssit Tietokantojen perusteet sekä
 Vastaa vielä seuraavaan kyselyyn.
 
 <quiznator id="5cb5c003a4fb9e4613a5a85b"></quiznator>
-

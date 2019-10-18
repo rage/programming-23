@@ -3,9 +3,9 @@ const courseSettings = {
   name: "Ohjelmoinnin MOOC 2020",
   siteUrl: "https://ohjelmointi-19.mooc.fi",
   subtitle: "Ohjelmoinnin alkeet kaikille, ilmaiseksi",
-  slug: "ohjelmoinnin-mooc-2019",
-  tmcCourse: "2019-ohjelmointi",
-  quizzesId: "38240a7b-7e64-4202-91e2-91f6d46f6198",
+  slug: "ohjelmoinnin-mooc-2020",
+  tmcCourse: "2020-ohjelmointi",
+  quizzesId: "38240a7b-7e64-4202-91e2-91f6d46f6198-xx",
   tmcOrganization: "mooc",
   bannerPath: "banner.svg",
   sidebarEntries: [

@@ -17,8 +17,8 @@ tietojenkäsittelytieteen laitoksen kursseja Ohjelmoinnin perusteet ja
 Ohjelmoinnin jatkokurssi. Kurssit vastaavat yhteensä kymmentä
 opintopistettä (5+5).
 
-**Kurssi on käynnissä!** Luo tunnus tai kirjaudu sisään, jonka
-jälkeen valitse [Osa 1](/osa-1) navigaatiosta.
+<!-- **Kurssi on käynnissä!** Luo tunnus tai kirjaudu sisään, jonka
+jälkeen valitse [Osa 1](/osa-1) navigaatiosta. -->
 
 ## Sisältö ja kurssin versiot
 
@@ -39,7 +39,9 @@ opinto-oikeutta.
 Kurssin osat 1-7 vastaavat kurssia Ohjelmoinnin perusteet. Osat 8-14
 vastaavat kurssia Ohjelmoinnin jatkokurssi.
 
-### Aikataulu - syksy 2019
+Kurssi alkaa joulukuussa 2019. Lisätietoa aikataulusta tulee tälle sivulle myöhemmin.
+
+<!-- ### Aikataulu - syksy 2019
 
 Sykysyllä 2019 kurssista on auki aikatauluton versio, jota voi tehdä vuoden loppuun asti.
 Muita deadlinejä kurssilla ei ole.
@@ -263,4 +265,4 @@ Lisätietoa opinto-oikeudesta saat [täältä](/opinto-oikeus).
 </b>
 
 Kurssille ei tarvitse eikä voi ilmoittautua. Ilmoittautuneiksi
-katsotaan ne osallistujat, jotka tekevät kurssin ohjelmointitehtäviä.
+katsotaan ne osallistujat, jotka tekevät kurssin ohjelmointitehtäviä. -->

@@ -1,7 +1,7 @@
 ---
 path: '/osa-10/2-rajapinta-comparable'
 title: 'Valmis rajapinta Comparable'
-hidden: false
+hidden: true
 ---
 
 

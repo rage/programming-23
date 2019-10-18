@@ -1,7 +1,7 @@
 ---
 path: '/osa-6/3-johdatus-ohjelmien-testaamiseen'
 title: 'Johdatus ohjelmien testaamiseen'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -344,4 +344,3 @@ Yksikkötestaus on vain osa ohjelmiston testaamista. Yksikkötestaamisen lisäks
 Näitä testaamiseen liittyviä menetelmiä tarkastellaan tarkemmin muunmuassa kursseilla ohjelmistotekniikka sekä ohjelmistotuotanto.
 
 </text-box>
-

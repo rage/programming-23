@@ -1,7 +1,7 @@
 ---
 path: '/osa-12/2-arraylist-ja-hajautustaulu'
 title: 'ArrayList ja Hajautustaulu'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -842,4 +842,3 @@ Hajautustaulu: haku kesti noin 0 millisekuntia (805106 nanosekuntia.)
 
 
 *Edellä kuvatut ja kursseilla käyttämämme listat ja hajautustaulut poikkeavat toki sisäiseltä toteutukselta hieman toisistaan. Ohjelmointikielten tarjoamissa tietorakenteissa on hieman enemmän erilaisia optimointeja -- näihinkin palataan myöhemmillä kursseilla. Tämän kurssin puitteissa riittää em. tietorakenteiden käyttöosaaminen sekä jonkintasoinen ymmärrys niiden tehokkuuseroista sekä käyttötapauksista.*
-

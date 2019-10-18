@@ -1,7 +1,7 @@
 ---
 path: '/osa-11/1-luokkakaaviot'
 title: 'Luokkakaaviot'
-hidden: false
+hidden: true
 ---
 
 

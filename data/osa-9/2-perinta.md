@@ -1,7 +1,7 @@
 ---
 path: '/osa-9/2-perinta'
 title: 'Luokan periminen'
-hidden: false
+hidden: true
 ---
 
 
@@ -1297,4 +1297,3 @@ false
 </sample-output>
 
 </programming-exercise>
-

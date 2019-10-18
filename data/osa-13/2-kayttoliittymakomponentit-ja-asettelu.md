@@ -1,7 +1,7 @@
 ---
 path: '/osa-13/2-kayttoliittymakomponentit-ja-niiden-asettelu'
 title: 'Käyttöliittymäkomponentit ja niiden asettelu'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -355,4 +355,3 @@ Luo tehtäväpohjassa olevaan luokkaan sovellus, joka käyttää BorderPane-luok
 
 
 </programming-exercise>
-

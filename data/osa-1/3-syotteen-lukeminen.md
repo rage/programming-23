@@ -1,7 +1,7 @@
 ---
 path: '/osa-1/3-syotteen-lukeminen'
 title: 'Syötteen lukeminen'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -602,4 +602,3 @@ Ehkäpä Ada ei olekaan koko elämäänsä datatieteilijä.
 </sample-output>
 
 </programming-exercise>
-

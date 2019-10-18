@@ -1,7 +1,7 @@
 ---
 path: '/osa-5/4-oliot-ja-viitteet'
 title: 'Oliot ja viitteet'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -2192,4 +2192,3 @@ System.out.println(c);  // 0.00e
 ```
 
 </programming-exercise>
-

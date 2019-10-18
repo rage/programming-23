@@ -1,7 +1,7 @@
 ---
 path: '/osa-5/2-metodien-ja-konstruktorien-kuormittaminen'
 title: 'Toistuvan koodin vähentäminen: Metodien ja konstruktorien kuormittaminen'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

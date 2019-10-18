@@ -1,7 +1,7 @@
 ---
 path: '/osa-9/3-rajapinta'
 title: 'Rajapinta'
-hidden: false
+hidden: true
 ---
 
 
@@ -1241,4 +1241,3 @@ Kauppa on melkein valmiina. Yhden asiakkaan asioinnin hoitavan metodin `public v
 *Todellisuudessa verkkokauppa toteutettaisiin hieman eri tavalla. Verkkosovelluksia tehtäessä käyttöliittymä toteutetaan HTML-sivuna, ja sivuilla tapahtuvat klikkaukset ohjataan palvelinohjelmistolle. Teemaan liittyen löytyy useampia kursseja Helsingin yliopistolta.*
 
 </programming-exercise>
-

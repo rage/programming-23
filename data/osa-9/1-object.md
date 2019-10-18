@@ -1,7 +1,7 @@
 ---
 path: '/osa-9/1-object'
 title: 'Object'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -233,4 +233,3 @@ Object-luokassa määritelty oletustoteutus luo `hashCode`-arvon olion viitteen 
 NetBeans tarjoaa tuen metodien `equals` ja `hashCode` lähes automaattiseen luomiseen. Voit valita valikosta Source -> Insert Code, ja valita aukeavasta listasta *equals() and hashCode()*. Tämän jälkeen NetBeans kysyy oliomuuttujat joita metodeissa käytetään. Nämä NetBeansin generoimat metodit ovat tyypillisesti "tarpeeksi hyviä" omiin tarpeisiimme.
 
 </text-box>
-

@@ -1,7 +1,7 @@
 ---
 path: '/osa-4/2-oliot-listalla'
 title: 'Oliot listalla'
-hidden: false
+hidden: true
 ---
 
 

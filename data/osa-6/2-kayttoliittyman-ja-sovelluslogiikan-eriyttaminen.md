@@ -1,7 +1,7 @@
 ---
 path: '/osa-6/2-kayttoliittyman-ja-sovelluslogiikan-eriyttaminen'
 title: 'Käyttöliittymän ja sovelluslogiikan eriyttäminen'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

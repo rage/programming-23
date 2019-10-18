@@ -1,7 +1,7 @@
 ---
 path: '/osa-3/5-merkkijonot'
 title: 'Merkkijonojen käsittely'
-hidden: false
+hidden: true
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -612,4 +612,3 @@ Syntymävuosien keskiarvo: 1930.0
 </sample-output>
 
 </programming-exercise>
-

@@ -1,7 +1,7 @@
 ---
 path: '/osa-1/1-ohjelmoinnin-aloittaminen'
 title: 'Ohjelmoinnin aloittaminen'
-hidden: false
+hidden: true
 ---
 
 
@@ -118,4 +118,3 @@ Java-ohjelmat vaativat toimiakseen ohjelmarungon, joka tulee kurssin aikana tutu
 Alla on kurssin ensimmäinen kyselytehtävä. Kyselytehtäviin vastataan suoraan kurssimateriaalissa.
 
 <quiznator id="5c136a4ea50dbe1223d1981d"></quiznator>
-

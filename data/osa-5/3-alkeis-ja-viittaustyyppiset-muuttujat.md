@@ -1,7 +1,7 @@
 ---
 path: '/osa-5/3-alkeis-ja-viittaustyyppiset-muuttujat'
 title: 'Kahdenlaisia muuttujia: Alkeis- ja viittaustyyppiset muuttujat'
-hidden: false
+hidden: true
 ---
 
 
@@ -324,4 +324,3 @@ Tämän lisäksi muuttuja `luku` ei suoranaisesti ole muistipaikka tai lokero. M
 Palaamme tähän lyhyesti ohjelmoinnin jatkokurssilla; aihetta käsitellään enemmän kurssilla Tietokoneen toiminta.
 
 </text-box>
-

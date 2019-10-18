@@ -1,7 +1,7 @@
 ---
 path: '/osa-14/3-laajempi-sovellus-asteroids'
 title: 'Laajempi sovellus: Asteroids'
-hidden: false
+hidden: true
 ---
 
 
@@ -1232,4 +1232,3 @@ Kun olet saanut nämä ja edelliset osat toimimaan, aseta luokan `AsteroidsSovel
 *Tehtävässä ei ole esimerkkiratkaisua. Tehtävä on tarkoitettu toteutettavaksi materiaalin esimerkkiä askel askeleelta noudattaen.*
 
 </programming-exercise>
-

@@ -1,7 +1,7 @@
 ---
 path: '/osa-6/4-moniosaiset-ohjelmat'
 title: 'Moniosaiset ohjelmat'
-hidden: false
+hidden: true
 ---
 
 

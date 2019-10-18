@@ -11,7 +11,7 @@ Kurssilla on vertaistukeen perustuva keskustelukanava, jonka lisäksi tammikuun 
 
 Kurssilla on käytössä Telegram-keskusteluhuone. Suosittelemme, että käytät tukikanavaa joko Telegramin selaimessa toimivalla versiolla tai Telegrammin työpöytäohjelmalla.
 
-Pääset kanavalle tästä linkistä: [https://t.me/ohjelmointi19](https://t.me/ohjelmointi19) . Pääset Telegrammin selaimessa toimivaan versioon täältä: [https://web.telegram.org](https://web.telegram.org/) .
+Pääset kanavalle tästä linkistä: [https://t.me/ohjelmointi20](https://t.me/ohjelmointi19) . Pääset Telegrammin selaimessa toimivaan versioon täältä: [https://web.telegram.org](https://web.telegram.org/) .
 
 Kanavan osallistujat ovat kanssaopiskelijoita sekä vapaaehtoisia ohjaajia. Kanavan toiminta perustuu vapaaehtoisuuteen. Autathan muita myös vastavuoroisesti.
 
@@ -23,7 +23,7 @@ Kurssilla on mahdollisuus saada hyvää ohjelmointiseuraa sekä saada apua teht�
 
 Katso Exactum-rakennuksen tarkempi sijainti seuraavasta linkistä: https://www.google.com/maps?hl=en&q=Exactum,+Kumpula+Campus,+Pietari+Kalmin+katu+5,+00560+Helsinki
 
-Kesän 2020 pajaohjausajat (luokka BK107):
+<!-- Kesän 2020 pajaohjausajat (luokka BK107):
 - Ma 6.5. 15-18:30 (kesä-moocin aloitus)
 - Ti 7.5. 15-18:30 (kesä-moocin aloitus)
 - Pe 10.5. 15-17
@@ -52,4 +52,4 @@ Moodle-ilmoittautumisella voit ilmoittautua samalla maksuttomaan kurssikokeeseen
 
 Ohjeet Moodle-ilmoittautumiseen löytyvät [täältä](/koe-ja-moodle-ilmoittautuminen) kohdasta Moodle-ilmoittautuminen.
 
-Huom! Ilmoittautumisen tekemättä jättäminen ei koskaan pudota sinua kurssilta. Kurssille tuleva muodollinen kokeeseen ilmoittatuminen tulee olemaan sama tämän ilmoittautumisen kanssa. Saat lisätietoa miten tämä muodollinen kokeeseen ilmoittautuminen toimii täällä: [kokeeseen ilmoittautuminen](/arvostelu-ja-kokeet#heading-kokeeseen-ilmoittautuminen). Tällä kuitenkaan ei ole missään nimessä kiire -- riittää että huolehdit tästä kaksi päivää ennen kuin olet osallistumassa kokeeseen.
+Huom! Ilmoittautumisen tekemättä jättäminen ei koskaan pudota sinua kurssilta. Kurssille tuleva muodollinen kokeeseen ilmoittatuminen tulee olemaan sama tämän ilmoittautumisen kanssa. Saat lisätietoa miten tämä muodollinen kokeeseen ilmoittautuminen toimii täällä: [kokeeseen ilmoittautuminen](/arvostelu-ja-kokeet#heading-kokeeseen-ilmoittautuminen). Tällä kuitenkaan ei ole missään nimessä kiire -- riittää että huolehdit tästä kaksi päivää ennen kuin olet osallistumassa kokeeseen. -->

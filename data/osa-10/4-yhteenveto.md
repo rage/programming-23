@@ -1,7 +1,7 @@
 ---
 path: '/osa-10/4-yhteenveto'
 title: 'Yhteenveto'
-hidden: false
+hidden: true
 ---
 
 
@@ -12,4 +12,3 @@ Vastaa vielä alla olevaan kyselyyn.
 
 
 <quiznator id='5c816762ddb6b814af32810c'></quiznator>
-

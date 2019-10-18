@@ -1,7 +1,7 @@
 ---
 path: '/osa-11/3-poikkeukset'
 title: 'Poikkeukset'
-hidden: false
+hidden: true
 ---
 
 
