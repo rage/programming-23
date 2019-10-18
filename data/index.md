@@ -17,6 +17,16 @@ tietojenkäsittelytieteen laitoksen kursseja Ohjelmoinnin perusteet ja
 Ohjelmoinnin jatkokurssi. Kurssit vastaavat yhteensä kymmentä
 opintopistettä (5+5).
 
+Keväällä 2020 Ohjelmoinnin MOOC tarjoaa mahdollisuuden
+opinto-oikeuteen tietojenkäsittelytieteen opintoihin Helsingin
+yliopistolla. Mikäli haet kurssin kautta opinto-oikeutta, lue kaikki
+opinto-oikeuden hakemiseen liittyvät tiedot huolellisesti. Esimerkiksi
+tehtävien aikarajoista EI voida joustaa lainkaan. Ehdot
+opinto-oikeuden saamiseksi päivittyvät lähempänä yhteishakua.
+Lisätietoa opinto-oikeudesta saat [täältä](/opinto-oikeus). Vuosi 2020 on
+viimeinen vuosi, jolloin mahdollisuus opinto-oikeuteen tarjotaan tämän
+kurssin kautta.
+
 <!-- **Kurssi on käynnissä!** Luo tunnus tai kirjaudu sisään, jonka
 jälkeen valitse [Osa 1](/osa-1) navigaatiosta. -->
 
