@@ -19,11 +19,11 @@ Ongelma pitäisi olla korjattu TMC liitännäisen uusimmassa versiossa. Saat sen
 
 ### Ohjelmointitehtävässä on mielestäni virhe
 
-Varmista, että ongelma ei ole omassa koodissasi. Kysy tarvittaessa apua kurssin tukikanavilla. Kokeile myös onko tehtävään saatavilla päivitystä valitsemalla Netbeanssin yläpalkista `TMC` -> `Download or update exercises`. Jos näidenkin toimenpiteiden jälkeen vaikuttaa siltä, että virhe on tehtävässä, avaa uusi issue kurssin Github-repossa: https://github.com/rage/ohjelmointi-19.
+Varmista, että ongelma ei ole omassa koodissasi. Kysy tarvittaessa apua kurssin tukikanavilla. Kokeile myös onko tehtävään saatavilla päivitystä valitsemalla Netbeanssin yläpalkista `TMC` -> `Download or update exercises`. Jos näidenkin toimenpiteiden jälkeen vaikuttaa siltä, että virhe on tehtävässä, avaa uusi issue kurssin Github-repossa: https://github.com/rage/ohjelmointi-20.
 
 ### Löysin materiaalista virheen
 
-Avaa joko issue tai muutosehdoitus kurssin Github-repossa: https://github.com/rage/ohjelmointi-19.
+Avaa joko issue tai muutosehdoitus kurssin Github-repossa: https://github.com/rage/ohjelmointi-20.
 
 ### Miten saan ladattua seuraavan osan ohjelmointitehtävät?
 
@@ -53,7 +53,7 @@ Varmista, että sinulla on Javan kehitystyökalujen versio 8 asennettuna. Kurssi
 
 ### En voi aloittaa kurssia, koska en tiedä minne ilmoittautua
 
-Kurssin aloittamiseen ei tarvitse ilmoittautumista. Älä ilmoittaudu minnekkään ellei kurssin sivu (ohjelmointi-19.mooc.fi) erikseen kehoita sinua tekemään niin. Kurssin kokeeseen on erikseen ilmoittautuminen täällä: [koe ja moodle ilmoittautuminen](/koe-ja-moodle-ilmoittautuminen).
+Kurssin aloittamiseen ei tarvitse ilmoittautumista. Älä ilmoittaudu minnekkään ellei kurssin sivu (ohjelmointi-20.mooc.fi) erikseen kehoita sinua tekemään niin. Kurssin kokeeseen on erikseen ilmoittautuminen täällä: [koe ja moodle ilmoittautuminen](/koe-ja-moodle-ilmoittautuminen).
 
 Valitettavasti me loimme vahingossa avoimen yliopiston yliopiston sivulle ja courses.helsinki.fi:hin kurssille ylimääräisiä ilmoittautumissivuja, joista voi saada käsityksen että kurssille ei pääse mukaan tai että joutuu kurssin väärään versioon jos ei ilmoitttaudu näillä sivuilla. Tämä tieto ei kuitenkaan pidä paikkaansa.
 
