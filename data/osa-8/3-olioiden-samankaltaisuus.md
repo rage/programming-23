@@ -412,7 +412,7 @@ Jürgen
 
 Toteuta luokka `Ajoneuvorekisteri` jolla on seuraavat metodit:
 
-- `public boolean lisaa(Rekisterinumero rekkari, String omistaja)` lisää parametrina olevaa rekisterinumeroa vastaavalle autolle parametrina olevan omistajan, metodi palauttaa true jos omistajaa ei ollut ennestään, jos rekisterinumeroa vastaavalla autolla oli jo omistaja, metodi palauttaa false ja ei tee mitään
+- `public boolean lisaa(Rekisterinumero rekkari, String omistaja)` lisää parametrina olevaa rekisterinumeroa vastaavalle autolle parametrina olevan omistajan. Metodi palauttaa true jos omistajaa ei ollut ennestään; jos rekisterinumeroa vastaavalla autolla taas oli jo omistaja, metodi palauttaa false ja ei tee mitään
 
 - `public String hae(Rekisterinumero rekkari)` palauttaa parametrina olevaa rekisterinumeroa vastaavan auton omistajan. Jos auto ei ole rekisterissä, palautetaan `null`
 
