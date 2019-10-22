@@ -8,7 +8,7 @@ banner: false
 
 Kevään 2020 aikataulutettu Ohjelmoinnin MOOC antaa mahdollisuuden päästä opiskelemaan Helsingin yliopiston matemaattis-luonnontieteellisen tiedekunnan tietojenkäsittelytieteen kandiohjelmaan. Ohjelmoinnin MOOC -kurssin perusteella haetaan opinto-oikeutta korkeakoulujen yhteishaun osana olevassa päähaussa.
 
-<!-- Yhteishaun hakuaika on 20.3.-3.4.2020. Hakuaika päättyy klo 15.00. Ohjelmoinnin MOOCin kautta hakiessasi Sinun tulee täyttää päähaun hakulomake, jossa asetat Helsingin yliopiston tietojenkäsittelytieteen ohjelman haluamallesi prioriteetille. Löydät lisätietoja sähköisestä yhteishausta korkeakouluihin [Opintopolku.fi](https://opintopolku.fi/) -portaalista. -->
+Yhteishaun hakuaika on 18.3.-1.4.2020. Hakuaika päättyy klo 15.00. Ohjelmoinnin MOOCin kautta hakiessasi Sinun tulee täyttää päähaun hakulomake, jossa asetat Helsingin yliopiston tietojenkäsittelytieteen ohjelman haluamallesi prioriteetille. Löydät lisätietoja sähköisestä yhteishausta korkeakouluihin [Opintopolku.fi](https://opintopolku.fi/) -portaalista.
 
 Opinto-oikeuden hakeminen Ohjelmoinnin MOOCin kautta edellyttää osallistumista kevään 2020 aikataulutettuun versioon, tehtävien tekemistä annetussa aikataulussa, sekä osallistumista toukokuussa järjestettävään näyttökokeeseen.
 
@@ -18,7 +18,7 @@ Ohjelmoinnin MOOCin kautta valitaan 50 opiskelijaa. Voit hakea yhteishaussa kork
 
 Yhteishaussa hakemisen edellytyksenä on korkeakoulukelpoisuus ja hakiessasi kevään 2020 haussa oletuksena on, että voit aloittaa opinnot syksyllä 2020.
 
-<!--  Mikäli olet valmistumassa vasta keväällä 2020, voit hakea opiskelupaikkaa Ohjelmoinnin MOOCin näyttökokeessa vuotta 2020 varten. Huomaathan että tällöinkin sinun tulee osallistua vuoden 2020 näyttökokeeseen kun olet tehnyt vuoden 2020 version kurssista. -->
+Mikäli olet valmistumassa vasta keväällä 2020, voit hakea opiskelupaikkaa Ohjelmoinnin MOOCin näyttökokeessa vuotta 2021 varten. Huomaathan että tällöinkin sinun tulee osallistua vuoden 2020 näyttökokeeseen kun olet tehnyt vuoden 2020 version kurssista.
 
 Helsingin yliopiston tietojenkäsittelytieteen kandiohjelmaan on mahdollista hakea yhteisvalinnan ja MOOCin lisäksi Helsingin yliopiston avoimen yliopiston kautta sekä Digital Education for All -hankkeen kautta. Lisätietoa näistä seuraavista linkeistä:
 

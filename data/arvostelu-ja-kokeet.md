@@ -6,7 +6,7 @@ information_page: true
 ---
 
 Ohjelmoinnin MOOC sisältää Helsingin yliopiston kurssit Ohjelmoinnin perusteet (materiaalin osat 1-7) ja Ohjelmoinnin jatkokurssi (materiaalin osat 8-14). Kummastakin osasta järjestetään verkossa tehtävä ilmainen koe, ja kummastakin osasta saa erillisen arvosanan. Ohjelmoinnin MOOCista on kaksi versiota: aikataulutettu kurssi ja aikatauluttamaton kurssi. Näiden arvostelu poikkeaa hieman toisistaan.
-<!--
+
 Ohjelmoinnin perusteita vastaava koe suoritetaan materiaalin osien 1-7 jälkeen. Ohjelmoinnin jatkokurssia vastaava koe puolestaan suoritetaan materiaalin osien 8-14 jälkeen.
 
 Molempia kokeita järjestetään useana eri päivänä. Voit osallistua kokeisiin minä tahansa koepäivänä. Kurssilla saa osallistua halutessaan useampaan kokeeseen. Opintorekisteriin jää paras suoritus.
@@ -45,8 +45,6 @@ Ohjeet koeilmoittautumiseen löytyvät sivulta [Koe ja Moodle-ilmoittautuminen](
 ## Kurssin pisteytys
 
 Jokaisen osan kaikista tehtävistä saa tehtäväpisteitä. Löydät osan kaikki tehtävät valitsemalla kyseisen osan yleisnäkymästä "Lista osan tehtävistä". Näet tehtäväpisteesi kurssimateriaalin oikeassa alakulmassa olevasta pistevisualisaatiosta kohdan "Tehtäväpisteet yhteensä" kohdalta.
-
-Tehtäväpisteet muutetaan kurssipisteiksi siten, että täydet kurssipisteet kustakin osasta saa kun tehtäväpisteitä on yli 90%, ja puolet kurssipisteitä saa kun tehtäväpisteitä on noin 45% jne. Näet saamasi kurssipisteet pistevisualisaation kohdasta "Osasta saadut kurssipisteet".
 
 Huomaa, että mikäli haet opiskelupaikkaa Ohjelmoinnin MOOCin kautta, saadaksesi kutsun näyttökokeeseen tulee sinun saada vähintään 90% jokaisen osan ohjelmointitehtävien pisteistä. Omat ohjelmointitehtävien pisteet näkee helpoiten materiaalin pistevisualisaatiosta, jonka saa auki klikkaamalla sinistä palloa sivun oikeassa alareunassa. Tämä vaatimus eroaa siis yleisestä kurssin arvostelusta.
 
@@ -110,7 +108,3 @@ Kokeeseen saa osallistua kun on saanut jokaisen osan ohjelmointitehtävien piste
 #### Koeleikkuri
 
 Molemmissa kursseissa kokeesta tulee saada vähintään puolet kokeen pisteistä kurssin läpäiseksi.
-
-### Näyttökokeet
-
-Lue tietoja näyttökokeista täältä: [Mahdollisuus opinto-oikeuteen](/opinto-oikeus#heading-nayttokokeet) -->
