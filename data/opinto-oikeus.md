@@ -18,7 +18,7 @@ Ohjelmoinnin MOOCin kautta valitaan 50 opiskelijaa. Voit hakea yhteishaussa kork
 
 Yhteishaussa hakemisen edellytyksenä on korkeakoulukelpoisuus ja hakiessasi kevään 2020 haussa oletuksena on, että voit aloittaa opinnot syksyllä 2020.
 
-Mikäli olet valmistumassa vasta keväällä 2020, voit hakea opiskelupaikkaa Ohjelmoinnin MOOCin näyttökokeessa vuotta 2021 varten. Huomaathan että tällöinkin sinun tulee osallistua vuoden 2020 näyttökokeeseen kun olet tehnyt vuoden 2020 version kurssista.
+Mikäli olet valmistumassa vasta keväällä 2021, voit hakea opiskelupaikkaa kevään 2020 Ohjelmoinnin MOOC -kurssilla vuotta 2021 varten. Huomaathan että tällöinkin sinun tulee osallistua vuoden 2020 näyttökokeeseen kun olet tehnyt vuoden 2020 version kurssista.
 
 Helsingin yliopiston tietojenkäsittelytieteen kandiohjelmaan on mahdollista hakea yhteisvalinnan ja MOOCin lisäksi Helsingin yliopiston avoimen yliopiston kautta sekä Digital Education for All -hankkeen kautta. Lisätietoa näistä seuraavista linkeistä:
 
