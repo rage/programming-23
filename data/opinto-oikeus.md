@@ -16,7 +16,7 @@ Saat kutsun näyttökokeeseen tekemällä aikataulutetun kurssin jokaisesta osas
 
 Ohjelmoinnin MOOCin kautta valitaan 50 opiskelijaa. Voit hakea yhteishaussa korkeakoulupaikkaa myös normaalin valintakokeen kautta sekä ylioppilaskirjoitusten tulosten perusteella. Ohjelmoinnin MOOC -kurssi toimii myös ilmaisena valmennuskurssina yhteishaun valintakokeeseen, jos et MOOC-väylän kautta paikkaa saa.
 
-Yhteishaussa hakemisen edellytyksenä on korkeakoulukelpoisuus ja hakiessasi kevään 2020 haussa oletuksena on, että voit aloittaa opinnot syksyllä 2020.
+Yhteishaussa hakemisen edellytyksenä on korkeakoulukelpoisuus ja hakiessasi kevään 2020 haussa oletuksena on, että voit aloittaa opinnot syksyllä 2020. Tämä valintaväylä poistuu vuonna 2021.
 
 Mikäli olet valmistumassa vasta keväällä 2021, voit hakea opiskelupaikkaa kevään 2020 Ohjelmoinnin MOOC -kurssilla vuotta 2021 varten. Huomaathan että tällöinkin sinun tulee osallistua vuoden 2020 näyttökokeeseen kun olet tehnyt vuoden 2020 version kurssista.
 
