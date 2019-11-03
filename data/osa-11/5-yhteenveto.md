@@ -4,9 +4,4 @@ title: 'Yhteenveto'
 hidden: true
 ---
 
-
-Kymmenennessä osassa osassa tutustuimme luokkakaavioihin ja pakkauksiin. Otimme ensimmäisiä askeleita ohjelmien rakenteen kuvaamiseen ja ohjelman rakenteen jakamiseen loogisiin osakokonaisuuksiin. Tutustuimme poikkeuksien käsittelyyn ja niiden eteenpäin heittämiseen, ja harjoittelimme tiedostosta lukemista sekä tiedostoon kirjoittamista. Kertasimme myös testien kirjoittamista.
-
-Vastaa vielä alla olevaan kyselyyn.
-
-<quiznator id='5c895ab2017ffc13eddd1169'></quiznator>
+TODO: puhutaan ohjelmakoodin kommunikoinnin tärkeydestä; kerrotaan siitä että yhteinen kuvauskieli auttaa tässä; todetaan, että kaaviot mahdollistavat kommunikoinnin, ilman että tarvitsee katsoa kooditasoa -- todetaan, että ohjelmia voi katsoa hyvin erilaisista näkövinkkeleistä; koodi on yksi, kaaviot on toinen, mutta on muitakin.

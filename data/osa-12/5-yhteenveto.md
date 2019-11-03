@@ -4,9 +4,4 @@ title: 'Yhteenveto'
 hidden: true
 ---
 
-
-Yhdennessätoista osassa eli Ohjelmoinnin jatkokurssin neljännessä osassa tutustuimme geneeriseen tyyppiin sekä sen käyttöön tietorakenteissa kuten ArrayListissä ja HashMapissa, joista loimme myös omat versiot. Harjoittelimme lisäksi satunnaislukujen luomista sekä useampiulotteisten taulukoiden käyttöä. Lopuksi kertasimme lyhyesti testien kirjoittamista erityisesti muiden kirjoittamien testien lukemiseen keskittyen.
-
-Vastaa vielä alla olevaan kyselyyn.
-
-<quiznator id='5c93ae573972a9147410b2fe'></quiznator>
+TODO: todetaan, että tietojenkäsittelytieteilijän yleissivistykseen kuuluu se, että ymmärretään jollain tasolla miten yleisimmät tietorakenteet (arraylist ja hashmap) toimivat; näihin palataan myöhemmin kurssilla tietorakenteet ja algoritmit; sanotaan satunnaisuudesta ja moniulotteisesta tiedosta jotain

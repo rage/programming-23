@@ -142,14 +142,14 @@ Kun yksittäiset komponentit tulevat tutuksi, on niiden käyttäminen suoraviiva
 Ainoa merkittävä ero käyttöliittymäkomponenttien lisäämisessä liittyy siihen, että mihin kohtaan käyttöliittymää komponentin haluaa lisätä. Tarkastellaan käyttöliittymäkomponenttien asettelua kohta.
 
 
-<programming-exercise name='Nappi ja tekstielementti' tmcname='osa12-Osa12_02.NappiJaTekstielementti'>
+<programming-exercise name='Nappi ja tekstielementti' tmcname='osa13-Osa13_02.NappiJaTekstielementti'>
 
 Luo edellistä esimerkkiä seuraten tehtäväpohjassa olevaan luokkaan käyttöliittymä, jossa on nappi (Button) ja tekstikomponentti (Label). Napin tulee olla tekstikomponentin vasemmalla puolella tai yläpuolella.
 
 </programming-exercise>
 
 
-<programming-exercise name='Nappi ja tekstikenttä' tmcname='osa12-Osa12_03.NappiJaTekstikentta'>
+<programming-exercise name='Nappi ja tekstikenttä' tmcname='osa13-Osa13_03.NappiJaTekstikentta'>
 
 Luo tehtäväpohjassa olevaan luokkaan graafinen käyttöliittymä, jossa on nappi ja tekstikenttä. Tekstikentän saa toteutettua luokalla [TextField](https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/TextField.html). Napin tulee olla tekstikentän vasemmalla puolella tai yläpuolella.
 
@@ -206,7 +206,7 @@ public class JavaFxSovellus extends Application {
 <img src="../img/material/gui-borderpane.png" alt="BorderPane-asettelua käyttävä käyttöliittymä, jossa jokaiseen pääkohtaan on asetettu tekstikomponentti."/>
 
 
-<programming-exercise name='BorderPane' tmcname='osa12-Osa12_04.BorderPane'>
+<programming-exercise name='BorderPane' tmcname='osa13-Osa13_04.BorderPane'>
 
 Luo tehtäväpohjassa olevaan luokkaan graafinen käyttöliittymä, joka käyttää BorderPane-luokkaa käyttöliittymäkomponenttien asetteluun. Lisää ylälaitaan tekstikomponentti, jossa on teksti "NORTH", oikeaan laitaan tekstikomponentti, jossa on teksti "EAST", ja alalaitaan tekstikomponentti, jossa on teksti "SOUTH".
 
@@ -349,7 +349,7 @@ public class JavaFxSovellus extends Application {
 <img src="../img/material/gui-useampi.png" alt="Samassa käyttöliittymässä käytetty useampaa asettelijaa. BorderPane luo rungon, ylälaidassa on HBox ja vasemmassa laidassa VBox. Keskellä olevaan tekstilaatikkoon on kirjoitettu tekstiä."/>
 
 
-<programming-exercise name='Tekstitilastointia' tmcname='osa12-Osa12_05.Tekstitilastointia'>
+<programming-exercise name='Tekstitilastointia' tmcname='osa13-Osa13_05.Tekstitilastointia'>
 
 Luo tehtäväpohjassa olevaan luokkaan sovellus, joka käyttää BorderPane-luokkaa asetteluun. Keskellä tulee olla TextArea-luokasta luotu tekstikenttä, ja alalaidassa kolme tekstikomponenttia. Aseta alalaidan tekstikomponentit HBox-olion sisään. Ensimmäisessä tekstikomponentissa tulee olla teksti "Kirjaimia: 0". Toisessa tekstikomponentissa tulee olla teksti "Sanoja: 0". Kolmannessa tekstikomponentissa tulee olla teksti "Pisin sana on:".
 

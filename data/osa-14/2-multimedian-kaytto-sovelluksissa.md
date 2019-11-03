@@ -75,7 +75,7 @@ Sovellus näyttää seuraavanlaiselta. Alla sovellusta on käytetty jo hieman pi
 <img src="../img/material/gui-paint.png" alt="Yksinkertainen piirto-ohjelma. Käyttäjä voi piirtää pitämällä hiirtä pohjassa. Oikeassa laidassa on värin valintaan käytettävä ColorPicker-olio."/>
 
 
-<programming-exercise name='Hymiö' tmcname='osa13-Osa13_06.Hymio'>
+<programming-exercise name='Hymiö' tmcname='osa14-Osa14_06.Hymio'>
 
 Luo tehtäväpohjassa olevaan luokkaan graafinen käyttöliittymä. Lisää graafiseen käyttöliittymään asettelusta vastaava BorderPane-olio. Lisää BorderPanen keskellä Canvas-olio. Piirrä tämän jälkeen Canvas-olioon liittyvän GraphicsContext-olion avulla hymiö. Käytä taustan värinä valkoista (Color.WHITE) ja hymiön värinä mustaa (Color.BLACK).
 
@@ -209,7 +209,7 @@ Kuvan ulkomuoto ei ole muuttunut lainkaan.
 <img src="../img/material/image-ja-imageview.png" />
 
 
-<programming-exercise name='Kollaasi (3 osaa)' tmcname='osa13-Osa13_07.Kollaasi'>
+<programming-exercise name='Kollaasi (3 osaa)' tmcname='osa14-Osa14_07.Kollaasi'>
 
 Andy Warhol tuli tutuksi kuvakollaaseista, joissa yksi tai useampi kuva toistui useampaan otteeseen esimerkiksi eri väreissä.
 
@@ -294,7 +294,7 @@ public class AudioClipApplication extends Application {
 }
 ```
 
-<programming-exercise name='Hurraa' tmcname='osa13-Osa13_08.Hurraa'>
+<programming-exercise name='Hurraa' tmcname='osa14-Osa14_08.Hurraa'>
 
 Tehtäväpohjan juurikansiossa on tiedosto `Applause-Yannick_Lemieux.wav`, joka sisältää hurrausäänen. Tehtävänäsi on luoda sovellus, missä on "Hurraa"-nappi. Kun käyttäjä painaa nappia, sovelluksen tulee soittaa edellä mainittu äänitiedosto.
 

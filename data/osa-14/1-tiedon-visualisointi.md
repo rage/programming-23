@@ -263,7 +263,7 @@ arvot.keySet().stream().forEach(puolue -> {
 ```
 
 
-<programming-exercise name='Shanghai' tmcname='osa13-Osa13_01.Shanghai'>
+<programming-exercise name='Shanghai' tmcname='osa14-Osa14_01.Shanghai'>
 
 Yliopistoja vertaillaan vuosittain. Eräs kansainvälisesti tunnistettu arvioijataho on Shanghai Ranking Consultancy, joka julkaisee vuosittain listan kansainvälisesti tunnistetuista yliopistoista. Lista sisältää myös yliopiston sijan maailmanlaajuisessa vertailussa. Helsingin yliopiston sijoitus on vuosina 2007-2017 ollut seuraava:
 
@@ -290,7 +290,7 @@ Sovelluksen tuottama tulos näyttää esimerkiksi seuraavanlaiselta:
 </programming-exercise>
 
 
-<programming-exercise name='Puolueet' tmcname='osa13-Osa13_02.Puolueet'>
+<programming-exercise name='Puolueet' tmcname='osa14-Osa14_02.Puolueet'>
 
 Luo tehtäväpohjassa olevaan luokkaan PuolueetSovellus ohjelma, joka näyttää puolueiden suhteellisen kannatuksen vuosina 1968-2008. Käytössä on edellisissä esimerkeissä käytetty data, joka löytyy tiedostosta "puoluedata.tsv".
 
@@ -334,7 +334,7 @@ Sovelluksen tuottaman visualisaation tulee näyttää kutakuinkin seuraavanlaise
 </programming-exercise>
 
 
-<programming-exercise name='Säästölaskuri (3 osaa)' tmcname='osa13-Osa13_03.Saastolaskuri'>
+<programming-exercise name='Säästölaskuri (3 osaa)' tmcname='osa14-Osa14_03.Saastolaskuri'>
 
 Toteutetaan tässä tehtävässä sovellus, jota käytetään säästämiseen liittyvien mahdollisten tuottojen tarkasteluun. Laskuri tarjoaa mahdollisuuden sekä kuukausittaisen säästön määrittelyyn että vuosittaisen koron määrittelyyn, ja näyttää säästösumman kasvun kolmenkymmenen vuoden aikana yli.
 
@@ -440,7 +440,7 @@ Kuten huomaat, kun x-akseli on määritelty luokan CategoryAxis avulla, kaavio n
 
 
 
-<programming-exercise name='Epäreilua mainontaa' tmcname='osa13-Osa13_04.EpareiluaMainontaa'>
+<programming-exercise name='Epäreilua mainontaa' tmcname='osa14-Osa14_04.EpareiluaMainontaa'>
 
 Sanonnan "Vale, emävale, tilasto" mukaan mikään ei valehtele kuin tilasto. Sanonta ei ehkäpä ole täysin väärässä, sillä tilastoja luodaan silloin tällöin tahallisesti epäselviksi.
 
@@ -456,7 +456,7 @@ Tässä tehtävässä ei ole automaattisia testejä eikä mallivastausta, joten 
 </programming-exercise>
 
 
-<programming-exercise name='Pyöräilijätilastot' tmcname='osa13-Osa13_05.Pyorailijatilastot'>
+<programming-exercise name='Pyöräilijätilastot' tmcname='osa14-Osa14_05.Pyorailijatilastot'>
 
 Tehtäväpohjassa tulee mukana valmis sovellus, jota on käytetty pyöräilijätilastojen näyttöön viivakaaviona. Muokkaa sovellusta siten, että sovellus käyttää viivakaavion sijaan  pylväskaaviota. Kaikki viitteet viivakaavioon tulee poistaa muokkauksen yhteydessä.
 

@@ -147,7 +147,7 @@ Lyhyt yhteenveto tähän mennessä tutuiksi tulleista virtaan liittyvistä metod
 </table>
 
 
-<programming-exercise name='Lukujen keskiarvo' tmcname='osa09-Osa09_01.LukujenKeskiarvo'>
+<programming-exercise name='Lukujen keskiarvo' tmcname='osa10-Osa10_01.LukujenKeskiarvo'>
 
 Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "loppu", ohjelman tulee tulostaa syötettyjen lukujen keskiarvo.
 
@@ -180,7 +180,7 @@ Lukujen keskiarvo: 0.6666666666666666
 </programming-exercise>
 
 
-<programming-exercise name='Tiettyjen lukujen keskiarvo' tmcname='osa09-Osa09_02.TiettyjenLukujenKeskiarvo'>
+<programming-exercise name='Tiettyjen lukujen keskiarvo' tmcname='osa10-Osa10_02.TiettyjenLukujenKeskiarvo'>
 
 Toteuta ohjelma, joka lukee käyttäjältä syötteitä. Jos käyttäjä syöttää merkkijonon "loppu", lukeminen lopetetaan. Muut syötteet ovat lukuja. Kun käyttäjä syöttää merkkijonon "loppu", syötteiden lukeminen lopetetaan.
 
@@ -334,7 +334,7 @@ ArrayList<Integer> luvut = lista.stream()
 ```
 
 
-<programming-exercise name='Positiiviset luvut' tmcname='osa09-Osa09_03.PositiivisetLuvut'>
+<programming-exercise name='Positiiviset luvut' tmcname='osa10-Osa10_03.PositiivisetLuvut'>
 
 Toteuta tehtäväpohjaan luokkametodi `public static List<Integer> positiiviset(List<Integer> luvut)`, joka saa parametrinaan lukulistan ja jonka tulee palauttaa uusi lukulista, joka sisältää parametrina saadun listan sisältämät positiiviset luvut.
 
@@ -423,7 +423,7 @@ positiiviset.stream()
 <quiznator id='5c816449c41ed4148d97162b'></quiznator>
 
 
-<programming-exercise name='Jaolliset' tmcname='osa09-Osa09_04.Jaolliset'>
+<programming-exercise name='Jaolliset' tmcname='osa10-Osa10_04.Jaolliset'>
 
 Tehtäväpohjassa on annettuna metodirunko `public static ArrayList<Integer> jaolliset(ArrayList<Integer> luvut)`. Toteuta metodirunkoon toiminnallisuus, joka kerää parametrina saadulta listalta kahdella, kolmella tai viidellä jaolliset luvut, ja palauttaa ne uudessa listassa. Metodille parametrina annetun listan ei tule muuttua.
 
@@ -581,7 +581,7 @@ henkilot.stream()
 Yllä kuvattu `distinct`-metodi hyödyntää olioiden `equals`-metodia yhtäsuuruuden tarkasteluun. Metodi `sorted` taas osaa järjestää olioita, joilla on tieto siitä, miten olio tulee järjestää -- näitä ovat esimerkiksi luvut ja merkkijonot.
 
 
-<programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa09-Osa09_05.LuettujenArvojenTulostaminen'>
+<programming-exercise name='Luettujen arvojen tulostaminen' tmcname='osa10-Osa10_05.LuettujenArvojenTulostaminen'>
 
 Kirjoita ohjelma, joka lukee käyttäjältä merkkijonoja. Lukeminen tulee lopettaa kun käyttäjä syöttää tyhjän merkkijonon. Tulosta tämän jälkeen käyttäjän syöttämät merkkijonot.
 
@@ -600,7 +600,7 @@ kolmas
 </programming-exercise>
 
 
-<programming-exercise name='Rajatut luvut' tmcname='osa09-Osa09_06.RajatutLuvut'>
+<programming-exercise name='Rajatut luvut' tmcname='osa10-Osa10_06.RajatutLuvut'>
 
 Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää negatiivisen luvun, lukeminen lopetetaan. Tulosta tämän jälkeen ne luvut, jotka ovat välillä 1-5.
 
@@ -621,7 +621,7 @@ Kirjoita ohjelma, joka lukee käyttäjältä lukuja. Kun käyttäjä syöttää 
 </programming-exercise>
 
 
-<programming-exercise name='Uniikit sukunimet' tmcname='osa09-Osa09_07.UniikitSukunimet'>
+<programming-exercise name='Uniikit sukunimet' tmcname='osa10-Osa10_07.UniikitSukunimet'>
 
 Tehtäväpohjaan on hahmoteltu ohjelmaa, joka lukee käyttäjältä syötteenä henkilötietoja. Täydennä ohjelmaa siten, että tietojen lukemisen jälkeen ohjelma tulostaa henkilöiden uniikit sukunimet aakkosjärjestyksessä.
 
@@ -757,7 +757,7 @@ kirjat.stream()
 ```
 
 
-<programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa09-Osa09_08.PainonLaskemista'>
+<programming-exercise name='Painon laskemista (2 osaa)' tmcname='osa10-Osa10_08.PainonLaskemista'>
 
 Tehtäväpohjassa on tutuhko tehtävä "Tavara, Matkalaukku ja Lastiruuma". Tässä tehtävässä tarkoituksenasi on muuttaa toistolausetta käyttävät metodit virtaa käyttäviksi metodeiksi. Lopputuloksessa ei tule esiintyä `while (...)` tai `for (...)`-toistolauseita.
 
@@ -790,7 +790,7 @@ Virhe: tiedosto.txt (No such file or directory)
 
 </sample-output>
 
-<programming-exercise name='Tiedoston rivit' tmcname='osa09-Osa09_09.TiedostonRivit'>
+<programming-exercise name='Tiedoston rivit' tmcname='osa10-Osa10_09.TiedostonRivit'>
 
 Toteuta tehtäväpohjaan staattinen metodi `public static List<String> lue(String tiedosto)`, joka lukee parametrina annetun merkkijonon nimisestä tiedostosta rivit ja palauttaa ne merkkijonolistana.
 
@@ -840,7 +840,7 @@ try {
 // nyt presidentit ovat listalla henkilöolioina
 ```
 
-<programming-exercise name='Kirjat tiedostosta' tmcname='osa09-Osa09_10.KirjatTiedostosta' nocoins='true'>
+<programming-exercise name='Kirjat tiedostosta' tmcname='osa10-Osa10_10.KirjatTiedostosta' nocoins='true'>
 
 Toteuta tehtäväpohjaan luokkametodi `public static List<Kirja> lueKirjat(String tiedosto)`, joka lukee parametrina annetun tiedoston ja muodostaa tiedoston riveistä kirjoja.
 

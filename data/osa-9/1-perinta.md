@@ -1,12 +1,13 @@
 ---
-path: '/osa-9/2-perinta'
-title: 'Luokan periminen'
+path: '/osa-9/1-perinta'
+title: 'Object ja luokan periminen'
 hidden: true
 ---
 
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+- Tiedät että Java-ohjelmointikielessä jokainen luokka perii luokan Object ja tiedät miksi jokaisella oliolla on metodit toString, equals ja hashCode.
 - Tunnet käsitteet perintä, yliluokka ja aliluokka.
 - Osaat luoda luokkia, jotka perivät osan ominaisuuksistaan toisesta luokasta.
 - Osaat kutsua yliluokassa määriteltyä konstruktoria ja metodia.
@@ -19,7 +20,7 @@ hidden: true
 Luokkia käytetään olio-ohjelmoinnissa ongelma-alueeseen liittyvien käsitteiden selkeyttämiseen. Jokainen luomamme luokka lisää ohjelmointikieleen toiminnallisuutta. Tätä toiminnallisuutta tarvitaan kohtaamiemme ongelmien ratkomiseen. Olio-ohjelmoinnissa **ratkaisut syntyvät luokista luotujen olioiden välisen interaktion avulla**. Olio-ohjelmoinnissa olio on itsenäinen kokonaisuus, jolla on olion tarjoamien metodien avulla muutettava tila. Olioita käytetään yhteistyössä; jokaisella oliolla on oma vastuualue. Esimerkiksi käyttöliittymäluokkamme ovat tähän mennessä hyödyntäneet `Scanner`-olioita.
 
 
-Jokainen Javan luokka perii luokan Object, eli jokainen luomamme luokka saa käyttöönsä kaikki Object-luokassa määritellyt metodit. Jos haluamme muuttaa Object-luokassa määriteltyjen metodien toiminnallisuutta tulee ne korvata (`Override`) määrittelemällä niille uusi toteutus luodussa luokassa.
+Jokainen Javan luokka perii luokan Object, eli jokainen luomamme luokka saa käyttöönsä kaikki Object-luokassa määritellyt metodit. Jos haluamme muuttaa Object-luokassa määriteltyjen metodien toiminnallisuutta tulee ne korvata (`Override`) määrittelemällä niille uusi toteutus luodussa luokassa. Oliomme saavat luokasta Object käyttöönsä mm. metodit `equals` ja `hashCode`.
 
 
 Luokan `Object` perimisen lisäksi myös muiden luokkien periminen on mahdollista. Javan <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank" rel="noopener">ArrayList</a>-luokan "ohjelmointirajapintaa" eli APIa tarkasteltaessa huomaamme että `ArrayList` perii luokan `AbstractList`. Luokka `AbstractList` perii luokan `AbstractCollection`, joka perii luokan `Object`.
@@ -163,7 +164,7 @@ volkswagen
 Kuten huomaat, luokalla `Moottori` on käytössä luokassa `Osa` määritellyt metodit.
 
 
-<programming-exercise name='ABC (2 osaa)' tmcname='osa08-Osa08_01.ABC'>
+<programming-exercise name='ABC (2 osaa)' tmcname='osa09-Osa09_01.ABC'>
 
 Harjoitellaan tässä luokkien luomista ja perintää.
 
@@ -303,7 +304,7 @@ public String toString() {
 ```
 
 
-<programming-exercise name='Henkilö ja perilliset (5 osaa)' tmcname='osa08-Osa08_02.HenkiloJaPerilliset' nocoins='true'>
+<programming-exercise name='Henkilö ja perilliset (5 osaa)' tmcname='osa09-Osa09_02.HenkiloJaPerilliset' nocoins='true'>
 
 
 <h2>Henkilo</h2>
@@ -819,7 +820,7 @@ Yllä oleva luokka `Tilaus` on nyt parempi. Metodi `postitusosoite` käyttää *
 Nyt asiakkaan muuttaessa tarvitsee muuttaa vain asiakkaan tietoja, tilauksiin ei tarvitse tehdä muutoksia.
 
 
-<programming-exercise name='Varastointia (7 osaa)' tmcname='osa08-Osa08_03.Varastointia'>
+<programming-exercise name='Varastointia (7 osaa)' tmcname='osa09-Osa09_03.Varastointia'>
 
 
 Tehtäväpohjassa tulee mukana luokka `Varasto`, jonka tarjoamat konstruktorit ja metodit ovat seuraavat:
@@ -1198,7 +1199,7 @@ Valinta: **0**
 Rajapintojen ja abstraktien luokkien suurin ero on siinä, että abstrakteissa luokissa voidaan määritellä metodien lisäksi myös oliomuuttujia sekä konstruktoreja. Koska abstrakteihin luokkiin voidaan määritellä toiminnallisuutta, voidaan niitä käyttää esimerkiksi oletustoiminnallisuuden määrittelyyn. Yllä käyttöliittymä käytti abstraktissa luokassa määriteltyä toiminnan nimen tallentamista.
 
 
-<programming-exercise name='Erilaisia laatikoita (3 osaa)' tmcname='osa08-Osa08_04.ErilaisiaLaatikoita'>
+<programming-exercise name='Erilaisia laatikoita (3 osaa)' tmcname='osa09-Osa09_04.ErilaisiaLaatikoita'>
 
 Tehtäväpohjan mukana tulee luokat `Tavara` ja `Laatikko`. Luokka `Laatikko` on abstrakti luokka, jossa useamman tavaran lisääminen on toteutettu siten, että kutsutaan aina `lisaa`-metodia. Yhden tavaran lisäämiseen tarkoitettu metodi `lisaa` on abstrakti, joten jokaisen `Laatikko`-luokan perivän laatikon tulee toteuttaa se. Tehtävänäsi on muokata luokkaa `Tavara` ja toteuttaa muutamia erilaisia laatikoita luokan `Laatikko` pohjalta.
 

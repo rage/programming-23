@@ -18,9 +18,9 @@ Kerrataan seuraavaksi olioiden vertailuun käytettyä metodia `equals` ja tutust
 
 ## Samuudesta kertova metodi "equals"
 
-Metodi <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object" target="_blank">equals</a> tarkastaa oletuksena onko parametrina annetulla oliolla sama viite kuin oliolla johon verrataan, eli toisinsanoen oletusarvoisesti vertaillaan onko kyse kahdesta samasta oliosta. Jos viite on sama, palauttaa metodi arvon `true`, muuten `false`.
+Metodi [equals](http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object) tarkastaa oletuksena onko parametrina annetulla oliolla sama viite kuin oliolla johon verrataan, eli toisinsanoen oletusarvoisesti vertaillaan onko kyse kahdesta samasta oliosta. Jos viite on sama, palauttaa metodi arvon `true`, muuten `false`.
 
-Tämä selvenee seuraavalla esimerkillä. Luokassa `Kirja` ei ole omaa `equals`-metodin toteutusta, joten se käyttää Javan tarjoamaa oletustoteutusta.
+Tämä selvenee seuraavalla esimerkillä. Oletetaan, että alla käytetyssä luokassa `Kirja` ei ole omaa `equals`-metodin toteutusta. Tällöin se käyttää Javan tarjoamaa oletustoteutusta.
 
 
 ```java

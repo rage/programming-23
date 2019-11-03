@@ -228,7 +228,7 @@ public class Yleislista<T> implements Lista<T> {
 ```
 
 
-<programming-exercise name='Piilo' tmcname='osa11-Osa11_01.Piilo'>
+<programming-exercise name='Piilo' tmcname='osa12-Osa12_01.Piilo'>
 
 
 Toteuta luokka Piilo, jolla on yksi geneerinen tyyppiparametri. Luokasta tehdyssä oliossa voi olla yksi olio kerralaan piilossa. Luokan tulee tarjota parametriton konstruktori sekä seuraavat kolme metodia:
@@ -290,7 +290,7 @@ false
 </programming-exercise>
 
 
-<programming-exercise name='Putki' tmcname='osa11-Osa11_02.Putki'>
+<programming-exercise name='Putki' tmcname='osa12-Osa12_02.Putki'>
 
 Toteuta luokka Putki, jolla on yksi geneerinen tyyppiparametri. Putki toimii siten, että sinne voi lisätä arvoja ja sieltä voi ottaa arvoja. Lisääminen tapahtuu putken toisesta päästä ja ottaminen toisesta päästä, eli toisin sanoen putkesta otetaan aina siellä pisimpään ollut arvo kun taas sinne lisätään aina uusin arvo. Luokan tulee tarjota parametriton konstruktori sekä seuraavat kolme metodia:
 

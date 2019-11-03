@@ -89,7 +89,7 @@ rivi, sarake, arvo
 </sample-output>
 
 
-<programming-exercise name='Taulukko merkkijonona' tmcname='osa11-Osa11_09.TaulukkoMerkkijonona'>
+<programming-exercise name='Taulukko merkkijonona' tmcname='osa12-Osa12_09.TaulukkoMerkkijonona'>
 
 Luo tehtäväpohjaan metodi `public static String taulukkoMerkkijonona(int[][] taulukko)`, joka muodostaa parametrina saamastaan taulukosta merkkijonomuotoisen esityksen ja palauttaa sen.
 
@@ -134,7 +134,7 @@ System.out.println(taulukkoMerkkijonona(matriisi));
 </programming-exercise>
 
 
-<programming-exercise name='Taikaneliö (4 osaa)' tmcname='osa11-Osa11_10.Taikanelio'>
+<programming-exercise name='Taikaneliö (4 osaa)' tmcname='osa12-Osa12_10.Taikanelio'>
 
 
 <a href="https://fi.wikipedia.org/wiki/Taikaneli%C3%B6" target="_blank">Taikaneliöt</a> ovat kokonaisluvuista järjestettyjä neliöitä, joiden jokaisen rivin, sarakkeen ja lävistäjän summa on sama. Harjoitellaan taulukoiden käyttöä taikaneliöiden yhteydessä.

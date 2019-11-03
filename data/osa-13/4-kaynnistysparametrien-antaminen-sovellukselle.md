@@ -95,7 +95,7 @@ public class Main {
 
 Parametreja käyttämällä ohjelmalle voisi kertoa esimerkiksi henkilöiden tallentamiseen ja lataamiseen käytetyn tiedoston nimen tai vaikkapa verkko-osoitteen.
 
-<programming-exercise name='Käyttäjän otsikko' tmcname='osa12-Osa12_08.KayttajanOtsikko'>
+<programming-exercise name='Käyttäjän otsikko' tmcname='osa13-Osa13_08.KayttajanOtsikko'>
 
 Kirjoita ohjelma, joka kysyy tekstikäyttöliittymässä käyttäjältä sovelluksen otsikkoa. Kun käyttäjä syöttää otsikon tekstikäyttöliittymään ja painaa enter, käyttäjälle näytetään graafinen käyttöliittymä, jonka otsikkona on käyttäjän syöttämä otsikko.
 

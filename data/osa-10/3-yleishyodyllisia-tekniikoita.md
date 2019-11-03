@@ -352,7 +352,7 @@ Merkkiryhmän avulla voi määritellä lyhyesti joukon merkkejä. Merkit kirjoit
 <quiznator id='5c8166fcfd9fd71425c68dbd'></quiznator>
 
 
-<programming-exercise name='Säännölliset lausekkeet (3 osaa)' tmcname='osa09-Osa09_15.SaannollisetLausekkeet'>
+<programming-exercise name='Säännölliset lausekkeet (3 osaa)' tmcname='osa10-Osa10_15.SaannollisetLausekkeet'>
 
 Harjoitellaan hieman säännöllisten lausekkeiden käyttöä. Tehtävissä haetut metodit tehdään luokkaan `Tarkistin`.
 
@@ -678,7 +678,7 @@ public class Kasi {
 ```
 
 
-<programming-exercise name='Enum ja Iteraattori (4 osaa)' tmcname='osa09-Osa09_16.EnumJaIteraattori' nocoins='true'>
+<programming-exercise name='Enum ja Iteraattori (4 osaa)' tmcname='osa10-Osa10_16.EnumJaIteraattori' nocoins='true'>
 
 Tehdään ohjelma pienen yrityksen henkilöstön hallintaan.
 
@@ -755,7 +755,7 @@ Elina, FT
 </programming-exercise>
 
 
-<programming-exercise name='Kortit ojennukseen (6 osaa)' tmcname='osa09-Osa09_17.KortitOjennukseen'>
+<programming-exercise name='Kortit ojennukseen (6 osaa)' tmcname='osa10-Osa10_17.KortitOjennukseen'>
 
 Tehtäväpohjan mukana on luokka, jonka oliot kuvaavat pelikortteja. Kortilla on arvo ja maa. Kortin arvo on esitetään numerona *2, 3, ..., 14* ja maa *Risti, Ruutu, Hertta* tai *Pata*. Ässä on siis arvo 14. Arvo esitetään kokonaislukuna ja maa enum-tyyppisenä oliona. Kortilla on myös metodi toString, jota käyttäen kortin arvo ja maa tulostuvat "ihmisystävällisesti".
 

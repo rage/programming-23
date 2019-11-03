@@ -300,7 +300,7 @@ Exception in thread "..." java.lang.IllegalArgumentException: Arvosanan tulee ol
 Jos poikkeus on esimerkiksi tyyppiä IllegalArgumentException, tai yleisemmin ajonaikainen poikkeus, ei sen heittämisestä tarvitse kirjoittaa erikseen metodin määrittelyyn.
 
 
-<programming-exercise name='Parametrien validointi (2 osaa)' tmcname='osa10-Osa10_11.ParametrienValidointi'>
+<programming-exercise name='Parametrien validointi (2 osaa)' tmcname='osa11-Osa11_11.ParametrienValidointi'>
 
 Harjoitellaan hieman parametrien validointia `IllegalArgumentException`-poikkeuksen avulla. Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Laskin`. Muuta luokkia seuraavasti:
 
@@ -400,7 +400,7 @@ Stack tracen lukeminen tapahtuu alhaalta ylöspäin. Alimpana on ensimmäinen ku
 <quiznator id="5c8b64ba3972a9147410a33f"></quiznator>
 
 
-<programming-exercise name='Sensorit ja lämpötila (4 osaa)' tmcname='osa10-Osa10_12.SensoritJaLampotila'>
+<programming-exercise name='Sensorit ja lämpötila (4 osaa)' tmcname='osa11-Osa11_12.SensoritJaLampotila'>
 
 
 Kaikki luotavat luokat tulee sijoittaa pakkaukseen `sovellus`.

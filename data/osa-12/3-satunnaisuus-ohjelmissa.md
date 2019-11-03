@@ -51,7 +51,7 @@ Ohjelman tuottama tulostus ei ole aina sama. Yksi mahdollinen tulostusesimerkki 
 </sample-output>
 
 
-<programming-exercise name='Lukuja' tmcname='osa11-Osa11_06.Lukuja'>
+<programming-exercise name='Lukuja' tmcname='osa12-Osa12_06.Lukuja'>
 
 Kirjoita ohjelma, joka kysyy käyttäjältä tulostettavien satunnaislukujen määrän ja tulostaa tämän jälkeen luvut. Tulostettavien lukujen tulee olla välillä `[0, 10]`. Alla muutamia esimerkkejä.
 
@@ -94,7 +94,7 @@ int lampotila = arpoja.nextInt(81) - 30;
 System.out.println(lampotila);
 ```
 
-<programming-exercise name='Noppa' tmcname='osa11-Osa11_07.Noppa'>
+<programming-exercise name='Noppa' tmcname='osa12-Osa12_07.Noppa'>
 
 Tehtäväpohjassa on luokka `Noppa`, jonka runko on seuraava:
 
@@ -251,7 +251,7 @@ Su: Aurinko paistaa -5 astetta
 
 </sample-output>
 
-<programming-exercise name='Lottoarvonta' tmcname='osa11-Osa11_08.Lottoarvonta'>
+<programming-exercise name='Lottoarvonta' tmcname='osa12-Osa12_08.Lottoarvonta'>
 
 Tehtävänäsi on täydentää luokkaa `Lottorivi`, joka arpoo viikon lottonumerot. Lottonumerot ovat väliltä 1--40 ja niitä arvotaan 7. Lottorivi koostuu siis seitsemästä eri numerosta väliltä 1--40.
 

@@ -80,7 +80,7 @@ Taulukossa on 4 alkiota.
 <quiznator id='5c94ab76fd9fd71425c6b085'></quiznator>
 
 
-<programming-exercise name='Rajatut taulukossa' tmcname='osa11-Osa11_03.RajatutTaulukossa'>
+<programming-exercise name='Rajatut taulukossa' tmcname='osa12-Osa12_03.RajatutTaulukossa'>
 
 Luo luokkaan `Ohjelma` luokkametodi `public static int summa(int[] taulukko, int mista, int mihin, int pienin, int suurin)`. Metodin tulee laskea sille parametrina annetusta taulukosta indeksien mista ja mihin välillä olevien arvojen summa. Summaan otetaan mukaan vain ne arvot, jotka ovat suurempia tai yhtäsuuria kuin pienin ja pienempiä kuin suurin.
 
@@ -484,7 +484,7 @@ maailma
 </sample-output>
 
 
-<programming-exercise name='Lista (2 osaa)' tmcname='osa11-Osa11_04.Lista' nocoins='1'>
+<programming-exercise name='Lista (2 osaa)' tmcname='osa12-Osa12_04.Lista' nocoins='1'>
 
 Toteuta tehtäväpohjaan edellistä esimerkkiä noudattaen luokka `Lista`. Tehtäväpohjassa ei ole testejä -- kokeile listaa materiaalin esimerkkien ja omien kokeilujen avulla. Tehtävä on kahden pisteen arvoinen.
 
@@ -787,7 +787,7 @@ public V poista(K avain) {
 }
 ```
 
-<programming-exercise name='Hajautustaulu (3 osaa)' tmcname='osa11-Osa11_05.Hajautustaulu' nocoins='1'>
+<programming-exercise name='Hajautustaulu (3 osaa)' tmcname='osa12-Osa12_05.Hajautustaulu' nocoins='1'>
 
 Toteuta tehtäväpohjaan edellistä esimerkkiä noudattaen luokka Hajautustaulu. Toisin kuin esimerkissä, toteuta luokka siten, että se hyödyntää sisäisessä toteutuksessa Listan sijaan Javan valmista luokkaa ArrayList. Tehtäväpohjassa ei ole testejä -- kokeile listaa materiaalin esimerkkien ja omien kokeilujen avulla. Tehtävä on kolmen pisteen arvoinen.
 

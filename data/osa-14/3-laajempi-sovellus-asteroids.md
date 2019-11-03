@@ -1193,7 +1193,7 @@ if(Math.random() < 0.005) {
 <img src="../img/material/asteroids-ready.gif" alt="Like a boss."/>
 
 
-<programming-exercise name='Asteroids (4 osaa)' tmcname='osa13-Osa13_09.Asteroids' nocoins='true'>
+<programming-exercise name='Asteroids (4 osaa)' tmcname='osa14-Osa14_09.Asteroids' nocoins='true'>
 
 Tehtäväpohjassa on tyhjä ohjelmapohja. Toteuta tehtävään edellistä laajempaa esimerkkiä seuraten Asteroids-peli.
 
