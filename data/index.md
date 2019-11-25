@@ -49,7 +49,7 @@ opinto-oikeutta.
 Kurssin osat 1-7 vastaavat kurssia Ohjelmoinnin perusteet. Osat 8-14
 vastaavat kurssia Ohjelmoinnin jatkokurssi.
 
-Kurssi alkaa joulukuussa 2020. Lisätietoa aikataulusta tulee tälle sivulle myöhemmin.
+Kurssi alkaa joulukuussa 2019. Lisätietoa aikataulusta tulee tälle sivulle myöhemmin.
 
 ### Aikataulu - kevät 2020
 
