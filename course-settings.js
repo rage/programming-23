@@ -14,10 +14,6 @@ const courseSettings = {
       path: "/",
     },
     {
-      title: "Osaamistavoitteet",
-      path: "/osaamistavoitteet",
-    },
-    {
       title: "Arvostelu ja kokeet",
       path: "/arvostelu-ja-kokeet",
     },
