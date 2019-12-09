@@ -140,6 +140,11 @@ Lisätietoa opinto-oikeudesta saat [täältä](/opinto-oikeus).
       <td>19.4.2020</td>
       <td>6.5.2020</td>
     </tr>
+    <tr>
+      <td>Osa 15</td>
+      <td>19.4.2020</td>
+      <td>6.5.2020</td>
+    </tr>
   </tbody>
 </table>
 
