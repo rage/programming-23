@@ -11,36 +11,7 @@ Ohjelmoinnin perusteita vastaava koe suoritetaan materiaalin osien 1-7 jälkeen.
 
 Molempia kokeita järjestetään useana eri päivänä. Voit osallistua kokeisiin minä tahansa koepäivänä. Kurssilla saa osallistua halutessaan useampaan kokeeseen. Opintorekisteriin jää paras suoritus.
 
-Osien 1-7 kokeita järjestetään seuraavasti:
-
-- 13.4.
-- 7.5.
-- 8.6.
-- 29.6.
-- 20.8.
-- 28.9.
-- 16.11.
-- 4.1.2020
-
-
- Osien 8-14 kokeita järjestetään seuraavasti:
-
-- 7.5.
-- 8.6.
-- 29.6.
-- 20.8.
-- 28.9.
-- 16.11.
-- 4.1.2020
-
-Kokeet tehdään Moodle-verkkoympäristössä. Kokeen voi aloittaa koepäivänä mihin kellonaikaan haluaa.
-
-## Kokeeseen ilmoittautuminen
-
-Koe on täysin maksuton. Ennen ilmoittautumista tarkista pistevisualisaaatiosta (sininen pallo sivun oikeassa alakulmassa), että olet saanut tarpeeksi pisteitä voidaksesi osallistua kokeeseen. Alempana tällä sivulla kerrotaan kokeeseen vaadittava pistemäärä sekä aikataululliselle että aikatauluttomalle kurssille.
-
-Ohjeet koeilmoittautumiseen löytyvät sivulta [Koe ja Moodle-ilmoittautuminen](/koe-ja-moodle-ilmoittautuminen).
-
+Koepäivät tulevat tänne tammikuussa.
 
 ## Kurssin pisteytys
 
@@ -101,9 +72,11 @@ Tämä koskee myös kesän aikataulutettua kurssia.
 
 #### Aikatauluttamaton kurssi
 
+Aikatauluttoman kurssin arvosteluperusteet tulevat tänne myöhemmin.
+<!--
 Aikatauluttamattomassa kurssiversiossa arvostelu perustuu täysin kokeeseen. Tällä kurssin versiolla arvosteluasteikon kokonaispisteet ovat siis pelkästään koepisteet.
 
-Kokeeseen saa osallistua kun on saanut jokaisen osan ohjelmointitehtävien pisteistä vähintään 90%.
+Kokeeseen saa osallistua kun on saanut jokaisen osan ohjelmointitehtävien pisteistä vähintään 90%. -->
 
 #### Koeleikkuri
 
