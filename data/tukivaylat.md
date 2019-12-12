@@ -23,24 +23,14 @@ Kurssilla on mahdollisuus saada hyvää ohjelmointiseuraa sekä saada apua teht�
 
 Katso Exactum-rakennuksen tarkempi sijainti seuraavasta linkistä: https://www.google.com/maps?hl=en&q=Exactum,+Kumpula+Campus,+Pietari+Kalmin+katu+5,+00560+Helsinki
 
-<!-- Kesän 2020 pajaohjausajat (luokka BK107):
-- Ma 6.5. 15-18:30 (kesä-moocin aloitus)
-- Ti 7.5. 15-18:30 (kesä-moocin aloitus)
-- Pe 10.5. 15-17
-- Ma 13.5. 12-14
-- Ma 20.5. 16-18
-- Ti 21.5. 16-18
-- Ma 27.5. 16-18
-- Ti 28.5. 16-18
-- Pe 31.5. 16-18
-- Ma 3.6. 16-18
-- Ti 4.6. 16-18
-- Pe 7.6. 16-18
-- Ma 10.6. 16-18
-- Ti 11.6. 16-18
-- To 13.6. 16-18 (MUUTETTU PERJANTAILTA)
-- Ma 17.6. 16-18
-- Ti 18.6. 16-18
+Joulukuun 2019 pajaohjausajat (luokka BK107):
+
+- Ti 17.12.2019 12-18
+- Ti 18.12.2019 12-16
+
+Tämän jälkeen pajaohjausta tulee olemaan Tammikuun puolestävälistä lähtien.
+
+<!--
 
 Exactum-rakennuksen aulassa olevasta infonäytöstä löytää salin tarkemman sijainnin. Voit myös kysyä salin sijaintia aulan vahtimestareilta sekä kampuksen henkilökunnalta ja opiskelijoilta.
 
