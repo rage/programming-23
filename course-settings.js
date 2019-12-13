@@ -5,7 +5,7 @@ const courseSettings = {
   subtitle: "Ohjelmoinnin alkeet kaikille, ilmaiseksi",
   slug: "ohjelmoinnin-mooc-2020",
   tmcCourse: "2020-ohjelmointi",
-  quizzesId: "38240a7b-7e64-4202-91e2-91f6d46f6198-xx",
+  quizzesId: "a9251b4f-b3d2-4d0c-ab01-a143eb2834b5",
   tmcOrganization: "mooc",
   bannerPath: "banner.svg",
   sidebarEntries: [
