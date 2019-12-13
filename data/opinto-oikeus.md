@@ -6,6 +6,13 @@ information_page: true
 banner: false
 ---
 
+### Olet oikeutettu hakemaan opiskelupaikkaa jos
+* Olet korkeakoulukelpoinen
+* Osallistut korkeakoulujen yhteishakuun
+* Suoritat ohjelmoinnin moocin aikataulutetun version
+* Saat jokaisesta osasta vähintään 90% pisteistä
+* Osallistut kurssin päätteeksi järjestettävään näyttökokeeseen
+
 Kevään 2020 aikataulutettu Ohjelmoinnin MOOC antaa mahdollisuuden päästä opiskelemaan Helsingin yliopiston matemaattis-luonnontieteellisen tiedekunnan tietojenkäsittelytieteen kandiohjelmaan. Ohjelmoinnin MOOC -kurssin perusteella haetaan opinto-oikeutta korkeakoulujen yhteishaun osana olevassa päähaussa.
 
 Yhteishaun hakuaika on 18.3.-1.4.2020. Hakuaika päättyy klo 15.00. Ohjelmoinnin MOOCin kautta hakiessasi Sinun tulee täyttää päähaun hakulomake, jossa asetat Helsingin yliopiston tietojenkäsittelytieteen ohjelman haluamallesi prioriteetille. Löydät lisätietoja sähköisestä yhteishausta korkeakouluihin [Opintopolku.fi](https://opintopolku.fi/) -portaalista.
