@@ -13,7 +13,7 @@ banner: false
 * Saat jokaisesta osasta vähintään 90% pisteistä
 * Osallistut kurssin päätteeksi järjestettävään näyttökokeeseen
 
-Kevään 2020 aikataulutettu Ohjelmoinnin MOOC antaa mahdollisuuden päästä opiskelemaan Helsingin yliopiston matemaattis-luonnontieteellisen tiedekunnan tietojenkäsittelytieteen kandiohjelmaan. Ohjelmoinnin MOOC -kurssin perusteella haetaan opinto-oikeutta korkeakoulujen yhteishaun osana olevassa päähaussa.
+Kevään 2020 aikataulutettu Ohjelmoinnin MOOC antaa mahdollisuuden päästä opiskelemaan Helsingin yliopiston matemaattis-luonnontieteellisen tiedekunnan tietojenkäsittelytieteen kandiohjelmaan. Ohjelmoinnin MOOC koostuu kursseista ohjelmoinnin perusteet (5op) ja ohjelmoinnin jatkokurssi (5op). Ohjelmoinnin MOOC -kurssin perusteella haetaan opinto-oikeutta korkeakoulujen yhteishaun osana olevassa päähaussa.
 
 Yhteishaun hakuaika on 18.3.-1.4.2020. Hakuaika päättyy klo 15.00. Ohjelmoinnin MOOCin kautta hakiessasi Sinun tulee täyttää päähaun hakulomake, jossa asetat Helsingin yliopiston tietojenkäsittelytieteen ohjelman haluamallesi prioriteetille. Löydät lisätietoja sähköisestä yhteishausta korkeakouluihin [Opintopolku.fi](https://opintopolku.fi/) -portaalista.
 
