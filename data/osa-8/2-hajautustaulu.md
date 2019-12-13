@@ -208,7 +208,7 @@ Hajautustauluun lisättäessä avain-arvo -parin arvo voi olla käytännössä m
 
 ## Milloin hajautustaulua oikein tulisi käyttää?
 
-Hajautustaulu on toteutettu sisäisesti siten, että haku avaimen perusteella on hyvin nopeaa. Käytännössä hajautustaulu luo avaimen perusteella "hajautusarvon" eli koodin, jonka perusteella arvo tallennetaan tiettyyn paikkaan. Kun hajautustaulusta haetaan tietoa avaimen perusteella, tämä sama koodi tunnistaa paikan, missä avaimeen liittyvä arvo sijaitsee. Käytännössä avainta etsittäessä hajautustaulusta ei tarvitse käydä läpi kaikkia avain-arvo -pareja, vaan tarkasteltava joukko on merkittävästi pienempi. Hajautustaulun sisäiseen toteutukseen syvennytään tarkemmin kursseilla Ohjelmoinnin jatkokurssi ja Tietorakenteet ja algoritmit.
+Hajautustaulu on toteutettu sisäisesti siten, että haku avaimen perusteella on hyvin nopeaa. Käytännössä hajautustaulu luo avaimen perusteella "hajautusarvon" eli koodin, jonka perusteella arvo tallennetaan tiettyyn paikkaan. Kun hajautustaulusta haetaan tietoa avaimen perusteella, tämä sama koodi tunnistaa paikan, missä avaimeen liittyvä arvo sijaitsee. Käytännössä avainta etsittäessä hajautustaulusta ei tarvitse käydä läpi kaikkia avain-arvo -pareja, vaan tarkasteltava joukko on merkittävästi pienempi. Hajautustaulun sisäiseen toteutukseen syvennytään tarkemmin kurssilla Tietorakenteet ja algoritmit.
 
 
 Tarkastellaan edellä esitettyä kirjastoesimerkkiä. Koko ohjelman olisi aivan yhtä hyvin voinut toteuttaa listan avulla. Tällöin kirjat olisivat hakemiston sijaan listalla, ja kirjan etsiminen tapahtuisi listaa läpikäyden.
@@ -415,7 +415,7 @@ public class Kirjasto {
 
 Yllä käytetään hajautustaulun tarjoamaa metodia `containsKey` avaimen olemassaolon tarkastamiseen. Metodi palauttaa arvon `true`, jos hajautustauluun on lisätty haetulla avaimella mikä tahansa arvo, muulloin metodi palauttaa arvon `false`.
 
-Huomaamme jo nyt että merkkijonon siistimiseen liittyvää koodia tarvitsisi jokaisessa kirjaa käsittelevässä metodissa, joten siitä on hyvä tehdä erillinen apumetodi -- metodi toteutettaan luokkametodina, sillä se ei käsittele oliomuuttujia.
+Huomaamme jo nyt että merkkijonon siistimiseen liittyvää koodia tarvitsisi jokaisessa kirjaa käsittelevässä metodissa, joten siitä on hyvä tehdä erillinen apumetodi -- metodi toteutetaan luokkametodina, sillä se ei käsittele oliomuuttujia.
 
 ```java
 public static String siistiMerkkijono(String merkkijono) {
@@ -747,9 +747,9 @@ public class Rekisteribongauslaskuri {
             this.bongatut.put(bongattu, 0);
         }
 
-        int montakobongausta = this.bongatut.get(bongattu);
-        montakobongausta++;
-        this.bongatut.put(bongattu, montakobongausta);
+        int montakoBongausta = this.bongatut.get(bongattu);
+        montakoBongausta++;
+        this.bongatut.put(bongattu, montakoBongausta);
     }
 
     public int montakoKertaaBongattu(String bongattu) {
@@ -792,9 +792,9 @@ public class Rekisteribongauslaskuri {
     }
 
     public void lisaaBongaus(String bongattu) {
-        int montakobongausta = this.bongatut.getOrDefault(bongattu, 0);
-        montakobongausta++;
-        this.bongatut.put(bongattu, montakobongausta);
+        int montakoBongausta = this.bongatut.getOrDefault(bongattu, 0);
+        montakoBongausta++;
+        this.bongatut.put(bongattu, montakoBongausta);
     }
 
     public int montakoKertaaBongattu(String bongattu) {
