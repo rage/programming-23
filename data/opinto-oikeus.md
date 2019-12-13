@@ -7,10 +7,11 @@ banner: false
 ---
 
 ### Olet oikeutettu hakemaan opiskelupaikkaa jos
+
 * Olet korkeakoulukelpoinen
 * Osallistut korkeakoulujen yhteishakuun
 * Suoritat ohjelmoinnin moocin aikataulutetun version
-* Saat jokaisesta osasta vähintään 90% pisteistä
+* Saat jokaisesta osasta vähintään 90% ohjelmointitehtävien pisteistä
 * Osallistut kurssin päätteeksi järjestettävään näyttökokeeseen
 
 Kevään 2020 aikataulutettu Ohjelmoinnin MOOC antaa mahdollisuuden päästä opiskelemaan Helsingin yliopiston matemaattis-luonnontieteellisen tiedekunnan tietojenkäsittelytieteen kandiohjelmaan. Ohjelmoinnin MOOC koostuu kursseista ohjelmoinnin perusteet (5op) ja ohjelmoinnin jatkokurssi (5op). Ohjelmoinnin MOOC -kurssin perusteella haetaan opinto-oikeutta korkeakoulujen yhteishaun osana olevassa päähaussa.
