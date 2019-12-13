@@ -73,7 +73,6 @@ class SignInPage extends React.Component {
       setTimeout(() => {
         try {
           if (typeof window !== "undefined") {
-            console.log("Navigating back")
             window.history.go(-1)
             return
           }

@@ -48,10 +48,18 @@ class Coins extends Component {
   }
 
   render() {
-    const { exerciseDetails, noCoins } = this.props
+    const { exerciseDetails, nocoins } = this.props
 
-    if (noCoins) {
+    if (nocoins) {
       return <TokenContainer>{this.props.t("noCoin")}</TokenContainer>
+    }
+
+    if (!exerciseDetails.email_verified) {
+      return (
+        <TokenContainer>
+          {this.props.t("modelSolutionUnavailableBecauseEmailNotVerified")}
+        </TokenContainer>
+      )
     }
     const tokenThreshHold =
       exerciseDetails?.course
@@ -80,7 +88,7 @@ class Coins extends Component {
                     </Trans>
                   </span>
                 ) : (
-                  <span>{this.props.t("noCoins")}</span>
+                  <span>{this.props.t("nocoins")}</span>
                 )}
               </p>
               <p>{this.props.t("howCoins")}</p>
@@ -114,7 +122,6 @@ class Coins extends Component {
                 <ModalContent>
                   <h1>{this.props.t("solution")}</h1>
                   {this.state.modelSolution.solution.files.map(fileEntry => {
-                    console.log(fileEntry)
                     return (
                       <Card>
                         <CardContent>

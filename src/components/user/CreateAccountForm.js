@@ -38,7 +38,6 @@ class CreateAccountForm extends React.Component {
         password: this.state.password,
         password_confirmation: this.state.password_confirmation,
       })
-      console.log("Created an account:", JSON.stringify(res))
       await authenticate({
         username: this.state.email,
         password: this.state.password,

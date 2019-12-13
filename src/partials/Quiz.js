@@ -8,6 +8,7 @@ import { normalizeExerciseId } from "../util/strings"
 import Quiz from "moocfi-quizzes"
 import { Paper } from "@material-ui/core"
 import { accessToken } from "../services/moocfi"
+import CourseSettings from "../../course-settings"
 
 const StyledPaper = styled(Paper)`
   overflow: hidden;
@@ -21,6 +22,10 @@ class QuizPartial extends React.Component {
 
   render() {
     const { id, t } = this.props
+    let languageId = "en_US"
+    if (CourseSettings.default.language === "fi") {
+      languageId = "fi_FI"
+    }
     if (!this.context.loggedIn) {
       const loginPrompt = (
         <div style={{ padding: "1rem", textAlign: "center" }}>
@@ -33,7 +38,7 @@ class QuizPartial extends React.Component {
         <StyledPaper id={normalizeExerciseId(`quiz-${id}`)}>
           <Quiz
             id={id}
-            languageId="fi_FI"
+            languageId={languageId}
             backendAddress="https://quizzes.mooc.fi"
             customContent={loginPrompt}
           />
@@ -48,7 +53,7 @@ class QuizPartial extends React.Component {
       <StyledPaper id={normalizeExerciseId(`quiz-${id}`)}>
         <Quiz
           id={id}
-          languageId="fi_FI"
+          languageId={languageId}
           accessToken={accessToken()}
           backendAddress="https://quizzes.mooc.fi"
         />

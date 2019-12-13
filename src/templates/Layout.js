@@ -9,7 +9,6 @@ import * as store from "store"
 import Pheromones from "../util/pheromones"
 import styled from "styled-components"
 import courseMetaData from "../../course-metadata.json"
-
 import "./reboot.css"
 import "./theme.css"
 import "./remark.css"
@@ -20,7 +19,7 @@ import "typeface-roboto-mono"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 
 import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core"
-import { canDoResearch } from "../services/moocfi"
+import { canDoResearch, accessToken } from "../services/moocfi"
 import Footer from "../components/Footer"
 import PointsBalloon from "../components/PointsBalloon"
 import {
@@ -108,6 +107,7 @@ class Layout extends React.Component {
 
     return (
       <Fragment>
+        {" "}
         <StaticQuery
           query={layoutQuery}
           render={data => {

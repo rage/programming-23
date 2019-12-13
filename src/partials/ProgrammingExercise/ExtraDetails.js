@@ -16,7 +16,7 @@ const StyledTypography = styled(Typography)`
   margin-bottom: 0.5rem !important;
 `
 
-const ExtraDetails = ({ exerciseDetails, onUpdate, noCoins, t }) => {
+const ExtraDetails = ({ exerciseDetails, onUpdate, nocoins, t }) => {
   if (!exerciseDetails) {
     return <Loading heightHint="305px" />
   }
@@ -61,7 +61,7 @@ const ExtraDetails = ({ exerciseDetails, onUpdate, noCoins, t }) => {
           <Coins
             exerciseDetails={exerciseDetails}
             onUpdate={onUpdate}
-            noCoins={noCoins}
+            nocoins={nocoins}
           />
         </ExpansionPanelDetails>
       </ExpansionPanel>

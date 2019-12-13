@@ -164,7 +164,6 @@ export async function fetchProgrammingExerciseDetails(exerciseName) {
   if (accessTokenValue) {
     headers["Authorization"] = `Bearer ${accessTokenValue}`
   }
-  console.log(exerciseName, headers)
   const res = await axios.get(
     `${BASE_URL}/org/${ORGANIZATION}/courses/${await getCourse()}/exercises/${exerciseName}`,
     {

@@ -282,7 +282,7 @@ class ProgrammingExercise extends React.Component {
                           rel="noopener noreferrer"
                           target="_blank"
                         >
-                          {this.props.t("sugmitHowTo")}
+                          {this.props.t("submitHowTo")}
                         </OutboundLink>
                         .
                       </p>
@@ -310,7 +310,7 @@ class ProgrammingExercise extends React.Component {
                 <ExtraDetails
                   exerciseDetails={this.state.exerciseDetails}
                   onUpdate={this.onUpdate}
-                  noCoins={this.props.noCoins}
+                  nocoins={this.props.nocoins}
                 />
               </div>
             )}
