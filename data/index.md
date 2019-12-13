@@ -73,77 +73,72 @@ Lisätietoa opinto-oikeudesta saat [täältä](/opinto-oikeus).
     <tr>
       <td>Osa 1</td>
       <td>14.12.2019</td>
-      <td>21.1.2020</td>
+      <td>20.1.2020</td>
     </tr>
     <tr>
       <td>Osa 2</td>
       <td>28.12.2019</td>
-      <td>28.1.2020</td>
+      <td>27.1.2020</td>
     </tr>
     <tr>
       <td>Osa 3</td>
       <td>11.1.2020</td>
-      <td>4.2.2020</td>
+      <td>3.2.2020</td>
     </tr>
     <tr>
       <td>Osa 4</td>
       <td>25.1.2020</td>
-      <td>11.2.2020</td>
+      <td>10.2.2020</td>
     </tr>
     <tr>
       <td>Osa 5</td>
       <td>1.2.2020</td>
-      <td>18.2.2020</td>
+      <td>17.2.2020</td>
     </tr>
     <tr>
       <td>Osa 6</td>
       <td>8.2.2020</td>
-      <td>25.2.2020</td>
+      <td>24.2.2020</td>
     </tr>
     <tr>
       <td>Osa 7</td>
       <td>15.2.2020</td>
-      <td>4.3.2020</td>
+      <td>2.3.2020</td>
     </tr>
     <tr>
       <td>Osa 8</td>
       <td>1.3.2020</td>
-      <td>18.3.2020</td>
+      <td>16.3.2020</td>
     </tr>
     <tr>
       <td>Osa 9</td>
       <td>8.3.2020</td>
-      <td>25.3.2020</td>
+      <td>23.3.2020</td>
     </tr>
     <tr>
       <td>Osa 10</td>
       <td>15.3.2020</td>
-      <td>1.4.2020</td>
+      <td>30.3.2020</td>
     </tr>
     <tr>
       <td>Osa 11</td>
       <td>22.3.2020</td>
-      <td>8.4.2020</td>
+      <td>6.4.2020</td>
     </tr>
     <tr>
       <td>Osa 12</td>
       <td>29.3.2020</td>
-      <td>15.4.2020</td>
+      <td>20.4.2020</td>
     </tr>
     <tr>
       <td>Osa 13</td>
       <td>12.4.2020</td>
-      <td>29.4.2020</td>
+      <td>27.4.2020</td>
     </tr>
     <tr>
       <td>Osa 14</td>
       <td>19.4.2020</td>
-      <td>6.5.2020</td>
-    </tr>
-    <tr>
-      <td>Osa 15</td>
-      <td>19.4.2020</td>
-      <td>6.5.2020</td>
+      <td>4.5.2020</td>
     </tr>
   </tbody>
 </table>
@@ -151,7 +146,7 @@ Lisätietoa opinto-oikeudesta saat [täältä](/opinto-oikeus).
 <b>
   Määräajat ovat aina maanantaisin. Määräaikojen kellonajat ovat aina
   23:59:00 – osan 1 tehtävät tulee palauttaa siis viimeistään
-  21.1.2020 klo 23:59:00. Virallisena määräaikana käytetään
+  20.1.2020 klo 23:59:00. Virallisena määräaikana käytetään
   tehtäväpalvelimen kelloa, joka on Suomen ajassa. Huomaa, että oman
   koneesi kello voi olla jäljessä tai edellä, joten älä jätä tehtävien
   tekemistä ja palauttamista viime hetkeen.
