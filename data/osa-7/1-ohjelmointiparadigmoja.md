@@ -425,4 +425,4 @@ Toinen: 0/100
 </programming-exercise>
 
 
-<quiznator id="5c6548fec41ed4148d96de8f"></quiznator>
+<quiz id="f2d4126c-69d2-54ae-bac8-b5a3169d0ce3"></quiz>

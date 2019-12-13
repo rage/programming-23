@@ -101,7 +101,7 @@ Tee ohjelma joka:
 </programming-exercise>
 
 
-<quiznator id='5c409ea9fd9fd71425c5f871'></quiznator>
+<quiz id='b8952053-4f75-5f3b-bbcc-ea3bed7f84bd'></quiz>
 
 
 ## Luokan luominen
@@ -859,7 +859,7 @@ Pekka ja Antti yhteensä 3 vuotta
 </sample-output>
 
 
-<quiznator id='5c409ecd017ffc13eddc6d37'></quiznator>
+<quiz id='13c70240-31ae-5a1b-83ec-a2cdb1d80920'></quiz>
 
 
 <programming-exercise name='Musiikkikappale' tmcname='osa04-Osa04_10.Musiikkikappale'>

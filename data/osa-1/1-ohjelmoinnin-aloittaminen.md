@@ -13,7 +13,7 @@ hidden: true
 </text-box>
 
 
-<quiznator id="5c12b7f263de8e5db0cf8b8e"></quiznator>
+<quiz id="1fce6fab-fcad-5d58-b68b-8faead42d83e"></quiz>
 
 
 Nykyaikainen ohjelmointi tapahtuu lähes poikkeuksetta ohjelmointiympäristössä. Ohjelmointiympäristö sisältää joukon ohjelmoijaa auttavia aputoimintoja. Se ei rakenna ohjelmaa ohjelmoijan puolesta, mutta se muunmuassa vinkkaa helpoista virheistä ohjelmakoodissa ja auttaa ohjelmoijaa hahmottamaan ohjelman rakennetta.
@@ -117,4 +117,4 @@ Java-ohjelmat vaativat toimiakseen ohjelmarungon, joka tulee kurssin aikana tutu
 
 Alla on kurssin ensimmäinen kyselytehtävä. Kyselytehtäviin vastataan suoraan kurssimateriaalissa.
 
-<quiznator id="5c136a4ea50dbe1223d1981d"></quiznator>
+<quiz id="0892a979-8f9e-57ff-960c-0cfb620335c4"></quiz>

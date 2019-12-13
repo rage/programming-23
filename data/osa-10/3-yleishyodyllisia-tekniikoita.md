@@ -118,9 +118,9 @@ System.out.println(luvut.toString());
 
 StringBuilderin käyttö on suurien merkkijonojen luomisessa tehokkaampaa kuin merkkijonojen luominen `+`-operaatiolla.
 
-<quiznator id='5c81657dddb6b814af328109'></quiznator>
+<quiz id='093a6793-5b02-562c-a503-d47fbf48b241'></quiz>
 
-<quiznator id='5c8165c814524713f95a7607'></quiznator>
+<quiz id='3d1e4782-277c-5679-8791-2ba00726e012'></quiz>
 
 
 ## Säännölliset lausekkeet
@@ -349,7 +349,7 @@ Samassa säännöllisessä lausekkeessa voi käyttää myös useampia toistomerk
 Merkkiryhmän avulla voi määritellä lyhyesti joukon merkkejä. Merkit kirjoitetaan hakasulkujen sisään, ja merkkivälin voi määrittää viivan avulla. Esimerkiksi merkintä `[145]` tarkoittaa samaa kuin `(1|4|5)` ja merkintä `[2-36-9]` tarkoittaa samaa kuin `(2|3|6|7|8|9)`. Vastaavasti merkintä `[a-c]*` määrittelee säännöllisen lausekkeen, joka vaatii että merkkijono sisältää vain merkkejä `a`, `b` ja `c`.
 
 
-<quiznator id='5c8166fcfd9fd71425c68dbd'></quiznator>
+<quiz id='d1b4415f-55fb-55c1-9408-88bc25347889'></quiz>
 
 
 <programming-exercise name='Säännölliset lausekkeet (3 osaa)' tmcname='osa10-Osa10_15.SaannollisetLausekkeet'>
