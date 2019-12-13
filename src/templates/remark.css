@@ -26,3 +26,12 @@ code {
   color: rgb(20, 20, 20) !important;
   white-space: pre-wrap;
 }
+
+
+@media only screen and (min-width: 550px) {
+  .singleline-code > code {
+    white-space: nowrap !important;
+  }
+}
+
+
