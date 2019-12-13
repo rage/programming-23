@@ -284,7 +284,7 @@ while (true) {
 TODO: tänne tarttee visualisoinnin
 
 
-<quiznator id="5c1f6c8b64cf001162cb9790"></quiznator>
+<quiz id="8794f633-621a-5b9d-b743-c89ad346a92b"></quiz>
 
 <programming-exercise name="Syötteiden rajaus" tmcname='osa02-Osa02_07.SyotteidenRajaus'>
 

@@ -50,7 +50,7 @@ if (summa == 0) {
 }
 ```
 
-<quiznator id="5c3740e43972a914740fe479"></quiznator>
+<quiz id="9ac64f8c-d985-540d-943f-d02bdda3cc0e"></quiz>
 
 Tahaton sokeus on asia, jota ei voi varsinaisesti kytkeä pois päältä. Ohjelmoija voi kuitenkin muutamien kikkojen avulla vähentää sen esiintymistä -- näistä ensimmäinen on taukojen pitäminen, joka luonnollisesti vaatii työn ajoissa aloittamisen. Lisäksi esimerkiksi koodin kommentointi, nimentä ja "debug"-tulosteet auttavat myös.
 
@@ -174,4 +174,4 @@ if (summa == 0) {
 Kun ohjelman suorittaa useampaan otteeseen sopivilla syötteillä, ohjelmasta löytynee siinä piilevä virhe. Sopivien syötteiden keksiminen on myös oma taitonsa -- tärkeää on pyrkiä tarkastelemaan ns. corner caseja, eli tilanteita, joissa ohjelman suoritus voisi olla poikkeava. Tällaisia tilanteita ovat esimerkiksi tilanne, missä käyttäjä ei syötä yhtään hyväksyttävää lukua, käyttäjä syöttää pelkkiä nollia, tai käyttäjä syöttää hyvin isoja lukuja.
 
 
-<quiznator id="5c385de6ddb6b814af31d7d0"></quiznator>
+<quiz id="ac3201e6-f3bb-571a-88a3-8ea4cc563f86"></quiz>

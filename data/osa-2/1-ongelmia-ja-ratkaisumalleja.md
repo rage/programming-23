@@ -11,7 +11,7 @@ title: 'Toistuvia ongelmia ja niiden ratkaisumalleja'
 
 </text-box>
 
-<quiznator id="5c24a9123cc3ec11bcd78bb3"></quiznator>
+<quiz id="d51c840f-02ed-5129-89b3-fd5396ddccd6"></quiz>
 
 
 Samat pienet ongelmat (tai "osaongelmat") toistuvat ohjelmissa yhä uudestaan ja uudestaan: "Lue käyttäjältä syötettä", "Laske lukujen summa", jne.
@@ -241,7 +241,7 @@ Alla olevassa kyselyssä käytetään tulostuskomentoa `System.out.print`. Komen
 
 </text-box>
 
-<quiznator id="5c1f6a263516ce119a7f45df"></quiznator>
+<quiz id="bb30210e-009e-5e5f-b24c-4a622c570e38"></quiz>
 
 
 Ehtotoiminnallisuutta voi yhdistää myös muiden ratkaisumallien kanssa. Tarkastellaan ongelmaa "Lue käyttäjältä kaksi lukua. Mikäli lukujen summa on yli 100, tulosta käyttäjälle merkkijono `liikaa`. Mikäli lukujen summa on alle 0, tulosta käyttäjälle merkkijono `liian vähän`. Muulloin, tulosta käyttäjälle merkkijono `ok`.". Ohjelma, joka yhdistää lukemisen, laskemisen ja ehtolauseen on annettu alla.

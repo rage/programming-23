@@ -191,7 +191,7 @@ Esko, ikä 0 vuotta
 
 </sample-output>
 
-<quiznator id='5c534d44017ffc13eddc9f9f'></quiznator>
+<quiz id='2cdf0ceb-69fa-527c-867d-b2aed084a919'></quiz>
 
 
 <programming-exercise name='Monta konstruktoria' tmcname='osa05-Osa05_05.MontaKonstruktoria'>
@@ -293,7 +293,7 @@ public void vanhene(int vuodet) {
 }
 ```
 
-<quiznator id='5c534d03fd9fd71425c62a6e'></quiznator>
+<quiz id='2ccd1f25-e3ac-5756-beb2-333dd5bcd322'></quiz>
 
 TODO: tarkasta että video oikealla kohdalla
 

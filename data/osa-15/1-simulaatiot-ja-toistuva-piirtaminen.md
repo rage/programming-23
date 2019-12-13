@@ -14,7 +14,7 @@ hidden: true
 
 </text-box>
 
-<quiznator id="5cb5c0ef06d26046c3ea28c8"></quiznator>
+<quiz id="bbc541f4-ddae-5b0a-984f-9f0868bb5337"></quiz>
 
 
 Tietokonesimulaatioita käytetään tosielämän ilmiöiden mallintamiseen tietokoneella. Simulaation toteutus sisältää ilmiötä kuvaavan mallin luomisen (esimerkiksi säämalli) sekä mallin ajamisen eli simuloinnin. Tutustumme tässä muutamaan klassiseen tietokonesimulaatioon, jotka käyttävät kaksiulotteista taulukkoa.
