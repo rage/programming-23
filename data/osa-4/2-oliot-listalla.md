@@ -215,7 +215,7 @@ Kristen Nygaard, ikä 0 vuotta
 
 Toteuta tässä kuvattu ohjelma luokkaan `Esineet`. **Huom!** Älä muuta luokkaa `Esine`.
 
-Kirjoita ohjelma, joka lukee käyttäjältä esineiden nimiä. Mikäli nimi on tyhjä, lopeta lukeminen. Mikäli nimi ei ole tyhjä, lue nimen perusteella uusi esine, jonka lisäät `esineet`-listalle.
+Kirjoita ohjelma, joka lukee käyttäjältä esineiden nimiä. Mikäli nimi on tyhjä, lopeta lukeminen. Mikäli nimi ei ole tyhjä, luo nimen perusteella uusi esine, jonka lisäät `esineet`-listalle.
 
 Tulosta tämän jälkeen esineet `Esine`-luokan `toString`-metodia hyödyntäen. Luokan `Esine` toteutus pitää syöttämäsi nimen lisäksi kirjaa esineen luomishetkestä.
 
@@ -438,26 +438,27 @@ Miehen puolikkaat, 30 minuuttia
 
 <programming-exercise name='Kirjat (2 osaa)' tmcname='osa04-Osa04_20.Kirjat'>
 
-Toteuta ohjelma, joka ensin lukee kirjojen tietoja käyttäjältä. Jokaisesta kirjasta tulee lukea kirjan nimi, sivujen lukumäärä sekä kirjoitusvuosi. Kirjojen lukeminen lopetetaan kun käyttäjä syöttää tyhjän kirjan nimen.
+Toteuta ohjelma, joka ensin lukee kirjojen tietoja käyttäjältä. Jokaisesta kirjasta tulee lukea kirjan nimi, sivujen lukumäärä sekä julkaisuvuosi. Kirjojen lukeminen lopetetaan kun käyttäjä syöttää tyhjän kirjan nimen.
 
-Tämän jälkeen käyttäjältä kysytään mitä tulostetaan. Jos käyttäjä syöttää merkkijonon "kaikki", tulostetaan kirjojen nimet, sivujen lukumäärät sekä kirjoitusvuodet. Jos taas käyttäjä syöttää merkkijonon "nimi", tulostetaan vain kirjojen nimet.
+Tämän jälkeen käyttäjältä kysytään mitä tulostetaan. Jos käyttäjä syöttää merkkijonon "kaikki", tulostetaan kirjojen nimet, sivujen lukumäärät sekä julkaisuvuodet. Jos taas käyttäjä syöttää merkkijonon "nimi", tulostetaan vain kirjojen nimet.
 
-Ohjelmaa varten kannattanee toteuttaa Kirjaa kuvaava luokka. Tehtävä on kokonaisuudessaan kahden tehtäväpisteen arvoinen.
+Ohjelmaa varten kannattanee toteuttaa yksittäistä kirjaa kuvaava Kirja-luokka. Tehtävä on kokonaisuudessaan kahden tehtäväpisteen arvoinen.
 
 <sample-output>
 
 Nimi: **Minä en sitten muutu**
 Sivuja: **201**
-Kirjoitusvuosi: **2010**
+Julkaisuvuosi: **2010**
 Nimi: **Nalle Puh ja elämisen taito**
 Sivuja: **100**
-Kirjoitusvuosi: **2005**
+Julkaisuvuosi: **2005**
 Nimi: **Beautiful Code**
 Sivuja: **593**
-Kirjoitusvuosi: **2007**
+Julkaisuvuosi: **2007**
 Nimi: **KonMari**
 Sivuja: **222**
-Kirjoitusvuosi: **2011**
+Julkaisuvuosi: **2011**
+Nimi:
 
 Mitä tulostetaan? **kaikki**
 Minä en sitten muutu, 201 sivua, 2010
@@ -472,16 +473,17 @@ KonMari, 222 sivua, 2011
 
 Nimi: **Minä en sitten muutu**
 Sivuja: **201**
-Kirjoitusvuosi: **2010**
+Julkaisuvuosi: **2010**
 Nimi: **Nalle Puh ja elämisen taito**
 Sivuja: **100**
-Kirjoitusvuosi: **2005**
+Julkaisuvuosi: **2005**
 Nimi: **Beautiful Code**
 Sivuja: **593**
-Kirjoitusvuosi: **2007**
+Julkaisuvuosi: **2007**
 Nimi: **KonMari**
 Sivuja: **222**
-Kirjoitusvuosi: **2011**
+Julkaisuvuosi: **2011**
+Nimi:
 
 Mitä tulostetaan? **nimi**
 Minä en sitten muutu
