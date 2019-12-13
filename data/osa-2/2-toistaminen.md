@@ -715,7 +715,7 @@ Lukujen summa 34
 </programming-exercise>
 
 
-<programming-exercise name="Lukujen keskiarvo" tmcname='osa01-Osa02_12.LukujenKeskiarvo'>
+<programming-exercise name="Lukujen keskiarvo" tmcname='osa02-Osa02_12.LukujenKeskiarvo'>
 
 Kirjoita ohjelma, joka lukee käyttäjältä lukuja kunnes käyttäjä syöttää luvun 0. Tämän jälkeen ohjelman tulee tulostaa syötettyjen lukujen keskiarvo. Syötteen loppumisesta kertovaa nollaa ei tule ottaa huomioon keskiarvon laskemisessa. Voit olettaa, että käyttäjä syöttää aina vähintään yhden luvun.
 

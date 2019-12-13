@@ -437,7 +437,7 @@ kolmas
 </sample-output>
 
 
-<programming-exercise name='Keskustelu' tmcname='osa01-Osa01_10.Keskustelu'>
+<programming-exercise name='Keskustelu' tmcname='osa01-Osa01_09.Keskustelu'>
 
 Kirjoita ohjelma, joka toimii seuraavalla tavalla.
 
