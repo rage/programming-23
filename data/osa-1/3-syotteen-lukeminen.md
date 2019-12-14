@@ -153,9 +153,6 @@ viesti
 
 </sample-output>
 
-TODO: quiz
-
-
 ### Katenointi eli merkkijonojen yhdistäminen
 
 Tulostettavan merkkijonon voi koostaa useammista merkkijonoista `+`-merkin avulla. Esimerkiksi alla oleva ohjelma tulostaa viestin "Hei maailma!" yhdelle riville.

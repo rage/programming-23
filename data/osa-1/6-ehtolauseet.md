@@ -839,7 +839,6 @@ Mahdotonta!
 
 </programming-exercise>
 
-TODO: quiz -- mitä tulostaa? (useampi osa)
 
 ## Ehtolauseiden suoritusjärjestys
 

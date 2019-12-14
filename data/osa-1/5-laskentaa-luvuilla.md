@@ -278,7 +278,6 @@ y on 5 ja z on 6
 
 <programming-exercise name="Yhteenlasku ja kaava" tmcname='osa01-Osa01_19.YhteenlaskuJaKaava'>
 
-TODO: tarkenna tehtävänantoa (myös kaava)
 Tee ohjelma, jonka avulla voidaan laskea kahden kokonaisluvun summa. Ohjelman alussa kysytään kahta kokonaislukua, jotka sisältävät summattavat luvut. Tämän jälkeen ohjelma tulostaa lukujen summausta kuvaavan kaavan.
 
 Tulostusesimerkkejä:
@@ -302,6 +301,8 @@ Syötä toinen luku!
 73457 + 12888 = 86345
 
 </sample-output>
+
+Huom! Tulostuksessa tulee näkyä myös konkreettinen lasku, ei vain laskun lopputulosta.
 
 </programming-exercise>
 
