@@ -5,7 +5,7 @@ hidden: false
 information_page: true
 ---
 
-Kurssilla on vertaistukeen perustuva keskustelukanava, jonka lisäksi tammikuun puolesta välistä lähtien kaikilla kurssilaisilla on mahdollisuus ohjaukseen Helsingin yliopiston kumpulan kampuksella.
+Kurssilla on vertaistukeen perustuva keskustelukanava, jonka lisäksi tammikuun puolesta välistä lähtien kaikilla kurssilaisilla on mahdollisuus ohjaukseen Helsingin yliopiston Kumpulan kampuksella.
 
 ## Keskustelukanava
 
@@ -19,14 +19,14 @@ Jos kysyt kanavalta apua ohjelmointitehtävään, voit liittää kysymykseesi my
 
 ## Pajaohjaus
 
-Kurssilla on mahdollisuus saada hyvää ohjelmointiseuraa sekä saada apua tehtäviin, ohjelmointiin ja teknisiin ongelmiin tulemalla kurssin pajaan! Paja sijaitsee Helsingin yliopiston kumpulan kampuksella olevassa Exactum-rakennuksessa. Kaikki ovat tervetulleita pajaan!
+Kurssilla on mahdollisuus saada hyvää ohjelmointiseuraa sekä saada apua tehtäviin, ohjelmointiin ja teknisiin ongelmiin tulemalla kurssin pajaan! Paja sijaitsee Helsingin yliopiston Kumpulan kampuksella olevassa Exactum-rakennuksessa. Kaikki ovat tervetulleita pajaan!
 
 Katso Exactum-rakennuksen tarkempi sijainti [täältä](https://www.google.com/maps?hl=en&q=Exactum,+Kumpula+Campus,+Pietari+Kalmin+katu+5,+00560+Helsinki).
 
 Joulukuun 2019 pajaohjausajat (luokka BK107):
 
 - Ti 17.12.2019 12-18
-- Ti 18.12.2019 12-16
+- Ke 18.12.2019 12-16
 
 Tämän jälkeen pajaohjausta tulee olemaan Tammikuun puolestävälistä lähtien.
 
