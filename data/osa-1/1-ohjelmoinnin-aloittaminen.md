@@ -1,4 +1,4 @@
- ---
+---
 path: '/osa-1/1-ohjelmoinnin-aloittaminen'
 title: 'Ohjelmoinnin aloittaminen'
 hidden: true
