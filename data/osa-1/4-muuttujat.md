@@ -279,15 +279,13 @@ Muuttujan tyyppi määrää arvot, joita muuttuja voi saada. `String`-tyyppiset 
 
 Kunkin tyypin mahdolliset arvot ovat siis rajattuja. Esimerkiksi merkkijonomuuttuja ei voi sisältää kokonaislukuarvoa, eikä liukuluku voi sisältää totuusarvoa. Alla on listattu käyttämillemme muuttujille niiden mahdolliset arvoalueet.
 
-TODO: korjaa taulukko? koodinpätkät oikein rivittyvinä!
-
 
 | Tyyppi | Esimerkki | Sallitut arvot |
 |--------|-----------|----------------|
-| Kokonaisuluku, eli `int` | `int luku = 4;` | Kokonaislukumuuttuja voi sisältää kokonaislukuja, joiden arvot ovat välillä -2147483648 ja 2147483647. |
-| Liukuluku, eli `double` | `double luku = 4.2;` | Liukulukumuuttuja sisältää desimaalilukuja, joiden suurin mahdollinen arvo on noin 2<sup>1023</sup>  Kun desimaaliluku esitetään liukuluvun avulla, voi luku olla epätarkka;  liukuluvulla ei pysty esittämään mitä tahansa desimaalilukua.  Taustasyihin palataan kurssilla Tietokoneen toiminta. |
-| Merkkijono, eli `String` | `String teksti = "Hei!";` | Merkkijonomuuttuja voi sisältää merkkijonoja. Merkkijonot rajataan hipsuilla. |
-| Totuusarvo, eli `boolean` | `boolean tosi = true;` | Totuusarvomuuttuja sisältää joko arvon `true` eli totta tai arvon `false` eli epätotta. |
+| Kokonaisuluku, eli `int` | <span class="singleline-code">`int luku = 4;`</span>| Kokonaislukumuuttuja voi sisältää kokonaislukuja, joiden arvot ovat välillä -2147483648 ja 2147483647. |
+| Liukuluku, eli `double` | <span class="singleline-code">`double luku = 4.2;`</span> | Liukulukumuuttuja sisältää desimaalilukuja, joiden suurin mahdollinen arvo on noin 2<sup>1023</sup>  Kun desimaaliluku esitetään liukuluvun avulla, voi luku olla epätarkka;  liukuluvulla ei pysty esittämään mitä tahansa desimaalilukua.  Taustasyihin palataan kurssilla Tietokoneen toiminta. |
+| Merkkijono, eli `String` | <span class="singleline-code">`String teksti = "Hei!";`</span> | Merkkijonomuuttuja voi sisältää merkkijonoja. Merkkijonot rajataan hipsuilla. |
+| Totuusarvo, eli `boolean` | <span class="singleline-code">`boolean tosi = true;`</span> | Totuusarvomuuttuja sisältää joko arvon `true` eli totta tai arvon `false` eli epätotta. |
 
 
 ## Erityyppisten muuttujien lukeminen käyttäjältä
