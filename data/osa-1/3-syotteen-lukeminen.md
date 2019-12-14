@@ -1,7 +1,7 @@
 ---
 path: '/osa-1/3-syotteen-lukeminen'
 title: 'Syötteen lukeminen'
-hidden: true
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

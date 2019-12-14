@@ -1,7 +1,7 @@
 ---
 path: '/osa-1/1-ohjelmoinnin-aloittaminen'
 title: 'Ohjelmoinnin aloittaminen'
-hidden: true
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

@@ -1,7 +1,7 @@
 ---
 path: "/osa-1/6-ehtolauseet"
 title: "Ehtolauseet ja vaihtoehtoinen toiminta"
-hidden: true
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

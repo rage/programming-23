@@ -1,6 +1,6 @@
 ---
-path: '/'
-title: 'Tietoa kurssista'
+path: "/"
+title: "Tietoa kurssista"
 hidden: false
 information_page: true
 banner: true
@@ -44,12 +44,12 @@ julkaistaan aina aikataulutetun kurssin jälkeen. Voit siirtyä
 aikataululliselta kurssilta aikatauluttomaan mikäli niin haluat.
 Kurssin vaihtaminen toiseen suuntaan ei ole mahdollista. Huomaa
 kuitenkin että aikatauluttomasta versiosta ei voi hakea
-opinto-oikeutta.
+opinto-oikeutta. Aikatauluton versio kurssista tulee saataville 21.1.2020.
 
 Kurssin osat 1-7 vastaavat kurssia Ohjelmoinnin perusteet. Osat 8-14
 vastaavat kurssia Ohjelmoinnin jatkokurssi.
 
-Kurssi alkaa joulukuussa 2019. Lisätietoa aikataulusta tulee tälle sivulle myöhemmin.
+Kurssi on käynnissä! Aloittaaksesi navigoi [osaan 1](/osa-1).
 
 ### Aikataulu - kevät 2020
 
@@ -143,14 +143,13 @@ Lisätietoa opinto-oikeudesta saat [täältä](/opinto-oikeus).
   </tbody>
 </table>
 
-<b>
-  Määräajat ovat aina maanantaisin. Määräaikojen kellonajat ovat aina
-  23:59:00 – osan 1 tehtävät tulee palauttaa siis viimeistään
-  20.1.2020 klo 23:59:00. Virallisena määräaikana käytetään
-  tehtäväpalvelimen kelloa, joka on Suomen ajassa. Huomaa, että oman
-  koneesi kello voi olla jäljessä tai edellä, joten älä jätä tehtävien
-  tekemistä ja palauttamista viime hetkeen.
-</b>
 
-Kurssille ei tarvitse eikä voi ilmoittautua. Ilmoittautuneiksi
-katsotaan ne osallistujat, jotka tekevät kurssin ohjelmointitehtäviä.
+**Määräajat ovat aina maanantaisin. Määräaikojen kellonajat ovat aina
+23:59:00 – osan 1 tehtävät tulee palauttaa siis viimeistään
+20.1.2020 klo 23:59:00. Virallisena määräaikana käytetään
+tehtäväpalvelimen kelloa, joka on Suomen ajassa. Huomaa, että oman
+koneesi kello voi olla jäljessä tai edellä, joten älä jätä tehtävien
+tekemistä ja palauttamista viime hetkeen.**
+
+
+Kurssille ei tarvitse ilmoittautua etukäteen saadakseen siitä opintopisteet. Voit vain aloittaa suoraan kurssin tekemisen ja opintopisteiden kirjaus hoidetaan kuhan olet päässyt kokeesta läpi.
