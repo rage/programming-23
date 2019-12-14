@@ -91,9 +91,7 @@ Kuinka monen vuorokauden sekunnit tulostetaan?
 
 </programming-exercise>
 
-
-<quiz id="574acb1a-471b-5b5f-9755-cbbff7aa8b87"></quiz>
-
+<quiz id="0892a979-8f9e-57ff-960c-0cfb620335c4"></quiz>
 
 <text-box variant='hint' name='Lauseke ja lause'>
 

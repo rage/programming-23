@@ -85,4 +85,4 @@ Java-ohjelmat vaativat toimiakseen ohjelmarungon, joka tulee kurssin aikana tutu
 
 Alla on kurssin ensimmäinen kyselytehtävä. Kyselytehtäviin vastataan suoraan kurssimateriaalissa.
 
-<quiz id="0892a979-8f9e-57ff-960c-0cfb620335c4"></quiz>
+<quiz id="574acb1a-471b-5b5f-9755-cbbff7aa8b87"></quiz>
