@@ -11,7 +11,7 @@ Kurssilla on vertaistukeen perustuva keskustelukanava, jonka lisäksi tammikuun 
 
 Kurssilla on käytössä Telegram-keskusteluhuone. Suosittelemme, että käytät tukikanavaa joko Telegramin selaimessa toimivalla versiolla tai Telegrammin työpöytäohjelmalla.
 
-Pääset kanavalle tästä linkistä: [https://t.me/ohjelmointi20](https://t.me/ohjelmointi19) . Pääset Telegrammin selaimessa toimivaan versioon täältä: [https://web.telegram.org](https://web.telegram.org/) .
+Pääset kanavalle tästä linkistä: [https://t.me/ohjelmointi20](https://t.me/ohjelmointi20) . Pääset Telegrammin selaimessa toimivaan versioon täältä: [https://web.telegram.org](https://web.telegram.org/) .
 
 Kanavan osallistujat ovat kanssaopiskelijoita sekä vapaaehtoisia ohjaajia. Kanavan toiminta perustuu vapaaehtoisuuteen. Autathan muita myös vastavuoroisesti.
 
