@@ -45,7 +45,7 @@ const CustomLabel = ({ x, y, stroke, value }) => {
 
 const PartProgress = ({ name, data, appliesForStudyRight, t }) => {
   var BAR_CHART_WIDTH = 375
-  var BAR_CHART_Y_AXIS_WIDTH = 142
+  var BAR_CHART_Y_AXIS_WIDTH = 152
 
   if (window.innerWidth < SMALL_MEDIUM_BREAKPOINT.slice(0, -2)) {
     BAR_CHART_WIDTH = 300
@@ -99,11 +99,6 @@ const PartProgress = ({ name, data, appliesForStudyRight, t }) => {
             />
           </Bar>
         </StyledBarChart>
-        <LargeP>
-          {t("progressTotal")}{" "}
-          {Math.floor(Math.min(100, totalProgress * 111.112))}
-          /100.
-        </LargeP>
         {appliesForStudyRight &&
           (getCourseVariant() === "nodl" ? (
             <SmallP>{t("noTimelimit")}</SmallP>

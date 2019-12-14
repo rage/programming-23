@@ -76,7 +76,7 @@ class Coins extends Component {
             <TokenContainer>
               <p>{this.props.t("whyCoin")}</p>
               <p>
-                {this.props.t("getNewCoin")} <i>{tokenThreshHold}</i>
+                {this.props.t("getNewCoin")} <i>{tokenThreshHold}</i>{" "}
                 {this.props.t("getNewCoin2")}{" "}
                 {availableTokens === 1 ? (
                   <span>{this.props.t("oneCoin")} </span>

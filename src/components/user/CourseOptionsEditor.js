@@ -54,6 +54,7 @@ class CourseOptionsEditor extends React.Component {
         student_number: data.user_field?.organizational_id,
         applies_for_study_right:
           data.extra_fields?.applies_for_study_right === "t",
+        graduating_next_year: data.extra_fields?.graduating_next_year === "t",
         digital_education_for_all:
           data.extra_fields?.digital_education_for_all === "t",
         marketing: data.extra_fields?.marketing === "t",
@@ -72,6 +73,7 @@ class CourseOptionsEditor extends React.Component {
     this.setState({ submitting: true })
     let extraFields = {
       applies_for_study_right: this.state.applies_for_study_right,
+      graduating_next_year: this.state.graduating_next_year,
       digital_education_for_all: this.state.digital_education_for_all,
       marketing: this.state.marketing,
       research: this.state.research,
@@ -95,6 +97,7 @@ class CourseOptionsEditor extends React.Component {
     error: true,
     errorObj: {},
     applies_for_study_right: false,
+    graduating_next_year: false,
     digital_education_for_all: false,
     marketing: false,
     research: undefined,
@@ -263,6 +266,22 @@ class CourseOptionsEditor extends React.Component {
                   label="Aion hakea aikataulutetun Ohjelmoinnin MOOCin kautta opinto-oikeutta (opiskelupaikkaa) Helsingin yliopistoon."
                 />
               </Row>
+
+              {this.state.applies_for_study_right && (
+                <Row>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.graduating_next_year}
+                        onChange={this.handleCheckboxInput}
+                        name="graduating_next_year"
+                        value="1"
+                      />
+                    }
+                    label="Valmistun ja saan yliopistokelpoisuuden vasta keväällä 2021"
+                  />
+                </Row>
+              )}
 
               <Row>
                 <FormControlLabel
