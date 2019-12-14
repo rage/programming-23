@@ -65,6 +65,7 @@ import RegistrationLink2 from "./RegistrationLink2"
 import OnlyForCourseVariant from "./OnlyForCourseVariant"
 import OnlyForNotLoggedIn from "./OnlyForNotLoggedIn"
 import Points from "./Points"
+import GoogleFormLink from "./GoogleFormLink"
 
 const mapping = {
   test: Test,
@@ -87,6 +88,7 @@ const mapping = {
   "registration-link-ohja": RegistrationLink2,
   "moodle-exercise": MoodleExercise,
   "sqltrainer-exercise": SqlTrainerExercise,
+  "google-form-link": GoogleFormLink,
   notice: Notice,
   crowdsorcerer: CrowdSorcerer,
   youtube: Youtube,
