@@ -1,4 +1,4 @@
----
+ ---
 path: '/osa-1/1-ohjelmoinnin-aloittaminen'
 title: 'Ohjelmoinnin aloittaminen'
 hidden: true
@@ -13,9 +13,6 @@ hidden: true
 </text-box>
 
 <quiz id="abd73a90-88d7-4832-af9e-e3282b7d22b6"></quiz>
-
-<quiz id="1fce6fab-fcad-5d58-b68b-8faead42d83e"></quiz>
-
 
 Nykyaikainen ohjelmointi tapahtuu lähes poikkeuksetta ohjelmointiympäristössä. Ohjelmointiympäristö sisältää joukon ohjelmoijaa auttavia aputoimintoja. Se ei rakenna ohjelmaa ohjelmoijan puolesta, mutta se muunmuassa vinkkaa helpoista virheistä ohjelmakoodissa ja auttaa ohjelmoijaa hahmottamaan ohjelman rakennetta.
 
