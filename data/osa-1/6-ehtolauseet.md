@@ -107,7 +107,11 @@ if (luku > 10) {
 
 Javassa koodia sisennetään neljän välilyönnin tai yhden tabulaattorin verran jokaisen lohkon kohdalla. Käytä sisentämiseen joko välilyöntejä tai tabulaattoreita. Joissakin tapauksissa sisennys saattaa hajota mikäli käytät molempia. NetBeans auttaa tässä kun painat kirjainyhdistelmää "alt + shift + f" (macOS "control + shift + f").
 
-Jatkossa ohjelmakoodi tulee sisentää oikein myös tehtävissä. Jos sisennys on väärin, ei ohjelmointiympäristö hyväksy tehtävää.
+Jatkossa ohjelmakoodi tulee sisentää oikein myös tehtävissä. Jos sisennys on väärin, ei ohjelmointiympäristö hyväksy tehtävää. Näät sisennysvirheet testien tuloksissa keltaisena.
+
+![Esimerkki virheviestistä](sisennysvirhe.png "Esimerkki virheviestistä")
+
+Yllä olevassa virheviestissä sanotaan että rivin 8 alussa olisi pitänyt olla 8 välilyöntiä sisennystä, mutta siellä olikin vain 2 välilyöntiä. Tässä tapauksessa sisennyksen saa korjattua oikeaksi lisäämällä rivin alkuun 6 välilyöntiä lisää.
 
 </text-box>
 
