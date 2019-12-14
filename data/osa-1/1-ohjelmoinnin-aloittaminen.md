@@ -4,7 +4,6 @@ title: 'Ohjelmoinnin aloittaminen'
 hidden: true
 ---
 
-
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
 - Tutustut kurssilla käytettyyn NetBeans with TMC -ohjelmointiympäristöön.

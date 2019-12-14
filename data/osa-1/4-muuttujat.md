@@ -11,6 +11,30 @@ hidden: true
 
 </text-box>
 
+<ab-study id="ohjelmointi-20-scale-vs-mcq">
+
+<only-for-ab-group group="1">
+
+<text-box variant="hint" name="Median ja tekniikan käyttöön liittyvä kysely">
+Tässä kohtaa vastaat median ja tekniikan käyttöön liittyvään kyselyyn. Kyselyllä kartoitetaan median ja tekniikan käyttöä sekä näihin suhtautumista. Kyselyn vastauksia käytetään osana Ohjelmoinnin MOOC -kurssin kehitystä sekä kurssiin ja oppimiseen liittyvää tutkimusta. <google-form-link href="https://docs.google.com/forms/d/e/1FAIpQLSdRWwKpDzcR7PHtSmeL4o8-JOXyR5ajAeuHz2aw4gnMTikwLg/viewform?usp=pp_url" emailfieldname="entry.575150039">Avaa kysely tätä linkkiä klikkaamalla</google-form-link>.
+</text-box>
+
+</only-for-ab-group>
+
+<only-for-ab-group group="2">
+
+<text-box variant="hint" name="Median ja tekniikan käyttöön liittyvä kysely">
+Tässä kohtaa vastaat median ja tekniikan käyttöön liittyvään kyselyyn. Kyselyllä kartoitetaan median ja tekniikan käyttöä sekä näihin suhtautumista. Kyselyn vastauksia käytetään osana Ohjelmoinnin MOOC -kurssin kehitystä sekä kurssiin ja oppimiseen liittyvää tutkimusta.
+<google-form-link href="https://docs.google.com/forms/d/e/1FAIpQLSfKGPCqp-9H8as73RfwqXkdCFbCL-O85TlqJ5tOZYr-MH-eDA/viewform?usp=pp_url" emailfieldname="entry.575150039">Avaa kysely tätä linkkiä klikkaamalla</google-form-link>.
+</text-box>
+
+</only-for-ab-group>
+
+</ab-study>
+
+<quiz id="1fce6fab-fcad-5d58-b68b-8faead42d83e"></quiz>
+
+
 Tutustuimme syötteen lukemisen yhteydessä jo pikaisesti merkkijonomuuttujiin. Tutustutaan seuraavaksi muihin usein käytettyihin Javan muuttujatyyppeihin.
 
 Muuttujaa kannattaa ajatella lokerona, johon voi tallettaa annetun tyyppistä tietoa. Tyyppejä ovat esimerkiksi teksti eli merkkijono (`String`), kokonaisluku (`int`), liukuluku (`double`) eli desimaaliluku, ja totuusarvo (`boolean`). Muuttujaan asetetaan arvo yhtäsuuruusmerkillä (`=`).
