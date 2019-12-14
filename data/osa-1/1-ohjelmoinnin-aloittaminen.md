@@ -21,7 +21,7 @@ Tarvitset kurssin aloittamiseen (1) käyttäjätunnuksen kurssilla käytettyyn T
 
 <only-for-course-variant variant="dl">
 
-  Ohjeistus oleellisten työvälineiden asentamiseen sekä kurssilla tarvittavan käyttäjätunnuksen luomiseen löytyy osoitteesta [https://www.mooc.fi/fi/installation/netbeans](https://www.mooc.fi/fi/installation/netbeans). Valitse organisaatioksi "MOOC" ja kurssiksi "Ohjelmoinnin MOOC 2020".
+  Ohjeistus oleellisten työvälineiden asentamiseen sekä kurssilla tarvittavan käyttäjätunnuksen luomiseen löytyy osoitteesta [https://www.mooc.fi/fi/installation/netbeans](https://www.mooc.fi/fi/installation/netbeans). Valitse organisaatioksi "MOOC" ja kurssiksi "Ohjelmoinnin MOOC 2020, Ohjelmoinnin perusteet".
 
 </only-for-course-variant>
 
