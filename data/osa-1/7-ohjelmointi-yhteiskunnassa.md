@@ -21,3 +21,8 @@ Olet nyt ottanut ensiaskeleet ohjelmointiin. Kurssilla opit kirjoittamaan ohjelm
 Kurssin jälkeen yksinkertainenkin ohjeistus kuten  "_Osta kaksi maitoa. Mikäli kaupassa on appelsiineja, osta neljä._" saa uusia sävyjä. Vaikka ihmiselle viesti on selvä, tietokone saattaisi päätyä ostamaan neljä maitoa.
 
 Mukavaa, että olet lähtenyt mukaan tälle matkalle!
+
+Vastaa vielä lopuksi seuraavaan ensimmäisen osan osaamistavoitteita tarkastelevaan itsearviointikyselyyn.
+
+<quiz id="132a639f-7c33-5b24-bb01-36f0bbd4cc96"></quiz>
+
