@@ -549,6 +549,8 @@ Kaikki yhdessä: yksikaksikolme
 
 **Huom!** Esimerkkitulosteet saattavat rivittyä väärin kapeilla ruuduilla. Mikäli käytät selainikkunan koosta vain rajattua osaa, tai käytössäsi on muuten kapea ruutu, kokeile venyttää ruutua leveyssuunnassa ja tarkasta muuttuuko tekstin rivitys. Tehtävässä oletetaan "leveällä ruudulla" havaittava rivitys.
 
+Lisäksi jos sinulla tulee ongelmia tässä tehtävässä 'ä'-kirjaimen kanssa, kokeile palauttaa tehtävä suoraan palvelimelle painamalla nuolta ylöspäin Netbeanssissa.
+
 Kirjoita ohjelma, joka kysyy käyttäjältä hahmon nimeä sekä hahmon ammattia. Tämän jälkeen ohjelma tulostaa pienen tarinan.
 
 Ohjelman tulostuksen tulee olla kuten esimerkissä -- huomaa, että nimi ja ammatti muuttuu syötteen perusteella.
