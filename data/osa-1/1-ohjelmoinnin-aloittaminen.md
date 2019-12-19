@@ -35,6 +35,8 @@ Tarvitset kurssin aloittamiseen (1) käyttäjätunnuksen kurssilla käytettyyn T
 
 Kun olet luonut käyttäjätunnuksen ja asentanut Javan ja TMC:n, katso alla oleva video. Video näyttää mitä tapahtuu kun NetBeans with TMC -ohjelmointiympäristö käynnistetään ensimmäistä kertaa. Videolla valitaan organisaatio ja kurssi, sekä tehdään ensimmäinen ohjelmointitehtävä.
 
+_Videolla kurssiksi valitaan ohjelmoinnin MOOC 2019. Muista kuitenkin valita kurssiksi ohjelmoinnin MOOC 2020!_
+
 <youtube id="zvE8XA8D0gE"></youtube>
 
 
