@@ -592,11 +592,11 @@ Kerron kohta tarinan, mutta tarvitsen siihen hieman tietoja.
 Minkä niminen tarinassa esiintyvä hahmo on?
 **Ada**
 Mikä hahmon ammatti on?
-**datatieteilijä**
+**matemaatikko**
 Tässä tarina:
-Olipa kerran Ada, joka oli ammatiltaan datatieteilijä.
+Olipa kerran Ada, joka oli ammatiltaan matemaatikko.
 Matkatessaan töihin, Ada mietti arkeaan.
-Ehkäpä Ada ei olekaan koko elämäänsä datatieteilijä.
+Ehkäpä Ada ei olekaan koko elämäänsä matemaatikko.
 
 </sample-output>
 
