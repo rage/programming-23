@@ -197,7 +197,7 @@ public static void tamaMetodiSanooMur() {
 }
 ```
 
-TODO: quiz, kirjoita metodin nimi oikein (esim. tulosta_koodaus_on_kivaa() -> tulostaKoodausOnKivaa())
+<quiz id="a658ddf1-8477-495b-8ea7-dbe5184a661d"></quiz>
 
 ##  Metodin parametrit
 
@@ -536,8 +536,6 @@ System.out.println("laskutoimituksen tulos " + luku);
 
 Kaikki tähän mennessä näkemämme muuttujatyypit voidaan palauttaa metodista.
 
-TODO: miksi esimerkkikoodit eivät toimi?
-
 <table class="table">
   <tr>
     <th>Palautettavan arvon tyyppi</th>
@@ -546,32 +544,38 @@ TODO: miksi esimerkkikoodit eivät toimi?
   <tr>
     <td>Metodi ei palauta arvoa</td>
     <td>
+
 ```java
 public static void metodiJokaEiPalautaMitaan() {
     // metodin runko
 }
 ```
-    </td>
+
+</td>
   </tr>
   <tr>
     <td>Metodi palauttaa `int`-tyyppisen muuttujan</td>
     <td>
+
 ```java
 public static int metodiJokaPalauttaaKokonaisLuvun() {
     // metodin runko, tarvitsee return-komennon
 }
 ```
-    </td>
+
+</td>
   </tr>
   <tr>
     <td>Metodi palauttaa `double`-tyyppisen muuttujan</td>
     <td>
+
 ```java
 public static double metodiJokaPalauttaaLiukuluvun() {
     // metodin runko, tarvitsee return-komennon
 }
 ```
-    </td>
+
+</td>
   </tr>
 </table>
 
@@ -713,7 +717,7 @@ public static void main(String[] args) {
 Tässä siis ensin tapahtuu metodikutsu joka palauttaa arvon 5.0 joka sitten tulostetaan tulostuskomennon avulla.
 
 
-<quiz id="5c1f68f33516ce119a7f45db"></quiz>
+<quiz id="3230fa43-6b3c-57a1-9531-5fade52dc7fd"></quiz>
 
 
 

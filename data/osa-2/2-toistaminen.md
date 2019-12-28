@@ -281,9 +281,6 @@ while (true) {
 }
 ```
 
-TODO: tänne tarttee visualisoinnin
-
-
 <quiz id="8794f633-621a-5b9d-b743-c89ad346a92b"></quiz>
 
 <programming-exercise name="Syötteiden rajaus" tmcname='osa02-Osa02_07.SyotteidenRajaus'>

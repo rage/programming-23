@@ -261,8 +261,6 @@ Ohjelman tulostus seuraavanlainen:
 
 Vaikka muuttujan `luku` arvo on välillä 2, toistolauseen suoritus ei lopu koskaan.
 
-TODO: miksi alla oleva ei ole boldattu?
-
 **Toistolauseen ehto tarkistetaan silloin kun toistolauseen toistaminen aloitetaan sekä silloin kun koodin suoritus on päässyt toistolauseen lopettavaan aaltosulkuun asti.** Mikäli toistolauseen ehdon lauseke on evaluoituu todeksi eli muotoon `true`, suoritus jatkuu toistolauseen alusta. Mikäli lauseke evaluoituu epätodeksi eli muotoon `false`, suoritus siirtyy toistolausetta seuraavaan lauseeseen.
 
 

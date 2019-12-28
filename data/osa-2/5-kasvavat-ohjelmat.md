@@ -4,3 +4,7 @@ title: 'Kasvavat ohjelmat'
 ---
 
 Ohjelmat kasvavat kun niihin lisätään toiminnallisuutta. Ohjelmien kasvaessa myös niiden monimutkaisuus kasvaa, mikä johtaa siihen, että ohjelmakoodia on vaikeampi ymmärtää. Otimme tässä osassa ensiaskeleet ohjelmien monimutkaisuuden hallintaan: toistolauseilla ohjelmakoodia voidaan ajaa uudestaan ja uudestaan, ja metodeilla ohjelmia voidaan jakaa pienempiin ymmärrettäviin osakokonaisuuksiin.
+
+Vastaa vielä lopuksi seuraavaan toisen osan osaamistavoitteita tarkastelevaan itsearviointikyselyyn.
+
+// TODO itsearviointikysely tähän.

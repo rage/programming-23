@@ -11,6 +11,10 @@ title: 'Toistuvia ongelmia ja niiden ratkaisumalleja'
 
 </text-box>
 
+<text-box variant="hint" name="Motivaatioita ja opiskelustrategioita kartoittava kysely">
+Tässä kohtaa vastaat motivaatioita ja opiskelustrategioita kartoittavaan kyselyyn. Kyselynä käytetään Paul Pintrichin ja hänen kollegoidensa kehittämää MSLQ-kyselyä, joka sisältää 81 motivaatioihin ja opiskelustrategioihin liittyvää väittämää. Kyselyn tuloksia käytetään osana Ohjelmoinnin MOOC -kurssin kehitystä sekä kurssiin ja oppimiseen liittyvää tutkimusta. <google-form-link href="https://docs.google.com/forms/d/e/1FAIpQLSdlc0iS1x-dqbOIDrHIzB9NHrtCu_WkXEvFwXUPpAEV1vnUjQ/viewform?usp=pp_url" emailfieldname="entry.575150039">Avaa kysely tätä linkkiä klikkaamalla</google-form-link>.
+</text-box>
+
 <quiz id="d51c840f-02ed-5129-89b3-fd5396ddccd6"></quiz>
 
 
@@ -43,8 +47,7 @@ public class Ohjelma {
 ```
 
 
-TODO: quiz -- ohjelma, jossa käyttäjältä kysytään luku ja merkkijono, tulostus käyttää niitä -- kysytään mitä käyttäjän tulee syöttää, jotta tulostus tietty
-
+<quiz id="a8b6ded2-865a-429c-8e82-df062c4c892c"></quiz>
 
 ## Laskemista
 
