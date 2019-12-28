@@ -69,12 +69,21 @@ class Coins extends Component {
       exerciseDetails?.course?.available_model_solution_tokens
     const modelSolutionTokenUsedOnThisExercise =
       exerciseDetails?.model_solution_token_used_on_this_exercise
+
+    const nPoints = exerciseDetails.available_points.length
+
+    const showDetailedCostOnButton =
+      exerciseDetails.large_exercises_consume_more_coins && nPoints > 1
     return (
       <div>
         {tokenThreshHold && (
           <Fragment>
             <TokenContainer>
-              <p>{this.props.t("whyCoin")}</p>
+              <p>
+                {this.props.t("whyCoin")}{" "}
+                {exerciseDetails.large_exercises_consume_more_coins &&
+                  this.props.t("coinCost")}
+              </p>
               <p>
                 {this.props.t("getNewCoin")} <i>{tokenThreshHold}</i>{" "}
                 {this.props.t("getNewCoin2")}{" "}
@@ -101,9 +110,13 @@ class Coins extends Component {
                   color="secondary"
                   style={{ marginRight: "0.5rem" }}
                 >
-                  {this.props.t("seeSolution")}s (
+                  {this.props.t("seeSolution")} (
                   {modelSolutionTokenUsedOnThisExercise
                     ? this.props.t("coinUsed")
+                    : showDetailedCostOnButton
+                    ? `${this.props.t(
+                        "usesCoinMultiplePoints",
+                      )} ${nPoints} ${this.props.t("usesCoinMultiplePoints2")}`
                     : this.props.t("usesCoin")}
                   )
                 </Button>
