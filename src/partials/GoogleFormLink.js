@@ -31,7 +31,7 @@ const GoogleFormLink = ({ children, href, t, emailfieldname }) => {
       <Wrapper>
         <MessageWrapper>
           <div>
-            <P>{this.props.t("loginToSee")}</P>
+            <P>{t("loginToSee")}</P>
           </div>
         </MessageWrapper>
       </Wrapper>
