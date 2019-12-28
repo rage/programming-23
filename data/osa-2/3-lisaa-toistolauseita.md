@@ -12,6 +12,12 @@ title: 'Lisää toistolauseita'
 
 </text-box>
 
+<text-box variant="hint" name="Motivaatioita ja opiskelustrategioita kartoittava kysely">
+Tässä kohtaa vastaat motivaatioita ja opiskelustrategioita kartoittavaan kyselyyn. Kyselynä käytetään Paul Pintrichin ja hänen kollegoidensa kehittämää MSLQ-kyselyä, joka sisältää 81 motivaatioihin ja opiskelustrategioihin liittyvää väittämää. Kyselyn tuloksia käytetään osana Ohjelmoinnin MOOC -kurssin kehitystä sekä kurssiin ja oppimiseen liittyvää tutkimusta. <google-form-link href="https://docs.google.com/forms/d/e/1FAIpQLSdlc0iS1x-dqbOIDrHIzB9NHrtCu_WkXEvFwXUPpAEV1vnUjQ/viewform?usp=pp_url" emailfieldname="entry.575150039">Avaa kysely tätä linkkiä klikkaamalla</google-form-link>.
+</text-box>
+
+<quiz id="d51c840f-02ed-5129-89b3-fd5396ddccd6"></quiz>
+
 
 Tähän mennessä käyttämämme "while-true" -toistolause on erittäin näppärä silloin, kun ohjelmassa tulee toistaa toiminnallisuutta kunnes käyttäjä syöttää tietynlaisen syötteen.
 

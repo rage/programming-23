@@ -678,10 +678,63 @@ Lukujen summa 34
 
 </programming-exercise>
 
+Joskus laskennassa tarvitaan useampia muuttujia. Alla olevassa esimerkissä on kuvattuna ohjelma, joka lukee käyttäjältä lukuja kunnes käyttää syöttää luvun nolla. Tämän jälkeen ohjelma tulostaa positiivisten ja negatiivisten lukujen lukumäärän sekä positiivisten lukujen osuuden kaikista luetuista luvuista.
 
-TODO: lead in, avaa...
-TODO: esimerkki toistolauseesta, missä kaksi muuttujaa
 
+```java
+Scanner lukija = new Scanner(System.in);
+
+// Tehtävänä lukujen lukumäärän säilöminen
+int positiivisia = 0;
+int negatiivisia = 0;
+
+// Tehtävänä lukujen lukemisen toistaminen
+while (true) {
+    System.out.println("Syötä luku (0 lopettaa): ");
+    // Tehtävänä yksittäisen luvun lukeminen
+    int luku = Integer.valueOf(lukija.nextLine());
+
+    // Tehtävänä toistolauseesta poistuminen kun
+    // käyttäjä syöttää luvun nolla
+    if (luku == 0) {
+        break;
+    }
+
+    // Tehtävänä positiivisten lukujen lukumäärän kasvattaminen
+    // yhdellä kun käyttäjä syöttää positiivisen luvun
+    if (luku > 0) {
+        positiivisia = positiivisia + 1;
+    }
+
+    // Tehtävänä negatiivisten lukujen lukumäärän kasvattaminen
+    // yhdellä kun käyttäjä syöttää negatiivisen luvun
+    if (luku < 0) {
+        negatiivisia = negatiivisia + 1;
+    }
+
+    // tässä olisi toiminut myös..
+    // if (luku > 0) {
+    //     positiivisia = positiivisia + 1;
+    // } else {
+    //     negatiivisia = negatiivisia + 1;
+    // }
+
+}
+
+// Tehtävänä havainnoitujen positiivisten lukujen lukumäärän tulostaminen
+System.out.println("Positiivisia lukuja: " + positiivisia);
+// Tehtävänä havainnoitujen negatiivisten lukujen lukumäärän tulostaminen
+System.out.println("Negatiivisia lukuja: " + negatiivisia);
+
+// Tehtävänä positiivisten lukujen osuuden tulostaminen
+
+if (positiivisia + negatiivisia > 0) {
+    // Tulostetaan osuus vain mikäli lukuja on syötetty
+    // eli vältetään nollalla jakaminen
+    double osuus = 100.0 * positiivisia / (positiivisia + negatiivisia);
+    System.out.println("Positiivisten osuus " + osuus + "%");
+}
+```
 
 
 <programming-exercise name="Lukujen lukumäärä ja summa" tmcname='osa02-Osa02_11.LukumaaraJaSumma'>

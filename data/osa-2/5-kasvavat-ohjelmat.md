@@ -7,4 +7,4 @@ Ohjelmat kasvavat kun niihin lisätään toiminnallisuutta. Ohjelmien kasvaessa 
 
 Vastaa vielä lopuksi seuraavaan toisen osan osaamistavoitteita tarkastelevaan itsearviointikyselyyn.
 
-// TODO itsearviointikysely tähän.
+<quiz id="7d568678-be3a-5ed5-8981-5d24e79e78e7"></quiz>
