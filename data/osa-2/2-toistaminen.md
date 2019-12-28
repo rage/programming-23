@@ -452,8 +452,6 @@ while (true) {
 
 Huomaamme, että `if-else if-else`-rakenteelle on vaikea määritellä yksi selkeä tehtävä. Ohjelmia suunniteltaessa ja toteuttaessa kannattaakin pyrkiä tilanteeseen, missä jokaisella ohjelman osalla on yksi selkeä tehtävä. Tämä teema tulee toistumaan kurssilla.
 
-TODO: quiz
-
 
 ## Laskentaa toistolauseiden avulla
 
