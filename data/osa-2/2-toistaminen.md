@@ -1,6 +1,7 @@
 ---
 path: '/osa-2/2-toistaminen'
 title: 'Toiminnallisuuden toistaminen'
+hidden: false
 ---
 
 

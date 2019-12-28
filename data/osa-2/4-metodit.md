@@ -1,6 +1,7 @@
 ---
 path: '/osa-2/4-metodit'
 title: 'Metodit ja ohjelman jakaminen pienempiin osiin'
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>

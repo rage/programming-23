@@ -1,6 +1,7 @@
 ---
 path: '/osa-2/3-lisaa-toistolauseita'
 title: 'Lisää toistolauseita'
+hidden: false
 ---
 
 
