@@ -5,6 +5,8 @@ hidden: false
 information_page: true
 ---
 
+<notice>HUOMAATHAN, että aikatauluton kurssi ei ole vielä alkanut. Aikatauluton kurssi avataan ensimmäisen deadlinen jälkeen.</notice>
+
 <notice>HUOMAATHAN, että aikatauluttomalta kurssilta EI VOI HAKEA yliopiston opinto-oikeutta.</notice>
 
 Tämä ohje on suunnattu ensisijaisesti heille, jotka ole ehtineet tehdä aikataulutetun kurssin tehtäviä osien määräaikojen puitteissa. Jos siis olet tehtävien kanssa aikataulussa, sinun ei kannata vaihtaa aikatauluttomalle versiolle kurssista.

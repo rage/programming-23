@@ -11,19 +11,19 @@ Tässä usein kysyttyjä kysymyksiä ja ongelmia. Jos et löydä kysymykseesi va
 
 ### Minulla on ongelma ohjelmointiympäristön TMC pluginin kanssa
 
-Varmista että sinulla on uusin versio TMC liitännäisestä valitsemalla Netbeanssin ylävalikosta `Help` -> `Check for Updates`.
+Varmista että sinulla on uusin versio TMC liitännäisestä valitsemalla NetBeanssin ylävalikosta `Help` &rarr; `Check for Updates`.
 
-### Netbeans jäätyy tehtävän palauteikkunan avautuessa
+### NetBeans jäätyy tehtävän palauteikkunan avautuessa
 
-Ongelma pitäisi olla korjattu TMC liitännäisen uusimmassa versiossa. Saat sen ladattua valitsemalla Netbeanssin yläpalkista <code>Help</code> -> <code>Check for updates</code> ja seuraamalla näytölle tulevia ohjeita.
+Ongelma pitäisi olla korjattu TMC liitännäisen uusimmassa versiossa. Saat sen ladattua valitsemalla NetBeanssin yläpalkista `Help` &rarr; `Check for updates` ja seuraamalla näytölle tulevia ohjeita.
 
 ### Ohjelmointitehtävässä on mielestäni virhe
 
-Varmista, että ongelma ei ole omassa koodissasi. Kysy tarvittaessa apua kurssin tukikanavilla. Kokeile myös onko tehtävään saatavilla päivitystä valitsemalla Netbeanssin yläpalkista `TMC` -> `Download or update exercises`. Jos näidenkin toimenpiteiden jälkeen vaikuttaa siltä, että virhe on tehtävässä, avaa uusi issue kurssin Github-repossa: https://github.com/rage/ohjelmointi-20.
+Varmista, että ongelma ei ole omassa koodissasi. Kysy tarvittaessa apua kurssin [tukikanavilla](/tukivaylat). Kokeile myös onko tehtävään saatavilla päivitystä valitsemalla NetBeanssin yläpalkista `TMC` &rarr; `Download or update exercises`. Jos näidenkin toimenpiteiden jälkeen vaikuttaa siltä, että virhe on tehtävässä, avaa uusi issue kurssin Github-repossa: https://github.com/rage/ohjelmointi-20.
 
 ### Löysin materiaalista virheen
 
-Avaa joko issue tai muutosehdoitus kurssin Github-repossa: https://github.com/rage/ohjelmointi-20.
+Varmista ensin, että materiaalissa on oikeasti virhe. Mikäli et ole aivan varma, kysy kurssin [tukikanavilla](/tukivaylat) asiasta. Mikäli olet varma asiasta, voit avata joko issue tai muutosehdoitus kurssin Github-repossa: https://github.com/rage/ohjelmointi-20.
 
 ### Miten saan ladattua seuraavan osan ohjelmointitehtävät?
 
@@ -33,9 +33,9 @@ NetBeans -liitännäinen tarjoaa sinulle seuraavan osan tehtäviä, kun olet saa
 
 Seuraa tätä ohjetta ongelman ratkaisemiseksi: https://materiaalit.github.io/tmc-asennus/macos-verkkoongelma/.
 
-Jos tämä ei auta, kokeile vaihtaa Netbeanssin asetuksista proxy setting vaihtoehtoon "no proxy".
+Jos tämä ei auta, kokeile vaihtaa NetBeanssin asetuksista proxy setting vaihtoehtoon "no proxy".
 
-### Netbeanssin asennusohjelma ei avaudu macOS:lla
+### NetBeanssin asennusohjelma ei avaudu macOS:lla
 
 Kokele painaa asennusohjelmaa hiiren oikealla näppäimellä ja valitse Avaa/Open.
 
@@ -45,11 +45,15 @@ Katso tämä ohje: [macOS ohjeet](/macos-ohjeet)
 
 ### Saan testejä ajattaessa virheviestin, joka valittaa JAVA_HOME:sta
 
-Seuraa tätä ohjetta ongelman ratkaisemiseksi: [https://materiaalit.github.io/tmc-asennus/java_home_not_found/](https://materiaalit.github.io/tmc-asennus/java_home_not_found/).
+Seuraa tätä ohjetta ongelman ratkaisemiseksi: [https://materiaalit.github.io/tmc-asennus/java\_home\_not\_found/](https://materiaalit.github.io/tmc-asennus/java_home_not_found/).
 
-### Netbeans tai netbeanssin asennusohjelma ei avaannu tai näyttää avauduttuaan oudolta.
+### Saan testejä ajaessa virheviestin, joka valittaa "Cannot run program: Permission denied"
 
-Varmista, että sinulla on Javan kehitystyökalujen versio 8 asennettuna. Kurssilla käytetty ohjelmointiympäristö ei toimi kunnolla uudemmilla Javan versioilla. Jos törmäät ongelmaan, kokeile poistaa koneeltasi Javan JDK:n uudemmat versiot ja sitten asenna Netbeans with TMC uudestaan.
+Suorita Päätteessä (engl. Terminal) komento `chmod +x /polku/kansioon/mvn`, jossa `/polku/kansioon/mvn` on virheviestissä oleva polku joka päättyy `mvn`. Mikäli tarvitset tässä apua, kysy kurssin [tukikanavalla](/tukivaylat).
+
+### NetBeans tai NetBeansin asennusohjelma ei avaannu tai näyttää avauduttuaan oudolta
+
+Varmista, että sinulla on Javan kehitystyökalun versio 11 asennettuna. Jos törmäät ongelmaan, kokeile poistaa koneeltasi Javan JDK:n vanhemmat versiot ja avaa NetBeans uudestaan. Mikäli tämäkään ei toimi, asenna NetBeans with TMC uudestaan.
 
 ### En voi aloittaa kurssia, koska en tiedä minne ilmoittautua
 
@@ -94,7 +98,7 @@ Kurssin päätteeksi voi osallistua Helsingin yliopiston Avoimen yliopiston tarj
 
 Lue tämä ohje: [vaihtaminen aikatauluttomaan versioon](/vaihda-aikatauluttomaan).
 
-### Testien ajamis- ja lähettämispainikkeet ovat Netbeanssissa harmaita
+### Testien ajamis- ja lähettämispainikkeet ovat NetBeanssissa harmaita
 
 Jos olet aikataulutetussa kurssissa niin ota huomioon että ensimmäsen osan deadline oli 21.1.2020. Katso myös ohje: [vaihtaminen aikatauluttomaan versioon](/vaihda-aikatauluttomaan).
 
@@ -114,7 +118,7 @@ Aikataulutonta kurssia voi tehdä näillä näkymin vuoden loppuun asti.
 
 Kurssiosallistumista ei tarvitse erikseen perua. Riittää, että lopettaa kurssin tekemisen.
 
-Jos osallistumisen esteenä on muut kiireet, kannattaa harkita aikatauluttomalle kurssille siirtymistä. Tällöin kurssia voi tehdä rennompaa tahtia. [vaihtaminen aikatauluttomaan versioon](/vaihda-aikatauluttomaan)
+Jos osallistumisen esteenä on muut kiireet, kannattaa harkita aikatauluttomalle kurssille siirtymistä. Tällöin kurssia voi tehdä rennompaa tahtia. [Vaihtaminen aikatauluttomaan versioon](/vaihda-aikatauluttomaan)
 
 Jos kurssi tuntuu liian hankalalta, kannattaa hakea apua tukiväyliltämme ennen kurssin lopettamista. [Tukiväylät](/tukivaylat)
 
