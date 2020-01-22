@@ -7,24 +7,36 @@ hidden: false
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
 - Opit kirjoittamaan ohjelman, joka tulostaa tekstiä.
-- Tutustut ohjelmien suorittamiseen.
-- Tiedät mitä termillä parametri tarkoitetaan.
+- Kirjoitat ja suoritat ensimmäisen Python-ohjelmasi
+- Tutustu termeihin funktio ja parametri
 
 </text-box>
 
-Tulostuskomento `System.out.println("Hei maailma");` tulostaa tekstin "Hei maailma".
+Pythonin funktiolla `print` voidaan tulostaa ruudulle viestejä.
 
-```java
-System.out.println("Hei maailma!");
+Esimerkiksi funktiokutsu `print("Moi kaikki!")` tulostaa tekstin "Moi kaikki".
+
+```python
+print("Moi kaikki!")
 ```
 
 <sample-output>
 
-Hei maailma!
+Moi kaikki
 
 </sample-output>
 
-Yllä olevan tekstialueen näköiset kohdat materiaalissa kuvaavat koodiesimerkin tuottamaan tulostuksen. Yllä ohjelma tuottaisi siis tulostuksen "Hei maailma!". Voit kokeilla kaikkia materiaalin esimerkkejä ohjelmointiympäristössä olevassa "Hiekkalaatikko"-nimisessä tehtäväpohjassa.
+Yllä on esitetty esimerkkiohjelman tulostus. Voit kokeilla lausetta myös itse KONSOLISSA?
+
+Ohjelmien rakenne voidaan esittää hyvin yksinkertaistetusti euraavankaltaisen kuvan avulla:
+
+KUVA
+
+Ohjelma siis saa syötteen, käsittelee sen jotenkin ja viestii tuloksen takaisin.
+
+
+
+VANHA SISÄLTÖ JATKUU TÄSTÄ:
 
 Tulostuskomennon avulla tulostettavaa tekstiä voi vaihtaa mielivaltaisesti, kunhan komento `System.out.println("mielivaltainen teksti");` -- eli `System` piste `out` piste `println` sulut auki `(` "teksti" sulut kiinni `)` ja puolipiste `;` pysyy muuttumattomana. Alla oleva komento tulostaa tekstin "Hei vaan!".
 
