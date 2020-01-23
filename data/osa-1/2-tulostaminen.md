@@ -28,11 +28,11 @@ Moi kaikki
 
 Yllä on esitetty esimerkkiohjelman tulostus. Voit kokeilla lausetta myös itse KONSOLISSA?
 
-Ohjelmien rakenne voidaan esittää hyvin yksinkertaistetusti euraavankaltaisen kuvan avulla:
+Ohjelmien rakenne voidaan esittää hyvin yksinkertaistetusti seuraavasti:
 
 KUVA
 
-Ohjelma siis saa syötteen, käsittelee sen jotenkin ja viestii tuloksen takaisin.
+Ohjelma siis saa syötteen, käsittelee sen ja viestii tuloksen takaisin. Tällä kurssilla käytämme tuloksen kommunikointiin yleensä funktiota `print`. Funktiolla tarkoitetaan ohjelman itsenäistä osaa, jota voidaan kutsua sen nimellä...
 
 
 
