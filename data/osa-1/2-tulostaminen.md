@@ -32,7 +32,26 @@ Ohjelmien rakenne voidaan esittää hyvin yksinkertaistetusti seuraavasti:
 
 KUVA
 
-Ohjelma siis saa syötteen, käsittelee sen ja viestii tuloksen takaisin. Tällä kurssilla käytämme tuloksen kommunikointiin yleensä funktiota `print`. Funktiolla tarkoitetaan ohjelman itsenäistä osaa, jota voidaan kutsua sen nimellä...
+Ohjelma siis saa syötteen, käsittelee sen ja viestii tuloksen takaisin. Tällä kurssilla käytämme tuloksen kommunikointiin yleensä funktiota `print`. Funktiolla tarkoitetaan ohjelman itsenäistä osaa, jota voidaan kutsua sen nimellä. Funktioilla on usein myös parametreja. Esimerkiksi print-funktio saa parametrikseen tulostettavan objektin.
+
+Esimerkiksi seuraava kolmesta print-funktion kutsusta koostuva ohjelma
+
+```python
+print("Tervetuloa opettelemaan ohjelmointia!")
+print("Aluksi harjoitellaan print-funktion käyttöä.")
+print("Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.")
+```
+...tulostaa ruudulle seuraavat viestit:
+
+<sample-output>
+
+
+Tervetuloa opettelemaan ohjelmointia!
+Aluksi harjoitellaan print-funktion käyttöä.
+Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.
+
+</sample-output>
+
 
 
 
