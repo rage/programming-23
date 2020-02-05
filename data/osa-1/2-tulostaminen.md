@@ -52,6 +52,26 @@ Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.
 
 </sample-output>
 
+Parametriksi voidaan antaa myös jokin lauseke. 
+
+Esimerkiksi seuraava ohjelma
+
+```python
+print(2 + 5)
+print(3 * 3) # *-merkkiä käytetään kertolaskuoperaattorina
+print(2 + 2 * 10) # laskujärjestys noudattaa pääpiirteittäin matematiikasta tuttua järjestystä
+```
+tulostaa ruudulle 
+
+<sample-output>
+    7
+    9
+    22
+</sample-output>
+
+Pari huomiota ohjelmasta: ensinnäkin, laskujen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään 
+_merkkijono_, joka tulostetaan ruudulle sellaisenaa. Huomaa siis seuraavien lauseiden ero:
+
 
 
 
