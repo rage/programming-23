@@ -69,9 +69,22 @@ tulostaa ruudulle
     22
 </sample-output>
 
-Pari huomiota ohjelmasta: ensinnäkin, laskujen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään 
+Huomaa, että laskujen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään 
 _merkkijono_, joka tulostetaan ruudulle sellaisenaa. Huomaa siis seuraavien lauseiden ero:
 
+```python
+print(2 + 2 * 10)
+print("2 + 2 * 10")
+```
+
+Ohjelma tulostaa
+
+<sample-output>
+22
+2 + 2 * 10
+</sample-output>
+
+Jälkimmäisessä tapauksessa Python ei siis yritä tulkita lauseketta, vaan tulostaa sen ruudulle. Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällöstä.
 
 
 
