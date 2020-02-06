@@ -52,6 +52,8 @@ Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.
 
 </sample-output>
 
+## Lausekkeet print-funktion parametrina
+
 Parametriksi voidaan antaa myös jokin lauseke. 
 
 Esimerkiksi seuraava ohjelma
@@ -86,6 +88,7 @@ Ohjelma tulostaa
 
 Jälkimmäisessä tapauksessa Python ei siis yritä tulkita lauseketta, vaan tulostaa sen ruudulle. Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällöstä.
 
+## Kommentit
 
 
 VANHA SISÄLTÖ JATKUU TÄSTÄ:
