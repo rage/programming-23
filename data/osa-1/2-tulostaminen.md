@@ -90,6 +90,18 @@ Jälkimmäisessä tapauksessa Python ei siis yritä tulkita lauseketta, vaan tul
 
 ## Kommentit
 
+Kommenttien avulla voidaan dokumentoida ohjelman suoritusta. Pythonissa kommentit merkitään #-merkin avulla.
+
+Python ei yritä suorittaa mitään rivillä olevaa sisältöä #-merkin jälkeen. Kommenttien tarkoituksena on siis kertoa ohjelmoijalle itselleen ja muille ohjelmoijille ohjelmakoodiin liittyviä asioita.
+
+```python
+print (2 ** 3) # Lasketaan potenssilauseen kaksi kolmanteen arvo
+print (5 / 2) # Jakolaskua merkitsemään käytetään /-operaattoria
+
+# Ohjelma tulostaa vielä yhden merkkijonon
+print ("** toimii siis eksponenttioperaattorina, ja / jako-operaattorina")
+```
+
 
 VANHA SISÄLTÖ JATKUU TÄSTÄ:
 
