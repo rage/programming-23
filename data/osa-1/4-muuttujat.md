@@ -117,5 +117,62 @@ Ohjelma tulostaa arvon
 
 Kokonaisluvun ympärille ei kirjoiteta lainausmerkkejä. Itse asiassa luvun ympärille kirjoitettavat lainausmerkit tarkoittavat, että kyseessä ei ole luku vaan merkkijono (joka tosin sisältää numeroita).
 
+Mitä eroa muuttujan tyypeillä siis on, kun seuraava ohjelma tulostaa samat arvot?
+
+```python
+number1 = 100
+number2 = "100"
+
+print(number1)
+print(number2)
+```
+
+Ohjelma tulostaa
+
+<sample-output>
+  
+100
+100
+
+</sample-output>
+
+Erilaiset operaatiot vaikuttavat eri tavalla erityyppisiin muuttujiin. Tarkastellaan seuraavaa esimerkkiä:
+
+```python
+number1 = 100
+number2 = "100"
+
+print(number1 + number1)
+print(number2 + number2)
+```
+
+Ohjelma tulostaa suoritettaessa
+
+<sample-output>
+  
+200
+100100
+
+</sample-output>
+
+Kahdelle lukutyyppiselle arvolle `+`-operaattori siis merkitsee aritmeettista (eli matemaattista) yhteenlaskua, merkkijonoille taas katenointia. Erityyppisiä arvoja _ei_ voi yhdistää, seuraava ei siis toimi:
+
+```python
+number1 = 100
+number2 = "100"
+
+print(number1 + number2) # Tämä tuottaa virheen!
+```
+
+Ohjelma ei tulosta mitään, vaan antaa virheen
+
+<sample-output>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+</sample-output>
+
+Python siis kertoo, ettei kahden erityyppisen arvon yhdistäminen toimi. Jos haluat tulostaa yhdellä lauseella sekä merkkijonon että luvun, tulee luku muuntaa merkkijonoksi `str`-funktiota hyödyntäen. Esimerkiksi
+
+```python
+```
 
 
