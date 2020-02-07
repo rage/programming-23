@@ -33,8 +33,10 @@ print("Moi vaan, " + name)
 Ohjelman suoritus voisi näyttää esimerkiksi seuraavalta (käyttäjän kirjoittama syöte on merkitty **lihavoituna**:
 
 <sample-output>
+    
 Anna nimesi: **Pekka Python**
 Moi vaan, Pekka Python
+
 </sample-output>
 
 Ohjelman tuloste riippuu siis osittain käyttäjän syötteestä. Niinpä ohjelman suoritus voisi näyttää myös tältä:
