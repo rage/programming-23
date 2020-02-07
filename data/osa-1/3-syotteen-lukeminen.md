@@ -29,7 +29,26 @@ name = input("Anna nimesi: ")
 print("Moi vaan, " + name)
 ```
 
+Ohjelman suoritus voisi näyttää esimerkiksi seuraavalta (käyttäjän kirjoittama syöte on merkitty **lihavoituna**:
 
+<sample-output>
+Anna nimesi: **Pekka Python**
+Moi vaan, Pekka Python
+</sample-output>
+
+Ohjelman tuloste riippuu siis osittain käyttäjän syötteestä. Niinpä ohjelman suoritus voisi näyttää myös tältä:
+
+<sample-output>
+Anna nimesi: **Outi Ohjelmoija**
+Moi vaan, Outi Ohjelmoija
+</sample-output>
+
+Ensimmäisellä rivillä oleva sana name on **muuttuja**. Muuttujalla tarkoitetaan ohjelmoinnissa "lokeroa", johon voidaan tallentaa jokin _arvo_. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
+
+<text-box>
+Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kielen asettamia rajoituksia noudattaen). Tällä kurssilla muuttujat ja muut vastaavat ohjelmien osat nimetään englanniksi. Ohjelmoinnissa käytetään yleisesti englantia kielenä muutenkin - jos etsit Googlen avulla ohjelmointiesimerkkejä, ne todennäköisesti ovat englanniksi.
+</text-box>
+    
 
 Tarkemmin ottaen lukeminen tapahtuu `lukija`-apuvälineeseen liittyvällä komennolla `nextLine()`. Kutsu `lukija.nextLine()` jää odottamaan käyttäjän kirjoittamaa merkkijonoa. Kun käyttäjä syöttää merkkijonon ja painaa enteriä, käyttäjän syöttämä merkkijono asetetaan _merkkijonotyyppiseen muuttujaan_ (tässä muuttujan nimi on `viesti`). Muuttujaan `viesti` voi viitata ohjelmasta myöhemmin -- yllä olevassa esimerkissä muuttujaan `viesti` viitataan tulostuskomennossa.
 
