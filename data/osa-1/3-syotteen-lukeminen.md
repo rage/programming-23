@@ -102,7 +102,7 @@ nickname = input("Anna lempinimesi: ")
 # Tulostetaan käyttäjälle tiedot varmistukseksi
 print("Varmistetaan vielä, että tiedot menivät oikein")
 print("Annoit nimeksesi " + name)
-print("...sähköpostiosoitteksesi " + email)
+print("...sähköpostiosoitteeksesi " + email)
 print("...ja lempinimeksesi " + nickname + ".")
 ```
 
@@ -114,8 +114,55 @@ Anna sähköpostiosoitteesi: keijo@example.com
 Anna lempinimesi: Keke
 Varmistetaan vielä, että tiedot menivät oikein
 Annoit nimeksesi Keijo Keksitty
-...sähköpostiosoitteksesi keijo@example.com
+...sähköpostiosoitteeksesi keijo@example.com
 ...ja lempinimeksesi Keke.
+</sample-output>
+
+Huomaa, että mikäli samaan muuttujaan luetaan syöte useamman kerran, uusi arvo ylikirjoittaa edellisen. Esimerkiksi
+
+```python
+# Luetaan käyttäjältä osoite
+address = input("Mikä on osoitteesi? ")
+
+# Tulostetaan viesti
+print("Asut siis osoitteessa " + address)
+
+# Luetaan osoite uudestaan
+address = input("Annan uusi osoite: ")
+
+# Nyt uusi arvo on ylikirjoittanut vanhan
+print("Osoite on nyt " + address)
+```
+
+Esimerkkisuoritus:
+
+<sample-output>
+Mikä on osoitteesi? Pythonpolku 1 A 10
+Asut siis osoitteessa Pythonpolku 1 A 10
+Annan uusi osoite: Uusikatu 999
+Osoite on nyt Uusikatu 999
+</sample-output>
+
+Jos samaan muuttujaan luetaan kaksi syötettä peräkkäin, ei ensimmäisenä syötettyyn arvoon siis pääse enää käsiksi:
+
+```python
+# Luetaan käyttäjältä osoite
+address = input("Mikä on osoitteesi? ")
+
+# Luetaan osoite uudestaan
+# Nyt uusi arvo ylikirjoittaa vanhan
+address = input("Annan uusi osoite: ")
+
+# Tulostaa viimeisenä syötetyn arvon
+print("Osoite on nyt " + address)
+```
+
+Esimerkkisuoritus:
+
+<sample-output>
+Mikä on osoitteesi? Pythonpolku 10
+Annan uusi osoite: Ohjelmoijanraitti 230
+Osoite on nyt Ohjelmoijanraitti 230
 </sample-output>
 
     
