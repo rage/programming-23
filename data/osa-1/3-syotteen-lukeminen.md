@@ -95,7 +95,7 @@ Esimerkkitulostus voisi näyttää tältä, kun käyttäjä syöttää merkkijon
 
 <sample-output>
 
-Anna nimesi: Erkki Esimerkki
+Anna nimesi: **Erkki Esimerkki**
 Moi Erkki Esimerkki! Varmistan vielä: nimesi on siis Erkki Esimerkki?
 
 </sample-output>
@@ -121,9 +121,9 @@ Esimerkki ohjelman suorituksesta:
 
 <sample-output>
 
-Anna nimesi: ** Keijo Keksitty **
-Anna sähköpostiosoitteesi: ** keijo@example.com **
-Anna lempinimesi: ** Keke **
+Anna nimesi: **Keijo Keksitty**
+Anna sähköpostiosoitteesi: **keijo99@example.com**
+Anna lempinimesi: **Keke**
 Varmistetaan vielä, että tiedot menivät oikein
 Annoit nimeksesi Keijo Keksitty
 ...sähköpostiosoitteeksesi keijo@example.com
@@ -151,9 +151,9 @@ Esimerkkisuoritus:
 
 <sample-output>
 
-Mikä on osoitteesi? ** Pythonpolku 1 A 10 **
+Mikä on osoitteesi? **Pythonpolku 1 A 10**
 Asut siis osoitteessa Pythonpolku 1 A 10
-Anna uusi osoite: ** Uusikatu 999 **
+Anna uusi osoite: **Uusikatu 999**
 Osoite on nyt Uusikatu 999
 
 </sample-output>
@@ -176,8 +176,8 @@ Esimerkkisuoritus:
 
 <sample-output>
 
-Mikä on osoitteesi? ** Pythonpolku 10 **
-Anna uusi osoite: ** Ohjelmoijanraitti 230 **
+Mikä on osoitteesi? **Pythonpolku 10**
+Anna uusi osoite: **Ohjelmoijanraitti 230**
 Osoite on nyt Ohjelmoijanraitti 230
 
 </sample-output>
