@@ -50,6 +50,8 @@ Pekka Pythonen
 
 </sample-output>
 
+## Muuttujien arvon muuttaminen
+
 Muuttujan arvo voi nimensä mukaisesti muuttua. Niin kuin edellisessä osassa todettiin, uusi arvo ylikirjoittaa vanhan arvon.
 
 KUVA
@@ -88,5 +90,32 @@ Anna vielä kolmas nimi: **Lupu**
 Tupu, Hupu ja Lupu
 
 </sample-output>
+
+Huomaa, että `sentence`-muuttujan alkuarvoksi annetaan tyhjä merkkijono. Jos tätä ei tehdä, ei lause `sentence = sentence + name` toimi, koska merkkijono voidaan yhdistää vain toiseen merkkijonoon. Myös tyhjä merkkijono _on_ merkkijono.
+
+## Lukutyyppiset muuttujat
+
+Tähän mennessä on käsitelty pelkästään merkkijonotyyppisiä muuttujia. Yleensä ohjelmissa halutaan kuitenkin tallentaa myös muun tyyppistä tietoa. Tarkastellaan aluksi _kokonaislukutyyppisiä muuttujia_.
+
+Python on _dynaamisesti tyypitetty_ ohjelmointikieli. Tämä tarkoittaa, että ohjelmoijan ei tarvitse ilmoittaa muuttujan tyyppiä, vaan Python päättelee sen automaattisesti muuttujaan sijoitettavan arvon perusteella.
+
+Kokonaislukutyyppinen muuttuja voidaan siis alustaa sijoittamalla muuttujan arvoksi kokonaisluku.
+
+```python
+# Alustetaan muuttuja age arvolla 24
+age = 24
+print(age)
+```
+
+Ohjelma tulostaa arvon
+
+<sample-output>
+  
+24
+
+</sample-output>
+
+Kokonaisluvun ympärille ei kirjoiteta lainausmerkkejä. Itse asiassa luvun ympärille kirjoitettavat lainausmerkit tarkoittavat, että kyseessä ei ole luku vaan merkkijono (joka tosin sisältää numeroita).
+
 
 
