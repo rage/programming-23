@@ -54,6 +54,39 @@ Muuttujan arvo voi nimensä mukaisesti muuttua. Niin kuin edellisessä osassa to
 
 KUVA
 
+Esimerkiksi
 
+```python
+# Lauseen arvo on aluksi tyhjä
+sentence = ""
+
+# Kysy käyttäjältä nimi, ja lisää se lauseeseen
+name = input("Anna nimi: ")
+sentence = sentence + name
+sentence = sentence + ", "
+
+# Kysy käyttäjältä toinen nimi, ja lisää se lauseeseen
+name = input("Anna toinen nimi: ")
+sentence = sentence + name
+sentence = sentence + " ja "
+
+# ...ja vielä kolmas: huomaa, että syötefunktion palaute
+# voidaan tallentaa suoraan lauseen perään
+sentence = sentence + input("Anna vielä kolmas nimi: ")
+
+# Tulostetaan lopullinen lause
+print (sentence)
+```
+
+Esimerkkisuoritus:
+
+<sample-output>
+
+Anna nimi: Tupu
+Anna toinen nimi: Hupu
+Anna vielä kolmas nimi: Lupu
+Tupu, Hupu ja Lupu
+
+</sample-output>
 
 
