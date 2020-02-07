@@ -93,7 +93,7 @@ Tupu, Hupu ja Lupu
 
 Huomaa, että `sentence`-muuttujan alkuarvoksi annetaan tyhjä merkkijono. Jos tätä ei tehdä, ei lause `sentence = sentence + name` toimi, koska merkkijono voidaan yhdistää vain toiseen merkkijonoon. Myös tyhjä merkkijono _on_ merkkijono.
 
-## Lukutyyppiset muuttujat
+## Kokonaislukutyyppiset muuttujat
 
 Tähän mennessä on käsitelty pelkästään merkkijonotyyppisiä muuttujia. Yleensä ohjelmissa halutaan kuitenkin tallentaa myös muun tyyppistä tietoa. Tarkastellaan aluksi _kokonaislukutyyppisiä muuttujia_.
 
@@ -155,7 +155,11 @@ Ohjelma tulostaa suoritettaessa
 
 </sample-output>
 
-Kahdelle lukutyyppiselle arvolle `+`-operaattori siis merkitsee aritmeettista (eli matemaattista) yhteenlaskua, merkkijonoille taas katenointia. Erityyppisiä arvoja _ei_ voi yhdistää, seuraava ei siis toimi:
+Kahdelle lukutyyppiselle arvolle `+`-operaattori siis merkitsee aritmeettista (eli matemaattista) yhteenlaskua, merkkijonoille taas katenointia. 
+
+## Erityyppisten arvojen tulostaminen
+
+Erityyppisiä arvoja _ei_ voi yhdistää, seuraava ei siis toimi:
 
 ```python
 number1 = 100
