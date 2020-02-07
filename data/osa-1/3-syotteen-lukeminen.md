@@ -7,52 +7,29 @@ hidden: false
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
 
-- Opit kirjoittamaan ohjelman, joka lukee käyttäjän kirjoittamaa tekstiä.
-- Tiedät mitä merkkijonot ovat ohjelmoinnissa.
-- Tiedät miten merkkijonoja voidaan yhdistää toisiinsa ("katenointi").
+- Opit kirjoittamaan ohjelman, joka lukee käyttäjän syötteen
+- Tiedät, mitä tarkoitetaan merkkijonolla
+- Tiedät, mitä tarkoitetaan merkkijonojen katenoinnilla
 
 </text-box>
 
-Syöte on ohjelman käyttäjän kirjoittamaa tekstiä, jota ohjelma lukee. Syöte luetaan aina merkkijonona. Syötteen lukemiseen käytetään Javan valmista `Scanner`-apuvälinettä. Apuväline tuodaan ohjelman käyttöön lisäämällä komento `import java.util.Scanner;` ennen pääohjelmarungon aloitusta (`public class` ...), ja itse apuväline luodaan komennolla `Scanner lukija = new Scanner(System.in);`.
+Palautetaan mieleen ensimmäisessä osassa esitetty yksinkertaistettu kaavio ohjelmien suorittamisesta:
 
-```java
-import java.util.Scanner;
+KUVA
 
-public class Ohjelma {
+Ohjelman suorituksen erikoistamiseksi tarvitsemme keinon lukea käyttäjältä syötteitä. Pythonissa tähän tarkoitukseen käytetään funktiota `input`. Samoin kuin print-funktio, myös se saa parametrikseen merkkijononon. Tämä merkkijono tulostetaan käyttäjlle kehotteeksi (eli viestiksi, jonka tarkoitus on ohjata käyttäjää antamaan oikeanlainen syöte).
 
-    public static void main(String[] args) {
-        Scanner lukija = new Scanner(System.in);
+Esimerkki ohjelmasta, jossa luetaan käyttäjän nimi käyttäen `input`-funktiota ja tulostetaan ruudulle tervehdys käyttäen `print`-funktiota:
 
-        // Nyt käytössämme on "lukija"-niminen apuväline.
-        // Lukijaa käytetään syötteen lukemiseen.
-    }
-}
+```python
+# Luetaan käyttäjän nimi ja tallennetaan se muuttujaan name
+name = input("Anna nimesi: ")
+
+# Tulostetaan käyttäjälle viesti hyödyntäen muuttujaa name
+print("Moi vaan, " + name)
 ```
 
-Alla on esitelty ohjelma, joka kysyy käyttäjältä syötettä, lukee käyttäjän syöttämän merkkijonon, ja lopulta tulostaa käyttäjän syöttämän merkkijonon.
 
-```java
-// Tuodaan lukemiseen käytettävä Scanner-apuväline käyttöön
-import java.util.Scanner;
-
-public class Ohjelma {
-
-    public static void main(String[] args) {
-        // Luodaan lukemiseen käytettävä apuväline, jonka nimeksi tulee lukija
-        Scanner lukija = new Scanner(System.in);
-
-        // Tulostetaan käyttäjälle viesti "Syötä viesti: "
-        System.out.println("Syötä viesti: ");
-
-        // Luetaan käyttäjän syöttämä merkkijono ja asetetaan se
-        // ohjelman muistiin "String viesti = (luettu sisältö)"
-        String viesti = lukija.nextLine();
-
-        // Tulostetaan käyttäjän syöttämä viesti
-        System.out.println(viesti);
-    }
-}
-```
 
 Tarkemmin ottaen lukeminen tapahtuu `lukija`-apuvälineeseen liittyvällä komennolla `nextLine()`. Kutsu `lukija.nextLine()` jää odottamaan käyttäjän kirjoittamaa merkkijonoa. Kun käyttäjä syöttää merkkijonon ja painaa enteriä, käyttäjän syöttämä merkkijono asetetaan _merkkijonotyyppiseen muuttujaan_ (tässä muuttujan nimi on `viesti`). Muuttujaan `viesti` voi viitata ohjelmasta myöhemmin -- yllä olevassa esimerkissä muuttujaan `viesti` viitataan tulostuskomennossa.
 
