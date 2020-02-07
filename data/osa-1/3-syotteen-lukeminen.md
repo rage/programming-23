@@ -10,6 +10,7 @@ hidden: false
 - Opit kirjoittamaan ohjelman, joka lukee käyttäjän syötteen
 - Tiedät, mitä tarkoitetaan muuttujalla
 - Osaat käyttää muuttujaa syötteen lukemisessa ja tulostamisessa
+- Osaat yhdistellä (eli katenoida) merkkijonoja
 
 </text-box>
 
@@ -109,9 +110,9 @@ print("...ja lempinimeksesi " + nickname + ".")
 Esimerkki ohjelman suorituksesta:
 
 <sample-output>
-Anna nimesi: Keijo Keksitty
-Anna sähköpostiosoitteesi: keijo@example.com
-Anna lempinimesi: Keke
+Anna nimesi: ** Keijo Keksitty **
+Anna sähköpostiosoitteesi: ** keijo@example.com **
+Anna lempinimesi: ** Keke **
 Varmistetaan vielä, että tiedot menivät oikein
 Annoit nimeksesi Keijo Keksitty
 ...sähköpostiosoitteeksesi keijo@example.com
@@ -128,7 +129,7 @@ address = input("Mikä on osoitteesi? ")
 print("Asut siis osoitteessa " + address)
 
 # Luetaan osoite uudestaan
-address = input("Annan uusi osoite: ")
+address = input("Anna uusi osoite: ")
 
 # Nyt uusi arvo on ylikirjoittanut vanhan
 print("Osoite on nyt " + address)
@@ -137,9 +138,9 @@ print("Osoite on nyt " + address)
 Esimerkkisuoritus:
 
 <sample-output>
-Mikä on osoitteesi? Pythonpolku 1 A 10
+Mikä on osoitteesi? ** Pythonpolku 1 A 10 **
 Asut siis osoitteessa Pythonpolku 1 A 10
-Annan uusi osoite: Uusikatu 999
+Anna uusi osoite: ** Uusikatu 999 **
 Osoite on nyt Uusikatu 999
 </sample-output>
 
@@ -151,7 +152,7 @@ address = input("Mikä on osoitteesi? ")
 
 # Luetaan osoite uudestaan
 # Nyt uusi arvo ylikirjoittaa vanhan
-address = input("Annan uusi osoite: ")
+address = input("Anna uusi osoite: ")
 
 # Tulostaa viimeisenä syötetyn arvon
 print("Osoite on nyt " + address)
@@ -160,8 +161,8 @@ print("Osoite on nyt " + address)
 Esimerkkisuoritus:
 
 <sample-output>
-Mikä on osoitteesi? Pythonpolku 10
-Annan uusi osoite: Ohjelmoijanraitti 230
+Mikä on osoitteesi? ** Pythonpolku 10 **
+Anna uusi osoite: ** Ohjelmoijanraitti 230 **
 Osoite on nyt Ohjelmoijanraitti 230
 </sample-output>
 
