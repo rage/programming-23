@@ -42,14 +42,18 @@ Moi vaan, Pekka Python
 Ohjelman tuloste riippuu siis osittain käyttäjän syötteestä. Niinpä ohjelman suoritus voisi näyttää myös tältä:
 
 <sample-output>
+
 Anna nimesi: **Outi Ohjelmoija**
 Moi vaan, Outi Ohjelmoija
+
 </sample-output>
 
 Ensimmäisellä rivillä oleva sana name on **muuttuja**. Muuttujalla tarkoitetaan ohjelmoinnissa "lokeroa", johon voidaan tallentaa jokin _arvo_. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
 
-<text-box>
+<text-box variant="hint">
+
 Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kielen asettamia rajoituksia noudattaen). Tällä kurssilla muuttujat ja muut vastaavat ohjelmien osat nimetään englanniksi. Ohjelmoinnissa käytetään yleisesti englantia kielenä muutenkin - jos etsit Googlen avulla ohjelmointiesimerkkejä, ne todennäköisesti ovat englanniksi.
+
 </text-box>
 
 ## Samaan muuttujaan viittaaminen useamman kerran
@@ -68,9 +72,11 @@ print(name + " on aika kiva nimi.")
 Esimerkkitulostus (kun käyttäjä syöttää merkkijonon `Pauli Python`:
 
 <sample-output>
+
 Anna nimesi: **Pauli Python**
 Moi, Pauli Python!
 Pauli Python on aika kiva nimi.
+
 </sample-output>
 
 Tarkastellaanpa tulostuskomentoja vähän tarkemmin: `print`-funktiota kutsuttaessa parametriksi annetaan merkkijono, johon on yhdistetty sekä valmista (eli _vakiomuotoista_) tekstiä ja käyttäjän syöte. Nämä on yhdistetty toisiinsa `+`-operaattorilla, joka yhdistää kaksi merkkijonoa yhdeksi uudeksi merkkijonoksi. Operaatiota kutsutaan merkkijonojen _katenoinniksi_.
@@ -88,8 +94,10 @@ print("Moi " + name + "! Varmistan vielä: nimesi on siis " + name + "?")
 Esimerkkitulostus voisi näyttää tältä, kun käyttäjä syöttää merkkijonon `Erkki Esimerkki`:
 
 <sample-output>
+
 Anna nimesi: Erkki Esimerkki
 Moi Erkki Esimerkki! Varmistan vielä: nimesi on siis Erkki Esimerkki?
+
 </sample-output>
 
 ## Useampi kuin yksi syöte
@@ -112,6 +120,7 @@ print("...ja lempinimeksesi " + nickname + ".")
 Esimerkki ohjelman suorituksesta:
 
 <sample-output>
+
 Anna nimesi: ** Keijo Keksitty **
 Anna sähköpostiosoitteesi: ** keijo@example.com **
 Anna lempinimesi: ** Keke **
@@ -119,6 +128,7 @@ Varmistetaan vielä, että tiedot menivät oikein
 Annoit nimeksesi Keijo Keksitty
 ...sähköpostiosoitteeksesi keijo@example.com
 ...ja lempinimeksesi Keke.
+
 </sample-output>
 
 Huomaa, että mikäli samaan muuttujaan luetaan syöte useamman kerran, uusi arvo ylikirjoittaa edellisen. Esimerkiksi
@@ -140,10 +150,12 @@ print("Osoite on nyt " + address)
 Esimerkkisuoritus:
 
 <sample-output>
+
 Mikä on osoitteesi? ** Pythonpolku 1 A 10 **
 Asut siis osoitteessa Pythonpolku 1 A 10
 Anna uusi osoite: ** Uusikatu 999 **
 Osoite on nyt Uusikatu 999
+
 </sample-output>
 
 Jos samaan muuttujaan luetaan kaksi syötettä peräkkäin, ei ensimmäisenä syötettyyn arvoon siis pääse enää käsiksi:
@@ -163,9 +175,11 @@ print("Osoite on nyt " + address)
 Esimerkkisuoritus:
 
 <sample-output>
+
 Mikä on osoitteesi? ** Pythonpolku 10 **
 Anna uusi osoite: ** Ohjelmoijanraitti 230 **
 Osoite on nyt Ohjelmoijanraitti 230
+
 </sample-output>
 
     
