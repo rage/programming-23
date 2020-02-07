@@ -82,9 +82,9 @@ Esimerkkisuoritus:
 
 <sample-output>
 
-Anna nimi: Tupu
-Anna toinen nimi: Hupu
-Anna vielä kolmas nimi: Lupu
+Anna nimi: **Tupu**
+Anna toinen nimi: **Hupu**
+Anna vielä kolmas nimi: **Lupu**
 Tupu, Hupu ja Lupu
 
 </sample-output>
