@@ -49,6 +49,8 @@ Ensimmäisellä rivillä oleva sana name on **muuttuja**. Muuttujalla tarkoiteta
 Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kielen asettamia rajoituksia noudattaen). Tällä kurssilla muuttujat ja muut vastaavat ohjelmien osat nimetään englanniksi. Ohjelmoinnissa käytetään yleisesti englantia kielenä muutenkin - jos etsit Googlen avulla ohjelmointiesimerkkejä, ne todennäköisesti ovat englanniksi.
 </text-box>
 
+## Samaan muuttujaan viittaaminen useamman kerran
+
 Samaan muuttujaan voidaan viitata ohjelmassa useasti:
 
 ```python
@@ -87,6 +89,34 @@ Anna nimesi: Erkki Esimerkki
 Moi Erkki Esimerkki! Varmistan vielä: nimesi on siis Erkki Esimerkki?
 </sample-output>
 
+## Useampi kuin yksi syöte
+
+Ohjelmassa voi lukea useamman eri syötteen. Huomaa, että jokaisen `input`-funktion palautusarvo tallennetaan erinimiseen muuttujaan:
+
+```python
+# Luetaan käyttäjän nimi, sähköposti ja lempinimi
+name = input("Anna nimesi: ")
+email = input("Anna sähköpostiosoitteesi: ")
+nickname = input("Anna lempinimesi: ")
+
+# Tulostetaan käyttäjälle tiedot varmistukseksi
+print("Varmistetaan vielä, että tiedot menivät oikein")
+print("Annoit nimeksesi " + name)
+print("...sähköpostiosoitteksesi " + email)
+print("...ja lempinimeksesi " + nickname + ".")
+```
+
+Esimerkki ohjelman suorituksesta:
+
+<sample-output>
+Anna nimesi: Keijo Keksitty
+Anna sähköpostiosoitteesi: keijo@example.com
+Anna lempinimesi: Keke
+Varmistetaan vielä, että tiedot menivät oikein
+Annoit nimeksesi Keijo Keksitty
+...sähköpostiosoitteksesi keijo@example.com
+...ja lempinimeksesi Keke.
+</sample-output>
 
     
 
