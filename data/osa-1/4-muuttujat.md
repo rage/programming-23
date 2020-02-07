@@ -5,10 +5,12 @@ hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
+  
 - Tiedät, mitä tarkoitetaan muuttujalla ja mihin niitä tarvitaan
 - Tiedät, millaista tietoa muuttujiin voidaan tallentaa
 - Ymmärrät merkkijonojen, kokonais- ja liukulukujen ja totuusarvojen eron
 - Osaat käyttää muuttujia omissa ohjelmissasi
+
 </text-box>
 
 
