@@ -50,10 +50,30 @@ Yleensä operandien tyyppi ratkaisee lopputuloksen tyypin: jos lasketaan yhteen 
 
 Jakolasku muodostaa poikkeuksen sääntöön: jos jakolaskun laskennallisessa tuloksessa on desimaaleja (esimerkiksi `2 / 3`), on tulos liukuluku, vaikka operandit olisivatkin kokonaislukuja.
 
-Esimerkkejä laskuista:
+Esimerkiksi
 
 ```python
+height = 172.5
+weight = 68.55
+
+# Painoindeksi lasketaan jakamalla paino
+# pituuden neliöllä
+bmi = weight / height ** 2
+
+print("Painoindeksi on " + str(bmi))
 ```
+
+Luvun neliön voisi tietysti laskea myös kertomalla luvun itsellään (eli `bmi = weight / (height * height)`)
+
+Ohjelma tulostaa
+
+<sample-output>
+  
+Painoindeksi on 0.002303717706364209
+
+</sample-output>
+
+
 
 
 
