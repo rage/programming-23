@@ -171,7 +171,9 @@ print(number1 + number2) # Tämä tuottaa virheen!
 Ohjelma ei tulosta mitään, vaan antaa virheen
 
 <sample-output>
+  
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
 </sample-output>
 
 Python siis kertoo, ettei kahden erityyppisen arvon yhdistäminen toimi. Jos haluat tulostaa yhdellä lauseella sekä merkkijonon että luvun, tulee luku muuntaa merkkijonoksi `str`-funktiota hyödyntäen. Esimerkiksi
@@ -184,6 +186,14 @@ result = number1 * number2
 # Muutetaan kokonaisluku merkkijonoksi ennen yhdistämistä
 print("Tulos on " + str(result))
 ```
+
+Ohjelma tulostaa
+
+<sample-output>
+
+Tulos on 250
+
+</sample-output>
 
 ## Liukuluvut
 
@@ -200,6 +210,13 @@ average_temp = (temp_january + temp_february + temp_march) / 3
 print("Keskilämpötila tammikuusta maaliskuuhun on " + str(average_temp))
 ```
 
+Ohjelma tulostaa
+
+<sample-output>
+
+Keskilämpötila tammikuusta maaliskuuhun on 1.6233333333333333
+
+</sample-output>
 
 
 
