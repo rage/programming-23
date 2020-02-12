@@ -14,9 +14,20 @@ hidden: false
 
 Aikaisemmissa osissa nähtiin esimerkkejä peruslaskutoimituksista lukutyyppisillä muuttujilla ja vakioarvoilla. Seuraavaan taulukkoon on koottu Pythonin yleisimmin käytössä olevat aritmeettiset operaattorit esimerkkeineen:
 
-| Operaattori   | Merkitys    | Esimerkki |
-|---------------|-------------|-----------|
-| `+`           | Yhteenlasku | `2 + 4`   |
+| Operaattori   | Merkitys      | Esimerkki    | Tulos |
+|:-------------:|---------------|--------------|-------|
+| `+`           | Yhteenlasku   | `2 + 4`      |`6`    |
+|---------------|---------------|--------------|-------|
+| `-`           | Vähennyslasku | `10 - 2.5`   |`7.5`  |
+|---------------|---------------|--------------|-------|
+| `*`           | Kertolasku    | `-2 * 123`   |`-246` |
+|---------------|---------------|--------------|-------|
+| `/`           | Jakolasku     | `12 / 2`     |`6`    |
+|---------------|---------------|--------------|-------|
+| `**`          | Potenssi      | `2 ** 3`     |`8`    |
+|---------------|---------------|--------------|-------|
+
+
 
 
 
