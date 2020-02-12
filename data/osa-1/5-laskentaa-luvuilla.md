@@ -6,13 +6,13 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-- Osaat tehdä laskutoimintoja muuttujien avulla.
+- Osaat tehdä erilaisia laskutoimituksia muuttujien avulla.
 - Osaat hyödyntää syötettä lukuttyyppisten arvojen lukemiseen
 - Osaat muuntaa arvoja eri perustyyppien välillä
 
 </text-box>
 
-Aikaisemmissa osissa nähtiin esimerkkejä peruslaskutoimituksista lukutyyppisillä muuttujilla ja vakioarvoilla. Seuraavaan taulukkoon on koottu Pythonin yleisimmin käytössä olevat aritmeettiset operaattorit esimerkkeineen:
+Aikaisemmissa osissa nähtiin esimerkkejä peruslaskutoimituksista lukutyyppisillä muuttujilla ja vakioarvoilla. Seuraavaan taulukkoon on koottu Pythonin yleisimmin käytössä olevat aritmeettiset **operaattorit** esimerkkeineen:
 
 | Operaattori   | Merkitys      | Esimerkki    | Tulos |
 |:-------------:|---------------|--------------|-------|
@@ -22,6 +22,38 @@ Aikaisemmissa osissa nähtiin esimerkkejä peruslaskutoimituksista lukutyyppisil
 | `/`           | Jakolasku     | `12 / 2`     |`6`    |
 | `**`          | Potenssi      | `2 ** 3`     |`8`    |
 
+Laskujärjestys noudattaa pääosin matematiikasta tuttuja sääntöjä: aluksi lasketaan potenssilaskut, sitten kerto- ja jakolaskut ja lopuksi yhteen- ja vähennyslaskut. Järjestystä voidaan muuttaa sulkujen avulla.
+
+Esimerkiksi
+
+```python
+print(2 + 3 * 3)
+print((2 + 3) * 3)
+```
+
+Ohjelma tulostaa
+
+<sample-output>
+  
+11
+15
+
+</sample-output>
+
+## Operandit, operaattorit ja tyypit
+
+Lausekkeessa on yleensä *operandeja* ja *operaattoreita*:
+
+**KUVA**
+
+Yleensä operandien tyyppi ratkaisee lopputuloksen tyypin: jos lasketaan yhteen kaksi kokonaislukua, myös tulos on kokonaisluku. Jos taas vähennetään liukuluku toisesta liukuluvusta, myös tulos on liukuluku.
+
+Jakolasku muodostaa poikkeuksen sääntöön: jos jakolaskun laskennallisessa tuloksessa on desimaaleja (esimerkiksi `2 / 3`), on tulos liukuluku, vaikka operandit olisivatkin kokonaislukuja.
+
+Esimerkkejä laskuista:
+
+```python
+```
 
 
 
