@@ -46,7 +46,7 @@ Lausekkeessa on yleensä *operandeja* ja *operaattoreita*:
 
 **KUVA**
 
-Yleensä operandien tyyppi ratkaisee lopputuloksen tyypin: jos lasketaan yhteen kaksi kokonaislukua, myös tulos on kokonaisluku. Jos taas vähennetään liukuluku toisesta liukuluvusta, myös tulos on liukuluku.
+Yleensä operandien tyyppi ratkaisee lopputuloksen tyypin: jos lasketaan yhteen kaksi kokonaislukua, myös tulos on kokonaisluku. Jos taas vähennetään liukuluku toisesta liukuluvusta, myös tulos on liukuluku. Itse asiassa tulos on liukuluku, jos edes yksi operandeista lausekkeessa on liukuluku.
 
 Jakolasku muodostaa poikkeuksen sääntöön: jos jakolaskun laskennallisessa tuloksessa on desimaaleja (esimerkiksi `2 / 3`), on tulos liukuluku, vaikka operandit olisivatkin kokonaislukuja.
 
@@ -137,6 +137,8 @@ year = int(input("Minä vuonna olet syntynyt? "))
 age = 2019 - year
 
 print("Moi, " + name + "!")
+
+# Muistetaan taas muuntaa age merkkijonoksi tulostusta varten
 print("Päättelin, että olit " + str(age) + " vuotta vanha vuoden 2019 lopussa.")
 ```
 
@@ -150,5 +152,6 @@ Moi, Pauliina!
 Päättelin, että olit 22 vuotta vanha vuoden 2019 lopussa.
 
 </sample-output>
+
 
 
