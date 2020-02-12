@@ -8,7 +8,7 @@ hidden: false
   
 - Tiedät, mitä tarkoitetaan muuttujalla ja mihin niitä tarvitaan
 - Tiedät, millaista tietoa muuttujiin voidaan tallentaa
-- Ymmärrät merkkijonojen, kokonais- ja liukulukujen ja totuusarvojen eron
+- Ymmärrät merkkijonojen, kokonais- ja liukulukujen eron
 - Osaat käyttää muuttujia omissa ohjelmissasi
 
 </text-box>
@@ -177,6 +177,30 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 Python siis kertoo, ettei kahden erityyppisen arvon yhdistäminen toimi. Jos haluat tulostaa yhdellä lauseella sekä merkkijonon että luvun, tulee luku muuntaa merkkijonoksi `str`-funktiota hyödyntäen. Esimerkiksi
 
 ```python
+number1 = 10
+number2 = 25
+result = number1 * number2
+
+# Muutetaan kokonaisluku merkkijonoksi ennen yhdistämistä
+print("Tulos on " + str(result))
 ```
+
+## Liukuluvut
+
+Aina kokonaisluvut eivät riitä. Desimaalilukuja (eli _liukulukuja_) voidaan käyttää samalla tavalla kuin kokonaislukujakin. Huomaa kuitenkin, että _desimaalierottimena käytetään pilkun sijasta pistettä_.
+
+Esimerkiksi:
+
+```python
+temp_january = 2.5
+temp_february = -1.25
+temp_march = 3.62
+
+average_temp = (temp_january + temp_february + temp_march) / 3
+print("Keskilämpötila tammikuusta maaliskuuhun on " + str(average_temp))
+```
+
+
+
 
 
