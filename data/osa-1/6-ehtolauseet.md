@@ -70,4 +70,40 @@ Tyypillisesti ehto on kahden tai useamman operandin vertailu. Seuraavassa tauluk
 | `<`| Pienempi kuin | `"abc" < "bcd"` | `True`|
 | | | `5 * 2 < 9.99` | `False`| 
 
+Tarkastellaan esimerkkinä ohjelmaa, joka tulostaa tiedon siitä onko käyttäjän syöttämä luku negatiivinen, positiivinen vai nolla:
+
+```python
+# Luetaan syöte ja muunnetaan merkkijono kokonaisluvuksi
+number = int(input("Anna luku: "))
+
+# Onko pienempi kuin nolla
+if number < 0:
+	print("Luku on negatiivinen.")
+	
+# Onko suurempi kuin nolla
+if number > 0:
+	print("Luku on positiivinen.")
+	
+# Onko tasan nolla
+if number == 0:
+	print("Luku on nolla.")
+```
+
+(Ohjelmaa tarkastellessa tulee ehkä mieleen, että viimeinen tarkastelu tuntuu vähän turhalta - tässä vaiheessa luulisi olevan jo selvää, että luvun pitää olla nolla. Tähän palataan ensi viikolla tarkemmin.)
+
+Ohjelma suoritettuna kolme kertaa eri syötteillä:
+
+<sample-output>
+    
+Anna luku: **15**
+Luku on positiivinen. 
+ 
+Anna luku: **-18**
+Luku on negatiivinen.
+
+Anna luku: **0**
+Luku on nolla.
+
+</sample-output>
+
 
