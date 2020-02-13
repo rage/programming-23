@@ -25,6 +25,7 @@ age = int(input("Kuinka vanha olet? "))
 # Testataan: jos ikä on suurempi kuin 17 (eli vähintään 18...)
 if age > 17:
     print("Olet täysi-ikäinen.")
+    print("Tässä siis sinulle ikiomaksi GTA6.")
 
 print("Seuraava asiakas, kiitos!")
 ``` 
@@ -34,6 +35,7 @@ Ohjelman suoritus näyttää tältä, kun syötetään luku joka on suurempi kui
 
 Kuinka vanha olet? **18**
 Olet täysi-ikäinen!
+Tässä siis sinulle ikiomaksi GTA6.
 Seuraava asiakas, kiitos!
 
 </example-output>
@@ -50,4 +52,13 @@ Seuraava asiakas, kiitos!
 Esimerkkejä tarkastelemalla huomataan, että syötteenä annettu arvo vaikuttaa nyt siihen mitkä osat ohjelmasta suoritetaan. Lausetta, jonka avulla määritetään jokin ohjelman osa ehdollisesti suoritettavaksi kutsutaankin **ehtolauseeksi**. Ehtolauseen avulla voidaan siis määritellä ohjelmaan lohko, joka suoritetaan vain kun _annettu ehto on tosi_.
 
 KUVA
+
+Ehtolauseessa avainsanaa `if` seuraa jokin _ehto_. Kun Python _evaluoi_ eli suorittaa ehdon, sen arvoksi tulee joko `True`tai `False` eli tosi tai epätosi. Ehtoa seuraava _lohko_ suoritetaan vain, jos ehto sai arvon tosi.
+
+Tyypillisesti ehto on kahden tai useamman operandin vertailu. Seuraavassa taulukossa on esitelty Pythonin vertailuoperaattoreita:
+
+| Operaattori | Merkitys       | Esimerkki    | ...saa arvon |
+--------------------------------------------------------------
+| `==`| Yhtäsuuruus | (2 + 2) == 4 | `True`|
+
 
