@@ -78,15 +78,15 @@ number = int(input("Anna luku: "))
 
 # Onko pienempi kuin nolla
 if number < 0:
-	print("Luku on negatiivinen.")
+    print("Luku on negatiivinen.")
 	
 # Onko suurempi kuin nolla
 if number > 0:
-	print("Luku on positiivinen.")
+    print("Luku on positiivinen.")
 	
 # Onko tasan nolla
 if number == 0:
-	print("Luku on nolla.")
+    print("Luku on nolla.")
 ```
 
 (Ohjelmaa tarkastellessa tulee ehkä mieleen, että viimeinen tarkastelu tuntuu vähän turhalta - tässä vaiheessa luulisi olevan jo selvää, että luvun pitää olla nolla. Tähän palataan ensi viikolla tarkemmin.)
@@ -105,5 +105,18 @@ Anna luku: **0**
 Luku on nolla.
 
 </sample-output>
+
+
+## Lohkot
+
+Ehtolauseen perässä on kaksoispiste, ja sen jälkeiseltä riviltä alkaa suoritettava _lohko_. Niinkuin aiemmin huomattiin, ehtoa seuraava lohko suoritetaan vain jos ehto on tosi. Mistä Python tunnistaa lohkoon kuuluvat ohjelmarivit (eli lauseet)?
+
+Jokainen lohkoon kuuluva rivi on _sisennetty_ samalla tavalla. Ennen rivin alkua on siis tyhjää tilaa enemmän kuin rivillä, jolla ehtolause annettiin.
+
+Tyhjä tila voidaan esittää joko välilyönneillä (yleensä käytetään neljää välilyöntiä) tai _tabulaattorilla_, jonka saat Tab-näppäimestä.
+
+KUVA
+
+Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Sisennyksestä pääset editorissa takaisin painamalla rivin alussa `Backspace`-näppäintä.
 
 
