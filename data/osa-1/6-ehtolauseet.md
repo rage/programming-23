@@ -57,12 +57,17 @@ Ehtolauseessa avainsanaa `if` seuraa jokin _ehto_. Kun Python _evaluoi_ eli suor
 
 ## Vertailuoperaattorit
 
-Tyypillisesti ehto on kahden tai useamman operandin vertailu. Seuraavassa taulukossa on esitelty Pythonin vertailuoperaattoreita ja esimerkkejä
+Tyypillisesti ehto on kahden tai useamman operandin vertailu. Seuraavassa taulukossa on esitelty muutamia Pythonin vertailuoperaattoreita ja esimerkkejä
 
 | Operaattori | Merkitys       | Esimerkki    | ...saa arvon |
 |:-----------:|----------------|--------------|:------------:|
 | `==`        | Yhtäsuuruus    | (2 + 2) == 4 | `True`|
 | | | 5 *  10 == 40 | `False`|
-| `!=` | Erisuuruus | (2 + 2) != 5 | `False`| 
+| `!=` | Erisuuruus | (2 + 2) != 5 | `True`|
+| | | "Peter" != "Pet" + "er" | `False`|
+| `>` | Suurempi kuin | 9 > 3 + 4 | `True`|
+| | | "abc" > "bcd" | `False` |
+| `<`| Pienempi kuin | "abc" < "bcd" | `True`|
+| | | 5 * 2 < 10.01 | `False`| 
 
 
