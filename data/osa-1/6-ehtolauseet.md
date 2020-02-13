@@ -55,11 +55,14 @@ KUVA
 
 Ehtolauseessa avainsanaa `if` seuraa jokin _ehto_. Kun Python _evaluoi_ eli suorittaa ehdon, sen arvoksi tulee joko `True`tai `False` eli tosi tai epätosi. Ehtoa seuraava _lohko_ suoritetaan vain, jos ehto sai arvon tosi.
 
-Tyypillisesti ehto on kahden tai useamman operandin vertailu. Seuraavassa taulukossa on esitelty Pythonin vertailuoperaattoreita:
+## Vertailuoperaattorit
+
+Tyypillisesti ehto on kahden tai useamman operandin vertailu. Seuraavassa taulukossa on esitelty Pythonin vertailuoperaattoreita ja esimerkkejä
 
 | Operaattori | Merkitys       | Esimerkki    | ...saa arvon |
 |:-----------:|----------------|--------------|:------------:|
 | `==`        | Yhtäsuuruus    | (2 + 2) == 4 | `True`|
-| `!=` | Erisuuruus | (2 + 2) == 5 | `False`| 
+| | | 5 *  10 == 40 | `False`|
+| `!=` | Erisuuruus | (2 + 2) != 5 | `False`| 
 
 
