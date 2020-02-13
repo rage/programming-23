@@ -113,10 +113,35 @@ Ehtolauseen perässä on kaksoispiste, ja sen jälkeiseltä riviltä alkaa suori
 
 Jokainen lohkoon kuuluva rivi on _sisennetty_ samalla tavalla. Ennen rivin alkua on siis tyhjää tilaa enemmän kuin rivillä, jolla ehtolause annettiin.
 
+Esimerkiksi:
+
+````python
+# Luetaan käyttäjältä salasana
+password = input("Anna salasana: ")
+
+# Testataan onko salasana
+if password == "salainen sana":
+    # Lohko alkaa tästä: kaikki lohkoon kuuluvat rivit on sisennetty 
+	
+    print("Tiesit salasanan!")
+    print("Olet siis joko oikea käyttäjä...")
+    print("...tai melkoinen hakkerivelho.")
+
+    # Lohko loppuu tähän: seuraava rivi suoritetaan
+    # aina riippumatta siitä oliko ehto tosi vai ei
+
+print("Ohjelman suoritus päättyi. Kiitos ja hei!")
+````
+
 Tyhjä tila voidaan esittää joko välilyönneillä (yleensä käytetään neljää välilyöntiä) tai _tabulaattorilla_, jonka saat Tab-näppäimestä.
 
 KUVA
 
-Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Sisennyksestä pääset editorissa takaisin painamalla rivin alussa `Backspace`-näppäintä.
+Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Lohkon kirjoittamisen voit lopettaa editorissa painamalla rivin alussa `Backspace`-näppäintä.
+
+Useissa muissa ohjelmointikielessä käytetään erillisiä symboleita kuvaamaan lohkon alkua ja loppua. Pythonissa lohkon määrittää siis rivien sisentäminen. Tästä on se etu, että ohjelmakoodi on pakko kirjoittaa helpommin luettavaksi.
+
+
+## Totuusarvot
 
 
