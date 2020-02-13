@@ -146,8 +146,8 @@ Ohjelman esimerkkisuoritus:
 
 <sample-output>
   
-Mikä on nimesi? Pauliina
-Minä vuonna olet syntynyt? 1997
+Mikä on nimesi? **Pauliina**
+Minä vuonna olet syntynyt? **1997**
 Moi, Pauliina!
 Päättelin, että olit 22 vuotta vanha vuoden 2019 lopussa.
 
