@@ -149,7 +149,62 @@ Niinkuin aikaisemmin huomattiin, ehtolauseessa käytettävä ehto (eli ehtolause
 Totuusarvo voidaan myös asettaa suoraan muuttujan arvoksi:
 
 ```python
+# Muuttujan arvoksi True
+truth = True
 
+# Koska arvo on tosi, lohko suoritetaan
+if (truth):
+    print("Arvo oli tosi")
+
+# Vaihdetaan arvoksi False
+truth = False
+
+# Nyt arvo on epätosi, joten lohkoa ei suoriteta
+if (truth):
+    print("Arvo on vieläkin tosi")
 ```
+
+Ohjelma tulostaa siis suoritettaessa arvon vain ensimmäistä ehtolausetta seuraavasta lohkosta:
+
+<example-output>
+
+Arvo oli tosi
+
+</example-output>
+
+Koska ehtolauseessa käytettävä ehto on myös _lauseke_, se voidaan asettaa muuttujan arvoksi:
+
+```python
+# Alustetaan pari muuttujaa
+value1 = 10
+value2 = 5
+
+# Muuttujan equal arvoksi tulee ehtolausekkeen arvo
+equal = (value1 == value2)
+
+# Tulostetaan muuttujan arvo...
+print(equal)
+
+#...ja käytetään sitä ehtolauseessa
+if (equal):
+    print("Arvo oli tosi!")
+
+# Vaihdetaan arvoksi uuden ehtolausekkeen arvo
+equal = (value1 == value2 * 2)
+
+# Testataan...
+if (equal):
+    print("Arvo oli toisella kerralla tosi!")
+```
+
+Ohjelman suoritus tulostaa:
+
+<example-output>
+
+False
+Arvo oli tosi!
+
+</example-output>
+
 
 
