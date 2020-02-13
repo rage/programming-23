@@ -14,7 +14,7 @@ hidden: false
 </text-box>
 
 
-Tähän mennessä kaikki ohjelmat ovat noudattaneet samaa lineaarista suoritusjärjestystä (eli kaikissa ohjelmissa on suoritettu samat ohjelmarivit samassa järjestyksessä). Usein on kuitenkin tarpeen määritellä ohjelmaan osia, jotka suoritetaan vain tietyissä tilanteissa. 
+Tähän mennessä kaikki ohjelmat ovat noudattaneet samaa lineaarista suoritusjärjestystä (eli kaikissa ohjelmissa on suoritettu samat ohjelmarivit samassa järjestyksessä). Usein on kuitenkin tarpeen määritellä ohjelmaan osia, jotka suoritetaan vain tietyissä tilanteissa.
 
 Tarkastellaan ensin esimerkkiä, joka tarkastelee onko henkilö täysi-ikäinen:
 
@@ -28,7 +28,7 @@ if age > 17:
     print("Tässä siis sinulle ikiomaksi GTA6.")
 
 print("Seuraava asiakas, kiitos!")
-``` 
+```
 Ohjelman suoritus näyttää tältä, kun syötetään luku joka on suurempi kuin 17...
 
 <example-output>
@@ -43,9 +43,9 @@ Seuraava asiakas, kiitos!
 ...ja tältä, kun syötetään luku joka *ei* ole suurempi kuin 17:
 
 <example-output>
-    
+
 Kuinka vanha olet? **16**
-Seuraava asiakas, kiitos!    
+Seuraava asiakas, kiitos!
 
 </example-output>
 
@@ -68,7 +68,7 @@ Tyypillisesti ehto on kahden tai useamman operandin vertailu. Seuraavassa tauluk
 | `>` | Suurempi kuin | `9 > 3 + 4` | `True`|
 | | | `"abc" > "bcd"` | `False` |
 | `<`| Pienempi kuin | `"abc" < "bcd"` | `True`|
-| | | `5 * 2 < 9.99` | `False`| 
+| | | `5 * 2 < 9.99` | `False`|
 
 Tarkastellaan esimerkkinä ohjelmaa, joka tulostaa tiedon siitä onko käyttäjän syöttämä luku negatiivinen, positiivinen vai nolla:
 
@@ -79,11 +79,11 @@ number = int(input("Anna luku: "))
 # Onko pienempi kuin nolla
 if number < 0:
     print("Luku on negatiivinen.")
-	
+
 # Onko suurempi kuin nolla
 if number > 0:
     print("Luku on positiivinen.")
-	
+
 # Onko tasan nolla
 if number == 0:
     print("Luku on nolla.")
@@ -94,10 +94,10 @@ if number == 0:
 Ohjelma suoritettuna kolme kertaa eri syötteillä:
 
 <sample-output>
-    
+
 Anna luku: **15**
-Luku on positiivinen. 
- 
+Luku on positiivinen.
+
 Anna luku: **-18**
 Luku on negatiivinen.
 
@@ -121,8 +121,8 @@ password = input("Anna salasana: ")
 
 # Testataan onko salasana
 if password == "salainen sana":
-    # Lohko alkaa tästä: kaikki lohkoon kuuluvat rivit on sisennetty 
-	
+    # Lohko alkaa tästä: kaikki lohkoon kuuluvat rivit on sisennetty
+
     print("Tiesit salasanan!")
     print("Olet siis joko oikea käyttäjä...")
     print("...tai melkoinen hakkerivelho.")
@@ -143,5 +143,13 @@ Useissa muissa ohjelmointikielessä käytetään erillisiä symboleita kuvaamaan
 
 
 ## Totuusarvot
+
+Niinkuin aikaisemmin huomattiin, ehtolauseessa käytettävä ehto (eli ehtolauseke) saa arvokseen `True` tai `False`.
+
+Totuusarvo voidaan myös asettaa suoraan muuttujan arvoksi:
+
+```python
+
+```
 
 
