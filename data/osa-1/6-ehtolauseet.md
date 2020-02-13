@@ -61,13 +61,13 @@ Tyypillisesti ehto on kahden tai useamman operandin vertailu. Seuraavassa tauluk
 
 | Operaattori | Merkitys       | Esimerkki    | ...saa arvon |
 |:-----------:|----------------|--------------|:------------:|
-| `==`        | Yhtäsuuruus    | (2 + 2) == 4 | `True`|
-| | | 5 *  10 == 40 | `False`|
-| `!=` | Erisuuruus | (2 + 2) != 5 | `True`|
-| | | "Peter" != "Pet" + "er" | `False`|
-| `>` | Suurempi kuin | 9 > 3 + 4 | `True`|
-| | | "abc" > "bcd" | `False` |
-| `<`| Pienempi kuin | "abc" < "bcd" | `True`|
-| | | 5 * 2 < 9.99 | `False`| 
+| `==`        | Yhtäsuuruus    | `(2 + 2) == 4` | `True`|
+| | | `5 *  10 == 40` | `False`|
+| `!=` | Erisuuruus | `(2 + 2) != 5` | `True`|
+| | | `"Peter" != "Pet" + "er"` | `False`|
+| `>` | Suurempi kuin | `9 > 3 + 4` | `True`|
+| | | `"abc" > "bcd"` | `False` |
+| `<`| Pienempi kuin | `"abc" < "bcd"` | `True`|
+| | | `5 * 2 < 9.99` | `False`| 
 
 
