@@ -5,7 +5,7 @@ hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
-  
+
 - Tiedät, mitä tarkoitetaan muuttujalla ja mihin niitä tarvitaan
 - Tiedät, millaista tietoa muuttujiin voidaan tallentaa
 - Ymmärrät merkkijonojen, kokonais- ja liukulukujen eron
@@ -45,7 +45,7 @@ print(name)
 Ohjelma tulostaa ajettaessa
 
 <sample-output>
-  
+
 Pekka Pythonen
 
 </sample-output>
@@ -110,7 +110,7 @@ print(age)
 Ohjelma tulostaa arvon
 
 <sample-output>
-  
+
 24
 
 </sample-output>
@@ -130,7 +130,7 @@ print(number2)
 Ohjelma tulostaa
 
 <sample-output>
-  
+
 100
 100
 
@@ -149,13 +149,13 @@ print(number2 + number2)
 Ohjelma tulostaa suoritettaessa
 
 <sample-output>
-  
+
 200
 100100
 
 </sample-output>
 
-Kahdelle lukutyyppiselle arvolle `+`-operaattori siis merkitsee aritmeettista (eli matemaattista) yhteenlaskua, merkkijonoille taas katenointia. 
+Kahdelle lukutyyppiselle arvolle `+`-operaattori siis merkitsee aritmeettista (eli matemaattista) yhteenlaskua, merkkijonoille taas katenointia.
 
 ## Erityyppisten arvojen tulostaminen
 
@@ -171,7 +171,7 @@ print(number1 + number2) # Tämä tuottaa virheen!
 Ohjelma ei tulosta mitään, vaan antaa virheen
 
 <sample-output>
-  
+
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
 </sample-output>

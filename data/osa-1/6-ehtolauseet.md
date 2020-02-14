@@ -194,6 +194,7 @@ if (first_older):
 first_older = (age1 > age3)
 
 # Testataan...
+
 if (first_older):
     print("Eka on vanhempi kuin kolmas!")
 ```

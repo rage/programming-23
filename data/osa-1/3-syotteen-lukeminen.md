@@ -30,10 +30,10 @@ name = input("Anna nimesi: ")
 print("Moi vaan, " + name)
 ```
 
-Ohjelman suoritus voisi näyttää esimerkiksi seuraavalta (käyttäjän kirjoittama syöte on merkitty **lihavoituna**:
+Ohjelman suoritus voisi näyttää esimerkiksi seuraavalta (käyttäjän kirjoittama syöte on merkitty punaisella:
 
 <sample-output>
-    
+
 Anna nimesi: **Pekka Python**
 Moi vaan, Pekka Python
 
@@ -182,5 +182,5 @@ Osoite on nyt Ohjelmoijanraitti 230
 
 </sample-output>
 
-    
+
 
