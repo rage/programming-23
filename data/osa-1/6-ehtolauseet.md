@@ -176,25 +176,26 @@ Koska ehtolauseessa käytettävä ehto on myös _lauseke_, se voidaan asettaa mu
 
 ```python
 # Alustetaan pari muuttujaa
-value1 = 10
-value2 = 5
+age1 = 24
+age2 = 32
+age3 = 19
 
-# Muuttujan equal arvoksi tulee ehtolausekkeen arvo
-equal = (value1 == value2)
+# Muuttujan first_older arvoksi tulee ehtolausekkeen arvo
+first_older = (age1 > age2)
 
 # Tulostetaan muuttujan arvo...
-print(equal)
+print(first_older)
 
 #...ja käytetään sitä ehtolauseessa
-if (equal):
-    print("Arvo oli tosi!")
+if (first_older):
+    print("Eka on vanhempi kuin toka!")
 
 # Vaihdetaan arvoksi uuden ehtolausekkeen arvo
-equal = (value1 == value2 * 2)
+first_older = (age1 > age3)
 
 # Testataan...
-if (equal):
-    print("Arvo oli toisella kerralla tosi!")
+if (first_older):
+    print("Eka on vanhempi kuin kolmas!")
 ```
 
 Ohjelman suoritus tulostaa:
