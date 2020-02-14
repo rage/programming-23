@@ -203,7 +203,7 @@ Ohjelman suoritus tulostaa:
 <example-output>
 
 False
-Arvo oli tosi!
+Eka on vanhempi kuin kolmas!
 
 </example-output>
 
