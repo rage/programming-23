@@ -166,11 +166,11 @@ if (totuus):
 
 Ohjelma tulostaa siis suoritettaessa arvon vain ensimmäistä ehtolausetta seuraavasta lohkosta:
 
-<example-output>
+<sample-output>
 
 Arvo oli tosi
 
-</example-output>
+</sample-output>
 
 Koska ehtolauseessa käytettävä ehto on myös _lauseke_, se voidaan asettaa muuttujan arvoksi:
 
@@ -201,12 +201,12 @@ if (eka_vanhempi):
 
 Ohjelman suoritus tulostaa:
 
-<example-output>
+<sample-output>
 
 False
 Eka on vanhempi kuin kolmas!
 
-</example-output>
+</sample-output>
 
 
 
