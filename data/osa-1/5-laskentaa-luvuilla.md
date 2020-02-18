@@ -4,7 +4,7 @@ title: "Laskentaa luvuilla"
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' nimi='Oppimistavoitteet'>
 
 - Osaat tehdä erilaisia laskutoimituksia muuttujien avulla.
 - Osaat hyödyntää syötettä lukuttyyppisten arvojen lukemiseen
@@ -53,13 +53,14 @@ Jakolasku muodostaa poikkeuksen sääntöön: jos jakolaskun laskennallisessa tu
 Esimerkiksi
 
 ```python
-height = 172.5
-weight = 68.55
+pituus = 172.5
+paino = 68.55
 
 # Painoindeksi lasketaan jakamalla paino
 # pituuden neliöllä. Pituus ilmoitetaan
 # kaavassa metreinä.
-bmi = weight / (height / 100) ** 2
+bmi = paino / 
+pituus / 100) ** 2
 
 print("Painoindeksi on " + str(bmi))
 ```
@@ -83,17 +84,18 @@ Tarkastellaan ensin esimerkkiä, jossa luetaan käyttäjältä pituus ja paino j
 
 ```python
 # Luetaan käyttäjältä pituus ja paino
-height_string = input("Anna pituus: ")
-weight_string = input("Anna paino: ")
+paino_mjono = input("Anna paino: ")
+pituus_mjono = input("Anna pituus: ")
 
 # Muunnetaan merkkijonot liukuluvuiksi
-height = float(height_string)
-weight = float(weight_string)
+paino = float(paino_mjono)
+pituus  = float(pituus_mjono)
 
 # Painoindeksi lasketaan jakamalla paino
 # pituuden neliöllä. Pituus ilmoitetaan
 # kaavassa metreinä.
-bmi = weight / (height / 100) ** 2
+pituus = pituus / 100 # muunnetaan metreiksi
+bmi = paino / pituus ** 2
 
 print("Painoindeksi on " + str(bmi))
 ```
@@ -110,36 +112,37 @@ Painoindeksi on 28.02137829801649
 
 Muunnos merkkijonosta liukuluvuksi voidaan siis tehdä käyttäen funktiota `float`. Funktion syötteen pitää olla sellainen, että Python osaa muuntaa sen liukuluvuksi, muuten seuraa virhetilanne. 
 
-Huomaa, että syötteitä ei välttämättä olisi pakko tallentaa muuttujiin `height_string` ja `weight-string`, vaan muunnoksen voisi tehdä suoraankin:
+Huomaa, että syötteitä ei välttämättä olisi pakko tallentaa muuttujiin 
+pituus_string` ja `paino-string`, vaan muunnoksen voisi tehdä suoraankin:
 
 ```python
 # Luetaan käyttäjältä pituus ja paino ja 
 # muunnetaan ne liukuluvuiksi
-height = float(input("Anna pituus: "))
-weight = float(input("Anna paino: "))
+# pituus = float(input("Anna pituus: "))
+paino = float(input("Anna paino: "))
 
 # Painoindeksi lasketaan jakamalla paino
 # pituuden neliöllä. Pituus ilmoitetaan
 # kaavassa metreinä.
-bmi = weight / (height / 100) ** 2
+bmi = paino / (pituus / 100) ** 2
 
 print("Painoindeksi on " + str(bmi))
 ```
 Samalla tavalla syöte voidaan muuntaa kokonaisluvuksi funktion `int` avulla. Esimerkiksi:
 
 ```python
-name = input("Mikä on nimesi? ")
+nimi = input("Mikä on nimesi? ")
 
 # Luetaan merkkijono ja muunnetaan se kokonaisluvuksi
-year = int(input("Minä vuonna olet syntynyt? "))
+vuosi = int(input("Minä vuonna olet syntynyt? "))
 
 # Lasketaan ikä
-age = 2019 - year
+ikä = 2019 - vuosi
 
-print("Moi, " + name + "!")
+print("Moi, " + nimi + "!")
 
-# Muistetaan taas muuntaa age merkkijonoksi tulostusta varten
-print("Päättelin, että olit " + str(age) + " vuotta vanha vuoden 2019 lopussa.")
+# Muistetaan taas muuntaa ikä merkkijonoksi tulostusta varten
+print("Päättelin, että olit " + str(ikä) + " vuotta vanha vuoden 2019 lopussa.")
 ```
 
 Ohjelman esimerkkisuoritus:

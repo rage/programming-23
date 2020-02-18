@@ -150,17 +150,17 @@ Totuusarvo voidaan myös asettaa suoraan muuttujan arvoksi:
 
 ```python
 # Muuttujan arvoksi True
-truth = True
+totuus = True
 
 # Koska arvo on tosi, lohko suoritetaan
-if (truth):
+if (totuus):
     print("Arvo oli tosi")
 
 # Vaihdetaan arvoksi False
-truth = False
+totuus = False
 
 # Nyt arvo on epätosi, joten lohkoa ei suoriteta
-if (truth):
+if (totuus):
     print("Arvo on vieläkin tosi")
 ```
 
@@ -176,26 +176,26 @@ Koska ehtolauseessa käytettävä ehto on myös _lauseke_, se voidaan asettaa mu
 
 ```python
 # Alustetaan pari muuttujaa
-age1 = 24
-age2 = 32
-age3 = 19
+ikä1 = 24
+ikä2 = 32
+ikä3 = 19
 
-# Muuttujan first_older arvoksi tulee ehtolausekkeen arvo
-first_older = (age1 > age2)
+# Muuttujan eka_vanhempi arvoksi tulee ehtolausekkeen arvo
+eka_vanhempi = (ikä1 > ikä2)
 
 # Tulostetaan muuttujan arvo...
-print(first_older)
+print(eka_vanhempi)
 
 #...ja käytetään sitä ehtolauseessa
-if (first_older):
+if (eka_vanhempi):
     print("Eka on vanhempi kuin toka!")
 
 # Vaihdetaan arvoksi uuden ehtolausekkeen arvo
-first_older = (age1 > age3)
+eka_vanhempi = (ikä1 > ikä3)
 
 # Testataan...
 
-if (first_older):
+if (eka_vanhempi):
     print("Eka on vanhempi kuin kolmas!")
 ```
 
