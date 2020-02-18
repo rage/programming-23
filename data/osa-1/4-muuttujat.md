@@ -4,7 +4,7 @@ title: "Muuttujat"
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' nimi='Oppimistavoitteet'>
 
 - Tiedät, mitä tarkoitetaan muuttujalla ja mihin niitä tarvitaan
 - Tiedät, millaista tietoa muuttujiin voidaan tallentaa
@@ -27,19 +27,19 @@ Muuttujan alustamiseksi Pythonissa käytetään seuraavaa syntaksia:
 Merkkijonomuuttujalle voidaan antaa arvoja myös esimerkiksi näin:
 
 ```python
-# Alustetaan muuttujat first ja last
-first = "Pekka"
-last = "Pythonen"
+# Alustetaan muuttujat etunimi ja sukunimi
+etunimi = "Pekka"
+sukunimi = "Pythonen"
 
-# Alustetaan muuttuja space, jonka arvo on 1 välilyönti
-space = " "
+# Alustetaan muuttuja väli, jonka arvo on 1 välilyönti
+väli = " "
 
 # Yhdistetään (eli katenoidaan) kolme muuttujaa
-# yhdeksi, ja tallennetaan arvo muuttujaan name
-name = first + space + last
+# yhdeksi, ja tallennetaan arvo muuttujaan nimi
+nimi = etunimi + väli + sukunimi
 
-# Tulostetaan muuttujan name arvo
-print(name)
+# Tulostetaan muuttujan nimi arvo
+print(nimi)
 ```
 
 Ohjelma tulostaa ajettaessa
@@ -60,24 +60,24 @@ Esimerkiksi
 
 ```python
 # Lauseen arvo on aluksi tyhjä
-sentence = ""
+lause = ""
 
 # Kysy käyttäjältä nimi, ja lisää se lauseeseen
-name = input("Anna nimi: ")
-sentence = sentence + name
-sentence = sentence + ", "
+nimi = input("Anna nimi: ")
+lause = lause + nimi
+lause = lause + ", "
 
 # Kysy käyttäjältä toinen nimi, ja lisää se lauseeseen
-name = input("Anna toinen nimi: ")
-sentence = sentence + name
-sentence = sentence + " ja "
+nimi = input("Anna toinen nimi: ")
+lause = lause + nimi
+lause = lause + " ja "
 
 # ...ja vielä kolmas: huomaa, että syötefunktion palaute
 # voidaan tallentaa suoraan lauseen perään
-sentence = sentence + input("Anna vielä kolmas nimi: ")
+lause = lause + input("Anna vielä kolmas nimi: ")
 
 # Tulostetaan lopullinen lause
-print (sentence)
+print(lause)
 ```
 
 Esimerkkisuoritus:
@@ -91,11 +91,11 @@ Tupu, Hupu ja Lupu
 
 </sample-output>
 
-Huomaa, että `sentence`-muuttujan alkuarvoksi annetaan tyhjä merkkijono. Jos tätä ei tehdä, ei lause `sentence = sentence + name` toimi, koska merkkijono voidaan yhdistää vain toiseen merkkijonoon. Myös tyhjä merkkijono _on_ merkkijono.
+Huomaa, että `lause`-muuttujan alkuarvoksi annetaan tyhjä merkkijono. Jos tätä ei tehdä, ei lause `lause = lause + nimi` toimi, koska merkkijono voidaan yhdistää vain toiseen merkkijonoon. Myös tyhjä merkkijono _on_ merkkijono.
 
 <text-box variant="hint">
 
-Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan. Esimerkiksi `age` on parempi muuttujan nimi kuin `a`. Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja `_`.
+Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan. Esimerkiksi `ikä` on parempi muuttujan nimi kuin `a`. Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja `_`.
 
 </text-box>
 
@@ -108,9 +108,9 @@ Python on _dynaamisesti tyypitetty_ ohjelmointikieli. Tämä tarkoittaa, että o
 Kokonaislukutyyppinen muuttuja voidaan siis alustaa sijoittamalla muuttujan arvoksi kokonaisluku.
 
 ```python
-# Alustetaan muuttuja age arvolla 24
-age = 24
-print(age)
+# Alustetaan muuttuja ikä arvolla 24
+ikä = 24
+print(ikä)
 ```
 
 Ohjelma tulostaa arvon
@@ -126,11 +126,11 @@ Kokonaisluvun ympärille ei kirjoiteta lainausmerkkejä. Itse asiassa luvun ymp�
 Mitä eroa muuttujan tyypeillä siis on, kun seuraava ohjelma tulostaa samat arvot?
 
 ```python
-number1 = 100
-number2 = "100"
+numero1 = 100
+numero2 = "100"
 
-print(number1)
-print(number2)
+print(numero1)
+print(numero2)
 ```
 
 Ohjelma tulostaa
@@ -145,11 +145,11 @@ Ohjelma tulostaa
 Erilaiset operaatiot vaikuttavat eri tavalla erityyppisiin muuttujiin. Tarkastellaan seuraavaa esimerkkiä:
 
 ```python
-number1 = 100
-number2 = "100"
+numero1 = 100
+numero2 = "100"
 
-print(number1 + number1)
-print(number2 + number2)
+print(numero1 + numero1)
+print(numero2 + numero2)
 ```
 
 Ohjelma tulostaa suoritettaessa
@@ -168,10 +168,10 @@ Kahdelle lukutyyppiselle arvolle `+`-operaattori siis merkitsee aritmeettista (e
 Erityyppisiä arvoja _ei_ voi yhdistää, seuraava ei siis toimi:
 
 ```python
-number1 = 100
-number2 = "100"
+numero1 = 100
+numero2 = "100"
 
-print(number1 + number2) # Tämä tuottaa virheen!
+print(numero1 + numero2) # Tämä tuottaa virheen!
 ```
 
 Ohjelma ei tulosta mitään, vaan antaa virheen
@@ -185,12 +185,12 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 Python siis kertoo, ettei kahden erityyppisen arvon yhdistäminen toimi. Jos haluat tulostaa yhdellä lauseella sekä merkkijonon että luvun, tulee luku muuntaa merkkijonoksi `str`-funktiota hyödyntäen. Esimerkiksi
 
 ```python
-number1 = 10
-number2 = 25
-result = number1 * number2
+numero1 = 10
+numero2 = 25
+tulos = numero1 * numero2
 
 # Muutetaan kokonaisluku merkkijonoksi ennen yhdistämistä
-print("Tulos on " + str(result))
+print("Tulos on " + str(tulos))
 ```
 
 Ohjelma tulostaa
@@ -208,12 +208,12 @@ Aina kokonaisluvut eivät riitä. Desimaalilukuja (eli _liukulukuja_) voidaan k�
 Esimerkiksi:
 
 ```python
-temp_january = 2.5
-temp_february = -1.25
-temp_march = 3.62
+lämpötila_tammi = 2.5
+lämpötila_helmi = -1.25
+lämpötila_maalis = 3.62
 
-average_temp = (temp_january + temp_february + temp_march) / 3
-print("Keskilämpötila tammikuusta maaliskuuhun on " + str(average_temp))
+keskilämpö = (lämpötila_tammi + lämpötila_helmi + lämpötila_maalis) / 3
+print("Keskilämpötila tammikuusta maaliskuuhun on " + str(keskilämpö))
 ```
 
 Ohjelma tulostaa

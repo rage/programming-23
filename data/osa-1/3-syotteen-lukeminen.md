@@ -24,10 +24,10 @@ Esimerkki ohjelmasta, jossa luetaan käyttäjän nimi käyttäen `input`-funktio
 
 ```python
 # Luetaan käyttäjän nimi ja tallennetaan se muuttujaan name
-name = input("Anna nimesi: ")
+nimi = input("Anna nimesi: ")
 
 # Tulostetaan käyttäjälle viesti hyödyntäen muuttujaa name
-print("Moi vaan, " + name)
+print("Moi vaan, " + nimi)
 ```
 
 Ohjelman suoritus voisi näyttää esimerkiksi seuraavalta (käyttäjän kirjoittama syöte on merkitty punaisella:
@@ -48,11 +48,11 @@ Moi vaan, Outi Ohjelmoija
 
 </sample-output>
 
-Ensimmäisellä rivillä oleva sana name on **muuttuja**. Muuttujalla tarkoitetaan ohjelmoinnissa "lokeroa", johon voidaan tallentaa jokin _arvo_. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
+Ensimmäisellä rivillä oleva sana `nimi` on **muuttuja**. Muuttujalla tarkoitetaan ohjelmoinnissa "lokeroa", johon voidaan tallentaa jokin _arvo_. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
 
 <text-box variant="hint">
 
-Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kielen asettamia rajoituksia noudattaen). Tällä kurssilla muuttujat ja muut vastaavat ohjelmien osat nimetään englanniksi. Ohjelmoinnissa käytetään yleisesti englantia kielenä muutenkin - jos etsit Googlen avulla ohjelmointiesimerkkejä, ne todennäköisesti ovat englanniksi.
+Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kielen asettamia rajoituksia noudattaen). Tällä kurssilla muuttujat ja muut vastaavat ohjelmien osat nimetään suomeksi. Ohjelmoinnissa käytetään kuitenkin yleisesti kielenä englantia - jos etsit Googlen avulla ohjelmointiesimerkkejä, ne todennäköisesti ovat englanniksi.
 
 </text-box>
 
@@ -61,12 +61,12 @@ Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kiele
 Samaan muuttujaan voidaan viitata ohjelmassa useasti:
 
 ```python
-# Luetaan käyttäjän syöte muuttujaan name
-name = input("Anna nimesi: ")
+# Luetaan käyttäjän syöte muuttujaan nimi
+nimi = input("Anna nimesi: ")
 
 # Tulostetaan kaksi viestiä
-print("Moi, " + name + "!")
-print(name + " on aika kiva nimi.")
+print("Moi, " + nimi + "!")
+print(nimi + " on aika kiva nimi.")
 ```
 
 Esimerkkitulostus (kun käyttäjä syöttää merkkijonon `Pauli Python`:
@@ -84,11 +84,11 @@ Tarkastellaanpa tulostuskomentoja vähän tarkemmin: `print`-funktiota kutsuttae
 Vakiomuotoisia merkkijonoja voidaan yhdistellä muuttujien arvoihin vapaasti:
 
 ```python
-# Luetaan käyttäjän syöte muuttujaan name
-name = input("Anna nimesi: ")
+# Luetaan käyttäjän syöte muuttujaan nimi
+nimi = input("Anna nimesi: ")
 
 # Tulostetaan viesti
-print("Moi " + name + "! Varmistan vielä: nimesi on siis " + name + "?")
+print("Moi " + nimi + "! Varmistan vielä: nimesi on siis " + nimi + "?")
 ```
 
 Esimerkkitulostus voisi näyttää tältä, kun käyttäjä syöttää merkkijonon `Erkki Esimerkki`:
@@ -106,15 +106,15 @@ Ohjelmassa voi lukea useamman eri syötteen. Huomaa, että jokaisen `input`-funk
 
 ```python
 # Luetaan käyttäjän nimi, sähköposti ja lempinimi
-name = input("Anna nimesi: ")
-email = input("Anna sähköpostiosoitteesi: ")
-nickname = input("Anna lempinimesi: ")
+nimi = input("Anna nimesi: ")
+sposti = input("Anna sähköpostiosoitteesi: ")
+lempinimi = input("Anna lempinimesi: ")
 
 # Tulostetaan käyttäjälle tiedot varmistukseksi
 print("Varmistetaan vielä, että tiedot menivät oikein")
-print("Annoit nimeksesi " + name)
-print("...sähköpostiosoitteeksesi " + email)
-print("...ja lempinimeksesi " + nickname + ".")
+print("Annoit nimeksesi " + nimi)
+print("...sähköpostiosoitteeksesi " + sposti)
+print("...ja lempinimeksesi " + lempinimi + ".")
 ```
 
 Esimerkki ohjelman suorituksesta:
@@ -135,16 +135,16 @@ Huomaa, että mikäli samaan muuttujaan luetaan syöte useamman kerran, uusi arv
 
 ```python
 # Luetaan käyttäjältä osoite
-address = input("Mikä on osoitteesi? ")
+osoite = input("Mikä on osoitteesi? ")
 
 # Tulostetaan viesti
-print("Asut siis osoitteessa " + address)
+print("Asut siis osoitteessa " + osoite)
 
 # Luetaan osoite uudestaan
-address = input("Anna uusi osoite: ")
+osoite = input("Anna uusi osoite: ")
 
 # Nyt uusi arvo on ylikirjoittanut vanhan
-print("Osoite on nyt " + address)
+print("Osoite on nyt " + osoite)
 ```
 
 Esimerkkisuoritus:
@@ -162,14 +162,14 @@ Jos samaan muuttujaan luetaan kaksi syötettä peräkkäin, ei ensimmäisenä sy
 
 ```python
 # Luetaan käyttäjältä osoite
-address = input("Mikä on osoitteesi? ")
+osoite = input("Mikä on osoitteesi? ")
 
 # Luetaan osoite uudestaan
 # Nyt uusi arvo ylikirjoittaa vanhan
-address = input("Anna uusi osoite: ")
+osoite = input("Anna uusi osoite: ")
 
 # Tulostaa viimeisenä syötetyn arvon
-print("Osoite on nyt " + address)
+print("Osoite on nyt " + osoite)
 ```
 
 Esimerkkisuoritus:
