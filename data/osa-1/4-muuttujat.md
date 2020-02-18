@@ -93,6 +93,12 @@ Tupu, Hupu ja Lupu
 
 Huomaa, että `sentence`-muuttujan alkuarvoksi annetaan tyhjä merkkijono. Jos tätä ei tehdä, ei lause `sentence = sentence + name` toimi, koska merkkijono voidaan yhdistää vain toiseen merkkijonoon. Myös tyhjä merkkijono _on_ merkkijono.
 
+<text-box variant="hint">
+
+Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan. Esimerkiksi `age` on parempi muuttujan nimi kuin `a`. Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja `_`.
+
+</text-box>
+
 ## Kokonaislukutyyppiset muuttujat
 
 Tähän mennessä on käsitelty pelkästään merkkijonotyyppisiä muuttujia. Yleensä ohjelmissa halutaan kuitenkin tallentaa myös muun tyyppistä tietoa. Tarkastellaan aluksi _kokonaislukutyyppisiä muuttujia_.
