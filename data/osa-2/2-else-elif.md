@@ -29,7 +29,7 @@ if luku >= 0:
 
 ```
 
-Ohjelma on hiukan kömpelö. Jokaisen mahdollisen syötteen kohdalla halutaan suorittaa jompi kumpi lohkoista, koska kaikki kokonaisluvut ovat joko negatiivisia tai positiviisia (sisältäen nollan). Ensimmäinen vertailu sisältää kaiken olennaisen: jos tulos on tosi, luku on negatiivinen, ja jos se on epätosi, luku on positiivinen tai nolla.
+Ohjelma on hiukan kömpelö. Jokaisen mahdollisen syötteen kohdalla halutaan suorittaa vain toinen lohkoista, koska kaikki kokonaisluvut ovat _joko_ negatiivisia _tai_ positiivisia (sisältäen nollan). Ensimmäinen vertailu sisältää tavallaan kaiken olennaisen: jos tulos on tosi, luku on negatiivinen, ja jos se on epätosi, luku on positiivinen tai nolla.
 
 Toisen vertailun sijasta onkin usein näppärämpää luoda vaihtoehtoinen haara, joka suoritetaan _jos ehto on epätosi_. Tätä tarkoitusta varten käytetään `else`-lausetta.
 
@@ -48,7 +48,7 @@ else:
 
 ```
 
-Kun käytetään if-else-rakennetta, suoritetaan vaihtoehtoisista lohkoista aina jompikumpi. Missään tilanteessa ei ole mahdollista, että suoritettaisiin molemmat lohkot tai ettei suoritettaisi kumpaakaan.
+Kun käytetään if-else-rakennetta, suoritetaan vaihtoehtoisista lohkoista aina jompikumpi. Missään tilanteessa ei ole mahdollista, että suoritettaisiin molemmat lohkot tai ettei suoritettaisi kumpaakaan (edellyttäen toki, ettei ohjelma kaadu virheeseen).
 
 KUVA
 
@@ -104,7 +104,7 @@ Kaksi esimerkkisuoritusta eri syötteillä:
 
 <sample-output>
 
-Anna pin-koodi: 0321
+Anna pin-koodi: **0321**
 Koodi oikein.
 Ota tästä rahaa!
 Rahaa on nyt 100 euroa.
@@ -113,7 +113,7 @@ Rahaa on nyt 100 euroa.
 
 <sample-output>
 
-Anna pin-koodi: 321
+Anna pin-koodi: **321**
 Koodi ei ollut oikea, ei rahaa sinulle.
 Rahaa on nyt 0 euroa.
 
@@ -190,7 +190,7 @@ print("Kiitos ja hei.")
 <sample-output>
 
 Joulukalenteri
-Mikä päivä nyt on? 25.12.
+Mikä päivä nyt on? **25.12.**
 Nyt on joulupäivä
 Kiitos ja hei.
 
@@ -201,7 +201,7 @@ Huomaa, että ehtolauseessa ei edellisessä esimerkissä ole ollenkaan else-haar
 <sample-output>
 
 Joulukalenteri
-Mikä päivä nyt on? 1.1.
+Mikä päivä nyt on? **1.1.**
 Kiitos ja hei.
 
 </sample-output>
