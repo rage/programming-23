@@ -196,7 +196,7 @@ Kiitos ja hei.
 
 </sample-output>
 
-Huomaa, että ehtolauseessa ei edellisessä esimerkissä ole ollenkaan else-haaraa. Jos käyttäjä syöttää jonkin sellaisen päivämäärän, jota ei erikseen testata joko `if`- tai `elif`-lauseella, ohjelmassa ei suoriteta mitään ehtolauseen kolmesta lohkosta.
+Huomaa, että ehtolauseessa ei edellisessä esimerkissä ole ollenkaan else-haaraa. Jos käyttäjä syöttää jonkin sellaisen päivämäärän, jota ei täytä ehtoa jossain`if`- tai `elif`-lauseessa, ohjelmassa ei suoriteta mitään ehtolauseen kolmesta lohkosta.
 
 <sample-output>
 
