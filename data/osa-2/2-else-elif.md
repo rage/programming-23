@@ -208,7 +208,8 @@ Kiitos ja hei.
 
 <text-box variant="hint">
 
-Päivämäärien käsittely on monimutkaisempaa kuin mitä ensi alkuun uskoisi. Ohjelmissa ei oikeasti kannatakaan käsitellä päivämääriä merkkijonoina, vaan käyttää tätä tarkoitusta varten erikseen luotuja _kirjastoja_, jotka osaavat ottaa huomioon esimerkiksi karkauspäivät ja muut poikkeukset. Aiheeseen palataan kurssilla myöhemmin.
+Päivämäärien käsittely on monimutkaisempaa kuin mitä ensi alkuun uskoisi. Ohjelmissa ei oikeasti kannatakaan käsitellä päivämääriä merkkijonoina, vaan käyttää tätä tarkoitusta varten erikseen luotuja _kirjastoja_, jotka osaavat ottaa huomioon esimerkiksi karkauspäivät ja muut poikkeukset. Aiheeseen palataan kurssin loppupuolella myöhemmin.
 
 </text-box>
+
 
