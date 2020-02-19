@@ -169,4 +169,12 @@ mjono = "satakaksikymmentäkolme"
 luku = int(mjono)
 ```
 
+Ohjelma antaa virheen
+
+<sample-output>
+
+ValueError: invalid literal for int() with base 10: 'satakaksikymmentäkolme'
+
+</sample-output>
+
 ...koska Python ei osaa muuntaa merkkijonoa kokonaisluvuksi. Tällasiin virheisiin varautumisesta puhutaan kurssilla myöhemmin.
