@@ -180,4 +180,100 @@ Esimerkiksi:
 
 ```python
 
+# Onko lippu maksettu
+maksettu = False
+
+# Testataan, onko epätosi
+if not maksettu:
+    print("Lippua ei ole maksettu")
+    ke = input("Haluatko maksaa k/e: ")
+    if ke == "k":
+        # Käännetään arvo
+        maksettu = not maksettu
+
+if maksettu:
+    print("Nyt lippu on maksettu.")
+
 ```
+
+Esimerkkitulostus:
+
+<sample-output>
+
+Lippua ei ole maksettu
+Haluatko maksaa k/e: **k**
+Nyt lippu on maksettu.
+
+</sample-output>
+
+Lauseke `maksettu = not maksettu` muuttaa muuttujan `maksettu` arvon komplementiksi. Järkevämpää olisi oikeastaan käyttää muotoa `maksettu = True`, jolloin esimerkiksi tuplamkasun yhteydessä maksutapahtuma ei katoaisi.
+
+## Kaikki loogiset operaattorit
+
+Alla olevassa taulukossa on kuvattu kaikkien loogisten operaattorien toiminta kahden operandin tapauksessa:
+
+a   | b   | a and b | a or b | not a
+:--:|:---:|:-------:|:------:|:----:
+False | False | False | False | True
+True | False | False | True | False
+False | True | False | True | True
+True | True | True | True | False
+
+## Sisäkkäiset ehtolauseet
+
+Ehtolauseita voidaan kirjoittaa toistensa sisään. Esimerkiksi seuraava ohjelma tunnistaa positiivista luvuista parittomat ja parilliset:
+
+```python
+
+luku = int(input("Anna luku: "))
+
+# Testataan onko positiivinen
+if luku >= 0:
+    # Jos oli, testataan onko parillinen vai ei
+    if luku % 2 == 0:
+        print("Luku on parillinen")
+    else:
+        print("Luku on pariton")
+# Jos ei ollut positiivinen...
+else:
+    print("Luku oli negatiivinen.")
+
+```
+
+Esimerkkitulostus kolmella eri syötteellä:
+
+<sample-output>
+
+Anna luku: **3**
+Luku on pariton
+
+Anna luku: **18**
+Luku on parillinen
+
+Anna luku: **-4**
+Luku oli negatiivinen.
+
+</sample-output>
+
+Sisäkkäisiä ehtolauseita käytettäessä on tärkeä muistaa oikeat sisennykset: esimerkiksi `else`-haara yhdistetään oikeaan `if`-lauseeseen juuri saman sisennyksen perusteella.
+
+Huomaa, että monissa tapauksissa voidaan käyttää joko sisäkkäisiä ehtolauseita tai loogisia operaattoreita. Seuraava esimerkki on toiminnallisesti sama kuin edellinen esimerkki (eli se tulostaa tiedon siitä onko positiivinen kokonaisluku parillinen vai pariton):
+
+```python
+
+luku = int(input("Anna luku: "))
+
+# Testataan onko positiivinen ja parillinen
+if luku > 0 and luku % 2 == 0:
+    print("Luku on parillinen")
+# ...tai onko positiivinen ja pariton
+elif luku > 0 and luku % 2 != 0:
+        print("Luku on pariton")
+# Pakko olla negatiivinen
+else:
+    print("Luku oli negatiivinen.")
+
+```
+
+Se kumpaa tapaa käytetään pitää harkita tapauskohtaisesti. Edellisen esimerkin kohdalla ensimmäinen vaihtoehto näyttänee useimpien mielestä selkeämmältä.
+
