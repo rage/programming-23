@@ -11,7 +11,6 @@ hidden: false
 - Osaat selvittää merkkijonon pituuden
 - Osaat poimia yksittäisiä merkkejä ja alijonoja merkkijonosta
 - Osaat etsiä alijonon merkkijonosta
-- Osaat korvata alijonon toisella alijonolla merkkijonossa
 
 </text-box>
 
@@ -127,4 +126,129 @@ Huomaa, että merkkien indeksointi alkaa nollasta: ensimmäinen merkki on siis i
 
 KUVA
 
+Esimerkiksi
+
+```python
+
+merkkijono = "abcdef"
+
+print(merkkijono[0])
+print(merkkijono[1])
+print(merkkijono[3])
+
+```
+
+Ohjelma tulostaa:
+
+<sample-output>
+
+a
+b
+d
+
+</sample-output>
+
+
+Koska merkkijonon ensimmäinen merkki on indeksin 0 kohdalla, on viimeinen merkki vastaavasti indeksin _pituus - 1_ kohdalla. Esimerkiksi:
+
+```python
+
+mjono = input("Anna merkkijono: ")
+
+# Testataan, että pituus on yli yksi
+# jotta merkkijonossa on eka ja toka merkki
+if len(mjono) > 1:
+    print("Eka merkki: " + mjono[0])
+    print("Toka merkki: " + mjono[1])
+
+    # Viimeinen merkki on paikassa pituus - 1
+    print("Viimeinen merkki: " + mjono[len(mjono) - 1])
+
+# Kaikki merkit alusta loppuun
+indeksi = 0
+
+# Toistetaan niin kauan kun indeksi on pienempi kuin pituus
+while indeksi < len(mjono):
+    # Tulosta yksi merkki
+    print(mjono[indeksi])
+
+    # ...ja kasvata indeksiä
+    indeksi = indeksi + 1
+
+```
+
+<sample-output>
+
+Anna merkkijono: Esimerkki
+Eka merkki: E
+Toka merkki: s
+Viimeinen merkki: i
+E
+s
+i
+m
+e
+r
+k
+k
+i
+
+<sample-output>
+
+Pythonissa merkkeihin voi viitata myös alkaen merkkijonon lopusta käyttämällä negatiivisia indeksejä. Merkkijonon viimeinen merkki on indeksin -1 kohdalla, toiseksi viimeinen indeksin -2 kohdalla jne. Yleensä onkin kätevämpi kirjoittaa `m[-1]` kuin `m[len(m) - 1]`.
+
+KUVA
+
+## Alijonot
+
+Yksittäisten merkkien lisäksi merkkijonosta voidaan palauttaa _alijono_ (myös termiä _osajono_ käytetään). Käytännössä tämä tarkoittaa pienempää osaa tai "siivua" merkkijonosta, esimerkiksi lauseen yksittäistä sanaa.
+
+Alijono palautetaan syntaksilla `merkkijono[alkuindeksi : loppuindeksi]`. Alkuindeksin kohdalla oleva merkki tulee mukaan alijonoon, mutta loppuindeksin kohdalla oleva ei tule. Indeksit kannattaakin ajatella esimerkiksi merkkien vasemmalle puolelle piirretyiksi viivoiksi alla olevan kuvan mukaisesti:
+
+KUVA
+
+Minkä takia indeksit sitten toimivat näin? Tähän lienee kaksi syytä: ensinnäkin, indeksit toimivat samalla tavalla useimmissa muissa ohjelmointikielissä (jolloin kielestä toiseen siirtyminen on helpompaa). Toinen syy lienee se, että kun loppuindeksin mukaista merkkiä ei oteta mukaan alijonoon, voidaan alijonon pituus laskea kaavalla `loppuindeksi - alkuindeksi`.
+
+Seuraava esimerkki esittelee alijonojen palauttamista:
+
+```python
+
+# Merkkijono
+esimerkkijono = "Moi kaikki!";
+
+print(esimerkkijono[0:3])
+
+toka_sana = esimerkkijono[4:10]
+print(toka_sana)
+
+# Alku- tai loppuparametrin voi jättää pois
+# Alkuparametriksi oletetaan tällöin 0
+# ja loppuparametriksi merkkijonon pituus
+print(esimerkkijono[:2])
+print(esimerkkijono[4:])
+
+```
+
+<sample-output>
+
+Moi
+kaikki
+Mo
+kaikki!
+
+</sample-output>
+
+Huomaa, että alijonoa palautettaessa Python hyväksyy myös merkkijonon alkua edeltävät tai lopun yli menevät indeksit. Yksittäistä merkkiä palauttaessa tällaisen indeksin käyttäminen antaa kuitenkin virheen.
+
+Esimerkiksi
+
+```python
+
+
+
+```
+
+## Alijonon etsiminen merkkijonosta
+
+Yksittäisen merkin tai alijonon esiintyminen merkkijonossa voidaan selvittää `in`-operaattorin avulla. Lauseke `alijono in merkkijono` palauttaa arvon True, jos annettu alijono (tai yksittäinen merkki) löytyy merkkijonosta.
 
