@@ -193,7 +193,7 @@ k
 k
 i
 
-<sample-output>
+</sample-output>
 
 Pythonissa merkkeihin voi viitata myös alkaen merkkijonon lopusta käyttämällä negatiivisia indeksejä. Merkkijonon viimeinen merkki on indeksin -1 kohdalla, toiseksi viimeinen indeksin -2 kohdalla jne. Yleensä onkin kätevämpi kirjoittaa `m[-1]` kuin `m[len(m) - 1]`.
 
