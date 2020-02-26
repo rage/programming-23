@@ -11,6 +11,7 @@ hidden: false
 - Osaat selvittää merkkijonon pituuden
 - Osaat poimia yksittäisiä merkkejä ja alijonoja merkkijonosta
 - Osaat etsiä alijonon merkkijonosta
+- Tiedät mitä tarkoitetaan metodilla Pythonissa ja miten se eroaa funktiosta
 
 </text-box>
 
@@ -252,3 +253,99 @@ Esimerkiksi
 
 Yksittäisen merkin tai alijonon esiintyminen merkkijonossa voidaan selvittää `in`-operaattorin avulla. Lauseke `alijono in merkkijono` palauttaa arvon True, jos annettu alijono (tai yksittäinen merkki) löytyy merkkijonosta.
 
+Esimerkiksi
+
+```python
+
+mjono = "Vesihiisi sihisi hississä"
+
+print("V" in mjono)
+print("v" in mjono)
+
+if "sihisi hississä" in mjono:
+    print("Kuulen sihinää")
+
+if "Vesi " in mjono:
+    print("Vettäkin on")
+else:
+    print("Vesi puuttuu")
+
+
+```
+
+<sample-output>
+
+True
+False
+Kuulen sihinää
+Vesi puuttuu
+
+</sample-output>
+
+Huomaa ero pienten ja isojen kirjaimien välillä: `v in mjono` evaluoituu arvoksi `False`, koska merkkijonosta `mjono` ei löydy pientä v-kirjainta.
+
+Viimeinen ehtolause esimerkissä tulostaa `Vesi puuttuu`, koska merkkijonosta ei löydy alijonoa jossa sanaa Vesi seuraisi välilyönti: `Vesi `.
+
+`in`-operaattori palauttaa tiedon alijonon esiintymisestä, muttei tietoa siitä _mistä se löytyy_. Tätä varten Pythonissa on _metodi_ `find`.
+
+<text-box variant="hint">
+
+Metodilla tarkoitetaan (yleensä) funktiota, joka on sidottu johonkin _objektiin_. Metodin toiminta kohdistuu siihen sidottuun objektiin.
+
+Pythonissa metodia kutsutaan kirjoittamalla objektin perään piste ja metodin nimi. Kun siis _funktiota_ `len` kutsutaan esim. näin:
+
+`len("Moikka!")`
+
+...kutsutaan metodia `find` esim. näin:
+
+`"Moikka".find("Moi")`
+
+</text-box>
+
+`find` saa parametrikseen etsittävän alijonon, ja palauttaa joko _ensimmäisen indeksin, josta alijono löytyy_ tai `-1`, jos alijonoa ei löydy merkkijonosta.
+
+Metodin syntaksi näyttää siis tältä:
+
+KUVA
+
+Esimerkkejä metodin käyttämisestä:
+
+```python
+
+while True:
+    mjono = input("Anna merkkijono, tyhjä lopettaa: ")
+
+    # Jos tyhjä merkkijono, lopetetaan
+    if mjono == "":
+        break
+
+    alijono = input("Anna alijono: ")
+
+    # Etsitään alijono merkkijonosta...
+    indeksi = mjono.find(alijono)
+
+    # Tulostetaan
+    if indeksi > -1:
+        print("Alijono löytyy indeksin " + str(indeksi) + " kohdalta")
+    else:
+        print("Alijonoa ei löydy merkkijonosta.")
+
+print("Kiitos alijonotuksesta.")
+
+```
+
+<sample-output>
+
+Anna merkkijono, tyhjä lopettaa: **Vesihiisi sihisi**
+Anna alijono: **hiisi**
+Alijono löytyy indeksin 4 kohdalta
+Anna merkkijono, tyhjä lopettaa: **abcabc**
+Anna alijono: **abca**
+Alijono löytyy indeksin 0 kohdalta
+Anna merkkijono, tyhjä lopettaa: **sihisikö hiisi?**
+Anna alijono: **Hiisi**
+Alijonoa ei löydy merkkijonosta.
+Anna merkkijono, tyhjä lopettaa:
+Kiitos alijonotuksesta.
+
+</sample-output>
