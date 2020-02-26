@@ -106,7 +106,7 @@ totuus onkin totuusarvo.
 
 </sample-output>
 
-Tarkastellaan esimerkkitulostuksen riviä lauseelle `print(type(luku))`. Lause tulostaa rivin `<class 'int'>`, mikä tarkoittaa, että muuttujan luku tyyppi on `str` eli merkkijono. Kun tämä yhdistetään ehtolauseeseen, voidaan käsitellä eri tyyppiset arvot eri tavoilla.
+Tarkastellaan esimerkkitulostuksen riviä lauseelle `print(type(luku))`. Lause tulostaa rivin `<class 'int'>`, mikä tarkoittaa, että muuttujan luku tyyppi on `int` eli kokonaisluku. Kun tämä yhdistetään ehtolauseeseen, voidaan käsitellä eri tyyppiset arvot eri tavoilla.
 
 # Tyyppimuunnokset
 

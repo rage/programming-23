@@ -59,8 +59,7 @@ paino = 68.55
 # Painoindeksi lasketaan jakamalla paino
 # pituuden neliöllä. Pituus ilmoitetaan
 # kaavassa metreinä.
-bmi = paino / 
-pituus / 100) ** 2
+bmi = paino / (pituus / 100) ** 2
 
 print("Painoindeksi on " + str(bmi))
 ```
