@@ -1,5 +1,5 @@
 ---
-path: '/osa-3/4-break-ja-continue'
+path: '/osa-3/3-break-ja-continue'
 title: 'Silmukoiden suorituksen ohjaaminen'
 hidden: true
 ---
