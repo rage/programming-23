@@ -1,7 +1,7 @@
 ---
 path: '/osa-3/3-break-ja-continue'
 title: 'Silmukoiden suorituksen ohjaaminen'
-hidden: true
+hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
