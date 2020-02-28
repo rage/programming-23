@@ -169,6 +169,8 @@ while True:
 
 <sample-output>
 
+```
+
 1. Yhteenlasku
 2. Kertolasku
 3. Vähennyslasku
@@ -198,5 +200,6 @@ Erotus on -11
 3. Vähennyslasku
 0. Lopetus
 Mitä haluat laskea: **0**
+```
 
 </sample-output>
