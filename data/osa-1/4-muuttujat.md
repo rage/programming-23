@@ -54,7 +54,7 @@ Pekka Pythonen
 
 Muuttujan arvo voi nimensä mukaisesti muuttua. Niin kuin edellisessä osassa todettiin, uusi arvo ylikirjoittaa vanhan arvon.
 
-KUVA
+<img src="1_4.png">
 
 Esimerkiksi
 
