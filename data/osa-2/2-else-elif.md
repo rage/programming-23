@@ -50,7 +50,7 @@ else:
 
 Kun käytetään if-else-rakennetta, suoritetaan vaihtoehtoisista lohkoista aina jompikumpi. Missään tilanteessa ei ole mahdollista, että suoritettaisiin molemmat lohkot tai ettei suoritettaisi kumpaakaan (edellyttäen toki, ettei ohjelma kaadu virheeseen).
 
-KUVA
+<img src="2_2_1.png">
 
 Huomaa, että else-haaraa ei voi olla olemassa ilman edeltävää if-haaraa. Koko if-else-rakenne lohkoineen muodostaa yhden _ehtolauseen_.
 
@@ -126,7 +126,7 @@ Usein vaihtoehtoja on kuitenkin enemmän kuin kaksi. Esimerkiksi jalkapallo-otte
 
 Ehtolausetta voidaan laajentaa `elif`-haaralla. Se on lyhenne sanoista "else if", ja tarkoittaa nimensä mukaisesti vaihtoehtoa alkuperäiselle ehdolle.
 
-KUVA
+<img src="2_2_2.png">
 
 Tarkastellaan esimerkkiä, jossa selvitetään ottelun voittaja:
 
