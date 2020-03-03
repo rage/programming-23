@@ -31,7 +31,7 @@ Yllä on esitetty esimerkkiohjelman tulostus. Voit kokeilla lausetta myös itse 
 
 Ohjelmien rakenne voidaan esittää hyvin yksinkertaistetusti seuraavasti:
 
-KUVA
+<img src="1_1_1.png" alt="syöte --> käsittely --> tuloste">
 
 Ohjelma siis saa syötteen, käsittelee sen ja viestii tuloksen takaisin. Tällä kurssilla käytämme tuloksen kommunikointiin yleensä funktiota `print`. Funktiolla tarkoitetaan ohjelman itsenäistä osaa, jota voidaan kutsua sen nimellä. Funktioilla on usein myös parametreja. Esimerkiksi print-funktio saa parametrikseen tulostettavan objektin.
 
@@ -55,7 +55,7 @@ Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.
 
 ## Lausekkeet print-funktion parametrina
 
-Parametriksi voidaan antaa myös jokin lauseke. 
+Parametriksi voidaan antaa myös jokin lauseke.
 
 Esimerkiksi seuraava ohjelma
 
@@ -64,7 +64,7 @@ print(2 + 5)
 print(3 * 3) # *-merkkiä käytetään kertolaskuoperaattorina
 print(2 + 2 * 10) # laskujärjestys noudattaa pääpiirteittäin matematiikasta tuttua järjestystä
 ```
-tulostaa ruudulle 
+tulostaa ruudulle
 
 <sample-output>
     7
@@ -72,7 +72,7 @@ tulostaa ruudulle
     22
 </sample-output>
 
-Huomaa, että laskujen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään 
+Huomaa, että laskujen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään
 _merkkijono_, joka tulostetaan ruudulle sellaisenaa. Huomaa siis seuraavien lauseiden ero:
 
 ```python
