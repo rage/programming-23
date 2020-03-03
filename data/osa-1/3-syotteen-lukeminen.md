@@ -16,7 +16,7 @@ hidden: false
 
 Palautetaan mieleen ensimmäisessä osassa esitetty yksinkertaistettu kaavio ohjelmien suorittamisesta:
 
-KUVA
+<img src="1_1_1.png">
 
 Ohjelman suorituksen erikoistamiseksi tarvitsemme keinon lukea käyttäjältä syötteitä. Pythonissa tähän tarkoitukseen käytetään funktiota `input`. Samoin kuin print-funktio, myös se saa parametrikseen merkkijononon. Tämä merkkijono tulostetaan käyttäjlle kehotteeksi (eli viestiksi, jonka tarkoitus on ohjata käyttäjää antamaan oikeanlainen syöte).
 
