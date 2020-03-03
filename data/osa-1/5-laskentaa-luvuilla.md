@@ -34,7 +34,7 @@ print((2 + 3) * 3)
 Ohjelma tulostaa
 
 <sample-output>
-  
+
 11
 15
 
@@ -44,7 +44,7 @@ Ohjelma tulostaa
 
 Lausekkeessa on yleensä *operandeja* ja *operaattoreita*:
 
-**KUVA**
+<img src="1_5.png">
 
 Yleensä operandien tyyppi ratkaisee lopputuloksen tyypin: jos lasketaan yhteen kaksi kokonaislukua, myös tulos on kokonaisluku. Jos taas vähennetään liukuluku toisesta liukuluvusta, myös tulos on liukuluku. Itse asiassa tulos on liukuluku, jos edes yksi operandeista lausekkeessa on liukuluku.
 
@@ -69,7 +69,7 @@ Luvun neliön voisi tietysti laskea myös kertomalla luvun itsellään, mutta yl
 Ohjelma tulostaa
 
 <sample-output>
-  
+
 Painoindeksi on 23.037177063642087
 
 </sample-output>
@@ -102,20 +102,20 @@ print("Painoindeksi on " + str(bmi))
 Ohjelman esimerkkitulostus voisi näyttää vaikka seuraavalta:
 
 <sample-output>
-  
+
 Anna pituus: **163**
 Anna paino: **74.45**
 Painoindeksi on 28.02137829801649
-  
+
 </sample-output>
 
-Muunnos merkkijonosta liukuluvuksi voidaan siis tehdä käyttäen funktiota `float`. Funktion syötteen pitää olla sellainen, että Python osaa muuntaa sen liukuluvuksi, muuten seuraa virhetilanne. 
+Muunnos merkkijonosta liukuluvuksi voidaan siis tehdä käyttäen funktiota `float`. Funktion syötteen pitää olla sellainen, että Python osaa muuntaa sen liukuluvuksi, muuten seuraa virhetilanne.
 
-Huomaa, että syötteitä ei välttämättä olisi pakko tallentaa muuttujiin 
+Huomaa, että syötteitä ei välttämättä olisi pakko tallentaa muuttujiin
 pituus_string` ja `paino-string`, vaan muunnoksen voisi tehdä suoraankin:
 
 ```python
-# Luetaan käyttäjältä pituus ja paino ja 
+# Luetaan käyttäjältä pituus ja paino ja
 # muunnetaan ne liukuluvuiksi
 # pituus = float(input("Anna pituus: "))
 paino = float(input("Anna paino: "))
@@ -147,7 +147,7 @@ print("Päättelin, että olit " + str(ikä) + " vuotta vanha vuoden 2019 lopuss
 Ohjelman esimerkkisuoritus:
 
 <sample-output>
-  
+
 Mikä on nimesi? **Pauliina**
 Minä vuonna olet syntynyt? **1997**
 Moi, Pauliina!
