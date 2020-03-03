@@ -135,7 +135,7 @@ print("Ohjelman suoritus päättyi. Kiitos ja hei!")
 
 Tyhjä tila voidaan esittää joko välilyönneillä (yleensä käytetään neljää välilyöntiä) tai _tabulaattorilla_, jonka saat Tab-näppäimestä.
 
-KUVA
+<img src="1_6_keyboard.png">
 
 Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Lohkon kirjoittamisen voit lopettaa editorissa painamalla rivin alussa `Backspace`-näppäintä.
 

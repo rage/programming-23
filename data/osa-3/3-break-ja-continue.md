@@ -136,7 +136,7 @@ Jos haluaisimme kuitenkin esimerkiksi laskea kaikkien tällaisten parien määr�
 
 Lauseen toiminta muistuttaa hiukan `break`-lausetta, mutta silmukan suorituksen katkaisemisen sijasta `continue` päättää silmukan _nykyisen kierroksen_. Kun silmukan sisällä tulee siis vastaan lause `continue`, hyppää suoritus välittömästi silmukan ensimmäiselle riville (eli riville, jolla määritellään silmukan suoritukseen vaikuttava ehtolause). Tämän jälkeen silmukan suoritus jatkuu normaalisti ehtolauseen tarkastamisella:
 
-KUVA break ja continue
+<img src="3_3.png">
 
 Esimerkiksi:
 

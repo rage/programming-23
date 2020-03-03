@@ -125,7 +125,7 @@ Yksittäinen merkki merkkijonosta voidaan palauttaa operaattorin `[]` avulla. Op
 
 Huomaa, että merkkien indeksointi alkaa nollasta: ensimmäinen merkki on siis indeksin nolla kohdalla, toinen indeksin 1 kohdalla jne.
 
-KUVA
+<img src="3_2_1.png">
 
 Esimerkiksi
 
@@ -198,7 +198,7 @@ i
 
 Pythonissa merkkeihin voi viitata myös alkaen merkkijonon lopusta käyttämällä negatiivisia indeksejä. Merkkijonon viimeinen merkki on indeksin -1 kohdalla, toiseksi viimeinen indeksin -2 kohdalla jne. Yleensä onkin kätevämpi kirjoittaa `m[-1]` kuin `m[len(m) - 1]`.
 
-KUVA
+<img src="3_2_2.png">
 
 ## Alijonot
 
@@ -206,7 +206,7 @@ Yksittäisten merkkien lisäksi merkkijonosta voidaan palauttaa _alijono_ (myös
 
 Alijono palautetaan syntaksilla `merkkijono[alkuindeksi : loppuindeksi]`. Alkuindeksin kohdalla oleva merkki tulee mukaan alijonoon, mutta loppuindeksin kohdalla oleva ei tule. Indeksit kannattaakin ajatella esimerkiksi merkkien vasemmalle puolelle piirretyiksi viivoiksi alla olevan kuvan mukaisesti:
 
-KUVA
+<img src="3_2_3.png">
 
 Minkä takia indeksit sitten toimivat näin? Tähän lienee kaksi syytä: ensinnäkin, indeksit toimivat samalla tavalla useimmissa muissa ohjelmointikielissä (jolloin kielestä toiseen siirtyminen on helpompaa). Toinen syy lienee se, että kun loppuindeksin mukaista merkkiä ei oteta mukaan alijonoon, voidaan alijonon pituus laskea kaavalla `loppuindeksi - alkuindeksi`.
 
@@ -306,7 +306,7 @@ Pythonissa metodia kutsutaan kirjoittamalla objektin perään piste ja metodin n
 
 Metodin syntaksi näyttää siis tältä:
 
-KUVA
+<img src="3_2_4.png">
 
 Esimerkkejä metodin käyttämisestä:
 

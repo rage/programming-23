@@ -23,7 +23,7 @@ while <ehtolauseke>:
 
 Toistolause muistuttaa ehtolausetta: aluksi Python evaluoi ehtolausekkeen. Jos ehtolauseke saa arvon `True`, suoritetaan lohko. Poikkeuksena ehtolauseeseen on, että toistolauseessa ehtolauseke evaluoidaan uudestaan aina lohkon suorituksen jälkeen:
 
-KUVA
+<img src="3_1_1.png">
 
 Esimerkiksi
 
@@ -97,7 +97,7 @@ Silmukassa on kolme olennaista osaa:
 
 _Alustuksella_ tarkoitetaan silmukassa käytettävän muuttujan tai muuttujien alkuarvojen antamista. Tämä vaihe tehdään yleensä ennen toistolausetta. _Testaus_ kirjoitetaan `while`-lauseen yhteyteen, ja se määrittelee ehdon jonka ollessa tosi silmukka suoritetaan. Joka kierroksella tapahtuva _muutos_ vie silmukan askeleen lähemmäs sen loppumista. Esimerkiksi
 
-KUVA
+<img src="3_1_2.png">
 
 Jos jokin kolmesta osasta puuttuu, toistolause joko ei toimi ollenkaan tai ei pääty koskaan. Tyypillinen virhe onkin muutos-osan unohtaminen:
 
