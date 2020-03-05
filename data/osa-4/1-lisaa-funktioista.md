@@ -323,15 +323,42 @@ pizzzzzaaa
 
 Paluuarvon _voi_ siis tulostaa ruudulle erillisellä `print`-lauseella, mutta automaattisesti `return`-lause ei tulosta ruudulle mitään.
 
+Toisin kuin `print`-lause, `return`-lause myös päättää funktion suorituksen välittömästi (eli toimii tältä osin vähän samankaltaisesti kuin `break`-lause silmukassa):
+
+```python
+
+def palautusarvo() -> int:
+    return 45
+    print("Tätä riviä ei suoriteta koskaan")
+
+def tulostus():
+    print(33)
+    print("Tämä rivi suoritetaan ihan normaalisti")
+
+
+print(palautusarvo())
+tulostus()
+
+
+```
+
+<sample-output>
+
+45
+33
+Tämä rivi suoritetaan ihan normaalisti
+
+</sample-output>
+
 Pähkinänkuoressa siis:
 
 <text-box variant="hint">
 
-Jos funktiosta palautetaan arvo...
+Kun funktiosta _palautetaan arvo_...
+
 * funktion suoritus päättyy `return`-lauseeseen
 * funktiolla on jokin _tyyppi_, joka merkitään parametrien perään
-* palautettua arvoa voidaan käyttää osana lauseketta
-
+* palautettua arvoa voidaan käyttää _osana lauseketta_
 
 </text-box>
 
