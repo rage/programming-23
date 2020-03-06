@@ -4,8 +4,13 @@ title: 'Tulostaminen'
 hidden: false
 ---
 
+
+
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Aloitetaan ohjelmoinnin opettelu viestien välittämisestä käyttäjälle: ohjelman lopputuloksen kommunikointi on olennaisen tärkeä osa ohjelmointia.
+
+Tässä osiossa
 
 - Kirjoitat ja suoritat ensimmäisen Python-ohjelmasi
 - Tutustut termeihin funktio ja parametri

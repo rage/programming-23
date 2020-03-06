@@ -7,6 +7,7 @@ hidden: false
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
 
+
 - Opit kirjoittamaan ohjelman, joka lukee käyttäjän syötteen
 - Tiedät, mitä tarkoitetaan muuttujalla
 - Osaat käyttää muuttujaa syötteen lukemisessa ja tulostamisessa
