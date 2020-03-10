@@ -161,6 +161,12 @@ Uusi lista:         [1, 2, 3, 10]
 
 </sample-output>
 
+Huomaa, että listasta voi tehdä kopion ottamalla siitä "alilistan", joka sisältää kaikki alkiot. Näppärästi tämä käy jättämällä alilistaoperaatiosta sekä alku- että loppuindeksi pois (esimerkissä `lista2 = lista[:]`).
+
+On siis eri asia kopioida viittaus kuin tehdä kopio listasta:
+
+KUVA
+
 ## Funktioiden sivuvaikutukset
 
 Koska funktio saa parametrinaan viittauksen listaan, se voi muuttaa tätä listaa. Jos funktion varsinaisena tarkoituksena ei ole muuttaa listaa, muutokset voivat aiheuttaa ongelmia toisaalla ohjelmassa.
@@ -222,3 +228,5 @@ print(luvut)
 </sample-output>
 
 Nyt toiseksi pienimmän alkion etsiminen ei sotke listan alkuperäistä järjestystä.
+
+
