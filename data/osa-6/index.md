@@ -2,7 +2,7 @@
 path: '/osa-6'
 title: 'Osa 6'
 overview: true
-hidden: true
+hidden: false
 ---
 
 <only-for-course-variant variant="dl">
@@ -34,7 +34,7 @@ hidden: true
 </only-for-not-logged-in>
 
 
-Kurssimateriaalin kuudennessa osassa käsitellään olioista koostuvia olioita sekä tutustutaan tekstikäyttöliittymän ja sovelluslogiikan eriyttämiseen.
+Kurssimateriaalin kuudennessa osassa käsitellään tiedostojen lukemista ja kirjoittamista sekä virhetilanteiden käsittelyä
 
 <please-login></please-login>
 
