@@ -126,8 +126,7 @@ Tiedoston rivien yhteispituus ilman rivinvaihtoja on 63
 
 ## Tietojen purkaminen
 
-Yleensä datatiedostot sisältävät muutakin tieto kuin pelkkää tekstiä. On melko tyypillistä, että tiedostoista löytyy yhdeltä riviltä useita _datapisteitä_, jotka on erotettu toisistaan jollain välimerkillä, esimerkiksi pilkulla.
-
+Yleensä datatiedostot sisältävät muutakin tieto kuin pelkkää tekstiä. On melko tyypillistä, että tiedostoista löytyy yhdeltä riviltä useita _datapisteitä_, jotka on erotettu toisistaan jollain välimerkillä, esimerkiksi pilkulla. Tällaisia tiedostoja kutsutaan usein _CSV-tiedostoiksi_, missä lyhenne CSV tulee sanoista _Comma Separated Values_. Välimerkkeinä voidaan toki käyttää muutakin kuin pilkkua.
 
 Tiedoston rivit on helppo lukea muistiin `for`-lauseella, mutta miten erottaa datapisteet toisistaan? Helppo tapa on käyttää merkkijonojen `split`-metodia: metodille annetaan haluttu välimerkki, ja se palauttaa alkiot eroteltuna välimerkin mukaan listana merkkijonoja.
 
