@@ -63,7 +63,7 @@ om = a / 2
 
 ## Tyypin selvittäminen
 
-Jos muuttujan arvo ei ole selvillä, sen voi selvittää `type` funktiolla. Funktio palauttaa annetun lausekkeen tyypin.
+Jos muuttujan arvo ei ole selvillä, sen voi selvittää funktiolla `type`. Funktio palauttaa annetun lausekkeen tyypin.
 
 Esimerkiksi
 
