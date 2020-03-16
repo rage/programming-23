@@ -141,6 +141,16 @@ Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi
 
 Useissa muissa ohjelmointikielessä käytetään erillisiä symboleita kuvaamaan lohkon alkua ja loppua. Pythonissa lohkon määrittää siis rivien sisentäminen. Tästä on se etu, että ohjelmakoodi on pakko kirjoittaa helpommin luettavaksi.
 
+Huomaa, että Pythonissa ei voi kirjoittaa tyhjää lohkoa - lohkon sisällä on aina oltava vähintään yksi lause (eikä kommentteja lasketa lauseeksi). Jos haluat kirjoittaa lohkon ilman toteuttavia rivejä (esimerkiksi kirjoittaaksesi toteutuksen myöhemmin), voit käyttää avainsanaa `pass`.
+
+```python
+
+if True:
+    # Tässä ei tapahdu mitään
+    pass
+
+```
+
 
 ## Totuusarvot
 
