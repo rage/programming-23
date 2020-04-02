@@ -174,7 +174,7 @@ Tulevaisuus tulee joskus
 
 </sample-output>
 
-Koska aikaolioita voidaan vertailla toisiinsa, aikoja sisältävän listan voi myös järjestää funktioilla `sort` tai `sorted`:
+Koska aikaolioita voidaan vertailla toisiinsa, aikoja sisältävän listan voi myös järjestää metodilla `sort` tai funktiolla `sorted`:
 
 ```python
 
