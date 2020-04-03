@@ -102,6 +102,12 @@ print(muodosta_ryhmä(tyypit, 4))
 
 </sample-output>
 
+<text-box variant="info">
+
+Toisin kuin useissa muissa ohjelmointikielissä, Pythonissa `import`-lausetta voi käyttää missä tahansa ohjelman osassa. On kuitenkin suositeltavaa niputtaa kaikki importit heti ohjelman alkuun - tämä paranta ohjelman luettavuutta ja helpottaa muita ohjelmoijia.
+
+</text-box>
+
 ## Yksittäisten operaatioiden käyttöönotto
 
 Jos kirjastosta tarvitaan vain yksittäisiä operaatiota, on usein järkevämpää määritellä operaatiot `import`-lausetta käytettäessä.

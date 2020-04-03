@@ -4,426 +4,127 @@ title: 'Esimerkkejä muista kirjastoista'
 hidden: false
 ---
 
+<text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Seitsemännen osan lopuksi teet muutamia laajempia tehtäviä. Tehtävissä ei ole ennalta määriteltyä rakennetta -- mieti tehtävää tehdessäsi minkälaiset luokat ja oliot auttavat tehtävien ratkaisemisessa.
+Edellä esitettyjen kirjastojen lisäksi Pythonin mukana tulee lukuisia muita hyödyllisiä kirjastoja. Tutustutaan vielä muutamaan ja tarkastellaan samalla Pythonin dokumentaatiota vähän tarkemmin.
 
-<programming-exercise name='Arvosanatilastot (4 osaa)' tmcname='osa07-Osa07_06.Arvosanatilastot'>
+- Tunnet eräitä tärkeitä Pythonin mukana tulevia kirjastoja
+- Osaat hyödyntää kirjastoja Pythonin dokumentaation avulla
 
-Tässä tehtävässä toteutetaan ohjelma kurssipistetilastojen tulostamiseen. Ohjelmalle syötetään pisteitä (kokonaislukuja nollasta sataan), ja ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja. Syötteiden lukeminen lopetetaan kun käyttäjä syöttää luvun -1. Lukuja, jotka eivät ole välillä [0-100] ei tule ottaa huomioon tilastojen laskemisessa.
+</text-box>
 
-Muistathan, että käyttäjältä luetun merkkijonon saa muunnettua kokonaisluvuksi `Integer`-luokan metodilla `valueOf`. Tämä toimii seuraavasti:
+Pythonin mukana tulee paljon valmiita kirjastoja. Lähes loputtomasti lisää löytää helposti Googlella. Kaikkea ei siis voi opetella ulkoa, eikä siihen ole onneksi tarvettakaan - tiedon haku kuuluu olennaisena osana ohjelmoijan työkalupakettiin. Googlen lisäksi tietoa kannattaa etsiä <a href="https://docs.python.org/3/library/">Pythonin omasta dokumentaatiosta</a>, erityisesti Pythonin perusasennukseen kuuluvia kirjastoja käytettäessä.
 
-```java
-String lukuMerkkijonona = "3";
-int luku = Integer.valueOf(lukuMerkkijonona);
+Tarkastellaan vielä esimerkkinä muutamaa peruskäytössä hyödyllistä kirjastoa ja opetellaan samalla lukemaan Pythonin dokumentaatiota.
 
-System.out.println(lukuMerkkijonona + 7);
-System.out.println(luku + 7);
+## Matemaattiset perusoperaatiot: kirjasto math
+
+Peruslaskutoimituksia varten Pythonin mukana tulee kirjasto `math`. Kirjastosta löytyy operaatioita yleisimpiin matemaattisiin operaatioihin.
+
+Avataan aluksi <a href="https://docs.python.org/3/library/math.html">kirjaston dokumentaatiosivu</a>. Alla olevassa ruudunkaappauksessa (2.4.2020) näkyy pieni osa sivua:
+
+KUVA
+
+Pythonin kirjastojen dokumenttisivuilla on kaikilla yleensä sama rakenne: niissä on esitelty kirjaston sisältämät funktiot ja kerrottu niiden toiminnasta. Usein mukana on myös yksinkertaisia koodiesimerkkejä.
+
+Jos kirjasto on ennestään tuttu, muttet muista etsimäsi funktion nimeä, nopea tapa listata kirjaston sisältämät operaatiot on käyttää Pythonin komentoa `dir <kirjasto>`. Funktio palauttaa kirjaston sisältämät operaatiot listana - usein sitä onkin järkevintä käyttää komentoriviltä ohjelman sijasta:
+
+```python
+
+>>> import math
+>>> dir(math)
+
 ```
 
 <sample-output>
 
-37
-10
+['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']
 
 </sample-output>
 
+Myös useimmat editorit tarjoavat avusteena listan modulin sisältämistä operaatioista. Esimerkiksi Visual Studio Code tarjoaa operaatioita valittavaksi, kunhan kirjasto `math` on otettu käyttöön `import`-lauseella ohjelman alussa:
 
-<h2>Pisteiden keskiarvot</h2>
+KUVA
 
+Esimerkkifunktio laskee pallon pinta-alan annetun säteen perusteella:
 
-Kirjoita ohjelma, joka lukee käyttäjältä kurssin yhteispisteitä kuvaavia kokonaislukuja. Luvut väliltä [0-100] ovat hyväksyttäviä ja luku -1 lopettaa syötteen. Muut luvut ovat virhesyötteitä, jotka tulee jättää huomiotta. Kun käyttäjä syöttää luvun -1, tulostetaan syötettyjen yhteispisteiden keskiarvo.
+```python
 
-<sample-output>
+from math import pi
 
-Syötä yhteispisteet, -1 lopettaa:
-**-42**
-**24**
-**42**
-**72**
-**80**
-**52**
-**-1**
-Pisteiden keskiarvo (kaikki): 54.0
+def pallon_pinta_ala(säde: float) -> float:
+    return 4 * pi * säde ** 2
 
-</sample-output>
 
-<sample-output>
+```
 
-Syötä yhteispisteet, -1 lopettaa:
-**50**
-**51**
-**52**
-**-1**
-Pisteiden keskiarvo (kaikki): 51.0
+## Merkkijonoapuvälineitä: kirjasto string
 
-</sample-output>
-
-
-<h2>Hyväksyttyyn arvosanaan liittyvien pisteiden keskiarvot</h2>
-
-Täydennä ohjelmaa siten, että se laskee kaikkien pisteiden keskiarvon lisäksi myös hyväksyttyyn arvosanaan liittyvien pisteiden keskiarvot.
-
-Hyväksytyn arvosanan saa vähintään 50 kurssipisteellä. Voit olettaa, että käyttäjä kirjoittaa aina vähintään yhden välillä [0-100] olevan kokonaisluvun. Jos hyväksyttyyn arvosanaan osuvia lukuja ei ole lainkaan, tulostetaan viiva hyväksyttyjen keskiarvon kohdalle "-".
-
-<sample-output>
+Kirjasto <a href="https://docs.python.org/3/library/string.html">string</a> sisältää hyödyllisiä vakioarvoja ja työkaluja merkkijonojen käsittelyyn.
 
-Syötä yhteispisteet, -1 lopettaa:
-**-42**
-**24**
-**42**
-**72**
-**80**
-**52**
-**-1**
-Pisteiden keskiarvo (kaikki): 54.0
-Pisteiden keskiarvo (hyväksytyt): 68.0
+Alla olevassa esimerkissä on toteutettu funktio, joka laskee välimerkkien määrän merkkijonosta:
 
-</sample-output>
+```python
 
-<sample-output>
-
-Syötä yhteispisteet, -1 lopettaa:
-**49**
-**48**
-**47**
-**-1**
-Pisteiden keskiarvo (kaikki): 48.0
-Pisteiden keskiarvo (hyväksytyt): -
-
-</sample-output>
-
-
-<h2>Hyväksyttyjen prosenttiosuus</h2>
-
-Täydennä edellisessä osassa toteuttamaasi ohjelmaa siten, että ohjelma tulostaa myös hyväksymisprosentin. Hyväksymisprosentti lasketaan kaavalla <em>100 * hyväksytyt / osallistujat</em>.
-
-<sample-output>
+from string import punctuation
 
-Syötä yhteispisteet, -1 lopettaa:
-**49**
-**48**
-**47**
-**-1**
-Pisteiden keskiarvo (kaikki): 48.0
-Pisteiden keskiarvo (hyväksytyt): -
-Hyväksymisprosentti: 0.0
+def välimerkkejä(mjono: str) -> int:
+    n = 0
+    for merkki in mjono:
+        if merkki in punctuation:
+            n += 1
+    return n
 
-</sample-output>
+```
 
-<sample-output>
+Lause `n += 1` vastaa lausetta `n = n + 1`. Samalla tavalla esimerkiksi lause `a *= 5` vastaa lausetta `a = a * 5`.
 
-Syötä yhteispisteet, -1 lopettaa:
-**102**
-**-4**
-**33**
-**77**
-**99**
-**1**
-**-1**
-Pisteiden keskiarvo (kaikki): 52.5
-Pisteiden keskiarvo (hyväksytyt): 88.0
-Hyväksymisprosentti: 50.0
-
-</sample-output>
-
-
-<h2>Arvosanajakauma</h2>
-
-Täydennä ohjelmaa siten, että ohjelma tulostaa myös arvosanajakauman. Arvosananajakauma muodostetaan seuraavasti.
-
-<table class="table">
-  <tr>
-    <th>pistemäärä</th>
-    <th>arvosana</th>
-  </tr>
-  <tr>
-    <td>< 50</td>
-    <td>hylätty eli 0</td>
-  </tr>
-  <tr>
-    <td>< 60</td>
-    <td>1</td>
-  </tr>
-  <tr>
-    <td>< 70</td>
-    <td>2</td>
-  </tr>
-  <tr>
-    <td>< 80</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>< 90</td>
-    <td>4</td>
-  </tr>
-  <tr>
-    <td>>= 90</td>
-    <td>5</td>
-  </tr>
-</table>
 
+# Verkkosivun sisällön lukeminen: kirjastot urllib.request ja webbrowser
 
-Jokainen koepistemäärä muutetaan arvosanaksi yllä olevan taulukon perusteella. Jos syötetty pistemäärä ei ole välillä [0-100], jätetään se huomiotta.
+Python tarjoaa helpon tavan verkkosivun sisällön lukemiseen kirjaston <a href="https://docs.python.org/3/library/urllib.request.html">urllib.request</a> avulla.
 
-Arvosanajakauma tulostetaan tähtinä. Esim jos arvosanaan 5 oikeuttavia koepistemääriä on 1 kappale, tulostuu rivi <em>5: *</em>. Jos johonkin arvosanaan oikeuttavia pistemääriä ei ole, ei yhtään tähteä tulostu, alla olevassa esimerkissä näin on mm. nelosten kohdalla.</em>
+Esimerkki lukee verkkosivun `www.example.com` sisällön ja tallentaa sen tiedostoon `example.html`:
 
-<br/>
+```python
 
-<sample-output>
+from urllib.request import urlopen
 
-Syötä yhteispisteet, -1 lopettaa:
-**102**
-**-2**
-**1**
-**33**
-**77**
-**99**
-**-1**
-Pisteiden keskiarvo (kaikki): 52.5
-Pisteiden keskiarvo (hyväksytyt): 88.0
-Hyväksymisprosentti: 50.0
-Arvosanajakauma:
-5: *
-4:
-3: *
-2:
-1:
-0: **
+with urlopen("http://www.example.com") as url, open("example.html","w") as tiedosto:
+    # luetaan sivun sisältö
+    data = url.read()
 
-</sample-output>
+    # muunnetaan tavumuotoinen data
+    # merkkijonoksi ennen kirjoittamista
+    tiedosto.write(str(data))
 
-</programming-exercise>
+```
 
+Ohjelman suorittaminen omalla koneella saattaa vaatia esimerkiksi palomuurin avaamista Python-tulkille. Älä tee muutoksia koneesi verkkoasetuksiin, jos et tiedä mitä olet tekemässä.
 
-<programming-exercise name='Reseptihaku (4 osaa)' tmcname='osa07-Osa07_07.Reseptihaku'>
+Huomaa, että `with`-lauseelle voidaan antaa useampi avattava resurssi yhtäaikaa. Esimerkkiohjelmassa avataan sekä yhteys verkkosivuun että tiedosto kirjoittamista varten.
 
-Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, keittoajan tai raaka-aineen nimen perusteella. Ohjelman tulee lukea reseptit käyttäjän antamasta tiedostosta. *Kannattaa kerrata tiedoston lukeminen materiaalin osasta 4 ennen tehtävän aloitusta.*
+Verkkosivuihin luotava yhteys mahdollistaa vain tiedon lukemisen, tiedon kirjoittamista verko yli ei käsitellä tällä kurssilla.
 
-Jokainen resepti koostuu kolmesta tai useammasta rivistä reseptitiedostossa. Ensimmäisellä rivillä on reseptin nimi, toisella rivillä reseptin keittoaika (kokonaisluku), ja kolmas ja sitä seuraavat rivit kertovat reseptin raaka-aineet. Reseptin raaka-aineiden kuvaus päättyy tyhjään riviin. Tiedostossa voi olla useampia reseptejä. Alla kuvattuna esimerkkitiedosto.
+Verkossa olevat sivut on usein kirjoitettu HTML-merkkauskielellä. Metodi `read` palauttaa siis HTML-kielisen tiedoston. HTML-kielen käsittelyä varten Pythonista löytyy kirjasto <a href="https://docs.python.org/3/library/html.parser.html">html.parser</a>.
 
-<sample-output>
+Verkkosivun voi avata ulkoiseen selaimeen kirjaston `webbrowser` avulla. Esimerkiksi
 
-Lettutaikina
-60
-maito
-muna
-jauho
-sokeri
-suola
-voi
+```python
 
-Lihapullat
-20
-jauheliha
-muna
-korppujauho
+import webbrowser
 
-Tofurullat
-30
-tofu
-riisi
-vesi
-porkkana
-kurkku
-avokado
-wasabi
+# Avataan sivu python.org
+webbrowser.open("https://www.python.org")
 
-</sample-output>
+```
 
-Ohjelma toteutetaan osissa. Ensin ohjelmaan luodaan mahdollisuus reseptien lukemiseen sekä listaamiseen. Tämän jälkeen ohjelmaan lisätään mahdollisuus reseptien hakemiseen nimen perusteella, keittoajan perusteella ja lopulta raaka-aineen perusteella.
+Huomaa, että metodi `open` pyytää oletusselainta avaamaan kyseisen sivun, muttei avaa pääsyä sivun sisältöön Python-ohjelmalle. Kirjasto on kuitenkin kätevä esimerkiksi silloin, jos vaikka haluat avata ohjelman ohjesivun verkosta.
 
-Tehtäväpohjassa on mukana tiedosto `reseptit.txt`, jota voi käyttää sovelluksen testaamiseen. <em>Huomaa, että ohjelman ei tule listata reseptien raaka-aineita, mutta niitä käytetään hakutoiminnallisuudessa.</em> Tiedoston `reseptit.txt` voi myös ladata [tämän linkin takaa](/data/reseptit.txt).
+## Ulkoiset kirjastot
 
-<br/>
+Pythonin mukana tulevien kirjastojen lisäksi verkosta löytyy lukuisia vapaasti käytettäviä kirjastoja eri tarpeisiin.
 
+Pythonin dokumentaatioon on koottu lista joistakin yleisesti käytetyistä kirjastoista eri tarpeisiin:
 
-<h2>Reseptien lukeminen ja listaaminen</h2>
-
-Luo ohjelmaan ensin mahdollisuus reseptien lukemiseen sekä listaamiseen. Ohjelman käyttöliittymän tulee olla seuraavanlainen. Voit olettaa, että käyttäjä syöttää aina tiedoston, joka on olemassa. Alla oletetaan, että tehtävänannossa annetut esimerkkireseptit ovat tiedostossa `reseptit.txt`.
-
-<sample-output>
-
-Mistä luetaan? **reseptit.txt**
-
-Komennot:
-listaa - listaa reseptit
-lopeta - lopettaa ohjelman
-
-Syötä komento: **listaa**
-
-Reseptit:
-Lettutaikina, keittoaika: 60
-Lihapullat, keittoaika: 20
-Tofurullat, keittoaika: 30
-
-Syötä komento:  **lopeta**
-
-</sample-output>
-
-
-<h2>Reseptien hakeminen nimen perusteella</h2>
-
-Lisää ohjelmaan mahdollisuus reseptien hakemiseen nimen perusteella. Nimen perusteella hakeminen tapahtuu komennolla `hae nimi`, jonka jälkeen käyttäjältä kysytään merkkijonoa, jota etsitään reseptin nimistä. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden nimessä esiintyy käyttäjän kirjoittama merkkijono.
-
-<sample-output>
-
-Mistä luetaan? **reseptit.txt**
-
-Komennot:
-listaa - listaa reseptit
-lopeta - lopettaa ohjelman
-hae nimi - hakee reseptiä nimen perusteella
-
-Syötä komento: **listaa**
-
-Reseptit:
-Lettutaikina, keittoaika: 60
-Lihapullat, keittoaika: 20
-Tofurullat, keittoaika: 30
-
-Syötä komento: **hae nimi**
-Mitä haetaan: **rulla**
-
-Reseptit:
-Tofurullat, keittoaika: 30
-
-Syötä komento:  **lopeta**
-
-</sample-output>
-
-
-<h2>Reseptien hakeminen keittoajan perusteella</h2>
-
-Lisää seuraavaksi ohjelmaan mahdollisuus reseptien hakemiseen keittoajan perusteella. Keittoajan perusteella hakeminen tapahtuu komennolla `hae keittoaika`, jonka jälkeen käyttäjältä kysytään suurinta hyväksyttävää keittoaikaa. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden keittoaika on pienempi tai yhtä suuri kuin käyttäjän syöttämä keittoaika.
-
-<sample-output>
-
-Mistä luetaan? **reseptit.txt**
-
-Komennot:
-listaa - listaa reseptit
-lopeta - lopettaa ohjelman
-hae nimi - hakee reseptiä nimen perusteella
-hae keittoaika - hakee reseptiä keittoajan perusteella
-
-Syötä komento: **hae keittoaika**
-Keittoaika korkeintaan: **30**
-
-Reseptit:
-Lihapullat, keittoaika: 20
-Tofurullat, keittoaika: 30
-
-Syötä komento: **hae keittoaika**
-Keittoaika korkeintaan: **15**
-
-Reseptit:
-
-Syötä komento: **hae nimi**
-Mitä haetaan: **rulla**
-
-Reseptit:
-Tofurullat, keittoaika: 30
-
-Syötä komento:  **lopeta**
-
-</sample-output>
-
-
-<h2>Reseptien hakeminen raaka-aineen perusteella</h2>
-
-
-Lisää lopulta ohjelmaan mahdollisuus reseptien hakemiseen raaka-aineen perusteella. Raaka-aineen perusteella hakeminen tapahtuu komennolla `hae aine`, jonka jälkeen käyttäjältä kysytään merkkijonoa. Hakutoiminnallisuuden tulee toimia siten, että se tulostaa kaikki ne reseptit, joiden raaka-aineissa esiintyy käyttäjän antama merkkijono. Huomaa, että tässä annetun merkkijonon täytyy vastata täysin haettua raaka-ainetta (esim. "okeri" ei käy ole sama kuin "sokeri").
-
-
-<sample-output>
-
-Mistä luetaan? **reseptit.txt**
-
-Komennot:
-listaa - listaa reseptit
-lopeta - lopettaa ohjelman
-hae nimi - hakee reseptiä nimen perusteella
-hae keittoaika - hakee reseptiä keittoajan perusteella
-hae aine - hakee reseptiä raaka-aineen perusteella
-
-Syötä komento: **hae keittoaika**
-Keittoaika korkeintaan: **30**
-
-Reseptit:
-Lihapullat, keittoaika: 20
-Tofurullat, keittoaika: 30
-
-Syötä komento: **hae aine**
-Mitä raaka-ainetta haetaan: **sokeri**
-
-Reseptit:
-Lettutaikina, keittoaika: 60
-
-Syötä komento: **hae aine**
-Mitä raaka-ainetta haetaan: **muna**
-
-Reseptit:
-Lettutaikina, keittoaika: 60
-Lihapullat, keittoaika: 20
-
-Syötä komento: **hae aine**
-Mitä raaka-ainetta haetaan: **una**
-
-Reseptit:
-
-Syötä komento:  **lopeta**
-
-</sample-output>
-
-</programming-exercise>
-
-
-<programming-exercise name='Lintubongarin tietokanta (3 osaa)' tmcname='osa07-Osa07_08.LintubongarinTietokanta'>
-
-**Tehtävä vastaa kolmea yksiosaista tehtävää.**
-
-Tässä tehtävässä suunnittelet ja toteutat tietokannan lintubongareille. Tietokanta sisältää lintuja, joista jokaisella on nimi (merkkijono) ja latinankielinen nimi (merkkijono). Tämän lisäksi tietokanta laskee kunkin linnun havaintokertoja.
-
-Ohjelmasi täytyy toteuttaa seuraavat komennot:
-
-- `Lisaa` - lisää linnun (**huom:** komennon nimessä ei ä-kirjainta!)
-
-- `Havainto` - lisää havainnon
-
-- `Tilasto` - tulostaa kaikki linnut
-
-- `Nayta` - tulostaa yhden linnun (**huom:** komennon nimessä ei ä-kirjainta!)
-
-- `Lopeta` - lopettaa ohjelman
-
-Lisäksi virheelliset syötteet pitää käsitellä. (Ks. `Simo` alla). Tässä vielä esimerkki ohjelman toiminnasta:
-
-<sample-output>
-
-? **Lisaa**
-Nimi: **Korppi**
-Latinankielinen nimi: **Corvus Corvus**
-? **Lisaa**
-Nimi: **Haukka**
-Latinankielinen nimi: **Dorkus Dorkus**
-? **Havainto**
-Mikä havaittu? **Haukka**
-? **Havainto**
-Mikä havaittu? **Simo**
-Ei ole lintu!
-? **Havainto**
-Mikä havaittu? **Haukka**
-? **Tilasto**
-Haukka (Dorkus Dorkus): 2 havaintoa
-Korppi (Corvus Corvus): 0 havaintoa
-? **Nayta**
-Mikä? **Haukka**
-Haukka (Dorkus Dorkus): 2 havaintoa
-? **Lopeta**
-
-</sample-output>
-
-**Huom!** Ohjelmasi rakenne on täysin vapaa. Testaamme vain että `Paaohjelma` luokan `main`-metodi toimii kuten tässä on kuvailtu. Hyödyt tehtävässä todennäköisesti ongelma-aluetta sopivasti kuvaavista luokista.
-
-</programming-exercise>
+<a href="https://wiki.python.org/moin/UsefulModules">https://wiki.python.org/moin/UsefulModules</a>
