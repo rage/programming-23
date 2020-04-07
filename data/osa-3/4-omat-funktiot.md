@@ -6,6 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Ohjelmien jakaminen itsenäisiin aliohjelmiin paitsi selkeyttää ohjelmien rakennetta, myös mahdollistaa koodin uudelleenkäytettävyyden ja tehostaa ohjelmointiprosessia.
+
+Tämän osion suoritettuasi
+
 - Ymmärrät funktion käsitteen
 - Tiedät, miten funktiota kutsutaan
 - Tiedät, miten funktio alustetaan Pythonissa

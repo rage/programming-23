@@ -6,6 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Toistolauseen etenemistä ohjaamalla voidaan nopeuttaa tai selkeyttää ohjelmien rakennetta.
+
+Tämän osion suoritettuasi
+
 - Tiedät mitä `break`-lause tekee ja osaat käyttää sitä ohjelmissasi.
 - Tiedät mitä `continue`-lause tekee ja osaat käyttää sitä ohjelmissasinpr
 

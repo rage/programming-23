@@ -6,6 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Toistolauseet tarjoavat monipuolisia mahdollisuuksia toiston ohjaamiseen - jatketaan siis niihin tutustumista.
+
+Tämän osion suoritettuasi
+
 - Ymmärrät mitä tarkoitetaan _esiehtoisella toistolla_
 - Tiedät mikä merkitys _alustuksella, ehdolla_ ja _muutoksella_ on toistolauseessa
 - Osaat muodostaa silmukoita käyttäen `while`-lausetta
@@ -17,8 +21,10 @@ Viime osan lopussa opeteltiin käyttämättän `while(True)`-silmukkaa toistuvan
 Tällainen toistolause on yleisesti muotoa:
 
 ```python
+
 while <ehtolauseke>:
     <lohko>
+
 ```
 
 Toistolause muistuttaa ehtolausetta: aluksi Python evaluoi ehtolausekkeen. Jos ehtolauseke saa arvon `True`, suoritetaan lohko. Poikkeuksena ehtolauseeseen on, että toistolauseessa ehtolauseke evaluoidaan uudestaan aina lohkon suorituksen jälkeen:
@@ -28,6 +34,7 @@ Toistolause muistuttaa ehtolausetta: aluksi Python evaluoi ehtolausekkeen. Jos e
 Esimerkiksi
 
 ```python
+
 # Alustetaan luku-muuttuja
 luku = 1
 
@@ -40,6 +47,7 @@ while luku < 10:
     luku = luku + 1
 
 print("Valmis!")
+
 ```
 
 <sample-output>

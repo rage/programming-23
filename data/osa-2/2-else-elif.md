@@ -7,6 +7,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Ehtolauseet tarjoavat aikaisempaa esitetyn peruskäytön lisäksi monipuolisempia suorituksen ohjausmahdollisuuksia.
+
+Tämän osion suoritettuasi
+
 - Osaat luoda vaihtoehtoisia haaroja toistolauseisiin
 - Ymmärrät `if`-, `elif`- ja `else`-lauseiden merkityksen ehtolauseessa
 - Tiedät, miten jakojäännösoperaattori `%` toimii

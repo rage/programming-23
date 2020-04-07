@@ -7,6 +7,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Usein on tarpeen yhdistää useampia ehtoja yhdeksi ehtolausekkeeksi.
+
+Tämän osion suoritettuasi
+
 - Osaat ketjuttaa Pythonin operaattoreita
 - Tiedät mitä tarkoitetaan loogisilla operaattoreilla
 - Osaat käyttää `and`-, `or`- ja `not`-operaattoreita ehtolausekkeissa

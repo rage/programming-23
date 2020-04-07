@@ -5,6 +5,10 @@ title: 'Lause ja lauseke'
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Ohjelmat koostuvat komennoista ja tiedon käsittelystä. Tutustutaan tarkemmin ohjelmien rakenteeseen opettelemalla lauseen ja lausekkeen välinen ero.
+
+Tämän osion suoritettuasi
+
 - Ymmärrät lauseen ja lausekkeen eron
 - Tiedät, mitä tarkoittaa dynaaminen tyypitys
 - Osaat selvittää lausekkeen tyypin ja tehdä tyyppimuunnoksia
@@ -16,6 +20,7 @@ Edellisessä osassa puhuttiin _lauseesta_ ja _lausekkeesta_ eri yhteyksissä. Oh
 _Lauseella_ ilmaistaan jokin ohjelmointikielen toiminto. Esimerkiksi funktiokutsu `print("Moi!")` on lause, samoin kuin muuttujan arvon asetus `luku = 2`. Lause voi koostua myös useammasta lauseesta, esim. seuraavassa esimerkissä on kahden lauseen muodostama - _ehtolause_:
 
 ```python
+
 # Lause koostuu tässä siis ehdosta ja
 # sen jälkeisestä lohkosta.
 if (True):
@@ -68,6 +73,7 @@ Jos muuttujan arvo ei ole selvillä, sen voi selvittää funktiolla `type`. Funk
 Esimerkiksi
 
 ```python
+
 # Alustetaan pari muuttujaa
 luku = -155
 totuus = False
@@ -115,6 +121,7 @@ Tyyppimuunnoksella voidaan (yrittää) muuntaa arvo toisen tyyppiseksi. Muunnoks
 Tarkastellaan esimerkkiä:
 
 ```python
+
 # Luetaan käyttäjältä merkkijono
 syöte = input("Anna desimaaliluku muodossa x.yy: ")
 
@@ -129,6 +136,7 @@ kokonais = int(liukuluku)
 
 # Tulostetaan kokonaisluku
 print(kokonais)
+
 ```
 
 Esimerkkisuoritus (käyttäjän syötteet on merkitty punaisella):
@@ -150,9 +158,11 @@ On tärkeää huomata, että `int`-funktio muuntaa liukuluvun kokonaisluvuksi le
 Tyyppimuunnoksia on aikaisemmin käytetty `print`-funktion yhteydessä kun halutaan tulostaa merkkijonojen lisäksi muun tyyppisiä arvoja:
 
 ```python
+
 luku = int(input("Anna luku: "))
 
 print("Luvun neliö on " + str(luku ** 2))
+
 ```
 
 <sample-output>
@@ -165,8 +175,10 @@ Luvun neliö on 81
 Tyyppimuunnos onnistuu vain, jos tyyppi voidaan muuntaa kohdearvoksi. Esimerkiksi seuraava ohjelma antaa virheen...
 
 ```python
+
 mjono = "satakaksikymmentäkolme"
 luku = int(mjono)
+
 ```
 
 Ohjelma antaa virheen

@@ -6,6 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Tekstin ja muun merkkimuotoisen tiedon käsittely on eräs ohjelmien perusoperaatioista. Python tarjoaa tehokkaita keinoja merkkijonojen käsittelyyn.
+
+Tämän osion suoritettuasi
+
 - Osaat käyttää operaattoreita `+` ja `*` merkkijonojen kanssa
 - Tiedät mitä tarkoittaa indeksointi
 - Osaat selvittää merkkijonon pituuden
@@ -81,7 +85,7 @@ while n > 0:
 
 <sample-output>
 
-
+```
          **
         ****
        ******
@@ -91,6 +95,7 @@ while n > 0:
    **************
   ****************
  ******************
+```
 
 </sample-output>
 
