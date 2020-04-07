@@ -24,7 +24,7 @@ lista = list(range(1,11))
 
 print(lista)
 
-# Alilista eli "osalista"?
+# Alilista eli "osalista"
 osalista = lista[2:5]
 
 print(osalista)
@@ -72,7 +72,7 @@ Parissa edellisessä osuudessa on huomattu, että merkkijonoilla ja listoilla on
 
 Sellaiset listoihin kohdistuvat operaatiot, jotka muuttavat listan sisältöä jotenkin eivät kuitenkaan toimi merkkijonojen kanssa. Tämä johtuu siitä, että merkkijonot ovat _mutatoitumattomia_. Tämä tarkoittaa käytännössä sitä, että merkkijonon muodostamisen jälkeen sen sisältö ei voi enää muuttua.
 
-Jos esimerkiksi yritetään sijoittaa merkkijonon johonkin indeksiin jotain:
+Jos esimerkiksi yritetään sijoittaa merkkijonon jonkin indeksin paikalle jotain...
 
 ```python
 
@@ -83,7 +83,7 @@ mjono[0] = "H"
 
 ```
 
-Ohjelman suoritus aiheuttaa virheen:
+...ohjelman suoritus aiheuttaa virheen:
 
 <sample-output>
 
@@ -102,18 +102,20 @@ lista[0] = 10
 
 ```
 
-KUVA
+<img src="4_4_1.png">
 
 ```python
 
 mjono = "Moi"
-mjono = "Moi" + "!"
+mjono = mjono" + "!"
 
 ```
 
-KUVA
+<img src="4_4_2.png">
 
-Ensimmäisessä esimerkissä listan sisältö muuttuu. Toisessa esimerkissä alkuperäinen merkkijono korvataan toisella merkkijonolla. Tähän palataan tarkemmin ensi viikolla, kun puhutaan listojen käytöstä funktioiden parametreina ja paluuarvoina.
+Ensimmäisessä esimerkissä listan sisältö muuttuu. Toisessa esimerkissä alkuperäinen merkkijono korvataan toisella merkkijonolla. Alkuperäinen merkkijono jää muistiin, mutta siihen ei enää ole viittausta, joten sitä ei voi enää käyttää ohjelmassa.
+
+Tähän palataan tarkemmin ensi viikolla, kun puhutaan listojen käytöstä funktioiden parametreina ja paluuarvoina.
 
 ## Lisää hyödyllisiä operaatioita
 
