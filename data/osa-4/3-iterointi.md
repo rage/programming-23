@@ -6,6 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Listoja käytettäessä on tyypillistä, että halutaan kohdistaa operaatioita kaikkiin listan alkioihin. Tutustutaan siis seuraavaksi tekniikoihin, joilla voidaan käydä listan kaikki alkiot läpi.
+
+Tämän osion läpikäytyäsi
+
 - Tiedät, mitä tarkoitetaan iteroinnilla
 - Tiedät, miten pythonin `for`-lause toimii
 - Osaat käyttää for-lausetta listojen ja merkkijonojen läpikäyntiin
@@ -54,7 +58,7 @@ for <muuttuja> in <rakenne>:
 
 Annetusta rakenteesta (esimerkiksi listasta tai merkkijonosta) poimitaan alkiot ensimmäisestä alkaen. Alkio sijoitetaan muuttujaan ja suoritetaan lohko. Kun on päästy lohkon loppuun, poimitaan seuraava alkio ja niin edelleen. Kun lohko on suoritettu rakenteen jokaiselle alkiolle, suoritus jatkuu lohkon jälkeisestä lauseesta.
 
-KUVA
+<img src="4_3_1.png" alt="Listan iterointi">
 
 Tarkastellaan aluksi yksinkertaista esimerkkiä, joka tulostaa listan kaikki alkiot:
 

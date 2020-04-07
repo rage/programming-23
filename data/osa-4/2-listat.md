@@ -7,6 +7,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Kun tiedon määrä lisääntyy, ei sen tallentaminen yksittäisiin muuttujiin ole aina tarkoituksenmukaista. Aloitetaan siis tutustuminen tietorakenteisiin.
+
+Tämän osion suoritettuasi
+
 - Tiedät, mitä tarkoitetaan tietorakenteella
 - Osaat muodostaa listan
 - Osaat viitata listan yksittäisiin alkioihin
@@ -41,7 +45,7 @@ pisteet = [10, 9, 10, 8, 7, 7, 10, 7]
 
 Listan alkiot on indeksoitu samalla tavalla kuin merkkijonon yksittäiset merkit. Tässäkin tapauksessa indeksointi alkaa nollasta:
 
-KUVA
+<img src="4_2_1.png" alt="Lista indeksoidaan nollasta alkaen">
 
 Yksittäiseen listan alkioon voidaan viitata samalla tavalla kuin merkkijonon yksittäisiin merkkeihin - käyttäen hakasulkunotaatiota. Esimerkiksi:
 
@@ -129,7 +133,7 @@ print(luvut)
 
 Mikäli halutaan lisätä alkio johonkin muualle kuin listan loppuun, voidaan käyttää `insert`-metodia. Metodi lisää alkion halutun indeksin paikalle. Kaikkia listalla jo olevia alkioita lisäyspaikasta alkaen siirretään yhdellä askeleella eteenpäin:
 
-KUVA
+<img src="4_2_2.png" alt = "Alkion lisäys listaan">
 
 Esimerkiksi
 

@@ -7,6 +7,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Syötteiden välittäminen funktioille auttaa tekemään niistä yleiskäyttöisempiä. Tutustutaan myös funktioiden paluuarvoihin ja niiden käyttöön ohjelmissa.
+
+Tämän osion suoritettuasi
+
 - Tiedät, mitä tarkoitetaan funktoiden parametreilla ja mihin niitä tarvitaan
 - Tiedät, miten parametrit määritetään
 - Osaat palauttaa arvon funktiosta
@@ -49,9 +53,7 @@ Tätä tarkoitusta varten funktioille voidaan _välittää parametreja_. Paramet
 
 Parametrit ovat muuttujia, ja ne määritellään funktion _määrittelyrivillä_ (eli rivillä, joka alkaa avainsanalla `def`). Perinteisistä muuttujista parametrit eroavat siinä, että ne saavat yleensä arvon vasta funktiota kutsuttaessa. Muuten niitä käytetään kuin mitä tahansa muuttujia: arvoa voidaan käyttää osana lauseketta ja arvo voi tarvittaessa myös muuttua.
 
-Vaikka se ei Pythonissa pakollista olekaan, tällä kurssilla merkitään parametreille aina nimen lisäksi myös tyyppi. Tyyppien merkitsemisestä käytetään nimitystä _tyyppivihjeet_ eli _type hints_.
-
-Palataan tähän myöhemmin, tarkastellaan ensin kuitenkin yleisempää kertotaulufunktiota:
+Vaikka se ei Pythonissa pakollista olekaan, tällä kurssilla merkitään parametreille aina nimen lisäksi myös tyyppi. Tyyppien merkitsemisestä käytetään nimitystä _tyyppivihjeet_ eli _type hints_. Ohjelman suorituksen kannalta tyyppivihjeet eivät ole pakollisia, mutta ne helpottavat ohjelmoijan työtä kertomalla funktion kutsujalle minkä tyyppisiä parametreja funktiolle pitää välittää.
 
 ```python
 
@@ -113,8 +115,6 @@ Funktiokutsussa, esim. `kertotaulu(4)` funktiolle välitettyä arvoa (eli täss�
 
 **Funktiota kutsuttaessa _todellinen parametri_ siis sijoitetaan _muodollisen parametrin arvoksi_.**
 
-KUVA
-
 Esimerkiksi:
 
 ```python
@@ -161,6 +161,26 @@ Kokonaisluku | int | 23
 Liukuluku | float | -0.45
 Merkkijono | str | "Pekka Python"
 Totuusaro | bool | True
+
+Tyyppivihjeiden tarkoituksena on nimensä mukaisesti vihjata ohjelmoijalle parametrin tyyppi. Pythonin kannalta tämä ohjelma...
+
+```python
+
+def neliö(n):
+    print(n ** 2)
+
+```
+
+...toimii ihan samalla tavalla kuin tämäkin:
+
+```python
+
+def neliö(n: int):
+    print(n ** 2)
+
+```
+
+Ohjelmoijan kannalta erona on, että jälkimmäistä aliohjelmaa kutsuttaessa ohjelmoijalle on selkeämpää, minkä tyylinen parametrin pitää olla.
 
 Funktiolla voi olla nollan tai yhden parametrin sijasta useampiakin parametreja. Tällaisessa tapauksessa parametrit (niin todelliset kuin muodollisetkin) erotellaan toisistaan pilkulla.
 

@@ -6,6 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Valmiiden listaoperaatioiden tuntemus auttaa kirjoittamaan lyhyempiä ja tehokkaampia ohjelmia. Tarkastellaan muutamia yleisiä operaatioita listojen käsittelyyn.
+
+Tämän osion suoritettuasi
+
 - Tiedät, miten alijono-operaation eri parametrit toimivat listoille ja merkkijonoille
 - Tiedät, mitä tarkoitetaan käsitteellä _mutatoitumattomuus_
 - Osaat käyttää metodeita `count` ja `replace`
