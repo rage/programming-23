@@ -25,7 +25,7 @@ Peruslaskutoimituksia varten Pythonin mukana tulee kirjasto `math`. Kirjastosta 
 
 Avataan aluksi <a href="https://docs.python.org/3/library/math.html">kirjaston dokumentaatiosivu</a>. Alla olevassa ruudunkaappauksessa (2.4.2020) näkyy pieni osa sivua:
 
-KUVA
+<img src="7_3_1.png">
 
 Pythonin kirjastojen dokumenttisivuilla on kaikilla yleensä sama rakenne: niissä on esitelty kirjaston sisältämät funktiot ja kerrottu niiden toiminnasta. Usein mukana on myös yksinkertaisia koodiesimerkkejä.
 
@@ -46,7 +46,7 @@ Jos kirjasto on ennestään tuttu, muttet muista etsimäsi funktion nimeä, nope
 
 Myös useimmat editorit tarjoavat avusteena listan modulin sisältämistä operaatioista. Esimerkiksi Visual Studio Code tarjoaa operaatioita valittavaksi, kunhan kirjasto `math` on otettu käyttöön `import`-lauseella ohjelman alussa:
 
-KUVA
+<img src="7_3_2.png">
 
 Esimerkkifunktio laskee pallon pinta-alan annetun säteen perusteella:
 
