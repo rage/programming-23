@@ -18,12 +18,14 @@ Tässä osiossa
 
 </text-box>
 
-Pythonin funktiolla `print` voidaan tulostaa ruudulle viestejä.
+Pythonin funktiolla `print` voidaan tulostaa käyttäjälle viestejä.
 
 Esimerkiksi funktiokutsu `print("Moi kaikki!")` tulostaa tekstin "Moi kaikki".
 
 ```python
+
 print("Moi kaikki!")
+
 ```
 
 <sample-output>
@@ -32,7 +34,7 @@ Moi kaikki
 
 </sample-output>
 
-Yllä on esitetty esimerkkiohjelman tulostus. Voit kokeilla lausetta myös itse KONSOLISSA?
+Yllä on esitetty esimerkkiohjelma ja sen tulostus. Voit kokeilla lausetta myös itse _KONSOLISSA?_
 
 Ohjelmien rakenne voidaan esittää hyvin yksinkertaistetusti seuraavasti:
 
@@ -43,14 +45,15 @@ Ohjelma siis saa syötteen, käsittelee sen ja viestii tuloksen takaisin. Täll�
 Esimerkiksi seuraava kolmesta print-funktion kutsusta koostuva ohjelma
 
 ```python
+
 print("Tervetuloa opettelemaan ohjelmointia!")
 print("Aluksi harjoitellaan print-funktion käyttöä.")
 print("Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.")
+
 ```
 ...tulostaa ruudulle seuraavat viestit:
 
 <sample-output>
-
 
 Tervetuloa opettelemaan ohjelmointia!
 Aluksi harjoitellaan print-funktion käyttöä.
@@ -65,34 +68,42 @@ Parametriksi voidaan antaa myös jokin lauseke.
 Esimerkiksi seuraava ohjelma
 
 ```python
+
 print(2 + 5)
 print(3 * 3) # *-merkkiä käytetään kertolaskuoperaattorina
 print(2 + 2 * 10) # laskujärjestys noudattaa pääpiirteittäin matematiikasta tuttua järjestystä
+
 ```
-tulostaa ruudulle
+tulostaa ruudulle viestit
 
 <sample-output>
-    7
-    9
-    22
+
+7
+9
+22
+
 </sample-output>
 
 Huomaa, että laskujen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään
 _merkkijono_, joka tulostetaan ruudulle sellaisenaa. Huomaa siis seuraavien lauseiden ero:
 
 ```python
+
 print(2 + 2 * 10)
 print("2 + 2 * 10")
+
 ```
 
 Ohjelma tulostaa
 
 <sample-output>
+
 22
 2 + 2 * 10
+
 </sample-output>
 
-Jälkimmäisessä tapauksessa Python ei siis yritä tulkita lauseketta, vaan tulostaa sen ruudulle. Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällöstä.
+Jälkimmäisessä tapauksessa Python ei yritä tulkita lauseketta, vaan tulostaa sen ruudulle. Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällöstä.
 
 ## Kommentit
 
@@ -101,10 +112,19 @@ Kommenttien avulla voidaan dokumentoida ohjelman suoritusta. Pythonissa kommenti
 Python ei suorita mitään rivillä olevaa sisältöä #-merkin jälkeen. Kommenttien tarkoituksena on siis kertoa ohjelmoijalle itselleen ja muille ohjelmoijille ohjelmakoodiin liittyviä asioita.
 
 ```python
+
 print (2 ** 3) # Lasketaan potenssilauseen kaksi kolmanteen arvo
 print (5 / 2) # Jakolaskua merkitsemään käytetään /-operaattoria
 
 # Ohjelma tulostaa vielä yhden merkkijonon
 print ("** toimii siis eksponenttioperaattorina, ja / jako-operaattorina")
+
 ```
 
+<sample-output>
+
+8
+2.5
+** toimii siis eksponenttioperaattorina, ja / jako-operaattorina
+
+</sample-output>

@@ -6,9 +6,11 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Tulosten kommunikoinni lisäksi ohjelmissa pitää voida lukea tietoa käyttäjältä. Tässä osiossa tutustutaan syötteiden lukemiseen.
 
+Tämän osion suoritettuasi
 
-- Opit kirjoittamaan ohjelman, joka lukee käyttäjän syötteen
+- Osaat kirjoittaa ohjelman, joka lukee käyttäjän syötteen
 - Tiedät, mitä tarkoitetaan muuttujalla
 - Osaat käyttää muuttujaa syötteen lukemisessa ja tulostamisessa
 - Osaat yhdistellä (eli katenoida) merkkijonoja
@@ -19,16 +21,18 @@ Palautetaan mieleen ensimmäisessä osassa esitetty yksinkertaistettu kaavio ohj
 
 <img src="1_1_1.png">
 
-Ohjelman suorituksen erikoistamiseksi tarvitsemme keinon lukea käyttäjältä syötteitä. Pythonissa tähän tarkoitukseen käytetään funktiota `input`. Samoin kuin print-funktio, myös se saa parametrikseen merkkijononon. Tämä merkkijono tulostetaan käyttäjlle kehotteeksi (eli viestiksi, jonka tarkoitus on ohjata käyttäjää antamaan oikeanlainen syöte).
+Ohjelman suorituksen erikoistamiseksi tarvitsemme keinon lukea käyttäjältä syötteitä. Pythonissa tähän tarkoitukseen käytetään funktiota `input`. Samoin kuin print-funktio, myös se saa parametrikseen merkkijononon. Tämä merkkijono tulostetaan käyttäjlle _kehotteeksi_, eli viestiksi, jonka tarkoitus on ohjata käyttäjää antamaan oikeanlainen syöte.
 
 Esimerkki ohjelmasta, jossa luetaan käyttäjän nimi käyttäen `input`-funktiota ja tulostetaan ruudulle tervehdys käyttäen `print`-funktiota:
 
 ```python
+
 # Luetaan käyttäjän nimi ja tallennetaan se muuttujaan name
 nimi = input("Anna nimesi: ")
 
 # Tulostetaan käyttäjälle viesti hyödyntäen muuttujaa name
 print("Moi vaan, " + nimi)
+
 ```
 
 Ohjelman suoritus voisi näyttää esimerkiksi seuraavalta (käyttäjän kirjoittama syöte on merkitty punaisella:
@@ -62,12 +66,14 @@ Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kiele
 Samaan muuttujaan voidaan viitata ohjelmassa useasti:
 
 ```python
+
 # Luetaan käyttäjän syöte muuttujaan nimi
 nimi = input("Anna nimesi: ")
 
 # Tulostetaan kaksi viestiä
 print("Moi, " + nimi + "!")
 print(nimi + " on aika kiva nimi.")
+
 ```
 
 Esimerkkitulostus (kun käyttäjä syöttää merkkijonon `Pauli Python`:
@@ -85,11 +91,13 @@ Tarkastellaanpa tulostuskomentoja vähän tarkemmin: `print`-funktiota kutsuttae
 Vakiomuotoisia merkkijonoja voidaan yhdistellä muuttujien arvoihin vapaasti:
 
 ```python
+
 # Luetaan käyttäjän syöte muuttujaan nimi
 nimi = input("Anna nimesi: ")
 
 # Tulostetaan viesti
 print("Moi " + nimi + "! Varmistan vielä: nimesi on siis " + nimi + "?")
+
 ```
 
 Esimerkkitulostus voisi näyttää tältä, kun käyttäjä syöttää merkkijonon `Erkki Esimerkki`:
@@ -106,6 +114,7 @@ Moi Erkki Esimerkki! Varmistan vielä: nimesi on siis Erkki Esimerkki?
 Ohjelmassa voi lukea useamman eri syötteen. Huomaa, että jokaisen `input`-funktion palautusarvo tallennetaan erinimiseen muuttujaan:
 
 ```python
+
 # Luetaan käyttäjän nimi, sähköposti ja lempinimi
 nimi = input("Anna nimesi: ")
 sposti = input("Anna sähköpostiosoitteesi: ")
@@ -116,6 +125,7 @@ print("Varmistetaan vielä, että tiedot menivät oikein")
 print("Annoit nimeksesi " + nimi)
 print("...sähköpostiosoitteeksesi " + sposti)
 print("...ja lempinimeksesi " + lempinimi + ".")
+
 ```
 
 Esimerkki ohjelman suorituksesta:
@@ -132,9 +142,10 @@ Annoit nimeksesi Keijo Keksitty
 
 </sample-output>
 
-Huomaa, että mikäli samaan muuttujaan luetaan syöte useamman kerran, uusi arvo ylikirjoittaa edellisen. Esimerkiksi
+Huomaa, että mikäli samaan muuttujaan luetaan syöte useamman kerran, uusi arvo ylikirjoittaa aina edellisen. Esimerkiksi
 
 ```python
+
 # Luetaan käyttäjältä osoite
 osoite = input("Mikä on osoitteesi? ")
 
@@ -146,6 +157,7 @@ osoite = input("Anna uusi osoite: ")
 
 # Nyt uusi arvo on ylikirjoittanut vanhan
 print("Osoite on nyt " + osoite)
+
 ```
 
 Esimerkkisuoritus:
@@ -162,6 +174,7 @@ Osoite on nyt Uusikatu 999
 Jos samaan muuttujaan luetaan kaksi syötettä peräkkäin, ei ensimmäisenä syötettyyn arvoon siis pääse enää käsiksi:
 
 ```python
+
 # Luetaan käyttäjältä osoite
 osoite = input("Mikä on osoitteesi? ")
 
@@ -171,6 +184,7 @@ osoite = input("Anna uusi osoite: ")
 
 # Tulostaa viimeisenä syötetyn arvon
 print("Osoite on nyt " + osoite)
+
 ```
 
 Esimerkkisuoritus:

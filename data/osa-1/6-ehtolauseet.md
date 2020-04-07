@@ -6,6 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
+Suorituksen ohjaaminen on tärkeä osa ohjelmia: eri syötteitä tai tilanteita tulee usein käsitellä eri tavoilla. Tutustutaan seuraavaksi siis ehdolliseen suoritukseen.
+
+Tämän osion suoritettuasi
+
 - Tiedät, mitä tarkoittaa ehtolause ja osaat käyttää sitä omissa ohjelmissa
 - Osaat muodostaa ohjelmalohkoja Pythonissa
 - Tiedät, mitä tarkoitetaan totuusarvoilla
@@ -14,11 +18,12 @@ hidden: false
 </text-box>
 
 
-Tähän mennessä kaikki ohjelmat ovat noudattaneet samaa lineaarista suoritusjärjestystä (eli kaikissa ohjelmissa on suoritettu samat ohjelmarivit samassa järjestyksessä). Usein on kuitenkin tarpeen määritellä ohjelmaan osia, jotka suoritetaan vain tietyissä tilanteissa.
+Tähän mennessä kaikki ohjelmat ovat noudattaneet samaa lineaarista suoritusjärjestystä: kaikissa ohjelmissa on suoritettu samat ohjelmarivit samassa järjestyksessä. Usein on kuitenkin tarpeen määritellä ohjelmaan osia, jotka suoritetaan vain tietyissä tilanteissa.
 
 Tarkastellaan ensin esimerkkiä, joka tarkastelee onko henkilö täysi-ikäinen:
 
 ```python
+
 # Kysytään ikää ja muutetaan syöte kokonaisluvuksi
 age = int(input("Kuinka vanha olet? "))
 
@@ -28,6 +33,7 @@ if age > 17:
     print("Tässä siis sinulle ikiomaksi GTA6.")
 
 print("Seuraava asiakas, kiitos!")
+
 ```
 Ohjelman suoritus näyttää tältä, kun syötetään luku joka on suurempi kuin 17...
 
@@ -73,6 +79,7 @@ Tyypillisesti ehto on kahden tai useamman operandin vertailu. Seuraavassa tauluk
 Tarkastellaan esimerkkinä ohjelmaa, joka tulostaa tiedon siitä onko käyttäjän syöttämä luku negatiivinen, positiivinen vai nolla:
 
 ```python
+
 # Luetaan syöte ja muunnetaan merkkijono kokonaisluvuksi
 number = int(input("Anna luku: "))
 
@@ -87,9 +94,10 @@ if number > 0:
 # Onko tasan nolla
 if number == 0:
     print("Luku on nolla.")
+
 ```
 
-(Ohjelmaa tarkastellessa tulee ehkä mieleen, että viimeinen tarkastelu tuntuu vähän turhalta - tässä vaiheessa luulisi olevan jo selvää, että luvun pitää olla nolla. Tähän palataan ensi viikolla tarkemmin.)
+(Ohjelmaa tarkastellessa tulee ehkä mieleen, että viimeinen ehto tuntuu vähän turhalta - tässä vaiheessa luulisi olevan jo selvää, että luvun pitää olla nolla. Tähän palataan ensi viikolla tarkemmin.)
 
 Ohjelma suoritettuna kolme kertaa eri syötteillä:
 
@@ -116,6 +124,7 @@ Jokainen lohkoon kuuluva rivi on _sisennetty_ samalla tavalla. Ennen rivin alkua
 Esimerkiksi:
 
 ````python
+
 # Luetaan käyttäjältä salasana
 password = input("Anna salasana: ")
 
@@ -131,6 +140,7 @@ if password == "salainen sana":
     # aina riippumatta siitä oliko ehto tosi vai ei
 
 print("Ohjelman suoritus päättyi. Kiitos ja hei!")
+
 ````
 
 Tyhjä tila voidaan esittää joko välilyönneillä (yleensä käytetään neljää välilyöntiä) tai _tabulaattorilla_, jonka saat Tab-näppäimestä.
@@ -151,6 +161,7 @@ if True:
 
 ```
 
+Lause `pass` on siis kaikin puolin kelvollinen Python-kielen lause, se ei vaan tee mitään.
 
 ## Totuusarvot
 
@@ -159,6 +170,7 @@ Niinkuin aikaisemmin huomattiin, ehtolauseessa käytettävä ehto (eli ehtolause
 Totuusarvo voidaan myös asettaa suoraan muuttujan arvoksi:
 
 ```python
+
 # Muuttujan arvoksi True
 totuus = True
 
@@ -172,9 +184,10 @@ totuus = False
 # Nyt arvo on epätosi, joten lohkoa ei suoriteta
 if (totuus):
     print("Arvo on vieläkin tosi")
+
 ```
 
-Ohjelma tulostaa siis suoritettaessa arvon vain ensimmäistä ehtolausetta seuraavasta lohkosta:
+Ohjelma tulostaa suoritettaessa arvon vain ensimmäistä ehtolausetta seuraavasta lohkosta:
 
 <sample-output>
 
@@ -185,6 +198,7 @@ Arvo oli tosi
 Koska ehtolauseessa käytettävä ehto on myös _lauseke_, se voidaan asettaa muuttujan arvoksi:
 
 ```python
+
 # Alustetaan pari muuttujaa
 ikä1 = 24
 ikä2 = 32
@@ -207,6 +221,7 @@ eka_vanhempi = (ikä1 > ikä3)
 
 if (eka_vanhempi):
     print("Eka on vanhempi kuin kolmas!")
+
 ```
 
 Ohjelman suoritus tulostaa:

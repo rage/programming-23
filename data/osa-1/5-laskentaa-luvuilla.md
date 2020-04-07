@@ -6,6 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' nimi='Oppimistavoitteet'>
 
+Tiedon tallentamisen lisäksi olennaista on osata käsitellä tietoa ja laskea erilaisia lopputuloksia tallennettuun tietoon perustuen. Tutustutaan tässä osassa luvuilla tehtäviin laskutoimituksiin omissa ohjelmissa.
+
+Tämän osan suoritettuasi
+
 - Osaat tehdä erilaisia laskutoimituksia muuttujien avulla.
 - Osaat hyödyntää syötettä lukuttyyppisten arvojen lukemiseen
 - Osaat muuntaa arvoja eri perustyyppien välillä
@@ -27,8 +31,10 @@ Laskujärjestys noudattaa pääosin matematiikasta tuttuja sääntöjä: aluksi 
 Esimerkiksi
 
 ```python
+
 print(2 + 3 * 3)
 print((2 + 3) * 3)
+
 ```
 
 Ohjelma tulostaa
@@ -53,6 +59,7 @@ Jakolasku muodostaa poikkeuksen sääntöön: jos jakolaskun laskennallisessa tu
 Esimerkiksi
 
 ```python
+
 pituus = 172.5
 paino = 68.55
 
@@ -62,6 +69,7 @@ paino = 68.55
 bmi = paino / (pituus / 100) ** 2
 
 print("Painoindeksi on " + str(bmi))
+
 ```
 
 Luvun neliön voisi tietysti laskea myös kertomalla luvun itsellään, mutta yllä olevassa kaavassa lienee helpompi käyttää eksponenttioperaattoria `**`.
@@ -82,6 +90,7 @@ Aikaisemmin käytettin `input`-funktiota lukemaan käyttäjältä merkkijonoja. 
 Tarkastellaan ensin esimerkkiä, jossa luetaan käyttäjältä pituus ja paino ja lasketaan painonideksi näiden avulla. Muokataan siis hiukan aiemmin esitettyä esimerkkiä:
 
 ```python
+
 # Luetaan käyttäjältä pituus ja paino
 paino_mjono = input("Anna paino: ")
 pituus_mjono = input("Anna pituus: ")
@@ -97,6 +106,7 @@ pituus = pituus / 100 # muunnetaan metreiksi
 bmi = paino / pituus ** 2
 
 print("Painoindeksi on " + str(bmi))
+
 ```
 
 Ohjelman esimerkkitulostus voisi näyttää vaikka seuraavalta:
@@ -115,6 +125,7 @@ Huomaa, että syötteitä ei välttämättä olisi pakko tallentaa muuttujiin
 pituus_string` ja `paino-string`, vaan muunnoksen voisi tehdä suoraankin:
 
 ```python
+
 # Luetaan käyttäjältä pituus ja paino ja
 # muunnetaan ne liukuluvuiksi
 # pituus = float(input("Anna pituus: "))
@@ -126,10 +137,12 @@ paino = float(input("Anna paino: "))
 bmi = paino / (pituus / 100) ** 2
 
 print("Painoindeksi on " + str(bmi))
+
 ```
 Samalla tavalla syöte voidaan muuntaa kokonaisluvuksi funktion `int` avulla. Esimerkiksi:
 
 ```python
+
 nimi = input("Mikä on nimesi? ")
 
 # Luetaan merkkijono ja muunnetaan se kokonaisluvuksi
@@ -142,6 +155,7 @@ print("Moi, " + nimi + "!")
 
 # Muistetaan taas muuntaa ikä merkkijonoksi tulostusta varten
 print("Päättelin, että olit " + str(ikä) + " vuotta vanha vuoden 2019 lopussa.")
+
 ```
 
 Ohjelman esimerkkisuoritus:

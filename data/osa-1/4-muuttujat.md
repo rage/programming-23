@@ -6,9 +6,13 @@ hidden: false
 
 <text-box variant='learningObjectives' nimi='Oppimistavoitteet'>
 
+Käsiteltävä tieto pitää tallentaa muistiin ohjelman suorituksen ajaksi. Tätä tarkoitusta varten ohjelmissa käytetään muuttujia.
+
+Tämän osion suoritettuasi
+
 - Tiedät, mitä tarkoitetaan muuttujalla ja mihin niitä tarvitaan
 - Tiedät, millaista tietoa muuttujiin voidaan tallentaa
-- Ymmärrät merkkijonojen, kokonais- ja liukulukujen eron
+- Ymmärrät merkkijonojen sekä kokonais- ja liukulukujen eron
 - Osaat käyttää muuttujia omissa ohjelmissasi
 
 </text-box>
@@ -27,6 +31,7 @@ Muuttujan alustamiseksi Pythonissa käytetään seuraavaa syntaksia:
 Merkkijonomuuttujalle voidaan antaa arvoja myös esimerkiksi näin:
 
 ```python
+
 # Alustetaan muuttujat etunimi ja sukunimi
 etunimi = "Pekka"
 sukunimi = "Pythonen"
@@ -40,9 +45,8 @@ nimi = etunimi + väli + sukunimi
 
 # Tulostetaan muuttujan nimi arvo
 print(nimi)
-```
 
-Ohjelma tulostaa ajettaessa
+```
 
 <sample-output>
 
@@ -59,6 +63,7 @@ Muuttujan arvo voi nimensä mukaisesti muuttua. Niin kuin edellisessä osassa to
 Esimerkiksi
 
 ```python
+
 # Lauseen arvo on aluksi tyhjä
 lause = ""
 
@@ -78,9 +83,8 @@ lause = lause + input("Anna vielä kolmas nimi: ")
 
 # Tulostetaan lopullinen lause
 print(lause)
-```
 
-Esimerkkisuoritus:
+```
 
 <sample-output>
 
@@ -95,7 +99,7 @@ Huomaa, että `lause`-muuttujan alkuarvoksi annetaan tyhjä merkkijono. Jos tät
 
 <text-box variant="hint">
 
-Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan. Esimerkiksi `ikä` on parempi muuttujan nimi kuin `a`. Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja `_`.
+Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan. Esimerkiksi `ikä` on parempi muuttujan nimi kuin `a`. Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja `_`. Huomaa myös, että pienet ja isot kirjaimet ovat eri merkkejä - muuttuja `nimi` on siis eri muuttuja kuin `Nimi` tai `NIMI`.
 
 </text-box>
 
@@ -108,9 +112,11 @@ Python on _dynaamisesti tyypitetty_ ohjelmointikieli. Tämä tarkoittaa, että o
 Kokonaislukutyyppinen muuttuja voidaan siis alustaa sijoittamalla muuttujan arvoksi kokonaisluku.
 
 ```python
+
 # Alustetaan muuttuja ikä arvolla 24
 ikä = 24
 print(ikä)
+
 ```
 
 Ohjelma tulostaa arvon
@@ -121,19 +127,19 @@ Ohjelma tulostaa arvon
 
 </sample-output>
 
-Kokonaisluvun ympärille ei kirjoiteta lainausmerkkejä. Itse asiassa luvun ympärille kirjoitettavat lainausmerkit tarkoittavat, että kyseessä ei ole luku vaan merkkijono (joka tosin sisältää numeroita).
+Kokonaisluvun ympärille ei kirjoiteta lainausmerkkejä. Itse asiassa luvun ympärille kirjoitettavat lainausmerkit tarkoittavat, että kyseessä ei ole luku vaan merkkijono (joka tosin saattaa sisältää numeroita).
 
 Mitä eroa muuttujan tyypeillä siis on, kun seuraava ohjelma tulostaa samat arvot?
 
 ```python
+
 numero1 = 100
 numero2 = "100"
 
 print(numero1)
 print(numero2)
-```
 
-Ohjelma tulostaa
+```
 
 <sample-output>
 
@@ -145,11 +151,13 @@ Ohjelma tulostaa
 Erilaiset operaatiot vaikuttavat eri tavalla erityyppisiin muuttujiin. Tarkastellaan seuraavaa esimerkkiä:
 
 ```python
+
 numero1 = 100
 numero2 = "100"
 
 print(numero1 + numero1)
 print(numero2 + numero2)
+
 ```
 
 Ohjelma tulostaa suoritettaessa
@@ -168,10 +176,12 @@ Kahdelle lukutyyppiselle arvolle `+`-operaattori siis merkitsee aritmeettista (e
 Erityyppisiä arvoja _ei_ voi yhdistää, seuraava ei siis toimi:
 
 ```python
+
 numero1 = 100
 numero2 = "100"
 
 print(numero1 + numero2) # Tämä tuottaa virheen!
+
 ```
 
 Ohjelma ei tulosta mitään, vaan antaa virheen
@@ -185,15 +195,15 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 Python siis kertoo, ettei kahden erityyppisen arvon yhdistäminen toimi. Jos haluat tulostaa yhdellä lauseella sekä merkkijonon että luvun, tulee luku muuntaa merkkijonoksi `str`-funktiota hyödyntäen. Esimerkiksi
 
 ```python
+
 numero1 = 10
 numero2 = 25
 tulos = numero1 * numero2
 
 # Muutetaan kokonaisluku merkkijonoksi ennen yhdistämistä
 print("Tulos on " + str(tulos))
-```
 
-Ohjelma tulostaa
+```
 
 <sample-output>
 
@@ -208,15 +218,15 @@ Aina kokonaisluvut eivät riitä. Desimaalilukuja (eli _liukulukuja_) voidaan k�
 Esimerkiksi:
 
 ```python
+
 lämpötila_tammi = 2.5
 lämpötila_helmi = -1.25
 lämpötila_maalis = 3.62
 
 keskilämpö = (lämpötila_tammi + lämpötila_helmi + lämpötila_maalis) / 3
 print("Keskilämpötila tammikuusta maaliskuuhun on " + str(keskilämpö))
-```
 
-Ohjelma tulostaa
+```
 
 <sample-output>
 
