@@ -6,48 +6,39 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Myös listoja on kätevä käsitellä funktioiden avulla. Listojen välitys parametrina eroaa kuitenkin perustyyppisten muuttujien käytöstä.
+Myös listoja on kätevä käsitellä funktioiden avulla. Listojen välitys parametrina voi kuitenkin erota mutatoitumattomien arvojen käytöstä.
 
 Tämän osan suoritettuasi
 
-- Tiedät mitä eroa on perustyyppisellä ja viittaustyyppisellä muuttujalla
+- Tiedät mitä tarkoitetaan viittaustyyppisellä muuttujalla
 - TIedät, että samaan olioon voi olla useampia viittauksia
 - Osaat käyttää listoja funktioiden parametreina
 - Tiedät mitä tarkoitetaan funktion sivuvaikutuksella
 
 </text-box>
 
-Muuttujat voidaan jakaa kahteen osaan: _perustyyppiisiin muuttujiin_ ja _viittaustyyppisiin muuttujiin_.
+Pythonissa kaikki muuttujat ovat _viittaustyyppisiin muuttujiin_.
+Tämä tarkoittaa, että muuttujan "arvo" on viittaus varsinaiseen sisältöön.
 
-Perustyyppisissä muttujissa muuttujan arvo on sellaisenaan tallennettuna muuttujaan. Pythonissa perustyyppisiä muuttujia ovat  `int`, `float` ja `bool`.
+Viittaustyyppisessä muuttujassa muuttujan arvona on _viittaus johonkin olioon_. Olio voi olla esimerkiksi merkkijono tai lista. Yleensä viittausta kuvataan nuolena muuttujasta sen varsinaiseen arvoon:
 
-KUVA
-
-Viittaustyyppisessä muuttujassa muuttujan arvona on _viittaus johonkin olioon_. Olio voi olla esimerkiksi merkkijono tai lista.
-
-KUVA
+<img src="5_2_1.png">
 
 Viittaus siis kertoo mistä varsinainen arvo löytyy. Sen sijaan, että muuttujaan olisi tallennettu lista, siihen on tallennettu tieto siitä mistä lista löytyy.
 
+Pythonin "sisäänrakennetut" tyypit, kuten `int`, `float`, `bool` ja `str` ovat _mutatoitumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan se voidaan korvata uudella arvolla:
+
+<img src="5_2_2.png">
+
+Useat muut tyypit sen sijaan ovat mutatoituvia. Esimerkiksi listan sisältö voi muuttuja ilman että tarvitsee luoda kokonaan uusi lista:
+
+<img src="5_2_3.png">
+
 ## Useampi viittaus samaan olioon
 
-Miten perustyypppiset ja viittaustyyppiset muuttujat käytännössä eroavat toisistaan?
+Mitä käytännössä tarkoittaa, että muuttujaan on tallennettu viittaus - ei varsinaista arvoa?
 
-Tarkastellaan esimerkkinä arvon kopiointia. Aloitetaan perustyyppisestä muuttujasta:
-
-```python
-
-a = 5
-b = a
-a = 3
-
-```
-
-Arvo kopioidaan a:sta b:hen.
-
-KUVA
-
-Esimerkki viittaustyyppisillä muuttujilla:
+Tarkastellaan esimerkkinä listamuuttujan arvon kopiointia:
 
 ```python
 
@@ -57,11 +48,13 @@ b[0] = 10
 
 ```
 
-Nytkin sijoitus `b = a` kopioi muuttujan `b` arvon muuttujaan `a`. Erotuksena on kuitenkin se, että muuttujan arvona _ei ole lista_ vaan _viittaus listaan_. Sijoitus `b = a` siis kopioi viittauksen.
+Sijoitus `b = a` kopioi muuttujan `b` arvon muuttujaan `a`. On tärkeä kuitenkin huomata se, että muuttujan arvona _ei ole lista_ vaan _viittaus listaan_.
+
+**Sijoitus `b = a` siis kopioi viittauksen.**
 
 Tämä tarkoittaa, että kopioinnin jälkeen samaan listaan on kaksi viittausta:
 
-KUVA
+<img src="5_2_4.png">
 
 Listaa voidaan käsitellä kumman tahansa viittauksen avulla:
 
@@ -126,8 +119,6 @@ print(lista)
 
 On siis mahdollista, että listaan on viittauksia erikseen pääohjelmassa ja aliohjelmissa.
 
-KUVA
-
 Huomaa, että funktio `lisää_alkio` ei palauta mitään, vaan muuttaa parametrinaan saamaansa listaa. Toinen tapa olisi luoda uusi lista ja palauttaa se:
 
 ```python
@@ -165,7 +156,7 @@ Huomaa, että listasta voi tehdä kopion ottamalla siitä "alilistan", joka sis�
 
 On siis eri asia kopioida viittaus kuin tehdä kopio listasta:
 
-KUVA
+<img src="5_2_5.png">
 
 ## Funktioiden sivuvaikutukset
 

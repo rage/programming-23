@@ -24,9 +24,9 @@ _Hajautustaulut_ (näitä kutsutaan usei myös esimerkiksi _assosiatiotauluiksi_
 
 Tyypillinen esimerkki voisi olla vaikkapa yliopiston opiskelijarekisteri, jossa avain on opiskelijanumero ja arvona on tallennettu opiskelijan tiedot esimerkiksi tuple-rakenteeseen. Kun tiedetään halutun opiskelijan opiskelijanumero, löydetään opiskelijan tiedot nopeasti.
 
-Hajautustauluille tyypillistä on, että alkioita ei ole järjestetty. Ei voida siis puhua ensimmäisestä tai viimeisestä alkiosta. Näiden sijasta on vain _joukko_ avaimia, joista jokainen viittaa yhteen alkioon taulussa. Allaoleva kuva havainnollistaa hajautustaulun ja listan eroa tässä mielessä:
+Hajautustauluille tyypillistä on, että alkioita ei ole järjestetty. Ei voida siis puhua ensimmäisestä tai viimeisestä alkiosta. Näiden sijasta on vain _joukko_ avaimia, joista jokainen viittaa yhteen alkioon taulussa:
 
-KUVA
+<img src="5_4_1.png">
 
 ## Pythonin dictionary eli hakemisto
 
@@ -247,3 +247,47 @@ print(len(testi))
 5
 
 </sample-output>
+
+
+## Hakemiston käyttäminen nimettynä tietorakenteena
+
+Eräs tapa käyttää hakemistoa on käyttää sitä tuplen korvikkeena toisiinsa liittyvien tietojen tallentamiseen. Hakemiston etuna on, että avaimilla on nimet indeksien sijasta.
+
+Jos siis tuplea käytettäessä henkilön tiedot olisi tallennettu näin:
+
+```python
+
+henkilö = ("Pirjo Python", 154, 61, 44)
+
+```
+
+...voitaisiin henkilö tallentaa hakemistoa käyttäen näin:
+
+```python
+
+henkilö = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä:" 44}
+
+```
+
+Henkilöoliot voidaan edelleen tallentaa listaan, mutta yksittäisen ominaisuuden palautus on nyt havainnollisempaa:
+
+```python
+
+henkilö1 = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä": 44}
+henkilö2 = {"nimi": "Pekka Pythonen", "pituus": 174, "paino": 103, "ikä": 31}
+henkilö3 = {"nimi": "Pedro Python", "pituus": 191, "paino": 71, "ikä": 14}
+
+henkilöt = [henkilö1, henkilö2, henkilö3]
+
+# Tulosta kaikkien henkilöiden nimet
+for henkilö in henkilöt:
+    print(henkilö["nimi"])
+
+# Laske keskipituus
+yhteispituus = 0
+for henkilö in henkilöt:
+    yhteispituus = yhteispituus + henkilö["pituus"]
+
+print("Keskipituus on " + str(yhteispituus / len(henkilöt)))
+
+```
