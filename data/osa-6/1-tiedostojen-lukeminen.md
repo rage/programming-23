@@ -8,7 +8,7 @@ hidden: false
 
 Suurempia datamääriä ei juuri koskaan syötetä arvo kerrallaan ohjelmalle, vaan syöte luetaan tyypillisesti esimerkiksi tiedostosta tai verkosta. Tässä osiossa käsitellään tekstimuotoisessa tiedostossa olevan datan käyttöä omassa ohjelmassa
 
-Tämän osion läpikäytyäsi
+Tämän osion suoritettuasi
 
 - Tiedät, miten tekstitiedoston sisällön voi lukea Pythonissa
 - Tiedät, mitä tarkoitetaan CSV-tiedostolla
@@ -80,8 +80,10 @@ Tiedon lukeminen tapahtuu rivillä `sisältö = tiedosto.read()`. Metodi `read` 
 Merkinnällä `\n` esitetään rivinvaihtoa (eli merkkiä, jonka Unicode-merkkikoodi on 10). Useimmat tekstieditorit osaavat näyttää merkin rivinvaihtona editoitaessa, mutta esimerkiksi Windowsin Notepadin jotkut versiot käyttävät kahdesta merkistä koostuuvaa rivinvaihtoa (eli "\r\n"). Python osaa tulostaa rivinvaihdot oikein - niinpä esimerkiksi lause `print("moi\nmoi")` tulostaisi ruudulle viestin
 
 ```txt
+
 moi
 moi
+
 ```
 
 </text-box>

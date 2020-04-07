@@ -6,12 +6,12 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Ohjelmointikielissä on usein toteutettu monia asioita valmiiksi ns. kirjastoihin. Sen sijaan, että ohjelmoijan pitäisi toteuttaa kaikki toiminnallisuus alusta loppuun itse, hän voi hyödyntää valmiita kirjastoja omissa ohjelmissaan.
+Ohjelmointikielissä on usein toteutettu monia yleisesti tarvittavia operaatioita valmiiksi. Sen sijaan, että ohjelmoijan pitäisi toteuttaa kaikki toiminnallisuus alusta loppuun itse, hän voi hyödyntää valmiita kirjastoja omissa ohjelmissaan.
 
-Tämän osion läpikäytyäsi
+Tämän osion suoritettuasi
 
 - Tiedät miten Pythonin `import` lause toimii
-- Osaat etsiä tietoa valmiiden kirjastojen tarjoamista rutiineista
+- Osaat hyödyntää satunnaisuutta omissa ohjelmissasi
 
 </text-box>
 
@@ -104,7 +104,7 @@ print(muodosta_ryhmä(tyypit, 4))
 
 <text-box variant="info">
 
-Toisin kuin useissa muissa ohjelmointikielissä, Pythonissa `import`-lausetta voi käyttää missä tahansa ohjelman osassa. On kuitenkin suositeltavaa niputtaa kaikki importit heti ohjelman alkuun - tämä paranta ohjelman luettavuutta ja helpottaa muita ohjelmoijia.
+Toisin kuin useissa muissa ohjelmointikielissä, Pythonissa `import`-lausetta voi käyttää missä tahansa ohjelman osassa. On kuitenkin suositeltavaa niputtaa kaikki import-lauseet heti ohjelman alkuun - tämä parantaa ohjelman luettavuutta.
 
 </text-box>
 
@@ -123,7 +123,7 @@ Esimerkiksi
 ```python
 
 # Kerrotaan, että random-kirjastosta otetaan käyttöön
-# operaation randint
+# operaatio randint
 from random import randint
 
 # Funktio noppa palauttaa arvon väliltä 1...6

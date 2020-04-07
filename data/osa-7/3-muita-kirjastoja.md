@@ -8,6 +8,8 @@ hidden: false
 
 Edellä esitettyjen kirjastojen lisäksi Pythonin mukana tulee lukuisia muita hyödyllisiä kirjastoja. Tutustutaan vielä muutamaan ja tarkastellaan samalla Pythonin dokumentaatiota vähän tarkemmin.
 
+Tämän osion suoritettuasi:
+
 - Tunnet eräitä tärkeitä Pythonin mukana tulevia kirjastoja
 - Osaat hyödyntää kirjastoja Pythonin dokumentaation avulla
 

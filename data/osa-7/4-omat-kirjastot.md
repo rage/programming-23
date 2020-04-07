@@ -12,13 +12,13 @@ Tämän osan suoritettuasi
 
 - Tiedät, miten omiin ohjelmatiedostoihin voi viitata toisissa ohjelmissa
 - Osaat muodostaa oman kirjaston
-- Tiedät, mitä tarkoitetaan pääohjelmalla `__main__`
+- Tiedät, mitä Pythonin muuttuja `__name__` ja sen arvo `__main__` merkitsevät
 
 </text-box>
 
 Myös omia ohjelmia voi käyttää kirjastoina. Käytännössä kirjastona kannattaa käyttää sellaista ohjelmaa, joka muodostuu erillisistä luokista ja/tai funktioista.
 
-Tarkastellaan esimerkkinä yksinkertaista ohjelmaa, joka on tallennettu tiedostoon merkkijonoapuri.py:
+Tarkastellaan esimerkkinä yksinkertaista ohjelmaa, joka on tallennettu tiedostoon `merkkijonoapuri.py`:
 
 ```python
 
@@ -140,7 +140,7 @@ hississä
 
 Pythonista löytyy onneksi ratkaisu pulmaan. Pääohjelmassa on mahdollista testata suoritetaanko ohjelmaa itseään vai tuotiinko se osaksi jotain toista ohjelmaa `import`-lauseella. Tämä onnistuu muuttujan `__name__` avulla. Python tallentaa muuttujaan tiedon suorittavasta ohjelmasta: jos ohjelmaa suoritetaan sellaisenaan, muuttujan arvo on merkkijono `__main__`. Jos ohjelma on tuotu osaksi jotain toista ohjelmaa, muuttujan arvona on suoritettavan ohjelman nimi (eli tässä tapauksessa `merkkijonoapuri`).
 
-Kirjastoon voidaan siis lisätä edellistä tietoa hyödyntäen ehtolause, joka avulla testikoodi suoritetaan ainoastaan silloin, kun ohjelma ajetaan omana itsenään eikä osana toista ohjelmaa:
+Kirjastoon voidaan siis lisätä edellistä tietoa hyödyntäen ehtolause, joka avulla testikoodi suoritetaan ainoastaan silloin, kun ohjelma ajetaan omana itsenään eikä toisen ohjelman osaksi tuotuna:
 
 ```python
 
@@ -162,7 +162,7 @@ if __name__ == "__main__":
 
 ```
 
-Nyt kirjasto-ohjelman itsensä suorittaminen ajaa testi:
+Nyt kirjasto-ohjelman itsensä suorittaminen suorittaa testikutsut:
 
 <sample-output>
 

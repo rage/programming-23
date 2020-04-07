@@ -153,7 +153,7 @@ Arvo pääohjelmassa: Pirjo Pythonen, ohjelmoijaguru
 
 ## Paikalliset vai globaalit muuttujat?
 
-Yleisesti ottaen kannattaa _lähes aina_ välttä globaaleja muuttujia. Pääasiallinen syy tähän on, että virheiden etsiminen ohjelmista voi muuttua huomattavasti sekavammaksi, mikäli ohjelmassa ei ole selkeästi merkitty mitä muuttujia käsitellään missäkin osassa.
+Yleisesti ottaen kannattaa _lähes aina_ välttää globaaleja muuttujia. Pääasiallinen syy tähän on, että virheiden etsiminen ohjelmista voi muuttua huomattavasti sekavammaksi, mikäli ohjelmassa ei ole selkeästi merkitty mitä muuttujia käsitellään missäkin osassa.
 
 Sen sijaan, että käyttäisit globaalia muuttujaa, on siis parempi välittää muuttujan arvo parametrina funktiolle ja palauttaa mahdollisesti muuttunut arvo takaisin funktion paluuarvona.
 

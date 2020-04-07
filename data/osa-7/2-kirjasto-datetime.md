@@ -8,7 +8,7 @@ hidden: false
 
 Usein ohjelmissa tarvittava ominaisuus on päivämäärien ja kellonaikojen käsittely. Erilaisten poikkeusten (esim. karkauspäivät) takia näiden käsittelyssä kannattaa käyttää ulkoista kirjastoa. Tässä osassa tutustutaan Pythonin kirjastoon `datetime`.
 
-Tämän osion läpikäytyäsi
+Tämän osion suoritettuasi
 
 - Tiedät, miten päivämäärät ja kellonajat kannattaa tallentaa Pythonissa
 - Osaat muodostaa ja manipuloida `datetime`-olioita
@@ -95,7 +95,7 @@ Sekunnit nyt: 0
 
 ## Luokka time
 
-Luotaessa oliota luokasta `datetime` voidaan antaa myös tunnit, minuutit ja sekunnit, esimerkiksi
+Luotaessa oliota luokasta `datetime` voidaan päivämäärän lisäksi asettaa myös tunnit, minuutit ja sekunnit, esimerkiksi
 
 ```python
 
@@ -156,7 +156,7 @@ from datetime import datetime
 
 nyt = datetime.now()
 ennen = datetime(2006, 10, 21)
-tulevaisuus = datetime(2120, 6, 11)
+tulevaisuus = datetime(2150, 6, 11)
 
 
 if ennen < nyt:
@@ -234,7 +234,7 @@ Sekunteja: 620196
 
 </sample-output>
 
-Huomaa, että `timedelta`-oliolta ei voi suoraan kysyä esimerkiksi vuosia, koska kahden ajankohdan välinen ero on mahdotonta kuvata kokonaisina vuosina tietämättä itse ajankohtia (johtuen esimerkiksi karkausvuosista).
+Huomaa, että `timedelta`-oliolta ei voi suoraan kysyä esimerkiksi vuosia, koska kahden ajankohdan kesto on mahdotonta kuvata täsmällisesti kokonaisina vuosina tietämättä itse ajankohtia (johtuen esimerkiksi karkausvuosista: karkausvuoden pituus on 24 tuntia enemmän kuin muiden vuosien):
 
 Koska `timedelta`-oliolla ei esitetä ajankohtaa vaan ajan määrää, sen avulla voidaan näppärästi pyöräyttää aikaa eteen- tai taaksepäin.
 
