@@ -234,7 +234,7 @@ Sekunteja: 620196
 
 </sample-output>
 
-Huomaa, että `timedelta`-oliolta ei voi suoraan kysyä esimerkiksi vuosia, koska kahden ajankohdan kesto on mahdotonta kuvata täsmällisesti kokonaisina vuosina tietämättä itse ajankohtia (johtuen esimerkiksi karkausvuosista: karkausvuoden pituus on 24 tuntia enemmän kuin muiden vuosien):
+Huomaa, että `timedelta`-oliolta ei voi suoraan kysyä esimerkiksi vuosia, koska ajankohdan kesto on mahdotonta kuvata täsmällisesti kokonaisina vuosina tietämättä itse ajankohtia (johtuen esimerkiksi karkausvuosista: karkausvuoden pituus on 24 tuntia enemmän kuin muiden vuosien):
 
 Koska `timedelta`-oliolla ei esitetä ajankohtaa vaan ajan määrää, sen avulla voidaan näppärästi pyöräyttää aikaa eteen- tai taaksepäin.
 
