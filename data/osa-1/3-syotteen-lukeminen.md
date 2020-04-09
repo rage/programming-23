@@ -44,7 +44,7 @@ Moi vaan, Pekka Python
 
 </sample-output>
 
-Ohjelman tuloste riippuu siis osittain käyttäjän syötteestä. Niinpä ohjelman suoritus voisi näyttää myös tältä:
+Ohjelman tulostama teksti riippuu siis osittain käyttäjän syötteestä. Niinpä ohjelman suoritus voisi näyttää myös tältä:
 
 <sample-output>
 
@@ -111,7 +111,7 @@ Moi Erkki Esimerkki! Varmistan vielä: nimesi on siis Erkki Esimerkki?
 
 ## Useampi kuin yksi syöte
 
-Ohjelmassa voi lukea useamman eri syötteen. Huomaa, että jokaisen `input`-funktion palautusarvo tallennetaan erinimiseen muuttujaan:
+Ohjelmassa voi lukea useamman eri syötteen. Huomaa, että jokaisen `input`-funktion palauttama merkkijono tallennetaan erinimiseen muuttujaan:
 
 ```python
 

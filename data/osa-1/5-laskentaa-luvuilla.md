@@ -122,7 +122,7 @@ Painoindeksi on 28.02137829801649
 Muunnos merkkijonosta liukuluvuksi voidaan siis tehdä käyttäen funktiota `float`. Funktion syötteen pitää olla sellainen, että Python osaa muuntaa sen liukuluvuksi, muuten seuraa virhetilanne.
 
 Huomaa, että syötteitä ei välttämättä olisi pakko tallentaa muuttujiin
-pituus_string` ja `paino-string`, vaan muunnoksen voisi tehdä suoraankin:
+`pituus_mjono` ja `paino_mjono`, vaan muunnoksen voisi tehdä suoraankin:
 
 ```python
 

@@ -37,29 +37,29 @@ print("Seuraava asiakas, kiitos!")
 ```
 Ohjelman suoritus näyttää tältä, kun syötetään luku joka on suurempi kuin 17...
 
-<example-output>
+<sample-output>
 
 Kuinka vanha olet? **18**
 Olet täysi-ikäinen!
 Tässä siis sinulle ikiomaksi GTA6.
 Seuraava asiakas, kiitos!
 
-</example-output>
+</sample-output>
 
 ...ja tältä, kun syötetään luku joka *ei* ole suurempi kuin 17:
 
-<example-output>
+<sample-output>
 
 Kuinka vanha olet? **16**
 Seuraava asiakas, kiitos!
 
-</example-output>
+</sample-output>
 
 Esimerkkejä tarkastelemalla huomataan, että syötteenä annettu arvo vaikuttaa nyt siihen mitkä osat ohjelmasta suoritetaan. Lausetta, jonka avulla määritetään jokin ohjelman osa ehdollisesti suoritettavaksi kutsutaankin **ehtolauseeksi**. Ehtolauseen avulla voidaan siis määritellä ohjelmaan lohko, joka suoritetaan vain kun _annettu ehto on tosi_.
 
 <img src="1_6.png">
 
-Ehtolauseessa avainsanaa `if` seuraa jokin _ehto_. Kun Python _evaluoi_ eli suorittaa ehdon, sen arvoksi tulee joko `True`tai `False` eli tosi tai epätosi. Ehtoa seuraava _lohko_ suoritetaan vain, jos ehto sai arvon tosi.
+Ehtolauseessa avainsanaa `if` seuraa jokin _ehto_. Kun Python _evaluoi_ eli suorittaa ehdon, sen arvoksi tulee joko `True` tai `False` eli tosi tai epätosi. Ehtoa seuraava _lohko_ suoritetaan vain, jos ehto sai arvon tosi.
 
 ## Vertailuoperaattorit
 
