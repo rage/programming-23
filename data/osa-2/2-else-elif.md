@@ -181,7 +181,7 @@ pvm = input("Mikä päivä nyt on? ")
 
 # Kolme eri ehtoa samassa ehtolauseessa
 if pvm == "24.12.":
-    print("NYt on jouluaatto")
+    print("Nyt on jouluaatto")
 elif pvm == '25.12.':
     print("Nyt on joulupäivä")
 elif pvm == "26.12.":
@@ -212,7 +212,7 @@ Kiitos ja hei.
 
 <text-box variant="hint">
 
-Päivämäärien käsittely on monimutkaisempaa kuin mitä ensi alkuun uskoisi. Ohjelmissa ei oikeasti kannatakaan käsitellä päivämääriä merkkijonoina, vaan käyttää tätä tarkoitusta varten erikseen luotuja _kirjastoja_, jotka osaavat ottaa huomioon esimerkiksi karkauspäivät ja muut poikkeukset. Aiheeseen palataan kurssin loppupuolella myöhemmin.
+Päivämäärien käsittely on monimutkaisempaa kuin mitä ensi alkuun uskoisi. Ohjelmissa ei oikeasti kannatakaan käsitellä päivämääriä merkkijonoina, vaan käyttää tätä tarkoitusta varten erikseen luotuja _kirjastoja_, jotka osaavat ottaa huomioon esimerkiksi karkauspäivät ja muut poikkeukset. Aiheeseen palataan kurssin loppupuolella.
 
 </text-box>
 

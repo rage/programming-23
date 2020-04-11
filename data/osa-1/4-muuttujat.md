@@ -99,7 +99,7 @@ Huomaa, että `lause`-muuttujan alkuarvoksi annetaan tyhjä merkkijono. Jos tät
 
 <text-box variant="hint">
 
-Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan. Esimerkiksi `ikä` on parempi muuttujan nimi kuin `a`. Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja `_`. Huomaa myös, että pienet ja isot kirjaimet ovat eri merkkejä - muuttuja `nimi` on siis eri muuttuja kuin `Nimi` tai `NIMI`.
+Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan. Esimerkiksi `ikä` on parempi muuttujan nimi kuin `a`. Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja &#95;. Huomaa myös, että pienet ja isot kirjaimet ovat eri merkkejä - muuttuja `nimi` on siis eri muuttuja kuin `Nimi` tai `NIMI`.
 
 </text-box>
 

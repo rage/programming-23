@@ -81,7 +81,7 @@ Sakkoa tupsahti 200 euroa.
 
 ## Loogiset operaattorit: and
 
-Pelkkä ehtojen ketjuttaminen ei kuitenkaan sekään aina riitä. Oletetaan tilanne, jossa ohjelman pitää ilmoitaa kasvaneesta riskistä mikäli henkilön ikä ylittää 50 ja paino 100 kiloa. Nyt haluamme siis yhdistää yhteen lausekkeeseen kaksi erillistä ehtoa.
+Pelkkä ehtojen ketjuttaminen ei kuitenkaan sekään aina riitä. Oletetaan tilanne, jossa ohjelman pitää ilmoitaa kasvaneesta terveysriskistä mikäli henkilön ikä ylittää 50 ja paino 100 kiloa. Nyt haluamme siis yhdistää yhteen lausekkeeseen kaksi erillistä ehtoa.
 
 Tämä onnistuu loogisilla operaattoreilla. Tarkastellaan aluksi `and`-operaattorin toimintaa edellä mainitun esimerkin avulla:
 
@@ -99,7 +99,7 @@ else:
 
 ```
 
-Seuraavassa on ajettu ohjelma kahteen kertaan eri syötteillä:
+Seuraavassa on suoritettu ohjelma kahteen kertaan eri syötteillä:
 
 <sample-output>
 
@@ -178,7 +178,7 @@ Lienetkö Ankkojen sukua?
 
 </sample-output>
 
-Viimeinen Pythonin loogisista on `not`, joka kääntää totuusarvon vastakkaiseksi. Arvosta `True` tulee siis `False` ja arvosta `False` vastaavasti `True`. Operaation yhteydessä puhutaan myös _arvon komplementista_.
+Viimeinen Pythonin loogisista operaattoreista on `not`, joka kääntää totuusarvon vastakkaiseksi. Arvosta `True` tulee siis `False` ja arvosta `False` vastaavasti `True`. Operaation yhteydessä puhutaan myös _arvon komplementista_.
 
 Esimerkiksi:
 
