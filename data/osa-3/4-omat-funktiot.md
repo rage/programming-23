@@ -17,7 +17,7 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Aikaisemmissa osissa on käytetty esimerkiksi funktioita `len`, `print` ja `input` eri tarkoituksiin. Funktiolla tarkoitetaan ohjelmointikielessä siis ohjelman itsenäistä kokonaisuutta, jota voidaan _kutsua_, jolle voidaan (usein) välittää _parametreja_ ja joka voi _palauttaa jonkin arvon. Edellämainitut funktiot on sisäänrakennettu Pythoniin. Näiden lisäksi käyttäjä voi myös määritellä omia funktioitaan.
+Aikaisemmissa osissa on käytetty esimerkiksi funktioita `len`, `print` ja `input` eri tarkoituksiin. Funktiolla tarkoitetaan ohjelmointikielessä siis ohjelman itsenäistä kokonaisuutta, jota voidaan _kutsua_, jolle voidaan (usein) välittää _parametreja_ ja joka voi _palauttaa_ jonkin arvon. Edellämainitut funktiot on sisäänrakennettu Pythoniin. Näiden lisäksi käyttäjä voi myös määritellä omia funktioitaan.
 
 Oma funktio määritellään avainsanalla `def` (lyhenne sanasta define). Funktiolle annetaan jokin _nimi_, ja nimen perään kirjoitetaan sulkuihin funktion _parametrit_. Parametreista puhutaan tarkemmin ensi viikolla, tällä kerralla funktion nimen perään kirjoitetaan vain tyhjät sulut.
 
@@ -72,11 +72,11 @@ while True:
 
 Kutsutaanko vielä (k/e): **k**
 MOI KAIKKI!
------------
+&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;
 
 Kutsutaanko vielä (k/e): **k**
 MOI KAIKKI!
------------
+&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;
 
 Kutsutaanko vielä (k/e): **e**
 
@@ -154,10 +154,10 @@ def laske_erotus():
 
 
 while True:
-    print("1. Yhteenlasku")
-    print("2. Kertolasku")
-    print("3. Vähennyslasku")
-    print("0. Lopetus")
+    print("1 Yhteenlasku")
+    print("2 Kertolasku")
+    print("3 Vähennyslasku")
+    print("0 Lopetus")
 
     valinta = input("Mitä haluat laskea: ")
     if valinta == "1":
@@ -173,37 +173,34 @@ while True:
 
 <sample-output>
 
-```
-
-1. Yhteenlasku
-2. Kertolasku
-3. Vähennyslasku
-0. Lopetus
+1 Yhteenlasku
+2 Kertolasku
+3 Vähennyslasku
+0 Lopetus
 Mitä haluat laskea: **1**
 Anna luku1: 4
 Anna luku2: 9
 Summa on 13
-1. Yhteenlasku
-2. Kertolasku
-3. Vähennyslasku
-0. Lopetus
+1 Yhteenlasku
+2 Kertolasku
+3 Vähennyslasku
+0 Lopetus
 Mitä haluat laskea: **2**
 Anna luku1: 3
 Anna luku2: 3
 Tulo on 9
-1. Yhteenlasku
-2. Kertolasku
-3. Vähennyslasku
-0. Lopetus
+1 Yhteenlasku
+2 Kertolasku
+3 Vähennyslasku
+0 Lopetus
 Mitä haluat laskea: **3**
 Anna luku1: 10
 Anna luku2: 21
 Erotus on -11
-1. Yhteenlasku
-2. Kertolasku
-3. Vähennyslasku
-0. Lopetus
+1 Yhteenlasku
+2 Kertolasku
+3 Vähennyslasku
+0 Lopetus
 Mitä haluat laskea: **0**
-```
 
 </sample-output>

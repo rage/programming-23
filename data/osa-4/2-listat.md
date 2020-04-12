@@ -213,7 +213,7 @@ print(luvut)
 
 <sample-output>
 
-4, 1, 2, 3, 0]
+4, 1, 2, 3, 0
 
 </sample-output>
 
@@ -233,7 +233,7 @@ if 2 in lista:
 
 ## Valmiit listaoperaatiot
 
-Pythonista löytyy paljon valmiita operaatioita, joilla voidaan käsitellä listoja. Käydään tässä läpi muutama esimerkki, lisää löydät Pythonin <a href="https://docs.python.org/3/tutorial/datastructures.html">dokumentaatiosta</a>.
+Pythonista löytyy paljon valmiita operaatioita, joilla voidaan käsitellä listoja. Käydään tässä läpi muutama esimerkki, lisää löydät Pythonin [dokumentaatiosta](https://docs.python.org/3/tutorial/datastructures.html).
 
 Lista voidaan järjestää _luonnolliseen järjestykseen_ käyttämällä joko metodia `sort` tai funktiota `sorted`. Kokonaislukutyyppisen listan tapauksessa tämä tarkoitaa sitä, että listan alkiot vaihdetaan suuruusjärjestyksen siten, että pienin alkio tulee ensimmäiseksi ja suurin viimeiseksi.
 

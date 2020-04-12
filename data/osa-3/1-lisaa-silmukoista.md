@@ -16,7 +16,7 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Viime osan lopussa opeteltiin käyttämättän `while(True)`-silmukkaa toistuvan toiminnallisuuden aikaansaamiseksi. Itse asiassa `while`-lause mahdollistaa huomattavasti monipuolisempien toistorakenteiden muodostamisen.
+Viime osan lopussa opeteltiin käyttämättän `while True` -silmukkaa toistuvan toiminnallisuuden aikaansaamiseksi. Itse asiassa `while`-lause mahdollistaa huomattavasti monipuolisempien toistorakenteiden muodostamisen.
 
 Tällainen toistolause on yleisesti muotoa:
 

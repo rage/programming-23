@@ -118,9 +118,10 @@ print(alleviivaus)
 
 <sample-output>
 
-Anna merkkijono: Moi kaikki!
+Anna merkkijono: **Moi kaikki!**
+
 Moi kaikki!
------------
+&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;
 
 </sample-output>
 
@@ -220,7 +221,7 @@ Seuraava esimerkki esittelee alijonojen palauttamista:
 ```python
 
 # Merkkijono
-esimerkkijono = "Moi kaikki!";
+esimerkkijono = "Moi kaikki!"
 
 print(esimerkkijono[0:3])
 
@@ -249,10 +250,19 @@ Huomaa, että alijonoa palautettaessa Python hyväksyy myös merkkijonon alkua e
 Esimerkiksi
 
 ```python
-
-
-
+sana = "hello world"
+sana[100]
 ```
+
+Aiheuttaa virheen
+
+<sample-output>
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: string index out of range
+
+</sample-output>
 
 ## Alijonon etsiminen merkkijonosta
 

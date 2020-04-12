@@ -19,7 +19,7 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Viime osan lopuksi tutustuttiin omien funktioiden kirjoittamiseen. Esimerkeissä tarkastelluilla funktioilla on kuitenkin selkeä rajoite: ne toimivat aina samalla tavalla. Sen sijaan että kirjoitettaisiin funktiot eri kertotauluille...
+Edellisen osan lopuksi tutustuttiin omien funktioiden kirjoittamiseen. Esimerkeissä tarkastelluilla funktioilla on kuitenkin selkeä rajoite: ne toimivat aina samalla tavalla. Sen sijaan että kirjoitettaisiin funktiot eri kertotauluille...
 
 ```python
 
