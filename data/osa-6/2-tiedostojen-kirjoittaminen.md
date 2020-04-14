@@ -57,7 +57,7 @@ Ohjelman suorittamisen jälkeen samaan kansioon ilmestyy tiedosto `uusi_tiedosto
 
 Moi kaikki!
 
-</sample-dat>
+</sample-data>
 
 Huomaa, että jos tiedostoon halutaan rivinvaihtoja, ne täytyy lisätä tekstiin itse. Alla oleva ohjelma...
 
@@ -79,7 +79,7 @@ with open("uusi_tiedosto.txt", "w") as tiedosto:
 
 Moi kaikki!Toinen riviViimeinen rivi
 
-</sample-dat>
+</sample-data>
 
 Tulostukset saadaan omille riveilleen lisäämällä rivien loppuun rivivaihtomerkki `\n`:
 
@@ -103,7 +103,7 @@ Moi kaikki!
 Toinen rivi
 Viimeinen rivi
 
-</sample-dat>
+</sample-data>
 
 ## Tiedon lisääminen olemassaolevaan tiedostoon
 

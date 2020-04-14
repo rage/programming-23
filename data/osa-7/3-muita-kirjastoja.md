@@ -15,7 +15,7 @@ Tämän osion suoritettuasi:
 
 </text-box>
 
-Pythonin mukana tulee paljon valmiita kirjastoja. Lähes loputtomasti lisää löytää helposti Googlella. Kaikkea ei siis voi opetella ulkoa, eikä siihen ole onneksi tarvettakaan - tiedon haku kuuluu olennaisena osana ohjelmoijan työkalupakettiin. Googlen lisäksi tietoa kannattaa etsiä <a href="https://docs.python.org/3/library/">Pythonin omasta dokumentaatiosta</a>, erityisesti Pythonin perusasennukseen kuuluvia kirjastoja käytettäessä.
+Pythonin mukana tulee paljon valmiita kirjastoja. Lähes loputtomasti lisää löytää helposti Googlella. Kaikkea ei siis voi opetella ulkoa, eikä siihen ole onneksi tarvettakaan - tiedon haku kuuluu olennaisena osana ohjelmoijan työkalupakettiin. Googlen lisäksi tietoa kannattaa etsiä [Pythonin omasta dokumentaatiosta](https://docs.python.org/3/library/), erityisesti Pythonin perusasennukseen kuuluvia kirjastoja käytettäessä.
 
 Tarkastellaan vielä esimerkkinä muutamaa peruskäytössä hyödyllistä kirjastoa ja opetellaan samalla lukemaan Pythonin dokumentaatiota.
 
@@ -23,7 +23,7 @@ Tarkastellaan vielä esimerkkinä muutamaa peruskäytössä hyödyllistä kirjas
 
 Peruslaskutoimituksia varten Pythonin mukana tulee kirjasto `math`. Kirjastosta löytyy operaatioita yleisimpiin matemaattisiin operaatioihin.
 
-Avataan aluksi <a href="https://docs.python.org/3/library/math.html">kirjaston dokumentaatiosivu</a>. Alla olevassa ruudunkaappauksessa (2.4.2020) näkyy pieni osa sivua:
+Avataan aluksi [kirjaston dokumentaatiosivu](https://docs.python.org/3/library/math.html). Alla olevassa ruudunkaappauksessa (2.4.2020) näkyy pieni osa sivua:
 
 <img src="7_3_1.png">
 
@@ -62,7 +62,7 @@ def pallon_pinta_ala(säde: float) -> float:
 
 ## Merkkijonoapuvälineitä: kirjasto string
 
-Kirjasto <a href="https://docs.python.org/3/library/string.html">string</a> sisältää hyödyllisiä vakioarvoja ja työkaluja merkkijonojen käsittelyyn.
+Kirjasto [string]("https://docs.python.org/3/library/string.html) sisältää hyödyllisiä vakioarvoja ja työkaluja merkkijonojen käsittelyyn.
 
 Alla olevassa esimerkissä on toteutettu funktio, joka laskee välimerkkien määrän merkkijonosta:
 
@@ -84,7 +84,7 @@ Lause `n += 1` vastaa lausetta `n = n + 1`. Samalla tavalla esimerkiksi lause `a
 
 # Verkkosivun sisällön lukeminen: kirjastot urllib.request ja webbrowser
 
-Python tarjoaa helpon tavan verkkosivun sisällön lukemiseen kirjaston <a href="https://docs.python.org/3/library/urllib.request.html">urllib.request</a> avulla.
+Python tarjoaa helpon tavan verkkosivun sisällön lukemiseen kirjaston [urllib.request](https://docs.python.org/3/library/urllib.request.html) avulla.
 
 Esimerkki lukee verkkosivun `www.example.com` sisällön ja tallentaa sen tiedostoon `example.html`:
 
@@ -108,9 +108,9 @@ Huomaa, että `with`-lauseelle voidaan antaa useampi avattava resurssi yhtäaika
 
 Verkkosivuihin luotava yhteys mahdollistaa vain tiedon lukemisen, tiedon kirjoittamista verko yli ei käsitellä tällä kurssilla.
 
-Verkossa olevat sivut on usein kirjoitettu HTML-merkkauskielellä. Metodi `read` palauttaa siis HTML-kielisen tiedoston. HTML-kielen käsittelyä varten Pythonista löytyy kirjasto <a href="https://docs.python.org/3/library/html.parser.html">html.parser</a>.
+Verkossa olevat sivut on usein kirjoitettu HTML-merkkauskielellä. Metodi `read` palauttaa siis HTML-kielisen tiedoston. HTML-kielen käsittelyä varten Pythonista löytyy kirjasto [html.parser](https://docs.python.org/3/library/html.parser.html).
 
-Verkkosivun voi avata ulkoiseen selaimeen kirjaston `webbrowser` avulla. Esimerkiksi
+Verkkosivun voi avata ulkoiseen selaimeen kirjaston [webbrowser](https://docs.python.org/3/library/webbrowser.html?highlight=webbrowser#module-webbrowser) avulla. Esimerkiksi
 
 ```python
 
@@ -129,4 +129,5 @@ Pythonin mukana tulevien kirjastojen lisäksi verkosta löytyy lukuisia vapaasti
 
 Pythonin dokumentaatioon on koottu lista joistakin yleisesti käytetyistä kirjastoista eri tarpeisiin:
 
-<a href="https://wiki.python.org/moin/UsefulModules">https://wiki.python.org/moin/UsefulModules</a>
+<https://wiki.python.org/moin/UsefulModules>
+

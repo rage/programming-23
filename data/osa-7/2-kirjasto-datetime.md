@@ -16,11 +16,11 @@ Tämän osion suoritettuasi
 
 </text-box>
 
- Päivämäärien ja kellonaikojen hallinta ohjelmissa saattaa tuntua ensi alkuun yksinkertaiselta, mutta todellisuudessa se kannattaa yleensä jättää ulkoisten kirjastojen huoleksi. Esimerkiksi kahden ajankohdan välisen erotuksen laskemisessa pitää ottaa huomioon se, että eri kuukausissa on eri määärä päiviä, karkausvuodet ja muut poikkeukset. Myös erilaiset tavat merkitä aikoja voivat tuottaa hankaluuksia ohjelmoijalle: kun helmikuun kolmas päivä vuonna 2021 merkitään Suomessa muotoon 3.2.2021, merkitään se tyypillisesti Yhdysvalloissa muotoon 02/03/2021 ja useimpien tietokonejärjestelmien käyttämässä aikaleimajärjestelmässä muotoon 2021/02/03. Samalla tavalla kellonaikojen merkintään käytetään paitsi eri tarkkuuksia, myös 12 ja 24 tunnin järjestelmiä.
+ Päivämäärien ja kellonaikojen hallinta ohjelmissa saattaa tuntua ensi alkuun yksinkertaiselta, mutta todellisuudessa se kannattaa yleensä jättää ulkoisten kirjastojen huoleksi. Esimerkiksi kahden ajankohdan välisen erotuksen laskemisessa pitää ottaa huomioon se, että eri kuukausissa on eri määrä päiviä, karkausvuodet ja muut poikkeukset. Myös erilaiset tavat merkitä aikoja voivat tuottaa hankaluuksia ohjelmoijalle: kun helmikuun kolmas päivä vuonna 2021 merkitään Suomessa muodossa 3.2.2021, merkitään se tyypillisesti Yhdysvalloissa muodossa 02/03/2021 ja useimpien tietokonejärjestelmien käyttämässä aikaleimajärjestelmässä muodossa 2021/02/03. Samalla tavalla kellonaikojen merkintään käytetään paitsi eri tarkkuuksia, myös 12 ja 24 tunnin järjestelmiä.
 
  ## Kirjasto datetime
 
- Pythonissa päivämäärien ja kellonaikojen hallintaan voidaan käyttää kirjastoa `datetime`. Kirjaston avulla voidaan muodostaa aikaa mallintavia olioita.
+ Pythonissa päivämäärien ja kellonaikojen hallintaan voidaan käyttää kirjastoa [datetime](https://docs.python.org/3/library/datetime.html). Kirjaston avulla voidaan muodostaa aikaa mallintavia olioita.
 
 Tarkastellaan ensin ohjelmaa, jossa tallennetaan nykyinen aika luokan `datetime` tyyppiseen olioon.
 
@@ -106,7 +106,7 @@ tenttiaika = datetime(2018, 10, 24, 15, 45, 00)
 
 ```
 
-Jos halutaan kuitenkin mallintaa pelkkää aikaa päivämäärän sijasta, voidaan käyttää luokkaa `time`.
+Jos halutaan kuitenkin mallintaa pelkkää aikaa päivämäärän sijasta, voidaan käyttää luokkaa [time](https://docs.python.org/3/library/time.html?highlight=time#module-time).
 
 Esimerkiksi
 
@@ -205,7 +205,7 @@ for aika in aikalista:
 
 ## Kahden ajankohdan välinen ero
 
-Kahden ajankohdan keskinäisen järjestyksen lisäksi on usein tärkeä tietää kuinka suuri ero ajankohtien välillä on. Pythonissa tämä onnistuu helposti vähentämällä `datetime`-olio toisesta samantyyppisestä oliosta. Lopputuloksena on uusi `timedelta`-tyyppinen olio, joka sisältää tiedon ajankohtien välisestä erosta.
+Kahden ajankohdan keskinäisen järjestyksen lisäksi on usein tärkeä tietää kuinka suuri ero ajankohtien välillä on. Pythonissa tämä onnistuu helposti vähentämällä `datetime`-olio toisesta samantyyppisestä oliosta. Lopputuloksena on uusi [timedelta](https://docs.python.org/3/library/datetime.html?highlight=timedelta#datetime.timedelta)-tyyppinen olio, joka sisältää tiedon ajankohtien välisestä erosta.
 
 Esimerkiksi
 

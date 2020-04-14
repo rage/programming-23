@@ -26,7 +26,7 @@ Ulkoinen kirjasto otetaan käyttöön `import`-lauseella. Lausetta voidaan käyt
 1. Voidaan luoda linkki koko ulkoiseen kirjastoon tai
 2. Voidaan luoda linkki nimettyihin operaatioihin ulkoisessa kirjastossa
 
-Tarkastellaan ensin ensimmäistä käyttötapausta. Käytetään esimerkkinä kirjastoa `random`, jonka avulla voidaan arpoa satunnaislukuja. Satunnaisluvuilla on käyttöä esimerkiksi peleissä, salausalgoritmeissa, tilastotieteessä tai ohjelmien testaamisessa.
+Tarkastellaan ensin ensimmäistä käyttötapausta. Käytetään esimerkkinä kirjastoa [random](https://docs.python.org/3/library/random.html?highlight=random#module-random), jonka avulla voidaan arpoa satunnaislukuja. Satunnaisluvuilla on käyttöä esimerkiksi peleissä, salausalgoritmeissa, tilastotieteessä tai ohjelmien testaamisessa.
 
 <text-box variant="info">
 

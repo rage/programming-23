@@ -60,6 +60,7 @@ hississä
 Huomaa, että jotta kirjasto voidaan tuoda ohjelmaan `import`-lauseella, sen pitää sijaita joko
 
 a. Samassa hakemistossa kuin missä parhaillaan ajettava ohjelmakin on tai
+
 b. jossain Pythonin oletushakemistossa
 
 Oletushakemistot määritellään järjestelmämuuttujassa PYTHONPATH, jota voi tarkastella kirjastosta `sys` löytyvän muuttujan `path` avulla. Lisätietoa hakemistojen lisäämisestä (ja poistamisesta) löydät hakusanoilla `PYTHONPATH` - hakuun kannattaa liittää käyttämäsi käyttöjärjestelmä.

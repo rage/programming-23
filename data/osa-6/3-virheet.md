@@ -112,7 +112,7 @@ Virheellinen syöte - anna luku!
 Anna ikäsi: **23**
 Ohjelman suoritus jatkuu...
 
-</sample-outpu>
+</sample-output>
 
 Ohjelmassa voidaan siis `try`-lauseella ilmoittaa, että seuraavan lohkon sisällä tapahtuva toiminta voi aiheuttaa virheen. Välittömästi `try`-lohkoa seuraavassa `except`-lauseessa ilmoitetaaan _mihin virheeseen varaudutaan_. Edellisessä esimerkissä varauduttiin ainoastaan virheeseen `ValueError` - joku muu virhe olisi edelleen katkaissut ohjelman suorituksen.
 

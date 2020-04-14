@@ -21,7 +21,7 @@ Ohjelmoinnissa käytetään käsitteitä _paikallinen muuttuja_ ja _globaali muu
 
 ## Funktioiden paikalliset muuttujat
 
-Pythonissa oletuksena kaikki funktioiden sisällä määritellyt muuttujat ovat näiden funktioiden _paikallisia muuttujia. Tämä koskee sekä parametrimuuttujia että funktion lohkon sisällä määriteltyjä muuttujia. Paikallinen muuttuja tarkoittaa, että muuttuja _ei ole olemassa funktion ulkopuolella_.
+Pythonissa oletuksena kaikki funktioiden sisällä määritellyt muuttujat ovat näiden funktioiden _paikallisia muuttujia_. Tämä koskee sekä parametrimuuttujia että funktion lohkon sisällä määriteltyjä muuttujia. Paikallinen muuttuja tarkoittaa, että muuttuja _ei ole olemassa funktion ulkopuolella_.
 
 Esimerkiksi seuraavassa ohjelmassa yritys viitata muuttujaan `nimi` pääohjelmassa antaa virheen:
 
