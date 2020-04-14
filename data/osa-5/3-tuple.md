@@ -120,7 +120,7 @@ while True:
 # Järjestetään lista
 henkilöt.sort()
 
-# NImet ja iät ovat edelleen kytkettyinä toisiinsa
+# Nimet ja iät ovat edelleen kytkettyinä toisiinsa
 print(henkilöt)
 
 ```

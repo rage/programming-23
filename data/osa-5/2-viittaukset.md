@@ -117,7 +117,7 @@ print(lista)
 
 </sample-output>
 
-On siis mahdollista, että listaan on viittauksia erikseen pääohjelmassa ja aliohjelmissa.
+On siis mahdollista, että listaan on viitataan sekä pääohjelmassa että sen kutsumassa funktiossa.
 
 Huomaa, että funktio `lisää_alkio` ei palauta mitään, vaan muuttaa parametrinaan saamaansa listaa. Toinen tapa olisi luoda uusi lista ja palauttaa se:
 
