@@ -18,9 +18,8 @@ Tässä osiossa
 
 </text-box>
 
-Pythonin funktiolla `print` voidaan tulostaa käyttäjälle viestejä.
-
-Esimerkiksi funktiokutsu `print("Moi kaikki!")` tulostaa tekstin "Moi kaikki".
+Pythonin komento `print` tulostaa (eli näyttää ruudulla) rivin tekstiä.
+Esimerkiksi seuraava ohjelma tulostaa rivin "Moi kaikki".
 
 ```python
 
@@ -36,13 +35,9 @@ Moi kaikki
 
 Yllä on esitetty esimerkkiohjelma ja sen tulostus. Voit kokeilla lausetta myös itse _KONSOLISSA?_
 
-Ohjelmien rakenne voidaan esittää hyvin yksinkertaistetusti seuraavasti:
-
-<img src="1_1_1.png" alt="syöte --> käsittely --> tuloste">
-
-Ohjelma siis saa syötteen, käsittelee sen ja viestii tuloksen takaisin. Tällä kurssilla käytämme tuloksen kommunikointiin yleensä funktiota `print`. Funktiolla tarkoitetaan ohjelman itsenäistä osaa, jota voidaan kutsua sen nimellä. Funktioilla on usein myös parametreja. Esimerkiksi print-funktio saa parametrikseen tulostettavan objektin.
-
-Esimerkiksi seuraava kolmesta print-funktion kutsusta koostuva ohjelma
+Kun kirjoitamme useita komentoja peräkkäin,
+ne suoritetaan järjestyksessä ylhäältä alas.
+Esimerkiksi ohjelma
 
 ```python
 
@@ -51,7 +46,7 @@ print("Aluksi harjoitellaan print-funktion käyttöä.")
 print("Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.")
 
 ```
-...tulostaa ruudulle seuraavat viestit:
+...tulostaa ruudulle seuraavat rivit:
 
 <sample-output>
 
@@ -61,20 +56,19 @@ Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.
 
 </sample-output>
 
-## Lausekkeet print-funktion parametrina
+## Laskutoimitukset
 
-Parametriksi voidaan antaa myös jokin lauseke.
-
-Esimerkiksi seuraava ohjelma
+Jos laitamme `print`-komennon sisälle laskutoimituksen,
+sen tulos ilmestyy näkyviin. Esimerkiksi ohjelma
 
 ```python
 
 print(2 + 5)
-print(3 * 3) # *-merkkiä käytetään kertolaskuoperaattorina
-print(2 + 2 * 10) # laskujärjestys noudattaa pääpiirteittäin matematiikasta tuttua järjestystä
+print(3 * 3)
+print(2 + 2 * 10)
 
 ```
-tulostaa ruudulle viestit
+tulostaa ruudulle rivit
 
 <sample-output>
 
@@ -84,8 +78,8 @@ tulostaa ruudulle viestit
 
 </sample-output>
 
-Huomaa, että laskujen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään
-_merkkijono_, joka tulostetaan ruudulle sellaisenaa. Huomaa siis seuraavien lauseiden ero:
+Huomaa, että laskutoimituksen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään
+_merkkijono_, joka tulostetaan ruudulle sellaisenaan. Huomaa siis seuraavien komentojen ero:
 
 ```python
 
@@ -103,21 +97,19 @@ Ohjelma tulostaa
 
 </sample-output>
 
-Jälkimmäisessä tapauksessa Python ei yritä tulkita lauseketta, vaan tulostaa sen ruudulle. Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällöstä.
+Jälkimmäisessä tapauksessa Python ei laske laskutoimitusta, vaan tulostaa sen ruudulle.
+Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällöstä.
 
 ## Kommentit
 
-Kommenttien avulla voidaan dokumentoida ohjelman suoritusta. Pythonissa kommentit merkitään #-merkin avulla.
+Kommenttien avulla voidaan kertoa ohjelman toiminnasta koodin lukijalle. Pythonissa kommentit merkitään `#`-merkin avulla.
 
-Python ei suorita mitään rivillä olevaa sisältöä #-merkin jälkeen. Kommenttien tarkoituksena on siis kertoa ohjelmoijalle itselleen ja muille ohjelmoijille ohjelmakoodiin liittyviä asioita.
+Python ei suorita mitään rivillä olevaa sisältöä `#`-merkin jälkeen.
+Kommenttien tarkoituksena on siis kertoa ohjelmoijalle itselleen ja muille ohjelmoijille koodiin liittyviä asioita.
 
 ```python
 
-print (2 ** 3) # Lasketaan potenssilauseen kaksi kolmanteen arvo
-print (5 / 2) # Jakolaskua merkitsemään käytetään /-operaattoria
-
-# Ohjelma tulostaa vielä yhden merkkijonon
-print ("** toimii siis eksponenttioperaattorina, ja / jako-operaattorina")
+TODO: tässä pitäisi olla hyvä esimerkki kommentoinnista
 
 ```
 
