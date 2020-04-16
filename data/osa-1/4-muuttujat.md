@@ -18,32 +18,27 @@ Tämän osion suoritettuasi
 </text-box>
 
 
-Edellisessä osassa käytettiin muuttujia tallentamaan syötefunktion (eli `input`-funktion) palauttamat arvot.
+Edellisessä osassa käytettiin muuttujia tallentamaan `input`-komennon antamat arvot.
 
 Muuttujia tarvitaan ohjelmissa lukuisiin muihinkin tarkoituksiin: muuttujiin voidaan tallentaa mitä tahansa sellaista tietoa, jota tarvitaan ohjelmassa myöhemmin.
 
-Muuttujan alustamiseksi Pythonissa käytetään seuraavaa syntaksia:
+Muuttuja luodaan Pythonissa seuraavasti:
 
-`muuttujan_nimi = <lauseke>`
+`muuttujan_nimi = ...`
 
-...missä lauseke tuottaa tulokseksi jonkin arvon, joka tallennetaan muuttujaan. Esimerkiksi `input`-funktion kutsuminen tuottaa tulokseksi käyttäjän syöttämän merkkijonon. Jotta tätä merkkijonoa voidaan käyttää ohjelmassa myöhemmin (esimerkiksi tulostettaessa käyttäjälle tervehdys), se tallennetaan muuttujaan.
+Tässä `...` tarkoittaa arvoa, joka tallennetaan muuttujaan.
+Esimerkiksi voimme sijoittaa muuttujaan `input`-komennon välityksellä käyttäjän antaman merkkijonon. 
+Jotta tätä merkkijonoa voidaan käyttää ohjelmassa myöhemmin (esimerkiksi tulostamaan käyttäjälle tervehdys), se tallennetaan muuttujaan.
 
-Merkkijonomuuttujalle voidaan antaa arvoja myös esimerkiksi näin:
+Muuttujille voidaan antaa arvoja myös esimerkiksi näin:
 
 ```python
 
-# Alustetaan muuttujat etunimi ja sukunimi
 etunimi = "Pekka"
 sukunimi = "Pythonen"
 
-# Alustetaan muuttuja väli, jonka arvo on 1 välilyönti
-väli = " "
+nimi = etunimi + " " + sukunimi
 
-# Yhdistetään (eli katenoidaan) kolme muuttujaa
-# yhdeksi, ja tallennetaan arvo muuttujaan nimi
-nimi = etunimi + väli + sukunimi
-
-# Tulostetaan muuttujan nimi arvo
 print(nimi)
 
 ```
@@ -64,58 +59,47 @@ Esimerkiksi
 
 ```python
 
-# Lauseen arvo on aluksi tyhjä
-lause = ""
+sana = input("Anna sana: ")
+print(sana)
 
-# Kysy käyttäjältä nimi, ja lisää se lauseeseen
-nimi = input("Anna nimi: ")
-lause = lause + nimi
-lause = lause + ", "
+sana = sana + "a"
+print(sana)
 
-# Kysy käyttäjältä toinen nimi, ja lisää se lauseeseen
-nimi = input("Anna toinen nimi: ")
-lause = lause + nimi
-lause = lause + " ja "
-
-# ...ja vielä kolmas: huomaa, että syötefunktion palaute
-# voidaan tallentaa suoraan lauseen perään
-lause = lause + input("Anna vielä kolmas nimi: ")
-
-# Tulostetaan lopullinen lause
-print(lause)
+sana = sana + sana
+print(sana)
 
 ```
 
 <sample-output>
 
-Anna nimi: **Tupu**
-Anna toinen nimi: **Hupu**
-Anna vielä kolmas nimi: **Lupu**
-Tupu, Hupu ja Lupu
+Anna sana: **testi**
+testi
+testia
+testiatestia
 
 </sample-output>
 
-Huomaa, että `lause`-muuttujan alkuarvoksi annetaan tyhjä merkkijono. Jos tätä ei tehdä, ei lause `lause = lause + nimi` toimi, koska merkkijono voidaan yhdistää vain toiseen merkkijonoon. Myös tyhjä merkkijono _on_ merkkijono.
+<text-box variant="hint" name="">
 
-<text-box variant="hint">
-
-Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan. Esimerkiksi `ikä` on parempi muuttujan nimi kuin `a`. Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja &#95;. Huomaa myös, että pienet ja isot kirjaimet ovat eri merkkejä - muuttuja `nimi` on siis eri muuttuja kuin `Nimi` tai `NIMI`.
+Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan.
+Esimerkiksi jos muuttujassa on sana, nimi `sana` on parempi kuin `a`.
+Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy.
+Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja &#95;.
+Huomaa myös, että pienet ja isot kirjaimet ovat eri merkkejä - muuttuja `nimi` on siis eri muuttuja kuin `Nimi` tai `NIMI`.
 
 </text-box>
 
-## Kokonaislukutyyppiset muuttujat
+## Kokonaislukumuuttujat
 
-Tähän mennessä on käsitelty pelkästään merkkijonotyyppisiä muuttujia. Yleensä ohjelmissa halutaan kuitenkin tallentaa myös muun tyyppistä tietoa. Tarkastellaan aluksi _kokonaislukutyyppisiä muuttujia_.
+Tähän mennessä on käsitelty pelkästään merkkijonomuuttujia.
+Yleensä ohjelmissa halutaan kuitenkin tallentaa myös muun tyyppistä tietoa. Tarkastellaan aluksi _kokonaislukumuuttujia_.
 
-Python on _dynaamisesti tyypitetty_ ohjelmointikieli. Tämä tarkoittaa, että ohjelmoijan ei tarvitse ilmoittaa muuttujan tyyppiä, vaan Python päättelee sen automaattisesti muuttujaan sijoitettavan arvon perusteella.
-
-Kokonaislukutyyppinen muuttuja voidaan siis alustaa sijoittamalla muuttujan arvoksi kokonaisluku.
+Seuraava ohjelma luoda muuttujan `ika`, jossa on kokonaisluku.
 
 ```python
 
-# Alustetaan muuttuja ikä arvolla 24
-ikä = 24
-print(ikä)
+ika = 24
+print(ika)
 
 ```
 
@@ -127,17 +111,18 @@ Ohjelma tulostaa arvon
 
 </sample-output>
 
-Kokonaisluvun ympärille ei kirjoiteta lainausmerkkejä. Itse asiassa luvun ympärille kirjoitettavat lainausmerkit tarkoittavat, että kyseessä ei ole luku vaan merkkijono (joka tosin saattaa sisältää numeroita).
+Kokonaisluvun ympärille ei kirjoiteta lainausmerkkejä.
+Itse asiassa luvun ympärille kirjoitettavat lainausmerkit tarkoittavat, että kyseessä ei ole luku vaan merkkijono (joka tosin saattaa sisältää numeroita).
 
 Mitä eroa muuttujan tyypeillä siis on, kun seuraava ohjelma tulostaa samat arvot?
 
 ```python
 
-numero1 = 100
-numero2 = "100"
+luku1 = 100
+luku2 = "100"
 
-print(numero1)
-print(numero2)
+print(luku1)
+print(luku2)
 
 ```
 
@@ -148,15 +133,16 @@ print(numero2)
 
 </sample-output>
 
-Erilaiset operaatiot vaikuttavat eri tavalla erityyppisiin muuttujiin. Tarkastellaan seuraavaa esimerkkiä:
+Tyypeillä on merkitystä, koska
+erilaiset operaatiot vaikuttavat eri tavalla erityyppisiin muuttujiin. Tarkastellaan seuraavaa esimerkkiä:
 
 ```python
 
-numero1 = 100
-numero2 = "100"
+luku1 = 100
+luku2 = "100"
 
-print(numero1 + numero1)
-print(numero2 + numero2)
+print(luku1 + luku1)
+print(luku2 + luku2)
 
 ```
 
@@ -169,18 +155,16 @@ Ohjelma tulostaa suoritettaessa
 
 </sample-output>
 
-Kahdelle lukutyyppiselle arvolle `+`-operaattori siis merkitsee aritmeettista (eli matemaattista) yhteenlaskua, merkkijonoille taas katenointia.
+Kahdelle lukuarvolle `+`-operaattori siis merkitsee yhteenlaskua, merkkijonoille taas yhdistämistä peräkkäin.
 
-## Erityyppisten arvojen tulostaminen
+## Erityyppisten arvojen yhdistäminen
 
-Erityyppisiä arvoja _ei_ voi yhdistää, seuraava ei siis toimi:
+Seuraava ohjelma ei toimi, koska `"Tulos on "` ja `tulos` ovat erityypisiä:
 
 ```python
 
-numero1 = 100
-numero2 = "100"
-
-print(numero1 + numero2) # Tämä tuottaa virheen!
+tulos = 10 * 25
+print("Tulos on " + tulos) # Tämä tuottaa virheen!
 
 ```
 
@@ -188,19 +172,18 @@ Ohjelma ei tulosta mitään, vaan antaa virheen
 
 <sample-output>
 
-TypeError: unsupported operand type(s) for +: 'int' and 'str'
+TypeError: unsupported operand type(s) for +: 'str' and 'int'
 
 </sample-output>
 
-Python siis kertoo, ettei kahden erityyppisen arvon yhdistäminen toimi. Jos haluat tulostaa yhdellä lauseella sekä merkkijonon että luvun, tulee luku muuntaa merkkijonoksi `str`-funktiota hyödyntäen. Esimerkiksi
+Python siis kertoo, ettei kahden erityyppisen arvon yhdistäminen toimi.
+Jos haluat tulostaa yhdellä komennolla merkkijonon ja luvun,
+yhdistäminen onnistuu kuitenkin muuttamalla luku merkkijonoksi `str`-funktiolla.
+Esimerkiksi
 
 ```python
 
-numero1 = 10
-numero2 = 25
-tulos = numero1 * numero2
-
-# Muutetaan kokonaisluku merkkijonoksi ennen yhdistämistä
+tulos = 10 * 25
 print("Tulos on " + str(tulos))
 
 ```
@@ -213,24 +196,27 @@ Tulos on 250
 
 ## Liukuluvut
 
-Aina kokonaisluvut eivät riitä. Desimaalilukuja (eli _liukulukuja_) voidaan käyttää samalla tavalla kuin kokonaislukujakin. Huomaa kuitenkin, että _desimaalierottimena käytetään pilkun sijasta pistettä_.
+Aina kokonaisluvut eivät riitä.
+Ohjelmoinnissa _liukuluku_ tarkoittaa desimaalilukua.
+Liukulukuja voidaan käyttää melko samalla tavalla kuin kokonaislukujakin.
+Huomaa, että _desimaalierottimena käytetään pistettä_ (kuten englannissa yleensä).
 
 Esimerkiksi:
 
 ```python
 
-lämpötila_tammi = 2.5
-lämpötila_helmi = -1.25
-lämpötila_maalis = 3.62
+tulos1 = 2.5
+tulos2 = -1.25
+tulos3 = 3.62
 
-keskilämpö = (lämpötila_tammi + lämpötila_helmi + lämpötila_maalis) / 3
-print("Keskilämpötila tammikuusta maaliskuuhun on " + str(keskilämpö))
+keskiarvo = (tulos1+tulos2+tulos3) / 3
+print("Keskiarvo: " + str(keskiarvo))
 
 ```
 
 <sample-output>
 
-Keskilämpötila tammikuusta maaliskuuhun on 1.6233333333333333
+Keskiarvo: 1.6233333333333333
 
 </sample-output>
 

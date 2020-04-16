@@ -6,31 +6,28 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tulosten kommunikoinni lisäksi ohjelmissa pitää voida lukea tietoa käyttäjältä. Tässä osiossa tutustutaan syötteiden lukemiseen.
+Tulostamisen lisäksi ohjelmissa pitää voida lukea tietoa käyttäjältä. Tässä osiossa tutustutaan syötteiden lukemiseen.
 
 Tämän osion suoritettuasi
 
 - Osaat kirjoittaa ohjelman, joka lukee käyttäjän syötteen
 - Tiedät, mitä tarkoitetaan muuttujalla
 - Osaat käyttää muuttujaa syötteen lukemisessa ja tulostamisessa
-- Osaat yhdistellä (eli katenoida) merkkijonoja
+- Osaat yhdistää merkkijonoja
 
 </text-box>
 
-Palautetaan mieleen ensimmäisessä osassa esitetty yksinkertaistettu kaavio ohjelmien suorittamisesta:
+Syöte tarkoittaa tietoa, jonka ohjelman käyttäjä antaa ohjelmalle.
+Pythonissa voimme lukea rivin syötettä `input`-komennolla.
+Komennolle annetaan merkkijonona _kehote_,
+jonka tarkoitus on ohjata käyttäjää antamaan oikeanlainen syöte.
 
-<img src="1_1_1.png">
-
-Ohjelman suorituksen erikoistamiseksi tarvitsemme keinon lukea käyttäjältä syötteitä. Pythonissa tähän tarkoitukseen käytetään funktiota `input`. Samoin kuin print-funktio, myös se saa parametrikseen merkkijononon. Tämä merkkijono tulostetaan käyttäjlle _kehotteeksi_, eli viestiksi, jonka tarkoitus on ohjata käyttäjää antamaan oikeanlainen syöte.
-
-Esimerkki ohjelmasta, jossa luetaan käyttäjän nimi käyttäen `input`-funktiota ja tulostetaan ruudulle tervehdys käyttäen `print`-funktiota:
+Esimerkki ohjelmasta, jossa luetaan käyttäjän nimi `input`-komennolla ja
+tulostetaan ruudulle tervehdys `print`-komennolla:
 
 ```python
 
-# Luetaan käyttäjän nimi ja tallennetaan se muuttujaan name
 nimi = input("Anna nimesi: ")
-
-# Tulostetaan käyttäjälle viesti hyödyntäen muuttujaa name
 print("Moi vaan, " + nimi)
 
 ```
@@ -53,30 +50,32 @@ Moi vaan, Outi Ohjelmoija
 
 </sample-output>
 
-Ensimmäisellä rivillä oleva sana `nimi` on **muuttuja**. Muuttujalla tarkoitetaan ohjelmoinnissa "lokeroa", johon voidaan tallentaa jokin _arvo_. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
+Ensimmäisellä rivillä oleva sana `nimi` on **muuttuja**.
+Muuttujalla tarkoitetaan ohjelmoinnissa "lokeroa", johon voidaan tallentaa jokin _arvo_.
+Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
 
-<text-box variant="hint">
+<text-box variant="hint" name="Muuttujan nimen valinta">
 
-Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kielen asettamia rajoituksia noudattaen). Tällä kurssilla muuttujat ja muut vastaavat ohjelmien osat nimetään suomeksi. Ohjelmoinnissa käytetään kuitenkin yleisesti kielenä englantia - jos etsit Googlen avulla ohjelmointiesimerkkejä, ne todennäköisesti ovat englanniksi.
+Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kielen asettamia rajoituksia noudattaen).
+Tällä kurssilla muuttujat ja muut vastaavat ohjelmien osat nimetään suomeksi.
+Ohjelmoinnissa käytetään kuitenkin yleisesti kielenä englantia – jos etsit Googlen avulla ohjelmointiesimerkkejä, ne todennäköisesti ovat englanniksi.
 
 </text-box>
 
-## Samaan muuttujaan viittaaminen useamman kerran
+## Muuttujaan viittaaminen
 
-Samaan muuttujaan voidaan viitata ohjelmassa useasti:
+Muuttujaan voidaan viitata ohjelmassa useasti:
 
 ```python
 
-# Luetaan käyttäjän syöte muuttujaan nimi
 nimi = input("Anna nimesi: ")
 
-# Tulostetaan kaksi viestiä
 print("Moi, " + nimi + "!")
 print(nimi + " on aika kiva nimi.")
 
 ```
 
-Esimerkkitulostus (kun käyttäjä syöttää merkkijonon `Pauli Python`:
+Esimerkkitulostus (kun käyttäjä syöttää merkkijonon `Pauli Python`):
 
 <sample-output>
 
@@ -86,16 +85,17 @@ Pauli Python on aika kiva nimi.
 
 </sample-output>
 
-Tarkastellaanpa tulostuskomentoja vähän tarkemmin: `print`-funktiota kutsuttaessa parametriksi annetaan merkkijono, johon on yhdistetty sekä valmista (eli _vakiomuotoista_) tekstiä ja käyttäjän syöte. Nämä on yhdistetty toisiinsa `+`-operaattorilla, joka yhdistää kaksi merkkijonoa yhdeksi uudeksi merkkijonoksi. Operaatiota kutsutaan merkkijonojen _katenoinniksi_.
+Tarkastellaanpa tulostuskomentoja vähän tarkemmin:
+`print`-komennolle annetaan merkkijono, johon on yhdistetty
+valmista tekstiä ja käyttäjän syöte. Nämä on yhdistetty toisiinsa `+`-operaattorilla,
+joka yhdistää kaksi merkkijonoa yhdeksi uudeksi merkkijonoksi.
 
-Vakiomuotoisia merkkijonoja voidaan yhdistellä muuttujien arvoihin vapaasti:
+Merkkijonoja voidaan yhdistää muuttujien arvoihin vapaasti:
 
 ```python
 
-# Luetaan käyttäjän syöte muuttujaan nimi
 nimi = input("Anna nimesi: ")
 
-# Tulostetaan viesti
 print("Moi " + nimi + "! Varmistan vielä: nimesi on siis " + nimi + "?")
 
 ```
@@ -111,16 +111,14 @@ Moi Erkki Esimerkki! Varmistan vielä: nimesi on siis Erkki Esimerkki?
 
 ## Useampi kuin yksi syöte
 
-Ohjelmassa voi lukea useamman eri syötteen. Huomaa, että jokaisen `input`-funktion palauttama merkkijono tallennetaan erinimiseen muuttujaan:
+Ohjelmassa voi lukea useamman eri syötteen. Huomaa, että jokaisen `input`-komennon kysymä merkkijono tallennetaan eri muuttujaan:
 
 ```python
 
-# Luetaan käyttäjän nimi, sähköposti ja lempinimi
 nimi = input("Anna nimesi: ")
 sposti = input("Anna sähköpostiosoitteesi: ")
 lempinimi = input("Anna lempinimesi: ")
 
-# Tulostetaan käyttäjälle tiedot varmistukseksi
 print("Varmistetaan vielä, että tiedot menivät oikein")
 print("Annoit nimeksesi " + nimi)
 print("...sähköpostiosoitteeksesi " + sposti)
@@ -196,6 +194,3 @@ Anna uusi osoite: **Ohjelmoijanraitti 230**
 Osoite on nyt Ohjelmoijanraitti 230
 
 </sample-output>
-
-
-
