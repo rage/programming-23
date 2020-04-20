@@ -13,12 +13,14 @@ Aloitetaan ohjelmoinnin opettelu viestien välittämisestä käyttäjälle: ohje
 Tässä osiossa
 
 - Kirjoitat ja suoritat ensimmäisen Python-ohjelmasi
-- Tutustut termeihin funktio ja parametri
 - Opit käyttämään print-funktiota viestien tulostamiseksi
 
 </text-box>
 
-Pythonin komento `print` tulostaa (eli näyttää ruudulla) rivin tekstiä.
+Tietokoneohjelmat koostuvat sarjasta _komentoja_, eli eräänlaisia yksinkertaisia toimintaohjeita, joita kone suorittaa yksi kerrallaan. Komentoja on erilaisia, osa niistä on aritmeettisia operaatiota, eli esimerkiksi lukujen summaamista, tai vertailua. Osa keskittyy ohjelman käyttäjän kanssa tapahtuvaan interaktioon. Jotkut komennot taas ohjaavat ohjelman toimintaa, eli saavat ohjelman esimerkiksi _haarautumaan_ erilaisiin toiminnallisuuksiin sen perusteella mitä syötteitä käyttäjä antaa ohjelmalle.
+
+Aloitetaan ohjelmointiin tutustuminen ehkä yksinkertaisimmasta ja tärkeimmästä komennosta `print`, jonka avulla ohjelma voi tulostaa ruudulle rivin tekstiä.
+
 Esimerkiksi seuraava ohjelma tulostaa rivin "Moi kaikki".
 
 ```python
@@ -34,6 +36,29 @@ Moi kaikki
 </sample-output>
 
 Yllä on esitetty esimerkkiohjelma ja sen tulostus. Voit kokeilla lausetta myös itse _KONSOLISSA?_
+
+Huomaa, että jos yritämme tulostaa rivin käyttämättä lainausmerkkejä
+
+```python
+
+print(Moi kaikki!)
+
+```
+
+ohjelma ei toimi, ja seurauksena on seuraava virheilmoitus
+
+<sample-output>
+
+<pre>
+File "<stdin>", line 1
+  print(Moi kaikki!)
+                   ^
+SyntaxError: invalid syntax
+</pre>
+
+</sample-output>
+
+Python ei siis osaa tulkita tulostettavaa tekstiä oikein, jos se ei ole lainausmerkeissä.
 
 Kun kirjoitamme useita komentoja peräkkäin,
 ne suoritetaan järjestyksessä ylhäältä alas.
@@ -58,8 +83,7 @@ Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.
 
 ## Laskutoimitukset
 
-Jos laitamme `print`-komennon sisälle laskutoimituksen,
-sen tulos ilmestyy näkyviin. Esimerkiksi ohjelma
+Jos laitamme `print`-komennon sisälle laskutoimituksen, tulostuu ruudulle laskutoimituksen tulos. Esimerkiksi ohjelma
 
 ```python
 
@@ -102,10 +126,10 @@ Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällös
 
 ## Kommentit
 
-Kommenttien avulla voidaan kertoa ohjelman toiminnasta koodin lukijalle. Pythonissa kommentit merkitään `#`-merkin avulla.
+Kommenttien avulla voidaan kertoa ohjelman toiminnasta ohjelman lukijalle. Pythonissa kommentit merkitään `#`-merkin avulla.
 
 Python ei suorita mitään rivillä olevaa sisältöä `#`-merkin jälkeen.
-Kommenttien tarkoituksena on siis kertoa ohjelmoijalle itselleen ja muille ohjelmoijille koodiin liittyviä asioita.
+Kommenttien tarkoituksena on siis kertoa ohjelmoijalle itselleen ja muille ohjelmoijille ohjelmakoodiin liittyviä asioita.
 
 ```python
 

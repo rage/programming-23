@@ -18,9 +18,9 @@ Tämän osion suoritettuasi
 </text-box>
 
 Syöte tarkoittaa tietoa, jonka ohjelman käyttäjä antaa ohjelmalle.
-Pythonissa voimme lukea rivin syötettä `input`-komennolla.
-Komennolle annetaan merkkijonona _kehote_,
-jonka tarkoitus on ohjata käyttäjää antamaan oikeanlainen syöte.
+Pythonissa voimme lukea rivin käyttäjän antamaa syötettä `input`-komennolla.
+
+Komennolle annetaan merkkijonona _kehote_, jonka tarkoitus on ohjata käyttäjää antamaan oikeanlainen syöte.
 
 Esimerkki ohjelmasta, jossa luetaan käyttäjän nimi `input`-komennolla ja
 tulostetaan ruudulle tervehdys `print`-komennolla:
@@ -56,7 +56,8 @@ Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
 
 <text-box variant="hint" name="Muuttujan nimen valinta">
 
-Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti (tiettyjä Python-kielen asettamia rajoituksia noudattaen).
+Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti, tiettyjä Python-kielen asettamia rajoituksia noudattaen.
+
 Tällä kurssilla muuttujat ja muut vastaavat ohjelmien osat nimetään suomeksi.
 Ohjelmoinnissa käytetään kuitenkin yleisesti kielenä englantia – jos etsit Googlen avulla ohjelmointiesimerkkejä, ne todennäköisesti ovat englanniksi.
 

@@ -27,7 +27,8 @@ Muuttuja luodaan Pythonissa seuraavasti:
 `muuttujan_nimi = ...`
 
 Tässä `...` tarkoittaa arvoa, joka tallennetaan muuttujaan.
-Esimerkiksi voimme sijoittaa muuttujaan `input`-komennon välityksellä käyttäjän antaman merkkijonon. 
+Esimerkiksi voimme sijoittaa muuttujaan `input`-komennon välityksellä käyttäjän antaman merkkijonon.
+
 Jotta tätä merkkijonoa voidaan käyttää ohjelmassa myöhemmin (esimerkiksi tulostamaan käyttäjälle tervehdys), se tallennetaan muuttujaan.
 
 Muuttujille voidaan antaa arvoja myös esimerkiksi näin:
@@ -62,10 +63,36 @@ Esimerkiksi
 sana = input("Anna sana: ")
 print(sana)
 
-sana = sana + "a"
+sana = input("Anna toinen sana: ")
 print(sana)
 
-sana = sana + sana
+sana = 'kolmas'
+print(sana)
+
+```
+
+<sample-output>
+
+Anna sana: **eka**
+Anna toinen sana: **toka**
+eka
+toka
+kolmas
+
+</sample-output>
+
+Muuttujan sisältö siis vaihtuu jokaisen sijoituksen yhteydessä.
+
+Muuttujan uusi arvo voi myös perustua sen vanhaan arvoon.
+
+Esimerkiksi seuraavassa muuttuja `sana` saa ensin arvoksi käyttäjän syötteen. Tämän jälkeen muuttuja saa arvoksi vanhan arvonsa, jonka perään on lisätty kolme huutomerkkiä:
+
+```python
+
+sana = input("Anna sana: ")
+print(sana)
+
+sana = sana + "!!!"
 print(sana)
 
 ```
@@ -74,18 +101,21 @@ print(sana)
 
 Anna sana: **testi**
 testi
-testia
-testiatestia
+testi!!!
 
 </sample-output>
 
-<text-box variant="hint" name="">
+<text-box variant="hint" name="Lisää muuttujan nimen valinnasta">
 
 Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan.
 Esimerkiksi jos muuttujassa on sana, nimi `sana` on parempi kuin `a`.
+
 Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy.
-Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain _kirjaimia, numeroita ja alaviivoja &#95;.
+Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain kirjaimia, numeroita ja alaviivoja &#95;.
+
 Huomaa myös, että pienet ja isot kirjaimet ovat eri merkkejä - muuttuja `nimi` on siis eri muuttuja kuin `Nimi` tai `NIMI`.
+
+Pythonissa muuttujien nimet on tapana kirjoittaa pienillä kirjaimilla.
 
 </text-box>
 
@@ -219,7 +249,4 @@ print("Keskiarvo: " + str(keskiarvo))
 Keskiarvo: 1.6233333333333333
 
 </sample-output>
-
-
-
 

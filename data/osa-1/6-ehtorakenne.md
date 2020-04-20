@@ -33,6 +33,7 @@ if ika > 17:
 print("Seuraava asiakas, kiitos!")
 
 ```
+
 Ohjelman suoritus näyttää tältä, kun syötetään luku joka on suurempi kuin 17...
 
 <sample-output>
@@ -61,6 +62,28 @@ jonka sisällä oleva koodi suoritetaan vain, kun _annettu ehto on tosi_.
 
 Ehtorakenteessa avainsanaa `if` seuraa jokin _ehto_. Kun Python laskee ehdon arvon, tuloksena on joko `True` tai `False` eli tosi tai epätosi.
 Tämän jälkeen tuleva koodi suoritetaan vain, jos ehto sai arvon tosi.
+
+Huomaa, että ehtorakenteen ensimmäisen rivin lopussa on kaksoispiste. Jos se unohtuu
+
+```python
+
+ika = 10
+
+# puolipiste unohtui seuraavan rivin lopusta...
+if ika > 17
+    print("Olet täysi-ikäinen.")
+```
+
+seurauksena on virheilmoitus
+
+<sample-output>
+<pre>
+File "ohjelma.py", line 3
+  if ika > 17
+            ^
+SyntaxError: invalid syntax
+</pre>
+</sample-output>
 
 ## Vertailuoperaattorit
 
@@ -144,13 +167,15 @@ Tyhjä tila voidaan esittää joko välilyönneillä (yleensä käytetään nelj
 
 Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Lohkon kirjoittamisen voit lopettaa editorissa painamalla rivin alussa `Backspace`-näppäintä.
 
+TODO: kuva myös backspacesta
+
 Useissa muissa ohjelmointikielessä käytetään erillisiä symboleita kuvaamaan lohkon alkua ja loppua. Pythonissa lohkon määrittää siis rivien sisentäminen. Tästä on se etu, että ohjelmakoodi on pakko kirjoittaa helpommin luettavaksi.
 
 TODO: `pass` on hyvä esitellä jossain muualla kuin tässä
 
 ## Totuusarvot
 
-Kuten aikaisemmin huomattiin, ehtorakenteessa käytettävä ehto saa totuusarvon `True` tai `False`.
+Kuten aikaisemmin todettiin, ehtorakenteessa käytettävä ehto saa totuusarvon `True` tai `False`.
 
 Totuusarvo voidaan myös asettaa suoraan muuttujan arvoksi:
 
