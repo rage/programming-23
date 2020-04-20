@@ -1,5 +1,5 @@
 ---
-path: '/osa-3/6-yhteenveto
+path: '/osa-3/6-yhteenveto'
 title: 'Osan 3 Yhteenveto ja lisää tehtäviä'
 hidden: false
 ---
