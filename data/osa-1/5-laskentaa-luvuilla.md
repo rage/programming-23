@@ -156,3 +156,123 @@ Moi, Pauliina!
 Päättelin, että olet 23 vuotta vanha vuoden 2020 lopussa.
 
 </sample-output>
+
+## Muuttujien käyttöä
+
+Tarkastellaan ohjelmaa, joka laskee kolmen käyttäjän syöttämän luvun summan:
+
+```python
+
+luku1 = int(input("ensimmäinen luku: "))
+luku2 = int(input("toinen luku: "))
+luku3 = int(input("kolmas luku: "))
+
+summa = luku1 + luku2 + luku3
+
+print("syöttämiesi lukujen summa on " + str(summa))
+```
+
+Ohjelman esimerkkisuoritus:
+
+<sample-output>
+
+ensimmäinen luku: **5**
+toinen luku: **21**
+kolmas luku: **7**
+syöttämiesi lukujen summa on 33
+
+</sample-output>
+
+Ohjelma käyttää nyt neljää muuttujaa. Tässä tilanteessa tultaisiin toimeen myös vähemmällä
+
+```python
+
+summa = 0
+
+luku = int(input("ensimmäinen luku: "))
+
+# summa saa arvoksi ensimmäisen luvun
+summa = summa + luku
+
+luku = int(input("toinen luku: "))
+
+# lisätän summaan toinen luku
+summa = summa + luku
+
+luku = int(input("kolmas luku: "))
+
+# ... ja vielä kolmas luku
+summa = summa + luku
+
+print("syöttämiesi lukujen summa on " + str(summa))
+```
+
+Nyt kaikki käyttäjän syötteet luetaan muuttujaan `luku`, jonka arvolla _kasvatetaan_ muuttujan `summa` arvoa joka kerta sen jälkeen kun käyttäjältä on saatu uusi syöte.
+
+Seuraava komento siis _kasvattaa_ muuttujassa `summa` olevaa arvoa muuttujan `luku` arvolla:
+
+```python
+summa = summa + luku
+```
+
+Eli esimerkiksi jos ennen komentoa `summa` on 3 ja `luku` on 2, niin komennon suorittamisen jälkeen muuttujan `summa` arvona on 5.
+
+Itseasiassa apumuuttujaa `luku` ei välttämättä tarvita ollenkaan. Käyttäjän antamat syötteet voitaisiin lisätätä yksi kerrallaan muuttujaan `summa` myös seuraavasti:
+
+```python
+summa = 0
+
+summa = summa + int(input("ensimmäinen luku: "))
+
+summa = summa + int(input("toinen luku: "))
+
+summa = summa + int(input("kolmas luku: "))
+
+print("syöttämiesi lukujen summa on " + str(summa))
+```
+
+Riippuu toki tilanteesta kuinka monta muuttujaa ohjelmassa tarvitaan. Jos käyttäjän kaikkien syötteiden arvo tulee muistaa, ei ole mahdollista "uusiokäyttää" samaa apumuuttujaa kaikkien syötteiden lukemiseen, näin on esim. seuraavassa esimerkissä
+
+```python
+luku1 = int(input("ensimmäinen luku: "))
+luku2 = int(input("toinen luku: "))
+
+print(str(luku1) + " + " + str(luku2) + " = " + str(luku1 + luku2))
+```
+
+<sample-output>
+
+ensimmäinen luku: **2**
+toinen luku: **3**
+2 + 3 = 5
+
+</sample-output>
+
+Toistaalta tämä ohjelma ei välttämättä tarvitse omaa muuttujaansa summan arvon tallettamiseen.
+
+Kannattaa kuitenkin huomata, että yhtä muuttujaa ei kannata "uusiokäyttää" kuin samankaltaisiin asioihin, esim. summattavien lukujen tilapäiseen tallentamiseen.
+
+Esimerkiksi seuraavassa on uusiokäytetty muuttujaa `x` nimen ja kengännumeron tallettamiseen ja tämä ei ole missään nimessä järkevää:
+
+```python
+x = input("kerro nimesi: ")
+
+print("Hei " + x + "!")
+
+x = int(input("mikä on kengännumerosi: "))
+
+# ohjelma jatkuu...
+```
+
+Parempi on siis käyttää molempaa tarkoitusta varten omaa _kuvaavasti niemttyä_ muuttujaa:
+
+```python
+nimi = input("kerro nimesi: ")
+
+print("Hei " + nimi + "!")
+
+kengan_numero = int(input("mikä on kengännumerosi: "))
+
+# ohjelma jatkuu...
+```
+
