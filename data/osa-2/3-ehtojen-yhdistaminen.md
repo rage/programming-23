@@ -18,115 +18,74 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Mitä tehdä tilanteissa, joissa yksi ehto ei riitä? Yhdellä ehtolausekkeella voidaan näppärästi testata, onko kokonaisluku pienempi kuin 10, mutta mitä jos halutaan kokonaisluku väliltä 2...8?
+## Loogiset operaattorit
 
-Pythonissa, toisin kuin useissa muissa ohjelmointikielissä, on mahdollista ketjuttaa useita ehtoja yhteen lausekkeeseen matematiikasta tutulla tavalla. Seuraava esimerkki tulostaa arvosanoista sanallisen arvion:
+Ehtojen yhdistämisessä voidaan käyttää loogisia operaattoreita `and` ja `or`.
+Operaattori `and` vaatii, että useampi ehto pätee samaan aikaan,
+ja operaattori `or` vaatii, että yksi tai useampi ehdoista pätee.
+
+Esimerkiksi ehto `luku >= 5 and luku <= 8` vaatii,
+että luku on samaan aikaan ainakin 5 ja enintään 8.
+Toisin sanoen luvun tulee olla välillä 5..8.
 
 ```python
-
-arvosana = int(input("Anna arvosana (1-5): "))
-
-if (arvosana == 1):
-    print("Ei kovin hääppöinen arvosana.")
-elif (2 <= arvosana <= 3):
-    print("Kehityskelpoinen arvosana.")
-else:
-    print("Oikein hyvä arvosana!")
-
+luku = int(input("Anna luku: "))
+if luku >= 5 and luku <= 8:
+    print("Luku on välillä 5..8")
 ```
 
-<sample-output>
-
-Anna arvosana (1-5): **3**
-Kehityskelpoinen arvosana.
-
-</sample-output>
-
-Ehto `2 <= arvosana <= 3` palauttaa arvon True jos arvosana on sekä suurempi tai yhtäsuuri kuin 2 että pienempi tai yhtäsuuri kuin 3.
-
-Seuraavassa esimerkissä lasketaan nopeuteen perustuva sakko käyttäen oheista taulukkoa:
-
- nopeus | sakko
-:-----|:------
-< 50 | 0
-51 - 70 | 200
-71 - 80 | 500
-81+ | 1000
+Ehto `luku < 5 or luku > 8` puolestaan vaatii,
+että luku on alle 5 tai yli 8.
+Toisin sanoen luku ei saa olla välillä 5..8.
 
 ```python
-
-nopeus = int(input("Anna nopeus: "))
-
-if nopeus < 50:
-    sakko = 0
-elif 50 < nopeus <= 70:
-    sakko = 200
-elif 70 < nopeus <= 80:
-    sakko = 500
-else:
-    sakko = 1500
-
-print("Sakkoa tupsahti " + str(sakko) + " euroa.")
-
+luku = int(input("Anna luku: "))
+if luku < 5 or luku > 8:
+    print("Luku ei ole välillä 5..8")
 ```
 
-Esimerkkisuoritus näyttä tältä, kun nopeudeksi annetaan 67:
-
-<sample-output>
-
-Anna nopeus: **67**
-Sakkoa tupsahti 200 euroa.
-
-</sample-output>
-
-## Loogiset operaattorit: and
-
-Pelkkä ehtojen ketjuttaminen ei kuitenkaan sekään aina riitä. Oletetaan tilanne, jossa ohjelman pitää ilmoitaa kasvaneesta terveysriskistä mikäli henkilön ikä ylittää 50 ja paino 100 kiloa. Nyt haluamme siis yhdistää yhteen lausekkeeseen kaksi erillistä ehtoa.
-
-Tämä onnistuu loogisilla operaattoreilla. Tarkastellaan aluksi `and`-operaattorin toimintaa edellä mainitun esimerkin avulla:
+Voimme käyttää ehdoissa myös operaattoria `not`, joka muuttaa ehdon
+käänteiseksi. Esimerkiksi voisimme toteuttaa äskeisen koodin myös näin:
 
 ```python
-
-paino = int(input("Anna paino: "))
-ikä = int(input("Anna vielä ikä: "))
-
-# Yhdistetään kaksi erillistä ehtoa
-# yhdeksi ehtolausekkeeksi
-if paino > 100 and ikä > 50:
-    print("Riski on keskimääräistä suurempi.")
-else:
-    print("Normaali riski.")
-
+luku = int(input("Anna luku: "))
+if not (luku >= 5 and luku <= 8):
+    print("Luku ei ole välillä 5..8")
 ```
 
-Seuraavassa on suoritettu ohjelma kahteen kertaan eri syötteillä:
+Seuraava taulukko näyttää loogisten operaattoreiden toiminnan eri tilanteissa:
 
-<sample-output>
+a   | b   | a and b | a or b | not a
+:--:|:---:|:-------:|:------:|:----:
+False | False | False | False | True
+True | False | False | True | False
+False | True | False | True | True
+True | True | True | True | False
 
-Anna paino: **106**
-Anna vielä ikä: **44**
-Normaali riski.
+<text-box variant='hint' name='Ehtojen ketjuttaminen'>
 
-Anna paino: **105**
-Anna vielä ikä: **59**
-Riski on keskimääräistä suurempi.
+Ehto `x >= a and x <= b` on tavallinen tapa testata,
+onko luku `x` välillä `a`..`b`.
+Tällainen ehto toimii samalla tavalla eri ohjelmointikielissä.
 
-</sample-output>
+Python-kielen erikoisuutena on, että myös lyhyempi ehto
+`a <= x <= b` toimii, eli ehtoja on mahdollista ketjuttaa.
+Tällaisia ehtoja käytetään kuitenkin melko harvoin,
+ehkä tottumuksesta muihin ohjelmointikieliin.
 
+</text-box>
 
-Esimerkissä koko ehtolause on tosi vain silloin kun molemmat `and`-operaattorilla toisiinsa yhdistetyt ehdot ovat tosia. Operaattori toimii siis jotakuinkin samoin kuin sana _ja_ puhekielessä: koko lause "muki on pöydällä ja siinä on kahvia" on totta vain silloin, kun molemmat ja-sanalla yhdistetyt osat ovat tosia. Jos jompikumpi (tai molemmat) ovat epätosia, muuttuu koko lause epätodeksi.
+## Lisää ehtoja
 
-Operaattorilla voidaan yhdistää yhdeksi ehtolausekkeeksi niin monta ehtoa kuin halutaan. Esimerkiksi:
+Seuraava ohjelma kysyy käyttäjältä neljä lukua ja selvittää sitten
+luvuista suurimman ehtojen avulla:
 
 ```python
-
-# Kysy neljä lukua
 n1 = int(input("Anna luku 1: "))
 n2 = int(input("Anna luku 2: "))
 n3 = int(input("Anna luku 3: "))
 n4 = int(input("Anna luku 4: "))
 
-# Selvitetään suurin luku
 if n1 > n2 and n1 > n3 and n1 > n4:
     suurin = n1
 elif n2 > n3 and n2 > n4:
@@ -136,9 +95,7 @@ elif n3 > n4:
 else:
     suurin = n4
 
-# ...ja tulostetaan
 print(str(suurin) + " on suurin luku.")
-
 ```
 
 <sample-output>
@@ -151,97 +108,22 @@ Anna luku 4: **1**
 
 </sample-output>
 
-Esimerkissä ensimmäisen ehtolauseke `n1 > n2 and n1 > n3 and n1 > n4` on tosi vain mikäli kaikki kolme ehtoa ovat tosia.
-
-
-## Loogiset operaattorit: or ja not
-
-Toinen usein tarvittava looginen operaattori on `or`. Kahden tai useamman `or`-operaattorilla yhdistetyn ehdon muodostama ehtolauseke on tosi, jos _vähintään yksi ehdoista on tosi_.
-
-Esimerkiksi:
-
-```python
-
-nimi = input("Kerro etunimesi: ")
-
-# Koko lauseke on tosi jos joku yhdistellyistä
-# ehdoista on tosi
-if nimi == "Tupu" or nimi == "Hupu" or nimi == "Lupu":
-    print("Lienetkö Ankkojen sukua?")
-
-```
-
-<sample-output>
-
-Kerro etunimesi: **Hupu**
-Lienetkö Ankkojen sukua?
-
-</sample-output>
-
-Viimeinen Pythonin loogisista operaattoreista on `not`, joka kääntää totuusarvon vastakkaiseksi. Arvosta `True` tulee siis `False` ja arvosta `False` vastaavasti `True`. Operaation yhteydessä puhutaan myös _arvon komplementista_.
-
-Esimerkiksi:
-
-```python
-
-# Onko lippu maksettu
-maksettu = False
-
-# Testataan, onko epätosi
-if not maksettu:
-    print("Lippua ei ole maksettu")
-    ke = input("Haluatko maksaa k/e: ")
-    if ke == "k":
-        # Käännetään arvo
-        maksettu = not maksettu
-
-if maksettu:
-    print("Nyt lippu on maksettu.")
-
-```
-
-Esimerkkitulostus:
-
-<sample-output>
-
-Lippua ei ole maksettu
-Haluatko maksaa k/e: **k**
-Nyt lippu on maksettu.
-
-</sample-output>
-
-Lauseke `maksettu = not maksettu` muuttaa muuttujan `maksettu` arvon komplementiksi. Järkevämpää olisi oikeastaan käyttää muotoa `maksettu = True`, jolloin esimerkiksi tuplamkasun yhteydessä maksutapahtuma ei katoaisi.
-
-## Kaikki loogiset operaattorit
-
-Alla olevassa taulukossa on kuvattu kaikkien loogisten operaattorien toiminta kahden operandin tapauksessa:
-
-a   | b   | a and b | a or b | not a
-:--:|:---:|:-------:|:------:|:----:
-False | False | False | False | True
-True | False | False | True | False
-False | True | False | True | True
-True | True | True | True | False
+Esimerkissä ensimmäisen ehto `n1 > n2 and n1 > n3 and n1 > n4` on tosi vain mikäli kaikki kolme ehtoa ovat tosia.
 
 ## Sisäkkäiset ehtolauseet
 
 Ehtolauseita voidaan kirjoittaa toistensa sisään. Esimerkiksi seuraava ohjelma tunnistaa positiivista luvuista parittomat ja parilliset:
 
 ```python
-
 luku = int(input("Anna luku: "))
 
-# Testataan onko positiivinen
 if luku >= 0:
-    # Jos oli, testataan onko parillinen vai ei
     if luku % 2 == 0:
         print("Luku on parillinen")
     else:
         print("Luku on pariton")
-# Jos ei ollut positiivinen...
 else:
-    print("Luku oli negatiivinen.")
-
+    print("Luku on negatiivinen.")
 ```
 
 Esimerkkitulostus kolmella eri syötteellä:
@@ -255,7 +137,7 @@ Anna luku: **18**
 Luku on parillinen
 
 Anna luku: **-4**
-Luku oli negatiivinen.
+Luku on negatiivinen.
 
 </sample-output>
 
@@ -264,20 +146,14 @@ Sisäkkäisiä ehtolauseita käytettäessä on tärkeä muistaa oikeat sisennyks
 Huomaa, että monissa tapauksissa voidaan käyttää joko sisäkkäisiä ehtolauseita tai loogisia operaattoreita. Seuraava esimerkki on toiminnallisesti sama kuin edellinen esimerkki (eli se tulostaa tiedon siitä onko positiivinen kokonaisluku parillinen vai pariton):
 
 ```python
-
 luku = int(input("Anna luku: "))
 
-# Testataan onko positiivinen ja parillinen
 if luku > 0 and luku % 2 == 0:
     print("Luku on parillinen")
-# ...tai onko positiivinen ja pariton
 elif luku > 0 and luku % 2 != 0:
         print("Luku on pariton")
-# Pakko olla negatiivinen
 else:
-    print("Luku oli negatiivinen.")
-
+    print("Luku on negatiivinen.")
 ```
 
-Se kumpaa tapaa käytetään pitää harkita tapauskohtaisesti. Edellisen esimerkin kohdalla ensimmäinen vaihtoehto näyttänee useimpien mielestä selkeämmältä.
-
+Tilanteesta riippuu, kumpaa tapaa kannattaa käyttää. Tässä esimerkissä ensimmäinen vaihtoehto näyttänee useimpien mielestä selkeämmältä.

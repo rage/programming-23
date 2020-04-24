@@ -15,143 +15,135 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Edellisessä osassa puhuttiin _lauseesta_ ja _lausekkeesta_ eri yhteyksissä. Ohjelmoinnissa näiden käsitteiden ymmärtäminen ja erottaminen on olennaista.
+## Lause
 
-_Lauseella_ ilmaistaan jokin ohjelmointikielen toiminto. Esimerkiksi funktiokutsu `print("Moi!")` on lause, samoin kuin muuttujan arvon asetus `luku = 2`. Lause voi koostua myös useammasta lauseesta, esim. seuraavassa esimerkissä on kahden lauseen muodostama - _ehtolause_:
+_Lause_ tarkoittaa ohjelman osaa, joka suorittaa jonkin toiminnon.
+Usein lause viittaa yksittäiseen komentoon.
+Esimerkiksi `print("Moi!")` on lause, joka tulostaa rivin tekstiä,
+ja `luku = 2` on lause, joka asettaa muuttujan arvon.
+
+Lause voi olla myös monimutkaisempi,
+ja sen sisällä voi olla muita lauseita.
+Esimerkiksi ehtolauseen aloittaa `if`-rivi,
+jonka jälkeen sen sisällä on yksi tai useampia lauseita.
 
 ```python
-
-# Lause koostuu tässä siis ehdosta ja
-# sen jälkeisestä lohkosta.
-if (True):
-    print("Tosi on.")
-
+if nimi == "Anna":
+    print("Moikka!")
 ```
+## Lauseke
 
-Lause on siis jokin itsenäisen toiminnon suorittava ohjelman osa (tai kokonainen ohjelma). Myös lohkoa (joka usein koostuu useammasta lauseesta) voidaan nimittää lauseeksi - tällaisessa tapauksessa puhutaan joskus _kootusta lauseesta_.
-
-## Lauseke ja dynaaminen tyypitys
-
-_Lauseke_ on ohjelmointikielessä käytettävä "ilmaus", joka voidaan _evaluoida_ ja joka tämän myötä saa jonkin _arvon_. Pythonissa arvoilla on aina myös jokin _tyyppi_. Lausekkeen arvon (ja myös tyypin) ratkaisevat lausekkeessa käytetyt _operandit_ (eli "laskettavat") ja _operaattorit_.
+_Lauseke_ on lauseen osa, jolla on jokin tyyppi.
+Ohjelman suorituksen aikana lauseke saa arvon,
+jota voidaan käyttää ohjelmassa.
 
 Tarkastellaan muutamaa esimerkkiä lausekkeista:
 
-| Lauseke | Arvo | Arvon tyyppi | Tyyppi Pythonissa |
+| Lauseke | Arvo | Tyyppi | Tyyppi Pythonissa |
 |---------|------|--------------|-------------------|
-|`2 + 4 + 3` | 9 | Kokonaisluku | `int` |
-|`"abc" + "de"` | "abcde" | Merkkijono | `str`|
-|`11 / 2` | 5.5 | Liukuluku | `float` |
-|`2 * 5 > 9` | True | Totuusarvo | `bool`|
+|`2 + 4 + 3` | `9` | kokonaisluku | `int` |
+|`"abc" + "de"` | `"abcde"` | merkkijono | `str`|
+|`11 / 2` | `5.5` | liukuluku | `float` |
+|`2 * 5 > 9` | `True` | totuusarvo | `bool`|
 
-Python on _dynaamisesti tyypitetty_ ohjelmointikieli. Tämä tarkoittaa, ettei ohjelmoijan tarvitse määritellä esimerkiksi muuttujien tyyppiä, vaan Python päättelee tyypin automaattisesti muuttujaan sijoitettavan arvon perusteella
 
-Vaikka syntaktisesti (eli ohjelmoinnin kieliopin mukaisesti) muuttujan tyypin vaihtaminen ei ole virhe Pythonissa, kannattaa sitä välttää. Ei siis ole suositeltavaa tallentaa yhteen muuttujaan usean tyyppisiä arvoja samassa ohjelmassa, koska tämä voi johtaa erilaisiin virhetilanteisiin.
+## Muuttujan tyyppi
 
-Esimerkiksi
+Python on _dynaamisesti tyypitetty_ ohjelmointikieli,
+mikä tarkoittaa, ettei ohjelmoijan tarvitse määritellä esimerkiksi muuttujien tyyppiä, vaan Python päättelee tyypin automaattisesti muuttujaan sijoitettavan arvon perusteella.
+
+Esimerkiksi seuraavassa koodissa Python päättelee,
+että muuttuja `nimi` tyyppi on merkkijono ja muuttujan `tulos` tyyppi on kokonaisluku.
 
 ```python
+nimi = "Anna"
+tulos = 100
+```
 
-# Alustetaan muuttuja a
-a = 50
-
-# Lasketaan osamäärä
-om = a / 2
-
-# Korvataan a:n arvo
-a = "aaa"
-
-# Merkkijonoille ei ole määritelty jakolaskua
-# Seurava antaa siis virheen
-om = a / 2
+Muuttujan tyyppi voi myös vaihtua ohjelman suorituksen aikana.
+Esimerkiksi seuraavassa koodissa muuttujan `x` tyyppi on ensin merkkijono
+ja sitten kokonaisluku.
 
 ```
+x = "Anna"
+x = 100
+```
+
+Tämä ei ole kuitenkaan usein hyvä tapa, koska tämän seurauksena voi olla epäselvää,
+minkä tyyppinen muuttuja on milloinkin.
 
 ## Tyypin selvittäminen
 
-Jos muuttujan arvo ei ole selvillä, sen voi selvittää funktiolla `type`. Funktio palauttaa annetun lausekkeen tyypin.
-
-Esimerkiksi
+Funktio `type` kertoo annetun lausekkeen tyypin. Esimerkiksi:
 
 ```python
+print(type(12))
+print(type("Anna"))
+print(type(7/2))
 
-# Alustetaan pari muuttujaa
-luku = -155
-totuus = False
-nimi = "Kimmo Kobra"
-
-# Tulostetaan muuttujien tyypit
-print(type(luku))
-print(type(totuus))
-print(type(nimi))
-
-# Lausekkeen tyyppi ei ole int...
-#...koska jakolaskun tuloksen tyyppi
-# riippuu laskettavista
-print(type(luku / 2))
-
-# Tyyppiä voi käyttää ehtolausessa
-if (type(nimi) == str):
-    print("nimi on merkkijono.")
-
-if(type(totuus) == int):
-    print("totuus on kokonaisluku.")
-
-if (type(totuus) == bool):
-    print("totuus onkin totuusarvo.")
-
+nimi = "Anna"
+if type(nimi) == str:
+    print("nimi on merkkijono")
+if type(nimi) == int:
+    print("nimi on kokonaisluku")
+if type(nimi) == bool:
+    print("nimi on totuusarvo")
 ```
 
 <sample-output>
 
 <class 'int'>
-<class 'bool'>
 <class 'str'>
 <class 'float'>
-nimi on merkkijono.
-totuus onkin totuusarvo.
+nimi on merkkijono
 
 </sample-output>
 
-Tarkastellaan esimerkkitulostuksen riviä lauseelle `print(type(luku))`. Lause tulostaa rivin `<class 'int'>`, mikä tarkoittaa, että muuttujan luku tyyppi on `int` eli kokonaisluku. Kun tämä yhdistetään ehtolauseeseen, voidaan käsitellä eri tyyppiset arvot eri tavoilla.
+Esimerkiksi rivillä `print(type(12))` ohjelma tulostaa
+`<class 'int'>`, koska lausekkeen tyyppi on kokonaisluku.
+Voimme myös tutkia lausekkeen tyyppiä ehtolauseen avulla.
 
 # Tyyppimuunnokset
 
-Tyyppimuunnoksella voidaan (yrittää) muuntaa arvo toisen tyyppiseksi. Muunnoksessa käytettävän funktion nimi on sama kuin tyypin nimi - niinpä esimerkiksi jokin toinen arvo voidaan muuntaa kokonaisluvuksi käyttämällä funktiota `int`.
+Tyyppimuunnoksella voidaan muuntaa arvo toisen tyyppiseksi.
+Muunnoksessa käytettävän funktion nimi on sama kuin tyypin nimi.
+Esimerkiksi funktio `int` muuttaa tyypin kokonaisluvuksi.
 
 Tarkastellaan esimerkkiä:
 
 ```python
+syote = input("Anna desimaaliluku: ")
 
-# Luetaan käyttäjältä merkkijono
-syöte = input("Anna desimaaliluku muodossa x.yy: ")
+a = float(syote)
+print(a)
+print(2*a)
 
-# Muunnetaan merkkijono liukuluvuksi
-liukuluku = float(syöte)
-
-# Kerrotaan luku kahdella ja tulostetaan se
-print(liukuluku * 2)
-
-# Muunnetaan luku kokonaislukuvksi
-kokonais = int(liukuluku)
-
-# Tulostetaan kokonaisluku
-print(kokonais)
-
+b = int(a)
+print(b)
 ```
 
-Esimerkkisuoritus (käyttäjän syötteet on merkitty punaisella):
+Esimerkkisuoritus:
 
 <sample-output>
 
-Anna desimaaliluku muodossa x.yy: **1.25**
-2.5
+Anna desimaaliluku: **1.7**
+3.4
+6.8
 1
 
 </sample-output>
 
-<text-box variant="hint">
+Tässä merkkijonona annettu syöte muutetaan liuluvuksi
+ja tallennetaan muuttujaan `a`.
+Tämän jälkeen liukuluku muutetaan kokonaisluvuksi
+ja tallennetaan muuttujaan `b`.
 
-On tärkeää huomata, että `int`-funktio muuntaa liukuluvun kokonaisluvuksi leikkaamalla desimaaliosan pois. Funktio ei siis välttämättä pyöristä lukua matemaattisesti oikein. Matemaattinen vastine on tällaisessa tapauksessa _lattiafunktio_. Operaation tuloksena siis sekä luvusta 1.001 että luvusta 1.99999 tulee tulokseksi 1.
+<text-box variant="hint" name="Pyöristäminen">
+
+Funktio `int` muuttaa liukuluvun kokonaisluvuksi leikkamalla desimaaliosan pois.
+Funktio ei siis välttämättä pyöristä lukua lähimpään kokonaislukuun.
+Jos halutaan tällainen pyöristys, voidaan käyttää funktiota `round`.
+Esimerkiksi `int(1.7)` on `1`, mutta `round(1.7)` on `2`.
 
 </text-box>
 
