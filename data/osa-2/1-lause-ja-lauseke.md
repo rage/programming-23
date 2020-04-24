@@ -64,7 +64,7 @@ Muuttujan tyyppi voi myös vaihtua ohjelman suorituksen aikana.
 Esimerkiksi seuraavassa koodissa muuttujan `x` tyyppi on ensin merkkijono
 ja sitten kokonaisluku.
 
-```
+```python
 x = "Anna"
 x = 100
 ```
