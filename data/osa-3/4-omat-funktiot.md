@@ -6,7 +6,7 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Ohjelmien jakaminen itsenäisiin aliohjelmiin paitsi selkeyttää ohjelmien rakennetta, myös mahdollistaa koodin uudelleenkäytettävyyden ja tehostaa ohjelmointiprosessia.
+Ohjelmien jakaminen itsenäisiin funktioihin selkeyttää ohjelmien rakennetta, mahdollistaa koodin uudelleenkäytettävyyden ja tehostaa ohjelmointiprosessia.
 
 Tämän osion suoritettuasi
 
@@ -17,31 +17,26 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Aikaisemmissa osissa on käytetty esimerkiksi funktioita `len`, `print` ja `input` eri tarkoituksiin. Funktiolla tarkoitetaan ohjelmointikielessä siis ohjelman itsenäistä kokonaisuutta, jota voidaan _kutsua_, jolle voidaan (usein) välittää _parametreja_ ja joka voi _palauttaa_ jonkin arvon. Edellämainitut funktiot on sisäänrakennettu Pythoniin. Näiden lisäksi käyttäjä voi myös määritellä omia funktioitaan.
+Aikaisemmissa osissa on käytetty esimerkiksi funktioita `len`, `print` ja `input` eri tarkoituksiin. Nämä ovat Pythonin sisäänrakennettuja funktioita, mutta voimme myös määritellä omia funktioita.
 
-Oma funktio määritellään avainsanalla `def` (lyhenne sanasta define). Funktiolle annetaan jokin _nimi_, ja nimen perään kirjoitetaan sulkuihin funktion _parametrit_. Parametreista puhutaan tarkemmin ensi viikolla, tällä kerralla funktion nimen perään kirjoitetaan vain tyhjät sulut.
+Oma funktio määritellään avainsanalla `def` (lyhenne sanasta define). Funktiolle annetaan jokin _nimi_, jonka jälkeen on alku- ja loppusulku. Tämän jälkeen annetaan lohkossa funktioon kuuluva koodi.
 
-Määrittelyä seuraavassa lohkossa annetaan funktioon kuuluvat ohjelmarivit (eli lauseet). Katsotaan esimerkkinä yksinkertaisen funktion määrittelyä:
+Esimerkiksi seuraava koodi määrittelee funktion `viesti`:
 
 ```python
-
-def tulosta_viesti():
+def viesti():
     print("Tämä on oma funktio!")
-
 ```
 
-Jos edellisen ohjelmakoodin sisältävä ohjelma suoritetaan, huomataan ettei ohjelma näytä tekevän mitään. Tämä johtuu siitä, että funktioiden sisältämä ohjelmakoodi suoritetaan vasta silloin, kun funktiota _kutsutaan_.
+Jos yllä oleva ohjelma suoritetaan, se ei näytä tekevän mitään. Tämä johtuu siitä, että funktion sisältämä koodi suoritetaan vasta silloin, kun funktiota _kutsutaan_.
 
-Funktion kutsuminen tapahtuu funktion nimellä. Sulkeet pitää kirjoittaa nimen perään, vaikkei parametreja olisikaan määritelty.
+Funktion kutsuminen tapahtuu funktion nimellä. Esimerkiksi seuraava koodi kutsuu funktiota:
 
 ```python
-
-def tulosta_viesti():
+def viesti():
     print("Tämä on oma funktio!")
 
-# Kutsutaan funktiota
-tulosta_viesti()
-
+viesti()
 ```
 
 <sample-output>
@@ -53,67 +48,50 @@ Tämä on oma funktio!
 Samaa funktiota voidaan määrittelyn jälkeen kutsua useita kertoja.
 
 ```python
+def viesti():
+    print("Tämä on oma funktio!")
 
-def huuda():
-    print("MOI KAIKKI!")
-    print("-" * 11)
-    print() # Tulostaa tyhjän rivin
-
-while True:
-    uudestaan = input("Kutsutaanko vielä (k/e): ")
-    if uudestaan == "e":
-        break
-    elif uudestaan == "k":
-        huuda()
-
+viesti()
+viesti()
+viesti()
 ```
 
 <sample-output>
 
-Kutsutaanko vielä (k/e): **k**
-MOI KAIKKI!
-&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;
-
-Kutsutaanko vielä (k/e): **k**
-MOI KAIKKI!
-&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;
-
-Kutsutaanko vielä (k/e): **e**
+Tämä on oma funktio!
+Tämä on oma funktio!
+Tämä on oma funktio!
 
 </sample-output>
 
-<text-box variant = "hint">
-
-## Funktioiden käyttötarkoitus
+<text-box variant="hint" name="Funktioiden käyttötarkoitus">
 
 Funktioilla on muutama pääasiallinen käyttötarkoitus:
 
-* Funktioiden käyttö selkeyttää ohjelman rakennetta jakamalla ohjelman itsenäisiin kokonaisuuksiin.
-* Lisäksi funktiot helpottavat ohjelmakoodin uusiokäyttöä, kun tiettyä ohjelman osaa voidaan kutsua aina tarvittaessa.
+* Funktiot selkeyttävät ohjelman rakennetta, kun ohjelma jakautuu itsenäisiin kokonaisuuksiin.
+* Funktiot helpottavat ohjelmakoodin uusiokäyttöä, kun tiettyä ohjelman osaa voidaan kutsua aina tarvittaessa.
 
 </text-box>
 
 Seuraavassa esimerkissä on määritelty kaksi funktiota, joiden avulla tulostetaan ruudulle "laatikko":
 
-```python
+TODO: Ei ole hyvä esimerkki, tässä funktioista ei ole mitään hyötyä. Esimerkki toimisi ehkä paremmin parametrien kanssa.
 
-def piirrä_vaaka():
+```python
+def vaaka():
     print("o" * 10)
 
-def piirrä_pysty():
+def pysty():
     print("o" + 8 * " " + "o")
 
 n = int(input("Kuinka korkea laatikko? "))
 
-piirrä_vaaka()
-
+vaaka()
 i = 0
 while i <= n:
-    piirrä_pysty()
-    i = i + 1
-
-piirrä_vaaka()
-
+    pysty()
+    i += 1
+vaaka()
 ```
 
 <sample-output>
@@ -132,6 +110,8 @@ oooooooooo
 ````
 
 </sample-output>
+
+TODO: Tämäkään ei tunnu hyvältä esimerkiltä ilman parametreja. Ei ole hyvä, että jokaisen funktion sisällä on samanlaista koodia. Ilman funktioita (nykyisillä taidoilla ilman parametreja) luvut 1 ja 2 voisi kysyä samalla koodilla pääohjelmassa.
 
 Viimeisenä esimerkkinä tarkastellaan yksinkertaista laskinohjelmaa, jossa kaikki kolme laskuoperaatiota on kirjoitettu omina funktioinaan.
 
