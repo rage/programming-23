@@ -22,98 +22,69 @@ Tämän osion suoritettuasi
 Aikaisemmissa osissa on opittu, että `+`-operaattori toimii eri tavalla merkkijonoja ja lukutyyppisiä arvoja käytettäessä. Kaksi merkkijonoa voidaan yhdistää toisiinsa (eli _katenoida_) käyttäen `+`-operaattoria:
 
 ```python
-
-kerto = int(input("Minkä kertotaulun haluat? "))
-
-# silmukkamuuttuja
-luku = 1
-while luku <= 10:
-    # Kootaan merkkijono "pala" kerrallaan
-    # Lukutyypit muunnetaan merkkijonoiksi str-funktiolla
-    rivi = str(luku)
-    rivi = rivi + " * "
-    rivi = rivi + str(kerto)
-    rivi = rivi + " = "
-    rivi = rivi + str(luku * kerto)
-
-    print(rivi)
-
-    # Lopuksi muistetaan kasvattaa silmukkamuuttujaa
-    luku = luku + 1
-
+alku = "esi"
+loppu = "merkki"
+sana = alku+loppu
+print(sana)
 ```
 
 <sample-output>
 
-Minkä kertotaulun haluat? **7**
-1 * 7 = 7
-2 * 7 = 14
-3 * 7 = 21
-4 * 7 = 28
-5 * 7 = 35
-6 * 7 = 42
-7 * 7 = 49
-8 * 7 = 56
-9 * 7 = 63
-10 * 7 = 70
+esimerkki
 
 </sample-output>
 
-Myös `*`-operaattoria voidaan käyttää merkkijonojen yhteydessä. Jos toinen operandi kertolaskussa on merkkijono ja toinen kokonaisluku, saadan lopputulokseksi samaa merkkijonoa monistettuna annettu määrä. Esimerkiksi `5 * "abc" == "abcabcabcabcabc"`.
-
-Esimerkkinä ohjelma, joka piirtää pyramidin:
+Myös `*`-operaattoria voidaan käyttää merkkijonojen yhteydessä. Jos toinen operandi kertolaskussa on merkkijono ja toinen kokonaisluku, saadan lopputulokseksi samaa merkkijonoa monistettuna annettu määrä. Esimerkiksi:
 
 ```python
+sana = "apina"
+print(sana*3)
+```
 
-# Muuttuja n kertoo tyhjien välien määrän
-n = 10
+<sample-output>
+
+apinaapinaapina
+
+</sample-output>
+
+Silmukan ja merkkijono-operaatioiden avulla voimme tehdä ohjelman,
+joka piirtää pyramidin:
+
+```python
+n = 10 # pyramidin kerrosten määrä
+rivi = "*"
 
 while n > 0:
-    rivi = ""
-    # Alkuun tyhjiä
-    rivi = n * " "
-
-    # ...ja sen jälkeen tähtiä
-    rivi = rivi + (10 - n) * "**"
-
-    print(rivi)
-
-    # Vähennetään yhdellä
-    n = n - 1
-
+    print(" "*n+rivi)
+    rivi += "**"
+    n -= 1
 ```
 
 <sample-output>
 
 ```
-         **
-        ****
-       ******
-      ********
-     **********
-    ************
-   **************
-  ****************
- ******************
+          *
+         ***
+        *****
+       *******
+      *********
+     ***********
+    *************
+   ***************
+  *****************
+ *******************
 ```
 
 </sample-output>
 
 ## Merkkijonon pituus ja indeksointi
 
-Merkkijonon pituuden voi palauttaa `len`-funktion avulla. Funktio palauttaa parametrina annetun merkkijonon merkkien määrän kokonaislukuna. Esimerkiksi `len("moi")` palauttaisi 3, koska merkkijonossa "moi" on kolme merkkiä. Seuraava esimerkki tulostaa käyttäjän syöttämän merkkijonon "alleviivattuna" muodostamalla alleviivauksen monistamalla merkkiä "-" syötteen pituuden mukaisen määrän:
+Funktio `len` antaa kokonaisluvun, joka on merkkijonon pituus merkkeinä. Esimerkiksi `len("moi")` antaa 3, koska merkkijonossa `"moi"` on 3 merkkiä. Seuraava esimerkki tulostaa käyttäjän syöttämän merkkijonon "alleviivattuna" muodostamalla alleviivauksen monistamalla merkkiä "-" syötteen pituuden mukaisen määrän:
 
 ```python
-# Luetaan syöte
 mjono = input("Anna merkkijono: ")
-
-# Muodostetaan "alleviivaus":
-alleviivaus = "-" * len(mjono)
-
-# Tulostetaan
 print(mjono)
-print(alleviivaus)
-
+print("-"*len(mjono))
 ```
 
 <sample-output>
@@ -125,11 +96,11 @@ Moi kaikki!
 
 </sample-output>
 
-Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, ja myös välilyönti lasketaan merkiksi. Niinpä merkkijonon `Moi moi` pituus on seitsemän merkkiä.
+Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, mukaan lukien välilyönnit. Niinpä merkkijonon `moi moi` pituus on 7.
 
-Yksittäinen merkki merkkijonosta voidaan palauttaa operaattorin `[]` avulla. Operaattori kirjoitetaan merkkijonon (yleensä merkkijonomuuttujan) perään, ja hakasulkeiden väliin kirjoitetaan halutun merkin _indeksi_ eli järjestysluku.
+Yksittäinen merkki merkkijonosta voidaan hakea operaattorin `[]` avulla. Operaattori kirjoitetaan merkkijonon perään, ja hakasulkeiden väliin kirjoitetaan halutun merkin _indeksi_ eli kohta merkkijonossa.
 
-Huomaa, että merkkien indeksointi alkaa nollasta: ensimmäinen merkki on siis indeksin nolla kohdalla, toinen indeksin 1 kohdalla jne.
+Huomaa, että merkkien indeksointi alkaa nollasta: ensimmäinen merkki on siis indeksin 0 kohdalla, toinen indeksin 1 kohdalla jne.
 
 <img src="3_2_1.png">
 
@@ -137,11 +108,11 @@ Esimerkiksi
 
 ```python
 
-merkkijono = "abcdef"
+mjono = "abcdef"
 
-print(merkkijono[0])
-print(merkkijono[1])
-print(merkkijono[3])
+print(mjono[0])
+print(mjono[1])
+print(mjono[3])
 
 ```
 
@@ -156,41 +127,36 @@ d
 </sample-output>
 
 
-Koska merkkijonon ensimmäinen merkki on indeksin 0 kohdalla, on viimeinen merkki vastaavasti indeksin _pituus - 1_ kohdalla. Esimerkiksi:
+Koska merkkijonon ensimmäinen merkki on indeksin 0 kohdalla, on viimeinen merkki vastaavasti indeksin _pituus - 1_ kohdalla. Esimerkiksi seuraava ohjelma tulostaa merkkijonon ensimmäisen ja viimeisen merkin:
 
 ```python
-
 mjono = input("Anna merkkijono: ")
-
-# Testataan, että pituus on yli yksi
-# jotta merkkijonossa on eka ja toka merkki
-if len(mjono) > 1:
-    print("Eka merkki: " + mjono[0])
-    print("Toka merkki: " + mjono[1])
-
-    # Viimeinen merkki on paikassa pituus - 1
-    print("Viimeinen merkki: " + mjono[len(mjono) - 1])
-
-# Kaikki merkit alusta loppuun
-indeksi = 0
-
-# Toistetaan niin kauan kun indeksi on pienempi kuin pituus
-while indeksi < len(mjono):
-    # Tulosta yksi merkki
-    print(mjono[indeksi])
-
-    # ...ja kasvata indeksiä
-    indeksi = indeksi + 1
-
+print("Ensimmäinen: " + mjono[0])
+print("Viimeinen: " + mjono[len(mjono) - 1])
 ```
 
 <sample-output>
 
-Anna merkkijono: Esimerkki
-Eka merkki: E
-Toka merkki: s
-Viimeinen merkki: i
-E
+Anna merkkijono: **esimerkki**
+Ensimmäinen: e
+Viimeinen: i
+
+</sample-output>
+
+Seuraava ohjelma puolestaan käy läpi kaikki merkkijonon merkit vasemmalta oikealle silmukan avulla:
+
+```python
+mjono = input("Anna merkkijono: ")
+kohta = 0
+while kohta < len(mjono):
+    print(mjono[kohta])
+    kohta += 1
+```
+
+<sample-output>
+
+Anna merkkijono: **esimerkki**
+e
 s
 i
 m
@@ -202,38 +168,34 @@ i
 
 </sample-output>
 
-Pythonissa merkkeihin voi viitata myös alkaen merkkijonon lopusta käyttämällä negatiivisia indeksejä. Merkkijonon viimeinen merkki on indeksin -1 kohdalla, toiseksi viimeinen indeksin -2 kohdalla jne. Yleensä onkin kätevämpi kirjoittaa `m[-1]` kuin `m[len(m) - 1]`.
+Pythonissa merkkeihin voi viitata myös alkaen merkkijonon lopusta käyttämällä negatiivisia indeksejä. Merkkijonon viimeinen merkki on indeksin -1 kohdalla, toiseksi viimeinen indeksin -2 kohdalla jne. Onkin kätevämpi kirjoittaa `m[-1]` kuin `m[len(m) - 1]`.
 
 <img src="3_2_2.png">
 
-## Alijonot
+## Osajonot
 
-Yksittäisten merkkien lisäksi merkkijonosta voidaan palauttaa _alijono_ (myös termiä _osajono_ käytetään). Käytännössä tämä tarkoittaa pienempää osaa tai "siivua" merkkijonosta, esimerkiksi lauseen yksittäistä sanaa.
+Merkkijonon _osajono_ muodostuu perättäisistä merkeistä. Esimerkiksi merkkijonon `esimerkki` osajonoja ovat `esi`, `imer` ja `rkk`.
 
-Alijono palautetaan syntaksilla `merkkijono[alkuindeksi : loppuindeksi]`. Alkuindeksin kohdalla oleva merkki tulee mukaan alijonoon, mutta loppuindeksin kohdalla oleva ei tule. Indeksit kannattaakin ajatella esimerkiksi merkkien vasemmalle puolelle piirretyiksi viivoiksi alla olevan kuvan mukaisesti:
+Voimme erottaa halutussa kohdassa olevan osajonon syntaksilla `[a:b]`,
+mikä tarkoittaa, että osajono alkaa kohdasta `a` ja päättyy juuri ennen kohtaa `b`.
+Voimme ajatella alku- ja loppukohdan merkkien vasemmalle puolelle piirretyiksi viivoiksi alla olevan kuvan mukaisesti:
 
 <img src="3_2_3.png">
 
 Minkä takia indeksit sitten toimivat näin? Tähän lienee kaksi syytä: ensinnäkin, indeksit toimivat samalla tavalla useimmissa muissa ohjelmointikielissä (jolloin kielestä toiseen siirtyminen on helpompaa). Toinen syy lienee se, että kun loppuindeksin mukaista merkkiä ei oteta mukaan alijonoon, voidaan alijonon pituus laskea kaavalla `loppuindeksi - alkuindeksi`.
 
-Seuraava esimerkki esittelee alijonojen palauttamista:
+Seuraava esimerkki esittelee osajonojen hakemista:
 
 ```python
+mjono = "Moi kaikki!"
 
-# Merkkijono
-esimerkkijono = "Moi kaikki!"
+print(mjono[0:3])
+print(mjono[4:10])
 
-print(esimerkkijono[0:3])
-
-toka_sana = esimerkkijono[4:10]
-print(toka_sana)
-
-# Alku- tai loppuparametrin voi jättää pois
-# Alkuparametriksi oletetaan tällöin 0
-# ja loppuparametriksi merkkijonon pituus
-print(esimerkkijono[:2])
-print(esimerkkijono[4:])
-
+# jos alkukohta puuttuu, se on oletuksena 0
+print(mjono[:2])
+# jos alkukohta puuttuu, se on oletuksena merkkijonon pituus
+print(mjono[4:])
 ```
 
 <sample-output>
@@ -245,69 +207,65 @@ kaikki!
 
 </sample-output>
 
-Huomaa, että alijonoa palautettaessa Python hyväksyy myös merkkijonon alkua edeltävät tai lopun yli menevät indeksit. Yksittäistä merkkiä palauttaessa tällaisen indeksin käyttäminen antaa kuitenkin virheen.
+## Osajonon etsiminen merkkijonosta
+
+Voimme tutkia `in`-operaattorin avulla, onko merkkijonossa tiettyä osajonoa.
+Lauseke `a in b` on tosi, jos merkkijonossa `b` on osajono `a`.
 
 Esimerkiksi
 
 ```python
-sana = "hello world"
-sana[100]
-```
+mjono = "esimerkki"
 
-Aiheuttaa virheen
-
-<sample-output>
-
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-IndexError: string index out of range
-
-</sample-output>
-
-## Alijonon etsiminen merkkijonosta
-
-Yksittäisen merkin tai alijonon esiintyminen merkkijonossa voidaan selvittää `in`-operaattorin avulla. Lauseke `alijono in merkkijono` palauttaa arvon True, jos annettu alijono (tai yksittäinen merkki) löytyy merkkijonosta.
-
-Esimerkiksi
-
-```python
-
-mjono = "Vesihiisi sihisi hississä"
-
-print("V" in mjono)
-print("v" in mjono)
-
-if "sihisi hississä" in mjono:
-    print("Kuulen sihinää")
-
-if "Vesi " in mjono:
-    print("Vettäkin on")
-else:
-    print("Vesi puuttuu")
-
-
+print("m" in mjono)
+print("x" in mjono)
+print("erk" in mjono)
+print("mrk" in mjono)
 ```
 
 <sample-output>
 
 True
 False
-Kuulen sihinää
-Vesi puuttuu
+True
+False
 
 </sample-output>
 
-Huomaa ero pienten ja isojen kirjaimien välillä: `v in mjono` evaluoituu arvoksi `False`, koska merkkijonosta `mjono` ei löydy pientä v-kirjainta.
+Seuraava ohjelma antaa käyttäjän etsiä merkkijonon osajonoja:
 
-Viimeinen ehtolause esimerkissä tulostaa `Vesi puuttuu`, koska merkkijonosta ei löydy alijonoa jossa sanaa Vesi seuraisi välilyönti: `Vesi `.
+```python
+mjono = "saippuakauppias"
 
-`in`-operaattori palauttaa tiedon alijonon esiintymisestä, muttei tietoa siitä _mistä se löytyy_. Tätä varten Pythonissa on _metodi_ `find`.
+while True:
+    osa = input("Mitä etsit? ")
+    if osa in mjono:
+        print("Löytyi")
+    else:
+        print("Ei löytynyt")
+```
 
-<text-box variant="hint">
+<sample-output>
 
-Metodilla tarkoitetaan (yleensä) funktiota, joka on sidottu johonkin _objektiin_. Metodin toiminta kohdistuu siihen sidottuun objektiin.
+Mitä etsit? **kaup**
+Löytyi
+Mitä etsit? **abc**
+Ei löytynyt
+Mitä etsit? **ippu**
+Löytyi
+...
 
-Pythonissa metodia kutsutaan kirjoittamalla objektin perään piste ja metodin nimi. Kun siis _funktiota_ `len` kutsutaan esim. näin:
+</sample-output>
+
+Operaattori `in` antaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonissa on metodi `find`.
+
+<text-box variant="hint" name="Metodit">
+
+TODO: Onkohan tämä hyvä hetki kertoa tästä? Ei ole vielä kerrottu, mikä on olio?
+
+Metodilla tarkoitetaan funktiota, joka liittyy johonkin olioon, kuten merkkijonoon.
+
+Metodia kutsutaan kirjoittamalla olion nimen perään piste ja metodin nimi. Kun siis _funktiota_ `len` kutsutaan esim. näin:
 
 `len("Moikka!")`
 
@@ -317,7 +275,7 @@ Pythonissa metodia kutsutaan kirjoittamalla objektin perään piste ja metodin n
 
 </text-box>
 
-`find` saa parametrikseen etsittävän alijonon, ja palauttaa joko _ensimmäisen indeksin, josta alijono löytyy_ tai `-1`, jos alijonoa ei löydy merkkijonosta.
+Metodi `find` saa parametrikseen etsittävän osajonon, ja metodi palauttaa joko ensimmäisen indeksin, josta osajono löytyy tai `-1`, jos osajonoa ei löydy merkkijonosta.
 
 Metodin syntaksi näyttää siis tältä:
 
@@ -326,41 +284,43 @@ Metodin syntaksi näyttää siis tältä:
 Esimerkkejä metodin käyttämisestä:
 
 ```python
+mjono = "esimerkki"
 
-while True:
-    mjono = input("Anna merkkijono, tyhjä lopettaa: ")
-
-    # Jos tyhjä merkkijono, lopetetaan
-    if mjono == "":
-        break
-
-    alijono = input("Anna alijono: ")
-
-    # Etsitään alijono merkkijonosta...
-    indeksi = mjono.find(alijono)
-
-    # Tulostetaan
-    if indeksi > -1:
-        print("Alijono löytyy indeksin " + str(indeksi) + " kohdalta")
-    else:
-        print("Alijonoa ei löydy merkkijonosta.")
-
-print("Kiitos alijonotuksesta.")
-
+print(mjono.find("m"))
+print(mjono.find("x"))
+print(mjono.find("erk"))
+print(mjono.find("mrk"))
 ```
 
 <sample-output>
 
-Anna merkkijono, tyhjä lopettaa: **Vesihiisi sihisi**
-Anna alijono: **hiisi**
-Alijono löytyy indeksin 4 kohdalta
-Anna merkkijono, tyhjä lopettaa: **abcabc**
-Anna alijono: **abca**
-Alijono löytyy indeksin 0 kohdalta
-Anna merkkijono, tyhjä lopettaa: **sihisikö hiisi?**
-Anna alijono: **Hiisi**
-Alijonoa ei löydy merkkijonosta.
-Anna merkkijono, tyhjä lopettaa:
-Kiitos alijonotuksesta.
+3
+-1
+4
+-1
+
+</sample-output>
+
+```python
+mjono = "saippuakauppias"
+
+while True:
+    osa = input("Mitä etsit? ")
+    kohta = mjono.find(osa)
+    if kohta >= 0:
+        print("Löytyi kohdasta",kohta)
+    else:
+        print("Ei löytynyt")
+```
+
+<sample-output>
+
+Mitä etsit? **kaup**
+Löytyi kohdasta 7
+Mitä etsit? **abc**
+Ei löytynyt
+Mitä etsit? **ippu**
+Löytyi kohdasta 2
+...
 
 </sample-output>
