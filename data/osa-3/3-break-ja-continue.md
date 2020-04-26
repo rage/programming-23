@@ -15,56 +15,36 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Aiemmin silmukoiden yhteydessä tutustuttiin pintapuolisesti `break`-lauseeseen. Lauseella voidaan katkaista silmukan suoritus välittömästi. Tyypillinen esimerkki lauseen käytöstä on silmukka, jossa kysytään käyttäjältä syötteitä, ja suoritus päättyy kun käyttäjä syöttää tietyn syötteen (esimerkiksi tyhjän merkkijonon).
+Aiemmin silmukoiden yhteydessä tutustuttiin pintapuolisesti `break`-komentoon. Komennolla voidaan katkaista silmukan suoritus välittömästi. Tyypillinen esimerkki lauseen käytöstä on silmukka, jossa kysytään käyttäjältä syötteitä, ja suoritus päättyy, kun käyttäjä syöttää tietyn syötteen (esimerkiksi tyhjän merkkijonon).
 
-Vastaavaan toiminnallisuuteen päästään tietenkin ilman `break`-lausettakin sopivalla ehtolausekkeella. Alla olevat esimerkit toteuttavat molemmat ohjelman, joka laskee käyttäjän syötteiden summan kun käyttäjä syöttää luvun -1:
+Vastaavaan toiminnallisuuteen päästään myös ilman `break`-komentoa sopivan ehdon avulla. Alla olevat esimerkit toteuttavat molemmat ohjelman, joka laskee käyttäjän syötteiden summan kun käyttäjä syöttää luvun -1:
 
 ```python
-
-# 1. versio, jossa käytetään break-lausetta
+# 1. versio break-komennon avulla
 
 summa = 0
 
-# "ikuinen" silmukka
 while True:
-
-    # Kysy syöte, jos -1 niin lopetetaan
     luku = int(input("Anna luku, -1 lopettaa: "))
-
     if luku == -1:
         break
-
-    # Jos ei ollut -1, lisätään summaan
-    summa = summa + luku
-
-# Lopuksi tulostetaan summa
-print ("Summa on " + str(summa))
-
+    summa += luku
+    
+print ("Summa on", summa)
 ```
 
 ```python
-
-# 2. versio, jossa ei käytetä break-lausetta
+# 2. versio ilman break-komentoa
 
 summa = 0
-
-# muuttuja luku pitää alustaa, jotta sitä voidaan
-# käyttää ehtolausekkeessa
 luku = 0
 
-# Silmukka, jota toistetaan kunhan luku ei ole -1
 while luku != -1:
-
-    # Kysy syöte, jos -1 niin lopetetaan
     luku = int(input("Anna luku, -1 lopettaa: "))
-
-    # Jos ei ollut -1, lisätään summaan
     if luku != -1:
-        summa = summa + luku
+        summa += luku
 
-# Lopuksi tulostetaan summa
-print ("Summa on " + str(summa))
-
+print ("Summa on", summa)
 ```
 
 Molempien ohjelmien esimerkkisuoritus voisi näyttää seuraavalta:
@@ -80,185 +60,134 @@ Summa on 14
 
 </sample-output>
 
-Molemmat versiot ovat toiminnallisuudeltaan siis käytännössä samanlaisia. Onkin makuasia kumpaa tapaa haluaa käyttää.
+Molemmat versiot ovat toiminnallisuudeltaan siis käytännössä samanlaisia. Ensimmäinen tapa on kuitenkin yleisemmin käytetty.
 
-`break`-lausetta voidaan käyttää myös silloin, kun toistolauseessa on annettu jokin oikea ehtolauseke (eli jokin muu ehto kuin pelkkä vakiomuotoinen totuusarvo `True`). Tällöin voidaan esimerkiksi katkaista silmukka, kun sen suorittama tehtävä on täytetty vaikka jonkin sarjan läpikäynti olisikin vielä kesken.
-
-Esimerkiksi seuraava silmukka tutkii käyttäjän antamaa merkkijonoa ja yrittää löytää siitä kaksi samaa merkkiä peräkkäin. Jos tällaiset merkit löytyvät, päätetään silmukan suoritus break-lauseella. Silmukan suoritus päättyy joka tapauksessa, jos päästään merkkijonon loppuun asti.
+Komentoa `break` voidaan käyttää myös silloin, kun silmukassa on annettu jokin muu ehto kuin pelkkä totuusarvo `True`. Esimerkiksi seuraava silmukka jatkuu niin kauan, kuin annettujen lukujen summa on alle 100. Kuitenkin silmukka katkeaa myös, jos käyttäjä antaa luvun -1.
 
 ```python
+summa = 0
 
-merkkijono = input("Anna merkkijono: ")
-
-# Edellinen merkki, aluksi tyhjä
-edellinen = ""
-
-# indeksimuuttuja
-indeksi = 0
-
-# Tieto siitä löytyikö kaksi peräkkäistä samaa merkkiä
-löytyi = False
-
-while indeksi < len(merkkijono):
-    # testaa onko sama kuin edellinen merkki...
-    if merkkijono[indeksi] == edellinen:
-        löytyi = True
+while summa < 100:
+    luku = int(input("Anna luku, -1 lopettaa: "))
+    if luku == -1:
         break
+    summa += luku
 
-    # Ei ollut: muuta edellisen arvo
-    edellinen = merkkijono[indeksi]
-
-    # ...ja kasvata indeksiä
-    indeksi = indeksi + 1
-
-if löytyi:
-    print("Merkkijonosta löytyi 2 peräkkäistä samaa merkkiä")
-else:
-    print("Peräkkäisiä samoja merkkejä ei löytynyt")
-
+print("Summa on", summa)
 ```
 
-Ohjelma suoritettuna kahdella eri syötteellä:
+Mahdollisia suorituksia:
 
 <sample-output>
 
-Anna merkkijono: **testataanpa tätä**
-Merkkijonosta löytyi 2 peräkkäistä samaa merkkiä
-
-Anna merkkijono: **tämä on toinen testi**
-Peräkkäisiä samoja merkkejä ei löytynyt
+Anna luku, -1 lopettaa: **15**
+Anna luku, -1 lopettaa: **8**
+Anna luku, -1 lopettaa: **21**
+Anna luku, -1 lopettaa: **-1**
+Summa on 44
 
 </sample-output>
 
-Silmukan suoritus voidaan katkaista merkkiparin löytyessä, jos haluamme ainoastaan tietää löytyykö merkkijonosta tällainen pari. Katkaisemalla suoritus ensimmäisen parin löydettyä vältytään turhien operaatioiden suorittamiselta. Esimerkkiohjelmassa merkitys on korkeintaan mikrosekunteja, mutta periaate on sama pidemmilläkin suoritusajoilla.
+<sample-output>
 
-Jos haluaisimme kuitenkin esimerkiksi laskea kaikkien tällaisten parien määrät, pitäisi merkkijono tietysti käydä läpi alusta loppuun. Riippuu siis tilanteesta, onko järkevää joissain tapauksissa poikkaista silmukan suoritus ennenaikaisesti.
+Anna luku, -1 lopettaa: **15**
+Anna luku, -1 lopettaa: **8**
+Anna luku, -1 lopettaa: **21**
+Anna luku, -1 lopettaa: **45**
+Anna luku, -1 lopettaa: **17**
+Summa on 106
 
+</sample-output>
+
+
+Toisaalta voisimme toteuttaa vastaavasti toimivan silmukan myös näin:
+
+```python
+summa = 0
+
+while True:
+    luku = int(input("Anna luku, -1 lopettaa: "))
+    if luku == -1:
+        break
+    summa += luku
+    if summa >= 100:
+        break
+
+print("Summa on", summa)
+```
 ## continue-lause
 
-`break`-lauseen lisäksi Pythonista löytyy toinenkin lause, jolla silmukoiden suoritusta voidaan kontrolloida: `continue`.
-
-Lauseen toiminta muistuttaa hiukan `break`-lausetta, mutta silmukan suorituksen katkaisemisen sijasta `continue` päättää silmukan _nykyisen kierroksen_. Kun silmukan sisällä tulee siis vastaan lause `continue`, hyppää suoritus välittömästi silmukan ensimmäiselle riville (eli riville, jolla määritellään silmukan suoritukseen vaikuttava ehtolause). Tämän jälkeen silmukan suoritus jatkuu normaalisti ehtolauseen tarkastamisella:
+Komento `continue` on toinen tapa vaikuttaa silmukan suoritukseen. Kun silmukan sisällä tulee vastaan komento `continue`, hyppää suoritus välittömästi silmukan alkuun riville, jossa on silmukan ehto. Tämän jälkeen silmukan suoritus jatkuu normaalisti ehdon tarkastamisella:
 
 <img src="3_3.png">
 
-Esimerkiksi:
+Esimerkiksi seuraava ohjelma laskee summaan mukaan vain luvut, jotka ovat pienempiä kuin 10. Jos luku on 10 tai suurempi, suoritus palaa silmukan alkuun eikä lukua lisätä summaan.
 
 ```python
+summa = 0
 
-luku = 0
-
-while luku < 20:
-    # Kasvatetaan aluksi
-    luku = luku + 1
-
-    if luku % 2 == 0 or luku % 3 == 0:
-        # Lohkon suorittaminen päättyy ja suoritus palaa
-        # takaisin ehtolausekkeen tarkastamiseen
+while True:
+    luku = int(input("Anna luku, -1 lopettaa: "))
+    if luku == -1:
+        break
+    if luku >= 10:
         continue
-
-    # Luku ei ollut kahdella tai kolmella jaollinen
-    print(luku)
-
+    summa += luku
+    
+print("Summa on", summa)
 ```
 
 <sample-output>
 
-1
-5
-7
-11
-13
-17
-19
+Anna luku, -1 lopettaa: **4**
+Anna luku, -1 lopettaa: **7**
+Anna luku, -1 lopettaa: **99**
+Anna luku, -1 lopettaa: **5**
+Anna luku, -1 lopettaa: **-1**
+Summa on 16
 
 </sample-output>
-
-Huomaa, että mikäli muuttujan kasvatus esimerkissä tehtäisiin ehtolauseen jälkeen, olisi seurauksena ikuinen silmukka. `continue`-lausetta käytettäessä onkin aina varmistuttava, että ehtolause etenee kohti loppuehtoaan myös silloin, kun kierroksen yli hypätään.
-
-Niinkuin edellisestä esimerkistä ehkä huomataan, `continue`-lauseenkin käytön voi yleensä kiertää ehtolauseella. Tyypillinen tapa käyttää lausetta onkin siistiä ohjelmakoodia tarkastelemalla silmukan alussa, onko alkio sellainen jota ei edes haluta käsitellä - näin vältytään ainakin yhdeltä ylimääräiseltä sisennykseltä, jonka ehtolauseet aiheuttaisivat.
 
 ## Sisäkkäiset silmukat
 
-Toistolauseita voidaan kirjoittaa toisten toistolauseiden sisään. Tarkastellaan esimerkkinä ohjelmaa, joka tulostaa viisi kertotaulua:
+Silmukoita voidaan kirjoittaa toisten silmukoiden sisään. Esimerkiksi seuraava ohjelma kysyy käyttäjältä silmukassa luvun ja tulostaa sen avulla lukujonon toisen silmukan avulla:
 
 ```python
-
-# Nyt tarvitaan kaksi indeksiä, yksi alustetaan tässä...
-luku1 = 1
-
-while luku1 <= 5:
-    # ...ja toinen joka ulomman kierroksen aluksi tässä
-    luku2 = 1
-    while luku2 <= 5:
-        rivi = str(luku1) + " x " + str(luku2)
-        rivi = rivi + " = " + str(luku1 * luku2)
-
-        print(rivi)
-
-        luku2 = luku2 + 1
-
-    # Kun sisempi silmukka on suoritettu,
-    # kasvatetaan lukua 1
-    luku1 = luku1 + 1
-
+while True:
+    luku = int(input("Anna luku: "))
+    if luku == -1:
+        break
+    while luku > 0:
+        print(luku)
+        luku -= 1
 ```
 
 <sample-output>
 
-1 x 1 = 1
-1 x 2 = 2
-1 x 3 = 3
-1 x 4 = 4
-1 x 5 = 5
-2 x 1 = 2
-2 x 2 = 4
-2 x 3 = 6
-2 x 4 = 8
-2 x 5 = 10
-3 x 1 = 3
-3 x 2 = 6
-3 x 3 = 9
-3 x 4 = 12
-3 x 5 = 15
-4 x 1 = 4
-4 x 2 = 8
-4 x 3 = 12
-4 x 4 = 16
-4 x 5 = 20
-5 x 1 = 5
-5 x 2 = 10
-5 x 3 = 15
-5 x 4 = 20
-5 x 5 = 25
+Anna luku: **4**
+4
+3
+2
+1
+Anna luku: **3**
+3
+2
+1
+Anna luku: **6**
+6
+5
+4
+3
+2
+1
+Anna luku: **-1**
 
 </Sample-output>
 
-Sisäkkäisiä silmukoita käytettäessä on tärkeää varmistua, että lauseet kuuluvat oikeisiin lohkoihin. Miten edellinen esimerkki toimisi, jos luvun 1 kasvatus tapahtuisi sisemmän lohkon sisällä?
-
-Huomaa, että useita silmukoita käytettäessä `break`-lause katkaisee aina sen lohkon suorituksen, jonka sisään se on kirjoitettu.
-
-Esimerkiksi
+Huomaa, että komento `break` katkaisee aina uloimman silmukan, jonka sisällä se on. Esimerkiksi seuraava silmukka jatkuu ikuisesti, koska `break` katkaisee vain uloimman silmukan.
 
 ```python
-
-mjono = ""
-
-while len(mjono) < 6:
-    mjono = mjono + "a"
-
-    while (True):
-        mjono = mjono + "b"
+while True:
+    while True:
         break
-
-print(mjono)
-
 ```
-
-<sample-output>
-
-ababab
-
-</sample-output>
-
-Esimerkissä `break`-lauseen suoritus päättää sisemmän silmukan suorituksen, jolloin suoritus palaa takaisin ulompaan silmukkaan. Näin merkkijonoon lisätään vuorotellen a- ja b-kirjaimia kunnes pituus ei ole enää alle 6.
