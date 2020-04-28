@@ -80,7 +80,7 @@ if salasana == oikea:
     print("Tervetuloa")
 else:
     print("Pääsy kielletty")
-`
+```
 
 Kaksi esimerkkisuoritusta eri syötteillä:
 
@@ -100,8 +100,6 @@ Pääsy kielletty
 
 
 ## Vaihtoehtoiset haarat elif-lauseella
-
-TODO: Parempi esimerkki? Kaikkia ei kiinnosta jalkapallo
 
 Usein vaihtoehtoja on kuitenkin enemmän kuin kaksi. Esimerkiksi jalkapallo-ottelun lopputulosta käsitellessä olisi hyvä varautua kolmeen vaihtoehtoiseen lopputulokseen kotijoukkueen kannalta: voitto, häviö tai tasapeli.
 

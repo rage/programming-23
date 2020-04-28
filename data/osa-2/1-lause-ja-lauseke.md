@@ -15,27 +15,27 @@ Tämän osion suoritettuasi
 
 </text-box>
 
+Emme vielä kurssin ensimmäisessä osassa kiinnittäneet kovin tarkasti huomiota käyttämäämme terminologiaan. Ohjelmoinnissa puhutaan usein _lauseista_ ja _lausekkeista_. Mistä on kyse?
+
 ## Lause
 
-_Lause_ tarkoittaa ohjelman osaa, joka suorittaa jonkin toiminnon.
-Usein lause viittaa yksittäiseen komentoon.
+_Lause_ (englanniksi statement) tarkoittaa ohjelman osaa, joka suorittaa jonkin toiminnon. Usein lause viittaa yksittäiseen komentoon.
+
 Esimerkiksi `print("Moi!")` on lause, joka tulostaa rivin tekstiä,
 ja `luku = 2` on lause, joka asettaa muuttujan arvon.
 
-Lause voi olla myös monimutkaisempi,
-ja sen sisällä voi olla muita lauseita.
-Esimerkiksi ehtolauseen aloittaa `if`-rivi,
-jonka jälkeen sen sisällä on yksi tai useampia lauseita.
+Lause voi olla myös monimutkaisempi, ja sen sisällä voi olla muita lauseita.
+
+Esimerkiksi ehtolauseen aloittaa `if`-rivi, jonka jälkeen sen sisällä on yksi tai useampia lauseita.
 
 ```python
 if nimi == "Anna":
     print("Moikka!")
 ```
+
 ## Lauseke
 
-_Lauseke_ on lauseen osa, jolla on jokin tyyppi.
-Ohjelman suorituksen aikana lauseke saa arvon,
-jota voidaan käyttää ohjelmassa.
+_Lauseke_ (englanniksi expression) on lauseen osa, jolla on jokin tyyppi. Ohjelman suorituksen aikana lauseke saa arvon, jota voidaan käyttää ohjelmassa.
 
 Tarkastellaan muutamaa esimerkkiä lausekkeista:
 
@@ -46,11 +46,39 @@ Tarkastellaan muutamaa esimerkkiä lausekkeista:
 |`11 / 2` | `5.5` | liukuluku | `float` |
 |`2 * 5 > 9` | `True` | totuusarvo | `bool`|
 
+Koska lausekkeella on arvo, voi sen sijoittaa muuttujaan:
+
+```python
+# muuttuja x saa arvoksi lausekkeen 1 + 2 arvon
+x = 1 + 2
+```
+
+Yksinkertaisesta lausekkeesta saa muodostettua monimutkaisempia lausekkeita esim. aritmeettisten operaattorien avulla:
+
+```python
+# muuttuja y saa arvoksi lausekkeen '3 kertaa x plus x toiseen' arvon
+y = 3 * x + x**2
+```
+
+## Funktio ja parametri
+
+Olemme myös nähneet kurssilla muutamia funktioita, esimerkiksi tulostamiseen käytettävän `print`-funktion, joka saa syötteeksi eli virallisempaa terminologiaa käyttäen _parametriksi_ tulostettavan merkkijonon
+
+```python
+print("tämä on parametri")
+```
+
+Myös käyttäjältä syötteitä lukeva `input` on funktio. Parametrina funktio saa käyttäjälle näytettävän kehotteen:
+
+```python
+nimi = input("Kerro nimesi: ")
+```
+
+Funktio `input` palauttaa arvon, joten funktiokutsu on yllä määriteltyä terminologiaa käyttäen _lauseke_...
 
 ## Muuttujan tyyppi
 
-Python on _dynaamisesti tyypitetty_ ohjelmointikieli,
-mikä tarkoittaa, ettei ohjelmoijan tarvitse määritellä esimerkiksi muuttujien tyyppiä, vaan Python päättelee tyypin automaattisesti muuttujaan sijoitettavan arvon perusteella.
+Python on _dynaamisesti tyypitetty_ ohjelmointikieli, ja tämän takia ohjelmoijan tarvitse määritellä esimerkiksi muuttujien tyyppiä, vaan Python päättelee tyypin automaattisesti muuttujaan sijoitettavan arvon perusteella.
 
 Esimerkiksi seuraavassa koodissa Python päättelee,
 että muuttuja `nimi` tyyppi on merkkijono ja muuttujan `tulos` tyyppi on kokonaisluku.
@@ -103,7 +131,7 @@ Esimerkiksi rivillä `print(type(12))` ohjelma tulostaa
 `<class 'int'>`, koska lausekkeen tyyppi on kokonaisluku.
 Voimme myös tutkia lausekkeen tyyppiä ehtolauseen avulla.
 
-# Tyyppimuunnokset
+## Tyyppimuunnokset
 
 Tyyppimuunnoksella voidaan muuntaa arvo toisen tyyppiseksi.
 Muunnoksessa käytettävän funktion nimi on sama kuin tyypin nimi.

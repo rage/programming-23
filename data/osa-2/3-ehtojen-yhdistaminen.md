@@ -151,7 +151,7 @@ luku = int(input("Anna luku: "))
 if luku > 0 and luku % 2 == 0:
     print("Luku on parillinen")
 elif luku > 0 and luku % 2 != 0:
-        print("Luku on pariton")
+    print("Luku on pariton")
 else:
     print("Luku on negatiivinen.")
 ```
