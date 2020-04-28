@@ -37,7 +37,7 @@ luku = 1
 while luku < 10:
     print(luku)
     luku += 1
-    
+
 print("Suoritus valmis.")
 ```
 
@@ -55,7 +55,6 @@ print("Suoritus valmis.")
 Suoritus valmis.
 
 </sample-output>
-
 
 Koska ehto tarkastetaan aina ennen lohkon suoritusta, on mahdollista, ettei lohkoa suoriteta kertaakaan. Esimerkiksi:
 
@@ -97,7 +96,7 @@ luku = 1
 
 while luku < 10:
     print(luku)
-    
+
 print("Suoritus valmis.")
 ```
 
@@ -135,6 +134,7 @@ Anna luku: **28**
 31
 34
 37
+...
 
 </sample-output>
 

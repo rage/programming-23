@@ -15,7 +15,7 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Aiemmin silmukoiden yhteydessä tutustuttiin pintapuolisesti `break`-komentoon. Komennolla voidaan katkaista silmukan suoritus välittömästi. Tyypillinen esimerkki lauseen käytöstä on silmukka, jossa kysytään käyttäjältä syötteitä, ja suoritus päättyy, kun käyttäjä syöttää tietyn syötteen (esimerkiksi tyhjän merkkijonon).
+Aiemmin silmukoiden yhteydessä tutustuttiin `break`-komentoon. Komennolla voidaan katkaista silmukan suoritus välittömästi. Tyypillinen esimerkki lauseen käytöstä on silmukka, jossa kysytään käyttäjältä syötteitä, ja suoritus päättyy, kun käyttäjä syöttää tietyn syötteen (esimerkiksi tyhjän merkkijonon).
 
 Vastaavaan toiminnallisuuteen päästään myös ilman `break`-komentoa sopivan ehdon avulla. Alla olevat esimerkit toteuttavat molemmat ohjelman, joka laskee käyttäjän syötteiden summan kun käyttäjä syöttää luvun -1:
 
@@ -29,7 +29,7 @@ while True:
     if luku == -1:
         break
     summa += luku
-    
+
 print ("Summa on", summa)
 ```
 
@@ -133,7 +133,7 @@ while True:
     if luku >= 10:
         continue
     summa += luku
-    
+
 print("Summa on", summa)
 ```
 

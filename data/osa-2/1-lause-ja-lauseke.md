@@ -33,6 +33,24 @@ if nimi == "Anna":
     print("Moikka!")
 ```
 
+## Lohko
+
+Ohjelmoinnissa puhutaan myös _lohkoista_ (englanniksi block). Lohkolla tarkoitetaan joukkoa peräkkäin sijoitettuja lauseita. Esimerkiksi ehtolauseen "ehdollinen" osa on oma lohkonsa.
+
+```python
+if ika > 17:
+    # ehtolauseessa oleva lohko alkaa
+    print("Olet täysi-ikäinen!")
+    ika = ika + 1
+    print("nyt vuoden vanhempi...")
+    # lohko loppuu
+
+
+print("tämä on eri lohkossa")
+```
+
+Pythonissa koodilohko ilmaistaan sisentämällä lohkon koodi eli lauseet samalle tasolle.
+
 ## Lauseke
 
 _Lauseke_ (englanniksi expression) on lauseen osa, jolla on jokin tyyppi. Ohjelman suorituksen aikana lauseke saa arvon, jota voidaan käyttää ohjelmassa.
