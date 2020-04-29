@@ -184,3 +184,183 @@ Erotus on -11
 Mitä haluat laskea: **0**
 
 </sample-output>
+
+## Funktion parametrit
+
+Kaikkio määrittelemämme funktiot ovat olleet sellasia, että ne toimivat jokaisella kutsukerralla samalla tavalla. Esim.
+
+```python
+def viesti():
+    print("Tämä on oma funktio!")
+```
+
+Kun kutsutaan funktiota kolme kertaa
+
+
+```python
+viesti()
+viesti()
+viesti()
+```
+
+tulostuu sama viesti kolmeen kertaan
+
+<sample-output>
+
+Tämä on oma funktio!
+Tämä on oma funktio!
+Tämä on oma funktio!
+
+</sample-output>
+
+Jokaisella kutsumiskerralla täsmälleen samalla tavalla toimivat funktiot ovat käyttökelpoisuudeltaan hyvin rajallisia.
+
+Jos ajatellaan jo monta kertaa käyttämiämme Pythonin valmiita funktiota `print` ja `input`, niiden toiminta riippuu niille kutsuttaessa annettavasta _parametrista_:
+
+```python
+print("hei!")                     # parametrina merkkijono "hei!"
+nimi = input("kerro nimesi: ")    # parametrina merkkijono "kerro nimesi: "
+print(nimi)                       # parametrina muuttujan nimi arvo
+```
+
+Voimme määritellä parametreja myös omille funktillemme. Parametrit määritellään funktion nimen jälkeen olevien sulkujen sisällä:
+
+```python
+def tervehdi(n):
+    print("hei " + n)
+```
+
+Jos funktiota kutsutaan kaksi kertaa
+
+```python
+tervehdi("Emilia")
+tervehdi("maailma!")
+```
+
+tulostaa se kaksi erilaista tervehdystä:
+
+<sample-output>
+
+hei Emilia
+hei maailma!
+
+</sample-output>
+
+Katsotaan funktion määrittelyä vielä tarkemmin:
+
+```python
+def tervehdi(n):
+    print("hei " + n)
+```
+
+Määrittelimme ensimmäisellä rivillä että funktion parametri on nimeltään `n`. Toisella rivillä tulostuslause käyttää parametrissa `n` olevaa arvoa tulostukseen.
+
+Kun funktiota kutsutaan, saa parametri _funktiokutsussa_ annettavan arvon. Esim. kun kutsutaan
+
+```python
+tervehdi("tämä merkkijono tulee parametrin arvoksi")
+```
+
+parametrin arvo funktiossa on merkkijono _"tämä merkkijono tulee parametrin arvoksi"_.
+
+Jos kutsu on seuraava
+
+```python
+nimi = "Antti"
+tervehdi(nimi)
+```
+
+parametrin arvo funktiossa on merkkijono _"Antti"_.
+
+Parametrin voi nimetä haluamallaan tavalla, esimerkiksi seuraavasti:
+
+```python
+def tervehdi(keta_terhvehditaan):
+    print("hei " + keta_terhvehditaan)
+```
+
+Parametrien ja myös _funktioiden_ nimeämistä koskevat samat säännöt mitä olemme jo aiemmin käsitelleet, eli nimien kannattaa olla kuvaavia, ja käytössä ovat ensisijaisesti pienet kirjaimet sekä alaviiva.
+
+## Lukuja parametrina
+
+Parametrit voivat luonnollisesti olla myös lukuja:
+
+```python
+def nelio(x):
+    # funktio käyttää apumuuttujaa!
+    tulos = x * x
+    print("luvun " + str(x) + " neliö on " + str(tulos))
+
+nelio(2)
+nelio(5)
+```
+
+<sample-output>
+
+luvun 2 neliö on 4
+luvun 5 neliö on 25
+
+</sample-output>
+
+ja parametreja voi olla useita
+
+```python
+def summa(x, y):
+    print("parametrien summa on " + str(x + y))
+
+summa(1, 2)
+summa(5, 24)
+```
+
+<sample-output>
+
+parametrien summa on 3
+parametrien summa on 29
+
+</sample-output>
+
+## Muutama lisähuomio
+
+Kannattaa huomata että parametrien nimillä ei ole mitään tekemistä funktion "ulkopuolella" olevien samannimisten muuttujien kanssa. Eli jos meillä on funktio
+
+```python
+def summa(x, y):
+    print("parametrien summa on " + str(x + y))
+```
+
+ja ohjelma kutsuu sitä seuraavasti:
+
+```python
+x = 100
+y = 30
+summa(1, 2)
+summa(x+y, 10)
+```
+
+Tulostuu
+
+<sample-output>
+
+parametrien summa on 3
+parametrien summa on 140
+
+</sample-output>
+
+Eli ensimmäisessä funktiokutsussa tulee funktion sisällä parametrin arvoiksi
+
+
+```python
+# parametrien arvot funktion sisällä kun kutsutaan summa(1, 2)
+x = 1
+y = 2
+```
+
+ja toisella kerralla
+
+```python
+# parametrien arvot funktion sisällä kun kutsutaan summa(x+y, 10)
+x = 130
+y = 10
+```
+
+Palaamme funktioihin ja parametrien määrittelyyn tarkemmin seuraavan osan alussa.
