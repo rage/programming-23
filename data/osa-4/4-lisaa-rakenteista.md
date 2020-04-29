@@ -10,80 +10,84 @@ Valmiiden listaoperaatioiden tuntemus auttaa kirjoittamaan lyhyempiä ja tehokka
 
 Tämän osion suoritettuasi
 
-- Tiedät, miten alijono-operaation eri parametrit toimivat listoille ja merkkijonoille
+- Tiedät, miten voit erottaa osan merkkijonosta tai listasta
 - Tiedät, mitä tarkoitetaan käsitteellä _mutatoitumattomuus_
 - Osaat käyttää metodeita `count` ja `replace`
 
 </text-box>
 
-Kuten `range`-funktiolla, myös alijono-operaatiolla on valinnainen kolmas parametri. Tämä parametri määrää alijonon suunnan ja askeleen. Alijono-operaatiot toimivat myös listoille:
+Olemme käyttäneet aiemmin `[]`-syntaksia merkkijonon osajonon erottamiseen:
 
 ```python
-
-lista = list(range(1,11))
-
-print(lista)
-
-# Alilista eli "osalista"
-osalista = lista[2:5]
-
-print(osalista)
-
-# Kolmas parametri on askel¨
-osalista2 = lista[2:7:2]
-print(osalista2)
-
+mjono = "esimerkki"
+print(mjono[3:7])
 ```
 
 <sample-output>
 
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-[3, 4, 5]
-[3, 5, 7]
+merk
 
 </sample-output>
 
-## Negatiivinen askel
-
-Myös negativiinen askel toimii. Tämä on itse asiassa hyvin näppärä tapa kääntää lista tai merkkijono päinvastaiseen järjestykseen:
+Sama syntaksi toimii myös listoissa, ja voimme erottaa sen avulla listan osan:
 
 ```python
+lista = [3,4,2,4,6,1,2,4,2]
+print(lista[3:7])
+```
 
+<sample-output>
+
+[4, 6, 1, 2]
+
+</sample-output>
+
+## Lisää erottamisesta
+
+Itse asiassa `[]`-syntaksi toimii hyvin samalla periaatteella kuin `range`-funktio, eli voimme antaa sille myös askeleen:
+
+```python
+mjono = "esimerkki"
+print(mjono[0:7:2])
+lista = [1,2,3,4,5,6,7,8]
+print(lista[6:2:-1]
+```
+
+<sample-output>
+
+eiek
+[7, 6, 5, 4]
+
+</sample-output>
+
+Jos emme anna jotain arvoa, oletuksena erotus alkaa alusta ja päättyy loppuun. Tämän avulla voimme tehdä seuraavan lyhyen ohjelman, joka kääntää merkkijonon:
+
+```python
 mjono = input("Kirjoita merkkijono: ")
-
-# Käännetään koko jono: jos jättää sekä alku- että
-# loppuindeksin pois, palautetaan "alijonona" koko jono
-käännetty = mjono[::-1]
-
-print(käännetty)
-
+print(mjono[::-1])
 ```
 
 <sample-output>
 
-Kirjoita merkkijono: **Vesihiisi hississä**
-ässissih isiihiseV
+Kirjoita merkkijono: **esimerkki**
+ikkremise
 
 </sample-output>
 
-## Merkkijono on mutatoitumaton
+## Merkkijonoa ei voi muuttaa
 
-Parissa edellisessä osuudessa on huomattu, että merkkijonoilla ja listoilla on paljon yhteistä. Suurin osa merkkijonojen kanssa käytettävistä operaatioista toimii myös listoille.
+Merkkijonoilla ja listoilla on paljon yhteistä, ja useimmat operaatiot toimivat samalla tavalla sekä merkkijonoille että listoille. Kuitenkin erona on, että merkkijonoa ei voi muuttaa eli merkkijono on _mutatoitumaton_.
 
-Sellaiset listoihin kohdistuvat operaatiot, jotka muuttavat listan sisältöä jotenkin eivät kuitenkaan toimi merkkijonojen kanssa. Tämä johtuu siitä, että merkkijonot ovat _mutatoitumattomia_. Tämä tarkoittaa käytännössä sitä, että merkkijonon muodostamisen jälkeen sen sisältö ei voi enää muuttua.
+TODO: Ei ole kyllä kaunista suomen kieltä _mutatoitumaton_
 
-Jos esimerkiksi yritetään sijoittaa merkkijonon jonkin indeksin paikalle jotain...
+Esimerkiksi seuraava koodi ei toimi tarkoitetulla tavalla:
 
 ```python
-
-mjono = "Moi kaikki"
-
-# Yritetään muuttaa merkkiä merkkijonossa
-mjono[0] = "H"
-
+mjono = "esimerkki"
+mjono[0] = "a"
 ```
 
-...ohjelman suoritus aiheuttaa virheen:
+Koska merkkijonoa ei voi muuttaa, ohjelman suoritus aiheuttaa virheen:
 
 <sample-output>
 
@@ -95,20 +99,18 @@ Samankaltainen virhe seuraa, jos yritetään esimerkiksi järjestää merkkijono
 
 Mutatoitumattomuus tarkoittaa siis sitä, ettei merkkijono voi muuttua. Se **ei** kuitenkaan tarkoita, etteikö muuttujaan voisi sijoittaa merkkijonon paikalle toisen merkkijonon. Onkin tärkeää huomata ero seuraavien esimerkkien välillä:
 
-```python
+TODO: Tätä pitäisi selittää vielä laajemmin
 
+```python
 lista = [1,2,3]
 lista[0] = 10
-
 ```
 
 <img src="4_4_1.png">
 
 ```python
-
 mjono = "Moi"
-mjono = mjono" + "!"
-
+mjono = mjono + "!"
 ```
 
 <img src="4_4_2.png">
@@ -118,6 +120,8 @@ Ensimmäisessä esimerkissä listan sisältö muuttuu. Toisessa esimerkissä alk
 Tähän palataan tarkemmin ensi viikolla, kun puhutaan listojen käytöstä funktioiden parametreina ja paluuarvoina.
 
 ## Lisää hyödyllisiä operaatioita
+
+TODO: Tämä ei tunnu oikealta paikalta esitellä näitä
 
 Tarkastellaan lopuksi muutamaa hyödyllistä metodia.
 
