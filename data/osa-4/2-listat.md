@@ -19,26 +19,20 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Tähän asti olemme tallentaneet ohjelmissa käytettävää tietoa muuttujien avulla. Yksittäisillä muuttujilla on kuitenkin rajoituksensa: jos halutaan kirjoittaa ohjelma, jossa käsitellään vaikka kymmentätuhatta (tai kymmentä miljoonaa) samankaltaista _datapistettä_, olisi työlästä ja aikaavievää kirjoittaa tätä tarkoitusta varten jokaiselle arvolle erillinen muuttuja.
+Tähän asti olemme tallentaneet ohjelmissa käytettävää tietoa muuttujien avulla. Yksittäisillä muuttujilla on kuitenkin rajoituksensa: jos halutaan kirjoittaa ohjelma, jossa käsitellään vaikka tuhatta samankaltaista arvoa, olisi työlästä ja aikaavievää kirjoittaa tätä tarkoitusta varten jokaiselle arvolle erillinen muuttuja.
 
-Useampia arvoja onkin kätevä tallentaa johonkin _tietorakenteeseen_. Tietorakenteella tarkoitetaan ohjelmoinnissa toisiinsa liittyvien arvojen kokoelmaa. Tarkastellaan ensimmäisenä esimerkkinä _listaa_.
+Useampia arvoja onkin kätevä tallentaa johonkin _tietorakenteeseen_. Tietorakenteella tarkoitetaan ohjelmoinnissa toisiinsa liittyvien arvojen kokoelmaa. Tarkastellaan ensimmäisenä esimerkkinä _listaa_. Jokaista listalla olevaa arvoa kutsutaan alkioksi.
 
-Pythonin lista on _dynaaminen tietorakenne_. Se tarkoittaa, että sekä listan koko voi muuttua sen alustuksen jälkeen. Listalle voidaan siis lisätä uusia _alkoita_ ja poistaa vanhoja alkioita.
-
-Uusi tyhjä lista voidaan muodostaa kirjoittamalla tyhjät hakasulkeet peräkkäin. Jotta listaa voidaan käyttää alustuksen jälkeenkin, tallennetaan _viittaus_ johonkin muttujaan. Esimerkiksi
+Listan sisältö kirjoitetaan hakasulkeiden sisään. Esimerkiksi seuraava koodi luo uuden tyhjän listan:
 
 ```python
-
 lista = []
-
 ```
 
-Tyhjän listan sijasta voidaan alustaa lista, jolla on valmiina alkoita:
+Seuraava koodi puolestaan luo listan, jossa on viisi alkiota:
 
 ```python
-
-pisteet = [10, 9, 10, 8, 7, 7, 10, 7]
-
+lista = [7, 2, 2, 5, 2]
 ```
 
 ## Listan alkioihin viittaaminen
@@ -47,80 +41,65 @@ Listan alkiot on indeksoitu samalla tavalla kuin merkkijonon yksittäiset merkit
 
 <img src="4_2_1.png" alt="Lista indeksoidaan nollasta alkaen">
 
-Yksittäiseen listan alkioon voidaan viitata samalla tavalla kuin merkkijonon yksittäisiin merkkeihin - käyttäen hakasulkunotaatiota. Esimerkiksi:
+Yksittäiseen listan alkioon voidaan viitata samalla tavalla kuin merkkijonon yksittäisiin merkkeihin hakasulkujen avulla. Esimerkiksi:
 
 ```python
+lista = [7, 2, 2, 5, 2]
 
-# Alustetaan lista
-lista = [2, 4, 6, 8, 10, 12]
-
-# Tulostetaan muutaman alkion arvo...
 print(lista[0])
-print(lista[2])
+print(lista[1])
+print(lista[3])
 
-# Viimeiseen alkioon voidaan taas viitata
-# indeksin -1 avulla
-print(lista[-1])
-
-# Lasketaan alkioiden 0, 1 ja 2 summa:
-summa = lista[0] + lista[1] + lista[2]
-print("Summa: " + str(summa))
-
+print("Summa:", lista[0]+lista[1])
 ```
 
 <sample-output>
 
+7
 2
-6
-12
-Summa: 12
+5
+Summa: 9
+
+</sample-output>
+
+Voimme tulostaa listan koko sisällön näin:
+
+```python
+lista = [7, 2, 2, 5, 2]
+print(lista)
+```
+
+<sample-output>
+
+[7, 2, 2, 5, 2]
 
 </sample-output>
 
 Listan alkioita voidaan myös muuttaa. Alkion arvon muuttaminen tapahtuu sijoittamalla uusi arvo vanhan paikalle - siis samalla tavalla kuin muuttujia käytettäessä:
 
 ```python
-
-# Alustetaan lista
-arvosanat = [5, 3, 4, 3, 2, 1, 5]
-
-# Myös koko listan voi tulostaa
-print(arvosanat)
-
-# Muutetaan pari arvosanaa
-arvosanat[1] = 5
-arvosanat[2] = 1
-arvosanat[-1] = 4
-
-# Tulostetaan muutoksen jälkeen
-print(arvosanat)
-
+lista = [7, 2, 2, 5, 2]
+print(lista)
+lista[1] = 3
+print(lista)
 ```
 
 <sample-output>
 
-[5, 3, 4, 3, 2, 1, 5]
-[5, 5, 1, 3, 2, 1, 4]
+[7, 2, 2, 5, 2]
+[7, 3, 2, 5, 2]
 
 </sample-output>
 
 ## Alkioiden lisääminen ja poistaminen
 
-Niinkuin aikaisemmin todettiin, lista on _dynaaminen tietorakenne_. Tämä tarkoittaa, että listalle voi lisätä alkioita ja siltä voi poistaa alkioita.
-
-Alkoiden lisääminen tapahtuu `append`-metodin avulla. Metodi lisää uuden alkion listan viimeiseksi alkioksi:
+Voimme lisätä listan loppuun uuden alkion `append`-metodin avulla. Voimme käyttää metodia vaikkapa näin:
 
 ```python
-
-# Aluksi tyhjä lista
 luvut = []
-
-# Lisätään pari alkiota
 luvut.append(5)
 luvut.append(10)
 luvut.append(3)
-
-# ...tulostetaan
 print(luvut)
 
 ```
@@ -138,21 +117,11 @@ Mikäli halutaan lisätä alkio johonkin muualle kuin listan loppuun, voidaan k�
 Esimerkiksi
 
 ```python
-
-# Lista
 luvut = [1, 2, 3, 4, 5, 6]
-
-# Lisätään alkuun alkio
-# Indeksiin 0 alkio 10
 luvut.insert(0, 10)
-
 print(luvut)
-
-# Indeksiin 2 alkio 20
-luvut.insert(2,20)
-
+luvut.insert(2, 20)
 print(luvut)
-
 ```
 
 <sample-output>
@@ -167,160 +136,155 @@ Alkioita voidaan poistaa listasta kahden eri lähtökohdan mukaisesti:
 * jos tiedetään, _missä_ poistettava alkio sijaitsee, voidaan käyttää metodia `pop`
 * jos tiedetään, _mikä_ poistettavan alkion arvo on, käytetään metodia `remove`
 
-Metodille `pop` annetaan poistettavan alkion indeksi. Metodi myös palauttaa poistettavan arvon:
+Metodille `pop` annetaan poistettavan alkion indeksi. Esimerkiksi seuraava koodi poistaa listalta alkiot kohdista 2 ja 3. Huomaa, että alkioiden indeksit muuttuvat poiston jälkeen.
 
 ```python
+lista = [1, 2, 3, 4, 5, 6]
 
-# Lista lukuja
-top_lista = [10, 9, 7, 5, 3, 1]
-
-# Poistetaan ja tulostetaan kolme lukua listan alusta
-n = 0
-while n < 3:
-    luku = top_lista.pop(0)
-    print("Poistettiin: " + str(luku))
-    n = n + 1
-
-# Lista poiston jälkeen
-print(top_lista)
-
+lista.pop(2)
+print(lista)
+lista.pop(3)
+print(lista)
 ```
 
 <sample-output>
 
-Poistettiin: 10
-Poistettiin: 9
-Poistettiin: 7
-[5, 3, 1]
+[1, 2, 4, 5, 6]
+[1, 2, 4, 6]
+
+</sample-output>
+
+Metodi `pop` myös palauttaa poistetun listan alkion:
+
+```python
+lista = [4, 2, 7, 2, 5]
+
+luku = lista.pop(2)
+print(luku)
+print(lista)
+```
+
+<sample-output>
+
+7
+[4, 2, 2, 5]
 
 </sample-output>
 
 Metodille `remove` annetaan indeksin sijasta poistettavan alkion arvo. Esimerkiksi:
 
 ```python
+lista = [1, 2, 3, 4, 5, 6]
 
-luvut = [7, 3, 4, 8, 1, 2, 3, 0]
-
-# Poistetaan muutama luku
-luvut.remove(7)
-luvut.remove(8)
-luvut.remove(3)
-
-# Lista poiston jälkeen
-print(luvut)
-
+lista.remove(2)
+print(lista)
+lista.remove(5)
+print(lista)
 ```
 
 <sample-output>
 
-4, 1, 2, 3, 0
+[1, 3, 4, 5, 6]
+[1, 3, 4, 6]
 
 </sample-output>
 
-Huomaa, että metodi poistaa listalta _ensimmäisen_ alkion, jolla on annettu arvo. Jos alkiota ei löydy, seuraa virhe. Merkkijonoista tutulla tavalla alkion olemassaolon listalla voi testata `in`-operaattorin avulla:
+Huomaa, että metodi poistaa listalta _ensimmäisen_ alkion, jolla on annettu arvo:
 
 ```python
+lista = [1, 2, 1, 2]
 
+lista.remove(1)
+print(lista)
+lista.remove(1)
+print(lista)
+```
+
+<sample-output>
+
+[2, 1, 2]
+[2, 2]
+
+</sample-output>
+
+Jos listalla ei ole poistettavaa alkiota, seuraa virhe. Merkkijonoista tutulla tavalla alkion olemassaolon listalla voi testata `in`-operaattorin avulla:
+
+```python
 lista = [1,3,4]
 
 if 1 in lista:
-    print("Tämä on tosi")
+    print("Listalla on alkio 1")
 
 if 2 in lista:
-    print("Tämä ei ole, koska listalla ei ole kakkosta")
-
+    print("listalla on alkio 2")
 ```
 
-## Valmiit listaoperaatiot
+<sample-output>
 
-Pythonista löytyy paljon valmiita operaatioita, joilla voidaan käsitellä listoja. Käydään tässä läpi muutama esimerkki, lisää löydät Pythonin [dokumentaatiosta](https://docs.python.org/3/tutorial/datastructures.html).
+Listalla on alkio 1
 
-Lista voidaan järjestää _luonnolliseen järjestykseen_ käyttämällä joko metodia `sort` tai funktiota `sorted`. Kokonaislukutyyppisen listan tapauksessa tämä tarkoitaa sitä, että listan alkiot vaihdetaan suuruusjärjestyksen siten, että pienin alkio tulee ensimmäiseksi ja suurin viimeiseksi.
+<sample-output>
 
-Tarkastellaan aluksi metodin `sort` toimintaa:
+## Listan järjestäminen
+
+Listan alkiot voidaan _järjestää_ pienimmästä suurimpaan metodin `sort` avulla.
 
 ```python
-
-lista = []
-
-while (True):
-    luku = int(input("Anna luku, -1 lopettaa: "))
-
-    if luku == -1:
-        break
-
-    lista.append(luku)
-
-# Järjestetään lista
+lista = [2,5,1,2,4]
 lista.sort()
-
-# ...ja lopuksi tulostetaan
 print(lista)
-
 ```
 
 <sample-output>
 
-Anna luku, -1 lopettaa: 5
-Anna luku, -1 lopettaa: 2
-Anna luku, -1 lopettaa: 8
-Anna luku, -1 lopettaa: 4
-Anna luku, -1 lopettaa: 1
-Anna luku, -1 lopettaa: -1
-[1, 2, 4, 5, 8]
+[1, 2, 2, 4, 5]
 
 </sample-output>
 
-Metodin `sort` ja funktion `sorted` ero on, että
-
-* metodi `sort` muuttaa annetun listan alkiot oikeaan järjestykseen, mutta
-* funktio `sorted` palauttaa uuden listan, jossa alkiot on järjestetty
-
-Esimerkki havainnollistaa eroa:
+Toinen tapa on käyttää funktiota `sorted`, joka palauttaa järjestetyn listan:
 
 ```python
-
-lista1 = [5,2,3,1,4]
-
-lista1.sort()
-print("Lista nyt: " + str(lista1))
-
-
-lista2 = [5,2,3,1,4]
-lista2_kopio = sorted(lista2)
-
-print("Lista2 nyt: " + str(lista2))
-print("Listan 2 kopio nyt: " + str(lista2_kopio))
-
+lista = [2,5,1,2,4]
+print(sorted(lista))
 ```
 
 <sample-output>
 
-Lista nyt: [1, 2, 3, 4, 5]
-Lista2 nyt: [5, 2, 3, 1, 4]
-Listan 2 kopio nyt: [1, 2, 3, 4, 5]
+[1, 2, 2, 4, 5]
 
 </sample-output>
 
-Muita käteviä listaoperaatiota ovat esimerkiksi funktiot `min`, `max` ja `sum`. Seuraava esimerkki havainnolistaa näiden käyttöä:
+Huomaa ero näissä tavoissa: `sort` muuttaa listan sisällön järjestetyksi, kun taas `sorted` luo uuden järjestetyn listan. Jälkimmäisessä tavassa voimme säilyttää myös listan alkuperäisen järjestyksen:
 
 ```python
+a = [2,5,1,2,4]
+b = sorted(a)
+print(a)
+print(b)
+```
 
+<sample-output>
+
+[2, 5, 1, 2, 4]
+[1, 2, 2, 4, 5]
+
+</sample-output>
+
+## Suurin, pienin ja summa
+
+Funktiot `max` ja `min` antavat listan suurimman ja pienimmän alkion.
+Funktio `sum` puolestaan laskee listan alkioiden summan.
+
+```python
 lista = [5,2,3,1,4]
 
-# Funktio max palauttaa listan suurimman alkion
 suurin = max(lista)
-
-# Funktio min palauttaa listan pienimmän alkion
 pienin = min(lista)
-
-# Funktio sum palauttaa listan alkioiden summan
 summa = sum(lista)
 
-print("Pienin: " + str(pienin))
-print("Suurin: " + str(suurin))
-print("Summa: " + str(summa))
-
+print("Pienin:", pienin)
+print("Suurin:", suurin)
+print("Summa:", summa)
 ```
 
 <sample-output>
@@ -330,3 +294,7 @@ Suurin: 5
 Summa: 15
 
 </sample-output>
+
+## Lisää listan käsittelystä
+
+Pythonisssa on paljon lisääkin mahdollisuuksia listan käsittelyyn. Voit tutustua niihin Pythonin [dokumentaation](https://docs.python.org/3/tutorial/datastructures.html) kautta.
