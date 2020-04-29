@@ -223,7 +223,7 @@ if 2 in lista:
 
 Listalla on alkio 1
 
-<sample-output>
+</sample-output>
 
 ## Listan järjestäminen
 
