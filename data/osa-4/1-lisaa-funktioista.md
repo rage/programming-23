@@ -19,30 +19,51 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-## Funktion parametrit
-
-Funktiolla voi olla yksi tai useampi parametri, jotka annetaan suluissa funktion nimen jälkeen. Esimerkiksi seuraavassa koodissa funktiolla `viesti` ei ole parametreja, funktiolla `tervehdi` on yksi parametri ja funktiolla `summa` on kaksi parametria.
+Tutustuimme edellisen osan lopussa omien funktioiden toteuttamiseen. Jatketaan funktioiden parissa. Funktioiden määrittely tapahtuu avainsanan _def_ avulla:
 
 ```python
 def viesti():
     print("Tämä tulee funktiosta")
+```
 
-def tervehdi(nimi):
-    print("Moikka, "+nimi)
-    
-def summa(a,b):
-    print(a,"+",b,"=",a+b)
-    
+Näin määriteltyä funktiota nimeltään _viesti_ kutsutaan seuraavasti:
+
+
+```python
 viesti()
+```
+
+Ohjelman tulostus on seuraava:
+
+<sample-output>
+
+Tämä tulee funktiosta
+
+</sample-output>
+
+## Funktion parametrit
+
+Kuten muistamme, funktiolla voi olla yksi tai useampi parametri. Parametrit määritellään suluissa funktion nimen jälkeen.
+
+Esimerkiksi seuraavassa koodissa funktiolla `tervehdi` on yksi parametri ja funktiolla `summa` on kaksi parametria.
+
+```python
+def tervehdi(nimi):
+    print("Moikka, " + nimi)
+
+def summa(a,b):
+    print("parametrien summa on "+ str(a+b))
+```
+
+```python
 tervehdi("Emilia")
 summa(2,3)
 ```
 
 <sample-output>
 
-Tämä tulee funktiosta
 Moikka, Emilia
-2 + 3 = 5
+parametrien summa on 5
 
 </sample-output>
 
@@ -66,16 +87,27 @@ mutta monet myös käyttävät termejä sekaisin.
 
 ## Komento return
 
-Komento `return` palauttaa arvon funktiosta kohtaan,
-jossa funktiota kutsutaan koodissa.
+Funktiot voivat myös palauttaa arvoja. Meille jo tuttu Pythonin valmis funktio `input` _palauttaa_ käyttäjän antaman syötteen. Funktion palauttamaa arvo voidaan esimerkiksi sijoittaa muuttujaan:
+
+```python
+sana = input("syötä merkkijono: ")
+
+luku = int(input("syötä kokonaisluku: "))
+```
+
+Myös itse määrittelemämme funktiot voivat palauttaa arvoja käyttämällä komentoa `return`:
+
+
 Esimerkiksi seuraava funktio `summa` palauttaa
 annettujen lukujen summan:
 
 ```python
 def summa(a,b):
     return a+b
-    
-print("Summa:", summa(2,3))
+
+vastaus = summa(2,3)
+
+print("Summa: " + str(vastaus))
 ```
 
 <sample-output>
@@ -84,14 +116,13 @@ Summa: 5
 
 </sample-output>
 
-Tässä on vielä toinen esimerkki,
-jossa funktio kysyy käyttäjän nimen ja palauttaa sen:
+Seuraavassa vielä toinen esimerkki, jossa funktio kysyy käyttäjän nimen ja palauttaa sen:
 
 ```python
 def kysy_nimi():
     nimi = input("Mikä on nimesi? ")
     return nimi
-    
+
 nimi = kysy_nimi()
 print("Moikka,", nimi)
 ```
@@ -111,7 +142,7 @@ def pienin(a,b):
     if a < b:
         return a
     return b
-    
+
 print(pienin(3,7))
 print(pienin(5,2))
 ```
@@ -132,7 +163,7 @@ def tervehdi(nimi):
         print("???")
         return
     print("Moikka, "+nimi)
-    
+
 tervehdi("Emilia")
 tervehdi("")
 tervehdi("Matti")
@@ -148,7 +179,7 @@ Moikka, Matti
 
 ## Sisäkkäiset kutsut
 
-Voimme kutsua funktiosta myös toista funktiota.
+Voimme kutsua funktiosta myös toisten funktion sisältä.
 Esimerkiksi seuraavassa koodissa funktio
 `tervehdi_monesti` kutsuu funktiota `tervehdi`
 halutun määrän kertoja:
@@ -156,11 +187,11 @@ halutun määrän kertoja:
 ```python
 def tervehdi(nimi):
     print("Moikka",nimi)
-    
+
 def tervehdi_monesti(nimi, kerrat):
     for i in range(kerrat):
         tervehdi(nimi)
-        
+
 tervehdi_monesti("Emilia", 3)
 ```
 
@@ -178,8 +209,8 @@ toiselle funktiolle:
 ```python
 def summa(a, b):
     return a+b
-    
-print(summa(1,summa(2,3)))
+
+print(summa(1, summa(2, 3)))
 ```
 
 <sample-output>
@@ -188,6 +219,8 @@ print(summa(1,summa(2,3)))
 
 Tässä tapauksessa funktiokutsu `summa(2,3)` tuottaa arvon `5`,
 minkä jälkeen uusi funktiokutsu `summa(1,5)` tuottaa arvon 6.
+
+Funktioiden palauttamat arvot toimivat täysin samalla tavalla kun mitkä tahansa arvot Pythonissa. Niitä voidaan tulostaa, sijoittaa muuttujaan, käyttää osana laskulausekkeita tai parametrina muissa funktiokutsuissa.
 
 ## Parametrin tyyppi
 
