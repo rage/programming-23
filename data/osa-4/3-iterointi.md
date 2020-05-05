@@ -16,7 +16,7 @@ Tämän osion läpikäytyäsi
 
 </text-box>
 
-Merkkijonon tavoin myös listan pituuden voi palauttaa `len`-funktiolla. Funktio palauttaa parametrina annetun listan alkioiden määrän. Tämän tiedon ja `while`-silmukan avulla voidaan käydä läpi kaikki listan alkiot:
+Kuten näimme merkkijonon tavoin myös listan pituuden voi palauttaa `len`-funktiolla. Funktio palauttaa parametrina annetun listan alkioiden määrän. Tämän tiedon ja `while`-silmukan avulla voidaan käydä läpi kaikki listan alkiot:
 
 ```python
 lista = [3, 2, 4, 5, 2]
@@ -37,7 +37,7 @@ while n < len(lista):
 
 </sample-output>
 
-Tämä on kuitenkin melko vaivalloinen tapa.
+Tämä on kuitenkin melko vaivalloinen tapa sillä joudumme käyttämään indeksiuuttujaa `n`, joka "muistaa" missä kohtaa listaa ollaan menossa.
 
 ## for-lause
 
@@ -196,3 +196,79 @@ print(luvut)
 [2, 3, 4, 5, 6]
 
 </sample-output>
+
+## Tulostuslauseen eri muodot
+
+Olemme tähän asti käyttäneet tuloslausetta `print` seuraavasti
+
+```python
+nimi = "Erkki"
+ika = 39
+print("Hei " + nimi + " ikäsi on " + str(ika) + " vuotta" )
+```
+
+Eli funktiolle `print` parametrina annettava tulostettava merkkijono on muodostettu katenoimalla tulostettavat palat yhteen. Koska muuttuja `ika` on tyypiltään kokonaisluku, on se muutettu katenointia varten merkkijonoksi funktiolla `str`.
+
+Tulostamista varten tehtävä merkkijonojen yhdistely ja tyyppimuunnosten tekeminen on melko työlästä. Pääsemme helpommalla hyödyntämällä tietoa siitä, että komennolle `print` on myös mahdollista antaa useampi parametri pilkulla eriteltynä:
+
+```python
+print("Hei", nimi, "ikäsi on", ika, "vuotta" )
+```
+
+Lopputulos on sama. Näin käytettynä `print` tulostaa kaikki parametrinsa välilyönnillä eroteltuna.
+
+TODO: pitääkö selittää mistä oikeasti kyse?
+
+Toinen mahdollisuus monimutkaisen asian tulostamiseen on niin sanottujen f-stringien käyttö. Edellinen tulostus tapahtuisi f-stringin avulla seuraavasti
+
+```python
+print(f"Hei {nimi} ikäsi on {ika} vuotta")
+```
+
+Pienenä mutta tärkeänä detaljina tässä on kirjain _f_ tulostettavan lainausmerkeissä olevan merkkijonon alussa. Tulostettavaan merkkijonon sisälle on sijoitettu aaltosuluissa muuttujia, näiden arvo tulostuu muun merkkijonon sekaan. Tulostus on siis täsmälleen sama kuin aiemmissa esimerkeissä.
+
+f-stringien avulla tapahtuvaa tulostusta on mahdollista muotoilla monin tavoin. Eräs tyypillisimmistä käyttötavoista on desimaaliluvun tulostuksessa näytettyvien desimaalien määrä. Oletusarvoisesti kaikki desimaalit tulostuvat
+
+```python
+luku = 1/3
+print("luvun arvo on ", luku)
+```
+
+<sample-output>
+
+luvun arvo on 0.333333333333333
+
+</sample-output>
+
+f-stringin avulla tulostuvien desimaalien määrä on helppo määritellä. Tulostuksen muoto määritellään lisäämällä aaltosulkeiden sisään tulostettavan muuttujan jälkeen kaksoispiste ja _muotoiluohje_
+
+```python
+luku = 1/3
+print(f"luvun arvo on {luku:.2} ")
+```
+
+```python
+luvun arvo on 0.33
+```
+
+Muotoiluohje `.2` siis määrittelee, että desimaaliluku tulostetaan _kaden desimaalin_ tarkkuudella.
+
+F-stringit mahdollistavat melko monipuolisen tulostuksen muotoilun. Seuraavassa esimerkki, missä tulostetaan nimiä 15 merkin levyiseen tekstialueeseen, ensin vasemmalle sisennettynä ja sen jälkeen oikealle sisennettynä:
+
+```python
+nimet =  [ "Antti", "Emilia", "Juha-Pekka", "Maya" ]
+for nimi in nimet:
+  print(f"{nimi:15} keskellä {nimi:>15}")
+```
+
+```python
+Antti           keskellä           Antti
+Emilia          keskellä          Emilia
+Juha-Pekka      keskellä      Juha-Pekka
+Maya            keskellä            Maya
+
+```
+
+
+
+TODO linkki dokumentaatioon
