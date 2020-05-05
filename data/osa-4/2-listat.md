@@ -21,7 +21,9 @@ Tämän osion suoritettuasi
 
 Tähän asti olemme tallentaneet ohjelmissa käytettävää tietoa muuttujien avulla. Yksittäisillä muuttujilla on kuitenkin rajoituksensa: jos halutaan kirjoittaa ohjelma, jossa käsitellään vaikka tuhatta samankaltaista arvoa, olisi työlästä ja aikaavievää kirjoittaa tätä tarkoitusta varten jokaiselle arvolle erillinen muuttuja.
 
-Useampia arvoja onkin kätevä tallentaa johonkin _tietorakenteeseen_. Tietorakenteella tarkoitetaan ohjelmoinnissa toisiinsa liittyvien arvojen kokoelmaa. Tarkastellaan ensimmäisenä esimerkkinä _listaa_. Jokaista listalla olevaa arvoa kutsutaan alkioksi.
+Useampia arvoja onkin kätevä tallentaa johonkin _tietorakenteeseen_. Tietorakenteella tarkoitetaan ohjelmoinnissa toisiinsa liittyvien arvojen kokoelmaa sekä kokoelman käsittelyyn tarkoitettuja operaatioita.
+
+Tarkastellaan ensimmäisenä esimerkkinä _listaa_. Jokaista listalla olevaa arvoa kutsutaan alkioksi.
 
 Listan sisältö kirjoitetaan hakasulkeiden sisään. Esimerkiksi seuraava koodi luo uuden tyhjän listan:
 
@@ -93,7 +95,11 @@ print(lista)
 
 ## Alkioiden lisääminen ja poistaminen
 
-Voimme lisätä listan loppuun uuden alkion `append`-metodin avulla. Voimme käyttää metodia vaikkapa näin:
+Kaikkiin Pythonin tietorakenteisiin kuten myös listaan liittyy jokukko operaatioita eli _metodeja_, joiden avulla rakenteessa olevaa tietoa on mahdollista käsitellä.
+
+Listan loppuun voidaan lisätä uusia alkoita `append`-metodin avulla.
+
+Metodia käytetään seuraavasti:
 
 ```python
 luvut = []
@@ -109,6 +115,42 @@ print(luvut)
 [5, 10, 3]
 
 </sample-output>
+
+Listalle lisäyksen tekevää metodia kutsutaan siis kirjoittamalla listamuuttujan perään piste ja metodin nimi.
+
+Seuraavassa esimerkki, missä ohjelman käytössä on kaksi erillistä listaa.
+
+```python
+luvut = []
+kengannumerot = []
+
+luvut.append(5)
+luvut.append(10)
+luvut.append(3)
+
+kengannumerot.append(37)
+kengannumerot.append(44)
+kengannumerot.append(40)
+kengannumerot.append(28)
+
+print("luvut:")
+print(luvut)
+
+print("kengännumerot:")
+print(kengannumerot)
+```
+
+Lisäys menee siis siihen listaan, mihin metodikutsu "kohdistetaan":
+
+<sample-output>
+
+luvut:
+[5, 10, 3]
+kengännumerot:
+[37, 44, 40, 28]
+
+</sample-output>
+
 
 Mikäli halutaan lisätä alkio johonkin muualle kuin listan loppuun, voidaan käyttää `insert`-metodia. Metodi lisää alkion halutun indeksin paikalle. Kaikkia listalla jo olevia alkioita lisäyspaikasta alkaen siirretään yhdellä askeleella eteenpäin:
 
@@ -257,10 +299,10 @@ print(sorted(lista))
 Huomaa ero näissä tavoissa: `sort` muuttaa listan sisällön järjestetyksi, kun taas `sorted` luo uuden järjestetyn listan. Jälkimmäisessä tavassa voimme säilyttää myös listan alkuperäisen järjestyksen:
 
 ```python
-a = [2,5,1,2,4]
-b = sorted(a)
-print(a)
-print(b)
+alkuperainen = [2,5,1,2,4]
+jarjestetty = sorted(alkuperainen)
+print(alkuperainen)
+print(jarjestetty)
 ```
 
 <sample-output>
@@ -294,6 +336,159 @@ Suurin: 5
 Summa: 15
 
 </sample-output>
+
+
+## Metodi ja funktio
+
+Pythonissa on ehkä hieman hämmentävästi käytössä kaksi eri tapaa listojen (ja muidenkin tietorakenteiden) käsittelyyn. Osittain käsittely tapahtuu _metodien_ avulla. Esim. `append` ja `sorted` ovat metodeja, joita kutsutaan listamuuttujan kautta pistenotaatiolla. `max`,  `min`,  `sum` ja listan pituuden kertova  `len` taas ovat funktioita, joille lista annetaan parametrina:
+
+```python
+lista = []
+
+# metodikutsuja
+lista.append(3)
+lista.append(1)
+lista.append(7)
+lista.append(2)
+
+# metodikutsu
+jarjestyksessa = lista.sorted()
+
+# funktiokutsuissa lista on parametrina
+suurin = max(lista)
+pienin = min(lista)
+pituus = len(lista)
+
+print("Pienin:", pienin)
+print("Suurin:", suurin)
+print("Listan pituus:", summa)
+
+print(jarjestyksessa)
+```
+
+<sample-output>
+
+Pienin: 1
+Suurin: 7
+Listan pituus: 4
+[1, 2, 3, 7]
+
+</sample-output>
+
+## Listat funktioiden parametrina ja paluuarvona
+
+Funktion parametri voi olla myös lista. Seuraavassa funktio, joka sevittää listan _mediaanin_, eli suuriisjärjestykseltään keskimäisen alkion:
+
+```python
+def mediaani(lista)
+  jarjestetty = lista.sorted()
+  keskikohta = len(jarjestetty) / 2
+  return jarjestetty[keskikohta]
+```
+
+Funktio selvittää mediaanin tekemällä parametrinaan saamasta listasta järjestetyn version _ja_ palauttamalla sen keskimmäisen alkion.
+
+Seuraavassa esimerkki funktion käytöstä
+
+```python
+
+kengannumerot = [45, 44, 36, 39, 40]
+
+vast = mediaani(kengannumerot)
+
+print("kengännumeroiden mediaani on " + str(vast) )
+
+iat = [1, 56, 34, 22, 5, 77, 5]
+
+vast = mediaani(iat)
+
+print("ikien mediaani on " + str(vast) )
+
+```
+
+<sample-output>
+
+kengännumeroiden mediaani on 40
+ikien mediaani on 22
+
+</sample-output>
+
+Funktio voi myös palauttaa listan. Seuraavassa funktio, joka palauttaa listan käyttäjän syöttämiä kokonaislukuja:
+
+```python
+def lue_syotteita
+  luvut = []
+  while True:
+    syote = input("syötä luku (tyhjä lopettaa): ")
+    if len(syote) == 0:
+      break
+    luvut.append(int(syote))
+
+  return luvut
+```
+
+Funktio käyttää lista-tyyppistä apumuuttujaa `luvut`, mihin se lisää jokaisen käyttäjän syöttämän luvun. Kun toistolauseesta poistutaan, palauttaa funktio listan `luvut`.
+
+Funktiota käytetään seuraavasti
+
+```python
+# sjoitetaan muuttujaan funktion palauttama lista
+lukuja = lue_syotteita()
+
+print("luvuista suurin " + str(len(lukuja)) )
+print("lukujen mediaani " + str(mediaani(lukuja)) )
+```
+
+<sample-output>
+
+syötä luku (tyhjä lopettaa): **5**
+syötä luku (tyhjä lopettaa): **-22**
+syötä luku (tyhjä lopettaa): **4**
+syötä luku (tyhjä lopettaa): **35**
+syötä luku (tyhjä lopettaa): **1**
+syötä luku (tyhjä lopettaa):
+luvuista suurin 35
+lukujen mediaani 5
+
+</sample-output>
+
+Pieni esimerkkiohjelmamme demonstroi jo erästä funktioiden tärkeimmäistä käyttötarkoituksista: niiden avulla ohjelma saadaan jaettua loogisiin selkeästi ymmärrettäviin kokonaisuuksiin.
+
+Periaatteessa sama ohjelma olisi voitu tehdä kokonaan ilman metodeja:
+
+```python
+
+lukuja = []
+while True:
+  syote = input("syötä luku (tyhjä lopettaa): ")
+  if len(syote) == 0:
+    break
+  lukuja.append(int(syote))
+
+  return luvut
+
+jarjestetty = lista.sorted()
+keskikohta = len(jarjestetty) / 2
+mediaani = jarjestetty[keskikohta]
+
+print("luvuista suurin " + str(len(lukuja)) )
+print("lukujen mediaani " + str(mediaani) )
+```
+
+Nyt kuitenkin ohjelman logiikan seuraaminen on vaikeampaa, ei ole enää täysin selvää mitkä komennot liittyvät minkin kokonaisuuden (syötteiden lukeminen vs. mediaanin laskeminen) selvittämiseen. Jako funktioiksi siis selkeyttää koodin rakennetta ja tuo eksplisiittisesti esiin koodin loogiset kokonaisuudet ja tekee niiden oikean toiminnallisuuden (esim. toimiiko funktio `mediaani` oikein) selvittämisen helpommaksi.
+
+Ohjelman rakenteen loogisen strukturoinnin lisäksi funktioinen toinen tärkeä käyttötarkoitus on _uusiokäyttö_, eli jos ohjelmassa on tarvetta tehdä samankaltainen operaatio useaan kertaan, kannattaa sitä varten luoda oma selkeästi nimetty funktio:
+
+```python
+print("kengännumerot:")
+kengat = lue_syotteita()
+
+print("painot:")
+painot = lue_syotteita()
+
+print("pituudet:")
+pituudet = lue_syotteita()
+```
 
 ## Lisää listan käsittelystä
 
