@@ -95,7 +95,7 @@ print(lista)
 
 ## Alkioiden lisääminen ja poistaminen
 
-Kaikkiin Pythonin tietorakenteisiin kuten myös listaan liittyy jokukko operaatioita eli _metodeja_, joiden avulla rakenteessa olevaa tietoa on mahdollista käsitellä.
+Kaikkiin Pythonin tietorakenteisiin kuten myös listaan liittyy joukko operaatioita eli _metodeja_, joiden avulla rakenteessa olevaa tietoa on mahdollista käsitellä.
 
 Listan loppuun voidaan lisätä uusia alkoita `append`-metodin avulla.
 
@@ -340,7 +340,9 @@ Summa: 15
 
 ## Metodi ja funktio
 
-Pythonissa on ehkä hieman hämmentävästi käytössä kaksi eri tapaa listojen (ja muidenkin tietorakenteiden) käsittelyyn. Osittain käsittely tapahtuu _metodien_ avulla. Esim. `append` ja `sorted` ovat metodeja, joita kutsutaan listamuuttujan kautta pistenotaatiolla. `max`,  `min`,  `sum` ja listan pituuden kertova  `len` taas ovat funktioita, joille lista annetaan parametrina:
+Pythonissa on ehkä hieman hämmentävästi käytössä kaksi eri tapaa listojen (ja muidenkin tietorakenteiden) käsittelyyn.
+
+Suurin osa käsittelyst' tapahtuu _metodien_ avulla. Esim. `append` ja `sorted` ovat metodeja, joita kutsutaan listamuuttujan kautta pistenotaatiolla:
 
 ```python
 lista = []
@@ -353,7 +355,11 @@ lista.append(2)
 
 # metodikutsu
 jarjestyksessa = lista.sorted()
+```
 
+ Äsken nähdyt `max`,  `min`,  `sum` ja listan pituuden kertova  `len` taas ovat _funktioita_, joille lista annetaan parametrina:
+
+```python
 # funktiokutsuissa lista on parametrina
 suurin = max(lista)
 pienin = min(lista)
@@ -377,7 +383,7 @@ Listan pituus: 4
 
 ## Listat funktioiden parametrina ja paluuarvona
 
-Funktion parametri voi olla myös lista. Seuraavassa funktio, joka sevittää listan _mediaanin_, eli suuriisjärjestykseltään keskimäisen alkion:
+Funktion parametri voi olla myös lista. Seuraavassa funktio, joka sevittää listan _mediaanin_, eli suuruusjärjestykseltään keskimäisen alkion:
 
 ```python
 def mediaani(lista)
@@ -427,12 +433,12 @@ def lue_syotteita
   return luvut
 ```
 
-Funktio käyttää lista-tyyppistä apumuuttujaa `luvut`, mihin se lisää jokaisen käyttäjän syöttämän luvun. Kun toistolauseesta poistutaan, palauttaa funktio listan `luvut`.
+Funktio käyttää lista-tyyppistä apumuuttujaa `luvut`, mihin se lisää jokaisen käyttäjän syöttämän luvun. Kun toistolauseesta poistutaan, palauttaa funktio `return`-komennon avulla listan `luvut`.
 
 Funktiota käytetään seuraavasti
 
 ```python
-# sjoitetaan muuttujaan funktion palauttama lista
+# sijoitetaan muuttujaan funktion palauttama lista
 lukuja = lue_syotteita()
 
 print("luvuista suurin " + str(len(lukuja)) )
@@ -475,7 +481,9 @@ print("luvuista suurin " + str(len(lukuja)) )
 print("lukujen mediaani " + str(mediaani) )
 ```
 
-Nyt kuitenkin ohjelman logiikan seuraaminen on vaikeampaa, ei ole enää täysin selvää mitkä komennot liittyvät minkin kokonaisuuden (syötteiden lukeminen vs. mediaanin laskeminen) selvittämiseen. Jako funktioiksi siis selkeyttää koodin rakennetta ja tuo eksplisiittisesti esiin koodin loogiset kokonaisuudet ja tekee niiden oikean toiminnallisuuden (esim. toimiiko funktio `mediaani` oikein) selvittämisen helpommaksi.
+Nyt kuitenkin ohjelman logiikan seuraaminen on vaikeampaa, ei ole enää täysin selvää mitkä komennot liittyvät minkin kokonaisuuden (syötteiden lukeminen vs. mediaanin laskeminen) selvittämiseen.
+
+Jako funktioiksi siis selkeyttää koodin rakennetta ja tuo eksplisiittisesti esiin koodin loogiset kokonaisuudet ja tekee niiden oikean toiminnallisuuden (esim. toimiiko funktio `mediaani` oikein) varmistamisen helpommaksi.
 
 Ohjelman rakenteen loogisen strukturoinnin lisäksi funktioinen toinen tärkeä käyttötarkoitus on _uusiokäyttö_, eli jos ohjelmassa on tarvetta tehdä samankaltainen operaatio useaan kertaan, kannattaa sitä varten luoda oma selkeästi nimetty funktio:
 
