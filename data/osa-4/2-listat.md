@@ -50,7 +50,7 @@ print(lista[0])
 print(lista[1])
 print(lista[3])
 
-print("Summa:", lista[0]+lista[1])
+print("Summa:" + str(lista[0]+lista[1]))
 ```
 
 <sample-output>
