@@ -127,6 +127,18 @@ Sanakirjan avaimen vaatimuksena on, että se on mutatoitumaton. Tämän vuoksi e
 sanakirja[[1,2,3]] = 5
 ```
 
+<sample-output>
+
+TypeError: unhashable type: 'list'
+
+</sample-output>
+
+<text-box variant="hint" name="Hajautustaulu">
+
+Python tallentaa sanakirjan sisällön sisäisesti tietorakenteena nimeltä _hajautustaulu_ (_hash table_). Ideana on laskea avaimelle _hajautusarvo_ (_hash value_), jonka avulla määräytyy sen paikka muistissa. Yllä oleva virheilmoitus ilmaisee, että listalle ei voida laskea hajautusarvoa, joten se ei kelpaa sanakirjan avaimeksi.
+
+</text-box>
+
 Arvoilla tällaisia vaatimuksia ei ole - hakemiston arvoksi voidaan tallentaa mitä tahansa. Sama arvo saa myös esiintyä samassa hakemistossa enemmän kuin yhden kerran.
 
 ## Sanakirjan läpikäynti
@@ -135,7 +147,7 @@ Sanakirjan läpikäyntiin voidaan käyttää totuttuun tapaan `for`-lausetta. Ra
 
 <text-box variant="hint" name="Avainten järjestys">
 
-Aikaisemmissa Pythonin versioissa avaimet saattoivat tulla läpikäynnin yhteydessä missä tahansa järjestyksessä. Tavallaan tämä on loogista, koska alkioilla ei ajatella olevan järjestystä sanakirjassa. Nykyisin Pythonin toteutusta on kuitenkin muutettu siten, että avaimet (yleensä) käydään läpi lisäysjärjestyksessä. Joka tapauksessa hyvä periaate on, että jos tarvitset _järjestettyä_ tietorakennetta, on parempi käyttää listaa kuin sanakirjaa.
+Aiemmissa Pythonin versioissa avaimet saattoivat tulla läpikäynnin yhteydessä missä tahansa järjestyksessä. Tavallaan tämä on loogista, koska alkioilla ei ajatella olevan järjestystä sanakirjassa. Nykyisin Pythonin toteutusta on kuitenkin muutettu siten, että avaimet (yleensä) käydään läpi lisäysjärjestyksessä. Joka tapauksessa hyvä periaate on, että jos tarvitset _järjestettyä_ tietorakennetta, on parempi käyttää listaa kuin sanakirjaa.
 
 TODO: Yleensä? Milloin näin tapahtuu ja milloin ei?
 
