@@ -16,51 +16,40 @@ Tämän osan suoritettuasi
 
 </text-box>
 
-Viime kerralla käsiteltiin pelkästään listoja, joissa alkiot olivat kokonaislukuja. Listoihin voi kuitenkin tallentaa mitä tahansa Pythonin objekteja. Tarkastellaan esimerkkiä listasta, joka sisältää merkkijonoja:
+Viime kerralla käsiteltiin pelkästään listoja, joissa alkiot olivat kokonaislukuja. Listoihin voi kuitenkin tallentaa minkä tahansa tyyppisiä arvoja. Esimerkiksi voimme tallentaa listaan merkkijonoja:
 
 ```python
+nimet = ["Maija", "Liisa", "Pekka"]
+print(nimet)
+nimet.append("Kalle")
+print(nimet)
 
-# Lista nimiä
-nimet = ["Pekka", "Pirjo", "Pauli", "Piia"]
-
-# Lisätään alkio
-nimet.append("Peter")
-
-# Muutetaan alkion arvoa
-nimet[0] = "Pekka P."
-
-# Tulostetaan pari alkiota
+print("Listalla nimiä:", len(lista))
 print(nimet[1])
 print(nimet[3])
-
-# Koko lista
-print(nimet)
-print("Listalla nimiä: " + len(lista))
-
 ```
 
 <sample-output>
 
-Pirjo
-Piia
-['Pekka P.', 'Pirjo', 'Pauli', 'Piia', 'Peter']
-Listalla nimiä: 5
+['Maija', 'Liisa', 'Pekka']
+['Maija', 'Liisa', 'Pekka', 'Kalle']
+Listalla nimiä: 4
+Liisa
+Kalle
 
 </sample-output>
 
-Samalla tavalla listalle voidaan tallentaa esimerkiksi liukulukuja:
+Samalla tavalla listalle voidaan tallentaa liukulukuja:
 
 ```python
+mittaukset = [-2.5, 1.1, 7.5, 14.6, 21.0, 19.2]
 
-lämpötilat = [-2.5, 1.1, 7.5, 14.6, 21.0, 19.2]
+for mittaus in mittaukset:
+    print(mittaus)
 
-for lämpötila in lämpötilat:
-    print(lämpötila)
+keskiarvo = sum(mittaukset) / len(mittaukset)
 
-keskiarvo = sum(lämpötilat) / len(lämpötilat)
-
-print("Keskilämpötila: " + str(keskiarvo))
-
+print("Keskiarvo:", keskiarvo)
 ```
 
 <sample-output>
@@ -71,27 +60,41 @@ print("Keskilämpötila: " + str(keskiarvo))
 14.6
 21.0
 19.2
-Keskilämpötila: 10.15
+Keskiarvo: 10.15
 
 </sample-output>
 
 
-## Moniulotteiset listat
+## Sisäkkäiset listat
 
-Koska listan alkiot voivat olla mitä tahansa Pythonin objekteja, on luonnollista, että ne voivat olla myös toisia listoja. Sisäkkäisten listojen käytölle on myös hyvinkin järkevä peruste: niiden avulla voidaan mallintaa kaksiulotteista taulukkoa eli _matriisia_.
+Listan alkiot voivat olla myös listoja:
 
-Ideana on, että sisemmistä listoista (eli listan sisällä olevista listoista) jokainen esittää yhtä riviä matriisissa.
+```python
+lista = [[5,2,3],[4,1],[2,2,5,1]]
+print(lista)
+print(lista[1])
+print(lista[1][0])
+```
+<sample-output>
 
-Niinpä esimerkiksi allaolevan kuvan kaltainen matriisi...
+[[5, 2, 3], [4, 1], [2, 2, 5, 1]]
+[4, 1]
+4
+
+</sample-output>
+
+TODO: Tässä ei ole nyt mitään motivointia, miksi haluaisimme luoda matriisin.
+Termiä taulukko ei ole myöskään esiintynyt aiemmin. Miten tässä kannattaisi edetä?
+
+Sisäkkäisten listojen avulla voimme luoda myös _matriisin_ eli kaksiulotteisen taulukon.
+Esimerkiksi matriisi
 
 KUVA
 
-...voitaisiin mallintaa kaksiulotteisena listana näin:
+voitaisiin mallintaa kaksiulotteisena listana näin:
 
 ```python
-
 matriisi = [[1,2,3], [3,2,1], [4,5,6]]
-
 ```
 
 Koska lista sisältää toisia listoja, täytyy matriisin alkioihin viitata käyttämällä kaksia peräkkäisiä hakasulkeita. Ensimmäinen indeksi viittaa riviin ja toinen sarakkeeseen. Niinpä esimerkiksi lauseke `m[1][3]` poimisi neljännen alkion toiselta riviltä (kun muistetaan, että indeksointi alkaa taas kerran nollasta).

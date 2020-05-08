@@ -1,5 +1,5 @@
 ---
-path: '/osa-5/3-tuple'
+path: '/osa-5/4-tuple'
 title: 'Tuple eli monikko'
 hidden: false
 ---
