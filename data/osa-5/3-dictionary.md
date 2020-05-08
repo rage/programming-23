@@ -1,6 +1,6 @@
 ---
 path: '/osa-5/3-dictionary'
-title: 'Sanakirja (`dict`)'
+title: 'Sanakirja'
 hidden: false
 ---
 
