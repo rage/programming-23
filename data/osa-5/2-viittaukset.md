@@ -108,12 +108,12 @@ Kun lista välitetään parametrina funktiolle, välitetään viittaus listaan. 
 Esimerkiksi seuraava funktio lisää uuden alkion parametrinaan saamaansa listaan:
 
 ```python
-def lisää_alkio(lista: list):
+def lisaa_alkio(lista: list):
     lista.append(10)
 
 lista = [1,2,3]
 print(lista)
-lisää_alkio(lista)
+lisaa_alkio(lista)
 print(lista)
 ```
 
@@ -122,16 +122,16 @@ print(lista)
 [1, 2, 3, 10]
 </sample-output>
 
-Huomaa, että funktio `lisää_alkio` ei palauta mitään, vaan muuttaa parametrinaan saamaansa listaa. Toinen tapa olisi luoda uusi lista ja palauttaa se:
+Huomaa, että funktio `lisaa_alkio` ei palauta mitään, vaan muuttaa parametrinaan saamaansa listaa. Toinen tapa olisi luoda uusi lista ja palauttaa se:
 
 ```python
-def lisää_alkio(lista: list) -> list:
+def lisaa_alkio(lista: list) -> list:
     lista2 = lista[:]
     lista2.append(10)
     return lista2
 
 luvut = [1,2,3]
-luvut2 = lisää_alkio(luvut)
+luvut2 = lisaa_alkio(luvut)
 
 print("Alkuperäinen lista:", luvut)
 print("Uusi lista:", luvut2)
