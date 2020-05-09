@@ -18,11 +18,10 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-TODO: Tässä oli esimerkki mutta se ei ollut hyvä, koska saman koodin olisi voinut tehdä tuplen sijasta yhtä hyvin listalla. Mitä aitoa motivaatiota keksisi tähän?
-
 ## Tuple eli monikko
 
-Tuple muistuttaa huomattavasti listaa. Olennaiset erot ovat, että
+Pythonissa on olemassa myös toinen listaa hyvin paljon muistuttava tietorakenne, tuple eli monikko.
+Olennaiset erot ovat ovat seuraavat
 
 * tuplea merkitään kaarisuluilla `(` ja `)`, lista merkitään hakasuluilla `[` ja `]`
 * tuple on _mutatoitumaton_, kun listan sisältö taas voi muuttua
@@ -77,20 +76,6 @@ piste = [10,20]
 
 Tämä ei kuitenkaan tuntuisi yhtä hyvältä ratkaisulta, koska lista sisältää peräkkäisiä alkioita jossakin järjestyksessä ja sen koko voi muuttua. Kun tallennamme pisteen, haluamme tallentaa nimenomaan x- ja y-koordinaatin eikä listaa koordinaateista.
 
-Edellisessä osassa tallensimme sanakirjan avulla toisiinsa liittyvää tietoa:
-
-```python
-henkilo = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä:" 44}
-```
-
-Voimme käyttää myös tuplea samaan tarkoitukseen, tosin tällöin emme tallenna tietoa, mitä tiedot ovat:
-
-```python
-henkilo = ("Pirjo Python", 154, 61, 44)
-```
-
-## Tuple sanakirjan avaimena
-
 Koska tuple on mutatoitumaton, sitä voidaan käyttää sanakirjan avaimena (toisin kuin listaa).
 Esimerkiksi seuraava ohjelma luo sanakirjan, jonka avaimet ovat pisteitä:
 
@@ -121,3 +106,66 @@ print(piste[[3,5]])
 TypeError: unhashable type: 'list'
 
 </sample-output>
+
+Python käyttää "sisäisesti" tupleja muutaman hyödyllisen ominaisuuden toteuttamiseen.
+
+Tuplejen avulla Pyhtonin funktiot voivat palauttaa useita arvoja. Tarkastellaan seuraavaa esimerkkiä:
+
+```python
+def minmax(lista):
+  return min(lista), max(lista)
+
+lista = [33, 5, 21, 7, 88, 312, 5]
+
+p, s = minmax(lista)
+print(f"suurin luku oli {s} ja pienin {p}")
+```
+
+<sample-output>
+
+suurin luku oli 312 ja pienin 5
+
+</sample-output>
+
+Nyt metodin koodi näyttää siltä, että se palauttaisi kaksi erillistä arvoa. Todellesuudessa metodi palauttaa tuplen joka koostuu kahdesta arvosta. Python nimittäin mahdollistaa tuplejen määrittelyn ilman sulkumerkkejä:
+
+```python
+t = 1, 2, 3
+print(t)
+```
+
+<sample-output>
+
+(1, 2, 3)
+
+</sample-output>
+
+Funktion paluuarvo vastaanotetaan "yhtäaikaa" kahteen muuttujaan:
+
+```python
+p, s = minmax(lista)
+```
+
+Teknisesti ottaen tässäkin on kyse siitä, että sijoitusoperaation vasemmalla puolella on tuple, jonka sisällä oleviin muuttujiin asetetaan funktion palauttaman tuplen sisältämät arvot:
+
+```python
+(p, s) = minmax(lista)
+```
+
+Sanakirjojen yhteydessä demonstroitiin `items`-metodiin perusstuvaa tapaa käydä läpi sanakirjan kaikki avain, arvo -parit:
+
+```python
+
+sanakirja = {}
+
+sanakirja["apina"] = "monkey"
+sanakirja["banaani"] = "banana"
+sanakirja["cembalo"] = "harpsichord"
+
+
+for avain, arvo in sanakirja.items():
+    print("avain:", avain)
+    print("arvo:", arvo)
+```
+
+Tässäkin Python käyttää taustalla tupleja, `sanakirja.items()` palauttaa yksi kerrallaan avain, arvo -parit tuplena jonka ensimmäinen alkio on _avain_ ja toinen _arvo_.
