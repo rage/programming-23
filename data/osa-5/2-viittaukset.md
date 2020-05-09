@@ -17,24 +17,73 @@ Tämän osan suoritettuasi
 
 </text-box>
 
-Pythonissa jokainen muuttuja viittaa johonkin _olioon_, kuten lukuun, merkkijonoon tai listaan.
+Olemme tähän asti ajatelleet että muuttuja on eräänlainen "laatikko", joka sisältää muutujan tallettaman arvon. Teknisesti ottaen tämä ei pitä paikkaansa, Pythonissa muuttujat eivät sisällä tallettamaansa arvoa vaan ne _viittaavat_ arvona olevaan  _olioon_, kuten lukuun, merkkijonoon tai listaan, eli sen sijaan, että muuttujaan olisi tallennettu tieto muuttujan arvosta, siihen on tallennettu tieto siitä mistä lista löytyy.
+
 Yleensä viittausta kuvataan nuolena muuttujasta sen varsinaiseen arvoon:
 
 <img src="5_2_1.png">
 
-Viittaus siis kertoo mistä varsinainen arvo löytyy. Sen sijaan, että muuttujaan olisi tallennettu lista, siihen on tallennettu tieto siitä mistä lista löytyy.
+Viittaus siis kertoo mistä varsinainen arvo löytyy. Muuttuan "varsinaiseen" arvoon pääsee käsiksi funktiolla `id`
 
-Pythonin "sisäänrakennetut" tyypit, kuten `int`, `float`, `bool` ja `str` ovat _mutatoitumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan se voidaan korvata uudella arvolla:
+```python
+a = [1,2,3]
+print(id(a))
+b = "Tämäkin on viittaus"
+print(id(a))
+```
+
+<sample-output>
+
+4538357072
+4537788912
+
+</sample-output>
+
+Muuttujan id on numero jonka voi ajatela olevan muuttujan arvon sijainnin osoite tietokoneen muistissa.
+
+Monet Pythonin "sisäänrakennetut" tyypit, kuten`str` ovat _mutatoitumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan se voidaan korvata uudella arvolla:
 
 <img src="5_2_2.png">
 
-Useat muut tyypit sen sijaan ovat mutatoituvia. Esimerkiksi listan sisältö voi muuttuja ilman että tarvitsee luoda kokonaan uusi lista:
+
+Pythonissa on myös monia tyyppejä, jotka ovat mutatoituvia. Esimerkiksi listan sisältö voi muuttuja ilman että tarvitsee luoda kokonaan uusi lista:
 
 <img src="5_2_3.png">
 
-## Useampi viittaus samaan listaan
+Hieman yllättävää on että myös perustietotyypit `int`, `float` ja `bool` ovat mutatoitumattomia, eli jos suoritetaan esimerkiksi seuraavat komennot
 
-Mitä käytännössä tarkoittaa, että muuttujaan on tallennettu viittaus - ei varsinaista arvoa?
+```python
+luku = 1
+luku = 2
+luku = luku + 10
+```
+
+vaikka vaikuttaakin siltä, että ohjelma manipuloi saman kokonaisluvun sisältöä, teknisesti ottaen ei näin ole, vaan jokainen komento luo uuden kokonaisluvun!
+
+Seuraavan ohjelman tulostus on mielenkiintoinen
+
+```python
+luku = 1
+print(id(luku))
+luku = luku + 10
+print(id(luku))
+a = 1
+print(id(a))
+```
+
+<sample-output>
+
+4535856912
+4535856944
+4535856912
+
+</sample-output>
+
+Aluksi muuttuja `luku` viittaa paikkaan 4535856912 ja kun muuttujan arvo muuttuu, se alkaa viitata paikkaan 4535856944. Kun muuttujaan `a` sijoitetaan arvo 1, se alkaa viitata samaan paikkaan mihin `luku` viittasi kun sen arvo oli 1. Vaikuttaakin siltä että Python on tallentanut luvun 1 paikkaan 4535856912 ja aina kun jonkun muuttujan arvona on 1, _viittaa_ muuttuja tuohon paikkaan "tietokoneen muistissa".
+
+Vaikka perustietotyypit `int`, `float` ja `bool` ovatkin viittauksia, ei ohjelmoijan oikeastaan tarvitse välittää asiasta.
+
+## Useampi viittaus samaan listaan
 
 Tarkastellaan esimerkkinä listamuuttujan arvon kopiointia:
 
@@ -76,18 +125,61 @@ Mikäli samaan listaan on useampia viittauksia, sitä voidaan käsitellä minkä
 
 ## Listan kopiointi
 
-Voimme kopioida listan viittauksen sijasta sen varsinaisen sisällön `[:]`-merkinnällä.
-Tässä tapauksessa listat ovat erillisiä ja muutos yhdessä listassa ei vaikuta toiseen listaan.
+Jos haluamme tehdä oikean kopion, voimme luoda uuden listan ja lisätä siihen jokaisen aluperäisen listan alkion:
+
+```python
+lista = [1, 2, 3, 3, 5]
+
+kopio = []
+for alkio in lista:
+  kopio.append(alkio)
+
+kopio[0] = 10
+kopio.append(6)
+print("alkup " + str(lista))
+print("kopio " + str(kopio))
+```
+
+<sample-output>
+
+alkup [1, 2, 3, 3, 5]
+kopio [10, 2, 3, 3, 5, 6]
+
+</sample-output>
+
+Helpompi tapa listan kopiomiseen on hyödyntää `[]`-operaattoria, joka toimii listoille samalla tavalla kuin merkkijonoille.
+
+```python
+lista = [1,2,3,4,5,6,7,8]
+osa = lista[2:5]
+print(osa)
+osa.append(10)
+osa.append(11)
+print(osa)
+print(lista)
+```
+
+<sample-output>
+
+[3, 4, 5]
+[3, 4, 5, 10, 11]
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+</sample-output>
+
+`[]`-operaattori siis luo kopion, minkä sisällöksi tulee parametrien määritelemä osa alkuperäisen listan sisällöstä.
+
+Voimmekin hyödyntää erikoistapausta, missä `[]`-operaattorille ei anneta ollenkaan kopion aloitus- ja lopetuspistettä, näin kopio luodaan koko listasta:
 
 ```python
 lista = [1,2,3,4]
-lista2 = lista[:]
+kopio = lista[:]
 
 lista[0] = 10
-lista2[1] = 20
+kopio[1] = 20
 
 print(lista)
-print(lista2)
+print(kopio)
 ```
 
 <sample-output>
@@ -97,13 +189,11 @@ print(lista2)
 
 </sample-output>
 
-Merkintä `[:]` tarkoittaa, että erotamme listasta osan, joka alkaa listan alusta ja päättyy listan loppuun
-(samaan tapaan kuin `[2:5]` tarkoittaa, että erotamme osan, joka alkaa kohdasta 2 ja päättyy ennen kohtaa 5).
-Tämän sivuvaikutuksena listasta syntyy kopio.
+Merkintä `[:]` siis tarkoittaa, että erotamme listasta osan, joka alkaa listan alusta ja päättyy listan loppuun (samaan tapaan kuin `[2:5]` tarkoittaa, että erotamme osan, joka alkaa kohdasta 2 ja päättyy ennen kohtaa 5). Tämän sivuvaikutuksena listasta syntyy kopio.
 
 ## Lista funktion parametrina
 
-Kun lista välitetään parametrina funktiolle, välitetään viittaus listaan. Tämä tarkoittaa, että lista voi muuttaa parametrinaan saamaansa listaa.
+Kun lista välitetään parametrina funktiolle, välitetään viittaus listaan. Tämä tarkoittaa, että funktio voi muuttaa parametrinaan saamaansa listaa.
 
 Esimerkiksi seuraava funktio lisää uuden alkion parametrinaan saamaansa listaan:
 
@@ -126,9 +216,9 @@ Huomaa, että funktio `lisaa_alkio` ei palauta mitään, vaan muuttaa parametrin
 
 ```python
 def lisaa_alkio(lista: list) -> list:
-    lista2 = lista[:]
-    lista2.append(10)
-    return lista2
+    kopio = lista[:]
+    kopio.append(10)
+    return kopio
 
 luvut = [1,2,3]
 luvut2 = lisaa_alkio(luvut)
@@ -167,7 +257,7 @@ print(luvut)
 </sample-output>
 
 Funktio kyllä etsii ja löytää toiseksi pienimmän alkion, mutta sen lisäksi se muuttaa listan alkioiden järjestyksen. Jos järjestyksellä on merkitystä muualla ohjelmassa, funktion kutsuminen todennäköisesti aiheuttaa virheitä.
-Esimerkin kaltaista dokumentoimatonta muutosta viittauksena saatuu olioon kutsutaan funktion _sivuvaikutukseksi_.
+Esimerkin kaltaista muutosta viittauksena saatuu olioon kutsutaan funktion _sivuvaikutukseksi_.
 
 Sama esimerkki ilman sivuvaikutuksia:
 
@@ -189,3 +279,5 @@ print(luvut)
 </sample-output>
 
 Koska funktio `sorted` palauttaa uuden järjestetyn listan, toiseksi pienimmän alkion etsiminen ei enää sotke listan alkuperäistä järjestystä.
+
+Useimmiten pidetään hyvänä asiana että funktiot eivät aiheuta sivuvaikutuksia. Tälläisiä funktioita kutsutaan myös _puhtaiksi funktioiksi_ ja erityisesti ns. funktionaalista ohjelmointityyliä käytettäessä funktiot pyritään rakentamaan juuri näin. Palaamme aiheeseen tarkemmin Ohjelmoinnin jatkokurssilla.
