@@ -16,7 +16,7 @@ Tämän osan suoritettuasi
 
 </text-box>
 
-Viime kerralla käsiteltiin pelkästään listoja, joissa alkiot olivat kokonaislukuja. Listoihin voi kuitenkin tallentaa minkä tahansa tyyppisiä arvoja. Esimerkiksi voimme tallentaa listaan merkkijonoja:
+Viime kerralla käsiteltiin lähes yksinomaan listoja, joissa alkiot olivat kokonaislukuja. Listoihin voi luonnollisesti tallentaa minkä tahansa tyyppisiä arvoja. Esimerkiksi voimme tallentaa listaan merkkijonoja:
 
 ```python
 nimet = ["Maija", "Liisa", "Pekka"]
@@ -24,9 +24,11 @@ print(nimet)
 nimet.append("Kalle")
 print(nimet)
 
-print("Listalla nimiä:", len(lista))
-print(nimet[1])
-print(nimet[3])
+print("Listalla nimiä:", len(nimet))
+print('aakkosjärjestyksessä:')
+nimet.sort()
+for nimi in nimet:
+  print(nimi)
 ```
 
 <sample-output>
@@ -34,8 +36,11 @@ print(nimet[3])
 ['Maija', 'Liisa', 'Pekka']
 ['Maija', 'Liisa', 'Pekka', 'Kalle']
 Listalla nimiä: 4
-Liisa
+aakkosjärjestyksessä:
 Kalle
+Liisa
+Maija
+Pekka
 
 </sample-output>
 
@@ -83,10 +88,43 @@ print(lista[1][0])
 
 </sample-output>
 
-TODO: Tässä ei ole nyt mitään motivointia, miksi haluaisimme luoda matriisin.
-Termiä taulukko ei ole myöskään esiintynyt aiemmin. Miten tässä kannattaisi edetä?
+Mihin voimme käyttää listoja jonka sisällä on listoja?
 
-Sisäkkäisten listojen avulla voimme luoda myös _matriisin_ eli kaksiulotteisen taulukon.
+Voisimme esimerkiksi esittää yhden henkilön tiedot listana, missä ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengän numero:
+
+```python
+["Anu", 10, 26 ]
+```
+
+ja joukko henkilöitä on lista, joka sisältää yksittäisiä henkilöä kuvaavia listoja:
+
+```python
+henkilot = [ ["Anu", 10, 26], ["Petteri", 7, 22],  ["Emilia", 32, 37], ["Antti", 39, 44] ]
+
+henkilot.sort()
+
+for henkilo in henkilot:
+  nimi = henkilo[0]
+  ika = henkilo[1]
+  kenka = henkilo[2]
+  print(f"{nimi:10} ikä {ika:2} vuotta, kengännumero {kenka}")
+```
+
+<sample-output>
+
+Antti      ikä 39 vuotta, kengännumero 44
+Anu        ikä 10 vuotta, kengännumero 26
+Emilia     ikä 32 vuotta, kengännumero 37
+Petteri    ikä  7 vuotta, kengännumero 22
+
+</sample-output>
+
+Huomaa, miten `for`-lause käy läpi henkilöt yksi kerralaan, eli toiston lohko-osassa muuttuja  `henkilo` saa yksi kerrallaan arvokseen kutakin henkilöä esittävän listan.
+
+Lista ei ole välttämättä paras Pythonin tietorakenne yksittäisen henkilön tietojen esittämiseen. Tutustumme pian _sanakirjaan_ joka on usein luontevampi tapa hoitaa tämänkaltainen tilanne,.
+
+Sisäkkäisten listojen avulla voidaan myös esittää _matriisia_ eli kaksiulotteista taulukkoa.
+
 Esimerkiksi matriisi
 
 KUVA
@@ -191,5 +229,58 @@ Ulompi silmukka käy `range`-funktion avulla läpi arvot nollasta matriisin pitu
 
 KUVA
 
+Matriisi sopii hyvin monien pelien tietorakenteeksi. Esim. sudokun ruudukko
 
+<img src="5_1_1.png">
+
+voitaisiin esittää seuraavana matriisina
+
+```python
+sudoku = [
+  [ 9, 0, 0, 0, 8, 0, 3, 0, 0 ],
+  [ 0, 0, 0, 2, 5, 0, 7, 0, 0 ],
+  [ 0, 2, 0, 3, 0, 0, 0, 0, 4 ],
+  [ 0, 9, 4, 0, 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 7, 3, 0, 5, 6, 0 ],
+  [ 7, 0, 5, 0, 6, 0, 4, 0, 0 ],
+  [ 0, 0, 7, 8, 0, 3, 9, 0, 0 ],
+  [ 0, 0, 1, 0, 0, 0, 0, 0, 3 ],
+  [ 3, 0, 0, 0, 0, 0, 0, 0, 2 ],
+]
+```
+
+Arvolla nolla siis kuvataan tilanne, missä ruutu on vielä tyhjä.
+
+Seuraavassa vielä yksinkertainen versio sudokun tulostavasta metodista:
+
+```python
+def tulosta(sudoku):
+  for rivi in sudoku:
+    for ruutu in rivi:
+      if ruutu>0:
+        print(f" {ruutu}", end='')
+      else:
+        print("  ", end='')
+    print()
+
+tulosta(sudoku)
+```
+
+Tulostuksen ulkoasu on hieman karu:
+
+```python
+
+ 9       8   3
+       2 5   7
+   2   3         4
+   9 4
+       7 3   5 6
+ 7   5   6   4
+     7 8   3 9
+     1           3
+ 3               2
+
+```
+
+Vastaavalla tavalla on mahdollista kuvata moni tuttu peli esim. shakki, miinaharava, laivan upotus, mastermind, ...matriisina, täytyy ainoastaan valita sopiva tapa millä yhden ruudun tilanne "koodataan" matriisiin.
 

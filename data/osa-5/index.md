@@ -33,9 +33,6 @@ hidden: false
   <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
 </only-for-not-logged-in>
 
-
-Kurssimateriaalin viides osa jatkaa neljännestä osasta alkaneen olio-ohjelmoinnin parissa.
-
 <please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
