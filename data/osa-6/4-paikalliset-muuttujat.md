@@ -21,7 +21,7 @@ TODO: Tässä olisi varmaan hyvä kertoa myös termistä _näkyvyysalue_ (_scope
 
 Ohjelmoinnissa käytetään käsitteitä _paikallinen muuttuja_ ja _globaali muuttuja_. Yleisesti paikallisella muuttujalla tarkoitetaan muuttujaa, joka on näkyvissä vain tietyn rajatun alueen sisällä ohjelmassa. Vastaavasti globaali muuttuja on käytettävissä missä tahansa ohjelman osassa.
 
-## Ppaikalliset muuttujat
+## Paikalliset muuttujat
 
 Pythonissa oletuksena kaikki funktion sisällä määritellyt muuttujat ovat funktion _paikallisia muuttujia_. Tämä koskee sekä parametreja että funktion lohkon sisällä määriteltyjä muuttujia. Paikallinen muuttuja tarkoittaa, että muuttuja _ei ole olemassa funktion ulkopuolella_.
 
@@ -47,7 +47,7 @@ Ohjelmassa muuttuja `x` on siis olemassa vain funktion `testi` suorituksen ajan 
 
 ## Globaalit muuttujat
 
-Pääohjelmassa eli kaikkien funktioiden ulkopuolella määritellyt muuttujat ovat globaaleja muuttujia. Globaalin muuttujan arvo voidaan lukea funktiossa Esimerkiksi seuraava toimii:
+Pääohjelmassa eli kaikkien funktioiden ulkopuolella määritellyt muuttujat ovat globaaleja muuttujia. Globaalin muuttujan arvo voidaan lukea funktiossa. Esimerkiksi seuraava toimii:
 
 ```python
 def testi():
