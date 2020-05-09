@@ -19,7 +19,7 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat kohdissa 0, 1, 2, jne.
+Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat indekseissä 0, 1, 2, jne.
 ja jos haluamme löytää listalta tietyn alkion, on useimmissa tapauksissa käytävä alkiot läpi listan alusta alkaen. Jos lista on kooltaan pieni, ei asialla ole merkitystä, mutta listojen kasvaessa tuhansien alkioiden kokoiseksi, voi suorituskyvyllä olla merkitystä.
 
 Pythonin _sanakirja_ (engl. dictionary) tarjoaa hieman listasta poikkeavan tavan tietojen organisoimiseen. Sanakirja ei talleta tietoa listan tapaan  peräkkäisiin indekseihin, vaan sen sijaan jokainen tietoalkio koostuu _avaimesta_ ja _arvosta_. Kun tiedetään avain, voidaan sen avulla pyytää helposti sanakirjasta vastaava arvo.
@@ -216,7 +216,7 @@ Sanakirjan etuna on kuitenkin, että se kokoaa kaikki samaan asiaan liittyvät t
 henkilo = [ "Pirjo Python", 153, 61, 44 ]
 ```
 
-Listan huonona puolena on kuitenkin se, että ohjelmoijan on oltava tarkkana sen suhteen mihin kohtaan listaa mikäkin arvo on talletettuna. Pitää siis muistaa, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää, eikä päinvastoin. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjan tallettamat erilliset tiedot on talletettu selkeästi nimetyn avaimen taakse
+Listan huono puoli on että ohjelmoijan on oltava tarkkana sen suhteen mihin kohtaan listaa mikäkin arvo on talletettuna. Pitää siis muistaa, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää, eikä päinvastoin. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjan tallettamat erilliset tiedot on talletettu selkeästi nimetyn avaimen taakse
 
 
 Esimerkiksi voimme käsitellä henkilöitä näin:
