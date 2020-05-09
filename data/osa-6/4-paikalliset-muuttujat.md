@@ -17,141 +17,118 @@ Tämän osan suoritettuasi
 
 </text-box>
 
+TODO: Tässä olisi varmaan hyvä kertoa myös termistä _näkyvyysalue_ (_scope_)
+
 Ohjelmoinnissa käytetään käsitteitä _paikallinen muuttuja_ ja _globaali muuttuja_. Yleisesti paikallisella muuttujalla tarkoitetaan muuttujaa, joka on näkyvissä vain tietyn rajatun alueen sisällä ohjelmassa. Vastaavasti globaali muuttuja on käytettävissä missä tahansa ohjelman osassa.
 
-## Funktioiden paikalliset muuttujat
+## Ppaikalliset muuttujat
 
-Pythonissa oletuksena kaikki funktioiden sisällä määritellyt muuttujat ovat näiden funktioiden _paikallisia muuttujia_. Tämä koskee sekä parametrimuuttujia että funktion lohkon sisällä määriteltyjä muuttujia. Paikallinen muuttuja tarkoittaa, että muuttuja _ei ole olemassa funktion ulkopuolella_.
+Pythonissa oletuksena kaikki funktion sisällä määritellyt muuttujat ovat funktion _paikallisia muuttujia_. Tämä koskee sekä parametreja että funktion lohkon sisällä määriteltyjä muuttujia. Paikallinen muuttuja tarkoittaa, että muuttuja _ei ole olemassa funktion ulkopuolella_.
 
-Esimerkiksi seuraavassa ohjelmassa yritys viitata muuttujaan `nimi` pääohjelmassa antaa virheen:
+Esimerkiksi seuraavassa ohjelmassa yritys viitata muuttujaan `x` pääohjelmassa antaa virheen:
 
 ```python
+def testi():
+    x = 5
+    print(x)
 
-def huuda(nimi : str):
-    nimi = nimi.upper()
-    nimi = nimi + "!"
-    print(nimi)
-
-
-huuda("Pekka Pythonen")
-print("Nyt nimi-muuttujan arvo on " + nimi)
-
+testi()
+print(x)
 ```
 
 <sample-output>
 
-NameError: name 'nimi' is not defined
+5
+NameError: name 'x' is not defined
 
 </sample-output>
 
-Ohjelmassa muuttuja `nimi` on siis olemassa vain funktion `huuda` suorituksen ajan. Kun funktio on suoritettu, Python poistaa muuttujan arvoineen muistista (tai merkitsee sen käyttämättömäksi, jolloin erillinen _roskienkeruu_ osaa poistaa sen sopivassa välissä).
-
-Huomaa, että pääohjelmalla ja funktiolla voi kyllä olla _samannimisiä muuttujia_. Tässäkään tapauksessa ne eivät kuitenkaan ole sama muuttuja:
-
-```python
-
-# Funktiolla huuda on parametrimuuttuja nimi
-def huuda(nimi : str):
-    nimi = nimi.upper()
-    nimi = nimi + "!"
-    print(nimi)
-
-
-# Pääohjelmassa on samaniminen muuttuja. Vaikka muuttuja on
-# samantyyppinen ja sillä on hetken aikaa sama arvo,
-# kyseessä on kuitenkin eri muuttuja
-nimi = "Pekka Pythonen"
-huuda(nimi)
-print("Pääohjelmassa nimi-muuttujan arvo on " + nimi)
-
-```
-
-<sample-output>
-
-PEKKA PYTHONEN!
-Pääohjelmassa nimi-muuttujan arvo on Pekka Pythonen
-
-</sample-output>
+Ohjelmassa muuttuja `x` on siis olemassa vain funktion `testi` suorituksen ajan eikä siihen pääse käsiksi muista funktioista tai pääohjelmasta. 
 
 ## Globaalit muuttujat
 
-_Pääohjelmassa_, eli kaikkien funktioiden ulkopuolella määritetyt muuttujat ovat "puoliksi" globaaleita muuttujia Pythonissa. Puoliksi tarkoittaa tässä yhteydessä sitä, että aliohjelmissa voidaan lukea pääohjelman muuttujien arvoja, mutta niiden arvoja ei voida muuttaa.
-
-Esimerkiksi seuraava toimii:
+Pääohjelmassa eli kaikkien funktioiden ulkopuolella määritellyt muuttujat ovat globaaleja muuttujia. Globaalin muuttujan arvo voidaan lukea funktiossa Esimerkiksi seuraava toimii:
 
 ```python
+def testi():
+    print(x)
 
-# Muuttujaa nimi ei ole määritelty funktiossa
-def toista_nimi():
-    print(nimi)
-
-
-# Pääohjelmassa määritellyn muuttujan arvo
-# näkyy myös ohjelmassa määritellyille funktioille
-nimi = "Pirjo Pythonen"
-toista_nimi()
-
+x = 3
+print(x)
 ```
 
 <sample-output>
 
-Pirjo Pythonen
+3
 
 </sample-output>
 
-
-Arvoa ei kuitenkaan voi muuttaa, seuraava yritys antaa virheviestin:
+Kuitenkaan globaalia muuttujaa ei voi oletuksena muuttaa. Esimerkiksi seuraava funktio ei vaikuta globaaliin muuttujaan:
 
 ```python
+def testi():
+    x = 5
+    print(x)
 
-# Muuttujaa nimi ei ole määritelty funktiossa
-def toista_nimi():
-    # Muuttujan arvon muuttaminen ei onnistu, koska
-    # muuttuja on määritelty pääohjelmassa
-    nimi = nimi + ", ohjelmoijaguru"
-    print(nimi)
-
-
-nimi = "Pirjo Pythonen"
-toista_nimi()
-
+x = 3
+testi()
+print(x)
 ```
 
 <sample-output>
 
-UnboundLocalError: local variable 'nimi' referenced before assignment
+5
+3
 
 </sample-output>
 
-Itse asiassa kyse on siitä, että Pythonin mielestä muuttujaa ei ole määritelty ennen kuin sitä yritetään käyttää. Jos muuttujan arvoa halutaan muuttaa funktiossa, voidaan muuttuja määritellä globaaliksi avainsanalla `global` ennen sen käyttöä:
+Tässä tapauksessa funktio `testi` luo paikallisen muuttujan `x`, joka saa arvon 5. Tämä on kuitenkin eri muuttuja kuin pääohjelmassa oleva muuttuja `x`.
+
+Entä miten toimii seuraava koodi?
 
 ```python
+def testi():
+    print(x)
+    x = 5
 
-# Muuttujaa nimi ei ole määritelty funktiossa
-def toista_nimi():
-    # Määritellään muuttuja globaaliksi, jolloin siihen viittaaminen
-    # onnistuu
-    global nimi
-    nimi = nimi + ", ohjelmoijaguru"
-    print(nimi)
-
-
-nimi = "Pirjo Pythonen"
-toista_nimi()
-# Muuttunut arvo näkyy myös pääohjelmassa, koska
-# kyseessä on sama muuttuja
-print("Arvo pääohjelmassa: " + nimi)
-
+x = 3
+testi()
+print(x)
 ```
 
 <sample-output>
 
-Pirjo Pythonen, ohjelmoijaguru
-Arvo pääohjelmassa: Pirjo Pythonen, ohjelmoijaguru
+UnboundLocalError: local variable 'x' referenced before assignment
 
 </sample-output>
 
-## Paikalliset vai globaalit muuttujat?
+Funktiossa `testi` annetaan arvo muuttujalle `x`, jolloin Python päättelee, että `x` on funktion paikallinen muuttuja (eikä globaali muuttuja). Koska muuttujaan yritetään viitata ennen arvon asettamista, tapahtuu virhe.
+
+Jos haluamme muuttaa funktiossa globaalia muuttujaa, tämä onnistuu avainsanan `global` avulla:
+
+```python
+def testi():
+    global x
+    x = 3
+    print(x)
+
+x = 5
+testi()
+print(x)
+```
+
+<sample-output>
+
+3
+3
+
+</sample-output>
+
+Nyt funktiossa tehty muutos `x = 3` vaikuttaa myös pääohjelmaan, eli kaikissa ohjelman kohdissa `x` viittaa samaan muuttujaan.
+
+## Paikallinen vai globaali muuttuja?
+
+TODO: Tähän pitäisi saada kaksi esimerkkiä: todellinen tilanne, jossa voi käyttää globaalia muuttujaa mutta ratkaisu on huono, sekä todellinen tilanne, jossa voi käyttää globaalia muuttujaa ja ratkaisu on hyvä. Esimerkkien pitää olla todellisia ja näyttää havainnollisesti, mitä aitoa haittaa tai hyötyä globaalista muuttujasta voi olla.
 
 Yleisesti ottaen kannattaa _lähes aina_ välttää globaaleja muuttujia. Pääasiallinen syy tähän on, että virheiden etsiminen ohjelmista voi muuttua huomattavasti sekavammaksi, mikäli ohjelmassa ei ole selkeästi merkitty mitä muuttujia käsitellään missäkin osassa.
 
