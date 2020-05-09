@@ -256,8 +256,7 @@ print(luvut)
 [1, 2, 3, 4, 4, 5, 6, 7]
 </sample-output>
 
-Funktio kyllä etsii ja löytää toiseksi pienimmän alkion, mutta sen lisäksi se muuttaa listan alkioiden järjestyksen. Jos järjestyksellä on merkitystä muualla ohjelmassa, funktion kutsuminen todennäköisesti aiheuttaa virheitä.
-Esimerkin kaltaista muutosta viittauksena saatuu olioon kutsutaan funktion _sivuvaikutukseksi_.
+Funktio kyllä etsii ja löytää toiseksi pienimmän alkion, mutta sen lisäksi se muuttaa listan alkioiden järjestyksen. Jos järjestyksellä on merkitystä muualla ohjelmassa, funktion kutsuminen todennäköisesti aiheuttaa virheitä. Esimerkin kaltaista muutosta viittauksena saatuu olioon kutsutaan funktion _sivuvaikutukseksi_.
 
 Sama esimerkki ilman sivuvaikutuksia:
 
@@ -280,4 +279,6 @@ print(luvut)
 
 Koska funktio `sorted` palauttaa uuden järjestetyn listan, toiseksi pienimmän alkion etsiminen ei enää sotke listan alkuperäistä järjestystä.
 
-Useimmiten pidetään hyvänä asiana että funktiot eivät aiheuta sivuvaikutuksia. Tälläisiä funktioita kutsutaan myös _puhtaiksi funktioiksi_ ja erityisesti ns. funktionaalista ohjelmointityyliä käytettäessä funktiot pyritään rakentamaan juuri näin. Palaamme aiheeseen tarkemmin Ohjelmoinnin jatkokurssilla.
+Useimmiten pidetään hyvänä asiana että funktiot eivät aiheuta sivuvaikutuksia, sillä niiden takia ohjelmien toimivuuden varmistaminen muuttuu huomattavasti hankalammaksi.
+
+Sivuvaikutuksettomia funktioita kutsutaan myös _puhtaiksi funktioiksi_ ja erityisesti ns. funktionaalista ohjelmointityyliä käytettäessä funktiot pyritään rakentamaan juuri näin. Palaamme aiheeseen tarkemmin Ohjelmoinnin jatkokurssilla.

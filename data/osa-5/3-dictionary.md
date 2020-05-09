@@ -20,16 +20,16 @@ Tämän osion suoritettuasi
 </text-box>
 
 Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat kohdissa 0, 1, 2, jne.
-ja jos haluamme löytää listalta tietyn alkion, täytyy aina käydä kaikki alkiot läpi listan alusta alkaen.
+ja jos haluamme löytää listalta tietyn alkion, on useimmissa tapauksissa käytävä alkiot läpi listan alusta alkaen. Jos lista on kooltaan pieni, ei asialla ole merkitystä, mutta listojen kasvaessa tuhansien alkioiden kokoiseksi, voi suorituskyvyllä olla merkitystä.
 
-TODO: Mikä on todellinen motivaatio tässä? Listassa on metodeita, joilla voi löytää listasta halutun alkion
-lähes yhtä näppärästi kuin sanakirjasta eikä ohjelmoijan tarvitse käydä läpi listaa alkio kerrallaan.
-Tehokkuus ei ole hyvä syy Ohpessa, koska meillä ei ole suuria aineistoja eikä muissakaan kohdissa
-välitetä tehokkuudesta.
+Pythonin _sanakirja_ (engl. dictionary) tarjoaa hieman listasta poikkeavan tavan tietojen organisoimiseen. Sanakirja ei talleta tietoa listan tapaan  peräkkäisiin indekseihin, vaan sen sijaan jokainen tietoalkio koostuu _avaimesta_ ja _arvosta_. Kun tiedetään avain, voidaan sen avulla pyytää helposti sanakirjasta vastaava arvo.
+
+Tyypillinen esimerkki voisi olla vaikkapa yliopiston opiskelijarekisteri, jossa avain on opiskelijanumero ja arvona on tallennettu opiskelijan tiedot. Kun tiedetään halutun opiskelijan opiskelijanumero, löydetään opiskelijan tiedot nopeasti.
+
+<img src="5_4_1.png">
 
 Toisin kuin listassa, sanakirjassa alkioita ei ole järjestetty. Ei voida siis puhua ensimmäisestä tai viimeisestä alkiosta. Näiden sijasta on vain _joukko_ avaimia, joista jokainen viittaa yhteen alkioon:
 
-<img src="5_4_1.png">
 
 ## Sanakirjan käyttäminen
 
@@ -137,13 +137,15 @@ TypeError: unhashable type: 'list'
 
 Python tallentaa sanakirjan sisällön sisäisesti tietorakenteena nimeltä _hajautustaulu_ (_hash table_). Ideana on laskea avaimelle _hajautusarvo_ (_hash value_), jonka avulla määräytyy sen paikka muistissa. Yllä oleva virheilmoitus ilmaisee, että listalle ei voida laskea hajautusarvoa, joten se ei kelpaa sanakirjan avaimeksi.
 
+Kurssilla [Tietorakenteet ja algoritmit](https://courses.helsinki.fi/fi/aytkt20001) tutustutaan tarkemmin hajautustauluihin, eli sanakirjojen pellin alla olevaan mekanismiin.
+
 </text-box>
 
 Arvoilla tällaisia vaatimuksia ei ole - hakemiston arvoksi voidaan tallentaa mitä tahansa. Sama arvo saa myös esiintyä samassa hakemistossa enemmän kuin yhden kerran.
 
 ## Sanakirjan läpikäynti
 
-Sanakirjan läpikäyntiin voidaan käyttää totuttuun tapaan `for`-lausetta. Rakenne `for avain in sanakirja` sijoittaa yksi kerrallaan kaikki avaimet sanakirjasta `sanakirja` muuttujaan `avain`.
+Sanakirjan läpikäyntiin voidaan käyttää totuttuun tapaan `for`-lausetta. Rakenne `for avain in sanakirja` sijoittaa yksi kerrallaan kaikki _avaimet_ sanakirjasta `sanakirja` muuttujaan `avain`.
 
 <text-box variant="hint" name="Avainten järjestys">
 
@@ -190,7 +192,8 @@ for avain, arvo in sanakirja.items():
 
 ## Sanakirja tiedon ryhmittelyssä
 
-Yksi tapaa käyttää sanakirjaa on tallentaa sanakirjan sisään jonkin asian ominaisuuksia.
+Käytimme eräässä aiemmassa esimerkissä listaa esittämään yksittäisen henkilön tietoja. Sanakirja on kuitenkin luontevampi mekanismi tilanteeseen.
+
 Esimerkiksi seuraava koodi luo sanakirjan, jossa on tietoa henkilöstä:
 
 ```python
@@ -207,7 +210,16 @@ paino = 61
 ika = 44
 ```
 
-Sanakirjan etuna on kuitenkin, että se kokoaa kaikki samaan asiaan liittyvät tiedot yhteisen nimen alle, jonka kautta voimme viitata tietoihin. Esimerkiksi voimme käsitellä henkilöitä näin:
+Sanakirjan etuna on kuitenkin, että se kokoaa kaikki samaan asiaan liittyvät tiedot yhteisen nimen alle, jonka kautta voimme viitata tietoihin. Periaatteessa lista tarjoaa saman edun:
+
+```python
+henkilo = [ "Pirjo Python", 153, 61, 44 ]
+```
+
+Listan huonona puolena on kuitenkin se, että ohjelmoijan on oltava tarkkana sen suhteen mihin kohtaan listaa mikäkin arvo on talletettuna. Pitää siis muistaa, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää, eikä päinvastoin. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjan tallettamat erilliset tiedot on talletettu selkeästi nimetyn avaimen taakse
+
+
+Esimerkiksi voimme käsitellä henkilöitä näin:
 
 ```python
 henkilo1 = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä": 44}
