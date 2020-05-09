@@ -6,8 +6,6 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Myös tiedostojen tuottamisesta ohjelmallisesti on usein hyötyä - näin saadaan tulokset talteen tai voidaan luoda uusi datatiedosto seuraavan sovelluksen jatkokäsiteltäväksi. Tässä luvussa tutustutaan tiedostojen kirjoittamiseen Pythonilla.
-
 Tämän osion läpikäytyäsi
 
 - Osaat luoda itse tiedoston Pythonilla
@@ -17,24 +15,17 @@ Tämän osion läpikäytyäsi
 
 </text-box>
 
-Vaikkei tiedostojen kirjoittaminen omissa ohjelmissa ehkä ihan niin yleistä olekaan, kuin mitä tiedostojen lukeminen on, on sillekin usein tarvetta. Tyypillinen esimerkki on ohjelman tulosten tallentaminen tiedostoon, jotta niitä voidaan käyttää myös myöhemmin tai muokata edelleen jollain toisella ohjelmalla.
+Tiedoston lukemisen lisäksi voimme kirjoittaa myös tiedostoon tietoa ohjelmassa. Tyypillinen esimerkki on ohjelman tulosten tallentaminen tiedostoon, jotta niitä voidaan käyttää myös myöhemmin tai muokata edelleen jollain toisella ohjelmalla.
 
-Tiedoston kirjoittamisessa on kaksi toisistaan poikkeavaa lähestymistapaa:
-
-1. Uuden tiedoston luominen (tai vanhan ylikirjoittaminen) ja
-2. Tiedon lisääminen olemassaolevaan tiedostoon vanhan tiedon perään
-
-Molemmissa tapauksisa Pythonissa käytetään edellisestä osasta tuttua `open`-funktiota, mutta määriteltävä tila on eri. Tutustutaan molempiin tapauksiin erikseen.
+Tiedoston kirjoittamisessa voimme joko luoda uuden tiedoston tai lisätä tietoa olemassa olevan tiedoston vanhan tiedon perään. Molemmissa tapauksisa Pythonissa käytetään edellisestä osasta tuttua `open`-funktiota, mutta kirjoittamista varten funktiolle annetaan toinen parametri.
 
 ## Uuden tiedoston luominen
 
 Uusi tiedosto luodaan antamalla `open`-funktiolle tiedoston nimen lisäksi avaustilaksi `w` (tulee sanasta write). Esimerkiksi
 
 ```python
-
-with open("uusi_tiedosto.txt", "w") as uusi_tiedosto:
-    pass
-
+with open("uusi_tiedosto.txt", "w") as tiedosto:
+    # tiedostoon kirjoittaminen
 ```
 
 Huomaa, että **mikäli tiedosto on jo olemassa, kaikki sen sisältö ylikirjoitetaan** - ole siis erittäin huolellinen uusia tiedostoja luodessasi.
@@ -42,16 +33,11 @@ Huomaa, että **mikäli tiedosto on jo olemassa, kaikki sen sisältö ylikirjoit
 Kun tiedosto on avattu, sinne voidaan kirjoittaa tietoa. Kirjoittaminen tapahtuu metodilla `write`, joka saa parametrikseen kirjoitettavan merkkijonon.
 
 ```python
-
-# Avataan tiedosto kirjoitusta varten
 with open("uusi_tiedosto.txt", "w") as tiedosto:
-
-    # Tulostetaan tiedostoon tervehdys
     tiedosto.write("Moi kaikki!")
-
 ```
 
-Ohjelman suorittamisen jälkeen samaan kansioon ilmestyy tiedosto `uusi_tiedosto.txt`, jonka sisältö näyttää tältä:
+Ohjelman suorittamisen jälkeen samaan hakemistoon ilmestyy tiedosto `uusi_tiedosto.txt`, jonka sisältö näyttää tältä:
 
 <sample-data>
 
@@ -59,21 +45,16 @@ Moi kaikki!
 
 </sample-data>
 
-Huomaa, että jos tiedostoon halutaan rivinvaihtoja, ne täytyy lisätä tekstiin itse. Alla oleva ohjelma...
+Huomaa, että jos tiedostoon halutaan rivinvaihtoja, ne täytyy lisätä tekstiin itse. Esimerkiksi ohjelma
 
 ```python
-
-# Avataan tiedosto kirjoitusta varten
 with open("uusi_tiedosto.txt", "w") as tiedosto:
-
-    # Tulostetaan tiedostoon tervehdys
     tiedosto.write("Moi kaikki!")
     tiedosto.write("Toinen rivi")
     tiedosto.write("Viimeinen rivi")
-
 ```
 
-...tuottaa seuraavanlaisen tiedoston:
+tuottaa seuraavanlaisen tiedoston:
 
 <sample-data>
 
@@ -84,15 +65,10 @@ Moi kaikki!Toinen riviViimeinen rivi
 Tulostukset saadaan omille riveilleen lisäämällä rivien loppuun rivivaihtomerkki `\n`:
 
 ```python
-
-# Avataan tiedosto kirjoitusta varten
 with open("uusi_tiedosto.txt", "w") as tiedosto:
-
-    # Tulostetaan tiedostoon tervehdys
     tiedosto.write("Moi kaikki!\n")
     tiedosto.write("Toinen rivi\n"")
     tiedosto.write("Viimeinen rivi\n"")
-
 ```
 
 Nyt tiedosto `uusi_tiedosto.txt` näyttää tältä:
@@ -107,21 +83,19 @@ Viimeinen rivi
 
 ## Tiedon lisääminen olemassaolevaan tiedostoon
 
-Joskus on kätevää tiedon ylikirjoittamisen sijasta lisätä uutta tietoa olemassaolevaan tiedostoon. Pythonissa tämä onnistuu avaamalla tiedosto muodossa `a` (lyhenne sanasta append). Tällöin tiedoston nykyistä sisältöä ei pyyhitä, vaan uusi tieto kirjoitetaan tiedoston loppuun.
+Jos haluamme lisätä tietoa olemassa olevaan tiedostoon, 
+voimme avata tiedoston tilassa `a` (lyhenne sanasta append). Tällöin tiedoston nykyistä sisältöä ei pyyhitä, vaan uusi tieto kirjoitetaan tiedoston loppuun.
 
-Huomaa kuitenkin, että tiedon lisääminen ei onnistu, jos tiedostoa ei ole olemassa. Tiedostomuoto `a` siis vaatii toimiakseen, että tiedosto on olemassa. Uuden tiedoston voi luoda vain kirjoitusmuodolla `w`.
+Jos tiedostoa ei ole olemassa, tila `a` toimii samalla tavalla kuin tila `w`.
+
+Huomaa kuitenkin, että tiedon lisääminen ei onnistu, jos tiedostoa ei ole olemassa. Tila `a` siis vaatii toimiakseen, että tiedosto on olemassa. Uuden tiedoston voi luoda vain tilassa `w`.
 
 Esimerkkiohjelma avaa edellisen esimerkin tuottaman tiedoston `uusi_tiedosto.txt` ja lisää sen perään pari riviä tekstiä:
 
 ```python
-
-# Avataan tiedosto lisäysmoodissa "a"
 with open("uusi_tiedosto.txt", "a") as tiedosto:
-
-    #  Lisätään pari riviä
     tiedosto.write("Rivi numero 4\n")
     tiedosto.write("Ja taas yksi.\n")
-
 ```
 
 Ohjelman suorituksen jälkeen tiedosto näyttää tältä:
@@ -138,16 +112,14 @@ Ja taas yksi.
 
 ## Tietojen yhdistäminen merkkijonoksi
 
-Tekstitiedostoon voidaan kirjoittaa vain merkkijonomuotoista tietoa. Kaikki muu tieto on muutettava merkkijonoiksi ennen kirjoittamista.
+Tekstitiedostoon voidaan kirjoittaa vain merkkijonomuotoista tietoa. Kaikki muu tieto on muutettava merkkijonoksi ennen kirjoittamista.
 
-Yksittäiset datapisteet voidaan tietysti muuttaa funktiolla `str`, mutta mikäli esimerkiksi listassa on useita arvoja, tulee silmukasta helposti monimutkainen.
+TODO: Mitähän tässä kannattaisi tehdä? Mikä olisi luonteva tilanne, jossa haluamme kirjoittaa CSV-tiedoston? Tarvitaanko joinia, entä list comperehensionit?
 
-Helppo tapa muuttaa listalla olevat arvot yhdeksi merkkijonoksi on metodi `join`. Se kohdistetaan haluttuun välimerkkiin, ja se saa parametrikseen muuutettavan merkkijonoja sisältävän listan - syntaksi on siis
+Helppo tapa muuttaa listalla olevat merkkijonot yhdeksi merkkijonoksi on metodi `join`. Se kohdistetaan haluttuun välimerkkiin, ja se saa parametrikseen muuutettavan merkkijonoja sisältävän listan - syntaksi on siis
 
 ```python
-
 <välimerkki>.join(<merkkijonolista>)
-
 ```
 
 Metodi palauttaa uuden merkkijonon, jossa alkiot on yhdistetty. Tietyllä tapaa metodi on siis `split`-metodin vastakohta.
@@ -155,8 +127,6 @@ Metodi palauttaa uuden merkkijonon, jossa alkiot on yhdistetty. Tietyllä tapaa 
 Esimerkki, jossa listassa olevista luvuista muodostetaan yksi merkkijono:
 
 ```python
-
-# lista
 lista = list(range(1,11))
 
 # Muutetaan ensin merkkijonoiksi
