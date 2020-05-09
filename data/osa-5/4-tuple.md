@@ -127,7 +127,7 @@ suurin luku oli 312 ja pienin 5
 
 </sample-output>
 
-Nyt metodin koodi näyttää siltä, että se palauttaisi kaksi erillistä arvoa. Todellesuudessa metodi palauttaa tuplen joka koostuu kahdesta arvosta. Python nimittäin mahdollistaa tuplejen määrittelyn ilman sulkumerkkejä:
+Funktion koodi näyttää siltä, että se palauttaisi kaksi erillistä arvoa. Todellesuudessa funktio palauttaa tuplen, joka koostuu kahdesta arvosta. Python nimittäin mahdollistaa tuplejen määrittelyn ilman sulkumerkkejä:
 
 ```python
 t = 1, 2, 3
@@ -168,4 +168,6 @@ for avain, arvo in sanakirja.items():
     print("arvo:", arvo)
 ```
 
-Tässäkin Python käyttää taustalla tupleja, `sanakirja.items()` palauttaa yksi kerrallaan avain, arvo -parit tuplena jonka ensimmäinen alkio on _avain_ ja toinen _arvo_.
+Tässäkin Python käyttää taustalla tupleja, `sanakirja.items()` palauttaa yksi kerrallaan avain, arvo -parit tuplena, jonka ensimmäinen alkio on _avain_ ja toinen _arvo_.
+
+Vaikka siis tuple-rakenteelle ei välttämättä olekaan suoraa käyttöä ohjelman tietorakenteena, on tuple monissa ohjelmissa käytössä "taustalla".

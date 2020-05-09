@@ -110,18 +110,19 @@ for henkilo in henkilot:
   print(f"{nimi:10} ikä {ika:2} vuotta, kengännumero {kenka}")
 ```
 
-<sample-output>
+```python
 
 Antti      ikä 39 vuotta, kengännumero 44
 Anu        ikä 10 vuotta, kengännumero 26
 Emilia     ikä 32 vuotta, kengännumero 37
 Petteri    ikä  7 vuotta, kengännumero 22
 
-</sample-output>
+```
 
-Huomaa, miten `for`-lause käy läpi henkilöt yksi kerralaan, eli toiston lohko-osassa muuttuja  `henkilo` saa yksi kerrallaan arvokseen kutakin henkilöä esittävän listan.
 
-Lista ei ole välttämättä paras Pythonin tietorakenne yksittäisen henkilön tietojen esittämiseen. Tutustumme pian _sanakirjaan_ joka on usein luontevampi tapa hoitaa tämänkaltainen tilanne,.
+Huomaa, miten `for`-lause käy läpi henkilöt yksitellen, eli toiston lohko-osassa muuttuja  `henkilo` saa yksi kerrallaan arvokseen kutakin henkilöä esittävän listan.
+
+Lista ei ole välttämättä paras Pythonin tietorakenne yksittäisen henkilön tietojen esittämiseen. Tutustumme pian _sanakirjaan_ joka on usein luontevampi tapa hoitaa vastaava tilanne.
 
 Sisäkkäisten listojen avulla voidaan myös esittää _matriisia_ eli kaksiulotteista taulukkoa.
 
@@ -260,7 +261,7 @@ def tulosta(sudoku):
       if ruutu>0:
         print(f" {ruutu}", end='')
       else:
-        print("  ", end='')
+        print(" _", end='')
     print()
 
 tulosta(sudoku)
@@ -270,17 +271,17 @@ Tulostuksen ulkoasu on hieman karu:
 
 ```python
 
- 9       8   3
-       2 5   7
-   2   3         4
-   9 4
-       7 3   5 6
- 7   5   6   4
-     7 8   3 9
-     1           3
- 3               2
+ 9 _ _ _ 8 _ 3 _ _
+ _ _ _ 2 5 _ 7 _ _
+ _ 2 _ 3 _ _ _ _ 4
+ _ 9 4 _ _ _ _ _ _
+ _ _ _ 7 3 _ 5 6 _
+ 7 _ 5 _ 6 _ 4 _ _
+ _ _ 7 8 _ 3 9 _ _
+ _ _ 1 _ _ _ _ _ 3
+ 3 _ _ _ _ _ _ _ 2
 
 ```
 
-Vastaavalla tavalla on mahdollista kuvata moni tuttu peli esim. shakki, miinaharava, laivan upotus, mastermind, ...matriisina, täytyy ainoastaan valita sopiva tapa millä yhden ruudun tilanne "koodataan" matriisiin.
+Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaharava, laivan upotus, mastermind, ...) matriisina, täytyy ainoastaan valita sopiva tapa millä yhden ruudun tilanne "koodataan" matriisiin.
 

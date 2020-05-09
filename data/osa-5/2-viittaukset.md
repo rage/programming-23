@@ -17,13 +17,16 @@ Tämän osan suoritettuasi
 
 </text-box>
 
-Olemme tähän asti ajatelleet että muuttuja on eräänlainen "laatikko", joka sisältää muutujan tallettaman arvon. Teknisesti ottaen tämä ei pitä paikkaansa, Pythonissa muuttujat eivät sisällä tallettamaansa arvoa vaan ne _viittaavat_ arvona olevaan  _olioon_, kuten lukuun, merkkijonoon tai listaan, eli sen sijaan, että muuttujaan olisi tallennettu tieto muuttujan arvosta, siihen on tallennettu tieto siitä mistä lista löytyy.
+Olemme tähän asti ajatelleet että muuttuja on eräänlainen "laatikko", joka sisältää muutujan tallettaman arvon. Teknisesti ottaen tämä ei pitä paikkaansa, Pythonissa muuttujat eivät sisällä tallettamaansa arvoa vaan ne _viittaavat_ arvona olevaan  _olioon_, kuten lukuun, merkkijonoon tai listaan.
+
+
+Käytännössä tämä tarkoittaa, että muuttujaan _ei talleta_ tietoa muuttujan arvosta, vaan tiedon siitä paikasta mistä tallennettu arvo löytyy.
 
 Yleensä viittausta kuvataan nuolena muuttujasta sen varsinaiseen arvoon:
 
 <img src="5_2_1.png">
 
-Viittaus siis kertoo mistä varsinainen arvo löytyy. Muuttuan "varsinaiseen" arvoon pääsee käsiksi funktiolla `id`
+Viittaus siis kertoo mistä varsinainen arvo löytyy. Muuttujan "varsinaiseen" arvoon eli viittaukseen pääsee käsiksi funktiolla `id`
 
 ```python
 a = [1,2,3]
@@ -39,18 +42,18 @@ print(id(a))
 
 </sample-output>
 
-Muuttujan id on numero jonka voi ajatela olevan muuttujan arvon sijainnin osoite tietokoneen muistissa.
+Viittaus eli muuttujan id on numero, jonka voi ajatela olevan muuttujan arvon sijainnin osoite tietokoneen muistissa.
 
-Monet Pythonin "sisäänrakennetut" tyypit, kuten`str` ovat _mutatoitumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan se voidaan korvata uudella arvolla:
+Monet Pythonin "sisäänrakennetut" tyypit, kuten `str` ovat _mutatoitumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan se voidaan korvata uudella arvolla:
 
 <img src="5_2_2.png">
 
 
-Pythonissa on myös monia tyyppejä, jotka ovat mutatoituvia. Esimerkiksi listan sisältö voi muuttuja ilman että tarvitsee luoda kokonaan uusi lista:
+Pythonissa on myös monia tyyppejä, jotka ovat mutatoituvia. Esimerkiksi listan sisältö voi muuttua ilman että tarvitsee luoda kokonaan uusi lista:
 
 <img src="5_2_3.png">
 
-Hieman yllättävää on että myös perustietotyypit `int`, `float` ja `bool` ovat mutatoitumattomia, eli jos suoritetaan esimerkiksi seuraavat komennot
+Hieman yllättävää on että myös lukuja ja totuusarvoja edustavat perustietotyypit `int`, `float` ja `bool` ovat mutatoitumattomia, eli jos suoritetaan esimerkiksi seuraava ohjelma
 
 ```python
 luku = 1
@@ -58,7 +61,7 @@ luku = 2
 luku = luku + 10
 ```
 
-vaikka vaikuttaakin siltä, että ohjelma manipuloi saman kokonaisluvun sisältöä, teknisesti ottaen ei näin ole, vaan jokainen komento luo uuden kokonaisluvun!
+vaikka vaikuttaakin siltä, että ohjelma manipuloi saman kokonaisluvun sisältöä, teknisesti ottaen ei näin ole, jokainen komento luo uuden kokonaisluvun!
 
 Seuraavan ohjelman tulostus on mielenkiintoinen
 
@@ -79,7 +82,9 @@ print(id(a))
 
 </sample-output>
 
-Aluksi muuttuja `luku` viittaa paikkaan 4535856912 ja kun muuttujan arvo muuttuu, se alkaa viitata paikkaan 4535856944. Kun muuttujaan `a` sijoitetaan arvo 1, se alkaa viitata samaan paikkaan mihin `luku` viittasi kun sen arvo oli 1. Vaikuttaakin siltä että Python on tallentanut luvun 1 paikkaan 4535856912 ja aina kun jonkun muuttujan arvona on 1, _viittaa_ muuttuja tuohon paikkaan "tietokoneen muistissa".
+Aluksi muuttuja `luku` viittaa paikkaan 4535856912 ja kun muuttujan arvo muuttuu, se alkaa viitata paikkaan 4535856944. Kun muuttujaan `a` sijoitetaan arvo 1, se alkaa viitata samaan paikkaan mihin `luku` viittasi kun sen arvo oli 1!
+
+Vaikuttaakin siltä että Python on tallentanut luvun 1 paikkaan 4535856912 ja aina kun jonkun muuttujan arvona on 1, _viittaa_ muuttuja tuohon paikkaan "tietokoneen muistissa".
 
 Vaikka perustietotyypit `int`, `float` ja `bool` ovatkin viittauksia, ei ohjelmoijan oikeastaan tarvitse välittää asiasta.
 
@@ -256,7 +261,7 @@ print(luvut)
 [1, 2, 3, 4, 4, 5, 6, 7]
 </sample-output>
 
-Funktio kyllä etsii ja löytää toiseksi pienimmän alkion, mutta sen lisäksi se muuttaa listan alkioiden järjestyksen. Jos järjestyksellä on merkitystä muualla ohjelmassa, funktion kutsuminen todennäköisesti aiheuttaa virheitä. Esimerkin kaltaista muutosta viittauksena saatuu olioon kutsutaan funktion _sivuvaikutukseksi_.
+Funktio kyllä etsii ja löytää toiseksi pienimmän alkion, mutta sen lisäksi se muuttaa listan alkioiden järjestyksen. Jos järjestyksellä on merkitystä muualla ohjelmassa, funktion kutsuminen todennäköisesti aiheuttaa virheitä. Esimerkin kaltaista muutosta viittauksena saatuun olioon kutsutaan funktion _sivuvaikutukseksi_.
 
 Sama esimerkki ilman sivuvaikutuksia:
 
