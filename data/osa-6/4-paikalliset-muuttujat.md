@@ -43,7 +43,7 @@ NameError: name 'x' is not defined
 
 </sample-output>
 
-Ohjelmassa muuttuja `x` on siis olemassa vain funktion `testi` suorituksen ajan eikä siihen pääse käsiksi muista funktioista tai pääohjelmasta. 
+Ohjelmassa muuttuja `x` on siis olemassa vain funktion `testi` suorituksen ajan eikä siihen pääse käsiksi muista funktioista tai pääohjelmasta.
 
 ## Globaalit muuttujat
 
@@ -63,7 +63,7 @@ print(x)
 
 </sample-output>
 
-Kuitenkaan globaalia muuttujaa ei voi oletuksena muuttaa. Esimerkiksi seuraava funktio ei vaikuta globaaliin muuttujaan:
+Kuitenkaan globaalia muuttujaa ei voi oletuksena muuttaa. Esimerkiksi seuraava funktio _ei vaikuta_ globaaliin muuttujaan:
 
 ```python
 def testi():

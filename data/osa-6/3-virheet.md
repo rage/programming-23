@@ -106,6 +106,34 @@ Ohjelmassa voidaan siis `try`-lauseella ilmoittaa, että seuraavan lohkon sisäl
 
 Tässä tapauksessa virhetilanteessa muuttuja `ika` saa arvon -1, jolloin ohjelma tunnistaa oikein, että ikä on virheellinen.
 
+`try`- ja `while`-lauseita hyväksikäyttäen on helppo tehdä funktio, joka varmistaa, että ohjelma ei etene ennen kun käyttäjä on antanut sille oikeassa muodossa olevan syötteen.
+
+```python
+def lue_syote():
+  while True:
+    try:
+      syote = input("syötä kokonaisluku: ")
+      return int(syote)
+    except ValueError:
+      print("annoit epäkelvon luvun...")
+
+# kokeillaan funktiota
+luku = lue_syote()
+print(f"luku {luku} potenssiin kolme on {luku*luku*luku}")
+```
+
+<sample-output>
+
+syötä kokonaisluku: kolme
+annoit epäkelvon luvun...
+syötä kokonaisluku: viisi
+annoit epäkelvon luvun...
+syötä kokonaisluku: 5
+luku 5 potenssiin kolme on 125
+
+
+</sample-output>
+
 ## Tyypillisiä virheitä
 
 Seuraavassa on listattu eräitä yleisimpiä virheitä ja tyypillisiä syitä niiden ilmenemiselle:

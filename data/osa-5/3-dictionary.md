@@ -311,7 +311,7 @@ alkuk = alkukirjaimen_mukaan(sanalista)
 for avain, arvo in alkuk.items():
     print(f"kirjaimella {avain} alkavat sanat: ")
     for sana in arvo:
-       print(" ", sana)
+       print(sana)
 ```
 
 Funktio toimii pitkälti saman periaatteen mukaan kuin edellisen esimerkin funktio. Tällä kertaa kuitenkin sanakirjassa avaimiin (eli alkukirjaimiin) liittyät arvot ovat listoja.
