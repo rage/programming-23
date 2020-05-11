@@ -32,9 +32,7 @@ Viimeinen rivi.
 
 Kun haluamme käsitellä tiedostoa ohjelmoinnissa, meidän tulee ensin _avata_ tiedosto, minkä jälkeen voimme lukea tai kirjoittaa tietoa. Pythonissa tiedosto avataan funktiolla `open`, joka saa parametrikseen tiedoston nimen. Oletuksena tiedosto avataan lukemista varten.
 
-Voimme käyttää tiedoston käsittelyyn `with`-lausetta, jolloin kaikki tiedoston käsittelyyn liittyvä koodi on lohkon sisällä ja lohkon päättymisen jälkeen tiedosto suljetaan automaattisesti. Muussa tapauksessa tiedosto pitää sulkea itse `close`-metodilla.
-
-TODO: Mitähän tässä pitäisi sanoa? Useinhan `close` ei ole oikeasti tarpeen ja muutenkin `with` voi tuntua oudolta ilman lisäselityksiä.
+Tiedoston käsittelyn jälkeen tiedosto tulee sulkea. Sulkemisen voi hoitaa kutsumalla itse `close`-metodilla. Helpompi tapa on kuitenkin käyttää tiedoston käsittelyyn `with`-lausetta, jolloin kaikki tiedoston käsittelyyn liittyvä koodi on lohkon sisällä ja lohkon päättymisen jälkeen tiedosto suljetaan automaattisesti.
 
 Seuraava esimerkkiohjelma avaa tiedoston ja tulostaa sen sisällön ruudulle. Ohjelma olettaa, että tekstitiedosto sijaitsee samassa hakemistossa kuin ohjelma suoritetaan:
 
@@ -109,6 +107,8 @@ Rivien yhteispituus: 63
 ## CSV-tiedoston lukeminen
 
 CSV-tiedosto (_Comma Separated Values_) on tekstitiedosto, jonka jokaisella rivillä on tietyllä välimerkillä erotettua tietoa. Välimerkkinä on usein pilkku `,` tai puolipiste `;`, mutta mikä tahansa muukin merkki on periaatteessa mahdollinen.
+
+CSV-tiedotoja käytetään usein erilaisten aineistojen esittämiseen. Myös taulukkolaskentaohjelmien, kuten Excelin taulukot voidaan tallettaa CSV-muodossa, jolloin niitä on helppo käsitellä muilla ohjelmilla.
 
 CSV-tiedoston rivit on helppoa lukea `for`-silmukalla, mutta miten erottaa rivillä olevat tiedot toisistaan? Helppo tapa on käyttää merkkijonojen `split`-metodia: metodille annetaan haluttu välimerkki, ja se palauttaa tiedot eroteltuna välimerkin mukaan listana merkkijonoja.
 
@@ -195,25 +195,23 @@ with open("arvosanat.txt") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(";")
         arvosanat = []
-        for arvosana in osat[1:]
+        # lisätään aputaulukkoon jokainen arvosana
+        for arvosana in osat[1:]:
             arvosanat.append(int(arvosana))
+        # talletetan arvosanataulukko sanakirjaan
         suoritukset[osat[0]] = arvosanat
 
-for nimi, arvosanat in testi.items():
-    print(nimi, arvosanat)
+for nimi, arvosanat in suoritukset.items():
+    ka = sum(arvosanat) / len(arvosanat)
+    print(f"{nimi} arvosanojen keskiarvo {ka:.2} paras arvosana {max(arvosanat)}")
 ```
-
-TODO: Mikä tämän esimerkin pointti on, kun tiedostolle ei tehdä oikein mitään vaan vain tulostetaan sen sisältö vähän eri muodossa?
 
 <sample-output>
 
-Pekka [5, 4, 5, 3, 4, 5, 5, 4, 2, 4]
-Paula [3, 4, 2, 4, 4, 2, 3, 1, 3, 3]
-Pirjo [4, 5, 5, 4, 5, 5, 4, 5]
+Pekka arvosanojen keskiarvo 4.1 korkein arvosana 5
+Paula arvosanojen keskiarvo 2.9 korkein arvosana 4
+Pirjo arvosanojen keskiarvo 4.5 korkein arvosana 5
 
 </sample-output>
 
-Kannattaa tutustua huolella esimerkkikoodiin. Se voi ensisilmäyksellä vaikuttaa monimutkaiselta, mutta ratkaisu on helposti sovellettavissa hyvin monenlaisiin datatiedostoihin. Tuloksena olevasta hakemistosta on nyt helppo laskea esimerkiksi jokaisen opiskelijan arvosanojen keskiarvo.
-
-
-
+Kannattaa tutustua huolella esimerkkikoodiin. Se voi ensisilmäyksellä vaikuttaa monimutkaiselta, mutta ratkaisu on helposti sovellettavissa hyvin monenlaisiin datatiedostoihin.

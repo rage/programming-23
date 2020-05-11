@@ -15,7 +15,7 @@ Tämän osion läpikäytyäsi
 
 </text-box>
 
-Tiedoston lukemisen lisäksi voimme kirjoittaa myös tiedostoon tietoa ohjelmassa. Tyypillinen esimerkki on ohjelman tulosten tallentaminen tiedostoon, jotta niitä voidaan käyttää myös myöhemmin tai muokata edelleen jollain toisella ohjelmalla.
+Tiedoston lukemisen lisäksi voimme myös kirjoittaa tiedostoon tietoa ohjelmassa. Tyypillinen esimerkki on ohjelman tulosten tallentaminen tiedostoon, jotta niitä voidaan käyttää myös myöhemmin tai muokata edelleen jollain toisella ohjelmalla.
 
 Tiedoston kirjoittamisessa voimme joko luoda uuden tiedoston tai lisätä tietoa olemassa olevan tiedoston vanhan tiedon perään. Molemmissa tapauksisa Pythonissa käytetään edellisestä osasta tuttua `open`-funktiota, mutta kirjoittamista varten funktiolle annetaan toinen parametri.
 
@@ -83,7 +83,7 @@ Viimeinen rivi
 
 ## Tiedon lisääminen olemassaolevaan tiedostoon
 
-Jos haluamme lisätä tietoa olemassa olevaan tiedostoon, 
+Jos haluamme lisätä tietoa olemassa olevaan tiedostoon,
 voimme avata tiedoston tilassa `a` (lyhenne sanasta append). Tällöin tiedoston nykyistä sisältöä ei pyyhitä, vaan uusi tieto kirjoitetaan tiedoston loppuun.
 
 Jos tiedostoa ei ole olemassa, tila `a` toimii samalla tavalla kuin tila `w`.
@@ -201,3 +201,91 @@ Ohjelman suorituksen jälkeen tiedosto `matriisi.txt` näyttää tältä:
 7,6,5,4
 
 </sample-data>
+
+Jos jokaisella rivillä on sama määrä alkioita, ja määrä on kuhtuullisen pieni, saattaa olla helpompi muodostaa tiedostoon kirjotettavat rivit ilman silmukkaa:
+
+```python
+def kirjoita_nelisarakkeinen_matriisi(matriisi: list):
+    with open("matriisi.txt", "w") as tiedosto:
+        for rivi in matriisi:
+            merkkeina = f"{rivi[0]},{rivi[1]},{rivi[2]},{rivi[3]}\n"
+            tiedosto.write(merkkeina)
+```
+
+Funktion lopputulos on sama kuin edellä olevassa esimerkissä, mutta funktio toimii ainoastaan jos parametrina olevassa matriisissa on jokaisella rivillä täsmämmeen neljä alkiota.
+
+## CSV:n luku ja kirjoitus samassa ohjelmassa
+
+Tehdään vielä luvun loppuun ohjelma, joka lukee CSV-tiedostosta opiskelijoiden viikoittaiset kurssipistemäärät ja laskee näiden avulla kurssin arvosanan. Lopuksi ohjelma luo CSV-tiedoston, mistä selviää opiskelijan yhteispistemäärä sekä arvosana
+
+Ohjelman lukema CSV näytää seuraavalta:
+
+<sample-data>
+
+Pekka;4;2;3;5;4;0:0
+Paula;7;2;8;3;5;4:5
+Pirjo;3;4;3;5;3;4:4
+Emilia;6;6;5;5;0;4:8
+
+</sample-data>
+
+
+Ohjelman logiikka on jaettu kolmeen funktioon, tiedoston lukeminen tapahtuu samaan tapaan kuin edellisessä aliluvussa, tiedot talletetaan sanakirjaan, missä avaimena on opiskelijan nimi ja arvona taulukko viikkopisteistä:
+
+```python
+def lue_opiskelijat(tiedosto):
+    opiskelijat = {}
+    with open(tiedosto) as tiedosto:
+        for rivi in tiedosto:
+            osat = rivi.split(";")
+            pisteet = []
+            for pistemaara in osat[1:]:
+                pisteet.append(int(pistemaara))
+            opiskelijat[osat[0]] = pisteet
+
+    return opiskelijat
+```
+
+Arvosanojen laskemista varten on tehty oma funktionsa, jota tiedostoon kirjoittava funktio hyödyntää:
+
+```python
+def arvosana(arvosanat):
+    pisteet = sum(arvosanat)
+    if pisteet<20:
+        return 0
+    elif pisteet<25:
+        return 1
+    elif pisteet<30:
+        return 2
+    elif pisteet<35:
+        return 3
+    elif pisteet<40:
+        return 4
+    else:
+        return 5
+
+def tallenna_opiskelijat(tiedosto, opiskelijat):
+    with open(tiedosto, "w") as tiedosto:
+        for nimi, viikkopisteet in opiskelijat.items():
+            tiedosto.write(f"{nimi};{arvosana(viikkopisteet)}\n")
+```
+
+Itse "pääohjelma" on nyt hyvin yksinkertainen. Huomaa, että luettavan ja kirjoitettavan tiedostson nimet annetaan funktiolle parametrina:
+
+```python
+opiskelijat = lue_opiskelijat("opiskelijat.csv")
+tallenna_opiskelijat("tulokset.csv", opiskelijat)
+```
+
+Suorituksen tuloksena oleva CSV-tiedosto näyttää seuraavalta:
+
+<sample-data>
+
+Pekka;0
+Paula;3
+Pirjo;2
+Emilia;5
+
+</sample-data>
+
+funk käyttö
