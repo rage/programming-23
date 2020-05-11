@@ -202,7 +202,7 @@ Ohjelman suorituksen jälkeen tiedosto `matriisi.txt` näyttää tältä:
 
 </sample-data>
 
-Jos jokaisella rivillä on sama määrä alkioita, ja määrä on kuhtuullisen pieni, saattaa olla helpompi muodostaa tiedostoon kirjotettavat rivit ilman silmukkaa:
+Jos jokaisella rivillä on yhtä monta alkioita ja määrä on kuhtuullisen pieni, saattaa olla helpompi muodostaa tiedostoon kirjotettavat rivit ilman silmukkaa:
 
 ```python
 def kirjoita_nelisarakkeinen_matriisi(matriisi: list):
@@ -212,7 +212,7 @@ def kirjoita_nelisarakkeinen_matriisi(matriisi: list):
             tiedosto.write(merkkeina)
 ```
 
-Funktion lopputulos on sama kuin edellä olevassa esimerkissä, mutta funktio toimii ainoastaan jos parametrina olevassa matriisissa on jokaisella rivillä täsmämmeen neljä alkiota.
+Funktion lopputulos on sama kuin edellä olevassa esimerkissä, mutta funktio on huomattavasti yksinkertaisempi. Ratkaisun "heikkous" on se että funktio toimii ainoastaan jos parametrina olevassa matriisissa on jokaisella rivillä täsmälleen neljä alkiota.
 
 ## CSV:n luku ja kirjoitus samassa ohjelmassa
 
@@ -249,28 +249,28 @@ def lue_opiskelijat(tiedosto):
 Arvosanojen laskemista varten on tehty oma funktionsa, jota tiedostoon kirjoittava funktio hyödyntää:
 
 ```python
-def arvosana(arvosanat):
-    pisteet = sum(arvosanat)
+def arvosana(pisteet):
     if pisteet<20:
-        return 0
+      return 0
     elif pisteet<25:
-        return 1
+      return 1
     elif pisteet<30:
-        return 2
+      return 2
     elif pisteet<35:
-        return 3
+      return 3
     elif pisteet<40:
-        return 4
+      return 4
     else:
-        return 5
+      return 5
 
 def tallenna_opiskelijat(tiedosto, opiskelijat):
     with open(tiedosto, "w") as tiedosto:
         for nimi, viikkopisteet in opiskelijat.items():
-            tiedosto.write(f"{nimi};{arvosana(viikkopisteet)}\n")
+            summa = sum(viikkopisteet)
+            tiedosto.write(f"{nimi};{summa};{arvosana(summa)}\n")
 ```
 
-Itse "pääohjelma" on nyt hyvin yksinkertainen. Huomaa, että luettavan ja kirjoitettavan tiedostson nimet annetaan funktiolle parametrina:
+Itse "pääohjelma" on nyt hyvin yksinkertainen. Huomaa, että luettavan ja kirjoitettavan tiedoston nimet annetaan funktioille parametrina:
 
 ```python
 opiskelijat = lue_opiskelijat("opiskelijat.csv")
@@ -281,11 +281,11 @@ Suorituksen tuloksena oleva CSV-tiedosto näyttää seuraavalta:
 
 <sample-data>
 
-Pekka;0
-Paula;3
-Pirjo;2
-Emilia;5
+Pekka;18;0
+Paula;34;3
+Pirjo;26;2
+Emilia;41;5
 
 </sample-data>
 
-funk käyttö
+Huomaa, miten ohjelma on koostettu suhteellisen yksinkertaisista, vain yhteen asiaan keskittyvistä funktioista. Tämä on yleisesti ottaen suositeltava tapa ohjelmoinnissa, se helpottaa ohjelman toiminnallisuuden varmistamista sekä myöhemmin ohjelmaan tehtävien muutostten tekemistä. Jos ohjelmasta halutaan muuttaa "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon.

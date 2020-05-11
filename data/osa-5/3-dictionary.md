@@ -248,3 +248,107 @@ Keskipituus on 173.0
 </sample-output>
 
 TODO += ei ole kerrottu vielä missään
+
+## Sanakirjan "edistyneempi" käyttö
+
+Tarkastellaan tilannetta, jossa meillä on taulukossa joukko sanoja:
+
+```python
+sanalista = [
+  "banaani", "maito", "olut", "juusto", "piimä", "mehu", "makkara",
+  "tomaatti", "kurkku", "voi", "margariini", "juusto", "makkara",
+  "olut", "piimä", "piimä", "voi", "olut", "suklaa"
+]
+```
+
+Haluamme analysoida sanalistaa eri tavoin, mm. selvittää kuinka monta kertaa kukin sana listalla esiintyy.
+
+Sanakirja sopii tähän tilanteeseen hyvin. Ideana on käydä listan sanat läpi yksi kerrallaan ja ylläpitää sanakirjassa tietoa kuinka monta kertaa kukin sana listalla esiityy:
+
+```python
+def lukumaarat(lista):
+    sanat = {}
+    for sana in lista:
+        # jos sana ei ole vielä tullut vastaan, alusta avaimen arvo
+        if not sana in sanat:
+            sanat[sana] = 0
+        # kasvata sanan esiintymislukumäärää
+        sanat[sana] += 1
+
+    return sanat
+
+# kutsutaan fuktiota
+lkmaarat = lukumaarat(sanalista)
+print(lkmaarat)
+```
+
+Ohjelman tulostus on seuraavassa:
+
+<sample-output>
+
+{'banaani': 1, 'maito': 1, 'olut': 3, 'juusto': 2, 'piimä': 3, 'mehu': 1, 'makkara': 2, 'tomaatti': 1, 'kurkku': 1, 'voi': 2, 'margariini': 1, 'suklaa': 1}
+
+</sample-output>
+
+Tehdään vielä toinen sanalistaa käsittelevä metodi, joka jaottelee listalla olevat sanat niiden alkukirjaimen mukaan:
+
+```python
+def alkukirjaimen_mukaan(lista):
+    sanat = {}
+    for sana in lista:
+        alkukirjain = sana[0]
+        # alusta alkukirjaimeen liittyvä lista kun kirjain tulee vastaan 1. kerran
+        if not alkukirjain in sanat:
+            sanat[alkukirjain] = []
+        # lisää sana alkukirjainta vastaavalle listalle
+        sanat[alkukirjain].append(sana)
+
+  return sanat
+
+# kutsutaan fuktiota
+alkuk = alkukirjaimen_mukaan(sanalista)
+
+for avain, arvo in alkuk.items():
+    print(f"kirjaimella {avain} alkavat sanat: ")
+    for sana in arvo:
+       print(" ", sana)
+```
+
+Funktio toimii pitkälti saman periaatteen mukaan kuin edellisen esimerkin funktio. Tällä kertaa kuitenkin sanakirjassa avaimiin (eli alkukirjaimiin) liittyät arvot ovat listoja.
+
+Ohjelman tulostus on seuraavassa:
+
+<sample-output>
+
+kirjaimella b alkavat sanat:
+  banaani
+kirjaimella m alkavat sanat:
+  maito
+  mehu
+  makkara
+  margariini
+  makkara
+kirjaimella o alkavat sanat:
+  olut
+  olut
+  olut
+kirjaimella j alkavat sanat:
+  juusto
+  juusto
+kirjaimella p alkavat sanat:
+  piimä
+  piimä
+  piimä
+kirjaimella t alkavat sanat:
+  tomaatti
+kirjaimella k alkavat sanat:
+  kurkku
+kirjaimella v alkavat sanat:
+  voi
+  voi
+kirjaimella s alkavat sanat:
+  suklaa
+
+</sample-output>
+
+
