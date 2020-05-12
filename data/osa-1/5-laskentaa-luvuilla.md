@@ -52,7 +52,7 @@ Laskutoimituksen osana on yleensä *operandeja* ja *operaattoreita*:
 
 Yleensä operandien tyyppi ratkaisee lopputuloksen tyypin: jos lasketaan yhteen kaksi kokonaislukua, myös tulos on kokonaisluku. Jos taas vähennetään liukuluku toisesta liukuluvusta, myös tulos on liukuluku. Itse asiassa tulos on liukuluku, jos edes yksi operandeista lausekkeessa on liukuluku.
 
-Jakolasku muodostaa Pythonissa poikkeuksen sääntöön: sen tulos liukuluku, vaikka operandit olisivatkin kokonaislukuja (esim. `1/5` tuottaa liukuluvun `0.2`).
+Jakolasku muodostaa Pythonissa poikkeuksen sääntöön: sen tulos liukuluku, vaikka operandit olisivatkin kokonaislukuja (esim. `1 / 5` tuottaa liukuluvun `0.2`).
 
 Esimerkki:
 
@@ -103,8 +103,8 @@ print("Ikäsi vuoden 2020 lopussa:", 2020-vuosi)
 Vastaavasti voimme muuttaa merkkijonon liukuluvuksi funktiolla `float`. Seuraava ohjelma kysyy käyttäjän painon ja pituuden ja laskee näiden tietojen avulla painoindeksin:
 
 ```python
-paino = float(input("Anna paino: "))
 pituus = float(input("Anna pituus: "))
+paino = float(input("Anna paino: "))
 
 pituus = pituus / 100
 bmi = paino / pituus ** 2

@@ -16,8 +16,7 @@ Tämän osion suoritettuasi
 </text-box>
 
 
-Edellisessä osassa käytettiin muuttujia tallentamaan `input`-komennon antamat arvot.
-Muuttujia tarvitaan ohjelmissa lukuisiin muihinkin tarkoituksiin: muuttujiin voidaan tallentaa mitä tahansa sellaista tietoa, jota tarvitaan ohjelmassa myöhemmin.
+Muuttujia tarvitaan ohjelmissa moniin tarkoituksiin. Voimme tallentaa muuttujiin mitä tahansa sellaista tietoa, jota tarvitaan ohjelmassa myöhemmin.
 
 Muuttuja luodaan Pythonissa seuraavasti:
 
@@ -25,7 +24,19 @@ Muuttuja luodaan Pythonissa seuraavasti:
 
 Tässä `...` tarkoittaa arvoa, joka tallennetaan muuttujaan.
 
-Esimerkiksi voimme sijoittaa muuttujaan `input`-komennon välityksellä käyttäjän antaman merkkijonon. Jotta tätä merkkijonoa voidaan käyttää ohjelmassa myöhemmin (esimerkiksi tulostamaan käyttäjälle tervehdys), se tallennetaan muuttujaan.
+Esimerkiksi kun luemme `input`-komennolla merkkijonon käyttäjältä, sijoitamme merkkijonon muuttujaan, jotta voimme käyttää sitä myöhemmin ohjelmassa:
+
+```python
+nimi = input("Anna nimesi: ")
+print("Moi, " + nimi)
+```
+
+<sample-output>
+
+Anna nimesi: **Kummitus**
+Moi, Kummitus
+
+</sample-output>
 
 Muuttujille voidaan antaa arvoja myös esimerkiksi näin:
 
@@ -43,6 +54,8 @@ print(nimi)
 Pekka Pythonen
 
 </sample-output>
+
+Tässä tapauksessa muuttujan arvo ei tule käyttäjältä vaan se on sama ohjelman jokaisella suorituskerralla.
 
 ## Muuttujien arvon muuttaminen
 
@@ -106,7 +119,7 @@ Pythonissa muuttujien nimet on tapana kirjoittaa pienillä kirjaimilla.
 
 ## Kokonaisluvut
 
-Tähän mennessä on käsitelty pelkästään merkkijonomuuttujia. Usein ohjelmissa halutaan kuitenkin tallentaa myös muun tyyppistä tietoa. Tarkastellaan aluksi _kokonaislukumuuttujia_.
+Tähän mennessä olemme tallentaneet muuttujiin vain merkkijonoja. Usein ohjelmissa halutaan kuitenkin tallentaa myös muun tyyppistä tietoa. Tarkastellaan aluksi kokonaislukuja.
 
 Seuraava ohjelma luo muuttujan `ika`, jonka sisältönä on kokonaisluku.
 
@@ -184,7 +197,7 @@ TypeError: unsupported operand type(s) for +: 'str' and 'int'
 
 Python kertoo, ettei kahden erityyppisen arvon yhdistäminen toimi. Tässä tapauksessa arvon `"Tulos on"` tyyppi on merkkijono ja arvon `tulos` tyyppi on kokonaisluku.
 
-Jos haluat tulostaa yhdellä komennolla merkkijonon ja luvun, yhdistäminen onnistuu kuitenkin muuttamalla luku merkkijonoksi `str`-funktiolla. Esimerkiksi
+Jos haluamme tulostaa yhdellä komennolla merkkijonon ja luvun, yhdistäminen onnistuu kuitenkin muuttamalla luku merkkijonoksi `str`-funktiolla. Esimerkiksi
 
 ```python
 tulos = 10 * 25
@@ -210,11 +223,11 @@ Tulos on 250
 
 </sample-output>
 
-Huomaa, että tässä tapauksessa arvojen väliin ilmestyy automaattisesti yksi välilyönti tulostuksessa. Riippuu tilanteesta, mikä on kätevin tapa tulostaa erityyppisiä arvoja.
+Huomaa, että tässä tapauksessa arvojen väliin ilmestyy automaattisesti yksi välilyönti tulostuksessa.
 
 ## Liukuluvut
 
-Aina kokonaisluvut eivät riitä. Ohjelmoinnissa _liukuluku_ tarkoittaa desimaalilukua. Liukulukuja voidaan käyttää melko samalla tavalla kuin kokonaislukuja. Huomaa, että _desimaalierottimena käytetään pistettä_ (kuten englannissa yleensä).
+`Liukuluku` on ohjelmoinnissa esiintyvä termi, joka tarkoittaa käytännössä desimaalilukua. Liukulukuja voidaan käyttää melko samalla tavalla kuin kokonaislukuja. Huomaa, että desimaalierottimena käytetään pistettä (kuten englannissa yleensä).
 
 Esimerkiksi seuraava ohjelma laskee kolmen liukuluvun keskiarvon:
 

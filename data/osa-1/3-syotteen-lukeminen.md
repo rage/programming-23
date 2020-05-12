@@ -17,7 +17,7 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-_Syöte_ tarkoittaa tietoa, jonka ohjelman käyttäjä antaa ohjelmalle. Pythonissa voimme lukea rivin käyttäjän antamaa syötettä `input`-komennolla. Komennolle voidaan antaa käyttäjälle näytettävä viesti, jonka tarkoitus on ohjata käyttäjää antamaan oikeanlainen syöte.
+_Syöte_ tarkoittaa tietoa, jonka ohjelman käyttäjä antaa ohjelmalle. Pythonissa voimme lukea rivin käyttäjän antamaa syötettä `input`-komennolla. Komento näyttää samalla viestin käyttäjälle, jossa voi pyytää syötettä.
 
 Esimerkiksi seuraava ohjelma lukee käyttäjän nimen `input`-komennolla ja
 tulostaa ruudulle tervehdyksen `print`-komennolla:
@@ -45,7 +45,7 @@ Moi vaan, Outi Ohjelmoija
 
 </sample-output>
 
-Ensimmäisellä rivillä oleva sana `nimi` on _muuttuja_. Muuttujalla tarkoitetaan ohjelmoinnissa "lokeroa", johon voidaan tallentaa jokin _arvo_. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
+Ohjelmassa esiintyvä sana `nimi` on _muuttuja_. Muuttujalla tarkoitetaan ohjelmoinnissa "lokeroa", johon voidaan tallentaa jokin _arvo_. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
 
 <text-box variant="hint" name="Muuttujan nimen valinta">
 

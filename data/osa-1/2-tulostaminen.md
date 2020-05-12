@@ -17,9 +17,9 @@ Tässä osiossa
 
 </text-box>
 
-Tietokoneohjelmat koostuvat _komennoista_ eli yksinkertaisista toimintaohjeista, joita kone suorittaa yksi kerrallaan. Komennot voivat esimerkiksi suorittaa laskutoimituksia, vertailla asioita, aiheuttaa muutoksen ohjelman toimintaan tai välittää viestejä ja kysellä tietoja käyttäjältä.
+Tietokoneohjelmat koostuvat _komennoista_ eli yksinkertaisista toimintaohjeista, joita kone suorittaa yksi kerrallaan. Komennot voivat esimerkiksi suorittaa laskutoimituksia, vertailla muistissa olevia tietoja, aiheuttaa muutoksen ohjelman toimintaan tai välittää viestejä ja kysellä tietoja käyttäjältä.
 
-Aloitetaan ohjelmointiin tutustuminen ehkä yksinkertaisesta komennosta `print`, jonka avulla ohjelma voi _tulostaa_ tekstiä. Tulostaminen tarkoittaa käytännössä, että ohjelma näyttää tekstiä ruudulla.
+Aloitetaan ohjelmointiin tutustuminen yksinkertaisesta komennosta `print`, joka _tulostaa_ tekstiä. Tulostaminen tarkoittaa käytännössä, että ohjelma näyttää tekstiä ruudulla.
 
 Esimerkiksi seuraava ohjelma tulostaa rivin "Moi kaikki":
 
@@ -31,7 +31,7 @@ Kun suoritamme ohjelman, se tuottaa seuraavan tuloksen:
 
 <sample-output>
 
-Moi kaikki
+Moi kaikki!
 
 </sample-output>
 
@@ -117,22 +117,19 @@ Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällös
 
 Jos rivin alussa on merkki `#`, rivi on kommentti, jolloin rivillä oleva teksti ei vaikuta ohjelman toimintaan.
 
-Kommenttien yksi tarkoitus on, että ohjelmoija voi selostaa itselleen ja muille ohjelmoijille, miten ohjelma toimii. Esimerkiksi seuraavassa ohjelmassa kommentit selittävät käytettyä laskukaavaa:
+Kommenttien avulla ohjelmoija voi selostaa itselleen ja muille ohjelmoijille, miten ohjelma toimii. Esimerkiksi seuraavassa ohjelmassa kommentit selittävät käytettyä laskukaavaa:
 
 ```python
-# 60 sekuntia minuutissa
-# 60 minuuttia tunnissa
-# 24 tuntia vuorokaudessa
-# 365 vuorokautta vuodessa
-print("Sekuntien määrä vuodessa:")
-print(60*60*24*365)
+print("Tuntien määrä vuodessa:")
+# vuodessa on 365 päivää ja jokaisessa 24 tuntia
+print(365*24)
 ```
 
 Kun ohjelma suoritetaan, kommenteissa oleva teksti ei näy mitenkään ohjelman käyttäjälle:
 
 <sample-output>
 
-Sekuntien määrä vuodessa:
-31536000
+Tuntien määrä vuodessa:
+8760
 
 </sample-output>

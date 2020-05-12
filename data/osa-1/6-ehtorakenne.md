@@ -52,13 +52,13 @@ Seuraava asiakas, kiitos!
 
 </sample-output>
 
-Esimerkkejä tarkastelemalla huomataan, että syötteenä annettu arvo vaikuttaa nyt siihen, mitkä osat ohjelmasta suoritetaan. Ohjelmassa on käytössä **ehtorakenne**, jonka sisällä oleva koodi suoritetaan vain, kun _annettu ehto on tosi_.
+Esimerkkejä tarkastelemalla huomataan, että syötteenä annettu arvo vaikuttaa nyt siihen, mitkä osat ohjelmasta suoritetaan. Ohjelmassa on käytössä _ehtorakenne_, jonka sisällä oleva koodi suoritetaan vain, kun annettu ehto on tosi.
 
 <img src="1_6.png">
 
 Ehtorakenteessa avainsanaa `if` seuraa jokin _ehto_, kuten kahden arvon vertailu. Tämän jälkeen tuleva koodi suoritetaan vain, jos ehto pitää paikkansa.
 
-Huomaa, että ehtorakenteen ensimmäisen rivin lopussa on kaksoispiste. Jos se unohtuu
+Huomaa, että ehtorakenteen ensimmäisen rivin lopussa on kaksoispiste. Seuraavassa koodissa kaksoispiste on unohtunut:
 
 ```python
 ika = 10
@@ -68,7 +68,7 @@ if ika > 17
     print("Olet täysi-ikäinen.")
 ```
 
-seurauksena on virheilmoitus
+Tämän seurauksena koodi antaa virheen:
 
 <sample-output>
 <pre>
@@ -89,7 +89,7 @@ Tyypillinen ehto on kahden arvon vertailu. Pythonin vertailuoperaattorit ovat:
 | `!=` | Eri suuri | `a != b` |
 | `>` | Suurempi | `a > b` |
 | `>=` | Suurempi tai yhtä suuri | `a >= b` |
-| `<` | Pienempi | `a < b"` |
+| `<` | Pienempi | `a < b` |
 | `<=` | Pienempi tai yhtä suuri | `a <= b` |
 
 Tarkastellaan esimerkkinä ohjelmaa, joka tulostaa tiedon siitä, onko käyttäjän syöttämä luku negatiivinen, positiivinen vai nolla:
@@ -114,8 +114,16 @@ Ohjelma suoritettuna kolme kertaa eri syötteillä:
 Anna luku: **15**
 Luku on positiivinen.
 
+</sample-output>
+
+<sample-output>
+
 Anna luku: **-18**
 Luku on negatiivinen.
+
+</sample-output>
+
+<sample-output>
 
 Anna luku: **0**
 Luku on nolla.
@@ -124,7 +132,7 @@ Luku on nolla.
 
 ## Lohkot
 
-Ehtorakenteen aloitusrivin jälkeiseltä riviltä alkaa _lohko_, jossa oleva koodi suoritetaan vain silloin, kun ehto on tosi. Python tunnistaa lohkoon kuuluvan koodin siitä, että jokainen rivi on _sisennetty_ samalla tavalla. Ennen rivin alkua on siis tyhjää tilaa enemmän kuin rivillä, jolla ehto annettiin.
+Ehtorakenteen aloitusrivin jälkeiseltä riviltä alkaa _lohko_, jossa oleva koodi suoritetaan vain silloin, kun ehto on tosi. Python tunnistaa lohkoon kuuluvan koodin siitä, että jokainen rivi on _sisennetty_ samalla tavalla. Tämä tarkoittaa, että ennen lohkoon kuuluvan rivin alkua on tyhjää tilaa enemmän kuin rivillä, jolla ehto annettiin.
 
 Esimerkiksi:
 
@@ -139,7 +147,7 @@ if salasana == "kissa":
 print("Ohjelman suoritus päättyi. Kiitos ja hei!")
 ````
 
-Tyhjä tila voidaan esittää joko välilyönneillä (usein käytetään neljää välilyöntiä) tai _tabulaattorilla_, jonka saat Tab-näppäimestä.
+Tyhjä tila saadaan aikaan _tabulaattorilla_, jonka saat Tab-näppäimestä.
 
 <img src="1_6_keyboard.png">
 
