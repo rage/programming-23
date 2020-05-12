@@ -13,21 +13,21 @@ Aloitetaan ohjelmoinnin opettelu viestien välittämisestä käyttäjälle: ohje
 Tässä osiossa
 
 - Kirjoitat ja suoritat ensimmäisen Python-ohjelmasi
-- Opit käyttämään print-funktiota viestien tulostamiseksi
+- Opit käyttämään print-komentoa viestien tulostamiseen
 
 </text-box>
 
-Tietokoneohjelmat koostuvat sarjasta _komentoja_, eli eräänlaisia yksinkertaisia toimintaohjeita, joita kone suorittaa yksi kerrallaan. Komentoja on erilaisia, osa niistä on aritmeettisia operaatiota, eli esimerkiksi lukujen summaamista, tai vertailua. Osa keskittyy ohjelman käyttäjän kanssa tapahtuvaan interaktioon. Jotkut komennot taas ohjaavat ohjelman toimintaa, eli saavat ohjelman esimerkiksi _haarautumaan_ erilaisiin toiminnallisuuksiin sen perusteella mitä syötteitä käyttäjä antaa ohjelmalle.
+Tietokoneohjelmat koostuvat _komennoista_ eli yksinkertaisista toimintaohjeista, joita kone suorittaa yksi kerrallaan. Komennot voivat esimerkiksi suorittaa laskutoimituksia, vertailla asioita, aiheuttaa muutoksen ohjelman toimintaan tai välittää viestejä ja kysellä tietoja käyttäjältä.
 
-Aloitetaan ohjelmointiin tutustuminen ehkä yksinkertaisimmasta ja tärkeimmästä komennosta `print`, jonka avulla ohjelma voi tulostaa ruudulle rivin tekstiä.
+Aloitetaan ohjelmointiin tutustuminen ehkä yksinkertaisesta komennosta `print`, jonka avulla ohjelma voi _tulostaa_ tekstiä. Tulostaminen tarkoittaa käytännössä, että ohjelma näyttää tekstiä ruudulla.
 
-Esimerkiksi seuraava ohjelma tulostaa rivin "Moi kaikki".
+Esimerkiksi seuraava ohjelma tulostaa rivin "Moi kaikki":
 
 ```python
-
 print("Moi kaikki!")
-
 ```
+
+Kun suoritamme ohjelman, se tuottaa seuraavan tuloksen:
 
 <sample-output>
 
@@ -35,17 +35,13 @@ Moi kaikki
 
 </sample-output>
 
-Yllä on esitetty esimerkkiohjelma ja sen tulostus. Voit kokeilla lausetta myös itse _KONSOLISSA?_
-
-Huomaa, että jos yritämme tulostaa rivin käyttämättä lainausmerkkejä
+Huomaa, että ohjelman koodi tulee kirjoittaa tarkalleen yllä olevalla tavalla, jotta se toimii. Esimerkiksi jos yritämme tulostaa rivin käyttämättä lainausmerkkejä
 
 ```python
-
 print(Moi kaikki!)
-
 ```
 
-ohjelma ei toimi, ja seurauksena on seuraava virheilmoitus
+ohjelma ei toimi, ja seurauksena on seuraava virheilmoitus:
 
 <sample-output>
 
@@ -65,19 +61,17 @@ ne suoritetaan järjestyksessä ylhäältä alas.
 Esimerkiksi ohjelma
 
 ```python
-
 print("Tervetuloa opettelemaan ohjelmointia!")
-print("Aluksi harjoitellaan print-funktion käyttöä.")
-print("Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.")
-
+print("Aluksi harjoitellaan print-komennon käyttöä.")
+print("Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.")
 ```
-...tulostaa ruudulle seuraavat rivit:
+tulostaa ruudulle seuraavat rivit:
 
 <sample-output>
 
 Tervetuloa opettelemaan ohjelmointia!
-Aluksi harjoitellaan print-funktion käyttöä.
-Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.
+Aluksi harjoitellaan print-komennon käyttöä.
+Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.
 
 </sample-output>
 
@@ -86,11 +80,9 @@ Tämä ohjelma tulostaa ruuulle kolme riviä tekstiä.
 Jos laitamme `print`-komennon sisälle laskutoimituksen, tulostuu ruudulle laskutoimituksen tulos. Esimerkiksi ohjelma
 
 ```python
-
 print(2 + 5)
 print(3 * 3)
 print(2 + 2 * 10)
-
 ```
 tulostaa ruudulle rivit
 
@@ -102,14 +94,11 @@ tulostaa ruudulle rivit
 
 </sample-output>
 
-Huomaa, että laskutoimituksen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään
-_merkkijono_, joka tulostetaan ruudulle sellaisenaan. Huomaa siis seuraavien komentojen ero:
+Huomaa, että laskutoimituksen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään _merkkijono_, joka tulostetaan ruudulle sellaisenaan. Huomaa siis seuraavien komentojen ero:
 
 ```python
-
 print(2 + 2 * 10)
 print("2 + 2 * 10")
-
 ```
 
 Ohjelma tulostaa
@@ -126,21 +115,24 @@ Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällös
 
 ## Kommentit
 
-Kommenttien avulla voidaan kertoa ohjelman toiminnasta ohjelman lukijalle. Pythonissa kommentit merkitään `#`-merkin avulla.
+Jos rivin alussa on merkki `#`, rivi on kommentti, jolloin rivillä oleva teksti ei vaikuta ohjelman toimintaan.
 
-Python ei suorita mitään rivillä olevaa sisältöä `#`-merkin jälkeen.
-Kommenttien tarkoituksena on siis kertoa ohjelmoijalle itselleen ja muille ohjelmoijille ohjelmakoodiin liittyviä asioita.
+Kommenttien yksi tarkoitus on, että ohjelmoija voi selostaa itselleen ja muille ohjelmoijille, miten ohjelma toimii. Esimerkiksi seuraavassa ohjelmassa kommentit selittävät käytettyä laskukaavaa:
 
 ```python
-
-TODO: tässä pitäisi olla hyvä esimerkki kommentoinnista
-
+# 60 sekuntia minuutissa
+# 60 minuuttia tunnissa
+# 24 tuntia vuorokaudessa
+# 365 vuorokautta vuodessa
+print("Sekuntien määrä vuodessa:")
+print(60*60*24*365)
 ```
+
+Kun ohjelma suoritetaan, kommenteissa oleva teksti ei näy mitenkään ohjelman käyttäjälle:
 
 <sample-output>
 
-8
-2.5
-** toimii siis eksponenttioperaattorina, ja / jako-operaattorina
+Sekuntien määrä vuodessa:
+31536000
 
 </sample-output>

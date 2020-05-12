@@ -23,7 +23,6 @@ Usein on kuitenkin tarpeen määritellä ohjelmaan osia, jotka suoritetaan vain 
 Tarkastellaan ensin esimerkkiä, joka tarkastelee, onko henkilö täysi-ikäinen:
 
 ```python
-
 ika = int(input("Kuinka vanha olet? "))
 
 if ika > 17:
@@ -31,10 +30,9 @@ if ika > 17:
     print("Tässä siis sinulle ikiomaksi GTA6.")
 
 print("Seuraava asiakas, kiitos!")
-
 ```
 
-Ohjelman suoritus näyttää tältä, kun syötetään luku joka on suurempi kuin 17...
+Ohjelman suoritus näyttää tältä, kun ikä on suurempi kuin 17:
 
 <sample-output>
 
@@ -45,7 +43,7 @@ Seuraava asiakas, kiitos!
 
 </sample-output>
 
-...ja tältä, kun syötetään luku joka *ei* ole suurempi kuin 17:
+Jos kuitenkin ikä ei ole suurempi kuin 17, käy näin:
 
 <sample-output>
 
@@ -54,19 +52,15 @@ Seuraava asiakas, kiitos!
 
 </sample-output>
 
-Esimerkkejä tarkastelemalla huomataan, että syötteenä annettu arvo vaikuttaa nyt siihen, mitkä osat ohjelmasta suoritetaan.
-Ohjelmassa on käytössä **ehtorakenne**,
-jonka sisällä oleva koodi suoritetaan vain, kun _annettu ehto on tosi_.
+Esimerkkejä tarkastelemalla huomataan, että syötteenä annettu arvo vaikuttaa nyt siihen, mitkä osat ohjelmasta suoritetaan. Ohjelmassa on käytössä **ehtorakenne**, jonka sisällä oleva koodi suoritetaan vain, kun _annettu ehto on tosi_.
 
 <img src="1_6.png">
 
-Ehtorakenteessa avainsanaa `if` seuraa jokin _ehto_. Kun Python laskee ehdon arvon, tuloksena on joko `True` tai `False` eli tosi tai epätosi.
-Tämän jälkeen tuleva koodi suoritetaan vain, jos ehto sai arvon tosi.
+Ehtorakenteessa avainsanaa `if` seuraa jokin _ehto_, kuten kahden arvon vertailu. Tämän jälkeen tuleva koodi suoritetaan vain, jos ehto pitää paikkansa.
 
 Huomaa, että ehtorakenteen ensimmäisen rivin lopussa on kaksoispiste. Jos se unohtuu
 
 ```python
-
 ika = 10
 
 # puolipiste unohtui seuraavan rivin lopusta...
@@ -87,25 +81,20 @@ SyntaxError: invalid syntax
 
 ## Vertailuoperaattorit
 
-Tyypillinen ehto on kahden arvon vertailu. Seuraavassa taulukossa on esitelty muutamia Pythonin vertailuoperaattoreita ja esimerkkejä:
+Tyypillinen ehto on kahden arvon vertailu. Pythonin vertailuoperaattorit ovat:
 
-TODO: tässä olisi varmasti hyvä olla myös >= ja <=?
-
-| Operaattori | Merkitys       | Esimerkki    | ...saa arvon |
-|:-----------:|----------------|--------------|:------------:|
-| `==`        | Yhtäsuuruus    | `(2 + 2) == 4` | `True`|
-| | | `5 *  10 == 40` | `False`|
-| `!=` | Erisuuruus | `(2 + 2) != 5` | `True`|
-| | | `"Peter" != "Pet" + "er"` | `False`|
-| `>` | Suurempi kuin | `9 > 3 + 4` | `True`|
-| | | `"abc" > "bcd"` | `False` |
-| `<`| Pienempi kuin | `"abc" < "bcd"` | `True`|
-| | | `5 * 2 < 9.99` | `False`|
+| Operaattori | Merkitys       | Esimerkki    |
+|:-----------:|----------------|--------------|
+| `==` | Yhtä suuri    | `a == b` |
+| `!=` | Eri suuri | `a != b` |
+| `>` | Suurempi | `a > b` |
+| `>=` | Suurempi tai yhtä suuri | `a >= b` |
+| `<` | Pienempi | `a < b"` |
+| `<=` | Pienempi tai yhtä suuri | `a <= b` |
 
 Tarkastellaan esimerkkinä ohjelmaa, joka tulostaa tiedon siitä, onko käyttäjän syöttämä luku negatiivinen, positiivinen vai nolla:
 
 ```python
-
 luku = int(input("Anna luku: "))
 
 if luku < 0:
@@ -116,7 +105,6 @@ if luku > 0:
 
 if luku == 0:
     print("Luku on nolla.")
-
 ```
 
 Ohjelma suoritettuna kolme kertaa eri syötteillä:
@@ -134,22 +122,13 @@ Luku on nolla.
 
 </sample-output>
 
-
 ## Lohkot
 
-TODO: olisiko hyvä myös esitellä käsite "lohko" vähän myöhemmin yleisemmin?
-
-Ehtorakenteen aloitusrivin jälkeiseltä riviltä alkaa _lohko_,
-jossa oleva koodi suoritetaan vain silloin, kun ehto on tosi.
-
-Python tunnistaa lohkoon kuuluvan koodin siitä,
-että jokainen rivi on _sisennetty_ samalla tavalla.
-Ennen rivin alkua on siis tyhjää tilaa enemmän kuin rivillä, jolla ehto annettiin.
+Ehtorakenteen aloitusrivin jälkeiseltä riviltä alkaa _lohko_, jossa oleva koodi suoritetaan vain silloin, kun ehto on tosi. Python tunnistaa lohkoon kuuluvan koodin siitä, että jokainen rivi on _sisennetty_ samalla tavalla. Ennen rivin alkua on siis tyhjää tilaa enemmän kuin rivillä, jolla ehto annettiin.
 
 Esimerkiksi:
 
 ````python
-
 salasana = input("Anna salasana: ")
 
 if salasana == "kissa":
@@ -158,10 +137,9 @@ if salasana == "kissa":
     print("...tai melkoinen hakkerivelho.")
 
 print("Ohjelman suoritus päättyi. Kiitos ja hei!")
-
 ````
 
-Tyhjä tila voidaan esittää joko välilyönneillä (yleensä käytetään neljää välilyöntiä) tai _tabulaattorilla_, jonka saat Tab-näppäimestä.
+Tyhjä tila voidaan esittää joko välilyönneillä (usein käytetään neljää välilyöntiä) tai _tabulaattorilla_, jonka saat Tab-näppäimestä.
 
 <img src="1_6_keyboard.png">
 
@@ -169,69 +147,39 @@ Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi
 
 TODO: kuva myös backspacesta
 
-Useissa muissa ohjelmointikielessä käytetään erillisiä symboleita kuvaamaan lohkon alkua ja loppua. Pythonissa lohkon määrittää siis rivien sisentäminen. Tästä on se etu, että ohjelmakoodi on pakko kirjoittaa helpommin luettavaksi.
-
-TODO: `pass` on hyvä esitellä jossain muualla kuin tässä
-
 ## Totuusarvot
 
-Kuten aikaisemmin todettiin, ehtorakenteessa käytettävä ehto saa totuusarvon `True` tai `False`.
+Ehtorakenteessa käytettävä ehto saa totuusarvon `True` (tosi) tai `False` (epätosi). Esimerkiksi ehto `a < 5` on tosi jos `a` on alle 5 ja epätosi jos `a` on 5 tai suurempi.
 
-Totuusarvo voidaan myös asettaa suoraan muuttujan arvoksi:
+Voimme asettaa ehdon tuloksen muuttujan arvoksi samaan tapaan kuin laskutoimituksen tuloksen:
 
 ```python
-
-totuus = True
-
-if totuus:
-    print("Arvo on tosi")
-
-totuus = False
-
-if totuus:
-    print("Arvo on vieläkin tosi")
-
+a = 3
+ehto = a < 5
+print(ehto)
+if ehto:
+    print("a on pienempi kuin 5")
 ```
-
-Ohjelma tulostaa suoritettaessa arvon vain ensimmäistä ehtoa seuraavasta lohkosta:
 
 <sample-output>
 
-Arvo on tosi
-
-</sample-output>
-
-Samalla tavalla ehdon tulos voidaan asettaa muuttujan arvoksi:
-
-```python
-
-ika1 = 24
-ika2 = 32
-ika3 = 19
-
-eka_vanhempi = (ika1 > ika2)
-print(eka_vanhempi)
-
-if eka_vanhempi:
-    print("Eka on vanhempi kuin toka!")
-
-eka_vanhempi = ika1 > ika3
-print(eka_vanhempi)
-
-if eka_vanhempi:
-    print("Eka on vanhempi kuin kolmas!")
-
-```
-
-Ohjelman suoritus tulostaa:
-
-<sample-output>
-
-False
 True
-Eka on vanhempi kuin kolmas!
+a on pienempi kuin 5
 
 </sample-output>
 
+Voimme käyttää koodissa myös sanoja `True` ja `False`. Esimerkiksi seuraava koodi suorittaa `print`-komennon aina, koska ehdon arvona on `True`:
 
+```python
+ehto = True
+if ehto:
+    print("Tänne tullaan aina")
+```
 
+<sample-output>
+
+Tänne tullaan aina
+
+</sample-output>
+
+Tällainen ohjelma ei ole sinänsä kovin hyödyllinen, mutta myöhemmin kurssilla näemme, mitä hyötyä on totuusarvoista muuttujissa.
