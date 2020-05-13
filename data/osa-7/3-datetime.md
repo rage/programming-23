@@ -1,6 +1,6 @@
 ---
-path: '/osa-7/2-kirjasto-datetime'
-title: 'Päivämäärien ja kellonaikojen käsittely'
+path: '/osa-7/3-datetime'
+title: 'Päivämäärät ja kellonajat'
 hidden: false
 ---
 
@@ -15,6 +15,8 @@ Tämän osion suoritettuasi
 - Osaat vertailla päivämääriä ja kellonaikoja toisiinsa ja laskea niiden erotuksia
 
 </text-box>
+
+TODO: Tässä on nyt todella paljon asiaa, halutaanko käsitellä näin perusteellisesti päivämääriä ja aikoja?
 
  Päivämäärien ja kellonaikojen hallinta ohjelmissa saattaa tuntua ensi alkuun yksinkertaiselta, mutta todellisuudessa se kannattaa yleensä jättää ulkoisten kirjastojen huoleksi. Esimerkiksi kahden ajankohdan välisen erotuksen laskemisessa pitää ottaa huomioon se, että eri kuukausissa on eri määrä päiviä, karkausvuodet ja muut poikkeukset. Myös erilaiset tavat merkitä aikoja voivat tuottaa hankaluuksia ohjelmoijalle: kun helmikuun kolmas päivä vuonna 2021 merkitään Suomessa muodossa 3.2.2021, merkitään se tyypillisesti Yhdysvalloissa muodossa 02/03/2021 ja useimpien tietokonejärjestelmien käyttämässä aikaleimajärjestelmässä muodossa 2021/02/03. Samalla tavalla kellonaikojen merkintään käytetään paitsi eri tarkkuuksia, myös 12 ja 24 tunnin järjestelmiä.
 
