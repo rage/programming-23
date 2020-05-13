@@ -88,7 +88,7 @@ print("Ikäsi vuoden 2020 lopussa:", 2020-vuosi)
 ```
 <sample-output>
 
-Minä vuonna olet syntynyt? 1995
+Minä vuonna olet syntynyt? **1995**
 Ikäsi vuoden 2020 lopussa: 25
 
 </sample-output>
@@ -239,7 +239,7 @@ tieto = int(input("Mikä on ikäsi? "))
 # ohjelma jatkuu...
 ```
 
-Parempi on siis käyttää molempaa tarkoitusta varten omaa _kuvaavasti niemttyä_ muuttujaa:
+Parempi on siis käyttää molempaa tarkoitusta varten omaa _kuvaavasti nimettyä_ muuttujaa:
 
 ```python
 nimi = input("Mikä on nimesi? ")
