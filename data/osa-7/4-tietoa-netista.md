@@ -1,6 +1,6 @@
 ---
-path: '/osa-7/4-lisaa-moduuleja'
-title: 'Lisää moduuleja'
+path: '/osa-7/4-tietoa-netistä'
+title: 'Tiedonhaku netistä'
 hidden: false
 ---
 
@@ -8,8 +8,9 @@ hidden: false
 
 Tämän osion suoritettuasi:
 
-- Tunnet lisää Pythonin mukana tulevia moduuleja
-- Osaat etsiä tietoa moduuleista Pythonin dokumentaatiosta
+- Osaat hakea tietoa netistä Pythonin avulla
+- Osaat erottaa osia HTML-sivusta
+- Osaat käsitellä JSON-muotoista tietoa
 
 </text-box>
 

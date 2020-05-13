@@ -1,5 +1,5 @@
 ---
-path: '/osa-7/2-random'
+path: '/osa-7/2-satunnaisuus'
 title: 'Satunnaisuus'
 hidden: false
 ---
@@ -59,7 +59,7 @@ Noppa antaa: 3
 
 </sample-output>
 
-Huomaa, että funktio `randint` toimii vähän eri logiikalla kuin aiemmin tuttu funktio `range`. Kun kutsumme funktiota `randint(1,6)`, lukuväli 1...6, mutta kun kutsumme funktiota `range(1,6)`, lukuväli on 1...5.
+Huomaa, että funktio `randint` toimii eri logiikalla kuin aiemmin käyttämämme funktio `range`, joka luo lukuvälin. Kun kutsumme funktiota `randint(1,6)`, lukuväli 1...6, mutta kun kutsumme funktiota `range(1,6)`, lukuväli on 1...5.
 
 ## Lisää funktioita
 
@@ -93,6 +93,57 @@ print(choice(sanat))
 'cembalo'
 
 </sample-output>
+
+## Lottorivin arvonta
+
+Tarkastellaan esimerkkinä tilannetta, jossa haluamme arpoa lottorivin. Lotossa on yhteensä 40 numeroa, joista arvotaan 7 numeroa riviin.
+
+Yksinkertainen tapa koettaa arpoa lottorivi on seuraava:
+
+```python
+from random import randint
+
+for i in range(7):
+    print(randint(1,40))
+```
+
+Tämä ei ole kuitenkaan toimiva tapa, koska sama numero saattaa tulla useita kertoja riviin. Tarvitsemme jonkin menetelmän, joka varmistaa, että jokainen numero on eri numero.
+
+Yksi mahdollisuus on tallentaa arvotut numerot listaan ja lisätä uusi numero listaan vain, jos sitä ei vielä ole siellä. Voimme jatkaa tätä, kunnes listassa on 7 numeroa:
+
+```python
+from random import randint
+
+rivi = []
+while len(rivi) < 7:
+    uusi = randint(1,40)
+    if uusi not in rivi:
+        rivi.append(uusi)
+print(rivi)
+```
+
+Voimme kuitenkin toteuttaa arvonnan myös lyhyemmin funktion `shuffle` avulla:
+
+```python
+from random import shuffle
+
+kaikki = list(range(1,41))
+shuffle(kaikki)
+rivi = kaikki[0:7]
+print(rivi)
+```
+
+Tässä ideana on, että luomme ensin listan, jossa on kaikki numerot väliltä 1–40. Tämän jälkeen sekoitamme listan ja valitsemme sitten 7 ensimmäistä numeroa riviin. Tämän ansiosta meidän ei tarvitse tehdä silmukkaa.
+
+Itse asiassa voimme toteuttaa arvonnan vielä helpommin, koska Pythonin standardikirjastossa on myös funktio `sample`, joka valitsee annetusta tietorakenteesta halutun määrän alkioita:
+
+```python
+from random import sample
+
+kaikki = list(range(1,41))
+rivi = sample(kaikki,7)
+print(rivi)
+```
 
 ## Mistä satunnaisluvut tulevat?
 
