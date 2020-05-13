@@ -84,7 +84,7 @@ Esimerkiksi voimme muuttaa merkkijonon kokonaisluvuksi funktiolla `int`. Seuraav
 ```python
 syote = input("Minä vuonna olet syntynyt? ")
 vuosi = int(syote)
-print("Ikäsi vuoden 2020 lopussa:", 2020-vuosi)
+print("Ikäsi vuoden 2020 lopussa:", 2020 -v uosi)
 ```
 <sample-output>
 
@@ -97,7 +97,7 @@ Yleensä ei kannata luoda kahta muuttujaa (tässä `syote` ja `vuosi`) lukuarvon
 
 ```python
 vuosi = int(input("Minä vuonna olet syntynyt? "))
-print("Ikäsi vuoden 2020 lopussa:", 2020-vuosi)
+print("Ikäsi vuoden 2020 lopussa:", 2020 - vuosi)
 ```
 
 Vastaavasti voimme muuttaa merkkijonon liukuluvuksi funktiolla `float`. Seuraava ohjelma kysyy käyttäjän painon ja pituuden ja laskee näiden tietojen avulla painoindeksin:
@@ -214,7 +214,7 @@ Riippuu toki tilanteesta, montako muuttujaa ohjelmassa tarvitaan. Jos käyttäj�
 luku1 = int(input("Ensimmäinen luku: "))
 luku2 = int(input("Toinen luku: "))
 
-print(luku1, "+", luku2, "=", luku1+luku2)
+print(luku1, "+", luku2, "=", luku1 + luku2)
 ```
 
 <sample-output>

@@ -190,65 +190,6 @@ for avain, arvo in sanakirja.items():
     print("arvo:", arvo)
 ```
 
-## Sanakirja tiedon ryhmittelyssä
-
-Käytimme eräässä aiemmassa esimerkissä listaa esittämään yksittäisen henkilön tietoja. Sanakirja on kuitenkin luontevampi mekanismi tilanteeseen.
-
-Esimerkiksi seuraava koodi luo sanakirjan, jossa on tietoa henkilöstä:
-
-```python
-henkilo = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä:" 44}
-```
-
-Tämä tarkoittaa, että henkilön nimi on Pirjo Python, pituus on 154, paino on 61 ja ikä on 44.
-Huomaa, että olisimme voineet tallentaa tiedot myös näin muuttujiin:
-
-```python
-nimi = "Pirjo Python"
-pituus = 154
-paino = 61
-ika = 44
-```
-
-Sanakirjan etuna on kuitenkin, että se kokoaa kaikki samaan asiaan liittyvät tiedot yhteisen nimen alle, jonka kautta voimme viitata tietoihin. Periaatteessa lista tarjoaa saman edun:
-
-```python
-henkilo = [ "Pirjo Python", 153, 61, 44 ]
-```
-
-Listan huono puoli on että ohjelmoijan on oltava tarkkana sen suhteen mihin kohtaan listaa mikäkin arvo on talletettuna. Pitää siis muistaa, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää, eikä päinvastoin. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjan tallettamat erilliset tiedot on talletettu selkeästi nimetyn avaimen taakse
-
-
-Esimerkiksi voimme käsitellä henkilöitä näin:
-
-```python
-henkilo1 = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä": 44}
-henkilo2 = {"nimi": "Pekka Pythonen", "pituus": 174, "paino": 103, "ikä": 31}
-henkilo3 = {"nimi": "Pedro Python", "pituus": 191, "paino": 71, "ikä": 14}
-
-henkilot = [henkilo1, henkilo2, henkilo3]
-
-for henkilo in henkilot:
-    print(henkilo["nimi"])
-
-yhteispituus = 0
-for henkilo in henkilot:
-    yhteispituus += henkilo["pituus"]
-
-print("Keskipituus on", yhteispituus / len(henkilot))
-```
-
-<sample-output>
-
-Pirjo Python
-Pekka Pythonen
-Pedro Python
-Keskipituus on 173.0
-
-</sample-output>
-
-TODO += ei ole kerrottu vielä missään
-
 ## Sanakirjan "edistyneempi" käyttö
 
 Tarkastellaan tilannetta, jossa meillä on taulukossa joukko sanoja:
@@ -351,4 +292,61 @@ kirjaimella s alkavat sanat:
 
 </sample-output>
 
+## Sanakirja tiedon ryhmittelyssä
 
+Käytimme eräässä aiemmassa esimerkissä listaa esittämään yksittäisen henkilön tietoja. Sanakirja on kuitenkin luontevampi mekanismi tilanteeseen.
+
+Esimerkiksi seuraava koodi luo sanakirjan, jossa on tietoa henkilöstä:
+
+```python
+henkilo = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä:" 44}
+```
+
+Tämä tarkoittaa, että henkilön nimi on Pirjo Python, pituus on 154, paino on 61 ja ikä on 44.
+Huomaa, että olisimme voineet tallentaa tiedot myös näin muuttujiin:
+
+```python
+nimi = "Pirjo Python"
+pituus = 154
+paino = 61
+ika = 44
+```
+
+Sanakirjan etuna on kuitenkin, että se kokoaa kaikki samaan asiaan liittyvät tiedot yhteisen nimen alle, jonka kautta voimme viitata tietoihin. Periaatteessa lista tarjoaa saman edun:
+
+```python
+henkilo = [ "Pirjo Python", 153, 61, 44 ]
+```
+
+Listan huono puoli on että ohjelmoijan on oltava tarkkana sen suhteen mihin kohtaan listaa mikäkin arvo on talletettuna. Pitää siis muistaa, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää, eikä päinvastoin. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjan tallettamat erilliset tiedot on talletettu selkeästi nimetyn avaimen taakse
+
+
+Esimerkiksi voimme käsitellä henkilöitä näin:
+
+```python
+henkilo1 = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä": 44}
+henkilo2 = {"nimi": "Pekka Pythonen", "pituus": 174, "paino": 103, "ikä": 31}
+henkilo3 = {"nimi": "Pedro Python", "pituus": 191, "paino": 71, "ikä": 14}
+
+henkilot = [henkilo1, henkilo2, henkilo3]
+
+for henkilo in henkilot:
+    print(henkilo["nimi"])
+
+yhteispituus = 0
+for henkilo in henkilot:
+    yhteispituus += henkilo["pituus"]
+
+print("Keskipituus on", yhteispituus / len(henkilot))
+```
+
+<sample-output>
+
+Pirjo Python
+Pekka Pythonen
+Pedro Python
+Keskipituus on 173.0
+
+</sample-output>
+
+TODO += ei ole kerrottu vielä missään
