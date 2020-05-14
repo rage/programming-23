@@ -72,6 +72,14 @@ Viimeinen sana oli: ohjelmointikieli
 
 </sample-output>
 
+## Hyötyä tyyppivihjeistä
+
+Moduulissa on hyödyllistä, että funktioissa käytetään tyyppivihjeitä. Kun joku muu käyttää moduulia editorilla, joka ymmärtää tyyppivihjeitä, ne helpottavat moduulin käyttämistä.
+
+Esimerkiksi Visual Studio Code näyttää funktion tyypit näin koodia kirjoittaessa:
+
+<img src="7_vihje.png">
+
 ## Moduulin päätason koodi
 
 Jos moduulissa on päätason koodia, joka ei ole funktion sisällä, koodi suoritetaan automaattisesti, kun moduuli otetaan mukaan `import`-komennolla toisessa tiedostossa.
@@ -91,7 +99,6 @@ def sanojen_maara(mjono: str) -> int:
     osat = mjono.split(" ")
     return len(osat)
 
-# Testataan metodien toimintaa
 print(eka_sana("Tämä on testi"))
 print(vika_sana("Tämä on testeistä toinen"))
 print(sanojen_maara("Yks kaks kolme neljä viisi"))
