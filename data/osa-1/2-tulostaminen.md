@@ -27,6 +27,12 @@ Esimerkiksi seuraava ohjelma tulostaa rivin _Moi kaikki_:
 print("Moi kaikki!")
 ```
 
+<in-browser-programming-exercise name="Hello world">
+
+
+
+</in-browser-programming-exercise>
+
 Kun suoritamme ohjelman, se tuottaa seuraavan tuloksen:
 
 <sample-output>

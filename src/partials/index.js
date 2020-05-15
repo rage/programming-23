@@ -66,6 +66,7 @@ import OnlyForCourseVariant from "./OnlyForCourseVariant"
 import OnlyForNotLoggedIn from "./OnlyForNotLoggedIn"
 import Points from "./Points"
 import GoogleFormLink from "./GoogleFormLink"
+import InBrowserProgrammingExercise from "./InBrowserProgrammingExercise"
 
 const mapping = {
   test: Test,
@@ -89,6 +90,7 @@ const mapping = {
   "moodle-exercise": MoodleExercise,
   "sqltrainer-exercise": SqlTrainerExercise,
   "google-form-link": GoogleFormLink,
+  "in-browser-programming-exercise": InBrowserProgrammingExercise,
   notice: Notice,
   crowdsorcerer: CrowdSorcerer,
   youtube: Youtube,
