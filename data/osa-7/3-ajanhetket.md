@@ -38,7 +38,7 @@ Toinen tapa muodostaa aikaolio on määrittää ajanhetki itse:
 ```python
 from datetime import datetime
 
-aika = datetime(1917,12,6)
+aika = datetime(1917, 12, 6)
 print(aika)
 ```
 
@@ -53,7 +53,7 @@ Kun emme antaneet kellonaikaa, oletuksena on, että kyseessä on keskiyö.
 ```python
 from datetime import datetime
 
-aika = datetime(1917,12,6)
+aika = datetime(1917, 12, 6)
 print("Kuukausi:", aika.month)
 print("Vuosi:", aika.year)
 ```
@@ -73,14 +73,14 @@ Voimme vertailla aikoja samaan tapaan kuin lukuja käyttämällä tuttuja vertai
 from datetime import datetime
 
 nyt = datetime.now()
-juhannus = datetime(2020,6,20)
+juhannus = datetime(2020, 6, 20)
 
 if nyt < juhannus:
     print("Ei ole vielä juhannus")
 elif nyt == juhannus:
     print("Hyvää juhannusta!")
 elif nyt > juhannus:
-    print("Juhannus on ohi")
+    print("Juhannus on mennyt")
 ```
 
 <sample-output>
@@ -95,10 +95,10 @@ Voimme myös laskea kahden ajankohan eron vähennyslaskuna:
 from datetime import datetime
 
 nyt = datetime.now()
-juhannus = datetime(2020,6,20)
+juhannus = datetime(2020, 6, 20)
 
 ero = juhannus-nyt
-print("Juhannukseen on vielä",ero.days,"päivää")
+print("Juhannukseen on vielä", ero.days, "päivää")
 ```
 
 <sample-output>
@@ -145,7 +145,7 @@ from datetime import datetime
 syote = input("Anna syntymäpäiväsi muodossa pv.kk.vvvv: ")
 aika = datetime.strptime(syote, "%d.%m.%Y")
 
-if aika < datetime(2000,1,1):
+if aika < datetime(2000, 1, 1):
     print("Synnyit viime vuosituhannella")
 else:
     print("Synnyit tällä vuosituhannella")

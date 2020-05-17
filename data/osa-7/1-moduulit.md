@@ -19,7 +19,7 @@ TODO: Tässä on kyllä nyt ongelmana, että kurssilla ollaan puhuttu vain funkt
 
 Python-kielen ytimessä on joukko usein käytettyjä funktioita, kuten `print`, `int` ja `range`. Nämä funktiot ovat käytettävissä suoraan kaikissa Python-ohjelmissa.
 
-Tämän lisäksi Pythonissa on laaja standardikirjasto, joka muodostuu moduuleista. Jokaisessa moduulissa on tiettyyn aiheeseen liittyviä funktioita. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin.
+Tämän lisäksi Pythonissa on laaja standardikirjasto, joka muodostuu _moduuleista_. Jokaisessa moduulissa on tiettyyn aiheeseen liittyviä funktioita. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin.
 
 ## Moduulin käyttäminen
 
@@ -41,7 +41,7 @@ print(math.log(8,2))
 
 </sample-output>
 
-Koska funktiot ovat moduulissa `math`, viittaamme niihin koodissa nimillä `math.sqrt` ja `math.log`.
+Koska funktiot ovat moduulissa `math`, viitataan niihin koodissa nimillä `math.sqrt` ja `math.log`.
 
 ## Moduulin osien valinta
 

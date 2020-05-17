@@ -147,7 +147,7 @@ def sanojen_maara(mjono: str) -> int:
     return len(osat)
 
 if __name__ == "__main__":
-    # Testataan metodien toimintaa
+    # Testataan funktioiden toimintaa
     print(eka_sana("Tämä on testi"))
     print(vika_sana("Tämä on testeistä toinen"))
     print(sanojen_lkm("Yks kaks kolme neljä viisi"))
