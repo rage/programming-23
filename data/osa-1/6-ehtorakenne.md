@@ -154,6 +154,11 @@ Tyhjä tila saadaan aikaan _tabulaattorilla_, jonka saat Tab-näppäimestä.
 Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Lohkon kirjoittamisen voit lopettaa editorissa painamalla rivin alussa `Backspace`-näppäintä.
 
 <img src="1_6_keyboard2.png">
+<small><center>
+Näppäimistökuvien alkuperä:  <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Pixabay</a>
+</center></small>
+
+
 
 ## Totuusarvot
 
@@ -191,3 +196,5 @@ Tänne tullaan aina
 </sample-output>
 
 Tällainen ohjelma ei ole sinänsä kovin hyödyllinen, mutta myöhemmin kurssilla näemme, mitä hyötyä on totuusarvoista muuttujissa.
+
+
