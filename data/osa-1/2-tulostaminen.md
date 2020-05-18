@@ -27,7 +27,13 @@ Esimerkiksi seuraava ohjelma tulostaa rivin _Moi kaikki_:
 print("Moi kaikki!")
 ```
 
-<in-browser-programming-exercise name="Hello world">
+<in-browser-programming-exercise organization="test" course="python-test" exercise="osa01-01_hymio">
+
+
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise organization="test" course="python-test" exercise="osa01-02_ukko_nooa">
 
 
 
