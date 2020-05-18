@@ -153,7 +153,7 @@ Tyhjä tila saadaan aikaan _tabulaattorilla_, jonka saat Tab-näppäimestä.
 
 Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Lohkon kirjoittamisen voit lopettaa editorissa painamalla rivin alussa `Backspace`-näppäintä.
 
-TODO: kuva myös backspacesta
+<img src="1_6_keyboard2.png">
 
 ## Totuusarvot
 
