@@ -143,7 +143,7 @@ Luku on negatiivinen.
 
 Sisäkkäisiä ehtolauseita käytettäessä on tärkeä muistaa oikeat sisennykset: esimerkiksi `else`-haara yhdistetään oikeaan `if`-lauseeseen juuri saman sisennyksen perusteella.
 
-Huomaa, että monissa tapauksissa voidaan käyttää joko sisäkkäisiä ehtolauseita tai loogisia operaattoreita. Seuraava esimerkki on toiminnallisesti sama kuin edellinen esimerkki (eli se tulostaa tiedon siitä onko positiivinen kokonaisluku parillinen vai pariton):
+Huomaa, että monissa tapauksissa voidaan käyttää joko sisäkkäisiä ehtolauseita tai loogisia operaattoreita. Seuraava esimerkki on toiminnallisesti sama kuin edellinen esimerkki, eli se tulostaa tiedon siitä onko positiivinen kokonaisluku parillinen vai pariton.
 
 ```python
 luku = int(input("Anna luku: "))
@@ -156,4 +156,4 @@ else:
     print("Luku on negatiivinen.")
 ```
 
-Tilanteesta riippuu, kumpaa tapaa kannattaa käyttää. Tässä esimerkissä ensimmäinen vaihtoehto näyttänee useimpien mielestä selkeämmältä.
+Tilanteesta riippuu, kumpaa tapaa kannattaa käyttää. Tässä esimerkissä ensimmäinen vaihtoehto tuntuu useimpien mielestä paremmalta.
