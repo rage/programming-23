@@ -1,7 +1,7 @@
 const red = require("@material-ui/core/colors/red").default
 const blue = require("@material-ui/core/colors/red").default
 
-const CourseSettings = require('./course-settings').default
+const CourseSettings = require('./course-settings')
 
 module.exports = {
   siteMetadata: {
@@ -19,7 +19,7 @@ module.exports = {
 
       }
     },
-
+    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-catch-links`,
     {
@@ -78,7 +78,8 @@ module.exports = {
               // base for generating different widths of each image.
               maxWidth: 920,
               withWebp: true,
-              wrapperStyle: "margin-bottom: 1rem;"
+              wrapperStyle: "margin-bottom: 1rem;",
+              backgroundColor: 'transparent'
             }
           },
           {
@@ -150,6 +151,9 @@ module.exports = {
     },
     {
       resolve: "gatsby-transformer-moocfi-exercises"
+    },
+    {
+      resolve: "gatsby-transformer-vocabulary"
     },
     `gatsby-plugin-top-layout`,
     {

@@ -3,6 +3,7 @@ path: '/nayttokokeesta'
 title: 'Näyttökokeesta'
 hidden: false
 information_page: true
+hide_in_sidebar: true
 ---
 
 Tämä sivu koskee niitä opiskelijoita, jotka hakevat opinto-oikeutta aikataulullisen Ohjelmoinnin MOOC -kurssin kautta.

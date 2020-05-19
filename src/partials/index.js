@@ -37,7 +37,6 @@ import CodeStatesVisualizer from "./CodeStatesVisualizer"
 import PdfSlideshow from "./PdfSlideshow"
 import ExercisesInThisSection from "./ExercisesInThisSection"
 import AbStudy from "./AbStudy"
-import CrowdSorcerer from "./CrowdSorcerer"
 import MoodleExercise from "./MoodleExercise"
 import SqlTrainerExercise from "./SqlTrainerExercise"
 
@@ -66,6 +65,11 @@ import OnlyForCourseVariant from "./OnlyForCourseVariant"
 import OnlyForNotLoggedIn from "./OnlyForNotLoggedIn"
 import Points from "./Points"
 import GoogleFormLink from "./GoogleFormLink"
+import WorkshopSchedule from "./WorkshopSchedule"
+import Summary from "./Summary"
+import Button from "../components/Button"
+import Vocabulary from "./Vocabulary"
+import VocabularyWord from "./Vocabulary/VocabularyWord"
 
 const mapping = {
   test: Test,
@@ -89,8 +93,10 @@ const mapping = {
   "moodle-exercise": MoodleExercise,
   "sqltrainer-exercise": SqlTrainerExercise,
   "google-form-link": GoogleFormLink,
+  "workshop-schedule": WorkshopSchedule,
+  "vocabulary-word": VocabularyWord,
+  vocabulary: Vocabulary,
   notice: Notice,
-  crowdsorcerer: CrowdSorcerer,
   youtube: Youtube,
   quiz: Quiz,
   quiznator: Quiznator,
@@ -110,6 +116,8 @@ const mapping = {
   h6: H6,
   hr: Hr,
   points: Points,
+  summary: Summary,
+  button: Button,
 }
 
 export default () => {

@@ -39,13 +39,12 @@ const NavigationLink = styled(GatsbyLink)`
   width: 100%;
   background-color: white;
   ${props =>
-    props.active === "t" &&
-    `
+      props.active === "t" &&
+      `
     border-color: #f75b4b !important;
     background-color: #edeaea;
   `}
-
-  :hover {
+    :hover {
     text-decoration: none;
     color: black;
     background-color: #f5ebeb;
@@ -59,6 +58,26 @@ const DisabledItem = styled.div`
   width: 100%;
   cursor: default !important;
   border-left: 0.5em solid white;
+`
+
+const DisabledItemWithLink = styled(GatsbyLink)`
+  opacity: 0.5;
+  width: 100%;
+  border-left: 0.5em solid white;
+  background-color: white;
+  ${props =>
+      props.active === "t" &&
+      `
+    border-color: #f75b4b !important;
+    background-color: #edeaea;
+  `}
+    :hover {
+    text-decoration: none;
+    color: black;
+    background-color: #f5ebeb;
+    border-color: #f5ebeb;
+    //filter: brightness(0.5);
+  }
 `
 
 const ItemTitleWrapper = styled.div`
@@ -204,7 +223,10 @@ class TreeViewItem extends React.Component {
 
 function LinkWrapper(props) {
   if (props.disabled) {
-    return <DisabledItem {...props} />
+    if (process.env.NODE_ENV === "production") {
+      return <DisabledItem {...props} />
+    }
+    return <DisabledItemWithLink {...props} />
   }
   return <NavigationLink {...props} />
 }

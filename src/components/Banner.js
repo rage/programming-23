@@ -52,8 +52,8 @@ const SubHeading = styled.div`
 
 const Banner = () => (
   <BannerWrapper>
-    <Heading>{CourseSettings.default.name}</Heading>
-    <SubHeading>{CourseSettings.default.subtitle}</SubHeading>
+    <Heading>{CourseSettings.name}</Heading>
+    <SubHeading>{CourseSettings.subtitle}</SubHeading>
   </BannerWrapper>
 )
 

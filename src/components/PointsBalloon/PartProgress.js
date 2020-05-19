@@ -7,6 +7,7 @@ import CustomTooltip from "./CustomTooltip"
 import { SMALL_MEDIUM_BREAKPOINT } from "../../util/constants"
 import { getCourseVariant } from "../../services/moocfi"
 import { withTranslation } from "react-i18next"
+import CourseSettings from "../../../course-settings"
 
 const PartProgressContainer = styled.div`
   margin-bottom: 0.5rem;
@@ -68,8 +69,9 @@ const PartProgress = ({ name, data, appliesForStudyRight, t }) => {
     maxPointsSum += data.max_points
   })
   let totalProgress = Math.floor((nPointsSum / maxPointsSum) * 100) / 100
+  let totalPointsHeader = t("totalPoints")
   allChartData.push({
-    tool: "Tehtäväpisteet yhteensä",
+    tool: totalPointsHeader,
     progress: Math.floor(totalProgress * 100 + 0.000000001),
     n_points: nPointsSum,
     max_points: maxPointsSum,
@@ -99,14 +101,15 @@ const PartProgress = ({ name, data, appliesForStudyRight, t }) => {
             />
           </Bar>
         </StyledBarChart>
-        {appliesForStudyRight &&
+        {CourseSettings.studyRightEnabled &&
+          appliesForStudyRight &&
           (getCourseVariant() === "nodl" ? (
             <SmallP>{t("noTimelimit")}</SmallP>
           ) : (
             <SmallP>
               {t("canApplyForStudyRight")}{" "}
               {
-                allChartData.find(o => o.tool === "Ohjelmointitehtävät")
+                allChartData.find(o => o.tool === t("programmingService"))
                   ?.progress
               }
               %.

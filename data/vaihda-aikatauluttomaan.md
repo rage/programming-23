@@ -3,6 +3,7 @@ path: '/vaihda-aikatauluttomaan'
 title: 'Kurssin vaihto aikatauluttomaan versioon'
 hidden: false
 information_page: true
+hide_in_sidebar: true
 ---
 
 <notice>HUOMAATHAN, että aikatauluton kurssi ei ole vielä alkanut. Aikatauluton kurssi avataan ensimmäisen deadlinen jälkeen.</notice>

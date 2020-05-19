@@ -4,6 +4,7 @@ title: 'Mahdollisuus opinto-oikeuteen'
 hidden: false
 information_page: true
 banner: false
+sidebar_priority: 3000
 ---
 
 ### Olet oikeutettu hakemaan opiskelupaikkaa jos

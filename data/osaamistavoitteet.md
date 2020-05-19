@@ -3,6 +3,7 @@ path: "/osaamistavoitteet"
 title: "Osaamistavoitteet"
 hidden: true
 information_page: true
+hide_in_sidebar: true
 ---
 
 TODO: rewrite

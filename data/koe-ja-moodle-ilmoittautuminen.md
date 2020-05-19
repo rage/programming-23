@@ -3,6 +3,7 @@ path: "/koe-ja-moodle-ilmoittautuminen"
 title: "Koe ja Moodle-ilmoittautuminen"
 hidden: false
 information_page: true
+hide_in_sidebar: true
 ---
 
 Draft

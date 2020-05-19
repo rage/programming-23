@@ -30,13 +30,12 @@ class TopBar extends React.Component {
   render() {
     return (
       <TopBarContainer>
-        {CourseSettings.default.useNewPointsVisualization &&
-          this.context.loggedIn && (
-            <Button to="/progress">
-              <StyledIcon icon={pointsIcon} />
-              Pisteet
-            </Button>
-          )}
+        {CourseSettings.useNewPointsVisualization && this.context.loggedIn && (
+          <Button to="/progress">
+            <StyledIcon icon={pointsIcon} />
+            Pisteet
+          </Button>
+        )}
         <LoginControls />
       </TopBarContainer>
     )
