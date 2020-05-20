@@ -65,6 +65,7 @@ import OnlyForCourseVariant from "./OnlyForCourseVariant"
 import OnlyForNotLoggedIn from "./OnlyForNotLoggedIn"
 import Points from "./Points"
 import GoogleFormLink from "./GoogleFormLink"
+import InBrowserProgrammingExercise from "./InBrowserProgrammingExercise"
 import WorkshopSchedule from "./WorkshopSchedule"
 import Summary from "./Summary"
 import Button from "../components/Button"
@@ -93,6 +94,7 @@ const mapping = {
   "moodle-exercise": MoodleExercise,
   "sqltrainer-exercise": SqlTrainerExercise,
   "google-form-link": GoogleFormLink,
+  "in-browser-programming-exercise": InBrowserProgrammingExercise,
   "workshop-schedule": WorkshopSchedule,
   "vocabulary-word": VocabularyWord,
   vocabulary: Vocabulary,

@@ -27,6 +27,24 @@ Esimerkiksi seuraava ohjelma tulostaa rivin _Moi kaikki_:
 print("Moi kaikki!")
 ```
 
+<in-browser-programming-exercise organization="test" course="python-test" exercise="osa01-01_hymio" title="Tehtävä: Hymiö">
+
+Kirjoita ohjelma, joka tulostaa ruudulle hymiön: :-)
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise organization="test" course="python-test" exercise="osa01-02_ukko_nooa" title="Tehtävä: Ukko Nooa">
+
+Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
+
+Ukko Nooa, Ukko Nooa oli kunnon mies.
+
+Kun hän meni saunaan, laittoi laukun naulaan.
+
+Ukko Nooa, Ukko Nooa oli kunnon mies.
+
+</in-browser-programming-exercise>
+
 Kun suoritamme ohjelman, se tuottaa seuraavan tuloksen:
 
 <sample-output>
