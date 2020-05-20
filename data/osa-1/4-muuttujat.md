@@ -245,3 +245,8 @@ print("Keskiarvo:", keskiarvo)
 Keskiarvo: 1.6233333333333333
 
 </sample-output>
+
+Kertauskysely tämän osan asioihin liittyen:
+
+<quiz id="b75b8fd8-9203-45b5-86c3-f261951afe16"></quiz>
+

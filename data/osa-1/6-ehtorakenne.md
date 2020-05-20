@@ -197,4 +197,6 @@ Tänne tullaan aina
 
 Tällainen ohjelma ei ole sinänsä kovin hyödyllinen, mutta myöhemmin kurssilla näemme, mitä hyötyä on totuusarvoista muuttujissa.
 
+Kertauskysely tämän osan asioihin liittyen:
 
+<quiz id="b7c4a09f-9257-4060-8553-f2ec780a4c5c"></quiz>
