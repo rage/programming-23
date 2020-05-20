@@ -4,7 +4,6 @@ import { Modal, Paper, Button } from "@material-ui/core"
 import styled from "styled-components"
 import Loading from "../Loading"
 import { fetchProgress } from "../../services/progress"
-import PagesContext from "../../contexes/PagesContext"
 import { getCachedUserDetails } from "../../services/moocfi"
 import { SMALL_MEDIUM_BREAKPOINT } from "../../util/constants"
 import CourseProgress from "./CourseProgress"
@@ -48,8 +47,6 @@ const Title = styled.h1`
 `
 
 class PointsBalloonContent extends React.Component {
-  static contextType = PagesContext
-
   state = {
     render: false,
     data: null,
@@ -61,7 +58,7 @@ class PointsBalloonContent extends React.Component {
   async componentDidMount() {
     this.setState({ render: true })
     try {
-      let data = await fetchProgress(this.context)
+      let data = await fetchProgress(this.props.t)
       let userDetails = await getCachedUserDetails()
       const appliesForStudyRight =
         userDetails?.extra_fields?.applies_for_study_right === "t"

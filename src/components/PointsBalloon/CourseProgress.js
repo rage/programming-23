@@ -2,7 +2,7 @@ import React from "react"
 import PartProgress from "./PartProgress"
 import CourseSettings from "../../../course-settings"
 
-const splitCourses = CourseSettings.default.splitCourses
+const splitCourses = false
 const CourseProgress = ({
   data,
   appliesForStudyRight,

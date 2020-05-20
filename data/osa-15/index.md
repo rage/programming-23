@@ -3,6 +3,7 @@ path: '/osa-14'
 title: 'Osa 15'
 overview: true
 hidden: true
+hide_in_sidebar: true
 ---
 
 <only-for-course-variant variant="dl">

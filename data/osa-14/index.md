@@ -3,6 +3,7 @@ path: '/osa-14'
 title: 'Osa 14'
 overview: true
 hidden: true
+upcoming: "19.4.2020"
 ---
 
 <only-for-course-variant variant="dl">

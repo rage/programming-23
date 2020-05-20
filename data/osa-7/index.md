@@ -3,6 +3,8 @@ path: '/osa-7'
 title: 'Osa 7'
 overview: true
 hidden: false
+separator_after: "Ohjelmoinnin jatkokurssi"
+upcoming: "15.2.2020"
 ---
 
 <only-for-course-variant variant="dl">

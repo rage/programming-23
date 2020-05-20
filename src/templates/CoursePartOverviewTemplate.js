@@ -57,11 +57,16 @@ export default class CoursePartOverviewTemplate extends React.Component {
       createElement: React.createElement,
       components: partials,
     }).Compiler
+
+    const filePath = data.page.fileAbsolutePath.substring(
+      data.page.fileAbsolutePath.lastIndexOf("/data/"),
+      data.page.fileAbsolutePath.length,
+    )
     return (
       <PagesContext.Provider
         value={{
           all: allPages,
-          current: frontmatter,
+          current: { frontmatter: frontmatter, filePath: filePath },
         }}
       >
         <Helmet title={frontmatter.title} />
@@ -91,6 +96,7 @@ export const pageQuery = graphql`
         path
         title
       }
+      fileAbsolutePath
     }
     allPages: allMarkdownRemark {
       edges {

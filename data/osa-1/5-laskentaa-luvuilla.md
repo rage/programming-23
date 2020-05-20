@@ -248,3 +248,7 @@ print("Hei " + nimi + "!")
 ika = int(input("Mikä on ikäsi? "))
 # ohjelma jatkuu...
 ```
+
+Kertauskysely tämän osan asioihin liittyen:
+
+<quiz id="b9d8b45d-93fe-4bb7-a2bd-f5abd2db8827"></quiz>

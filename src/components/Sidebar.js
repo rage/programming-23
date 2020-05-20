@@ -94,10 +94,6 @@ const MenuExpanderWrapper = styled.div`
   }
 `
 
-var content2 = CourseSettings.default.sidebarEntries
-
-var futurePages = CourseSettings.default.sidebarFuturePages
-
 const MobileWrapper = styled.div`
   @media only screen and (max-width: ${SMALL_MEDIUM_BREAKPOINT}) {
     width: 100%;
@@ -118,70 +114,94 @@ const MobileWrapperOrFragment = props => {
   return <div {...props} />
 }
 
-class Sidebar extends React.Component {
-  render() {
-    let edges =
-      this.props.data?.allMarkdownRemark?.edges.map(o => o.node?.frontmatter) ||
-      []
-    if (process.env.NODE_ENV === "production") {
-      edges = edges.filter(o => !o.hidden)
-    }
-    edges = edges.filter(o => !o.information_page)
-    edges.sort((a, b) =>
+const Sidebar = props => {
+  let edges =
+    props.data?.allMarkdownRemark?.edges.map(o => o.node?.frontmatter) || []
+  if (process.env.NODE_ENV === "production") {
+    edges = edges.filter(o => !o.hidden)
+  }
+
+  edges = edges
+    .filter(o => !o.hide_in_sidebar)
+    .sort((a, b) =>
       a.title.localeCompare(b.title, undefined, {
         numeric: true,
         sensitivity: "base",
       }),
     )
-    let content = content2.concat(edges)
-    content = content.concat(futurePages)
-    if (CourseSettings.default.splitCourses) {
-      let middlepoint = content.findIndex(o => o.title === "Osa 7")
-      content.splice(middlepoint + 1, 0, {
-        separator: true,
-        title: "Ohjelmoinnin jatkokurssi",
-      })
-    }
 
-    return (
-      <MobileWrapperOrFragment mobileMenuOpen={this.props.mobileMenuOpen}>
-        <MenuExpanderWrapper>
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={this.props.toggleMobileMenu}
-          >
-            {this.props.mobileMenuOpen ? (
-              <span>
-                <StyledIcon icon={faTimes} />
-                Sulje valikko
-              </span>
-            ) : (
-              <span>
-                <StyledIcon icon={faBars} />
-                Avaa valikko
-              </span>
-            )}
-          </Button>
-        </MenuExpanderWrapper>
-        <SidebarContainer mobileMenuOpen={this.props.mobileMenuOpen}>
-          <Brand>{CourseSettings.default.name}</Brand>
-          <TreeViewContainer>
-            <TreeView data={content} />
-          </TreeViewContainer>
-          <LogoContainer>
-            <Logo />
-          </LogoContainer>
-        </SidebarContainer>
-      </MobileWrapperOrFragment>
-    )
-  }
+  let coursePartEdges = edges.filter(o => !o.information_page && !o.upcoming)
+
+  let informationPageEdges = edges
+    .filter(o => o.information_page)
+    .sort((a, b) => a.sidebar_priority < b.sidebar_priority)
+
+  let upcomingPageEdges = edges
+    .filter(o => o.upcoming)
+    .map(o => ({
+      title: o.title,
+      tba: o.upcoming,
+      path: o.path,
+      separator_after: o.separator_after,
+    }))
+
+  let content = informationPageEdges
+    .concat(coursePartEdges)
+    .concat(upcomingPageEdges)
+
+  let separatorEdges = []
+  content.forEach(edge => {
+    if (edge.separator_after) {
+      separatorEdges.push(edge)
+    }
+  })
+
+  separatorEdges.forEach(edge => {
+    let middlepoint = content.findIndex(o => o.title === edge.title)
+    content.splice(middlepoint + 1, 0, {
+      separator: true,
+      title: edge.separator_after,
+    })
+  })
+
+  return (
+    <MobileWrapperOrFragment mobileMenuOpen={props.mobileMenuOpen}>
+      <MenuExpanderWrapper>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={props.toggleMobileMenu}
+        >
+          {props.mobileMenuOpen ? (
+            <span>
+              <StyledIcon icon={faTimes} />
+              Sulje valikko
+            </span>
+          ) : (
+            <span>
+              <StyledIcon icon={faBars} />
+              Avaa valikko
+            </span>
+          )}
+        </Button>
+      </MenuExpanderWrapper>
+      <SidebarContainer mobileMenuOpen={props.mobileMenuOpen}>
+        <Brand>{CourseSettings.name}</Brand>
+        <TreeViewContainer>
+          <TreeView data={content} />
+        </TreeViewContainer>
+        <LogoContainer>
+          <Logo />
+        </LogoContainer>
+      </SidebarContainer>
+    </MobileWrapperOrFragment>
+  )
 }
 
 const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/index.md/" } }
+      filter: { fileAbsolutePath: { regex: "/index.md|data/[^/]+/*.md/" } }
       sort: { fields: [frontmatter___path] }
     ) {
       edges {
@@ -192,6 +212,10 @@ const query = graphql`
             information_page
             path
             hidden
+            separator_after
+            upcoming
+            hide_in_sidebar
+            sidebar_priority
           }
         }
       }

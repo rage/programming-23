@@ -74,6 +74,18 @@ class Coins extends Component {
 
     const showDetailedCostOnButton =
       exerciseDetails.large_exercises_consume_more_coins && nPoints > 1
+
+    if (!tokenThreshHold) {
+      return (
+        <div>
+          <Fragment>
+            <p>{this.props.t("howSeeSolution")}</p>
+            <p>{this.props.t("noCoinsOnCourse")}</p>
+          </Fragment>
+        </div>
+      )
+    }
+
     return (
       <div>
         {tokenThreshHold && (

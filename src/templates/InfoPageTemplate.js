@@ -12,6 +12,7 @@ import "./remark.css"
 import { LoginStateContextProvider } from "../contexes/LoginStateContext"
 import Container from "../components/Container"
 import Banner from "../components/Banner"
+import PagesContext from "../contexes/PagesContext"
 
 const ContentWrapper = styled.article``
 
@@ -25,22 +26,32 @@ export default class InfoPageTemplate extends React.Component {
       components: partials,
     }).Compiler
 
+    const filePath = data.page.fileAbsolutePath.substring(
+      data.page.fileAbsolutePath.lastIndexOf("/data/"),
+      data.page.fileAbsolutePath.length,
+    )
     return (
       <Fragment>
         <Helmet title={frontmatter.title} />
-        <LoginStateContextProvider>
-          <Layout>
-            <Fragment>
-              {frontmatter.banner && <Banner />}
-              <Container>
-                <ContentWrapper>
-                  <h1>{frontmatter.title}</h1>
-                  {renderAst(htmlAst)}
-                </ContentWrapper>
-              </Container>
-            </Fragment>
-          </Layout>
-        </LoginStateContextProvider>
+        <PagesContext.Provider
+          value={{
+            current: { frontmatter: frontmatter, filePath: filePath },
+          }}
+        >
+          <LoginStateContextProvider>
+            <Layout>
+              <Fragment>
+                {frontmatter.banner && <Banner />}
+                <Container>
+                  <ContentWrapper>
+                    <h1>{frontmatter.title}</h1>
+                    {renderAst(htmlAst)}
+                  </ContentWrapper>
+                </Container>
+              </Fragment>
+            </Layout>
+          </LoginStateContextProvider>
+        </PagesContext.Provider>
       </Fragment>
     )
   }
@@ -56,6 +67,7 @@ export const pageQuery = graphql`
         title
         banner
       }
+      fileAbsolutePath
     }
   }
 `

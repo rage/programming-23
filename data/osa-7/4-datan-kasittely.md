@@ -45,7 +45,7 @@ Olemme tähän mennessä käsitelleet CSV-tiedostoja omalla koodilla, mutta täh
 import csv
 
 with open("testi.csv") as tiedosto:
-    for rivi in csv.reader(tiedosto,delimiter=";"):
+    for rivi in csv.reader(tiedosto, iter=";"):
         print(rivi)
 ```
 
@@ -96,7 +96,7 @@ tulokset = {}
 for nimi in glob("*.csv"):
     kurssi = nimi.split(".")[0]
     with open(nimi) as tiedosto:
-        for rivi in csv.reader(tiedosto,delimiter=";"):
+        for rivi in csv.reader(tiedosto, delimiter=";"):
             opnro, tulos = rivi
             if opnro not in tulokset:
                 tulokset[opnro] = []
@@ -142,7 +142,7 @@ Voisimme vielä parantaa tulostusta vaikkapa näin:
 for opnro in tulokset:
     print(opnro,"tulokset:")
     for tulos in tulokset[opnro]:
-        print(" ",tulos[0],tulos[1])
+        print(" ", tulos[0], tulos[1])
 ```
 
 <sample-output>

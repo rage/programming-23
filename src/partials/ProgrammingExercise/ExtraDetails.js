@@ -31,7 +31,7 @@ const ExtraDetails = ({ exerciseDetails, onUpdate, nocoins, t }) => {
             <StyledTypography>
               {t("submitNetBeans")}{" "}
               <OutboundLink
-                href="https://materiaalit.github.io/tmc-asennus/netbeans/"
+                href={t("installationGuideLink")}
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -55,7 +55,12 @@ const ExtraDetails = ({ exerciseDetails, onUpdate, nocoins, t }) => {
       </ExpansionPanel>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>{t("solutionHowTo")}</Typography>
+          {exerciseDetails?.course
+            ?.grant_model_solution_token_every_nth_completed_exercise ? (
+            <Typography>{t("coinSolutionHowTo")}</Typography>
+          ) : (
+            <Typography>{t("solutionHowTo")}</Typography>
+          )}
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Coins

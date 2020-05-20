@@ -28,7 +28,7 @@ i18n.use(initReactI18next).init({
   react: {
     wait: true,
   },
-  lng: CourseSettings.default.language,
+  lng: CourseSettings.language,
 })
 
 export default i18n

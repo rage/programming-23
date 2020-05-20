@@ -17,12 +17,12 @@ Tutustumme seuraavaksi moduuliin `random`, jossa on satunnaisuuteen liittyviä f
 
 ## Luvun arpominen
 
-Funktio `randint(a,b)` antaa satunnaisen kokonaisluvun väliltä `a`...`b`. Esimerkiksi seuraava ohjelma simuloi nopan heittämistä:
+Funktio `randint(a, b)` antaa satunnaisen kokonaisluvun väliltä `a`...`b`. Esimerkiksi seuraava ohjelma simuloi nopan heittämistä:
 
 ```python
 from random import randint
 
-print("Noppa antaa:", randint(1,6))
+print("Noppa antaa:", randint(1, 6))
 ```
 
 Ohjelman tulos voisi olla vaikkapa:
@@ -39,7 +39,7 @@ Seuraava ohjelma puolestaan heittää noppaa kymmenen kertaa:
 from random import randint
 
 for i in range(10):
-    print("Noppa antaa:", randint(1,6))
+    print("Noppa antaa:", randint(1, 6))
 ```
 
 Ohjelman tulos voisi olla seuraava:
@@ -59,7 +59,7 @@ Noppa antaa: 3
 
 </sample-output>
 
-Huomaa, että funktio `randint` toimii eri logiikalla kuin aiemmin käyttämämme funktio `range`, joka luo lukuvälin. Kun kutsumme funktiota `randint(1,6)`, lukuväli 1...6, mutta kun kutsumme funktiota `range(1,6)`, lukuväli on 1...5.
+Huomaa, että funktio `randint` toimii eri logiikalla kuin aiemmin käyttämämme funktio `range`, joka luo lukuvälin. Kun kutsumme funktiota `randint(1, 6)`, lukuväli 1...6, mutta kun kutsumme funktiota `range(1, 6)`, lukuväli on 1...5.
 
 ## Lisää funktioita
 
@@ -68,7 +68,7 @@ Funktio `shuffle` sekoittaa sille annetun tietorakenteen. Esimerkiksi seuraava o
 ```python
 from random import shuffle
 
-sanat = ["apina","banaani","cembalo"]
+sanat = ["apina", "banaani", "cembalo"]
 shuffle(sanat)
 print(sanat)
 ```
@@ -84,7 +84,7 @@ Funktio `choice` puolestaan valitsee satunnaisen alkion tietorakenteesta:
 ```python
 from random import shuffle
 
-sanat = ["apina","banaani","cembalo"]
+sanat = ["apina", "banaani", "cembalo"]
 print(choice(sanat))
 ```
 
@@ -104,7 +104,7 @@ Yksinkertainen tapa koettaa arpoa lottorivi on seuraava:
 from random import randint
 
 for i in range(7):
-    print(randint(1,40))
+    print(randint(1, 40))
 ```
 
 Tämä ei ole kuitenkaan toimiva tapa, koska sama numero saattaa tulla useita kertoja riviin. Tarvitsemme jonkin menetelmän, joka varmistaa, että jokainen numero on eri numero.
@@ -116,9 +116,10 @@ from random import randint
 
 rivi = []
 while len(rivi) < 7:
-    uusi = randint(1,40)
+    uusi = randint(1, 40)
     if uusi not in rivi:
         rivi.append(uusi)
+
 print(rivi)
 ```
 
@@ -127,7 +128,7 @@ Voimme kuitenkin toteuttaa arvonnan myös lyhyemmin funktion `shuffle` avulla:
 ```python
 from random import shuffle
 
-kaikki = list(range(1,41))
+kaikki = list(range(1, 41))
 shuffle(kaikki)
 rivi = kaikki[0:7]
 print(rivi)
@@ -140,14 +141,14 @@ Itse asiassa voimme toteuttaa arvonnan vielä helpommin, koska Pythonin standard
 ```python
 from random import sample
 
-kaikki = list(range(1,41))
-rivi = sample(kaikki,7)
+kaikki_luvut = list(range(1, 41))
+rivi = sample(kaikki_luvut, 7)
 print(rivi)
 ```
 
 ## Mistä satunnaisluvut tulevat?
 
-Moduulin `random` toiminta perustuu algoritmiin, joka tuottaa satunnaislukuja tietyn lähtöarvon ja matemaattisten operaatioiden avulla. Lähtöarvoa kutsutaan myös nimellä _siemenarvo_ (_seed value_).
+Moduulin `random` toiminta perustuu algoritmiin, joka tuottaa satunnaislukuja tietyn lähtöarvon ja matemaattisten operaatioiden avulla. Lähtöarvoa kutsutaan myös nimellä _siemenarvo_ (engl. _seed value_).
 
 Voimme halutessamme antaa siemenarvon itse funktiolla `seed`:
 
@@ -156,7 +157,7 @@ from random import randint, seed
 
 seed(1337)
 # tästä tulee aina sama satunnaisluku
-print(randint(1,100))
+print(randint(1, 100))
 ```
 
 Kun annamme siemenarvon itse, satunnaisuutta käyttävät funktiot antavat samat tulokset ohjelman jokaisella suorituskerralla. Kuitenkin tulokset voivat riippua käytetystä Pythonin versiosta.

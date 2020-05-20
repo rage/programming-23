@@ -16,9 +16,9 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Toisto on ehtolauseen lisäksi keskeinen ohjausrakenne ohjelmoinnissa. Aloitetaan toistoon tutustuminen tarkastelemalla Pythonin `while`-lausetta yksinkertaisten esimerkkien kautta. Ensi viikolla tutustutaan sitten monipuolisemmin sen mahdollisuuksiin.
+Silmukka eli toistolause on ehtolauseen lisäksi keskeinen ohjausrakenne ohjelmoinnissa. Aloitetaan toistoon tutustuminen tarkastelemalla Pythonin `while`-silmukkaa yksinkertaisten esimerkkien kautta. Ensi viikolla tutustutaan sitten monipuolisemmin sen mahdollisuuksiin.
 
-Periaatteessa `while`-lause muistuttaa ehtolausetta. Ideana kuitenkin on, että sen avulla voidaan toistaa samaa koodia useamman kerran.
+Periaatteessa silmukka muistuttaa ehtolausetta. Ideana kuitenkin on, että sen avulla voidaan toistaa samaa koodia useamman kerran.
 
 Tarkastellaan esimerkkiä, jossa ohjelma laskee käyttäjän syöttämien lukujen neliöitä niin kauan, että käyttäjä syöttää negatiivisen luvun:
 
@@ -51,43 +51,43 @@ Kiitos ja moi!
 
 Kuten esimerkistä huomataan, ohjelman suoritus jatkuu `while`-lauseen ansiosta niin kauan, että suoritetaan lause `break`. Heti kun `break`-komento suoritetaan eli kun käyttäjän syöte on -1, hyppää suoritus ensimmäiselle lohkon jälkeiselle riville.
 
-Seuraavassa esimerkkinä ohjelma, joka päästää käyttän "kirjautumaan" vasta sen jälkeen kun käyttäjä on syöttänyt oikean pinkoodin _1234_:
+Seuraavassa esimerkkinä ohjelma, joka antaa käyttäjän jatkaa eteenpäin vasta sen jälkeen, kun käyttäjä on syöttänyt oikean PIN-koodin _1234_:
 
 ```python
 while True:
-    tunnus = input("pinkoodi: ")
+    tunnus = input("Anna PIN-koodi: ")
 
     if tunnus == "1234":
         break
 
-    print("väärin... yritä uudelleen")
+    print("Väärin... yritä uudelleen")
 
 
-print("Pinkoodi oikein!")
+print("PIN-koodi oikein!")
 ```
 
 <sample-output>
 
-pinkoodi: **0000**
-väärin... yritä uudelleen
-pinkoodi: **9999**
-väärin... yritä uudelleen
-pinkoodi: **1234**
-väärin... yritä uudelleen
-Pinkoodi oikein!
+Anna PIN-koodi: **0000**
+Väärin... yritä uudelleen
+Anna PIN-koodi: **9999**
+Väärin... yritä uudelleen
+Anna PIN-koodi: **1234**
+Väärin... yritä uudelleen
+Anna PIN-koodi oikein!
 
 </sample-output>
 
 Tehdään vielä samasta ohjelmasta monimutkaisempi versio, joka antaa käyttäjälle vain kolme mahdollisuutta yrittää pinkoodin syöttämistä.
 
-Ohjelma käyttää nyt kahta apumuuttujaa, `yritykset` pitää kirjaa siitä, kuinka monta kertaa käyttäjä on syöttänyt.  Muuttja `onnistui` saa arvokseen joko `True` tai `False` riippuen siitä onnistuuko kirjautuminen.
+Ohjelma käyttää nyt kahta apumuuttujaa, `yritykset` pitää kirjaa siitä, kuinka monta kertaa käyttäjä on syöttänyt koodin.  Muuttuja `onnistui` saa arvokseen joko `True` tai `False` riippuen siitä, onnistuuko kirjautuminen.
 
 ```python
 yritykset = 0
 
 while True:
-    tunnus = input("pinkoodi: ")
-    yritykset = yritykset + 1
+    tunnus = input("Anna PIN-koodi: ")
+    yritykset += 1
 
     if tunnus == "1234":
         onnistui = True
@@ -98,33 +98,32 @@ while True:
         break
 
     # tänne tullaan jos väärin JA ei ole jo kolmea yritystä
-    print("väärin... yritä uudelleen")
+    print("Väärin... yritä uudelleen")
 
-
-if onnistui==True:
-  print("Pinkoodi oikein!")
+if onnistui:
+    print("Pinkoodi oikein!")
 else:
-  print("Liian monta yritystä...")
+    print("Liian monta yritystä...")
 ```
 
 <sample-output>
 
-pinkoodi: **0000**
-väärin... yritä uudelleen
-pinkoodi: **1234**
-Pinkoodi oikein!
+Anna PIN-koodi: **0000**
+Väärin... yritä uudelleen
+Anna PIN-koodi: **1234**
+PIN-koodi oikein!
 
 </sample-output>
 
 <sample-output>
 
-pinkoodi: **0000**
-väärin... yritä uudelleen
-pinkoodi: **9999**
-väärin... yritä uudelleen
-pinkoodi: **4321**
+Anna PIN-koodi: **0000**
+Väärin... yritä uudelleen
+Anna PIN-koodi: **9999**
+Väärin... yritä uudelleen
+Anna PIN-koodi: **4321**
 Liian monta yritystä...
 
 </sample-output>
 
-Silmukasta tullaan siis ulos jos käyttäjä syöttää oikean pinkoodin _tai_ jos yrityksiä tehdään liian monta. Toistolauseen jälkeinen _if_-lause tarkastaa muutujan `onnistui` arvon perusteella sen onko "kirjautuminen" onnistunut vai ei.
+Silmukasta tullaan siis ulos, jos käyttäjä syöttää oikean PIN-koodin _tai_ jos yrityksiä tehdään liian monta. Silmukan jälkeinen _if_-lause tarkastaa muuttujan `onnistui` arvon perusteella, onko kirjautuminen onnistunut vai ei.

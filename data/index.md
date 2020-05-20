@@ -4,6 +4,7 @@ title: "Tietoa kurssista"
 hidden: false
 information_page: true
 banner: true
+sidebar_priority: 5000
 ---
 
 Ohjelmoinnin MOOC on kaikille avoin ja ilmainen ohjelmoinnin perusteet

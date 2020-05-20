@@ -166,3 +166,7 @@ Anna uusi osoite: **Ohjelmoijanraitti 230**
 Osoite on nyt Ohjelmoijanraitti 230
 
 </sample-output>
+
+Kertauskysely tämän osan asioihin liittyen:
+
+<quiz id="acec6dc5-89b4-4413-98ed-e4969a023704"></quiz>

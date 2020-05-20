@@ -3,6 +3,7 @@ path: "/macos-ohjeet"
 title: "macOS ohjeet"
 hidden: false
 information_page: true
+hide_in_sidebar: true
 ---
 
 ## Käyttöliittymätestit

@@ -3,6 +3,7 @@ path: "/tukivaylat"
 title: "Tukiväylät"
 hidden: false
 information_page: true
+sidebar_priority: 2000
 ---
 
 Kurssilla on vertaistukeen perustuva keskustelukanava, jonka lisäksi tammikuun puolesta välistä lähtien kaikilla kurssilaisilla on mahdollisuus ohjaukseen Helsingin yliopiston Kumpulan kampuksella.

@@ -151,3 +151,14 @@ Tuntien määrä vuodessa:
 8760
 
 </sample-output>
+
+Lyhyempi kommentti voi olla myös rivin lopussa:
+
+```python
+print("Tuntien määrä vuodessa:")
+print(365*24) # 365 päivää, 24 h / pv
+```
+
+Kertauskysely tämän osan asioihin liittyen:
+
+<quiz id="bb85db77-9554-47aa-bbbd-f7e31f4ccdf4"></quiz>

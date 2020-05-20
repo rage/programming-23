@@ -17,7 +17,7 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Tarkastellaan viime kerralta tuttua esimerkkiä, jossa tulostetaan tieto siitä onko käyttäjän syöte pienempi vai suurempi kuin nolla:
+Tarkastellaan viime kerralta tuttua esimerkkiä, jossa tulostetaan tieto siitä, onko käyttäjän syöte pienempi vai suurempi kuin nolla:
 
 ```python
 luku = int(input("Anna luku: "))
@@ -50,9 +50,7 @@ Kun käytetään if-else-rakennetta, suoritetaan vaihtoehtoisista lohkoista aina
 
 Huomaa, että else-haaraa ei voi olla olemassa ilman edeltävää if-haaraa. Koko if-else-rakenne lohkoineen muodostaa yhden _ehtolauseen_.
 
-Toinen esimerkki, jossa tutkitaan onko käyttäjän syöttämä luku parillinen vai ei. Parillisuuden selvittämiseen käytetään jakojäänösoperaattoria `%`. Operaatio `a % b` palauttaa _jakojäännöksen_, kun `a` jaetaan b:llä. Esimerkiksi jakojäännöksen `5 % 2` arvo on `1`.
-Jakojäännöksellä on kätevä testata luvun parillisuutta:
-jos luvun jakojäännös kahdella on nolla, luku on parillinen, ja muuten pariton.
+Seuraava esimerkki tutkii, onko käyttäjän syöttämä luku parillinen vai ei Parillisuuden selvittämiseen käytetään jakojäänösoperaattoria `%`. Operaatio `a % b` palauttaa _jakojäännöksen_, kun `a` jaetaan b:llä. Esimerkiksi jakojäännöksen `5 % 2` arvo on `1`. Jakojäännöksellä on kätevä testata luvun parillisuutta: jos luvun jakojäännös kahdella on nolla, luku on parillinen, ja muuten pariton.
 
 ```python
 luku = int(input("Anna luku: "))
@@ -98,7 +96,6 @@ Pääsy kielletty
 
 </sample-output>
 
-
 ## Vaihtoehtoiset haarat elif-lauseella
 
 Usein vaihtoehtoja on kuitenkin enemmän kuin kaksi. Esimerkiksi jalkapallo-ottelun lopputulosta käsitellessä olisi hyvä varautua kolmeen vaihtoehtoiseen lopputulokseen kotijoukkueen kannalta: voitto, häviö tai tasapeli.
@@ -110,19 +107,15 @@ Ehtolausetta voidaan laajentaa `elif`-haaralla. Se on lyhenne sanoista "else if"
 Tarkastellaan esimerkkiä, jossa selvitetään ottelun voittaja:
 
 ```python
-
-# Kysytään maalimäärät
 maalit_koti = int(input("Kotijoukkueen maalimäärä: "))
 maalit_vieras = int(input("Vierasjoukkueen maalimäärä: "))
 
-# Selvitetään ja tulostetaan voittaja
 if maalit_koti > maalit_vieras:
     print("Kotijoukkue voitti!")
 elif maalit_vieras > maalit_koti:
     print("Vierasjoukkue voitti!")
 else:
     print("Tasapeli!")
-
 ```
 
 Kolme esimerkkitulosta eri syötteilä:
@@ -133,9 +126,17 @@ Kotijoukkueen maalimäärä: **4**
 Vierasjoukkueen maalimäärä: **2**
 Kotijoukkue voitti!
 
+</sample-output>
+
+<sample-output>
+
 Kotijoukkueen maalimäärä: **0**
 Vierasjoukkueen maalimäärä: **6**
 Vierasjoukkue voitti!
+
+</sample-output>
+
+<sample-output>
 
 Kotijoukkueen maalimäärä: **3**
 Vierasjoukkueen maalimäärä: **3**
@@ -143,11 +144,9 @@ Tasapeli!
 
 </sample-output>
 
-Esimerkissä ehtolauseessa on siis kolme vaihtoehtoista haaraa, joista suoritetaan aina yksi.
+Esimerkissä ehtolauseessa on siis kolme vaihtoehtoista haaraa, joista suoritetaan aina yksi. Ehtolauseessa `elif`-haaroja voi olla useampia, eikä `else`-haara ole pakollinen.
 
-`elif`-haaroja voi olla useampia, eikä `else`-haara ole pakollinen.
-
-Esimerkiksi
+Esimerkiksi:
 
 ```python
 print("Joulukalenteri")
@@ -155,7 +154,7 @@ pvm = input("Mikä päivä nyt on? ")
 
 if pvm == "24.12.":
     print("Nyt on jouluaatto")
-elif pvm == '25.12.':
+elif pvm == "25.12.":
     print("Nyt on joulupäivä")
 elif pvm == "26.12.":
     print("Nyt on tapaninpäivä")
@@ -181,13 +180,4 @@ Mikä päivä nyt on? **1.1.**
 Kiitos ja hei.
 
 </sample-output>
-
-<text-box variant="hint" name="Päivämäärien käsittely">
-
-TODO: Onko tämä tarpeen mainita tässä kohtaa?
-
-Päivämäärien käsittely on monimutkaisempaa kuin mitä ensi alkuun uskoisi. Ohjelmissa ei oikeasti kannatakaan käsitellä päivämääriä merkkijonoina, vaan käyttää tätä tarkoitusta varten erikseen luotuja _kirjastoja_, jotka osaavat ottaa huomioon esimerkiksi karkauspäivät ja muut poikkeukset. Aiheeseen palataan kurssin loppupuolella.
-
-</text-box>
-
 
