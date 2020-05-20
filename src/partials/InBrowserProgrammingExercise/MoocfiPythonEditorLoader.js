@@ -9,30 +9,38 @@ import { accessToken } from "../../services/moocfi"
 import { ProgrammingExercise } from "moocfi-python-editor"
 
 const StyledPaper = styled(Paper)`
-  margin: 2rem 0 2rem 0;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 40px -12px !important;
+  margin: 2rem 0;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   border-radius: 1rem !important;
-  width: inherit;
+`
+
+const Wrapper = styled.div`
+  padding 1rem;
+`
+
+const Header = styled.h3`
+
 `
 
 class InBrowserProgrammingExercisePartial extends React.Component {
   static contextType = LoginStateContext
 
   render() {
-    const { id, organization, course, exercise } = this.props
+    const { id, organization, course, exercise, title, children } = this.props
 
-    // if (!id) {
-    //   return <StyledPaper>There should be quiz here but no quiz id is specified.</StyledPaper>
-    // }
     return (
       <StyledPaper id={normalizeExerciseId(`quiz-${id}`)}>
-        {this.props.children}
+        <Wrapper>
+          <Header>
+            {title}
+          </Header>
+          {children}
+        </Wrapper>
         <ProgrammingExercise
           organization={organization}
           course={course}
           exercise={exercise}
-          token={accessToken()}
-        />
+          token={accessToken()} />
       </StyledPaper>
     )
   }
