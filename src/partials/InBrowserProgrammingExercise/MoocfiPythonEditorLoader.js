@@ -26,6 +26,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
     // }
     return (
       <StyledPaper id={normalizeExerciseId(`quiz-${id}`)}>
+        {this.props.children}
         <ProgrammingExercise
           organization={organization}
           course={course}
