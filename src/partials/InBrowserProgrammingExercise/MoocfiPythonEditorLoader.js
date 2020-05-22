@@ -1,47 +1,96 @@
 import React from "react"
 import styled from "styled-components"
-import LoginStateContext from "../../contexes/LoginStateContext"
 import { withTranslation } from "react-i18next"
-import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
-import { normalizeExerciseId } from "../../util/strings"
-import { Paper } from "@material-ui/core"
-import { accessToken } from "../../services/moocfi"
-import { ProgrammingExercise } from "moocfi-python-editor"
+import { get } from "lodash"
 
-const StyledPaper = styled(Paper)`
-  margin: 2rem 0;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-  border-radius: 1rem !important;
-`
+import { fetchProgrammingExerciseDetails } from "../../services/moocfi"
+import LoginStateContext from "../../contexes/LoginStateContext"
+import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
+import { accessToken } from "../../services/moocfi"
+import ProgrammingExerciseCard from "../ProgrammingExercise/ProgrammingExerciseCard"
+import { ProgrammingExercise } from "moocfi-python-editor"
+// import CourseSettings from "../../../course-settings"
+
+// Hardcoded globals for now
+const ORGANIZATION = "test" // CourseSettings.tmcOrganization
+const COURSE = "python-test" // CourseSettings.tmcCourse
 
 const Wrapper = styled.div`
   padding 1rem;
 `
 
-const Header = styled.h3`
-
-`
-
 class InBrowserProgrammingExercisePartial extends React.Component {
   static contextType = LoginStateContext
 
+  state = {
+    exerciseDetails: undefined,
+    render: false,
+  }
+
+  async componentDidMount() {
+    this.setState({ render: true })
+    // await this.fetch()
+  }
+
+  // Globals point to the wrong course for the purpose of testing this editor
+  // So we can't fetch this data yet
+  fetch = async () => {
+    if (!this.props.tmcname) {
+      return
+    }
+    let exerciseDetails = null
+    try {
+      exerciseDetails = await fetchProgrammingExerciseDetails(
+        this.props.tmcname,
+      )
+    } catch (error) {
+      console.error(error)
+    }
+    this.setState({
+      exerciseDetails,
+    })
+  }
+
+  onUpdate = async () => {
+    this.setState({
+      exerciseDetails: undefined,
+    })
+    // await this.fetch()
+  }
+
   render() {
-    const { id, organization, course, exercise, title, children } = this.props
+    const { name, tmcname, children } = this.props
+
+    if (!this.state.render) {
+      return <div>Loading</div>
+    }
+
+    const points = get(this.state, "exerciseDetails.available_points.length")
+    const awardedPoints = get(
+      this.state,
+      "exerciseDetails.awarded_points.length",
+    )
+
+    console.log(this.state.exerciseDetails)
 
     return (
-      <StyledPaper id={normalizeExerciseId(`quiz-${id}`)}>
-        <Wrapper>
-          <Header>
-            {title}
-          </Header>
-          {children}
-        </Wrapper>
-        <ProgrammingExercise
-          organization={organization}
-          course={course}
-          exercise={exercise}
-          token={accessToken()} />
-      </StyledPaper>
+      <ProgrammingExerciseCard
+        name={name}
+        points={points}
+        awardedPoints={awardedPoints}
+        onRefresh={this.onUpdate}
+        allowRefresh={this.context.loggedIn}
+      >
+        <div>
+          <Wrapper>{children}</Wrapper>
+          <ProgrammingExercise
+            organization={ORGANIZATION}
+            course={COURSE}
+            exercise={tmcname}
+            token={accessToken()}
+          />
+        </div>
+      </ProgrammingExerciseCard>
     )
   }
 }
