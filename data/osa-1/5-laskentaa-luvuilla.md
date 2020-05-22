@@ -137,7 +137,7 @@ Kun kerrotaan 3 luvulla 5, saadaan 15
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Nimi ja ikä" tmcname="14_nimi_ja_ika">
+<in-browser-programming-exercise name="Nimi ja ikä" tmcname="osa01-14_nimi_ja_ika">
 
 Tee ohjelma, joka kysyy käyttäjältä tämän nimen ja syntymävuoden. Ohjelma tulostaa sitten viestin seuraavan esimerkin mukaisesti:
 
@@ -278,7 +278,7 @@ ika = int(input("Mikä on ikäsi? "))
 # ohjelma jatkuu...
 ```
 
-<in-browser-programming-exercise name="Vuorokaudet sekunteina" tmcname="15_sekunteja_vuorokaudessa">
+<in-browser-programming-exercise name="Vuorokaudet sekunteina" tmcname="osa01-15_sekunteja_vuorokaudessa">
 
 Tee ohjelma, joka kysyy käyttäjältä vuorokausien lukumäärän. Tämän jälkeen ohjelma tulostaa sekuntien määrän annetuissa vuorokausissa.
 
@@ -302,7 +302,7 @@ Kuinka monen vuorokauden sekunnit tulostetaan? **7**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Lukujen summa ja tulo" tmcname="16_lukujen_summa_ja_tulo">
+<in-browser-programming-exercise name="Lukujen summa ja tulo" tmcname="osa01-16_lukujen_summa_ja_tulo">
 
 Tee ohjelma joka kysyy käyttäjältä kaksi lukua. Ohjelma tulostaa lukujen summan ja tulon.
 
@@ -320,7 +320,7 @@ Lukujen tulo 21
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Lukujen summa ja keskiarvo" tmcname="17_lukujen_summa_ja_keskiarvo">
+<in-browser-programming-exercise name="Lukujen summa ja keskiarvo" tmcname="osa01-17_lukujen_summa_ja_keskiarvo">
 
 Tee ohjelma, joka lukee käyttäjältä neljä lukua ja tulostaa niiden summan ja keskiarvon
 
@@ -339,7 +339,7 @@ Lukujen summa on 16 ja keskiarvo 4.0
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Ruokailukustannukset" tmcname="19_ruokailukustannukset">
+<in-browser-programming-exercise name="Ruokailukustannukset" tmcname="osa01-19_ruokailukustannukset">
 
 Tee ohjelma, joka arvoi käyttäjän keskimääräisiä ruokailukustannuksia.
 
@@ -363,7 +363,7 @@ Viikossa 38.5 euroa
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Korjaa ohjelma: Lukujen tulo" tmcname="20_korjaa_ohjelma_lukujen_tulo">
+<in-browser-programming-exercise name="Korjaa ohjelma: Lukujen tulo" tmcname="osa01-20_korjaa_ohjelma_lukujen_tulo">
 
 Oheinen ohjelma kysyy käyttäjältä kolme lukua ja tulostaa näiden tulon (eli luvut kerrottuna toisillaan).
 Ohjelmassa on kuitenkin virhe tai virheitä, joiden takia se ei toimi. Korjaa ohjelma sellaiseksi, että se toimii oikein.
