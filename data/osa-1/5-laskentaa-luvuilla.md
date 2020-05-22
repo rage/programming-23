@@ -122,6 +122,21 @@ Painoindeksi on 28.02137829801649
 
 </sample-output>
 
+<in-browser-programming-exercise name="Luku kertaa viisi" tmcname="osa01-13_kerrottuna_viidella">
+
+Tee ohjelma, joka kysyy käyttäjältä lukua. Ohjelma tulostaa luvun kerrottuna viidellä.
+
+Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+Anna luku: **3**
+Kun kerrotaan 3 luvulla 5, saadaan 15
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 ## Muuttujien käyttöä
 
 Tarkastellaan ohjelmaa, joka laskee kolmen käyttäjän syöttämän luvun summan:
