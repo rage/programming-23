@@ -5,9 +5,9 @@ const courseSettings = {
   githubUrl: "https://github.com/rage/python-s20",
   subtitle: "Ohjelmoinnin alkeet kaikille, ilmaiseksi",
   slug: "ohjelmoinnin-mooc-2020",
-  tmcCourse: "2020-ohjelmointi",
+  tmcCourse: "python-test",
   quizzesId: "a9251b4f-b3d2-4d0c-ab01-a143eb2834b5",
-  tmcOrganization: "mooc",
+  tmcOrganization: "test",
   bannerPath: "banner.svg",
 }
 

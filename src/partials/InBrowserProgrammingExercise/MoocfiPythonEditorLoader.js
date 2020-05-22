@@ -9,11 +9,10 @@ import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
 import { accessToken } from "../../services/moocfi"
 import ProgrammingExerciseCard from "../ProgrammingExercise/ProgrammingExerciseCard"
 import { ProgrammingExercise } from "moocfi-python-editor"
-// import CourseSettings from "../../../course-settings"
+import CourseSettings from "../../../course-settings"
 
-// Hardcoded globals for now
-const ORGANIZATION = "test" // CourseSettings.tmcOrganization
-const COURSE = "python-test" // CourseSettings.tmcCourse
+const ORGANIZATION = CourseSettings.tmcOrganization
+const COURSE = CourseSettings.tmcCourse
 
 const Wrapper = styled.div`
   padding 1rem;
@@ -29,11 +28,9 @@ class InBrowserProgrammingExercisePartial extends React.Component {
 
   async componentDidMount() {
     this.setState({ render: true })
-    // await this.fetch()
+    await this.fetch()
   }
 
-  // Globals point to the wrong course for the purpose of testing this editor
-  // So we can't fetch this data yet
   fetch = async () => {
     if (!this.props.tmcname) {
       return
@@ -55,7 +52,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
     this.setState({
       exerciseDetails: undefined,
     })
-    // await this.fetch()
+    await this.fetch()
   }
 
   render() {
@@ -70,8 +67,6 @@ class InBrowserProgrammingExercisePartial extends React.Component {
       this.state,
       "exerciseDetails.awarded_points.length",
     )
-
-    console.log(this.state.exerciseDetails)
 
     return (
       <ProgrammingExerciseCard
