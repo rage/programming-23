@@ -130,6 +130,107 @@ Luku on nolla.
 
 </sample-output>
 
+<in-browser-programming-exercise name="Orwel" tmcname="osa01-21_orwel">
+
+Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun ja tulostaa merkkijonon "Orwell" jos luku on täsmälleen 1984. Muussa tapauksessa ohjelma ei tulosta mitään.
+
+<sample-output>
+
+Anna luku: **2020**
+
+</sample-output>
+
+<sample-output>
+
+Anna luku: **1984**
+Orwell
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Itseisarvo" tmcname="osa01-22_itseisarvo">
+
+Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun. Mikäli luku on pienempi kuin 0, ohjelma tulostaa luvun kerrottuna luvulla -1. Muulloin ohjelma tulostaa käyttäjän syöttämän luvun. Alla on muutamia esimerkkejä ohjelman odotetusta toiminnasta.
+
+<sample-output>
+
+syötä luku? **-7**
+luvun itseisarvo on 7
+
+</sample-output>
+
+<sample-output>
+
+syötä luku? **1**
+luvun itseisarvo on 1
+
+</sample-output>
+
+<sample-output>
+
+syötä luku? **-99**
+luvun itseisarvo on 99
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Keittoa vai ei" tmcname="osa01-23_keittoa_vai_ei">
+
+Kirjoita ohjelma, joka kysyy ensin käyttäjän nimen. Jos nimi on mikä tahansa muu kuin "Jerry", ohjelma kysyy keittoannosten lukumäärän ja kertoo sitten kokonaishinnan. Yksi annos maksaa 5.9.
+
+Kaksi esimerkkisuoritusta:
+
+<sample-output>
+
+Mikä on nimesi: **Kramer**
+Kuinka monta annosta keittoa: **2**
+Kokonaishinta on 11.8
+Seuraava!
+
+</sample-output>
+
+<sample-output>
+
+Mikä on nimesi: **Jerry**
+Seuraava!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Luvun suuruusluokka" tmcname="osa01-24_luvun_suuruusluokka">
+
+Tee ohjelma, joka lukee käyttäjältä kokonaisluvun ja kertoo sitten sen suuruusluokan oheisen esimerkin mukaisesti:
+
+<sample-output>
+
+Anna luku: **950**
+Luku on pienempi kuin 1000
+Kiitos!
+
+Anna luku: **59**
+Luku on pienempi kuin 1000
+Luku on pienempi kuin 100
+Kiitos!
+
+Anna luku: *2**
+Luku on pienempi kuin 1000
+Luku on pienempi kuin 100
+Luku on pienempi kuin 10
+Kiitos!
+
+Anna luku: **1123**
+Kiitos!
+
+</sample-output>
+
+
+</in-browser-programming-exercise>
+
 ## Lohkot
 
 Ehtorakenteen aloitusrivin jälkeiseltä riviltä alkaa _lohko_, jossa oleva koodi suoritetaan vain silloin, kun ehto on tosi. Python tunnistaa lohkoon kuuluvan koodin siitä, että jokainen rivi on _sisennetty_ samalla tavalla. Tämä tarkoittaa, että ennen lohkoon kuuluvan rivin alkua on tyhjää tilaa enemmän kuin rivillä, jolla ehto annettiin.
@@ -157,8 +258,6 @@ Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi
 <small><center>
 Näppäimistökuvien alkuperä:  <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Pixabay</a>
 </center></small>
-
-
 
 ## Totuusarvot
 
@@ -196,6 +295,10 @@ Tänne tullaan aina
 </sample-output>
 
 Tällainen ohjelma ei ole sinänsä kovin hyödyllinen, mutta myöhemmin kurssilla näemme, mitä hyötyä on totuusarvoista muuttujissa.
+
+<in-browser-programming-exercise name="" tmcname="osa01-">
+
+</in-browser-programming-exercise>
 
 Kertauskysely tämän osan asioihin liittyen:
 

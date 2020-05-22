@@ -24,6 +24,7 @@ Aiemmissa osissa nähtiin esimerkkejä peruslaskutoimituksista. Seuraavaan taulu
 | `-`           | Vähennyslasku | `10 - 2.5`   |`7.5`  |
 | `*`           | Kertolasku    | `-2 * 123`   |`-246` |
 | `/`           | Jakolasku     | `12 / 2`     |`6.0`  |
+| `//`           | Kokonaislukujakolasku     | `9 / 2`     |`4`  |
 | `**`          | Potenssi      | `2 ** 3`     |`8`    |
 
 Laskujärjestys noudattaa matematiikasta tuttuja sääntöjä: aluksi lasketaan potenssilaskut, sitten kerto- ja jakolaskut ja lopuksi yhteen- ja vähennyslaskut. Järjestystä voidaan muuttaa sulkujen avulla.
@@ -72,6 +73,25 @@ Ohjelma tulostaa
 <sample-output>
 
 Painoindeksi on 23.037177063642087
+
+</sample-output>
+
+Huomaa, että Pythonissa on myös kokonaislukujakolaskuoperaattori `//`, joka tuottaa kokonaisluvun jos sen operandit ovat kokonaislukuja. Vastauksesta tiputetaan desimaaliosa pois, eli esim.
+
+```python
+x = 3
+y = 2
+
+print("/-operaattori", x/y)
+print("//-operaattori", x//y)
+```
+
+tulostaa
+
+<sample-output>
+
+/-operaattori 1.5
+//-operaattori 1
 
 </sample-output>
 
