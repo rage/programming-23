@@ -27,13 +27,13 @@ Esimerkiksi seuraava ohjelma tulostaa rivin _Moi kaikki_:
 print("Moi kaikki!")
 ```
 
-<in-browser-programming-exercise organization="test" course="python-test" exercise="osa01-01_hymio" title="Tehtävä: Hymiö">
+<in-browser-programming-exercise name="Hymiö" tmcname="osa01-01_hymio">
 
 Kirjoita ohjelma, joka tulostaa ruudulle hymiön: :-)
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise organization="test" course="python-test" exercise="osa01-02_ukko_nooa" title="Tehtävä: Ukko Nooa">
+<in-browser-programming-exercise name="Ukko Nooa" tmcname="osa01-02_ukko_nooa" >
 
 Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
 
