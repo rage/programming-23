@@ -137,6 +137,20 @@ Kun kerrotaan 3 luvulla 5, saadaan 15
 
 </in-browser-programming-exercise>
 
+<in-browser-programming-exercise name="Nimi ja ikä" tmcname="14_nimi_ja_ika">
+
+Tee ohjelma, joka kysyy käyttäjältä tämän nimen ja syntymävuoden. Ohjelma tulostaa sitten viestin seuraavan esimerkin mukaisesti:
+
+<sample-output>
+
+Anna nimi: **Keijo Keksitty**
+Anna syntymävuosi: **1990**
+Moi Keijo Keksitty, olet 30 vuotta vanha vuoden 2020 lopussa.
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 ## Muuttujien käyttöä
 
 Tarkastellaan ohjelmaa, joka laskee kolmen käyttäjän syöttämän luvun summan:
@@ -263,6 +277,109 @@ print("Hei " + nimi + "!")
 ika = int(input("Mikä on ikäsi? "))
 # ohjelma jatkuu...
 ```
+
+<in-browser-programming-exercise name="Vuorokaudet sekunteina" tmcname="15_sekunteja_vuorokaudessa">
+
+Tee ohjelma, joka kysyy käyttäjältä vuorokausien lukumäärän. Tämän jälkeen ohjelma tulostaa sekuntien määrän annetuissa vuorokausissa.
+
+Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+Kuinka monen vuorokauden sekunnit tulostetaan? **1**
+86400
+
+</sample-output>
+
+Toinen esimerkki:
+
+<sample-output>
+
+Kuinka monen vuorokauden sekunnit tulostetaan? **7**
+604800
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Lukujen summa ja tulo" tmcname="16_lukujen_summa_ja_tulo">
+
+Tee ohjelma joka kysyy käyttäjältä kaksi lukua. Ohjelma tulostaa lukujen summan ja tulon.
+
+Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+Luku 1: **3**
+Luku 2: **7**
+Lukujen summa 10
+Lukujen tulo 21
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Lukujen summa ja keskiarvo" tmcname="17_lukujen_summa_ja_keskiarvo">
+
+Tee ohjelma, joka lukee käyttäjältä neljä lukua ja tulostaa niiden summan ja keskiarvon
+
+Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+Luku 1: **2**
+Luku 2: **1**
+Luku 3: **6**
+Luku 4: **7**
+Lukujen summa on 16 ja keskiarvo 4.0
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Ruokailukustannukset" tmcname="19_ruokailukustannukset">
+
+Tee ohjelma, joka arvoi käyttäjän keskimääräisiä ruokailukustannuksia.
+
+Ohjelma kysyy, kuinka monta kertaa viikossa käyttäjä käy Unicafessa sekä Unicafe-lounaan hinnan sekä viikon ruokaostosten hinnan.
+
+Näiden tietojen perusteella ohjelma laskee käyttäjän keskimääräiset ruokamenot sekä viikossa että yhtenä päivänä.
+
+Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+Montako kertaa viikossa syöt Unicafessa? **4**
+Unicafe-lounaan hinta? **2.5**
+Paljonko käytät viikossa ruokaostoksiin? **28.5**
+
+Kustannukset keskimäärin:
+Päivässä 5.5 euroa
+Viikossa 38.5 euroa
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Korjaa ohjelma: Lukujen tulo" tmcname="20_korjaa_ohjelma_lukujen_tulo">
+
+Oheinen ohjelma kysyy käyttäjältä kolme lukua ja tulostaa näiden tulon (eli luvut kerrottuna toisillaan).
+Ohjelmassa on kuitenkin virhe tai virheitä, joiden takia se ei toimi. Korjaa ohjelma sellaiseksi, että se toimii oikein.
+
+Ohjelman siis pitäisi toimia esimerkiksi näin:
+
+<sample-output>
+
+Anna luku 1: **2**
+Anna luku 2: **3**
+Anna luku 3: **5**
+Tulo on 30
+
+</sample-output>
+
+</in-browser-programming-exercise>
 
 Kertauskysely tämän osan asioihin liittyen:
 
