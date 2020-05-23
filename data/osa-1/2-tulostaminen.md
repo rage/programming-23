@@ -182,6 +182,12 @@ print("Tuntien määrä vuodessa:")
 print(365*24) # 365 päivää, 24 h / pv
 ```
 
+<in-browser-programming-exercise name="" tmcname="osa01-04_minuuttien_maara_vuodessa">
+
+Tee ohjelma, joka tulostaa minuuttien määrän vuodessa. Käytä edellisen esimerkin tapaan Pythonia tekemään laskutoimitus!
+
+</in-browser-programming-exercise>
+
 <in-browser-programming-exercise name="Ohjelma tulostaa koodia" tmcname="osa01-05_ohjelma_tulostaa_koodia">
 
 Tee ohjelma, jonka tulostus on seuraava:
@@ -196,10 +202,7 @@ TODO: Kurssilla ei ole kerrottu, miten voi tulostaa lainausmerkit yms. erikoisme
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="" tmcname="osa01-">
 
-
-</in-browser-programming-exercise>
 
 
 Kertauskysely tämän osan asioihin liittyen:
