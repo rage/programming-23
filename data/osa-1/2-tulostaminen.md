@@ -88,11 +88,13 @@ Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.
 
 Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
 
-Ukko Nooa, Ukko Nooa oli kunnon mies.
+<sample-output>
 
+Ukko Nooa, Ukko Nooa oli kunnon mies.
 Kun hän meni saunaan, laittoi laukun naulaan.
-
 Ukko Nooa, Ukko Nooa oli kunnon mies.
+
+</sample-output>
 
 </in-browser-programming-exercise>
 
