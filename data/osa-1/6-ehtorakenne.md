@@ -256,7 +256,8 @@ Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi
 
 <img src="1_6_keyboard2.png">
 <small><center>
-Näppäimistökuvien alkuperä:  <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Pixabay</a>
+Näppäimistökuvien alkuperä:
+ <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Pixabay</a>
 </center></small>
 
 ## Totuusarvot
@@ -296,7 +297,242 @@ Tänne tullaan aina
 
 Tällainen ohjelma ei ole sinänsä kovin hyödyllinen, mutta myöhemmin kurssilla näemme, mitä hyötyä on totuusarvoista muuttujissa.
 
-<in-browser-programming-exercise name="" tmcname="osa01-">
+<in-browser-programming-exercise name="Laskin" tmcname="osa01-25_laskin">
+
+Tee ohjelma, joka kysyy käyttäjältä ensin kaksi lukua ja sen jälkeen komennon. Jos komento on joko _summa_, _tulo_ tai _erotus_,ohjelma laskee syötteille kyseisen operaation tuloksen. Muussa tapauksessa ohjelma ei tulosta mitään.
+
+Esimerkkitulostuksia:
+
+<sample-output>
+
+Luku 1: **10**
+Luku 2: **17**
+Komento: **summa**
+
+10 + 17 = 27
+
+</sample-output>
+
+<sample-output>
+
+Luku 1: **4**
+Luku 2: **6**
+Komento: **tulo**
+
+</sample-output>
+
+<sample-output>
+
+Luku 1: **4**
+Luku 2: **6**
+Komento: **erotus**
+
+4 - 6 = -2
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Lämpötilat" tmcname="osa01-26_lampotilat">
+
+Tee ohjelma, joka kysyy käyttäjältä lämpötilan fahrenheit-asteina, ja tulostaa sitten lämpötilan celsius-asteina. Jos lämpötila celsius-asteina on pienempi kuin 0, ohjelma tulostaa lisäksi viestin "Paleltaa!".
+
+Kaavan fahrenheit-asteiden muuntamiseksi celsius-asteiksi voit etsiä esimerkiksi googlaamalla.
+
+Kaksi esimerkkisuoritusta:
+
+<sample-output>
+
+Anna lämpötila (F): **101**
+101 fahrenheit-astetta on 38.333333333333336 celsius-astetta
+
+Anna lämpötila (F): **21**
+21 fahrenheit-astetta on -6.111111111111111 celsius-astetta
+Paleltaa!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Palkka" tmcname="osa01-27_palkka">
+
+Tee ohjelma, joka kysyy tuntipalkaa, työskenteltyjen tuntien määrää ja viikonpäivää. Ohjelma tulostaa palkan, joka on tunnit kertaa tuntien määrä muina päivinä paitsi sunnuntaisin, jolloin tuntipalkka on kaksinkertainen.
+
+<sample-output>
+
+Tuntipalkka: **8.5**
+Työtunnit: **3**
+Viikonpäivä: **maanantai**
+Palkka 25.5 euroa
+
+</sample-output>
+
+<sample-output>
+
+Tuntipalkka: **12.5**
+Työtunnit: **10**
+Viikonpäivä: **sunnuntai**
+Palkka 250.0 euroa
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Korjaa ohjelma: Korkoa kortille" tmcname="osa01-28_korjaaa_ohjelma_korkoa_kortille">
+
+Ohjelmassa lasketaan bonuskortin saldoon vuoden lopussa lisättävä bonuspistemäärä seuraavan kaavan mukaisesti:
+
+* Jos pisteitä on alle sata, korkona saa 10 % lisää pisteitä
+* Muussa tapauksessa korkona saa 15 % lisää pisteitä
+
+TODO: Mitä ovat siis pisteet?
+
+Ohjelma siis toimii esim. näin:
+
+<sample-output>
+
+Kuinka paljon pisteitä? 55
+Sait 10 % bonusta
+Pisteitä on nyt 60.5
+
+</sample-output>
+
+Ohjelma toimii kuitenkin jollain syötteillä oudosti:
+
+<sample-output>
+
+Kuinka paljon pisteitä? 95
+Sait 10 % bonusta
+Sait 15 % bonusta
+Pisteitä on nyt 120.175
+
+</sample-output>
+
+Korjaa ohjelma niin, että bonusta tulee joko 10 % tai 15 %, ei koskaan molempia.
+
+```python
+pisteet = int(input("Kuinka paljon pisteitä? "))
+if pisteet < 100:
+    pisteet *= 1.1
+    print("Sait 10 % bonusta")
+
+if pisteet >= 100:
+    pisteet *= 1.15
+    print("Sait 15 % bonusta")
+
+print("Pisteitä on nyt", pisteet)
+```
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Huomiset vaatteet" tmcname="osa01-29_huomisen_vaatteet">
+
+Tee ohjelma, joka kysyy huomisen sääennusteen ja suosittelee sen mukaista pukeutumista.
+
+Suositus vaihtelee sen mukaan, onko lämpötila yli 20 astetta, yli 10 astetta vai yli 5 astetta. Myös sade vaikuttaa suositukseen.
+
+Ohjelma toimii seuraavasti:
+
+<sample-output>
+
+Kerro huominen sääennuste:
+Lämpötila: **21**
+Sataako (kyllä/ei): **ei**
+Pue housut ja t-paita
+
+</sample-output>
+
+<sample-output>
+
+Kerro huominen sääennuste:
+Lämpötila: **11**
+Sataako (kyllä/ei): **ei**
+Pue housut ja t-paita
+Ota myös pitkähihainen paita
+Pue päälle takki
+
+</sample-output>
+
+<sample-output>
+
+Kerro huominen sääennuste:
+Lämpötila: **7**
+Sataako (kyllä/ei): **ei**
+Pue housut ja t-paita
+Ota myös pitkähihainen paita
+Pue päälle takki
+Suosittelen lämmintä takkia
+
+</sample-output>
+
+<sample-output>
+
+Kerro huominen sääennuste:
+Lämpötila: **3**
+Sataako (kyllä/ei): **kyllä**
+Pue housut ja t-paita
+Ota myös pitkähihainen paita
+Pue päälle takki
+Suosittelen lämmintä takkia
+Kannattaa ottaa myös hanskat
+Muista sateenvarjo!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Toisen asteen yhtälön ratkaiseminen" tmcname="osa01-">
+
+Tehtäväpohjassa on haettu käyttöön funktio `sqrt`, jolla voi laskea luvun neliöjuuren.
+
+TODO: Voi laskea myös x**0.5 ilman importtia, olisiko parempi vaihtoehto?
+
+Voit käyttää sitä ohjelmassa näiden esimerkkien mukaisesti:
+
+```python
+from math import sqrt
+
+print(sqrt(100))
+
+juuri = sqrt(9)
+print(juuri)
+```
+
+Ohjelma tulostaa:
+
+<sample-output>
+
+10.0
+3.0
+
+</sample-output>
+
+Kirjoita ohjelma, joka ratkaisee toisen asteen yhtälön [ratkaisukaavan avulla]("https://fi.wikipedia.org/wiki/Toisen_asteen_yht%C3%A4l%C3%B6#Toisen_asteen_yht%C3%A4l%C3%B6n_ratkaisukaava").
+
+Ohjelman ei tarvitse toimia oikein tilanteissa, joissa yhtälöllä ei ola kahta juurta (tähän palataan myöhemmin).
+
+Esimerkkituloste:
+
+<sample-output>
+
+Anna a: **1**
+Anna b: **2**
+Anna c: **-8**
+
+Juuret ovat 2 ja -4.
+
+</sample-output>
+
+Sopivia testiarvoja ovat esimerkiksi:
+
+```
+
+a: 1, b: 2, c: -8
+a: 2, b: 5, c: 3
+a: 1, b: -3, c: 0
+
+```
+
 
 </in-browser-programming-exercise>
 

@@ -358,6 +358,29 @@ Lukujen summa on 16 ja keskiarvo 4.0
 
 </in-browser-programming-exercise>
 
+<in-browser-programming-exercise name="Opiskelijat ryhmiin" tmcname="osa01-18_opiskelijat_ryhmiin">
+
+Tee ohjelma, joka kysyy kurssin opiskelijoiden määrän ja ryhmän koon ja ilmoittaa, montako ryhmää opiskelijoista muodostuu. Jos jako ei mene tasan, yhdessä ryhmässä voi olla vähemmän opiskelijoita, mutta kaikissa muissa on oltava haluttu määrä.
+
+<sample-output>
+
+Montako opiskelijaa? **8**
+Ryhmän koko: **4**
+Ryhmien määrä: 2
+
+</sample-output>
+
+<sample-output>
+
+Montako opiskelijaa? **11**
+Ryhmän koko: **3**
+Ryhmien määrä: 4
+
+</sample-output>
+
+Vihje: tehtävän tekeminen onnistuu kokonaislukujakolaskuoperaattorilla `//`
+
+</in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Ruokailukustannukset" tmcname="osa01-19_ruokailukustannukset">
 
