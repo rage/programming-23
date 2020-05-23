@@ -7,9 +7,14 @@ banner: true
 sidebar_priority: 5000
 ---
 
+TODO
 
+## Telegram-kanava
 
-## Aikataulu – kesä 2020
+Kurssin Telegram-kanavalla voit keskustella muiden kurssin osallistujien
+ja ohjaajien kanssa. Pääset kanavalle tästä (TODO, lisää linkki).
+
+## Aikataulu
 
 <table>
   <thead>
