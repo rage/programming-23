@@ -246,6 +246,78 @@ Keskiarvo: 1.6233333333333333
 
 </sample-output>
 
+<in-browser-programming-exercise name="Laskutoimitukset" tmcname="osa01-11_laskutoimitukset">
+
+Ohjelman tehtäväpohjassa on määritelty kaksi kokonaislukumuuttujaa `x` ja `y`:
+
+```python
+x = 27
+y = 15
+```
+
+Täydennä ohjelma siten, että sen tulostus on seuraava:
+
+<sample-output>
+
+27 + 15 = 42
+27 - 15 = 12
+27 * 15 = 405
+27 / 15 = 1.8
+
+</sample-output>
+
+Ohjelman tulee toimia siinäkin tapauksessa, että muuttujien arvoa vaihdetaan. Eli jos ensimmäiset rivit muuttuvat muotoon
+
+```python
+x = 4
+y = 9
+```
+
+niin tulostus on seuraava:
+
+<sample-output>
+
+4 + 9 = 13
+4 - 9 = -5
+4 * 9 = 36
+4 / 9 = 0.4444444444444444
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Korjaa ohjelma: Tulostukset samalle riville" tmcname="osa01-12_korjaa_ohjelma_tulostukset_samalle_riville">
+
+Jos `print`-komennolle annetaan toisena parametrina `end = ""`, komento ei tulosta rivinvaihtoa merkkijonon jälkeen.
+
+Esimerkiksi:
+
+```python
+print("Moi ", end="")
+print("kaikki!")
+```
+
+<sample-output>
+
+Moi kaikki!
+
+</sample-output>
+
+Korjaa ohjelma niin, että koko lasku tuloksineen tulostetaan yhdelle riville muuttamatta kuitenkaan `print`-komentojen määrää:
+
+```python
+
+print(5)
+print(" + ")
+print(8)
+print(" - ")
+print(4)
+print(" = ")
+print(5 + 8 - 4)
+```
+
+</in-browser-programming-exercise>
+
 Kertauskysely tämän osan asioihin liittyen:
 
 <quiz id="b75b8fd8-9203-45b5-86c3-f261951afe16"></quiz>
