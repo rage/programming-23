@@ -6,13 +6,13 @@ information_page: true
 sidebar_priority: 4000
 ---
 
-Kurssi suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi tenttiin. Mahdolliset tenttipäivät ovat:
+Kurssi suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen. Mahdolliset koepäivät ovat:
 
 * ke 22.7.2020
 * ke 5.8.2020
 * la 5.9.2020
 
-Molempia kokeita järjestetään useana eri päivänä. Voit osallistua kokeisiin minä tahansa koepäivänä, ja kurssilla saa osallistua halutessaan useampaan kokeeseen. Opintorekisteriin jää paras suoritus.
+Voit osallistua mihin tahansa kokeeseen, ja kurssilla saa osallistua halutessaan useampaan kokeeseen. Opintorekisteriin jää paras suoritus.
 
 ## Kurssin pisteytys
 
@@ -65,4 +65,4 @@ Kokeeseen saa osallistua, kun on tehnyt vähintään 25 % jokaisen osan ohjelmoi
 
 #### Koeleikkuri
 
-Kokeesta tulee saada vähintään puolet kokeen pisteistä kurssin läpäisemiseksi.
+Kokeesta tulee saada vähintään puolet pisteistä kurssin läpäisemiseksi.
