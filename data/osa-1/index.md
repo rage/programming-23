@@ -4,38 +4,8 @@ title: 'Osa 1'
 overview: true
 hidden: false
 ---
-<only-for-course-variant variant="dl">
-  <deadline>20.1.2020</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="nodl">
-  <deadline>4.1.2020</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="ohja-dl">
-  <deadline>Tämä osa ei ole osa profiilista valitsemaasi kurssia</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="ohja-nodl">
-  <deadline>Tämä osa ei ole osa profiilista valitsemaasi kurssia</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="kesa-dl">
-  <deadline>13.5.2020</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="kesa-ohja-dl">
-  <deadline>Tämä osa ei ole osa profiilista valitsemaasi kurssia</deadline>
-</only-for-course-variant>
-
-<only-for-not-logged-in>
-  <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
-</only-for-not-logged-in>
-
 
 Tervetuloa ohjelmoinnin pariin! Kurssimateriaalin ensimmäisen osan pääteemana on kurssin työvälineiden käyttöönotto sekä ohjelmointiin tutustuminen.
-
-<please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
 
