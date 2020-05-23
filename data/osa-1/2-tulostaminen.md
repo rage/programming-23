@@ -27,24 +27,6 @@ Esimerkiksi seuraava ohjelma tulostaa rivin _Moi kaikki_:
 print("Moi kaikki!")
 ```
 
-<in-browser-programming-exercise name="Hymiö" tmcname="osa01-01_hymio">
-
-Kirjoita ohjelma, joka tulostaa ruudulle hymiön: :-)
-
-</in-browser-programming-exercise>
-
-<in-browser-programming-exercise name="Ukko Nooa" tmcname="osa01-02_ukko_nooa" >
-
-Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
-
-Ukko Nooa, Ukko Nooa oli kunnon mies.
-
-Kun hän meni saunaan, laittoi laukun naulaan.
-
-Ukko Nooa, Ukko Nooa oli kunnon mies.
-
-</in-browser-programming-exercise>
-
 Kun suoritamme ohjelman, se tuottaa seuraavan tuloksen:
 
 <sample-output>
@@ -74,6 +56,14 @@ SyntaxError: invalid syntax
 
 Python ei siis osaa tulkita tulostettavaa tekstiä oikein, jos se ei ole lainausmerkeissä.
 
+<in-browser-programming-exercise name="Hymiö" tmcname="osa01-01_hymio">
+
+Kirjoita ohjelma, joka tulostaa ruudulle hymiön: :-)
+
+</in-browser-programming-exercise>
+
+## Ohjelma etenee komento kerrallaan ylhäältä alas
+
 Kun kirjoitamme useita komentoja peräkkäin,
 ne suoritetaan järjestyksessä ylhäältä alas.
 Esimerkiksi ohjelma
@@ -92,6 +82,38 @@ Aluksi harjoitellaan print-komennon käyttöä.
 Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.
 
 </sample-output>
+
+
+<in-browser-programming-exercise name="Ukko Nooa" tmcname="osa01-02_ukko_nooa" >
+
+Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
+
+Ukko Nooa, Ukko Nooa oli kunnon mies.
+
+Kun hän meni saunaan, laittoi laukun naulaan.
+
+Ukko Nooa, Ukko Nooa oli kunnon mies.
+
+</in-browser-programming-exercise>
+
+
+
+<in-browser-programming-exercise name="Korjaa ohjelma: seitsemän veljestä" tmcname="osa01-03_korjaa_ohjelma_7_veljesta">
+
+Ohjelman tarkoitus on tulostaa seitsemän veljestä aakkosjärjestyksessä. Ohjelmassa on kuitenkin yksi tai useampi virhe, jonka takia se ei toimi oikein.
+Korjaa ohjelma niin, että veljekset tulostuvat oikeassa järjestyksessä.
+
+```python
+print("Simeoni")
+print("Juhani")
+print("Eero")
+print("Lauri")
+print("Aapo")
+print("Tuomas")
+print("Timo")
+```
+
+</in-browser-programming-exercise>
 
 ## Laskutoimitukset
 
@@ -158,6 +180,26 @@ Lyhyempi kommentti voi olla myös rivin lopussa:
 print("Tuntien määrä vuodessa:")
 print(365*24) # 365 päivää, 24 h / pv
 ```
+
+<in-browser-programming-exercise name="Ohjelma tulostaa koodia" tmcname="osa01-05_ohjelma_tulostaa_koodia">
+
+Tee ohjelma, jonka tulostus on seuraava:
+
+<sample-output>
+
+print("Moi kaikki!")
+
+</sample-output>
+
+TODO: Kurssilla ei ole kerrottu, miten voi tulostaa lainausmerkit yms. erikoismerkkejä. Pitäisikö?
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="" tmcname="osa01-">
+
+
+</in-browser-programming-exercise>
+
 
 Kertauskysely tämän osan asioihin liittyen:
 
