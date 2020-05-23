@@ -1,7 +1,7 @@
 ---
 path: '/opinto-oikeus'
 title: 'Mahdollisuus opinto-oikeuteen'
-hidden: false
+hide_in_sidebar: true
 information_page: true
 banner: false
 sidebar_priority: 3000
