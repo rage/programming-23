@@ -56,6 +56,22 @@ Ohjelmoinnissa käytetään kuitenkin yleisesti kielenä englantia – jos etsit
 
 </text-box>
 
+<in-browser-programming-exercise name="Nimi kahdesti" tmcname="osa01-06_nimi_kahdesti">
+
+Kirjoita ohjelma, joka kysyy käyttäjän nimeä ja tämän jälkeen tulostaa nimen kahteen kertaan peräkkäisille riveille.
+
+Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+Anna nimesi: **Pekka**
+Pekka
+Pekka
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 ## Muuttujaan viittaaminen
 
 Muuttujaan voidaan viitata ohjelmassa useasti:
@@ -96,6 +112,21 @@ Anna nimesi: **Erkki Esimerkki**
 Moi Erkki Esimerkki! Varmistan vielä: nimesi on siis Erkki Esimerkki?
 
 </sample-output>
+
+<in-browser-programming-exercise name="Nimet huutomerkillä" tmcname="osa01-07_nimi_ja_huutomerkit">
+
+Kirjoita ohjelma, joka kysyy käyttäjän nimeä ja tämän jälkeen tulostaa nimen kaksi kertaa samalle riville siten, että rivin alussa lopussa sekä nimien välissä on huutomerkki.
+
+Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+Anna nimesi: **Pekka**
+!Pekka!Pekka!
+
+</sample-output>
+
+</in-browser-programming-exercise>
 
 ## Useampi kuin yksi syöte
 
@@ -166,6 +197,68 @@ Anna uusi osoite: **Ohjelmoijanraitti 230**
 Osoite on nyt Ohjelmoijanraitti 230
 
 </sample-output>
+
+<in-browser-programming-exercise name="Nimi ja osoite" tmcname="osa01-08_nimi_ja_osoite">
+
+Kirjoita ohjelma, joka kysyy käyttäjän nimeä ja osoitetta. Ohjelma tulostaa syötetyt tiedot.
+
+Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+etunimi: **Sanna**
+Sukunimi: **Seppänen**
+Katuosoite: **Mannerheimintie 10**
+Postinumero ja kaupunki: **00100 Helsinki**
+Sanna Seppänen
+Mannerheimintie 10
+00100 Helsinki
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name=" Korjaa ohjelma: Lausahdukset" tmcname="osa01-09_korjaa_ohjelma_lausahdukset">
+
+Tehtäväpohjassa on annettu ohjelma, jonka pitäisi kysyä käyttäjältä kolme lausahdusta ja tulostaa ne esimerkin mukaisesti:
+
+<sample-output>
+
+Anna 1. osa: **entten**
+Anna 2. osa: **tentten**
+Anna 3. osa: **teelikamentten**
+entten-tentten-teelikamentten!
+
+</sample-output>
+
+Ohjelmassa on kuitenkin virhe tai virheitä, joiden takia se ei toimi oikein. Korjaa ohjelma.
+
+```python
+osa1 = input("Anna 1. osa: ")
+osa2 = input("Anna 1. osa: ")
+osa3 = input("Anna 1. osa: ")
+print(osa1 + osa2 + osa3)
+```
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Tarina" tmcname="osa01-10_tarina">
+
+Tee ohjelma, joka tulostaa oheisen tarinan, johon on upotettu käyttäjän antama nimi ja vuosi.
+
+<sample-output>
+
+Anna nimi: **Maija**
+Anna vuosi: **1572**
+
+Maija on urhea ritari, syntynyt vuonna 1572. Eräänä aamuna Maija heräsi kovaan meluun: lohikäärme lähestyi kylää. Vain Maija voisi pelastaa kylän asukkaat.
+
+</sample-output>
+
+Tarinan tulee muuttua sen mukaan, mitkä tiedot käyttäjä antaa.
+
+
+</in-browser-programming-exercise>
 
 Kertauskysely tämän osan asioihin liittyen:
 
