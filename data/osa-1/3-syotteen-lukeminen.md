@@ -42,7 +42,7 @@ Moi vaan, Outi Ohjelmoija
 
 </sample-output>
 
-Ohjelmassa esiintyvä sana `nimi` on _muuttuja_. Muuttujalla tarkoitetaan ohjelmoinnissa "lokeroa", johon voidaan tallentaa jokin _arvo_. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan _muuttaa_.
+Ohjelmassa esiintyvä sana `nimi` on _muuttuja_. Muuttujalla tarkoitetaan ohjelmoinnissa paikkaa, johon voidaan tallentaa jokin _arvo_ kuten merkkijono tai lukuarvo. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan muuttaa.
 
 <text-box variant="hint" name="Muuttujan nimen valinta">
 
@@ -80,7 +80,7 @@ print("Moi, " + nimi + "!")
 print(nimi + " on aika kiva nimi.")
 ```
 
-Esimerkkitulostus (kun käyttäjä syöttää merkkijonon `Pauli Python`):
+Esimerkkitulostus, kun käyttäjä antaa nimen `Pauli Python`:
 
 <sample-output>
 
@@ -101,7 +101,7 @@ nimi = input("Anna nimesi: ")
 print("Moi " + nimi + "! Varmistan vielä: nimesi on siis " + nimi + "?")
 ```
 
-Esimerkkitulostus voisi näyttää tältä, kun käyttäjä syöttää merkkijonon `Erkki Esimerkki`:
+Esimerkkitulostus, kun käyttäjä antaa nimen `Erkki Esimerkki`:
 
 <sample-output>
 
@@ -127,7 +127,7 @@ Anna nimesi: **Pekka**
 
 ## Useampi kuin yksi syöte
 
-Ohjelmassa voi lukea useamman eri syötteen. Huomaa, että jokaisen `input`-komennon kysymä merkkijono tallennetaan eri muuttujaan:
+Ohjelmassa voi lukea useamman eri syötteen. Huomaa, että jokainen `input`-komennon kysymä merkkijono tallennetaan eri muuttujaan:
 
 ```python
 nimi = input("Anna nimesi: ")
@@ -154,7 +154,7 @@ Lempinimesi: Keke
 
 </sample-output>
 
-Huomaa, että mikäli samaan muuttujaan luetaan syöte useamman kerran, uusi arvo ylikirjoittaa aina edellisen. Esimerkiksi
+Jos samaan muuttujaan luetaan syöte useamman kerran, uusi arvo ylikirjoittaa aina edellisen. Esimerkiksi:
 
 ```python
 osoite = input("Mikä on osoitteesi? ")
@@ -179,7 +179,6 @@ Jos samaan muuttujaan luetaan kaksi syötettä peräkkäin, ei ensimmäisenä sy
 
 ```python
 osoite = input("Mikä on osoitteesi? ")
-
 osoite = input("Anna uusi osoite: ")
 
 print("Osoite on nyt " + osoite)
@@ -203,7 +202,7 @@ Ohjelman tulee toimia seuraavasti:
 
 <sample-output>
 
-etunimi: **Sanna**
+Etunimi: **Sanna**
 Sukunimi: **Seppänen**
 Katuosoite: **Mannerheimintie 10**
 Postinumero ja kaupunki: **00100 Helsinki**
@@ -229,13 +228,6 @@ entten-tentten-teelikamentten!
 </sample-output>
 
 Ohjelmassa on kuitenkin virhe tai virheitä, joiden takia se ei toimi oikein. Korjaa ohjelma.
-
-```python
-osa1 = input("Anna 1. osa: ")
-osa2 = input("Anna 1. osa: ")
-osa3 = input("Anna 1. osa: ")
-print(osa1 + osa2 + osa3)
-```
 
 </in-browser-programming-exercise>
 
