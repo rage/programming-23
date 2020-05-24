@@ -406,19 +406,6 @@ Pisteitä on nyt 120.175
 
 Korjaa ohjelma niin, että bonusta tulee joko 10 % tai 15 %, ei koskaan molempia.
 
-```python
-pisteet = int(input("Kuinka paljon pisteitä? "))
-if pisteet < 100:
-    pisteet *= 1.1
-    print("Sait 10 % bonusta")
-
-if pisteet >= 100:
-    pisteet *= 1.15
-    print("Sait 15 % bonusta")
-
-print("Pisteitä on nyt", pisteet)
-```
-
 </in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Huomiset vaatteet" tmcname="osa01-29_huomisen_vaatteet">
