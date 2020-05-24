@@ -190,6 +190,22 @@ Tee ohjelma, joka tulostaa minuuttien määrän vuodessa. Käytä edellisen esim
 
 <in-browser-programming-exercise name="Ohjelma tulostaa koodia" tmcname="osa01-05_ohjelma_tulostaa_koodia">
 
+Tulostuslauseessa voi käyttää kaksinkertaisten lainausmerkkien `"` lisäksi myös yksinkertaista lainausmerkkiä `'`.
+
+Tämä on kätevää, kun haluat esimerkiksi tulostaa lainausmerkkejä:
+
+```python
+
+print('"Heti takaisin!", poliisi huusi.')
+
+```
+
+<sample-output>
+
+"Heti takaisin!", poliisi huusi.
+
+</sample-output>
+
 Tee ohjelma, jonka tulostus on seuraava:
 
 <sample-output>
@@ -198,7 +214,7 @@ print("Moi kaikki!")
 
 </sample-output>
 
-TODO: Kurssilla ei ole kerrottu, miten voi tulostaa lainausmerkit yms. erikoismerkkejä. Pitäisikö?
+
 
 </in-browser-programming-exercise>
 
