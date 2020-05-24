@@ -6,14 +6,11 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tulostamisen lisäksi ohjelmissa pitää voida lukea tietoa käyttäjältä. Tässä osiossa tutustutaan syötteiden lukemiseen.
+Tässä osiossa
 
-Tämän osion suoritettuasi
-
-- Osaat kirjoittaa ohjelman, joka lukee käyttäjän syötteen
-- Tiedät, mitä tarkoitetaan muuttujalla
+- Opit kirjoittamaan ohjelman, joka lukee tietoa käyttäjältä
 - Osaat käyttää muuttujaa syötteen lukemisessa ja tulostamisessa
-- Osaat yhdistää merkkijonoja
+- Osaat yhdistää merkkijonoja toisiinsa
 
 </text-box>
 

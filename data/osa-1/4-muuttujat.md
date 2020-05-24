@@ -6,7 +6,7 @@ hidden: false
 
 <text-box variant='learningObjectives' nimi='Oppimistavoitteet'>
 
-Tämän osion suoritettuasi
+Tässä osiossa
 
 - Opit käyttämään muuttujia eri yhteyksissä
 - Tiedät, millaista tietoa muuttujiin voidaan tallentaa

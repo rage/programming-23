@@ -6,11 +6,9 @@ hidden: false
 
 <text-box variant='learningObjectives' nimi='Oppimistavoitteet'>
 
-Tiedon tallentamisen lisäksi olennaista on osata käsitellä tietoa ja laskea erilaisia lopputuloksia tallennettuun tietoon perustuen. Tutustutaan tässä osassa luvuilla tehtäviin laskutoimituksiin omissa ohjelmissa.
+Tässä osiossa
 
-Tämän osan suoritettuasi
-
-- Osaat tehdä erilaisia laskutoimituksia muuttujien avulla.
+- Osaat tehdä erilaisia laskutoimituksia muuttujien avulla
 - Osaat hyödyntää syötettä lukuarvojen lukemiseen
 - Osaat muuntaa arvoja eri perustyyppien välillä
 
