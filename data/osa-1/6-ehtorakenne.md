@@ -380,16 +380,14 @@ Palkka 250.0 euroa
 
 Ohjelmassa lasketaan bonuskortin saldoon vuoden lopussa lisättävä bonuspistemäärä seuraavan kaavan mukaisesti:
 
-* Jos pisteitä on alle sata, korkona saa 10 % lisää pisteitä
+* Jos bonuspisteitä on alle sata, korkona saa 10 % lisää pisteitä
 * Muussa tapauksessa korkona saa 15 % lisää pisteitä
-
-TODO: Mitä ovat siis pisteet?
 
 Ohjelma siis toimii esim. näin:
 
 <sample-output>
 
-Kuinka paljon pisteitä? 55
+Kuinka paljon pisteitä? **55**
 Sait 10 % bonusta
 Pisteitä on nyt 60.5
 
@@ -399,7 +397,7 @@ Ohjelma toimii kuitenkin jollain syötteillä oudosti:
 
 <sample-output>
 
-Kuinka paljon pisteitä? 95
+Kuinka paljon pisteitä? **95**
 Sait 10 % bonusta
 Sait 15 % bonusta
 Pisteitä on nyt 120.175
