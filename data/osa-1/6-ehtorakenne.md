@@ -502,7 +502,7 @@ Anna a: **1**
 Anna b: **2**
 Anna c: **-8**
 
-Juuret ovat 2 ja -4.
+Juuret ovat 2.0 ja -4.0
 
 </sample-output>
 
