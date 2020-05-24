@@ -6,38 +6,7 @@ hidden: false
 upcoming: "15.6.2020"
 ---
 
-<only-for-course-variant variant="dl">
-  <deadline>4.2.2020</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="nodl">
-  <deadline>4.1.2020</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="ohja-dl">
-  <deadline>Tämä osa ei ole osa profiilista valitsemaasi kurssia</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="ohja-nodl">
-  <deadline>Tämä osa ei ole osa profiilista valitsemaasi kurssia</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="kesa-dl">
-  <deadline>27.5.2020</deadline>
-</only-for-course-variant>
-
-<only-for-course-variant variant="kesa-ohja-dl">
-  <deadline>Tämä osa ei ole osa profiilista valitsemaasi kurssia</deadline>
-</only-for-course-variant>
-
-<only-for-not-logged-in>
-  <deadline>Kirjaudu sisään nähdäksesi deadlinen tälle osalle</deadline>
-</only-for-not-logged-in>
-
-
 Kurssimateriaalin kolmannen osan pääteemoina ovat tiedon lisääminen lista- ja taulukkorakenteisiin sekä merkkijonomuotoisen tiedon käsittely.
-
-<please-login></please-login>
 
 <pages-in-this-section></pages-in-this-section>
 
