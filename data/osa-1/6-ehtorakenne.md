@@ -217,7 +217,7 @@ Luku on pienempi kuin 1000
 Luku on pienempi kuin 100
 Kiitos!
 
-Anna luku: *2**
+Anna luku: **2**
 Luku on pienempi kuin 1000
 Luku on pienempi kuin 100
 Luku on pienempi kuin 10
