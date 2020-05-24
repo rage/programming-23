@@ -233,13 +233,6 @@ entten-tentten-teelikamentten!
 
 Ohjelmassa on kuitenkin virhe tai virheitä, joiden takia se ei toimi oikein. Korjaa ohjelma.
 
-```python
-osa1 = input("Anna 1. osa: ")
-osa2 = input("Anna 1. osa: ")
-osa3 = input("Anna 1. osa: ")
-print(osa1 + osa2 + osa3)
-```
-
 </in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Tarina" tmcname="osa01-10_tarina">
