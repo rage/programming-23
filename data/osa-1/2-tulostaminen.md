@@ -4,16 +4,13 @@ title: 'Tulostaminen'
 hidden: false
 ---
 
-
-
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
-
-Aloitetaan ohjelmoinnin opettelu viestien välittämisestä käyttäjälle: ohjelman lopputuloksen kommunikointi on olennaisen tärkeä osa ohjelmointia.
 
 Tässä osiossa
 
 - Kirjoitat ja suoritat ensimmäisen Python-ohjelmasi
 - Opit käyttämään print-komentoa viestien tulostamiseen
+- Opit laskemaan laskuja ohjelmoimalla
 
 </text-box>
 
@@ -21,7 +18,7 @@ Tietokoneohjelmat koostuvat _komennoista_ eli yksinkertaisista toimintaohjeista,
 
 Aloitetaan ohjelmointiin tutustuminen yksinkertaisesta komennosta `print`, joka _tulostaa_ tekstiä. Tulostaminen tarkoittaa käytännössä sitä, että ohjelma näyttää tekstiä ruudulla.
 
-Esimerkiksi seuraava ohjelma tulostaa rivin _Moi kaikki_:
+Esimerkiksi seuraava ohjelma tulostaa rivin "Moi kaikki!":
 
 ```python
 print("Moi kaikki!")
@@ -125,7 +122,7 @@ print(2 + 5)
 print(3 * 3)
 print(2 + 2 * 10)
 ```
-tulostaa ruudulle rivit
+tulostaa ruudulle seuraavat rivit:
 
 <sample-output>
 
@@ -142,7 +139,7 @@ print(2 + 2 * 10)
 print("2 + 2 * 10")
 ```
 
-Ohjelma tulostaa
+Ohjelman tulostus on:
 
 <sample-output>
 
@@ -182,13 +179,29 @@ print("Tuntien määrä vuodessa:")
 print(365*24) # 365 päivää, 24 h / pv
 ```
 
-<in-browser-programming-exercise name="" tmcname="osa01-04_minuuttien_maara_vuodessa">
+<in-browser-programming-exercise name="Minuutit vuodessa" tmcname="osa01-04_minuuttien_maara_vuodessa">
 
 Tee ohjelma, joka tulostaa minuuttien määrän vuodessa. Käytä edellisen esimerkin tapaan Pythonia tekemään laskutoimitus!
 
 </in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Ohjelma tulostaa koodia" tmcname="osa01-05_ohjelma_tulostaa_koodia">
+
+Tulostuslauseessa voi käyttää kaksinkertaisten lainausmerkkien `"` lisäksi myös yksinkertaista lainausmerkkiä `'`.
+
+Tämä on kätevää, kun haluat tulostaa lainausmerkkejä:
+
+```python
+
+print('"Heti takaisin!", poliisi huusi.')
+
+```
+
+<sample-output>
+
+"Heti takaisin!", poliisi huusi.
+
+</sample-output>
 
 Tee ohjelma, jonka tulostus on seuraava:
 
@@ -198,7 +211,7 @@ print("Moi kaikki!")
 
 </sample-output>
 
-TODO: Kurssilla ei ole kerrottu, miten voi tulostaa lainausmerkit yms. erikoismerkkejä. Pitäisikö?
+
 
 </in-browser-programming-exercise>
 

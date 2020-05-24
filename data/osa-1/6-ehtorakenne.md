@@ -6,9 +6,7 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Suorituksen ohjaaminen on tärkeä osa ohjelmia: eri syötteitä tai tilanteita tulee usein käsitellä eri tavoilla. Tutustutaan seuraavaksi siis ehdolliseen suoritukseen.
-
-Tämän osion suoritettuasi
+Tässä osiossa
 
 - Tiedät, mitä tarkoittaa ehtorakenne ja osaat käyttää sitä omissa ohjelmissa
 - Osaat muodostaa lohkoja Pythonissa
@@ -155,22 +153,22 @@ Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun. Mikäli luku on pien
 
 <sample-output>
 
-syötä luku? **-7**
-luvun itseisarvo on 7
+Anna luku: **-7**
+Luvun itseisarvo on 7
 
 </sample-output>
 
 <sample-output>
 
-syötä luku? **1**
-luvun itseisarvo on 1
+Anna luku: **1**
+Luvun itseisarvo on 1
 
 </sample-output>
 
 <sample-output>
 
-syötä luku? **-99**
-luvun itseisarvo on 99
+Anna luku: **-99**
+Luvun itseisarvo on 99
 
 </sample-output>
 
