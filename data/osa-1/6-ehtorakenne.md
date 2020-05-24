@@ -464,7 +464,7 @@ Muista sateenvarjo!
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Toisen asteen yhtälön ratkaiseminen" tmcname="osa01-">
+<in-browser-programming-exercise name="Toisen asteen yhtälön ratkaiseminen" tmcname="osa01-30_toisen_asteen_yhtalo">
 
 Tehtäväpohjassa on haettu käyttöön funktio `sqrt`, jolla voi laskea luvun neliöjuuren.
 
