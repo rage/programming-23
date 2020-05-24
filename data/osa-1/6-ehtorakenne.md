@@ -490,7 +490,7 @@ Ohjelma tulostaa:
 
 </sample-output>
 
-Kirjoita ohjelma, joka ratkaisee toisen asteen yhtälön [ratkaisukaavan avulla]("https://fi.wikipedia.org/wiki/Toisen_asteen_yht%C3%A4l%C3%B6#Toisen_asteen_yht%C3%A4l%C3%B6n_ratkaisukaava").
+Kirjoita ohjelma, joka ratkaisee toisen asteen yhtälön [ratkaisukaavan avulla](https://fi.wikipedia.org/wiki/Toisen_asteen_yht%C3%A4l%C3%B6#Toisen_asteen_yht%C3%A4l%C3%B6n_ratkaisukaava).
 
 Ohjelman ei tarvitse toimia oikein tilanteissa, joissa yhtälöllä ei ola kahta juurta (tähän palataan myöhemmin).
 
