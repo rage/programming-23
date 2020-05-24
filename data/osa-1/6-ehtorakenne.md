@@ -153,22 +153,22 @@ Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun. Mikäli luku on pien
 
 <sample-output>
 
-syötä luku? **-7**
-luvun itseisarvo on 7
+Anna luku: **-7**
+Luvun itseisarvo on 7
 
 </sample-output>
 
 <sample-output>
 
-syötä luku? **1**
-luvun itseisarvo on 1
+Anna luku: **1**
+Luvun itseisarvo on 1
 
 </sample-output>
 
 <sample-output>
 
-syötä luku? **-99**
-luvun itseisarvo on 99
+Anna luku: **-99**
+Luvun itseisarvo on 99
 
 </sample-output>
 
@@ -215,7 +215,7 @@ Luku on pienempi kuin 1000
 Luku on pienempi kuin 100
 Kiitos!
 
-Anna luku: *2**
+Anna luku: **2**
 Luku on pienempi kuin 1000
 Luku on pienempi kuin 100
 Luku on pienempi kuin 10
