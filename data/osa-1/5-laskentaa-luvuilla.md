@@ -386,7 +386,7 @@ Vihje: tehtävän tekeminen onnistuu kokonaislukujakolaskuoperaattorilla `//`
 
 Tee ohjelma, joka arvoi käyttäjän keskimääräisiä ruokailukustannuksia.
 
-Ohjelma kysyy, kuinka monta kertaa viikossa käyttäjä käy Unicafessa sekä Unicafe-lounaan hinnan sekä viikon ruokaostosten hinnan.
+Ohjelma kysyy, kuinka monta kertaa viikossa käyttäjä käy Unicafessa ja Unicafe-lounaan hinnan sekä viikon muiden ruokaostosten hinnan.
 
 Näiden tietojen perusteella ohjelma laskee käyttäjän keskimääräiset ruokamenot sekä viikossa että yhtenä päivänä.
 
