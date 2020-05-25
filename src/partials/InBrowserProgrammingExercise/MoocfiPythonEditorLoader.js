@@ -23,6 +23,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
 
   state = {
     exerciseDetails: undefined,
+    fetching: false,
     render: false,
   }
 
@@ -32,6 +33,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
   }
 
   fetch = async () => {
+    this.setState({ fetching: true })
     if (!this.props.tmcname) {
       return
     }
@@ -45,12 +47,13 @@ class InBrowserProgrammingExercisePartial extends React.Component {
     }
     this.setState({
       exerciseDetails,
+      fetching: false,
     })
   }
 
-  onUpdate = async () => {
+  onUpdate = async completed => {
     this.setState({
-      exerciseDetails: undefined,
+      exerciseDetails: { completed },
     })
     await this.fetch()
   }
@@ -67,14 +70,16 @@ class InBrowserProgrammingExercisePartial extends React.Component {
       this.state,
       "exerciseDetails.awarded_points.length",
     )
+    const completed = get(this.state, "exerciseDetails.completed")
 
     return (
       <ProgrammingExerciseCard
         name={name}
         points={points}
         awardedPoints={awardedPoints}
-        onRefresh={this.onUpdate}
-        allowRefresh={this.context.loggedIn}
+        onRefresh={() => this.onUpdate(completed)}
+        allowRefresh={this.context.loggedIn && !this.state.fetching}
+        completed={completed}
       >
         <div>
           <Wrapper>{children}</Wrapper>
