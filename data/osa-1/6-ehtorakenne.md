@@ -128,7 +128,7 @@ Luku on nolla.
 
 </sample-output>
 
-<in-browser-programming-exercise name="Orwel" tmcname="osa01-21_orwel">
+<in-browser-programming-exercise name="Orwell" tmcname="osa01-21_orwel">
 
 Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun ja tulostaa merkkijonon "Orwell" jos luku on täsmälleen 1984. Muussa tapauksessa ohjelma ei tulosta mitään.
 
