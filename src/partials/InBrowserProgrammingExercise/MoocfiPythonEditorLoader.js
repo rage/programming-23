@@ -84,6 +84,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
         <div>
           <Wrapper>{children}</Wrapper>
           <ProgrammingExercise
+            onSubmissionResults={() => this.onUpdate(completed)}
             organization={ORGANIZATION}
             course={COURSE}
             exercise={tmcname}
