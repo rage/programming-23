@@ -6,11 +6,9 @@ hidden: false
 
 <text-box variant='learningObjectives' nimi='Oppimistavoitteet'>
 
-Tiedon tallentamisen lisäksi olennaista on osata käsitellä tietoa ja laskea erilaisia lopputuloksia tallennettuun tietoon perustuen. Tutustutaan tässä osassa luvuilla tehtäviin laskutoimituksiin omissa ohjelmissa.
+Tässä osiossa
 
-Tämän osan suoritettuasi
-
-- Osaat tehdä erilaisia laskutoimituksia muuttujien avulla.
+- Osaat tehdä erilaisia laskutoimituksia muuttujien avulla
 - Osaat hyödyntää syötettä lukuarvojen lukemiseen
 - Osaat muuntaa arvoja eri perustyyppien välillä
 
@@ -23,8 +21,9 @@ Aiemmissa osissa nähtiin esimerkkejä peruslaskutoimituksista. Seuraavaan taulu
 | `+`           | Yhteenlasku   | `2 + 4`      |`6`    |
 | `-`           | Vähennyslasku | `10 - 2.5`   |`7.5`  |
 | `*`           | Kertolasku    | `-2 * 123`   |`-246` |
-| `/`           | Jakolasku     | `12 / 2`     |`6.0`  |
-| `//`           | Kokonaislukujakolasku     | `9 / 2`     |`4`  |
+| `/`           | Jakolasku (liukuluku)    | `9 / 2`     |`4.5`  |
+| `//`           | Jakolasku (kokonaisluku)    | `9 // 2`     |`4`  |
+| `%`           | Jakojäännös    | `9 % 2`     |`1`  |
 | `**`          | Potenssi      | `2 ** 3`     |`8`    |
 
 Laskujärjestys noudattaa matematiikasta tuttuja sääntöjä: aluksi lasketaan potenssilaskut, sitten kerto- ja jakolaskut ja lopuksi yhteen- ja vähennyslaskut. Järjestystä voidaan muuttaa sulkujen avulla.
@@ -53,7 +52,7 @@ Laskutoimituksen osana on yleensä *operandeja* ja *operaattoreita*:
 
 Yleensä operandien tyyppi ratkaisee lopputuloksen tyypin: jos lasketaan yhteen kaksi kokonaislukua, myös tulos on kokonaisluku. Jos taas vähennetään liukuluku toisesta liukuluvusta, myös tulos on liukuluku. Itse asiassa tulos on liukuluku, jos edes yksi operandeista lausekkeessa on liukuluku.
 
-Jakolasku muodostaa Pythonissa poikkeuksen sääntöön: sen tulos liukuluku, vaikka operandit olisivatkin kokonaislukuja (esim. `1 / 5` tuottaa liukuluvun `0.2`).
+Jakolasku `/` muodostaa Pythonissa poikkeuksen sääntöön: sen tulos liukuluku, vaikka operandit olisivatkin kokonaislukuja (esim. `1 / 5` tuottaa liukuluvun `0.2`).
 
 Esimerkki:
 
@@ -68,7 +67,7 @@ bmi = paino / (pituus / 100) ** 2
 print("Painoindeksi on", bmi)
 ```
 
-Ohjelma tulostaa
+Ohjelman tulostus on seuraava:
 
 <sample-output>
 
@@ -76,7 +75,7 @@ Painoindeksi on 23.037177063642087
 
 </sample-output>
 
-Huomaa, että Pythonissa on myös kokonaislukujakolaskuoperaattori `//`, joka tuottaa kokonaisluvun jos sen operandit ovat kokonaislukuja. Vastauksesta tiputetaan desimaaliosa pois, eli esim.
+Huomaa, että Pythonissa on myös kokonaislukujakolaskuoperaattori `//`, joka tuottaa kokonaisluvun, jos sen operandit ovat kokonaislukuja. Vastaus pyöristetään alaspäin kokonaisluvuksi, eli esim.
 
 ```python
 x = 3
@@ -97,14 +96,14 @@ tulostaa
 
 ## Lukuarvojen lukeminen
 
-Aikaisemmin käytettin `input`-komentoa lukemaan käyttäjältä merkkijonoja. Samaa funktiota voidaan käyttää myös lukuarvojen lukemiseen. Tällaisessa tapauksessa muunnos merkkijonosta lukutyyppiin on kuitenkin tehtävä itse. Logiikka on samanlainen kuin edellisessä osassa opitussa `str`-funktiossa: vain funktion nimi vaihtuu.
+Aikaisemmin käytettin `input`-komentoa lukemaan käyttäjältä merkkijonoja. Samaa funktiota voidaan käyttää myös lukuarvojen lukemiseen. Tällaisessa tapauksessa muunnos merkkijonosta lukutyyppiin on kuitenkin tehtävä itse. Logiikka on samanlainen kuin edellisessä osassa opitussa `str`-funktiossa, vain funktion nimi vaihtuu.
 
 Esimerkiksi voimme muuttaa merkkijonon kokonaisluvuksi funktiolla `int`. Seuraava ohjelma lukee käyttäjältä syntymävuoden muuttujaan `syote` ja luo sitten toisen muuttujan `vuosi`, jossa on vuosi kokonaisluvuksi muutettuna. Tämän jälkeen voimme suorittaa laskun `2020-vuosi`, jossa on mukana käyttäjän antama vuosi.
 
 ```python
 syote = input("Minä vuonna olet syntynyt? ")
 vuosi = int(syote)
-print("Ikäsi vuoden 2020 lopussa:", 2020 -v uosi)
+print("Ikäsi vuoden 2020 lopussa:", 2020 - vuosi)
 ```
 <sample-output>
 
@@ -365,7 +364,7 @@ Tee ohjelma, joka kysyy kurssin opiskelijoiden määrän ja ryhmän koon ja ilmo
 <sample-output>
 
 Montako opiskelijaa? **8**
-Ryhmän koko: **4**
+Mikä on ryhmän koko? **4**
 Ryhmien määrä: 2
 
 </sample-output>
@@ -373,7 +372,7 @@ Ryhmien määrä: 2
 <sample-output>
 
 Montako opiskelijaa? **11**
-Ryhmän koko: **3**
+Mikä on ryhmän koko? **3**
 Ryhmien määrä: 4
 
 </sample-output>

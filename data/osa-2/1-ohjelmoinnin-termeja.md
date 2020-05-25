@@ -20,7 +20,7 @@ Emme vielä kurssin ensimmäisessä osassa kiinnittäneet kovin tarkasti huomiot
 _Lause_ (engl. _statement_) tarkoittaa ohjelman osaa, joka suorittaa jonkin toiminnon. Usein lause viittaa yksittäiseen komentoon.
 
 Esimerkiksi `print("Moi!")` on lause, joka tulostaa rivin tekstiä,
-ja `luku = 2` on lause, joka asettaa muuttujan arvon.
+ja `luku = 2` on lause, joka asettaa muuttujalle arvon.
 
 Lause voi olla myös monimutkaisempi, ja sen sisällä voi olla muita lauseita.
 Esimerkiksi ehtolauseen aloittaa `if`-rivi, jonka jälkeen sen sisällä on yksi tai useampia lauseita.
@@ -78,7 +78,7 @@ y = 3 * x + x**2
 
 _Funktio_ (engl. _function_) suorittaa jonkin toiminnon. Funktiolla voi olla yksi tai useampi _parametri_ (engl. _parameter_), jotka ilmaisevat, mitä funktion tulee tehdä tarkalleen.
 
-Funktio suoritetaan, kun sitä _kutsutaan_ eli koodissa on funktion nimi ja halutut parametrit. Esimerkiksi seuraava koodi kutsuu `print`-funktiota parametrilla `"tämä on parametri"`:
+Funktio suoritetaan, kun sitä _kutsutaan_ eli koodissa on funktion nimi ja funktiolle annettavat parametrit suluissa. Esimerkiksi seuraava koodi kutsuu `print`-funktiota parametrilla `"tämä on parametri"`:
 
 ```python
 print("tämä on parametri")
@@ -90,7 +90,7 @@ Myös käyttäjältä syötteitä lukeva `input` on funktio. Parametrina funktio
 nimi = input("Kerro nimesi: ")
 ```
 
-Tässä tapauksessa funktio _palauttaa_ arvon, mikä tarkoittaa, että funktion kutsukohtaan ilmestyy arvo funktion suorituksen jälkeen. Funktion `input` palautusarvo on käyttäjän syöttämä teksti merkkijonona.
+Tässä tapauksessa funktio _palauttaa_ arvon, mikä tarkoittaa, että funktion kutsukohtaan ilmestyy arvo funktion suorituksen jälkeen. Funktion `input` palauttama arvo on käyttäjän syöttämä teksti merkkijonona. Funktion palauttama arvo sijoitetaan usein muttuujan arvoksi, jotta arvoa voidaan hyödyntää ohjelmassa.
 
 ## Tyyppi
 
@@ -126,7 +126,7 @@ if nimi == "Anna":
     print("Moi!")
 ```
 
-Jos ohjelmointikielen syntaksia ei noudateta, tulee virheilmoitus:
+Jos ohjelmointikielen syntaksia ei noudateta, seurauksena virheilmoitus:
 
 ```python
 if nimi == "Anna"

@@ -4,9 +4,9 @@ title: "Lisää muuttujista"
 hidden: false
 ---
 
-<text-box variant='learningObjectives' nimi='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tämän osion suoritettuasi
+Tässä osiossa
 
 - Opit käyttämään muuttujia eri yhteyksissä
 - Tiedät, millaista tietoa muuttujiin voidaan tallentaa
@@ -77,8 +77,8 @@ print(sana)
 <sample-output>
 
 Anna sana: **eka**
-Anna toinen sana: **toka**
 eka
+Anna toinen sana: **toka**
 toka
 kolmas
 
@@ -106,14 +106,14 @@ testi!!!
 
 <text-box variant="hint" name="Lisää muuttujan nimen valinnasta">
 
-Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan.
-Esimerkiksi jos muuttujassa on sana, nimi `sana` on parempi kuin `a`.
+* Muuttujat kannattaa nimetä niiden käyttötarkoituksen mukaan.
+  Esimerkiksi jos muuttujassa on sana, nimi `sana` on parempi kuin `a`.
 
-Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain kirjaimia, numeroita ja alaviivoja &#95;.
+* Python ei rajoita muuttujien nimien pituutta, mutta eräitä muita sääntöjä muuttujien nimiin liittyy. Nimen täytyy _alkaa kirjaimella_ ja se saa sisältää vain kirjaimia, numeroita ja alaviivoja &#95;.
 
-Huomaa myös, että pienet ja isot kirjaimet ovat eri merkkejä. Muuttuja `nimi` on siis eri muuttuja kuin `Nimi` tai `NIMI`.
+* Huomaa myös, että pienet ja isot kirjaimet ovat eri merkkejä. Muuttuja `nimi` on siis eri muuttuja kuin `Nimi` tai `NIMI`.
 
-Pythonissa muuttujien nimet on tapana kirjoittaa pienillä kirjaimilla.
+* Pythonissa muuttujien nimet on tapana kirjoittaa pienillä kirjaimilla.
 
 </text-box>
 
@@ -166,7 +166,7 @@ print(luku1 + luku1)
 print(luku2 + luku2)
 ```
 
-Ohjelma tulostaa suoritettaessa
+Ohjelman tulostus on seuraava:
 
 <sample-output>
 
@@ -288,7 +288,7 @@ niin tulostus on seuraava:
 
 <in-browser-programming-exercise name="Korjaa ohjelma: Tulostukset samalle riville" tmcname="osa01-12_korjaa_ohjelma_tulostukset_samalle_riville">
 
-Jos `print`-komennolle annetaan toisena parametrina `end = ""`, komento ei tulosta rivinvaihtoa merkkijonon jälkeen.
+Jos `print`-komennolle annetaan lisäparametri `end = ""`, komento ei tulosta rivinvaihtoa merkkijonon jälkeen.
 
 Esimerkiksi:
 

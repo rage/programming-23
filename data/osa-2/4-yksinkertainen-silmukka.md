@@ -51,6 +51,37 @@ Kiitos ja moi!
 
 Kuten esimerkistä huomataan, ohjelman suoritus jatkuu `while`-lauseen ansiosta niin kauan, että suoritetaan lause `break`. Heti kun `break`-komento suoritetaan eli kun käyttäjän syöte on -1, hyppää suoritus ensimmäiselle lohkon jälkeiselle riville.
 
+Silmukoita käytettäessä on oltava tarkkana, että ei jouduta tilanteeseen, missä silmukan suoritus ei koskaan lopu. Muutetaan edellistä esimerkkiä seuraavasti
+
+```python
+luku = int(input("Anna luku, -1 lopettaa: "))
+while True:
+    if luku == -1:
+        break
+
+    print(luku ** 2)
+
+print("Kiitos ja moi!")
+```
+
+Nyt siis lukua kysytään _silmukan ulkopuolella_. Jos käyttäjä antaa minkä tahansa muun luvun kuin -1:n, ei silmukasta tulla koskaan pois, eli syntyy _ikuinen silmukka_, while-komennossa olevaa lohkoa suoritetaan ikuisesti:
+
+<sample-output>
+
+Anna luku, -1 lopettaa: **2**
+4
+4
+4
+4
+4
+4
+4
+4
+# jatkuu ikuisesti...
+
+</sample-output>
+
+
 Seuraavassa esimerkkinä ohjelma, joka antaa käyttäjän jatkaa eteenpäin vasta sen jälkeen, kun käyttäjä on syöttänyt oikean PIN-koodin _1234_:
 
 ```python

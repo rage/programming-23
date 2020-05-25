@@ -6,9 +6,7 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Suorituksen ohjaaminen on tärkeä osa ohjelmia: eri syötteitä tai tilanteita tulee usein käsitellä eri tavoilla. Tutustutaan seuraavaksi siis ehdolliseen suoritukseen.
-
-Tämän osion suoritettuasi
+Tässä osiossa
 
 - Tiedät, mitä tarkoittaa ehtorakenne ja osaat käyttää sitä omissa ohjelmissa
 - Osaat muodostaa lohkoja Pythonissa
@@ -155,22 +153,22 @@ Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun. Mikäli luku on pien
 
 <sample-output>
 
-syötä luku? **-7**
-luvun itseisarvo on 7
+Anna luku: **-7**
+Luvun itseisarvo on 7
 
 </sample-output>
 
 <sample-output>
 
-syötä luku? **1**
-luvun itseisarvo on 1
+Anna luku: **1**
+Luvun itseisarvo on 1
 
 </sample-output>
 
 <sample-output>
 
-syötä luku? **-99**
-luvun itseisarvo on 99
+Anna luku: **-99**
+Luvun itseisarvo on 99
 
 </sample-output>
 
@@ -217,7 +215,7 @@ Luku on pienempi kuin 1000
 Luku on pienempi kuin 100
 Kiitos!
 
-Anna luku: *2**
+Anna luku: **2**
 Luku on pienempi kuin 1000
 Luku on pienempi kuin 100
 Luku on pienempi kuin 10
@@ -382,16 +380,14 @@ Palkka 250.0 euroa
 
 Ohjelmassa lasketaan bonuskortin saldoon vuoden lopussa lisättävä bonuspistemäärä seuraavan kaavan mukaisesti:
 
-* Jos pisteitä on alle sata, korkona saa 10 % lisää pisteitä
+* Jos bonuspisteitä on alle sata, korkona saa 10 % lisää pisteitä
 * Muussa tapauksessa korkona saa 15 % lisää pisteitä
-
-TODO: Mitä ovat siis pisteet?
 
 Ohjelma siis toimii esim. näin:
 
 <sample-output>
 
-Kuinka paljon pisteitä? 55
+Kuinka paljon pisteitä? **55**
 Sait 10 % bonusta
 Pisteitä on nyt 60.5
 
@@ -401,7 +397,7 @@ Ohjelma toimii kuitenkin jollain syötteillä oudosti:
 
 <sample-output>
 
-Kuinka paljon pisteitä? 95
+Kuinka paljon pisteitä? **95**
 Sait 10 % bonusta
 Sait 15 % bonusta
 Pisteitä on nyt 120.175
@@ -409,19 +405,6 @@ Pisteitä on nyt 120.175
 </sample-output>
 
 Korjaa ohjelma niin, että bonusta tulee joko 10 % tai 15 %, ei koskaan molempia.
-
-```python
-pisteet = int(input("Kuinka paljon pisteitä? "))
-if pisteet < 100:
-    pisteet *= 1.1
-    print("Sait 10 % bonusta")
-
-if pisteet >= 100:
-    pisteet *= 1.15
-    print("Sait 15 % bonusta")
-
-print("Pisteitä on nyt", pisteet)
-```
 
 </in-browser-programming-exercise>
 
@@ -481,7 +464,7 @@ Muista sateenvarjo!
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Toisen asteen yhtälön ratkaiseminen" tmcname="osa01-">
+<in-browser-programming-exercise name="Toisen asteen yhtälön ratkaiseminen" tmcname="osa01-30_toisen_asteen_yhtalo">
 
 Tehtäväpohjassa on haettu käyttöön funktio `sqrt`, jolla voi laskea luvun neliöjuuren.
 
@@ -507,7 +490,7 @@ Ohjelma tulostaa:
 
 </sample-output>
 
-Kirjoita ohjelma, joka ratkaisee toisen asteen yhtälön [ratkaisukaavan avulla]("https://fi.wikipedia.org/wiki/Toisen_asteen_yht%C3%A4l%C3%B6#Toisen_asteen_yht%C3%A4l%C3%B6n_ratkaisukaava").
+Kirjoita ohjelma, joka ratkaisee toisen asteen yhtälön [ratkaisukaavan avulla](https://fi.wikipedia.org/wiki/Toisen_asteen_yht%C3%A4l%C3%B6#Toisen_asteen_yht%C3%A4l%C3%B6n_ratkaisukaava).
 
 Ohjelman ei tarvitse toimia oikein tilanteissa, joissa yhtälöllä ei ola kahta juurta (tähän palataan myöhemmin).
 
@@ -519,7 +502,7 @@ Anna a: **1**
 Anna b: **2**
 Anna c: **-8**
 
-Juuret ovat 2 ja -4.
+Juuret ovat 2.0 ja -4.0
 
 </sample-output>
 
