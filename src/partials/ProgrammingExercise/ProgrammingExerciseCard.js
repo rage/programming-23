@@ -21,7 +21,7 @@ const Header = styled.div`
   font-weight: normal;
   padding 1rem 0;
   border-bottom: 1px solid #f7f7f9;
-  background-color: #D23D48;
+  background-color: ${props => (props.completed ? "#13B559" : "#D23D48")};
   display: flex;
   flex-direction: row;
   align-items: 0;
@@ -101,13 +101,14 @@ class ProgrammingExerciseCard extends React.Component {
       points,
       onRefresh,
       allowRefresh,
+      completed,
     } = this.props
 
     return (
       <ProgrammingExerciseWrapper
         id={normalizeExerciseId(`programming-exercise-${name}`)}
       >
-        <Header>
+        <Header completed={completed}>
           <StyledIcon icon={icon} size="2x" />
           <HeaderTitleContainer>
             <HeaderMuted>{this.props.t("programmingExercise")} </HeaderMuted>
