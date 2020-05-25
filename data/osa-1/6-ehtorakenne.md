@@ -468,8 +468,6 @@ Muista sateenvarjo!
 
 Tehtäväpohjassa on haettu käyttöön funktio `sqrt`, jolla voi laskea luvun neliöjuuren.
 
-TODO: Voi laskea myös x**0.5 ilman importtia, olisiko parempi vaihtoehto?
-
 Voit käyttää sitä ohjelmassa näiden esimerkkien mukaisesti:
 
 ```python
