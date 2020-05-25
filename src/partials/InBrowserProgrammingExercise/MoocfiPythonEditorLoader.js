@@ -59,7 +59,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
   }
 
   render() {
-    const { name, tmcname, children } = this.props
+    const { name, tmcname, children, height, outputheight } = this.props
 
     if (!this.state.render) {
       return <div>Loading</div>
@@ -88,6 +88,8 @@ class InBrowserProgrammingExercisePartial extends React.Component {
             course={COURSE}
             exercise={tmcname}
             token={accessToken()}
+            height={height ? height : "400px"}
+            outputHeight={outputheight}
           />
         </div>
       </ProgrammingExerciseCard>
