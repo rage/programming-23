@@ -520,3 +520,7 @@ a: 1, b: -3, c: 0
 Kertauskysely tämän osan asioihin liittyen:
 
 <quiz id="b7c4a09f-9257-4060-8553-f2ec780a4c5c"></quiz>
+
+Vastaa lopuksi kyselyyn tämän viikon materiaaleista. Saat kyselyyn vastaamisesta yhden pisteen:
+
+<quiz id="a0f852a5-802f-466f-93e0-d4c96fa080fa"></quiz>
