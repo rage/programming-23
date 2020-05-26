@@ -1,5 +1,5 @@
 ---
-path: "/osa-1/4-muuttujat"
+path: "/osa-1/3-lisaa-muuttujista"
 title: "Lisää muuttujista"
 hidden: false
 ---

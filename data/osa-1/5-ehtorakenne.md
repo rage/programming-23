@@ -1,5 +1,5 @@
 ---
-path: "/osa-1/6-ehtorakenne"
+path: "/osa-1/5-ehtorakenne"
 title: "Ehtorakenne"
 hidden: false
 ---

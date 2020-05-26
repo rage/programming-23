@@ -1,6 +1,6 @@
 ---
-path: '/osa-1/3-syotteen-lukeminen'
-title: 'Syötteen lukeminen'
+path: '/osa-1/2-tietoa-kayttajalta'
+title: 'Tietoa käyttäjältä'
 hidden: false
 ---
 

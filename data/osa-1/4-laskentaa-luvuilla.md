@@ -1,5 +1,5 @@
 ---
-path: "/osa-1/5-laskentaa"
+path: "/osa-1/4-laskentaa-luvuilla"
 title: "Laskentaa luvuilla"
 hidden: false
 ---
