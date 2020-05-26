@@ -6,11 +6,11 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tässä osiossa
+Tämän osion jälkeen
 
-- Kirjoitat ja suoritat ensimmäisen Python-ohjelmasi
-- Opit käyttämään print-komentoa viestien tulostamiseen
-- Opit laskemaan laskuja ohjelmoimalla
+- Olet kirjoittanut ja suorittanut ensimmäisen Python-ohjelmasi
+- Osaat käyttää print-komentoa viestien tulostamiseen
+- Osaat laskemaan laskuja ohjelmoimalla
 
 </text-box>
 

@@ -4,12 +4,12 @@ title: "Laskentaa luvuilla"
 hidden: false
 ---
 
-<text-box variant='learningObjectives' nimi='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tässä osiossa
+Tämän osion jälkeen
 
-- Osaat tehdä erilaisia laskutoimituksia muuttujien avulla
-- Osaat hyödyntää syötettä lukuarvojen lukemiseen
+- Osaat käyttää muuttujia laskutoimitusten kanssa
+- Osaat käsitellä käyttäjän antamia lukuarvoja
 - Osaat muuntaa arvoja eri perustyyppien välillä
 
 </text-box>

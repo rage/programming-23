@@ -6,12 +6,11 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tässä osiossa
+Tämän osion jälkeen
 
-- Tiedät, mitä tarkoittaa ehtorakenne ja osaat käyttää sitä omissa ohjelmissa
-- Osaat muodostaa lohkoja Pythonissa
+- Osaat käyttää yksinkertaisia ehtorakennetta ohjelmoinnissa
 - Tiedät, mitä tarkoitetaan totuusarvoilla
-- Osaat käyttää vertailuoperaattoreita yhtäsuuruuden ja erisuuruuden toteamiseen
+- Osaat muodostaa ehtoja vertailuoperaattoreiden avulla
 
 </text-box>
 

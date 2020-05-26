@@ -6,9 +6,9 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tässä osiossa
+Tämän osion jälkeen
 
-- Opit kirjoittamaan ohjelman, joka lukee tietoa käyttäjältä
+- Osaat kirjoittaa ohjelman, joka lukee tietoa käyttäjältä
 - Osaat käyttää muuttujaa syötteen lukemisessa ja tulostamisessa
 - Osaat yhdistää merkkijonoja toisiinsa
 

@@ -6,12 +6,11 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tässä osiossa
+Tämän osion jälkeen
 
-- Opit käyttämään muuttujia eri yhteyksissä
+- Osaat käyttää muuttujia eri yhteyksissä
 - Tiedät, millaista tietoa muuttujiin voidaan tallentaa
 - Ymmärrät merkkijonojen sekä kokonais- ja liukulukujen eron
-- Osaat käyttää muuttujia omissa ohjelmissasi
 
 </text-box>
 
