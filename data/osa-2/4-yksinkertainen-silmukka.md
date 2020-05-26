@@ -9,7 +9,7 @@ hidden: false
 Tämän osion jälkeen
 
 - Tiedät, mitä silmukka tarkoittaa ohjelmoinnissa
-- Osaat käyttää yksinkertaista `while(True)`-silmukkaa osana ohjelmaasi
+- Osaat käyttää `while True` -silmukkaa osana ohjelmaasi
 - Tiedät, miten toisto voidaan katkaista `break`-komennolla
 
 </text-box>
