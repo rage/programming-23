@@ -7,12 +7,18 @@ banner: true
 sidebar_priority: 5000
 ---
 
-TODO
+Ohjelmoinnin perusteet on 5 op laajuinen tietojenkäsittelytieteen
+perusopintokurssi.
+Kesällä 2020 kurssi järjestetään _ensimmäistä_ kertaa Python-kielellä.
+Kurssi muodostuu viikoittaisista tehtävistä sekä kokeesta kurssin lopussa.
+
+Huomaa, että jos olet suorittanut kurssin aiemmin Javalla,
+_et_ voi sisällyttää tutkintoosi suoritusta sekä Javalla että Pythonilla.
 
 ## Telegram-kanava
 
 Kurssin Telegram-kanavalla voit keskustella muiden kurssin osallistujien
-ja ohjaajien kanssa. Pääset kanavalle tästä (TODO, lisää linkki).
+ja ohjaajien kanssa. Pääset kanavalle [tästä](https://t.me/ohpekesa20/).
 
 ## Aikataulu
 
