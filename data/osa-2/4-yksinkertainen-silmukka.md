@@ -155,3 +155,76 @@ Liian monta yritystä...
 </sample-output>
 
 Silmukasta tullaan siis ulos, jos käyttäjä syöttää oikean PIN-koodin _tai_ jos yrityksiä tehdään liian monta. Silmukan jälkeinen if-lause tarkastaa muuttujan `onnistui` arvon perusteella, onko kirjautuminen onnistunut vai ei.
+
+<in-browser-programming-exercise name="Lukujen käsittelyä" tmcname="osa02-23_lukujen_kasittelya">
+
+Tee ohjelma, joka pyytää käyttäjää syöttämään kokonaislukuja. Ohjelma pyytää lukuja niin kauan kunnes käyttäjä syöttää nollan.
+
+<sample-output>
+
+Syötä kokonaislukuja, 0 lopettaa:
+Luku: **5**
+Luku: **22**
+Luku: **9**
+Luku: **-2**
+Luku: **0**
+
+</sample-output>
+
+### Osa 1: lukumäärä
+
+Syötteiden lukemisen jälkeen ohjelman tulee tulostaa syötettyjen lukujen lukumäärä. Syötteen loppumisesta kertovaa nollaa ei tule ottaa huomioon lukumäärässä.
+
+Tarvitset tässä uuden muuttujan, jonka avulla pidät kirjaa luettujen lukujen määrästä.
+
+<sample-output>
+
+... lukujen kysely
+Lukuja yhteensä 4
+
+</sample-output>
+
+
+### Osa 2: summa
+
+Laajenna ohjelmaa siten, että se tulostaa syötettyjen lukujen summa. Syötteen loppumisesta kertovaa nollaa ei tule ottaa huomioon summan laskemisessa.
+
+Ohjelman tulostus laajenee seuraavasti:
+
+<sample-output>
+
+... lukujen kysely
+Lukuja yhteensä 4
+Lukujen summa 34
+
+</sample-output>
+
+### Osa 3: keskiarvo
+
+Laajenna ohjelmaa siten, että se tulostaa syötettyjen lukujen keskiarvon. Syötteen loppumisesta kertovaa nollaa ei tule ottaa huomioon keskiarvon laskemisessa. Voit olettaa, että käyttäjä syöttää aina vähintään yhden luvun.
+
+<sample-output>
+
+... lukujen kysely
+Lukuja yhteensä 4
+Lukujen summa 34
+Lukujen keskiarvo 8.5
+
+</sample-output>
+
+#### Osa 4: positiiviset ja negatiiviset
+
+Laajenna ohjelmaa siten, että se tulostaa positiivisten ja negatiivisten lukujen lukumäärät
+
+<sample-output>
+
+... lukujen kysely
+Lukuja yhteensä 4
+Lukujen summa 34
+Lukujen keskiarvo 8.5
+Positiivisia 3
+Negatiivisia 1
+
+</sample-output>
+
+</in-browser-programming-exercise>
