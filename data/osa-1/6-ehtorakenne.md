@@ -229,9 +229,9 @@ Kiitos!
 
 </in-browser-programming-exercise>
 
-## Lohkot
+## Sisentäminen
 
-Ehtorakenteen aloitusrivin jälkeiseltä riviltä alkaa _lohko_, jossa oleva koodi suoritetaan vain silloin, kun ehto on tosi. Python tunnistaa lohkoon kuuluvan koodin siitä, että jokainen rivi on _sisennetty_ samalla tavalla. Tämä tarkoittaa, että ennen lohkoon kuuluvan rivin alkua on tyhjää tilaa enemmän kuin rivillä, jolla ehto annettiin.
+Python tunnistaa ehtorakenteen sisällä olevan koodin siitä, että jokainen rivi on _sisennetty_ samalla tavalla. Tämä tarkoittaa, että ehtorakenteen sisällä olevan koodin alussa on tyhjää tilaa. Jokaisella rivillä tulee olla yhtä paljon tyhjää tilaa.
 
 Esimerkiksi:
 
@@ -250,7 +250,7 @@ Tyhjä tila saadaan aikaan _tabulaattorilla_, jonka saat Tab-näppäimestä.
 
 <img src="1_6_keyboard.png">
 
-Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Lohkon kirjoittamisen voit lopettaa editorissa painamalla rivin alussa `Backspace`-näppäintä.
+Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Voit lopettaa sisentämisen editorissa painamalla rivin alussa `Backspace`-näppäintä.
 
 <img src="1_6_keyboard2.png">
 <small><center>
