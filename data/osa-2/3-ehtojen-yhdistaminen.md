@@ -4,16 +4,11 @@ title: 'Ehtojen yhdistäminen'
 hidden: false
 ---
 
-
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Usein on tarpeen yhdistää useampia ehtoja yhdeksi ehtolausekkeeksi.
+Tämän osion jälkeen
 
-Tämän osion suoritettuasi
-
-- Osaat ketjuttaa Pythonin operaattoreita
-- Tiedät mitä tarkoitetaan loogisilla operaattoreilla
-- Osaat käyttää `and`-, `or`- ja `not`-operaattoreita ehtolausekkeissa
+- Osaat käyttää `and`-, `or`- ja `not`-operaattoreita ehdoissa
 - Osaat kirjoittaa sisäkkäisiä ehtolauseita
 
 </text-box>

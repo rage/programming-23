@@ -5,11 +5,11 @@ title: 'Ohjelmoinnin termejä'
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tämän osion suoritettuasi
+Tämän osion jälkeen
 
-- Ymmärrät lauseen ja lausekkeen eron
-- Tiedät, mitä tarkoittaa dynaaminen tyypitys
-- Osaat selvittää lausekkeen tyypin ja tehdä tyyppimuunnoksia
+- Tunnet keskeistä ohjelmoinnin termistöä
+- Tiedät lauseen ja lausekkeen eron
+- Osaat selvittää lausekkeen arvon tyypin
 
 </text-box>
 

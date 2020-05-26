@@ -6,11 +6,9 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Toimintojen toistaminen on eräs tehokkaimmista työkaluista ohjelmoinnissa: aloitetaan siis tutustuminen toistolauseeseen.
+Tämän osion jälkeen
 
-Tämän osion suoritettuasi
-
-- Tiedät, mitä tarkoitetaan toistolauseella
+- Tiedät, mitä silmukka tarkoittaa ohjelmoinnissa
 - Osaat käyttää yksinkertaista `while(True)`-silmukkaa osana ohjelmaasi
 - Tiedät, miten toisto voidaan katkaista `break`-komennolla
 
