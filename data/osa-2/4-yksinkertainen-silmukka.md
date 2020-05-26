@@ -16,7 +16,7 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Silmukka eli toistolause on ehtolauseen lisäksi keskeinen ohjausrakenne ohjelmoinnissa. Aloitetaan toistoon tutustuminen tarkastelemalla Pythonin `while`-silmukkaa yksinkertaisten esimerkkien kautta. Ensi viikolla tutustutaan sitten monipuolisemmin sen mahdollisuuksiin.
+Silmukka eli toistolause on ehtolauseen lisäksi keskeinen ohjausrakenne ohjelmoinnissa. Aloitetaan toistamiseen tutustuminen tarkastelemalla Pythonin `while`-silmukkaa yksinkertaisten esimerkkien kautta. Ensi viikolla tutustutaan sitten monipuolisemmin sen mahdollisuuksiin.
 
 Periaatteessa silmukka muistuttaa ehtolausetta. Ideana kuitenkin on, että sen avulla voidaan toistaa samaa koodia useamman kerran.
 
@@ -49,7 +49,7 @@ Kiitos ja moi!
 
 </sample-output>
 
-Kuten esimerkistä huomataan, ohjelman suoritus jatkuu `while`-lauseen ansiosta niin kauan, että suoritetaan lause `break`. Heti kun `break`-komento suoritetaan eli kun käyttäjän syöte on -1, hyppää suoritus ensimmäiselle lohkon jälkeiselle riville.
+Kuten esimerkistä huomataan, ohjelman kysyy `while`-lauseen ansiosta käyttäjältä useita lukuja. Sitten kun käyttäjän syöte on -1, suoritetaan `break`-komento, jolloin suoritus hyppää ensimmäiselle lohkon jälkeiselle riville.
 
 Silmukoita käytettäessä on oltava tarkkana, että ei jouduta tilanteeseen, missä silmukan suoritus ei koskaan lopu. Muutetaan edellistä esimerkkiä seuraavasti
 
@@ -64,7 +64,7 @@ while True:
 print("Kiitos ja moi!")
 ```
 
-Nyt siis lukua kysytään _silmukan ulkopuolella_. Jos käyttäjä antaa minkä tahansa muun luvun kuin -1:n, ei silmukasta tulla koskaan pois, eli syntyy _ikuinen silmukka_, while-komennossa olevaa lohkoa suoritetaan ikuisesti:
+Nyt siis lukua kysytään _silmukan ulkopuolella_. Jos käyttäjä antaa minkä tahansa muun luvun kuin -1:n, ei silmukasta tulla koskaan pois, eli syntyy _ikuinen silmukka_. Tällöin silmukassa olevaa lohkoa suoritetaan ikuisesti:
 
 <sample-output>
 
@@ -77,7 +77,7 @@ Anna luku, -1 lopettaa: **2**
 4
 4
 4
-# jatkuu ikuisesti...
+(jatkuu ikuisesti...)
 
 </sample-output>
 
@@ -86,13 +86,10 @@ Seuraavassa esimerkkinä ohjelma, joka antaa käyttäjän jatkaa eteenpäin vast
 
 ```python
 while True:
-    tunnus = input("Anna PIN-koodi: ")
-
-    if tunnus == "1234":
+    koodi = input("Anna PIN-koodi: ")
+    if koodi == "1234":
         break
-
     print("Väärin... yritä uudelleen")
-
 
 print("PIN-koodi oikein!")
 ```
@@ -109,9 +106,9 @@ Anna PIN-koodi oikein!
 
 </sample-output>
 
-Tehdään vielä samasta ohjelmasta monimutkaisempi versio, joka antaa käyttäjälle vain kolme mahdollisuutta yrittää pinkoodin syöttämistä.
+Tehdään vielä samasta ohjelmasta monimutkaisempi versio, joka antaa käyttäjälle vain kolme mahdollisuutta yrittää PIN-koodin syöttämistä.
 
-Ohjelma käyttää nyt kahta apumuuttujaa, `yritykset` pitää kirjaa siitä, kuinka monta kertaa käyttäjä on syöttänyt koodin.  Muuttuja `onnistui` saa arvokseen joko `True` tai `False` riippuen siitä, onnistuuko kirjautuminen.
+Ohjelma käyttää nyt kahta apumuuttujaa. Muuttuja `yritykset` pitää kirjaa siitä, kuinka monta kertaa käyttäjä on syöttänyt koodin.  Muuttuja `onnistui` saa arvokseen joko `True` tai `False` riippuen siitä, onnistuuko kirjautuminen.
 
 ```python
 yritykset = 0
@@ -157,4 +154,4 @@ Liian monta yritystä...
 
 </sample-output>
 
-Silmukasta tullaan siis ulos, jos käyttäjä syöttää oikean PIN-koodin _tai_ jos yrityksiä tehdään liian monta. Silmukan jälkeinen _if_-lause tarkastaa muuttujan `onnistui` arvon perusteella, onko kirjautuminen onnistunut vai ei.
+Silmukasta tullaan siis ulos, jos käyttäjä syöttää oikean PIN-koodin _tai_ jos yrityksiä tehdään liian monta. Silmukan jälkeinen if-lause tarkastaa muuttujan `onnistui` arvon perusteella, onko kirjautuminen onnistunut vai ei.

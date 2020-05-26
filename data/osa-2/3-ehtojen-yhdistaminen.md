@@ -44,6 +44,15 @@ if luku < 5 or luku > 8:
     print("Luku ei ole välillä 5..8")
 ```
 
+Seuraava taulukko näyttää operaattoreiden toiminnan eri tilanteissa:
+
+a   | b   | a and b | a or b |
+:--:|:---:|:-------:|:------:|
+False | False | False | False |
+True | False | False | True |
+False | True | False | True |
+True | True | True | True |
+
 Voimme käyttää ehdoissa myös operaattoria `not`, joka muuttaa ehdon
 käänteiseksi. Esimerkiksi voisimme toteuttaa äskeisen koodin myös näin:
 
@@ -52,15 +61,6 @@ luku = int(input("Anna luku: "))
 if not (luku >= 5 and luku <= 8):
     print("Luku ei ole välillä 5..8")
 ```
-
-Seuraava taulukko näyttää loogisten operaattoreiden toiminnan eri tilanteissa:
-
-a   | b   | a and b | a or b | not a
-:--:|:---:|:-------:|:------:|:----:
-False | False | False | False | True
-True | False | False | True | False
-False | True | False | True | True
-True | True | True | True | False
 
 <text-box variant='hint' name='Ehtojen ketjuttaminen'>
 
@@ -95,7 +95,7 @@ elif n3 > n4:
 else:
     suurin = n4
 
-print(str(suurin) + " on suurin luku.")
+print(suurin, "on suurin luku.")
 ```
 
 <sample-output>
@@ -108,7 +108,7 @@ Anna luku 4: **1**
 
 </sample-output>
 
-Esimerkissä ensimmäisen ehto `n1 > n2 and n1 > n3 and n1 > n4` on tosi vain mikäli kaikki kolme ehtoa ovat tosia.
+Esimerkissä ensimmäinen ehto `n1 > n2 and n1 > n3 and n1 > n4` on tosi vain, mikäli kaikki kolme ehtoa ovat tosia.
 
 ## Sisäkkäiset ehtolauseet
 
@@ -123,7 +123,7 @@ if luku >= 0:
     else:
         print("Luku on pariton")
 else:
-    print("Luku on negatiivinen.")
+    print("Luku on negatiivinen")
 ```
 
 Esimerkkitulostus kolmella eri syötteellä:
@@ -137,13 +137,13 @@ Anna luku: **18**
 Luku on parillinen
 
 Anna luku: **-4**
-Luku on negatiivinen.
+Luku on negatiivinen
 
 </sample-output>
 
-Sisäkkäisiä ehtolauseita käytettäessä on tärkeä muistaa oikeat sisennykset: esimerkiksi `else`-haara yhdistetään oikeaan `if`-lauseeseen juuri saman sisennyksen perusteella.
+Sisäkkäisiä ehtolauseita käytettäessä on tärkeä muistaa oikeat sisennykset. Esimerkiksi `else`-haara yhdistetään oikeaan `if`-lauseeseen juuri saman sisennyksen perusteella.
 
-Huomaa, että monissa tapauksissa voidaan käyttää joko sisäkkäisiä ehtolauseita tai loogisia operaattoreita. Seuraava esimerkki on toiminnallisesti sama kuin edellinen esimerkki, eli se tulostaa tiedon siitä onko positiivinen kokonaisluku parillinen vai pariton.
+Huomaa, että monissa tapauksissa voidaan käyttää joko sisäkkäisiä ehtolauseita tai loogisia operaattoreita. Seuraava esimerkki on toiminnallisesti sama kuin edellinen esimerkki, eli se tulostaa tiedon siitä, onko positiivinen kokonaisluku parillinen vai pariton.
 
 ```python
 luku = int(input("Anna luku: "))

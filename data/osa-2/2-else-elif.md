@@ -17,7 +17,7 @@ Tämän osion suoritettuasi
 
 </text-box>
 
-Tarkastellaan viime kerralta tuttua esimerkkiä, jossa tulostetaan tieto siitä, onko käyttäjän syöte pienempi vai suurempi kuin nolla:
+Tarkastellaan ohjelmaa, joka tulostaa tiedon siitä, onko käyttäjän syöte negatiivinen vai positiivinen tai nolla:
 
 ```python
 luku = int(input("Anna luku: "))
@@ -29,7 +29,7 @@ if luku >= 0:
     print("Luku on positiivinen tai nolla")
 ```
 
-Ohjelma on hiukan kömpelö. Jokaisen mahdollisen syötteen kohdalla halutaan suorittaa vain toinen lohkoista, koska kaikki kokonaisluvut ovat _joko_ negatiivisia _tai_ positiivisia (sisältäen nollan). Ensimmäinen vertailu sisältää tavallaan kaiken olennaisen: jos tulos on tosi, luku on negatiivinen, ja jos se on epätosi, luku on positiivinen tai nolla.
+Ohjelma on hiukan kömpelö. Jokaisen mahdollisen syötteen kohdalla halutaan suorittaa vain toinen lohkoista, koska aina pätee joko `luku < 0` tai `luku >= 0`. Ensimmäinen vertailu sisältää tavallaan kaiken olennaisen: jos tulos on tosi, luku on negatiivinen, ja jos se on epätosi, luku on positiivinen tai nolla.
 
 Toisen vertailun sijasta onkin usein näppärämpää luoda vaihtoehtoinen haara, joka suoritetaan, _jos ehto on epätosi_. Tätä tarkoitusta varten käytetään `else`-lausetta.
 
@@ -44,13 +44,13 @@ else:
     print("Luku on positiivinen tai nolla")
 ```
 
-Kun käytetään if-else-rakennetta, suoritetaan vaihtoehtoisista lohkoista aina jompikumpi. Missään tilanteessa ei ole mahdollista, että suoritettaisiin molemmat lohkot tai ettei suoritettaisi kumpaakaan (edellyttäen toki, ettei ohjelma kaadu virheeseen).
+Kun käytetään if-else-rakennetta, suoritetaan vaihtoehtoisista lohkoista aina jompikumpi. Seuraava kuva havainnollistaa asiaa:
 
 <img src="2_2_1.png">
 
 Huomaa, että else-haaraa ei voi olla olemassa ilman edeltävää if-haaraa. Koko if-else-rakenne lohkoineen muodostaa yhden _ehtolauseen_.
 
-Seuraava esimerkki tutkii, onko käyttäjän syöttämä luku parillinen vai ei Parillisuuden selvittämiseen käytetään jakojäänösoperaattoria `%`. Operaatio `a % b` palauttaa _jakojäännöksen_, kun `a` jaetaan b:llä. Esimerkiksi jakojäännöksen `5 % 2` arvo on `1`. Jakojäännöksellä on kätevä testata luvun parillisuutta: jos luvun jakojäännös kahdella on nolla, luku on parillinen, ja muuten pariton.
+Seuraava esimerkki tutkii, onko käyttäjän syöttämä luku parillinen vai ei Parillisuuden selvittämiseen käytetään jakojäännösoperaattoria `%`. Jakojäännöksellä on kätevä testata luvun parillisuutta: jos luvun jakojäännös kahdella on nolla, luku on parillinen, ja muuten pariton.
 
 ```python
 luku = int(input("Anna luku: "))
@@ -171,7 +171,7 @@ Kiitos ja hei.
 
 </sample-output>
 
-Huomaa, että ehtolauseessa ei edellisessä esimerkissä ole ollenkaan else-haaraa. Jos käyttäjä syöttää jonkin sellaisen päivämäärän, jota ei täytä ehtoa jossain`if`- tai `elif`-lauseessa, ohjelmassa ei suoriteta mitään ehtolauseen kolmesta lohkosta.
+Huomaa, että ehtolauseessa ei edellisessä esimerkissä ole ollenkaan else-haaraa. Jos käyttäjä syöttää jonkin sellaisen päivämäärän, jota ei täytä ehtoa jossain `if`- tai `elif`-lauseessa, ohjelmassa ei suoriteta mitään ehtolauseen kolmesta lohkosta.
 
 <sample-output>
 

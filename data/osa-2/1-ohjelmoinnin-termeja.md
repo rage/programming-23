@@ -23,12 +23,15 @@ Esimerkiksi `print("Moi!")` on lause, joka tulostaa rivin tekstiä,
 ja `luku = 2` on lause, joka asettaa muuttujalle arvon.
 
 Lause voi olla myös monimutkaisempi, ja sen sisällä voi olla muita lauseita.
-Esimerkiksi ehtolauseen aloittaa `if`-rivi, jonka jälkeen sen sisällä on yksi tai useampia lauseita.
+Esimerkiksi seuraava ehtolause muodostuu kolmesta rivistä:
 
 ```python
 if nimi == "Anna":
-    print("Moikka!")
+    print("Moi!")
+    luku = 2
 ```
+
+Tässä tapauksessa ehtolauseen sisällä on kaksi lausetta.
 
 ## Lohko
 
@@ -49,7 +52,7 @@ Pythonissa lohko ilmaistaan sisentämällä lohkon koodi eli lauseet samalle tas
 
 ## Lauseke
 
-_Lauseke_ (engl. _expression_) on lauseen osa, jolla on jokin tyyppi. Ohjelman suorituksen aikana lauseke saa arvon, jota voidaan käyttää ohjelmassa.
+_Lauseke_ (engl. _expression_) on koodin osa, jolla on jokin tyyppi. Ohjelman suorituksen aikana lauseke saa arvon, jota voidaan käyttää ohjelmassa.
 
 Tarkastellaan muutamaa esimerkkiä lausekkeista:
 
@@ -126,7 +129,7 @@ if nimi == "Anna":
     print("Moi!")
 ```
 
-Jos ohjelmointikielen syntaksia ei noudateta, seurauksena virheilmoitus:
+Jos ohjelmointikielen syntaksia ei noudateta, seurauksena on virheilmoitus:
 
 ```python
 if nimi == "Anna"
@@ -136,7 +139,7 @@ if nimi == "Anna"
 <sample-output>
 
 <pre>
-  File "lol.py", line 1
+  File "testi.py", line 1
     if nimi == "Anna"
                     ^
 SyntaxError: invalid syntax
