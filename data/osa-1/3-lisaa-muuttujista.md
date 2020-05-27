@@ -14,6 +14,11 @@ Tämän osion jälkeen
 
 </text-box>
 
+Vastaa seuraavaan kyselyyn ennen osion aloittamista. Saat vastaamisesta yhden tehtäväpisteen.
+
+<quiz id="b2bd27de-8e55-4c59-a3fd-ec468e2385d2"></quiz>
+
+
 
 Muuttujia tarvitaan ohjelmissa moniin tarkoituksiin. Voimme tallentaa muuttujiin mitä tahansa sellaista tietoa, jota tarvitaan ohjelmassa myöhemmin.
 
