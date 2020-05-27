@@ -24,6 +24,9 @@ Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-m
 
 ## Aikataulu
 
+Jokaisen osan materiaali ja tehtävät julkaistaan maanantaisin
+ja deadline on kahden viikon päästä sunnuntaina klo 23:59.
+
 <table>
   <thead>
     <tr>
