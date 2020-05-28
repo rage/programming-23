@@ -1,6 +1,6 @@
 ---
-path: '/osa-3/1-lisaa-silmukoista'
-title: 'Lisää silmukoista'
+path: '/osa-3/1-ehdot-silmukoissa'
+title: 'Ehdot silmukoissa'
 hidden: false
 ---
 

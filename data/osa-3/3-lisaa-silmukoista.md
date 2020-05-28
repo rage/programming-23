@@ -1,6 +1,6 @@
 ---
-path: '/osa-3/3-break-ja-continue'
-title: 'Silmukoiden suorituksen ohjaaminen'
+path: '/osa-3/3-lisaa-silmukoista'
+title: 'Lisää silmukoista'
 hidden: false
 ---
 
