@@ -25,7 +25,8 @@ const Credits = () => (
 
       <p>
         Kurssimateriaalin ja tehtävien tekijät ovat Erkki Kaila, Antti Laaksonen
-        ja Matti Luukkainen. Kurssin sisältöön ovat vaikuttaneet myös seuraavat henkilöt:
+        ja Matti Luukkainen. Kurssin sisältöön ovat vaikuttaneet myös seuraavat
+        henkilöt:
       </p>
 
       <ul>
@@ -87,8 +88,7 @@ const Credits = () => (
         >
           Agile Education Research -tutkimusryhmä
         </OutboundLink>{" "}
-        on luonut kurssilla käytetyn ohjelmointitehtävien
-        palautusympäristön (
+        on luonut kurssilla käytetyn ohjelmointitehtävien palautusympäristön (
         <OutboundLink
           href="https://tmc.mooc.fi"
           target="_blank"
@@ -96,9 +96,8 @@ const Credits = () => (
         >
           Test My Code
         </OutboundLink>
-        ) ja sen liitännäiset ohjelmointiympäristöihin,
-        kurssimateriaalissa olevan kyselyjärjestelmän ja muut
-        toiminnot.
+        ) ja sen liitännäiset ohjelmointiympäristöihin, kurssimateriaalissa
+        olevan kyselyjärjestelmän ja muut toiminnot.
       </p>
     </Container>
   </Layout>
