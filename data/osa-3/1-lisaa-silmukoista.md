@@ -6,33 +6,29 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Toistolauseet tarjoavat monipuolisia mahdollisuuksia toiston ohjaamiseen - jatketaan siis niihin tutustumista.
+Tämän osion jälkeen
 
-Tämän osion suoritettuasi
-
-- Ymmärrät mitä tarkoitetaan _esiehtoisella toistolla_
-- Tiedät mikä merkitys _alustuksella, ehdolla_ ja _muutoksella_ on toistolauseessa
-- Osaat muodostaa silmukoita käyttäen `while`-lausetta
+- Osaat tehdä while-silmukan, jonka alkurivillä on ehto
+- Tiedät, mikä merkitys alustuksella, ehdolla ja muutoksella on silmukassa
+- Osaat käyttää erilaisia ehtoja silmukoissa
 
 </text-box>
 
-Viime osan lopussa opeteltiin käyttämään `while True` -silmukkaa toistuvan toiminnallisuuden aikaansaamiseksi. Itse asiassa `while`-lause mahdollistaa huomattavasti monipuolisempien toistorakenteiden muodostamisen.
-
-Tällainen toistolause on yleisesti muotoa:
+Viime osan lopussa opimme käyttämään `while True` -silmukkaa koodin toistamiseen. Tässä tapauksessa silmukan ehtona on `True`, mikä on aina tosi. Yleisemmin voimme käyttää silmukkaa näin:
 
 ```python
 while <ehtolauseke>:
     <lohko>
 ```
 
-Toistolause vuorotellen tarkastaa ehdon ja suorittaa lohkossa olevan koodin, jos ehto pätee. Sitten kun ehto ei päde, ohjelman suoritus jatkuu toistolauseen jälkeiseltä riviltä.
+Ideana on, että silmukka vuorotellen tarkastaa ehdon ja suorittaa lohkossa olevan koodin, jos ehto pätee. Sitten kun ehto ei päde, ohjelman suoritus jatkuu silmukan jälkeiseltä riviltä.
 
 <img src="3_1_1.png">
 
-Esimerkiksi
+Esimerkiksi seuraavassa silmukassa ehtona on `luku < 10` eli silmukan koodi suoritetaan, jos luku on alle 10.
 
 ```python
-luku = 1
+luku = int(input("Anna luku: "))
 
 while luku < 10:
     print(luku)
@@ -41,11 +37,11 @@ while luku < 10:
 print("Suoritus valmis.")
 ```
 
+Ohjelman tulostus voi olla seuraava:
+
 <sample-output>
 
-1
-2
-3
+Anna luku: **4**
 4
 5
 6
@@ -56,40 +52,26 @@ Suoritus valmis.
 
 </sample-output>
 
-Koska ehto tarkastetaan aina ennen lohkon suoritusta, on mahdollista, ettei lohkoa suoriteta kertaakaan. Esimerkiksi:
-
-```python
-luku = int(input("Anna luku: "))
-
-while luku < 10:
-    print(luku)
-    luku += 1
-
-print("Suoritus valmis.")
-```
-
-Jos syötteeksi annetaan luku, joka ei ole pienempi kuin 10, ei lohkoa suoriteta kertaakaan:
+Koska ehto tarkastetaan aina ennen silmukan koodin suoritusta, on mahdollista, ettei koodia suoriteta kertaakaan. Esimerkiksi:
 
 <sample-output>
 
-Anna luku: 11
+Anna luku: **12**
 Suoritus valmis.
 
 </sample-output>
 
+Koska 12 ei ole pienempi kuin 10, ohjelma ei tulosta mitään lukua:
+
 ## Alustus, testaus ja muutos
 
-Monessa silmukassa on kolme osaa:
+Monessa silmukassa on kolme osaa: alustus, testaus ja muutos.
 
-* _alustus_,
-* _testaus_ ja
-* _muutos_.
-
-_Alustuksella_ tarkoitetaan silmukassa käytettävän muuttujan tai muuttujien alkuarvojen antamista. Tämä vaihe tehdään yleensä ennen toistolausetta. _Testaus_ kirjoitetaan `while`-lauseen yhteyteen, ja se määrittelee ehdon, jonka ollessa tosi silmukka suoritetaan. Joka kierroksella tapahtuva _muutos_ vie silmukan askeleen lähemmäs sen loppumista. Esimerkiksi
+_Alustus_ tarkoittaa silmukassa käytettävän muuttujan tai muuttujien alkuarvojen antamista. Tämä vaihe tehdään ennen silmukkaa. _Testaus_ kirjoitetaan silmukan alkuun, ja se määrittelee ehdon, jonka ollessa tosi silmukka suoritetaan. Joka kierroksella tapahtuva _muutos_ vie silmukan askeleen lähemmäs sen loppumista. Esimerkiksi:
 
 <img src="3_1_2.png">
 
-Jos jokin kolmesta osasta puuttuu, toistolause joko ei toimi ollenkaan tai ei pääty koskaan. Tyypillinen virhe onkin muutos-osan unohtaminen:
+Jos jokin kolmesta osasta puuttuu, silmukka ei toimi oikein. Yksi tyypillinen virhe on muutoksen unohtaminen:
 
 ```python
 luku = 1
@@ -100,7 +82,7 @@ while luku < 10:
 print("Suoritus valmis.")
 ```
 
-Koska muuttujan `luku` arvo ei koskaan muuutu, jää ohjelma suoritettaessa "ikuiseen silmukkaan", eli toistaa samaa koodia, kunnes käyttäjä katkaisee ohjelman suorituksen (esimerkiksi painamalla `CTRL` + `C`):
+Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuiseen silmukkaan eli toistaa samaa koodia, kunnes käyttäjä katkaisee ohjelman suorituksen (esimerkiksi painamalla `CTRL` + `C`):
 
 <sample-output>
 
@@ -109,21 +91,21 @@ Koska muuttujan `luku` arvo ei koskaan muuutu, jää ohjelma suoritettaessa "iku
 1
 1
 1
-...jne
+(tämä jatkuu ikuisesti...)
 
 </sample-output>
 
 
 ## Ehdoista tarkemmin
 
-Toistolauseen ehtona voidaan käyttää mitä tahansa ehtolauseketta. Seuraava ohjelma tulostaa lukuja kolmen välein niin kauan kun luku on pienempi kuin 100 eikä se ole jaollinen viidellä:
+Silmukan ehtona voidaan käyttää mitä tahansa ehtolauseketta. Esimerkiksi seuraava ohjelma tulostaa lukuja kolmen välein niin kauan kun luku on pienempi kuin 100 eikä se ole jaollinen 5:llä:
 
 ```python
 luku = int(input("Anna luku: "))
 
 while luku < 100 and luku % 5 != 0:
-    luku += 3
     print(luku)
+    luku += 3
 ```
 
 Kaksi esimerkkitulostusta eri syötteillä:
@@ -131,6 +113,7 @@ Kaksi esimerkkitulostusta eri syötteillä:
 <sample-output>
 
 Anna luku: **28**
+28
 31
 34
 37
@@ -141,11 +124,14 @@ Anna luku: **28**
 <sample-output>
 
 Anna luku: **96**
+96
 99
 
 </sample-output>
 
-Ehtolauseketta kirjoittaessa on tärkeä varmistua siitä, että silmukan suoritus päättyy. Esimerkiksi seuraava ohjelma on joko päättyvä tai ei-päättyvä riippuen alkuarvosta:
+Luvun 28 kohdalla silmukka päättyy lukuun 37, koska seuraava luku 40 on jaollinen 5:llä. Luvun 96 kohdalla silmukka päättyy lukuun 99, koska seuraava luku 102 ei ole alle 100.
+
+Silmukan ehtoa kirjoittaessa on tärkeä varmistua siitä, että silmukan suoritus päättyy. Esimerkiksi seuraava ohjelma on joko päättyvä tai ei-päättyvä riippuen alkuarvosta:
 
 ```python
 luku = int(input("Anna luku: "))
