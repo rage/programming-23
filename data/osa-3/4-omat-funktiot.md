@@ -6,18 +6,17 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Ohjelmien jakaminen itsenäisiin funktioihin selkeyttää ohjelmien rakennetta, mahdollistaa koodin uudelleenkäytettävyyden ja tehostaa ohjelmointiprosessia.
+Tämän osion jälkeen
 
-Tämän osion suoritettuasi
-
-- Ymmärrät funktion käsitteen
-- Tiedät, miten funktiota kutsutaan
-- Tiedät, miten funktio alustetaan Pythonissa
-- Osaat luoda oman yksinkertaisen funktion ja kutsua sitä
+- Osaat luoda oman funktion ja kutsua sitä
+- Ymmärrät, mikä on funktion parametri
+- Osaat käyttää parametreja omissa funktioissa
 
 </text-box>
 
 Aikaisemmissa osissa on käytetty esimerkiksi funktioita `len`, `print` ja `input` eri tarkoituksiin. Nämä ovat Pythonin sisäänrakennettuja funktioita, mutta voimme myös määritellä omia funktioita.
+
+## Funktion määrittely
 
 Oma funktio määritellään avainsanalla `def` (lyhenne sanasta define). Funktiolle annetaan jokin _nimi_, jonka jälkeen on alku- ja loppusulku. Tämän jälkeen annetaan lohkossa funktioon kuuluva koodi.
 
@@ -64,170 +63,24 @@ Tämä on oma funktio!
 
 </sample-output>
 
-<text-box variant="hint" name="Funktioiden käyttötarkoitus">
+## Funktion parametri
 
-Funktioilla on muutama pääasiallinen käyttötarkoitus:
-
-* Funktiot selkeyttävät ohjelman rakennetta, kun ohjelma jakautuu itsenäisiin kokonaisuuksiin.
-* Funktiot helpottavat ohjelmakoodin uusiokäyttöä, kun tiettyä ohjelman osaa voidaan kutsua aina tarvittaessa.
-
-</text-box>
-
-Seuraavassa esimerkissä on määritelty kaksi funktiota, joiden avulla tulostetaan ruudulle "laatikko":
-
-TODO: Ei ole hyvä esimerkki, tässä funktioista ei ole mitään hyötyä. Esimerkki toimisi ehkä paremmin parametrien kanssa.
+Usein funktiolla on yksi tai useampi _parametri_,
+jolla sen toimintaan voi vaikuttaa.
+Esimerkiksi Pythonin valmiissa funktioissa `print` ja `input`
+parametrin avulla annetaan näytettävä teksti:
 
 ```python
-def vaaka():
-    print("o" * 10)
-
-def pysty():
-    print("o" + 8 * " " + "o")
-
-n = int(input("Kuinka korkea laatikko? "))
-
-vaaka()
-i = 0
-while i <= n:
-    pysty()
-    i += 1
-vaaka()
-```
-
-<sample-output>
-
-````
-Kuinka korkea laatikko? 5
-oooooooooo
-o        o
-o        o
-o        o
-o        o
-o        o
-o        o
-oooooooooo
-
-````
-
-</sample-output>
-
-TODO: Tämäkään ei tunnu hyvältä esimerkiltä ilman parametreja. Ei ole hyvä, että jokaisen funktion sisällä on samanlaista koodia. Ilman funktioita (nykyisillä taidoilla ilman parametreja) luvut 1 ja 2 voisi kysyä samalla koodilla pääohjelmassa.
-
-Viimeisenä esimerkkinä tarkastellaan yksinkertaista laskinohjelmaa, jossa kaikki kolme laskuoperaatiota on kirjoitettu omina funktioinaan.
-
-```python
-
-def laske_summa():
-    luku1 = int(input("Anna luku1: "))
-    luku2 = int(input("Anna luku2: "))
-    print("Summa on " + str(luku1 + luku2))
-
-def laske_tulo():
-    luku1 = int(input("Anna luku1: "))
-    luku2 = int(input("Anna luku2: "))
-    print("Tulo on " + str(luku1 * luku2))
-
-def laske_erotus():
-    luku1 = int(input("Anna luku1: "))
-    luku2 = int(input("Anna luku2: "))
-    print("Erotus on " + str(luku1 - luku2))
-
-
-while True:
-    print("1 Yhteenlasku")
-    print("2 Kertolasku")
-    print("3 Vähennyslasku")
-    print("0 Lopetus")
-
-    valinta = input("Mitä haluat laskea: ")
-    if valinta == "1":
-        laske_summa()
-    elif valinta == "2":
-        laske_tulo()
-    elif valinta == "3":
-        laske_erotus()
-    elif valinta == "0":
-        break
-
-```
-
-<sample-output>
-
-1 Yhteenlasku
-2 Kertolasku
-3 Vähennyslasku
-0 Lopetus
-Mitä haluat laskea: **1**
-Anna luku1: 4
-Anna luku2: 9
-Summa on 13
-1 Yhteenlasku
-2 Kertolasku
-3 Vähennyslasku
-0 Lopetus
-Mitä haluat laskea: **2**
-Anna luku1: 3
-Anna luku2: 3
-Tulo on 9
-1 Yhteenlasku
-2 Kertolasku
-3 Vähennyslasku
-0 Lopetus
-Mitä haluat laskea: **3**
-Anna luku1: 10
-Anna luku2: 21
-Erotus on -11
-1 Yhteenlasku
-2 Kertolasku
-3 Vähennyslasku
-0 Lopetus
-Mitä haluat laskea: **0**
-
-</sample-output>
-
-## Funktion parametrit
-
-Kaikkio määrittelemämme funktiot ovat olleet sellasia, että ne toimivat jokaisella kutsukerralla samalla tavalla. Esim.
-
-```python
-def viesti():
-    print("Tämä on oma funktio!")
-```
-
-Kun kutsutaan funktiota kolme kertaa
-
-
-```python
-viesti()
-viesti()
-viesti()
-```
-
-tulostuu sama viesti kolmeen kertaan
-
-<sample-output>
-
-Tämä on oma funktio!
-Tämä on oma funktio!
-Tämä on oma funktio!
-
-</sample-output>
-
-Jokaisella kutsumiskerralla täsmälleen samalla tavalla toimivat funktiot ovat käyttökelpoisuudeltaan hyvin rajallisia.
-
-Jos ajatellaan jo monta kertaa käyttämiämme Pythonin valmiita funktiota `print` ja `input`, niiden toiminta riippuu niille kutsuttaessa annettavasta _parametrista_:
-
-```python
-print("hei!")                     # parametrina merkkijono "hei!"
-nimi = input("kerro nimesi: ")    # parametrina merkkijono "kerro nimesi: "
+print("Hei!")                     # parametrina merkkijono "Hei!"
+nimi = input("Kerro nimesi: ")    # parametrina merkkijono "Kerro nimesi: "
 print(nimi)                       # parametrina muuttujan nimi arvo
 ```
 
-Voimme määritellä parametreja myös omille funktillemme. Parametrit määritellään funktion nimen jälkeen olevien sulkujen sisällä:
+Voimme määritellä parametreja myös omille funktioillemme. Parametrit määritellään funktion nimen jälkeen olevien sulkujen sisällä:
 
 ```python
-def tervehdi(n):
-    print("hei " + n)
+def tervehdi(kohde):
+    print("Hei", kohde)
 ```
 
 Jos funktiota kutsutaan kaksi kertaa
@@ -241,55 +94,38 @@ tulostaa se kaksi erilaista tervehdystä:
 
 <sample-output>
 
-hei Emilia
-hei maailma!
+Hei Emilia
+Hei maailma!
 
 </sample-output>
 
 Katsotaan funktion määrittelyä vielä tarkemmin:
 
 ```python
-def tervehdi(n):
-    print("hei " + n)
+def tervehdi(kohde):
+    print("Hei", kohde)
 ```
 
-Määrittelimme ensimmäisellä rivillä että funktion parametri on nimeltään `n`. Toisella rivillä tulostuslause käyttää parametrissa `n` olevaa arvoa tulostukseen.
+Määrittelimme ensimmäisellä rivillä, että funktion parametri on nimeltään `kohde`. Toisella rivillä `print`-komento käyttää parametrissa `kohde` olevaa arvoa.
 
-Kun funktiota kutsutaan, saa parametri _funktiokutsussa_ annettavan arvon. Esim. kun kutsutaan
-
-```python
-tervehdi("tämä merkkijono tulee parametrin arvoksi")
-```
-
-parametrin arvo funktiossa on merkkijono _"tämä merkkijono tulee parametrin arvoksi"_.
-
-Jos kutsu on seuraava
+Kun funktiota kutsutaan, saa parametri _funktiokutsussa_ annettavan arvon. Esimerkiksi kun kutsutaan
 
 ```python
 nimi = "Antti"
 tervehdi(nimi)
 ```
 
-parametrin arvo funktiossa on merkkijono _"Antti"_.
+niin parametrin `kohde` arvo funktiossa on merkkijono `Antti`.
 
-Parametrin voi nimetä haluamallaan tavalla, esimerkiksi seuraavasti:
+Parametrien ja myös funktioiden nimeämistä koskevat samat periaatteet kuin mitä olemme jo aiemmin käsitelleet, eli nimien kannattaa olla kuvaavia ja käytössä ovat ensisijaisesti pienet kirjaimet sekä alaviiva.
 
-```python
-def tervehdi(keta_terhvehditaan):
-    print("hei " + keta_terhvehditaan)
-```
+## Lisää esimerkkejä
 
-Parametrien ja myös _funktioiden_ nimeämistä koskevat samat säännöt mitä olemme jo aiemmin käsitelleet, eli nimien kannattaa olla kuvaavia, ja käytössä ovat ensisijaisesti pienet kirjaimet sekä alaviiva.
-
-## Lukuja parametrina
-
-Parametrit voivat luonnollisesti olla myös lukuja:
+Katsotaan vielä pari muuta esimerkkiä parametrien käyttämisestä. Seuraavassa funktiossa parametri on luku:
 
 ```python
 def nelio(x):
-    # funktio käyttää apumuuttujaa!
-    tulos = x * x
-    print("luvun " + str(x) + " neliö on " + str(tulos))
+    print("Luvun", x, "neliö on", x * x)
 
 nelio(2)
 nelio(5)
@@ -297,16 +133,36 @@ nelio(5)
 
 <sample-output>
 
-luvun 2 neliö on 4
-luvun 5 neliö on 25
+Luvun 2 neliö on 4
+Luvun 5 neliö on 25
 
 </sample-output>
 
-ja parametreja voi olla useita
+Seuraavassa esimerkissä funktion sisällä on ehtorakenne:
+
+```python
+def tervehdi(nimi):
+    if nimi == "Emilia":
+        print("Heippa,", nimi)
+    else:
+        print("Moikka,", nimi)
+        
+tervehdi("Emilia")
+tervehdi("Matti")
+```
+
+<sample-output>
+
+Heippa, Emilia
+Moikka, Matti
+
+</sample-output>
+
+Seuraavassa funktiossa puolestaan on kaksi parametria:
 
 ```python
 def summa(x, y):
-    print("parametrien summa on " + str(x + y))
+    print("Parametrien summa on ", x + y)
 
 summa(1, 2)
 summa(5, 24)
@@ -314,53 +170,29 @@ summa(5, 24)
 
 <sample-output>
 
-parametrien summa on 3
-parametrien summa on 29
+Parametrien summa on 3
+Parametrien summa on 29
 
 </sample-output>
 
-## Muutama lisähuomio
-
-Kannattaa huomata että parametrien nimillä ei ole mitään tekemistä funktion "ulkopuolella" olevien samannimisten muuttujien kanssa. Eli jos meillä on funktio
-
-```python
-def summa(x, y):
-    print("parametrien summa on " + str(x + y))
-```
-
-ja ohjelma kutsuu sitä seuraavasti:
+Huomaa, että parametrien nimillä ei ole mitään tekemistä funktion ulkopuolella olevien muuttujien kanssa. Esimerkiksi jos kutsumme äskeistä funktiota
 
 ```python
 x = 100
 y = 30
 summa(1, 2)
-summa(x+y, 10)
+summa(x + y, 10)
 ```
 
-Tulostuu
+niin tuloksena on:
 
 <sample-output>
 
-parametrien summa on 3
-parametrien summa on 140
+Parametrien summa on 3
+Parametrien summa on 140
 
 </sample-output>
 
-Eli ensimmäisessä funktiokutsussa tulee funktion sisällä parametrin arvoiksi
-
-
-```python
-# parametrien arvot funktion sisällä kun kutsutaan summa(1, 2)
-x = 1
-y = 2
-```
-
-ja toisella kerralla
-
-```python
-# parametrien arvot funktion sisällä kun kutsutaan summa(x+y, 10)
-x = 130
-y = 10
-```
+Ensimmäisessä kutsussa parametrien arvot funktion sisällä ovat `x = 1` ja `y = 2`, ja toisessa kutsussa arvot ovat `x = 130` ja `y = 10`.
 
 Palaamme funktioihin ja parametrien määrittelyyn tarkemmin seuraavan osan alussa.
