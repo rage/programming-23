@@ -9,11 +9,9 @@ hidden: false
 Tämän osion jälkeen
 
 - Osaat käyttää operaattoreita `+` ja `*` merkkijonojen kanssa
-- Tiedät mitä tarkoittaa indeksointi
-- Osaat selvittää merkkijonon pituuden
-- Osaat poimia yksittäisiä merkkejä ja alijonoja merkkijonosta
-- Osaat etsiä alijonon merkkijonosta
-- Tiedät mitä tarkoitetaan metodilla Pythonissa ja miten se eroaa funktiosta
+- Osaat laskea merkkijonon pituuden
+- Tiedät, mitä tarkoittaa merkkijonon indeksointi
+- Osaat etsiä osajonoja merkkijonosta
 
 </text-box>
 
