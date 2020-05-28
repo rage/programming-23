@@ -79,7 +79,6 @@ Anna luku, -1 lopettaa: **2**
 
 </sample-output>
 
-
 Seuraavassa esimerkkinä ohjelma, joka antaa käyttäjän jatkaa eteenpäin vasta sen jälkeen, kun käyttäjä on syöttänyt oikean PIN-koodin _1234_:
 
 ```python
@@ -138,6 +137,24 @@ Korjaa ohjelmassa oleva ongelma.
 
 </in-browser-programming-exercise>
 
+<in-browser-programming-exercise name="Salasana uudelleen" tmcname="osa02-18_salasana_uudelleen">
+
+Tee ohjelma, joka kysyy käyttäjältä salasanaa ja tämän jälkeen pyytää toistamaan salasanan niin kauan, kunnes käyttäjä syöttää ensimmäisenä annetun salasanan uudelleen.
+
+<sample-output>
+
+Salasana: **sekred**
+Toista salasana: **salainen**
+Ei ollut sama!
+Toista salasana: **enmuistaenää123**
+Ei ollut sama!
+Toista salasana: **sekred**
+Käyttäjätunnus luotu!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 Tehdään vielä PIN-koodin tarkastavasta ohjelmasta monimutkaisempi versio, joka antaa käyttäjälle vain kolme mahdollisuutta yrittää PIN-koodin syöttämistä.
 
 Ohjelma käyttää nyt kahta apumuuttujaa. Muuttuja `yritykset` pitää kirjaa siitä, kuinka monta kertaa käyttäjä on syöttänyt koodin.  Muuttuja `onnistui` saa arvokseen joko `True` tai `False` riippuen siitä, onnistuuko kirjautuminen.
@@ -187,6 +204,55 @@ Liian monta yritystä...
 </sample-output>
 
 Silmukasta tullaan siis ulos, jos käyttäjä syöttää oikean PIN-koodin _tai_ jos yrityksiä tehdään liian monta. Silmukan jälkeinen if-lause tarkastaa muuttujan `onnistui` arvon perusteella, onko kirjautuminen onnistunut vai ei.
+
+<in-browser-programming-exercise name="PIN ja yritysten määrä" tmcname="osa02-19_pin_ja_yritysten_maara">
+
+Tee sovellus, joka kysyy käyttäjältä PIN-koodia niin kauan, kunnes käyttäjä antaa oikean PIN-koodin _4321_. Ohjelma kertoo yritysten lukumäärän:
+
+<sample-output>
+
+PIN-koodi: **3245**
+Väärin
+PIN-koodi: **1234**
+Väärin
+PIN-koodi: **0000**
+Väärin
+PIN-koodi: **4321**
+Oikein, tarvitsit 4 yritystä
+
+</sample-output>
+
+Tulostus on hieman erilainen jos PIN-koodi on oikea heti ensimmäiselä yrityksellä:
+
+<sample-output>
+
+PIN-koodi: **4321**
+Oikein, tarvitsit vain yhden yrityksen!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Seuraava karkausvuosi" tmcname="osa02-20_seuraava_karkausvuosi">
+
+Tee ohjelma, joka kyselee käyttäjältä vuosilukua ja kertoo milloin on seuraava karkausvuosi.
+
+<sample-output>
+
+Vuosi: **2019**
+Vuotta 2019 seuraava karkausvuosi on 2020
+
+</sample-output>
+
+Jos käyttäjän syöttämä vuosi on karkausvuosi (kuten esim. 2020) ei ohjelma kerro tätä vuotta vaan sitä seuraavan karkausvuoden:
+
+<sample-output>
+
+Vuosi: **2020**
+Vuotta 2020 seuraava karkausvuosi on 2024
+
+</sample-output>
 
 <in-browser-programming-exercise name="Tarina" tmcname="osa02-21_tarina">
 
