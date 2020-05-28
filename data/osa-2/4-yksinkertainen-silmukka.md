@@ -254,6 +254,8 @@ Vuotta 2020 seuraava karkausvuosi on 2024
 
 </sample-output>
 
+</in-browser-programming-exercise>
+
 <in-browser-programming-exercise name="Tarina" tmcname="osa02-21_tarina">
 
 ### osa 1
