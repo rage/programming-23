@@ -105,21 +105,7 @@ Anna PIN-koodi oikein!
 
 <in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa02-17_lahtolaskenta">
 
-Tehtäväpohjassa olevan ohjelman
-
-```python
-luku = 5
-print("Lähtölaskenta!")
-while True:
-  print(luku)
-  luku = luku - 1
-  if luku > 0:
-    break
-
-print("Nyt!")
-```
-
-olisi tarkoitus toimia seuraavasti:
+Tehtäväpohjassa olevan ohjelman olisi tarkoitus toimia seuraavasti:
 
 <sample-output>
 
