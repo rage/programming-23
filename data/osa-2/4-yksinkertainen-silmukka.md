@@ -104,7 +104,41 @@ Anna PIN-koodi oikein!
 
 </sample-output>
 
-Tehdään vielä samasta ohjelmasta monimutkaisempi versio, joka antaa käyttäjälle vain kolme mahdollisuutta yrittää PIN-koodin syöttämistä.
+<in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa02-17_lahtolaskenta">
+
+Tehtäväpohjassa olevan ohjelman
+
+```python
+luku = 5
+print("Lähtölaskenta!")
+while True:
+  print(luku)
+  luku = luku - 1
+  if luku > 0:
+    break
+
+print("Nyt!")
+```
+
+olisi tarkoitus toimia seuraavasti:
+
+<sample-output>
+
+Lähtölaskenta!
+5
+4
+3
+2
+1
+nyt!
+
+</sample-output>
+
+Korjaa ohjelmassa oleva ongelma.
+
+</in-browser-programming-exercise>
+
+Tehdään vielä PIN-koodin tarkastavasta ohjelmasta monimutkaisempi versio, joka antaa käyttäjälle vain kolme mahdollisuutta yrittää PIN-koodin syöttämistä.
 
 Ohjelma käyttää nyt kahta apumuuttujaa. Muuttuja `yritykset` pitää kirjaa siitä, kuinka monta kertaa käyttäjä on syöttänyt koodin.  Muuttuja `onnistui` saa arvokseen joko `True` tai `False` riippuen siitä, onnistuuko kirjautuminen.
 
