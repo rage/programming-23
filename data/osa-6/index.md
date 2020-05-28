@@ -2,7 +2,7 @@
 path: '/osa-6'
 title: 'Osa 6'
 overview: true
-hidden: true
+hidden: false
 upcoming: "6.7.2020"
 ---
 
