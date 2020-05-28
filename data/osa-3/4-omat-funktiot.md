@@ -1,6 +1,6 @@
 ---
 path: '/osa-3/4-omat-funktiot'
-title: 'Johdatus omiin funktioihin'
+title: 'Omat funktiot'
 hidden: false
 ---
 
