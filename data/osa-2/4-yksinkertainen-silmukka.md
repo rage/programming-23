@@ -154,7 +154,44 @@ Liian monta yritystä...
 
 Silmukasta tullaan siis ulos, jos käyttäjä syöttää oikean PIN-koodin _tai_ jos yrityksiä tehdään liian monta. Silmukan jälkeinen if-lause tarkastaa muuttujan `onnistui` arvon perusteella, onko kirjautuminen onnistunut vai ei.
 
-<in-browser-programming-exercise name="Lukujen käsittelyä" tmcname="osa02-23_lukujen_kasittelya">
+<in-browser-programming-exercise name="Tarina" tmcname="osa02-21_tarina">
+
+### osa 1
+
+Tee ohjelma, joka pyytää käyttäjää syöttämään sanoja. Kun käyttäjä syöttää sanan `loppu`, ohjelma tulostaa sanoista muodostuneen tarinan ja suoritus päättyy.
+
+<sample-output>
+
+Anna sana: **Olipa**
+Anna sana: **kerran**
+Anna sana: **pieni**
+Anna sana: **talo**
+Anna sana: **preerialla**
+Anna sana: **loppu**
+Olipa kerran pieni talo preerialla
+
+</sample-output>
+
+### osa 2
+
+Muokkaa edellisen tehtävän ohjelmaa niin, että sanojen syöttäminen päättyy jos käyttäjä syöttää sanan `loppu` tai käyttäjä syöttää saman sanan kaksi kertaa peräkkäin.
+
+<sample-output>
+
+Anna sana: **Alussa**
+Anna sana: **oli**
+Anna sana: **suo**
+Anna sana: **kuokka**
+Anna sana: **ja**
+Anna sana: **Jussi**
+Anna sana: **Jussi**
+Alussa oli suo kuokka ja Jussi
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Lukujen käsittelyä" tmcname="osa02-22_lukujen_kasittelya">
 
 Tee ohjelma, joka pyytää käyttäjää syöttämään kokonaislukuja. Ohjelma pyytää lukuja niin kauan kunnes käyttäjä syöttää nollan.
 
@@ -181,7 +218,6 @@ Tarvitset tässä uuden muuttujan, jonka avulla pidät kirjaa luettujen lukujen 
 Lukuja yhteensä 4
 
 </sample-output>
-
 
 ### Osa 2: summa
 
