@@ -6,20 +6,18 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tekstin ja muun merkkimuotoisen tiedon käsittely on eräs ohjelmien perusoperaatioista. Python tarjoaa tehokkaita keinoja merkkijonojen käsittelyyn.
-
-Tämän osion suoritettuasi
+Tämän osion jälkeen
 
 - Osaat käyttää operaattoreita `+` ja `*` merkkijonojen kanssa
-- Tiedät mitä tarkoittaa indeksointi
-- Osaat selvittää merkkijonon pituuden
-- Osaat poimia yksittäisiä merkkejä ja alijonoja merkkijonosta
-- Osaat etsiä alijonon merkkijonosta
-- Tiedät mitä tarkoitetaan metodilla Pythonissa ja miten se eroaa funktiosta
+- Osaat laskea merkkijonon pituuden
+- Tiedät, mitä tarkoittaa merkkijonon indeksointi
+- Osaat etsiä osajonoja merkkijonosta
 
 </text-box>
 
-Aikaisemmissa osissa on opittu, että `+`-operaattori toimii eri tavalla merkkijonoja ja lukutyyppisiä arvoja käytettäessä. Kaksi merkkijonoa voidaan yhdistää toisiinsa (eli _katenoida_) käyttäen `+`-operaattoria:
+## Merkkijono-operaatiot
+
+Olemme jo aiemmin yhdistäneet merkkijonoja `+`-operaattorin avulla:
 
 ```python
 alku = "esi"
@@ -34,7 +32,7 @@ esimerkki
 
 </sample-output>
 
-Myös `*`-operaattoria voidaan käyttää merkkijonojen yhteydessä. Jos toinen operandi kertolaskussa on merkkijono ja toinen kokonaisluku, saadan lopputulokseksi samaa merkkijonoa monistettuna annettu määrä. Esimerkiksi:
+Myös `*`-operaattoria voidaan käyttää merkkijonojen yhteydessä. Jos toinen operandi kertolaskussa on merkkijono ja toinen kokonaisluku, saadaan merkkijonoa monistettua annettu määrä. Esimerkiksi:
 
 ```python
 sana = "apina"
@@ -60,9 +58,9 @@ while n > 0:
     n -= 1
 ```
 
-<sample-output>
+Ohjelman tulostus on seuraava:
 
-```
+```x
           *
          ***
         *****
@@ -75,17 +73,22 @@ while n > 0:
  *******************
 ```
 
-</sample-output>
+Silmukassa oleva `print`-komento tulostaa rivin, jonka alussa on `n` välilyöntiä ja sitten muuttujan `rivi` sisältö. Tämän jälkeen muuttujan `rivi` loppuun lisätään kaksi tähteä ja muuttujan `n` arvo vähenee yhdellä.
+
 
 ## Merkkijonon pituus ja indeksointi
 
-Funktio `len` antaa kokonaisluvun, joka on merkkijonon pituus merkkeinä. Esimerkiksi `len("moi")` antaa 3, koska merkkijonossa `"moi"` on 3 merkkiä. Seuraava esimerkki tulostaa käyttäjän syöttämän merkkijonon "alleviivattuna" muodostamalla alleviivauksen monistamalla merkkiä "-" syötteen pituuden mukaisen määrän:
+Funktio `len` antaa kokonaisluvun, joka on merkkijonon pituus merkkeinä. Esimerkiksi `len("moi")` antaa 3, koska merkkijonossa `moi` on 3 merkkiä.
+
+Seuraava ohjelma tulostaa käyttäjän syöttämän merkkijonon "alleviivattuna" monistamalla merkkiä `-` syötteen pituuden mukaisen määrän:
 
 ```python
 mjono = input("Anna merkkijono: ")
 print(mjono)
 print("-"*len(mjono))
 ```
+
+TODO: mitenhän tämän tulostuksen saisi järkevästi näkymään?
 
 <sample-output>
 
@@ -98,18 +101,17 @@ Moi kaikki!
 
 Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, mukaan lukien välilyönnit. Niinpä merkkijonon `moi moi` pituus on 7.
 
-Yksittäinen merkki merkkijonosta voidaan hakea operaattorin `[]` avulla. Operaattori kirjoitetaan merkkijonon perään, ja hakasulkeiden väliin kirjoitetaan halutun merkin _indeksi_ eli kohta merkkijonossa.
+Yksittäinen merkkijonon merkki voidaan hakea operaattorin `[]` avulla. Operaattori kirjoitetaan merkkijonon perään, ja hakasulkeiden väliin kirjoitetaan halutun merkin _indeksi_ eli kohta merkkijonossa.
 
 Huomaa, että merkkien indeksointi alkaa nollasta: ensimmäinen merkki on siis indeksin 0 kohdalla, toinen indeksin 1 kohdalla jne.
 
 <img src="3_2_1.png">
 
-Esimerkiksi
+Esimerkiksi:
 
 ```python
 
-mjono = "abcdef"
-
+mjono = input("Anna merkkijono: ")
 print(mjono[0])
 print(mjono[1])
 print(mjono[3])
@@ -120,14 +122,15 @@ Ohjelma tulostaa:
 
 <sample-output>
 
+Anna merkkijono: **apina**
 a
-b
-d
+p
+n
 
 </sample-output>
 
 
-Koska merkkijonon ensimmäinen merkki on indeksin 0 kohdalla, on viimeinen merkki vastaavasti indeksin _pituus - 1_ kohdalla. Esimerkiksi seuraava ohjelma tulostaa merkkijonon ensimmäisen ja viimeisen merkin:
+Koska merkkijonon ensimmäinen merkki on indeksin 0 kohdalla, on viimeinen merkki vastaavasti indeksin _pituus_ – 1 kohdalla. Esimerkiksi seuraava ohjelma tulostaa merkkijonon ensimmäisen ja viimeisen merkin:
 
 ```python
 mjono = input("Anna merkkijono: ")
@@ -137,8 +140,8 @@ print("Viimeinen: " + mjono[len(mjono) - 1])
 
 <sample-output>
 
-Anna merkkijono: **esimerkki**
-Ensimmäinen: e
+Anna merkkijono: **testi**
+Ensimmäinen: t
 Viimeinen: i
 
 </sample-output>
@@ -155,15 +158,11 @@ while kohta < len(mjono):
 
 <sample-output>
 
-Anna merkkijono: **esimerkki**
+Anna merkkijono: **testi**
+t
 e
 s
-i
-m
-e
-r
-k
-k
+t
 i
 
 </sample-output>
@@ -172,9 +171,26 @@ Pythonissa merkkeihin voi viitata myös alkaen merkkijonon lopusta käyttämäll
 
 <img src="3_2_2.png">
 
+Tämän avulla aiempi ohjelma voidaan toteuttaa paremmin näin:
+
+```python
+mjono = input("Anna merkkijono: ")
+print("Ensimmäinen: " + mjono[0])
+print("Viimeinen: " + mjono[-1])
+```
+
+<sample-output>
+
+Anna merkkijono: **testi**
+Ensimmäinen: t
+Viimeinen: i
+
+</sample-output>
+
+
 ## Osajonot
 
-Merkkijonon _osajono_ muodostuu perättäisistä merkeistä. Esimerkiksi merkkijonon `esimerkki` osajonoja ovat `esi`, `imer` ja `rkk`.
+Merkkijonon _osajono_ muodostuu perättäisistä merkeistä. Esimerkiksi merkkijonon `esimerkki` osajonoja ovat `esi`, `imer` ja `merkki`.
 
 Voimme erottaa halutussa kohdassa olevan osajonon syntaksilla `[a:b]`,
 mikä tarkoittaa, että osajono alkaa kohdasta `a` ja päättyy juuri ennen kohtaa `b`.
@@ -182,32 +198,43 @@ Voimme ajatella alku- ja loppukohdan merkkien vasemmalle puolelle piirretyiksi v
 
 <img src="3_2_3.png">
 
-Minkä takia indeksit sitten toimivat näin? Tähän lienee kaksi syytä: ensinnäkin, indeksit toimivat samalla tavalla useimmissa muissa ohjelmointikielissä (jolloin kielestä toiseen siirtyminen on helpompaa). Toinen syy lienee se, että kun loppuindeksin mukaista merkkiä ei oteta mukaan alijonoon, voidaan alijonon pituus laskea kaavalla `loppuindeksi - alkuindeksi`.
-
 Seuraava esimerkki esittelee osajonojen hakemista:
 
 ```python
-mjono = "Moi kaikki!"
+mjono = "saippuakauppias"
 
 print(mjono[0:3])
 print(mjono[4:10])
 
 # jos alkukohta puuttuu, se on oletuksena 0
-print(mjono[:2])
-# jos alkukohta puuttuu, se on oletuksena merkkijonon pituus
+print(mjono[:3])
+# jos loppukohta puuttuu, se on oletuksena merkkijonon pituus
 print(mjono[4:])
 ```
 
 <sample-output>
 
-Moi
-kaikki
-Mo
-kaikki!
+sai
+puakau
+sai
+puakauppias
 
 </sample-output>
 
-## Osajonon etsiminen merkkijonosta
+<text-box variant='hint' name='Puoliavoimet välit'>
+
+Merkkijonojen käsittelyssä väli `[a:b]` on _puoliavoin_ eli alkukohta `a`
+kuuluu väliin mutta loppukohta `b` ei kuulu väliin. Miksi näin?
+
+Tähän ei ole syvällistä syytä, vaan kyseessä on käytäntö, joka esiintyy
+monessa ohjelmointikielessä.
+Yksi etu tässä on, että osajonon pituus saadaan mukavasti kaavalla `b-a`,
+mutta toisaalta täytyy aina muistaa, että kohdassa `b` oleva merkki
+ei tule mukaan osajonoon.
+
+</text-box>
+
+## Osajonon etsiminen
 
 Voimme tutkia `in`-operaattorin avulla, onko merkkijonossa tiettyä osajonoa.
 Lauseke `a in b` on tosi, jos merkkijonossa `b` on osajono `a`.
@@ -215,12 +242,12 @@ Lauseke `a in b` on tosi, jos merkkijonossa `b` on osajono `a`.
 Esimerkiksi
 
 ```python
-mjono = "esimerkki"
+mjono = "testi"
 
-print("m" in mjono)
+print("t" in mjono)
 print("x" in mjono)
-print("erk" in mjono)
-print("mrk" in mjono)
+print("est" in mjono)
+print("ets" in mjono)
 ```
 
 <sample-output>
@@ -257,49 +284,33 @@ Löytyi
 
 </sample-output>
 
-Operaattori `in` antaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonissa on metodi `find`.
+Operaattori `in` antaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonin merkkijonoissa metodi `find`, joka saa parametrikseen etsittävän osajonon palauttaa joko ensimmäisen indeksin, josta osajono löytyy tai `-1`, jos osajonoa ei löydy merkkijonosta.
 
-<text-box variant="hint" name="Metodit">
-
-TODO: Onkohan tämä hyvä hetki kertoa tästä? Ei ole vielä kerrottu, mikä on olio?
-
-Metodilla tarkoitetaan funktiota, joka liittyy johonkin olioon, kuten merkkijonoon.
-
-Metodia kutsutaan kirjoittamalla olion nimen perään piste ja metodin nimi. Kun siis _funktiota_ `len` kutsutaan esim. näin:
-
-`len("Moikka!")`
-
-...kutsutaan metodia `find` esim. näin:
-
-`"Moikka".find("Moi")`
-
-</text-box>
-
-Metodi `find` saa parametrikseen etsittävän osajonon, ja metodi palauttaa joko ensimmäisen indeksin, josta osajono löytyy tai `-1`, jos osajonoa ei löydy merkkijonosta.
-
-Metodin syntaksi näyttää siis tältä:
+Metodi tarkoittaa suunnilleen samaa kuin funktio, mutta se liittyy tiettyyn merkkijonoon. Metodin syntaksi näyttää tältä:
 
 <img src="3_2_4.png">
 
 Esimerkkejä metodin käyttämisestä:
 
 ```python
-mjono = "esimerkki"
+mjono = "testi"
 
-print(mjono.find("m"))
+print(mjono.find("t"))
 print(mjono.find("x"))
-print(mjono.find("erk"))
-print(mjono.find("mrk"))
+print(mjono.find("est"))
+print(mjono.find("ets"))
 ```
 
 <sample-output>
 
-3
+0
 -1
-4
+1
 -1
 
 </sample-output>
+
+Voimme myös laajentaa hakuohjelmaa näin:
 
 ```python
 mjono = "saippuakauppias"

@@ -1,21 +1,22 @@
 ---
-path: '/osa-3/3-break-ja-continue'
-title: 'Silmukoiden suorituksen ohjaaminen'
+path: '/osa-3/3-lisaa-silmukoista'
+title: 'Lisää silmukoista'
 hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Toistolauseen etenemistä ohjaamalla voidaan nopeuttaa tai selkeyttää ohjelmien rakennetta.
+Tämän osion jälkeen
 
-Tämän osion suoritettuasi
-
-- Tiedät mitä `break`-lause tekee ja osaat käyttää sitä ohjelmissasi.
-- Tiedät mitä `continue`-lause tekee ja osaat käyttää sitä ohjelmissasinpr
+- Osaat keskeyttää silmukan `break`-komennolla
+- Osaat siirtyä silmukan seuraavalle kierrokselle `continue`-komennolla
+- Ymmärrät sisäkkäisen silmukan toiminnan
 
 </text-box>
 
-Aiemmin silmukoiden yhteydessä tutustuttiin `break`-komentoon. Komennolla voidaan katkaista silmukan suoritus välittömästi. Tyypillinen esimerkki lauseen käytöstä on silmukka, jossa kysytään käyttäjältä syötteitä, ja suoritus päättyy, kun käyttäjä syöttää tietyn syötteen (esimerkiksi tyhjän merkkijonon).
+## break-komento
+
+Aiemmin silmukoiden yhteydessä tutustuttiin `break`-komentoon. Komennolla voidaan katkaista silmukan suoritus välittömästi. Tyypillinen esimerkki komennon käytöstä on silmukka, jossa kysytään käyttäjältä syötteitä, ja suoritus päättyy, kun käyttäjä antaa tietyn syötteen.
 
 Vastaavaan toiminnallisuuteen päästään myös ilman `break`-komentoa sopivan ehdon avulla. Alla olevat esimerkit toteuttavat molemmat ohjelman, joka laskee käyttäjän syötteiden summan kun käyttäjä syöttää luvun -1:
 
@@ -60,14 +61,14 @@ Summa on 14
 
 </sample-output>
 
-Molemmat versiot ovat toiminnallisuudeltaan siis käytännössä samanlaisia. Ensimmäinen tapa on kuitenkin yleisemmin käytetty.
+Molemmat versiot ovat toiminnallisuudeltaan siis käytännössä samanlaisia. Ensimmäinen tapa on kuitenkin käytännössä parempi, koska ehto `luku == -1` riittää kirjoittaa vain kerran eikä muuttujaa `luku` tarvitse alustaa silmukan ulkopuolella.
 
-Komentoa `break` voidaan käyttää myös silloin, kun silmukassa on annettu jokin muu ehto kuin pelkkä totuusarvo `True`. Esimerkiksi seuraava silmukka jatkuu niin kauan, kuin annettujen lukujen summa on alle 100. Kuitenkin silmukka katkeaa myös, jos käyttäjä antaa luvun -1.
+Komentoa `break` voidaan käyttää myös silloin, kun silmukassa on annettu jokin muu ehto kuin pelkkä totuusarvo `True`. Esimerkiksi seuraava silmukka jatkuu niin kauan, kuin annettujen lukujen summa on enintään 100. Kuitenkin silmukka katkeaa myös, jos käyttäjä antaa luvun -1.
 
 ```python
 summa = 0
 
-while summa < 100:
+while summa <= 100:
     luku = int(input("Anna luku, -1 lopettaa: "))
     if luku == -1:
         break
@@ -99,6 +100,7 @@ Summa on 106
 
 </sample-output>
 
+Ensimmäisessä tapauksessa silmukka päättyy, koska käyttäjä antaa luvun -1. Toisessa tapauksessa silmukka päättyy, koska lukujen summa on yli 100.
 
 Toisaalta voisimme toteuttaa vastaavasti toimivan silmukan myös näin:
 
@@ -110,12 +112,12 @@ while True:
     if luku == -1:
         break
     summa += luku
-    if summa >= 100:
+    if summa > 100:
         break
 
 print("Summa on", summa)
 ```
-## continue-lause
+## continue-komento
 
 Komento `continue` on toinen tapa vaikuttaa silmukan suoritukseen. Kun silmukan sisällä tulee vastaan komento `continue`, hyppää suoritus välittömästi silmukan alkuun riville, jossa on silmukan ehto. Tämän jälkeen silmukan suoritus jatkuu normaalisti ehdon tarkastamisella:
 
@@ -184,10 +186,19 @@ Anna luku: **-1**
 
 </Sample-output>
 
-Huomaa, että komento `break` katkaisee aina uloimman silmukan, jonka sisällä se on. Esimerkiksi seuraava silmukka jatkuu ikuisesti, koska `break` katkaisee vain uloimman silmukan.
+Huomaa, että kun silmukkoja on sisäkkäin, komennot `break` ja `continue` vaikuttavat vain sisimpään silmukkaan. Esimerkiksi voisimme toteuttaa äskeisen ohjelman vähän eri tavalla myös näin:
+
 
 ```python
 while True:
-    while True:
+    luku = int(input("Anna luku: "))
+    if luku == -1:
         break
+    while True
+        if luku <= 0
+            break
+        print(luku)
+        luku -= 1
 ```
+
+Nyt jälkimmäinen `break`-komento keskeyttää vain sisimmän silmukan, joka tulostaa lukuja, jos ehto `luku <= 0` pätee.
