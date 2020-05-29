@@ -357,27 +357,21 @@ Lukujen summa on 16 ja keskiarvo 4.0
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Opiskelijat ryhmiin" tmcname="osa01-18_opiskelijat_ryhmiin">
+<in-browser-programming-exercise name="Korjaa ohjelma: Lukujen tulo" tmcname="osa01-20_korjaa_ohjelma_lukujen_tulo">
 
-Tee ohjelma, joka kysyy kurssin opiskelijoiden määrän ja ryhmän koon ja ilmoittaa, montako ryhmää opiskelijoista muodostuu. Jos jako ei mene tasan, yhdessä ryhmässä voi olla vähemmän opiskelijoita, mutta kaikissa muissa on oltava haluttu määrä.
+Oheinen ohjelma kysyy käyttäjältä kolme lukua ja tulostaa näiden tulon (eli luvut kerrottuna toisillaan).
+Ohjelmassa on kuitenkin virhe tai virheitä, joiden takia se ei toimi. Korjaa ohjelma sellaiseksi, että se toimii oikein.
 
-<sample-output>
-
-Montako opiskelijaa? **8**
-Mikä on ryhmän koko? **4**
-Ryhmien määrä: 2
-
-</sample-output>
+Ohjelman siis pitäisi toimia esimerkiksi näin:
 
 <sample-output>
 
-Montako opiskelijaa? **11**
-Mikä on ryhmän koko? **3**
-Ryhmien määrä: 4
+Anna luku 1: **2**
+Anna luku 2: **3**
+Anna luku 3: **5**
+Tulo on 30
 
 </sample-output>
-
-Vihje: tehtävän tekeminen onnistuu kokonaislukujakolaskuoperaattorilla `//`
 
 </in-browser-programming-exercise>
 
@@ -405,21 +399,27 @@ Viikossa 38.5 euroa
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Korjaa ohjelma: Lukujen tulo" tmcname="osa01-20_korjaa_ohjelma_lukujen_tulo">
+<in-browser-programming-exercise name="Opiskelijat ryhmiin" tmcname="osa01-18_opiskelijat_ryhmiin">
 
-Oheinen ohjelma kysyy käyttäjältä kolme lukua ja tulostaa näiden tulon (eli luvut kerrottuna toisillaan).
-Ohjelmassa on kuitenkin virhe tai virheitä, joiden takia se ei toimi. Korjaa ohjelma sellaiseksi, että se toimii oikein.
-
-Ohjelman siis pitäisi toimia esimerkiksi näin:
+Tee ohjelma, joka kysyy kurssin opiskelijoiden määrän ja ryhmän koon ja ilmoittaa, montako ryhmää opiskelijoista muodostuu. Jos jako ei mene tasan, yhdessä ryhmässä voi olla vähemmän opiskelijoita, mutta kaikissa muissa on oltava haluttu määrä.
 
 <sample-output>
 
-Anna luku 1: **2**
-Anna luku 2: **3**
-Anna luku 3: **5**
-Tulo on 30
+Montako opiskelijaa? **8**
+Mikä on ryhmän koko? **4**
+Ryhmien määrä: 2
 
 </sample-output>
+
+<sample-output>
+
+Montako opiskelijaa? **11**
+Mikä on ryhmän koko? **3**
+Ryhmien määrä: 4
+
+</sample-output>
+
+Vihje: tehtävän tekeminen onnistuu kokonaislukujakolaskuoperaattorilla `//`
 
 </in-browser-programming-exercise>
 
