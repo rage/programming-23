@@ -14,6 +14,11 @@ import CourseSettings from "../../../course-settings"
 const ORGANIZATION = CourseSettings.tmcOrganization
 const COURSE = CourseSettings.tmcCourse
 
+let language = "en"
+if (CourseSettings.language === "fi") {
+  language = "fi"
+}
+
 const Wrapper = styled.div`
   padding 1rem;
 `
@@ -91,6 +96,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
             token={accessToken()}
             height={height ? height : "400px"}
             outputHeight={outputheight}
+            language={language}
           />
         </div>
       </ProgrammingExerciseCard>
