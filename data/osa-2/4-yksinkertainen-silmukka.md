@@ -103,6 +103,66 @@ Anna PIN-koodi oikein!
 
 </sample-output>
 
+<in-browser-programming-exercise name="Jatketaanko" tmcname="osa02-15_jatketaanko">
+
+Kirjoita edellä olevaa toistolause-esimerkkiä mukaillen ohjelma, joka tulostaa viestin "moi" ja kysyy käyttäjältä "Jatketaanko?" kunnes käyttäjä syöttää merkkijonon "ei". Tämän jälkeen tulostetaan merkkijono "ei sitten" ja suoritus päättyy.
+
+Esimerkkitulostus
+
+<sample-output>
+
+moi
+Jatketaanko? **kyllä**
+moi
+Jatketaanko? **yes**
+moi
+Jatketaanko? **jawohl**
+moi
+Jatketaanko? **ei**
+ei sitten
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Syötteen rajaus" tmcname="osa02-16_syotteen_rajaus">
+
+Kirjoita ohjelma, joka kysyy käyttäjältä lukuja. Mikäli luku on negatiivinen (eli pienempi kuin nolla), käyttäjälle tulostetaan viesti "Epäkelpo luku" ja käyttäjältä kysytään uutta lukua. Jos taas luku on nolla, lukujen lukeminen lopetetaan ja ohjelma poistuu toistolauseesta.
+
+Mikäli luku on positiivinen, ohjelma tulostaa luvun neliöjuuren käyttäen `sqrt`-funktiota, joka on tuotu ohjelmaan `import`-lauseella. Esimerkki funktion käytöstä:
+
+```python
+# Tämä pitää olla ohjelman alussa, jotta sqrt toimii
+from math import sqrt
+
+print(sqrt(9))
+```
+
+<sample-output>
+
+3.0
+
+</sample-output>
+
+Esimerkki ohjelman suorituksesta:
+
+<sample-output>
+
+Syötä luku **16**
+4.0
+Syötä luku **4**
+2.0
+Syötä luku **-3**
+Epäkelpo luku
+Syötä luku **1**
+1.0
+Syötä luku: **0**
+Lopetetaan...
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 <in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa02-17_lahtolaskenta">
 
 Tehtäväpohjassa olevan ohjelman
