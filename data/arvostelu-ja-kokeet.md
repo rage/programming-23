@@ -33,27 +33,27 @@ Kurssi arvostellaan seuraavalla asteikolla:
     </thead>
     <tbody>
     <tr>
-        <td>90% tai yli</td>
+        <td>90 % tai yli</td>
         <td>5 (erinomainen)</td>
     </tr>
     <tr>
-        <td>80% tai yli, alle 90%</td>
+        <td>80 % tai yli, alle 90 %</td>
         <td>4 (kiitettävä)</td>
     </tr>
     <tr>
-        <td>70% tai yli, alle 80%</td>
+        <td>70 % tai yli, alle 80 %</td>
         <td>3 (hyvä)</td>
     </tr>
     <tr>
-        <td>60% tai yli, alle 70%</td>
+        <td>60 % tai yli, alle 70 %</td>
         <td>2 (tyydyttävä)</td>
     </tr>
     <tr>
-        <td>50% tai yli, alle 60%</td>
+        <td>50 % tai yli, alle 60 %</td>
         <td>1 (välttävä)</td>
     </tr>
     <tr>
-        <td>alle 50%</td>
+        <td>alle 50 %</td>
         <td>hylätty</td>
     </tr>
     </tbody>
