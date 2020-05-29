@@ -52,14 +52,10 @@ class CourseOptionsEditor extends React.Component {
         last_name: data.user_field?.last_name,
         email: data.email,
         student_number: data.user_field?.organizational_id,
-        applies_for_study_right:
-          data.extra_fields?.applies_for_study_right === "t",
-        graduating_next_year: data.extra_fields?.graduating_next_year === "t",
         digital_education_for_all:
           data.extra_fields?.digital_education_for_all === "t",
         marketing: data.extra_fields?.marketing === "t",
         research: data.extra_fields?.research,
-        currentCourseVariant: data.extra_fields?.course_variant,
         loading: false,
       },
       () => {
@@ -72,12 +68,9 @@ class CourseOptionsEditor extends React.Component {
     e.preventDefault()
     this.setState({ submitting: true })
     let extraFields = {
-      applies_for_study_right: this.state.applies_for_study_right,
-      graduating_next_year: this.state.graduating_next_year,
       digital_education_for_all: this.state.digital_education_for_all,
       marketing: this.state.marketing,
       research: this.state.research,
-      course_variant: this.state.currentCourseVariant,
     }
     const userField = {
       first_name: this.state.first_name,
@@ -96,8 +89,6 @@ class CourseOptionsEditor extends React.Component {
     submitting: false,
     error: true,
     errorObj: {},
-    applies_for_study_right: false,
-    graduating_next_year: false,
     digital_education_for_all: false,
     marketing: false,
     research: undefined,
@@ -138,10 +129,6 @@ class CourseOptionsEditor extends React.Component {
     this.setState(prev => ({
       error: prev.research === undefined,
     }))
-  }
-
-  setSelectedVariant = value => {
-    this.setState({ currentCourseVariant: value })
   }
 
   render() {
@@ -221,67 +208,6 @@ class CourseOptionsEditor extends React.Component {
                   onBlur={this.handleUnFocus}
                 />
               </Row>
-
-              <Row>
-                <DropdownMenu
-                  selectedVariant={
-                    this.state.currentCourseVariant ||
-                    this.props.courseVariant ||
-                    "dl"
-                  }
-                  setSelectedVariant={this.setSelectedVariant}
-                />
-              </Row>
-              {!this.props.courseVariant &&
-                (this.state.currentCourseVariant === "nodl" ||
-                  this.state.currentCourseVariant === "ohja-nodl") && (
-                  <Row>
-                    <InfoBox>
-                      <Card>
-                        <CardContent>
-                          <StyledIcon icon={icon} />
-                          Jos olet vaihtamassa aikataulullisesta kurssista
-                          aikatauluttomaan, katso tämä ohje ohjelmointitehtävien
-                          pisteiden siirtämiseksi:{" "}
-                          <Link to="/vaihda-aikatauluttomaan">
-                            Kurssin vaihto aikatauluttomaan versioon
-                          </Link>
-                          .
-                        </CardContent>
-                      </Card>
-                    </InfoBox>
-                  </Row>
-                )}
-
-              <Row>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.applies_for_study_right}
-                      onChange={this.handleCheckboxInput}
-                      name="applies_for_study_right"
-                      value="1"
-                    />
-                  }
-                  label="Aion hakea aikataulutetun Ohjelmoinnin MOOCin kautta opinto-oikeutta (opiskelupaikkaa) Helsingin yliopistoon."
-                />
-              </Row>
-
-              {this.state.applies_for_study_right && (
-                <Row>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={this.state.graduating_next_year}
-                        onChange={this.handleCheckboxInput}
-                        name="graduating_next_year"
-                        value="1"
-                      />
-                    }
-                    label="Valmistun ja saan yliopistokelpoisuuden vasta keväällä 2021"
-                  />
-                </Row>
-              )}
 
               <Row>
                 <FormControlLabel
