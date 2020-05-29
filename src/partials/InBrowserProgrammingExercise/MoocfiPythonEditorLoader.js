@@ -94,7 +94,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
             course={COURSE}
             exercise={tmcname}
             token={accessToken()}
-            height={height ? height : "400px"}
+            height={height ? height : "300px"}
             outputHeight={outputheight}
             language={language}
           />
