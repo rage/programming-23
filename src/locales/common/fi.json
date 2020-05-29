@@ -1,7 +1,7 @@
 {
-    "endReached":"Pääsit aliluvun loppuun!",
-    "continueToNext":"Jatka tästä seuraavaan osaan:",
-    "rememberToCheckPoints":"Muistathan tarkistaa pistetilanteesi materiaalin oikeassa alareunassa olevasta pallosta!",
+    "endReached":"",
+    "continueToNext":"Seuraava osa:",
+    "rememberToCheckPoints":"",
     "footer-src":"Materiaalin lähdekoodi",
     "footer-edit-page":"Muokkaa sivua",
     "footer-report-issue":"Ilmoita virhe",
