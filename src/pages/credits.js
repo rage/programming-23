@@ -25,9 +25,7 @@ const Credits = () => (
 
       <p>
         Kurssimateriaalin ja tehtävien tekijät ovat Erkki Kaila, Antti Laaksonen
-        ja Matti Luukkainen.
-        Muutamaa kurssin tehtävistä on Arto Hellaksen (né Vihavainen) käsialaa.
-        Kurssin sisältöön ovat vaikuttaneet myös seuraavat
+        ja Matti Luukkainen. Muutama kurssin tehtävistä on Arto Hellaksen (né Vihavainen) käsialaa.
       </p>
       <p>
         Kurssin materiaali on lisensoitu{" "}
