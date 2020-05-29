@@ -147,7 +147,7 @@ SyntaxError: invalid syntax
 
 </sample-output>
 
-<in-browser-programming-exercise name="Korjaa virheet" tmcname="osa02-1_korjaa_virheet">
+<in-browser-programming-exercise name="Korjaa virheet" tmcname="osa02-1_korjaa_virheet" height="400px">
 
 Seuraavassa ohjelmassa on useita _syntaksivirheitä_, korjaa ohjelma siten että syntaksi on kunnossa, ja että se toimii alla olevien esimerkkien mukaisesti.
 
