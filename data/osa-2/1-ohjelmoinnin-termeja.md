@@ -175,6 +175,7 @@ Hyvää päivänjatkoa!
 Anna luku: **101**
 Luku oli suurempi kuin sata
 Nyt luvun arvo on pienentynyt sadalla
+Arvo on nyt 1
 1 taitaa olla onnenlukuni!
 Hyvää päivänjatkoa!
 
