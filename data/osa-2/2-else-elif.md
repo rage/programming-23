@@ -203,7 +203,7 @@ Kiitos ja hei.
 
 </sample-output>
 
-<in-browser-programming-exercise name=" Suurempi tai yhtäsuuri" tmcname="osa02-5_suurempi_tai_yhtasuuri">
+<in-browser-programming-exercise name=" Suurempi tai yhtäsuuri" tmcname="osa02-5_suurempi_tai_yhtasuuri"  height="400px">
 
 Tee ohjelma, joka kysyy käyttäjältä kaksi kokonaislukua ja tulostaa niistä suuremman. Jos luvut ovat yhtä suuret, ohjelma huomaa myös tämän.
 
@@ -236,7 +236,7 @@ Luvut ovat yhtä suuret!
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Vanhempi" tmcname="osa02-6_vanhempi">
+<in-browser-programming-exercise name="Vanhempi" tmcname="osa02-6_vanhempi" height="550px">
 
 Tee ohjelma, joka kysyy kahden henkilön nimen ja iän ja tulostaa vanhemman henkilön nimen.
 
@@ -247,11 +247,9 @@ Esimerkkisyötteitä
 Henkilö 1:
 Nimi: **Teppo**
 Ikä: **26**
-
 Henkilö 2:
 Nimi: **Tiina**
 Ikä: **27**
-
 Vanhempi on Tiina
 
 </sample-output>
@@ -261,18 +259,16 @@ Vanhempi on Tiina
 Henkilö 1:
 Nimi: **Antti**
 Ikä: **1**
-
 Henkilö 2:
 Nimi: **Venla**
 Ikä: **1**
-
 Antti ja Venla ovat yhtä vanhoja
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Aakkosjärjestyksessä viimeinen" tmcname="osa02-7_aakkkosjarjestyksessa_viimeinen">
+<in-browser-programming-exercise name="Aakkosjärjestyksessä viimeinen" tmcname="osa02-7_aakkkosjarjestyksessa_viimeinen"  height="500px">
 
 Lukujen lisäksi Python osaa vertailla myös merkkijonojen suuruusjärjestystä. Merkkijono a on pienempi kuin merkkijono b, jos merkkijono a tulee aakkosjärjestyksessä ennen jonoa b.
 Huomaa kuitenkin, että tämä pätee varmasti vain kun

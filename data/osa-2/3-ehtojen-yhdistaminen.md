@@ -244,7 +244,7 @@ FizzBuzz
 
 ## Sisäkkäiset ehtolauseet
 
-Ehtolauseita voidaan kirjoittaa toistensa sisään. Esimerkiksi seuraava ohjelma tunnistaa positiivista luvuista parittomat ja parilliset:
+Ehtolauseita voidaan kirjoittaa toistensa sisään. Esimerkiksi seuraava ohjelma tunnistaa positiivisista luvuista parittomat ja parilliset:
 
 ```python
 luku = int(input("Anna luku: "))
