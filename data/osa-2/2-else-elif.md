@@ -95,7 +95,7 @@ Pääsy kielletty
 </sample-output>
 
 
-<in-browser-programming-exercise name="Täysi-ikäisyys" tmcname="osa02-4_taysi_ikaisyys">
+<in-browser-programming-exercise name="Täysi-ikäisyys" tmcname="osa02-4_taysi_ikaisyys" height="400px">
 
 Tee ohjelma, joka kysyy käyttäjän ikää ja kertoo, onko tämä täysi-ikäinen (eli 18-vuotias tai vanhempi).
 
