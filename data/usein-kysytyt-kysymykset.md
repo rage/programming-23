@@ -8,45 +8,25 @@ separator_after: " "
 
 <table-of-contents></table-of-contents>
 
-### Ohjelmointitehtävässä on mielestäni virhe
+### Löysin virheen materiaalista tai tehtävästä
 
-Varmista, että ongelma ei ole omassa koodissasi. Kysy tarvittaessa apua kurssikanavalla Telegramissa tai lähetä sähköpostia kurssin ylläpitäjille sähköpostilla osoitteeseen ohjelmoinnin-mooc@helsinki.fi
-
-### Löysin materiaalista virheen
-
-Varmista ensin, että materiaalissa on oikeasti virhe. Mikäli et ole aivan varma, kysy kurssikanavalla asiasta. Mikäli olet varma asiasta, voit avata joko issue tai muutosehdotus kurssin Github-repossa: TODO linkki
+Voit ilmoittaa asiasta kurssikanavalla ohjaajalle tai sähköpostitse kurssin ylläpitäjille osoitteeseen ohjelmoinnin-mooc@helsinki.fi. Kiitos!
 
 ### En voi aloittaa kurssia, koska en tiedä minne ilmoittautua
 
-Kurssin aloittamiseen ei tarvitse ilmoittautumista. Älä ilmoittaudu minnekkään, ellei kurssisivu erikseen kehoita sinua tekemään niin.
+Kurssin aloittamiseen ei tarvitse ilmoittautumista. Saat kurssin jälkeen ohjeet, miten voit saada kurssista suoritusmerkinnän Helsingin yliopiston rekisteriin.
 
 ### Kurssimateriaalin uuden osan pitäisi olla julki tänään, mutta en näe sitä
 
-Emme takaa, mihin kellonaikaan kurssimateriaalin uusi osa ilmestyy. Kiitos kärsivällisyydestäsi!
+Emme takaa, mihin kellonaikaan kurssimateriaalin uusi osa ilmestyy, mutta julkaisu tapahtuu aina viimeistään klo 23:59 ilmoitettuna päivänä.
 
-### Työ- ja elinkeinotoimisto haluaa minulta selvityksen kurssista
+### Saako kursseista virallisen suorituksen?
 
-Ohjaa TE-toimisto tälle sivulle:
+Kurssin päätteeksi voit osallistua Helsingin yliopiston Avoimen yliopiston kokeeseen. Jos läpäiset kokeen hyväksytysti, saat kurssista merkinnän Helsingin yliopiston rekisteriin.
 
-Ohjelmoinnin MOOC on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
+### Miten saan hyväksiluvun kurssista oppilaitoksessani?
 
-Ohjelmoinnin MOOC on Helsingin yliopiston kurssien Ohjelmoinnin perusteet (5 opintopistettä) ja Ohjelmoinnin jatkokurssi (5 opintopistettä) kurssimateriaali. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssista voi kuitenkin halutessaan -- ja kurssin menestyksekkäästi suorittamalla -- saada opintopisteitä. Huomaathan, että kurssille osallistuminen ei oikeuta opintotukeen.
-
-### Saan tukea Työ- ja elinkeinotoimistolta. Voinko silti tehdä kurssin?
-
-Sovi asiasta etukäteen TE-toimistosi kanssa. TE-toimistot eivät valitettavasti käsittele kurssiimme liittyviä asioita yhdenmukaisesti. Jotkut ovat evänneet tukia jo kurssillemme osallistumisesta, vaikkei tavoitteena olisi opintopisteet tai opinnot. Toisaalta toiset TE-toimistot ovat suositelleet kurssia ja jopa ohjanneet ihmisiä kurssille ilman tukien epäämistä.
-
-### Kela haluaa minulta todistuksen opiskelustani
-
-Ohjaa Kela tälle sivulle:
-
-Ohjelmoinnin MOOC on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
-
-Ohjelmoinnin MOOC on Helsingin yliopiston kurssien Ohjelmoinnin perusteet (5 opintopistettä) ja Ohjelmoinnin jatkokurssi (5 opintopistettä) kurssimateriaali. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssista voi kuitenkin halutessaan -- ja kurssin menestyksekkäästi suorittamalla -- saada opintopisteitä. Huomaathan, että kurssille osallistuminen ei oikeuta opintotukeen.
-
-### Saako kursseista jonkinlaisen virallisen opintosuoritusotteen? Ja miten hyväksiluen sen oppilaitoksessani?
-
-Kurssin päätteeksi voi osallistua Helsingin yliopiston Avoimen yliopiston kokeeseen. Jos kokeen läpäisee hyväksytysti, Avoimelta yliopistolta saa viralliset kurssisuorituksen. Se kelpaa todennäköisesti hyväksilukemista varten, mutta kannattaa varmistaa asia vielä oman oppilaitoksen opintovastaavalta.
+Saat kurssista merkinnän Helsingin yliopiston rekisteriin. Se kelpaa todennäköisesti hyväksilukemista varten, mutta kannattaa varmistaa asia vielä oman oppilaitoksen opintovastaavalta.
 
 ### Tarvitsenko Helsingin yliopiston tunnukset?
 
@@ -55,3 +35,23 @@ Et tarvitse.
 ### Miten perun kurssiosallistumiseni?
 
 Kurssiosallistumista ei tarvitse erikseen perua. Riittää, että lopettaa kurssin tekemisen.
+
+### Työ- ja elinkeinotoimisto haluaa minulta selvityksen kurssista
+
+Ohjaa TE-toimisto tälle sivulle:
+
+Ohjelmoinnin perusteet on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
+
+Ohjelmoinnin perusteet vastaa Helsingin yliopiston 5 opintopisteen kurssia. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssin suorittamisesta voi kuitenkin halutessaan saada opintopisteitä. Kurssille osallistuminen ei oikeuta opintotukeen.
+
+### Saan tukea Työ- ja elinkeinotoimistolta. Voinko silti suorittaa kurssin?
+
+Sovi asiasta etukäteen TE-toimistosi kanssa. TE-toimistot eivät valitettavasti käsittele kurssiimme liittyviä asioita yhdenmukaisesti. Jotkut ovat evänneet tukia jo kurssillemme osallistumisesta, vaikkei tavoitteena olisi opintopisteet tai opinnot. Toisaalta toiset TE-toimistot ovat suositelleet kurssia ja jopa ohjanneet ihmisiä kurssille ilman tukien epäämistä.
+
+### Kela haluaa minulta todistuksen opiskelustani
+
+Ohjaa Kela tälle sivulle:
+
+Ohjelmoinnin perusteet on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
+
+Ohjelmoinnin perusteet vastaa Helsingin yliopiston 5 opintopisteen kurssia. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssin suorittamisesta voi kuitenkin halutessaan saada opintopisteitä. Kurssille osallistuminen ei oikeuta opintotukeen.
