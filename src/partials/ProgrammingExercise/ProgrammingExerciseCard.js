@@ -22,6 +22,7 @@ const Header = styled.div`
   padding 1rem 0;
   border-bottom: 1px solid #f7f7f9;
   background-color: ${props => (props.completed ? "#13B559" : "#D23D48")};
+  border-radius: 16px 16px 0px 0px;
   display: flex;
   flex-direction: row;
   align-items: 0;
