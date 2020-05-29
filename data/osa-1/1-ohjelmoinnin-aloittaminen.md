@@ -53,7 +53,7 @@ SyntaxError: invalid syntax
 
 Python ei siis osaa tulkita tulostettavaa tekstiä oikein, jos se ei ole lainausmerkeissä.
 
-<in-browser-programming-exercise name="Hymiö" tmcname="osa01-01_hymio">
+<in-browser-programming-exercise name="Hymiö" tmcname="osa01-01_hymio" height="300px">
 
 Kirjoita ohjelma, joka tulostaa ruudulle hymiön: :-)
 
@@ -81,7 +81,7 @@ Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.
 </sample-output>
 
 
-<in-browser-programming-exercise name="Ukko Nooa" tmcname="osa01-02_ukko_nooa" >
+<in-browser-programming-exercise name="Ukko Nooa" tmcname="osa01-02_ukko_nooa">
 
 Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
 
