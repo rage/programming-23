@@ -10,7 +10,7 @@ separator_after: " "
 
 ### Ohjelmointitehtävässä on mielestäni virhe
 
-Varmista, että ongelma ei ole omassa koodissasi. Kysy tarvittaessa apua kurssikanavalla. Kokeile myös onko tehtävään saatavilla päivitystä TODO. Jos näidenkin toimenpiteiden jälkeen vaikuttaa siltä, että virhe on tehtävässä, avaa uusi issue kurssin Github-repossa: TODO linkki
+Varmista, että ongelma ei ole omassa koodissasi. Kysy tarvittaessa apua kurssikanavalla Telegramissa tai lähetä sähköpostia kurssin ylläpitäjille sähköpostilla osoitteeseen ohjelmoinnin-mooc@helsinki.fi
 
 ### Löysin materiaalista virheen
 
@@ -46,7 +46,7 @@ Ohjelmoinnin MOOC on Helsingin yliopiston kurssien Ohjelmoinnin perusteet (5 opi
 
 ### Saako kursseista jonkinlaisen virallisen opintosuoritusotteen? Ja miten hyväksiluen sen oppilaitoksessani?
 
-Kurssin päätteeksi voi osallistua Helsingin yliopiston Avoimen yliopiston kokeeseen. Jos kokeen läpäisee hyväksytysti, Avoimelta yliopistolta saa viralliset kurssisuoritutksen. Se kelpaa todennäköisesti hyväksilukemista varten, mutta kannattaa varmistaa asia vielä oman oppilaitoksen opintovastaavalta.
+Kurssin päätteeksi voi osallistua Helsingin yliopiston Avoimen yliopiston kokeeseen. Jos kokeen läpäisee hyväksytysti, Avoimelta yliopistolta saa viralliset kurssisuorituksen. Se kelpaa todennäköisesti hyväksilukemista varten, mutta kannattaa varmistaa asia vielä oman oppilaitoksen opintovastaavalta.
 
 ### Tarvitsenko Helsingin yliopiston tunnukset?
 
