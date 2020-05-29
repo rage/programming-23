@@ -69,6 +69,7 @@ const ProgrammingExerciseWrapper = styled(Card)`
   border-radius: 1rem !important;
   box-shadow: 0 8px 40px -12px rgba(0,0,0,0.3) !important;
   padding: 0 !important;
+  overflow: visible !important;
 `
 
 const StyledIcon = styled(FontAwesomeIcon)`

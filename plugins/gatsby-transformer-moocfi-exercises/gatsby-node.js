@@ -5,6 +5,7 @@ const GraphQLObjectType = require("gatsby/graphql").GraphQLObjectType
 const quizRegex = /<\s*quiz\s*id\s*=\s*['"]\s*([\w-]+)\s*['"]\s*>/gm
 const crowdsorcererRegex = /<\s*crowdsorcerer\s*id\s*=\s*['"]\s*(\w+)\s*['"].*>/gm
 const programmingExerciseTagRegex = /<\s*programming-exercise\s+(.*)\s*>/gm
+const inBrowserProgrammingExerciseTagRegex = /<\s*in-browser-programming-exercise\s+(.*)\s*>/gm
 const programmingExerciseNameRegex = /\bname\s*=\s*(["].*?["]|['].*?['])/gm
 const moodleRegex = /<\s*moodle-exercise\s*name\s*=\s*['"]\s*(.*)\s*['"]\s*>/gm
 const sqlTrainerRegex = /<\s*sqltrainer-exercise\s*name\s*=\s*['"]\s*(.*)\s*['"]\s*>/gm
@@ -84,6 +85,28 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
             }
           })
 
+          const inBrowserProgrammingExercises = getMatches(
+            source,
+            inBrowserProgrammingExerciseTagRegex,
+            1,
+          ).map(res => {
+            let id = "unknown"
+            try {
+              const match = getMatches(
+                res.match,
+                programmingExerciseNameRegex,
+                1,
+              )[0].match
+              id = match.substr(1, match.length - 2)
+            } catch (e) {}
+            return {
+              id,
+              location: res.location,
+              type: "in-browser-programming-exercise",
+              parentPagePath: node.frontmatter.path,
+            }
+          })
+
           const crowdsorcerers = getMatches(source, crowdsorcererRegex, 1).map(
             res => {
               return {
@@ -120,6 +143,7 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
             .concat(crowdsorcerers)
             .concat(moodles)
             .concat(sqlTrainers)
+            .concat(inBrowserProgrammingExercises)
             .sort(function(a, b) {
               return a.location - b.location
             })
