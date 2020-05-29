@@ -6,7 +6,7 @@ const courseSettings = {
   subtitle: "Johdatus ohjelmointiin Python-kielellä",
   slug: "python-kesa-20",
   tmcCourse: "python-kesa-20",
-  quizzesId: "a9251b4f-b3d2-4d0c-ab01-a143eb2834b5",
+  quizzesId: "24a27b46-a8b5-4662-93b5-090be7edec04",
   tmcOrganization: "hy",
   bannerPath: "banner.svg",
 }
