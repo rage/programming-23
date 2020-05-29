@@ -205,6 +205,40 @@ Arvosana: mahdotonta!
 
 </sample-output>
 
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="FizzBuzz" tmcname="osa02-11_fizzbuzz">
+
+Ohjelma kysyy käyttäjältä lukua. Jos luku on jaolleinen kolmella, tulostetaan Fizz. Jos luku on jaollinen viidellä, tulostetaan Buzz. Jos luku on jaollinen sekä kolmella, että viidellä, tulostetaan FizzBuzz
+
+Esimerkkitulostuksia:
+
+<sample-output>
+
+Luku: **9**
+Fizz
+
+</sample-output>
+
+<sample-output>
+
+Luku: **7**
+
+</sample-output>
+
+<sample-output>
+
+Luku: **20**
+Buzz
+
+</sample-output>
+
+<sample-output>
+
+Luku: **45**
+FizzBuzz
+
+</sample-output>
 
 </in-browser-programming-exercise>
 
@@ -255,3 +289,104 @@ else:
 ```
 
 Tilanteesta riippuu, kumpaa tapaa kannattaa käyttää. Tässä esimerkissä ensimmäinen vaihtoehto tuntuu useimpien mielestä paremmalta.
+
+
+<in-browser-programming-exercise name="Karkausvuosi" tmcname="osa02-12_karkausvuosi">
+
+Vuosi on karkausvuosi, jos se on jaollinen 4:llä. Kuitenkin jos vuosi on jaollinen 100:lla, se on karkausvuosi vain silloin, kun se on jaollinen myös 400:lla.
+
+Tee ohjelma, joka lukee käyttäjältä vuosiluvun, ja tarkistaa, onko vuosi karkausvuosi.
+
+<sample-output>
+
+Anna vuosi: **2011**
+Vuosi ei ole karkausvuosi.
+
+</sample-output>
+
+<sample-output>
+
+Anna vuosi: **2020**
+Vuosi on karkausvuosi.
+
+</sample-output>
+
+<sample-output>
+
+Anna vuosi: **1800**
+Vuosi ei ole karkausvuosi.
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Aakkosjärjestyksessä keskimmäinen" tmcname="osa02-13_aakkosjarjestyksessa_keskimmainen">
+
+Tee ohjelma, joka kysyy käyttäjältä kolme kirjainta. Ohjelma tulostaa kirjaimista aakkosjärjestyksessä keskimmäisen.
+
+Voit olettaa, että kirjaimet ovat joko kaikki isoja tai kaikki pieniä kirjaimia.
+
+Esimerkkisuorituksia:
+
+<sample-output>
+
+Anna 1. kirjain: x
+Anna 2. kirjain: c
+Anna 3. kirjain: p
+Keskimmäinen kirjain on p
+
+</sample-output>
+
+<sample-output>
+
+Anna 1. kirjain: C
+Anna 2. kirjain: B
+Anna 3. kirjain: A
+Keskimmäinen kirjain on B
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Lahjaverolaskuri" tmcname="osa02-14_lahjaverolaskuri">
+
+<https://www.vero.fi/henkiloasiakkaat/omaisuus/lahja/> Lahja tarkoittaa sitä, että omaisuus siirtyy toiselle henkilölle ilman korvausta. Lahjasta pitää maksaa lahjaveroa, jos samalta lahjanantajalta saatujen lahjojen arvo on kolmen vuoden aikana 5 000 euroa tai enemmän.
+
+Kun lahja tulee lähimmiltä sukulaisilta, lahjaveron määrä määräytyy seuraavan taulukon mukaan (lähde <vero.fi>):
+
+Lahja	| Vero alarajalla|	Veroprosentti ylimenevästä
+:--:|:----:|:----:
+5 000 — 25 000 |	100	|8
+25 001 — 55 000	| 1 700|	10
+55 001 — 200 000|	4 700	|12
+200 001 — 1 000 000	|22 100|	15
+1 000 001 —	|142 100|	17
+
+Esimerkiksi 6000 euron lahjasta tulee maksaa veroa 180 euroa (100 + (6000-5000) * 0.08), ja 75000 euron lahjasta tulee maksaa veroa 7100 euroa (4700 + (75000-55000) * 0.12).
+
+Tee ohjelma, joka laskee lahjaveron lähimmiltä sukulaisilta annetulle lahjalle. Alla on muutama esimerkki ohjelman toiminnasta.
+
+<sample-output>
+
+Lahjan suuruus? **3500**
+Ei veroa!
+
+</sample-output>
+
+<sample-output>
+
+Lahjan suuruus? **5000**
+Vero: 100.0 euroa
+
+</sample-output>
+
+<sample-output>
+
+Lahjan suuruus? **27500**
+Vero: 1950.0 euroa
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
