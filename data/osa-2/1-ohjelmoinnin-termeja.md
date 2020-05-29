@@ -146,3 +146,145 @@ SyntaxError: invalid syntax
 </pre>
 
 </sample-output>
+
+<in-browser-programming-exercise name="Korjaa virheet" tmcname="osa02-1_korjaa_virheet">
+
+Seuraavassa ohjelmassa on useita _syntaksivirheitä_, korjaa ohjelma siten että syntaksi on kunnossa, ja että se toimii alla olevien esimerkkien mukaisesti.
+
+```python
+  luku = input("Anna luku: ")
+  if luku>100
+    print("Luku oli suurempi kuin sata")
+    luku - 100
+    print("Nyt luvun arvo on pienentynyt sadalla)
+     print("Arvo on nyt"+ luku)
+ print(luku + " taitaa olla onnenlukuni!")
+ print("Hyvää päivänjatkoa!)
+```
+
+<sample-output>
+
+Anna luku: **13**
+13 taitaa olla onnenlukuni!
+Hyvää päivänjatkoa!
+
+</sample-output>
+
+<sample-output>
+
+Anna luku: **101**
+Luku oli suurempi kuin sata
+Nyt luvun arvo on pienentynyt sadalla
+1 taitaa olla onnenlukuni!
+Hyvää päivänjatkoa!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Merkkien määrä" tmcname="osa02-2_merkkien_maara">
+
+Funktiolla `len` voidaan laskea (muun muassa) merkkijonon pituus. Funktio palauttaa merkkijonossa olevien merkkien määrän.
+
+Esimerkkejä funktion toiminnasta:
+
+```python
+sana = "abcd"
+print(len(sana))
+
+print(len("moikka"))
+
+sana2 = "heipparallaa"
+pituus = len(sana2)
+print(pituus)
+```
+
+<sample-output>
+
+4
+6
+12
+
+</sample-output>
+
+Tee ohjelma, joka lukee käyttäjältä sanan ja tulostaa sanan merkkien määrän, mikäli niitä on enemmän kuin yksi.
+
+Esimerkkisuorituksia:
+
+<sample-output>
+
+Anna sana: hei
+Sanassa hei on 3 kirjainta
+Kiitos!
+
+</sample-output>
+
+<sample-output>
+
+Anna sana: banaani
+Sanassa banaani on 7 kirjainta
+Kiitos!
+
+</sample-output>
+
+<sample-output>
+
+Anna sana: b
+Kiitos!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Tyyppimuunnos" tmcname="osa02-3_tyyppimuunnos">
+
+Pythonissa voidaan usein muuntaa jokin arvo tyypistä toiseen. Esimerkiksi liukuluku voidaan muuntaa kokonaisluvuksi funktion `int` avulla:
+
+```python
+
+lampo = float(input("Anna lämpötila: "))
+
+print("Lämpötila on", lampo)
+
+print("...eli pyöreästi", int(lampo))
+
+```
+
+<sample-output>
+
+Anna lämpötila: **5.15**
+Lämpötila on 5.15
+...eli pyöreästi 5
+
+</sample-output>
+
+Huomaa, että funktio ei pyöristä arvoa matemaatikasta tutulla tavalla, vaan pyöristää luvun alaspäin (kyse on siis ns. _lattiafunktiosta_):
+
+<sample-output>
+
+Anna lämpötila: **8.99**
+Lämpötila on 8.99
+...eli pyöreästi 8
+
+</sample-output>
+
+Tee int-funktiota hyödyntäen ohjelma, joka kysyy käyttäjältä desimaaliluvun ja tulostaa erikseen luvun kokonaisosan ja desimaaliosan.
+
+Huom! Voit olettaa, että annettu desimaaliluku on suurempi kuin nolla.
+
+Esimerkiksi
+
+<sample-output>
+
+Anna luku: **1.34**
+Kokonaisosa: 1
+Desimaaliosa: 0.34
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="" tmcname="osa02-">
+
+</in-browser-programming-exercise>
