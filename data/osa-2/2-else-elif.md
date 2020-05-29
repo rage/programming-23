@@ -94,6 +94,30 @@ Pääsy kielletty
 
 </sample-output>
 
+
+<in-browser-programming-exercise name="Täysi-ikäisyys" tmcname="osa02-4_taysi_ikaisyys">
+
+Tee ohjelma, joka kysyy käyttäjän ikää ja kertoo, onko tämä täysi-ikäinen (eli 18-vuotias tai vanhempi).
+
+Esimerkkitulostuksia:
+
+<sample-output>
+
+Kuinka vanha olet? **12**
+Et ole täysi-ikäinen!
+
+</sample-output>
+
+
+<sample-output>
+
+Kuinka vanha olet? **32**
+Olet täysi-ikäinen!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 ## Vaihtoehtoiset haarat elif-lauseella
 
 Usein vaihtoehtoja on kuitenkin enemmän kuin kaksi. Esimerkiksi jalkapallo-ottelun lopputulosta käsitellessä olisi hyvä varautua kolmeen vaihtoehtoiseen lopputulokseen kotijoukkueen kannalta: voitto, häviö tai tasapeli.
@@ -178,4 +202,112 @@ Mikä päivä nyt on? **1.1.**
 Kiitos ja hei.
 
 </sample-output>
+
+<in-browser-programming-exercise name=" Suurempi tai yhtäsuuri" tmcname="osa02-5_suurempi_tai_yhtasuuri">
+
+Tee ohjelma, joka kysyy käyttäjältä kaksi kokonaislukua ja tulostaa niistä suuremman. Jos luvut ovat yhtä suuret, ohjelma huomaa myös tämän.
+
+Esimerkkitulostuksia:
+
+<sample-output>
+
+Anna ensimmäinen luku: **5**
+Anna toinen luku: **3**
+Suurempi luku: 5
+
+</sample-output>
+
+<sample-output>
+
+Anna ensimmäinen luku: **5**
+Anna toinen luku: **8**
+Suurempi luku: 8
+
+</sample-output>
+
+<sample-output>
+
+Anna ensimmäinen luku: **5**
+Anna toinen luku: **5**
+Luvut ovat yhtä suuret!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Vanhempi" tmcname="osa02-6_vanhempi">
+
+Tee ohjelma, joka kysyy kahden henkilön nimen ja iän ja tulostaa vanhemman henkilön nimen.
+
+Esimerkkisyötteitä
+
+<sample-output>
+
+Henkilö 1:
+Nimi: **Teppo**
+Ikä: **26**
+
+Henkilö 2:
+Nimi: **Tiina**
+Ikä: **27**
+
+Vanhempi on Tiina
+
+</sample-output>
+
+<sample-output>
+
+Henkilö 1:
+Nimi: **Antti**
+Ikä: **1**
+
+Henkilö 2:
+Nimi: **Venla**
+Ikä: **1**
+
+Antti ja Venla ovat yhtä vanhoja
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Aakkosjärjestyksessä viimeinen" tmcname="osa02-7_aakkkosjarjestyksessa_viimeinen">
+
+Lukujen lisäksi Python osaa vertailla myös merkkijonojen suuruusjärjestystä. Merkkijono a on pienempi kuin merkkijono b, jos merkkijono a tulee aakkosjärjestyksessä ennen jonoa b.
+Huomaa kuitenkin, että tämä pätee varmasti vain kun
+- vertaillaan samankokoisia kirjaimia (eli ISOJA tai pieniä kirjaimia) keskenään ja
+- vertailtavissa sanoissa on vain englanninkielestä tuttuja kirjaimia (eli a-z tai A-Z).
+
+Tee ohjelma, joka kysyy käyttäjältä kahta sanaa. Ohjelma tulostaa sanoista sen, joka on aakkosjärjestyksessä jälkimmäinen.
+
+Voit olettaa, että sanat on syötety kokonaan pienillä kirjaimilla.
+
+Esimerkkisuorituksia eri syötteillä:
+
+<sample-output>
+
+Anna 1. sana: **auto**
+Anna 2. sana: **mopo**
+mopo on aakkosjärjestyksessä viimeinen.
+
+</sample-output>
+
+<sample-output>
+
+Anna 1. sana: **zorro**
+Anna 2. sana: **batman**
+zorro on aakkosjärjestyksessä viimeinen.
+
+</sample-output>
+
+<sample-output>
+
+Anna 1. sana: **python**
+Anna 2. sana: **python**
+Annoit saman sanan kahdesti.
+
+</sample-output>
+
+</in-browser-programming-exercise>
 

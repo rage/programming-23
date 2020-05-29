@@ -105,6 +105,109 @@ Anna luku 4: **1**
 
 Esimerkissä ensimmäinen ehto `n1 > n2 and n1 > n3 and n1 > n4` on tosi vain, mikäli kaikki kolme ehtoa ovat tosia.
 
+<in-browser-programming-exercise name="Iän tarkistus" tmcname="osa02-8_ian_tarkistus">
+
+Tee ohjelma, joka kysyy käyttäjän ikää. Jos ikä ei ole uskottava (se on alle 5 tai mahdoton luku iälle), antaa ohjelma siihen liittyvän kommentin.
+
+Vinkki: tarkastele esimerkkisuorituksia löytääksesi oikean vastineen eri vaihtoehdoille.
+
+Esimerkkitulostuksia:
+
+<sample-output>
+
+Kerro ikäsi? **13**
+Ok, olet siis 13-vuotias
+
+</sample-output>
+
+<sample-output>
+
+Kerro ikäsi? **2**
+En usko että osaat kirjoittaa...
+
+</sample-output>
+
+<sample-output>
+
+Kerro ikäsi? **-4**
+Taitaa olla virhe
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Veljenpojat" tmcname="osa02-9_veljenpojat">
+
+Tee ohjelma, joka kysyy käyttäjän nimeä. Jos nimeksi syötetään Tupu, Hupu tai Lupu, ohjelma tunnistaa käyttäjän Aku Ankan veljenpojaksi.
+
+Jos nimeksi annetaan Mortti tai Vertti, ohjelma vastaavasti tunnistaa käyttäjän Mikki Hiiren veljenpojaksi.
+
+Esimerkkitulostuksia:
+
+<sample-output>
+
+Anna nimesi: **Mortti**
+Olet luultavasti Mikki Hiiren veljenpoika.
+
+</sample-output>
+
+<sample-output>
+
+Anna nimesi: **Hupu**
+Olet luultavasti Aku Ankan veljenpoika.
+
+</sample-output>
+
+<sample-output>
+
+Anna nimesi: **Keijo**
+Et ole kenenkään tuntemani hahmon veljenpoika.
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Arvosana ja pisteet" tmcname="osa02-10_arvosana_ja_pisteet">
+
+Alla oleva taulukko kuvaa erään kurssin arvosanan muodostumista. Tee ohjelma, joka ilmoittaa kurssiarvosanan annetun taulukon mukaisesti.
+
+pistemäärä   | arvosana
+:--:|:----:
+< 0 |  mahdotonta!
+0-49 | hylätty
+50-59 | 1
+60-69 | 2
+70-79 | 3
+80-89| 4
+90-100 | 5
+> 100 |  mahdotonta!
+
+Esimerkkitulostuksia:
+
+<sample-output>
+
+Anna pisteet [0-100]: **37**
+Arvosana: hylätty
+
+</sample-output>
+
+<sample-output>
+
+Anna pisteet [0-100]: **76**
+Arvosana: 3
+
+</sample-output>
+
+<sample-output>
+
+Anna pisteet [0-100]: **-3**
+Arvosana: mahdotonta!
+
+</sample-output>
+
+
+</in-browser-programming-exercise>
+
 ## Sisäkkäiset ehtolauseet
 
 Ehtolauseita voidaan kirjoittaa toistensa sisään. Esimerkiksi seuraava ohjelma tunnistaa positiivista luvuista parittomat ja parilliset:

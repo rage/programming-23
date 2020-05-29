@@ -284,7 +284,3 @@ Desimaaliosa: 0.34
 </sample-output>
 
 </in-browser-programming-exercise>
-
-<in-browser-programming-exercise name="" tmcname="osa02-">
-
-</in-browser-programming-exercise>
