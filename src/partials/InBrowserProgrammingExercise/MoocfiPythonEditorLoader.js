@@ -64,7 +64,14 @@ class InBrowserProgrammingExercisePartial extends React.Component {
   }
 
   render() {
-    const { name, tmcname, children, height, outputheight } = this.props
+    const {
+      name,
+      tmcname,
+      children,
+      height,
+      outputheight,
+      outputposition,
+    } = this.props
 
     if (!this.state.render) {
       return <div>Loading</div>
@@ -96,6 +103,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
             token={accessToken()}
             height={height ? height : "300px"}
             outputHeight={outputheight}
+            outputPosition={outputposition || "relative"}
             language={language}
           />
         </div>
