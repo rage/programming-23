@@ -105,7 +105,7 @@ Anna luku 4: **1**
 
 Esimerkissä ensimmäinen ehto `n1 > n2 and n1 > n3 and n1 > n4` on tosi vain, mikäli kaikki kolme ehtoa ovat tosia.
 
-<in-browser-programming-exercise name="Iän tarkistus" tmcname="osa02-8_ian_tarkistus">
+<in-browser-programming-exercise name="Iän tarkistus" tmcname="osa02-8_ian_tarkistus" height="500px">
 
 Tee ohjelma, joka kysyy käyttäjän ikää. Jos ikä ei ole uskottava (se on alle 5 tai mahdoton luku iälle), antaa ohjelma siihen liittyvän kommentin.
 
@@ -136,7 +136,7 @@ Taitaa olla virhe
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Veljenpojat" tmcname="osa02-9_veljenpojat">
+<in-browser-programming-exercise name="Veljenpojat" tmcname="osa02-9_veljenpojat" height="500px">
 
 Tee ohjelma, joka kysyy käyttäjän nimeä. Jos nimeksi syötetään Tupu, Hupu tai Lupu, ohjelma tunnistaa käyttäjän Aku Ankan veljenpojaksi.
 
@@ -209,7 +209,7 @@ Arvosana: mahdotonta!
 
 <in-browser-programming-exercise name="FizzBuzz" tmcname="osa02-11_fizzbuzz">
 
-Ohjelma kysyy käyttäjältä lukua. Jos luku on jaolleinen kolmella, tulostetaan Fizz. Jos luku on jaollinen viidellä, tulostetaan Buzz. Jos luku on jaollinen sekä kolmella, että viidellä, tulostetaan FizzBuzz
+Ohjelma kysyy käyttäjältä lukua. Jos luku on jaollinen kolmella, tulostetaan Fizz. Jos luku on jaollinen viidellä, tulostetaan Buzz. Jos luku on jaollinen sekä kolmella, että viidellä, tulostetaan FizzBuzz
 
 Esimerkkitulostuksia:
 
@@ -351,9 +351,9 @@ Keskimmäinen kirjain on B
 
 <in-browser-programming-exercise name="Lahjaverolaskuri" tmcname="osa02-14_lahjaverolaskuri">
 
-<https://www.vero.fi/henkiloasiakkaat/omaisuus/lahja/> Lahja tarkoittaa sitä, että omaisuus siirtyy toiselle henkilölle ilman korvausta. Lahjasta pitää maksaa lahjaveroa, jos samalta lahjanantajalta saatujen lahjojen arvo on kolmen vuoden aikana 5 000 euroa tai enemmän.
+[Verottajan mnukaan](https://www.vero.fi/henkiloasiakkaat/omaisuus/lahja/) lahja tarkoittaa sitä, että omaisuus siirtyy toiselle henkilölle ilman korvausta. Lahjasta pitää maksaa lahjaveroa, jos samalta lahjanantajalta saatujen lahjojen arvo on kolmen vuoden aikana 5 000 euroa tai enemmän.
 
-Kun lahja tulee lähimmiltä sukulaisilta, lahjaveron määrä määräytyy seuraavan taulukon mukaan (lähde <vero.fi>):
+Kun lahja tulee lähimmiltä sukulaisilta, lahjaveron määrä määräytyy seuraavan taulukon [mukaan](https://www.vero.fi/henkiloasiakkaat/omaisuus/lahja/lahjaverolaskuri/):
 
 Lahja	| Vero alarajalla|	Veroprosentti ylimenevästä
 :--:|:----:|:----:
