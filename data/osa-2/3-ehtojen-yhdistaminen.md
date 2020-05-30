@@ -358,10 +358,10 @@ Kun lahja tulee lähimmiltä sukulaisilta, lahjaveron määrä määräytyy seur
 Lahja	| Vero alarajalla|	Veroprosentti ylimenevästä
 :--:|:----:|:----:
 5 000 — 25 000 |	100	|8
-25 001 — 55 000	| 1 700|	10
-55 001 — 200 000|	4 700	|12
-200 001 — 1 000 000	|22 100|	15
-1 000 001 —	|142 100|	17
+25 000 — 55 000	| 1 700|	10
+55 000 — 200 000|	4 700	|12
+200 000 — 1 000 000	|22 100|	15
+1 000 000 —	|142 100|	17
 
 Esimerkiksi 6000 euron lahjasta tulee maksaa veroa 180 euroa (100 + (6000-5000) * 0.08), ja 75000 euron lahjasta tulee maksaa veroa 7100 euroa (4700 + (75000-55000) * 0.12).
 
