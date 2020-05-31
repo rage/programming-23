@@ -258,6 +258,7 @@ Koodin pitäisi tuottaa _täsmälleen_ seuraavanlainen tulostus:
 
 <sample-output>
 
+<pre>
 nimeni on Teppo Testaaja, olen 20-vuotias
 
 taitoihini kuuluvat
@@ -266,14 +267,16 @@ taitoihini kuuluvat
  - ohjelmointi (puoliammattilainen)
 
 haen työtä, josta maksetaan palkkaa 2000-3000 euroa kuussa
+</pre>
 
 </sample-output>
+
 
 Tulostus on melkein oikein, mutta ei kuitenkaan ihan. Ja kuten muissakin tehtävissä, myös tässä on tarkat testit, tulostuksen on oltava välilyönnilleen oikein.
 
 Korjaa siis koodi siten että tulostus näyttää oikealta. Huomaa, että erityisesti `print`-komennon muoto, missä tulostettavat osat eritellään pilkulla voi tuottaa yllätyksiä sillä se lisää osien väliin välilyönnin.
 
-Vihje: saat tulostettua tyhjän rivin komennolla `print("")` tai lisäämällä tulostettavaan merkkijonoon merkin `\n`
+Vihje: saat tulostettua tyhjän rivin komennolla `print("")` tai lisäämällä tulostettavaan merkkijonoon merkin `\n`.
 
 Muista olla tarkkana tulostusten muodon suhteen jatkossakin kurssin tehtävissä, testit vaativat useimmiten täsmälleen esimerkkitulostusten mukaisen muotoilun!
 
