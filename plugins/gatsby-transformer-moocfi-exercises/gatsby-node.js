@@ -102,7 +102,7 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
             return {
               id,
               location: res.location,
-              type: "in-browser-programming-exercise",
+              type: "programming-exercise",
               parentPagePath: node.frontmatter.path,
             }
           })
