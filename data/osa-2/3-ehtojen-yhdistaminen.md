@@ -123,7 +123,7 @@ Ok, olet siis 13-vuotias
 <sample-output>
 
 Kerro ikäsi? **2**
-En usko että osaat kirjoittaa...
+En usko, että osaat kirjoittaa...
 
 </sample-output>
 
