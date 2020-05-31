@@ -229,6 +229,56 @@ Tulos on 250
 
 Huomaa, että tässä tapauksessa arvojen väliin ilmestyy automaattisesti yksi välilyönti tulostuksessa.
 
+
+<in-browser-programming-exercise name="Välilyönnillä vai ilman" tmcname="osa01-10b_valilyonnilla_vai_ilman" height=500px>
+
+Saat seuraavan koodinpätkän työnhakijoille suunnatun sovelluksen parissa työskentelevältä tuttavaltasi:
+
+```python
+nimi = "Teppo Testaaja"
+ika = 20
+taito1 = "python"
+taso1 = "aloittelija"
+taito2 = "java"
+taso2 = "veteraani"
+taito3 = "ohjelmointi"
+taso3 = "puoliammattilainen"
+ala = 2000
+yla = 3000
+
+print("nimeni on ", nimi," , olen ", ika, "-vuotias")
+print("taitoihini kuuluvat")
+print("- ", taito1, " (", taso1, ")")
+print("- ", taito2, " (", taso2, ")")
+print("- ", taito3, " (", taso3, " )")
+print("haen työtä, josta maksetaan palkkaa", ala, "-",yla, "euroa kuussa")
+```
+
+Koodin pitäisi tuottaa _täsmälleen_ seuraavanlainen tulostus:
+
+<sample-output>
+
+nimeni on Teppo Testaaja, olen 20-vuotias
+
+taitoihini kuuluvat
+ - python (aloittelija)
+ - java (veteraani)
+ - ohjelmointi (puoliammattilainen)
+
+haen työtä, josta maksetaan palkkaa 2000-3000 euroa kuussa
+
+</sample-output>
+
+Tulostus on melkein oikein, mutta ei kuitenkaan ihan. Ja kuten muissakin tehtävissä, myös tässä on tarkat testit, tulostuksen on oltava välilyönnilleen oikein.
+
+Korjaa siis koodi siten että tulostus näyttää oikealta. Huomaa, että erityisesti `print`-komennon muoto, missä tulostettavat osat eritellään pilkulla voi tuottaa yllätyksiä sillä se lisää osien väliin välilyönnin.
+
+Vihje: saat tulostettua tyhjän rivin komennolla `print("")` tai lisäämällä tulostettavaan merkkijonoon merkin `\n`
+
+Muista olla tarkkana tulostusten muodon suhteen jatkossakin kurssin tehtävissä, testit vaativat useimmiten täsmälleen esimerkkitulostusten mukaisen muotoilun!
+
+</in-browser-programming-exercise>
+
 ## Liukuluvut
 
 `Liukuluku` on ohjelmoinnissa esiintyvä termi, joka tarkoittaa käytännössä desimaalilukua. Liukulukuja voidaan käyttää melko samalla tavalla kuin kokonaislukuja. Huomaa, että desimaalierottimena käytetään pistettä (kuten englannissa yleensä).
