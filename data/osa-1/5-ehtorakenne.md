@@ -431,7 +431,6 @@ Lämpötila: **11**
 Sataako (kyllä/ei): **ei**
 Pue housut ja t-paita
 Ota myös pitkähihainen paita
-Pue päälle takki
 
 </sample-output>
 
@@ -443,7 +442,6 @@ Sataako (kyllä/ei): **ei**
 Pue housut ja t-paita
 Ota myös pitkähihainen paita
 Pue päälle takki
-Suosittelen lämmintä takkia
 
 </sample-output>
 
