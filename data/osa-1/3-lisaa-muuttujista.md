@@ -251,7 +251,7 @@ print("taitoihini kuuluvat")
 print("- ", taito1, " (", taso1, ")")
 print("- ", taito2, " (", taso2, ")")
 print("- ", taito3, " (", taso3, " )")
-print("haen työtä, josta maksetaan palkkaa", ala, "-",yla, "euroa kuussa")
+print("haen työtä, josta maksetaan palkkaa", ala, "-", yla, "euroa kuussa")
 ```
 
 Koodin pitäisi tuottaa _täsmälleen_ seuraavanlainen tulostus:
