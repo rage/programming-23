@@ -230,7 +230,7 @@ Tulos on 250
 Huomaa, että tässä tapauksessa arvojen väliin ilmestyy automaattisesti yksi välilyönti tulostuksessa.
 
 
-<in-browser-programming-exercise name="Välilyönnillä vai ilman" tmcname="osa01-10b_valilyonnilla_vai_ilman" height=500px>
+<in-browser-programming-exercise name="Välilyönnillä vai ilman" tmcname="osa01-10b_valilyonnilla_vai_ilman" height=400px>
 
 Saat seuraavan koodinpätkän työnhakijoille suunnatun sovelluksen parissa työskentelevältä tuttavaltasi:
 
@@ -272,9 +272,9 @@ haen työtä, josta maksetaan palkkaa 2000-3000 euroa kuussa
 </sample-output>
 
 
-Tulostus on melkein oikein, mutta ei kuitenkaan ihan. Ja kuten muissakin tehtävissä, myös tässä on tarkat testit, tulostuksen on oltava välilyönnilleen oikein.
+Koodi tulostaa melkein oikein, mutta ei kuitenkaan ihan. Kuten muissakin kurssin tehtävissä, myös tässä on tarkat testit, tulostuksen on oltava välilyönnilleen oikein.
 
-Korjaa siis koodi siten että tulostus näyttää oikealta. Huomaa, että erityisesti `print`-komennon muoto, missä tulostettavat osat eritellään pilkulla voi tuottaa yllätyksiä sillä se lisää osien väliin välilyönnin.
+Korjaa siis koodi siten, että tulostus näyttää oikealta. Huomaa, että erityisesti `print`-komennon muoto, missä tulostettavat osat eritellään pilkulla voi tuottaa yllätyksiä, sillä se lisää osien väliin välilyönnin.
 
 Vihje: saat tulostettua tyhjän rivin komennolla `print("")` tai lisäämällä tulostettavaan merkkijonoon merkin `\n`.
 
