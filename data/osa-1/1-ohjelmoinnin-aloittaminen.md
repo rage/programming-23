@@ -80,7 +80,6 @@ Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.
 
 </sample-output>
 
-
 <in-browser-programming-exercise name="Ukko Nooa" tmcname="osa01-02_ukko_nooa">
 
 Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
