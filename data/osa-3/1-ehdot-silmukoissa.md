@@ -14,7 +14,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Viime osan lopussa opimme käyttämään `while True` -silmukkaa koodin toistamiseen. Tässä tapauksessa silmukan ehtona on `True`, mikä on aina tosi. Yleisemmin voimme käyttää silmukkaa näin:
+Edellisen osan lopussa opimme käyttämään `while True` -silmukkaa koodin toistamiseen. Tässä tapauksessa silmukan ehtona on `True`, mikä on aina tosi. Yleisemmin voimme käyttää silmukkaa näin:
 
 ```python
 while <ehtolauseke>:

@@ -78,7 +78,7 @@ Silmukassa oleva `print`-komento tulostaa rivin, jonka alussa on `n` välilyönt
 
 ## Merkkijonon pituus ja indeksointi
 
-Funktio `len` antaa kokonaisluvun, joka on merkkijonon pituus merkkeinä. Esimerkiksi `len("moi")` antaa 3, koska merkkijonossa `moi` on 3 merkkiä.
+Funktio `len` palauttaa kokonaisluvun, joka on merkkijonon pituus merkkeinä. Esimerkiksi `len("moi")` palauttaa 3, koska merkkijonossa `moi` on 3 merkkiä.
 
 Seuraava ohjelma tulostaa käyttäjän syöttämän merkkijonon "alleviivattuna" monistamalla merkkiä `-` syötteen pituuden mukaisen määrän:
 
@@ -88,14 +88,14 @@ print(mjono)
 print("-"*len(mjono))
 ```
 
-TODO: mitenhän tämän tulostuksen saisi järkevästi näkymään?
-
 <sample-output>
 
 Anna merkkijono: **Moi kaikki!**
 
+<pre>
 Moi kaikki!
-&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;&#x2012;
+-----------
+</pre>
 
 </sample-output>
 
@@ -284,7 +284,7 @@ Löytyi
 
 </sample-output>
 
-Operaattori `in` antaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonin merkkijonoissa metodi `find`, joka saa parametrikseen etsittävän osajonon palauttaa joko ensimmäisen indeksin, josta osajono löytyy tai `-1`, jos osajonoa ei löydy merkkijonosta.
+Operaattori `in` palauttaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonin merkkijonoissa metodi `find`, joka saa parametrikseen etsittävän osajonon palauttaa joko ensimmäisen indeksin, josta osajono löytyy tai `-1`, jos osajonoa ei löydy merkkijonosta.
 
 Metodi tarkoittaa suunnilleen samaa kuin funktio, mutta se liittyy tiettyyn merkkijonoon. Metodin syntaksi näyttää tältä:
 
