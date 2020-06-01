@@ -10,7 +10,7 @@ Tämän osion jälkeen
 
 - Olet kirjoittanut ja suorittanut ensimmäisen Python-ohjelmasi
 - Osaat käyttää print-komentoa viestien tulostamiseen
-- Osaat laskemaan laskuja ohjelmoimalla
+- Osaat laskea laskuja ohjelmoimalla
 
 </text-box>
 

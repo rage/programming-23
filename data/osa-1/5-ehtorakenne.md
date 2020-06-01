@@ -463,31 +463,27 @@ Muista sateenvarjo!
 
 <in-browser-programming-exercise name="Toisen asteen yhtälön ratkaiseminen" tmcname="osa01-30_toisen_asteen_yhtalo">
 
-Tehtäväpohjassa on haettu käyttöön funktio `sqrt`, jolla voi laskea luvun neliöjuuren.
-
-Voit käyttää sitä ohjelmassa näiden esimerkkien mukaisesti:
+Pythonin `math`-moduulissa on funktio `sqrt`, jolla voi laskea luvun neliöjuuren. Voit käyttää sitä ohjelmassa seuraavasti:
 
 ```python
 from math import sqrt
 
-print(sqrt(100))
-
-juuri = sqrt(9)
-print(juuri)
+print(sqrt(9))
 ```
 
 Ohjelma tulostaa:
 
 <sample-output>
 
-10.0
 3.0
 
 </sample-output>
 
-Kirjoita ohjelma, joka ratkaisee toisen asteen yhtälön [ratkaisukaavan avulla](https://fi.wikipedia.org/wiki/Toisen_asteen_yht%C3%A4l%C3%B6#Toisen_asteen_yht%C3%A4l%C3%B6n_ratkaisukaava).
+Kirjoita ohjelma, joka ratkaisee toisen asteen yhtälön ax²+bx+c. Ohjelmalle annetaan arvot a, b ja c, ja sen tulee laskea juuret (eli ratkaisut) kaavalla
 
-Ohjelman ei tarvitse toimia oikein tilanteissa, joissa yhtälöllä ei ola kahta juurta (tähän palataan myöhemmin).
+x = (–b ± sqrt(b²–4ac))/2a.
+
+Voit olettaa, että yhtälöllä on kaksi juurta, jolloin yllä oleva kaava toimii.
 
 Esimerkkituloste:
 
@@ -500,17 +496,6 @@ Anna c: **-8**
 Juuret ovat 2.0 ja -4.0
 
 </sample-output>
-
-Sopivia testiarvoja ovat esimerkiksi:
-
-```
-
-a: 1, b: 2, c: -8
-a: 2, b: 5, c: 3
-a: 1, b: -3, c: 0
-
-```
-
 
 </in-browser-programming-exercise>
 
