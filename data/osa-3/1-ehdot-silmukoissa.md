@@ -95,24 +95,6 @@ Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuis
 
 </sample-output>
 
-<in-browser-programming-exercise name="Luvut" tmcname="osa03-2_luvut">
-
-Tee ohjelma, joka tulostaa kaikki käyttäjän antamaa lukua pienemmät luvut alkaen luvusta yksi.
-
-<sample-output>
-
-Mihin asti: **5**
-1
-2
-3
-4
-
-</sample-output>
-
-Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
-
-</in-browser-programming-exercise>
-
 ## Ehdoista tarkemmin
 
 Silmukan ehtona voidaan käyttää mitä tahansa ehtolauseketta. Esimerkiksi seuraava ohjelma tulostaa lukuja kolmen välein niin kauan kun luku on pienempi kuin 100 eikä se ole jaollinen 5:llä:
@@ -170,3 +152,63 @@ Anna luku: **4**
 </sample-output>
 
 Muissa tapauksissa silmukka on kuitenkin ikuinen, koska muuttuja ei koskaan saavuta arvoa 10. Tällaisia syötteitä ovat esimerkiksi 3 ja 12.
+
+<in-browser-programming-exercise name="Luvut" tmcname="osa03-2_luvut">
+
+Tee ohjelma, joka tulostaa kaikki käyttäjän antamaa lukua pienemmät luvut alkaen luvusta yksi.
+
+<sample-output>
+
+Mihin asti: **5**
+1
+2
+3
+4
+
+</sample-output>
+
+Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-3_kahden_potenssit">
+
+Tee ohjelma, joka tulostaa ensin luvun 1 ja sitten joka kerta kaksi kertaa suuremman luvun. Ohjelman suoritus päättyy, kun luku ylittäisi käyttäjän antaman luvun.
+
+<sample-output>
+
+Mihin asti: **8**
+1
+2
+4
+8
+
+</sample-output>
+
+<sample-output>
+
+Mihin asti: **20**
+1
+2
+4
+8
+16
+
+</sample-output>
+
+<sample-output>
+
+Mihin asti: **100**
+1
+2
+4
+8
+16
+32
+64
+
+</sample-output>
+
+Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
+
+</in-browser-programming-exercise>
