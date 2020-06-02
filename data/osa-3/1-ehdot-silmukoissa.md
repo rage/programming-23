@@ -99,7 +99,7 @@ Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuis
 
 Korjaa tehtäväpohjassa oleva ohjelma
 
-```
+```python
 print("Valmiina?")
 luku = int(input("Anna luku: "))
 while luku = 0:
