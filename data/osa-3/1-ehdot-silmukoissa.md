@@ -95,6 +95,23 @@ Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuis
 
 </sample-output>
 
+<in-browser-programming-exercise name="Luvut" tmcname="osa03-2_luvut">
+
+Tee ohjelma, joka tulostaa kaikki käyttäjän antamaa lukua pienemmät luvut alkaen luvusta yksi.
+
+<sample-output>
+
+Mihin asti: **5**
+1
+2
+3
+4
+
+</sample-output>
+
+Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
+
+</in-browser-programming-exercise>
 
 ## Ehdoista tarkemmin
 
