@@ -102,7 +102,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
             exercise={tmcname}
             token={accessToken()}
             height={height ? height : "300px"}
-            outputHeight={outputheight}
+            outputHeight={outputheight ? outputheight : "auto"}
             outputPosition={outputposition || "relative"}
             language={language}
           />
