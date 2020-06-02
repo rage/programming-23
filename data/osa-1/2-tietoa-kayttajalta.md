@@ -149,7 +149,7 @@ Anna sähköpostiosoitteesi: **keijo99@example.com**
 Anna lempinimesi: **Keke**
 Varmistetaan vielä, että tiedot menivät oikein
 Nimesi: Keijo Keksitty
-Sähköpostiosoitteesi: keijo@example.com
+Sähköpostiosoitteesi: keijo99@example.com
 Lempinimesi: Keke
 
 </sample-output>
