@@ -424,3 +424,5 @@ Negatiivisia 1
 </sample-output>
 
 </in-browser-programming-exercise>
+
+<quiz id="a7754e25-855a-4176-b92d-dd5d184a6913"></quiz>
