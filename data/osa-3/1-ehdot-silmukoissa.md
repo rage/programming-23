@@ -173,7 +173,9 @@ Mihin asti: **5**
 
 <in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-3_kahden_potenssit">
 
-Tee ohjelma, joka tulostaa ensin luvun 1 ja sitten joka kerta kaksi kertaa suuremman luvun. Ohjelman suoritus päättyy, kun luku ylittäisi käyttäjän antaman luvun.
+Tee ohjelma, joka tulostaa ensin luvun 1 ja sen jälkeen kerta toisensa jälkeen kerta kaksi kertaa suuremman luvun. Ohjelman siis tulostaa luvun kaksi potensseja.
+
+Ohjelman suoritus päättyy, kun luku yltää käyttäjän antaman luvun.
 
 <sample-output>
 
@@ -206,6 +208,39 @@ Mihin asti: **100**
 16
 32
 64
+
+</sample-output>
+
+Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Luvun n potenssit" tmcname="osa03-4_luvun_n_potenssit">
+
+Muuta edellistä ohjelmaa siten, että käyttäjä saa määrätä kertoimen (edellisessä ohjelmassa kerroin oli aina 2), eli sen minkä luvun potensseja ohjelma tulostaa.
+
+<sample-output>
+
+Mihin asti: **35**
+Mikä kerroin: **3**
+1
+3
+9
+27
+
+</sample-output>
+
+<sample-output>
+
+Mihin asti: **1234567**
+Mikä kerroin: **10**
+1
+10
+100
+1000
+10000
+100000
+1000000
 
 </sample-output>
 
