@@ -4,7 +4,7 @@ import ContentLoader from "react-content-loader"
 import { withTranslation } from "react-i18next"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPencilAlt as icon, faRedo } from "@fortawesome/free-solid-svg-icons"
-import { Card, CardContent, Button } from "@material-ui/core"
+import { Card, CardContent, Button, Typography } from "@material-ui/core"
 
 import { normalizeExerciseId } from "../../util/strings"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
@@ -54,6 +54,17 @@ const PointContentWrapper = styled.div`
 const PointsLabel = styled.span`
   font-size: 18px;
   font-weight: 400;
+`
+
+const PointsText = styled(Typography)`
+  font-size: 1.5rem !important;
+  text-align: end;
+  display: inline;
+  max-height: 100%;
+  color: inherit;
+  @media (max-width: 550px) {
+    text-align: start;
+  }
 `
 
 const PointsWrapper = styled.div`
@@ -122,37 +133,38 @@ class ProgrammingExerciseCard extends React.Component {
             </Button>
           )}
           <PointsWrapper>
-            <PointsLabel>{this.props.t("points")}</PointsLabel>
+            <PointsLabel>{this.props.t("points")}:</PointsLabel>
             <PointContentWrapper>
               {awardedPoints !== undefined ? (
-                <span>{awardedPoints}</span>
+                <PointsText>{awardedPoints}</PointsText>
               ) : (
                 <StyledQuizPointsContentLoader
                   animate={!points}
-                  height={40}
-                  width={30}
                   speed={2}
-                  primaryColor="#ffffff"
-                  primaryOpacity={0.6}
-                  secondaryColor="#dddddd"
-                  secondaryOpacity={0.6}
+                  width={30}
+                  height={40}
+                  viewBox="0 0 30 40"
+                  backgroundOpacity={0.6}
+                  foregroundOpacity={0.6}
+                  backgroundColor="#ffffff"
+                  foregroundColor="#dddddd"
                 >
                   <rect x="0" y="10" rx="12" ry="12" width="30" height="30" />
                 </StyledQuizPointsContentLoader>
               )}
-              <span>/</span>
+              <PointsText>/</PointsText>
               {points ? (
-                <span>{points}</span>
+                <PointsText>{points}</PointsText>
               ) : (
                 <StyledQuizPointsContentLoader
-                  animate
-                  height={40}
-                  width={30}
                   speed={2}
-                  primaryColor="#ffffff"
-                  primaryOpacity={0.6}
-                  secondaryColor="#dddddd"
-                  secondaryOpacity={0.6}
+                  width={30}
+                  height={40}
+                  viewBox="0 0 30 40"
+                  backgroundOpacity={0.6}
+                  foregroundOpacity={0.6}
+                  backgroundColor="#ffffff"
+                  foregroundColor="#dddddd"
                 >
                   <rect x="0" y="10" rx="12" ry="12" width="30" height="30" />
                 </StyledQuizPointsContentLoader>
