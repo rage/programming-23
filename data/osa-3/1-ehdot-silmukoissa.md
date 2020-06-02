@@ -95,6 +95,38 @@ Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuis
 
 </sample-output>
 
+<in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa03-1_lahtolaskenta">
+
+Korjaa tehtäväpohjassa oleva ohjelma
+
+```
+print("Valmiina?")
+luku = int(input("Anna luku: "))
+while luku = 0:
+print(luku)
+print("Nyt!")
+```
+
+siten että se toimii seuraavasti:
+
+<sample-output>
+
+Valmiina?
+Anna luku: **5**
+5
+4
+3
+2
+1
+Nyt!
+
+</sample-output>
+
+Älä tällä kertaa käytä `while True` -silmukkaa!
+
+
+</in-browser-programming-exercise>
+
 ## Ehdoista tarkemmin
 
 Silmukan ehtona voidaan käyttää mitä tahansa ehtolauseketta. Esimerkiksi seuraava ohjelma tulostaa lukuja kolmen välein niin kauan kun luku on pienempi kuin 100 eikä se ole jaollinen 5:llä:
@@ -171,7 +203,7 @@ Mihin asti: **5**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-3_kahden_potenssit">
+<in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-3_kahden_pontenssit">
 
 Tee ohjelma, joka tulostaa ensin luvun 1 ja sen jälkeen kerta toisensa jälkeen kerta kaksi kertaa suuremman luvun. Ohjelman siis tulostaa luvun kaksi potensseja.
 
@@ -245,5 +277,32 @@ Mikä kerroin: **10**
 </sample-output>
 
 Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Peräkkäisten summa" tmcname="osa03-5_perakkaisten_summa">
+
+Tee ohjelma, joka laskee peräkkäisten lukujen summaa 1 + 2 + 3 + ... kunnes sen arvo on vähintään käyttäjän syöttämä luku. Ohjelma toimii seuraavasti:
+
+<sample-output>
+
+Mihin asti: **2**
+Laskettiin 1 + 2 = 3
+
+</sample-output>
+
+<sample-output>
+
+Mihin asti: **10**
+Laskettiin 1 + 2 + 3 + 4 = 10
+
+</sample-output>
+
+<sample-output>
+
+Mihin asti: **18**
+Laskettiin 1 + 2 + 3 + 4 + 5 + 6 = 21
+
+</sample-output>
 
 </in-browser-programming-exercise>
