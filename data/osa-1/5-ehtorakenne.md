@@ -60,7 +60,7 @@ Huomaa, että ehtorakenteen ensimmäisen rivin lopussa on kaksoispiste. Seuraava
 ```python
 ika = 10
 
-# puolipiste unohtui seuraavan rivin lopusta...
+# kaksoipiste unohtui seuraavan rivin lopusta
 if ika > 17
     print("Olet täysi-ikäinen.")
 ```
@@ -316,6 +316,8 @@ Luku 1: **4**
 Luku 2: **6**
 Komento: **tulo**
 
+4 * 6 = 24
+
 </sample-output>
 
 <sample-output>
@@ -353,7 +355,7 @@ Paleltaa!
 
 <in-browser-programming-exercise name="Palkka" tmcname="osa01-27_palkka">
 
-Tee ohjelma, joka kysyy tuntipalkaa, työskenteltyjen tuntien määrää ja viikonpäivää. Ohjelma tulostaa palkan, joka on tunnit kertaa tuntien määrä muina päivinä paitsi sunnuntaisin, jolloin tuntipalkka on kaksinkertainen.
+Tee ohjelma, joka kysyy tuntipalkkaa, työskenteltyjen tuntien määrää ja viikonpäivää. Ohjelma tulostaa palkan, joka on tuntipalkka kertaa tuntien määrä muina päivinä paitsi sunnuntaisin, jolloin tuntipalkka on kaksinkertainen.
 
 <sample-output>
 
