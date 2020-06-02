@@ -48,8 +48,15 @@ True | False | False | True |
 False | True | False | True |
 True | True | True | True |
 
-Voimme käyttää ehdoissa myös operaattoria `not`, joka muuttaa ehdon
-käänteiseksi. Esimerkiksi voisimme toteuttaa äskeisen koodin myös näin:
+Voimme käyttää ehdoissa myös operaattoria `not`, joka muuttaa totuusarvon
+käänteiseksi:
+
+a   | not a
+:--:|:----:
+True  | False
+False | True
+
+Esimerkiksi voisimme toteuttaa äskeisen koodin myös näin:
 
 ```python
 luku = int(input("Anna luku: "))
