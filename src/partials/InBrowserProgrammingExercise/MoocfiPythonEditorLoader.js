@@ -10,6 +10,9 @@ import { accessToken } from "../../services/moocfi"
 import ProgrammingExerciseCard from "../ProgrammingExercise/ProgrammingExerciseCard"
 import { ProgrammingExercise } from "moocfi-python-editor"
 import CourseSettings from "../../../course-settings"
+import { Typography } from "@material-ui/core"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faClock } from "@fortawesome/free-solid-svg-icons"
 
 const ORGANIZATION = CourseSettings.tmcOrganization
 const COURSE = CourseSettings.tmcCourse
@@ -21,6 +24,19 @@ if (CourseSettings.language === "fi") {
 
 const Wrapper = styled.div`
   padding 1rem;
+`
+
+const StyledDeadlineText = styled(Typography)`
+  padding: 0.25rem 0 1rem 0 !important;
+  color: rgb(108, 117, 125) !important;
+  font-size: 0.8rem !important;
+  font-weight: bold !important;
+`
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  font-size: 0.9rem !important;
+  margin-right: 0.25em !important;
+  vertical-align: -0.1em !important;
 `
 
 class InBrowserProgrammingExercisePartial extends React.Component {
@@ -83,6 +99,10 @@ class InBrowserProgrammingExercisePartial extends React.Component {
       "exerciseDetails.awarded_points.length",
     )
     const completed = get(this.state, "exerciseDetails.completed")
+    const deadline =
+      get(this.state, "exerciseDetails.deadline") !== null
+        ? new Date(get(this.state, "exerciseDetails.deadline"))
+        : null
 
     return (
       <ProgrammingExerciseCard
@@ -94,7 +114,15 @@ class InBrowserProgrammingExercisePartial extends React.Component {
         completed={completed}
       >
         <div>
-          <Wrapper>{children}</Wrapper>
+          <Wrapper>
+            {deadline instanceof Date && !isNaN(deadline.getTime()) && (
+              <StyledDeadlineText>
+                <StyledIcon icon={faClock} />
+                {`Deadline: ${deadline.toLocaleString("en-GB")}`}
+              </StyledDeadlineText>
+            )}
+            {children}
+          </Wrapper>
           <ProgrammingExercise
             onSubmissionResults={() => this.onUpdate(completed)}
             organization={ORGANIZATION}
