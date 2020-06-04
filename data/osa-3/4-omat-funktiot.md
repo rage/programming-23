@@ -79,7 +79,7 @@ Tuomas
 
 </sample-output>
 
-<in-browser-programming-exercise/>
+</in-browser-programming-exercise>
 
 ## Funktion parametri
 
@@ -166,7 +166,7 @@ n
 
 </sample-output>
 
-<in-browser-programming-exercise/>
+</in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Risunelio" tmcname="osa03-23_risunelio>
 
@@ -192,7 +192,7 @@ risunelio(5)
 
 </sample-output>
 
-<in-browser-programming-exercise/>
+</in-browser-programming-exercise>
 
 ## Lisää esimerkkejä
 
@@ -291,7 +291,7 @@ Alussa olivat suo, kuokka ja Python.
 
 </sample-output>
 
-<in-browser-programming-exercise/>
+</in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Keskiarvo" tmcname="osa03-25_keskiarvo">
 
@@ -309,7 +309,7 @@ keskiarvo(10, 1, 1)
 
 </sample-output>
 
-<in-browser-programming-exercise/>
+</in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Shakkilauta" tmcname="osa03-26_shakkilauta">
 
@@ -336,8 +336,32 @@ shakki(6)
 
 </sample-output>
 
-<in-browser-programming-exercise/>
+</in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="" tmcname="osa03-">
-<in-browser-programming-exercise/>
+</in-browser-programming-exercise name="Sananeliö" tmcname="osa03-27_sananelio">
+
+
+Tee funktio `nelio`, joka tulostaa sananeliön alla olevien esimerkkien mukaisesti.
+
+```python
+nelio("ab", 3)
+print("")
+nelio("aybabtu", 5)
+```
+
+<sample-output>
+
+aba
+bab
+aba
+
+aybab
+tuayb
+abtua
+ybabt
+uayba
+
+</sample-output>
+
+<in-browser-programming-exercise>
