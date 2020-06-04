@@ -311,7 +311,31 @@ keskiarvo(10, 1, 1)
 
 <in-browser-programming-exercise/>
 
-<in-browser-programming-exercise name="" tmcname="osa03-">
+<in-browser-programming-exercise name="Shakkilauta" tmcname="osa03-26_shakkilauta">
+
+Tee funktio `shakki`, joka tulostaa shakkilaudan numeroista 0 ja 1 alla olevien esimerkkien mukaisesti.
+
+```python
+shakki(3)
+print("")
+shakki(6)
+```
+
+<sample-output>
+
+101
+010
+101
+
+101010
+010101
+101010
+010101
+101010
+010101
+
+</sample-output>
+
 <in-browser-programming-exercise/>
 
 
