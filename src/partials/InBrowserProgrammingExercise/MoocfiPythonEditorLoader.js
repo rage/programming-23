@@ -114,15 +114,13 @@ class InBrowserProgrammingExercisePartial extends React.Component {
         completed={completed}
       >
         <div>
-          <Wrapper>
-            {deadline instanceof Date && !isNaN(deadline.getTime()) && (
-              <StyledDeadlineText>
-                <StyledIcon icon={faClock} />
-                {`Deadline: ${deadline.toLocaleString("en-GB")}`}
-              </StyledDeadlineText>
-            )}
-            {children}
-          </Wrapper>
+          {deadline instanceof Date && !isNaN(deadline.getTime()) && (
+            <StyledDeadlineText>
+              <StyledIcon icon={faClock} />
+              {`Deadline: ${deadline.toLocaleString("en-GB")}`}
+            </StyledDeadlineText>
+          )}
+          <Wrapper>{children}</Wrapper>
           <ProgrammingExercise
             onSubmissionResults={() => this.onUpdate(completed)}
             organization={ORGANIZATION}

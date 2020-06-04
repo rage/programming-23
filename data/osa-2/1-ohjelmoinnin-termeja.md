@@ -147,7 +147,7 @@ SyntaxError: invalid syntax
 
 </sample-output>
 
-<in-browser-programming-exercise name="Korjaa virheet" tmcname="osa02-1_korjaa_virheet" height="400px">
+<in-browser-programming-exercise name="Korjaa virheet" tmcname="osa02-01_korjaa_virheet" height="400px">
 
 Seuraavassa ohjelmassa on useita _syntaksivirheitä_, korjaa ohjelma siten että syntaksi on kunnossa, ja että se toimii alla olevien esimerkkien mukaisesti.
 
@@ -184,7 +184,7 @@ Hyvää päivänjatkoa!
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Merkkien määrä" tmcname="osa02-2_merkkien_maara">
+<in-browser-programming-exercise name="Merkkien määrä" tmcname="osa02-02_merkkien_maara">
 
 Funktiolla `len` voidaan laskea (muun muassa) merkkijonon pituus. Funktio palauttaa merkkijonossa olevien merkkien määrän.
 
@@ -238,7 +238,7 @@ Kiitos!
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Tyyppimuunnos" tmcname="osa02-3_tyyppimuunnos">
+<in-browser-programming-exercise name="Tyyppimuunnos" tmcname="osa02-03_tyyppimuunnos">
 
 Pythonissa voidaan usein muuntaa jokin arvo tyypistä toiseen. Esimerkiksi liukuluku voidaan muuntaa kokonaisluvuksi funktion `int` avulla:
 

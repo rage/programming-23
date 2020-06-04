@@ -95,7 +95,7 @@ Pääsy kielletty
 </sample-output>
 
 
-<in-browser-programming-exercise name="Täysi-ikäisyys" tmcname="osa02-4_taysi_ikaisyys" height="400px">
+<in-browser-programming-exercise name="Täysi-ikäisyys" tmcname="osa02-04_taysi_ikaisyys" height="400px">
 
 Tee ohjelma, joka kysyy käyttäjän ikää ja kertoo, onko tämä täysi-ikäinen (eli 18-vuotias tai vanhempi).
 
@@ -203,7 +203,7 @@ Kiitos ja hei.
 
 </sample-output>
 
-<in-browser-programming-exercise name=" Suurempi tai yhtäsuuri" tmcname="osa02-5_suurempi_tai_yhtasuuri"  height="400px">
+<in-browser-programming-exercise name=" Suurempi tai yhtäsuuri" tmcname="osa02-05_suurempi_tai_yhtasuuri"  height="400px">
 
 Tee ohjelma, joka kysyy käyttäjältä kaksi kokonaislukua ja tulostaa niistä suuremman. Jos luvut ovat yhtä suuret, ohjelma huomaa myös tämän.
 
@@ -236,7 +236,7 @@ Luvut ovat yhtä suuret!
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Vanhempi" tmcname="osa02-6_vanhempi" height="550px">
+<in-browser-programming-exercise name="Vanhempi" tmcname="osa02-06_vanhempi" height="550px">
 
 Tee ohjelma, joka kysyy kahden henkilön nimen ja iän ja tulostaa vanhemman henkilön nimen.
 
@@ -268,7 +268,7 @@ Antti ja Venla ovat yhtä vanhoja
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Aakkosjärjestyksessä viimeinen" tmcname="osa02-7_aakkkosjarjestyksessa_viimeinen"  height="500px">
+<in-browser-programming-exercise name="Aakkosjärjestyksessä viimeinen" tmcname="osa02-07_aakkkosjarjestyksessa_viimeinen"  height="500px">
 
 Lukujen lisäksi Python osaa vertailla myös merkkijonojen suuruusjärjestystä. Merkkijono a on pienempi kuin merkkijono b, jos merkkijono a tulee aakkosjärjestyksessä ennen jonoa b.
 Huomaa kuitenkin, että tämä pätee varmasti vain kun
