@@ -59,7 +59,7 @@
     "likert-react": "0.0.0-beta6",
     "moment": "^2.24.0",
     "monaco-editor": "^0.20.0",
-    "moocfi-python-editor": "^0.7.20",
+    "moocfi-python-editor": "^0.7.21",
     "moocfi-quizzes": "^0.4.4",
     "pdf-slideshow": "^0.1.4",
     "prismjs": "^1.19.0",
