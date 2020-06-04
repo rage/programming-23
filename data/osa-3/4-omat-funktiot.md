@@ -137,6 +137,63 @@ niin parametrin `kohde` arvo funktiossa on merkkijono `Antti`.
 
 Parametrien ja myös funktioiden nimeämistä koskevat samat periaatteet kuin mitä olemme jo aiemmin käsitelleet, eli nimien kannattaa olla kuvaavia ja käytössä ovat ensisijaisesti pienet kirjaimet sekä alaviiva.
 
+<in-browser-programming-exercise name="Ensimmäinen merkki" tmcname="osa03-22_ensimmainen_merkki">
+
+Täydennä koodipohjassa oleva funktio `ensimmainen` siten, että se tulostaa parametrinaan saamansa merkkijonon ensimmäisen merkin.
+
+```python
+def ensimmainen(merkkijono):
+     # kirjoita koodia tähän
+
+# kokeillaan funktiota:
+
+ensimmainen('python')
+ensimmainen('yhtälö')
+ensimmainen('tieto')
+ensimmainen('huominen')
+ensimmainen('omena')
+ensimmainen('nukkumaanmenoaika')
+```
+
+<sample-output>
+
+p
+y
+t
+h
+o
+n
+
+</sample-output>
+
+<in-browser-programming-exercise/>
+
+<in-browser-programming-exercise name="Risunelio" tmcname="osa03-23_risunelio>
+
+Tee funktio `risurisunelioaita(pituus)` joka saa parametriksi kokonaisluvun, joka kertoo kuinka kuinka suuri risuneliö funktion pitää tulostaa:
+
+```python
+risunelio(3)
+print(")
+risunelio(5)
+```
+
+<sample-output>
+
+###
+###
+###
+
+#####
+#####
+#####
+#####
+#####
+
+</sample-output>
+
+<in-browser-programming-exercise/>
+
 ## Lisää esimerkkejä
 
 Katsotaan vielä pari muuta esimerkkiä parametrien käyttämisestä. Seuraavassa funktiossa parametri on luku:
@@ -214,3 +271,49 @@ Parametrien summa on 140
 Ensimmäisessä kutsussa parametrien arvot funktion sisällä ovat `x = 1` ja `y = 2`, ja toisessa kutsussa arvot ovat `x = 130` ja `y = 10`.
 
 Palaamme funktioihin ja parametrien määrittelyyn tarkemmin seuraavan osan alussa.
+
+<in-browser-programming-exercise name="Monta tulostusta" tmcname="osa03-24_monta_tulostusta">
+
+Tee funktio `tulosta_monesti(merkkijono, kertaa)` joka saa parametriksi merkkijonon sekä kokonaisluvun, joka keroo kuinka monta kertaa funktion tulee tulostaa parametrina saamansa merkkijono:
+
+```python
+merkkijono = input("Merkkijono: ")
+kertaa = int(input("Tulostuksia: "))
+tulosta_monesti(merkkijono, kertaa)
+```
+<sample-output>
+
+Merkkijono: **Alussa olivat suo, kuokka ja Python.**
+Tulostuksia: **3**
+Alussa olivat suo, kuokka ja Python.
+Alussa olivat suo, kuokka ja Python.
+Alussa olivat suo, kuokka ja Python.
+
+</sample-output>
+
+<in-browser-programming-exercise/>
+
+<in-browser-programming-exercise name="Keskiarvo" tmcname="osa03-25_keskiarvo">
+
+Tee funktio `keskiarvo`, joka saa parametrina kolme kokonaislukua. Funktio tulostaa parametriensa keskiarvon.
+
+```python
+keskiarvo(5, 3, 1)
+keskiarvo(10, 1, 1)
+```
+
+<sample-output>
+
+3.0
+4.0
+
+</sample-output>
+
+<in-browser-programming-exercise/>
+
+<in-browser-programming-exercise name="" tmcname="osa03-">
+<in-browser-programming-exercise/>
+
+
+<in-browser-programming-exercise name="" tmcname="osa03-">
+<in-browser-programming-exercise/>
