@@ -202,3 +202,33 @@ while True:
 ```
 
 Nyt jälkimmäinen `break`-komento keskeyttää vain sisimmän silmukan, joka tulostaa lukuja, jos ehto `luku <= 0` pätee.
+
+<in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa03-20_kirjainruudukko">
+
+Tee ohjelma, joka tulostaa kirjainruudukon oheisten esimerkkien mukaisesti. Voit olettaa, että kerroksia on enintään 26.
+
+<sample-output>
+
+Kerrokset: **3**
+CCCCC
+CBBBC
+CBABC
+CBBBC
+CCCCC
+
+</sample-output>
+
+<sample-output>
+
+Kerrokset: **4**
+DDDDDDD
+DCCCCCD
+DCBBBCD
+DCBABCD
+DCBBBCD
+DCCCCCD
+DDDDDDD
+
+</sample-output>
+
+</in-browser-programming-exercise>
