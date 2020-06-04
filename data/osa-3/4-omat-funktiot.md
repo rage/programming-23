@@ -63,6 +63,24 @@ Tämä on oma funktio!
 
 </sample-output>
 
+<in-browser-programming-exercise name="Seitsemän veljestä" tmcname="osa03-21_seitseman_veljesta">
+
+Tee funktio `seitseman_veljesta` jonka kutsuminen tulostaa seitsemän veljeksen nimet aakkosjärjestyksessä:
+
+<sample-output>
+
+Aapo
+Eero
+Juhani
+Lauri
+Simeoni
+Timo
+Tuomas
+
+</sample-output>
+
+<in-browser-programming-exercise/>
+
 ## Funktion parametri
 
 Usein funktiolla on yksi tai useampi _parametri_,
@@ -146,7 +164,7 @@ def tervehdi(nimi):
         print("Heippa,", nimi)
     else:
         print("Moikka,", nimi)
-        
+
 tervehdi("Emilia")
 tervehdi("Matti")
 ```
