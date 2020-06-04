@@ -323,6 +323,7 @@ shakki(6)
 
 <sample-output>
 
+<pre>
 101
 010
 101
@@ -333,13 +334,14 @@ shakki(6)
 010101
 101010
 010101
+</pre>
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
 
-</in-browser-programming-exercise name="Sananeliö" tmcname="osa03-27_sananelio">
+<in-browser-programming-exercise name="Sananeliö" tmcname="osa03-27_sananelio">
 
 
 Tee funktio `nelio`, joka tulostaa sananeliön alla olevien esimerkkien mukaisesti.
@@ -352,6 +354,7 @@ nelio("aybabtu", 5)
 
 <sample-output>
 
+<pre>
 aba
 bab
 aba
@@ -361,6 +364,7 @@ tuayb
 abtua
 ybabt
 uayba
+</pre>
 
 </sample-output>
 
