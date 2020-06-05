@@ -203,7 +203,7 @@ Mihin asti: **5**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-03_kahden_pontenssit">
+<in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-03_kahden_potenssit">
 
 Tee ohjelma, joka tulostaa ensin luvun 1 ja sen jälkeen kerta toisensa jälkeen kerta kaksi kertaa suuremman luvun. Ohjelman siis tulostaa luvun kaksi potensseja.
 
