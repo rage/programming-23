@@ -168,18 +168,20 @@ n
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Risunelio" tmcname="osa03-23_risunelio>
 
-Tee funktio `risurisunelioaita(pituus)` joka saa parametriksi kokonaisluvun, joka kertoo kuinka kuinka suuri risuneliö funktion pitää tulostaa:
+<in-browser-programming-exercise name="Risuneliö" tmcname="osa03-23_risunelio">
+
+Tee funktio `risunelio(pituus)` joka saa parametriksi kokonaisluvun, joka kertoo kuinka kuinka suuri risuneliö funktion pitää tulostaa:
 
 ```python
 risunelio(3)
-print(")
+print("")
 risunelio(5)
 ```
 
 <sample-output>
 
+<pre>
 ###
 ###
 ###
@@ -189,6 +191,7 @@ risunelio(5)
 #####
 #####
 #####
+</pre>
 
 </sample-output>
 
