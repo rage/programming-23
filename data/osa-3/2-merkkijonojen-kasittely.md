@@ -75,7 +75,6 @@ Ohjelman tulostus on seuraava:
 
 Silmukassa oleva `print`-komento tulostaa rivin, jonka alussa on `n` välilyöntiä ja sitten muuttujan `rivi` sisältö. Tämän jälkeen muuttujan `rivi` loppuun lisätään kaksi tähteä ja muuttujan `n` arvo vähenee yhdellä.
 
-
 ## Merkkijonon pituus ja indeksointi
 
 Funktio `len` palauttaa kokonaisluvun, joka on merkkijonon pituus merkkeinä. Esimerkiksi `len("moi")` palauttaa 3, koska merkkijonossa `moi` on 3 merkkiä.
@@ -128,7 +127,6 @@ p
 n
 
 </sample-output>
-
 
 Koska merkkijonon ensimmäinen merkki on indeksin 0 kohdalla, on viimeinen merkki vastaavasti indeksin _pituus_ – 1 kohdalla. Esimerkiksi seuraava ohjelma tulostaa merkkijonon ensimmäisen ja viimeisen merkin:
 
@@ -186,6 +184,156 @@ Ensimmäinen: t
 Viimeinen: i
 
 </sample-output>
+
+<in-browser-programming-exercise name="Toinen ja toiseksi viimeinen" tmcname="osa03-06_toinen_ja_toiseksi_viimeinen">
+
+
+Tee ohjelma, joka kysyy käyttäjältä sanan ja kertoo, ovatko sen toinen ja toiseksi viimeinen merkki samoja.
+
+<sample-output>
+
+Anna sana: **python**
+Toinen ja toiseksi viimeinen kirjain eroavat
+
+</sample-output>
+
+<sample-output>
+
+Anna sana: **pascal**
+Toinen ja toiseksi viimeinen kirjain on a
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Risuaitaviiva" tmcname="osa03-09_risuaitaviiva">
+
+Tee ohjelma, joka piirtää käyttäjän määräämän levyisen risuaitaviivan.
+
+<sample-output>
+
+Leveys: **3**
+###
+
+</sample-output>
+
+<sample-output>
+
+Leveys: **8**
+########
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Risuaitaneliö" tmcname="osa03-10_risuaitanelio">
+
+Laajenna edellistä niin, että käyttäjä syöttää myös piirrettävien rivien määrän
+
+<sample-output>
+
+Leveys: **10**
+Korkeus: **3**
+##########
+##########
+##########
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Alleviivaus" tmcname="osa03-11_alleviivaus">
+
+Tee ohjelma, joka pyytää käyttäjältä merkkijonoja ja tulostaa kunkin merkkijonon oheisen esimerkin mukaisesti alleviivattuna. Ohjelman suoritus päättyy, kun käyttäjä syöttää tyhjän merkkijonon.
+
+<sample-output>
+
+```
+Anna merkkijono: Moi kaikki!
+Moi kaikki!
+-----------
+
+Anne merkkijono: Tämä on testijono
+Tämä on testijono
+-----------------
+
+Anna merkkijono: a
+a
+-
+
+Anna merkkijono:
+Kiitos ja moi!
+```
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Tasaus oikeaan" tmcname="osa03-12_tasaus_oikeaan">
+
+Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sen niin, että tulostetuksi tulee tasan 20 merkkiä. Jos merkkijono on lyhyempi, alkuun tulee tarvittava määrä tähtiä `*`.
+
+Voit olettaa, että syötetyssä merkkijonossa on enintään 20 merkkiä.
+
+<sample-output>
+
+Sana: **python**
+<pre>
+**************python
+</pre>
+
+</sample-output>
+
+<sample-output>
+
+Sana: **pitkämerkkijono**
+<pre>
+*****pitkämerkkijono
+</pre>
+
+</sample-output>
+
+<sample-output>
+
+Sana: **tosipitkämerkkijono**
+<pre>
+*tosipitkämerkkijono
+</pre>
+
+</sample-output>
+
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Sanalaatikko" tmcname="osa03-13_sanalaatikko">
+
+Tee ohjelma, joka kysyy käyttäjältä sanaa ja tulostaa sanan tähtiraameihin, missä sana on keskellä. Raamien leveys on 30 merkkiä, ja voit olettaa, että sana mahtuu raameihin.
+
+Huom! Jos sanan pituus on pariton, voit tulostaa sanan kumpaan tahansa mahdollisista keskikohdista.
+
+<sample-output>
+
+Sana: **koe**
+<pre>
+******************************
+*            koe             *
+******************************
+</pre>
+
+</sample-output>
+
+<sample-output>
+
+Sana: **python**
+<pre>
+******************************
+*           python           *
+******************************
+</pre>
+
+</sample-output>
+
+</in-browser-programming-exercise>
 
 
 ## Osajonot
@@ -335,3 +483,97 @@ Löytyi kohdasta 2
 ...
 
 </sample-output>
+
+<in-browser-programming-exercise name="Osajonot 1" tmcname="osa03-07_osajonot1">
+
+Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten kaikki sen ensimmäisestä merkistä alkavat osajonot pituusjärjestyksessä.
+
+Esimerkkitulostus:
+
+<sample-output>
+
+Anna merkkijono: **testi**
+t
+te
+tes
+test
+testi
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Osajonot 2" tmcname="osa03-08_osajonot2">
+
+Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten kaikki sen viimeiseen merkkiin päättyvät osajonot pituusjärjestyksessä.
+
+Esimerkkitulostus:
+
+<sample-output>
+
+Anna merkkijono: **testi**
+i
+ti
+sti
+esti
+testi
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Osajonojen haku" tmcname="osa03-14_osajonojen_haku">
+
+Tee ohjelma, joka kysyy käyttäjältä merkkijonoa ja yksittäistä merkkiä. Ohjelma tulostaa kaikki merkkijonon sisältämät kolmen merkin pituiset osajonot, joiden alkukirjain on käyttäjän syöttämä merkkijono. Voit olettaa, että merkkijono on vähintään kolmen merkin pituinen.
+
+<sample-output>
+
+Sana: **apinatalo**
+Merkki: **a**
+api
+ata
+alo
+
+</sample-output>
+
+<sample-output>
+
+Sana: **banaani**
+Merkki: **n**
+naa
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Toinen esiintymä" tmcname="osa03-15_toinen_esiintyma">
+
+Tee ohjelma, joka etsii merkkijonosta osajonon toisen esiintymän. Jos toista (tai edes ensimmäistä) esiintymää ei löydy, ohjelma tulostaa tästä tiedon.
+
+Muutama esimerkkisuoritus:
+
+<sample-output>
+
+Anna merkkijono: **abcabc**
+Anna osajono: **ab**
+Osajonon toinen esiintymä on kohdassa 3.
+
+</sample-output>
+
+<sample-output>
+
+Anna merkkijono: **saippuakauppias**
+Anna osajono: **a**
+Osajonon toinen esiintymä on kohdassa 6.
+
+</sample-output>
+
+<sample-output>
+
+Anna merkkijono: **aybabtu**
+Anna osajono: **ba**
+Osajono ei esiinny merkkijonossa kahdesti.
+
+</sample-output>
+
+</in-browser-programming-exercise>

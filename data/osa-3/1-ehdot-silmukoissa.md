@@ -95,7 +95,7 @@ Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuis
 
 </sample-output>
 
-<in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa03-1_lahtolaskenta">
+<in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa03-01_lahtolaskenta">
 
 Korjaa tehtäväpohjassa oleva ohjelma
 
@@ -185,7 +185,7 @@ Anna luku: **4**
 
 Muissa tapauksissa silmukka on kuitenkin ikuinen, koska muuttuja ei koskaan saavuta arvoa 10. Tällaisia syötteitä ovat esimerkiksi 3 ja 12.
 
-<in-browser-programming-exercise name="Luvut" tmcname="osa03-2_luvut">
+<in-browser-programming-exercise name="Luvut" tmcname="osa03-02_luvut">
 
 Tee ohjelma, joka tulostaa kaikki käyttäjän antamaa lukua pienemmät luvut alkaen luvusta yksi.
 
@@ -203,7 +203,7 @@ Mihin asti: **5**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-3_kahden_pontenssit">
+<in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-03_kahden_pontenssit">
 
 Tee ohjelma, joka tulostaa ensin luvun 1 ja sen jälkeen kerta toisensa jälkeen kerta kaksi kertaa suuremman luvun. Ohjelman siis tulostaa luvun kaksi potensseja.
 
@@ -247,7 +247,7 @@ Mihin asti: **100**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Luvun n potenssit" tmcname="osa03-4_luvun_n_potenssit">
+<in-browser-programming-exercise name="Luvun n potenssit" tmcname="osa03-04_luvun_n_potenssit">
 
 Muuta edellistä ohjelmaa siten, että käyttäjä saa määrätä kertoimen (edellisessä ohjelmassa kerroin oli aina 2), eli sen minkä luvun potensseja ohjelma tulostaa.
 
@@ -280,7 +280,7 @@ Mikä kerroin: **10**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Peräkkäisten summa" tmcname="osa03-5_perakkaisten_summa">
+<in-browser-programming-exercise name="Peräkkäisten summa" tmcname="osa03-05_perakkaisten_summa">
 
 Tee ohjelma, joka laskee peräkkäisten lukujen summaa 1 + 2 + 3 + ... kunnes sen arvo on vähintään käyttäjän syöttämä luku. Ohjelma toimii seuraavasti:
 

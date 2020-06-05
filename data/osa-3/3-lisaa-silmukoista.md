@@ -188,7 +188,6 @@ Anna luku: **-1**
 
 Huomaa, että kun silmukkoja on sisäkkäin, komennot `break` ja `continue` vaikuttavat vain sisimpään silmukkaan. Esimerkiksi voisimme toteuttaa äskeisen ohjelman vähän eri tavalla myös näin:
 
-
 ```python
 while True:
     luku = int(input("Anna luku: "))
@@ -202,6 +201,103 @@ while True:
 ```
 
 Nyt jälkimmäinen `break`-komento keskeyttää vain sisimmän silmukan, joka tulostaa lukuja, jos ehto `luku <= 0` pätee.
+
+
+<in-browser-programming-exercise name="Sanojen ensimmäiset kirjaimet" tmcname="osa03-16_sanojen_ensimmaiset_kirjaimet">
+
+Tee ohjelma, joka kysyy käyttäjältä lauseen. Ohjelma tulostaa jokaisen sanan ensimmäisen kirjaimen ruudulle omille riveilleen.
+
+Esimerkkisuoritus:
+
+<sample-output>
+
+Anna lause: **Vesihiisi sihisi hississä**
+V
+s
+h
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Kertomat" tmcname="osa03-17_kertomat">
+
+Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun. Jos käyttäjä syöttää negatiivisen luvun tai nollan, ohjelman suoritus päättyy.Muuten ohjema tulostaa luvun kertoman.
+
+Kertoma lasketaan kertomalla keskenään luku ja kaikki sitä pienemmät positiiviset kokonaisluvut. Esim. luvun 5 kertoma on 1 * 2 * 3 * 4 * 5 == 120.
+
+Esimerkkisuoritus:
+
+<sample-output>
+
+Anna luku: 3
+Luvun 3 kertoma on 6
+Anna luku: 4
+Luvun 4 kertoma on 24
+Anna luku: -1
+Kiitos ja moi!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Parit ympäri" tmcname="osa03-18_parit_ympari">
+
+Tee ohjelma, joka tulostaa luvut 1:stä käyttäjän antamaan lukuun. Luvut on kuitenkin käännetty pareittain ympäri.
+
+<sample-output>
+
+Anna luku: **5**
+2
+1
+4
+3
+5
+
+</sample-output>
+
+<sample-output>
+
+Anna luku: **6**
+2
+1
+4
+3
+6
+5
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Vuorotellen" tmcname="osa03-19_vuorotellen">
+
+Tee ohjelma, joka kysyy käyttäjältä luvun ja tulostaa sitten lukuja vuorotellen seuraavien esimerkkien mukaisesti.
+
+<sample-output>
+
+Anna luku: **5**
+1
+5
+2
+4
+3
+
+</sample-output>
+
+<sample-output>
+
+Anna luku: **6**
+1
+6
+2
+5
+3
+4
+
+</sample-output>
+
+</in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa03-20_kirjainruudukko" height="700px">
 
@@ -232,6 +328,8 @@ DCBBBCD
 DCCCCCD
 DDDDDDD
 </pre>
+
+Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu jos et saa tätä heti ratkaisuta. Älä juutu tähän tehtävään, tee ensin osa loppuun ja palaa tehtävään sen jälkeen. Voi myös olla ihan viisasta jättää tämä tehtävä kokonaan myöhemmäksi.
 
 </sample-output>
 
