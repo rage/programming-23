@@ -1,17 +1,15 @@
 ---
 path: '/osa-4/4-lisaa-rakenteista'
-title: 'Lisää alijonoista ja hyödyllisiä metodeita'
+title: 'Lisää merkkijonoista ja listoista'
 hidden: false
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Valmiiden listaoperaatioiden tuntemus auttaa kirjoittamaan lyhyempiä ja tehokkaampia ohjelmia. Tarkastellaan muutamia yleisiä operaatioita listojen käsittelyyn.
+Tämän osan jälkeen
 
-Tämän osion suoritettuasi
-
-- Tiedät, miten voit erottaa osan merkkijonosta tai listasta
-- Tiedät, mitä tarkoitetaan käsitteellä _mutatoitumattomuus_
+- Tunnet lisää tapoja erottaa osia merkkijonosta tai listasta
+- Ymmärrät, mitä tarkoittaa merkkijonon muuttumattomuus
 - Osaat käyttää metodeita `count` ja `replace`
 
 </text-box>
@@ -60,7 +58,7 @@ eiek
 
 </sample-output>
 
-Jos emme anna jotain arvoa, oletuksena erotus alkaa alusta ja päättyy loppuun. Tämän avulla voimme tehdä seuraavan lyhyen ohjelman, joka kääntää merkkijonon:
+Jos emme anna jotain arvoa, oletuksena koko sisältö valitaan mukaan. Tämän avulla voimme tehdä seuraavan lyhyen ohjelman, joka kääntää merkkijonon:
 
 ```python
 mjono = input("Kirjoita merkkijono: ")
@@ -76,11 +74,7 @@ ikkremise
 
 ## Merkkijonoa ei voi muuttaa
 
-Merkkijonoilla ja listoilla on paljon yhteistä, ja useimmat operaatiot toimivat samalla tavalla sekä merkkijonoille että listoille. Kuitenkin erona on, että merkkijonoa ei voi muuttaa eli merkkijono on _mutatoitumaton_.
-
-TODO: Ei ole kyllä kaunista suomen kieltä _mutatoitumaton_
-
-Esimerkiksi seuraava koodi ei toimi tarkoitetulla tavalla:
+Merkkijonoilla ja listoilla on paljon yhteistä, ja useimmat operaatiot toimivat samalla tavalla sekä merkkijonoille että listoille. Kuitenkin erona on, että merkkijonoa _ei voi muuttaa_. Esimerkiksi seuraava koodi ei toimi tarkoitetulla tavalla:
 
 ```python
 mjono = "esimerkki"
@@ -97,9 +91,7 @@ TypeError: 'str' object does not support item assignment
 
 Samankaltainen virhe seuraa, jos yritetään esimerkiksi järjestää merkkijonoa järjestykseen `sort`-metodilla.
 
-Mutatoitumattomuus tarkoittaa siis sitä, ettei merkkijono voi muuttua. Se **ei** kuitenkaan tarkoita, etteikö muuttujaan voisi sijoittaa merkkijonon paikalle toisen merkkijonon. Onkin tärkeää huomata ero seuraavien esimerkkien välillä:
-
-TODO: Tätä pitäisi selittää vielä laajemmin
+Vaikka merkkijonoa ei voi muuttaa, voimme silti sijoittaa merkkijonon paikalle toisen merkkijonon. Onkin tärkeää huomata ero seuraavien esimerkkien välillä:
 
 ```python
 lista = [1,2,3]
@@ -119,45 +111,33 @@ Ensimmäisessä esimerkissä listan sisältö muuttuu. Toisessa esimerkissä alk
 
 Tähän palataan tarkemmin ensi viikolla, kun puhutaan listojen käytöstä funktioiden parametreina ja paluuarvoina.
 
-## Lisää hyödyllisiä operaatioita
+## Lisää metodeita
 
-TODO: Tämä ei tunnu oikealta paikalta esitellä näitä
-
-Tarkastellaan lopuksi muutamaa hyödyllistä metodia.
-
-Metodin `count` avulla voidaan laskea alijonon esiintymien määrä jonossa. Metodi toimii sekä merkkijonojen että listojen kanssa. Esimerkiksi
+Metodin `count` avulla voidaan laskea osajonon esiintymien määrä. Metodi toimii samaan tapaan sekä merkkijonon että listan kanssa. Esimerkiksi näin:
 
 ```python
-
 mjono = "Vesihiisi sihisi hississä"
-si_määrä = mjono.count("si")
-print("si esiintyy merkkijonossaa " + str(si_määrä) + " kertaa")
+print(mjono.count("si"))
 
 lista = [1,2,3,1,4,5,1,6]
-ykkösiä = lista.count(1)
-print("Listassa on " + str(ykkösiä) + " ykköstä")
-
+print(lista.count(1))
 ```
 
 <sample-output>
 
-si esiintyy merkkijonossa 5 kertaa
-Listassa on 3 ykköstä
+5
+3
 
 </sample-output>
 
-Huomaa, että `count` laskee vain kokonaisia esiintymä - esim. merkkijonossa `aaaa` esiintyy alijono `aa` kaksi kertaa, vaikka toisen tulkinnan mukaan esiintymiä voisi olla myös kolme.
+Huomaa, että metodi `count` ei laske päällekkäisiä esiintymiä. Esimerkiksi metodin mukaan merkkijonossa `aaaa` esiintyy kaksi kertaa osajono `aa`, vaikka oikeastaan esiintymiä olisi kolme, jos päällekkäiset esiintymät sallitaan.
 
-Metodin `replace` avulla voidaan muodostaa uusi merkkijono, jossa alijono on korvattu toisella alijonolla. Esimerkiksi
+Metodin `replace` avulla voidaan muodostaa uusi merkkijono, jossa tietty merkkijono on korvattu toisella merkkijonolla. Esimerkiksi:
 
 ```python
-
 mjono = "Moi kaikki"
-
-# Korvataan sana Moi sanalla Hei
-uusi_jono = mjono.replace("Moi", "Hei")
-print(uusi_jono)
-
+uusi = mjono.replace("Moi", "Hei")
+print(uusi)
 ```
 
 <sample-output>
@@ -166,14 +146,11 @@ Hei kaikki
 
 </sample-output>
 
-Metodi korvaa kaikki alijonon esiintymät toisella alijonolla:
+Metodi korvaa kaikki merkkijonon esiintymät:
 
 ```python
-
 lause = "hei heilan löysin minä heinikosta hei"
-
 print(lause.replace("hei", "HEI"))
-
 ```
 
 <sample-output>
@@ -182,7 +159,7 @@ HEI HEIlan löysin minä HEInikosta HEI
 
 </sample-output>
 
-Tyypillinen virhe `replace`-metodia käytettäessä on unohtaa, että merkkijonot ovat mutatoitumattomia:
+Tyypillinen virhe `replace`-metodia käytettäessä on unohtaa, että merkkijonot ovat muuttumattomia:
 
 ```python
 mjono = "Python on kivaa"
@@ -190,7 +167,6 @@ mjono = "Python on kivaa"
 # Korvataan alijono, muttei tallenneta tulosta mihinkään...
 mjono.replace("Python", "Java")
 print(mjono)
-
 ```
 
 <sample-output>
@@ -207,7 +183,6 @@ mjono = "Python on kivaa"
 # Korvataan alijono, tallennetaan tulos samaan muuttujaan
 mjono = mjono.replace("Python", "Java")
 print(mjono)
-
 ```
 
 <sample-output>
