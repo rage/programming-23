@@ -328,7 +328,7 @@ Summa: 15
 
 Pythonissa on ehkä hieman hämmentävästi käytössä kaksi eri tapaa listojen käsittelyyn.
 
-Suurin osa käsittelystä tapahtuu _metodien_ avulla. Esim. `append` ja `sorted` ovat metodeja, joita kutsutaan listamuuttujan kautta pistenotaatiolla:
+Suurin osa käsittelystä tapahtuu _metodien_ avulla. Esimerkiksi `append` ja `sorted` ovat metodeja, joita kutsutaan listamuuttujan kautta pistenotaatiolla:
 
 ```python
 lista = []
@@ -343,7 +343,7 @@ lista.append(2)
 jarjestyksessa = lista.sorted()
 ```
 
- Äsken nähdyt `max`,  `min`,  `sum` ja listan pituuden kertova  `len` taas ovat _funktioita_, joille lista annetaan parametrina:
+ Sen sijaan esimerkiksi `max`,  `min`, `len` ja `sort` ovat _funktioita_, joille lista annetaan parametrina:
 
 ```python
 lista = [3, 2, 7, 1]
