@@ -19,6 +19,8 @@ _et_ voi sisällyttää tutkintoosi suoritusta sekä Javalla että Pythonilla.
 
 Kurssilla on Telegram-kanava, jonne pääset [tästä](https://t.me/ohpekesa20/).
 Kanavalla voit keskustella muiden kurssin opiskelijoiden ja ohjaajien kanssa.
+Käytössä on myös off topic -kanava jossa voit keskustella aiheista jotka eivät liity suoraan kurssin sisältöön.
+Off topic Kanavalle pääset [tästä](https://t.me/ohjelmointi20_ot)
 
 Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-mooc@helsinki.fi.
 
