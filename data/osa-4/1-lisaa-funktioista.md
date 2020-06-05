@@ -7,26 +7,22 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Syötteiden välittäminen funktioille auttaa tekemään niistä yleiskäyttöisempiä. Tutustutaan myös funktioiden paluuarvoihin ja niiden käyttöön ohjelmissa.
+Tämän osion jälkeen
 
-Tämän osion suoritettuasi
-
-- Tiedät, mitä tarkoitetaan funktoiden parametreilla ja mihin niitä tarvitaan
-- Tiedät, miten parametrit määritetään
-- Osaat palauttaa arvon funktiosta
-- Osaat hyödyntää paluuarvoa funktiokutsussa
+- Tiedät lisää funktion parametrien käyttämisestä
+- Osaat palauttaa arvon funktiosta ja käyttää sitä kutsukohdassa
 - Osaat merkitä tyyppivihjeet parametreille ja paluuarvolle
 
 </text-box>
 
-Tutustuimme edellisen osan lopussa omien funktioiden toteuttamiseen. Jatketaan funktioiden parissa. Funktioiden määrittely tapahtuu avainsanan _def_ avulla:
+Tutustuimme edellisen osan lopussa omien funktioiden toteuttamiseen. Jatketaan funktioiden parissa. Funktioiden määrittely tapahtuu avainsanan `def` avulla:
 
 ```python
 def viesti():
     print("Tämä tulee funktiosta")
 ```
 
-Näin määriteltyä funktiota nimeltään _viesti_ kutsutaan seuraavasti:
+Näin määriteltyä funktiota nimeltä `viesti` kutsutaan seuraavasti:
 
 
 ```python
@@ -49,21 +45,21 @@ Esimerkiksi seuraavassa koodissa funktiolla `tervehdi` on yksi parametri ja funk
 
 ```python
 def tervehdi(nimi):
-    print("Moikka, " + nimi)
+    print("Moikka,", nimi)
 
-def summa(a,b):
-    print("parametrien summa on "+ str(a+b))
+def summa(a, b):
+    print("Parametrien summa on", a + b)
 ```
 
 ```python
 tervehdi("Emilia")
-summa(2,3)
+summa(2, 3)
 ```
 
 <sample-output>
 
 Moikka, Emilia
-parametrien summa on 5
+Parametrien summa on 5
 
 </sample-output>
 
@@ -79,8 +75,8 @@ Funktion kutsussa `tervehdi("Emilia")` oleva `"Emilia"` on funktion
 _todellinen parametri_. Kun funktiota kutsutaan, todellinen parametri
 sijoitetaan muodollisen parametrin arvoksi.
 
-Joskus termi _parametri_ viittaa muodolliseen parametriin ja
-termi _argumentti_ viittaa todelliseen parametriin,
+Joskus termillä _parametri_ viitataan muodolliseen parametriin ja
+termillä _argumentti_ viitataan todelliseen parametriin,
 mutta monet myös käyttävät termejä sekaisin.
 
 </text-box>
@@ -95,19 +91,17 @@ sana = input("syötä merkkijono: ")
 luku = int(input("syötä kokonaisluku: "))
 ```
 
-Myös itse määrittelemämme funktiot voivat palauttaa arvoja käyttämällä komentoa `return`:
-
-
+Myös itse määrittelemämme funktiot voivat palauttaa arvoja käyttämällä komentoa `return`.
 Esimerkiksi seuraava funktio `summa` palauttaa
 annettujen lukujen summan:
 
 ```python
-def summa(a,b):
-    return a+b
+def summa(a, b):
+    return a + b
 
-vastaus = summa(2,3)
+vastaus = summa(2, 3)
 
-print("Summa: " + str(vastaus))
+print("Summa:", vastaus)
 ```
 
 <sample-output>
@@ -116,7 +110,7 @@ Summa: 5
 
 </sample-output>
 
-Seuraavassa vielä toinen esimerkki, jossa funktio kysyy käyttäjän nimen ja palauttaa sen:
+Seuraavassa on vielä toinen esimerkki, jossa funktio kysyy käyttäjän nimen ja palauttaa sen:
 
 ```python
 def kysy_nimi():
@@ -147,6 +141,8 @@ print(pienin(3,7))
 print(pienin(5,2))
 ```
 
+Tässä ideana on, että jos `a` on pienempi kuin `b`, niin funktio palauttaa arvon `a` ja päättyy. Muuten funktion suoritus jatkuu eteenpäin, jolloin se palauttaa arvon `b`.
+
 <sample-output>
 
 3
@@ -154,8 +150,7 @@ print(pienin(5,2))
 
 </sample-output>
 
-Voimme myös käyttää `return`-komentoa siihen,
-että poistumme funktiosta palauttamatta mitään:
+Voimme myös käyttää `return`-komentoa siihen, että poistumme funktiosta palauttamatta mitään:
 
 ```python
 def tervehdi(nimi):
@@ -169,6 +164,8 @@ tervehdi("")
 tervehdi("Matti")
 ```
 
+Jos `nimi` on tyhjä merkkijono, niin funktio tulostaa `???` ja päättyy.
+
 <sample-output>
 
 Moikka, Emilia
@@ -179,10 +176,8 @@ Moikka, Matti
 
 ## Sisäkkäiset kutsut
 
-Voimme kutsua funktiosta myös toisten funktion sisältä.
-Esimerkiksi seuraavassa koodissa funktio
-`tervehdi_monesti` kutsuu funktiota `tervehdi`
-halutun määrän kertoja:
+Voimme kutsua funktiota myös toisen funktion sisältä. Esimerkiksi seuraavassa ohjelmassa funktio
+`tervehdi_monesti` kutsuu funktiota `tervehdi` halutun määrän kertoja:
 
 ```python
 def tervehdi(nimi):
@@ -220,7 +215,7 @@ print(summa(1, summa(2, 3)))
 Tässä tapauksessa funktiokutsu `summa(2,3)` tuottaa arvon `5`,
 minkä jälkeen uusi funktiokutsu `summa(1,5)` tuottaa arvon 6.
 
-Funktioiden palauttamat arvot toimivat täysin samalla tavalla kun mitkä tahansa arvot Pythonissa. Niitä voidaan tulostaa, sijoittaa muuttujaan, käyttää osana laskulausekkeita tai parametrina muissa funktiokutsuissa.
+Funktioiden palauttamat arvot toimivat täysin samalla tavalla kuin mitkä tahansa arvot Pythonissa. Niitä voidaan tulostaa, sijoittaa muuttujaan, käyttää osana lausekkeita tai käyttää parametreina muissa funktiokutsuissa.
 
 ## Parametrin tyyppi
 
@@ -228,16 +223,14 @@ Kerrataan vielä tähän mennessä läpikäydyt tyypit:
 
 Tyyppi | Pythonissa | Esimerkki
 :------|:----------:|-----------
-Kokonaisluku | int | 23
-Liukuluku | float | -0.45
-Merkkijono | str | "Pekka Python"
-Totuusaro | bool | True
-
-TODO: Tämä ei ole kyllä oikein hyvä esimerkki. Voikohan tässä vaiheessa antaa hyvää esimerkkiä tyyppivihjeestä? Toisaalta emme käsittele monia muita funktioihin liittyviä aiheita kuten parametrien oletusarvoja.
+Kokonaisluku | `int` | `23`
+Liukuluku | `float` | `-0.45`
+Merkkijono | `str` | `"Pekka Python"`
+Totuusaro | `bool` | `True`
 
 Kun kutsumme funktiota, funktio toimii oikein vain,
 jos annamme sille sopivan tyyppiset parametrit.
-Tarkastellaan esimerkkinä seuraavaa funktioa:
+Tarkastellaan esimerkkinä seuraavaa funktiota:
 
 ```python
 def tulosta_monesti(viesti, kerrat):
@@ -285,4 +278,4 @@ def tulosta_monesti(viesti : str, kerrat : int):
 
 Tämä kertoo funktion käyttäjälle, että parametrin `viesti` on tarkoitus olla merkkijono, kun taas parametrin `kerrat` on tarkoitus olla kokonaisluku.
 
-Huomaa kuitenkin, että tyyppivihje vain neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktion käyttäjä antaa väärän tyypin, funktio suoritetaan kuitenkin, mutta toimii mahdollisesti väärin.
+Huomaa kuitenkin, että tyyppivihje vain neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.
