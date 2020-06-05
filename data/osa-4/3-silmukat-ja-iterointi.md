@@ -71,15 +71,15 @@ for alkio in lista:
 
 </sample-output>
 
-Jos verrataan tätä edelliseen esimerkkiin, huomataan että `for`-silmukka selkeyttää suoraviivaista listan alkioiden läpikäyntiä huomattavasti.
+Jos verrataan tätä edelliseen esimerkkiin, huomataan, että `for`-silmukka selkeyttää suoraviivaista listan alkioiden läpikäyntiä huomattavasti.
 
 Voimme käydä samalla idealla läpi myös merkkijonon merkit:
 
 ```python
 nimi = input("Anna nimesi: ")
 
-for kirjain in nimi:
-    print(kirjain)
+for merkki in nimi:
+    print(merkki)
 ```
 
 <sample-output>
@@ -149,7 +149,7 @@ for i in range(1, 9, 2):
 Voimme myös antaa negatiivisen askeleen, jolloin luvut käydään läpi käänteisesti:
 
 ```python
-for i in range(6,2,-1):
+for i in range(6, 2, -1):
     print(i)
 ```
 
@@ -177,7 +177,7 @@ range(2, 7)
 
 </sample-output>
 
-Tutustumme asiaan tarkemmin Ohjelmoinnin jatkokurssilla, mutta on hyvä tietää, että voimme muuttaa funktion palauttaman lukuvälin listaksi funktiolla `list`. Tällöin listaan tulevat kaikki lukuväliin kuuluvat arvot:
+Tutustumme asiaan tarkemmin Ohjelmoinnin jatkokurssilla, mutta on hyvä tietää, että voimme muuttaa lukuvälin listaksi funktiolla `list`. Tällöin listaan tulevat kaikki lukuväliin kuuluvat arvot:
 
 ```python
 luvut = list(range(2, 7))
@@ -202,7 +202,7 @@ ika = 39
 print("Hei " + nimi + " ikäsi on " + str(ika) + " vuotta" )
 ```
 
-Tämä tapa edellyttää, että kaikki yhdistettävät osat ovat merkkijonoja. Koska muuttuja `ika` on tyypiltään kokonaisluku, on se muutettu yhdistämistä varten merkkijonoksi funktiolla `str`.
+Tämä tapa edellyttää, että kaikki yhdistettävät osat ovat merkkijonoja. Koska muuttuja `ika` on tyypiltään kokonaisluku, se on muutettu yhdistämistä varten merkkijonoksi funktiolla `str`.
 
 Voimme myös käyttää yhdistämiseen pilkkua, jolloin yhdistettävät osat voivat olla eri tyyppisiä:
 
@@ -212,7 +212,7 @@ print("Hei", nimi, "ikäsi on", ika, "vuotta" )
 
 Tämän koodin lopputulos on sama kuin edellisessä koodissa. Näin käytettynä `print` tulostaa kaikki parametrinsa välilyönnillä eroteltuna.
 
-Nämä ovat toimivia tapoja, mutta voimme toteuttaa tulostamisen myös näin:
+Nämä ovat toimivia tapoja, mutta voimme toteuttaa tulostamisen lyhemmin myös näin:
 
 ```python
 print(f"Hei {nimi} ikäsi on {ika} vuotta")
@@ -220,7 +220,7 @@ print(f"Hei {nimi} ikäsi on {ika} vuotta")
 
 Tässä merkkijonon alussa on kirjain _f_, mikä tarkoittaa että merkkijono on _f-string_. Merkkijonon sisälle on sijoitettu aaltosuluissa muuttujia, joiden arvot tulevat merkkijonon osaksi. Tulostus on täsmälleen sama kuin aiemmissa esimerkeissä.
 
-Voimme muotoilla monin tavoin f-stringien avulla tapahtuvaa tulostusta. Yksi tavallinen käyttötapa on desimaaliluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
+Voimme muotoilla monin tavoin f-stringien avulla tapahtuvaa tulostusta. Yksi tavallinen käyttötapa on antaa liukuluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
 
 ```python
 luku = 1/3
