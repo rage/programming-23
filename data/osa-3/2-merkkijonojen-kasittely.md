@@ -252,22 +252,22 @@ Tee ohjelma, joka pyytää käyttäjältä merkkijonoja ja tulostaa kunkin merkk
 
 <sample-output>
 
-```
-Anna merkkijono: Moi kaikki!
+Anna merkkijono: **Moi kaikki!**
+<pre>
 Moi kaikki!
 -----------
-
-Anne merkkijono: Tämä on testijono
+</pre>
+Anna merkkijono: **Tämä on testijono**
+<pre>
 Tämä on testijono
 -----------------
-
-Anna merkkijono: a
+</pre>
+Anna merkkijono: **a**
+<pre>
 a
 -
-
+</pre>
 Anna merkkijono:
-Kiitos ja moi!
-```
 
 </sample-output>
 
