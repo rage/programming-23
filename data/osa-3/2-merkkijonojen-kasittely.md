@@ -213,14 +213,18 @@ Tee ohjelma, joka piirtää käyttäjän määräämän levyisen risuaitaviivan.
 <sample-output>
 
 Leveys: **3**
+<pre>
 ###
+</pre>
 
 </sample-output>
 
 <sample-output>
 
 Leveys: **8**
+<pre>
 ########
+</pre>
 
 </sample-output>
 
