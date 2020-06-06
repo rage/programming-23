@@ -277,7 +277,7 @@ Toistaalta tässä ohjelmassa ei ole omaa muuttujaa summan arvon tallettamiseen.
 
 Kannattaa kuitenkin huomata, että yhtä muuttujaa ei kannata "uusiokäyttää" kuin samankaltaisiin asioihin, esim. summattavien lukujen tilapäiseen tallentamiseen.
 
-Esimerkiksi seuraavassa on uusiokäytetty muuttujaa `tieto` nimen ja kengännumeron tallettamiseen ja tämä ei ole missään nimessä järkevää:
+Esimerkiksi seuraavassa on uusiokäytetty muuttujaa `tieto` nimen ja iän tallentamiseen ja tämä ei ole missään nimessä järkevää:
 
 ```python
 tieto = input("Mikä on nimesi? ")
