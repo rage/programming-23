@@ -112,7 +112,7 @@ Anna luku 4: **1**
 
 Esimerkissä ensimmäinen ehto `n1 > n2 and n1 > n3 and n1 > n4` on tosi vain, mikäli kaikki kolme ehtoa ovat tosia.
 
-<in-browser-programming-exercise name="Iän tarkistus" tmcname="osa02-08_ian_tarkistus" height="500px">
+<in-browser-programming-exercise name="Iän tarkistus" tmcname="osa02-08_ian_tarkistus">
 
 Tee ohjelma, joka kysyy käyttäjän ikää. Jos ikä ei ole uskottava (se on alle 5 tai mahdoton luku iälle), antaa ohjelma siihen liittyvän kommentin.
 
@@ -143,7 +143,7 @@ Taitaa olla virhe
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Veljenpojat" tmcname="osa02-09_veljenpojat" height="500px">
+<in-browser-programming-exercise name="Veljenpojat" tmcname="osa02-09_veljenpojat">
 
 Tee ohjelma, joka kysyy käyttäjän nimeä. Jos nimeksi syötetään Tupu, Hupu tai Lupu, ohjelma tunnistaa käyttäjän Aku Ankan veljenpojaksi.
 
