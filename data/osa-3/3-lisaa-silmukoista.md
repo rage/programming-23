@@ -222,7 +222,7 @@ h
 
 <in-browser-programming-exercise name="Kertomat" tmcname="osa03-17_kertomat">
 
-Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun. Jos käyttäjä syöttää negatiivisen luvun tai nollan, ohjelman suoritus päättyy.Muuten ohjema tulostaa luvun kertoman.
+Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun. Jos käyttäjä syöttää negatiivisen luvun tai nollan, ohjelman suoritus päättyy. Muuten ohjema tulostaa luvun kertoman.
 
 Kertoma lasketaan kertomalla keskenään luku ja kaikki sitä pienemmät positiiviset kokonaisluvut. Esim. luvun 5 kertoma on 1 * 2 * 3 * 4 * 5 == 120.
 

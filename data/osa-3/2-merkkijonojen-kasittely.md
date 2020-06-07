@@ -528,7 +528,7 @@ testi
 
 <in-browser-programming-exercise name="Osajonojen haku" tmcname="osa03-14_osajonojen_haku">
 
-Tee ohjelma, joka kysyy käyttäjältä merkkijonoa ja yksittäistä merkkiä. Ohjelma tulostaa kaikki merkkijonon sisältämät kolmen merkin pituiset osajonot, joiden alkukirjain on käyttäjän syöttämä merkkijono. Voit olettaa, että merkkijono on vähintään kolmen merkin pituinen.
+Tee ohjelma, joka kysyy käyttäjältä merkkijonoa ja yksittäistä merkkiä. Ohjelma tulostaa kaikki merkkijonon sisältämät kolmen merkin pituiset osajonot, joiden alkukirjain on käyttäjän syöttämä merkki. Voit olettaa, että merkkijono on vähintään kolmen merkin pituinen.
 
 <sample-output>
 
