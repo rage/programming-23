@@ -148,13 +148,13 @@ Esimerkki ohjelman suorituksesta:
 
 <sample-output>
 
-Syötä luku **16**
+Syötä luku: **16**
 4.0
-Syötä luku **4**
+Syötä luku: **4**
 2.0
-Syötä luku **-3**
+Syötä luku: **-3**
 Epäkelpo luku
-Syötä luku **1**
+Syötä luku: **1**
 1.0
 Syötä luku: **0**
 Lopetetaan...
