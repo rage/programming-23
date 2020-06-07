@@ -318,7 +318,7 @@ Vuotta 2020 seuraava karkausvuosi on 2024
 
 <in-browser-programming-exercise name="Tarina" tmcname="osa02-21_tarina">
 
-### osa 1
+### Osa 1
 
 Tee ohjelma, joka pyytää käyttäjää syöttämään sanoja. Kun käyttäjä syöttää sanan `loppu`, ohjelma tulostaa sanoista muodostuneen tarinan ja suoritus päättyy.
 
@@ -334,9 +334,9 @@ Olipa kerran pieni talo preerialla
 
 </sample-output>
 
-### osa 2
+### Osa 2
 
-Muokkaa edellisen tehtävän ohjelmaa niin, että sanojen syöttäminen päättyy jos käyttäjä syöttää sanan `loppu` tai käyttäjä syöttää saman sanan kaksi kertaa peräkkäin.
+Muokkaa edellisen tehtävän ohjelmaa niin, että sanojen syöttäminen päättyy, jos käyttäjä syöttää sanan `loppu` tai käyttäjä syöttää saman sanan kaksi kertaa peräkkäin.
 
 <sample-output>
 
