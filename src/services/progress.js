@@ -42,7 +42,6 @@ export async function fetchProgress(t) {
     }
   })
   // TODO: this is not a good way to do this
-  toBeDeleted.push("osa02")
   toBeDeleted.push("osa03")
   toBeDeleted.push("osa04")
   toBeDeleted.push("osa05")
