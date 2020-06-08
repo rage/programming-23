@@ -554,6 +554,8 @@ naa
 
 Tee ohjelma, joka etsii merkkijonosta osajonon toisen esiintymän. Jos toista (tai edes ensimmäistä) esiintymää ei löydy, ohjelma tulostaa tästä tiedon.
 
+Määritellään tässä yhteydessä, että esiintymät _eivät_ voi mennä päällekkäin, merkkijonossa `"aaaa"´ toinen esiintymä löytyy siis indeksin 2 kohdalta.
+
 Muutama esimerkkisuoritus:
 
 <sample-output>
