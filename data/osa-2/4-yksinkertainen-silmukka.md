@@ -98,8 +98,7 @@ Väärin... yritä uudelleen
 Anna PIN-koodi: **9999**
 Väärin... yritä uudelleen
 Anna PIN-koodi: **1234**
-Väärin... yritä uudelleen
-Anna PIN-koodi oikein!
+PIN-koodi oikein!
 
 </sample-output>
 
