@@ -268,7 +268,7 @@ TypeError: 'str' object cannot be interpreted as an integer
 
 Tässä ongelmaksi tulee, että funktion jälkimmäinen parametri `kerrat` sijoitetaan `range`-funktioon. Kun parametri on `"Emilia"` eikä kokonaisluku, tämä aiheuttaa virheen.
 
-Voimme halutessamme antaa funktion määrittelyssä _tyyppivihjeen_, joka ilmaisee, millaista tietoa parametreihin on tarkoitus sijoittaa:
+Voimme antaa funktion määrittelyssä _tyyppivihjeen_, joka ilmaisee, millaista tietoa parametreihin on tarkoitus sijoittaa:
 
 ```python
 def tulosta_monesti(viesti : str, kerrat : int):
@@ -279,3 +279,4 @@ def tulosta_monesti(viesti : str, kerrat : int):
 Tämä kertoo funktion käyttäjälle, että parametrin `viesti` on tarkoitus olla merkkijono, kun taas parametrin `kerrat` on tarkoitus olla kokonaisluku.
 
 Huomaa kuitenkin, että tyyppivihje vain neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.
+

@@ -375,7 +375,7 @@ Listan pituus: 4
 Funktion parametri voi olla myös lista. Seuraavassa on funktio, joka selvittää listan _mediaanin_ eli keskimmäisen alkion järjestetyssä listassa:
 
 ```python
-def mediaani(lista)
+def mediaani(lista: list):
   jarjestetty = lista.sorted()
   keskikohta = len(jarjestetty) // 2
   return jarjestetty[keskikohta]
