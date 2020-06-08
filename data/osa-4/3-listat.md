@@ -1,9 +1,8 @@
 ---
-path: '/osa-4/2-listat'
+path: '/osa-4/3-listat'
 title: 'Listat'
 hidden: false
 ---
-
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 

@@ -1,5 +1,5 @@
 ---
-path: '/osa-4/0-vscode'
+path: '/osa-4/1-vscode'
 title: 'Visual Studio Code -editori'
 hidden: false
 ---
