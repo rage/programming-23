@@ -18,7 +18,9 @@ Tämän osion jälkeen
 
 Tähän asti olemme tallentaneet ohjelmissa käytettävää tietoa muuttujien avulla. Yksittäisillä muuttujilla on kuitenkin rajoituksensa. Jos ohjelman käsittelemä tiedon määrä on vaihteleva ja saattaa olla suuri, olisi vaivalloista määritellä jokaiselle arvolle erillinen muuttuja.
 
-_Lista_ on kokoelma tietoa, johon viitataan yhteisen nimen kautta. Listan sisältö kirjoitetaan hakasulkeiden sisään, ja jokaista listalla olevaa arvoa kutsutaan alkioksi. Esimerkiksi seuraava koodi luo uuden tyhjän listan:
+_Lista_ on kokoelma tietoa, johon viitataan yhteisen nimen kautta. Listan sisältö kirjoitetaan hakasulkeiden sisään, ja jokaista listalla olevaa arvoa kutsutaan _alkioksi_.
+
+Esimerkiksi seuraava koodi luo uuden tyhjän listan:
 
 ```python
 lista = []
@@ -45,7 +47,7 @@ print(lista[0])
 print(lista[1])
 print(lista[3])
 
-print("Summa:", lista[0] + lista[1])
+print("Kahden ekan summa:", lista[0] + lista[1])
 ```
 
 <sample-output>
@@ -53,7 +55,7 @@ print("Summa:", lista[0] + lista[1])
 7
 2
 5
-Summa: 9
+Kahden ekan summa: 9
 
 </sample-output>
 
@@ -96,7 +98,6 @@ luvut.append(5)
 luvut.append(10)
 luvut.append(3)
 print(luvut)
-
 ```
 
 <sample-output>
@@ -105,7 +106,13 @@ print(luvut)
 
 </sample-output>
 
-Seuraavassa esimerkiss ohjelman käytössä on kaksi erillistä listaa:
+<text-box variant='hint' name='Metodi'>
+
+Listan loppuun uusia alkoita lisäävä `append` on siis tekniseltä termiltään _metodi_. Metodit ovat sukua jo meille tutuille asioille eli _funktioille_. Metodit ovatkin eräänlaisia funktiota, mutta niiden suorittama operaatio kohdistuu siihen _olioon_, jonka kautta metodia kutsutaan, eli joka esiintyy metodikutsun alussa ennen metodin nimeä.
+
+</text-box>
+
+Seuraavassa esimerkissä ohjelman käytössä on kaksi erillistä listaa:
 
 ```python
 luvut = []
@@ -182,7 +189,7 @@ print(lista)
 
 </sample-output>
 
-Metodi `pop` myös palauttaa poistetun listan alkion:
+Metodi `pop` myös _palauttaa_ poistetun listan alkion:
 
 ```python
 lista = [4, 2, 7, 2, 5]
@@ -269,7 +276,7 @@ print(lista)
 
 </sample-output>
 
-Toinen tapa on käyttää funktiota `sorted`, joka palauttaa järjestetyn listan:
+Toinen tapa on käyttää funktiota `sorted`, joka _palauttaa_ järjestetyn listan:
 
 ```python
 lista = [2,5,1,2,4]
@@ -328,7 +335,7 @@ Summa: 15
 
 Pythonissa on ehkä hieman hämmentävästi käytössä kaksi eri tapaa listojen käsittelyyn.
 
-Suurin osa käsittelystä tapahtuu _metodien_ avulla. Esimerkiksi `append` ja `sorted` ovat metodeja, joita kutsutaan listamuuttujan kautta pistenotaatiolla:
+Suurin osa käsittelystä tapahtuu _metodien_ avulla. Esimerkiksi `append` ja `sort` ovat metodeja, joita kutsutaan listamuuttujan kautta pistenotaatiolla:
 
 ```python
 lista = []
@@ -340,10 +347,10 @@ lista.append(7)
 lista.append(2)
 
 # metodikutsu
-jarjestyksessa = lista.sorted()
+lista.sort()
 ```
 
- Sen sijaan esimerkiksi `max`,  `min`, `len` ja `sort` ovat _funktioita_, joille lista annetaan parametrina:
+ Sen sijaan esimerkiksi `max`,  `min`, `len` ja `sorted` ovat _funktioita_, joille lista annetaan parametrina:
 
 ```python
 lista = [3, 2, 7, 1]
@@ -357,8 +364,9 @@ print("Pienin:", pienin)
 print("Suurin:", suurin)
 print("Listan pituus:", summa)
 
-sort(lista)
-print(lista)
+# funktiokutsu: lista on parametrina, järjestetty lista paluuarvona
+jarjestyksessa = sorted(lista)
+print(jarjestyksessa)
 ```
 
 <sample-output>
@@ -372,7 +380,7 @@ Listan pituus: 4
 
 ## Lista funktion parametrina ja paluuarvona
 
-Funktion parametri voi olla myös lista. Seuraavassa on funktio, joka selvittää listan _mediaanin_ eli keskimmäisen alkion järjestetyssä listassa:
+Omatekemiemme funktioiden parametreina voi olla myös listoja. Seuraavassa on funktio, joka selvittää parametrina listan _mediaanin_ eli keskimmäisen alkion järjestetyssä listassa:
 
 ```python
 def mediaani(lista: list):

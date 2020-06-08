@@ -1,5 +1,5 @@
 ---
-path: '/osa-4/3-silmukat-ja-iterointi'
+path: '/osa-4/4-silmukat-ja-iterointi'
 title: 'Silmukat ja iterointi'
 hidden: false
 ---
@@ -191,8 +191,6 @@ print(luvut)
 </sample-output>
 
 ## Tulostamisen monet tavat
-
-TODO: Tämä on hyvää asiaa mutta onko tämä oikea paikka sille? Osion aiheena on silmukat ja iterointi.
 
 Voimme yhdistää tietoa toisiinsa `print`-komennossa monilla tavoilla. Yksi tapa on käyttää merkkijonojen `+`-operaattoria.
 

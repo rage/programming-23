@@ -81,15 +81,23 @@ mutta monet myös käyttävät termejä sekaisin.
 
 </text-box>
 
-## Komento return
+## Funktion paluuarvo
 
 Funktiot voivat myös palauttaa arvoja. Meille jo tuttu Pythonin valmis funktio `input` _palauttaa_ käyttäjän antaman syötteen. Funktion palauttamaa arvo voidaan esimerkiksi sijoittaa muuttujaan:
 
 ```python
 sana = input("syötä merkkijono: ")
+```
 
+Myös kokonaislukujen lukemisessa yhdessä funktion `input` käytettävä funktio `int` palauttaa arvon:
+
+```python
 luku = int(input("syötä kokonaisluku: "))
 ```
+
+Funktio `int` saa parametrinaan funktion `input` palauttaman merkkijonon, ja palauttaa sen kokonaislukutyyppisenä.
+
+## Funktion arvon palauttaminen return-komennolla
 
 Myös itse määrittelemämme funktiot voivat palauttaa arvoja käyttämällä komentoa `return`.
 Esimerkiksi seuraava funktio `summa` palauttaa
@@ -184,8 +192,10 @@ def tervehdi(nimi):
     print("Moikka",nimi)
 
 def tervehdi_monesti(nimi, kerrat):
-    for i in range(kerrat):
+    i = kerrat
+    while i>0:
         tervehdi(nimi)
+        i -= 1
 
 tervehdi_monesti("Emilia", 3)
 ```
@@ -205,15 +215,15 @@ toiselle funktiolle:
 def summa(a, b):
     return a+b
 
-print(summa(1, summa(2, 3)))
+tulos = (summa(1, summa(2, 3))
+print(tulos)
 ```
 
 <sample-output>
 6
 </sample-output>
 
-Tässä tapauksessa funktiokutsu `summa(2,3)` tuottaa arvon `5`,
-minkä jälkeen uusi funktiokutsu `summa(1,5)` tuottaa arvon 6.
+Tässä tapauksessa suoritetaan ensin "sisempi" funktiokutsu `summa(2, 3)`, joka palauttaa arvon `5`, jota käytetään "ulomman" funktiokutsun parametrina. Ulompi funktiokutsu `summa(1,5)` palauttaa arvon 6, joka sijoitetaan muuttujan `tulos` arvoksi ja tulostetaan ruudulle.
 
 Funktioiden palauttamat arvot toimivat täysin samalla tavalla kuin mitkä tahansa arvot Pythonissa. Niitä voidaan tulostaa, sijoittaa muuttujaan, käyttää osana lausekkeita tai käyttää parametreina muissa funktiokutsuissa.
 
@@ -234,8 +244,10 @@ Tarkastellaan esimerkkinä seuraavaa funktiota:
 
 ```python
 def tulosta_monesti(viesti, kerrat):
-    for i in range(kerrat):
-        print(viesti)
+    i = kerrat
+    while i>0:
+        tervehdi(nimi)
+        i -= 1
 ```
 
 Funktio toimii mainiosti, jos kutsumme sitä näin:
@@ -262,11 +274,11 @@ tulosta_monesti("Moikka", "Emilia")
 
 <sample-output>
 
-TypeError: 'str' object cannot be interpreted as an integer
+TypeError: '>' not supported between instances of 'str' and 'int'
 
 </sample-output>
 
-Tässä ongelmaksi tulee, että funktion jälkimmäinen parametri `kerrat` sijoitetaan `range`-funktioon. Kun parametri on `"Emilia"` eikä kokonaisluku, tämä aiheuttaa virheen.
+Tässä ongelmaksi tulee, että funktion jälkimmäinen parametri `kerrat` sijoitetaan muuttujaan `i`, jota vertaillaan kokonaislukuun 0. Kun parametri on `"Emilia"` eikä kokonaisluku, tämä aiheuttaa virheen.
 
 Voimme antaa funktion määrittelyssä _tyyppivihjeen_, joka ilmaisee, millaista tietoa parametreihin on tarkoitus sijoittaa:
 
@@ -278,5 +290,4 @@ def tulosta_monesti(viesti : str, kerrat : int):
 
 Tämä kertoo funktion käyttäjälle, että parametrin `viesti` on tarkoitus olla merkkijono, kun taas parametrin `kerrat` on tarkoitus olla kokonaisluku.
 
-Huomaa kuitenkin, että tyyppivihje vain neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.
-
+Huomaa kuitenkin, että tyyppivihje ainoastaan neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.

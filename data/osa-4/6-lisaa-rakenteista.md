@@ -1,5 +1,5 @@
 ---
-path: '/osa-4/4-lisaa-rakenteista'
+path: '/osa-4/6-lisaa-rakenteista'
 title: 'Lisää merkkijonoista ja listoista'
 hidden: false
 ---
@@ -91,7 +91,9 @@ TypeError: 'str' object does not support item assignment
 
 Samankaltainen virhe seuraa, jos yritetään esimerkiksi järjestää merkkijonoa järjestykseen `sort`-metodilla.
 
-Vaikka merkkijonoa ei voi muuttaa, voimme silti sijoittaa merkkijonon paikalle toisen merkkijonon. Onkin tärkeää huomata ero seuraavien esimerkkien välillä:
+Vaikka merkkijonoa ei voi muuttaa, voimme silti sijoittaa merkkijonon paikalle toisen merkkijonon. 
+
+Onkin tärkeää huomata ero seuraavien esimerkkien välillä:
 
 ```python
 lista = [1,2,3]
