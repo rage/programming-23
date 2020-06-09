@@ -2,7 +2,7 @@ import TmcClient from "tmc-client-js"
 import fetchPonyfill from "fetch-ponyfill"
 import axios from "axios"
 import * as store from "store"
-import uuidv4 from "uuid/v4"
+import { v4 as uuidv4 } from "uuid"
 import CourseSettings from "../../course-settings"
 
 const { fetch } = fetchPonyfill()

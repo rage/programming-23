@@ -80,7 +80,7 @@
     "redux-devtools-extension": "^2.13.8",
     "rehype-react": "^5.0.0",
     "store": "^2.0.12",
-    "styled-components": "^4.4.1",
+    "styled-components": "^5.1.1",
     "tmc-client-js": "0.0.9",
     "ts-results": "^2.0.1",
     "typeface-open-sans": "0.0.75",
@@ -89,7 +89,7 @@
     "typeface-roboto-slab": "^1.1.4",
     "typesafe-actions": "^4.4.2",
     "typescript": "^3.9.5",
-    "uuid": "^3.4.0",
+    "uuid": "^8.1.0",
     "visibilityjs": "^2.0.2"
   },
   "keywords": [
