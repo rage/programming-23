@@ -188,7 +188,7 @@ Lähtölaskenta!
 3
 2
 1
-nyt!
+Nyt!
 
 </sample-output>
 
