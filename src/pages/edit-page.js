@@ -26,10 +26,9 @@ const EditPage = ({ t }) => {
   })(urlEnd)
 
   const path = qs.path
+  const editPath = CourseSettings.githubUrl.concat("/edit/master", path)
 
-  var editPath = CourseSettings.githubUrl.concat("/edit/master", path)
-
-  var loginThenEditPath =
+  const loginThenEditPath =
     "https://github.com/join?return_to=" + editPath + "&source=login"
   return (
     <Layout>
