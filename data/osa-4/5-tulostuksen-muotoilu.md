@@ -133,3 +133,25 @@ Emilia          keskellä          Emilia
 Juha-Pekka      keskellä      Juha-Pekka
 Maya            keskellä            Maya
 ```
+
+<programming-exercise name=' Lukulistasta merkkijonolistaksi' tmcname='osa04-21_lukulistasta_merkkijonolistaksi'>
+
+Kirjoita funktio `muotoile`, joka saa parametrikseen liukulukuja sisältävän listan. Funktio muodostaa listan perusteella uuden, merkkijonotyyppisiä alkoita sisältävän listan, jossa jokainen liukulukulistan alkio esitetään pyöristettynä kahden merkitsevän numeron tarkkuuteen. Listan alkioiden järjestyksen tulee säilyä.
+
+_Vinkki: Käytä liukulukujen muotoiluuun merkkijonoiksi f-merkkijonoa._
+
+Esimerkki funktion käytöstä:
+
+```python
+lista = [1.234, 0.3333, 0.11111]
+lista2 = muotoile(lista)
+print(lista2)
+```
+
+<sample-output>
+
+['1.2', '0.33', '0.11']
+
+</sample-output>
+
+</programming-exercise>

@@ -72,6 +72,26 @@ ikkremise
 
 </sample-output>
 
+<programming-exercise name='Kaikki väärinpäin' tmcname='osa04-22_kaikki_vaarinpain'>
+
+Kirjoita funktio `kaikki_vaarinpain`, joka saa paramerikseen listan merkkijonoja. Funktio luo ja palauttaa uuden listan, jossa kaikki alkuperäisellä listalla olevat merkkijonot on käännetty. Myös listan alkioiden järjestys muutetaan käänteiseksi.
+
+Esimerkki funktion käytöstä:
+
+```python
+lista = ["Moi", "kaikki", "esimerkki", "vielä yksi"]
+lista2 = kaikki_vaarinpain(lista)
+print(lista2)
+```
+
+<sample-output>
+
+['isky äleiv', 'ikkremise', 'ikkiak', 'ioM']
+
+</sample-output>
+
+</programming-exercise>
+
 ## Merkkijonoa ei voi muuttaa
 
 Merkkijonoilla ja listoilla on paljon yhteistä, ja useimmat operaatiot toimivat samalla tavalla sekä merkkijonoille että listoille. Kuitenkin erona on, että merkkijonoa _ei voi muuttaa_. Esimerkiksi seuraava koodi ei toimi tarkoitetulla tavalla:
@@ -192,3 +212,100 @@ print(mjono)
 Java on kivaa
 
 </sample-output>
+
+
+
+
+
+<programming-exercise name='Eniten kirjaimia' tmcname='osa04-23_eniten_kirjaimia'>
+
+
+
+Kirjoita funktio `eniten_kirjainta(mjono: str)`, joka saa parametrikseen merkkijonon. Funktio palauttaa sen kirjaimen, jota esiintyy eniten merkkijonossa.
+
+Voit olettaa, että merkkijono koostuu pelkästään pienistä suomen kielen kirjaimista a...ö. 
+
+Esimerkki funktion käytöstä:
+
+```python
+mjono = "abcbdbe"
+print(eniten_kirjainta(mjono))
+
+toinen_jono = "esimerkkimerkkijonokki"
+print(eniten_kirjainta(toinen_jono))
+```
+
+<sample-output>
+
+b
+k
+
+</sample-output>
+
+</programming-exercise>
+
+
+<programming-exercise name='Vokaalit pois' tmcname='osa04-24_vokaalit_pois'>
+
+Kirjoita funktio `ilman_vokaaleja(lause: str)`, joka saa parametrikseen merkkijonon. Funktion palauttaa uuden merkkijonon, jossa alkuperäisen merkkijonon vokaalit on poistettu.
+
+Voit olettaa, että merkkijono koostuu pelkästään pienistä suomen kielen kirjaimista a...ö.
+
+Esimerkki funktion käytöstä:
+
+```python
+mjono = "tämä on esimerkki"
+print(ilman_vokaaleja(mjono))
+```
+
+<sample-output>
+
+tm n smrkk
+
+</sample-output>
+
+</programming-exercise>
+
+
+<programming-exercise name='Poista isot' tmcname='osa04-25_poista_isot'>
+
+Pythonin merkkijonometodi `isupper()` palauttaa arvon `True`, jos merkkijono koostuu _pelkästään isoista kirjaimista_. 
+
+Esimerkiksi:
+
+```python
+print("XYZ".isupper())
+
+onko_iso = "Abc".isupper()
+print(onko_iso)
+```
+
+<sample-output>
+
+True
+False
+
+</sample-output>
+
+Kirjoita metodia hyödyntäen funktio `poista_isot`, joka saa parametrikseen listan merkkijonoja. Funktio poistaa listalta ne merkkijonot, jotka koostuvat kokonaan isoista kirjaimista.
+
+Huomaa, että funktio _ei palauta mitään_, vaan poistaa alkiot parametrinaan saamastaan listasta.
+
+Esimerkki funktion käytöstä:
+
+```python
+
+lista = ["ABC", "def", "ISO", "TOINENISO", "pieni", "toinen pieni"]
+poista_isot(lista)
+print(lista)
+
+```
+
+<sample-output>
+
+['def', 'pieni', 'toinen pieni']
+
+</sample-output>
+
+
+</programming-exercise>

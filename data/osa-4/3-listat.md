@@ -500,7 +500,7 @@ print("Pituudet:")
 pituudet = lue_luvut()
 ```
 
-<programming-exercise name='Listan pituus' tmcname='osa04-09_listan_pituus-'>
+<programming-exercise name='Listan pituus' tmcname='osa04-09_listan_pituus'>
 
 Tee funktio `pituus`, joka _palauttaa_ (return lauseella) parametrinaan saamansa listan pituuden.
 

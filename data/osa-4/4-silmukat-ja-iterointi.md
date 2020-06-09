@@ -190,73 +190,168 @@ print(luvut)
 
 </sample-output>
 
-## Tulostamisen monet tavat
+<programming-exercise name='Tähdet' tmcname='osa04-12_tahdet'>
 
-Voimme yhdistää tietoa toisiinsa `print`-komennossa monilla tavoilla. Yksi tapa on käyttää merkkijonojen `+`-operaattoria.
+Tee funktio `lista_tahtina`, joka saa parametriksi listan kokonaislukuja. FUnktio tulostaa joukon tähtirivejä siten, että listalla olevat luvut kertovat kunkin rivin tähtimäärän.
+
+Esim. kutsuttaessa `listaTahtina([3, 7, 1, 1, 2])` tulostuu
+
+
+<sample-output>
+
+<pre>
+***
+*******
+*
+*
+**
+</pre>
+
+</sample-output>
+
+
+</programming-exercise> 
+
+<programming-exercise name='Anagrammi' tmcname='osa04-13_anagrammi'>
+
+Tee funktio `anagrammi` joka saa parametriksi kaksi merkkijonoa. Funktio palauttaa True jos merkkijonot ovat anagrammeja, eli ne muodostuvat täsmälleem samoista kirjaimista.
+
+Esimerkiksi seuraavat merkkijonot ovat anagrammeja:
+
+<pre>
+talo, tola, olat, lato
+</pre>
+
+Seuraavat merkkijonot taas eivät ole anagrammeja:
+
+<pre>
+tammi, mitta
+</pre>
+
+</programming-exercise> 
+
+<programming-exercise name='Palindromit' tmcname='osa04-14_palindromit'>
+
+Tee funktio `palindromi`, joka saa parametriksi merkkijonon ja palauttaa True jos merkkijono on palindromi (eli samansisältöinen luettuna alusta loppuun tai lopusta alkuun).
+
+Tee myös funktiota käöyttävä pääohjelma, joka kyselee käyttäjältä sanoja, niin kauan kunnes käyttäjä syöttää palindromin:
+
+<sample-output>
+
+anna sana: **python**
+ei ollut palindromi
+anna sana: **java**
+ei ollut palindromi
+anna palindromi: **kauppias**
+ei ollut palindromi
+anna palindromi: **saippuakauppias**
+saippuakauppias on palindromi!
+
+</sample-output>
+
+</programming-exercise> 
+
+
+<programming-exercise name='Positiivisten summa' tmcname='osa04-15_positiivisten_summa'>
+
+Tee funktio `positiivisten_summa`, joka saa parametriksi kokonaislukuja sisältävän listan. 
+
+Funktio _palauttaa_ listan positiivisten lukujen summan.
+
+
+</programming-exercise> 
+
+Kertaa nyt tarvittaessa [edellisen osion](/osa-4/3-listat) luku _Lista funktion parametrina ja paluuarvona_!
+
+<programming-exercise name='Parilliset' tmcname='osa04-16_parilliset'>
+
+Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän lista. 
+
+Funktio _palauttaa_  uuden listan, jolla on parameterina olevalla listalla olevat parilliset luvut. 
+
+
+</programming-exercise> 
+
+<programming-exercise name='Summavektori' tmcname='osa04-17_summavektori'>
+
+Tee funktio `summa`, joka saa parametriksi kaksi kokonaislukuja sisältävää listaa. Molemmissa listoissa on sama määrä alkioita. 
+
+Funktio _palauttaa_ uuden listan, jonka alkiot muodostuvat parametreina olevien listojen alkioiden summista. 
+
+Esim:
 
 ```python
-nimi = "Erkki"
-ika = 39
-print("Hei " + nimi + " ikäsi on " + str(ika) + " vuotta" )
-```
+l1 = [1,2,3]
+l2 = [7,8,9]
 
-Tämä tapa edellyttää, että kaikki yhdistettävät osat ovat merkkijonoja. Koska muuttuja `ika` on tyypiltään kokonaisluku, se on muutettu yhdistämistä varten merkkijonoksi funktiolla `str`.
+l3 = summa(l1, l2)
 
-Voimme myös käyttää yhdistämiseen pilkkua, jolloin yhdistettävät osat voivat olla eri tyyppisiä:
-
-```python
-print("Hei", nimi, "ikäsi on", ika, "vuotta" )
-```
-
-Tämän koodin lopputulos on sama kuin edellisessä koodissa. Näin käytettynä `print` tulostaa kaikki parametrinsa välilyönnillä eroteltuna.
-
-Nämä ovat toimivia tapoja, mutta voimme toteuttaa tulostamisen lyhemmin myös näin:
-
-```python
-print(f"Hei {nimi} ikäsi on {ika} vuotta")
-```
-
-Tässä merkkijonon alussa on kirjain _f_, mikä tarkoittaa että merkkijono on _f-string_. Merkkijonon sisälle on sijoitettu aaltosuluissa muuttujia, joiden arvot tulevat merkkijonon osaksi. Tulostus on täsmälleen sama kuin aiemmissa esimerkeissä.
-
-Voimme muotoilla monin tavoin f-stringien avulla tapahtuvaa tulostusta. Yksi tavallinen käyttötapa on antaa liukuluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
-
-```python
-luku = 1/3
-print("Luku on", luku)
+print("l1:", l1)
+print("l2:", l2)
+print("l3:", l3)
 ```
 
 <sample-output>
 
-Luku on 0.333333333333333
+l1: [1,2,3]
+l2: [7,8,9]
+l3: [8, 10, 12]
 
 </sample-output>
 
-Saamme määriteltyä tulostuvien desimaalien määrän f-stringin avulla. Tulostuksen muoto määritellään lisäämällä aaltosulkeiden sisään tulostettavan muuttujan jälkeen kaksoispiste ja _muotoiluohje_:
+</programming-exercise> 
+
+<programming-exercise name='Uniikit' tmcname='osa04-18_uniikit'>
+
+Tee funktio `uniikit`, joka saa parametriksi kokonaislukuja sisältävän listan. 
+
+Funktio _palauttaa_ uuden lista, joka sisältää parmetrina saamansa luvut suuruusjärjestyksessä siten, että jokainen luku voi olla listalla vain kertaalleen.
 
 ```python
-luku = 1/3
-print(f"Luku on {luku:.2}")
+l1 = [3, 2, 2, 1, 3,  3, 1]
+
+l2 = uniikki(l1)
+print(l2)
 ```
+
+<sample-output>
+
+[1, 2, 3]
+
+</sample-output>
+
+</programming-exercise> 
+
+<programming-exercise name='Listan pisimmät' tmcname='osa04-19_listan_pisimmat'>
+
+Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa listan, joka sisältää sen parametrina saamansa listan pisimmän merkkijonon. Jos pisimpiä merkkijonoja on useampia, funktio palauttaa ne kaikki listassa. 
+
+Nimien järjestyksen tuloslistassa tulee noudattaa nimien järjestystä alkuperäisessä listassa.
 
 ```python
-Luku on 0.33
+lista = ["eka", "toka", "kolmas", "seitsemäs"]
+
+tulos = pisimmat(lista)
+print(tulos)
 ```
 
-Muotoiluohje `.2` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella.
+<sample-output>
 
-Tässä on vielä toisenlainen esimerkki, jossa tulostetaan nimiä 15 merkin levyiseen tekstialueeseen, ensin vasemmalle sisennettynä ja sen jälkeen oikealle sisennettynä:
+['seitsemäs']
+
+</sample-output>
 
 ```python
-nimet =  [ "Antti", "Emilia", "Juha-Pekka", "Maya" ]
-for nimi in nimet:
-  print(f"{nimi:15} keskellä {nimi:>15}")
+lista = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
+
+tulos = pisimmat(lista)
+print(tulos)
 ```
 
-```python
-Antti           keskellä           Antti
-Emilia          keskellä          Emilia
-Juha-Pekka      keskellä      Juha-Pekka
-Maya            keskellä            Maya
-```
+<sample-output>
 
-TODO: linkki dokumentaatioon
+['emilia', 'juhani']
+
+</sample-output>
+
+</programming-exercise> 
