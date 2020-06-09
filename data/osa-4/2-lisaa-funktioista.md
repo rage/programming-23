@@ -95,9 +95,11 @@ viiva(3 "")
 
 <sample-output>
 
+<pre>
 %%%%%%%
 LLLLLLLLLL
 ***
+</pre>
 
 </sample-output>
 
@@ -308,9 +310,6 @@ Moikka, Matti
 
 </sample-output>
 
-<programming-exercise name='' tmcname='osa04-'>
-</programming-exercise>
-
 ## Funktion paluuarvojen käyttö
 
 Kuten olemme jo nähneet, funktioiden paluuarvoja on mahdollista sijoittaa muuttujiin
@@ -354,6 +353,53 @@ Tässä tapauksessa suoritetaan ensin "sisemät" funktiokutsut `summa(5, 2)` ja 
 Ulompi funktiokutsu `erotus(7, 5)` palauttaa arvon 2, joka sijoitetaan muuttujan `tulos` arvoksi ja tulostetaan ruudulle.
 
 Funktioiden palauttamat arvot toimivat täysin samalla tavalla kuin mitkä tahansa arvot Pythonissa. Niitä voidaan tulostaa, sijoittaa muuttujaan, käyttää osana lausekkeita tai käyttää parametreina muissa funktiokutsuissa.
+
+<programming-exercise name='Luvuista suurin' tmcname='osa04-05_luvuista_suurin'>
+
+Tee funktio _suurin_, joka saa parametriksi kolme kokonaislukua. Funktio _palauttaa_ return-lausetta käyttäen luvuista suurimman.
+
+Käyttöesimerkki
+
+```python
+s1 = suurin(3, 4, 1)
+s1 = suurin(99, -4, 7)
+s1 = suurin(0, 0, 0)
+s4 = suurin(s1, s2, s3)
+print(s1, s2, s3, s4)
+```
+
+<sample-output>
+
+4 99 0 99
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Merkit samat' tmcname='osa04-06_merkit_samat'>
+
+Tee funktio _samat_ joka saa parametriksi merkkijonon, ja kaksi merkkijonon indeksejä kuvaavaa kokonaislukua. Funktio _palauttaa_ return-lausetta käyttäen tiedon (True tai False) siitä ovatko merkkijonon parametreina olevien indeksien osoittamissa paikoissa olevat merkit samat. Jos jompi kumpi indekseistä ei osu merkkijonon sisälle, palauttaa metodi False.
+
+Muutama esimerkki
+
+```python
+samat("koodari", 1, 2) # palauttaa True sillä kyseessä o ja o
+samat("koodari", 0, 4) # palauttaa False sillä kyseessä k ja a
+
+# seuraava palauttaa False sillä toinen indeksi ei ole merkkijonon sisällä
+samat("koodari", 0, 10) 
+```
+</programming-exercise>
+
+<programming-exercise name='Eka, toka ja vika sana' tmcname='osa04-07_eka_toka_vika_sana'>
+
+Tee kolme funktiota: `eka_sana`, `toka_sana` ja `vika_sana`. Jokainen funktioista saa parametrikseen lauseen (eli merkkijonon).
+
+Funktiot _palauttavat_ nimensä mukaisesti lauseen ensimmäisen, toisen tai viimeisen sanan.
+
+Voit olettaa jokaisessa tapauksessa, että merkkijonossa koostuu vähintään kahdesta sanasta.
+
+</programming-exercise>
 
 ## Parametrin tyyppi
 
