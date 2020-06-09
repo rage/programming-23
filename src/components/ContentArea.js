@@ -8,7 +8,7 @@ const ContentAreaContainer = styled.main`
   margin-bottom: 5rem;
   min-height: 80vh;
   font-size: 1rem;
-  ${props =>
+  ${(props) =>
     props.mobileMenuOpen &&
     `
   display: none;

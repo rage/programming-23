@@ -14,7 +14,7 @@ const EditPage = ({ t }) => {
     typeof window !== `undefined`
       ? window.location.search.substr(1).split("&")
       : null
-  var qs = (function(a) {
+  var qs = (function (a) {
     if (a === "" || a === null) return {}
     var b = {}
     for (var i = 0; i < a.length; ++i) {

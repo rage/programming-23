@@ -33,7 +33,7 @@ const PROGRESS = gql`
   }
 `
 
-const Points = props => {
+const Points = (props) => {
   const course = props.course || CourseSettings.slug
   const { data, loading, error, refetch } = useQuery(PROGRESS)
 

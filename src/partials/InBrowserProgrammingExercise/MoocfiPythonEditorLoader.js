@@ -49,7 +49,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
     this.setState({ render: true })
   }
 
-  onUpdate = exerciseDetails => {
+  onUpdate = (exerciseDetails) => {
     this.setState({
       exerciseDetails,
     })
@@ -89,7 +89,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
           )}
           <Wrapper>{children}</Wrapper>
           <ProgrammingExercise
-            onExerciseDetailsChange={details => this.onUpdate(details)}
+            onExerciseDetailsChange={(details) => this.onUpdate(details)}
             organization={ORGANIZATION}
             course={COURSE}
             exercise={tmcname}

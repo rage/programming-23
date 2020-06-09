@@ -109,7 +109,7 @@ const PartProgress = ({ name, data, appliesForStudyRight, t }) => {
             <SmallP>
               {t("canApplyForStudyRight")}{" "}
               {
-                allChartData.find(o => o.tool === t("programmingService"))
+                allChartData.find((o) => o.tool === t("programmingService"))
                   ?.progress
               }
               %.

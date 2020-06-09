@@ -51,7 +51,7 @@ class SignInPage extends React.Component {
     clearInterval(this.fallbackRedirector)
   }
 
-  onClick = async e => {
+  onClick = async (e) => {
     e.preventDefault()
     if (
       this.state.submitting ||
@@ -126,7 +126,7 @@ class SignInPage extends React.Component {
                   label={this.props.t("user:emailUsername")}
                   fullWidth
                   value={this.state.email}
-                  onChange={o => this.setState({ email: o.target.value })}
+                  onChange={(o) => this.setState({ email: o.target.value })}
                 />
               </Row>
               <Row>
@@ -137,7 +137,7 @@ class SignInPage extends React.Component {
                   label={this.props.t("user:password")}
                   fullWidth
                   value={this.state.password}
-                  onChange={o => this.setState({ password: o.target.value })}
+                  onChange={(o) => this.setState({ password: o.target.value })}
                 />
               </Row>
 
