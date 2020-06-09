@@ -259,6 +259,26 @@ Listalla on alkio 1
 
 </sample-output>
 
+<programming-exercise name='Sama sana kahdesti' tmcname='osa04-08_sama_sana_kahdesti'>
+
+Tee ohjelma, joka kyselee käyttäjältä sanoja. Kun käyttäjä on syöttänyt jonkun sanan kahdesti, ohelma tulostaa käyttäjän syöttämät sanat ja lopettaa toimintansa.
+
+<sample-output>
+
+sana: **olipa**
+sana: **kerran**
+sana: **kauan**
+sana: **sitten**
+sana: **kerran**
+olipa
+kerran
+kauan
+sitten
+
+</sample-output>
+
+</programming-exercise> 
+
 ## Listan järjestäminen
 
 Listan alkiot voidaan _järjestää_ pienimmästä suurimpaan metodin `sort` avulla:
@@ -328,7 +348,6 @@ Suurin: 5
 Summa: 15
 
 </sample-output>
-
 
 ## Metodit vs. funktiot
 
@@ -480,6 +499,24 @@ painot = lue_luvut()
 print("Pituudet:")
 pituudet = lue_luvut()
 ```
+
+<programming-exercise name='Listan pituus' tmcname='osa04-09_listan_pituus-'>
+
+Tee funktio `pituus`, joka _palauttaa_ (return lauseella) parametrinaan saamansa listan pituuden.
+
+</programming-exercise> 
+
+<programming-exercise name='Keskiarvo' tmcname='osa04-10_keskiarvo'>
+
+Tee funktio `keskiarvo`, joka _palauttaa_ (return lauseella) parametrinaan saamansa kokonaislukuja sisältävän listan alkioiden keskiarvon.
+
+</programming-exercise> 
+
+<programming-exercise name='Vaihteluväli' tmcname='osa04-11_vaihteluvali'>
+
+Tee funktio `vaihteluvali`, joka _palauttaa_ (return-lauseella) parametrinaan saamansa kokonaislukuja sisältävän listan _vaihteluvälin_ (eli suurimman ja pienimmän alkion erotuksen).
+
+</programming-exercise> 
 
 ## Lisää listan käsittelystä
 

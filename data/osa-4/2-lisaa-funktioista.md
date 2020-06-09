@@ -138,7 +138,7 @@ Tee funktio `kuvio`, joka saa neljä parametria (y_korkeus, y_merkki, a_korkeus,
 Pari käyttöesimerkkiä
 
 ```python
-kuvio(5, "X", 3, "*")
+kuvio(5, "X", 3, "O")
 print()
 kuvio(2, "o", 4, "+")
 print()
@@ -147,6 +147,7 @@ kuvio(3, ".", 0, ",")
 
 <sample-output>
 
+<pre>
 X
 XX
 XXX
@@ -166,6 +167,7 @@ oo
 .
 ..
 ...
+</pre>
 
 </sample-output>
 
