@@ -81,6 +81,132 @@ mutta monet myös käyttävät termejä sekaisin.
 
 </text-box>
 
+<programming-exercise name='Viiva' tmcname='osa04-02_viiva'>
+
+Tee funktio `viiva`, joka saa kaksi parametria (leveys, merkkijono). Funktio tulostaa ensimmäisen parametrin määrittämän pituisen viivan käyttäen tosena parametrina olevan merkkijonon ensimmäistä merkkiä. Jos parametrina oleva merkkijono on tyhjä, tulostuu viiva tähtinä.
+
+Käyttöesimerkki:
+
+```python
+viiva(7 "%")
+viiva(10 "LOL")
+viiva(3 "")
+```
+
+<sample-output>
+
+%%%%%%%
+LLLLLLLLLL
+***
+
+</sample-output>
+
+</programming-exercise>
+
+## Sisäkkäiset kutsut
+
+Voimme kutsua funktiota myös toisen funktion sisältä. Esimerkiksi seuraavassa ohjelmassa funktio
+`tervehdi_monesti` kutsuu funktiota `tervehdi` halutun määrän kertoja:
+
+```python
+def tervehdi(nimi):
+    print("Moikka",nimi)
+
+def tervehdi_monesti(nimi, kerrat):
+    i = kerrat
+    while i>0:
+        tervehdi(nimi)
+        i -= 1
+
+tervehdi_monesti("Emilia", 3)
+```
+
+<sample-output>
+
+Moikka, Emilia
+Moikka, Emilia
+Moikka, Emilia
+
+</sample-output>
+
+<programming-exercise name='Kuvio' tmcname='osa04-03_kuvio'>
+
+Tee funktio `kuvio`, joka saa neljä parametria (y_korkeus, y_merkki, a_korkeus, a_merkki). Funktio tulostaa kuvion joka yläosana on kahden ensimmäisen parametrin määrittelemästä kolmio ja alaosana kahden jälkimäisen parametrin määrittelemästä suorakulmio.
+
+Pari käyttöesimerkkiä
+
+```python
+kuvio(5, "X", 3, "*")
+print()
+kuvio(2, "o", 4, "+")
+print()
+kuvio(3, ".", 0, ",")
+```
+
+<sample-output>
+
+X
+XX
+XXX
+XXXX
+XXXXX
+*****
+*****
+*****
+
+o
+oo
+++
+++
+++
+++
+
+.
+..
+...
+
+</sample-output>
+
+Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle.
+
+</programming-exercise>
+
+<programming-exercise name='Joulukuusi' tmcname='osa04-04_joulukuusi'>
+
+Tee funktio `joulukuusi`, joka saa yhden parametrin. Funktio tulostaa tekstin joulukuusi! ja parametrinsa kokoisen joulukuusen.
+
+Esim. kutsuttaessa `joulukuusi(3)` tulostuu
+
+<sample-output>
+
+<pre>
+joulukuusi!
+  *
+ *** 
+*****
+  *
+</pre>
+
+</sample-output>
+
+Esim. kutsuttaessa `joulukuusi(5)` tulostuu
+
+<sample-output>
+
+<pre>
+joulukuusi!
+    *
+   *** 
+  *****
+ *******
+*********
+    *
+</pre>
+
+</sample-output>
+
+</programming-exercise>
+
 ## Funktion paluuarvo
 
 Funktiot voivat myös palauttaa arvoja. Meille jo tuttu Pythonin valmis funktio `input` _palauttaa_ käyttäjän antaman syötteen. Funktion palauttamaa arvo voidaan esimerkiksi sijoittaa muuttujaan:
@@ -136,7 +262,7 @@ Moikka, Anna
 
 </sample-output>
 
-Komento `return` lopettaa funktion suorituksen saman tien.
+Kannattaa huomata, että komento `return` lopettaa funktion suorituksen saman tien.
 Niinpä voimme tehdä seuraavan funktion:
 
 ```python
@@ -182,48 +308,50 @@ Moikka, Matti
 
 </sample-output>
 
-## Sisäkkäiset kutsut
+<programming-exercise name='' tmcname='osa04-'>
+</programming-exercise>
 
-Voimme kutsua funktiota myös toisen funktion sisältä. Esimerkiksi seuraavassa ohjelmassa funktio
-`tervehdi_monesti` kutsuu funktiota `tervehdi` halutun määrän kertoja:
+## Funktion paluuarvojen käyttö
 
-```python
-def tervehdi(nimi):
-    print("Moikka",nimi)
-
-def tervehdi_monesti(nimi, kerrat):
-    i = kerrat
-    while i>0:
-        tervehdi(nimi)
-        i -= 1
-
-tervehdi_monesti("Emilia", 3)
-```
-
-<sample-output>
-
-Moikka, Emilia
-Moikka, Emilia
-Moikka, Emilia
-
-</sample-output>
-
-Toisaalta voimme antaa funktion palauttaman arvon
-toiselle funktiolle:
+Kuten olemme jo nähneet, funktioiden paluuarvoja on mahdollista sijoittaa muuttujiin
 
 ```python
 def summa(a, b):
     return a+b
 
-tulos = (summa(1, summa(2, 3))
-print(tulos)
+tulos = summa(4, 6)
+print("summa on", tulos)
 ```
 
 <sample-output>
-6
+summa on 10
 </sample-output>
 
-Tässä tapauksessa suoritetaan ensin "sisempi" funktiokutsu `summa(2, 3)`, joka palauttaa arvon `5`, jota käytetään "ulomman" funktiokutsun parametrina. Ulompi funktiokutsu `summa(1,5)` palauttaa arvon 6, joka sijoitetaan muuttujan `tulos` arvoksi ja tulostetaan ruudulle.
+Koska funktion paluuarvo käyttäytyy kuten mikä tahansa arvo, ei apumuuttuja ole tarpeen, ja paluuarvoa on mahdollista käyttää suoraan komennon `print` parametrina:
+
+```python
+print("summa on", summa(4, 6))
+```
+Voimme myös antaa omatekemän funktion palauttaman arvon toiselle funktiolle:
+
+```python
+def summa(a, b):
+    return a+b
+
+def erotus(a, b):
+    return a-b
+
+tulos = erotus(summa(5, 2), summa(2, 3))
+print("vastaus on", tulos)
+```
+
+<sample-output>
+vastaus on 2
+</sample-output>
+
+Tässä tapauksessa suoritetaan ensin "sisemät" funktiokutsut `summa(5, 2)` ja `summa(2, 3)`, joiden  palauttaamat arvot 7 ja 5, käytetään "ulomman" funktiokutsun parametreina. 
+
+Ulompi funktiokutsu `erotus(7, 5)` palauttaa arvon 2, joka sijoitetaan muuttujan `tulos` arvoksi ja tulostetaan ruudulle.
 
 Funktioiden palauttamat arvot toimivat täysin samalla tavalla kuin mitkä tahansa arvot Pythonissa. Niitä voidaan tulostaa, sijoittaa muuttujaan, käyttää osana lausekkeita tai käyttää parametreina muissa funktiokutsuissa.
 
