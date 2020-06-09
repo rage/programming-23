@@ -9,9 +9,7 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät lisää funktion parametrien käyttämisestä
-- Osaat palauttaa arvon funktiosta ja käyttää sitä kutsukohdassa
-- Osaat merkitä tyyppivihjeet parametreille ja paluuarvolle
+- Osaat käyttää Visual studio Code -editoria kurssin tehtävien tekemiseen
 
 </text-box>
 
@@ -20,3 +18,7 @@ Olemme tähän mennessä tehneet kaikki tehtävät kurssisivuille upotettuihin e
 Erilaisia ohjelmointiin sopivia editoreja on kymmeniä. Käytämme kurssilla viime vuosina suureen suosioon noussutta [Visual studio code](https://code.visualstudio.com/) -editoria. 
 
 Asenna nyt Visual studio code ja kurssin tehtävien testien suorittamiseen käytettävä TMC-plugin [tämän ohjeen](https://www.mooc.fi/fi/installation/vscode) avulla.
+
+<programming-exercise name='Hello Visual studio Code' tmcname='osa04-01_hello_visualstudio_code'>
+
+</programming-exercise> 
