@@ -14,7 +14,7 @@ const EditPage = ({ t }) => {
     typeof window !== `undefined`
       ? window.location.search.substr(1).split("&")
       : null
-  /*   var qs = (function(a) {
+  var qs = (function(a) {
     if (a === "" || a === null) return {}
     var b = {}
     for (var i = 0; i < a.length; ++i) {
@@ -23,9 +23,9 @@ const EditPage = ({ t }) => {
       else b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "))
     }
     return b
-  })(urlEnd) */
+  })(urlEnd)
 
-  const path = urlEnd[0].split("path=")[1]
+  const path = qs.path
   const editPath = CourseSettings.githubUrl.concat("/edit/master", path)
 
   const loginThenEditPath =
