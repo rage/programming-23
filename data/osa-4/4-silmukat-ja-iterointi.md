@@ -269,7 +269,6 @@ Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän lis
 
 Funktio _palauttaa_  uuden listan, jolla on parameterina olevalla listalla olevat parilliset luvut. 
 
-
 </programming-exercise> 
 
 <programming-exercise name='Summavektori' tmcname='osa04-17_summavektori'>
