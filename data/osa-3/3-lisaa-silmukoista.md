@@ -226,15 +226,24 @@ Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun. Jos käyttäjä syöttä�
 
 Kertoma lasketaan kertomalla keskenään luku ja kaikki sitä pienemmät positiiviset kokonaisluvut. Esim. luvun 5 kertoma on 1 * 2 * 3 * 4 * 5 == 120.
 
-Esimerkkisuoritus:
+Esimerkkisuorituksia:
 
 <sample-output>
 
-Anna luku: 3
+Anna luku: **3**
 Luvun 3 kertoma on 6
-Anna luku: 4
+Anna luku: **4**
 Luvun 4 kertoma on 24
-Anna luku: -1
+Anna luku: **-1**
+Kiitos ja moi!
+
+</sample-output>
+
+<sample-output>
+
+Anna luku: **1**
+Luvun 1 kertoma on 1
+Anna luku: **0**
 Kiitos ja moi!
 
 </sample-output>

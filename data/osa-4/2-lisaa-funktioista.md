@@ -1,5 +1,5 @@
 ---
-path: '/osa-4/1-lisaa-funktioista'
+path: '/osa-4/2-lisaa-funktioista'
 title: 'Lisää funktioista'
 hidden: false
 ---
