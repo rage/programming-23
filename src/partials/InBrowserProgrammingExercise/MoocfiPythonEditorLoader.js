@@ -1,9 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { withTranslation } from "react-i18next"
-import { get } from "lodash"
 
-import { fetchProgrammingExerciseDetails } from "../../services/moocfi"
 import LoginStateContext from "../../contexes/LoginStateContext"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
 import { accessToken } from "../../services/moocfi"
@@ -44,39 +42,17 @@ class InBrowserProgrammingExercisePartial extends React.Component {
 
   state = {
     exerciseDetails: undefined,
-    fetching: false,
     render: false,
   }
 
   async componentDidMount() {
     this.setState({ render: true })
-    await this.fetch()
   }
 
-  fetch = async () => {
-    this.setState({ fetching: true })
-    if (!this.props.tmcname) {
-      return
-    }
-    let exerciseDetails = null
-    try {
-      exerciseDetails = await fetchProgrammingExerciseDetails(
-        this.props.tmcname,
-      )
-    } catch (error) {
-      console.error(error)
-    }
+  onUpdate = exerciseDetails => {
     this.setState({
       exerciseDetails,
-      fetching: false,
     })
-  }
-
-  onUpdate = async completed => {
-    this.setState({
-      exerciseDetails: { completed },
-    })
-    await this.fetch()
   }
 
   render() {
@@ -93,25 +69,16 @@ class InBrowserProgrammingExercisePartial extends React.Component {
       return <div>Loading</div>
     }
 
-    const points = get(this.state, "exerciseDetails.available_points.length")
-    const awardedPoints = get(
-      this.state,
-      "exerciseDetails.awarded_points.length",
-    )
-    const completed = get(this.state, "exerciseDetails.completed")
-    const deadline =
-      get(this.state, "exerciseDetails.deadline") !== null
-        ? new Date(get(this.state, "exerciseDetails.deadline"))
-        : null
+    const details = this.state.exerciseDetails
+    const deadline = details?.deadline ? new Date(details.deadline) : null
 
     return (
       <ProgrammingExerciseCard
         name={name}
-        points={points}
-        awardedPoints={awardedPoints}
-        onRefresh={() => this.onUpdate(completed)}
-        allowRefresh={this.context.loggedIn && !this.state.fetching}
-        completed={completed}
+        points={details?.availablePoints}
+        awardedPoints={details?.awardedPoints}
+        allowRefresh={false}
+        completed={details?.completed || false}
       >
         <div>
           {deadline instanceof Date && !isNaN(deadline.getTime()) && (
@@ -122,7 +89,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
           )}
           <Wrapper>{children}</Wrapper>
           <ProgrammingExercise
-            onSubmissionResults={() => this.onUpdate(completed)}
+            onExerciseDetailsChange={details => this.onUpdate(details)}
             organization={ORGANIZATION}
             course={COURSE}
             exercise={tmcname}
