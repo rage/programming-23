@@ -504,17 +504,54 @@ pituudet = lue_luvut()
 
 Tee funktio `pituus`, joka _palauttaa_ (return lauseella) parametrinaan saamansa listan pituuden.
 
+```python
+lista = [1, 2, 3, 4, 5]
+vastaus = pituus(lista)
+print("vastaus", vastaus)
+```
+
+<sample-output>
+
+vastaus 5
+
+</sample-output>
+
 </programming-exercise> 
 
 <programming-exercise name='Keskiarvo' tmcname='osa04-10_keskiarvo'>
 
 Tee funktio `keskiarvo`, joka _palauttaa_ (return lauseella) parametrinaan saamansa kokonaislukuja sisältävän listan alkioiden keskiarvon.
 
+```python
+lista = [1, 2, 3, 4, 5]
+vastaus = keskiarvo(lista)
+print("vastaus", vastaus)
+```
+
+<sample-output>
+
+vastaus 3.0
+
+</sample-output>
+
 </programming-exercise> 
 
 <programming-exercise name='Vaihteluväli' tmcname='osa04-11_vaihteluvali'>
 
 Tee funktio `vaihteluvali`, joka _palauttaa_ (return-lauseella) parametrinaan saamansa kokonaislukuja sisältävän listan _vaihteluvälin_ (eli suurimman ja pienimmän alkion erotuksen).
+
+```python
+lista = [1, 2, 3, 4, 5]
+vastaus = vaihteluvali(lista)
+print("vastaus", vastaus)
+```
+
+<sample-output>
+
+vastaus 4
+
+</sample-output>
+
 
 </programming-exercise> 
 

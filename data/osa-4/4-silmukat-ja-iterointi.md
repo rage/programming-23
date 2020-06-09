@@ -218,15 +218,23 @@ Tee funktio `anagrammi` joka saa parametriksi kaksi merkkijonoa. Funktio palautt
 
 Esimerkiksi seuraavat merkkijonot ovat anagrammeja:
 
-<pre>
-talo, tola, olat, lato
+
+
+```python
+v1 = anagrammi("talo", "tola")
+v2 = anagrammi("talo", "lato")
+v3 = anagrammi("talo", "olat")
+v4 = anagrammi("tammi", "mitta")
+v5 = anagrammi("python", "java")
+
+print(v1, v2, v3, v4, v5)
+```
 </pre>
 
-Seuraavat merkkijonot taas eivät ole anagrammeja:
+<sample-output>
+True True True False False
+</sample-output>
 
-<pre>
-tammi, mitta
-</pre>
 
 </programming-exercise> 
 
@@ -251,13 +259,23 @@ saippuakauppias on palindromi!
 
 </programming-exercise> 
 
-
 <programming-exercise name='Positiivisten summa' tmcname='osa04-15_positiivisten_summa'>
 
 Tee funktio `positiivisten_summa`, joka saa parametriksi kokonaislukuja sisältävän listan. 
 
 Funktio _palauttaa_ listan positiivisten lukujen summan.
 
+```python
+lista = [1, 2, 3, 4, 5]
+vastaus = positiivisten_summa(lista)
+print("vastaus", vastaus)
+```
+
+<sample-output>
+
+vastaus 6
+
+</sample-output>
 
 </programming-exercise> 
 
@@ -268,6 +286,20 @@ Kertaa nyt tarvittaessa [edellisen osion](/osa-4/3-listat) luku _Lista funktion 
 Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän lista. 
 
 Funktio _palauttaa_  uuden listan, jolla on parameterina olevalla listalla olevat parilliset luvut. 
+
+```python
+lista = [1, 2, 3, 4, 5]
+uusi_lista = parilliset(lista)
+print("alkuperäinen", lista)
+print("uusi", uusi_lista)
+```
+
+<sample-output>
+
+alkuperäinen [1, 2, 3, 4, 5]
+uusi [2, 4]
+
+</sample-output>
 
 </programming-exercise> 
 
@@ -280,8 +312,8 @@ Funktio _palauttaa_ uuden listan, jonka alkiot muodostuvat parametreina olevien 
 Esim:
 
 ```python
-l1 = [1,2,3]
-l2 = [7,8,9]
+l1 = [1, 2, 3]
+l2 = [7, 8, 9]
 
 l3 = summa(l1, l2)
 
@@ -292,8 +324,8 @@ print("l3:", l3)
 
 <sample-output>
 
-l1: [1,2,3]
-l2: [7,8,9]
+l1: [1, 2, 3]
+l2: [7, 8, 9]
 l3: [8, 10, 12]
 
 </sample-output>
@@ -307,7 +339,7 @@ Tee funktio `uniikit`, joka saa parametriksi kokonaislukuja sisältävän listan
 Funktio _palauttaa_ uuden lista, joka sisältää parmetrina saamansa luvut suuruusjärjestyksessä siten, että jokainen luku voi olla listalla vain kertaalleen.
 
 ```python
-l1 = [3, 2, 2, 1, 3,  3, 1]
+l1 = [3, 2, 2, 1, 3, 3, 1]
 
 l2 = uniikki(l1)
 print(l2)
