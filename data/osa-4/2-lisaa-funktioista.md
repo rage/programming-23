@@ -358,15 +358,15 @@ Funktioiden palauttamat arvot toimivat täysin samalla tavalla kuin mitkä tahan
 
 <programming-exercise name='Luvuista suurin' tmcname='osa04-05_luvuista_suurin'>
 
-Tee funktio _suurin_, joka saa parametriksi kolme kokonaislukua. Funktio _palauttaa_ return-lausetta käyttäen luvuista suurimman.
+Tee funktio *luvuista_suurin*, joka saa parametriksi kolme kokonaislukua. Funktio _palauttaa_ return-lausetta käyttäen luvuista suurimman.
 
 Käyttöesimerkki
 
 ```python
-s1 = suurin(3, 4, 1)
-s1 = suurin(99, -4, 7)
-s1 = suurin(0, 0, 0)
-s4 = suurin(s1, s2, s3)
+s1 = luvuista_suurin(3, 4, 1)
+s1 = luvuista_suurin(99, -4, 7)
+s1 = luvuista_suurin(0, 0, 0)
+s4 = luvuista_suurin(s1, s2, s3)
 print(s1, s2, s3, s4)
 ```
 
