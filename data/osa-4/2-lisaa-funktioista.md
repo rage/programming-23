@@ -364,8 +364,8 @@ Käyttöesimerkki
 
 ```python
 s1 = luvuista_suurin(3, 4, 1)
-s1 = luvuista_suurin(99, -4, 7)
-s1 = luvuista_suurin(0, 0, 0)
+s2 = luvuista_suurin(99, -4, 7)
+s3 = luvuista_suurin(0, 0, 0)
 s4 = luvuista_suurin(s1, s2, s3)
 print(s1, s2, s3, s4)
 ```
