@@ -134,7 +134,7 @@ Juha-Pekka      keskellä      Juha-Pekka
 Maya            keskellä            Maya
 ```
 
-<programming-exercise name=' Lukulistasta merkkijonolistaksi' tmcname='osa04-21_lukulistasta_merkkijonolistaksi'>
+<programming-exercise name=' Lukulistasta merkkijonolistaksi' tmcname='osa04-20_lukulistasta_merkkijonolistaksi'>
 
 Kirjoita funktio `muotoile`, joka saa parametrikseen liukulukuja sisältävän listan. Funktio muodostaa listan perusteella uuden, merkkijonotyyppisiä alkoita sisältävän listan, jossa jokainen liukulukulistan alkio esitetään pyöristettynä kahden merkitsevän numeron tarkkuuteen. Listan alkioiden järjestyksen tulee säilyä.
 
@@ -153,5 +153,75 @@ print(lista2)
 ['1.2', '0.33', '0.11']
 
 </sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Arvosanatilasto' tmcname='osa04-21_arvosanatilasto'>
+ 
+Tässä tehtävässä toteutetaan ohjelma kurssin arvosanatilastojen tulostamiseen.
+ 
+Ohjelmalle syötetään rivejä jotka sisältävät yhden opiskelijan koepistemäärn sekä tehtyjen harjoitustehtävien määrän. Ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja. 
+
+Koepisteet ovat kokonaisulukuja väliltä 0-20. Tehtyjen harjoitustehtävien lukumäärät taas kokonaislukuja väliltä 0-100.
+
+Ohjelmalle kyselee käyttäjältä rivejä niin kauan kunnes käyttäjä syöttää tyhjän rivin. Voit olettaa, että kaikki rivit on syötetty "oikein", eli rivillä on joko kaksi kokonaislukua tai rivi on tyhjä.
+
+Koepisteiden ja harjoitustehtävien syöttäminen etenee seuraavasti:
+
+<sample-output>
+
+Koepisteet ja harjoitusten määrä: 
+**15 87**
+**10 55**
+**11 40**
+**4 17**
+
+Tilasto:
+
+</sample-output>
+
+Kun käyttäjä on syöttänyt tyhjän rivin, tulostaa ohjelma tilastot. 
+
+Tilastot muodostuvat seuraavasti. 
+
+Tehtyjen harjoitustehtävien määrästä saa kurssipisteitä, siten että min 10% tehtävämäärästä tuo 1 kurssipisteen, 20% tuo 2 kurssipistettä jne ja 100% eli 100 harjoitustehtävää tuo 10 kurssipistettä. Harjoitustehtävistä saatava kurssipistemäärä on kokonaisluku.
+
+Kurssin arvosana määräytyy seuraavan taulukon mukaan:
+
+koe+harjoituspisteet   | arvosana
+:--:|:----:
+0-14 | 0 (eli hylätty) 
+15-17 | 1
+18-20 | 2
+21-23 | 3
+24-27 | 4
+28-30 | 5
+
+Edelliseen on kuitenkin poikkeus: jos kokeen pistemäärä on alle 10, on arvosana kokonaispistemäärästä riippumatta 0 eli hylätty.
+
+Ohjelma tulostaa seuraavat tilastot:
+
+<sample-output>
+Tilasto:
+Pisteiden keskiarvo (kaikki): 52.5
+Pisteiden keskiarvo (hyväksytyt): 88.0
+Hyväksymisprosentti: 50.0
+<pre>
+Arvosanajakauma:
+5: *
+4:
+3: *
+2:
+1:
+0: **
+</pre>
+
+</sample-output>
+
+Esimerkkitulostus vastaa ylläolevaa esimerkkisyötettä.
+
+Desimaaliluvut tulostetaan yhden desimaalin tarkkuudella.
+
+Vihje: koko tehtävän koodi kannattaa rakentaa useista pienen asian tekevistä apufunktioista.
 
 </programming-exercise>

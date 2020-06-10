@@ -401,6 +401,38 @@ Funktiot _palauttavat_ nimensä mukaisesti lauseen ensimmäisen, toisen tai viim
 
 Voit olettaa jokaisessa tapauksessa, että merkkijonossa koostuu vähintään kahdesta sanasta.
 
+```python
+e = eka_sana("olipa kerran kauan sitten ohjelmoija")
+t = toka_sana("olipa kerran kauan sitten ohjelmoija")
+v = vika_sana("olipa kerran kauan sitten ohjelmoija")
+
+print(e)
+print(t)
+print(v)
+```
+
+<sample-output>
+
+olipa
+kerran 
+ohjelmoija
+
+</sample-output>
+
+```python
+t = toka_sana("olipa kerran")
+v = vika_sana("olipa kerran")
+
+print(t)
+print(v)
+```
+
+<sample-output>
+
+kerran 
+
+</sample-output>
+
 </programming-exercise>
 
 ## Parametrin tyyppi
