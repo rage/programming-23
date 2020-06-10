@@ -9,90 +9,94 @@ import CourseSettings from "../../course-settings"
 import { withTranslation } from "react-i18next"
 import withSimpleErrorBoundary from "../util/withSimpleErrorBoundary"
 
-const EditPage = ({ t }) => {
-  const urlEnd =
-    typeof window !== `undefined`
-      ? window.location.search.substr(1).split("&")
-      : null
-  var qs = (function(a) {
-    if (a === "" || a === null) return {}
-    var b = {}
-    for (var i = 0; i < a.length; ++i) {
-      var p = a[i].split("=", 2)
-      if (p.length === 1) b[p[0]] = ""
-      else b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "))
+class EditPage extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      path: '',
+      editPath: '',
+      loginThenEditPath: '',
     }
-    return b
-  })(urlEnd)
+  }
 
-  const path = qs.path
-  const editPath = CourseSettings.githubUrl.concat("/edit/master", path)
+  componentDidMount = () => {
+    var urlpath = new URLSearchParams(this.props.location.search).get("path")
+    var editPath = CourseSettings.githubUrl.concat("/edit/master", urlpath)
+    this.setState({
+      path: new URLSearchParams(this.props.location.search).get("path"),
+      editPath: editPath,
+      loginThenEditPath: `https://github.com/join?return_to=${editPath}&source=login`
+    })
+  }
 
-  const loginThenEditPath =
-    "https://github.com/join?return_to=" + editPath + "&source=login"
-  return (
-    <Layout>
-      <Container>
-        <Helmet title={t("editPageTitle")} />
+  render () {
+    if (this.state.path === "") {
+      return <div>Loading...</div>
+    }
+    return (
+      <Layout>
+        <Container>
+          <Helmet title={this.props.t("editPageTitle")} />
 
-        <Typography variant="h3" component="h1">
-          {t("editPageTitle")}
-        </Typography>
-        <br />
-        <p>{t("editPage1")}</p>
-        <p>
-          {t("editPage2")}{" "}
-          <OutboundLink
-            href={loginThenEditPath}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t("editPage3")}
-          </OutboundLink>
-        </p>
+          <Typography variant="h3" component="h1">
+            {this.props.t("editPageTitle")}
+          </Typography>
+          <br />
+          <p>{this.props.t("editPage1")}</p>
+          <p>
+            {this.props.t("editPage2")}{" "}
+            <OutboundLink
+              href={`${this.state.loginThenEditPath}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {this.props.t("editPage3")}
+            </OutboundLink>
+          </p>
 
-        <p>
-          {t("editPage4")}{" "}
-          <OutboundLink
-            href={CourseSettings.githubUrl.concat("/pulls")}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t("editPage3")}
-          </OutboundLink>{" "}
-          {t("editPage5")}
-        </p>
+          <p>
+            {this.props.t("editPage4")}{" "}
+            <OutboundLink external
+              href={`${CourseSettings.githubUrl.concat("/pulls")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {this.props.t("editPage3")}
+            </OutboundLink>{" "}
+            {this.props.t("editPage5")}
+          </p>
 
-        <center>
-          <OutboundLink
-            href={editPath}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button color="primary" variant="contained">
-              {t("editPageButtonText")}
-              {path}
-            </Button>
-          </OutboundLink>
-        </center>
+          <center>
+            <OutboundLink external
+              href={`${this.state.editPath}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button color="primary" variant="contained">
+                {this.props.t("editPageButtonText")}
+                {this.state.path}
+              </Button>
+            </OutboundLink>
+          </center>
 
-        <br />
-        <Typography variant="h4" component="h1">
-          {t("editPageSecondHeader")}
-        </Typography>
-        <ol>
-          <li>{t("editPageList1")}</li>
-          <li>{t("editPageList2")}</li>
-          <li>{t("editPageList3")}</li>
-          <li>{t("editPageList4")}</li>
-          <li>{t("editPageList5")}</li>
-          <li>{t("editPageList6")}</li>
-        </ol>
+          <br />
+          <Typography variant="h4" component="h1">
+            {this.props.t("editPageSecondHeader")}
+          </Typography>
+          <ol>
+            <li>{this.props.t("editPageList1")}</li>
+            <li>{this.props.t("editPageList2")}</li>
+            <li>{this.props.t("editPageList3")}</li>
+            <li>{this.props.t("editPageList4")}</li>
+            <li>{this.props.t("editPageList5")}</li>
+            <li>{this.props.t("editPageList6")}</li>
+          </ol>
 
-        <p>{t("editPage6")}</p>
-      </Container>
-    </Layout>
-  )
+          <p>{this.props.t("editPage6")}</p>
+        </Container>
+      </Layout>
+    )
+  }
 }
 
 export default withTranslation("common")(
