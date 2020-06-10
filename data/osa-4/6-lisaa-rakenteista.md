@@ -309,3 +309,84 @@ print(lista)
 
 
 </programming-exercise>
+
+
+<programming-exercise name='Käännä lista osittain' tmcname='osa04-'>
+
+Tee funktio `kaanna(lista: list, alku: int, loppu: int)`, joka kääntää listan alkiot annetulta väliltä päinvastaiseen järjestykseen.
+
+Huomaa, että funktio ei palauta uutta listaa, vaan kääntää alkiot annetusta listasta.
+
+Esimerkkejä funktion käytöstä:
+
+```python
+lista = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+kaanna(lista, 2, 5)
+print(lista)
+```
+
+<sample-output>
+
+[0, 1, 5, 4, 3, 2, 6, 7, 8]
+
+</sample-output>
+
+```python
+lista = [10, 20, 30, 40, 50, 60, 70, 80]
+kaanna(lista, 3, 5)
+print(lista)
+```
+
+<sample-output>
+
+[10, 20, 30, 60, 50, 40, 70, 80]
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Naapureita listassa' tmcname='osa04-'>
+
+Määritellään, että listan alkiot ovat naapureita, jos niiden erotus on 1. Naapureita olisivat siis esim alkiot 1 ja 2 tai alkiot 56 ja 55.
+
+Kirjoita funktio `pisin_naapurijono(lista)` joka etsii listasta pisimmän peräkkäisen naapureita sisältävän osalistan ja palauttaa sen pituuden.
+
+Esimerkiksi listassa `[1, 2, 5, 4, 3, 4]` pisin tällainen osalista olisi `[5, 4, 3, 4]`, ja sen pituus 4.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+lista = [1, 2, 5, 7, 6, 5, 6, 3, 4, 1, 0]
+print(pisin_naapurijonon(lista))
+```
+
+<sample-output>
+
+4
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Isot alkukirjaimet' tmcname='osa04-28_isot_alkukirjaimet'>
+
+Kirjoita funkto `isot_alkukirjaimet(merkkijono)`, joka saa parametrikseen kokonaan pienillä kirjaimilla kirjoitetun tekstin. Funktio muuttaa kaikkien virkkeiden ensimmäisen kirjaimen isoksi.
+
+Vinkki: Tarvitset tässä funktiota `upper()`, joka muuntaa merkkijonon kokonaan isoiksi kirjaimiksi.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+
+teksti = "moi kaikki! halusin vaan kysyä, että miten tämä toimii? nyt tässä on pelkkiä pieniä kirjaimia, ja haluaisin että olisi myös isoja. olisiko liikaa vaadittu?"
+print(isot_alkukirjaimet(teksti))
+
+``` 
+
+<sample-output>
+
+Moi kaikki! Halusin vaan kysyä, että miten tämä toimii? Nyt tässä on pelkkiä pieniä kirjaimia, ja haluaisin että olisi myös isoja. Olisiko liikaa vaadittu?
+
+</sample-output>
+
+</programming-exercise>

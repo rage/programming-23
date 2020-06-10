@@ -198,7 +198,7 @@ koe+harjoituspisteet   | arvosana
 
 Edelliseen on kuitenkin poikkeus: jos kokeen pistemäärä on alle 10, on arvosana kokonaispistemäärästä riippumatta 0 eli hylätty.
 
-Ohjelma tulostaa seuraavat tilastot:
+Yllä olevalla esimerkkisyötteellä ohjelma tulostaa seuraavat tilastot:
 
 <sample-output>
 
@@ -217,15 +217,13 @@ Arvosanajakauma:
 
 </sample-output>
 
-Esimerkkitulostus vastaa ylläolevaa esimerkkisyötettä.
-
 Desimaaliluvut tulostetaan yhden desimaalin tarkkuudella.
 
 Vihjeitä:
 
 Koko tehtävän koodi kannattaa rakentaa useista pienen asian tekevistä apufunktioista.
 
-Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erikseen ns "pääohjelmasta". Eräs tapa joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään main, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää: 
+Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Eräs tapa joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään main, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää: 
 
 ```python
 def main():
