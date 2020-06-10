@@ -358,7 +358,7 @@ Keskimmäinen kirjain on B
 
 <in-browser-programming-exercise name="Lahjaverolaskuri" tmcname="osa02-14_lahjaverolaskuri"  height="500px">
 
-[Verottajan mnukaan](https://www.vero.fi/henkiloasiakkaat/omaisuus/lahja/) lahja tarkoittaa sitä, että omaisuus siirtyy toiselle henkilölle ilman korvausta. Lahjasta pitää maksaa lahjaveroa, jos samalta lahjanantajalta saatujen lahjojen arvo on kolmen vuoden aikana 5 000 euroa tai enemmän.
+[Verottajan mukaan](https://www.vero.fi/henkiloasiakkaat/omaisuus/lahja/) lahja tarkoittaa sitä, että omaisuus siirtyy toiselle henkilölle ilman korvausta. Lahjasta pitää maksaa lahjaveroa, jos samalta lahjanantajalta saatujen lahjojen arvo on kolmen vuoden aikana 5 000 euroa tai enemmän.
 
 Kun lahja tulee lähimmiltä sukulaisilta, lahjaveron määrä määräytyy seuraavan taulukon [mukaan](https://www.vero.fi/henkiloasiakkaat/omaisuus/lahja/lahjaverolaskuri/):
 
