@@ -377,7 +377,7 @@ Tulo on 30
 
 <in-browser-programming-exercise name="Ruokailukustannukset" tmcname="osa01-19_ruokailukustannukset">
 
-Tee ohjelma, joka arvoi käyttäjän keskimääräisiä ruokailukustannuksia.
+Tee ohjelma, joka arvioi käyttäjän keskimääräisiä ruokailukustannuksia.
 
 Ohjelma kysyy, kuinka monta kertaa viikossa käyttäjä käy Unicafessa ja Unicafe-lounaan hinnan sekä viikon muiden ruokaostosten hinnan.
 
