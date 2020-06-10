@@ -202,17 +202,17 @@ Ohjelma tulostaa seuraavat tilastot:
 
 <sample-output>
 
-Tilasto:
-Pisteiden keskiarvo: 52.5
-Hyväksymisprosentti: 50.0
 <pre>
+Tilasto:
+Pisteiden keskiarvo: 14.5
+Hyväksymisprosentti: 75.0
 Arvosanajakauma:
-5: *
-4:
-3: *
-2:
-1:
-0: **
+  5:
+  4:
+  3: *
+  2:
+  1: **
+  0: *
 </pre>
 
 </sample-output>
@@ -221,6 +221,38 @@ Esimerkkitulostus vastaa ylläolevaa esimerkkisyötettä.
 
 Desimaaliluvut tulostetaan yhden desimaalin tarkkuudella.
 
-Vihje: koko tehtävän koodi kannattaa rakentaa useista pienen asian tekevistä apufunktioista.
+Vihjeitä:
+
+Koko tehtävän koodi kannattaa rakentaa useista pienen asian tekevistä apufunktioista.
+
+Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erikseen ns "pääohjelmasta". Eräs tapa joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään main, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää: 
+
+```python
+def main():
+    pisteet = []
+    # ohjelman koodi tänne
+
+main()
+```
+
+Näin ohjelman apumetodeja on mahdollista testata ilman pääohjelman suorittamista:
+
+```python
+# apumetodi, joka laskee arvosanan pisteiden perusteella
+def arvosana(pisteet)
+    # koodia
+
+def main():
+    pisteet = []
+    # ohjelman koodi tänne
+
+# kommentoidaan pääohjelma pois
+#main()
+
+# testataan apumetodia 
+pistemaara = 35
+tulos = arvosana(pistemaara)
+print(tulos)
+```
 
 </programming-exercise>
