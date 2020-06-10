@@ -110,14 +110,14 @@ Saamme määriteltyä tulostuvien desimaalien määrän f-stringin avulla. Tulos
 
 ```python
 luku = 1/3
-print(f"Luku on {luku:.2}")
+print(f"Luku on {luku:.2f}")
 ```
 
 ```python
 Luku on 0.33
 ```
 
-Muotoiluohje `.2` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella.
+Muotoiluohje `.2f` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella. Huom: kirjain _f_ kakkosen jälkeen tarkoittaa että muotoiluohje koskee desimaalilukua eli _float_-tyyppistä arvoa! 
 
 Tässä on vielä toisenlainen esimerkki, jossa tulostetaan nimiä 15 merkin levyiseen tekstialueeseen, ensin vasemmalle sisennettynä ja sen jälkeen oikealle sisennettynä:
 
@@ -157,10 +157,10 @@ print(lista2)
 </programming-exercise>
 
 <programming-exercise name='Arvosanatilasto' tmcname='osa04-21_arvosanatilasto'>
- 
+
 Tässä tehtävässä toteutetaan ohjelma kurssin arvosanatilastojen tulostamiseen.
- 
-Ohjelmalle syötetään rivejä jotka sisältävät yhden opiskelijan koepistemäärn sekä tehtyjen harjoitustehtävien määrän. Ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja. 
+
+Ohjelmalle syötetään rivejä jotka sisältävät yhden opiskelijan koepistemäärän sekä tehtyjen harjoitustehtävien määrän. Ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja.
 
 Koepisteet ovat kokonaisulukuja väliltä 0-20. Tehtyjen harjoitustehtävien lukumäärät taas kokonaislukuja väliltä 0-100.
 
@@ -170,12 +170,11 @@ Koepisteiden ja harjoitustehtävien syöttäminen etenee seuraavasti:
 
 <sample-output>
 
+Koepisteet ja harjoitusten määrä: **15 87**
+Koepisteet ja harjoitusten määrä: **10 55**
+Koepisteet ja harjoitusten määrä: **11 40**
+Koepisteet ja harjoitusten määrä: **4 17**
 Koepisteet ja harjoitusten määrä: 
-**15 87**
-**10 55**
-**11 40**
-**4 17**
-
 Tilasto:
 
 </sample-output>
@@ -202,9 +201,9 @@ Edelliseen on kuitenkin poikkeus: jos kokeen pistemäärä on alle 10, on arvosa
 Ohjelma tulostaa seuraavat tilastot:
 
 <sample-output>
+
 Tilasto:
-Pisteiden keskiarvo (kaikki): 52.5
-Pisteiden keskiarvo (hyväksytyt): 88.0
+Pisteiden keskiarvo: 52.5
 Hyväksymisprosentti: 50.0
 <pre>
 Arvosanajakauma:
