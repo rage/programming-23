@@ -88,9 +88,9 @@ Tee funktio `viiva`, joka saa kaksi parametria (leveys, merkkijono). Funktio tul
 Käyttöesimerkki:
 
 ```python
-viiva(7 "%")
-viiva(10 "LOL")
-viiva(3 "")
+viiva(7, "%")
+viiva(10, "LOL")
+viiva(3, "")
 ```
 
 <sample-output>
@@ -133,7 +133,7 @@ Moikka, Emilia
 
 <programming-exercise name='Kuvio' tmcname='osa04-03_kuvio'>
 
-Tee funktio `kuvio`, joka saa neljä parametria (y_korkeus, y_merkki, a_korkeus, a_merkki). Funktio tulostaa kuvion joka yläosana on kahden ensimmäisen parametrin määrittelemästä kolmio ja alaosana kahden jälkimäisen parametrin määrittelemästä suorakulmio.
+Tee funktio `kuvio`, joka saa neljä parametria (y_korkeus, y_merkki, a_korkeus, a_merkki). Funktio tulostaa kuvion jonka yläosana on kahden ensimmäisen parametrin määrittelemä kolmio ja alaosana kahden jälkimmäisen parametrin määrittelemä suorakulmio.
 
 Pari käyttöesimerkkiä
 

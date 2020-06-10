@@ -49,7 +49,7 @@ Ohjelman tulee toimia siten, että "oikean vastauksen" kirjoitusasu ei riipu sii
 editori: **notepad**
 surkea
 editori: **viSUal STudiO cODe**
-se on paras!
+loistava valinta!
 
 </sample-output>
 
