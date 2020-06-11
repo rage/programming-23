@@ -311,7 +311,7 @@ print(lista)
 </programming-exercise>
 
 
-<programming-exercise name='Käännä lista osittain' tmcname='osa04-'>
+<programming-exercise name='Käännä lista osittain' tmcname='osa04-26_kaanna_lista_osittain'>
 
 Tee funktio `kaanna(lista: list, alku: int, loppu: int)`, joka kääntää listan alkiot annetulta väliltä päinvastaiseen järjestykseen.
 
@@ -345,7 +345,7 @@ print(lista)
 
 </programming-exercise>
 
-<programming-exercise name='Naapureita listassa' tmcname='osa04-'>
+<programming-exercise name='Naapureita listassa' tmcname='osa04-27_naapureita_listassa'>
 
 Määritellään, että listan alkiot ovat naapureita, jos niiden erotus on 1. Naapureita olisivat siis esim alkiot 1 ja 2 tai alkiot 56 ja 55.
 
