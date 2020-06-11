@@ -119,6 +119,7 @@ class ProgrammingExercise extends React.Component {
       return <div>Loading</div>
     }
 
+    const completed = get(this.state, "exerciseDetails.completed")
     const points = get(this.state, "exerciseDetails.available_points.length")
     const awardedPoints = get(
       this.state,
@@ -132,6 +133,7 @@ class ProgrammingExercise extends React.Component {
         awardedPoints={awardedPoints}
         onRefresh={this.onUpdate}
         allowRefresh={this.context.loggedIn}
+        completed={completed}
       >
         <div>
           {this.context.loggedIn ? (

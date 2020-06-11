@@ -343,3 +343,5 @@ Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu jos et sa
 </sample-output>
 
 </in-browser-programming-exercise>
+
+<quiz id="7398bca5-c470-5fba-8721-e6f40fc2e4a1"></quiz>

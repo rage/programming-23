@@ -63,6 +63,38 @@ Tämä on oma funktio!
 
 </sample-output>
 
+<text-box variant='hint' name='Omien funktioiden testaaminen'>
+
+Huom! Tästä eteenpäin valtaosassa kurssin tehtäviä pyydetään kirjoittamaan oma funktio (tai funktioita).
+
+Kun ohjelma koostuu pelkästään funktiosta, ei sen suorittaminen näytä tekevän mitään.
+
+Esim. seuraava ohjelma ei tulosta vielä ajettaessa mitään:
+
+```python
+def moikkaa():
+    print("Moi!")
+```
+
+Funktion `moikkaa` sisällä oleva koodi suoritetaan vasta, kun funktiota kutsutaan.
+
+Funktion alla olevaan "pääohjelmaan" kannattaa siis kirjoittaa sopivia funktiokutsuja ohjelma testaamiseksi, esimerkiksi
+
+```python
+def moikkaa():
+    print("Moi!")
+
+# Pääohjelma on se ohjelman osa, joka ei
+# ole minkään funktion sisällä
+# Kutsutaan omaa funktiota moikkaa()
+moikkaa()
+
+```
+
+
+
+</text-box>
+
 <in-browser-programming-exercise name="Seitsemän veljestä" tmcname="osa03-21_seitseman_veljesta">
 
 Tee funktio `seitseman_veljesta` jonka kutsuminen tulostaa seitsemän veljeksen nimet aakkosjärjestyksessä:
@@ -168,6 +200,15 @@ n
 
 </in-browser-programming-exercise>
 
+<text-box variant='hint' name='Omien funktioiden testaaminen: parametrit'>
+
+Silloin kun omassa funktiossa on määritelty yksi tai useampia parametreja, kannattaa funktiota testata usealla erilaisella parametrilla.
+
+Kannattaa erityisesti miettiä, toimivatko myös "erikoistapaukset": mitä funktio esim. tekee, jos sille välitetään negatiivinen luku tai liukuluku kokonaisluvun sijasta.
+
+Jos tehtävänannossa ei ole erityisesti käsketty kirjoittamaan tiettyja funktiokutsuja, voit vapaasti lisätä omia kutsujasi pääohjelmaan - testit jättävät nämä huomiotta.
+
+</text-box>
 
 <in-browser-programming-exercise name="Risuneliö" tmcname="osa03-23_risunelio">
 
@@ -372,3 +413,9 @@ uayba
 </sample-output>
 
 </in-browser-programming-exercise>
+
+<quiz id="b38cf6f5-bf01-5df9-bd8b-317581e95aa7"></quiz>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="b3b321f0-cdd6-5d8c-8d51-661e93c4f6fa"></quiz>
