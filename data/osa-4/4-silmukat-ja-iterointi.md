@@ -340,7 +340,7 @@ Funktio _palauttaa_ uuden lista, joka sisältää parmetrina saamansa luvut suur
 ```python
 l1 = [3, 2, 2, 1, 3, 3, 1]
 
-l2 = uniikki(l1)
+l2 = uniikit(l1)
 print(l2)
 ```
 
