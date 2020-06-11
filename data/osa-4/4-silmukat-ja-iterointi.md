@@ -265,14 +265,14 @@ Tee funktio `positiivisten_summa`, joka saa parametriksi kokonaislukuja sis√§lt√
 Funktio _palauttaa_ listan positiivisten lukujen summan.
 
 ```python
-lista = [1, 2, 3, 4, 5]
+lista = [1, -2, 3, -4, 5]
 vastaus = positiivisten_summa(lista)
 print("vastaus", vastaus)
 ```
 
 <sample-output>
 
-vastaus 6
+vastaus 9
 
 </sample-output>
 
