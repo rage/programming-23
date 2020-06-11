@@ -46,6 +46,7 @@ class EditPage extends React.Component {
           <p>
             {this.props.t("editPage2")}{" "}
             <OutboundLink
+              external="true"
               href={`${this.state.loginThenEditPath}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -57,7 +58,7 @@ class EditPage extends React.Component {
           <p>
             {this.props.t("editPage4")}{" "}
             <OutboundLink
-              external
+              external="true"
               href={`${CourseSettings.githubUrl.concat("/pulls")}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -69,7 +70,7 @@ class EditPage extends React.Component {
 
           <center>
             <OutboundLink
-              external
+              external="true"
               href={`${this.state.editPath}`}
               target="_blank"
               rel="noopener noreferrer"
