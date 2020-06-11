@@ -63,6 +63,36 @@ Tämä on oma funktio!
 
 </sample-output>
 
+<text-box variant='hint' name='Omien funktioiden testaaminen'>
+
+Huom! Tästä eteenpäin valtaosassa kurssin tehtäviä pyydetään kirjoittamaan oma funktio (tai funktioita).
+
+Kun ohjelma koostuu pelkästään funktiosta, ei sen suorittaminen näytä tekevän mitään.
+
+Esim. seuraava ohjelma ei tulosta vielä ajettaessa mitään:
+
+```python
+def moikkaa():
+    print("Moi!")
+```
+
+Funktion alla olevaan "pääohjelmaan" kannattaa kirjoittaa sopivia funktiokutsuja ohjelma testaamiseksi, esimerkiksi
+
+```python
+def moikkaa():
+    print("Moi!")
+
+# Pääohjelma on se ohjelman osa, joka ei
+# ole minkään funktion sisällä
+# Kutsutaan omaa funktiota moikkaa()
+moikkaa()
+
+```
+
+
+
+</text-box>
+
 <in-browser-programming-exercise name="Seitsemän veljestä" tmcname="osa03-21_seitseman_veljesta">
 
 Tee funktio `seitseman_veljesta` jonka kutsuminen tulostaa seitsemän veljeksen nimet aakkosjärjestyksessä:
