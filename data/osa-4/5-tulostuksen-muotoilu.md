@@ -110,14 +110,14 @@ Saamme määriteltyä tulostuvien desimaalien määrän f-stringin avulla. Tulos
 
 ```python
 luku = 1/3
-print(f"Luku on {luku:.2}")
+print(f"Luku on {luku:.2f}")
 ```
 
 ```python
 Luku on 0.33
 ```
 
-Muotoiluohje `.2` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella.
+Muotoiluohje `.2f` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella. Huom: kirjain _f_ kakkosen jälkeen tarkoittaa että muotoiluohje koskee desimaalilukua eli _float_-tyyppistä arvoa! 
 
 Tässä on vielä toisenlainen esimerkki, jossa tulostetaan nimiä 15 merkin levyiseen tekstialueeseen, ensin vasemmalle sisennettynä ja sen jälkeen oikealle sisennettynä:
 
@@ -134,7 +134,7 @@ Juha-Pekka      keskellä      Juha-Pekka
 Maya            keskellä            Maya
 ```
 
-<programming-exercise name=' Lukulistasta merkkijonolistaksi' tmcname='osa04-21_lukulistasta_merkkijonolistaksi'>
+<programming-exercise name=' Lukulistasta merkkijonolistaksi' tmcname='osa04-20_lukulistasta_merkkijonolistaksi'>
 
 Kirjoita funktio `muotoile`, joka saa parametrikseen liukulukuja sisältävän listan. Funktio muodostaa listan perusteella uuden, merkkijonotyyppisiä alkoita sisältävän listan, jossa jokainen liukulukulistan alkio esitetään pyöristettynä kahden merkitsevän numeron tarkkuuteen. Listan alkioiden järjestyksen tulee säilyä.
 
@@ -153,5 +153,104 @@ print(lista2)
 ['1.2', '0.33', '0.11']
 
 </sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Arvosanatilasto' tmcname='osa04-21_arvosanatilasto'>
+
+Tässä tehtävässä toteutetaan ohjelma kurssin arvosanatilastojen tulostamiseen.
+
+Ohjelmalle syötetään rivejä jotka sisältävät yhden opiskelijan koepistemäärän sekä tehtyjen harjoitustehtävien määrän. Ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja.
+
+Koepisteet ovat kokonaisulukuja väliltä 0-20. Tehtyjen harjoitustehtävien lukumäärät taas kokonaislukuja väliltä 0-100.
+
+Ohjelmalle kyselee käyttäjältä rivejä niin kauan kunnes käyttäjä syöttää tyhjän rivin. Voit olettaa, että kaikki rivit on syötetty "oikein", eli rivillä on joko kaksi kokonaislukua tai rivi on tyhjä.
+
+Koepisteiden ja harjoitustehtävien syöttäminen etenee seuraavasti:
+
+<sample-output>
+
+Koepisteet ja harjoitusten määrä: **15 87**
+Koepisteet ja harjoitusten määrä: **10 55**
+Koepisteet ja harjoitusten määrä: **11 40**
+Koepisteet ja harjoitusten määrä: **4 17**
+Koepisteet ja harjoitusten määrä: 
+Tilasto:
+
+</sample-output>
+
+Kun käyttäjä on syöttänyt tyhjän rivin, tulostaa ohjelma tilastot. 
+
+Tilastot muodostuvat seuraavasti. 
+
+Tehtyjen harjoitustehtävien määrästä saa kurssipisteitä, siten että min 10% tehtävämäärästä tuo 1 kurssipisteen, 20% tuo 2 kurssipistettä jne ja 100% eli 100 harjoitustehtävää tuo 10 kurssipistettä. Harjoitustehtävistä saatava kurssipistemäärä on kokonaisluku.
+
+Kurssin arvosana määräytyy seuraavan taulukon mukaan:
+
+koe+harjoituspisteet   | arvosana
+:--:|:----:
+0-14 | 0 (eli hylätty) 
+15-17 | 1
+18-20 | 2
+21-23 | 3
+24-27 | 4
+28-30 | 5
+
+Edelliseen on kuitenkin poikkeus: jos kokeen pistemäärä on alle 10, on arvosana kokonaispistemäärästä riippumatta 0 eli hylätty.
+
+Yllä olevalla esimerkkisyötteellä ohjelma tulostaa seuraavat tilastot:
+
+<sample-output>
+
+<pre>
+Tilasto:
+Pisteiden keskiarvo: 14.5
+Hyväksymisprosentti: 75.0
+Arvosanajakauma:
+  5:
+  4:
+  3: *
+  2:
+  1: **
+  0: *
+</pre>
+
+</sample-output>
+
+Desimaaliluvut tulostetaan yhden desimaalin tarkkuudella.
+
+Vihjeitä:
+
+Koko tehtävän koodi kannattaa rakentaa useista pienen asian tekevistä apufunktioista.
+
+Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Eräs tapa joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään main, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää: 
+
+```python
+def main():
+    pisteet = []
+    # ohjelman koodi tänne
+
+main()
+```
+
+Näin ohjelman apumetodeja on mahdollista testata ilman pääohjelman suorittamista:
+
+```python
+# apumetodi, joka laskee arvosanan pisteiden perusteella
+def arvosana(pisteet)
+    # koodia
+
+def main():
+    pisteet = []
+    # ohjelman koodi tänne
+
+# kommentoidaan pääohjelma pois
+#main()
+
+# testataan apumetodia 
+pistemaara = 35
+tulos = arvosana(pistemaara)
+print(tulos)
+```
 
 </programming-exercise>

@@ -261,7 +261,7 @@ Listalla on alkio 1
 
 <programming-exercise name='Sama sana kahdesti' tmcname='osa04-08_sama_sana_kahdesti'>
 
-Tee ohjelma, joka kyselee käyttäjältä sanoja. Kun käyttäjä on syöttänyt jonkun sanan kahdesti, ohelma tulostaa käyttäjän syöttämät sanat ja lopettaa toimintansa.
+Tee ohjelma, joka kyselee käyttäjältä sanoja. Kun käyttäjä on syöttänyt jonkun sanan kahdesti, ohjelma tulostaa käyttäjän syöttämät sanat ja lopettaa toimintansa.
 
 <sample-output>
 

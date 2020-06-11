@@ -88,9 +88,9 @@ Tee funktio `viiva`, joka saa kaksi parametria (leveys, merkkijono). Funktio tul
 Käyttöesimerkki:
 
 ```python
-viiva(7 "%")
-viiva(10 "LOL")
-viiva(3 "")
+viiva(7, "%")
+viiva(10, "LOL")
+viiva(3, "")
 ```
 
 <sample-output>
@@ -133,7 +133,7 @@ Moikka, Emilia
 
 <programming-exercise name='Kuvio' tmcname='osa04-03_kuvio'>
 
-Tee funktio `kuvio`, joka saa neljä parametria (y_korkeus, y_merkki, a_korkeus, a_merkki). Funktio tulostaa kuvion joka yläosana on kahden ensimmäisen parametrin määrittelemästä kolmio ja alaosana kahden jälkimäisen parametrin määrittelemästä suorakulmio.
+Tee funktio `kuvio`, joka saa neljä parametria (y_korkeus, y_merkki, a_korkeus, a_merkki). Funktio tulostaa kuvion jonka yläosana on kahden ensimmäisen parametrin määrittelemä kolmio ja alaosana kahden jälkimmäisen parametrin määrittelemä suorakulmio.
 
 Pari käyttöesimerkkiä
 
@@ -358,15 +358,15 @@ Funktioiden palauttamat arvot toimivat täysin samalla tavalla kuin mitkä tahan
 
 <programming-exercise name='Luvuista suurin' tmcname='osa04-05_luvuista_suurin'>
 
-Tee funktio _suurin_, joka saa parametriksi kolme kokonaislukua. Funktio _palauttaa_ return-lausetta käyttäen luvuista suurimman.
+Tee funktio *luvuista_suurin*, joka saa parametriksi kolme kokonaislukua. Funktio _palauttaa_ return-lausetta käyttäen luvuista suurimman.
 
 Käyttöesimerkki
 
 ```python
-s1 = suurin(3, 4, 1)
-s1 = suurin(99, -4, 7)
-s1 = suurin(0, 0, 0)
-s4 = suurin(s1, s2, s3)
+s1 = luvuista_suurin(3, 4, 1)
+s2 = luvuista_suurin(99, -4, 7)
+s3 = luvuista_suurin(0, 0, 0)
+s4 = luvuista_suurin(s1, s2, s3)
 print(s1, s2, s3, s4)
 ```
 
@@ -400,6 +400,38 @@ Tee kolme funktiota: `eka_sana`, `toka_sana` ja `vika_sana`. Jokainen funktioist
 Funktiot _palauttavat_ nimensä mukaisesti lauseen ensimmäisen, toisen tai viimeisen sanan.
 
 Voit olettaa jokaisessa tapauksessa, että merkkijonossa koostuu vähintään kahdesta sanasta.
+
+```python
+e = eka_sana("olipa kerran kauan sitten ohjelmoija")
+t = toka_sana("olipa kerran kauan sitten ohjelmoija")
+v = vika_sana("olipa kerran kauan sitten ohjelmoija")
+
+print(e)
+print(t)
+print(v)
+```
+
+<sample-output>
+
+olipa
+kerran 
+ohjelmoija
+
+</sample-output>
+
+```python
+t = toka_sana("olipa kerran")
+v = vika_sana("olipa kerran")
+
+print(t)
+print(v)
+```
+
+<sample-output>
+
+kerran 
+
+</sample-output>
 
 </programming-exercise>
 

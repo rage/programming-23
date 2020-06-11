@@ -17,7 +17,7 @@ export default class Points extends React.Component {
     }
     const apolloClient = new ApolloClient({
       uri: "https://www.mooc.fi/api",
-      request: async operation => {
+      request: async (operation) => {
         const token = accessToken()
         if (!token) {
           return

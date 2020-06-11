@@ -10,12 +10,12 @@ import { withTranslation } from "react-i18next"
 import withSimpleErrorBoundary from "../util/withSimpleErrorBoundary"
 
 class EditPage extends React.Component {
-  constructor(props){
-    super(props);
+  constructor(props) {
+    super(props)
     this.state = {
-      path: '',
-      editPath: '',
-      loginThenEditPath: '',
+      path: "",
+      editPath: "",
+      loginThenEditPath: "",
     }
   }
 
@@ -25,11 +25,11 @@ class EditPage extends React.Component {
     this.setState({
       path: new URLSearchParams(this.props.location.search).get("path"),
       editPath: editPath,
-      loginThenEditPath: `https://github.com/join?return_to=${editPath}&source=login`
+      loginThenEditPath: `https://github.com/join?return_to=${editPath}&source=login`,
     })
   }
 
-  render () {
+  render() {
     if (this.state.path === "") {
       return <div>Loading...</div>
     }
@@ -56,7 +56,8 @@ class EditPage extends React.Component {
 
           <p>
             {this.props.t("editPage4")}{" "}
-            <OutboundLink external
+            <OutboundLink
+              external
               href={`${CourseSettings.githubUrl.concat("/pulls")}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -67,7 +68,8 @@ class EditPage extends React.Component {
           </p>
 
           <center>
-            <OutboundLink external
+            <OutboundLink
+              external
               href={`${this.state.editPath}`}
               target="_blank"
               rel="noopener noreferrer"

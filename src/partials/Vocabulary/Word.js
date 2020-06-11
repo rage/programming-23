@@ -13,12 +13,12 @@ const StyledLink = styled(AnchorLink)`
   margin-left: 0.5em;
 `
 
-const transformParentPagePath = parentPagePath => {
+const transformParentPagePath = (parentPagePath) => {
   const sectionNumber = parentPagePath.split("-")[1].replace("/", ".")
   return sectionNumber
 }
 
-const transformNameToAnchor = name => {
+const transformNameToAnchor = (name) => {
   return name.toLowerCase().replace(" ", "-")
 }
 
