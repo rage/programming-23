@@ -372,3 +372,9 @@ uayba
 </sample-output>
 
 </in-browser-programming-exercise>
+
+<quiz id="b38cf6f5-bf01-5df9-bd8b-317581e95aa7"></quiz>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="b3b321f0-cdd6-5d8c-8d51-661e93c4f6fa"></quiz>

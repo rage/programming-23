@@ -589,3 +589,5 @@ Osajono ei esiinny merkkijonossa kahdesti.
 </sample-output>
 
 </in-browser-programming-exercise>
+
+<quiz id="fa270acc-ab5e-5fbc-9112-2fb2b2b666ed"></quiz>

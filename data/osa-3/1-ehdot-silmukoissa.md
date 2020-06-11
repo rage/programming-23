@@ -306,3 +306,6 @@ Laskettiin 1 + 2 + 3 + 4 + 5 + 6 = 21
 </sample-output>
 
 </in-browser-programming-exercise>
+
+
+<quiz id="462bc6ae-e88e-57ee-b99f-d08a678f7929"></quiz>
