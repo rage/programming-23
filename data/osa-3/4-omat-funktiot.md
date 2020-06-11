@@ -76,7 +76,9 @@ def moikkaa():
     print("Moi!")
 ```
 
-Funktion alla olevaan "pääohjelmaan" kannattaa kirjoittaa sopivia funktiokutsuja ohjelma testaamiseksi, esimerkiksi
+Funktion `moikkaa` sisällä oleva koodi suoritetaan vasta, kun funktiota kutsutaan.
+
+Funktion alla olevaan "pääohjelmaan" kannattaa siis kirjoittaa sopivia funktiokutsuja ohjelma testaamiseksi, esimerkiksi
 
 ```python
 def moikkaa():
@@ -198,6 +200,15 @@ n
 
 </in-browser-programming-exercise>
 
+<text-box variant='hint' name='Omien funktioiden testaaminen: parametrit'>
+
+Silloin kun omassa funktiossa on määritelty yksi tai useampia parametreja, kannattaa funktiota testata usealla erilaisella parametrilla.
+
+Kannattaa erityisesti miettiä, toimivatko myös "erikoistapaukset": mitä funktio esim. tekee, jos sille välitetään negatiivinen luku tai liukuluku kokonaisluvun sijasta.
+
+Jos tehtävänannossa ei ole erityisesti käsketty kirjoittamaan tiettyja funktiokutsuja, voit vapaasti lisätä omia kutsujasi pääohjelmaan - testit jättävät nämä huomiotta.
+
+</text-box>
 
 <in-browser-programming-exercise name="Risuneliö" tmcname="osa03-23_risunelio">
 
