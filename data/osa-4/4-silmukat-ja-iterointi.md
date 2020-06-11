@@ -194,8 +194,7 @@ print(luvut)
 
 Tee funktio `lista_tahtina`, joka saa parametriksi listan kokonaislukuja. FUnktio tulostaa joukon tähtirivejä siten, että listalla olevat luvut kertovat kunkin rivin tähtimäärän.
 
-Esim. kutsuttaessa `listaTahtina([3, 7, 1, 1, 2])` tulostuu
-
+Esim. kutsuttaessa `lista_tahtina([3, 7, 1, 1, 2])` tulostuu
 
 <sample-output>
 
@@ -242,7 +241,7 @@ True True True False False
 
 Tee funktio `palindromi`, joka saa parametriksi merkkijonon ja palauttaa True jos merkkijono on palindromi (eli samansisältöinen luettuna alusta loppuun tai lopusta alkuun).
 
-Tee myös funktiota käöyttävä pääohjelma, joka kyselee käyttäjältä sanoja, niin kauan kunnes käyttäjä syöttää palindromin:
+Tee myös funktiota hyödyntävä pääohjelma, joka kyselee käyttäjältä sanoja, niin kauan kunnes käyttäjä syöttää palindromin:
 
 <sample-output>
 
