@@ -25,7 +25,7 @@ const Split = styled.div`
   border-bottom: 1px solid #bdc3c7;
 `
 
-const Summary = props => {
+const Summary = (props) => {
   const updatedPropsChildren = props.children.map((child, index) => {
     return child.type.displayName === "Hr__StyledDivider" ? (
       <Split />

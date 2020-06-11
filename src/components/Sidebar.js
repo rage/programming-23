@@ -31,7 +31,7 @@ const SidebarContainer = styled.div`
   flex-direction: column;
   background-color: white;
 
-  ${props =>
+  ${(props) =>
     !props.mobileMenuOpen &&
     `
       display: none;
@@ -107,22 +107,22 @@ const MobileWrapper = styled.div`
   }
 `
 
-const MobileWrapperOrFragment = props => {
+const MobileWrapperOrFragment = (props) => {
   if (props.mobileMenuOpen) {
     return <MobileWrapper {...props} />
   }
   return <div {...props} />
 }
 
-const Sidebar = props => {
+const Sidebar = (props) => {
   let edges =
-    props.data?.allMarkdownRemark?.edges.map(o => o.node?.frontmatter) || []
+    props.data?.allMarkdownRemark?.edges.map((o) => o.node?.frontmatter) || []
   if (process.env.NODE_ENV === "production") {
-    edges = edges.filter(o => !o.hidden)
+    edges = edges.filter((o) => !o.hidden)
   }
 
   edges = edges
-    .filter(o => !o.hide_in_sidebar)
+    .filter((o) => !o.hide_in_sidebar)
     .sort((a, b) =>
       a.title.localeCompare(b.title, undefined, {
         numeric: true,
@@ -130,15 +130,15 @@ const Sidebar = props => {
       }),
     )
 
-  let coursePartEdges = edges.filter(o => !o.information_page && !o.upcoming)
+  let coursePartEdges = edges.filter((o) => !o.information_page && !o.upcoming)
 
   let informationPageEdges = edges
-    .filter(o => o.information_page)
+    .filter((o) => o.information_page)
     .sort((a, b) => b.sidebar_priority - a.sidebar_priority)
 
   let upcomingPageEdges = edges
-    .filter(o => o.upcoming)
-    .map(o => ({
+    .filter((o) => o.upcoming)
+    .map((o) => ({
       title: o.title,
       tba: o.upcoming,
       path: o.path,
@@ -150,14 +150,14 @@ const Sidebar = props => {
     .concat(upcomingPageEdges)
 
   let separatorEdges = []
-  content.forEach(edge => {
+  content.forEach((edge) => {
     if (edge.separator_after) {
       separatorEdges.push(edge)
     }
   })
 
-  separatorEdges.forEach(edge => {
-    let middlepoint = content.findIndex(o => o.title === edge.title)
+  separatorEdges.forEach((edge) => {
+    let middlepoint = content.findIndex((o) => o.title === edge.title)
     content.splice(middlepoint + 1, 0, {
       separator: true,
       title: edge.separator_after,
@@ -223,10 +223,10 @@ const query = graphql`
   }
 `
 
-const SidebarWithData = props => (
+const SidebarWithData = (props) => (
   <StaticQuery
     query={query}
-    render={data => <Sidebar data={data} {...props} />}
+    render={(data) => <Sidebar data={data} {...props} />}
   />
 )
 

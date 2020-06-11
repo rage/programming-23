@@ -27,7 +27,7 @@ export default class VocabularyTemplate extends React.Component {
   render() {
     const { data } = this.props
     const { frontmatter, htmlAst } = data.page
-    const allPages = data.allPages.edges.map(o => {
+    const allPages = data.allPages.edges.map((o) => {
       const res = o.node?.frontmatter
       res.words = o.node?.vocabularyWords
       return res
