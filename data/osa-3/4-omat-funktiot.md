@@ -216,7 +216,7 @@ Tee funktio `risunelio(pituus)` joka saa parametriksi kokonaisluvun, joka kertoo
 
 ```python
 risunelio(3)
-print("")
+print()
 risunelio(5)
 ```
 
@@ -361,7 +361,7 @@ Tee funktio `shakkilauta`, joka tulostaa shakkilaudan numeroista 0 ja 1 alla ole
 
 ```python
 shakkilauta(3)
-print("")
+print()
 shakkilauta(6)
 ```
 
@@ -392,7 +392,7 @@ Tee funktio `nelio`, joka tulostaa sananeliön alla olevien esimerkkien mukaises
 
 ```python
 nelio("ab", 3)
-print("")
+print()
 nelio("aybabtu", 5)
 ```
 
