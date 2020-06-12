@@ -150,7 +150,7 @@ print(lista2)
 
 <sample-output>
 
-['1.2', '0.33', '0.11']
+['1.20', '0.33', '0.11']
 
 </sample-output>
 

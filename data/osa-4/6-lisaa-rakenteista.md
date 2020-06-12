@@ -357,7 +357,7 @@ Esimerkki funktion kutsumisesta:
 
 ```python
 lista = [1, 2, 5, 7, 6, 5, 6, 3, 4, 1, 0]
-print(pisin_naapurijonon(lista))
+print(pisin_naapurijono(lista))
 ```
 
 <sample-output>
