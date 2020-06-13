@@ -111,7 +111,7 @@ TypeError: 'str' object does not support item assignment
 
 Samankaltainen virhe seuraa, jos yritetään esimerkiksi järjestää merkkijonoa järjestykseen `sort`-metodilla.
 
-Vaikka merkkijonoa ei voi muuttaa, voimme silti sijoittaa merkkijonon paikalle toisen merkkijonon. 
+Vaikka merkkijonoa ei voi muuttaa, voimme silti sijoittaa merkkijonon paikalle toisen merkkijonon.
 
 Onkin tärkeää huomata ero seuraavien esimerkkien välillä:
 
@@ -223,7 +223,7 @@ Java on kivaa
 
 Kirjoita funktio `eniten_kirjainta(mjono: str)`, joka saa parametrikseen merkkijonon. Funktio palauttaa sen kirjaimen, jota esiintyy eniten merkkijonossa.
 
-Voit olettaa, että merkkijono koostuu pelkästään pienistä suomen kielen kirjaimista a...ö. 
+Voit olettaa, että merkkijono koostuu pelkästään pienistä suomen kielen kirjaimista a...ö.
 
 Esimerkki funktion käytöstä:
 
@@ -247,7 +247,7 @@ k
 
 <programming-exercise name='Vokaalit pois' tmcname='osa04-24_vokaalit_pois'>
 
-Kirjoita funktio `ilman_vokaaleja(lause: str)`, joka saa parametrikseen merkkijonon. Funktion palauttaa uuden merkkijonon, jossa alkuperäisen merkkijonon vokaalit on poistettu.
+Kirjoita funktio `ilman_vokaaleja(lause: str)`, joka saa parametrikseen merkkijonon. Funktio palauttaa uuden merkkijonon, jossa alkuperäisen merkkijonon vokaalit on poistettu.
 
 Voit olettaa, että merkkijono koostuu pelkästään pienistä suomen kielen kirjaimista a...ö.
 
@@ -269,7 +269,7 @@ tm n smrkk
 
 <programming-exercise name='Poista isot' tmcname='osa04-25_poista_isot'>
 
-Pythonin merkkijonometodi `isupper()` palauttaa arvon `True`, jos merkkijono koostuu _pelkästään isoista kirjaimista_. 
+Pythonin merkkijonometodi `isupper()` palauttaa arvon `True`, jos merkkijono koostuu _pelkästään isoista kirjaimista_.
 
 Esimerkiksi:
 
@@ -381,7 +381,7 @@ Esimerkki funktion kutsumisesta:
 teksti = "moi kaikki! halusin vaan kysyä, että miten tämä toimii? nyt tässä on pelkkiä pieniä kirjaimia, ja haluaisin että olisi myös isoja. olisiko liikaa vaadittu?"
 print(isot_alkukirjaimet(teksti))
 
-``` 
+```
 
 <sample-output>
 
