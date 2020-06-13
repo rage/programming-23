@@ -308,7 +308,7 @@ Anna luku: **6**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa03-20_kirjainruudukko" height="700px">
+<in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa03-20_kirjainruudukko">
 
 Tee ohjelma, joka tulostaa kirjainruudukon oheisten esimerkkien mukaisesti. Voit olettaa, että kerroksia on enintään 26.
 
