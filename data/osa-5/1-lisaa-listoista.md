@@ -285,3 +285,33 @@ Tulostuksen ulkoasu on hieman karu:
 
 Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaharava, laivan upotus, mastermind, ...) matriisina, täytyy ainoastaan valita sopiva tapa millä yhden ruudun tilanne "koodataan" matriisiin.
 
+
+<programming-exercise name='Sudoku: rivit oikein' tmcname='osa05-03_sudoku_osa1'>
+
+Tee funktio `rivi_oikein(sudoku: list, rivi: int)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja rivin numeron kertovan kokonaisluvun (rivit on numeroitu nollasta alkaen). Metodi palauttaa tiedon siitä onko rivi oikein täytetty eli löytyykö riviltä kukin luvuista 1-9 korkeintaan kerran.
+
+```python
+sudoku = [
+  [ 9, 0, 0, 0, 8, 0, 3, 0, 0 ],
+  [ 2, 0, 0, 2, 5, 0, 7, 0, 0 ],
+  [ 0, 2, 0, 3, 0, 0, 0, 0, 4 ],
+  [ 2, 9, 4, 0, 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 7, 3, 0, 5, 6, 0 ],
+  [ 7, 0, 5, 0, 6, 0, 4, 0, 0 ],
+  [ 0, 0, 7, 8, 0, 3, 9, 0, 0 ],
+  [ 0, 0, 1, 0, 0, 0, 0, 0, 3 ],
+  [ 3, 0, 0, 0, 0, 0, 0, 0, 2 ],
+]
+
+print(rivi_oikein(sudoku, 0))
+print(rivi_oikein(sudoku, 0))
+```
+
+<sample-output>
+
+True
+False
+
+</sample-output>
+
+</programming-exercise>

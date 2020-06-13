@@ -276,7 +276,7 @@ Koodi tulostaa melkein oikein, mutta ei kuitenkaan ihan. Kuten muissakin kurssin
 
 Korjaa siis koodi siten, että tulostus näyttää oikealta. Huomaa, että erityisesti `print`-komennon muoto, missä tulostettavat osat eritellään pilkulla voi tuottaa yllätyksiä, sillä se lisää osien väliin välilyönnin.
 
-Vihje: saat tulostettua tyhjän rivin komennolla `print("")` tai lisäämällä tulostettavaan merkkijonoon merkin `\n`.
+Vihje: saat tulostettua tyhjän rivin komennolla `print()` tai lisäämällä tulostettavaan merkkijonoon merkin `\n`.
 
 Muista olla tarkkana tulostusten muodon suhteen jatkossakin kurssin tehtävissä, testit vaativat useimmiten täsmälleen esimerkkitulostusten mukaisen muotoilun!
 
