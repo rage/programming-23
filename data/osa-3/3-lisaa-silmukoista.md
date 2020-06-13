@@ -338,7 +338,7 @@ DCCCCCD
 DDDDDDD
 </pre>
 
-Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu jos et saa tätä heti ratkaisuta. Älä juutu tähän tehtävään, tee ensin osa loppuun ja palaa tehtävään sen jälkeen. Voi myös olla ihan viisasta jättää tämä tehtävä kokonaan myöhemmäksi.
+Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu, jos et saa tätä heti ratkaistua. Älä juutu tähän tehtävään, vaan tee ensin osa loppuun ja palaa tehtävään sen jälkeen. Voi myös olla ihan viisasta jättää tämä tehtävä kokonaan myöhemmäksi.
 
 </sample-output>
 
