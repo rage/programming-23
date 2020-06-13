@@ -304,7 +304,7 @@ sudoku = [
 ]
 
 print(rivi_oikein(sudoku, 0))
-print(rivi_oikein(sudoku, 0))
+print(rivi_oikein(sudoku, 1))
 ```
 
 <sample-output>
@@ -315,3 +315,32 @@ False
 </sample-output>
 
 </programming-exercise>
+
+<programming-exercise name='Sudoku: sarakkeet oikein' tmcname='osa05-03_sudoku_osa2'>
+
+Tee funktio `sarake_oikein(sudoku: list, sarake: int)`  joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja sarakkeen (eli pystyrivin) numeron kertovan kokonaisluvun. Metodi palauttaa tiedon siitä onko sarake oikein täytetty ts. löytyykö siltä kukin luvuista 1-9 korkeintaan kerran.
+
+```python
+sudoku = [
+  [ 9, 0, 0, 0, 8, 0, 3, 0, 0 ],
+  [ 2, 0, 0, 2, 5, 0, 7, 0, 0 ],
+  [ 0, 2, 0, 3, 0, 0, 0, 0, 4 ],
+  [ 2, 9, 4, 0, 0, 0, 0, 0, 0 ],
+  [ 0, 0, 0, 7, 3, 0, 5, 6, 0 ],
+  [ 7, 0, 5, 0, 6, 0, 4, 0, 0 ],
+  [ 0, 0, 7, 8, 0, 3, 9, 0, 0 ],
+  [ 0, 0, 1, 0, 0, 0, 0, 0, 3 ],
+  [ 3, 0, 0, 0, 0, 0, 0, 0, 2 ],
+]
+
+print(sarake_oikein(sudoku, 0))
+print(sarake_oikein(sudoku, 0))
+```
+
+<sample-output>
+
+False
+True
+
+</sample-output>
+
