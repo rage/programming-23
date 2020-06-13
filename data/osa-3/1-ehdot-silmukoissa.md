@@ -61,13 +61,13 @@ Suoritus valmis.
 
 </sample-output>
 
-Koska 12 ei ole pienempi kuin 10, ohjelma ei tulosta mitään lukua:
+Koska 12 ei ole pienempi kuin 10, ohjelma ei tulosta mitään lukua.
 
 ## Alustus, testaus ja muutos
 
-Monessa silmukassa on kolme osaa: alustus, testaus ja muutos.
+Monessa silmukassa on kolme osaa: alustus, ehto ja muutos.
 
-_Alustus_ tarkoittaa silmukassa käytettävän muuttujan tai muuttujien alkuarvojen antamista. Tämä vaihe tehdään ennen silmukkaa. _Testaus_ kirjoitetaan silmukan alkuun, ja se määrittelee ehdon, jonka ollessa tosi silmukka suoritetaan. Joka kierroksella tapahtuva _muutos_ vie silmukan askeleen lähemmäs sen loppumista. Esimerkiksi:
+_Alustus_ tarkoittaa silmukassa käytettävän muuttujan tai muuttujien alkuarvojen antamista. Tämä vaihe tehdään ennen silmukkaa. _Ehto_ kirjoitetaan silmukan alkuun, ja se määrittelee, kuinka kauan silmukka suoritetaan. Joka kierroksella tapahtuva _muutos_ vie silmukan askeleen lähemmäs sen loppumista. Esimerkiksi:
 
 <img src="3_1_2.png">
 
@@ -172,7 +172,7 @@ while luku != 10:
     luku += 2
 ```
 
-Jos syötteeksi parillinen luku, joka on enintään 10, silmukan suoritus päättyy:
+Jos syötteenä on parillinen luku, joka on enintään 10, silmukan suoritus päättyy:
 
 <sample-output>
 
@@ -207,7 +207,7 @@ Mihin asti: **5**
 
 Tee ohjelma, joka tulostaa ensin luvun 1 ja sen jälkeen kerta toisensa jälkeen aina kaksi kertaa suuremman luvun. Ohjelman siis tulostaa luvun kaksi potensseja.
 
-Ohjelman suoritus päättyy, kun on tulostettu luku joka on korkeintaan käyttäjän syötteen suuruinen. Yhtään käyttäjän syötettä suurempaa lukua ei siis tulosteta!
+Ohjelman suoritus päättyy, kun on tulostettu luku, joka on korkeintaan käyttäjän syötteen suuruinen. Yhtään käyttäjän syötettä suurempaa lukua ei siis tulosteta!
 
 <sample-output>
 
@@ -249,7 +249,7 @@ Mihin asti: **100**
 
 <in-browser-programming-exercise name="Luvun n potenssit" tmcname="osa03-04_luvun_n_potenssit">
 
-Muuta edellistä ohjelmaa siten, että käyttäjä saa määrätä kertoimen (edellisessä ohjelmassa kerroin oli aina 2), eli sen minkä luvun potensseja ohjelma tulostaa.
+Muuta edellistä ohjelmaa siten, että käyttäjä saa määrätä kertoimen (edellisessä ohjelmassa kerroin oli aina 2), eli sen, minkä luvun potensseja ohjelma tulostaa.
 
 <sample-output>
 
