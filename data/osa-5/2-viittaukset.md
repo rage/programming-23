@@ -239,6 +239,69 @@ Uusi lista: [1, 2, 3, 10]
 
 </sample-output>
 
+<programming-exercise name='Sudoku: ruudukon tulostus ja luvun lisäys' tmcname='osa05-07_sudoku_osa5'>
+
+Tässä tehtävässä toteutetaan vielä kaksi funktiota sudokua varten `tulosta` ja ``lisaa.
+
+Funktio, `tulosta` saa parametriksi surokuruudukkoa esittävän kaksiulotteisen taulukon ja tulostaa sen alla olevan esimerkkituostuksen mukaisessa muodossa.
+
+Funktio, `lisays` saa parametriksi surokuruudukkoa esittävän kaksiulotteisen taulukon, rivi- ja sarakenumerot sekä luvun väliltä 1-9. Funktio lisää luvun parametrien ilmoittamaan kohtaan sudokuruudukkoa.
+
+```python
+sudoku  = [
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+]
+
+tulosta(sudoku)
+lisays(sudoku, 0, 0, 2)
+lisays(sudoku, 1, 2, 7)
+lisays(sudoku, 5, 7, 3)
+print()
+print("kolme numeroa lisätty:")
+print()
+tulosta(sudoku)
+```
+
+<sample-output>
+
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+
+kolme numeroa lisätty:
+
+2 0 0  0 0 0  0 0 0
+0 0 7  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 3 0
+
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+0 0 0  0 0 0  0 0 0
+
+</sample-output>
+
+</programming-exercise>
+
 ## Funktioiden sivuvaikutukset
 
 Koska funktio saa parametrinaan viittauksen listaan, se voi muuttaa tätä listaa. Jos funktion varsinaisena tarkoituksena ei ole muuttaa listaa, muutokset voivat aiheuttaa ongelmia toisaalla ohjelmassa.
