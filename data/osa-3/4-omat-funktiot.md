@@ -318,7 +318,7 @@ Palaamme funktioihin ja parametrien määrittelyyn tarkemmin seuraavan osan alus
 
 <in-browser-programming-exercise name="Monta tulostusta" tmcname="osa03-24_monta_tulostusta">
 
-Tee funktio `tulosta_monesti(merkkijono, kertaa)` joka saa parametriksi merkkijonon sekä kokonaisluvun, joka keroo kuinka monta kertaa funktion tulee tulostaa parametrina saamansa merkkijono:
+Tee funktio `tulosta_monesti(merkkijono, kertaa)`, joka saa parametriksi merkkijonon sekä kokonaisluvun, joka kertoo, kuinka monta kertaa funktion tulee tulostaa parametrina saamansa merkkijono:
 
 ```python
 merkkijono = input("Merkkijono: ")
