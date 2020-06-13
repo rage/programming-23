@@ -308,7 +308,7 @@ Anna luku: **6**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa03-20_kirjainruudukko" height="700px">
+<in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa03-20_kirjainruudukko">
 
 Tee ohjelma, joka tulostaa kirjainruudukon oheisten esimerkkien mukaisesti. Voit olettaa, että kerroksia on enintään 26.
 
@@ -338,7 +338,7 @@ DCCCCCD
 DDDDDDD
 </pre>
 
-Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu jos et saa tätä heti ratkaisuta. Älä juutu tähän tehtävään, tee ensin osa loppuun ja palaa tehtävään sen jälkeen. Voi myös olla ihan viisasta jättää tämä tehtävä kokonaan myöhemmäksi.
+Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu, jos et saa tätä heti ratkaistua. Älä juutu tähän tehtävään, vaan tee ensin osa loppuun ja palaa tehtävään sen jälkeen. Voi myös olla ihan viisasta jättää tämä tehtävä kokonaan myöhemmäksi.
 
 </sample-output>
 
