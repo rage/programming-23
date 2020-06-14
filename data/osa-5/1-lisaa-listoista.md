@@ -7,16 +7,15 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Listoihin voi tallentaa myös muunlaista tietoa kuin kokonaislukuja - esimerkiksi merkkijonoja, kokonaislukuja tai vaikka toisia listoja. Opetellaan siis käyttämään listoja entistä monipuolisemmin.
+Tämän osion jälkeen
 
-Tämän osan suoritettuasi
-
-- Osaat luoda listoja, joissa on sisältönä mitä tahansa Pythonin objekteja
-- Tiedät, että matriisi voidaan mallintaa kaksiulotteisena listana
+- Osaat luoda listoja, joissa on erityyppistä tietoa
+- Tiedät, miten listoja voi käyttää tiedon ryhmittelyyn
+- Osaat tallentaa matriisin kaksiulotteisena listana
 
 </text-box>
 
-Viime kerralla käsiteltiin lähes yksinomaan listoja, joissa alkiot olivat kokonaislukuja. Listoihin voi luonnollisesti tallentaa minkä tahansa tyyppisiä arvoja. Esimerkiksi voimme tallentaa listaan merkkijonoja:
+Viime kerralla käsiteltiin lähes yksinomaan listoja, joissa alkiot ovat kokonaislukuja. Listoihin voi kuitenkin tallentaa minkä tahansa tyyppisiä arvoja. Esimerkiksi voimme tallentaa listaan merkkijonoja:
 
 ```python
 nimet = ["Maija", "Liisa", "Pekka"]
@@ -25,7 +24,7 @@ nimet.append("Kalle")
 print(nimet)
 
 print("Listalla nimiä:", len(nimet))
-print('aakkosjärjestyksessä:')
+print("Nimet aakkosjärjestyksessä:")
 nimet.sort()
 for nimi in nimet:
   print(nimi)
@@ -36,7 +35,7 @@ for nimi in nimet:
 ['Maija', 'Liisa', 'Pekka']
 ['Maija', 'Liisa', 'Pekka', 'Kalle']
 Listalla nimiä: 4
-aakkosjärjestyksessä:
+Nimet aakkosjärjestyksessä:
 Kalle
 Liisa
 Maija
@@ -90,39 +89,38 @@ print(lista[1][0])
 
 Mihin voimme käyttää listoja jonka sisällä on listoja?
 
-Voisimme esimerkiksi esittää yhden henkilön tiedot listana, missä ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengän numero:
+Voisimme esimerkiksi esittää henkilön tiedot listana, missä ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengännumero:
 
 ```python
 ["Anu", 10, 26 ]
 ```
 
-ja joukko henkilöitä on lista, joka sisältää yksittäisiä henkilöä kuvaavia listoja:
+Vastaavasti joukko henkilöitä on lista, joka sisältää yksittäisiä henkilöä kuvaavia listoja:
 
 ```python
-henkilot = [ ["Anu", 10, 26], ["Petteri", 7, 22],  ["Emilia", 32, 37], ["Antti", 39, 44] ]
-
-henkilot.sort()
+henkilot = [["Anu", 10, 26], ["Petteri", 7, 22], ["Emilia", 32, 37], ["Antti", 39, 44]]
 
 for henkilo in henkilot:
   nimi = henkilo[0]
   ika = henkilo[1]
   kenka = henkilo[2]
-  print(f"{nimi:10} ikä {ika:2} vuotta, kengännumero {kenka}")
+  print(f"{nimi}: ikä {ika} vuotta, kengännumero {kenka}")
 ```
 
-```python
+<sample-output>
 
-Antti      ikä 39 vuotta, kengännumero 44
-Anu        ikä 10 vuotta, kengännumero 26
-Emilia     ikä 32 vuotta, kengännumero 37
-Petteri    ikä  7 vuotta, kengännumero 22
+Anu: ikä 10 vuotta, kengännumero 26
+Petteri: ikä  7 vuotta, kengännumero 22
+Emilia: ikä 32 vuotta, kengännumero 37
+Antti: ikä 39 vuotta, kengännumero 44
 
-```
-
+</sample-output>
 
 Huomaa, miten `for`-lause käy läpi henkilöt yksitellen, eli toiston lohko-osassa muuttuja  `henkilo` saa yksi kerrallaan arvokseen kutakin henkilöä esittävän listan.
 
-Lista ei ole välttämättä paras Pythonin tietorakenne yksittäisen henkilön tietojen esittämiseen. Tutustumme pian _sanakirjaan_ joka on usein luontevampi tapa hoitaa vastaava tilanne.
+Lista ei ole välttämättä paras Pythonin tietorakenne henkilön tietojen esittämiseen. Tutustumme pian _sanakirjaan_ joka on usein luontevampi tapa hoitaa vastaava tilanne.
+
+## Matriisit
 
 Sisäkkäisten listojen avulla voidaan myös esittää _matriisia_ eli kaksiulotteista taulukkoa.
 
@@ -136,16 +134,14 @@ voitaisiin mallintaa kaksiulotteisena listana näin:
 matriisi = [[1,2,3], [3,2,1], [4,5,6]]
 ```
 
-Koska lista sisältää toisia listoja, täytyy matriisin alkioihin viitata käyttämällä kaksia peräkkäisiä hakasulkeita. Ensimmäinen indeksi viittaa riviin ja toinen sarakkeeseen. Niinpä esimerkiksi lauseke `m[1][3]` poimisi neljännen alkion toiselta riviltä (kun muistetaan, että indeksointi alkaa taas kerran nollasta).
+Koska matriisi on lista listoista, matriisin alkioihin viitataan käyttämällä peräkkäisiä hakasulkeita. Ensimmäinen indeksi viittaa riviin ja toinen sarakkeeseen. Niinpä esimerkiksi lauseke `m[0][1]` poimii toisen alkion ensimmäiseltä riviltä (kun muistetaan, että indeksointi alkaa nollasta).
 
 ```python
-
 matriisi = [[1,2,3], [3,2,1], [4,5,6]]
 
-print(matriisi[0][1]) # 1. rivi, 2. alkio
-matriisi[1][0] = 10 # 2. rivi, 1. alkio
+print(matriisi[0][1])
+matriisi[1][0] = 10
 print(matriisi)
-
 ```
 
 <sample-output>
@@ -155,80 +151,70 @@ print(matriisi)
 
 </sample-output>
 
-Matriisia iteroitaessa `for`-silmukalla poimitaan yksittäiset rivit. Esimerkiksi seuraava funktio tulostaa matriisin rivit allekkain:
+Voimme käydä läpi matriisin rivit `for`-silmukalla. Esimerkiksi seuraava koodi tulostaa matriisin rivit allekkain:
 
 ```python
+matriisi = [[1,2,3], [4,5,6], [7,8,9]]
 
-def tulosta_rivit(matriisi: list):
-    for rivi in matriisi:
-        print(rivi)
-
-
-# Testataan
-m = [[1,2,3,4], [5,6,7,8], [9,10,11,12]]
-tulosta_rivit(m)
-
+for rivi in matriisi:
+    print(rivi)
 ```
 
 <sample-output>
 
-[1, 2, 3, 4]
-[5, 6, 7, 8]
-[9, 10, 11, 12]
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 9]
 
 </sample-output>
 
-Jos halutaan käydä läpi kaikki matriisin alkiot, voidaan käyttää kahta sisäkkäistä for-silmukkaa.
+Seuraava koodi puolestaan tulostaa matriisin alkiot yksitellen kahden `for`-silmukan avulla:
 
 ```python
+matriisi = [[1,2,3], [4,5,6], [7,8,9]]
 
-# Funktio laskee matriisissa olevien
-# parillisten alkioiden määärän
-def parilliset_alkiot(matriisi: list) -> int:
-    n = 0
-    for rivi in matriisi:
-        for alkio in rivi:
-            if alkio % 2 == 0:
-                n = n + 1
-
-    return n
-
-# Testataan
-m = [[1,2,3,4], [2,3,4,5], [3,4,5,6]]
-print(parilliset_alkiot(m))
-
+for rivi in matriisi:
+    print("uusi rivi")
+    for alkio in rivi:
+        print(alkio)
 ```
 
 <sample-output>
 
+uusi rivi
+1
+2
+3
+uusi rivi
+4
+5
 6
+uusi rivi
+7
+8
+9
 
 </sample-output>
 
-Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, voidaan hyödyntää `range`-funktiota iteroinnissa:
+Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, voidaan hyödyntää `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
 
 ```python
+m = [[1,2,3], [4,5,6], [7,8,9]]
 
-m = [[1,2,3], [4,5,6]]
-
-# Lisätään matriisin kaikkiin arvoihin  yksi
 for i in range(len(m)):
     for j in range(len(m[i])):
-        m[i][j] = m[i][j] + 1
+        m[i][j] += 1
 
 print(m)
-
 ```
 
 <sample-output>
 
-[[2, 3, 4], [5, 6, 7]]
+[[2, 3, 4], [5, 6, 7], [8, 9, 10]]
 
 </sample-output>
 
 Ulompi silmukka käy `range`-funktion avulla läpi arvot nollasta matriisin pituuteen (eli matriisin rivien määrään) ja sisempi silmukka jokaisen rivin alkiot nollasta rivin pituuteen.
-
-KUVA
 
 <programming-exercise name='Alkioiden määrä' tmcname='osa05-01_alkoiden_maara'>
 
@@ -255,7 +241,7 @@ Matriisi sopii hyvin monien pelien tietorakenteeksi. Esim. sudokun ruudukko
 
 <img src="5_1_1.png">
 
-voitaisiin esittää seuraavana matriisina
+voitaisiin esittää seuraavana matriisina:
 
 ```python
 sudoku = [
@@ -277,18 +263,18 @@ Seuraavassa vielä yksinkertainen versio sudokun tulostavasta metodista:
 
 ```python
 def tulosta(sudoku):
-  for rivi in sudoku:
-    for ruutu in rivi:
-      if ruutu>0:
-        print(f" {ruutu}", end='')
-      else:
-        print(" _", end='')
-    print()
+    for rivi in sudoku:
+        for ruutu in rivi:
+            if ruutu>0:
+                print(f" {ruutu}", end="")
+            else:
+                print(" _", end="")
+        print()
 
 tulosta(sudoku)
 ```
 
-Tulostuksen ulkoasu on hieman karu:
+Tulostus näyttää seuraavalta:
 
 ```python
 
@@ -304,7 +290,7 @@ Tulostuksen ulkoasu on hieman karu:
 
 ```
 
-Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaharava, laivan upotus, mastermind, ...) matriisina, täytyy ainoastaan valita sopiva tapa millä yhden ruudun tilanne "koodataan" matriisiin.
+Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaharava, laivan upotus, mastermind, ...) matriisina. Pelistä riippuu, mikä on sopiva tapa "koodata" yhden ruudun tilanne matriisiin.
 
 <programming-exercise name='Go' tmcname='osa05-02_go'>
 
