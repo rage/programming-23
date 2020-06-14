@@ -54,7 +54,7 @@ TypeError: 'tuple' object does not support item assignment
 
 </sample-output>
 
-# Miksi tuple on olemassa?
+## Miksi tuple on olemassa?
 
 Tuplen ideana on tallentaa jokin kiinteä kokoelma arvoja, jotka liittyvät toisiinsa. Esimerkiksi kun tallennamme pisteen, jossa on x- ja y-koordinaatti, tuple on luonteva valinta, koska pisteeseen kuuluu aina kaksi arvoa:
 
