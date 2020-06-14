@@ -27,7 +27,7 @@ export async function fetchProgress(t) {
   zip(serviceIdentifiers, progressesCollection).forEach(
     ([identifier, progresses]) => {
       console.log(JSON.stringify(progresses))
-      progresses.forEach((progressEntry) => {
+      progresses.forEach(progressEntry => {
         if (!progressByGroup[progressEntry.group]) {
           progressByGroup[progressEntry.group] = {}
         }
@@ -37,19 +37,16 @@ export async function fetchProgress(t) {
   )
   const toBeDeleted = []
   Object.entries(progressByGroup).forEach(([group, serviceEntries]) => {
-    if (
-      !Object.keys(serviceEntries).find((o) => o === t("programmingService"))
-    ) {
+    if (!Object.keys(serviceEntries).find(o => o === t("programmingService"))) {
       toBeDeleted.push(group)
     }
   })
   // TODO: this is not a good way to do this
-  toBeDeleted.push("osa03")
   toBeDeleted.push("osa04")
   toBeDeleted.push("osa05")
   toBeDeleted.push("osa06")
   toBeDeleted.push("osa07")
-  toBeDeleted.forEach((o) => {
+  toBeDeleted.forEach(o => {
     delete progressByGroup[o]
   })
   return progressByGroup
