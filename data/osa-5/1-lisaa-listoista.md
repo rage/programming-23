@@ -92,7 +92,7 @@ Mihin voimme käyttää listoja jonka sisällä on listoja?
 Voisimme esimerkiksi esittää henkilön tiedot listana, missä ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengännumero:
 
 ```python
-["Anu", 10, 26 ]
+["Anu", 10, 26]
 ```
 
 Vastaavasti joukko henkilöitä on lista, joka sisältää yksittäisiä henkilöä kuvaavia listoja:
@@ -118,11 +118,11 @@ Antti: ikä 39 vuotta, kengännumero 44
 
 Huomaa, miten `for`-lause käy läpi henkilöt yksitellen, eli toiston lohko-osassa muuttuja  `henkilo` saa yksi kerrallaan arvokseen kutakin henkilöä esittävän listan.
 
-Lista ei ole välttämättä paras Pythonin tietorakenne henkilön tietojen esittämiseen. Tutustumme pian _sanakirjaan_ joka on usein luontevampi tapa hoitaa vastaava tilanne.
+Lista ei ole välttämättä paras Pythonin tietorakenne henkilön tietojen esittämiseen. Tutustumme pian _sanakirjaan_, joka on usein luontevampi tapa hoitaa vastaava tilanne.
 
 ## Matriisit
 
-Sisäkkäisten listojen avulla voidaan myös esittää _matriisia_ eli kaksiulotteista taulukkoa.
+Sisäkkäisten listojen avulla voidaan myös esittää _matriisi_ eli kaksiulotteinen taulukko.
 
 Esimerkiksi matriisi
 
@@ -134,7 +134,7 @@ voitaisiin mallintaa kaksiulotteisena listana näin:
 matriisi = [[1,2,3], [3,2,1], [4,5,6]]
 ```
 
-Koska matriisi on lista listoista, matriisin alkioihin viitataan käyttämällä peräkkäisiä hakasulkeita. Ensimmäinen indeksi viittaa riviin ja toinen sarakkeeseen. Niinpä esimerkiksi lauseke `m[0][1]` poimii toisen alkion ensimmäiseltä riviltä (kun muistetaan, että indeksointi alkaa nollasta).
+Koska matriisi on lista listoja, matriisin alkioihin viitataan käyttämällä peräkkäisiä hakasulkuja. Ensimmäinen indeksi viittaa riviin ja toinen sarakkeeseen. Niinpä esimerkiksi `m[0][1]` tarkoittaa ensimmäisen rivin toista alkiota (kun muistetaan, että indeksointi alkaa nollasta).
 
 ```python
 matriisi = [[1,2,3], [3,2,1], [4,5,6]]
@@ -265,7 +265,7 @@ Seuraavassa vielä yksinkertainen versio sudokun tulostavasta metodista:
 def tulosta(sudoku):
     for rivi in sudoku:
         for ruutu in rivi:
-            if ruutu>0:
+            if ruutu > 0:
                 print(f" {ruutu}", end="")
             else:
                 print(" _", end="")
@@ -276,7 +276,7 @@ tulosta(sudoku)
 
 Tulostus näyttää seuraavalta:
 
-```python
+```x
 
  9 _ _ _ 8 _ 3 _ _
  _ _ _ 2 5 _ 7 _ _
@@ -290,7 +290,7 @@ Tulostus näyttää seuraavalta:
 
 ```
 
-Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaharava, laivan upotus, mastermind, ...) matriisina. Pelistä riippuu, mikä on sopiva tapa "koodata" yhden ruudun tilanne matriisiin.
+Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaharava, laivan upotus, mastermind, ...) matriisina. Pelistä riippuu, mikä on sopiva tapa "koodata" pelin tilanne matriisiin.
 
 <programming-exercise name='Go' tmcname='osa05-02_go'>
 
