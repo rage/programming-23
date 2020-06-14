@@ -7,29 +7,16 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Listan lisäksi toinen Pythonin keskeinen tietorakenne on sanakirja (_dictionary_),
-johon tallennetaan avain-arvo-pareja.
+Tämän osion jälkeen
 
-Tämän osion suoritettuasi
-
-- Tiedät, mikä on sanakirja ja mikä sen toimintaperiaate on
+- Tiedät, millainen tietorakenne on sanakirja
 - Osaat käyttää sanakirjaa eri tyyppisten avainten ja arvojen kanssa
-- Osaat pyytää kaikki sanakirjan avaimet tai arvot kerralla
-- Tunnet menetelmiä sanakirjan sisällön läpikäyntiin
+- Osaat käydä läpi sanakirjan sisällön
+- Tunnet joitakin sanakirjan käyttötarkoituksia ohjelmoinnissa
 
 </text-box>
 
-Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat indekseissä 0, 1, 2, jne.
-ja jos haluamme löytää listalta tietyn alkion, on useimmissa tapauksissa käytävä alkiot läpi listan alusta alkaen. Jos lista on kooltaan pieni, ei asialla ole merkitystä, mutta listojen kasvaessa tuhansien alkioiden kokoiseksi, voi suorituskyvyllä olla merkitystä.
-
-Pythonin _sanakirja_ (engl. dictionary) tarjoaa hieman listasta poikkeavan tavan tietojen organisoimiseen. Sanakirja ei talleta tietoa listan tapaan  peräkkäisiin indekseihin, vaan sen sijaan jokainen tietoalkio koostuu _avaimesta_ ja _arvosta_. Kun tiedetään avain, voidaan sen avulla pyytää helposti sanakirjasta vastaava arvo.
-
-Tyypillinen esimerkki voisi olla vaikkapa yliopiston opiskelijarekisteri, jossa avain on opiskelijanumero ja arvona on tallennettu opiskelijan tiedot. Kun tiedetään halutun opiskelijan opiskelijanumero, löydetään opiskelijan tiedot nopeasti.
-
-<img src="5_4_1.png">
-
-Toisin kuin listassa, sanakirjassa alkioita ei ole järjestetty. Ei voida siis puhua ensimmäisestä tai viimeisestä alkiosta. Näiden sijasta on vain _joukko_ avaimia, joista jokainen viittaa yhteen alkioon:
-
+Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat indekseissä 0, 1, 2, jne. Tutustumme seuraavaksi _sanakirjaan_, joka on toinen Pythonin perustietorakenne. Sanakirjassa jokainen alkio koostuu _avaimesta_ ja _arvosta_, ja voimme etsiä ja muuttaa tietoa avaimen perusteella.
 
 ## Sanakirjan käyttäminen
 
@@ -68,8 +55,7 @@ else:
     print("Sanaa ei löytynyt")
 ```
 
-Tässä käytössä on `in`-operaattori, joka sanakirjan tapauksessa tarkastaa, onko siinä tiettyä avainta.
-Mahdollisia ohjelman tulostuksia:
+Tässä käytössä on `in`-operaattori, joka sanakirjan tapauksessa tarkastaa, onko siinä tiettyä avainta. Mahdollisia ohjelman tulostuksia:
 
 <sample-output>
 
@@ -121,7 +107,7 @@ large
 
 </sample-output>
 
-Sanakirjan avaimen vaatimuksena on, että se on mutatoitumaton. Tämän vuoksi emme voi käyttää listaa avaimena, koska lista voi muuttua. Esimerkiksi seuraava koodi ei toimi:
+Sanakirjan avaimen vaatimuksena on, että sen tulee olla muuttumaton. Tämän vuoksi emme voi käyttää listaa avaimena, koska lista voi muuttua. Esimerkiksi seuraava koodi ei toimi:
 
 ```python
 sanakirja[[1,2,3]] = 5
@@ -135,30 +121,20 @@ TypeError: unhashable type: 'list'
 
 <text-box variant="hint" name="Hajautustaulu">
 
-Python tallentaa sanakirjan sisällön sisäisesti tietorakenteena nimeltä _hajautustaulu_ (_hash table_). Ideana on laskea avaimelle _hajautusarvo_ (_hash value_), jonka avulla määräytyy sen paikka muistissa. Yllä oleva virheilmoitus ilmaisee, että listalle ei voida laskea hajautusarvoa, joten se ei kelpaa sanakirjan avaimeksi.
+Python tallentaa sanakirjan sisällön sisäisesti tietorakenteena nimeltä _hajautustaulu_ (_hash table_). Ideana on laskea avaimelle _hajautusarvo_ (_hash value_), jonka avulla määräytyy avaimen paikka muistissa. Yllä oleva virheilmoitus ilmaisee, että listalle ei voida laskea hajautusarvoa, joten se ei kelpaa sanakirjan avaimeksi.
 
-Kurssilla [Tietorakenteet ja algoritmit](https://courses.helsinki.fi/fi/aytkt20001) tutustutaan tarkemmin hajautustauluihin, eli sanakirjojen pellin alla olevaan mekanismiin.
+Kurssilla _Tietorakenteet ja algoritmit_ tutustutaan tarkemmin hajautustauluihin, eli sanakirjojen pellin alla olevaan mekanismiin.
 
 </text-box>
 
-Arvoilla tällaisia vaatimuksia ei ole - hakemiston arvoksi voidaan tallentaa mitä tahansa. Sama arvo saa myös esiintyä samassa hakemistossa enemmän kuin yhden kerran.
+Huomaa, että sanakirjan arvon ei tarvitse olla muuttumaton, vaan voimme tallentaa mitä tahansa tietoa arvoiksi. Sama arvo voi myös esiintyä samassa hakemistossa enemmän kuin yhden kerran.
 
 ## Sanakirjan läpikäynti
 
-Sanakirjan läpikäyntiin voidaan käyttää totuttuun tapaan `for`-lausetta. Rakenne `for avain in sanakirja` sijoittaa yksi kerrallaan kaikki _avaimet_ sanakirjasta `sanakirja` muuttujaan `avain`.
-
-<text-box variant="hint" name="Avainten järjestys">
-
-Aiemmissa Pythonin versioissa avaimet saattoivat tulla läpikäynnin yhteydessä missä tahansa järjestyksessä. Tavallaan tämä on loogista, koska alkioilla ei ajatella olevan järjestystä sanakirjassa. Nykyisin Pythonin toteutusta on kuitenkin muutettu siten, että avaimet (yleensä) käydään läpi lisäysjärjestyksessä. Joka tapauksessa hyvä periaate on, että jos tarvitset _järjestettyä_ tietorakennetta, on parempi käyttää listaa kuin sanakirjaa.
-
-TODO: Yleensä? Milloin näin tapahtuu ja milloin ei?
-
-</text-box>
-
+Sanakirjan läpikäyntiin voidaan käyttää totuttuun tapaan `for`-lausetta. Rakenne `for avain in sanakirja` käy läpi kaikki sanakirjan avaimet yksi kerrallaan.
 Esimerkiksi seuraava koodi tulostaa kaikki sanakirjan avaimet ja niiden arvot:
 
 ```python
-
 sanakirja = {}
 
 sanakirja["apina"] = "monkey"
@@ -190,7 +166,9 @@ for avain, arvo in sanakirja.items():
     print("arvo:", arvo)
 ```
 
-## Sanakirjan "edistyneempi" käyttö
+Huomaa, että läpikäynnissä avaimet tulevat samassa järjestyksessä kuin ne on lisätty sanakirjaan. Sanakirjan avainten järjestyksellä ei kuitenkaan yleensä ole merkitystä sovelluksissa.
+
+## Sanakirjan edistyneempi käyttö
 
 Tarkastellaan tilannetta, jossa meillä on taulukossa joukko sanoja:
 
@@ -202,25 +180,24 @@ sanalista = [
 ]
 ```
 
-Haluamme analysoida sanalistaa eri tavoin, mm. selvittää kuinka monta kertaa kukin sana listalla esiintyy.
+Haluamme analysoida sanalistaa eri tavoin, mm. selvittää, kuinka monta kertaa kukin sana listalla esiintyy.
 
-Sanakirja sopii tähän tilanteeseen hyvin. Ideana on käydä listan sanat läpi yksi kerrallaan ja ylläpitää sanakirjassa tietoa kuinka monta kertaa kukin sana listalla esiityy:
+Sanakirja sopii tähän tilanteeseen hyvin. Ideana on käydä listan sanat läpi yksi kerrallaan ja ylläpitää sanakirjassa tietoa, montako kertaa kukin sana listalla esiintyy:
 
 ```python
 def lukumaarat(lista):
     sanat = {}
     for sana in lista:
         # jos sana ei ole vielä tullut vastaan, alusta avaimen arvo
-        if not sana in sanat:
+        if sana not in sanat:
             sanat[sana] = 0
         # kasvata sanan esiintymislukumäärää
         sanat[sana] += 1
 
     return sanat
 
-# kutsutaan fuktiota
-lkmaarat = lukumaarat(sanalista)
-print(lkmaarat)
+# kutsutaan funktiota
+print(lukumaarat(sanalista))
 ```
 
 Ohjelman tulostus on seuraavassa:
@@ -235,24 +212,23 @@ Tehdään vielä toinen sanalistaa käsittelevä metodi, joka jaottelee listalla
 
 ```python
 def alkukirjaimen_mukaan(lista):
-    sanat = {}
+    ryhmat = {}
     for sana in lista:
         alkukirjain = sana[0]
         # alusta alkukirjaimeen liittyvä lista kun kirjain tulee vastaan 1. kerran
-        if not alkukirjain in sanat:
-            sanat[alkukirjain] = []
+        if alkukirjain not in sanat:
+            ryhmat[alkukirjain] = []
         # lisää sana alkukirjainta vastaavalle listalle
-        sanat[alkukirjain].append(sana)
+        ryhmat[alkukirjain].append(sana)
+        
+    return ryhmat
 
-  return sanat
+ryhmat = alkukirjaimen_mukaan(sanalista)
 
-# kutsutaan fuktiota
-alkuk = alkukirjaimen_mukaan(sanalista)
-
-for avain, arvo in alkuk.items():
+for avain, arvo in ryhmat.items():
     print(f"kirjaimella {avain} alkavat sanat: ")
     for sana in arvo:
-       print(sana)
+        print(sana)
 ```
 
 Funktio toimii pitkälti saman periaatteen mukaan kuin edellisen esimerkin funktio. Tällä kertaa kuitenkin sanakirjassa avaimiin (eli alkukirjaimiin) liittyät arvot ovat listoja.
@@ -294,9 +270,7 @@ kirjaimella s alkavat sanat:
 
 ## Sanakirja tiedon ryhmittelyssä
 
-Käytimme eräässä aiemmassa esimerkissä listaa esittämään yksittäisen henkilön tietoja. Sanakirja on kuitenkin luontevampi mekanismi tilanteeseen.
-
-Esimerkiksi seuraava koodi luo sanakirjan, jossa on tietoa henkilöstä:
+Voimme käyttää sanakirjaa myös tiedon ryhmittelyssä. Esimerkiksi seuraava koodi luo sanakirjan, jossa on tietoa henkilöstä:
 
 ```python
 henkilo = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä:" 44}
@@ -318,8 +292,7 @@ Sanakirjan etuna on kuitenkin, että se kokoaa kaikki samaan asiaan liittyvät t
 henkilo = [ "Pirjo Python", 153, 61, 44 ]
 ```
 
-Listan huono puoli on että ohjelmoijan on oltava tarkkana sen suhteen mihin kohtaan listaa mikäkin arvo on talletettuna. Pitää siis muistaa, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää, eikä päinvastoin. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjan tallettamat erilliset tiedot on talletettu selkeästi nimetyn avaimen taakse
-
+Listan huono puoli on kuitenkin, että ohjelmoijan on muistettava, mihin kohtaan listaa mikäkin arvo tallennetaan. Pitää siis muistaa, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää, eikä päinvastoin. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjassa olevat erilliset tiedot on tallennettu selkeästi nimetyn avaimen taakse.
 
 Esimerkiksi voimme käsitellä henkilöitä näin:
 
@@ -348,5 +321,3 @@ Pedro Python
 Keskipituus on 173.0
 
 </sample-output>
-
-TODO += ei ole kerrottu vielä missään
