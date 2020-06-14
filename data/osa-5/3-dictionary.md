@@ -16,7 +16,9 @@ Tämän osion jälkeen
 
 </text-box>
 
-Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat indekseissä 0, 1, 2, jne. Tutustumme seuraavaksi _sanakirjaan_, joka on toinen Pythonin perustietorakenne. Sanakirjassa jokainen alkio koostuu _avaimesta_ ja _arvosta_, ja voimme etsiä ja muuttaa tietoa avaimen perusteella.
+Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat indekseissä 0, 1, 2, jne., tämä taas hankaloittaa tiettyjen alkioiden etsimistä listalta, löytääkseen tietyn alkion, on pahimmassa tapauksessa käytävä läpi koko lista.
+
+Tutustumme seuraavaksi _sanakirjaan_, joka on listan lisäksi toinen Pythonin perustietorakenne. Sanakirjassa jokainen alkio koostuu _avaimesta_ ja _arvosta_, ja voimme etsiä ja muuttaa tietoa avaimen perusteella.
 
 ## Sanakirjan käyttäminen
 
@@ -42,8 +44,8 @@ monkey
 
 </sample-output>
 
-Merkintä `{}` luo tyhjän sanakirjan, minkä jälkeen voimme lisätä sanakirjaan sisältöä. Tässä tapauksessa lisäämme kolme avainta `"apina"`, `"banaani"` ja `"cembalo"`,
-joita vastaavat arvot `"monkey"`, `"banana"` ja `"harpsichord"`. Lopuksi tulostamme koko sanakirjan sisällön ja sitten avaimen `"apina"` arvon.
+Merkintä `{}` luo tyhjän sanakirjan, minkä jälkeen voimme lisätä sanakirjaan sisältöä. Tässä tapauksessa lisäämme kolme _avainta_ `"apina"`, `"banaani"` ja `"cembalo"`,
+joita vastaavat _arvot_ `"monkey"`, `"banana"` ja `"harpsichord"`. Lopuksi tulostamme koko sanakirjan sisällön ja sitten avaimen `"apina"` arvon.
 
 Voisimme käyttää tätä sanakirjaa vaikka seuraavasti:
 
@@ -86,14 +88,14 @@ Seuraavassa sanakirjassa puolestaan avaimet ovat kokonaislukuja ja arvot ovat li
 
 ```python
 listat = {}
-listat[5] = [1,2,3]
-listat[42] = [5,4,5,4,5]
-listat[100] = [5,2,3]
+listat[5] = [1, 2, 3 ]
+listat[42] = [5, 4, 5, 4, 5]
+listat[100] = [5, 2, 3]
 ```
 
 ## Avaimista ja arvoista
 
-Tietty avain voi esiintyä sanakirjassa enintään kerran. Jos laitamme avaimen uudestaan, uusi arvo korvaa avaimen vanhan arvon:
+Tietty avain voi esiintyä sanakirjassa enintään kerran. Jos asetamme samalle avaimelle uuden arvon, korvaa uusi arvo vanhan arvon:
 
 ```python
 sanakirja["suuri"] = "big"
@@ -110,7 +112,7 @@ large
 Sanakirjan avaimen vaatimuksena on, että sen tulee olla muuttumaton. Tämän vuoksi emme voi käyttää listaa avaimena, koska lista voi muuttua. Esimerkiksi seuraava koodi ei toimi:
 
 ```python
-sanakirja[[1,2,3]] = 5
+sanakirja[[1, 2, 3]] = 5
 ```
 
 <sample-output>
@@ -220,7 +222,7 @@ def alkukirjaimen_mukaan(lista):
             ryhmat[alkukirjain] = []
         # lisää sana alkukirjainta vastaavalle listalle
         ryhmat[alkukirjain].append(sana)
-        
+
     return ryhmat
 
 ryhmat = alkukirjaimen_mukaan(sanalista)

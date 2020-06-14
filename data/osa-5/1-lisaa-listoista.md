@@ -416,7 +416,7 @@ Toisen funktiokutsun tarkastelema kohdasta riviltä 1 ja sarakkeesta 2 alkava ne
 
 <programming-exercise name='Sudoku: ruudukko oikein' tmcname='osa05-06_sudoku_osa4'>
 
-Tee funktio `sudoku_oikein(sudoku: list)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kahden tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon) onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, sarakke sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1-9.
+Tee funktio `sudoku_oikein(sudoku: list)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kahden tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon) onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, sarake sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1-9.
 
 Huom: ylempänä olevaan sudokuruudukkoa esittävään kuvaan on merkitty ne 3x3-neliöt, joita sudokua ratkaistessa tulee tarkastella.
 

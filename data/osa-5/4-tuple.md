@@ -75,10 +75,10 @@ Esimerkiksi seuraava ohjelma luo sanakirjan, jonka avaimet ovat pisteitä:
 
 ```python
 pisteet = {}
-piste[(3,5)] = "apina"
-piste[(5,0)] = "banaani"
-piste[(1,2)] = "cembalo"
-print(piste[(3,5)])
+piste[(3, 5)] = "apina"
+piste[(5, 0)] = "banaani"
+piste[(1, 2)] = "cembalo"
+print(piste[(3,5 )])
 ```
 
 <sample-output>
@@ -89,10 +89,10 @@ Vastaava koodi _ei_ toimisi, jos käyttäisimme listoja:
 
 ```python
 pisteet = {}
-piste[[3,5]]] = "apina"
-piste[[5,0]] = "banaani"
-piste[[1,2]] = "cembalo"
-print(piste[[3,5]])
+piste[[3, 5]]] = "apina"
+piste[[5, 0]] = "banaani"
+piste[[1, 2]] = "cembalo"
+print(piste[[3, 5]])
 ```
 
 <sample-output>
