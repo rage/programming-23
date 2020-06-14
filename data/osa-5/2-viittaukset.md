@@ -6,23 +6,20 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Myös listoja on kätevä käsitellä funktioiden avulla. Listojen välitys parametrina voi kuitenkin erota mutatoitumattomien arvojen käytöstä.
-
-Tämän osan suoritettuasi
+Tämän osion jälkeen
 
 - Tiedät mitä tarkoitetaan viittaustyyppisellä muuttujalla
-- TIedät, että samaan olioon voi olla useampia viittauksia
+- Tiedät, että samaan olioon voi olla useampia viittauksia
 - Osaat käyttää listoja funktioiden parametreina
-- Tiedät mitä tarkoitetaan funktion sivuvaikutuksella
+- Tiedät, mitä tarkoitetaan funktion sivuvaikutuksella
 
 </text-box>
 
-Olemme tähän asti ajatelleet että muuttuja on eräänlainen "laatikko", joka sisältää muutujan tallettaman arvon. Teknisesti ottaen tämä ei pitä paikkaansa, Pythonissa muuttujat eivät sisällä tallettamaansa arvoa vaan ne _viittaavat_ arvona olevaan  _olioon_, kuten lukuun, merkkijonoon tai listaan.
+Olemme tähän asti ajatelleet, että muuttuja on eräänlainen "laatikko", joka sisältää muuttujan arvon. Teknisesti ottaen tämä ei pidä paikkaansa Pythonissa: muuttujat eivät sisällä arvoa vaan ne _viittaavat_ arvona olevaan _olioon_, kuten lukuun, merkkijonoon tai listaan.
 
+Käytännössä tämä tarkoittaa, että muuttujaan _ei tallenneta_ arvoa, vaan tieto siitä paikasta, mistä muuttujan arvo löytyy.
 
-Käytännössä tämä tarkoittaa, että muuttujaan _ei talleta_ tietoa muuttujan arvosta, vaan tiedon siitä paikasta mistä tallennettu arvo löytyy.
-
-Yleensä viittausta kuvataan nuolena muuttujasta sen varsinaiseen arvoon:
+Viittausta voidaan kuvata nuolena muuttujasta sen varsinaiseen arvoon:
 
 <img src="5_2_1.png">
 
@@ -42,33 +39,33 @@ print(id(a))
 
 </sample-output>
 
-Viittaus eli muuttujan id on numero, jonka voi ajatela olevan muuttujan arvon sijainnin osoite tietokoneen muistissa.
+Viittaus eli muuttujan id on kokonaisluku, jonka voi ajatella olevan muuttujan arvon sijainnin osoite tietokoneen muistissa.
 
-Monet Pythonin "sisäänrakennetut" tyypit, kuten `str` ovat _mutatoitumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan se voidaan korvata uudella arvolla:
+Monet Pythonin "sisäänrakennetut" tyypit, kuten `str` ovat _muuttumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan arvo voidaan korvata uudella arvolla:
 
 <img src="5_2_2.png">
 
 
-Pythonissa on myös monia tyyppejä, jotka ovat mutatoituvia. Esimerkiksi listan sisältö voi muuttua ilman että tarvitsee luoda kokonaan uusi lista:
+Pythonissa on myös monia tyyppejä, jotka ovat muuttuvia. Esimerkiksi listan sisältö voi muuttua ilman, että tarvitsee luoda kokonaan uusi lista:
 
 <img src="5_2_3.png">
 
-Hieman yllättävää on että myös lukuja ja totuusarvoja edustavat perustietotyypit `int`, `float` ja `bool` ovat mutatoitumattomia, eli jos suoritetaan esimerkiksi seuraava ohjelma
+Hieman yllättävää on, että myös lukuja ja totuusarvoja edustavat perustietotyypit `int`, `float` ja `bool` ovat muuttumattomia. Tarkastellaan esimerkkinä seuraavaa koodia:
 
 ```python
 luku = 1
 luku = 2
-luku = luku + 10
+luku += 10
 ```
 
-vaikka vaikuttaakin siltä, että ohjelma manipuloi saman kokonaisluvun sisältöä, teknisesti ottaen ei näin ole, jokainen komento luo uuden kokonaisluvun!
+Vaikka vaikuttaa siltä, että koodi muuttaa kokonaisluvun sisältöä, teknisesti ottaen ei näin ole, vaan jokainen komento luo uuden kokonaisluvun.
 
-Seuraavan ohjelman tulostus on mielenkiintoinen
+Seuraavan ohjelman tulostus on mielenkiintoinen:
 
 ```python
 luku = 1
 print(id(luku))
-luku = luku + 10
+luku += 10
 print(id(luku))
 a = 1
 print(id(a))
@@ -82,11 +79,11 @@ print(id(a))
 
 </sample-output>
 
-Aluksi muuttuja `luku` viittaa paikkaan 4535856912 ja kun muuttujan arvo muuttuu, se alkaa viitata paikkaan 4535856944. Kun muuttujaan `a` sijoitetaan arvo 1, se alkaa viitata samaan paikkaan mihin `luku` viittasi kun sen arvo oli 1!
+Aluksi muuttuja `luku` viittaa paikkaan 4535856912, ja kun muuttujan arvo muuttuu, se alkaa viitata paikkaan 4535856944. Kun muuttujaan `a` sijoitetaan arvo 1, se alkaa viitata samaan paikkaan kuin mihin `luku` viittasi, kun sen arvo oli 1.
 
-Vaikuttaakin siltä että Python on tallentanut luvun 1 paikkaan 4535856912 ja aina kun jonkun muuttujan arvona on 1, _viittaa_ muuttuja tuohon paikkaan "tietokoneen muistissa".
+Vaikuttaakin siltä, että Python on tallentanut luvun 1 paikkaan 4535856912 ja aina kun jonkin muuttujan arvona on 1, muuttuja _viittaa_ tuohon paikkaan "tietokoneen muistissa".
 
-Vaikka perustietotyypit `int`, `float` ja `bool` ovatkin viittauksia, ei ohjelmoijan oikeastaan tarvitse välittää asiasta.
+Vaikka perustietotyypit `int`, `float` ja `bool` ovat viittauksia, ohjelmoijan ei oikeastaan tarvitse välittää asiasta.
 
 ## Useampi viittaus samaan listaan
 
@@ -100,9 +97,7 @@ b[0] = 10
 
 Sijoitus `b = a` kopioi muuttujan `b` arvon muuttujaan `a`. On tärkeä kuitenkin huomata se, että muuttujan arvona _ei ole lista_ vaan _viittaus listaan_.
 
-**Sijoitus `b = a` siis kopioi viittauksen.**
-
-Tämä tarkoittaa, että kopioinnin jälkeen samaan listaan on kaksi viittausta:
+Sijoitus `b = a` siis kopioi viittauksen, minkä seurauksena kopioinnin jälkeen samaan listaan on kaksi viittausta:
 
 <img src="5_2_4.png">
 
@@ -126,11 +121,11 @@ print(lista2)
 
 </sample-output>
 
-Mikäli samaan listaan on useampia viittauksia, sitä voidaan käsitellä minkä tahansa viittauksen kautta samalla tavalla.
+Mikäli samaan listaan on useampia viittauksia, sitä voidaan käsitellä minkä tahansa viittauksen kautta samalla tavalla. Toisaalta yhden viittauksen kautta tehtävä muutos heijastuu myös muihin viittauksiin.
 
 ## Listan kopiointi
 
-Jos haluamme tehdä oikean kopion, voimme luoda uuden listan ja lisätä siihen jokaisen aluperäisen listan alkion:
+Jos haluamme tehdä listasta erillisen kopion, voimme luoda uuden listan ja lisätä siihen jokaisen aluperäisen listan alkion:
 
 ```python
 lista = [1, 2, 3, 3, 5]
@@ -141,40 +136,18 @@ for alkio in lista:
 
 kopio[0] = 10
 kopio.append(6)
-print("alkup " + str(lista))
-print("kopio " + str(kopio))
+print("lista", lista)
+print("kopio", kopio)
 ```
 
 <sample-output>
 
-alkup [1, 2, 3, 3, 5]
+lista [1, 2, 3, 3, 5]
 kopio [10, 2, 3, 3, 5, 6]
 
 </sample-output>
 
-Helpompi tapa listan kopiomiseen on hyödyntää `[]`-operaattoria, joka toimii listoille samalla tavalla kuin merkkijonoille.
-
-```python
-lista = [1,2,3,4,5,6,7,8]
-osa = lista[2:5]
-print(osa)
-osa.append(10)
-osa.append(11)
-print(osa)
-print(lista)
-```
-
-<sample-output>
-
-[3, 4, 5]
-[3, 4, 5, 10, 11]
-[1, 2, 3, 4, 5, 6, 7, 8]
-
-</sample-output>
-
-`[]`-operaattori siis luo kopion, minkä sisällöksi tulee parametrien määritelemä osa alkuperäisen listan sisällöstä.
-
-Voimmekin hyödyntää erikoistapausta, missä `[]`-operaattorille ei anneta ollenkaan kopion aloitus- ja lopetuspistettä, näin kopio luodaan koko listasta:
+Helpompi tapa listan kopiomiseen on hyödyntää `[]`-operaattoria, joka toimii listoille samalla tavalla kuin merkkijonoille. Merkintä `[:]` tarkoittaa, että listalta valitaan kaikki alkiot, ja tämän sivuvaikutuksena syntyy kopio listasta:
 
 ```python
 lista = [1,2,3,4]
@@ -193,8 +166,6 @@ print(kopio)
 [1, 20, 3, 4]
 
 </sample-output>
-
-Merkintä `[:]` siis tarkoittaa, että erotamme listasta osan, joka alkaa listan alusta ja päättyy listan loppuun (samaan tapaan kuin `[2:5]` tarkoittaa, että erotamme osan, joka alkaa kohdasta 2 ja päättyy ennen kohtaa 5). Tämän sivuvaikutuksena listasta syntyy kopio.
 
 ## Lista funktion parametrina
 
@@ -327,9 +298,9 @@ print(luvut)
 [1, 2, 3, 4, 4, 5, 6, 7]
 </sample-output>
 
-Funktio kyllä etsii ja löytää toiseksi pienimmän alkion, mutta sen lisäksi se muuttaa listan alkioiden järjestyksen. Jos järjestyksellä on merkitystä muualla ohjelmassa, funktion kutsuminen todennäköisesti aiheuttaa virheitä. Esimerkin kaltaista muutosta viittauksena saatuun olioon kutsutaan funktion _sivuvaikutukseksi_.
+Funktio kyllä etsii ja löytää toiseksi pienimmän alkion, mutta sen lisäksi se muuttaa listan alkioiden järjestyksen. Jos järjestyksellä on merkitystä muualla ohjelmassa, funktion kutsuminen voi aiheuttaa virheitä. Esimerkin kaltaista muutosta viittauksena saatuun olioon kutsutaan funktion _sivuvaikutukseksi_.
 
-Sama esimerkki ilman sivuvaikutuksia:
+Voimme toteuttaa funktion ilman sivuvaikutuksia näin:
 
 ```python
 def toiseksi_pienin(lista: list) -> int:
@@ -350,6 +321,6 @@ print(luvut)
 
 Koska funktio `sorted` palauttaa uuden järjestetyn listan, toiseksi pienimmän alkion etsiminen ei enää sotke listan alkuperäistä järjestystä.
 
-Useimmiten pidetään hyvänä asiana että funktiot eivät aiheuta sivuvaikutuksia, sillä niiden takia ohjelmien toimivuuden varmistaminen muuttuu huomattavasti hankalammaksi.
+Usein pidetään hyvänä asiana, että funktiot eivät aiheuta sivuvaikutuksia, sillä sivuvaikutukset voivat hankaloittaa ohjelmien toimivuuden varmistamista.
 
-Sivuvaikutuksettomia funktioita kutsutaan myös _puhtaiksi funktioiksi_ ja erityisesti ns. funktionaalista ohjelmointityyliä käytettäessä funktiot pyritään rakentamaan juuri näin. Palaamme aiheeseen tarkemmin Ohjelmoinnin jatkokurssilla.
+Sivuvaikutuksettomia funktioita kutsutaan myös _puhtaiksi funktioiksi_ ja erityisesti funktionaalista ohjelmointityyliä käytettäessä funktiot pyritään rakentamaan näin. Palaamme aiheeseen tarkemmin Ohjelmoinnin jatkokurssilla.
