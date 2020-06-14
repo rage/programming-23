@@ -212,11 +212,11 @@ Uusi lista: [1, 2, 3, 10]
 
 <programming-exercise name='Sudoku: ruudukon tulostus ja luvun lisäys' tmcname='osa05-07_sudoku_osa5'>
 
-Tässä tehtävässä toteutetaan vielä kaksi funktiota sudokua varten `tulosta` ja ``lisaa.
+Tässä tehtävässä toteutetaan vielä kaksi funktiota sudokua varten `tulosta` ja `lisaa`.
 
-Funktio, `tulosta` saa parametriksi surokuruudukkoa esittävän kaksiulotteisen taulukon ja tulostaa sen alla olevan esimerkkituostuksen mukaisessa muodossa.
+Funktio `tulosta` saa parametriksi surokuruudukkoa esittävän kaksiulotteisen taulukon ja tulostaa sen alla olevan esimerkkituostuksen mukaisessa muodossa.
 
-Funktio, `lisays` saa parametriksi surokuruudukkoa esittävän kaksiulotteisen taulukon, rivi- ja sarakenumerot sekä luvun väliltä 1-9. Funktio lisää luvun parametrien ilmoittamaan kohtaan sudokuruudukkoa.
+Funktio `lisays` saa parametriksi surokuruudukkoa esittävän kaksiulotteisen taulukon, rivi- ja sarakenumerot sekä luvun väliltä 1-9. Funktio lisää luvun parametrien ilmoittamaan kohtaan sudokuruudukkoa.
 
 ```python
 sudoku  = [
@@ -273,6 +273,68 @@ _ _ _  _ _ _  _ _ _
 </pre>
 
 </sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Sudoku: luvun lisäys ruudukon kopioon' tmcname='osa05-08_sudoku_osa6'>
+
+Viimeisessä sudokua käsittelevässä tehtävässä toteutetaan hieman erilainen versio funktiosta, jonka avulla sudokuruudukkoon lisätään uusia lukuja.
+
+Funktio `kopioi_ja_lisaa` saa parametriksi surokuruudukkoa esittävän kaksiulotteisen taulukon, rivi- ja sarakenumerot sekä luvun väliltä 1-9. Funktio _palauttaa_ kopion parametrina olevasta sudikuruudukosta, johon parametrien ilmoittama määrittelemä luku on lisätty. Funktio _ei saa muuttaa_ parametrina annettua sudokuruudukkoa.
+
+Seuraavassa edellisen tehtävän funktiota _tulosta_ hyödyntävä käyttöesimerkki:
+
+```python
+sudoku  = [
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+]
+
+kopio = kopioi_ja_lisaa(sudoku, 0, 0, 2)
+print("alkuperäinen:")
+tulosta(sudoku)
+print()
+print("kopio:")
+tulosta(kopio)
+```
+
+<sample-output>
+
+<pre>
+alkuperäinen:
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+
+kopio:
+2 _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+_ _ _  _ _ _  _ _ _
+
+</pre>
 
 </programming-exercise>
 
