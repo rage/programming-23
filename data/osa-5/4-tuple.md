@@ -6,38 +6,32 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tuple on listan tapainen tietorakenne, jossa on yksi tai useampi alkio tietyssä järjestyksessä.
-Erona listaan tuple on mutatoitumaton, eli sen sisältö ei voi muuttua luomisen jälkeen.
+Tämän osion jälkeen
 
-Tämän osion suoritettuasi
-
-- Tiedät mikä on tuple Pythonissa
+- Tiedät, millainen tietorakenne on tuple
 - Osaat muodostaa tuplen erityyppisistä arvoista
 - Tiedät, mitä eroa on tuplella ja listalla
 - Tiedät esimerkkejä tyypillisistä tavoista käyttää tuplea
 
 </text-box>
 
-## Tuple eli monikko
+Tuple eli monikko on listan tapainen tietorakenne. Sen olennaiset erot listaan ovat:
 
-Pythonissa on olemassa myös toinen listaa hyvin paljon muistuttava tietorakenne, tuple eli monikko.
-Olennaiset erot ovat ovat seuraavat
-
-* tuplea merkitään kaarisuluilla `(` ja `)`, lista merkitään hakasuluilla `[` ja `]`
-* tuple on _mutatoitumaton_, kun listan sisältö taas voi muuttua
+* Tuple merkitään kaarisuluilla `(` ja `)`, lista merkitään hakasuluilla `[` ja `]`
+* Tuple on _muuttumaton_, kun listan sisältö taas voi muuttua
 
 Esimerkiksi seuraava koodi luo tuplen, jossa on pisteen koordinaatit:
 
 ```python
-piste = (10,20)
+piste = (10, 20)
 ```
 
 Tuplen sisällä oleviin alkioihin viitataan samalla tavalla kuin listassa:
 
 ```python
-piste = (10,20)
-print("x-koordinaatti:",piste[0])
-print("y-koordinaatti:",piste[1])
+piste = (10, 20)
+print("x-koordinaatti:", piste[0])
+print("y-koordinaatti:", piste[1])
 ```
 
 <sample-output>
@@ -50,7 +44,7 @@ y-koordinaatti: 20
 Kuitenkaan tuplen määrittelyn jälkeen sen arvoa ei voi muuttaa, eli seuraava koodi _ei_ toimi:
 
 ```python
-piste = (10,20)
+piste = (10, 20)
 piste[0] = 15
 ```
 
@@ -65,18 +59,18 @@ TypeError: 'tuple' object does not support item assignment
 Tuplen ideana on tallentaa jokin kiinteä kokoelma arvoja, jotka liittyvät toisiinsa. Esimerkiksi kun tallennamme pisteen, jossa on x- ja y-koordinaatti, tuple on luonteva valinta, koska pisteeseen kuuluu aina kaksi arvoa:
 
 ```python
-piste = (10,20)
+piste = (10, 20)
 ```
 
 Voisimme sinänsä tallentaa pisteen myös listana:
 
 ```python
-piste = [10,20]
+piste = [10, 20]
 ```
 
 Tämä ei kuitenkaan tuntuisi yhtä hyvältä ratkaisulta, koska lista sisältää peräkkäisiä alkioita jossakin järjestyksessä ja sen koko voi muuttua. Kun tallennamme pisteen, haluamme tallentaa nimenomaan x- ja y-koordinaatin eikä listaa koordinaateista.
 
-Koska tuple on mutatoitumaton, sitä voidaan käyttää sanakirjan avaimena (toisin kuin listaa).
+Koska tuple on muuttumaton, sitä voidaan käyttää sanakirjan avaimena (toisin kuin listaa).
 Esimerkiksi seuraava ohjelma luo sanakirjan, jonka avaimet ovat pisteitä:
 
 ```python
@@ -107,9 +101,19 @@ TypeError: unhashable type: 'list'
 
 </sample-output>
 
-Python käyttää "sisäisesti" tupleja muutaman hyödyllisen ominaisuuden toteuttamiseen.
+## Tuple ilman sulkuja
 
-Tuplejen avulla Pyhtonin funktiot voivat palauttaa useita arvoja. Tarkastellaan seuraavaa esimerkkiä:
+Tuplen määrittelyssä ei ole pakko antaa suluja. Esimerkiksi seuraavat koodit toimivat samalla tavalla:
+
+```python
+luvut = (1, 2, 3)
+```
+
+```python
+luvut = 1, 2, 3
+```
+
+Tämän ansiosta voimme tehdä luontevasti funktion, joka palauttaa useita arvoja tuplena. Tarkastellaan seuraavaa esimerkkiä:
 
 ```python
 def minmax(lista):
@@ -117,57 +121,54 @@ def minmax(lista):
 
 lista = [33, 5, 21, 7, 88, 312, 5]
 
-p, s = minmax(lista)
-print(f"suurin luku oli {s} ja pienin {p}")
+pienin, suurin = minmax(lista)
+print(f"Pienin luku on {pienin} ja suurin on {suurin}")
 ```
 
 <sample-output>
 
-suurin luku oli 312 ja pienin 5
+Pienin luku on 5 ja suurin on 312
 
 </sample-output>
 
-Funktion koodi näyttää siltä, että se palauttaisi kaksi erillistä arvoa. Todellesuudessa funktio palauttaa tuplen, joka koostuu kahdesta arvosta. Python nimittäin mahdollistaa tuplejen määrittelyn ilman sulkumerkkejä:
+Tämä funktio palauttaa kaksi arvoa tuplena, ja funktion paluuarvo vastaanotetaan "yhtä aikaa" kahteen muuttujaan:
 
 ```python
-t = 1, 2, 3
-print(t)
+pienin, suurin = minmax(lista)
 ```
 
-<sample-output>
-
-(1, 2, 3)
-
-</sample-output>
-
-Funktion paluuarvo vastaanotetaan "yhtäaikaa" kahteen muuttujaan:
+Tässä tapauksessa sijoitusoperaation vasemmalla puolella on tuple, jonka sisällä oleviin muuttujiin asetetaan funktion palauttaman tuplen sisältämät arvot:
 
 ```python
-p, s = minmax(lista)
+(pienin, suurin) = minmax(lista)
 ```
 
-Teknisesti ottaen tässäkin on kyse siitä, että sijoitusoperaation vasemmalla puolella on tuple, jonka sisällä oleviin muuttujiin asetetaan funktion palauttaman tuplen sisältämät arvot:
+Sanakirjojen yhteydessä demonstroitiin `items`-metodiin perustuvaa tapaa käydä läpi sanakirjan kaikki avaimet ja arvot:
 
 ```python
-(p, s) = minmax(lista)
-```
-
-Sanakirjojen yhteydessä demonstroitiin `items`-metodiin perusstuvaa tapaa käydä läpi sanakirjan kaikki avain, arvo -parit:
-
-```python
-
 sanakirja = {}
 
 sanakirja["apina"] = "monkey"
 sanakirja["banaani"] = "banana"
 sanakirja["cembalo"] = "harpsichord"
 
-
 for avain, arvo in sanakirja.items():
     print("avain:", avain)
     print("arvo:", arvo)
 ```
 
-Tässäkin Python käyttää taustalla tupleja, `sanakirja.items()` palauttaa yksi kerrallaan avain, arvo -parit tuplena, jonka ensimmäinen alkio on _avain_ ja toinen _arvo_.
+Tässäkin Python käyttää taustalla tupleja: `sanakirja.items()` palauttaa yksi kerrallaan avain-arvo-parit tuplena, jonka ensimmäinen alkio on avain ja toinen arvo.
 
-Vaikka siis tuple-rakenteelle ei välttämättä olekaan suoraa käyttöä ohjelman tietorakenteena, on tuple monissa ohjelmissa käytössä "taustalla".
+Vielä yksi tuplen käyttötarkoitus on kahden muuttujan arvon vaihtaminen keskenään:
+
+```python
+a, b = b, a
+```
+
+Yllä oleva koodi vaihtaa keskenään muuttujien `a` ja `b` arvot, eli koodi toimii samoin kuin seuraava koodi:
+
+```python
+t = a
+a = b
+b = t
+```
