@@ -127,7 +127,7 @@ Kurssilla _Tietorakenteet ja algoritmit_ tutustutaan tarkemmin hajautustauluihin
 
 </text-box>
 
-Huomaa, että sanakirjan arvon ei tarvitse olla muuttumaton, vaan voimme tallentaa mitä tahansa tietoa arvoiksi. Sama arvo voi myös esiintyä samassa hakemistossa enemmän kuin yhden kerran.
+Huomaa, että sanakirjassa olevaa avainta vastaavan arvon ei tarvitse olla muuttumaton, vaan voimme tallentaa mitä tahansa tietoa arvoiksi. Sama arvo voi myös esiintyä samassa hakemistossa enemmän kuin yhden kerran.
 
 ## Sanakirjan läpikäynti
 
@@ -180,9 +180,9 @@ sanalista = [
 ]
 ```
 
-Haluamme analysoida sanalistaa eri tavoin, mm. selvittää, kuinka monta kertaa kukin sana listalla esiintyy.
+Haluamme analysoida sanalistaa eri tavoin, kuten selvittää, montako kertaa kukin sana listalla esiintyy.
 
-Sanakirja sopii tähän tilanteeseen hyvin. Ideana on käydä listan sanat läpi yksi kerrallaan ja ylläpitää sanakirjassa tietoa, montako kertaa kukin sana listalla esiintyy:
+Sanakirja sopii tähän tilanteeseen hyvin. Ideana on käydä listan sanat läpi yksi kerrallaan ja ylläpitää sanakirjassa tietoa sanojen esiintymiskerroista:
 
 ```python
 def lukumaarat(lista):
@@ -292,7 +292,7 @@ Sanakirjan etuna on kuitenkin, että se kokoaa kaikki samaan asiaan liittyvät t
 henkilo = [ "Pirjo Python", 153, 61, 44 ]
 ```
 
-Listan huono puoli on kuitenkin, että ohjelmoijan on muistettava, mihin kohtaan listaa mikäkin arvo tallennetaan. Pitää siis muistaa, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää, eikä päinvastoin. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjassa olevat erilliset tiedot on tallennettu selkeästi nimetyn avaimen taakse.
+Listan huono puoli on kuitenkin, että ohjelmoijan on muistettava, mihin kohtaan listaa mikäkin arvo tallennetaan. Pitää siis muistaa esimerkiksi, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjassa olevat erilliset tiedot on tallennettu selkeästi nimetyn avaimen taakse.
 
 Esimerkiksi voimme käsitellä henkilöitä näin:
 
