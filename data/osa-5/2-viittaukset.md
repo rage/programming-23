@@ -41,7 +41,7 @@ print(id(a))
 
 Viittaus eli muuttujan id on kokonaisluku, jonka voi ajatella olevan muuttujan arvon sijainnin osoite tietokoneen muistissa.
 
-Monet Pythonin "sisäänrakennetut" tyypit, kuten `str` ovat _muuttumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan arvo voidaan korvata uudella arvolla:
+Monet Pythonin sisäänrakennetut tyypit, kuten `str`, ovat _muuttumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan arvo voidaan korvata uudella arvolla:
 
 <img src="5_2_2.png">
 
@@ -50,7 +50,7 @@ Pythonissa on myös monia tyyppejä, jotka ovat muuttuvia. Esimerkiksi listan si
 
 <img src="5_2_3.png">
 
-Hieman yllättävää on, että myös lukuja ja totuusarvoja edustavat perustietotyypit `int`, `float` ja `bool` ovat muuttumattomia. Tarkastellaan esimerkkinä seuraavaa koodia:
+Hieman yllättäen myös lukuja ja totuusarvoja edustavat perustietotyypit `int`, `float` ja `bool` ovat muuttumattomia. Tarkastellaan esimerkkinä seuraavaa koodia:
 
 ```python
 luku = 1
@@ -58,7 +58,7 @@ luku = 2
 luku += 10
 ```
 
-Vaikka vaikuttaa siltä, että koodi muuttaa kokonaisluvun sisältöä, teknisesti ottaen ei näin ole, vaan jokainen komento luo uuden kokonaisluvun.
+Vaikka vaikuttaa siltä, että koodi muuttaa lukua, teknisesti ottaen ei näin ole, vaan jokainen komento luo uuden luvun.
 
 Seuraavan ohjelman tulostus on mielenkiintoinen:
 
@@ -95,7 +95,7 @@ b = a
 b[0] = 10
 ```
 
-Sijoitus `b = a` kopioi muuttujan `b` arvon muuttujaan `a`. On tärkeä kuitenkin huomata se, että muuttujan arvona _ei ole lista_ vaan _viittaus listaan_.
+Sijoitus `b = a` kopioi muuttujan `b` arvon muuttujaan `a`. On tärkeä kuitenkin huomata, että muuttujan arvona _ei ole lista_ vaan _viittaus listaan_.
 
 Sijoitus `b = a` siis kopioi viittauksen, minkä seurauksena kopioinnin jälkeen samaan listaan on kaksi viittausta:
 
@@ -147,7 +147,7 @@ kopio [10, 2, 3, 3, 5, 6]
 
 </sample-output>
 
-Helpompi tapa listan kopiomiseen on hyödyntää `[]`-operaattoria, joka toimii listoille samalla tavalla kuin merkkijonoille. Merkintä `[:]` tarkoittaa, että listalta valitaan kaikki alkiot, ja tämän sivuvaikutuksena syntyy kopio listasta:
+Helpompi tapa listan kopiomiseen on hyödyntää `[]`-operaattoria, johon tutustuimme aiemmin kurssilla. Merkintä `[:]` tarkoittaa, että listalta valitaan kaikki alkiot, ja tämän sivuvaikutuksena syntyy kopio listasta:
 
 ```python
 lista = [1,2,3,4]
