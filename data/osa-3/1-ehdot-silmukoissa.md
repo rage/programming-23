@@ -305,6 +305,8 @@ Laskettiin 1 + 2 + 3 + 4 + 5 + 6 = 21
 
 </sample-output>
 
+Voit olettaa, että käyttäjän antama luku on 2 tai suurempi.
+
 </in-browser-programming-exercise>
 
 
