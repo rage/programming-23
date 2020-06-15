@@ -20,7 +20,7 @@ class CodeStatesVisualizerWrapper extends React.Component {
     const { input } = this.props
     return (
       <Suspense fallback={<div>Loading...</div>}>
-        <CodeStatesVisualizer input={input} />
+        <CodeStatesVisualizer input={input} language="python" />
       </Suspense>
     )
   }
