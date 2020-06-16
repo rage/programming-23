@@ -54,6 +54,59 @@ TypeError: 'tuple' object does not support item assignment
 
 </sample-output>
 
+<programming-exercise name='Vanhin henkilöistä' tmcname='osa05-18_vanhin_henkiloista'>
+
+Tee funktio `vanhin(henkilot: list)`, joka saa parametrikseen listan henkilöitä esittäviä tupleja. Funktio etsii ja palauttaa vanhimman henkilön nimen.
+
+Henkilötuplessa on ensin henkilön nimi merkkijonona ja toisena alkiona henkilön _syntymävuosi_.
+
+Esimerkiksi:
+
+```python
+h1 = ("Arto", 1977)
+h2 = ("Einari", 1985)
+h3 = ("Maija", 1953)
+h4 = ("Essi", 1997)
+hlista = [h1, h2, h3, h4]
+
+print(vanhin(hlista))
+```
+
+<sample-output>
+
+Maija
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Vanhemmat henkilöt' tmcname='osa05-19_vanhemmat_henkilot'>
+
+Oletetaan, että meillä on edelleen käytössä edellisessä tehtävässä esitellyt henkilö-tuplet.
+
+Kirjoita funktio `vanhemmat(henkilot: list, vuosi: int)`, joka palauttaa uuden listan, jolle on tallennettu kaikki _ennen_ annettua vuotta syntyneet henkilöiden nimet parametrina saadulta henkilöiden listalta.
+
+Esimerkiksi:
+
+```python
+h1 = ("Arto", 1977)
+h2 = ("Einari", 1985)
+h3 = ("Maija", 1953)
+h4 = ("Essi", 1997)
+hlista = [h1, h2, h3, h4]
+
+vanhemmat_henkilot = vanhemmat(hlista, 1979)
+print(vanhemmat)
+```
+
+<sample-output>
+
+[ 'Arto', Maija' ]
+
+</sample-output>
+
+</programming-exercise>
+
 ## Miksi tuple on olemassa?
 
 Tuplen ideana on tallentaa jokin kiinteä kokoelma arvoja, jotka liittyvät toisiinsa. Esimerkiksi kun tallennamme pisteen, jossa on x- ja y-koordinaatti, tuple on luonteva valinta, koska pisteeseen kuuluu aina kaksi arvoa:
@@ -78,7 +131,7 @@ pisteet = {}
 piste[(3, 5)] = "apina"
 piste[(5, 0)] = "banaani"
 piste[(1, 2)] = "cembalo"
-print(piste[(3,5 )])
+print(piste[(3, 5)])
 ```
 
 <sample-output>
@@ -165,13 +218,52 @@ Vielä yksi tuplen käyttötarkoitus on kahden muuttujan arvon vaihtaminen keske
 a, b = b, a
 ```
 
-Yllä oleva koodi vaihtaa keskenään muuttujien `a` ja `b` arvot, eli koodi toimii samoin kuin seuraava koodi:
+Yllä oleva koodi vaihtaa keskenään muuttujien `a` ja `b` arvot, eli koodi toimii samoin kuin seuraava, apumuuttujaa käyttävä koodi:
 
 ```python
-t = a
-a = b
+apu = a
+a = apu
 b = t
 ```
+
+<programming-exercise name='Sanavertailu' tmcname='osa05-21'>
+
+Tee funktio `vertaile(sana1: str, sana2: str)` joka saa parametrikseen kaksi samanpituista merkkijonoa. Funktio palauttaa kaksi kokonaislukua (eli käytännössä tuplen). Paluuarvon ensimmäinen luku kertoo kuinka monta merkkijonojen kirjaimista oli samoja ja samalla paikalla sijaitsevia. Paluuarvon toinen luku kertoo, kuinka monta merkkijonojen kirjaimista oli samoja, mutta sijaitsivat merkkijonoissa eri paikoilla.
+
+Esimerkkejä:
+
+```python
+a, b = vertaile("ABC", "ACB")
+print(a, b)
+```
+
+<sample-output>
+
+1 2
+
+</sample-output>
+
+
+Molemmissa merkkijonoissa on kirjain A kohdassa 0. Molemmissa onb myös kirjaimet B ja C, mutta ne ovat eri kohdissa. Tämän takia paluuarvo on 1, 2.
+
+```python
+a, b = vertaile("ABBA", "AABB")
+print(a, b)
+a, b = vertaile("AABB", "ABCD")
+print(a, b)
+a, b = vertaile("LOL", "OLO")
+print(a, b)
+```
+
+<sample-output>
+
+2 2
+1 1
+0 3
+
+</sample-output>
+
+</programming-exercise>
 
 <programming-exercise name='Opiskelijarekisteri' tmcname='osa05-22_opiskelijarekisteri'>
 
@@ -196,11 +288,13 @@ Ohjelman tulostaa tässä vaiheessa
 
 <sample-output>
 
+<pre>
 pekka:
  ei suorituksia
 liisa:
  ei suorituksia
 ei löytynyt ketään nimellä jukka
+</pre>
 
 </sample-output>
 
@@ -220,11 +314,13 @@ Opiskelijan tietojen tulostus muuttuu kun suorituksia on lisätty:
 
 <sample-output>
 
+<pre>
 pekka:
  suorituksia 2 kurssilta:
   ohpe 3
   tira 2
  keskiarvo 2.5
+</pre>
 
 </sample-output>
 
@@ -244,11 +340,13 @@ tulostus pysyy ennallaan:
 
 <sample-output>
 
+<pre>
 pekka:
  suorituksia 2 kurssilta:
   ohpe 3
   tira 2
  keskiarvo 2.5
+</pre>
 
 </sample-output>
 
@@ -270,9 +368,11 @@ tulostus näyttää seuraavalta
 
 <sample-output>
 
+<pre>
 opiskelijoita 2
 eniten suorituksia 3 pekka
 paras keskiarvo 4.5 liisa
+</pre>
 
 </sample-output>
 
