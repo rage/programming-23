@@ -366,6 +366,8 @@ True
 
 </sample-output>
 
+</programming-exercise>
+
 <programming-exercise name='Sudoku: neliöt oikein' tmcname='osa05-05_sudoku_osa3'>
 
 Tee funktio `nelio_oikein(sudoku: list, rivi, int, sarake: int)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon sekä yhden taulukon paikan kerovat rivi- ja sarakenumerot.
