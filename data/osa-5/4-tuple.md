@@ -226,7 +226,7 @@ a = apu
 b = t
 ```
 
-<programming-exercise name='Sanavertailu' tmcname='osa05-21_sanavertailu'>
+<programming-exercise name='Sanavertailu' tmcname='osa05-20_sanavertailu'>
 
 Tee funktio `vertaile(sana1: str, sana2: str)` joka saa parametrikseen kaksi samanpituista merkkijonoa. Funktio palauttaa kaksi kokonaislukua (eli käytännössä tuplen). Paluuarvon ensimmäinen luku kertoo kuinka monta merkkijonojen kirjaimista oli samoja ja samalla paikalla sijaitsevia. Paluuarvon toinen luku kertoo, kuinka monta merkkijonojen kirjaimista oli samoja, mutta sijaitsivat merkkijonoissa eri paikoilla.
 
@@ -267,7 +267,7 @@ print(a, b)
 
 </programming-exercise>
 
-<programming-exercise name='Opiskelijarekisteri' tmcname='osa05-22_opiskelijarekisteri'>
+<programming-exercise name='Opiskelijarekisteri' tmcname='osa05-21_opiskelijarekisteri'>
 
 Tässä tehtäväsarjassa toteutetaan yksinkertainen opiskelijarekisteri. Ennen ohjelmoinnin aloittamista kannattanee hetki miettiä minkälaisen tietorkenteen tarvitset ohjelman tallettamien tietojen organisointiin.
 
