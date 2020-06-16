@@ -226,7 +226,7 @@ a = apu
 b = t
 ```
 
-<programming-exercise name='Sanavertailu' tmcname='osa05-21'>
+<programming-exercise name='Sanavertailu' tmcname='osa05-21_sanavertailu'>
 
 Tee funktio `vertaile(sana1: str, sana2: str)` joka saa parametrikseen kaksi samanpituista merkkijonoa. Funktio palauttaa kaksi kokonaislukua (eli käytännössä tuplen). Paluuarvon ensimmäinen luku kertoo kuinka monta merkkijonojen kirjaimista oli samoja ja samalla paikalla sijaitsevia. Paluuarvon toinen luku kertoo, kuinka monta merkkijonojen kirjaimista oli samoja, mutta sijaitsivat merkkijonoissa eri paikoilla.
 
@@ -247,11 +247,13 @@ print(a, b)
 Molemmissa merkkijonoissa on kirjain A kohdassa 0. Molemmissa onb myös kirjaimet B ja C, mutta ne ovat eri kohdissa. Tämän takia paluuarvo on 1, 2.
 
 ```python
-a, b = vertaile("ABBA", "AABB")
+a, b = vertaile("JAVA", "VAJA")
 print(a, b)
 a, b = vertaile("AABB", "ABCD")
 print(a, b)
 a, b = vertaile("LOL", "OLO")
+print(a, b)
+
 print(a, b)
 ```
 
@@ -259,7 +261,7 @@ print(a, b)
 
 2 2
 1 1
-0 3
+0 2
 
 </sample-output>
 
