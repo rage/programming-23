@@ -172,3 +172,108 @@ t = a
 a = b
 b = t
 ```
+
+<programming-exercise name='Opiskelijarekisteri' tmcname='osa05-22_opiskelijarekisteri'>
+
+Tässä tehtäväsarjassa toteutetaan yksinkertainen opiskelijarekisteri. Ennen ohjelmoinnin aloittamista kannattanee hetki miettiä minkälaisen tietorkenteen tarvitset ohjelman tallettamien tietojen organisointiin.
+
+#### opiskelijoiden lisäys
+
+Toteuta ensin funktio `lisaa_opiskelija` uuden opiskeljan lisäämiseen sekä ensimmäinen versio funktiosta `tulosta`, joka tulostaa yhden opiskelijan tiedot.
+
+Funktioita käytetään seuraavasti
+
+```python
+opiskelijat = {}
+lisaa_opiskelija(opiskelijat, "pekka")
+lisaa_opiskelija(opiskelijat, "liisa")
+tulosta(opiskelijat, "pekka")
+tulosta(opiskelijat, "liisa")
+tulosta(opiskelijat, "jukka")
+```
+
+Ohjelman tulostaa tässä vaiheessa
+
+<sample-output>
+
+pekka:
+ ei suorituksia
+liisa:
+ ei suorituksia
+ei löytynyt ketään nimellä jukka
+
+</sample-output>
+
+#### suoritusten lisäys
+
+Tee funktio `lisaa_suoritus`, jonka avulla opiskelijalle voidaan lisätä kurssin suoritus. Suoritus on tuple, joka koostuu kurssin nimestä ja arvosanasta:
+
+```python
+opiskelijat = {}
+lisaa_opiskelija(opiskelijat, "pekka")
+lisaa_suoritus(opiskelijat, "pekka", ("ohpe", 3))
+lisaa_suoritus(opiskelijat, "pekka", ("tira", 2))
+tulosta(opiskelijat, "pekka")
+```
+
+Opiskelijan tietojen tulostus muuttuu kun suorituksia on lisätty:
+
+<sample-output>
+
+pekka:
+ suorituksia 2 kurssilta:
+  ohpe 3
+  tira 2
+ keskiarvo 2.5
+
+</sample-output>
+
+#### arvosanojen korotus
+
+Suorituksen lisäämisen pitää toimia siten, että se jättää arvosanan 0 suoritukset huomiotta, eikä se alenna kurssilla ennestään olevaa arvosanaa. Eli jos edellä olevaa testikoodia jatketaan seuraavasti
+
+```python
+opiskelijat = {}
+lisaa_opiskelija(opiskelijat, "pekka")
+lisaa_suoritus(opiskelijat, "pekka", ("lama", 0))
+lisaa_suoritus(opiskelijat, "pekka", ("ohpe", 2))
+tulosta(opiskelijat, "pekka")
+```
+
+tulostus pysyy ennallaan:
+
+<sample-output>
+
+pekka:
+ suorituksia 2 kurssilta:
+  ohpe 3
+  tira 2
+ keskiarvo 2.5
+
+</sample-output>
+
+#### kooste opiskelijoista
+
+Tee funktio `kooste`, joka tulostaa koosteen opiskelijoiden suorituksista. Esimerkkikoodilla
+
+```python
+opiskelijat = {}
+lisaa_opiskelija(opiskelijat, "pekka")
+lisaa_opiskelija(opiskelijat, "liisa")
+lisaa_suoritus(opiskelijat, "pekka", ("lama", 1))
+lisaa_suoritus(opiskelijat, "liisa", ("ohpe", 5))
+lisaa_suoritus(opiskelijat, "liisa", ("jtkt", 4))
+kooste(opiskelijat)
+```
+
+tulostus näyttää seuraavalta
+
+<sample-output>
+
+opiskelijoita 2
+eniten suorituksia 3 pekka
+paras keskiarvo 4.5 liisa
+
+</sample-output>
+
+</programming-exercise>
