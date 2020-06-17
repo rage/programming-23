@@ -186,7 +186,7 @@ Esim. kutsuttaessa `joulukuusi(3)` tulostuu
 <pre>
 joulukuusi!
   *
- *** 
+ ***
 *****
   *
 </pre>
@@ -200,7 +200,7 @@ Esim. kutsuttaessa `joulukuusi(5)` tulostuu
 <pre>
 joulukuusi!
     *
-   *** 
+   ***
   *****
  *******
 *********
@@ -350,7 +350,7 @@ print("vastaus on", tulos)
 vastaus on 2
 </sample-output>
 
-Tässä tapauksessa suoritetaan ensin "sisemät" funktiokutsut `summa(5, 2)` ja `summa(2, 3)`, joiden  palauttaamat arvot 7 ja 5, käytetään "ulomman" funktiokutsun parametreina. 
+Tässä tapauksessa suoritetaan ensin "sisemät" funktiokutsut `summa(5, 2)` ja `summa(2, 3)`, joiden  palauttaamat arvot 7 ja 5, käytetään "ulomman" funktiokutsun parametreina.
 
 Ulompi funktiokutsu `erotus(7, 5)` palauttaa arvon 2, joka sijoitetaan muuttujan `tulos` arvoksi ja tulostetaan ruudulle.
 
@@ -389,7 +389,7 @@ samat("koodari", 1, 2) # palauttaa True sillä kyseessä o ja o
 samat("koodari", 0, 4) # palauttaa False sillä kyseessä k ja a
 
 # seuraava palauttaa False sillä toinen indeksi ei ole merkkijonon sisällä
-samat("koodari", 0, 10) 
+samat("koodari", 0, 10)
 ```
 </programming-exercise>
 
@@ -414,7 +414,7 @@ print(v)
 <sample-output>
 
 olipa
-kerran 
+kerran
 ohjelmoija
 
 </sample-output>
@@ -429,7 +429,7 @@ print(v)
 
 <sample-output>
 
-kerran 
+kerran
 
 </sample-output>
 
@@ -499,3 +499,5 @@ def tulosta_monesti(viesti : str, kerrat : int):
 Tämä kertoo funktion käyttäjälle, että parametrin `viesti` on tarkoitus olla merkkijono, kun taas parametrin `kerrat` on tarkoitus olla kokonaisluku.
 
 Huomaa kuitenkin, että tyyppivihje ainoastaan neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.
+
+<quiz id="9a17c9b9-60b0-5859-975f-60ee31663e19"></quiz>

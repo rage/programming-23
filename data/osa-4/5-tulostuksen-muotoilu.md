@@ -13,7 +13,7 @@ Tämän osan jälkeen
 
 </text-box>
 
-Olemme tähän mennessä yhdistelleet tulostettavaa tietoa `print`-komennossa kahdella tavalla. 
+Olemme tähän mennessä yhdistelleet tulostettavaa tietoa `print`-komennossa kahdella tavalla.
 
 Ensimmäinen tapa on käyttää merkkijonojen `+`-operaattoria ja muodostaa näin yksittäinen merkkijono, jonka print saa parametrikseen:
 
@@ -64,7 +64,7 @@ vuotta
 
 </sample-output>
 
-Huomaa, että [osan 1](/osa-1/3-lisaa-muuttujista) tehtävässä _Tulostukset samalle riville_ käyttämämme nimetty parametri `end` on sukua erotinparametrille `sep`. 
+Huomaa, että [osan 1](/osa-1/3-lisaa-muuttujista) tehtävässä _Tulostukset samalle riville_ käyttämämme nimetty parametri `end` on sukua erotinparametrille `sep`.
 
 Oletusarvoisesti print-komento päättyy rivinvaihtoon, mutta tätä voidaan muokata parametrin `end` avulla. Esim. jos `end` saa arvoksi tyhjän merkkijonon, print-komento ei aiheuta automaattista rivinvaihtoa:
 
@@ -117,7 +117,7 @@ print(f"Luku on {luku:.2f}")
 Luku on 0.33
 ```
 
-Muotoiluohje `.2f` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella. Huom: kirjain _f_ kakkosen jälkeen tarkoittaa että muotoiluohje koskee desimaalilukua eli _float_-tyyppistä arvoa! 
+Muotoiluohje `.2f` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella. Huom: kirjain _f_ kakkosen jälkeen tarkoittaa että muotoiluohje koskee desimaalilukua eli _float_-tyyppistä arvoa!
 
 Tässä on vielä toisenlainen esimerkki, jossa tulostetaan nimiä 15 merkin levyiseen tekstialueeseen, ensin vasemmalle sisennettynä ja sen jälkeen oikealle sisennettynä:
 
@@ -174,14 +174,14 @@ Koepisteet ja harjoitusten määrä: **15 87**
 Koepisteet ja harjoitusten määrä: **10 55**
 Koepisteet ja harjoitusten määrä: **11 40**
 Koepisteet ja harjoitusten määrä: **4 17**
-Koepisteet ja harjoitusten määrä: 
+Koepisteet ja harjoitusten määrä:
 Tilasto:
 
 </sample-output>
 
-Kun käyttäjä on syöttänyt tyhjän rivin, tulostaa ohjelma tilastot. 
+Kun käyttäjä on syöttänyt tyhjän rivin, tulostaa ohjelma tilastot.
 
-Tilastot muodostuvat seuraavasti. 
+Tilastot muodostuvat seuraavasti.
 
 Tehtyjen harjoitustehtävien määrästä saa kurssipisteitä, siten että min 10% tehtävämäärästä tuo 1 kurssipisteen, 20% tuo 2 kurssipistettä jne ja 100% eli 100 harjoitustehtävää tuo 10 kurssipistettä. Harjoitustehtävistä saatava kurssipistemäärä on kokonaisluku.
 
@@ -189,7 +189,7 @@ Kurssin arvosana määräytyy seuraavan taulukon mukaan:
 
 koe+harjoituspisteet   | arvosana
 :--:|:----:
-0-14 | 0 (eli hylätty) 
+0-14 | 0 (eli hylätty)
 15-17 | 1
 18-20 | 2
 21-23 | 3
@@ -223,7 +223,7 @@ Vihjeitä:
 
 Koko tehtävän koodi kannattaa rakentaa useista pienen asian tekevistä apufunktioista.
 
-Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Eräs tapa joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään main, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää: 
+Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Eräs tapa joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään main, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää:
 
 ```python
 def main():
@@ -247,10 +247,12 @@ def main():
 # kommentoidaan pääohjelma pois
 #main()
 
-# testataan apumetodia 
+# testataan apumetodia
 pistemaara = 35
 tulos = arvosana(pistemaara)
 print(tulos)
 ```
 
 </programming-exercise>
+
+<quiz id="dc0340d8-b01a-51c3-b9c1-a42a12fb8639"></quiz>

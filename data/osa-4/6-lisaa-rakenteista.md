@@ -390,3 +390,9 @@ Moi kaikki! Halusin vaan kysyä, että miten tämä toimii? Nyt tässä on pelkk
 </sample-output>
 
 </programming-exercise>
+
+<quiz id="23d0a43c-f5fe-50a9-80f5-374dd56ef017"></quiz>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="e4e9ae85-2cc8-5d8a-a945-cbb8c3c1f649"></quiz>
