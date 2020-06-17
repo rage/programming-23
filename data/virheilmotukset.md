@@ -4,6 +4,7 @@ title: "Yleiset virheilmoitukset"
 hidden: false
 information_page: true
 banner: true
+separator_after: " "
 ---
 
 Tällä sivulla kerrotaan yleisistä virheilmoituksista joihin saatat törmätä kurssin aikana.
