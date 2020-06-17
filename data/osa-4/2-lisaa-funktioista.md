@@ -391,7 +391,9 @@ print(samat("koodari", 1, 2)) # True
 print(samat("koodari", 0, 4)) # False
 
 # toinen indeksi ei ole merkkijonon sisällä
-print(samat("koodari", 0, 10)) # False```
+print(samat("koodari", 0, 10)) # False
+```
+
 </programming-exercise>
 
 <programming-exercise name='Eka, toka ja vika sana' tmcname='osa04-07_eka_toka_vika_sana'>
