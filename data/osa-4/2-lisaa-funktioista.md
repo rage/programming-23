@@ -369,12 +369,6 @@ print(luvuista_suurin(0, 0, 0)) # 0
 print(luvuista_suurin(s1, s2, s3)) # 99
 ```
 
-<sample-output>
-
-4 99 0 99
-
-</sample-output>
-
 </programming-exercise>
 
 <programming-exercise name='Merkit samat' tmcname='osa04-06_merkit_samat'>
@@ -426,12 +420,6 @@ lause = "olipa kerran"
 print(toka_sana(lause)) # kerran
 print(vika_sana(lause)) # kerran
 ```
-
-<sample-output>
-
-kerran
-
-</sample-output>
 
 </programming-exercise>
 
