@@ -27,28 +27,28 @@ Seuraava käyttöesimerkki havainnollistaa ohjelman haluttua tulostusta:
 
 <sample-output>
 
-editori: **emacs**
+Editori: **Emacs**
 ei ole hyvä
-editori: **vim**
+Editori: **Vim**
 ei ole hyvä
-editori: **word**
+Editori: **Word**
 surkea
-editori: **atom**
+Editori: **Atom**
 ei ole hyvä
-editori: **visual studio code**
+Editori: **Visual Studio Code**
 loistava valinta!
 
 </sample-output>
 
-Jos käyttäjä vastaa Word tai Notepad ohjelma vastaa _surkea_. Muissa epäkelvoissa tapauksissa vastaus on _ei ole hyvä_.
+Jos käyttäjä kirjoittaa Word tai Notepad, ohjelma vastaa _surkea_. Muissa epäkelvoissa tapauksissa vastaus on _ei ole hyvä_.
 
 Ohjelman tulee toimia siten, että "oikean vastauksen" kirjoitusasu ei riipu siitä, kirjoitetaanko vastaus isoja vai pieniä kirjaimia käyttämällä: 
 
 <sample-output>
 
-editori: **NOTEPAD**
+Editori: **NOTEPAD**
 surkea
-editori: **viSUal STudiO cODe**
+Editori: **viSUal STudiO cODe**
 loistava valinta!
 
 </sample-output>
