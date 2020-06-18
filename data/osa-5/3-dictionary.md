@@ -386,7 +386,7 @@ Huomaa, että jokaiseen nimeen voi liiittyä vain yksi puhelinnumero. Jos samall
 
 </programming-exercise>
 
-<programming-exercise name='Puhelinluettelo, versio 2' tmcname='osa05-14puhelinluettelo_versio2'>
+<programming-exercise name='Puhelinluettelo, versio 2' tmcname='osa05-14_puhelinluettelo_versio2'>
 
 Tee puhelinluettelosta paranneltu versio, missä jokaisella henkilöllä voi olla useampia puhelinnumeroita. Ohjelma toimii kuten edellisessä tehtävässä, mutta nyt se listaa jokaisen numeron:
 
