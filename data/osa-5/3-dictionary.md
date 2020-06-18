@@ -318,15 +318,17 @@ kirjaimella s alkavat sanat:
 
 <programming-exercise name='Histogrammi' tmcname='osa05-12_histogrammi'>
 
-Tee funktio, joka saa parametrinä merkkiojonon ja piirtää merkkijonon eri kirjainten lukumäärää kuvaavan histogramin, missä kirjaimen jokaista esiintymää kohti tuostuu yksi tähti kirjaimen riville.
+Tee funktio, joka saa parametrinä merkkiojonon ja piirtää merkkijonon eri kirjainten lukumäärää kuvaavan histogrammin, missä kirjaimen jokaista esiintymää kohti tulostuu yksi tähti kirjaimen riville.
 
 
 Esim. kutsuttaessa `histogrammi("abba")` tulostuu
 
 <sample-output>
 
+<pre>
 a **
 b **
+</pre>
 
 </sample-output>
 
@@ -334,12 +336,14 @@ tai kutsuttaessa `histogrammi("saippuakauppias")` tulostuu
 
 <sample-output>
 
+<pre>
 s **
 a ****
 i **
 p ****
 u **
 k *
+</pre>
 
 </sample-output>
 
