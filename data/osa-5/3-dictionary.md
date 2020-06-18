@@ -131,6 +131,52 @@ Kurssilla _Tietorakenteet ja algoritmit_ tutustutaan tarkemmin hajautustauluihin
 
 Huomaa, että sanakirjassa olevaa avainta vastaavan arvon ei tarvitse olla muuttumaton, vaan voimme tallentaa mitä tahansa tietoa arvoiksi. Sama arvo voi myös esiintyä samassa hakemistossa enemmän kuin yhden kerran.
 
+<programming-exercise name='Kertaa kymmenen' tmcname='osa05-10b_kertaa_kymmenen'>
+
+Tee funktio `kertaa_kymmenen(alku: int, loppu: int)`, joka muodostaa ja palauttaa uuden sanakirjan (eli dict-olion). Sanakirjassa on avaimina luvut väliltä alku...loppu.
+
+Jokaisen avaimen arvona on avain kerrottuna kymmenellä.
+
+Esimerkiksi:
+
+```python
+d = kertaa_kymmenen(3, 6)
+print(d)
+```
+
+<sample-output>
+
+{3: 30, 4: 40, 5: 50, 6: 60}
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Kertomat' tmcname='osa05-11_kertomat'>
+
+Tee funktio `kertomat(n: int)`, joka palauttaa lukujen 1...n kertomat sanakirjassa siten, että luku on avain ja luvun kertoma arvo johon avain viittaa.
+
+Muistutuksena: luvun n kertoma n! lasketaan kertomalla luku kaikilla itseään pienemmillä positiivisilla kokonaisluvuilla. Luvun 4 kertoma on siis 4 * 3 * 2 * 1 == 24.
+
+Esimerkki käytöstä:
+
+```python
+k = kertomat(5)
+print(k[1])
+print(k[3])
+print(k[5])
+```
+
+<sample-output>
+
+1
+6
+120
+
+</sample-output>
+
+</programming-exercise>
+
 ## Sanakirjan läpikäynti
 
 Sanakirjan läpikäyntiin voidaan käyttää totuttuun tapaan `for`-lausetta. Rakenne `for avain in sanakirja` käy läpi kaikki sanakirjan avaimet yksi kerrallaan.
@@ -169,6 +215,35 @@ for avain, arvo in sanakirja.items():
 ```
 
 Huomaa, että läpikäynnissä avaimet tulevat samassa järjestyksessä kuin ne on lisätty sanakirjaan. Sanakirjan avainten järjestyksellä ei kuitenkaan yleensä ole merkitystä sovelluksissa.
+
+<programming-exercise name='Histogrammi' tmcname='osa05-12_histogrammi'>
+
+Tee funktio, joka saa parametrinä merkkiojonon ja piirtää merkkijonon eri kirjainten lukumäärää kuvaavan histogramin, missä kirjaimen jokaista esiintymää kohti tuostuu yksi tähti kirjaimen riville.
+
+
+Esim. kutsuttaessa `histogrammi("abba")` tulostuu
+
+<sample-output>
+
+a **
+b **
+
+</sample-output>
+
+tai kutsuttaessa `histogrammi("saippuakauppias")` tulostuu
+
+<sample-output>
+
+s **
+a ****
+i **
+p ****
+u **
+k *
+
+</sample-output>
+
+</programming-exercise>
 
 ## Sanakirjan edistyneempi käyttö
 
@@ -270,6 +345,126 @@ kirjaimella s alkavat sanat:
 
 </sample-output>
 
+<programming-exercise name='Puhelinluettelo, versio 1' tmcname='osa05-13_puhelinluettelo_versio1'>
+
+Tee puhelinluettelo, joka toimii seuraavasti:
+
+<sample-output>
+
+komento (1 hae, 2 lisää, 3 lopeta): **2**
+nimi: **pekka**
+numero: **040-5466745**
+ok!
+komento (1 hae, 2 lisää, 3 lopeta): **2**
+nimi: **emilia**
+numero: **045-1212344**
+ok!
+komento (1 hae, 2 lisää, 3 lopeta): **1**
+nimi: **pekka**
+040-5466745
+komento (1 hae, 2 lisää, 3 lopeta): **1**
+nimi: **maija**
+ei numeroa
+komento (1 hae, 2 lisää, 3 lopeta): **2**
+nimi: **pekka**
+numero: **09-22223333**
+ok!
+komento (1 hae, 2 lisää, 3 lopeta): **1**
+nimi: **pekka**
+09-22223333
+komento (1 hae, 2 lisää, 3 lopeta): **3**
+lopetetaan...
+
+</sample-output>
+
+Huomaa, että jokaiseen nimeen voi liiittyä vain yksi puhelinnumero. Jos samalle henkilölle lisätään uusi numero, se korvaa aiemmin lisätyn numeron.
+
+
+</programming-exercise>
+
+<programming-exercise name='Puhelinluettelo, versio 2' tmcname='osa05-14puhelinluettelo_versio2'>
+
+Tee puhelinluettelosta paranneltu versio, missä jokaisella henkilöllä voi olla useampia puhelinnumeroita. Ohjelma toimii kuten edellisessä tehtävässä, mutta nyt se listaa jokaisen numeron:
+
+<sample-output>
+
+komento (1 hae, 2 lisää, 3 lopeta): **2**
+nimi: **pekka**
+numero: **040-5466745**
+ok!
+komento (1 hae, 2 lisää, 3 lopeta): **2**
+nimi: **emilia**
+numero: **045-1212344**
+ok!
+komento (1 hae, 2 lisää, 3 lopeta): **1**
+nimi: **pekka**
+040-5466745
+komento (1 hae, 2 lisää, 3 lopeta): **1**
+nimi: **maija**
+ei numeroa
+komento (1 hae, 2 lisää, 3 lopeta): **2**
+nimi: **pekka**
+numero: **09-22223333**
+ok!
+komento (1 hae, 2 lisää, 3 lopeta): **1**
+nimi: **pekka**
+040-5466745
+09-22223333
+komento (1 hae, 2 lisää, 3 lopeta): **3**
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Sanakirjan kääntö' tmcname='osa05-15_sanakirjan_kaanto'>
+
+Kirjoita funktio `kaanna(sanakirja: dict)`, joka saa parametrikseen dict-rakenteen (eli sanakirjan), ja kääntää sen niin, että arvoista tulee avaimia ja päinvastoin.
+
+Esimerkki funktion käytöstä:
+
+```python
+
+s = {1: "eka", 2: "toka", 3: "kolmas", 4: "neljas"}
+kaanna(s)
+print(s)
+
+```
+
+<sample-output>
+
+{"eka": 1, "toka": 2, "kolmas": 3, "neljas": 4}
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Luvut sanoina' tmcname='osa05-16_luvut_sanoina'>
+
+Kirjoita funktio `lukukirja()`, joka palauttaa uuden dict-rakenteen (eli sanakirjan). Palautetusta rakenteesta löytyy avaimina luvut nollasta 99:än. Arvoina löytyvät luvut sanallisena esityksenä. Katso esimerkkiä alla:
+
+```python
+luvut = lukukirja()
+print(luvut(2))
+print(luvut(11))
+print(luvut(45))
+print(luvut(99))
+print(luvut(0))
+```
+
+<sample-output>
+
+kaksi
+yksitoista
+neljäkymmentäviisi
+yhdensänkymmentäyhdeksän
+nolla
+
+</sample-output>
+
+HUOM! Älä muodosta jokaista lukusanaa yksitellen, vaan mieti, miten voisit hyödyntää silmukoita ja sanakirjaa jotenkin ratkaisussasi!
+
+</programming-exercise>
+
 ## Sanakirja tiedon ryhmittelyssä
 
 Voimme käyttää sanakirjaa myös tiedon ryhmittelyssä. Esimerkiksi seuraava koodi luo sanakirjan, jossa on tietoa henkilöstä:
@@ -323,3 +518,56 @@ Pedro Python
 Keskipituus on 173.0
 
 </sample-output>
+
+<programming-exercise name='Elokuvarekisteri' tmcname='osa05-17_elokuvarekisteri'>
+
+Kirjoita funktio `lisaa_elokuva(rekisteri: list, nimi: str, ohjaaja: str, vuosi: int, pituus: int)`, joka lisää yhden elokuvaolion elokuvarekisteriin.
+
+Rekisteri on toteutettu listana, ja jokainen listan alkio on yksi dict-olio, eli sanakirja. Sanakirjassa on avaimet
+
+* "nimi"
+* "ohjaaja"
+* "vuosi"
+* "pituus"
+
+Arvot tulevat metodin parametreina.
+
+Esimerkki:
+
+```python
+rek = []
+lisaa_elokuva(rek, "Pythonin viemää", "Pekka Python", 2017, 116)
+lisaa_elokuva(rek, "Python lentokoneessa", "Renny Pythonen", 2001, 94)
+print(rek)
+```
+
+<sample-output>
+
+[{"nimi": "Pythonin viemää", "ohjaaja": "Pekka Python", "vuosi": 2017, "pituus": 116}, {"nimi": "Python lentokoneessa", "ohjaaja": "Renny Pythonen", "vuosi": 2001, "pituus": 94}]
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Etsi elokuvat' tmcname='osa05-17b_etsi_elokuvat'>
+
+Kirjoita funktio `etsi_elokuvat(rekisteri: list, hakusana: str)`, joka käsitteleen edellisessä tehtävässä luotua elokuvarekisterilistaa. Funktio muodostaa uuden listan, jolle kopioidaan rekisteristä ne elokuvat, joiden nimestä löytyy hakusana. Pienet ja isot kirjaimet eivät merkitse haussa, joten hakusanalla `paj` pitää löytyä sekä elokuva `Tappajahai` että elokuva `Pajatoiminnan historia`.
+
+Esimerkki:
+
+```python
+rekisteri = [{"nimi": "Pythonin viemää", "ohjaaja": "Pekka Python", "vuosi": 2017, "pituus": 116},
+{"nimi": "Python lentokoneessa", "ohjaaja": "Renny Pythonen", "vuosi": 2001, "pituus": 94},
+{"nimi": "Koodaajien yö", "ohjaaja": "M. Night Python", "vuosi": 2011, "pituus": 101}]
+
+lista = etsi_elokuvat(rekisteri, "python")
+print(lista)
+```
+
+<sample-output>
+
+[{"nimi": "Pythonin viemää", "ohjaaja": "Pekka Python", "vuosi": 2017, "pituus": 116}, {"nimi": "Python lentokoneessa", "ohjaaja": "Renny Pythonen", "vuosi": 2001, "pituus": 94}]
+
+</sample-output>
+
+</programming-exercise>

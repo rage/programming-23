@@ -338,6 +338,63 @@ _ _ _  _ _ _  _ _ _
 
 </programming-exercise>
 
+<programming-exercise name='Ristinolla' tmcname='osa05-09_ristinolla'>
+
+Ristinollaa pelataan 3 x 3 -kokoisella ruudukolla, johon pelaajat merkitsevät vuorotellen ristin tai nollan. Se pelaaja, joka saa ensimmäisenä kolme merkkiä pystyyn, vaakaan tai kulmittain voittaa pelin. Peli päättyy tasapeliin, jos kumpikaan pelaaja ei saa kolmen sarjaa.
+
+Kirjoita funktio `pelaa_siirto(lauta: list[list[string]], x: int, y: int, nappula: str)`, jossa sijoitetaan annettu pelinappula annetuihin koordinaatteihin pelilaudalla. Koordinaatien arvot ovat väliltä 0..2.
+
+Pelilauta koostuu merkkijonoista seuraavasti:
+
+`""`  - Tyhjä ruutu
+`"X"` - Pelaajan 1 merkki
+`"O"` - Pelaajan 2 merkki
+
+Funktio palauttaa arvon true, jos nappulan saatiin sijoitettua laudalle (ts. jos paikka oli tyhjä), ja arvon false, jos paikka oli varattu TAI jos koordinaatin arvo oli liian pieni tai suuri (ts. ei väliltä 0..2).
+
+Esimerkiksi
+
+```python
+lauta = [["","",""], ["","",""], ["","",""]]
+print(pelaa_siirto(2,0,"X"))
+print(lauta)
+```
+
+<sample-output>
+
+True
+[['', '', 'X'], ['', '', ''], ['', '', '']]
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Matriisin kääntö' tmcname='osa05-10_matriisin_kaanto'>
+
+Kirjoita funktio transponoi(matriisi: list), joka saa parametrikseen kaksiulotteisen kokonaislukuja sisältävän taulukon eli matriisin. Funktio _transponoi_ matriisin eli muuntaa rivit sarakkeiksi ja päinvastoin.
+
+Voit olettaa, että matriisissa on yhtä monta riviä kuin sarakettakin (eli matriisi on ns. _neliömatriisi_).
+
+Esimerkiksi matriisista
+
+```python
+1 2 3
+4 5 6
+7 8 9
+```
+
+...tulisi transponoinnin jälkeen tällainen:
+
+```python
+1 4 7
+2 5 8
+3 6 9
+```
+
+Funktio ei palauta mitään, vaan muokkaa parametrinaan saamaansa matriisia.
+
+</programming-exercise>
+
 ## Funktioiden sivuvaikutukset
 
 Koska funktio saa parametrinaan viittauksen listaan, se voi muuttaa tätä listaa. Jos funktion varsinaisena tarkoituksena ei ole muuttaa listaa, muutokset voivat aiheuttaa ongelmia toisaalla ohjelmassa.
