@@ -30,6 +30,7 @@
     "installationGuideLink":"https://www.mooc.fi/fi/installation/netbeans",
     "submitHowTo":"Ohjeet tehtävien palauttamiseen",
     "loginForExercise":"Kirjaudu sisään nähdäksesi tehtävänannon",
+    "loginToSeeExercisePoints": "Kirjaudu sisään nähdäksesi tehtäväpisteet.",
     "submitNetBeans":"Palauta tehtävä palvelimelle tarkistettavaksi NetBeans ohjelmointiympäristössä:",
     "seeSubmissions":"Voit myöhemmin katsoa palautuksiasi Test My Code palautusympäristössä",
     "here":"täältä",

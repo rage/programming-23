@@ -30,6 +30,7 @@
     "installationGuideLink":"https://www.mooc.fi/en/installation/netbeans",
     "submitHowTo":"Exercise submission instructions",
     "loginForExercise":"Log in to see the exercise",
+    "loginToSeeExercisePoints": "Log in to see exercise points.",
     "submitNetBeans":"Submit your solution to be checked on the server on the NetBeans programming environment: ",
     "seeSubmissions":"You can see your submissions in the Test My Code exercise submission environment.",
     "here":"here",
