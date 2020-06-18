@@ -9,6 +9,7 @@ const courseSettings = {
   quizzesId: "24a27b46-a8b5-4662-93b5-090be7edec04",
   tmcOrganization: "hy",
   bannerPath: "banner.svg",
+  showExerciseDescriptionWhenNotLoggedIn: true,
 }
 
 module.exports = courseSettings
