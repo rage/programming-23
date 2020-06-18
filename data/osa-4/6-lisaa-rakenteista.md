@@ -6,7 +6,7 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tämän osan jälkeen
+Tämän osion jälkeen
 
 - Tunnet lisää tapoja erottaa osia merkkijonosta tai listasta
 - Ymmärrät, mitä tarkoittaa merkkijonon muuttumattomuus
@@ -213,15 +213,9 @@ Java on kivaa
 
 </sample-output>
 
-
-
-
-
 <programming-exercise name='Eniten kirjaimia' tmcname='osa04-23_eniten_kirjaimia'>
 
-
-
-Kirjoita funktio `eniten_kirjainta(mjono: str)`, joka saa parametrikseen merkkijonon. Funktio palauttaa sen kirjaimen, jota esiintyy eniten merkkijonossa.
+Kirjoita funktio `eniten_kirjainta`, joka saa parametrikseen merkkijonon. Funktio palauttaa kirjaimen, jota esiintyy eniten merkkijonossa. Jos yhtä yleisiä kirjaimia on monta, funktion tulee palauttaa niistä aakkosjärjestyksessä ensimmäinen.
 
 Voit olettaa, että merkkijono koostuu pelkästään pienistä suomen kielen kirjaimista a...ö.
 
@@ -247,7 +241,7 @@ k
 
 <programming-exercise name='Vokaalit pois' tmcname='osa04-24_vokaalit_pois'>
 
-Kirjoita funktio `ilman_vokaaleja(lause: str)`, joka saa parametrikseen merkkijonon. Funktio palauttaa uuden merkkijonon, jossa alkuperäisen merkkijonon vokaalit on poistettu.
+Kirjoita funktio `ilman_vokaaleja`, joka saa parametrikseen merkkijonon. Funktio palauttaa uuden merkkijonon, jossa alkuperäisen merkkijonon vokaalit on poistettu.
 
 Voit olettaa, että merkkijono koostuu pelkästään pienistä suomen kielen kirjaimista a...ö.
 
@@ -349,7 +343,7 @@ print(lista)
 
 Määritellään, että listan alkiot ovat naapureita, jos niiden erotus on 1. Naapureita olisivat siis esim alkiot 1 ja 2 tai alkiot 56 ja 55.
 
-Kirjoita funktio `pisin_naapurijono(lista)` joka etsii listasta pisimmän peräkkäisen naapureita sisältävän osalistan ja palauttaa sen pituuden.
+Kirjoita funktio `pisin_naapurijono`, joka etsii listasta pisimmän peräkkäisiä naapureita sisältävän osalistan ja palauttaa sen pituuden.
 
 Esimerkiksi listassa `[1, 2, 5, 4, 3, 4]` pisin tällainen osalista olisi `[5, 4, 3, 4]`, ja sen pituus 4.
 
@@ -370,9 +364,9 @@ print(pisin_naapurijono(lista))
 
 <programming-exercise name='Isot alkukirjaimet' tmcname='osa04-28_isot_alkukirjaimet'>
 
-Kirjoita funkto `isot_alkukirjaimet(merkkijono)`, joka saa parametrikseen kokonaan pienillä kirjaimilla kirjoitetun tekstin. Funktio muuttaa kaikkien virkkeiden ensimmäisen kirjaimen isoksi.
+Kirjoita funkto `isot_alkukirjaimet`, joka saa parametrikseen kokonaan pienillä kirjaimilla kirjoitetun tekstin. Funktio muuttaa kaikkien virkkeiden ensimmäisen kirjaimen isoksi. Jokainen virke alkaa kirjaimella ja päättyy pisteeseen, huutomerkkiin tai kysymysmerkkiin.
 
-Vinkki: Tarvitset tässä funktiota `upper()`, joka muuntaa merkkijonon kokonaan isoiksi kirjaimiksi.
+Vinkki: Tarvitset tässä funktiota `upper`, joka muuntaa merkkijonon kokonaan isoiksi kirjaimiksi.
 
 Esimerkki funktion kutsumisesta:
 
