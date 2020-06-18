@@ -192,9 +192,9 @@ print(luvut)
 
 <programming-exercise name='Tähdet' tmcname='osa04-12_tahdet'>
 
-Tee funktio `lista_tahtina`, joka saa parametriksi listan kokonaislukuja. FUnktio tulostaa joukon tähtirivejä siten, että listalla olevat luvut kertovat kunkin rivin tähtimäärän.
+Tee funktio `lista_tahtina`, joka saa parametriksi listan kokonaislukuja. Funktio tulostaa joukon tähtirivejä siten, että listalla olevat luvut kertovat kunkin rivin tähtimäärän.
 
-Esim. kutsuttaessa `lista_tahtina([3, 7, 1, 1, 2])` tulostuu
+Esim. kutsuttaessa `lista_tahtina([3, 7, 1, 1, 2])` tulostus on:
 
 <sample-output>
 
@@ -213,45 +213,35 @@ Esim. kutsuttaessa `lista_tahtina([3, 7, 1, 1, 2])` tulostuu
 
 <programming-exercise name='Anagrammi' tmcname='osa04-13_anagrammi'>
 
-Tee funktio `anagrammi` joka saa parametriksi kaksi merkkijonoa. Funktio palauttaa True jos merkkijonot ovat anagrammeja, eli ne muodostuvat täsmälleem samoista kirjaimista.
+Tee funktio `anagrammi` joka saa parametriksi kaksi merkkijonoa. Funktio palauttaa `True`, jos merkkijonot ovat anagrammeja eli ne muodostuvat täsmälleen samoista kirjaimista.
 
-Esimerkiksi seuraavat merkkijonot ovat anagrammeja:
-
-
+Esimerkiksi funktiota voisi käyttää näin:
 
 ```python
-v1 = anagrammi("talo", "tola")
-v2 = anagrammi("talo", "lato")
-v3 = anagrammi("talo", "olat")
-v4 = anagrammi("tammi", "mitta")
-v5 = anagrammi("python", "java")
-
-print(v1, v2, v3, v4, v5)
+print(anagrammi("talo", "tola")) # True
+print(anagrammi("talo", "lato")) # True
+print(anagrammi("talo", "olat")) # True
+print(anagrammi("tammi", "mitta")) # False
+print(anagrammi("python", "java")) # False
 ```
-</pre>
-
-<sample-output>
-True True True False False
-</sample-output>
-
 
 </programming-exercise>
 
 <programming-exercise name='Palindromit' tmcname='osa04-14_palindromit'>
 
-Tee funktio `palindromi`, joka saa parametriksi merkkijonon ja palauttaa True jos merkkijono on palindromi (eli samansisältöinen luettuna alusta loppuun tai lopusta alkuun).
+Tee funktio `palindromi`, joka saa parametriksi merkkijonon ja palauttaa True, jos merkkijono on palindromi (eli samansisältöinen luettuna alusta loppuun tai lopusta alkuun).
 
-Tee myös funktiota hyödyntävä pääohjelma, joka kyselee käyttäjältä sanoja, niin kauan kunnes käyttäjä syöttää palindromin:
+Tee myös funktiota hyödyntävä pääohjelma, joka kyselee käyttäjältä sanoja niin kauan, kunnes käyttäjä syöttää palindromin:
 
 <sample-output>
 
-anna sana: **python**
+Anna sana: **python**
 ei ollut palindromi
-anna sana: **java**
+Anna sana: **java**
 ei ollut palindromi
-anna palindromi: **kauppias**
+Anna palindromi: **kauppias**
 ei ollut palindromi
-anna palindromi: **saippuakauppias**
+Anna palindromi: **saippuakauppias**
 saippuakauppias on palindromi!
 
 </sample-output>
@@ -262,7 +252,7 @@ saippuakauppias on palindromi!
 
 Tee funktio `positiivisten_summa`, joka saa parametriksi kokonaislukuja sisältävän listan.
 
-Funktio _palauttaa_ listan positiivisten lukujen summan.
+Funktio palauttaa listan positiivisten lukujen summan.
 
 ```python
 lista = [1, -2, 3, -4, 5]
@@ -282,9 +272,9 @@ Kertaa nyt tarvittaessa [edellisen osion](/osa-4/3-listat) luku _Lista funktion 
 
 <programming-exercise name='Parilliset' tmcname='osa04-16_parilliset'>
 
-Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän lista.
+Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän listan.
 
-Funktio _palauttaa_  uuden listan, jolla on parameterina olevalla listalla olevat parilliset luvut.
+Funktio palauttaa uuden listan, jolla on parametrina olevalla listalla olevat parilliset luvut.
 
 ```python
 lista = [1, 2, 3, 4, 5]
@@ -302,32 +292,19 @@ uusi [2, 4]
 
 </programming-exercise>
 
-<programming-exercise name='Summavektori' tmcname='osa04-17_summavektori'>
+<programming-exercise name='Summalista' tmcname='osa04-17_summavektori'>
 
 Tee funktio `summa`, joka saa parametriksi kaksi kokonaislukuja sisältävää listaa. Molemmissa listoissa on sama määrä alkioita.
 
-Funktio _palauttaa_ uuden listan, jonka alkiot muodostuvat parametreina olevien listojen alkioiden summista.
+Funktio palauttaa uuden listan, jonka alkiot muodostuvat parametreina olevien listojen alkioiden summista.
 
 Esim:
 
 ```python
-l1 = [1, 2, 3]
-l2 = [7, 8, 9]
-
-l3 = summa(l1, l2)
-
-print("l1:", l1)
-print("l2:", l2)
-print("l3:", l3)
+a = [1, 2, 3]
+b = [7, 8, 9]
+print(summa(a, b)) # [8, 10, 12]
 ```
-
-<sample-output>
-
-l1: [1, 2, 3]
-l2: [7, 8, 9]
-l3: [8, 10, 12]
-
-</sample-output>
 
 </programming-exercise>
 
@@ -335,26 +312,18 @@ l3: [8, 10, 12]
 
 Tee funktio `uniikit`, joka saa parametriksi kokonaislukuja sisältävän listan.
 
-Funktio _palauttaa_ uuden lista, joka sisältää parmetrina saamansa luvut suuruusjärjestyksessä siten, että jokainen luku voi olla listalla vain kertaalleen.
+Funktio palauttaa uuden listan, joka sisältää parametrina annetun listan luvut suuruusjärjestyksessä siten, että jokainen luku on listalla vain kerran.
 
 ```python
-l1 = [3, 2, 2, 1, 3, 3, 1]
-
-l2 = uniikit(l1)
-print(l2)
+lista = [3, 2, 2, 1, 3, 3, 1]
+print(uniikit(lista)) # [1, 2, 3]
 ```
-
-<sample-output>
-
-[1, 2, 3]
-
-</sample-output>
 
 </programming-exercise>
 
 <programming-exercise name='Listan pisimmät' tmcname='osa04-19_listan_pisimmat'>
 
-Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa listan, joka sisältää sen parametrina saamansa listan pisimmän merkkijonon. Jos pisimpiä merkkijonoja on useampia, funktio palauttaa ne kaikki listassa.
+Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa listan, joka sisältää parametrina annetun listan pisimmän merkkijonon. Jos pisimpiä merkkijonoja on useampia, funktio palauttaa ne kaikki listassa.
 
 Nimien järjestyksen tuloslistassa tulee noudattaa nimien järjestystä alkuperäisessä listassa.
 
@@ -362,27 +331,15 @@ Nimien järjestyksen tuloslistassa tulee noudattaa nimien järjestystä alkuper�
 lista = ["eka", "toka", "kolmas", "seitsemäs"]
 
 tulos = pisimmat(lista)
-print(tulos)
+print(tulos) # ['seitsemäs']
 ```
-
-<sample-output>
-
-['seitsemäs']
-
-</sample-output>
 
 ```python
 lista = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
 
 tulos = pisimmat(lista)
-print(tulos)
+print(tulos) # ['emilia', 'juhani']
 ```
-
-<sample-output>
-
-['emilia', 'juhani']
-
-</sample-output>
 
 </programming-exercise>
 
