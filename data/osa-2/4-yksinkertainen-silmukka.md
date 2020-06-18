@@ -229,7 +229,7 @@ while True:
         onnistui = True
         break
 
-    if yritykset > 3:
+    if yritykset == 3:
         onnistui = False
         break
 
