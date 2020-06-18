@@ -209,7 +209,7 @@ Esim. kutsuttaessa `lista_tahtina([3, 7, 1, 1, 2])` tulostuu
 </sample-output>
 
 
-</programming-exercise> 
+</programming-exercise>
 
 <programming-exercise name='Anagrammi' tmcname='osa04-13_anagrammi'>
 
@@ -235,7 +235,7 @@ True True True False False
 </sample-output>
 
 
-</programming-exercise> 
+</programming-exercise>
 
 <programming-exercise name='Palindromit' tmcname='osa04-14_palindromit'>
 
@@ -256,11 +256,11 @@ saippuakauppias on palindromi!
 
 </sample-output>
 
-</programming-exercise> 
+</programming-exercise>
 
 <programming-exercise name='Positiivisten summa' tmcname='osa04-15_positiivisten_summa'>
 
-Tee funktio `positiivisten_summa`, joka saa parametriksi kokonaislukuja sisältävän listan. 
+Tee funktio `positiivisten_summa`, joka saa parametriksi kokonaislukuja sisältävän listan.
 
 Funktio _palauttaa_ listan positiivisten lukujen summan.
 
@@ -276,15 +276,15 @@ vastaus 9
 
 </sample-output>
 
-</programming-exercise> 
+</programming-exercise>
 
 Kertaa nyt tarvittaessa [edellisen osion](/osa-4/3-listat) luku _Lista funktion parametrina ja paluuarvona_!
 
 <programming-exercise name='Parilliset' tmcname='osa04-16_parilliset'>
 
-Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän lista. 
+Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän lista.
 
-Funktio _palauttaa_  uuden listan, jolla on parameterina olevalla listalla olevat parilliset luvut. 
+Funktio _palauttaa_  uuden listan, jolla on parameterina olevalla listalla olevat parilliset luvut.
 
 ```python
 lista = [1, 2, 3, 4, 5]
@@ -300,13 +300,13 @@ uusi [2, 4]
 
 </sample-output>
 
-</programming-exercise> 
+</programming-exercise>
 
 <programming-exercise name='Summavektori' tmcname='osa04-17_summavektori'>
 
-Tee funktio `summa`, joka saa parametriksi kaksi kokonaislukuja sisältävää listaa. Molemmissa listoissa on sama määrä alkioita. 
+Tee funktio `summa`, joka saa parametriksi kaksi kokonaislukuja sisältävää listaa. Molemmissa listoissa on sama määrä alkioita.
 
-Funktio _palauttaa_ uuden listan, jonka alkiot muodostuvat parametreina olevien listojen alkioiden summista. 
+Funktio _palauttaa_ uuden listan, jonka alkiot muodostuvat parametreina olevien listojen alkioiden summista.
 
 Esim:
 
@@ -329,11 +329,11 @@ l3: [8, 10, 12]
 
 </sample-output>
 
-</programming-exercise> 
+</programming-exercise>
 
 <programming-exercise name='Uniikit' tmcname='osa04-18_uniikit'>
 
-Tee funktio `uniikit`, joka saa parametriksi kokonaislukuja sisältävän listan. 
+Tee funktio `uniikit`, joka saa parametriksi kokonaislukuja sisältävän listan.
 
 Funktio _palauttaa_ uuden lista, joka sisältää parmetrina saamansa luvut suuruusjärjestyksessä siten, että jokainen luku voi olla listalla vain kertaalleen.
 
@@ -350,11 +350,11 @@ print(l2)
 
 </sample-output>
 
-</programming-exercise> 
+</programming-exercise>
 
 <programming-exercise name='Listan pisimmät' tmcname='osa04-19_listan_pisimmat'>
 
-Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa listan, joka sisältää sen parametrina saamansa listan pisimmän merkkijonon. Jos pisimpiä merkkijonoja on useampia, funktio palauttaa ne kaikki listassa. 
+Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa listan, joka sisältää sen parametrina saamansa listan pisimmän merkkijonon. Jos pisimpiä merkkijonoja on useampia, funktio palauttaa ne kaikki listassa.
 
 Nimien järjestyksen tuloslistassa tulee noudattaa nimien järjestystä alkuperäisessä listassa.
 
@@ -384,4 +384,6 @@ print(tulos)
 
 </sample-output>
 
-</programming-exercise> 
+</programming-exercise>
+
+<quiz id="df430669-5bb3-5b05-851e-06dc41a3c029"></quiz>

@@ -83,7 +83,7 @@ mutta monet myös käyttävät termejä sekaisin.
 
 <programming-exercise name='Viiva' tmcname='osa04-02_viiva'>
 
-Tee funktio `viiva`, joka saa kaksi parametria (leveys, merkkijono). Funktio tulostaa ensimmäisen parametrin määrittämän pituisen viivan käyttäen tosena parametrina olevan merkkijonon ensimmäistä merkkiä. Jos parametrina oleva merkkijono on tyhjä, tulostuu viiva tähtinä.
+Tee funktio `viiva`, joka saa kaksi parametria (leveys, merkkijono). Funktio tulostaa ensimmäisen parametrin määrittämän pituisen viivan käyttäen toisena parametrina olevan merkkijonon ensimmäistä merkkiä. Jos parametrina oleva merkkijono on tyhjä, tulostuu viiva tähtinä.
 
 Käyttöesimerkki:
 
@@ -112,13 +112,12 @@ Voimme kutsua funktiota myös toisen funktion sisältä. Esimerkiksi seuraavassa
 
 ```python
 def tervehdi(nimi):
-    print("Moikka",nimi)
+    print("Moikka", nimi)
 
 def tervehdi_monesti(nimi, kerrat):
-    i = kerrat
-    while i>0:
+    while kerrat > 0:
         tervehdi(nimi)
-        i -= 1
+        kerrat -= 1
 
 tervehdi_monesti("Emilia", 3)
 ```
@@ -133,12 +132,14 @@ Moikka, Emilia
 
 <programming-exercise name='Kuvio' tmcname='osa04-03_kuvio'>
 
-Tee funktio `kuvio`, joka saa neljä parametria (y_korkeus, y_merkki, a_korkeus, a_merkki). Funktio tulostaa kuvion jonka yläosana on kahden ensimmäisen parametrin määrittelemä kolmio ja alaosana kahden jälkimmäisen parametrin määrittelemä suorakulmio.
+Tee funktio `kuvio`, joka saa neljä parametria (y_korkeus, y_merkki, a_korkeus, a_merkki). Funktio tulostaa kuvion, jonka yläosana on kahden ensimmäisen parametrin määrittelemä kolmio ja alaosana kahden jälkimmäisen parametrin määrittelemä suorakulmio.
+
+Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle.
 
 Pari käyttöesimerkkiä
 
 ```python
-kuvio(5, "X", 3, "O")
+kuvio(5, "X", 3, "*")
 print()
 kuvio(2, "o", 4, "+")
 print()
@@ -171,8 +172,6 @@ oo
 
 </sample-output>
 
-Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle.
-
 </programming-exercise>
 
 <programming-exercise name='Joulukuusi' tmcname='osa04-04_joulukuusi'>
@@ -186,7 +185,7 @@ Esim. kutsuttaessa `joulukuusi(3)` tulostuu
 <pre>
 joulukuusi!
   *
- *** 
+ ***
 *****
   *
 </pre>
@@ -200,7 +199,7 @@ Esim. kutsuttaessa `joulukuusi(5)` tulostuu
 <pre>
 joulukuusi!
     *
-   *** 
+   ***
   *****
  *******
 *********
@@ -314,26 +313,27 @@ Moikka, Matti
 
 ## Funktion paluuarvojen käyttö
 
-Kuten olemme jo nähneet, funktioiden paluuarvoja on mahdollista sijoittaa muuttujiin
+Kuten olemme jo nähneet, funktioiden paluuarvoja on mahdollista sijoittaa muuttujiin:
 
 ```python
 def summa(a, b):
-    return a+b
+    return a + b
 
 tulos = summa(4, 6)
-print("summa on", tulos)
+print("Summa on", tulos)
 ```
 
 <sample-output>
-summa on 10
+Summa on 10
 </sample-output>
 
-Koska funktion paluuarvo käyttäytyy kuten mikä tahansa arvo, ei apumuuttuja ole tarpeen, ja paluuarvoa on mahdollista käyttää suoraan komennon `print` parametrina:
+Koska funktion paluuarvo käyttäytyy kuten mikä tahansa arvo, ei apumuuttuja ole tarpeen ja paluuarvoa on mahdollista käyttää suoraan komennon `print` parametrina:
 
 ```python
-print("summa on", summa(4, 6))
+print("Summa on", summa(4, 6))
 ```
-Voimme myös antaa omatekemän funktion palauttaman arvon toiselle funktiolle:
+
+Voimme myös antaa funktion palauttaman arvon toiselle funktiolle:
 
 ```python
 def summa(a, b):
@@ -343,14 +343,14 @@ def erotus(a, b):
     return a-b
 
 tulos = erotus(summa(5, 2), summa(2, 3))
-print("vastaus on", tulos)
+print("Vastaus on", tulos)
 ```
 
 <sample-output>
-vastaus on 2
+Vastaus on 2
 </sample-output>
 
-Tässä tapauksessa suoritetaan ensin "sisemät" funktiokutsut `summa(5, 2)` ja `summa(2, 3)`, joiden  palauttaamat arvot 7 ja 5, käytetään "ulomman" funktiokutsun parametreina. 
+Tässä tapauksessa suoritetaan ensin "sisemmät" funktiokutsut `summa(5, 2)` ja `summa(2, 3)`, joiden  palauttamat arvot 7 ja 5 käytetään "ulomman" funktiokutsun parametreina.
 
 Ulompi funktiokutsu `erotus(7, 5)` palauttaa arvon 2, joka sijoitetaan muuttujan `tulos` arvoksi ja tulostetaan ruudulle.
 
@@ -358,80 +358,68 @@ Funktioiden palauttamat arvot toimivat täysin samalla tavalla kuin mitkä tahan
 
 <programming-exercise name='Luvuista suurin' tmcname='osa04-05_luvuista_suurin'>
 
-Tee funktio *luvuista_suurin*, joka saa parametriksi kolme kokonaislukua. Funktio _palauttaa_ return-lausetta käyttäen luvuista suurimman.
+Tee funktio  luvuista_suurin`, joka saa parametriksi kolme kokonaislukua. Funktio palauttaa return-lausetta käyttäen luvuista suurimman.
 
 Käyttöesimerkki
 
 ```python
-s1 = luvuista_suurin(3, 4, 1)
-s2 = luvuista_suurin(99, -4, 7)
-s3 = luvuista_suurin(0, 0, 0)
-s4 = luvuista_suurin(s1, s2, s3)
-print(s1, s2, s3, s4)
+print(luvuista_suurin(3, 4, 1)) # 4
+print(luvuista_suurin(99, -4, 7)) # 99
+print(luvuista_suurin(0, 0, 0)) # 0
+print(luvuista_suurin(s1, s2, s3)) # 99
 ```
-
-<sample-output>
-
-4 99 0 99
-
-</sample-output>
 
 </programming-exercise>
 
 <programming-exercise name='Merkit samat' tmcname='osa04-06_merkit_samat'>
 
-Tee funktio _samat_ joka saa parametriksi merkkijonon, ja kaksi merkkijonon indeksejä kuvaavaa kokonaislukua. Funktio _palauttaa_ return-lausetta käyttäen tiedon (True tai False) siitä ovatko merkkijonon parametreina olevien indeksien osoittamissa paikoissa olevat merkit samat. Jos jompi kumpi indekseistä ei osu merkkijonon sisälle, palauttaa metodi False.
+Tee funktio `samat`, joka saa parametriksi merkkijonon ja kaksi merkkijonon indeksejä kuvaavaa kokonaislukua. Funktio palauttaa `return`-lausetta käyttäen tiedon (`True` tai `False`) siitä, ovatko merkkijonon parametreina olevien indeksien osoittamissa paikoissa olevat merkit samat. Jos jompikumpi indekseistä ei osu merkkijonon sisälle, palauttaa metodi `False`.
 
-Muutama esimerkki
+Muutama esimerkki:
 
 ```python
-samat("koodari", 1, 2) # palauttaa True sillä kyseessä o ja o
-samat("koodari", 0, 4) # palauttaa False sillä kyseessä k ja a
+# samat merkit o ja o
+print(samat("koodari", 1, 2)) # True
 
-# seuraava palauttaa False sillä toinen indeksi ei ole merkkijonon sisällä
-samat("koodari", 0, 10) 
+# eri merkit k ja a
+print(samat("koodari", 0, 4)) # False
+
+# toinen indeksi ei ole merkkijonon sisällä
+print(samat("koodari", 0, 10)) # False
 ```
+
 </programming-exercise>
 
 <programming-exercise name='Eka, toka ja vika sana' tmcname='osa04-07_eka_toka_vika_sana'>
 
 Tee kolme funktiota: `eka_sana`, `toka_sana` ja `vika_sana`. Jokainen funktioista saa parametrikseen lauseen (eli merkkijonon).
 
-Funktiot _palauttavat_ nimensä mukaisesti lauseen ensimmäisen, toisen tai viimeisen sanan.
+Funktiot palauttavat nimensä mukaisesti lauseen ensimmäisen, toisen tai viimeisen sanan.
 
-Voit olettaa jokaisessa tapauksessa, että merkkijonossa koostuu vähintään kahdesta sanasta.
+Voit olettaa jokaisessa tapauksessa, että merkkijono koostuu vähintään kahdesta sanasta.
 
 ```python
-e = eka_sana("olipa kerran kauan sitten ohjelmoija")
-t = toka_sana("olipa kerran kauan sitten ohjelmoija")
-v = vika_sana("olipa kerran kauan sitten ohjelmoija")
+lause = "olipa kerran kauan sitten ohjelmoija"
 
-print(e)
-print(t)
-print(v)
+print(eka_sana(lause)) # olipa
+print(toka_sana(lause)) # kerran
+print(vika_sana(lause)) # ohjelmoija
 ```
 
 <sample-output>
 
 olipa
-kerran 
+kerran
 ohjelmoija
 
 </sample-output>
 
 ```python
-t = toka_sana("olipa kerran")
-v = vika_sana("olipa kerran")
+lause = "olipa kerran"
 
-print(t)
-print(v)
+print(toka_sana(lause)) # kerran
+print(vika_sana(lause)) # kerran
 ```
-
-<sample-output>
-
-kerran 
-
-</sample-output>
 
 </programming-exercise>
 
@@ -452,10 +440,9 @@ Tarkastellaan esimerkkinä seuraavaa funktiota:
 
 ```python
 def tulosta_monesti(viesti, kerrat):
-    i = kerrat
-    while i>0:
-        tervehdi(nimi)
-        i -= 1
+    while kerrat > 0:
+        print(viesti)
+        kerrat -= 1
 ```
 
 Funktio toimii mainiosti, jos kutsumme sitä näin:
@@ -486,16 +473,19 @@ TypeError: '>' not supported between instances of 'str' and 'int'
 
 </sample-output>
 
-Tässä ongelmaksi tulee, että funktion jälkimmäinen parametri `kerrat` sijoitetaan muuttujaan `i`, jota vertaillaan kokonaislukuun 0. Kun parametri on `"Emilia"` eikä kokonaisluku, tämä aiheuttaa virheen.
+Tässä ongelmaksi tulee, että funktion jälkimmäistä parametria `kerrat` vertaillaan kokonaislukuun 0. Kun parametri on `"Emilia"` eikä kokonaisluku, tämä aiheuttaa virheen.
 
 Voimme antaa funktion määrittelyssä _tyyppivihjeen_, joka ilmaisee, millaista tietoa parametreihin on tarkoitus sijoittaa:
 
 ```python
 def tulosta_monesti(viesti : str, kerrat : int):
-    for i in range(kerrat):
+    while kerrat > 0:
         print(viesti)
+        kerrat -= 1
 ```
 
 Tämä kertoo funktion käyttäjälle, että parametrin `viesti` on tarkoitus olla merkkijono, kun taas parametrin `kerrat` on tarkoitus olla kokonaisluku.
 
 Huomaa kuitenkin, että tyyppivihje ainoastaan neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.
+
+<quiz id="9a17c9b9-60b0-5859-975f-60ee31663e19"></quiz>

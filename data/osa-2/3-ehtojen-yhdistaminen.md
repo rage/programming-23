@@ -287,9 +287,9 @@ Huomaa, että monissa tapauksissa voidaan käyttää joko sisäkkäisiä ehtolau
 ```python
 luku = int(input("Anna luku: "))
 
-if luku > 0 and luku % 2 == 0:
+if luku >= 0 and luku % 2 == 0:
     print("Luku on parillinen")
-elif luku > 0 and luku % 2 != 0:
+elif luku >= 0 and luku % 2 != 0:
     print("Luku on pariton")
 else:
     print("Luku on negatiivinen.")

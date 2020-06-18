@@ -15,50 +15,50 @@ Tämän osion jälkeen
 
 Olemme tähän mennessä tehneet kaikki tehtävät kurssisivuille upotettuihin editori-ikkunoihin. Selaineditorissa tapahtuva ohjelmointi sopii hyvin kurssin alkuun, mutta siirrymme nyt ohjelmoimaan koodaukseen tarkoitettua editoria käyttäen.
 
-Erilaisia ohjelmointiin sopivia editoreja on kymmeniä. Käytämme kurssilla viime vuosina suureen suosioon noussutta [Visual studio code](https://code.visualstudio.com/) -editoria. 
+Erilaisia ohjelmointiin sopivia editoreja on kymmeniä. Käytämme kurssilla viime vuosina suureen suosioon noussutta [Visual Studio Code](https://code.visualstudio.com/) -editoria. 
 
-Asenna nyt Visual studio code ja kurssin tehtävien testien suorittamiseen käytettävä TMC-plugin [tämän ohjeen](https://www.mooc.fi/fi/installation/vscode) avulla.
+Asenna nyt Visual Studio Code ja kurssin tehtävien testien suorittamiseen käytettävä TMC-plugin [tämän ohjeen](https://www.mooc.fi/fi/installation/vscode) avulla.
 
-<programming-exercise name='Hello Visual studio Code' tmcname='osa04-01_hello_visualstudio_code'>
+<programming-exercise name='Hello Visual Studio Code' tmcname='osa04-01_hello_visualstudio_code'>
 
-Tee ohjelma, joka kysyy mitä editori on käytössä. Ohjelma jatkaa kunnes vastaus on _visual studio code_. 
+Tee ohjelma, joka kysyy käyttäjältä, mikä editori on käytössä. Ohjelma jatkaa, kunnes vastaus on _Visual Studio Code_. 
 
 Seuraava käyttöesimerkki havainnollistaa ohjelman haluttua tulostusta:
 
 <sample-output>
 
-editori: **emacs**
+Editori: **Emacs**
 ei ole hyvä
-editori: **vim**
+Editori: **Vim**
 ei ole hyvä
-editori: **word**
+Editori: **Word**
 surkea
-editori: **atom**
+Editori: **Atom**
 ei ole hyvä
-editori: **visual studio code**
+Editori: **Visual Studio Code**
 loistava valinta!
 
 </sample-output>
 
-Jos käyttäjä vastaa word tai notepad ohjelma vastaa _surkea_, muissa epäkevoissa tapauksissa vastaus on _ei ole hyvä_.
+Jos käyttäjä kirjoittaa Word tai Notepad, ohjelma vastaa _surkea_. Muissa epäkelvoissa tapauksissa vastaus on _ei ole hyvä_.
 
-Ohjelman tulee toimia siten, että "oikean vastauksen" kirjoitusasu ei riipu siitä kirjoitetaanko vastaus isoja vai pieniä kirjaimia käyttämällä: 
+Ohjelman tulee toimia siten, että "oikean vastauksen" kirjoitusasu ei riipu siitä, kirjoitetaanko vastaus isoja vai pieniä kirjaimia käyttämällä: 
 
 <sample-output>
 
-editori: **notepad**
+Editori: **NOTEPAD**
 surkea
-editori: **viSUal STudiO cODe**
+Editori: **viSUal STudiO cODe**
 loistava valinta!
 
 </sample-output>
 
-Kirjainten koon voi jättää huomiotta, esim. muuttamalla kirjaimet pienksi merkkijonojen metodilla `lower`, jota voi käyttää seuraavasti:
+Kirjainten koon voi jättää huomiotta esim. muuttamalla kirjaimet pienksi merkkijonojen metodilla `lower`, jota voi käyttää seuraavasti:
 
 ```python
-merkkijono = "Visual Studio CODE"
-if "visual studio code" == sana.lower():
-  print("merkkijono oli etsitty!")
+mjono = "Visual Studio CODE"
+if "visual studio code" == mjono.lower():
+    print("merkkijono oli etsitty!")
 ```
 
-</programming-exercise> 
+</programming-exercise>

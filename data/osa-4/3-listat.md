@@ -277,7 +277,7 @@ sitten
 
 </sample-output>
 
-</programming-exercise> 
+</programming-exercise>
 
 ## Listan järjestäminen
 
@@ -516,7 +516,7 @@ vastaus 5
 
 </sample-output>
 
-</programming-exercise> 
+</programming-exercise>
 
 <programming-exercise name='Keskiarvo' tmcname='osa04-10_keskiarvo'>
 
@@ -534,7 +534,7 @@ vastaus 3.0
 
 </sample-output>
 
-</programming-exercise> 
+</programming-exercise>
 
 <programming-exercise name='Vaihteluväli' tmcname='osa04-11_vaihteluvali'>
 
@@ -553,8 +553,10 @@ vastaus 4
 </sample-output>
 
 
-</programming-exercise> 
+</programming-exercise>
 
 ## Lisää listan käsittelystä
 
 Pythonissa on paljon muitakin mahdollisuuksia listan käsittelyyn. Voit tutustua niihin Pythonin [dokumentaation](https://docs.python.org/3/tutorial/datastructures.html) kautta.
+
+<quiz id="8206de70-42f5-56fb-9fac-a4b1b4986f3c"></quiz>
