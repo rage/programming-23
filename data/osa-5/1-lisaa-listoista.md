@@ -356,7 +356,7 @@ sudoku = [
 ]
 
 print(sarake_oikein(sudoku, 0))
-print(sarake_oikein(sudoku, 0))
+print(sarake_oikein(sudoku, 1))
 ```
 
 <sample-output>
@@ -370,7 +370,7 @@ True
 
 <programming-exercise name='Sudoku: neliöt oikein' tmcname='osa05-05_sudoku_osa3'>
 
-Tee funktio `nelio_oikein(sudoku: list, rivi, int, sarake: int)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon sekä yhden taulukon paikan kerovat rivi- ja sarakenumerot.
+Tee funktio `nelio_oikein(sudoku: list, rivi, int, sarake: int)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon sekä yhden taulukon paikan kertovat rivi- ja sarakenumerot.
 
 Funktio kertoo onko parametrina saadusta rivi/sarakenumerosta alkava 3x3-kokoinen neliö oikein täytetty ts. löytyykö siltä kukin luvuista 1-9 korkeintaan kerran.
 
@@ -418,7 +418,7 @@ Toisen funktiokutsun tarkastelema kohdasta riviltä 1 ja sarakkeesta 2 alkava ne
 
 <programming-exercise name='Sudoku: ruudukko oikein' tmcname='osa05-06_sudoku_osa4'>
 
-Tee funktio `sudoku_oikein(sudoku: list)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kahden tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon) onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, sarake sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1-9.
+Tee funktio `sudoku_oikein(sudoku: list)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kolmen tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon) onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, jokainen sarake sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1-9.
 
 Huom: ylempänä olevaan sudokuruudukkoa esittävään kuvaan on merkitty ne 3x3-neliöt, joita sudokua ratkaistessa tulee tarkastella.
 

@@ -96,7 +96,7 @@ h4 = ("Essi", 1997)
 hlista = [h1, h2, h3, h4]
 
 vanhemmat_henkilot = vanhemmat(hlista, 1979)
-print(vanhemmat)
+print(vanhemmat_henkilot)
 ```
 
 <sample-output>
@@ -156,7 +156,7 @@ TypeError: unhashable type: 'list'
 
 ## Tuple ilman sulkuja
 
-Tuplen määrittelyssä ei ole pakko antaa suluja. Esimerkiksi seuraavat koodit toimivat samalla tavalla:
+Tuplen määrittelyssä ei ole pakko antaa sulkuja. Esimerkiksi seuraavat koodit toimivat samalla tavalla:
 
 ```python
 luvut = (1, 2, 3)
@@ -218,12 +218,12 @@ Vielä yksi tuplen käyttötarkoitus on kahden muuttujan arvon vaihtaminen keske
 a, b = b, a
 ```
 
-Yllä oleva koodi vaihtaa keskenään muuttujien `a` ja `b` arvot, eli koodi toimii samoin kuin seuraava, apumuuttujaa käyttävä koodi:
+Yllä oleva koodi vaihtaa keskenään muuttujien `luku1` ja `luku2` arvot, eli koodi toimii samoin kuin seuraava, apumuuttujaa käyttävä koodi:
 
 ```python
-apu = a
-a = apu
-b = t
+apu = luku1
+luku1 = luku2
+luku1 = apu
 ```
 
 <programming-exercise name='Sanavertailu' tmcname='osa05-20_sanavertailu'>
@@ -242,7 +242,6 @@ print(a, b)
 1 2
 
 </sample-output>
-
 
 Molemmissa merkkijonoissa on kirjain A kohdassa 0. Molemmissa onb myös kirjaimet B ja C, mutta ne ovat eri kohdissa. Tämän takia paluuarvo on 1, 2.
 
