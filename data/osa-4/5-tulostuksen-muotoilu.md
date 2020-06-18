@@ -6,10 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tämän osan jälkeen
+Tämän osion jälkeen
 
-- Tiedät miten promnt-komennon tulostusta saa muokattua nimettyjen parametrien `sep` ja `end` avulla
-- Opit muotoilemaan tulostettavia merkkijonoja f-stringien avulla
+- Tiedät, miten `print`-komennon tulostusta saa muokattua parametrien avulla
+- Opit käyttämään f-merkkijonoja tulosteen muotoilussa
 
 </text-box>
 
@@ -31,15 +31,15 @@ Toinen käyttämämme tapa on eritellä tulostuksen osat pilkulla:
 print("Hei", nimi, "ikäsi on", ika, "vuotta" )
 ```
 
-Tämän koodin lopputulos on sama kuin edellisen esimerkin. Näin käytettynä `print` tulostaa kaikki parametrinsa _välilyönnillä_ eroteltuna. Etuna tässä tavassa on se, että tulostettavat osat voivat olla eri tyyppisiä, tyyppimuunnosta merkkijonoksi ei tarvita.
+Tämän koodin lopputulos on sama kuin edellisen esimerkin. Näin käytettynä `print` tulostaa kaikki parametrinsa välilyönnillä eroteltuna. Etuna tässä tavassa on, että tulostettavat osat voivat olla eri tyyppisiä eli tyyppimuunnosta merkkijonoksi ei tarvita.
 
-Automaattisesta välilyönnistä pilkulla eriteltyjen osien välillä on mahdollista päästä eroon antamalla funktiolle _nimetty parametri_ `sep`:
+Automaattisesta välilyönnistä pilkulla eriteltyjen osien välillä on mahdollista päästä eroon antamalla funktiolle parametri `sep`:
 
 ```python
 print("Hei", nimi, "ikäsi on", ika, "vuotta", sep="")
 ```
 
-Tulostus on nyt seuraava
+Tulostus on nyt seuraava:
 
 <sample-output>
 
@@ -48,7 +48,7 @@ HeiErkkiikäsi on39vuotta
 </sample-output>
 
 
-Parametri `sep=""` siis määrittelee, että pilkulla eroteltujen väliin laitetaan ainoastaan tyhjä merkkijono. Voisimme myös saada jokaisen osan tulostumaan omalle rivilleen määrittelemällä erottimeksi `"\n"` eli rivinvaihtoa kuvaavan merkin:
+Parametri `sep=""` on _nimetty parametri_, joka määrittelee, että pilkulla eroteltujen osien väliin laitetaan ainoastaan tyhjä merkkijono. Voisimme myös saada jokaisen osan tulostumaan omalle rivilleen määrittelemällä erottimeksi `"\n"` eli rivinvaihtoa kuvaavan merkin:
 
 ```python
 print("Hei", nimi, "ikäsi on", ika, "vuotta", sep="\n")
@@ -64,9 +64,7 @@ vuotta
 
 </sample-output>
 
-Huomaa, että [osan 1](/osa-1/3-lisaa-muuttujista) tehtävässä _Tulostukset samalle riville_ käyttämämme nimetty parametri `end` on sukua erotinparametrille `sep`.
-
-Oletusarvoisesti print-komento päättyy rivinvaihtoon, mutta tätä voidaan muokata parametrin `end` avulla. Esim. jos `end` saa arvoksi tyhjän merkkijonon, print-komento ei aiheuta automaattista rivinvaihtoa:
+Oletusarvoisesti print-komento päättyy rivinvaihtoon, mutta tätä voidaan muokata parametrin `end` avulla. Esim. jos `end` saa arvoksi tyhjän merkkijonon, `print`-komento ei aiheuta automaattista rivinvaihtoa:
 
 ```python
 print("Moi ", end="")
@@ -91,9 +89,9 @@ ika = 39
 print(f"Hei {nimi} ikäsi on {ika} vuotta")
 ```
 
-Tässä merkkijonon alussa on kirjain _f_, mikä tarkoittaa että merkkijono on _f-string_. Merkkijonon sisälle on sijoitettu aaltosuluissa muuttujia, joiden arvot tulevat merkkijonon osaksi. Tulostus on täsmälleen sama kuin aiemmissa esimerkeissä.
+Tässä merkkijonon alussa on kirjain _f_, mikä tarkoittaa että merkkijono on f-merkkijono. Merkkijonon sisälle on sijoitettu aaltosuluissa muuttujia, joiden arvot tulevat merkkijonon osaksi. Tulostus on täsmälleen sama kuin aiemmissa esimerkeissä.
 
-Voimme muotoilla monin tavoin f-stringien avulla tapahtuvaa tulostusta. Yksi tavallinen käyttötapa on antaa liukuluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
+Voimme muotoilla monin tavoin f-merkkijonojen avulla tapahtuvaa tulostusta. Yksi tavallinen käyttötapa on antaa liukuluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
 
 ```python
 luku = 1/3
@@ -106,7 +104,7 @@ Luku on 0.333333333333333
 
 </sample-output>
 
-Saamme määriteltyä tulostuvien desimaalien määrän f-stringin avulla. Tulostuksen muoto määritellään lisäämällä aaltosulkeiden sisään tulostettavan muuttujan jälkeen kaksoispiste ja _muotoiluohje_:
+Saamme määriteltyä tulostuvien desimaalien määrän f-merkkijonon avulla. Tulostuksen muoto määritellään lisäämällä aaltosulkeiden sisään tulostettavan muuttujan jälkeen kaksoispiste ja _muotoiluohje_:
 
 ```python
 luku = 1/3
@@ -117,7 +115,7 @@ print(f"Luku on {luku:.2f}")
 Luku on 0.33
 ```
 
-Muotoiluohje `.2f` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella. Huom: kirjain _f_ kakkosen jälkeen tarkoittaa että muotoiluohje koskee desimaalilukua eli _float_-tyyppistä arvoa!
+Muotoiluohje `.2f` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella. Huom: kirjain _f_ kakkosen jälkeen tarkoittaa että muotoiluohje koskee desimaalilukua eli `float`-tyyppistä arvoa!
 
 Tässä on vielä toisenlainen esimerkki, jossa tulostetaan nimiä 15 merkin levyiseen tekstialueeseen, ensin vasemmalle sisennettynä ja sen jälkeen oikealle sisennettynä:
 
@@ -136,9 +134,9 @@ Maya            keskellä            Maya
 
 <programming-exercise name=' Lukulistasta merkkijonolistaksi' tmcname='osa04-20_lukulistasta_merkkijonolistaksi'>
 
-Kirjoita funktio `muotoile`, joka saa parametrikseen liukulukuja sisältävän listan. Funktio muodostaa listan perusteella uuden, merkkijonotyyppisiä alkoita sisältävän listan, jossa jokainen liukulukulistan alkio esitetään pyöristettynä kahden desimaalin tarkkuuteen. Listan alkioiden järjestyksen tulee säilyä.
+Kirjoita funktio `muotoile`, joka saa parametrikseen liukulukuja sisältävän listan. Funktio muodostaa listan perusteella uuden merkkijonoja sisältävän listan, jossa jokainen liukulukulistan alkio esitetään pyöristettynä kahden desimaalin tarkkuuteen. Listan alkioiden järjestyksen tulee säilyä.
 
-_Vinkki: Käytä liukulukujen muotoiluuun merkkijonoiksi f-merkkijonoa._
+_Vinkki: Käytä liukulukujen muotoiluun merkkijonoiksi f-merkkijonoa._
 
 Esimerkki funktion käytöstä:
 
@@ -160,11 +158,11 @@ print(lista2)
 
 Tässä tehtävässä toteutetaan ohjelma kurssin arvosanatilastojen tulostamiseen.
 
-Ohjelmalle syötetään rivejä jotka sisältävät yhden opiskelijan koepistemäärän sekä tehtyjen harjoitustehtävien määrän. Ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja.
+Ohjelmalle syötetään rivejä, jotka sisältävät yhden opiskelijan koepistemäärän sekä tehtyjen harjoitustehtävien määrän. Ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja.
 
-Koepisteet ovat kokonaisulukuja väliltä 0-20. Tehtyjen harjoitustehtävien lukumäärät taas kokonaislukuja väliltä 0-100.
+Koepisteet ovat kokonaisulukuja väliltä 0–20. Tehtyjen harjoitustehtävien lukumäärät taas kokonaislukuja väliltä 0–100.
 
-Ohjelmalle kyselee käyttäjältä rivejä niin kauan kunnes käyttäjä syöttää tyhjän rivin. Voit olettaa, että kaikki rivit on syötetty "oikein", eli rivillä on joko kaksi kokonaislukua tai rivi on tyhjä.
+Ohjelma kyselee käyttäjältä rivejä niin kauan, kunnes käyttäjä syöttää tyhjän rivin. Voit olettaa, että kaikki rivit on syötetty "oikein", eli rivillä on joko kaksi kokonaislukua tai rivi on tyhjä.
 
 Koepisteiden ja harjoitustehtävien syöttäminen etenee seuraavasti:
 
@@ -181,20 +179,20 @@ Tilasto:
 
 Kun käyttäjä on syöttänyt tyhjän rivin, tulostaa ohjelma tilastot.
 
-Tilastot muodostuvat seuraavasti.
+Tilastot muodostuvat seuraavasti:
 
-Tehtyjen harjoitustehtävien määrästä saa kurssipisteitä, siten että min 10% tehtävämäärästä tuo 1 kurssipisteen, 20% tuo 2 kurssipistettä jne ja 100% eli 100 harjoitustehtävää tuo 10 kurssipistettä. Harjoitustehtävistä saatava kurssipistemäärä on kokonaisluku.
+Tehtyjen harjoitustehtävien määrästä saa kurssipisteitä siten, että vähintään 10 % tehtävämäärästä tuo 1 kurssipisteen, 20 % tuo 2 kurssipistettä, jne., ja 100 % eli 100 harjoitustehtävää tuo 10 kurssipistettä. Harjoitustehtävistä saatava kurssipistemäärä on kokonaisluku.
 
 Kurssin arvosana määräytyy seuraavan taulukon mukaan:
 
 koe+harjoituspisteet   | arvosana
 :--:|:----:
-0-14 | 0 (eli hylätty)
-15-17 | 1
-18-20 | 2
-21-23 | 3
-24-27 | 4
-28-30 | 5
+0–14 | 0 (eli hylätty)
+15–17 | 1
+18–20 | 2
+21–23 | 3
+24–27 | 4
+28–30 | 5
 
 Edelliseen on kuitenkin poikkeus: jos kokeen pistemäärä on alle 10, on arvosana kokonaispistemäärästä riippumatta 0 eli hylätty.
 
@@ -223,7 +221,7 @@ Vihjeitä:
 
 Koko tehtävän koodi kannattaa rakentaa useista pienen asian tekevistä apufunktioista.
 
-Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Eräs tapa joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään main, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää:
+Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Eräs tapa, joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään main, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää:
 
 ```python
 def main():
