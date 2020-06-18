@@ -261,7 +261,7 @@ Listalla on alkio 1
 
 <programming-exercise name='Sama sana kahdesti' tmcname='osa04-08_sama_sana_kahdesti'>
 
-Tee ohjelma, joka kyselee käyttäjältä sanoja. Kun käyttäjä on syöttänyt jonkun sanan kahdesti, ohjelma tulostaa käyttäjän syöttämät sanat ja lopettaa toimintansa.
+Tee ohjelma, joka kyselee käyttäjältä sanoja. Kun käyttäjä on syöttänyt jonkin sanan kahdesti, ohjelma tulostaa käyttäjän syöttämät sanat ja lopettaa toimintansa.
 
 <sample-output>
 
@@ -502,7 +502,7 @@ pituudet = lue_luvut()
 
 <programming-exercise name='Listan pituus' tmcname='osa04-09_listan_pituus'>
 
-Tee funktio `pituus`, joka _palauttaa_ (return lauseella) parametrinaan saamansa listan pituuden.
+Tee funktio `pituus`, joka palauttaa parametrinaan saamansa listan pituuden.
 
 ```python
 lista = [1, 2, 3, 4, 5]
@@ -520,7 +520,7 @@ vastaus 5
 
 <programming-exercise name='Keskiarvo' tmcname='osa04-10_keskiarvo'>
 
-Tee funktio `keskiarvo`, joka _palauttaa_ (return lauseella) parametrinaan saamansa kokonaislukuja sisältävän listan alkioiden keskiarvon.
+Tee funktio `keskiarvo`, joka palauttaa parametrinaan saamansa kokonaislukuja sisältävän listan alkioiden keskiarvon.
 
 ```python
 lista = [1, 2, 3, 4, 5]
@@ -538,7 +538,7 @@ vastaus 3.0
 
 <programming-exercise name='Vaihteluväli' tmcname='osa04-11_vaihteluvali'>
 
-Tee funktio `vaihteluvali`, joka _palauttaa_ (return-lauseella) parametrinaan saamansa kokonaislukuja sisältävän listan _vaihteluvälin_ (eli suurimman ja pienimmän alkion erotuksen).
+Tee funktio `vaihteluvali`, joka palauttaa parametrinaan saamansa kokonaislukuja sisältävän listan vaihteluvälin (eli suurimman ja pienimmän alkion erotuksen).
 
 ```python
 lista = [1, 2, 3, 4, 5]
