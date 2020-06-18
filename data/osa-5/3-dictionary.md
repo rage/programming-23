@@ -216,35 +216,6 @@ for avain, arvo in sanakirja.items():
 
 Huomaa, että läpikäynnissä avaimet tulevat samassa järjestyksessä kuin ne on lisätty sanakirjaan. Sanakirjan avainten järjestyksellä ei kuitenkaan yleensä ole merkitystä sovelluksissa.
 
-<programming-exercise name='Histogrammi' tmcname='osa05-12_histogrammi'>
-
-Tee funktio, joka saa parametrinä merkkiojonon ja piirtää merkkijonon eri kirjainten lukumäärää kuvaavan histogramin, missä kirjaimen jokaista esiintymää kohti tuostuu yksi tähti kirjaimen riville.
-
-
-Esim. kutsuttaessa `histogrammi("abba")` tulostuu
-
-<sample-output>
-
-a **
-b **
-
-</sample-output>
-
-tai kutsuttaessa `histogrammi("saippuakauppias")` tulostuu
-
-<sample-output>
-
-s **
-a ****
-i **
-p ****
-u **
-k *
-
-</sample-output>
-
-</programming-exercise>
-
 ## Sanakirjan edistyneempi käyttö
 
 Tarkastellaan tilannetta, jossa meillä on taulukossa joukko sanoja:
@@ -344,6 +315,35 @@ kirjaimella s alkavat sanat:
   suklaa
 
 </sample-output>
+
+<programming-exercise name='Histogrammi' tmcname='osa05-12_histogrammi'>
+
+Tee funktio, joka saa parametrinä merkkiojonon ja piirtää merkkijonon eri kirjainten lukumäärää kuvaavan histogramin, missä kirjaimen jokaista esiintymää kohti tuostuu yksi tähti kirjaimen riville.
+
+
+Esim. kutsuttaessa `histogrammi("abba")` tulostuu
+
+<sample-output>
+
+a **
+b **
+
+</sample-output>
+
+tai kutsuttaessa `histogrammi("saippuakauppias")` tulostuu
+
+<sample-output>
+
+s **
+a ****
+i **
+p ****
+u **
+k *
+
+</sample-output>
+
+</programming-exercise>
 
 <programming-exercise name='Puhelinluettelo, versio 1' tmcname='osa05-13_puhelinluettelo_versio1'>
 
