@@ -4,13 +4,12 @@ title: 'Visual Studio Code -editori ja python-tulkki'
 hidden: false
 ---
 
-
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
 Tämän osion jälkeen
 
 - Osaat käyttää Visual studio Code -editoria kurssin tehtävien tekemiseen
-- Osaat suorittaa koodia Pythonin interaktiivisen
+- Osaat suorittaa koodia interaktiivisen python-tulkin avulla 
 
 </text-box>
 
