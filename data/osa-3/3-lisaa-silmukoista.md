@@ -193,7 +193,7 @@ while True:
     luku = int(input("Anna luku: "))
     if luku == -1:
         break
-    while True
+    while True:
         if luku <= 0
             break
         print(luku)
