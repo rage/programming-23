@@ -155,19 +155,21 @@ Listojen metodeista käy ilmi seuraavaa:
 >>>
 ```
 
-Tarjolla näyttää siis olevan mm. metodit `reverse` ja `clear. Kokeillaan niitä:
+Tarjolla näyttää siis olevan mm. metodit `reverse` ja `clear`. Kokeillaan niitä:
 
 ```python
->>> lista = [1,2,3,4,5]
->>> lista.reverse()
->>> lista
+>>> luvut = [1,2,3,4,5]
+>>> luvut.reverse()
+>>> luvut
 [5, 4, 3, 2, 1]
->>> lista.clear()
->>> lista
+>>> luvut.clear()
+>>> luvut
 []
 ```
 
 Metodit siis tekevät aikalailla sen mitä nimen perustella voi olettaa. 
+
+Huomaa, että konsoli ei "tulosta" mitään, kun kutsutaan esim. metodia `lista.reverse()`. Mistä tämä johtuu? Konsoli tekee komentojen suorituksen yhteydessä tulostuksen ainoastaan jos suoritetulla koodirivillä on jokin arvo. Edellisessä esimerkissä saatiin tulostettua listan `luvut` arvo kirjoittamalla konsoliin pelkästään muuttujan nimi. Konsolissa ei siis useinkaan ole tarvetta kirjottaa erikseen `print`-komentoja.
 
 Tärkein konsolin kommenteista on `exit()`, joka sulkee konsolin. Erityisesti jos käytät konsolia Visual studio Codessa, se tulee muistaa sulkea ennen suoritat jonkun ohjelman uudelleen "vihreällä kolmiolla". Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
 
