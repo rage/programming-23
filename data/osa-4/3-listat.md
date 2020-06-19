@@ -87,6 +87,20 @@ print(lista)
 
 </sample-output>
 
+Funktio `len` antaa listan alkioiden määrän:
+
+```python
+lista = [7, 2, 2, 5, 2]
+print(len(lista))
+```
+
+<sample-output>
+
+5
+
+</sample-output>
+
+
 ## Alkioiden lisääminen ja poistaminen
 
 Listan loppuun voidaan lisätä uusia alkoita `append`-metodin avulla. Metodia käytetään seuraavasti:
