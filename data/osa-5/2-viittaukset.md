@@ -356,7 +356,7 @@ Esimerkiksi
 
 ```python
 lauta = [["","",""], ["","",""], ["","",""]]
-print(pelaa_siirto(2,0,"X"))
+print(pelaa_siirto(lauta, 2, 0, "X"))
 print(lauta)
 ```
 

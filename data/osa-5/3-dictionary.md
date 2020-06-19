@@ -624,13 +624,13 @@ Esimerkki:
 ```python
 rek = []
 lisaa_elokuva(rek, "Pythonin viemää", "Pekka Python", 2017, 116)
-lisaa_elokuva(rek, "Python lentokoneessa", "Renny Pythonen", 2001, 94)
+lisaa_elokuva(rek, "Python lentokoneessa", "Renny Pytholin", 2001, 94)
 print(rek)
 ```
 
 <sample-output>
 
-[{"nimi": "Pythonin viemää", "ohjaaja": "Pekka Python", "vuosi": 2017, "pituus": 116}, {"nimi": "Python lentokoneessa", "ohjaaja": "Renny Pythonen", "vuosi": 2001, "pituus": 94}]
+[{"nimi": "Pythonin viemää", "ohjaaja": "Pekka Python", "vuosi": 2017, "pituus": 116}, {"nimi": "Python lentokoneessa", "ohjaaja": "Renny Pytholin", "vuosi": 2001, "pituus": 94}]
 
 </sample-output>
 
