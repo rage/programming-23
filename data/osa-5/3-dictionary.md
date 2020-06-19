@@ -416,9 +416,93 @@ nimi: **pekka**
 09-22223333
 komento (1 hae, 2 lisää, 3 lopeta): **3**
 
-</sample-output>
+v
 
 </programming-exercise>
+
+## Avaimien poistaminen sanakirjasta
+
+Sanakirjasta on mahdollista myös poistaa avain-arvo-pareja. Menetelmiä tähän on kaksi. Ensimmäinen näistä on funktio `del`:
+
+```python
+henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
+del henkilokunta["arto"]
+print(henkilokunta)
+```
+
+<sample-output>
+
+{'antti': 'lehtori', 'emilia': 'professori'}
+
+</sample-output>
+
+```python
+henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
+del henkilokunta["arto"]
+```
+
+Funktiota `del` ei kuitenkaan saa kutsua avaimille, joita sanakirjassa ei ole:
+
+```python
+henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
+del henkilokunta["jukka"]
+```
+
+<sample-output>
+
+>>> del henkilokunta["jukka"]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'jukka'
+
+</sample-output>
+
+Ennen poistoa on siis syytä tarkistaa että poistettava avain löytyy sanakirjasta:
+
+```python
+henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
+if "jukka" in henkilokunta_
+  del henkilokunta["jukka"]
+  print("poistettiin")
+else:
+  print("poistettavaa henkilöä ei löytynyt henkilökunnasta")
+```
+
+Toinen vaihtoehto alkion poistamiseen on _metodi_ `pop`:
+
+```python
+henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
+poistettu = henkilokunta.pop("arto")
+print(henkilokunta)
+print("poistettiin", poistettu)
+```
+
+<sample-output>
+
+{'antti': 'lehtori', 'emilia': 'professori'}
+poistettiin lehtori
+
+</sample-output>
+
+Metodi `pop` siis myös palauttaa poistettua arvoa vastaavan avaimen.
+
+Oletusarvoisesti myös `pop` aiheuttaa virheen, jos sanakirjasta yritetään poistaa avain, jota siellä ei ole. Metodille on kuitenkin mahdollista antaa toisena parametrina _oletusarvoinen paluuarvo_, joka palautetaan siinä tilanteessa, että poistettavaa ei löydy. Esimerkiksi arvo `None` joka tarkoittaa "ei mitään", sopii hyvin tälläisiin tilanteisiin:
+
+
+```python
+henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
+poistettu = henkilokunta.pop("jukka", None)
+if poistettu == None:
+  print("poistettavaa henkilöä ei löytynyt henkilökunnasta")
+else:
+  print("poistettiin", poistettu)
+```
+
+<sample-output>
+
+poistettavaa henkilöä ei löytynyt henkilökunnasta
+
+</sample-output>
 
 <programming-exercise name='Sanakirjan kääntö' tmcname='osa05-15_sanakirjan_kaanto'>
 
