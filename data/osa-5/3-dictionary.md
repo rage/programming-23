@@ -436,19 +436,23 @@ print(henkilokunta)
 
 </sample-output>
 
-Funktiota `del` ei kuitenkaan saa kutsua avaimille, joita sanakirjassa ei ole:
+Jos funktiota `del` kutsutaan avaimille, joita sanakirjassa ei ole:
 
 ```python
 henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
 del henkilokunta["jukka"]
 ```
 
+seurauksena on virhe
+
 <sample-output>
 
+<pre>
 >>> del henkilokunta["jukka"]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 'jukka'
+</pre>
 
 </sample-output>
 
