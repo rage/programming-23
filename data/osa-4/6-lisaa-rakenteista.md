@@ -215,9 +215,7 @@ Java on kivaa
 
 <programming-exercise name='Eniten kirjaimia' tmcname='osa04-23_eniten_kirjaimia'>
 
-Kirjoita funktio `eniten_kirjainta`, joka saa parametrikseen merkkijonon. Funktio palauttaa kirjaimen, jota esiintyy eniten merkkijonossa. Jos yhtä yleisiä kirjaimia on monta, funktion tulee palauttaa niistä aakkosjärjestyksessä ensimmäinen.
-
-Voit olettaa, että merkkijono koostuu pelkästään pienistä suomen kielen kirjaimista a...ö.
+Kirjoita funktio `eniten_kirjainta`, joka saa parametrikseen merkkijonon. Funktio palauttaa kirjaimen, jota esiintyy eniten merkkijonossa. Jos yhtä yleisiä kirjaimia on monta, funktion tulee palauttaa niistä ensimmäisenä merkkijonossa esiintyvä.
 
 Esimerkki funktion käytöstä:
 
