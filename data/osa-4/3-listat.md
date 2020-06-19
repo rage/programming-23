@@ -261,7 +261,7 @@ Listalla on alkio 1
 
 <programming-exercise name='Sama sana kahdesti' tmcname='osa04-08_sama_sana_kahdesti'>
 
-Tee ohjelma, joka kyselee käyttäjältä sanoja. Kun käyttäjä on syöttänyt jonkin sanan kahdesti, ohjelma tulostaa käyttäjän syöttämät sanat ja lopettaa toimintansa.
+Tee ohjelma, joka kyselee käyttäjältä sanoja. Kun käyttäjä syöttää jonkin sanan kahdesti, ohjelma tulostaa eri sanojen määrän ja lopettaa toimintansa.
 
 <sample-output>
 
@@ -270,10 +270,7 @@ sana: **kerran**
 sana: **kauan**
 sana: **sitten**
 sana: **kerran**
-olipa
-kerran
-kauan
-sitten
+Annoit 4 eri sanaa
 
 </sample-output>
 
