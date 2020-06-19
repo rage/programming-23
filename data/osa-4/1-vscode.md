@@ -71,7 +71,7 @@ Komentotulkki käynnistyy antamalla komentoriviltä komento `python3` (joissain 
 
 <img src="4_1_1.png">
 
-Komentotulkki on myös mahdollista avata Visual studio Code -editorin sisälle, ensin suorittamalla jokin ohjelma "vihreällä nuolella" ja sen jälkeen kirjoittamalla avautuvaan _Terminal_-näkymään `python3` (tai `python`)
+Komentotulkki on myös mahdollista avata Visual studio Code -editorin sisälle, ensin suorittamalla jokin ohjelma "vihreällä kolmiolla" ja sen jälkeen kirjoittamalla avautuvaan _Terminal_-näkymään `python3` (tai `python`)
 
 <img src="4_1_2.png">
 
@@ -140,3 +140,7 @@ Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi 
 ```
 
 Kuten näemme, on merkkijonoilla suuri määrä metodeja. Kurssin tässä vaiheessa kannattaa ehkä unohtaa alaviivoja sisältävät metodit, mutta muut voivat olla käyttökelpoisia. Osa metodien toimonnasta voi selvitä jo kokeilemalla, osan toiminta selviää helposti googlaamalla.
+
+Tärkein konsolin kommenteista on `exit()`, joka sulkee konsolin. Erityisesti jos käytätä konsolia Visual studio Codessa, se tulee muistaa sulkea ennen suoritat jonkun ohjelman uudelleen "vihreällä kolmiolla". Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
+
+<img src="4_1_4.png">
