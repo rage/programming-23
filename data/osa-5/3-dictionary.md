@@ -436,11 +436,6 @@ print(henkilokunta)
 
 </sample-output>
 
-```python
-henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
-del henkilokunta["arto"]
-```
-
 Funktiota `del` ei kuitenkaan saa kutsua avaimille, joita sanakirjassa ei ole:
 
 ```python
