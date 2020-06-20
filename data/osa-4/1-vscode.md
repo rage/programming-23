@@ -171,6 +171,6 @@ Metodit siis tekevät aikalailla sen mitä nimen perustella voi olettaa.
 
 Huomaa, että konsoli ei "tulosta" mitään, kun kutsutaan esim. metodia `lista.reverse()`. Mistä tämä johtuu? Konsoli tekee komentojen suorituksen yhteydessä tulostuksen ainoastaan jos suoritetulla koodirivillä on jokin arvo. Edellisessä esimerkissä saatiin tulostettua listan `luvut` arvo kirjoittamalla konsoliin pelkästään muuttujan nimi. Konsolissa ei siis useinkaan ole tarvetta kirjottaa erikseen `print`-komentoja.
 
-Tärkein konsolin kommenteista on `exit()`, joka sulkee konsolin. Erityisesti jos käytät konsolia Visual studio Codessa, se tulee muistaa sulkea ennen suoritat jonkun ohjelman uudelleen "vihreällä kolmiolla". Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
+Tärkein konsolin kommenteista on `exit()`, joka sulkee konsolin. Erityisesti jos käytät konsolia Visual studio Codessa, se tulee muistaa sulkea ennen kuin suoritat jonkun ohjelman uudelleen "vihreällä kolmiolla". Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
 
 <img src="4_1_4.png">

@@ -292,7 +292,7 @@ uusi [2, 4]
 
 </programming-exercise>
 
-<programming-exercise name='Summalista' tmcname='osa04-17_summavektori'>
+<programming-exercise name='Summalista' tmcname='osa04-17_summalista'>
 
 Tee funktio `summa`, joka saa parametriksi kaksi kokonaislukuja sisältävää listaa. Molemmissa listoissa on sama määrä alkioita.
 

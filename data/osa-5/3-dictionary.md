@@ -460,7 +460,7 @@ Ennen poistoa on siis syytä tarkistaa että poistettava avain löytyy sanakirja
 
 ```python
 henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
-if "jukka" in henkilokunta_
+if "jukka" in henkilokunta:
   del henkilokunta["jukka"]
   print("poistettiin")
 else:
