@@ -6,35 +6,30 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Virhetilanteet ohjelmissa niin kirjoitus- kuin suoritusvaiheessa ovat yleisiä. Joihinkin virhetilanteisiin voi kuitenkin varautua etukäteen. Tutustutaan seuraavaksi tyypillisiin virhetilanteisiin sekä poikkeuksiin ja niiden kiinniottamiseen.
+Tämän osion jälkeen
 
-Tämän osion suoritettuasi
-
-- Tiedät tapoja ohjelman toiminnan testaamiseen
 - Tiedät, miten virheellisiä syötteitä voidaan käsitellä
-- Tiedät, mitä tarkoitetaan _poikkeuksella_ ohjelmoinnissa
+- Tiedät, mitä tarkoitetaan poikkeuksella ohjelmoinnissa
 - Tunnistat tyypillisiä poikkeuksia Pythonissa
-- Osaat ottaa erityyppiset poikkeukset kiinni omissa ohjelmissa
-- Osaat heittää poikkeuksen omasta funktiosta
+- Osaat käsitellä poikkeuksia omissa ohjelmissa
 
 </text-box>
 
-Ohjelmointiin liittyvät virheet voidaan jakaa karkeasti kolmeen osaan:
+Ohjelmointiin liittyvät virheet voidaan jakaa kahteen ryhmään:
 
-1. Syntaksivirheet - virheet, jotka estävät ohjelman suorittamisen kokonaan
-2. Suorituksenaikaiset virhet - virheet, jotka joko katkaisevat ohjelman suorituksen kesken suorituksen tai tuottavat virheellisen lopputuloksen
-3. Ohjelmoijasta riippumattomat virheet - esimerkiksi vääränlainen syöte, puuttuva verkkoyhteys tai kadonnut tiedosto
+1. Syntaksivirheet, jotka estävät ohjelman suorittamisen kokonaan
+2. Suorituksen aikaiset virheet, jotka keskeyttävät ohjelman suorituksen
 
-Ensimmäiseen luokkaan kuuluvat virheet on yleensä kaikkein helpoin korjata, koska Python-tulkki huomauttaa niistä, kun ohjelmaa yritetään suorittaa. Tyypillisiä esimerkkejä tällaisista virheistä ovat esimerkiksi puuttuvat sulut tai väärinkirjoitetut muuttujien ja funktioiden nimet. Hyvän editorin käyttö ohjelman kirjoittamisessa auttaa välttämään tällaisia virheitä jo ohjelman kirjoitusvaiheessa.
+Ryhmän 1 virheet on yleensä helppoa korjata, koska Python-tulkki huomauttaa niistä, kun ohjelmaa yritetään suorittaa. Tällaisia virheitä ovat esimerkiksi puuttuva kaksoispiste silmukan alussa tai puuttuva lainausmerkki merkkijonon lopussa.
 
-Toiseen luokkaan kuuluvat virheet voivat olla huomattavasti hankalampia. On esimerkiksi tyypillistä, että ohjelma toimii oikein tietyissä tapauksissa, mutta voi keskeytyä virheeseen kesken suorituksen tai tuottaa virheellisen lopputuloksen jossain tapauksessa.
+Ryhmän 2 virheet voivat olla hankalampia havaita, koska virhe voi tapahtua jossain vaiheessa ohjelman suorituksen aikana ja vain tietyissä tilanteissa. Ohjelma saattaa toimia yleensä hyvin mutta keskeytyä virheen takia jossain reunatapauksessa. Keskitymme seuraavaksi tällaisten virheiden käsittelyyn.
 
 ## Syötteiden tarkastaminen
 
-Usein virhetilanteet ohjelmien suorituksen aikana liittyvät jotenkin virheelliseen syötteeseen. Esimerkkejä virheellisistä syötteistä ovat vaikkapa
+Usein virhetilanteet ohjelmien suorituksen aikana liittyvät jotenkin virheelliseen syötteeseen. Esimerkkejä virheellisistä syötteistä ovat
 
-* puuttuvat tai tyhjät arvot - esimerkiksi pituus nolla tai tyhjä merkkijono nimenä
-* negatiiviset arvot - esimerkiksi -15 henkilön painona
+* puuttuvat tai tyhjät arvot: esimerkiksi pituus nolla tai tyhjä merkkijono nimenä
+* negatiiviset arvot: esimerkiksi –15 henkilön painona
 * puuttuva tai väärän niminen tiedosto
 * liian pienet tai liian suuret arvot
 * väärä indeksi (esim. viittaaminen indeksiin 3 merkkijonossa "moi")
@@ -73,11 +68,11 @@ ValueError: invalid literal for int() with base 10: 'kakskytkolme'
 
 </sample-output>
 
-Virhe johtuu siitä, että käyttäjän antamaa merkkijonoa ei voida muuttaa kokonaisluvuksi. Yksi ratkaisu olisi tarkastaa ennen muuttamista, että jokainen merkki on numero tai alussa oleva `-`. Ongelmaan löytyy kuitenkin yleisempikin ratkaisu.
+Virhe johtuu siitä, että funktio `int` ei pysty muuttamaan merkkijonoa `kakskytkolme` kokonaisluvuksi. Tämän seurauksena ohjelman suoritus keskeytyy yllä olevaan virheilmoitukseen.
 
 ## Poikkeukset
 
-Suorituksenaikaisia virheitä kutsutaan _poikkeuksiksi_ (exception). Ohjelmakoodissa on mahdollista varautua poikkeuksiin ja käsitellä ne ilman, että ohjelman suoritus keskeytyy.
+Ohjelman suorituksen aikaisia virheitä kutsutaan _poikkeuksiksi_ (exception). Ohjelmakoodissa on mahdollista varautua poikkeuksiin ja käsitellä ne ilman, että ohjelman suoritus keskeytyy.
 
 Pythonissa poikkeukset käsitellän `try`- ja `except`-lauseilla. Ideana on, että mikäli `try`-lohkossa tapahtuu jokin poikkeus, Python tarkistaa, onko tälle poikkeukselle määritelty `except`-lohkoa. Mikäli on, suoritetaan tämä lohko ja suoritus jatkuu sen jälkeen normaalisti.
 
@@ -104,47 +99,47 @@ Virheellinen ikä
 
 Ohjelmassa voidaan siis `try`-lauseella ilmoittaa, että seuraavan lohkon sisällä tapahtuva toiminta voi aiheuttaa virheen. Välittömästi `try`-lohkoa seuraavassa `except`-lauseessa ilmoitetaan, mihin virheeseen varaudutaan. Edellisessä esimerkissä varauduttiin ainoastaan virheeseen `ValueError` - jokin muu virhe olisi edelleen katkaissut ohjelman suorituksen.
 
-Tässä tapauksessa virhetilanteessa muuttuja `ika` saa arvon -1, jolloin ohjelma tunnistaa oikein, että ikä on virheellinen.
+Tässä tapauksessa virhetilanteessa muuttuja `ika` saa arvon -1, jolloin ohjelma tunnistaa oikein virheellisen iän, koska ehtona on, että ikä on vähintään 0.
 
-`try`- ja `while`-lauseita hyväksikäyttäen on helppo tehdä funktio, joka varmistaa, että ohjelma ei etene ennen kun käyttäjä on antanut sille oikeassa muodossa olevan syötteen.
+Seuraava funktio `lue_kokonaisluku` lukee käyttäjältä kokonaisluvun varautuen siihen, että käyttäjä antaa virheellisen syötteen. Funktio kysyy lukua uudestaan niin kauan, kunnes käyttäjä lopulta antaa kelvollisen luvun.
 
 ```python
-def lue_syote():
-  while True:
-    try:
-      syote = input("syötä kokonaisluku: ")
-      return int(syote)
-    except ValueError:
-      print("annoit epäkelvon luvun...")
+def lue_kokonaisluku():
+    while True:
+        try:
+            syote = input("Syötä kokonaisluku: ")
+            return int(syote)
+        except ValueError:
+            print("Virheellinen syöte")
 
-# kokeillaan funktiota
-luku = lue_syote()
-print(f"luku {luku} potenssiin kolme on {luku*luku*luku}")
+luku = lue_kokonaisluku()
+print("Kiitos!")
+print(luku, "potenssiin kolme on", luku**3)
 ```
 
 <sample-output>
 
-syötä kokonaisluku: kolme
-annoit epäkelvon luvun...
-syötä kokonaisluku: viisi
-annoit epäkelvon luvun...
-syötä kokonaisluku: 5
-luku 5 potenssiin kolme on 125
-
+Syötä kokonaisluku: **kolme**
+Virheellinen syöte
+Syötä kokonaisluku: **aybabtu**
+Virheellinen syöte
+Syötä kokonaisluku: **5**
+Kiitos!
+5 potenssiin kolme on 125
 
 </sample-output>
 
 ## Tyypillisiä virheitä
 
-Seuraavassa on listattu eräitä yleisimpiä virheitä ja tyypillisiä syitä niiden ilmenemiselle:
+Seuraavassa on listattu joitakin yleisiä virheitä ja syitä niiden ilmenemiselle:
 
 **ValueError**
 
-`ValueError` johtuu yleensä siitä, että funktion parametrin sisältö on funktion kannalta vääränlainen. Esimerkiksi kutsu `float("1,23")` johtaa tällaisen poikkeuksen heittämiseen, koska Python ei osaa muuttaa merkkijonoa "1,23" liukuluvuksi, koska desimaalierotin on pilkku eikä piste.
+Tämä poikkeus voi johtua siitä, että funktion parametri on vääränlainen. Esimerkiksi kutsu `float("1,23")` tuottaa tämän poikkeuksen, koska Pythonissa desimaalierottimen tulee olla piste eikä pilkku.
 
 **TypeError**
 
-`TypeError` tapahtuu, kun arvo on väärän tyyppinen. Esimerkiksi funktiokutsu `len(10)` saa aikaan tämän poikkeuksen, koska funktio `len` haluaa parametrin, jolle voidaan laskea pituus (kuten merkkijonon tai listan).
+Tämä poikkeus tapahtuu, kun arvo on väärän tyyppinen. Esimerkiksi kutsu `len(10)` saa aikaan tämän poikkeuksen, koska funktio `len` haluaa parametrin, jolle voidaan laskea pituus (kuten merkkijonon tai listan).
 
 **IndexError**
 
@@ -152,11 +147,11 @@ Tämä poikkeus tapahtuu, jos yritetään viitata indeksiin, jota ei ole olemass
 
 **ZeroDivisionError**
 
-Tämä poikkeus tapahtuu, jos yritetään jakaa nollalla. Tyypillinen esimerkki on vaikkapa tilanne, jossa yritetään laskea listan arvojen keskiarvo kaavalla `sum(lista) / len(lista)`, mutta listan pituus on nolla.
+Tämä poikkeus tapahtuu, jos yritetään jakaa nollalla. Yksi esimerkki on tilanne, jossa yritetään laskea listan arvojen keskiarvo kaavalla `sum(lista) / len(lista)`, mutta listan pituus on nolla.
 
-**Muita poikkeuksia**
+**Tiedostojen poikkeukset**
 
-Lisäksi tiedostojen käsittelyssä voi tyypillisesti tulla vastaan esimerkiksi poikkeukset **FileNotFoundException** (koetetaan lukea tiedostoa, jota ei ole olemassa), **io.UnsupportedException** (tiedosto on avattu kirjoitustilassa, ja yritetään lukea sen sisältöä) tai **PermissionError** (ohjelmalla ei ole lupaa käsitellä tiedostoa).
+Tiedostojen käsittelyssä voi tulla vastaan esimerkiksi poikkeukset **FileNotFoundError** (koetetaan lukea tiedostoa, jota ei ole olemassa), **io.UnsupportedOperation** (tiedosto on avattu tilassa, joka ei salli operaatiota) tai **PermissionError** (ohjelmalla ei ole oikeutta käsitellä tiedostoa).
 
 ## Useamman poikkeuksen käsittely
 
@@ -186,7 +181,7 @@ except:
 
 ```
 
-Huomaa, että tällaisessa tapauksessa `except`-lause käsittelee kaikki mahdolliset virheet - myös ohjelmoijan tekemät virheet (lukuun ottamatta syntaksivirheitä, jotka estävät ohjelman suorittamisen).
+Huomaa, että tällaisessa tapauksessa `except`-lause käsittelee kaikki mahdolliset virheet, myös ohjelmoijan tekemät virheet lukuun ottamatta syntaksivirheitä, jotka estävät ohjelman suorittamisen.
 
 Esimerkiksi seuraava ohjelma heittää aina poikkeuksen, koska muuttujan `tiedosto` nimi on kirjoitettu toisessa kohdassa väärin `tiedotso`.
 
@@ -199,11 +194,11 @@ except:
     print("Tapahtui virhe tiedoston lukemisessa.")
 ```
 
-Tästä näkee, että `except` voi peittää varsinaisen virheen - tässä tapauksessa virheen syynä ei ole tiedoston käsittely vaan väärin kirjoitettu muuttuja.
+Tästä näkee, että `except` voi peittää varsinaisen virheen: tässä tapauksessa virheen syynä ei ole tiedoston käsittely vaan väärin kirjoitettu muuttuja.
 
-## Poikkeuksen välittäminen
+## Poikkeusten välittyminen
 
-Jos funktion tapahtuu poikkeus, jota ei käsitellä, poikkeus välitetään funktion kutsujalle. Tätä jatketaan, kunnes ollaan pääohjelman tasolla. Jos poikkeusta ei tässäkään käsitellä sopivalla `except`-lauseella, ohjelman suoritus katkeaa ja poikkeus (yleensä) tulostetaan ruudulle.
+Jos funktion sisällä tapahtuu poikkeus, jota ei käsitellä, poikkeus välitetään funktion kutsujalle. Tätä jatketaan, kunnes ollaan pääohjelman tasolla. Jos poikkeusta ei tässäkään käsitellä sopivalla `except`-lauseella, ohjelman suoritus katkeaa ja poikkeus yleensä tulostetaan ruudulle.
 
 Esimerkiksi seuraavassa ohjelmassa funktiossa `testi` tapahtuva poikkeus käsitellään vasta pääohjelmassa:
 
@@ -215,13 +210,13 @@ try:
     luku = input("Anna luku: ")
     testi(luku)
 except:
-    print("Jotain meni pieleen.")
+    print("Jotain meni pieleen")
 ```
 
 <sample-output>
 
 Anna luku: **kolme**
-Jotain meni pieleen.
+Jotain meni pieleen
 
 </sample-output>
 
@@ -232,7 +227,7 @@ Voimme myös tarvittaessa tuottaa poikkeuksen itse komennolla `raise`. Vaikka vi
 
 Esimerkiksi jos teemme funktion, jolle annetaan virheellinen parametri, voimme ilmaista tämän poikkeuksen avulla. Tämä voi olla parempi tapa kuin esimerkiksi palauttaa jokin virhearvo tai tulostaa viesti ruudulle, koska funktion käyttäjä ei välttämättä huomaisi asiaa.
 
-Seuraavassa esimerkissä funktio `kertoma` laskee parametrina annetun luvun kertoman (esimerkiksi luvun 5 kertoma on 1*2*3*4*5). Kuitenkin jos annettu luku on negatiivinen, funktio tuottaa poikkeuksen.
+Seuraavassa esimerkissä funktio `kertoma` laskee parametrina annetun luvun kertoman (esimerkiksi luvun 5 kertoma on 1 * 2 * 3 * 4 * 5). Kuitenkin jos annettu luku on negatiivinen, funktio tuottaa poikkeuksen.
 
 ```python
 def kertoma(n):
@@ -253,11 +248,10 @@ print(kertoma(-1))
 6
 720
 Traceback (most recent call last):
-  File "tiedosto.py", line 11, in <module>
+  File "testi.py", line 11, in <module>
     print(kertoma(-1))
-  File "tiedosto.py", line 3, in kertoma
+  File "testi.py", line 3, in kertoma
     raise ValueError("Negatiivinen syöte: " + str(n))
 ValueError: Negatiivinen syöte: -1
-
 
 </sample-output>
