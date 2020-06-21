@@ -1,6 +1,6 @@
 ---
 path: '/osa-4/1-vscode'
-title: 'Visual Studio Code -editori ja python-tulkki'
+title: 'Visual Studio Code -editori ja Python-tulkki'
 hidden: false
 ---
 
@@ -9,11 +9,11 @@ hidden: false
 Tämän osion jälkeen
 
 - Osaat käyttää Visual studio Code -editoria kurssin tehtävien tekemiseen
-- Osaat suorittaa koodia interaktiivisen python-tulkin avulla 
+- Osaat suorittaa koodia interaktiivisen Python-tulkin avulla 
 
 </text-box>
 
-Olemme tähän mennessä tehneet kaikki tehtävät kurssisivuille upotettuihin editori-ikkunoihin. Selaineditorissa tapahtuva ohjelmointi sopii hyvin kurssin alkuun, mutta siirrymme nyt ohjelmoimaan koodaukseen tarkoitettua editoria käyttäen.
+Olemme tähän mennessä ohjelmoineet kaikki tehtävät kurssisivuille upotettuihin editori-ikkunoihin. Selaineditorissa tapahtuva ohjelmointi sopii hyvin kurssin alkuun, mutta siirrymme nyt käyttämään erillistä ohjelmointiin tarkoitettua editoria.
 
 Erilaisia ohjelmointiin sopivia editoreja on kymmeniä. Käytämme kurssilla viime vuosina suureen suosioon noussutta [Visual Studio Code](https://code.visualstudio.com/) -editoria.
 
@@ -63,25 +63,25 @@ if "visual studio code" == mjono.lower():
 
 </programming-exercise>
 
-## Interaktiivinen python-tulkki
+## Interaktiivinen Python-tulkki
 
-Emme ole toistaiseksi puhuneet kurssilla sanallakaan eräästä python-ohjelmoinnin tärkeimmästä työkalusta, interaktiivisesta komentotulkista.
+Emme ole toistaiseksi puhuneet kurssilla sanallakaan eräästä Python-ohjelmoinnin tärkeimmästä työkalusta, interaktiivisesta komentotulkista.
 
 Komentotulkki käynnistyy antamalla komentoriviltä komento `python3` (joissain tapauksissa, esim. Windowsilla komento saattaa olla `python`). Esim. Macilla komentotulkin avaaminen näyttää seuraavalta:
 
 <img src="4_1_1.png">
 
-Komentotulkki on myös mahdollista avata Visual studio Code -editorin sisälle, ensin suorittamalla jokin ohjelma "vihreällä kolmiolla" ja sen jälkeen kirjoittamalla avautuvaan _Terminal_-näkymään `python3` (tai `python`)
+Komentotulkki on myös mahdollista avata Visual Studio Code -editorin sisälle, ensin suorittamalla jokin ohjelma "vihreällä kolmiolla" ja sen jälkeen kirjoittamalla avautuvaan _Terminal_-näkymään `python3` (tai `python`)
 
 <img src="4_1_2.png">
 
 On olemassa myös selaimessa toimivia interaktiivisia tulkkeja, esim. <https://www.python.org/shell/>
 
-Komentotulkki tarjoaa interaktiivisen tavan suorittaa python-koodia rivi riviltä sitä mukaa kun käyttäjä kirjoittaa koodia. Ideana on siis, se että käyttäjä kirjoittaa yhden koodirivin ja pyhton suorittaa rivin välittömästi, ja näyttää rivin operaation tuloksen:
+Komentotulkki tarjoaa interaktiivisen tavan suorittaa Python-koodia rivi riviltä sitä mukaa kuin käyttäjä kirjoittaa koodia. Ideana on siis se, että käyttäjä kirjoittaa yhden koodirivin ja Python suorittaa rivin välittömästi ja näyttää rivin operaation tuloksen:
 
 <img src="4_1_3.png">
 
-Konsoliin on mahdollista kirjoittaa mitä tahansa pythonia, muuttujien ja metodienkin määrittely on mahdollista:
+Komentotulkkiin on mahdollista kirjoittaa mitä tahansa Pythonia, muuttujien ja metodienkin määrittely on mahdollista:
 
 ```python
 >>> t = [1,2,3,4,5]
@@ -111,7 +111,7 @@ NameError: name 'luku' is not defined
 >>> 
 ```
 
-Parhaimmillaan konsoli onkin pienten tarkistusten tekemiseen, esim. miten tietty metodi toimii, ja onko metodia ylipäätään olemassa:
+Parhaimmillaan komentotulkki on pienten tarkistusten tekemiseen, esim. miten tietty metodi toimii tai onko metodia ylipäätään olemassa:
 
 ```python
 >>> "TekstIä".toupper()
@@ -123,7 +123,7 @@ AttributeError: 'str' object has no attribute 'toupper'
 >>> 
 ```
 
-Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi käyttää konsolia ja "kysyä" funktion `dir` avulla mitä metodeja tietyllä oliolla on:
+Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi käyttää komentotulkkia ja "kysyä" funktion `dir` avulla, mitä metodeja tietyllä oliolla on:
 
 ```python
 >>> dir("teksti")
@@ -139,7 +139,7 @@ Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi 
 'title', 'translate', 'upper', 'zfill']
 ```
 
-Kuten näemme, on merkkijonoilla suuri määrä metodeja. Kurssin tässä vaiheessa kannattaa ehkä unohtaa alaviivoja sisältävät metodit, mutta muut voivat olla käyttökelpoisia. Osa metodien toimonnasta voi selvitä jo kokeilemalla, osan toiminta selviää helposti googlaamalla.
+Kuten näemme, merkkijonoilla on suuri määrä metodeja. Kurssin tässä vaiheessa kannattaa ehkä unohtaa alaviivoja sisältävät metodit, mutta muut voivat olla käyttökelpoisia. Osa metodien toiminnasta voi selvitä jo kokeilemalla, osan toiminta selviää helposti googlaamalla.
 
 Listojen metodeista käy ilmi seuraavaa:
 
@@ -167,10 +167,10 @@ Tarjolla näyttää siis olevan mm. metodit `reverse` ja `clear`. Kokeillaan nii
 []
 ```
 
-Metodit siis tekevät aikalailla sen mitä nimen perustella voi olettaa. 
+Metodit siis tekevät aika lailla sen, mitä nimen perustella voi olettaa. 
 
-Huomaa, että konsoli ei "tulosta" mitään, kun kutsutaan esim. metodia `lista.reverse()`. Mistä tämä johtuu? Konsoli tekee komentojen suorituksen yhteydessä tulostuksen ainoastaan jos suoritetulla koodirivillä on jokin arvo. Edellisessä esimerkissä saatiin tulostettua listan `luvut` arvo kirjoittamalla konsoliin pelkästään muuttujan nimi. Konsolissa ei siis useinkaan ole tarvetta kirjottaa erikseen `print`-komentoja.
+Huomaa, että komentotulkki ei "tulosta" mitään, kun kutsutaan esim. metodia `lista.reverse()`. Mistä tämä johtuu? Komentotulkki tekee komentojen suorituksen yhteydessä tulostuksen vain, jos suoritetulla koodirivillä on jokin arvo. Edellisessä esimerkissä saatiin tulostettua listan `luvut` arvo kirjoittamalla komentotulkkiin pelkkä muuttujan nimi. Komentotulkissa ei siis useinkaan ole tarvetta kirjottaa erikseen `print`-komentoja.
 
-Tärkein konsolin kommenteista on `exit()`, joka sulkee konsolin. Erityisesti jos käytät konsolia Visual studio Codessa, se tulee muistaa sulkea ennen kuin suoritat jonkun ohjelman uudelleen "vihreällä kolmiolla". Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
+Tärkeä komento on `exit()`, joka sulkee komentotulkin. Erityisesti jos käytät komentotulkkia Visual Studio Codessa, se tulee muistaa sulkea, ennen kuin suoritat jonkun ohjelman uudelleen "vihreällä kolmiolla". Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
 
 <img src="4_1_4.png">
