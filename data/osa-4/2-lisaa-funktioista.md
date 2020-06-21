@@ -132,7 +132,7 @@ Moikka, Emilia
 
 <programming-exercise name='Kuvio' tmcname='osa04-03_kuvio'>
 
-Tee funktio `kuvio`, joka saa neljä parametria (y_korkeus, y_merkki, a_korkeus, a_merkki). Funktio tulostaa kuvion, jonka yläosana on kahden ensimmäisen parametrin määrittelemä kolmio ja alaosana kahden jälkimmäisen parametrin määrittelemä suorakulmio.
+Tee funktio `kuvio`, joka saa neljä parametria. Funktio tulostaa kuvion, jonka yläosana on kahden ensimmäisen parametrin määrittelemä kolmio ja alaosana kahden jälkimmäisen parametrin määrittelemä suorakulmio.
 
 Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle.
 
