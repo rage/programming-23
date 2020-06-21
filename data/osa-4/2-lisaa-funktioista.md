@@ -324,7 +324,9 @@ print("Summa on", tulos)
 ```
 
 <sample-output>
+
 Summa on 10
+
 </sample-output>
 
 Koska funktion paluuarvo käyttäytyy kuten mikä tahansa arvo, ei apumuuttuja ole tarpeen ja paluuarvoa on mahdollista käyttää suoraan komennon `print` parametrina:
@@ -347,7 +349,9 @@ print("Vastaus on", tulos)
 ```
 
 <sample-output>
+
 Vastaus on 2
+
 </sample-output>
 
 Tässä tapauksessa suoritetaan ensin "sisemmät" funktiokutsut `summa(5, 2)` ja `summa(2, 3)`, joiden  palauttamat arvot 7 ja 5 käytetään "ulomman" funktiokutsun parametreina.
