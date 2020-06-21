@@ -9,7 +9,7 @@ hidden: false
 Tämän osion jälkeen
 
 - Tiedät, miten `print`-komennon tulostusta saa muokattua parametrien avulla
-- Opit käyttämään f-merkkijonoja tulosteen muotoilussa
+- Osaat käyttää f-merkkijonoja tulosteen muotoilussa
 
 </text-box>
 
@@ -221,7 +221,7 @@ Vihjeitä:
 
 Koko tehtävän koodi kannattaa rakentaa useista pienen asian tekevistä apufunktioista.
 
-Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Eräs tapa, joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään main, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää:
+Isompaa ohjelmaa rakentaessa voi olla järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Yksi tapa, joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään `main`, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää:
 
 ```python
 def main():
