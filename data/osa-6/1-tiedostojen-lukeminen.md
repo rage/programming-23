@@ -6,21 +6,21 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tämän osion suoritettuasi
+Tämän osion jälkeen
 
-- Tiedät, miten tekstitiedoston sisällön voi lukea Pythonissa
-- Tiedät, mitä tarkoitetaan CSV-tiedostolla
-- Osaat purkaa ja käsitellä CSV-tiedoston sisällön omassa ohjelmassa
+- Tiedät, miten tiedoston sisällön voi lukea Pythonissa
+- Tiedät, mitä ovat tekstitiedosto ja CSV-tiedosto
+- Osaat purkaa ja käsitellä CSV-tiedoston sisällön ohjelmassa
 
 </text-box>
 
-Nykyisten tietokoneiden ja ohjelmien avulla voidaan käsitellä hyvinkin suurta määrää tietoa. Tyypillisesti käsiteltävä aineisto on tiedostossa, josta voimme lukea sen ohjelmalla.
+Yksi tavallinen ohjelmoinnin käyttötarkoitus on käsitellä tiedostoissa olevaa tietoa. Ohjelmoinnin avulla voimme lukea tietoa tiedostoista sekä tallentaa ohjelman tuloksia tiedostoihin. Tiedostojen avulla voimme käsitellä suuriakin aineistoja automaattisesti ohjelmien avulla.
 
-Oletamme tässä luvussa, että käsiteltävä tiedosto on _tekstitiedosto_ eli se muodostuu riveistä, joilla on tekstiä. Esimerkiksi kurssilla käytettävä Visual Studio Code soveltuu tekstitiedostojen käsittelyyn. Huomaa, että esim. Word-dokumentti ei ole tekstitiedosto, vaan sen osana on myös tekstin muotoilutietoja. Tällaisten tiedostojen käsittely omissa ohjelmissa on huomattavasti monimutkaisempaa ilman ulkoisia kirjastoja.
+Oletamme tällä kurssilla, että käsiteltävät tiedostot ovat _tekstitiedostoja_ eli ne muodostuvat riveistä, joilla on tekstiä. Esimerkiksi kurssilla käytetty Visual Studio Code -editori käsittelee tekstitiedostoja. Huomaa, että esimerkiksi Word-dokumentti ei ole tekstitiedosto, vaan siinä on tekstin lisäksi muotoilutietoja ja sen käsittely ohjelmallisesti olisi vaikeaa.
 
-## Tiedoston avaaminen ja tiedon lukeminen
+## Tiedostosta lukeminen
 
-Aloitetaan tarkastelu tiedostolla `esimerkki.txt`, jonka sisältö on kuvattu alla:
+Käytetään esimerkkinä tiedostoa `esimerkki.txt`, jonka sisältönä on:
 
 <sample-data>
 
@@ -30,11 +30,9 @@ Viimeinen rivi.
 
 </sample-data>
 
-Kun haluamme käsitellä tiedostoa ohjelmoinnissa, meidän tulee ensin _avata_ tiedosto, minkä jälkeen voimme lukea tai kirjoittaa tietoa. Pythonissa tiedosto avataan funktiolla `open`, joka saa parametrikseen tiedoston nimen. Oletuksena tiedosto avataan lukemista varten.
+Hyvä tapa käsitellä tiedostoja Pythonissa on käyttää `with`-lausetta, jonka alkurivi avaa tiedoston. Tämän jälkeen tulee lohko, jonka sisällä tiedostoa voi käsitellä. Lohkon jälkeen tiedosto sulkeutuu automaattisesti, eikä sitä voi enää käsitellä.
 
-Tiedoston käsittelyn jälkeen tiedosto tulee sulkea. Sulkemisen voi hoitaa kutsumalla itse `close`-metodilla. Helpompi tapa on kuitenkin käyttää tiedoston käsittelyyn `with`-lausetta, jolloin kaikki tiedoston käsittelyyn liittyvä koodi on lohkon sisällä ja lohkon päättymisen jälkeen tiedosto suljetaan automaattisesti.
-
-Seuraava esimerkkiohjelma avaa tiedoston ja tulostaa sen sisällön ruudulle. Ohjelma olettaa, että tekstitiedosto sijaitsee samassa hakemistossa kuin ohjelma suoritetaan:
+Esimerkiksi seuraava koodi lukee ja tulostaa tiedoston sisällön:
 
 ```python
 with open("esimerkki.txt") as tiedosto:
@@ -50,32 +48,19 @@ Viimeinen rivi.
 
 </sample-output>
 
-Tarkastellaanpa ohjelmaa rivi kerrallaan:
-
-Aluksi avataan tiedosto käyttämällä `open`-funktiota `with`-lauseen yhteydessä. Huomaa, että avainsanan `as` jälkeen annetaan muuttujan nimi. Tähän muuttujaan tallennetaan _tiedostokahva_, jonka avulla tiedostoa voi käsitellä avaamisen jälkeen.
-
-Tiedon lukeminen tapahtuu rivillä `sisalto = tiedosto.read()`. Metodi `read` palauttaa koko tiedoston sisällön yhtenä merkkijonona. Tässä tapauksessa palautettu merkkijono on seuraava:
+Koodissa muuttuja `tiedosto` on _tiedostokahva_, jonka kautta tiedostoa voi käsitellä avaamisen jälkeen. Tässä tapauksessa käytämme metodia `read`, joka palauttaa koko tiedoston sisällön yhtenä merkkijonona. Tässä tapauksessa palautettu merkkijono on seuraava:
 
 ```
 "Moi kaikki!\nEsimerkkitiedostomme on kolmerivinen.\nViimeinen rivi."
 ```
 
-<text-box variant="hint" name="Rivinvaihdot">
-
-Merkintä `\n` tarkoittaa rivinvaihtoa (eli merkkiä, jonka merkkikoodi on 10). Useimmat tekstieditorit osaavat näyttää merkin rivinvaihtona editoitaessa, mutta esimerkiksi Windowsin Notepadin jotkut versiot käyttävät kahdesta merkistä koostuuvaa rivinvaihtoa `\r\n`. Python osaa tulostaa rivinvaihdot oikein - niinpä esimerkiksi lause `print("moi\nmoi")` tulostaisi ruudulle viestin
-
-```txt
-moi
-moi
-```
-
-</text-box>
+TODO: Miten tämä toimii Windowsissa, näkyykö tässä tilanteessa merkkijonossa `\n` vai `\r\n`?
 
 ## Tiedoston sisällön läpikäynti
 
-Metodi `read` on näppärä, jos halutaan esim. tulostaa sisältö kokonaisuudessaan ruudulle. Huomattavasti useammin halutaan kuitenkin käsitellä tiedostoa palasina -- yleensä yksi rivi kerrallaan.
+Metodi `read` on näppärä, jos halutaan esimerkiksi tulostaa sisältö kokonaisuudessaan ruudulle. Usein haluamme kuitenkin käsitellä tiedostoa rivi kerrallaan.
 
-Yksi kätevä tapa on käyttää tiedoston sisällö lukemiseen `for`-silmukkaa. Silmukassa poimitaan tiedoston rivit yksi kerrallaan ja sijoitetaan ne silmukkamuuttujaan -- siis täsmälleen samalla tavalla kuin esimerkiksi listan läpikäynnissä.
+Voimme käyttää tiedoston sisällön lukemiseen `for`-silmukkaa, joka käy läpi tiedoston rivit yksi kerrallaan – siis samaan tapaan kuin esimerkiksi listan läpikäynnissä.
 
 Seuraava esimerkki lukee saman tiedoston nyt käyttäen `for`-silmukkaa, poistaa joka rivin perästä rivinvaihdon ja laskee rivien yhteispituuden:
 
@@ -85,7 +70,6 @@ with open("esimerkki.txt") as tiedosto:
     yhteispituus = 0
 
     for rivi in tiedosto:
-        # metodi replace poistaa rivinvaihdon korvaamalla sen tyhjällä
         rivi = rivi.replace("\n","")
         laskuri += 1
         print("Rivi",laskuri,rivi)
@@ -104,20 +88,22 @@ Rivien yhteispituus: 63
 
 </sample-output>
 
+Huomaa, että rivien läpikäynnissä jokaisen rivin perässä on rivinvaihto `\n`. Yllä oleva koodi kuitenkin poistaa rivinvaihdot `replace`-funktiolla, joka korvaa rivinvaihdot tyhjillä merkkijonoilla. Tämän ansiosta tulostukseen ei tule ylimääräisiä rivivaihtoja ja ohjelma laskee oikein tiedoston rivien yhteispituuden.
+
 ## CSV-tiedoston lukeminen
 
 CSV-tiedosto (_Comma Separated Values_) on tekstitiedosto, jonka jokaisella rivillä on tietyllä välimerkillä erotettua tietoa. Välimerkkinä on usein pilkku `,` tai puolipiste `;`, mutta mikä tahansa muukin merkki on periaatteessa mahdollinen.
 
-CSV-tiedotoja käytetään usein erilaisten aineistojen esittämiseen. Myös taulukkolaskentaohjelmien, kuten Excelin taulukot voidaan tallettaa CSV-muodossa, jolloin niitä on helppo käsitellä muilla ohjelmilla.
+CSV-tiedostoja käytetään usein erilaisten aineistojen esittämiseen. Myös Excelin ja muiden taulukkolaskentaohjelmien taulukot voidaan tallentaa CSV-muodossa, jolloin niitä on helppo käsitellä muilla ohjelmilla.
 
-CSV-tiedoston rivit on helppoa lukea `for`-silmukalla, mutta miten erottaa rivillä olevat tiedot toisistaan? Helppo tapa on käyttää merkkijonojen `split`-metodia: metodille annetaan haluttu välimerkki, ja se palauttaa tiedot eroteltuna välimerkin mukaan listana merkkijonoja.
+Voimme lukea CSV-tiedoston rivit `for`-silmukalla, mutta miten erottaa rivillä olevat tiedot toisistaan? Helppo tapa on käyttää merkkijonojen `split`-metodia: metodille annetaan haluttu välimerkki, ja se palauttaa tiedot eroteltuna välimerkin mukaan listana merkkijonoja.
 
-KUVA
+TODO: Kuva tähän?
 
 Esimerkki metodin käytöstä:
 
 ```python
-teksti = "eka,toka,kolmas,neljäs,viides,kuudes"
+teksti = "apina,banaani,cembalo"
 sanat = teksti.split(",")
 for sana in sanat:
     print(sana)
@@ -125,53 +111,13 @@ for sana in sanat:
 
 <sample-output>
 
-eka
-toka
-kolmas
-neljäs
-viides
-kuudes
+apina
+banaani
+cembalo
 
 </sample-output>
 
-Tarkastellaan aluksi yksinkertaista CSV-muotoista tiedostoa `mittaukset.csv`, joka sisältää jokaisella rivillä vaihtuvan määrän desimaalilukuja pilkuilla erotettuna:
-
-TODO: Eikö yleensä aina CSV-tiedostossa joka rivillä ole sama määrä alkioita? Tämä ei tunnu oikein edustavalta esimerkiltä.
-
-<sample-data>
-
-2.9,2.9,5.6,4.6,1.8,3.6,4.5,3.8
-1.4,5.5,4.5,4.0,5.1,4.1,5.7,2.3,2.8,1.1,4.5,4.4
-4.4,4.6,1.5,3.7,3.5,4.5,4.0,1.3,5.5,2.4,1.6
-4.8,2.9,5.8,2.6,3.8,4.8,2.7,1.2,3.6,4.5,3.7,1.0,1.1
-1.3,4.6,3.9,3.8,5.7,3.0,5.6,4.6,5.7,5.7,3.5
-
-</sample-data>
-
-Esimerkkiohjelmamme lukee arvot ja tallentaa ne listaksi liukulukuja. Lopuksi lasketaan ja tulostetaan kaikkien lukujen keskiarvo.
-
-```python
-mittaukset = []
-
-with open("mittaukset.csv") as tiedosto:
-    for rivi in tiedosto:
-        osat = rivi.split(",")
-        for mittaus in osat:
-            mittaukset.append(float(mittaus))
-
-keskiarvo = sum(mittaukset) / len(mittaukset)
-print("Keskiarvo:", keskiarvo)
-```
-
-<sample-output>
-
-Keskiarvo: 3.6727272727272715
-
-</sample-output>
-
-Kaikki tiedot eivät välttämättä aina ole rivillä samantyyppisiä.
-
-Otetaan toiseksi esimerkiksi tiedosto `arvosanat.txt`, joka sisältää jokaisella rivillä aluksi opiskelijan nimen ja tämän eri kursseista saamat arvosanat. Tiedot on erotettu toisistaan puolipisteillä.
+Tarkastellaan esimerkkinä tiedostoa `arvosanat.csv`, joka sisältää jokaisella rivillä aluksi opiskelijan nimen ja sen jälkeen tämän eri kursseista saamat arvosanat. Tiedot on erotettu toisistaan puolipisteillä.
 
 <sample-data>
 
@@ -181,37 +127,67 @@ Pirjo;4;5;5;4;5;5;4;5;4;4
 
 </sample-data>
 
-Tiedoston purkamisessa käsiteltävään muotoon voidaan erottaa kolme vaihetta jokaiselle riville:
-
-1. Luetaan rivi muistiin
-2. Puretaan rivi palasiksi puolipisteiden kohdalta
-3. Muutetaan merkkijonot kokonaisluvuiksi, jotta dataa voidaan hyödyntää laskuissa
-
-Miten data kannattaisi tallentaa muistiin? Yksi käyttökelpoinen mahdollisuus olisi muodostaa sanakirja, jossa avaimena olisi opiskelijan nimi ja arvona lista, joka sisältää arvosanat kokonaislukuina listassa. Esimerkkiohjelmamme tekee tiedostosta tällaisen sanakirjan:
+Esimerkiksi seuraava ohjelma käy läpi tiedoston rivit, jakaa jokaisen rivin osiin ja näyttää opiskelijan nimen sekä arvosanat.
 
 ```python
-suoritukset = {}
-with open("arvosanat.txt") as tiedosto:
+with open("arvosanat.csv") as tiedosto:
     for rivi in tiedosto:
+        rivi = rivi.replace("\n", "")
         osat = rivi.split(";")
-        arvosanat = []
-        # lisätään aputaulukkoon jokainen arvosana
-        for arvosana in osat[1:]:
-            arvosanat.append(int(arvosana))
-        # talletetan arvosanataulukko sanakirjaan
-        suoritukset[osat[0]] = arvosanat
-
-for nimi, arvosanat in suoritukset.items():
-    ka = sum(arvosanat) / len(arvosanat)
-    print(f"{nimi} arvosanojen keskiarvo {ka:.2} paras arvosana {max(arvosanat)}")
+        nimi = osat[0]
+        arvosanat = osat[1:]
+        print("Nimi:",nimi)
+        print("Arvosanat:",arvosanat)
 ```
 
 <sample-output>
 
-Pekka arvosanojen keskiarvo 4.1 korkein arvosana 5
-Paula arvosanojen keskiarvo 2.9 korkein arvosana 4
-Pirjo arvosanojen keskiarvo 4.5 korkein arvosana 5
+Nimi: Pekka
+Arvosanat: ['5', '4', '5', '3', '4', '5', '5', '4', '2', '4']
+Nimi: Paula
+Arvosanat: ['3', '4', '2', '4', '4', '2', '3', '1', '3', '3']
+Nimi: Pirjo
+Arvosanat: ['4', '5', '5', '4', '5', '5', '4', '5', '4', '4']
 
 </sample-output>
 
-Kannattaa tutustua huolella esimerkkikoodiin. Se voi ensisilmäyksellä vaikuttaa monimutkaiselta, mutta ratkaisu on helposti sovellettavissa hyvin monenlaisiin datatiedostoihin.
+Seuraava ohjelma puolestaan luo tiedoston perusteella sanakirjan `arvosanat`, jossa jokainen avain on opiskelijan nimi ja vastaava arvo on lista arvosanoista. Ohjelma muuttaa arvosanat kokonaisluvuiksi, jotta niitä on mukavampaa käsitellä myöhemmin.
+
+```python
+arvosanat = {}
+with open("arvosanat.csv") as tiedosto:
+    for rivi in tiedosto:
+        rivi = rivi.replace("\n","")
+        osat = rivi.split(";")
+        nimi = osat[0]
+        arvosanat[nimi] = []
+        for arvosana in osat[1:]:
+            arvosanat[nimi].append(int(arvosana))
+
+print(arvosanat)
+```
+
+<sample-output>
+
+{'Pekka': [5, 4, 5, 3, 4, 5, 5, 4, 2, 4], 'Paula': [3, 4, 2, 4, 4, 2, 3, 1, 3, 3], 'Pirjo': [4, 5, 5, 4, 5, 5, 4, 5, 4, 4]}
+
+</sample-output>
+
+Tämän jälkeen voimme vaikkapa tulostaa analyysin arvosanoista käymällä läpi sanakirjan `arvosanat` perusteella:
+
+```python
+for nimi, lista in arvosanat.items():
+    paras = max(lista)
+    keskiarvo = sum(lista) / len(lista)
+    print(f"{nimi}: paras arvosana {paras}, keskiarvo {keskiarvo:.2f}")
+```
+
+<sample-output>
+
+Pekka: paras arvosana 5, keskiarvo 4.10
+Paula: paras arvosana 4, keskiarvo 2.90
+Pirjo: paras arvosana 5, keskiarvo 4.50
+
+</sample-output>
+
+Kannattaa tutustua huolella esimerkkikoodiin. Se voi ensisilmäyksellä vaikuttaa monimutkaiselta, mutta ratkaisu on helposti sovellettavissa monenlaisiin datatiedostoihin.
