@@ -93,7 +93,7 @@ Myös käyttäjältä syötteitä lukeva `input` on funktio. Parametrina funktio
 nimi = input("Kerro nimesi: ")
 ```
 
-Tässä tapauksessa funktio _palauttaa_ arvon, mikä tarkoittaa, että funktion kutsukohtaan ilmestyy arvo funktion suorituksen jälkeen. Funktion `input` palauttama arvo on käyttäjän syöttämä teksti merkkijonona. Funktion palauttama arvo sijoitetaan usein muttuujan arvoksi, jotta arvoa voidaan hyödyntää ohjelmassa.
+Tässä tapauksessa funktio _palauttaa_ arvon, mikä tarkoittaa, että funktion kutsukohtaan ilmestyy arvo funktion suorituksen jälkeen. Funktion `input` palauttama arvo on käyttäjän syöttämä teksti merkkijonona. Funktion palauttama arvo sijoitetaan usein muuttujan arvoksi, jotta arvoa voidaan hyödyntää ohjelmassa.
 
 ## Tyyppi
 
