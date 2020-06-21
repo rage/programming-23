@@ -48,7 +48,7 @@ Itse asiassa `[]`-syntaksi toimii hyvin samalla periaatteella kuin `range`-funkt
 mjono = "esimerkki"
 print(mjono[0:7:2])
 lista = [1,2,3,4,5,6,7,8]
-print(lista[6:2:-1]
+print(lista[6:2:-1])
 ```
 
 <sample-output>
