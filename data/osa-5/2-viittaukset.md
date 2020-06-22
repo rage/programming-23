@@ -443,3 +443,5 @@ Koska funktio `sorted` palauttaa uuden järjestetyn listan, toiseksi pienimmän 
 Usein pidetään hyvänä asiana, että funktiot eivät aiheuta sivuvaikutuksia, sillä sivuvaikutukset voivat hankaloittaa ohjelmien toimivuuden varmistamista.
 
 Sivuvaikutuksettomia funktioita kutsutaan myös _puhtaiksi funktioiksi_ ja erityisesti funktionaalista ohjelmointityyliä käytettäessä funktiot pyritään rakentamaan näin. Palaamme aiheeseen tarkemmin Ohjelmoinnin jatkokurssilla.
+
+<quiz id="4cc1d014-1303-5f2e-8552-ab0ea6dedee9"></quiz>

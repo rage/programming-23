@@ -378,3 +378,9 @@ paras keskiarvo 4.5 liisa
 </sample-output>
 
 </programming-exercise>
+
+<quiz id="b0a797b4-ae51-5130-9d65-27c783912239"></quiz>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="38800be6-de40-5eb2-9c88-23ac6cd3737b"></quiz>
