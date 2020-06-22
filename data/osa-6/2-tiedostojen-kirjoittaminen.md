@@ -107,11 +107,63 @@ Ja taas yksi.
 
 </sample-output>
 
-## ???
+## CSV-tiedoston kirjoittaminen
 
-TODO: Halutaanko edes opettaa joinia? Seuraavan osion esimerkki on hyvä eikä siinä tarvita joinia.
+CSV-tiedoston voi kirjoittaa rivi riviltä `write`-metodilla. Esimerkiksi seuraava esimerkki luo tiedoston `koodarit.csv`, jonka jokaisella rivillä on koodarin nimi, työympäristö ja lempikieli. Tiedot on erotettu puolipisteillä.
 
-## CSV-tiedoston käsittely
+```python
+with open("koodarit.csv", "w") as tiedosto:
+    tiedosto.write("Erkki;Windows;Pascal\n")
+    tiedosto.write("Matti;Linux;PHP\n")
+    tiedosto.write("Antti;Linux;Java\n")
+    tiedosto.write("Emilia;Mac;Cobol\n")
+```
+
+Tämän tuloksena on seuraava tiedosto:
+
+<sample-output>
+
+Erkki;Windows;Pascal
+Matti;Linux;PHP
+Antti;Linux;Java
+Emilia;Mac;Cobol
+
+</sample-output>
+
+
+Tarkastellaan sitten tilannetta, jossa tiedostoon kirjoitettavat tiedot ovatkin muistissa listoina:
+
+```python
+koodarit = []
+koodarit.append(["Erkki", "Windows", "Pascal"])
+koodarit.append(["Matti", "Linux", "PHP"])
+koodarit.append(["Antti", "Linux", "Java"])
+koodarit.append(["Emilia", "Mac", "Cobol"])
+```
+
+Kätevä tapa muuttaa lista CSV-tiedoston riviksi on käyttää metodia `join`, joka on tavallaan käänteinen metodille `split`. Metodi `join` yhdistää halutulla erotinmerkillä annetun listan merkkijonoja, esimerkiksi näin:
+
+```python
+lista = ["apina", "banaani", "cembalo"]
+print(",".join(lista))
+```
+
+<sample-output>
+
+apina,banaani,cembalo
+
+</sample-output>
+
+Nyt voimme kirjoittaa koodarien tiedot CSV-tiedostoon näin:
+
+```python
+with open("koodarit.csv", "w") as tiedosto:
+    for koodari in koodarit:
+        rivi = ";".join(koodari)
+        tiedosto.write(rivi+"\n")
+```
+
+## Tiedon käsittely CSV:nä
 
 Tehdään vielä lopuksi ohjelma, joka lukee CSV-tiedostosta opiskelijoiden viikoittaiset kurssipistemäärät ja laskee näiden avulla kurssin arvosanan. Lopuksi ohjelma luo CSV-tiedoston, mistä selviää opiskelijan yhteispistemäärä sekä arvosana
 
