@@ -126,7 +126,7 @@ Sisäkkäisten listojen avulla voidaan myös esittää _matriisi_ eli kaksiulott
 
 Esimerkiksi matriisi
 
-KUVA
+<img src="5_1_0.png">
 
 voitaisiin mallintaa kaksiulotteisena listana näin:
 
