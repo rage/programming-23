@@ -531,11 +531,11 @@ Kirjoita funktio `lukukirja()`, joka palauttaa uuden dict-rakenteen (eli sanakir
 
 ```python
 luvut = lukukirja()
-print(luvut(2))
-print(luvut(11))
-print(luvut(45))
-print(luvut(99))
-print(luvut(0))
+print(luvut[2])
+print(luvut[11])
+print(luvut[45])
+print(luvut[99])
+print(luvut[0])
 ```
 
 <sample-output>
