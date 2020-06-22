@@ -148,7 +148,6 @@ Anna luku: **28**
 31
 34
 37
-...
 
 </sample-output>
 
