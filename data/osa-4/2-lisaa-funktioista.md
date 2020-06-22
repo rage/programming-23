@@ -370,7 +370,6 @@ Käyttöesimerkki
 print(luvuista_suurin(3, 4, 1)) # 4
 print(luvuista_suurin(99, -4, 7)) # 99
 print(luvuista_suurin(0, 0, 0)) # 0
-print(luvuista_suurin(s1, s2, s3)) # 99
 ```
 
 </programming-exercise>
