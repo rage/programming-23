@@ -14,7 +14,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Yksi tavallinen ohjelmoinnin käyttötarkoitus on käsitellä tiedostoissa olevaa tietoa. Ohjelmoinnin avulla voimme lukea tietoa tiedostoista sekä tallentaa ohjelman tuloksia tiedostoihin. Tiedostojen avulla voimme käsitellä suuriakin aineistoja automaattisesti ohjelmien avulla.
+Yksi tavallinen ohjelmoinnin käyttötarkoitus on käsitellä tiedostoissa olevaa tietoa. Ohjelmakoodin avulla voimme lukea tietoa tiedostoista sekä tallentaa ohjelman tuloksia tiedostoihin. Tiedostojen avulla voimme käsitellä suuriakin aineistoja automaattisesti ohjelmien avulla.
 
 Oletamme tällä kurssilla, että käsiteltävät tiedostot ovat _tekstitiedostoja_ eli ne muodostuvat riveistä, joilla on tekstiä. Esimerkiksi kurssilla käytetty Visual Studio Code -editori käsittelee tekstitiedostoja. Huomaa, että esimerkiksi Word-dokumentti ei ole tekstitiedosto, vaan siinä on tekstin lisäksi muotoilutietoja ja sen käsittely ohjelmallisesti olisi vaikeaa.
 
@@ -264,39 +264,45 @@ Pirjo: paras arvosana 5, keskiarvo 4.50
 
 Kannattaa tutustua huolella esimerkkikoodiin. Se voi ensisilmäyksellä vaikuttaa monimutkaiselta, mutta ratkaisu on helposti sovellettavissa monenlaisiin datatiedostoihin.
 
-## Eroon turhista rivinvaihdoista
+## Eroon turhista riveistä, välilyönneistä ja rivinvaihdoista
 
-Luettaessa csv-tiedostosta merkkijonoja, rivin viimeiseen merkkiin jää mukaan rivin päättävä rivinvaihtoa kuvaama merkki. Jos esim. halutaan hakea nimet seuraavasta tiedostosta
+Olemme tallentaneet excelistä nimiä taulukon csv-muodossa:
 
 ```sh
-etunimi;sukunimi
-Pekka;Python
-Jaana;Java
-Heikki;Haskell
+etunimi; sukunimi
+Pekka; Python
+Jaana; Java
+Heikki; Haskell
 ```
 
-ja käytetään seuraavaa koodia
+Kuten tyypillistä, excel on lisännyt sarakkeiden väliin erottimena toimivan kaksoispisteen lisäksi myös välilyönnin.
+
+Haluamme tulostaa listalla olevat sukunimet. Koska ensimmäinen rivi kertoo sarakkeiden otsikot, ohitamme sen:
 
 ```python
 sukunimet = []
-with open("h.csv") as tiedosto:
+with open("henkilot.csv") as tiedosto:
 for rivi in tiedosto:
     osat = rivi.split(';')
+    # ohitetaan otsikkorivi
     if osat[0] == "etunimi":
-        continue # tämä oli otsikkorivi
+        continue
     sukunimet.append(osat[1])
+
 print(sukunimet)
 ```
 
-tulostuu
+Tulostus näyttää seuraavalta:
 
 <sample-output>
 
-['Python\n', 'Java\n', 'Haskell']
+[' Python\n', ' Java\n', ' Haskell']
 
 </sample-output>
 
-Kaikkiin paitsi viimeiseen riviin on siis jäänyt mukaan rivinvaihtomerkki. Eräs tapa päästä eroon turhasta rivinvaihdosta, on käyttää metodia `strip`, joka poistaa merkkijonon alusta ja lopusta ns. whitespace-merkit, eli välilyönnit, rivinvaihdot ja muut normaalina merkkinä tulostumattomat merkit.
+Kaikkiin paitsi viimeiseen rivin sukunimeen on jäänyt mukaan rivinvaihtomerkki, ja jokaisen sukunimen alkuun on jäänyt ikävä välilyönti.
+
+Pääsisimme näistä eroon aiempien esimerkkien tapaan käyttämällä metodia `replace`, mutta parempi vaihtoehto tässä tilanteessa on käyttää metodia `strip`, joka poistaa merkkijonon alusta ja lopusta ns. whitespace-merkit, eli välilyönnit, rivinvaihdot ja muut normaalina merkkinä tulostumattomat merkit.
 
 Kokeillaan metodin toimintaa konsolissa:
 
@@ -575,7 +581,7 @@ Pullataikina, valmistusaika 60 min
 
 <programming-exercise name='Spell checker' tmcname='osa06-08_spellchecker'>
 
-Tee ohjelma, pyytää käyttäjää kirjoittamaan rivin englanninkielistä tekstiä. Ohjelma suorittaa tekstille oikeinkirjoitustarkistuksen ja tulostaa saman tekstin siten, että kaikki väärin kirjoitetut sanat on ympäröity tähdillä. Seuraavassa kaksi käyttöesimerkkiä:
+Tee ohjelma, joka pyytää käyttäjää kirjoittamaan rivin englanninkielistä tekstiä. Ohjelma suorittaa tekstille oikeinkirjoitustarkistuksen ja tulostaa saman tekstin siten, että kaikki väärin kirjoitetut sanat on ympäröity tähdillä. Seuraavassa kaksi käyttöesimerkkiä:
 
 <sample-output>
 
@@ -622,11 +628,13 @@ Tee ensin funktio `hae_asematiedot(tiedosto:str)`, joka lukee asematiedot tiedos
 
 <sample-output>
 
+<pre>
 {
-    "Kaivopuisto: (24.950292890004903, 60.155444793742276),
-    "Laivasillankatu: (24.956347471358754, 60.160959093887129),
-    "Kapteeninpuistikko: (24.944927399779715;60.158189199971673)
+  "Kaivopuisto: (24.950292890004903, 60.155444793742276),
+  "Laivasillankatu: (24.956347471358754, 60.160959093887129),
+  "Kapteeninpuistikko: (24.944927399779715;60.158189199971673)
 }
+</pre>
 
 </sample-output>
 

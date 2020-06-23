@@ -129,6 +129,30 @@ Kiitos!
 
 </sample-output>
 
+<programming-exercise name='Syötteen luku' tmcname='osa06-17_syotteen_luku'>
+
+Tee funktio `lue`, joka kysyy käyttäjältä syötettä niin kaukan kunnes se on parametrien määrittelemällä välillä olevaa kokonaisluku. Funktio palauttaa käyttäjän antaman syötteen.
+
+Funktio toimii seuraavasti:
+
+```python
+luku = lue("syötä luku ", 5, 10)
+print("syötit luvun:", luku)
+```
+
+<sample-output>
+
+syötä luku: **seitsemän**
+syötteen on oltava kokonaisluku väliltä 5...10
+syötä luku: **-3**
+syötteen on oltava kokonaisluku väliltä 5...10
+syötä luku: **8**
+syötit luvun: 8
+
+</sample-output>
+
+</programming-exercise>
+
 ## Tyypillisiä virheitä
 
 Seuraavassa on listattu joitakin yleisiä virheitä ja syitä niiden ilmenemiselle:
@@ -220,7 +244,6 @@ Jotain meni pieleen
 
 </sample-output>
 
-
 ## Poikkeusten tuottaminen
 
 Voimme myös tarvittaessa tuottaa poikkeuksen itse komennolla `raise`. Vaikka virheiden tuottaminen varta vasten voi aluksi tuntua oudolta ajatukselta, mekanismi on itse asiassa hyvinkin hyödyllinen.
@@ -255,3 +278,72 @@ Traceback (most recent call last):
 ValueError: Negatiivinen syöte: -1
 
 </sample-output>
+
+
+<programming-exercise name='Parametrien validointi ' tmcname='osa06-18_parametrien_validointi'>
+
+Kirjoita funktio uusi_henkilo(nimi: str, ika: int), joka luo ja palauttaa uuden henkilö-tuplen. Tuplessa ensimmäinen alkio on nimi ja jälkimmäinen ikä.
+
+Jos funktion parametrit ovat virheelliset, sen tulee tuplen palauttamisen sijasta tuottaa `ValueError`-poikkeus.
+
+Virheellisiä parametreja tässä tapauksessa ovat:
+
+* nimi on tyhjä merkkijono
+* nimi ei koostu vähintään kahdesta sanasta
+* nimen pituus on yli 40 merkkiä
+* ikä on negatiivinen luku
+* ikä on suurempi kuin 150
+
+</programming-exercise>
+
+<programming-exercise name='Virheelliset lottonumerot' tmcname='osa06-19_virheelliset_lottonumerot'>
+
+Tiedostossa `lottonumerot.csv` on tallennettua lottonumeroita seuraavan esimerkin mukaisesti:
+
+<sample-data>
+
+viikko 1;5,7,11,13,23,24,30
+viikko 2;9,13,14,24,34,35,37
+...jne...
+
+</sample-data>
+
+Aluksi pitäisi olla siis otsikko `viikko x`, ja sen jälkeen seitsemän numeroa väliltä 1...39.
+
+Tiedosto on kuitenkin osittain korruptoitunut. Seuraavat rivit ovat esimerkkejä virheellisistä riveistä:
+
+Viikkonumero pielessä:
+
+<sample-data>
+
+viikko zzc;1,5,13,22,24,25,26
+
+</sample-data>
+
+Numero tai numeroita pielessä:
+
+<sample-data>
+
+viikko 22;1,**,5,6,13,2b,34
+
+</sample-data>
+
+Liian vähän numeroita:
+
+<sample-data>
+
+viikko 13;4,6,17,19,24,33
+
+</sample-data>
+
+Liian pieniä tai suuria numeroita:
+
+<sample-data>
+
+viikko 39;5,9,15,35,39,41,105
+
+</sample-data>
+
+Kirjoita funktio `suodata_virheelliset()`, joka luo tiedoston `korjatut_numerot.csv`. Tiedostoon on kopioitu kelvolliset rivit alkuperäisestä tiedostosta.
+
+</programming-exercise>

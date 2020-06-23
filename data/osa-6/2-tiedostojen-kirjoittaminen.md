@@ -15,7 +15,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Tiedoston lukemisen lisäksi voimme myös kirjoittaa tiedostoon tietoa ohjelmassa. Tyypillinen esimerkki on ohjelman tulosten tallentaminen tiedostoon, jotta niitä voidaan käyttää myös myöhemmin tai muokata edelleen jollain toisella ohjelmalla.
+Tiedoston lukemisen lisäksi voimme luonnollisesti myös kirjoittaa tiedostoon tietoa. Tyypillinen esimerkki on ohjelman tulosten tallentaminen tiedostoon, jotta niitä voidaan käyttää myös myöhemmin tai muokata edelleen jollain toisella ohjelmalla.
 
 Tiedoston kirjoittamisessa voimme joko luoda uuden tiedoston tai lisätä tietoa olemassa olevan tiedoston vanhan tiedon perään. Molemmissa tapauksissa käytetään edellisestä osasta tuttua `open`-funktiota, mutta kirjoittamista varten funktiolle annetaan toinen parametri.
 
@@ -67,8 +67,8 @@ Tulostukset saadaan omille riveilleen lisäämällä rivien loppuun rivivaihtome
 ```python
 with open("uusi_tiedosto.txt", "w") as tiedosto:
     tiedosto.write("Moi kaikki!\n")
-    tiedosto.write("Toinen rivi\n"")
-    tiedosto.write("Viimeinen rivi\n"")
+    tiedosto.write("Toinen rivi\n")
+    tiedosto.write("Viimeinen rivi\n")
 ```
 
 Nyt tiedosto `uusi_tiedosto.txt` näyttää tältä:
@@ -80,6 +80,27 @@ Toinen rivi
 Viimeinen rivi
 
 </sample-data>
+
+<programming-exercise name='Omistuskirjoitus' tmcname='osa06-10_omistuskirjoitus'>
+
+Tee ohjelma, joka kysyy nimeä ja luo "omistuskirjoituksen" käyttäjän haluamaan tiedostoon. Seuraavassa ohjelman esimerkkisuoritus:
+
+<sample-output>
+
+Kenelle teos omistetaan: **Arto**
+Mihin kirjoitetaan: **omistettu.txt**
+
+</sample-output>
+
+Tiedoston `omistettu.txt` sisällöksi tulee
+
+<sample-data>
+
+Hei Arto, toivomme viihtyisiä hetkiä python-kurssimateriaalin parissa! Terveisin mooc.fi-tiimi
+
+</sample-data>
+
+</programming-exercise>
 
 ## Tiedon lisääminen olemassaolevaan tiedostoon
 
@@ -107,6 +128,63 @@ Ja taas yksi.
 
 </sample-output>
 
+Tiedostoon lisäämisen sijaan on usein yksinkertaisinta kirjoittaa tiedosto kokonaan uudelleen. Näin joudutaan useimmiten tekemään jos esimerkiksi tiedoston sisältö muuttuu keskeltä tiedostoa.
+
+<programming-exercise name='Päiväkirja' tmcname='osa06-11_paivakirja'>
+
+Tee ohjelma, joka mallintaa yksinkertaista päiväkirjaa. Ohjelman tulee tallentaa päiväkirjamerkinnät tiedostoon `paivakirja.txt`. Kun ohjelma käynnistetään, se lukee merkinnät tiedostosta.
+
+Huom! Paikalliset testit voivat muuttaa tiedoston sisältöä - kopioi siis tiedosto talteen ennen testien ajamista, jos haluat säilyttää sen sisällön.
+
+Ohjelman tulee toimia seuraavan esimerkin mukaisesti:
+
+<sample-output>
+
+1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+Valinta: **1**
+Anna merkintä: **Tänään söin puuroa**
+Päiväkirja tallennettu
+
+1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+Valinta: **2**
+Merkinnät:
+Tänään söin puuroa
+
+1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+Valinta: **1**
+Anna merkintä: **Illalla kävin saunassa**
+Päiväkirja tallennettu
+
+1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+Valinta: **2**
+Merkinnät:
+Tänään söin puuroa
+Illalla kävin saunassa
+
+1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+Valinta: **0**
+Heippa!
+
+</sample-output>
+
+Uusi käynnistys:
+
+<sample-output>
+
+1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+Valinta: **2**
+Merkinnät:
+Tänään söin puuroa
+Illalla kävin saunassa
+
+1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+Valinta: **0**
+Heippa!
+
+</sample-output>
+
+</programming-exercise>
+
 ## CSV-tiedoston kirjoittaminen
 
 CSV-tiedoston voi kirjoittaa rivi riviltä `write`-metodilla. Esimerkiksi seuraava esimerkki luo tiedoston `koodarit.csv`, jonka jokaisella rivillä on koodarin nimi, työympäristö ja lempikieli. Tiedot on erotettu puolipisteillä.
@@ -129,7 +207,6 @@ Antti;Linux;Java
 Emilia;Mac;Cobol
 
 </sample-output>
-
 
 Tarkastellaan sitten tilannetta, jossa tiedostoon kirjoitettavat tiedot ovatkin muistissa listoina:
 
@@ -163,6 +240,79 @@ with open("koodarit.csv", "w") as tiedosto:
         tiedosto.write(rivi+"\n")
 ```
 
+Kannattaa kuitenkin huomata, että `join`-metodi edellyttää että sen parametrina olevassa taulukossa kaikki alkiot ovat merkkijonoja. Jos yritämme seuraavaa
+
+```python
+rivi = ["Antti", "Helsinki", 31]
+";".join(rivi)
+```
+
+tuloksena on virheilmoitus
+
+<sample-output>
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: sequence item 2: expected str instance, int found
+
+</sample-output>
+
+<text-box variant='hint' name='Joinille kelpaava taulukko'>
+
+Lukuja sisältävä taulukko saadaan muutettua metodille `join` kelpaamaan muotoon käyttämällä seuraavaa kikkaa:
+
+```python
+rivi = ["Antti", "Helsinki", 31]
+ ";".join(str(alkio) for alkio in rivi)
+```
+
+Lopputulos on toimiva
+
+<sample-output>
+
+'Antti;Helsinki;31'
+
+</sample-output>
+
+Tutustumme ohjelmoinnin jatkokurssilla tarkemmin siihen mistä tässä joinin sisällä olevassa forissa oikeastaan onkaan kyse.
+
+</text-box>
+
+<programming-exercise name='Aineiston suodatus' tmcname='osa06-12_aineiston_suodatus'>
+
+Tiedostossa laskut.csv on tehtävien ratkaisuja seuraavan esimerkin mukaisesti:
+
+```sh
+Arto;2+5;7
+Pekka;3-2;1
+Erkki;9+3;11
+Arto;8-3;4
+Pekka;5+5;10
+...jne...
+```
+
+Jokaisella rivin muoto on siis `oppilaan_nimi;lasku;lopputulos`. Laskut ovat kaikki esimerkin mukaisesti joko yhteen- tai vähennyslaskuja, ja kaikissa on kaksi operandia.
+
+Kirjoita funktio `suodata_laskut()`, joka
+
+* Lukee tiedoston `laskut.csv` sisällön ja
+* kirjoittaa tiedostoon `oikeat.csv` ne rivit, joilla laskutoimituksen lopputulos on oikein sekä
+* kirjoittaa tiedostoon `vaarat.csv` ne rivit, joilla laskutoimituksen lopputulos on väärin.
+
+Edellisestä esimerkistä tiedostoon `oikeat.csv` olisi siis kirjoitettu rivit
+
+```sh
+Arto;2+5;7
+Pekka;3-2;1
+Pekka;5+5;10
+```
+
+Kaksi muuta riviä olisi kirjoitettu tiedostoon `vaarat.csv`.
+
+Kirjoita rivit samassa järjestyksessä kuin ne esiintyvät alkuperäisessä tiedostossa. Älä muuta alkuperäistä tiedostoa.
+
+</programming-exercise>
+
 ## Tiedon käsittely CSV:nä
 
 Tehdään vielä lopuksi ohjelma, joka lukee CSV-tiedostosta opiskelijoiden viikoittaiset kurssipistemäärät ja laskee näiden avulla kurssin arvosanan. Lopuksi ohjelma luo CSV-tiedoston, mistä selviää opiskelijan yhteispistemäärä sekä arvosana
@@ -177,7 +327,6 @@ Pirjo;3;4;3;5;3;4;4
 Emilia;6;6;5;5;0;4;8
 
 </sample-data>
-
 
 Ohjelman logiikka on jaettu kolmeen funktioon, tiedoston lukeminen tapahtuu samaan tapaan kuin edellisessä aliluvussa, tiedot talletetaan sanakirjaan, missä avaimena on opiskelijan nimi ja arvona taulukko viikkopisteistä:
 
@@ -237,6 +386,177 @@ Emilia;41;5
 
 </sample-data>
 
-TODO: Alla oleva perustelu ei ole hyvä. Vaikka koko koodi olisi pääohjelmassa ilman funktioita, niin pisterajojen tms. muutos riittäisi tehdä yhteen paikkaan.
-
 Huomaa, miten ohjelma on koostettu suhteellisen yksinkertaisista, vain yhteen asiaan keskittyvistä funktioista. Tämä on yleisesti ottaen suositeltava tapa ohjelmoinnissa, se helpottaa ohjelman toiminnallisuuden varmistamista sekä myöhemmin ohjelmaan tehtävien muutosten tekemistä. Jos ohjelmasta halutaan muuttaa "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon.
+
+<programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-13'>
+
+Laajennetaan vielä hieman aiemmin kurssien tulokset generoivaa sovellusta.
+
+Tällä hetkellä tiedostosta luetaan opiskelijoiden nimet, tehtäväpisteet sekä koepisteet. Laajennetaan ohjelmaa siten, että myös kurssin nimi ja laajuus luetaan tiedostosta, jonka muoto on seuraava
+
+<sample-data>
+
+<pre>
+
+nimi: Ohjelmoinnin perusteet
+laajuus opintopisteinä: 5
+</pre>
+
+</sample-data>
+
+Ohjelma luo kaksi tiedostoa. Tiedoston `tulos.txt` on muoto seuraava:
+
+<sample-data>
+
+<pre>
+Ohjelmoinnin perusteet, 5 opintopistettä
+========================================
+nimi                          teht_lkm  teht_pist koe_pist  yht_pist  arvosana
+pekka peloton                 33        8         16        24        4
+jaana javanainen              24        6         15        21        3
+liisa virtanen                27        6         19        25        4
+</pre>
+
+</sample-data>
+
+Tulokset kertova osa on siis samanlainen kuin tehtävän edellisen osan tulostus.
+
+Tämän lisäksi luodaan tiedosto `tulos.csv`, jonka muoto on seuraava:
+
+<sample-data>
+
+<pre>
+012345678;pekka peloton;4
+012345678;jaana javanainen;3
+012345678;liisa virtanen;4
+</pre>
+
+</sample-data>
+
+Ohjelman suoritus näyttää seuraavalta:
+
+<sample-output>
+
+opiskelijatiedot: **opiskelijat.csv**
+tehtävätiedot: **tehtavamaarat.csv**
+koepisteet: **koepisteet.csv**
+kurssin tiedot: **kurssi.txt**
+Tulokset talletettu tiedostoihin tulos.txt ja tulos.csv
+
+</sample-output>
+
+Ohjelma siis ainoastaan kyselee tiedostojen nimet, mutta varsinaiset tulokset talleteaan ainoastaan tiedostoihin.
+
+</programming-exercise>
+
+<programming-exercise name='Henkilöt talteen' tmcname='osa06-14_henkilot_talteen'>
+
+Kirjoita funktio `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henkilöä kuvaavan tuplen. Tuplessa on seuraavat tiedot tässä järjestyksessä:
+
+* Nimi (merkkijono)
+* Ikä (kokonaisluku)
+* Pituus (liukuluku)
+
+Tallenna henkilön tiedot tiedostoon `henkilot.csv` olemassaolevien tietojen perään. Tiedot tulee tallentaa muodosssa
+
+nimi;ikä;pituus
+
+...eli yhden henkilön tiedot tulevat yhdelle riville. Jos funktiota esim. kutsuttaisiin parametrien arvoilla `('Kimmo Kimmonen', 37, 175.5)`, ohjelma kirjoittaisi tiedoston loppuun rivin
+
+`Kimmo Kimmonen;37;175.5`
+
+
+</programming-exercise>
+
+<programming-exercise name='Sanahaku' tmcname='osa06-15_sanahaku'>
+
+Tehtäväpohjasta löytyy tiedosto sanat.txt, joka sisältää englanninkielisiä sanoja.
+
+Tehtäväsi on kirjoittaa funktio `hae_sanat(hakusana: str)`, joka palauttaa listana annetun hakusanan mukaiset sanat tiedostosta.
+
+Hakusanassa voi käyttää pienten kirjainten lisäksi seuraavia erikoismerkkejä:
+
+* Piste `.` tarkoittaa, että mikä tahansa merkki käy (esim `ca.` vastaa vaikkapa sanoja cat ja car, `p.ng` sanoja ping ja pong ja `.a.e` sanoja sane, care tai late.
+* Asteriski `*` tarkoittaa, että sanan alku- tai loppuosaksi käy mikä tahansa jono, esim. `ca*` vastaa vaikkapa sanoja california, cat, caring tai catapult. Vastaavasti hakusana `*ane` vastaa vaikkapa sanoja crane, insane tai aeroplane. Voit olettaa, että asteriski on aina joko hakusanan alussa tai lopussa, ja että hakusanassa esiintyy korkeintaan yksi asteriski.
+* Jos hakusanassa ei ole erikoismerkkejä, haetaan vain täsmälleen hakusanaa vastaava sana.
+
+Sovitaan, että samassa hakusanassa ei voi käyttää molempia erikoismerkkejä.
+
+Sanat ovat tiedostossa kokonaan pienillä kirjaimilla kirjoitettuna. Voit myös olettaa, että funktion parametri on annettu kokonaan pienillä kirjaimilla.
+
+Jos yhtään tulosta ei löydy, funktio palauttaa tyhjän listan.
+
+Vinkki: Pythonin merkkijonometodeista startswith() ja endswith() saattaa olla hyötyä tehtävässä, googlaa niiden toiminta tarvittaessa tarkemmin!
+
+Esimerkki funktion kutsumisesta:
+
+```python
+
+print(hae_sanat("*vokes"))
+
+```
+
+<sample-output>
+
+['convokes', 'equivokes', 'evokes', 'invokes', 'provokes', 'reinvokes', 'revokes']
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Muistava sanakirja' tmcname='osa06-16_muistava_sanakirja'>
+
+Tee sanakirjaa mallintava ohjelma, johon voi syöttää uusia sanoja tai josta voi hakea syötettyjä sanoja.
+
+Ohjelman tulee toimia näin:
+
+<sample-output>
+
+1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+Valinta: **1**
+Anna sana suomeksi: **auto**
+Anna sana englanniksi: **car**
+Sanapari lisätty
+
+1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+Valinta: **1**
+Anna sana suomeksi: **roska**
+Anna sana englanniksi: **carbage**
+Sanapari lisätty
+
+1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+Valinta: **1**
+Anna sana suomeksi: **laukku**
+Anna sana englanniksi: **bag**
+Sanapari lisätty
+
+1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+Valinta: **2**
+Anna sana: **bag**
+roska - carbage
+laukku - bag
+
+1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+Valinta: **2**
+Anna sana: **car**
+auto - car
+roska - carbage
+
+1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+Valinta: **2**
+Anna sana: **laukku**
+laukku - bag
+
+1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+Valinta: **3**
+Moi!
+
+</sample-output>
+
+Sanat tallennetaan tiedostoon `sanakirja.txt`. Ohjelma lukee tiedoston sisällön kun se käynnistetään. Uudet sanaparit lisätään tiedostoon aina tallennuksen yhteydessä.
+
+Voit itse päättää tiedostoon tallennettavan tiedon muodon.
+
+Huomaa, että paikallisten TMC-testien ajaminen voi tyhjentää sanakirja-tiedoston.
+
+</programming-exercise>
