@@ -130,7 +130,7 @@ Globaalien muuttujien tarkoituksena ei ole korvata funktion parametreja tai palu
 def laske_summa(a, b):
     global tulos
     tulos = a + b
-    
+
 laske_summa(2, 3)
 print(tulos)
 ```
@@ -140,7 +140,7 @@ Parempi tapa on kuitenkin toteuttaa funktio kuten ennenkin:
 ```python
 def laske_summa(a, b):
     return a + b
-    
+
 tulos = laske_summa(2, 3)
 print(tulos)
 ```
@@ -154,20 +154,28 @@ def laske_summa(a, b):
     global laskuri
     laskuri += 1
     return a + b
-    
+
+def laske_erotus(a, b):
+    global laskuri
+    laskuri += 1
+    return a - b
+
+
 laskuri = 0
 print(laske_summa(2, 3))
 print(laske_summa(5, 5))
+print(laske_erotus(5, 2))
 print(laske_summa(1, 0))
-print("Funktiota kutsuttiin", laskuri, "kertaa")
+print("Funktioita kutsuttiin", laskuri, "kertaa")
 ```
 
 <sample-output>
 5
 10
+3
 1
-Funktiota kutsuttiin 3 kertaa
+Funktioita kutsuttiin 4 kertaa
 
 </sample-output>
 
-Tässä haluamme pitää ohjelman suorituksen aikana kirjaa siitä, montako kertaa funktiota on kutsuttu ohjelman eri kohdista. Nyt globaali muuttuja `laskuri` on kätevä, koska voimme kasvattaa sen arvoa jokaisella funktion kutsukerralla ja katsoa globaalista muuttujasta, montako kertaa funktiota on kutsuttu.
+Tässä haluamme pitää ohjelman suorituksen aikana kirjaa siitä, montako kertaa funktioita on kutsuttu ohjelman eri kohdista. Nyt globaali muuttuja `laskuri` on kätevä, koska voimme kasvattaa sen arvoa jokaisella funktion kutsukerralla ja katsoa globaalista muuttujasta, montako kertaa funktiota on kutsuttu.
