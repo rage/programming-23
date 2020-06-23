@@ -391,7 +391,7 @@ pituus = len(lista)
 
 print("Pienin:", pienin)
 print("Suurin:", suurin)
-print("Listan pituus:", summa)
+print("Listan pituus:", pituus)
 
 # funktiokutsu: lista on parametrina, järjestetty lista paluuarvona
 jarjestyksessa = sorted(lista)
