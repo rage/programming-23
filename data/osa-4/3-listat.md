@@ -440,7 +440,7 @@ Ikien mediaani on 22
 Funktio voi myös palauttaa listan. Seuraavassa on funktio, joka palauttaa listan käyttäjän syöttämiä kokonaislukuja:
 
 ```python
-def lue_luvut()
+def lue_luvut():
     luvut = []
     while True:
         syote = input("Anna luku (tyhjä lopettaa): ")
@@ -470,7 +470,7 @@ Anna luku (tyhjä lopettaa): **35**
 Anna luku (tyhjä lopettaa): **1**
 Anna luku (tyhjä lopettaa):
 Suurin luku on 35
-Lukujen mediaani on 5
+Lukujen mediaani on 4
 
 </sample-output>
 
