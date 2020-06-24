@@ -413,7 +413,7 @@ Omatekemiemme funktioiden parametreina voi olla myös listoja. Seuraavassa on fu
 
 ```python
 def mediaani(lista: list):
-  jarjestetty = lista.sorted()
+  jarjestetty = sorted(list)
   keskikohta = len(jarjestetty) // 2
   return jarjestetty[keskikohta]
 ```
