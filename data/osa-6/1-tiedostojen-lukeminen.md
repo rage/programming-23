@@ -473,6 +473,34 @@ Tehtävässä kannattaa käyttää [osassa 4](/osa-4/5-tulostuksen-muotoilu) kä
 
 </programming-exercise>
 
+<programming-exercise name='Spell checker' tmcname='osa06-08_spellchecker'>
+
+Tee ohjelma, joka pyytää käyttäjää kirjoittamaan rivin englanninkielistä tekstiä. Ohjelma suorittaa tekstille oikeinkirjoitustarkistuksen ja tulostaa saman tekstin siten, että kaikki väärin kirjoitetut sanat on ympäröity tähdillä. Seuraavassa kaksi käyttöesimerkkiä:
+
+<sample-output>
+
+write text: **We use ptython to make a spell checker**
+<pre>
+We use *ptython* to make a spell checker
+</pre>
+
+</sample-output>
+
+<sample-output>
+
+write text: **this is acually a good and usefull program**
+<pre>
+this is *acually* good and *usefull* program
+</pre>
+
+</sample-output>
+
+Kirjainten koolla ei ole merkitystä ohjelman toiminnan kannalta.
+
+Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa olevaa tiedostoa _wordlist.txt_
+
+</programming-exercise>
+
 <programming-exercise name='Reseptihaku' tmcname='osa06-07_reseptihaku'>
 
 Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, valmistusajan tai raaka-aineen nimen perusteella. Ohjelman lukee reseptit käyttäjän antamasta tiedostosta.
@@ -518,7 +546,7 @@ voi
 
 #### Reseptien haku nimen perusteella
 
-Tee funktion `hae_nimi(tiedosto: str, sana: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden nimessä esiintyy toisena parametrina annettu merkkijono. Funktio palauttaa listan, missä kutakin löydettyä reseptiä vastaa merkkijono, joka kertoo reseptin nimen ja keittoajan.
+Tee funktion `hae_nimi(tiedosto: str, sana: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden nimessä esiintyy toisena parametrina annettu merkkijono. Funktio palauttaa listan, missä kutakin löydettyä reseptiä vastaa merkkijono, joka kertoo reseptin nimen.
 
 Esimerkki funktion käytöstä:
 
@@ -531,8 +559,8 @@ for resepti in loydetyt:
 
 <sample-output>
 
-Lihapullat, valmistusaika 45 min
-Pullataikina, valmistusaika 60 min
+Lihapullat
+Pullataikina
 
 </sample-output>
 
@@ -542,7 +570,7 @@ Huomaa, että hakusanojen kirjainten koolla ei ole merkitystä, eli hakusana _pu
 
 Tee funktion `hae_aika(tiedosto: str, aika: int)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden valmistusaika on korkeintaan parametrina kerrottu minuuttimäärä.
 
-Kriteerin täyttäävät reseptit palautetaan edellisen tehtävän tapaan listana. Esimerkki funktion käytöstä:
+Kriteerin täyttäävät reseptit palautetaan edellisen tehtävän tapaan listana, nyt kerrotaan myös reseptin valmistumisaika. Esimerkki funktion käytöstä:
 
 ```python
 loydetyt = hae_aika('reseptit.txt', 20)
@@ -576,34 +604,6 @@ Lettutaikina, valmistusaika 15 min
 Pullataikina, valmistusaika 60 min
 
 </sample-output>
-
-</programming-exercise>
-
-<programming-exercise name='Spell checker' tmcname='osa06-08_spellchecker'>
-
-Tee ohjelma, joka pyytää käyttäjää kirjoittamaan rivin englanninkielistä tekstiä. Ohjelma suorittaa tekstille oikeinkirjoitustarkistuksen ja tulostaa saman tekstin siten, että kaikki väärin kirjoitetut sanat on ympäröity tähdillä. Seuraavassa kaksi käyttöesimerkkiä:
-
-<sample-output>
-
-write text: **We use ptython to make a spell checker**
-<pre>
-We use *ptython* to make a spell checker
-</pre>
-
-</sample-output>
-
-<sample-output>
-
-write text: **this is acually a good and usefull program**
-<pre>
-this is *acually* good and *usefull* program
-</pre>
-
-</sample-output>
-
-Kirjainten koolla ei ole merkitystä ohjelman toiminnan kannalta.
-
-Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa olevaa tiedostoa _wordlist.txt_
 
 </programming-exercise>
 
