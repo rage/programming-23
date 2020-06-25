@@ -194,7 +194,7 @@ while True:
     if luku == -1:
         break
     while True:
-        if luku <= 0
+        if luku <= 0:
             break
         print(luku)
         luku -= 1

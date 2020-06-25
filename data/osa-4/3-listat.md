@@ -413,9 +413,9 @@ Omatekemiemme funktioiden parametreina voi olla myös listoja. Seuraavassa on fu
 
 ```python
 def mediaani(lista: list):
-  jarjestetty = lista.sorted()
-  keskikohta = len(jarjestetty) // 2
-  return jarjestetty[keskikohta]
+    jarjestetty = sorted(list)
+    keskikohta = len(jarjestetty) // 2
+    return jarjestetty[keskikohta]
 ```
 
 Funktio selvittää mediaanin tekemällä parametrinaan saamasta listasta järjestetyn version ja palauttamalla sen keskimmäisen alkion. Huomaa, että käytössä on kokonaislukujakolasku `//`, koska listan indeksin tulee olla kokonaisluku.
@@ -440,7 +440,7 @@ Ikien mediaani on 22
 Funktio voi myös palauttaa listan. Seuraavassa on funktio, joka palauttaa listan käyttäjän syöttämiä kokonaislukuja:
 
 ```python
-def lue_luvut()
+def lue_luvut():
     luvut = []
     while True:
         syote = input("Anna luku (tyhjä lopettaa): ")
@@ -470,7 +470,7 @@ Anna luku (tyhjä lopettaa): **35**
 Anna luku (tyhjä lopettaa): **1**
 Anna luku (tyhjä lopettaa):
 Suurin luku on 35
-Lukujen mediaani on 5
+Lukujen mediaani on 4
 
 </sample-output>
 
@@ -486,7 +486,7 @@ while True:
         break
     luvut.append(int(syote))
 
-jarjestetty = luvut.sorted()
+jarjestetty = sorted(luvut)
 keskikohta = len(jarjestetty) // 2
 mediaani = jarjestetty[keskikohta]
 
