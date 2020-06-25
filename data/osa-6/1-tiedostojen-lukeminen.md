@@ -473,7 +473,7 @@ Tehtävässä kannattaa käyttää [osassa 4](/osa-4/5-tulostuksen-muotoilu) kä
 
 </programming-exercise>
 
-<programming-exercise name='Spell checker' tmcname='osa06-08_spellchecker'>
+<programming-exercise name='Spell checker' tmcname='osa06-07_spellchecker'>
 
 Tee ohjelma, joka pyytää käyttäjää kirjoittamaan rivin englanninkielistä tekstiä. Ohjelma suorittaa tekstille oikeinkirjoitustarkistuksen ja tulostaa saman tekstin siten, että kaikki väärin kirjoitetut sanat on ympäröity tähdillä. Seuraavassa kaksi käyttöesimerkkiä:
 
@@ -501,7 +501,7 @@ Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa ole
 
 </programming-exercise>
 
-<programming-exercise name='Reseptihaku' tmcname='osa06-07_reseptihaku'>
+<programming-exercise name='Reseptihaku' tmcname='osa06-08_reseptihaku'>
 
 Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, valmistusajan tai raaka-aineen nimen perusteella. Ohjelman lukee reseptit käyttäjän antamasta tiedostosta.
 
