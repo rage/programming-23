@@ -235,7 +235,7 @@ Näin ohjelman apumetodeja on mahdollista testata ilman pääohjelman suorittami
 
 ```python
 # apumetodi, joka laskee arvosanan pisteiden perusteella
-def arvosana(pisteet)
+def arvosana(pisteet):
     # koodia
 
 def main():
