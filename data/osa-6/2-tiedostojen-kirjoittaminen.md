@@ -388,7 +388,7 @@ Emilia;41;5
 
 Huomaa, miten ohjelma on koostettu suhteellisen yksinkertaisista, vain yhteen asiaan keskittyvistä funktioista. Tämä on yleisesti ottaen suositeltava tapa ohjelmoinnissa, se helpottaa ohjelman toiminnallisuuden varmistamista sekä myöhemmin ohjelmaan tehtävien muutosten tekemistä. Jos ohjelmasta halutaan muuttaa "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon.
 
-<programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-13'>
+<programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-13_kurssin_tulokset_osa4'>
 
 Laajennetaan vielä hieman aiemmin kurssien tulokset generoivaa sovellusta.
 
