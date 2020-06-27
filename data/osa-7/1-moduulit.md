@@ -6,20 +6,15 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Ohjelmointikielissä on usein toteutettu monia yleisesti tarvittavia operaatioita valmiiksi. Sen sijaan, että ohjelmoijan pitäisi toteuttaa kaikki toiminnallisuus alusta loppuun itse, hän voi hyödyntää valmiita kirjastoja omissa ohjelmissaan.
-
-Tämän osion suoritettuasi
+Tämän osion jälkeen
 
 - Tiedät, mikä on moduuli
 - Osaat ottaa käyttöön moduulin `import`-lauseella
+- Tiedät, miten moduulin sisällöstä voi etsiä tietoa
 
 </text-box>
 
-TODO: Tässä on kyllä nyt ongelmana, että kurssilla ollaan puhuttu vain funktioista vaikka moduulissa voi olla muutakin (kuten luokkia)
-
-Python-kielen ytimessä on joukko usein käytettyjä funktioita, kuten `print`, `int` ja `range`. Nämä funktiot ovat käytettävissä suoraan kaikissa Python-ohjelmissa.
-
-Tämän lisäksi Pythonissa on laaja standardikirjasto, joka muodostuu _moduuleista_. Jokaisessa moduulissa on tiettyyn aiheeseen liittyviä funktioita. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin.
+Python-kielen standardikirjasto muodostuu moduuleista, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme tekemään myös moduulin itse.s
 
 ## Moduulin käyttäminen
 
@@ -85,6 +80,6 @@ Funktio antaa listan nimistä, jotka moduuli määrittelee:
 
 <sample-output>
 
-['__doc__', '__name__', '__package__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'hypot', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']
+['\_\_doc\_\_', '\_\_name\_\_', '\_\_package\_\_', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'hypot', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']
 
 </sample-output>
