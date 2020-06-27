@@ -196,7 +196,7 @@ def lisaa_alkio(lista: list) -> list:
     kopio.append(10)
     return kopio
 
-luvut = [1,2,3]
+luvut = [1, 2, 3]
 luvut2 = lisaa_alkio(luvut)
 
 print("Alkuperäinen lista:", luvut)
@@ -209,6 +209,85 @@ Alkuperäinen lista: [1, 2, 3]
 Uusi lista: [1, 2, 3, 10]
 
 </sample-output>
+
+## Parametrina olevan listan muokkaaminen
+
+Seuraavassa on yritys tehdä funktio, joka kasvattaa parametrina saamansa listan jokaista alkiota kymmenellä:
+
+```python
+def kasvata_kaikkia(lista: list):
+    uusilista = []
+    for alkio in lista:
+        uusilista.append(alkio + 10)
+    lista = uusilista
+
+luvut = [1, 2, 3]
+print("alussa ",luvut)
+kasvata_kaikkia(luvut)
+print("funktion jälkeen", luvut)
+```
+
+<sample-output>
+
+alussa: [1, 2, 3]
+funktion jälkeen: [1, 2, 3]
+
+</sample-output>
+
+
+Jostain syystä funktio ei kuitenkaan näytä toimivan. Mistä on kyse?
+
+Funktiolle on välitetty parametrina _viite_ muutettavaan listaan. Sijoitus `lista = uusilista` saa aikaan sen, että parametriin talletettu viite muuttaa arvoaan funktion sisällä, eli se alkaa viittaamaan funktion sisällä luotuun uuteen listaan. Sijoitus ei kuitenkaan vaikuta funktion ulkopuolelle, siellä viitataan edelleen alkuperäiseen listaan.
+
+Seuraava kuvasarja havainnollistaa, mihin eri muuttujat viittaavat ohjelman suorituksen aikana:
+
+<img src="5_2_6.png" width="400">
+
+Funktion sisällä muutettu lista siis "kadotetaan" kun funktiosta palataan, muuttuja `luvut` viittaa koko ajan alkuperäiseen listaan.
+
+Eräs tapa korjata ongelma on kopioida uuden listan kaikki alkiot takaisin vanhaan listaan:
+
+```python
+def kasvata_kaikkia(lista: list):
+    uusilista = []
+    for alkio in lista:
+        uusilista.append(alkio + 10)
+
+    # kopioidaan vanhaan listaan uuden listan arvot
+    for i in len(lista):
+        lista[i] = uusilista[i]
+```
+
+Pythonissa on olemassa myös ovela tapa sijoittaa monta alkiota kerrallaan listaan:
+
+```python
+>>> lista = [1,2,3,4]
+>>> lista[1:3] = [ 10, 20 ]
+>>> lista
+[1, 10, 20, 4]
+```
+
+Esimerkissä siis sijoitetaan "osalistaan" eli listan kohtiin 1 ja 2 taulukollinen alkioita.
+
+Osalistaksi voidaan myös valita koko lista:
+
+```python
+>>> lista = [1,2,3,4]
+>>> lista[:] = [100, 99, 98, 97]
+>>> lista
+[100, 99, 98, 97]
+```
+
+Eli näin tulee korvatuksi koko vanhan listan sisältö. Siispä toimiva versio funktiosta näyttää seuraavalta:
+
+```python
+def kasvata_kaikkia(lista: list):
+    uusilista = []
+    for alkio in lista:
+        uusilista.append(alkio + 10)
+
+    lista[:] = uusilista
+```
 
 <programming-exercise name='Sudoku: ruudukon tulostus ja luvun lisäys' tmcname='osa05-07_sudoku_osa5'>
 
