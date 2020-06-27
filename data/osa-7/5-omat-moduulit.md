@@ -6,9 +6,7 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Myös omia funktioita voidaan koota moduuleiksi, jolloin voimme koota yhteen tiettyyn asiaan liittyviä funktioita ja käyttää niitä muissa ohjelmissa.
-
-Tämän osan suoritettuasi
+Tämän osion jälkeen
 
 - Osaat luoda oman moduulin
 - Tiedät, mitä Pythonin muuttuja `__name__` ja sen arvo `__main__` merkitsevät
