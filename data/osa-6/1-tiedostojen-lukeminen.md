@@ -180,7 +180,7 @@ appelsiini;8.0
 ...jne...
 ```
 
-Kirjoita funktio `lue_hedelmat()`, joka lukee hedelmätiedoston ja muodostaa siitä sanakirjan, jossa hedelmän nimi on avain on ja hinta arvo.
+Kirjoita funktio `lue_hedelmat()`, joka lukee hedelmätiedoston ja muodostaa siitä sanakirjan, jossa hedelmän nimi on avain ja hinta arvo.
 
 Lopuksi funktio palauttaa tämän sanakirjan.
 
@@ -210,6 +210,97 @@ funktio palauttaisi listan `[6, 9]`.
 VINKKI: Voit kirjoittaa ohjelmaan myös muita funktioita - kannattaa siis miettiä mitä kaikkia yhteisiä toimintoja kolmea funktiota varten vaaditaan.
 
 </programming-exercise>
+
+## Saman tiedoston lukeminen moneen kertaan
+
+Joissain tilanteissa ohjelman on tarvetta lukea sama tiedosto useampaan kertaan. Esim. seuraavassa ohjelma, joka käsittelee henkilötietoja sisältävää tiedostoa:
+
+<sample-data>
+Pekka;40;Helsinki
+Emilia;34;Espoo
+Erkki;42;Turku
+Antti;100;Helsinki
+Liisa;58;Suonenjoku
+</sample-data>
+
+```python
+with open("henkilot.csv") as tiedosto:
+    # tulostetaan nimet
+    for rivi in tiedosto:
+        osat = rivi.split(";")
+        print("Nimi:", osat[0])
+
+    # etsitään vanhin
+    vanhimman_ika = -1
+    for rivi in tiedosto:
+        osat = rivi.split(";")
+        nimi = osat[0]
+        ika = int(osat[1])
+        if ika>vanhimman_ika:
+            vanhimman_ika = ika
+            vanhin = nimi
+
+    print("vanhin:",vanhin, vanhimman_ika, "vuotta")
+```
+
+Ohjelma aiheuttaa erikoisen virheilmoituksen:
+
+```python
+Traceback (most recent call last):
+    print("vanhin: "+{vanhin})
+UnboundLocalError: local variable 'vanhin' referenced before assignment
+```
+
+Syynä virheelle on se, että jälkimäistä for-silmukkaa ei suoriteta ollenkaan, sillä tiedoston lukeminen for:illa onnistuu vain kerran, tämän jälkeen ollaan päästy "tiedoston loppuun", ja vaikka yritetään lukea tiedostosta lisää jälkimmäisessä forissa, tietoon ei päästä enää käsiksi.
+
+Tiedosto onkin avattava uudelleen komennolla `open` toista lukukertaa varten:
+
+```python
+with open("henkilot.csv") as tiedosto:
+    # tulostetaan nimet
+    for rivi in tiedosto:
+        osat = rivi.split(";")
+        print("Nimi:", osat[0])
+
+with open("henkilot.csv") as tiedosto:
+    # etsitään vanhin
+    vanhimman_ika = -1
+    for rivi in tiedosto:
+        osat = rivi.split(";")
+        nimi = osat[0]
+        ika = int(osat[1])
+        if ika>vanhimman_ika:
+            vanhimman_ika = ika
+            vanhin = nimi
+
+print("vanhin:",vanhin, vanhimman_ika, "vuotta")
+```
+
+Usemmiten on järkevää lukea tiedosto vain kerran ja tallettaa se muotoon, jota ohjelman toiminnallisuudet pystyvät hyödyntämään:
+
+```python
+henkilot = []
+# luetaan tiedostosta henkilöt taulukkoon
+with open("henkilot.csv") as tiedosto:
+    for rivi in tiedosto:
+        osat = rivi.split(";")
+        henkilot.append((osat[0], int(osat[1]), osat[1]))
+
+# tulostetaan nimet
+for henkilo in henkilot:
+    print("Nimi:", henkilo[0])
+
+# etsitään vanhin
+vanhimman_ika = -1
+for henkilo in henkilot:
+    nimi = henkilo[0]
+    ika = henkilo[1]
+    if ika>vanhimman_ika:
+        vanhimman_ika = ika
+        vanhin = nimi
+
+print("vanhin:",vanhin, vanhimman_ika, "vuotta")
+```
 
 ## Lisää csv-tiedoston käsittelyä
 
@@ -364,9 +455,9 @@ opnro;v1;v2;v3;v4;v5;v6;v7
 12345699;10;2;2;7;10;2;2
 ```
 
-Molempien csv-tiedotojen ensimmäinen rivi on otsikkorivi, joka kertoo kunkin kentän sisällön.
+Molempien csv-tiedostojen ensimmäinen rivi on otsikkorivi, joka kertoo kunkin kentän sisällön.
 
-Tee ohjelma, joka kysyy tiedostojen nimet ja tämän jälkeen tulostaa kunkin opiskelijan tehtävien yhteenlasketun määrän. Ohjelma toimii seurasti jos tiedostojen sisältö on ylläoleva:
+Tee ohjelma, joka kysyy tiedostojen nimet ja tämän jälkeen tulostaa kunkin opiskelijan tehtävien yhteenlasketun määrän. Ohjelma toimii seuraavasti jos tiedostojen sisältö on ylläoleva:
 
 <sample-output>
 
@@ -378,7 +469,7 @@ liisa virtanen 35
 
 </sample-output>
 
-**PROOTIP** Ohjelman testaileminen siten että käyttäjän on kirjotiettava testisyöte käsin on toivottoman hidasta. Testausvaiheessa syötteet kannattaakin antaa "kovakoodaamalla" ne esim. seuraavasti:
+**PROOTIP** Ohjelman testaileminen siten että käyttäjän on kirjoitettava testisyöte käsin on toivottoman hidasta. Testausvaiheessa syötteet kannattaakin antaa "kovakoodaamalla" ne esim. seuraavasti:
 
 ```python
 if False:
@@ -388,12 +479,12 @@ if False:
 else:
     # kovakoodatut syötteet
     opiskelijatiedot = "opiskelijat1.csv"
-    tehtavatiedot = "tehtavat1.csv"
+    tehtavatiedot = "tehtavamaarat1.csv"
 ```
 
 Ohjelman varsinainen toiminnallisuus on nyt "piilotettu" `if`:in `False`-haaraan, jota ei suoriteta koskaan.
 
-Jos taas halutaan nopeasti tarkastaa toimiiko onhjelma myös käyttäjän kirjoittaessa syötteen, voidaan `False` muuttaa arvoksi `True`:
+Jos taas halutaan nopeasti tarkastaa toimiiko ohjelma myös käyttäjän kirjoittaessa syötteen, voidaan `False` muuttaa arvoksi `True`:
 
 ```python
 
@@ -412,7 +503,7 @@ Kun koodi on kunnossa, voi `if`:in poistaa.
 
 <programming-exercise name='Kurssin tulokset, osa 2' tmcname='osa06-05_kurssin_tulokset_osa2'>
 
-Edellinen tehtävä laajenee vielä siten, että myös opiskelijan koepisteet luetaan csv-tiedostosta. Tiedoston sisältä näyttää seuraavalta:
+Edellinen tehtävä laajenee vielä siten, että myös opiskelijan koepisteet luetaan csv-tiedostosta. Tiedoston sisältäö näyttää seuraavalta:
 
 ```csv
 opnro;k1;k2;k3
@@ -469,7 +560,7 @@ liisa virtanen                27        6         19        25        4
 
 Jokaisella rivillä siis tulostetaan opiskelijan tehtävien lukumäärä, tehtävistä saatavat kurssipisteet, koepisteet, yhteispisteet sekä arvosana "siististi" siten, että tulostus on jaoteltu sarakkeisiin. Nimisarakkeen levyes on 30 merkkiä ja muiden sarakkeiden levys tasan 10 merkkiä.
 
-Tehtävässä kannattaa käyttää [osassa 4](/osa-4/5-tulostuksen-muotoilu) käsitellyt f-stringejä.
+Tehtävässä kannattaa käyttää [osassa 4](/osa-4/5-tulostuksen-muotoilu) käsiteltyjä f-stringejä.
 
 </programming-exercise>
 
@@ -503,7 +594,7 @@ Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa ole
 
 <programming-exercise name='Reseptihaku' tmcname='osa06-08_reseptihaku'>
 
-Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, valmistusajan tai raaka-aineen nimen perusteella. Ohjelman lukee reseptit käyttäjän antamasta tiedostosta.
+Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, valmistusajan tai raaka-aineen nimen perusteella. Ohjelma lukee reseptit käyttäjän antamasta tiedostosta.
 
 Jokainen resepti koostuu kolmesta tai useammasta rivistä reseptitiedostossa. Ensimmäisellä rivillä on reseptin nimi, toisella rivillä reseptin valmistusaika (kokonaisluku), ja kolmas ja sitä seuraavat rivit kertovat reseptin raaka-aineet. Reseptin raaka-aineiden kuvaus päättyy tyhjään riviin. Tiedostossa voi olla useampia reseptejä. Alla kuvattuna esimerkkitiedosto.
 
@@ -570,7 +661,7 @@ Huomaa, että hakusanojen kirjainten koolla ei ole merkitystä, eli hakusana _pu
 
 Tee funktion `hae_aika(tiedosto: str, aika: int)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden valmistusaika on korkeintaan parametrina kerrottu minuuttimäärä.
 
-Kriteerin täyttäävät reseptit palautetaan edellisen tehtävän tapaan listana, nyt kerrotaan myös reseptin valmistumisaika. Esimerkki funktion käytöstä:
+Kriteerin täyttävät reseptit palautetaan edellisen tehtävän tapaan listana, nyt kerrotaan myös reseptin valmistumisaika. Esimerkki funktion käytöstä:
 
 ```python
 loydetyt = hae_aika('reseptit.txt', 20)
@@ -638,9 +729,9 @@ Tee ensin funktio `hae_asematiedot(tiedosto:str)`, joka lukee asematiedot tiedos
 
 </sample-output>
 
-Eli sanakirjan avaimena on aseman nimi ja arvona tuple, joka koostuu aseman kordinaateista, ensimäisenä _Longitude_ ja toisena _Latitude_.
+Eli sanakirjan avaimena on aseman nimi ja arvona tuple, joka koostuu aseman kordinaateista, ensimmäisenä _Longitude_ ja toisena _Latitude_.
 
-Tee seuraavaksi funktio `etaisyys(asemat: dir, asema1: str, asema2: str)`, joka palauttaa parametrina kerrottujen asemien välisen etäisyyden.
+Tee seuraavaksi funktio `etaisyys(asemat: dict, asema1: str, asema2: str)`, joka palauttaa parametrina kerrottujen asemien välisen etäisyyden.
 
 Etäisyys lasketaan seuraavalla kaavalla (hyödyntäen Pythagoran kaavaa):
 
@@ -672,17 +763,17 @@ print(e)
 
 #### pisin välimatka
 
-Tee funktio `suurin_etaisyys(asemat: dir)`, joka selvittää mitkä kaiksi asemaa ovat kauimpana toisistaan. Funktio palauttaa tuplen, jonka ensimmäiset kaksi arvoa kertovat asemien nimet ja kolmas arvo niiden välisen etäisyyden.
+Tee funktio `suurin_etaisyys(asemat: dict)`, joka selvittää mitkä kaksi asemaa ovat kauimpana toisistaan. Funktio palauttaa tuplen, jonka ensimmäiset kaksi arvoa kertovat asemien nimet ja kolmas arvo niiden välisen etäisyyden.
 
 ```python
 asemat = hae_asematiedot('stations1.csv')
 asema1, asema2, etaisyys = suurin_etaisyys(asemat)
+print(asema1, asema2, etaisyys )
 ```
 
 <sample-output>
 
-0.9032737292463177
-0.7753594392019532
+Laivasillankatu Hietalahdentori 1.478708873076181
 
 </sample-output>
 

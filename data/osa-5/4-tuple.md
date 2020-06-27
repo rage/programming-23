@@ -246,13 +246,11 @@ print(a, b)
 Molemmissa merkkijonoissa on kirjain A kohdassa 0. Molemmissa onb myös kirjaimet B ja C, mutta ne ovat eri kohdissa. Tämän takia paluuarvo on 1, 2.
 
 ```python
-a, b = vertaile("JAVA", "VAJA")
+a, b = vertaa("JAVA", "VAJA")
 print(a, b)
-a, b = vertaile("AABB", "ABCD")
+a, b = vertaa("AABB", "ABCD")
 print(a, b)
-a, b = vertaile("LOL", "OLO")
-print(a, b)
-
+a, b = vertaa("LOL", "OLO")
 print(a, b)
 ```
 

@@ -141,14 +141,14 @@ _Vinkki: Käytä liukulukujen muotoiluun merkkijonoiksi f-merkkijonoa._
 Esimerkki funktion käytöstä:
 
 ```python
-lista = [1.234, 0.3333, 0.11111]
+lista = [1.234, 0.3333, 0.11111, 3.446]
 lista2 = muotoile(lista)
 print(lista2)
 ```
 
 <sample-output>
 
-['1.20', '0.33', '0.11']
+['1.23', '0.33', '0.11', '3.45']
 
 </sample-output>
 

@@ -286,11 +286,9 @@ Huomaa, että funktio _ei palauta mitään_, vaan poistaa alkiot parametrinaan s
 Esimerkki funktion käytöstä:
 
 ```python
-
 lista = ["ABC", "def", "ISO", "TOINENISO", "pieni", "toinen pieni"]
 poista_isot(lista)
 print(lista)
-
 ```
 
 <sample-output>
@@ -299,9 +297,22 @@ print(lista)
 
 </sample-output>
 
+**Huom:** listan sisällön läpikäyminen for-silmukalla siten, että listan sisältöä samalla muutetaan saattaa tuottaa yllättäviä tuloksia. Vältä siis seuraavanlaista koodia:
+
+```python
+for sana in lista:
+   # muutetaan listan sisältöä
+```
+
+Turvallisempi vaihtoehto on while:n käyttö:
+
+```python
+indeksi = 0
+While indeksi < len(lista):
+   # muutetaan listan sisältöä
+```
 
 </programming-exercise>
-
 
 <programming-exercise name='Käännä lista osittain' tmcname='osa04-26_kaanna_lista_osittain'>
 
