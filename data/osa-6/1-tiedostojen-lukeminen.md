@@ -562,6 +562,45 @@ Jokaisella rivillä siis tulostetaan opiskelijan tehtävien lukumäärä, tehtä
 
 Tehtävässä kannattaa käyttää [osassa 4](/osa-4/5-tulostuksen-muotoilu) käsiteltyjä f-stringejä.
 
+Kannattaa huomata, että merkkijonojen ja lukujen tulostaminen noudattaa hieman erilaista logiikkaa f-stringeissä:
+
+```python
+sana = "python"
+print(f"{sana:10}jatkuu")
+print(f"{sana:>10}jatkuu")
+```
+
+<sample-output>
+
+<pre>
+python    jatkuu
+    pythonjatkuu
+</pre>
+
+</sample-output>
+
+Oletusarvoisesti siis merkkijono sisentyy määritellyn levyisen alueen _vasempaan_ reunaan. Merkillä `>`voidaan ohjata tulostus sisentymään oikeaan reunaan.
+
+Lukuja tulostettaessa logiikka on päinvastainen
+
+```python
+luku = 42
+print(f"{luku:10}jatkuu")
+print(f"{luku:<10}jatkuu")
+```
+
+<sample-output>
+
+<pre>
+        42jatkuu
+42        jatkuu
+</pre>
+
+</sample-output>
+
+Oletusarvo lukujen yhteydessä on tulostuksen sisentyminen _oikeaan_ reunaan.
+Merkillä `<` voidaan ohjata luvun tulostus sisentymään vasempaan reunaan.
+
 </programming-exercise>
 
 <programming-exercise name='Spell checker' tmcname='osa06-07_spellchecker'>
