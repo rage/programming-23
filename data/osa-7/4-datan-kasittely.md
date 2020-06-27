@@ -6,7 +6,7 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tämän osion suoritettuasi:
+Tämän osion jälkeen:
 
 - Osaat etsiä hakemistossa olevia tiedostoja
 - Osaat käyttää moduulia CSV-tiedoston käsittelyyn
