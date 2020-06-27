@@ -6,15 +6,13 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tämän osion suoritettuasi
+Tämän osion jälkeen
 
-- Tiedät, miten päivämäärät ja kellonajat kannattaa tallentaa Pythonissa
-- Osaat muodostaa ja manipuloida `datetime`-olioita
+- Tiedät tavan käsitellä päivämääriä ja kellonaikoja Pythonissa
+- Osaat muodostaa ja käyttää `datetime`-olioita
 - Osaat vertailla päivämääriä ja kellonaikoja toisiinsa ja laskea niiden erotuksia
 
 </text-box>
-
-Tutustumme seuraavaksi moduuliin `datetime`, jonka avulla voimme käsitellä päivämääriä ja kellonaikoja. Voisimme periaatteessa toteuttaa vastaavat toiminnot itse, mutta moduulia käyttämällä selviämme helpommalla ja voimme olla varmoja, että kaikki toimii oikein (kuten karkausvuosien käsittely).
 
 ## Aikaolio
 
@@ -49,6 +47,8 @@ print(aika)
 </sample-output>
 
 Kun emme antaneet kellonaikaa, oletuksena on, että kyseessä on keskiyö.
+
+Voimme hakea aikaoliosta ajan osia tähän tapaan:
 
 ```python
 from datetime import datetime
@@ -85,11 +85,11 @@ elif nyt > juhannus:
 
 <sample-output>
 
-Ei ole vielä juhannus
+Juhannus on mennyt
 
 </sample-output>
 
-Voimme myös laskea kahden ajankohan eron vähennyslaskuna:
+Voimme myös laskea kahden ajankohdan eron vähennyslaskuna:
 
 ```python
 from datetime import datetime
@@ -97,7 +97,7 @@ from datetime import datetime
 nyt = datetime.now()
 juhannus = datetime(2020, 6, 20)
 
-ero = juhannus-nyt
+ero = juhannus - nyt
 print("Juhannukseen on vielä", ero.days, "päivää")
 ```
 
