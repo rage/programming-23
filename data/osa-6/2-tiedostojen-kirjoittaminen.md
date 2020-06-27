@@ -395,10 +395,12 @@ def hae_arvosana(haettava: str, viikkopisteet):
   for nimi, lista in viikkopisteet.items():
     if nimi == haettava:
       return arvosana(sum(lista))
-```
+
 
 viikkopisteet = lue_viikkopisteet("viikkopisteet.csv")
 print(hae_arvosana("Paula", viikkopisteet))
+
+```
 
 <sample-data>
 
@@ -406,7 +408,7 @@ print(hae_arvosana("Paula", viikkopisteet))
 
 </sample-data>
 
-Jos ohjelmasta halutaan muuttaa "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon. Jos sama logiikka, esimerkiksi arvosanan laskeminen olisi kopioitu useaan paikkaan, kasvaisi riski että muutoksia ei muistettaisi tehdä kaikkiin oikeisiin paikkoihin.
+Jos ohjelmasta halutaan muuttaa tai korjata "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon. Jos sama logiikka, esimerkiksi arvosanan laskeminen olisi kopioitu useaan paikkaan, kasvaisi riski että muutoksia ei muistettaisi tehdä kaikkiin oikeisiin paikkoihin.
 
 <programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-13_kurssin_tulokset_osa4'>
 
