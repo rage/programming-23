@@ -220,7 +220,7 @@ Pekka;40;Helsinki
 Emilia;34;Espoo
 Erkki;42;Turku
 Antti;100;Helsinki
-Liisa;58;Suonenjoku
+Liisa;58;Suonenjoki
 </sample-data>
 
 ```python
