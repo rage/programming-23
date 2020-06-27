@@ -6,14 +6,12 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tämän osion suoritettuasi
+Tämän osion jälkeen
 
 - Tunnet moduulin `random` funktioita
 - Osaat hyödyntää satunnaisuutta omissa ohjelmissasi
 
 </text-box>
-
-Tutustumme seuraavaksi moduuliin `random`, jossa on satunnaisuuteen liittyviä funktioita.
 
 ## Luvun arpominen
 
@@ -162,11 +160,9 @@ print(randint(1, 100))
 
 Kun annamme siemenarvon itse, satunnaisuutta käyttävät funktiot antavat samat tulokset ohjelman jokaisella suorituskerralla. Kuitenkin tulokset voivat riippua käytetystä Pythonin versiosta.
 
-TODO: Miten tämä on oikeasti? Toimiiko satunnaisuus samalla tavalla Pythonin eri versioissa ja järjestelmissä?
-
 <text-box variant="info" name="Aito satunnaisuus">
 
-Jos tarkkoja ollaan, moduulin `random` muodostamat luvut eivät ole aitoja satunnaislukuja, vaan _pseudosatunnaislukuja_. Tietokoneen avulla on vaikea arpoa täysin satunnaisia lukuja, koska sen toiminta on kaikilta osin ennustettavissa. Lähes kaikkeen käyttöön luvut ovat kuitenkin tarpeeksi satunnaisia. Aitoja satunnaislukuja muodostettaessa lähteenä käytetään yleensä jotain tietokoneen ulkopuolista satunnaista ilmiötä, esimerkiksi radioaktiivista taustasäteilyä tai äänentasoa.
+Jos tarkkoja ollaan, moduulin `random` muodostamat luvut eivät ole aitoja satunnaislukuja, vaan _pseudosatunnaislukuja_. Tietokoneen avulla on vaikea arpoa täysin satunnaisia lukuja, koska sen toiminta on kaikilta osin ennustettavissa. Monissa käyttötarkoituksissa luvut ovat kuitenkin tarpeeksi satunnaisia. Aitoja satunnaislukuja muodostettaessa lähteenä käytetään yleensä jotain tietokoneen ulkopuolista satunnaista ilmiötä, esimerkiksi radioaktiivista taustasäteilyä tai äänentasoa.
 
 Lisätietoa löydät esimerkiksi sivulta <a href="https://www.random.org/randomness/">random.org</a>.
 

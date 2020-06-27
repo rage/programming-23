@@ -14,7 +14,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Python-kielen standardikirjasto muodostuu moduuleista, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme tekemään myös moduulin itse.s
+Python-kielen standardikirjasto muodostuu moduuleista, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme tekemään myös moduulin itse.
 
 ## Moduulin käyttäminen
 
