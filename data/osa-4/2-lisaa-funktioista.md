@@ -360,9 +360,60 @@ Ulompi funktiokutsu `erotus(7, 5)` palauttaa arvon 2, joka sijoitetaan muuttujan
 
 Funktioiden palauttamat arvot toimivat täysin samalla tavalla kuin mitkä tahansa arvot Pythonissa. Niitä voidaan tulostaa, sijoittaa muuttujaan, käyttää osana lausekkeita tai käyttää parametreina muissa funktiokutsuissa.
 
+## Arvon palauttaminen, return ja print
+
+Joskus aloittelija hämmentyy funktioiden paluuarvon ja funktiossa tapahtuvan tulostuksen välistä eroa. Tarkastellaan kahta versiota funktiosta, joka selvittä kahden parametrinsa maksimiarvon:
+
+```python
+def maksimi1(a, b):
+    if a>b:
+        return a
+    else 
+        return b
+
+def maksimi2(a, b):
+    if a>b:
+        print(a)
+    else 
+        print(b)
+
+vastaus = maksimi1(3, 5)
+print(vastaus)
+
+maksimi2(7, 2)
+```
+
+<sample-output>
+
+5
+7
+
+</sample-output>
+
+Molemmat funktiot näyttävät toimivan hyvin, kumpikin selvittää maksimiarvon. Funktiossa on kuitenkin eräs ratkaiseva ero. Funktioista ensimmäinen `maksimi1` _palauttaa_ selvittämänsä arvon. Se ei itse tulosta mitään, eli jos suoritetaan koodi
+
+```python
+maksimi1(3, 5)
+```
+
+ei näytä tapahtuvan mitään. Funktion paluuarvo on siis otettava talteen muuttujaan jos se halutaan tulostaa
+
+```python
+vastaus = maksimi1(3, 5)
+print(vastaus)
+```
+
+Funktioista toinen `maksimi2` taas tulostaa itse `print`-komentoa käyttäen lukujen maksimin, eli riittää kun kutsutaan
+
+```python
+maksimi2(7, 5)
+```
+
+ja maksimi tulostuu ruudulle. Tämän funktion huono puoli on kuitenkin se, että funktion selvittämää arvoa ei ole mitenkään mahdollista saada funktion ulkopuolelle muun ohjelman käsiteltäväksi. Tämän takia arvon palauttava funktio on useimmiten parempi vaihtoehto.
+
 <programming-exercise name='Luvuista suurin' tmcname='osa04-05_luvuista_suurin'>
 
-Tee funktio  luvuista_suurin`, joka saa parametriksi kolme kokonaislukua. Funktio palauttaa return-lausetta käyttäen luvuista suurimman.
+Tee funktio  `luvuista_suurin`, joka saa parametriksi kolme kokonaislukua. Funktio palauttaa return-lausetta käyttäen luvuista suurimman.
 
 Käyttöesimerkki
 
