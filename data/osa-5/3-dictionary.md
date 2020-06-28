@@ -426,7 +426,7 @@ print(henkilokunta)
 
 <sample-output>
 
-{'antti': 'lehtori', 'emilia': 'professori'}
+{'Antti': 'lehtori', 'Emilia': 'professori'}
 
 </sample-output>
 
@@ -490,7 +490,7 @@ else:
 
 <sample-output>
 
-poistettavaa henkilöä ei löytynyt henkilökunnasta
+Poistettavaa henkilöä ei löytynyt henkilökunnasta
 
 </sample-output>
 
