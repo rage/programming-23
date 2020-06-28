@@ -375,7 +375,7 @@ print(pisin_naapurijono(lista))
 
 Kirjoita funkto `isot_alkukirjaimet`, joka saa parametrikseen kokonaan pienillä kirjaimilla kirjoitetun tekstin. Funktio muuttaa kaikkien virkkeiden ensimmäisen kirjaimen isoksi. Jokainen virke alkaa kirjaimella ja päättyy pisteeseen, huutomerkkiin tai kysymysmerkkiin.
 
-Vinkki: Tarvitset tässä funktiota `upper`, joka muuntaa merkkijonon kokonaan isoiksi kirjaimiksi.
+Vinkki: Tarvitset tässä metodia `upper`, joka muuntaa merkkijonon kokonaan isoiksi kirjaimiksi.
 
 Esimerkki funktion kutsumisesta:
 
