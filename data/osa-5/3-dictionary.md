@@ -599,7 +599,7 @@ Keskipituus on 173.0
 
 Kirjoita funktio `lisaa_elokuva(rekisteri: list, nimi: str, ohjaaja: str, vuosi: int, pituus: int)`, joka lisää yhden elokuvaolion elokuvarekisteriin.
 
-Rekisteri on toteutettu listana, ja jokainen listan alkio on yksi dict-olio, eli sanakirja. Sanakirjassa on seuraavat avaimet:
+Rekisteri on toteutettu listana, ja jokainen listan alkio on yksi sanakirja. Sanakirjassa on seuraavat avaimet:
 
 * nimi
 * ohjaaja
