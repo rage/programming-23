@@ -12,6 +12,8 @@ Tämän osion jälkeen
 
 </text-box>
 
+Tähän lukuun on koottu vielä joukko erinäisiä hyödyllisiä Pythoniin liittyviä ominaisuuksia.
+
 ## Yhden rivin ehto
 
 Seuraavat koodit toimivat samalla tavalla:
@@ -28,6 +30,21 @@ print("parillinen" if x%2 == 0 else "pariton")
 ```
 
 Jälkimmäisessä koodissa on yhden rivin ehto muotoa `a if [ehto] else b`. Tällaisen lausekkeen arvo on `a`, jos ehto pätee, ja muuten `b`.
+
+Sama rakenne on joskus hyödyllinen kun tehdään ehdollinen sijoituslause. Esimerkiksi jos haluaisimme joko kasvataa muuttujaa `y` tai nollata sen riippuen muuttujan `x` arvon parillisuudesta, sensijaan että kirjoittaisimme
+
+```python
+if x%2 == 0:
+    y += 1
+else:
+    y = 0
+```
+
+sama voitaisiin tehdä yhden rivin ehdolla seuraavasti
+
+```python
+y = y + 1 if x%2 == 0 else 0
+```
 
 ## Tyhjä komento
 

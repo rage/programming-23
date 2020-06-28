@@ -14,7 +14,9 @@ Tämän osion jälkeen
 
 </text-box>
 
-Python-kielen standardikirjasto muodostuu moduuleista, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme tekemään myös moduulin itse.
+Python-kieli sisältää itsessään joukon valmiita funktioita, esimerkiksi merkkijonojen ja listojen pituuden kertovan funktion `len`, alkioiden summan laskevan funktion `sum`. Python-kielen _standardikirjasto_ on kokoelma monenlaista hyödyllisiä funktioita ja olioita joiden avulla kielen "ilmaisuvoimaa" on helppo laajentaa. Olemme jo käyttäneet muutamassa tehtävässä standardikirjastosta joitan matemaattisia operaatioita tarjoavia funktiota, esim. neliöjuurten laskemisessa.
+
+Standardikirjasto muodostuu _moduuleista_, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme tekemään myös moduulin itse.
 
 ## Moduulin käyttäminen
 
@@ -26,7 +28,7 @@ import math
 # luvun 5 neliöjuuri
 print(math.sqrt(5))
 # luvun 8 logaritmi (2-kantainen)
-print(math.log(8,2))
+print(math.log(8, 2))
 ```
 
 <sample-output>

@@ -126,7 +126,7 @@ print(aika.strftime("%m.%d.%Y"))
 
 </sample-output>
 
-Ajan muotoilussa käytetään tiettyjä kirjainlyhenteitä. Seuraavassa listassa on joitakin mahdollisia lyhenteitä (täydellinen lista on Pythonin dokumentaatiossa):
+Ajan muotoilussa käytetään tiettyjä kirjainlyhenteitä. Seuraavassa listassa on joitakin mahdollisia lyhenteitä (täydellinen lista on Pythonin [dokumentaatiossa](https://docs.python.org/3/library/time.html#time.strftime)):
 
 Lyhenne | Merkitys
 :-------|:--------

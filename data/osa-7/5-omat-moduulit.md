@@ -16,15 +16,15 @@ Tämän osion jälkeen
 Omien moduulien tekeminen on helppoa Pythonissa, koska mikä tahansa Python-koodia sisältävä tiedosto voi toimia moduulina. Tarkastellaan esimerkkinä seuraavaa tiedostoa `sanat.py`:
 
 ```python
-def eka_sana(mjono: str) -> str:
+def eka_sana(mjono: str):
     osat = mjono.split(" ")
     return osat[0]
 
-def vika_sana(mjono: str) -> str:
+def vika_sana(mjono: str):
     osat = mjono.split(" ")
     return osat[-1]
 
-def sanojen_maara(mjono: str) -> int:
+def sanojen_maara(mjono: str):
     osat = mjono.split(" ")
     return len(osat)
 ```
@@ -49,7 +49,7 @@ hississä
 
 </sample-output>
 
-Huomaa, että jotta moduuli ottaa käyttöön `import`-lauseella, sen pitää sijaita joko samassa hakemistossa ohjelman kanssa tai jossakin Pythonin oletushakemistossa
+Huomaa moduulin kooditiedoston pitää sijaita joko samassa hakemistossa ohjelman kanssa tai jossakin Pythonin oletushakemistossa jotta sen voi ottaa käyttöön `import`-komennolla.
 
 Voimme käyttää omaa moduulia samalla periaatteella kuin standardikirjaston moduuleja. Esimerkiksi näin:
 
@@ -85,15 +85,15 @@ Jos moduulissa on päätason koodia, joka ei ole funktion sisällä, koodi suori
 Oletetaan, että `sanat.py`-tiedostoon on kirjoitettu muutama testitapaus:
 
 ```python
-def eka_sana(mjono: str) -> str:
+def eka_sana(mjono: str):
     osat = mjono.split(" ")
     return osat[0]
 
-def vika_sana(mjono: str) -> str:
+def vika_sana(mjono: str):
     osat = mjono.split(" ")
     return osat[-1]
 
-def sanojen_maara(mjono: str) -> int:
+def sanojen_maara(mjono: str):
     osat = mjono.split(" ")
     return len(osat)
 

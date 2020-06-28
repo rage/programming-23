@@ -251,7 +251,7 @@ Traceback (most recent call last):
 UnboundLocalError: local variable 'vanhin' referenced before assignment
 ```
 
-Syynä virheelle on se, että jälkimäistä for-silmukkaa ei suoriteta ollenkaan, sillä tiedoston lukeminen for:illa onnistuu vain kerran, tämän jälkeen ollaan päästy "tiedoston loppuun", ja vaikka yritetään lukea tiedostosta lisää jälkimmäisessä forissa, tietoon ei päästä enää käsiksi.
+Syynä virheelle on se, että jälkimmäistä for-silmukkaa ei suoriteta ollenkaan, sillä tiedoston lukeminen for:illa onnistuu vain kerran, tämän jälkeen ollaan päästy "tiedoston loppuun", ja vaikka yritetään lukea tiedostosta lisää jälkimmäisessä forissa, tietoon ei päästä enää käsiksi.
 
 Tiedosto onkin avattava uudelleen komennolla `open` toista lukukertaa varten:
 
