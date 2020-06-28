@@ -74,7 +74,7 @@ Keskiarvo: 10.15
 Listan alkiot voivat olla myös listoja:
 
 ```python
-lista = [[5,2,3],[4,1],[2,2,5,1]]
+lista = [[5, 2, 3], [4, 1], [2, 2, 5, 1]]
 print(lista)
 print(lista[1])
 print(lista[1][0])
@@ -131,13 +131,13 @@ Esimerkiksi matriisi
 voitaisiin mallintaa kaksiulotteisena listana näin:
 
 ```python
-matriisi = [[1,2,3], [3,2,1], [4,5,6]]
+matriisi = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]
 ```
 
 Koska matriisi on lista listoja, matriisin alkioihin viitataan käyttämällä peräkkäisiä hakasulkuja. Ensimmäinen indeksi viittaa riviin ja toinen sarakkeeseen. Niinpä esimerkiksi `m[0][1]` tarkoittaa ensimmäisen rivin toista alkiota (kun muistetaan, että indeksointi alkaa nollasta).
 
 ```python
-matriisi = [[1,2,3], [3,2,1], [4,5,6]]
+matriisi = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]
 
 print(matriisi[0][1])
 matriisi[1][0] = 10
@@ -154,7 +154,7 @@ print(matriisi)
 Voimme käydä läpi matriisin rivit `for`-silmukalla. Esimerkiksi seuraava koodi tulostaa matriisin rivit allekkain:
 
 ```python
-matriisi = [[1,2,3], [4,5,6], [7,8,9]]
+matriisi = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 for rivi in matriisi:
     print(rivi)
@@ -171,7 +171,7 @@ for rivi in matriisi:
 Seuraava koodi puolestaan tulostaa matriisin alkiot yksitellen kahden `for`-silmukan avulla:
 
 ```python
-matriisi = [[1,2,3], [4,5,6], [7,8,9]]
+matriisi = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 for rivi in matriisi:
     print("uusi rivi")
@@ -218,7 +218,7 @@ Ulompi silmukka käy `range`-funktion avulla läpi arvot nollasta matriisin pitu
 
 <programming-exercise name='Alkioiden määrä' tmcname='osa05-01_alkoiden_maara'>
 
-Tee funktio `laske_alkiot(matriisi: list, alkio: int)`, joka saa parametrikseen kaksiulotteisen kokonaislukutaulukon. Funktio laskee kuinka monta annetun alkion mukaista arviota taulukosta löytyy.
+Tee funktio `laske_alkiot(matriisi: list, alkio: int)`, joka saa parametrikseen kaksiulotteisen kokonaislukutaulukon. Funktio laskee, kuinka monta annetun alkion mukaista arviota taulukosta löytyy.
 
 Esimerkiksi
 
@@ -245,15 +245,15 @@ voitaisiin esittää seuraavana matriisina:
 
 ```python
 sudoku = [
-  [ 9, 0, 0, 0, 8, 0, 3, 0, 0 ],
-  [ 0, 0, 0, 2, 5, 0, 7, 0, 0 ],
-  [ 0, 2, 0, 3, 0, 0, 0, 0, 4 ],
-  [ 0, 9, 4, 0, 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 7, 3, 0, 5, 6, 0 ],
-  [ 7, 0, 5, 0, 6, 0, 4, 0, 0 ],
-  [ 0, 0, 7, 8, 0, 3, 9, 0, 0 ],
-  [ 0, 0, 1, 0, 0, 0, 0, 0, 3 ],
-  [ 3, 0, 0, 0, 0, 0, 0, 0, 2 ],
+  [9, 0, 0, 0, 8, 0, 3, 0, 0],
+  [0, 0, 0, 2, 5, 0, 7, 0, 0],
+  [0, 2, 0, 3, 0, 0, 0, 0, 4],
+  [0, 9, 4, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 7, 3, 0, 5, 6, 0],
+  [7, 0, 5, 0, 6, 0, 4, 0, 0],
+  [0, 0, 7, 8, 0, 3, 9, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0, 0, 3],
+  [3, 0, 0, 0, 0, 0, 0, 0, 2]
 ]
 ```
 
@@ -294,35 +294,35 @@ Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaha
 
 <programming-exercise name='Go' tmcname='osa05-02_go'>
 
-Go-pelissä lisätään vuorotellen mustia ja valkoisia kiviä pelilaudalle. Se pelaaja, jolla on enemmän kiviä laudalla pelin lopuksi voittaa.
+Go-pelissä lisätään vuorotellen mustia ja valkoisia kiviä pelilaudalle. Pelin voittaa se pelaaja, jolla on enemmän kiviä laudalla pelin lopuksi.
 
 Kirjoita funktio `kumpi_voitti(pelilauta: list)`, joka saa parametrikseen kaksiulotteisen taulukon, joka kuvaa pelilautaa. Taulukko koostuu kokonaisluvuista seuraavasti:
 
-0 - Tyhjä ruutu
-1 - Pelaajan 1 nappula
-2 - Pelaajan 2 nappula
+* 0: tyhjä ruutu
+* 1: pelaajan 1 nappula
+* 2: pelaajan 2 nappula
 
 Esimerkissä pelilaudan koko voi olla mikä tahansa.
 
-Funktio palauttaa arvon 1 tai 2 jos pelaaja 1 tai pelaaja 2 on voittanut pelin. Jos molemmilla pelaajilla on yhtä paljon nappuloita laudalla, funktio palauttaa arvon 0.
+Funktio palauttaa arvon 1, jos pelaaja 1 on voittanut pelin, ja arvon 2, jos pelaaja 2 on voittanut pelin. Jos molemmilla pelaajilla on yhtä paljon nappuloita laudalla, funktio palauttaa arvon 0.
 
 </programming-exercise>
 
 <programming-exercise name='Sudoku: rivit oikein' tmcname='osa05-03_sudoku_osa1'>
 
-Tee funktio `rivi_oikein(sudoku: list, rivi: int)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja rivin numeron kertovan kokonaisluvun (rivit on numeroitu nollasta alkaen). Metodi palauttaa tiedon siitä onko rivi oikein täytetty eli löytyykö riviltä kukin luvuista 1-9 korkeintaan kerran.
+Tee funktio `rivi_oikein(sudoku: list, rivi: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja rivin numeron kertovan kokonaisluvun (rivit on numeroitu nollasta alkaen). Metodi palauttaa tiedon, onko rivi oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
 
 ```python
 sudoku = [
-  [ 9, 0, 0, 0, 8, 0, 3, 0, 0 ],
-  [ 2, 0, 0, 2, 5, 0, 7, 0, 0 ],
-  [ 0, 2, 0, 3, 0, 0, 0, 0, 4 ],
-  [ 2, 9, 4, 0, 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 7, 3, 0, 5, 6, 0 ],
-  [ 7, 0, 5, 0, 6, 0, 4, 0, 0 ],
-  [ 0, 0, 7, 8, 0, 3, 9, 0, 0 ],
-  [ 0, 0, 1, 0, 0, 0, 0, 0, 3 ],
-  [ 3, 0, 0, 0, 0, 0, 0, 0, 2 ],
+  [9, 0, 0, 0, 8, 0, 3, 0, 0],
+  [2, 0, 0, 2, 5, 0, 7, 0, 0],
+  [0, 2, 0, 3, 0, 0, 0, 0, 4],
+  [2, 9, 4, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 7, 3, 0, 5, 6, 0],
+  [7, 0, 5, 0, 6, 0, 4, 0, 0],
+  [0, 0, 7, 8, 0, 3, 9, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0, 0, 3],
+  [3, 0, 0, 0, 0, 0, 0, 0, 2]
 ]
 
 print(rivi_oikein(sudoku, 0))
@@ -340,19 +340,19 @@ False
 
 <programming-exercise name='Sudoku: sarakkeet oikein' tmcname='osa05-04_sudoku_osa2'>
 
-Tee funktio `sarake_oikein(sudoku: list, sarake: int)`  joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja sarakkeen (eli pystyrivin) numeron kertovan kokonaisluvun. Metodi palauttaa tiedon siitä onko sarake oikein täytetty ts. löytyykö siltä kukin luvuista 1-9 korkeintaan kerran.
+Tee funktio `sarake_oikein(sudoku: list, sarake: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja sarakkeen (eli pystyrivin) numeron kertovan kokonaisluvun. Metodi palauttaa tiedon, onko sarake oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
 
 ```python
 sudoku = [
-  [ 9, 0, 0, 0, 8, 0, 3, 0, 0 ],
-  [ 2, 0, 0, 2, 5, 0, 7, 0, 0 ],
-  [ 0, 2, 0, 3, 0, 0, 0, 0, 4 ],
-  [ 2, 9, 4, 0, 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 7, 3, 0, 5, 6, 0 ],
-  [ 7, 0, 5, 0, 6, 0, 4, 0, 0 ],
-  [ 0, 0, 7, 8, 0, 3, 9, 0, 0 ],
-  [ 0, 0, 1, 0, 0, 0, 0, 0, 3 ],
-  [ 3, 0, 0, 0, 0, 0, 0, 0, 2 ],
+  [9, 0, 0, 0, 8, 0, 3, 0, 0],
+  [2, 0, 0, 2, 5, 0, 7, 0, 0],
+  [0, 2, 0, 3, 0, 0, 0, 0, 4],
+  [2, 9, 4, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 7, 3, 0, 5, 6, 0],
+  [7, 0, 5, 0, 6, 0, 4, 0, 0],
+  [0, 0, 7, 8, 0, 3, 9, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0, 0, 3],
+  [3, 0, 0, 0, 0, 0, 0, 0, 2]
 ]
 
 print(sarake_oikein(sudoku, 0))
@@ -370,21 +370,21 @@ True
 
 <programming-exercise name='Sudoku: neliöt oikein' tmcname='osa05-05_sudoku_osa3'>
 
-Tee funktio `nelio_oikein(sudoku: list, rivi, int, sarake: int)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon sekä yhden taulukon paikan kertovat rivi- ja sarakenumerot.
+Tee funktio `nelio_oikein(sudoku: list, rivi: int, sarake: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon sekä yhden ruudun paikan kertovat rivi- ja sarakenumerot.
 
-Funktio kertoo onko parametrina saadusta rivi/sarakenumerosta alkava 3x3-kokoinen neliö oikein täytetty ts. löytyykö siltä kukin luvuista 1-9 korkeintaan kerran.
+Funktio kertoo onko parametrina saadusta rivi/sarakenumerosta alkava 3x3-kokoinen neliö oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
 
 ```python
 sudoku = [
-  [ 9, 0, 0, 0, 8, 0, 3, 0, 0 ],
-  [ 2, 0, 0, 2, 5, 0, 7, 0, 0 ],
-  [ 0, 2, 0, 3, 0, 0, 0, 0, 4 ],
-  [ 2, 9, 4, 0, 0, 0, 0, 0, 0 ],
-  [ 0, 0, 0, 7, 3, 0, 5, 6, 0 ],
-  [ 7, 0, 5, 0, 6, 0, 4, 0, 0 ],
-  [ 0, 0, 7, 8, 0, 3, 9, 0, 0 ],
-  [ 0, 0, 1, 0, 0, 0, 0, 0, 3 ],
-  [ 3, 0, 0, 0, 0, 0, 0, 0, 2 ],
+  [9, 0, 0, 0, 8, 0, 3, 0, 0],
+  [2, 0, 0, 2, 5, 0, 7, 0, 0],
+  [0, 2, 0, 3, 0, 0, 0, 0, 4],
+  [2, 9, 4, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 7, 3, 0, 5, 6, 0],
+  [7, 0, 5, 0, 6, 0, 4, 0, 0],
+  [0, 0, 7, 8, 0, 3, 9, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0, 0, 3],
+  [3, 0, 0, 0, 0, 0, 0, 0, 2]
 ]
 
 print(nelio_oikein(sudoku, 0, 0))
@@ -418,7 +418,7 @@ Toisen funktiokutsun tarkastelema kohdasta riviltä 1 ja sarakkeesta 2 alkava ne
 
 <programming-exercise name='Sudoku: ruudukko oikein' tmcname='osa05-06_sudoku_osa4'>
 
-Tee funktio `sudoku_oikein(sudoku: list)` joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kolmen tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon) onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, jokainen sarake sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1-9.
+Tee funktio `sudoku_oikein(sudoku: list)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kolmen tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon), onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, jokainen sarake sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1–9.
 
 Huom: ylempänä olevaan sudokuruudukkoa esittävään kuvaan on merkitty ne 3x3-neliöt, joita sudokua ratkaistessa tulee tarkastella.
 
