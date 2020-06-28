@@ -8,7 +8,7 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät mitä tarkoitetaan viittaustyyppisellä muuttujalla
+- Tiedät, mitä tarkoitetaan viittaustyyppisellä muuttujalla
 - Tiedät, että samaan olioon voi olla useampia viittauksia
 - Osaat käyttää listoja funktioiden parametreina
 - Tiedät, mitä tarkoitetaan funktion sivuvaikutuksella
@@ -23,10 +23,10 @@ Viittausta voidaan kuvata nuolena muuttujasta sen varsinaiseen arvoon:
 
 <img src="5_2_1.png">
 
-Viittaus siis kertoo mistä varsinainen arvo löytyy. Muuttujan "varsinaiseen" arvoon eli viittaukseen pääsee käsiksi funktiolla `id`
+Viittaus siis kertoo, mistä varsinainen arvo löytyy. Funktio `id` kertoo, mihin muuttuja viittaa:
 
 ```python
-a = [1,2,3]
+a = [1, 2, 3]
 print(id(a))
 b = "Tämäkin on viittaus"
 print(id(a))
@@ -46,7 +46,7 @@ Monet Pythonin sisäänrakennetut tyypit, kuten `str`, ovat _muuttumattomia_. T�
 <img src="5_2_2.png">
 
 
-Pythonissa on myös monia tyyppejä, jotka ovat muuttuvia. Esimerkiksi listan sisältö voi muuttua ilman, että tarvitsee luoda kokonaan uusi lista:
+Pythonissa on myös tyyppejä, jotka ovat muuttuvia. Esimerkiksi listan sisältö voi muuttua ilman, että tarvitsee luoda kokonaan uusi lista:
 
 <img src="5_2_3.png">
 
@@ -90,7 +90,7 @@ Vaikka perustietotyypit `int`, `float` ja `bool` ovat viittauksia, ohjelmoijan e
 Tarkastellaan esimerkkinä listamuuttujan arvon kopiointia:
 
 ```python
-a = [1,2,3]
+a = [1, 2, 3]
 b = a
 b[0] = 10
 ```
@@ -104,7 +104,7 @@ Sijoitus `b = a` siis kopioi viittauksen, minkä seurauksena kopioinnin jälkeen
 Listaa voidaan käsitellä kumman tahansa viittauksen avulla:
 
 ```python
-lista = [1,2,3,4]
+lista = [1, 2, 3, 4]
 lista2 = lista
 
 lista[0] = 10
@@ -132,7 +132,7 @@ lista = [1, 2, 3, 3, 5]
 
 kopio = []
 for alkio in lista:
-  kopio.append(alkio)
+    kopio.append(alkio)
 
 kopio[0] = 10
 kopio.append(6)
@@ -147,7 +147,7 @@ kopio [10, 2, 3, 3, 5, 6]
 
 </sample-output>
 
-Helpompi tapa listan kopiomiseen on hyödyntää `[]`-operaattoria, johon tutustuimme aiemmin kurssilla. Merkintä `[:]` tarkoittaa, että listalta valitaan kaikki alkiot, ja tämän sivuvaikutuksena syntyy kopio listasta:
+Helpompi tapa listan kopioimiseen on hyödyntää `[]`-operaattoria, johon tutustuimme aiemmin kurssilla. Merkintä `[:]` tarkoittaa, että listalta valitaan kaikki alkiot, ja tämän sivuvaikutuksena syntyy kopio listasta:
 
 ```python
 lista = [1,2,3,4]
@@ -237,15 +237,15 @@ funktion jälkeen: [1, 2, 3]
 
 Jostain syystä funktio ei kuitenkaan näytä toimivan. Mistä on kyse?
 
-Funktiolle on välitetty parametrina _viite_ muutettavaan listaan. Sijoitus `lista = uusilista` saa aikaan sen, että parametriin talletettu viite muuttaa arvoaan funktion sisällä, eli se alkaa viittaamaan funktion sisällä luotuun uuteen listaan. Sijoitus ei kuitenkaan vaikuta funktion ulkopuolelle, siellä viitataan edelleen alkuperäiseen listaan.
+Funktiolle on välitetty parametrina _viite_ muutettavaan listaan. Sijoitus `lista = uusilista` saa aikaan sen, että parametriin talletettu viite muuttaa arvoaan funktion sisällä eli se alkaa viitata funktion sisällä luotuun uuteen listaan. Sijoitus ei kuitenkaan vaikuta funktion ulkopuolelle, siellä viitataan edelleen alkuperäiseen listaan.
 
 Seuraava kuvasarja havainnollistaa, mihin eri muuttujat viittaavat ohjelman suorituksen aikana:
 
 <img src="5_2_6.png" width="400">
 
-Funktion sisällä muutettu lista siis "kadotetaan" kun funktiosta palataan, muuttuja `luvut` viittaa koko ajan alkuperäiseen listaan.
+Funktion sisällä muutettu lista siis "kadotetaan" kun funktiosta palataan, ja muuttuja `luvut` viittaa koko ajan alkuperäiseen listaan.
 
-Eräs tapa korjata ongelma on kopioida uuden listan kaikki alkiot takaisin vanhaan listaan:
+Yksi tapa korjata ongelma on kopioida uuden listan kaikki alkiot takaisin vanhaan listaan:
 
 ```python
 def kasvata_kaikkia(lista: list):
@@ -261,8 +261,8 @@ def kasvata_kaikkia(lista: list):
 Pythonissa on olemassa myös ovela tapa sijoittaa monta alkiota kerrallaan listaan:
 
 ```python
->>> lista = [1,2,3,4]
->>> lista[1:3] = [ 10, 20 ]
+>>> lista = [1, 2, 3, 4]
+>>> lista[1:3] = [10, 20]
 >>> lista
 [1, 10, 20, 4]
 ```
@@ -272,7 +272,7 @@ Esimerkissä siis sijoitetaan "osalistaan" eli listan kohtiin 1 ja 2 taulukollin
 Osalistaksi voidaan myös valita koko lista:
 
 ```python
->>> lista = [1,2,3,4]
+>>> lista = [1, 2, 3, 4]
 >>> lista[:] = [100, 99, 98, 97]
 >>> lista
 [100, 99, 98, 97]
@@ -291,23 +291,23 @@ def kasvata_kaikkia(lista: list):
 
 <programming-exercise name='Sudoku: ruudukon tulostus ja luvun lisäys' tmcname='osa05-07_sudoku_osa5'>
 
-Tässä tehtävässä toteutetaan vielä kaksi funktiota sudokua varten `tulosta` ja `lisays`.
+Tässä tehtävässä toteutetaan vielä kaksi funktiota sudokua varten: `tulosta` ja `lisays`.
 
-Funktio `tulosta` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja tulostaa sen alla olevan esimerkkituostuksen mukaisessa muodossa.
+Funktio `tulosta` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen listan ja tulostaa sen alla olevan esimerkkitulostuksen mukaisessa muodossa.
 
-Funktio `lisays` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon, rivi- ja sarakenumerot sekä luvun väliltä 1-9. Funktio lisää luvun parametrien ilmoittamaan kohtaan sudokuruudukkoa.
+Funktio `lisays` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen listan, rivi- ja sarakenumerot sekä luvun väliltä 1–9. Funktio lisää luvun parametrien ilmoittamaan kohtaan sudokuruudukkoa.
 
 ```python
 sudoku  = [
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
 tulosta(sudoku)
@@ -315,7 +315,7 @@ lisays(sudoku, 0, 0, 2)
 lisays(sudoku, 1, 2, 7)
 lisays(sudoku, 5, 7, 3)
 print()
-print("kolme numeroa lisätty:")
+print("Kolme numeroa lisätty:")
 print()
 tulosta(sudoku)
 ```
@@ -335,7 +335,7 @@ _ _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _
 
-kolme numeroa lisätty:
+Kolme numeroa lisätty:
 
 2 _ _  _ _ _  _ _ _
 _ _ 7  _ _ _  _ _ _
@@ -359,35 +359,35 @@ _ _ _  _ _ _  _ _ _
 
 Viimeisessä sudokua käsittelevässä tehtävässä toteutetaan hieman erilainen versio funktiosta, jonka avulla sudokuruudukkoon lisätään uusia lukuja.
 
-Funktio `kopioi_ja_lisaa` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon, rivi- ja sarakenumerot sekä luvun väliltä 1-9. Funktio _palauttaa_ kopion parametrina olevasta sudokuruudukosta, johon parametrien ilmoittama määrittelemä luku on lisätty. Funktio _ei saa muuttaa_ parametrina annettua sudokuruudukkoa.
+Funktio `kopioi_ja_lisaa` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen listan, rivi- ja sarakenumerot sekä luvun väliltä 1–9. Funktio _palauttaa_ kopion parametrina olevasta sudokuruudukosta, johon parametrien ilmoittama määrittelemä luku on lisätty. Funktio _ei saa muuttaa_ parametrina annettua sudokuruudukkoa.
 
-Seuraavassa edellisen tehtävän funktiota _tulosta_ hyödyntävä käyttöesimerkki:
+Seuraavassa on edellisen tehtävän funktiota `tulosta` hyödyntävä käyttöesimerkki:
 
 ```python
 sudoku  = [
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
 kopio = kopioi_ja_lisaa(sudoku, 0, 0, 2)
-print("alkuperäinen:")
+print("Alkuperäinen:")
 tulosta(sudoku)
 print()
-print("kopio:")
+print("Kopio:")
 tulosta(kopio)
 ```
 
 <sample-output>
 
 <pre>
-alkuperäinen:
+Alkuperäinen:
 _ _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _
@@ -400,7 +400,7 @@ _ _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _
 
-kopio:
+Kopio:
 2 _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _
@@ -419,22 +419,22 @@ _ _ _  _ _ _  _ _ _
 
 <programming-exercise name='Ristinolla' tmcname='osa05-09_ristinolla'>
 
-Ristinollaa pelataan 3 x 3 -kokoisella ruudukolla, johon pelaajat merkitsevät vuorotellen ristin tai nollan. Se pelaaja, joka saa ensimmäisenä kolme merkkiä pystyyn, vaakaan tai kulmittain voittaa pelin. Peli päättyy tasapeliin, jos kumpikaan pelaaja ei saa kolmen sarjaa.
+Ristinollaa pelataan 3 x 3 -kokoisella ruudukolla, johon pelaajat merkitsevät vuorotellen ristin tai nollan. Pelin voittaa se pelaaja, joka saa ensimmäisenä kolme merkkiä pystyyn, vaakaan tai kulmittain. Peli päättyy tasapeliin, jos kumpikaan pelaaja ei saa kolmen sarjaa.
 
-Kirjoita funktio `pelaa_siirto(lauta: list[list[string]], x: int, y: int, nappula: str)`, jossa sijoitetaan annettu pelinappula annetuihin koordinaatteihin pelilaudalla. Koordinaatien arvot ovat väliltä 0..2.
+Kirjoita funktio `pelaa_siirto(lauta: list, x: int, y: int, nappula: str)`, jossa sijoitetaan annettu pelinappula annetuihin koordinaatteihin pelilaudalla. Koordinaatien arvot ovat väliltä 0..2.
 
 Pelilauta koostuu merkkijonoista seuraavasti:
 
-`""`  - Tyhjä ruutu
-`"X"` - Pelaajan 1 merkki
-`"O"` - Pelaajan 2 merkki
+* `""`: tyhjä ruutu
+* `"X"`: pelaajan 1 merkki
+* `"O"`: pelaajan 2 merkki
 
-Funktio palauttaa arvon true, jos nappulan saatiin sijoitettua laudalle (ts. jos paikka oli tyhjä), ja arvon false, jos paikka oli varattu TAI jos koordinaatin arvo oli liian pieni tai suuri (ts. ei väliltä 0..2).
+Funktio palauttaa arvon `True`, jos nappulan saatiin sijoitettua laudalle (eli jos paikka oli tyhjä), ja arvon `False`, jos paikka oli varattu TAI jos koordinaatin arvo oli liian pieni tai suuri (eli ei väliltä 0..2).
 
-Esimerkiksi
+Esimerkiksi:
 
 ```python
-lauta = [["","",""], ["","",""], ["","",""]]
+lauta = [["", "", ""], ["", "", ""], ["", "", ""]]
 print(pelaa_siirto(lauta, 2, 0, "X"))
 print(lauta)
 ```
@@ -450,9 +450,9 @@ True
 
 <programming-exercise name='Matriisin kääntö' tmcname='osa05-10_matriisin_kaanto'>
 
-Kirjoita funktio transponoi(matriisi: list), joka saa parametrikseen kaksiulotteisen kokonaislukuja sisältävän taulukon eli matriisin. Funktio _transponoi_ matriisin eli muuntaa rivit sarakkeiksi ja päinvastoin.
+Kirjoita funktio `transponoi(matriisi: list)`, joka saa parametrikseen kaksiulotteisen kokonaislukuja sisältävän taulukon eli matriisin. Funktio _transponoi_ matriisin eli muuntaa rivit sarakkeiksi ja päinvastoin.
 
-Voit olettaa, että matriisissa on yhtä monta riviä kuin sarakettakin (eli matriisi on ns. _neliömatriisi_).
+Voit olettaa, että matriisissa on yhtä monta riviä kuin sarakettakin (eli matriisi on _neliömatriisi_).
 
 Esimerkiksi matriisista
 
@@ -462,7 +462,7 @@ Esimerkiksi matriisista
 7 8 9
 ```
 
-...tulisi transponoinnin jälkeen tällainen:
+tulisi transponoinnin jälkeen tällainen:
 
 ```python
 1 4 7
@@ -486,7 +486,7 @@ def toiseksi_pienin(lista: list) -> int:
     lista.sort()
     return lista[1]
 
-luvut = [1,4,2,5,3,6,4,7]
+luvut = [1, 4, 2, 5, 3, 6, 4, 7]
 print(toiseksi_pienin(luvut))
 print(luvut)
 ```
@@ -505,7 +505,7 @@ def toiseksi_pienin(lista: list) -> int:
     kopio = sorted(lista)
     return kopio[1]
 
-luvut = [1,4,2,5,3,6,4,7]
+luvut = [1, 4, 2, 5, 3, 6, 4, 7]
 print(toiseksi_pienin(luvut))
 print(luvut)
 ```
