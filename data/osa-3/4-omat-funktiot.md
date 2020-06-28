@@ -212,7 +212,7 @@ Jos tehtävänannossa ei ole erityisesti käsketty kirjoittamaan tiettyja funkti
 
 <in-browser-programming-exercise name="Risuneliö" tmcname="osa03-23_risunelio">
 
-Tee funktio `risunelio(pituus)` joka saa parametriksi kokonaisluvun, joka kertoo kuinka kuinka suuri risuneliö funktion pitää tulostaa:
+Tee funktio `risunelio(pituus)` joka saa parametriksi kokonaisluvun, joka kertoo kuinka suuri risuneliö funktion pitää tulostaa:
 
 ```python
 risunelio(3)
