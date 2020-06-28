@@ -28,7 +28,7 @@
     "points":"Pisteitä",
     "submitNB":"Huom! Joissakin tehtävissä voit saada yksittäisen osan ratkaisusta osan tehtävän pisteistä käyttämällä editorin 'Submit'-nappia.",
     "installationGuideLink":"",
-    "submitHowTo":"Ohjeet tehtävien palauttamiseen",
+    "submitHowTo":"",
     "loginForExercise":"Kirjaudu sisään nähdäksesi tehtävänannon",
     "loginToSeeExercisePoints": "Kirjaudu sisään nähdäksesi tehtäväpisteet.",
     "submitNetBeans":"Palauta tehtävä palvelimelle tarkistettavaksi NetBeans ohjelmointiympäristössä:",
