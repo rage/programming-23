@@ -15,7 +15,7 @@ Tämän osion jälkeen:
 
 ## Tiedostojen etsiminen
 
-Moduulin `glob` avulla voi etsiä hakemistossa olevat tiedostot, joiden nimellä on annettu formaatti. Esimerkiksi seuraava koodi etsii tiedostot, joiden pääte on `.py` (eli kyseessä on Python-tiedosto):
+Moduulin [glob](https://docs.python.org/3/library/glob.html?highlight=glob#module-glob) avulla voi etsiä hakemistossa olevat tiedostot, joiden nimellä on annettu formaatti. Esimerkiksi seuraava koodi etsii tiedostot, joiden pääte on `.py` (eli kyseessä on Python-tiedosto):
 
 ```python
 from glob import glob
@@ -39,7 +39,7 @@ Tämä tarkoittaa, että hakemistossa on neljä Python-tiedostoa, joiden nimet o
 
 ## CSV-tiedoston lukeminen
 
-Olemme tähän mennessä käsitelleet CSV-tiedostoja omalla koodilla, mutta tähän on myös valmis moduuli `csv`, jota voi käyttää näin:
+Olemme tähän mennessä käsitelleet CSV-tiedostoja omalla koodilla, mutta tähän on myös valmis moduuli [csv](csv), jota voi käyttää näin:
 
 ```python
 import csv

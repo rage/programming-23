@@ -13,9 +13,13 @@ Tämän osion jälkeen
 
 </text-box>
 
+Tässä luvussa tutustutaan standardikirjaston moduuliin [random](https://docs.python.org/3/library/random.html?highlight=random#module-random), joka tarjoaa välineistöä satunnaislukujen generointiin ja muun satunnaisen toiminnallisuuteen. Satunnaisuutta tarvitaan erityisesti pelejä ohjelmoitaessa.
+
+Tässä ja seuraavissa luvuissa esiteltävien funktioiden yhteyteen on lisäilty linkkejä standardikirjaston [dokumentaatioon](https://docs.python.org/3/library/), linkkejä kannattaa klikkailla ja pikkuhiljaa totutella siihen miltä dokumentaatio näyttää.
+
 ## Luvun arpominen
 
-Funktio `randint(a, b)` antaa satunnaisen kokonaisluvun väliltä `a`...`b`. Esimerkiksi seuraava ohjelma simuloi nopan heittämistä:
+Funktio [randint(a, b)](https://docs.python.org/3/library/random.html?highlight=random#random.randint) antaa satunnaisen kokonaisluvun väliltä `a`...`b`. Esimerkiksi seuraava ohjelma simuloi nopan heittämistä:
 
 ```python
 from random import randint
@@ -61,7 +65,7 @@ Huomaa, että funktio `randint` toimii eri logiikalla kuin aiemmin käyttämämm
 
 ## Lisää funktioita
 
-Funktio `shuffle` sekoittaa sille annetun tietorakenteen. Esimerkiksi seuraava ohjelma sekoittaa listalla olevat sanat:
+Funktio [shuffle](https://docs.python.org/3/library/random.html?highlight=random#random.shuffle) sekoittaa sille annetun tietorakenteen. Esimerkiksi seuraava ohjelma sekoittaa listalla olevat sanat:
 
 ```python
 from random import shuffle
@@ -134,7 +138,7 @@ print(rivi)
 
 Tässä ideana on, että luomme ensin listan, jossa on kaikki numerot väliltä 1–40. Tämän jälkeen sekoitamme listan ja valitsemme sitten 7 ensimmäistä numeroa riviin. Tämän ansiosta meidän ei tarvitse tehdä silmukkaa.
 
-Itse asiassa voimme toteuttaa arvonnan vielä helpommin, koska Pythonin standardikirjastossa on myös funktio `sample`, joka valitsee annetusta tietorakenteesta halutun määrän alkioita:
+Itse asiassa voimme toteuttaa arvonnan vielä helpommin, koska Pythonin standardikirjastossa on myös funktio [sample](https://docs.python.org/3/library/random.html?highlight=random#random.sample), joka valitsee annetusta tietorakenteesta halutun määrän alkioita:
 
 ```python
 from random import sample
@@ -146,9 +150,9 @@ print(rivi)
 
 ## Mistä satunnaisluvut tulevat?
 
-Moduulin `random` toiminta perustuu algoritmiin, joka tuottaa satunnaislukuja tietyn lähtöarvon ja matemaattisten operaatioiden avulla. Lähtöarvoa kutsutaan myös nimellä _siemenarvo_ (engl. _seed value_).
+Moduulin [random](https://docs.python.org/3/library/random.html) toiminta perustuu algoritmiin, joka tuottaa satunnaislukuja tietyn lähtöarvon ja matemaattisten operaatioiden avulla. Lähtöarvoa kutsutaan myös nimellä _siemenarvo_ (engl. _seed value_).
 
-Voimme halutessamme antaa siemenarvon itse funktiolla `seed`:
+Voimme halutessamme antaa siemenarvon itse funktiolla [seed](https://docs.python.org/3/library/random.html?highlight=random#random.seed):
 
 ```python
 from random import randint, seed
