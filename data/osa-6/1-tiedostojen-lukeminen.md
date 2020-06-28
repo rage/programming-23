@@ -536,7 +536,7 @@ koe+harjoituspisteet   | arvosana
 18-20 | 2
 21-23 | 3
 24-27 | 4
-28-30 | 5
+28- | 5
 
 </programming-exercise>
 
