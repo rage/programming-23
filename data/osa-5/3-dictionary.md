@@ -16,7 +16,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat indekseissä 0, 1, 2, jne., tämä taas hankaloittaa tiettyjen alkioiden etsimistä listalta, löytääkseen tietyn alkion, on pahimmassa tapauksessa käytävä läpi koko lista.
+Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat indekseissä 0, 1, 2, jne. Tämä hankaloittaa alkioiden etsimistä listalta: jotta löydämme tietyn alkion, on pahimmassa tapauksessa käytävä läpi koko lista.
 
 Tutustumme seuraavaksi _sanakirjaan_, joka on listan lisäksi toinen Pythonin perustietorakenne. Sanakirjassa jokainen alkio koostuu _avaimesta_ ja _arvosta_, ja voimme etsiä ja muuttaa tietoa avaimen perusteella.
 
@@ -44,8 +44,7 @@ monkey
 
 </sample-output>
 
-Merkintä `{}` luo tyhjän sanakirjan, minkä jälkeen voimme lisätä sanakirjaan sisältöä. Tässä tapauksessa lisäämme kolme _avainta_ `"apina"`, `"banaani"` ja `"cembalo"`,
-joita vastaavat _arvot_ `"monkey"`, `"banana"` ja `"harpsichord"`. Lopuksi tulostamme koko sanakirjan sisällön ja sitten avaimen `"apina"` arvon.
+Merkintä `{}` luo tyhjän sanakirjan, minkä jälkeen voimme lisätä sanakirjaan sisältöä. Tässä tapauksessa lisäämme kolme avainta `"apina"`, `"banaani"` ja `"cembalo"`, joita vastaavat arvot `"monkey"`, `"banana"` ja `"harpsichord"`. Lopuksi tulostamme koko sanakirjan sisällön ja sitten avaimen `"apina"` arvon.
 
 Voisimme käyttää tätä sanakirjaa vaikka seuraavasti:
 
@@ -75,7 +74,7 @@ Sanaa ei löytynyt
 
 ## Mitä sanakirjassa voi olla?
 
-Vaikka tietorakenteen nimi on sanakirja, siinä ei ole usein sanakirjaa vain jotain muuta tietoa. Esimerkiksi seuraavassa sanakirjassa avaimet ovat merkkijonoja ja arvot ovat kokonaislukuja:
+Vaikka tietorakenteen nimi on sanakirja, siinä ei ole usein sanakirjaa vaan jotain muuta tietoa. Esimerkiksi seuraavassa sanakirjassa avaimet ovat merkkijonoja ja arvot ovat kokonaislukuja:
 
 ```python
 tulokset = {}
@@ -88,7 +87,7 @@ Seuraavassa sanakirjassa puolestaan avaimet ovat kokonaislukuja ja arvot ovat li
 
 ```python
 listat = {}
-listat[5] = [1, 2, 3 ]
+listat[5] = [1, 2, 3]
 listat[42] = [5, 4, 5, 4, 5]
 listat[100] = [5, 2, 3]
 ```
@@ -133,7 +132,7 @@ Huomaa, että sanakirjassa olevaa avainta vastaavan arvon ei tarvitse olla muutt
 
 <programming-exercise name='Kertaa kymmenen' tmcname='osa05-10b_kertaa_kymmenen'>
 
-Tee funktio `kertaa_kymmenen(alku: int, loppu: int)`, joka muodostaa ja palauttaa uuden sanakirjan (eli dict-olion). Sanakirjassa on avaimina luvut väliltä alku...loppu.
+Tee funktio `kertaa_kymmenen(alku: int, loppu: int)`, joka muodostaa ja palauttaa uuden sanakirjan. Sanakirjassa on avaimina luvut väliltä `alku`..`loppu`.
 
 Jokaisen avaimen arvona on avain kerrottuna kymmenellä.
 
@@ -154,9 +153,9 @@ print(d)
 
 <programming-exercise name='Kertomat' tmcname='osa05-11_kertomat'>
 
-Tee funktio `kertomat(n: int)`, joka palauttaa lukujen 1...n kertomat sanakirjassa siten, että luku on avain ja luvun kertoma arvo johon avain viittaa.
+Tee funktio `kertomat(n: int)`, joka palauttaa lukujen 1..`n` kertomat sanakirjassa siten, että luku on avain ja luvun kertoma arvo, johon avain viittaa.
 
-Muistutuksena: luvun n kertoma n! lasketaan kertomalla luku kaikilla itseään pienemmillä positiivisilla kokonaisluvuilla. Luvun 4 kertoma on siis 4 * 3 * 2 * 1 == 24.
+Muistutuksena: luvun `n` kertoma `n`! lasketaan kertomalla luku kaikilla itseään pienemmillä positiivisilla kokonaisluvuilla. Luvun 4 kertoma on siis 4 * 3 * 2 * 1 = 24.
 
 Esimerkki käytöstä:
 
@@ -179,8 +178,7 @@ print(k[5])
 
 ## Sanakirjan läpikäynti
 
-Sanakirjan läpikäyntiin voidaan käyttää totuttuun tapaan `for`-lausetta. Rakenne `for avain in sanakirja` käy läpi kaikki sanakirjan avaimet yksi kerrallaan.
-Esimerkiksi seuraava koodi tulostaa kaikki sanakirjan avaimet ja niiden arvot:
+Sanakirjan läpikäyntiin voidaan käyttää tuttuun tapaan `for`-silmukkaa. Rakenne `for avain in sanakirja` käy läpi kaikki sanakirjan avaimet yksi kerrallaan. Esimerkiksi seuraava koodi tulostaa kaikki sanakirjan avaimet ja niiden arvot:
 
 ```python
 sanakirja = {}
@@ -218,7 +216,7 @@ Huomaa, että läpikäynnissä avaimet tulevat samassa järjestyksessä kuin ne 
 
 ## Sanakirjan edistyneempi käyttö
 
-Tarkastellaan tilannetta, jossa meillä on taulukossa joukko sanoja:
+Tarkastellaan tilannetta, jossa listassa on joukko sanoja:
 
 ```python
 sanalista = [
@@ -241,7 +239,6 @@ def lukumaarat(lista):
             sanat[sana] = 0
         # kasvata sanan esiintymislukumäärää
         sanat[sana] += 1
-
     return sanat
 
 # kutsutaan funktiota
@@ -268,7 +265,6 @@ def alkukirjaimen_mukaan(lista):
             ryhmat[alkukirjain] = []
         # lisää sana alkukirjainta vastaavalle listalle
         ryhmat[alkukirjain].append(sana)
-
     return ryhmat
 
 ryhmat = alkukirjaimen_mukaan(sanalista)
@@ -318,10 +314,9 @@ kirjaimella s alkavat sanat:
 
 <programming-exercise name='Histogrammi' tmcname='osa05-12_histogrammi'>
 
-Tee funktio, joka saa parametrinä merkkiojonon ja piirtää merkkijonon eri kirjainten lukumäärää kuvaavan histogrammin, missä kirjaimen jokaista esiintymää kohti tulostuu yksi tähti kirjaimen riville.
+Tee funktio, joka saa parametrina merkkijonon ja tulostaa merkkijonon eri kirjainten lukumäärää kuvaavan histogrammin, jossa kirjaimen jokaista esiintymää kohti tulostuu yksi tähti kirjaimen riville.
 
-
-Esim. kutsuttaessa `histogrammi("abba")` tulostuu
+Esimerkiksi kutsuttaessa `histogrammi("abba")` tulostus on:
 
 <sample-output>
 
@@ -332,7 +327,7 @@ b **
 
 </sample-output>
 
-tai kutsuttaessa `histogrammi("saippuakauppias")` tulostuu
+Vastaavasti kutsuttaessa `histogrammi("saippuakauppias")` tulostus on:
 
 <sample-output>
 
@@ -415,8 +410,7 @@ nimi: **pekka**
 040-5466745
 09-22223333
 komento (1 hae, 2 lisää, 3 lopeta): **3**
-
-v
+lopetetaan...
 
 </programming-exercise>
 
@@ -425,8 +419,8 @@ v
 Sanakirjasta on mahdollista myös poistaa avain-arvo-pareja. Menetelmiä tähän on kaksi. Ensimmäinen näistä on funktio `del`:
 
 ```python
-henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
-del henkilokunta["arto"]
+henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "arto": "Lehtori"}
+del henkilokunta["Arto"]
 print(henkilokunta)
 ```
 
@@ -436,14 +430,12 @@ print(henkilokunta)
 
 </sample-output>
 
-Jos funktiota `del` kutsutaan avaimille, joita sanakirjassa ei ole:
+Jos funktiota `del` kutsutaan avaimille, joita sanakirjassa ei ole, seurauksena on virhe:
 
 ```python
-henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
-del henkilokunta["jukka"]
+henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
+del henkilokunta["Jukka"]
 ```
-
-seurauksena on virhe
 
 <sample-output>
 
@@ -451,50 +443,49 @@ seurauksena on virhe
 >>> del henkilokunta["jukka"]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-KeyError: 'jukka'
+KeyError: 'Jukka'
 </pre>
 
 </sample-output>
 
-Ennen poistoa on siis syytä tarkistaa että poistettava avain löytyy sanakirjasta:
+Ennen poistoa on siis syytä tarkistaa, että poistettava avain löytyy sanakirjasta:
 
 ```python
-henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
-if "jukka" in henkilokunta:
-  del henkilokunta["jukka"]
-  print("poistettiin")
+henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
+if "Jukka" in henkilokunta:
+  del henkilokunta["Jukka"]
+  print("Poistettiin")
 else:
-  print("poistettavaa henkilöä ei löytynyt henkilökunnasta")
+  print("Poistettavaa henkilöä ei löytynyt henkilökunnasta")
 ```
 
-Toinen vaihtoehto alkion poistamiseen on _metodi_ `pop`:
+Toinen vaihtoehto alkion poistamiseen on metodi `pop`:
 
 ```python
-henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
-poistettu = henkilokunta.pop("arto")
+henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
+poistettu = henkilokunta.pop("Arto")
 print(henkilokunta)
-print("poistettiin", poistettu)
+print("Poistettiin", poistettu)
 ```
 
 <sample-output>
 
-{'antti': 'lehtori', 'emilia': 'professori'}
-poistettiin lehtori
+{'Antti': 'lehtori', 'Emilia': 'professori'}
+Poistettiin lehtori
 
 </sample-output>
 
-Metodi `pop` siis myös palauttaa poistettua arvoa vastaavan avaimen.
+Metodi `pop` siis myös palauttaa poistettua avainta vastaavan arvon.
 
-Oletusarvoisesti myös `pop` aiheuttaa virheen, jos sanakirjasta yritetään poistaa avain, jota siellä ei ole. Metodille on kuitenkin mahdollista antaa toisena parametrina _oletusarvoinen paluuarvo_, joka palautetaan siinä tilanteessa, että poistettavaa ei löydy. Esimerkiksi arvo `None` joka tarkoittaa "ei mitään", sopii hyvin tälläisiin tilanteisiin:
-
+Oletusarvoisesti myös `pop` aiheuttaa virheen, jos sanakirjasta yritetään poistaa avain, jota siellä ei ole. Metodille on kuitenkin mahdollista antaa toisena parametrina _oletusarvoinen paluuarvo_, joka palautetaan siinä tilanteessa, kun poistettavaa ei löydy. Esimerkiksi arvo `None`, joka tarkoittaa "ei mitään", sopii hyvin tälläisiin tilanteisiin:
 
 ```python
-henkilokunta = { "antti": "lehtori", "emilia": "professori", "arto": "lehtori" }
-poistettu = henkilokunta.pop("jukka", None)
+henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
+poistettu = henkilokunta.pop("Jukka", None)
 if poistettu == None:
-  print("poistettavaa henkilöä ei löytynyt henkilökunnasta")
+  print("Poistettavaa henkilöä ei löytynyt henkilökunnasta")
 else:
-  print("poistettiin", poistettu)
+  print("Poistettiin", poistettu)
 ```
 
 <sample-output>
@@ -505,16 +496,14 @@ poistettavaa henkilöä ei löytynyt henkilökunnasta
 
 <programming-exercise name='Sanakirjan kääntö' tmcname='osa05-15_sanakirjan_kaanto'>
 
-Kirjoita funktio `kaanna(sanakirja: dict)`, joka saa parametrikseen dict-rakenteen (eli sanakirjan), ja kääntää sen niin, että arvoista tulee avaimia ja päinvastoin.
+Kirjoita funktio `kaanna(sanakirja: dict)`, joka saa parametrikseen sanakirjan ja kääntää sen niin, että arvoista tulee avaimia ja päinvastoin.
 
 Esimerkki funktion käytöstä:
 
 ```python
-
 s = {1: "eka", 2: "toka", 3: "kolmas", 4: "neljas"}
 kaanna(s)
 print(s)
-
 ```
 
 <sample-output>
@@ -527,7 +516,7 @@ print(s)
 
 <programming-exercise name='Luvut sanoina' tmcname='osa05-16_luvut_sanoina'>
 
-Kirjoita funktio `lukukirja()`, joka palauttaa uuden dict-rakenteen (eli sanakirjan). Palautetusta rakenteesta löytyy avaimina luvut nollasta 99:än. Arvoina löytyvät luvut sanallisena esityksenä. Katso esimerkkiä alla:
+Kirjoita funktio `lukukirja()`, joka palauttaa uuden sanakirjan. Palautettu rakenne sisältää avaimina luvut nollasta 99:ään. Sanakirjan arvoina ovat luvut kirjaimin kirjoitettuna. Katso esimerkkiä alla:
 
 ```python
 luvut = lukukirja()
@@ -573,7 +562,7 @@ ika = 44
 Sanakirjan etuna on kuitenkin, että se kokoaa kaikki samaan asiaan liittyvät tiedot yhteisen nimen alle, jonka kautta voimme viitata tietoihin. Periaatteessa lista tarjoaa saman edun:
 
 ```python
-henkilo = [ "Pirjo Python", 153, 61, 44 ]
+henkilo = ["Pirjo Python", 153, 61, 44]
 ```
 
 Listan huono puoli on kuitenkin, että ohjelmoijan on muistettava, mihin kohtaan listaa mikäkin arvo tallennetaan. Pitää siis muistaa esimerkiksi, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjassa olevat erilliset tiedot on tallennettu selkeästi nimetyn avaimen taakse.
@@ -610,22 +599,22 @@ Keskipituus on 173.0
 
 Kirjoita funktio `lisaa_elokuva(rekisteri: list, nimi: str, ohjaaja: str, vuosi: int, pituus: int)`, joka lisää yhden elokuvaolion elokuvarekisteriin.
 
-Rekisteri on toteutettu listana, ja jokainen listan alkio on yksi dict-olio, eli sanakirja. Sanakirjassa on avaimet
+Rekisteri on toteutettu listana, ja jokainen listan alkio on yksi dict-olio, eli sanakirja. Sanakirjassa on seuraavat avaimet:
 
-* "nimi"
-* "ohjaaja"
-* "vuosi"
-* "pituus"
+* nimi
+* ohjaaja
+* vuosi
+* pituus
 
 Arvot tulevat metodin parametreina.
 
 Esimerkki:
 
 ```python
-rek = []
-lisaa_elokuva(rek, "Pythonin viemää", "Pekka Python", 2017, 116)
-lisaa_elokuva(rek, "Python lentokoneessa", "Renny Pytholin", 2001, 94)
-print(rek)
+rekisteri = []
+lisaa_elokuva(rekisteri, "Pythonin viemää", "Pekka Python", 2017, 116)
+lisaa_elokuva(rekisteri, "Python lentokoneessa", "Renny Pytholin", 2001, 94)
+print(rekisteri)
 ```
 
 <sample-output>
@@ -638,7 +627,7 @@ print(rek)
 
 <programming-exercise name='Etsi elokuvat' tmcname='osa05-17b_etsi_elokuvat'>
 
-Kirjoita funktio `etsi_elokuvat(rekisteri: list, hakusana: str)`, joka käsitteleen edellisessä tehtävässä luotua elokuvarekisterilistaa. Funktio muodostaa uuden listan, jolle kopioidaan rekisteristä ne elokuvat, joiden nimestä löytyy hakusana. Pienet ja isot kirjaimet eivät merkitse haussa, joten hakusanalla `paj` pitää löytyä sekä elokuva `Tappajahai` että elokuva `Pajatoiminnan historia`.
+Kirjoita funktio `etsi_elokuvat(rekisteri: list, hakusana: str)`, joka käsittelee edellisessä tehtävässä luotua elokuvarekisteriä. Funktio muodostaa uuden listan, jolle kopioidaan rekisteristä ne elokuvat, joiden nimestä löytyy hakusana. Pienet ja isot kirjaimet eivät merkitse haussa, joten hakusanalla `paj` pitää löytyä sekä elokuva `Tappajahai` että elokuva `Pajatoiminnan historia`.
 
 Esimerkki:
 
