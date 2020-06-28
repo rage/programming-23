@@ -18,7 +18,7 @@ Tämän osion jälkeen
 Tuple eli monikko on listan tapainen tietorakenne. Sen olennaiset erot listaan ovat:
 
 * Tuple merkitään kaarisuluilla `(` ja `)`, lista merkitään hakasuluilla `[` ja `]`
-* Tuple on _muuttumaton_, kun listan sisältö taas voi muuttua
+* Tuple on _muuttumaton_, kun taas listan sisältö voi muuttua
 
 Esimerkiksi seuraava koodi luo tuplen, jossa on pisteen koordinaatit:
 
@@ -196,7 +196,7 @@ Tässä tapauksessa sijoitusoperaation vasemmalla puolella on tuple, jonka sisä
 (pienin, suurin) = minmax(lista)
 ```
 
-Sanakirjojen yhteydessä demonstroitiin `items`-metodiin perustuvaa tapaa käydä läpi sanakirjan kaikki avaimet ja arvot:
+Sanakirjojen yhteydessä esiteltiin `items`-metodiin perustuvaa tapaa käydä läpi sanakirjan kaikki avaimet ja arvot:
 
 ```python
 sanakirja = {}
@@ -215,7 +215,7 @@ Tässäkin Python käyttää taustalla tupleja: `sanakirja.items()` palauttaa yk
 Vielä yksi tuplen käyttötarkoitus on kahden muuttujan arvon vaihtaminen keskenään:
 
 ```python
-a, b = b, a
+luku1, luku2 = luku2, luku1
 ```
 
 Yllä oleva koodi vaihtaa keskenään muuttujien `luku1` ja `luku2` arvot, eli koodi toimii samoin kuin seuraava, apumuuttujaa käyttävä koodi:
@@ -228,7 +228,7 @@ luku1 = apu
 
 <programming-exercise name='Sanavertailu' tmcname='osa05-20_sanavertailu'>
 
-Tee funktio `vertaa(sana1: str, sana2: str)` joka saa parametrikseen kaksi samanpituista merkkijonoa. Funktio palauttaa kaksi kokonaislukua (eli käytännössä tuplen). Paluuarvon ensimmäinen luku kertoo kuinka monta merkkijonojen kirjaimista oli samoja ja samalla paikalla sijaitsevia. Paluuarvon toinen luku kertoo, kuinka monta merkkijonojen kirjaimista oli samoja, mutta sijaitsivat merkkijonoissa eri paikoilla.
+Tee funktio `vertaa(sana1: str, sana2: str)`, joka saa parametrikseen kaksi samanpituista merkkijonoa. Funktio palauttaa kaksi kokonaislukua (eli käytännössä tuplen). Paluuarvon ensimmäinen luku kertoo, kuinka monta merkkijonojen kirjaimista on samoja ja samalla paikalla sijaitsevia. Paluuarvon toinen luku kertoo, kuinka monta merkkijonojen kirjaimista on samoja, mutta sijaitsevat merkkijonoissa eri paikoilla.
 
 Esimerkkejä:
 
@@ -243,7 +243,7 @@ print(a, b)
 
 </sample-output>
 
-Molemmissa merkkijonoissa on kirjain A kohdassa 0. Molemmissa onb myös kirjaimet B ja C, mutta ne ovat eri kohdissa. Tämän takia paluuarvo on 1, 2.
+Molemmissa merkkijonoissa on kirjain A kohdassa 0. Molemmissa on myös kirjaimet B ja C, mutta ne ovat eri kohdissa. Tämän takia paluuarvo on 1, 2.
 
 ```python
 a, b = vertaa("JAVA", "VAJA")
@@ -266,21 +266,21 @@ print(a, b)
 
 <programming-exercise name='Opiskelijarekisteri' tmcname='osa05-21_opiskelijarekisteri'>
 
-Tässä tehtäväsarjassa toteutetaan yksinkertainen opiskelijarekisteri. Ennen ohjelmoinnin aloittamista kannattanee hetki miettiä minkälaisen tietorkenteen tarvitset ohjelman tallettamien tietojen organisointiin.
+Tässä tehtäväsarjassa toteutetaan yksinkertainen opiskelijarekisteri. Ennen ohjelmoinnin aloittamista kannattanee hetki miettiä, minkälaisen tietorakenteen tarvitset ohjelman tallentamien tietojen organisointiin.
 
 #### opiskelijoiden lisäys
 
 Toteuta ensin funktio `lisaa_opiskelija` uuden opiskeljan lisäämiseen sekä ensimmäinen versio funktiosta `tulosta`, joka tulostaa yhden opiskelijan tiedot.
 
-Funktioita käytetään seuraavasti
+Funktioita käytetään seuraavasti:
 
 ```python
 opiskelijat = {}
-lisaa_opiskelija(opiskelijat, "pekka")
-lisaa_opiskelija(opiskelijat, "liisa")
-tulosta(opiskelijat, "pekka")
-tulosta(opiskelijat, "liisa")
-tulosta(opiskelijat, "jukka")
+lisaa_opiskelija(opiskelijat, "Pekka")
+lisaa_opiskelija(opiskelijat, "Liisa")
+tulosta(opiskelijat, "Pekka")
+tulosta(opiskelijat, "Liisa")
+tulosta(opiskelijat, "Jukka")
 ```
 
 Ohjelman tulostaa tässä vaiheessa
@@ -288,11 +288,11 @@ Ohjelman tulostaa tässä vaiheessa
 <sample-output>
 
 <pre>
-pekka:
+Pekka:
  ei suorituksia
-liisa:
+Liisa:
  ei suorituksia
-ei löytynyt ketään nimellä jukka
+ei löytynyt ketään nimellä Jukka
 </pre>
 
 </sample-output>
@@ -303,21 +303,21 @@ Tee funktio `lisaa_suoritus`, jonka avulla opiskelijalle voidaan lisätä kurssi
 
 ```python
 opiskelijat = {}
-lisaa_opiskelija(opiskelijat, "pekka")
-lisaa_suoritus(opiskelijat, "pekka", ("ohpe", 3))
-lisaa_suoritus(opiskelijat, "pekka", ("tira", 2))
-tulosta(opiskelijat, "pekka")
+lisaa_opiskelija(opiskelijat, "Pekka")
+lisaa_suoritus(opiskelijat, "Pekka", ("Ohpe", 3))
+lisaa_suoritus(opiskelijat, "Pekka", ("Tira", 2))
+tulosta(opiskelijat, "Pekka")
 ```
 
-Opiskelijan tietojen tulostus muuttuu kun suorituksia on lisätty:
+Opiskelijan tietojen tulostus muuttuu, kun suorituksia on lisätty:
 
 <sample-output>
 
 <pre>
-pekka:
+Pekka:
  suorituksia 2 kurssilta:
-  ohpe 3
-  tira 2
+  Ohpe 3
+  Tira 2
  keskiarvo 2.5
 </pre>
 
@@ -325,25 +325,25 @@ pekka:
 
 #### arvosanojen korotus
 
-Suorituksen lisäämisen pitää toimia siten, että se jättää arvosanan 0 suoritukset huomiotta, eikä se alenna kurssilla ennestään olevaa arvosanaa. Eli jos edellä olevaa testikoodia jatketaan seuraavasti
+Suorituksen lisäämisen pitää toimia siten, että se jättää arvosanan 0 suoritukset huomiotta eikä alenna kurssilla ennestään olevaa arvosanaa:
 
 ```python
 opiskelijat = {}
-lisaa_opiskelija(opiskelijat, "pekka")
-lisaa_suoritus(opiskelijat, "pekka", ("lama", 0))
-lisaa_suoritus(opiskelijat, "pekka", ("ohpe", 2))
-tulosta(opiskelijat, "pekka")
+lisaa_opiskelija(opiskelijat, "Pekka")
+lisaa_suoritus(opiskelijat, "Pekka", ("Ohpe", 3))
+lisaa_suoritus(opiskelijat, "Pekka", ("Tira", 2))
+lisaa_suoritus(opiskelijat, "Pekka", ("Lama", 0))
+lisaa_suoritus(opiskelijat, "Pekka", ("Ohpe", 2))
+tulosta(opiskelijat, "Pekka")
 ```
-
-tulostus pysyy ennallaan:
 
 <sample-output>
 
 <pre>
-pekka:
+Pekka:
  suorituksia 2 kurssilta:
-  ohpe 3
-  tira 2
+  Ohpe 3
+  Tira 2
  keskiarvo 2.5
 </pre>
 
@@ -351,15 +351,15 @@ pekka:
 
 #### kooste opiskelijoista
 
-Tee funktio `kooste`, joka tulostaa koosteen opiskelijoiden suorituksista. Esimerkkikoodilla
+Tee funktio `kooste`, joka tulostaa koosteen opiskelijoiden suorituksista. Esimerkki:
 
 ```python
 opiskelijat = {}
-lisaa_opiskelija(opiskelijat, "pekka")
-lisaa_opiskelija(opiskelijat, "liisa")
-lisaa_suoritus(opiskelijat, "pekka", ("lama", 1))
-lisaa_suoritus(opiskelijat, "liisa", ("ohpe", 5))
-lisaa_suoritus(opiskelijat, "liisa", ("jtkt", 4))
+lisaa_opiskelija(opiskelijat, "Pekka")
+lisaa_opiskelija(opiskelijat, "Liisa")
+lisaa_suoritus(opiskelijat, "Pekka", ("Lama", 1))
+lisaa_suoritus(opiskelijat, "Liisa", ("Ohpe", 5))
+lisaa_suoritus(opiskelijat, "Liisa", ("Jtkt", 4))
 kooste(opiskelijat)
 ```
 
@@ -369,8 +369,8 @@ tulostus näyttää seuraavalta
 
 <pre>
 opiskelijoita 2
-eniten suorituksia 3 pekka
-paras keskiarvo 4.5 liisa
+eniten suorituksia 3 Pekka
+paras keskiarvo 4.5 Liisa
 </pre>
 
 </sample-output>
