@@ -358,6 +358,8 @@ opiskelijat = {}
 lisaa_opiskelija(opiskelijat, "Pekka")
 lisaa_opiskelija(opiskelijat, "Liisa")
 lisaa_suoritus(opiskelijat, "Pekka", ("Lama", 1))
+lisaa_suoritus(opiskelijat, "Pekka", ("Ohpe", 1))
+lisaa_suoritus(opiskelijat, "Pekka", ("Tira", 1))
 lisaa_suoritus(opiskelijat, "Liisa", ("Ohpe", 5))
 lisaa_suoritus(opiskelijat, "Liisa", ("Jtkt", 4))
 kooste(opiskelijat)
