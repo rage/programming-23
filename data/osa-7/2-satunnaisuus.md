@@ -171,3 +171,56 @@ Jos tarkkoja ollaan, moduulin `random` muodostamat luvut eivät ole aitoja satun
 Lisätietoa löydät esimerkiksi sivulta <a href="https://www.random.org/randomness/">random.org</a>.
 
 </text-box>
+
+<programming-exercise name='Noppasimulaatio' tmcname='osa07-07_noppasimulaatio4'>
+
+Tehdään tässä tehtävässä muutamaia funktioita, joita on mahdollista käyttää nopanheittoon liittyvissä peleissä.
+
+Normaalin nopan sijaan tehtävässä käytetään ns. epätransitiivisia noppia, joista lisää tietoa esim. [tässä artikkelissa](https://singingbanana.com/dice/article.htm), tai [tässä videossa](https://www.youtube.com/watch?v=LrIp6CKUlH8).
+
+Käytössä on kolme noppaa:
+
+- Nopassa A on numeerot 3, 3, 3, 3, 3, 6
+- Nopassa B on numeerot 2, 2, 2, 5, 5, 5
+- Nopassa C on numeerot 1, 4, 4, 4, 4, 4
+
+</pre>
+
+Tee funktio `heita(noppa: str)`, joka heittää parametrinsa kertomaa noppaa, kyttöesimerkki:
+
+```python
+for i in range (20):
+    print(heita("A"), " ", end="")
+print()
+for i in range (20):
+    print(heita("B"), " ", end="")
+print()
+for i in range (20):
+    print(heita("C"), " ", end="")
+```
+
+<sample-output>
+
+3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  6  3  6  3  
+2  2  5  2  2  5  5  2  2  5  2  5  5  5  2  5  2  2  2  2  
+4  4  4  4  4  1  1  4  4  4  1  4  4  4  4  4  4  4  4  4 
+
+</sample-output>
+
+Tee funktio `pelaa(noppa1: str, noppa2: str, kertaa: int)` joka heittää kokonaisluvun kertoman määrän parameteina olevia noppia. Funktio palauttaa tuplen, joka kertoo nopan1 voittojen lukumäärän, nopan2 voittojen lukumäärän ja tasapelien lukumäärän.
+
+```python
+tulos = pelaa("A", "C", 1000)
+print(tulos)
+tulos = pelaa("B", "B", 1000)
+print(tulos)
+```
+
+<sample-output>
+
+(292, 708, 0)
+(249, 273, 478)
+
+</sample-output>
+
+</programming-exercise>
