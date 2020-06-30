@@ -45,7 +45,7 @@ Olemme tähän mennessä käsitelleet CSV-tiedostoja omalla koodilla, mutta täh
 import csv
 
 with open("testi.csv") as tiedosto:
-    for rivi in csv.reader(tiedosto, iter=";"):
+    for rivi in csv.reader(tiedosto, delimiter=";"):
         print(rivi)
 ```
 
