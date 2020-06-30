@@ -303,3 +303,41 @@ Sanakirjaan talletetut arvot määrittyvät seuraavasti:
 *Huom:* samat huomiot pätevät tähän osaan kuin edelliseen!
 
 </programming-exercise>
+
+<programming-exercise name='Spellchecker, versio 2' tmcname='osa07-16_spellchecker_versio2'>
+
+Teemme tässä tehtävässä hieman parannellun version edellisen osan tehtävästä Spellchecker.
+
+
+Edellisen osan version tapaan ohjelma pyytää käyttäjää kirjoittamaan rivin englanninkielistä tekstiä. Ohjelma suorittaa tekstille oikeinkirjoitustarkistuksen ja tulostaa saman tekstin siten, että kaikki väärin kirjoitetut sanat on ympäröity tähdillä. _Tämän lisäksi ohjelma antaa listan korjausehdotuksia väärin kirjotettuihin sanoihin._
+
+Seuraavassa kaksi käyttöesimerkkiä:
+
+<sample-output>
+
+write text: **We use ptython to make a spell checker**
+<pre>
+We use *ptython* to make a spell checker
+korjausehdotukset:
+ptython: python, pythons, typhon
+</pre>
+
+</sample-output>
+
+<sample-output>
+
+write text: **this is acually a good and usefull program**
+<pre>
+this is *acually* a good and *usefull* program
+korjausehdotukset:
+acually: actually, tactually, factually
+usefull: usefully, useful, museful
+</pre>
+
+</sample-output>
+
+Korjausehdotukset etsitään standardikirjaston moduulin [difflib](https://docs.python.org/3/library/difflib.html) tarjoaman funktion [get\_closes\_matches](https://docs.python.org/3/library/difflib.html#difflib.get_close_matches) avulla. 
+
+*Huom:* jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria, eli virheellinen sana sekä lista oikeista sanoista.
+
+</programming-exercise>
