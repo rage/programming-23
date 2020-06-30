@@ -261,7 +261,7 @@ def alkukirjaimen_mukaan(lista):
     for sana in lista:
         alkukirjain = sana[0]
         # alusta alkukirjaimeen liittyvä lista kun kirjain tulee vastaan 1. kerran
-        if alkukirjain not in sanat:
+        if alkukirjain not in ryhmat:
             ryhmat[alkukirjain] = []
         # lisää sana alkukirjainta vastaavalle listalle
         ryhmat[alkukirjain].append(sana)
