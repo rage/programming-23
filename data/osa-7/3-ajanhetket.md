@@ -154,10 +154,12 @@ Kun juhannuksesta kuluu 32 viikkoa ja 15 päivää on 2021-02-14 00:00:00
 
 Timedelta-olio toimii viikkojen ja päivien lisäksi tarkemmallakin tasolla:
 
+```python
 nyt = datetime.now()
 keskiyo = datetime(2020, 6, 30)
 erotus = keskiyo-nyt
 print(f"keskiyöhön on vielä {erotus.seconds} sekuntia")
+```
 
 <sample-output>
 
