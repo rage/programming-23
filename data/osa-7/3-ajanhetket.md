@@ -65,6 +65,26 @@ Vuosi: 1917
 
 </sample-output>
 
+Aikaoliolle voidaan antaa myös kellonaika halutulla tarkkuudella. Esimerkiksi:
+
+```python
+
+from datetime import datetime
+
+pv1 = datetime(2020, 6, 30, 13, 00) # 30.6.2020 klo 13.00
+pv2 = datetime(2020, 6, 30, 18, 45) # 30.6.2020 klo 18.45
+
+erotus = pv2 - pv1
+print(erotus.seconds)
+
+```
+
+<sample-output>
+
+20700
+
+</sample-output>
+
 ## Aikojen vertailu ja ero
 
 Voimme vertailla aikoja samaan tapaan kuin lukuja käyttämällä tuttuja vertailuoperaattoreita. Seuraava koodi antaa näytteen tästä:
@@ -108,6 +128,44 @@ Juhannukseen on vielä 37 päivää
 </sample-output>
 
 Huomaa, että vähennyslaskun tuloksena on [timedelta](https://docs.python.org/3/library/datetime.html?highlight=datetime#timedelta-objects)-olio, jolta voi kysyä vain rajoitetusti ajan yksikköjä. Voimme kysyä päivien määrän, mutta emme voi kysyä esimerkiksi vuosien määrää, koska vuoden pituus vaihtelee.
+
+Timedelta-olion avulla on myös mahdollista selvittää mikä päivä on kuin tietty aika (viikkoina ja päiviä) lisätään johonkin päivämäärään:
+
+```python
+from datetime import datetime, timedelta
+juhannus = datetime(2020, 6, 20)
+
+viikko = timedelta(days=7)
+viikon_paasta = juhannus + viikko
+
+print("Kun viikko juhannuksesta kuluu on", viikon_paasta)
+
+pitka_aika = timedelta(weeks=32, days=15)
+
+print("Kun juhannuksesta kuluu 32 viikkoa ja 15 päivää on", juhannus + pitka_aika)
+```
+
+<sample-output>
+
+Kun viikko juhannuksesta kuluu on 2020-06-27 00:00:00
+Kun juhannuksesta kuluu 32 viikkoa ja 15 päivää on 2021-02-14 00:00:00
+
+</sample-output>
+
+Timedelta-olio toimii viikkojen ja päivien lisäksi tarkemmallakin tasolla:
+
+```python
+nyt = datetime.now()
+keskiyo = datetime(2020, 6, 30)
+erotus = keskiyo-nyt
+print(f"keskiyöhön on vielä {erotus.seconds} sekuntia")
+```
+
+<sample-output>
+
+keskiyöhön on vielä 8188 sekuntia
+
+</sample-output>
 
 ## Aikojen muotoilu
 
