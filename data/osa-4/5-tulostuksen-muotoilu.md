@@ -181,11 +181,11 @@ Kun käyttäjä on syöttänyt tyhjän rivin, tulostaa ohjelma tilastot.
 
 Tilastot muodostuvat seuraavasti:
 
-Tehtyjen harjoitustehtävien lukumäärästä saa _kurssipisteitä_ siten, että vähintään 10 % tehtävämäärästä tuo 1 kurssipisteen, 20 % tuo 2 kurssipistettä, jne., ja 100 % eli 100 harjoitustehtävää tuo 10 kurssipistettä. Harjoitustehtävistä saatava kurssipistemäärä on kokonaisluku.
+Tehtyjen harjoitustehtävien lukumäärästä saa _harjoituspisteitä_ siten, että vähintään 10 % tehtävämäärästä tuo yhden harjoituspisteen, 20 % tuo 2 harjoituspistettä, jne., ja 100 % eli 100 harjoitustehtävää tuo 10 harjoituspistettä. Harjoitustehtävistä saatava pistemäärä on kokonaisluku.
 
-Kurssin arvosana määräytyy kokeen pistemäärän ja harjoitustehtävistä saatavien kurssipisteiden summasta seuraavan taulukon mukaan:
+Kurssin arvosana määräytyy kokeen pistemäärän ja harjoitustehtävistä saatavien pisteiden summasta seuraavan taulukon mukaan:
 
-koe+harjoituspisteet   | arvosana
+koepisteet+harjoituspisteet   | arvosana
 :--:|:----:
 0–14 | 0 (eli hylätty)
 15–17 | 1
