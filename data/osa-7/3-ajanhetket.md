@@ -109,6 +109,42 @@ Juhannukseen on vielä 37 päivää
 
 Huomaa, että vähennyslaskun tuloksena on [timedelta](https://docs.python.org/3/library/datetime.html?highlight=datetime#timedelta-objects)-olio, jolta voi kysyä vain rajoitetusti ajan yksikköjä. Voimme kysyä päivien määrän, mutta emme voi kysyä esimerkiksi vuosien määrää, koska vuoden pituus vaihtelee.
 
+Timedelta-olion avulla on myös mahdollista selvittää mikä päivä on kuin tietty aika (viikkoina ja päiviä) lisätään johonkin päivämäärään:
+
+```python
+from datetime import datetime, timedelta
+juhannus = datetime(2020, 6, 20)
+
+viikko = timedelta(days=7)
+viikon_paasta = juhannus + viikko
+
+print("Kun viikko juhannuksesta kuluu on", viikon_paasta)
+
+pitka_aika = timedelta(weeks=32, days=15)
+
+print("Kun juhannuksesta kuluu 32 viikkoa ja 15 päivää on", juhannus + pitka_aika)
+```
+
+<sample-output>
+
+Kun viikko juhannuksesta kuluu on 2020-06-27 00:00:00
+Kun juhannuksesta kuluu 32 viikkoa ja 15 päivää on 2021-02-14 00:00:00
+
+</sample-output>
+
+Timedelta-olio toimii viikkojen ja päivien lisäksi tarkemmallakin tasolla:
+
+nyt = datetime.now()
+keskiyo = datetime(2020, 6, 30)
+erotus = keskiyo-nyt
+print(f"keskiyöhön on vielä {erotus.seconds} sekuntia")
+
+<sample-output>
+
+keskiyöhön on vielä 8188 sekuntia
+
+</sample-output>
+
 ## Aikojen muotoilu
 
 Voimme muotoilla ajanhetken haluamallamme tavalla [strftime](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.date.strftime)-metodin avulla. Esimerkiksi seuraava koodi tulostaa nykyisen päivämäärän muodossa `pp.kk.vvvv`:

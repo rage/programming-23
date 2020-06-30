@@ -414,14 +414,14 @@ Jos ohjelmasta halutaan muuttaa tai korjata "yhtä asiaa", esimerkiksi arvosanoj
 
 Laajennetaan vielä hieman aiemmin kurssien tulokset generoivaa sovellusta.
 
-Tällä hetkellä tiedostosta luetaan opiskelijoiden nimet, tehtäväpisteet sekä koepisteet. Laajennetaan ohjelmaa siten, että myös kurssin nimi ja laajuus luetaan tiedostosta, jonka muoto on seuraava
+Tällä hetkellä tiedostosta luetaan opiskelijoiden nimet, tehtäväpisteet sekä koepisteet. Laajennetaan ohjelmaa siten, että myös kurssin nimi ja laajuus luetaan tiedostosta, jonka muoto on seuraava (tiedostosto on kirjoitettu ilman ääkkösiä, jotta se ei aiheuttaisi ongelmia Windowsissa):
 
 <sample-data>
 
 <pre>
 
 nimi: Ohjelmoinnin perusteet
-laajuus opintopisteinä: 5
+laajuus opintopisteina: 5
 </pre>
 
 </sample-data>
