@@ -65,6 +65,26 @@ Vuosi: 1917
 
 </sample-output>
 
+Aikaoliolle voidaan antaa myös kellonaika halutulla tarkkuudella. Esimerkiksi:
+
+```python
+
+from datetime import datetime
+
+pv1 = datetime(2020, 6, 30, 13, 00) # 30.6.2020 klo 13.00
+pv2 = datetime(2020, 6, 30, 18, 45) # 30.6.2020 klo 18.45
+
+erotus = pv2 - pv1
+print(erotus.seconds)
+
+```
+
+<sample-output>
+
+20700
+
+</sample-output>
+
 ## Aikojen vertailu ja ero
 
 Voimme vertailla aikoja samaan tapaan kuin lukuja käyttämällä tuttuja vertailuoperaattoreita. Seuraava koodi antaa näytteen tästä:
