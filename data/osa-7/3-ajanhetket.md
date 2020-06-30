@@ -216,4 +216,42 @@ Synnyit viime vuosituhannella
 
 </sample-output>
 
+<programming-exercise name='Ruutuaika' tmcname='osa07-11_ruutuaika'>
 
+Ohjelmassa kirjoitetaan tiedostoon käyttäjän "ruutuaikoja", eli television, tietokoneen ja mobiililaitteen ääressä käytettyä aikaa tietyllä aikavälillä.
+
+Ohjelma toimii seuraavasti:
+
+<sample-output>
+
+tiedosto: **kesakuun_loppu.txt**
+aloituspäivä: **24.6.2020**
+monta päivää: 5
+anna ruutuajat kunakin päivänä minuutteina (TV tietokone mobiililaite)
+ruutuaika 24.06.2020: **60 120 0**
+ruutuaika 25.06.2020: **0 0 0**
+ruutuaika 26.06.2020: **180 0 0**
+ruutuaika 27.06.2020: **25 240 15**
+ruutuaika 28.06.2020: **45 90 5**
+tiedot talletettu tiedoston kesakuun_loppu.txt
+
+</sample-output>
+
+Kunkin päivän riville on siis annettu välilyönnillä eroteltuna kolme minuuttimäärää.
+
+Ohjelma tallettaa tilaston ruutuajoista tiedostoon, joka näyttää yllä olevalla syötteellä seuraavalta:
+
+<sample-data>
+
+ajanjakso: 24.06.2020-28.06.2020
+yhteensä minuutteja: 780
+keskimaarin minuutteja päivässä: 156.0
+24.06.2020: 60/120/0
+25.06.2020: 0/0/0
+26.06.2020: 180/0/0
+27.06.2020: 25/240/15
+28.06.2020: 45/90/5
+
+</sample-data>
+
+</programming-exercise>
