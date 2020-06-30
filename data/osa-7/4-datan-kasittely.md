@@ -171,3 +171,53 @@ Standardikirjaston lisäksi verkosta löytyy lukuisia vapaasti käytettäviä ki
 
 * https://wiki.python.org/moin/UsefulModules
 
+<programming-exercise name='json-tiedoston käsittely' tmcname='osa07-14_jsontiedostot'>
+
+CSV-muodon lisäksi on olemassa muitekin "koneluettavia" tiedostomuotoja. Eräs näistä on erityisesti tietojen siirrossa hyvin yleisesti käytetty [JSON](https://www.json.org/json-en.html).
+
+Json-tiedostot ovat tekstitiedostoja, joilla on tietty tarkka muoto. Seuraavassa esimerkkinä json-tiedosto, joka esittää joukkoa opiskelijoita:
+
+```json
+[
+    {
+        "nimi": "Pekka Pythonisti",
+        "ika": 27,
+        "harrastukset": [
+            "koodaus",
+            "kutominen"
+        ]
+    },
+    {
+        "nimi": "Jaana Javanainen",
+        "ika": 24,
+        "harrastukset": [
+            "koodaus",
+            "kalliokiipeily",
+            "lukeminen"
+        ]
+    }
+]
+```
+
+Json-tiedostot näyttävätkin kohtuullisen tutulta Pythonin käyttäjille. Itseasoassa esimerkin sisältämä _json-objekti_ on jo suoraan validia Pythonia-koodia, joka määrittelee listan, jonka sisällö on kaksi sanakirja-olioa.
+
+Haasteeksi nouseekin se, miten tiedostossa oleva (tai internetistä haettava) json-muotoinen teksti saadaan muutetta eli parsittua Python-olioiksi. 
+
+Onneksi standardikirjasto sisältää tähän sopivan moduulia [json](https://docs.python.org/3/library/json.html).
+
+Toteuta funktio `tulosta_henklilot(tiedosto: str)`, joka lukee esimerkin tavalla muodostetun json-tiedoston (jonka sisältönä voi olla mielivaltainen määrä henkilöitä) ja tulostaa ne seuraavassa muodossa:
+
+<sample-output>
+
+Pekka Pythonisti 27 vuotta (koodaus, kutominen)
+Jaana Javanainen 24 vuotta (koodaus kalliokiipeily lukeminen)
+
+</sample-output>
+
+Harrastukset tulee luetella samassa järjestyksessä, missä ne löytyvät json-dokumentista. 
+
+Pääset tässä tehtävässä harjoittelemaan hieman standardikirjaston dokumentaation lukemista tulkitessasi miten kirjastoa [json](https://docs.python.org/3/library/json.html) käytetään! Kohta _Decoding JSON_ tekee sen mitä tehtävässä tarvitaan. 
+
+*Vihje* tässä tehtävässä tiedostoa ei kannata lukea riveittäin vaan parasta on lukea sen siältö kokonaan yhteen merkkijonoon [tämän luvun](osa-6/1-tiedostojen-lukeminen) ensimmäisen esimerkin tapaan.
+
+</programming-exercise>
