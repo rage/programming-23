@@ -201,7 +201,7 @@ Json-tiedostot ovat tekstitiedostoja, joilla on tietty tarkka muoto. Seuraavassa
 
 Json-tiedostot näyttävätkin kohtuullisen tutulta Pythonin käyttäjille. Itseasoassa esimerkin sisältämä _json-objekti_ on jo suoraan validia Pythonia-koodia, joka määrittelee listan, jonka sisällö on kaksi sanakirja-olioa.
 
-Haasteeksi nouseekin se, miten tiedostossa oleva (tai internetistä haettava) json-muotoinen teksti saadaan muutetta eli parsittua Python-olioiksi. 
+Haasteeksi nouseekin se, miten tiedostossa oleva (tai internetistä haettava) json-muotoinen teksti saadaan muutetta eli parsittua Python-olioiksi.
 
 Onneksi standardikirjasto sisältää tähän sopivan moduulia [json](https://docs.python.org/3/library/json.html).
 
@@ -214,10 +214,92 @@ Jaana Javanainen 24 vuotta (koodaus kalliokiipeily lukeminen)
 
 </sample-output>
 
-Harrastukset tulee luetella samassa järjestyksessä, missä ne löytyvät json-dokumentista. 
+Harrastukset tulee luetella samassa järjestyksessä, missä ne löytyvät json-dokumentista.
 
-Pääset tässä tehtävässä harjoittelemaan hieman standardikirjaston dokumentaation lukemista tulkitessasi miten kirjastoa [json](https://docs.python.org/3/library/json.html) käytetään! Kohta _Decoding JSON_ tekee sen mitä tehtävässä tarvitaan. 
+Pääset tässä tehtävässä harjoittelemaan hieman standardikirjaston dokumentaation lukemista tulkitessasi miten kirjastoa [json](https://docs.python.org/3/library/json.html) käytetään! Kohta _Decoding JSON_ tekee sen mitä tehtävässä tarvitaan.
 
 *Vihje* tässä tehtävässä tiedostoa ei kannata lukea riveittäin vaan parasta on lukea sen siältö kokonaan yhteen merkkijonoon [tämän luvun](osa-6/1-tiedostojen-lukeminen) ensimmäisen esimerkin tapaan.
+
+</programming-exercise>
+
+<programming-exercise name=' Kurssien tilastot' tmcname='osa07-15_kurssistatistiikka'>
+
+Pythonin standardikirjastosta löytyvät funktion [urllib.request.urlopen](
+https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen) avulla on helppo hakea internetistä sisältöä ohjelmista käsin:
+
+Esim. seuravasti on mahdollista tulostaa Helsingin yliopiston etusivun sisältö:
+
+```python
+import urllib.request
+
+pyynto = urllib.request.urlopen('https://helsinki.fi')
+print(pyynto.read())
+```
+
+Ihmisille tarkoitetut sivut tosin eivät tulostu kovin selkeinä, mutta internetissä on myös runsaasti koneluettavaa dataa, joka on usein juurikin json-muodossa.
+
+#### osa 1: tieto kursseista
+
+Osoitteesta <https://studies.cs.helsinki.fi/stats/api/courses> löytyy muutaman laitoksen verkkokurssin perustiedot. Tee funktio ´hae_kaikki()´ joka hakee ja palauttaa kaikkien menossa olevien kurssien (kentän enabled arvona _true_) tiedot listana tupleja, joiden muoto on seuraava
+
+<sample-output>
+
+[
+    ('Full Stack Open 2020', 'ofs2019', 2020, 201),
+    ('DevOps with Docker 2019', 'docker2019', 2019, 36),
+    ('DevOps with Docker 2020', 'docker2020', 2020, 36),
+    ('Beta DevOps with Kubernetes', 'beta-dwk-20', 2020, 28)
+]
+
+</sample-output>
+
+Jokainen tuple siis sisältää seuraavat arvot
+- kurssin koko nimi (fullname)
+- nimi (name)
+- vuosi (year)
+- harjoitusten (exercises) yhteenlaskettu määrä
+
+*Huom:* kun suoritat testejä, huolehti että ohjelmassasi ei kutsuta toteuttamaasi funktiota!
+
+*Huom2:* tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
+
+*Huom3:* testit käyttävät samaa dataa kun osoitteesta <https://studies.cs.helsinki.fi/stats-mock/api/courses> löytyy.
+Tässä vaihtoehtoisessa osoitteessa on sama data mitä varsinaisessa osoitteessa oli 30.6.
+
+*Huom4:* testeissä käytetän myös ovelaa kikkaa, jonka hieman muuttaa internetistä tulevaa dataa, ja tämän avulla varmistaa, ettet huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
+
+#### osa 2: yhden kurssin tiedot
+
+Kunkin kurssin tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä _name_ seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats/api/courses/****/stats>
+
+Esimerkiksi kurssin _docker2019_ tiedot ovat osoitteessa <https://studies.cs.helsinki.fi/stats/api/courses/docker2019/stats>
+
+Tee ohjelmaasi funktio `hae_kurssi(kurssi: str)` joka palauttaa kurssin tarkemman tehtävästatistiikan. Funktion
+
+Kun kutsutaan `hae_kurssi("docker2019")` funktio palauttaa sanakirjan, jonka sisältö on seuraava
+
+<sample-output>
+
+{
+    'viikkoja': 4,
+    'opiskelijoita': 220,
+    'tunteja': 5966,
+    'tunteja_keskimaarin': 27,
+    'tehtavia': 4988,
+    'tehtavia_keskimaarin': 22
+}
+
+</sample-output>
+
+Sanakirjaan talletetut arvot määrittyvät seuraavasti:
+
+- _viikkoja_: kurssia vastaavan jsonin "olioiden" määrä
+- *opiskelijoita* viikkojen opiskelijamäärien maksimi
+- *tunteja*: kakkien viikkojen tuntimäärien summa
+- *tunteja_keskimaarin*: edellinen jaettuna opsikelijamäärällä (kokonaislukuna)
+- *tehtavia*: kakkien viikkojen tehtävämäärien summa
+- *tehtavia_keskimaarin*: edellinen jaettuna opsikelijamäärällä (kokonaislukuna)
+
+*Huom:* samat huomiot pätevät tähän osaan kuin edelliseen!
 
 </programming-exercise>
