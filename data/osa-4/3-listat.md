@@ -519,11 +519,15 @@ Tee funktio `pituus`, joka palauttaa parametrinaan saamansa listan pituuden.
 lista = [1, 2, 3, 4, 5]
 vastaus = pituus(lista)
 print("vastaus", vastaus)
+
+# huomaa, että voit kutsua funktiota myös antamalla listan suoraan funktion parametriksi
+vastaus = pituus([1, 1, 1, 1])
 ```
 
 <sample-output>
 
 vastaus 5
+vastaus 4
 
 </sample-output>
 
