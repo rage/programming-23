@@ -240,16 +240,20 @@ Ihmisille tarkoitetut sivut tosin eivät tulostu kovin selkeinä, mutta internet
 
 #### tieto kursseista
 
-Osoitteesta <https://studies.cs.helsinki.fi/stats/api/courses> löytyy muutaman laitoksen verkkokurssin perustiedot. Tee funktio ´hae_kaikki()´ joka hakee ja palauttaa kaikkien menossa olevien kurssien (kentän enabled arvona _true_) tiedot listana tupleja, joiden muoto on seuraava
+Osoitteesta <https://studies.cs.helsinki.fi/stats/api/courses> löytyy json-muodossa muutaman laitoksen verkkokurssin perustiedot.
+
+Tee funktio `hae_kaikki()` joka hakee ja palauttaa kaikkien menossa olevien kurssien (kentän enabled arvona _True_) tiedot listana tupleja. Paluuarvon muoto on seuraava
 
 <sample-output>
 
+<pre>
 [
     ('Full Stack Open 2020', 'ofs2019', 2020, 201),
     ('DevOps with Docker 2019', 'docker2019', 2019, 36),
     ('DevOps with Docker 2020', 'docker2020', 2020, 36),
     ('Beta DevOps with Kubernetes', 'beta-dwk-20', 2020, 28)
 ]
+</pre>
 
 </sample-output>
 
@@ -259,18 +263,17 @@ Jokainen tuple siis sisältää seuraavat arvot
 - vuosi (year)
 - harjoitusten (exercises) yhteenlaskettu määrä
 
-*Huom:* kun suoritat testejä, huolehti että ohjelmassasi ei kutsuta toteuttamaasi funktiota!
+*Huom:* kun suoritat testejä, huolehdi että ohjelmassasi ei kutsuta toteuttamaasi funktiota!
 
 *Huom2:* tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
 
-*Huom3:* testit käyttävät samaa dataa kun osoitteesta <https://studies.cs.helsinki.fi/stats-mock/api/courses> löytyy.
-Tässä vaihtoehtoisessa osoitteessa on sama data mitä varsinaisessa osoitteessa oli 30.6.
+*Huom3:* testit käyttävät samaa dataa mitä osoitteesta <https://studies.cs.helsinki.fi/stats-mock/api/courses> löytyy. Tässä vaihtoehtoisessa osoitteessa on sama data mitä varsinaisessa osoitteessa oli 30.6. Varsinaisessa osoitteessa oleva data muuttuu sitä mukaan kun kursseja suoritetaan.
 
-*Huom4:* testeissä käytetän myös ovelaa kikkaa, jonka hieman muuttaa internetistä tulevaa dataa, ja tämän avulla varmistaa, ettet huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
+*Huom4:* testeissä käytetän myös ovelaa kikkaa, jonka hieman muuttaa internetistä tulevaa dataa, ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
 
 #### yhden kurssin tiedot
 
-Kunkin kurssin tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä _name_ seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats/api/courses/****/stats>
+Kunkin kurssin json-muotoinen tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä _name_ seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats/api/courses/****/stats>
 
 Esimerkiksi kurssin _docker2019_ tiedot ovat osoitteessa <https://studies.cs.helsinki.fi/stats/api/courses/docker2019/stats>
 
@@ -295,9 +298,9 @@ Sanakirjaan talletetut arvot määrittyvät seuraavasti:
 
 - _viikkoja_: kurssia vastaavan jsonin "olioiden" määrä
 - *opiskelijoita* viikkojen opiskelijamäärien maksimi
-- *tunteja*: kakkien viikkojen tuntimäärien summa
+- *tunteja*: kakkien viikkojen tuntimäärien (hour_total) summa
 - *tunteja_keskimaarin*: edellinen jaettuna opsikelijamäärällä (kokonaislukuna)
-- *tehtavia*: kakkien viikkojen tehtävämäärien summa
+- *tehtavia*: kakkien viikkojen tehtävämäärien (exercise_total) summa
 - *tehtavia_keskimaarin*: edellinen jaettuna opsikelijamäärällä (kokonaislukuna)
 
 *Huom:* samat huomiot pätevät tähän osaan kuin edelliseen!
