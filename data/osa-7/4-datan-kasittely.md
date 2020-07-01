@@ -218,7 +218,7 @@ Harrastukset tulee luetella samassa järjestyksessä, mistä ne löytyvät json-
 
 Pääset tässä tehtävässä harjoittelemaan hieman standardikirjaston dokumentaation lukemista tulkitessasi miten kirjastoa [json](https://docs.python.org/3/library/json.html) käytetään! Kohta _Decoding JSON_ tekee sen mitä tehtävässä tarvitaan.
 
-*Vihje* tässä tehtävässä tiedostoa ei kannata lukea riveittäin, vaan parasta on lukea sen sisältö kokonaan yhteen merkkijonoon [tämän luvun](osa-6/1-tiedostojen-lukeminen) ensimmäisen esimerkin tapaan.
+*Vihje* tässä tehtävässä tiedostoa ei kannata lukea riveittäin, vaan parasta on lukea sen sisältö kokonaan yhteen merkkijonoon [tämän luvun](/osa-6/1-tiedostojen-lukeminen) ensimmäisen esimerkin tapaan.
 
 </programming-exercise>
 
@@ -283,6 +283,7 @@ Kun kutsutaan `hae_kurssi("docker2019")` funktio palauttaa sanakirjan, jonka sis
 
 <sample-output>
 
+<pre>
 {
     'viikkoja': 4,
     'opiskelijoita': 220,
@@ -291,6 +292,7 @@ Kun kutsutaan `hae_kurssi("docker2019")` funktio palauttaa sanakirjan, jonka sis
     'tehtavia': 4988,
     'tehtavia_keskimaarin': 22
 }
+</pre>
 
 </sample-output>
 

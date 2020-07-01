@@ -172,7 +172,7 @@ Lisätietoa löydät esimerkiksi sivulta <a href="https://www.random.org/randomn
 
 </text-box>
 
-<programming-exercise name='Noppasimulaatio' tmcname='osa07-07_noppasimulaatio4'>
+<programming-exercise name='Noppasimulaatio' tmcname='osa07-07_noppasimulaatio'>
 
 Tehdään tässä tehtävässä muutamaia funktioita, joita on mahdollista käyttää nopanheittoon liittyvissä peleissä.
 
