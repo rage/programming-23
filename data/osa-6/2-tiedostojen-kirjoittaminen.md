@@ -582,3 +582,5 @@ Voit itse päättää tiedostoon tallennettavan tiedon muodon.
 Huomaa, että paikallisten TMC-testien ajaminen voi tyhjentää sanakirja-tiedoston.
 
 </programming-exercise>
+
+<quiz id="1f1da85c-371a-52b2-b487-e574ec7092b0"></quiz>

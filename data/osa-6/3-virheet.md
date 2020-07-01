@@ -347,3 +347,5 @@ viikko 39;5,9,15,35,39,41,105
 Kirjoita funktio `suodata_virheelliset()`, joka luo tiedoston `korjatut_numerot.csv`. Tiedostoon on kopioitu kelvolliset rivit alkuperäisestä tiedostosta.
 
 </programming-exercise>
+
+<quiz id="d950f8d1-b57a-5201-b81e-eaf374c2e421"></quiz>

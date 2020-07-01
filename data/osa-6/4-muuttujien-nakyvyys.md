@@ -179,3 +179,9 @@ Funktioita kutsuttiin 4 kertaa
 </sample-output>
 
 Tässä haluamme pitää ohjelman suorituksen aikana kirjaa siitä, montako kertaa funktioita on kutsuttu ohjelman eri kohdista. Nyt globaali muuttuja `laskuri` on kätevä, koska voimme kasvattaa sen arvoa jokaisella funktion kutsukerralla ja katsoa globaalista muuttujasta, montako kertaa funktiota on kutsuttu.
+
+<quiz id="48a56234-e92d-541f-b333-8f17fd01fb99"></quiz>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="600de2e3-fdf2-5b3a-bbb8-c8a250cdf2a8"></quiz>
