@@ -143,9 +143,9 @@ print("syötit luvun:", luku)
 <sample-output>
 
 syötä luku: **seitsemän**
-syötteen on oltava kokonaisluku väliltä 5...10
+Syötteen on oltava kokonaisluku väliltä 5...10
 syötä luku: **-3**
-syötteen on oltava kokonaisluku väliltä 5...10
+Syötteen on oltava kokonaisluku väliltä 5...10
 syötä luku: **8**
 syötit luvun: 8
 

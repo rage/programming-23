@@ -218,7 +218,7 @@ Synnyit viime vuosituhannella
 
 <programming-exercise name='Ruutuaika' tmcname='osa07-11_ruutuaika'>
 
-Ohjelmassa kirjoitetaan käyttäjän määrittelemään tiedostoon "ruutuaikoja", eli käyttäjän television, tietokoneen ja mobiililaitteen ääressä käytettyä aikaa tietyllä aikavälillä.
+Ohjelmassa kirjoitetaan käyttäjän määrittelemään tiedostoon "ruutuaikoja", eli käyttäjän television, tietokoneen ja mobiililaitteen ääressä tiettyinä päivinä viettämää aikaa.
 
 Ohjelma toimii seuraavasti:
 
@@ -239,7 +239,7 @@ tiedot talletettu tiedoston kesakuun_loppu.txt
 
 Kunkin päivän riville on siis annettu välilyönnillä eroteltuna kolme minuuttimäärää.
 
-Ohjelma tallettaa tilaston ruutuajoista tiedostoon _kesakuun_loppu.txt_, joka näyttää yllä olevalla syötteellä seuraavalta:
+Ohjelma tallettaa tilaston ruutuajoista tiedostoon _kesakuun\_loppu.txt_, joka näyttää yllä olevalla syötteellä seuraavalta:
 
 <sample-data>
 
