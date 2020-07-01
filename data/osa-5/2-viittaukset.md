@@ -29,7 +29,7 @@ Viittaus siis kertoo, mistä varsinainen arvo löytyy. Funktio `id` kertoo, mihi
 a = [1, 2, 3]
 print(id(a))
 b = "Tämäkin on viittaus"
-print(id(a))
+print(id(b))
 ```
 
 <sample-output>

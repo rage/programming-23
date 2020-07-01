@@ -233,19 +233,19 @@ Tee funktio `vertaa(sana1: str, sana2: str)`, joka saa parametrikseen kaksi sama
 Esimerkki:
 
 ```python
-a, b = vertaa("ABACAAAB", "ACCCBBCA")
+a, b = vertaa("ABCDA", "CBAAC")
 print(a, b)
 ```
 
 <sample-output>
 
-2 3
+1 3
 
 </sample-output>
 
-Ensimmäinen luku on 2, koska kohdassa 0 molemmissa merkkijonoissa on merkki A ja kohdassa 3 molemmissa merkkijonoissa on merkki C.
+Ensimmäinen luku on 1, koska kohdassa 2 molemmissa merkkijonoissa on merkki B.
 
-Toinen luku on 3, koska muiden kohtien merkeistä voidaan järjestellä uudestaan samoihin kohtiin yksi A-merkki sekä kaksi B-merkkiä.
+Toinen luku on 3, koska jäljelle jäävissä kohdissa kaksi A-merkkiä ja yksi C-merkki voidaan siirtää samoihin kohtiin.
 
 </programming-exercise>
 
