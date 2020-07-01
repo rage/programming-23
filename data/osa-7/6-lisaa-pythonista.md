@@ -135,6 +135,4 @@ Niiden summa on 15
 
 </sample-output>
 
-Vastaa lopuksi osion loppukyselyyn:
 
-<quiz id="e8a25e55-804e-5f7f-bf2b-21ff0235d388"></quiz>
