@@ -218,7 +218,7 @@ Synnyit viime vuosituhannella
 
 <programming-exercise name='Ruutuaika' tmcname='osa07-11_ruutuaika'>
 
-Ohjelmassa kirjoitetaan tiedostoon käyttäjän "ruutuaikoja", eli television, tietokoneen ja mobiililaitteen ääressä käytettyä aikaa tietyllä aikavälillä.
+Ohjelmassa kirjoitetaan käyttäjän määrittelemään tiedostoon "ruutuaikoja", eli käyttäjän television, tietokoneen ja mobiililaitteen ääressä käytettyä aikaa tietyllä aikavälillä.
 
 Ohjelma toimii seuraavasti:
 
@@ -226,7 +226,7 @@ Ohjelma toimii seuraavasti:
 
 tiedosto: **kesakuun_loppu.txt**
 aloituspäivä: **24.6.2020**
-monta päivää: 5
+monta päivää: **5**
 anna ruutuajat kunakin päivänä minuutteina (TV tietokone mobiililaite)
 ruutuaika 24.06.2020: **60 120 0**
 ruutuaika 25.06.2020: **0 0 0**
@@ -239,7 +239,7 @@ tiedot talletettu tiedoston kesakuun_loppu.txt
 
 Kunkin päivän riville on siis annettu välilyönnillä eroteltuna kolme minuuttimäärää.
 
-Ohjelma tallettaa tilaston ruutuajoista tiedostoon, joka näyttää yllä olevalla syötteellä seuraavalta:
+Ohjelma tallettaa tilaston ruutuajoista tiedostoon _kesakuun_loppu.txt_, joka näyttää yllä olevalla syötteellä seuraavalta:
 
 <sample-data>
 

@@ -84,7 +84,7 @@ print(sanat)
 Funktio `choice` puolestaan valitsee satunnaisen alkion tietorakenteesta:
 
 ```python
-from random import shuffle
+from random import choice
 
 sanat = ["apina", "banaani", "cembalo"]
 print(choice(sanat))
@@ -186,7 +186,7 @@ Käytössä on kolme noppaa:
 
 </pre>
 
-Tee funktio `heita(noppa: str)`, joka heittää parametrinsa kertomaa noppaa, kyttöesimerkki:
+Tee funktio `heita(noppa: str)`, joka heittää parametrinsa kertomaa noppaa, käyttöesimerkki:
 
 ```python
 for i in range (20):
@@ -201,13 +201,13 @@ for i in range (20):
 
 <sample-output>
 
-3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  6  3  6  3  
-2  2  5  2  2  5  5  2  2  5  2  5  5  5  2  5  2  2  2  2  
-4  4  4  4  4  1  1  4  4  4  1  4  4  4  4  4  4  4  4  4 
+3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  6  3  6  3
+2  2  5  2  2  5  5  2  2  5  2  5  5  5  2  5  2  2  2  2
+4  4  4  4  4  1  1  4  4  4  1  4  4  4  4  4  4  4  4  4
 
 </sample-output>
 
-Tee funktio `pelaa(noppa1: str, noppa2: str, kertaa: int)` joka heittää kokonaisluvun kertoman määrän parameteina olevia noppia. Funktio palauttaa tuplen, joka kertoo nopan1 voittojen lukumäärän, nopan2 voittojen lukumäärän ja tasapelien lukumäärän.
+Tee funktio `pelaa(noppa1: str, noppa2: str, kertaa: int)` joka heittää kokonaisluvun kertoman määrän parametreina olevia noppia. Funktio palauttaa tuplen, joka kertoo nopan1 voittojen lukumäärän, nopan2 voittojen lukumäärän ja tasapelien lukumäärän.
 
 ```python
 tulos = pelaa("A", "C", 1000)
