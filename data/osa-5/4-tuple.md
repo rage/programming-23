@@ -228,39 +228,24 @@ luku1 = apu
 
 <programming-exercise name='Sanavertailu' tmcname='osa05-20_sanavertailu'>
 
-Tee funktio `vertaa(sana1: str, sana2: str)`, joka saa parametrikseen kaksi samanpituista merkkijonoa. Funktio palauttaa kaksi kokonaislukua (eli käytännössä tuplen). Paluuarvon ensimmäinen luku kertoo, kuinka monta merkkijonojen kirjaimista on samoja ja samalla paikalla sijaitsevia. Paluuarvon toinen luku kertoo, kuinka monta merkkijonojen kirjaimista on samoja, mutta sijaitsevat merkkijonoissa eri paikoilla.
+Tee funktio `vertaa(sana1: str, sana2: str)`, joka saa parametrikseen kaksi samanpituista merkkijonoa. Funktio palauttaa kaksi kokonaislukua (eli käytännössä tuplen). Paluuarvon ensimmäinen luku kertoo, monessako kohdassa merkkijonoissa on sama merkki. Paluuarvon toinen luku kertoo, moneenko muuhun kohtaan saadaan sama merkki järjestelemällä uudestaan merkkejä kohdissa, joissa ei ole samaa merkkiä valmiiksi.
 
-Esimerkkejä:
+Esimerkki:
 
 ```python
-a, b = vertaa("ABC", "ACB")
+a, b = vertaa("ABACAAAB", "ACCCBBCA")
 print(a, b)
 ```
 
 <sample-output>
 
-1 2
+2 3
 
 </sample-output>
 
-Molemmissa merkkijonoissa on kirjain A kohdassa 0. Molemmissa on myös kirjaimet B ja C, mutta ne ovat eri kohdissa. Tämän takia paluuarvo on 1, 2.
+Ensimmäinen luku on 2, koska kohdassa 0 molemmissa merkkijonoissa on merkki A ja kohdassa 3 molemmissa merkkijonoissa on merkki C.
 
-```python
-a, b = vertaa("JAVA", "VAJA")
-print(a, b)
-a, b = vertaa("AABB", "ABCD")
-print(a, b)
-a, b = vertaa("LOL", "OLO")
-print(a, b)
-```
-
-<sample-output>
-
-2 2
-1 1
-0 2
-
-</sample-output>
+Toinen luku on 3, koska muiden kohtien merkeistä voidaan järjestellä uudestaan samoihin kohtiin yksi A-merkki sekä kaksi B-merkkiä.
 
 </programming-exercise>
 
