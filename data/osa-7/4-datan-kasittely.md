@@ -336,8 +336,10 @@ usefull: usefully, useful, museful
 
 </sample-output>
 
-Korjausehdotukset etsitään standardikirjaston moduulin [difflib](https://docs.python.org/3/library/difflib.html) tarjoaman funktion [get\_closes\_matches](https://docs.python.org/3/library/difflib.html#difflib.get_close_matches) avulla. 
+Korjausehdotukset etsitään standardikirjaston moduulin [difflib](https://docs.python.org/3/library/difflib.html) tarjoaman funktion [get\_closes\_matches](https://docs.python.org/3/library/difflib.html#difflib.get_close_matches) avulla.
 
 *Huom:* jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria, eli virheellinen sana sekä lista oikeista sanoista.
 
 </programming-exercise>
+
+<quiz id="414d8f50-b5b0-52a5-8a02-82d9d3348df8"></quiz>

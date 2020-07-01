@@ -100,7 +100,7 @@ Funktion parametrilla voi olla oletusarvo, joka tulee käyttöön silloin, jos p
 ```python
 def tervehdi(nimi="Emilia"):
     print("Moikka,", nimi)
-    
+
 tervehdi()
 tervehdi("Erkki")
 tervehdi("Matti")
@@ -124,7 +124,7 @@ Esimerkiksi seuraava funktio kertoo parametrien määrän ja summan:
 def testi(*lista):
     print("Annoit", len(lista), "parametria")
     print("Niiden summa on", sum(lista))
-    
+
 testi(1, 2, 3, 4, 5)
 ```
 
@@ -134,3 +134,7 @@ Annoit 5 parametria
 Niiden summa on 15
 
 </sample-output>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="e8a25e55-804e-5f7f-bf2b-21ff0235d388"></quiz>
