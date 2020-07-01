@@ -222,7 +222,7 @@ Pääset tässä tehtävässä harjoittelemaan hieman standardikirjaston dokumen
 
 </programming-exercise>
 
-<programming-exercise name=' Kurssien tilastot' tmcname='osa07-15_kurssistatistiikka'>
+<programming-exercise name='Kurssien tilastot' tmcname='osa07-15_kurssistatistiikka'>
 
 Pythonin standardikirjastosta löytyvät funktion [urllib.request.urlopen](
 https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen) avulla on helppo hakea internetistä sisältöä ohjelmista käsin:
@@ -238,7 +238,7 @@ print(pyynto.read())
 
 Ihmisille tarkoitetut sivut tosin eivät tulostu kovin selkeinä, mutta internetissä on myös runsaasti koneluettavaa dataa, joka on usein juurikin json-muodossa.
 
-#### osa 1: tieto kursseista
+#### tieto kursseista
 
 Osoitteesta <https://studies.cs.helsinki.fi/stats/api/courses> löytyy muutaman laitoksen verkkokurssin perustiedot. Tee funktio ´hae_kaikki()´ joka hakee ja palauttaa kaikkien menossa olevien kurssien (kentän enabled arvona _true_) tiedot listana tupleja, joiden muoto on seuraava
 
@@ -268,7 +268,7 @@ Tässä vaihtoehtoisessa osoitteessa on sama data mitä varsinaisessa osoitteess
 
 *Huom4:* testeissä käytetän myös ovelaa kikkaa, jonka hieman muuttaa internetistä tulevaa dataa, ja tämän avulla varmistaa, ettet huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
 
-#### osa 2: yhden kurssin tiedot
+#### yhden kurssin tiedot
 
 Kunkin kurssin tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä _name_ seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats/api/courses/****/stats>
 
@@ -307,7 +307,6 @@ Sanakirjaan talletetut arvot määrittyvät seuraavasti:
 <programming-exercise name='Spellchecker, versio 2' tmcname='osa07-16_spellchecker_versio2'>
 
 Teemme tässä tehtävässä hieman parannellun version edellisen osan tehtävästä Spellchecker.
-
 
 Edellisen osan version tapaan ohjelma pyytää käyttäjää kirjoittamaan rivin englanninkielistä tekstiä. Ohjelma suorittaa tekstille oikeinkirjoitustarkistuksen ja tulostaa saman tekstin siten, että kaikki väärin kirjoitetut sanat on ympäröity tähdillä. _Tämän lisäksi ohjelma antaa listan korjausehdotuksia väärin kirjotettuihin sanoihin._
 
