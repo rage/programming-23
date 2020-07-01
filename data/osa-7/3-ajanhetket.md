@@ -255,3 +255,6 @@ keskimaarin minuutteja päivässä: 156.0
 </sample-data>
 
 </programming-exercise>
+
+<quiz id="6650c11c-31ec-5453-8c42-a938602999e8"></quiz>
+

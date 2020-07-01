@@ -224,3 +224,5 @@ print(tulos)
 </sample-output>
 
 </programming-exercise>
+
+<quiz id="5ec18c05-5339-5484-9691-9c7332d1ee83"></quiz>
