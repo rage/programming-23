@@ -254,7 +254,7 @@ def kasvata_kaikkia(lista: list):
         uusilista.append(alkio + 10)
 
     # kopioidaan vanhaan listaan uuden listan arvot
-    for i in len(lista):
+    for i in range(len(lista)):
         lista[i] = uusilista[i]
 ```
 
