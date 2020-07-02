@@ -136,3 +136,7 @@ Niiden summa on 15
 </sample-output>
 
 
+Vastaa kurssin lopuksi loppukyselyyn. Kyselyn tuloksia käytetään kurssimateriaalin kehittämiseen.
+
+<quiz id="99bc74e9-0e29-57b6-a995-3eafa3526325"></quiz>
+
