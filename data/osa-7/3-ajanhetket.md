@@ -36,13 +36,13 @@ Toinen tapa muodostaa aikaolio on määrittää ajanhetki itse:
 ```python
 from datetime import datetime
 
-aika = datetime(1917, 12, 6)
+aika = datetime(1952, 12, 24)
 print(aika)
 ```
 
 <sample-output>
 
-1917-12-06 00:00:00
+1952-12-24 00:00:00
 
 </sample-output>
 
@@ -53,15 +53,17 @@ Voimme hakea aikaoliosta ajan osia tähän tapaan:
 ```python
 from datetime import datetime
 
-aika = datetime(1917, 12, 6)
+aika = datetime(1952, 12, 24)
+print("Päivä:", aika.day)
 print("Kuukausi:", aika.month)
 print("Vuosi:", aika.year)
 ```
 
 <sample-output>
 
+Päivä: 24
 Kuukausi: 12
-Vuosi: 1917
+Vuosi: 1952
 
 </sample-output>
 
