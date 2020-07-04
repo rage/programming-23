@@ -212,25 +212,23 @@ joulukuusi!
 
 ## Funktion paluuarvo
 
-Funktiot voivat myös palauttaa arvoja. Meille jo tuttu Pythonin valmis funktio `input` _palauttaa_ käyttäjän antaman syötteen. Funktion palauttamaa arvo voidaan esimerkiksi sijoittaa muuttujaan:
+Funktiot voivat myös palauttaa arvoja. Meille jo tuttu Pythonin valmis funktio `input` _palauttaa_ käyttäjän antaman syötteen. Funktion palauttama arvo voidaan esimerkiksi sijoittaa muuttujaan:
 
 ```python
 sana = input("syötä merkkijono: ")
 ```
 
-Myös kokonaislukujen lukemisessa yhdessä funktion `input` käytettävä funktio `int` palauttaa arvon:
+Myös kokonaislukujen lukemisessa yhdessä funktion `input` kanssa käytettävä funktio `int` palauttaa arvon:
 
 ```python
 luku = int(input("syötä kokonaisluku: "))
 ```
 
-Funktio `int` saa parametrinaan funktion `input` palauttaman merkkijonon, ja palauttaa sen kokonaislukutyyppisenä.
+Funktio `int` saa parametrinaan funktion `input` palauttaman merkkijonon ja palauttaa sen kokonaislukutyyppisenä.
 
 ## Funktion arvon palauttaminen return-komennolla
 
-Myös itse määrittelemämme funktiot voivat palauttaa arvoja käyttämällä komentoa `return`.
-Esimerkiksi seuraava funktio `summa` palauttaa
-annettujen lukujen summan:
+Myös itse määrittelemämme funktiot voivat palauttaa arvoja käyttämällä komentoa `return`. Esimerkiksi seuraava funktio `summa` palauttaa annettujen lukujen summan:
 
 ```python
 def summa(a, b):
@@ -265,8 +263,7 @@ Moikka, Anna
 
 </sample-output>
 
-Kannattaa huomata, että komento `return` lopettaa funktion suorituksen saman tien.
-Niinpä voimme tehdä seuraavan funktion:
+Kannattaa huomata, että komento `return` lopettaa funktion suorituksen saman tien. Niinpä voimme tehdä seuraavan funktion:
 
 ```python
 def pienin(a,b):
@@ -354,7 +351,7 @@ Vastaus on 2
 
 </sample-output>
 
-Tässä tapauksessa suoritetaan ensin "sisemmät" funktiokutsut `summa(5, 2)` ja `summa(2, 3)`, joiden  palauttamat arvot 7 ja 5 käytetään "ulomman" funktiokutsun parametreina.
+Tässä tapauksessa suoritetaan ensin sisemmät funktiokutsut `summa(5, 2)` ja `summa(2, 3)`, joiden  palauttamat arvot 7 ja 5 käytetään ulomman funktiokutsun parametreina.
 
 Ulompi funktiokutsu `erotus(7, 5)` palauttaa arvon 2, joka sijoitetaan muuttujan `tulos` arvoksi ja tulostetaan ruudulle.
 
