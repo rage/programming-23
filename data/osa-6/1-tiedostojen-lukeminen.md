@@ -102,7 +102,7 @@ Tiedostoon `luvut.txt` on tallennettu lukuja, yksi luku per rivi seuraavan esime
 ...jne...
 ```
 
-Kirjoita funktio `suurin()`, joka lukee tiedoston ja palauttaa suurimman tiedostosta löytyvän luvun.
+Kirjoita funktio `suurin`, joka lukee tiedoston ja palauttaa suurimman tiedostosta löytyvän luvun.
 
 </programming-exercise>
 
@@ -176,7 +176,7 @@ appelsiini;8.0
 ...jne...
 ```
 
-Kirjoita funktio `lue_hedelmat()`, joka lukee hedelmätiedoston ja muodostaa siitä sanakirjan, jossa hedelmän nimi on avain ja hinta arvo.
+Kirjoita funktio `lue_hedelmat`, joka lukee hedelmätiedoston ja muodostaa siitä sanakirjan, jossa hedelmän nimi on avain ja hinta arvo. Hinnan tulee olla `float`-arvona sanakirjassa.
 
 Lopuksi funktio palauttaa tämän sanakirjan.
 
@@ -203,7 +203,7 @@ Kirjoita lisäksi funktio `rivisummat`, joka palauttaa listassa kaikkien matriis
 
 funktio palauttaisi listan `[6, 9]`.
 
-Vinkki: Voit kirjoittaa ohjelmaan myös muita funktioita - kannattaa siis miettiä, mitä kaikkia yhteisiä toimintoja kolmea funktiota varten vaaditaan.
+Vinkki: Voit kirjoittaa ohjelmaan myös muita funktioita – kannattaa siis miettiä, mitä kaikkia yhteisiä toimintoja kolmea funktiota varten vaaditaan.
 
 </programming-exercise>
 
@@ -434,9 +434,9 @@ Ohjelma käsittelee kahta CSV-muotoista tiedostoa. Toisessa on tieto opiskelijoi
 
 ```csv
 opnro;etunimi;sukunimi
-12345678;Pekka;Peloton
-12345687;Jaana;Javanainen
-12345699;Liisa;Virtanen
+12345678;pekka;peloton
+12345687;jaana;javanainen
+12345699;liisa;virtanen
 ```
 
 ja toisessa opiskelijoiden viikoittaisesta tehtävien lukumäärästä:
@@ -448,17 +448,17 @@ opnro;v1;v2;v3;v4;v5;v6;v7
 12345699;10;2;2;7;10;2;2
 ```
 
-Molempien CS-tiedostojen ensimmäinen rivi on otsikkorivi, joka kertoo kunkin kentän sisällön.
+Molempien CSV-tiedostojen ensimmäinen rivi on otsikkorivi, joka kertoo kunkin kentän sisällön.
 
 Tee ohjelma, joka kysyy tiedostojen nimet ja tämän jälkeen tulostaa kunkin opiskelijan tehtävien yhteenlasketun määrän. Ohjelma toimii seuraavasti, kun tiedostojen sisältö on yllä oleva:
 
 <sample-output>
 
 Opiskelijatiedot: **opiskelijat1.csv**
-Tehtävätiedot: **tehtavamaarat1.csv**
-Pekka Peloton 21
-Jaana Javanainen 27
-Liisa Virtanen 35
+Tehtävätiedot: **tehtavat1.csv**
+pekka peloton 21
+jaana javanainen 27
+liisa virtanen 35
 
 </sample-output>
 
@@ -472,7 +472,7 @@ if False:
 else:
     # kovakoodatut syötteet
     opiskelijatiedot = "opiskelijat1.csv"
-    tehtavatiedot = "tehtavamaarat1.csv"
+    tehtavatiedot = "tehtavat1.csv"
 ```
 
 Ohjelman varsinainen toiminnallisuus on nyt "piilotettu" ehdon `False`-haaraan, jota ei suoriteta koskaan.
@@ -510,11 +510,11 @@ Ohjelma kysyy tiedostojen nimet ja tulostaa jokaisen opiskelijan arvosanan:
 <sample-output>
 
 Opiskelijatiedot: **opiskelijat1.csv**
-Tehtävätiedot: **tehtavamaarat1.csv**
+Tehtävätiedot: **tehtavat1.csv**
 Koepisteet: **koepisteet1.csv**
-Pekka Peloton 0
-Jaana Javanainen 1
-Liisa Virtanen 3
+pekka peloton 0
+jaana javanainen 1
+liisa virtanen 3
 
 </sample-output>
 
@@ -539,14 +539,14 @@ Tässä tehtävässä muotoillaan edellisen tehtävän tulostus parempaan muotoo
 
 <sample-output>
 
-Opiskelijatiedot: **opiskelijat.csv**
-Tehtävätiedot: **tehtavamaarat.csv**
-Koepisteet: **koepisteet.csv**
+Opiskelijatiedot: **opiskelijat1.csv**
+Tehtävätiedot: **tehtavat1.csv**
+Koepisteet: **koepisteet1.csv**
 <pre>
 nimi                          teht_lkm  teht_pist koe_pist  yht_pist  arvosana
-Pekka Peloton                 33        8         16        24        4
-Jaana Javanainen              24        6         15        21        3
-Liisa Virtanen                27        6         19        25        4
+pekka peloton                 33        8         16        24        4
+jaana javanainen              24        6         15        21        3
+liisa virtanen                27        6         19        25        4
 </pre>
 
 </sample-output>
@@ -775,7 +775,7 @@ y_kilometreina = (latitude1 - latitude2) * 111.2
 etaisyys = math.sqrt(x_kilometreina**2 + y_kilometreina**2)
 ```
 
-Esimerkisuorituksia:
+Esimerkkisuorituksia:
 
 ```python
 asemat = hae_asematiedot('stations1.csv')
