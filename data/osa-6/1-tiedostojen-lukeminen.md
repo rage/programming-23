@@ -14,7 +14,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Yksi tavallinen ohjelmoinnin käyttötarkoitus on käsitellä tiedostoissa olevaa tietoa. Ohjelmakoodin avulla voimme lukea tietoa tiedostoista sekä tallentaa ohjelman tuloksia tiedostoihin. Tiedostojen avulla voimme käsitellä suuriakin aineistoja automaattisesti ohjelmien avulla.
+Yksi tavallinen ohjelmoinnin käyttötarkoitus on käsitellä tiedostoissa olevaa tietoa. Ohjelmat voivat lukea tietoa tiedostoista ja tallentaa tuloksia tiedostoihin. Tiedostojen avulla voimme käsitellä suuriakin aineistoja helposti automaattisesti.
 
 Oletamme tällä kurssilla, että käsiteltävät tiedostot ovat _tekstitiedostoja_ eli ne muodostuvat riveistä, joilla on tekstiä. Esimerkiksi kurssilla käytetty Visual Studio Code -editori käsittelee tekstitiedostoja. Huomaa, että esimerkiksi Word-dokumentti ei ole tekstitiedosto, vaan siinä on tekstin lisäksi muotoilutietoja ja sen käsittely ohjelmallisesti olisi vaikeaa.
 
@@ -54,11 +54,9 @@ Koodissa muuttuja `tiedosto` on _tiedostokahva_, jonka kautta tiedostoa voi käs
 "Moi kaikki!\nEsimerkkitiedostomme on kolmerivinen.\nViimeinen rivi."
 ```
 
-TODO: Miten tämä toimii Windowsissa, näkyykö tässä tilanteessa merkkijonossa `\n` vai `\r\n`?
-
 ## Tiedoston sisällön läpikäynti
 
-Metodi `read` on näppärä, jos halutaan esimerkiksi tulostaa sisältö kokonaisuudessaan ruudulle. Usein haluamme kuitenkin käsitellä tiedostoa rivi kerrallaan.
+Metodi `read` on näppärä, jos halutaan esimerkiksi tulostaa tiedoston sisältö kokonaisuudessaan ruudulle. Usein haluamme kuitenkin käsitellä tiedostoa rivi kerrallaan.
 
 Voimme käyttää tiedoston sisällön lukemiseen `for`-silmukkaa, joka käy läpi tiedoston rivit yksi kerrallaan – siis samaan tapaan kuin esimerkiksi listan läpikäynnissä.
 
@@ -70,13 +68,13 @@ with open("esimerkki.txt") as tiedosto:
     yhteispituus = 0
 
     for rivi in tiedosto:
-        rivi = rivi.replace("\n","")
+        rivi = rivi.replace("\n", "")
         laskuri += 1
-        print("Rivi",laskuri,rivi)
+        print("Rivi", laskuri, rivi)
         pituus = len(rivi)
         yhteispituus += pituus
 
-print("Rivien yhteispituus:",yhteispituus)
+print("Rivien yhteispituus:", yhteispituus)
 ```
 
 <sample-output>
@@ -92,7 +90,7 @@ Huomaa, että rivien läpikäynnissä jokaisen rivin perässä on rivinvaihto `\
 
 <programming-exercise name='Suurin luku' tmcname='osa06-01_suurin_luku'>
 
-Tiedostoon luvut.txt on talletettu lukuja, yksi luku per rivi seuraavan esimerkin mukaisesti:
+Tiedostoon `luvut.txt` on tallennettu lukuja, yksi luku per rivi seuraavan esimerkin mukaisesti:
 
 ```sh
 2
@@ -112,11 +110,9 @@ Kirjoita funktio `suurin()`, joka lukee tiedoston ja palauttaa suurimman tiedost
 
 CSV-tiedosto (_Comma Separated Values_) on tekstitiedosto, jonka jokaisella rivillä on tietyllä välimerkillä erotettua tietoa. Välimerkkinä on usein pilkku `,` tai puolipiste `;`, mutta mikä tahansa muukin merkki on periaatteessa mahdollinen.
 
-CSV-tiedostoja käytetään usein erilaisten aineistojen esittämiseen. Myös Excelin ja muiden taulukkolaskentaohjelmien taulukot voidaan tallentaa CSV-muodossa, jolloin niitä on helppo käsitellä muilla ohjelmilla.
+CSV-tiedostoja käytetään usein erilaisten aineistojen esittämiseen. Myös Excelin ja muiden vastaavien ohjelmien taulukot voidaan tallentaa CSV-muodossa, jolloin niitä on helppo käsitellä muilla ohjelmilla.
 
 Voimme lukea CSV-tiedoston rivit `for`-silmukalla, mutta miten erottaa rivillä olevat tiedot toisistaan? Helppo tapa on käyttää merkkijonojen `split`-metodia: metodille annetaan haluttu välimerkki, ja se palauttaa tiedot eroteltuna välimerkin mukaan listana merkkijonoja.
-
-TODO: Kuva tähän?
 
 Esimerkki metodin käytöstä:
 
@@ -145,7 +141,7 @@ Pirjo;4;5;5;4;5;5;4;5;4;4
 
 </sample-data>
 
-Esimerkiksi seuraava ohjelma käy läpi tiedoston rivit, jakaa jokaisen rivin osiin ja näyttää opiskelijan nimen sekä arvosanat.
+Seuraava ohjelma käy läpi tiedoston rivit, jakaa jokaisen rivin osiin ja näyttää opiskelijan nimen sekä arvosanat.
 
 ```python
 with open("arvosanat.csv") as tiedosto:
@@ -171,7 +167,7 @@ Arvosanat: ['4', '5', '5', '4', '5', '5', '4', '5', '4', '4']
 
 <programming-exercise name='Hedelmäkauppa' tmcname='osa06-02_hedelmakauppa'>
 
-Tiedostosta hedelmat.csv löytyy hedelmiä hintoineen seuraavan esimerkin mukaisesti:
+Tiedostossa `hedelmat.csv` on hedelmiä hintoineen seuraavan esimerkin mukaisesti:
 
 ```sh
 banaani;6.50
@@ -188,7 +184,7 @@ Lopuksi funktio palauttaa tämän sanakirjan.
 
 <programming-exercise name='Matriisi' tmcname='osa06-03_matriisi'>
 
-Tiedostosta matriisi.txt löytyy seuraavan esimerkin kaltainen matriisi:
+Tiedostossa `matriisi.txt` on seuraavan esimerkin kaltainen matriisi:
 
 ```sh
 1,0,2,8,2,1,3,2,5,2,2,2
@@ -207,13 +203,13 @@ Kirjoita lisäksi funktio `rivisummat`, joka palauttaa listassa kaikkien matriis
 
 funktio palauttaisi listan `[6, 9]`.
 
-VINKKI: Voit kirjoittaa ohjelmaan myös muita funktioita - kannattaa siis miettiä mitä kaikkia yhteisiä toimintoja kolmea funktiota varten vaaditaan.
+Vinkki: Voit kirjoittaa ohjelmaan myös muita funktioita - kannattaa siis miettiä, mitä kaikkia yhteisiä toimintoja kolmea funktiota varten vaaditaan.
 
 </programming-exercise>
 
 ## Saman tiedoston lukeminen moneen kertaan
 
-Joissain tilanteissa ohjelman on tarvetta lukea sama tiedosto useampaan kertaan. Esim. seuraavassa ohjelma, joka käsittelee henkilötietoja sisältävää tiedostoa:
+Joissain tilanteissa ohjelman on tarvetta lukea sama tiedosto useampaan kertaan. Tarkastellaan esimerkkinä seuraavaa ohjelmaa, joka käsittelee henkilötietoja sisältävää tiedostoa:
 
 <sample-data>
 Pekka;40;Helsinki
@@ -236,22 +232,21 @@ with open("henkilot.csv") as tiedosto:
         osat = rivi.split(";")
         nimi = osat[0]
         ika = int(osat[1])
-        if ika>vanhimman_ika:
+        if ika > vanhimman_ika:
             vanhimman_ika = ika
             vanhin = nimi
-
-    print("vanhin:",vanhin, vanhimman_ika, "vuotta")
+    print("vanhin on", vanhin)
 ```
 
 Ohjelma aiheuttaa erikoisen virheilmoituksen:
 
 ```python
 Traceback (most recent call last):
-    print("vanhin: "+{vanhin})
+    print("vanhin on"; vanhin)
 UnboundLocalError: local variable 'vanhin' referenced before assignment
 ```
 
-Syynä virheelle on se, että jälkimmäistä for-silmukkaa ei suoriteta ollenkaan, sillä tiedoston lukeminen for:illa onnistuu vain kerran, tämän jälkeen ollaan päästy "tiedoston loppuun", ja vaikka yritetään lukea tiedostosta lisää jälkimmäisessä forissa, tietoon ei päästä enää käsiksi.
+Syynä virheelle on se, että jälkimmäistä for-silmukkaa ei suoriteta ollenkaan, sillä tiedoston voi lukea vain kerran. Tämän jälkeen ollaan päästy "tiedoston loppuun", ja vaikka yritetään lukea tiedostosta lisää jälkimmäisessä silmukassa, tietoon ei päästä enää käsiksi.
 
 Tiedosto onkin avattava uudelleen komennolla `open` toista lukukertaa varten:
 
@@ -269,14 +264,13 @@ with open("henkilot.csv") as tiedosto:
         osat = rivi.split(";")
         nimi = osat[0]
         ika = int(osat[1])
-        if ika>vanhimman_ika:
+        if ika > vanhimman_ika:
             vanhimman_ika = ika
             vanhin = nimi
-
-print("vanhin:",vanhin, vanhimman_ika, "vuotta")
+    print("vanhin on", vanhin)
 ```
 
-Yleensä aina on kuitenkin parasta lukea tiedosto vain kerran ja tallettaa se muotoon, jota ohjelman toiminnallisuudet pystyvät hyödyntämään:
+Yleensä aina on kuitenkin parasta lukea tiedosto vain kerran ja tallentaa se muotoon, jota ohjelman toiminnallisuudet pystyvät hyödyntämään:
 
 ```python
 henkilot = []
@@ -284,7 +278,7 @@ henkilot = []
 with open("henkilot.csv") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(";")
-        henkilot.append((osat[0], int(osat[1]), osat[1]))
+        henkilot.append((osat[0], int(osat[1]), osat[2]))
 
 # tulostetaan nimet
 for henkilo in henkilot:
@@ -295,16 +289,15 @@ vanhimman_ika = -1
 for henkilo in henkilot:
     nimi = henkilo[0]
     ika = henkilo[1]
-    if ika>vanhimman_ika:
+    if ika > vanhimman_ika:
         vanhimman_ika = ika
         vanhin = nimi
-
-print("vanhin:",vanhin, vanhimman_ika, "vuotta")
+print("vanhin on", vanhin)
 ```
 
-## Lisää csv-tiedoston käsittelyä
+## Lisää CSV-tiedoston käsittelyä
 
-Jatketaan opiskelijoiden arvosanoja sisältävän tiedoston `arvosanat.csv` käsittelyä. Tiedoston näyttä siis seuraavalta:
+Jatketaan opiskelijoiden arvosanoja sisältävän tiedoston `arvosanat.csv` käsittelyä. Tiedosto näyttää siis seuraavalta:
 
 <sample-data>
 
@@ -320,7 +313,7 @@ Seuraava ohjelma luo tiedoston perusteella sanakirjan `arvosanat`, jossa jokaine
 arvosanat = {}
 with open("arvosanat.csv") as tiedosto:
     for rivi in tiedosto:
-        rivi = rivi.replace("\n","")
+        rivi = rivi.replace("\n", "")
         osat = rivi.split(";")
         nimi = osat[0]
         arvosanat[nimi] = []
@@ -374,7 +367,7 @@ Haluamme tulostaa listalla olevat sukunimet. Koska ensimmäinen rivi kertoo sara
 sukunimet = []
 with open("henkilot.csv") as tiedosto:
 for rivi in tiedosto:
-    osat = rivi.split(';')
+    osat = rivi.split(";")
     # ohitetaan otsikkorivi
     if osat[0] == "etunimi":
         continue
@@ -405,7 +398,7 @@ Kokeillaan metodin toimintaa konsolissa:
 >>>
 ```
 
-Korjaus on helppo:
+Tarvittava muutos ohjelmaan on helppo:
 
 ```python
 sukunimet = []
@@ -418,7 +411,7 @@ for rivi in tiedosto:
 print(sukunimet)
 ```
 
-tulostus on nyt halutun kaltainen
+Tämän jälkeen tulostus on halutunlainen:
 
 <sample-output>
 
@@ -437,13 +430,13 @@ Merkkijonoilla on myös metodit `lstrip` ja `rstrip`, jotka poistavat ainoastaa
 
 <programming-exercise name='Kurssin tulokset, osa 1' tmcname='osa06-04_kurssin_tulokset_osa1'>
 
-Ohjelma käsittelee kahta csv-muotoista tiedostoa. Toisessa on tieto opiskelijoista:
+Ohjelma käsittelee kahta CSV-muotoista tiedostoa. Toisessa on tieto opiskelijoista:
 
 ```csv
 opnro;etunimi;sukunimi
-12345678;pekka;peloton
-12345687;jaana;javanainen
-12345699;liisa;virtanen
+12345678;Pekka;Peloton
+12345687;Jaana;Javanainen
+12345699;Liisa;Virtanen
 ```
 
 ja toisessa opiskelijoiden viikoittaisesta tehtävien lukumäärästä:
@@ -455,55 +448,55 @@ opnro;v1;v2;v3;v4;v5;v6;v7
 12345699;10;2;2;7;10;2;2
 ```
 
-Molempien csv-tiedostojen ensimmäinen rivi on otsikkorivi, joka kertoo kunkin kentän sisällön.
+Molempien CS-tiedostojen ensimmäinen rivi on otsikkorivi, joka kertoo kunkin kentän sisällön.
 
-Tee ohjelma, joka kysyy tiedostojen nimet ja tämän jälkeen tulostaa kunkin opiskelijan tehtävien yhteenlasketun määrän. Ohjelma toimii seuraavasti jos tiedostojen sisältö on ylläoleva:
+Tee ohjelma, joka kysyy tiedostojen nimet ja tämän jälkeen tulostaa kunkin opiskelijan tehtävien yhteenlasketun määrän. Ohjelma toimii seuraavasti, kun tiedostojen sisältö on yllä oleva:
 
 <sample-output>
 
-opiskelijatiedot: **opiskelijat1.csv**
-tehtävätiedot: **tehtavamaarat1.csv**
-pekka peloton 21
-jaana javanainen 27
-liisa virtanen 35
+Opiskelijatiedot: **opiskelijat1.csv**
+Tehtävätiedot: **tehtavamaarat1.csv**
+Pekka Peloton 21
+Jaana Javanainen 27
+Liisa Virtanen 35
 
 </sample-output>
 
-**PROOTIP** Ohjelman testaileminen siten että käyttäjän on kirjoitettava testisyöte käsin on toivottoman hidasta. Testausvaiheessa syötteet kannattaakin antaa "kovakoodaamalla" ne esim. seuraavasti:
+Vinkki: Ohjelman testaileminen on toivottoman hidasta, jos käyttäjä joutuu kirjoittamaan syötteen aina käsin. Testausvaiheessa syötteet kannattaakin antaa "kovakoodaamalla" ne esim. seuraavasti:
 
 ```python
 if False:
     # tänne ei tulla
-    opiskelijatiedot = input("opiskelijatiedot: ")
-    tehtavatiedot = input("tehtävätiedot: ")
+    opiskelijatiedot = input("Opiskelijatiedot: ")
+    tehtavatiedot = input("Tehtävätiedot: ")
 else:
     # kovakoodatut syötteet
     opiskelijatiedot = "opiskelijat1.csv"
     tehtavatiedot = "tehtavamaarat1.csv"
 ```
 
-Ohjelman varsinainen toiminnallisuus on nyt "piilotettu" `if`:in `False`-haaraan, jota ei suoriteta koskaan.
+Ohjelman varsinainen toiminnallisuus on nyt "piilotettu" ehdon `False`-haaraan, jota ei suoriteta koskaan.
 
-Jos taas halutaan nopeasti tarkastaa toimiiko ohjelma myös käyttäjän kirjoittaessa syötteen, voidaan `False` muuttaa arvoksi `True`:
+Jos taas halutaan nopeasti tarkastaa, toimiiko ohjelma myös käyttäjän kirjoittaessa syötteen, voidaan arvo `False` muuttaa arvoksi `True`:
 
 ```python
 
 if True:
-    opiskelijatiedot = input("opiskelijatiedot: ")
-    tehtavatiedot = input("tehtävätiedot: ")
+    opiskelijatiedot = input("Opiskelijatiedot: ")
+    tehtavatiedot = input("Tehtävätiedot: ")
 else:
     # tänne ei tulla!
     opiskelijatiedot = "opiskelijat1.csv"
     tehtavatiedot = "tehtavat1.csv"
 ```
 
-Kun koodi on kunnossa, voi `if`:in poistaa.
+Kun koodi on kunnossa, voi ehtorakenteen poistaa.
 
 </programming-exercise>
 
 <programming-exercise name='Kurssin tulokset, osa 2' tmcname='osa06-05_kurssin_tulokset_osa2'>
 
-Edellinen tehtävä laajenee vielä siten, että myös opiskelijan koepisteet luetaan csv-tiedostosta. Tiedoston sisältäö näyttää seuraavalta:
+Edellinen tehtävä laajenee vielä siten, että myös opiskelijan koepisteet luetaan CSV-tiedostosta. Tiedoston sisältö näyttää seuraavalta:
 
 ```csv
 opnro;k1;k2;k3
@@ -516,16 +509,16 @@ Ohjelma kysyy tiedostojen nimet ja tulostaa jokaisen opiskelijan arvosanan:
 
 <sample-output>
 
-opiskelijatiedot: **opiskelijat1.csv**
-tehtävätiedot: **tehtavamaarat1.csv**
-koepisteet: **koepisteet1.csv**
-pekka peloton 0
-jaana javanainen 1
-liisa virtanen 3
+Opiskelijatiedot: **opiskelijat1.csv**
+Tehtävätiedot: **tehtavamaarat1.csv**
+Koepisteet: **koepisteet1.csv**
+Pekka Peloton 0
+Jaana Javanainen 1
+Liisa Virtanen 3
 
 </sample-output>
 
-Tehtyjen harjoitustehtävien määrästä saa kurssipisteitä, siten että min 10% tehtävämäärästä tuo 1 kurssipisteen, 20% tuo 2 kurssipistettä jne ja 100% eli 40 harjoitustehtävää tuo 10 kurssipistettä. Harjoitustehtävistä saatava kurssipistemäärä on kokonaisluku.
+Tehtyjen harjoitustehtävien määrästä saa kurssipisteitä siten, että vähintään 10 % tehtävämäärästä tuo 1 kurssipisteen, vähintään 20% tuo 2 kurssipistettä jne., ja 100 % eli 40 harjoitustehtävää tuo 10 kurssipistettä. Harjoitustehtävistä saatava kurssipistemäärä on kokonaisluku.
 
 Kurssin arvosana määräytyy seuraavan taulukon mukaan:
 
@@ -546,23 +539,23 @@ Tässä tehtävässä muotoillaan edellisen tehtävän tulostus parempaan muotoo
 
 <sample-output>
 
-opiskelijatiedot: **opiskelijat.csv**
-tehtävätiedot: **tehtavamaarat.csv**
-koepisteet: **koepisteet.csv**
+Opiskelijatiedot: **opiskelijat.csv**
+Tehtävätiedot: **tehtavamaarat.csv**
+Koepisteet: **koepisteet.csv**
 <pre>
 nimi                          teht_lkm  teht_pist koe_pist  yht_pist  arvosana
-pekka peloton                 33        8         16        24        4
-jaana javanainen              24        6         15        21        3
-liisa virtanen                27        6         19        25        4
+Pekka Peloton                 33        8         16        24        4
+Jaana Javanainen              24        6         15        21        3
+Liisa Virtanen                27        6         19        25        4
 </pre>
 
 </sample-output>
 
-Jokaisella rivillä siis tulostetaan opiskelijan tehtävien lukumäärä, tehtävistä saatavat kurssipisteet, koepisteet, yhteispisteet sekä arvosana "siististi" siten, että tulostus on jaoteltu sarakkeisiin. Nimisarakkeen levyes on 30 merkkiä ja muiden sarakkeiden levys tasan 10 merkkiä.
+Jokaisella rivillä siis tulostetaan opiskelijan tehtävien lukumäärä, tehtävistä saatavat kurssipisteet, koepisteet, yhteispisteet sekä arvosana "siististi" siten, että tulostus on jaoteltu sarakkeisiin. Nimisarakkeen leveys on 30 merkkiä ja muiden sarakkeiden leveys on tasan 10 merkkiä.
 
-Tehtävässä kannattaa käyttää [osassa 4](/osa-4/5-tulostuksen-muotoilu) käsiteltyjä f-stringejä.
+Tehtävässä kannattaa käyttää [osassa 4](/osa-4/5-tulostuksen-muotoilu) käsiteltyjä f-merkkijonoja.
 
-Kannattaa huomata, että merkkijonojen ja lukujen tulostaminen noudattaa hieman erilaista logiikkaa f-stringeissä:
+Kannattaa huomata, että merkkijonojen ja lukujen tulostaminen noudattaa hieman erilaista logiikkaa f-merkkijonoissa:
 
 ```python
 sana = "python"
@@ -598,8 +591,7 @@ print(f"{luku:<10}jatkuu")
 
 </sample-output>
 
-Oletusarvo lukujen yhteydessä on tulostuksen sisentyminen _oikeaan_ reunaan.
-Merkillä `<` voidaan ohjata luvun tulostus sisentymään vasempaan reunaan.
+Oletusarvo lukujen yhteydessä on tulostuksen sisentyminen _oikeaan_ reunaan. Merkillä `<` voidaan ohjata luvun tulostus sisentymään vasempaan reunaan.
 
 </programming-exercise>
 
@@ -609,7 +601,7 @@ Tee ohjelma, joka pyytää käyttäjää kirjoittamaan rivin englanninkielistä 
 
 <sample-output>
 
-write text: **We use ptython to make a spell checker**
+Write text: **We use ptython to make a spell checker**
 <pre>
 We use *ptython* to make a spell checker
 </pre>
@@ -618,16 +610,16 @@ We use *ptython* to make a spell checker
 
 <sample-output>
 
-write text: **this is acually a good and usefull program**
+Write text: **This is acually a good and usefull program**
 <pre>
-this is *acually* good and *usefull* program
+This is *acually* good and *usefull* program
 </pre>
 
 </sample-output>
 
 Kirjainten koolla ei ole merkitystä ohjelman toiminnan kannalta.
 
-Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa olevaa tiedostoa _wordlist.txt_
+Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa olevaa tiedostoa `wordlist.txt`.
 
 </programming-exercise>
 
@@ -670,13 +662,13 @@ hiiva
 kananmuna
 suola
 sokeri
-kaardemumma
+kardemumma
 voi
 ```
 
-#### Reseptien haku nimen perusteella
+#### reseptien haku nimen perusteella
 
-Tee funktion `hae_nimi(tiedosto: str, sana: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden nimessä esiintyy toisena parametrina annettu merkkijono. Funktio palauttaa listan, missä kutakin löydettyä reseptiä vastaa merkkijono, joka kertoo reseptin nimen.
+Tee funktio `hae_nimi(tiedosto: str, sana: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden nimessä esiintyy toisena parametrina annettu merkkijono. Funktio palauttaa listan, missä kutakin löydettyä reseptiä vastaa merkkijono, joka kertoo reseptin nimen.
 
 Esimerkki funktion käytöstä:
 
@@ -696,9 +688,9 @@ Pullataikina
 
 Huomaa, että hakusanojen kirjainten koolla ei ole merkitystä, eli hakusana _pulla_ löytää myös reseptin _Pullataikina_, joka alkaa isolla kirjaimella.
 
-#### Reseptien hakeminen valmistusaika perusteella
+#### reseptien hakeminen valmistusaika perusteella
 
-Tee funktion `hae_aika(tiedosto: str, aika: int)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden valmistusaika on korkeintaan parametrina kerrottu minuuttimäärä.
+Tee funktio `hae_aika(tiedosto: str, aika: int)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden valmistusaika on korkeintaan parametrina kerrottu minuuttimäärä.
 
 Kriteerin täyttävät reseptit palautetaan edellisen tehtävän tapaan listana, nyt kerrotaan myös reseptin valmistumisaika. Esimerkki funktion käytöstä:
 
@@ -715,9 +707,9 @@ Lettutaikina, valmistusaika 15 min
 
 </sample-output>
 
-#### Reseptien hakeminen raaka-aineen perusteella
+#### reseptien hakeminen raaka-aineen perusteella
 
-Tee funktion `hae_raakaaine(tiedosto: str, aine: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, jotka sisältävät toisena parametrina annetun raaka-aineen.
+Tee funktio `hae_raakaaine(tiedosto: str, aine: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, jotka sisältävät toisena parametrina annetun raaka-aineen.
 
 Kriteerin täyttäävät reseptit palautetaan edellisen tehtävän tapaan listana. Esimerkki funktion käytöstä:
 
@@ -754,7 +746,7 @@ Kutakin asemaa kohti tiedostossa on yksi rivi, joka kertoo aseman kordinaatit, a
 
 #### asemien välinen etäisyys
 
-Tee ensin funktio `hae_asematiedot(tiedosto:str)`, joka lukee asematiedot tiedostosta ja palauttaa ne sanakirjana, joka näyttää
+Tee ensin funktio `hae_asematiedot(tiedosto: str)`, joka lukee asematiedot tiedostosta ja palauttaa ne sanakirjana, joka näyttää tältä:
 
 <sample-output>
 
@@ -772,7 +764,7 @@ Eli sanakirjan avaimena on aseman nimi ja arvona tuple, joka koostuu aseman kord
 
 Tee seuraavaksi funktio `etaisyys(asemat: dict, asema1: str, asema2: str)`, joka palauttaa parametrina kerrottujen asemien välisen etäisyyden.
 
-Etäisyys lasketaan seuraavalla kaavalla (hyödyntäen Pythagoran kaavaa):
+Etäisyys lasketaan seuraavalla kaavalla (hyödyntäen Pythagoraan lausetta):
 
 ```python
 # tämä rivi tarvitaan, jotta saadaan käyttöön metodi sqrt
@@ -780,7 +772,7 @@ import math
 
 x_kilometreina = (longitude1 - longitude2) * 55.26
 y_kilometreina = (latitude1 - latitude2) * 111.2
-math.sqrt(x_kilometreina**2 + y_kilometreina**2)
+etaisyys = math.sqrt(x_kilometreina**2 + y_kilometreina**2)
 ```
 
 Esimerkisuorituksia:
@@ -802,7 +794,7 @@ print(e)
 
 #### pisin välimatka
 
-Tee funktio `suurin_etaisyys(asemat: dict)`, joka selvittää mitkä kaksi asemaa ovat kauimpana toisistaan. Funktio palauttaa tuplen, jonka ensimmäiset kaksi arvoa kertovat asemien nimet ja kolmas arvo niiden välisen etäisyyden.
+Tee funktio `suurin_etaisyys(asemat: dict)`, joka selvittää, mitkä kaksi asemaa ovat kauimpana toisistaan. Funktio palauttaa tuplen, jonka ensimmäiset kaksi arvoa kertovat asemien nimet ja kolmas arvo niiden välisen etäisyyden.
 
 ```python
 asemat = hae_asematiedot('stations1.csv')
