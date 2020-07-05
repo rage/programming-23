@@ -419,7 +419,7 @@ lopetetaan...
 Sanakirjasta on mahdollista myös poistaa avain-arvo-pareja. Menetelmiä tähän on kaksi. Ensimmäinen näistä on funktio `del`:
 
 ```python
-henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "arto": "Lehtori"}
+henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "Lehtori"}
 del henkilokunta["Arto"]
 print(henkilokunta)
 ```
