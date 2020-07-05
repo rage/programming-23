@@ -72,9 +72,9 @@ Virhe johtuu siitä, että funktio `int` ei pysty muuttamaan merkkijonoa `kaksky
 
 ## Poikkeukset
 
-Ohjelman suorituksen aikaisia virheitä kutsutaan _poikkeuksiksi_ (exception). Ohjelmakoodissa on mahdollista varautua poikkeuksiin ja käsitellä ne ilman, että ohjelman suoritus keskeytyy.
+Ohjelman suorituksen aikaisia virheitä kutsutaan _poikkeuksiksi_ (exception). Ohjelman koodissa on mahdollista varautua poikkeuksiin ja käsitellä ne ilman, että ohjelman suoritus keskeytyy.
 
-Pythonissa poikkeukset käsitellän `try`- ja `except`-lauseilla. Ideana on, että mikäli `try`-lohkossa tapahtuu jokin poikkeus, Python tarkistaa, onko tälle poikkeukselle määritelty `except`-lohkoa. Mikäli on, suoritetaan tämä lohko ja suoritus jatkuu sen jälkeen normaalisti.
+Pythonissa poikkeukset käsitellään `try`- ja `except`-lauseilla. Ideana on, että mikäli `try`-lohkossa tapahtuu jokin poikkeus, Python tarkistaa, onko tälle poikkeukselle määritelty `except`-lohkoa. Mikäli on, suoritetaan tämä lohko ja suoritus jatkuu sen jälkeen normaalisti.
 
 Muutetaan edellä esitettyä esimerkkiä siten, että ohjelma varautuu poikkeukseen `ValueError`:
 
@@ -131,12 +131,12 @@ Kiitos!
 
 <programming-exercise name='Syötteen luku' tmcname='osa06-17_syotteen_luku'>
 
-Tee funktio `lue`, joka kysyy käyttäjältä syötettä niin kaukan kunnes se on parametrien määrittelemällä välillä olevaa kokonaisluku. Funktio palauttaa käyttäjän antaman syötteen.
+Tee funktio `lue`, joka kysyy käyttäjältä syötettä, kunnes se on parametrien määrittelemällä välillä olevaa kokonaisluku. Funktio palauttaa käyttäjän antaman syötteen.
 
 Funktio toimii seuraavasti:
 
 ```python
-luku = lue("syötä luku ", 5, 10)
+luku = lue("syötä luku: ", 5, 10)
 print("syötit luvun:", luku)
 ```
 
@@ -228,7 +228,7 @@ Esimerkiksi seuraavassa ohjelmassa funktiossa `testi` tapahtuva poikkeus käsite
 
 ```python
 def testi(x):
-    print(int(x)+1)
+    print(int(x) + 1)
 
 try:
     luku = input("Anna luku: ")
@@ -257,7 +257,7 @@ def kertoma(n):
     if n < 0:
         raise ValueError("Negatiivinen syöte: " + str(n))
     k = 1
-    for i in range(2,n+1):
+    for i in range(2, n + 1):
         k *= i
     return k
 
@@ -282,7 +282,7 @@ ValueError: Negatiivinen syöte: -1
 
 <programming-exercise name='Parametrien validointi ' tmcname='osa06-18_parametrien_validointi'>
 
-Kirjoita funktio uusi_henkilo(nimi: str, ika: int), joka luo ja palauttaa uuden henkilö-tuplen. Tuplessa ensimmäinen alkio on nimi ja jälkimmäinen ikä.
+Kirjoita funktio `uusi_henkilo(nimi: str, ika: int)`, joka luo ja palauttaa uuden henkilö-tuplen. Tuplessa ensimmäinen alkio on nimi ja jälkimmäinen ikä.
 
 Jos funktion parametrit ovat virheelliset, sen tulee tuplen palauttamisen sijasta tuottaa `ValueError`-poikkeus.
 
@@ -298,7 +298,7 @@ Virheellisiä parametreja tässä tapauksessa ovat:
 
 <programming-exercise name='Virheelliset lottonumerot' tmcname='osa06-19_virheelliset_lottonumerot'>
 
-Tiedostossa `lottonumerot.csv` on tallennettua lottonumeroita seuraavan esimerkin mukaisesti:
+Tiedostoon `lottonumerot.csv` on tallennettu lottonumeroita seuraavan esimerkin mukaisesti:
 
 <sample-data>
 
