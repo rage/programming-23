@@ -149,7 +149,6 @@ Päiväkirja tallennettu
 Valinta: **2**
 Merkinnät:
 Tänään söin puuroa
-
 1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **1**
 Anna merkintä: **Illalla kävin saunassa**
@@ -160,7 +159,6 @@ Valinta: **2**
 Merkinnät:
 Tänään söin puuroa
 Illalla kävin saunassa
-
 1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **0**
 Heippa!
@@ -176,7 +174,6 @@ Valinta: **2**
 Merkinnät:
 Tänään söin puuroa
 Illalla kävin saunassa
-
 1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **0**
 Heippa!
@@ -266,7 +263,7 @@ rivi = ["Antti", "Helsinki", 31]
  ";".join(str(alkio) for alkio in rivi)
 ```
 
-Lopputulos on toimiva
+Lopputulos on toimiva:
 
 <sample-output>
 
@@ -274,7 +271,7 @@ Lopputulos on toimiva
 
 </sample-output>
 
-Tutustumme ohjelmoinnin jatkokurssilla tarkemmin siihen mistä tässä joinin sisällä olevassa forissa oikeastaan onkaan kyse.
+Tutustumme _Ohjelmoinnin jatkokurssilla_ tarkemmin siihen, mistä tässä `join`-metodin sisällä olevassa `for`-silmukassa oikeastaan onkaan kyse.
 
 </text-box>
 
@@ -315,9 +312,9 @@ Kirjoita rivit samassa järjestyksessä kuin ne esiintyvät alkuperäisessä tie
 
 ## Tiedon käsittely CSV:nä
 
-Tehdään vielä lopuksi ohjelma, joka lukee CSV-tiedostosta opiskelijoiden viikoittaiset kurssipistemäärät ja laskee näiden avulla kurssin arvosanan. Lopuksi ohjelma luo CSV-tiedoston, mistä selviää opiskelijan yhteispistemäärä sekä arvosana
+Tehdään vielä lopuksi ohjelma, joka lukee CSV-tiedostosta opiskelijoiden viikoittaiset kurssipistemäärät ja laskee näiden avulla kurssin arvosanan. Lopuksi ohjelma luo CSV-tiedoston, josta selviää opiskelijan yhteispistemäärä sekä arvosana
 
-Ohjelman lukema CSV näytää seuraavalta:
+Ohjelman lukema CSV-tiedosto näyttää seuraavalta:
 
 <sample-data>
 
@@ -328,7 +325,7 @@ Emilia;6;6;5;5;0;4;8
 
 </sample-data>
 
-Ohjelman logiikka on jaettu kolmeen funktioon, tiedoston lukeminen tapahtuu samaan tapaan kuin edellisessä aliluvussa, tiedot talletetaan sanakirjaan, missä avaimena on opiskelijan nimi ja arvona taulukko viikkopisteistä:
+Ohjelman logiikka on jaettu kolmeen funktioon. Tiedoston lukeminen tapahtuu samaan tapaan kuin edellisessä aliluvussa: tiedot talletetaan sanakirjaan, jossa avaimena on opiskelijan nimi ja arvona lista viikkopisteistä:
 
 ```python
 def lue_viikkopisteet(tiedostonimi):
@@ -391,10 +388,10 @@ Huomaa, miten ohjelma on koostettu suhteellisen yksinkertaisista, vain yhteen as
 Jos esimerkiksi haluaisimme ohjelmaan toiminnallisuuden, joka tulostaa yhden opiskelijan arvosanan, olisi toiminnallisuus helppo koostaa käyttäen apuna jo valmiina olevaa arvosanan laskevaa funktiota:
 
 ```python
-def hae_arvosana(haettava: str, viikkopisteet):
-  for nimi, lista in viikkopisteet.items():
-    if nimi == haettava:
-      return arvosana(sum(lista))
+def hae_arvosana(haettava, viikkopisteet):
+    for nimi, lista in viikkopisteet.items():
+        if nimi == haettava:
+            return arvosana(sum(lista))
 
 
 viikkopisteet = lue_viikkopisteet("viikkopisteet.csv")
@@ -408,13 +405,13 @@ print(hae_arvosana("Paula", viikkopisteet))
 
 </sample-data>
 
-Jos ohjelmasta halutaan muuttaa tai korjata "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon. Jos sama logiikka, esimerkiksi arvosanan laskeminen olisi kopioitu useaan paikkaan, kasvaisi riski että muutoksia ei muistettaisi tehdä kaikkiin oikeisiin paikkoihin.
+Jos ohjelmasta halutaan muuttaa tai korjata "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon. Jos sama logiikka, esimerkiksi arvosanan laskeminen, olisi kopioitu useaan paikkaan, kasvaisi riski, että muutoksia ei muistettaisi tehdä kaikkiin oikeisiin paikkoihin.
 
 <programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-13_kurssin_tulokset_osa4'>
 
 Laajennetaan vielä hieman aiemmin kurssien tulokset generoivaa sovellusta.
 
-Tällä hetkellä tiedostosta luetaan opiskelijoiden nimet, tehtäväpisteet sekä koepisteet. Laajennetaan ohjelmaa siten, että myös kurssin nimi ja laajuus luetaan tiedostosta, jonka muoto on seuraava (tiedostosto on kirjoitettu ilman ääkkösiä, jotta se ei aiheuttaisi ongelmia Windowsissa):
+Tällä hetkellä tiedostosta luetaan opiskelijoiden nimet, tehtäväpisteet sekä koepisteet. Laajennetaan ohjelmaa siten, että myös kurssin nimi ja laajuus luetaan tiedostosta, jonka muoto on seuraava (tiedosto on kirjoitettu ilman ääkkösiä, jotta se ei aiheuttaisi ongelmia Windowsissa):
 
 <sample-data>
 
@@ -426,7 +423,7 @@ laajuus opintopisteina: 5
 
 </sample-data>
 
-Ohjelma luo kaksi tiedostoa. Tiedoston `tulos.txt` on muoto seuraava:
+Ohjelma luo kaksi tiedostoa. Tiedoston `tulos.txt` muoto on seuraava:
 
 <sample-data>
 
@@ -467,7 +464,7 @@ Tulokset talletettu tiedostoihin tulos.txt ja tulos.csv
 
 </sample-output>
 
-Ohjelma siis ainoastaan kyselee tiedostojen nimet, mutta varsinaiset tulokset talleteaan ainoastaan tiedostoihin.
+Ohjelma siis ainoastaan kyselee tiedostojen nimet ja varsinaiset tulokset tallennetaan vain tiedostoihin.
 
 </programming-exercise>
 
@@ -479,11 +476,11 @@ Kirjoita funktio `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henk
 * Ikä (kokonaisluku)
 * Pituus (liukuluku)
 
-Tallenna henkilön tiedot tiedostoon `henkilot.csv` olemassaolevien tietojen perään. Tiedot tulee tallentaa muodosssa
+Tallenna henkilön tiedot tiedostoon `henkilot.csv` olemassa olevien tietojen perään. Tiedot tulee tallentaa muodosssa
 
 nimi;ikä;pituus
 
-...eli yhden henkilön tiedot tulevat yhdelle riville. Jos funktiota esim. kutsuttaisiin parametrien arvoilla `('Kimmo Kimmonen', 37, 175.5)`, ohjelma kirjoittaisi tiedoston loppuun rivin
+eli yhden henkilön tiedot tulevat yhdelle riville. Jos funktiota esim. kutsuttaisiin parametrien arvoilla `("Kimmo Kimmonen", 37, 175.5)`, ohjelma kirjoittaisi tiedoston loppuun rivin
 
 `Kimmo Kimmonen;37;175.5`
 
@@ -492,7 +489,7 @@ nimi;ikä;pituus
 
 <programming-exercise name='Sanahaku' tmcname='osa06-15_sanahaku'>
 
-Tehtäväpohjasta löytyy tiedosto sanat.txt, joka sisältää englanninkielisiä sanoja.
+Tehtäväpohjasta löytyy tiedosto `sanat.txt`, joka sisältää englanninkielisiä sanoja.
 
 Tehtäväsi on kirjoittaa funktio `hae_sanat(hakusana: str)`, joka palauttaa listana annetun hakusanan mukaiset sanat tiedostosta.
 
@@ -539,36 +536,30 @@ Valinta: **1**
 Anna sana suomeksi: **auto**
 Anna sana englanniksi: **car**
 Sanapari lisätty
-
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **1**
 Anna sana suomeksi: **roska**
 Anna sana englanniksi: **carbage**
 Sanapari lisätty
-
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **1**
 Anna sana suomeksi: **laukku**
 Anna sana englanniksi: **bag**
 Sanapari lisätty
-
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **2**
 Anna sana: **bag**
 roska - carbage
 laukku - bag
-
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **2**
 Anna sana: **car**
 auto - car
 roska - carbage
-
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **2**
 Anna sana: **laukku**
 laukku - bag
-
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **3**
 Moi!
