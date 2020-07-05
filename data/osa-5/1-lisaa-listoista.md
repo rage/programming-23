@@ -218,7 +218,7 @@ Ulompi silmukka käy `range`-funktion avulla läpi arvot nollasta matriisin pitu
 
 <programming-exercise name='Alkioiden määrä' tmcname='osa05-01_alkoiden_maara'>
 
-Tee funktio `laske_alkiot(matriisi: list, alkio: int)`, joka saa parametrikseen kaksiulotteisen kokonaislukutaulukon. Funktio laskee, kuinka monta annetun alkion mukaista arviota taulukosta löytyy.
+Tee funktio `laske_alkiot(matriisi: list, alkio: int)`, joka saa parametrikseen kaksiulotteisen kokonaislukutaulukon. Funktio laskee, kuinka monta annetun alkion mukaista arvoa taulukosta löytyy.
 
 Esimerkiksi
 
