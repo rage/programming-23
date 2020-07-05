@@ -673,7 +673,7 @@ Tee funktio `hae_nimi(tiedosto: str, sana: str)` joka hakee parametrina annetun 
 Esimerkki funktion käytöstä:
 
 ```python
-loydetyt = hae_nimi('reseptit.txt', 'pulla')
+loydetyt = hae_nimi('reseptit1.txt', 'pulla')
 
 for resepti in loydetyt:
     print(resepti)
@@ -695,7 +695,7 @@ Tee funktio `hae_aika(tiedosto: str, aika: int)` joka hakee parametrina annetun 
 Kriteerin täyttävät reseptit palautetaan edellisen tehtävän tapaan listana, nyt kerrotaan myös reseptin valmistumisaika. Esimerkki funktion käytöstä:
 
 ```python
-loydetyt = hae_aika('reseptit.txt', 20)
+loydetyt = hae_aika('reseptit1.txt', 20)
 
 for resepti in loydetyt:
     print(resepti)
@@ -714,7 +714,7 @@ Tee funktio `hae_raakaaine(tiedosto: str, aine: str)` joka hakee parametrina ann
 Kriteerin täyttäävät reseptit palautetaan edellisen tehtävän tapaan listana. Esimerkki funktion käytöstä:
 
 ```python
-loydetyt = hae_aika('reseptit.txt', 'maito')
+loydetyt = hae_aika('reseptit1.txt', 'maito')
 
 for resepti in loydetyt:
     print(resepti)
