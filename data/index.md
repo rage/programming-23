@@ -56,22 +56,22 @@ ja deadline on kahden viikon päästä sunnuntaina klo 23:59.
     <tr>
       <td>Osa 4</td>
       <td>22.6.2020</td>
-      <td>5.7.2020</td>
+      <td>6.7.2020</td>
     </tr>
     <tr>
       <td>Osa 5</td>
       <td>29.6.2020</td>
-      <td>12.7.2020</td>
+      <td>13.7.2020</td>
     </tr>
     <tr>
       <td>Osa 6</td>
       <td>6.7.2020</td>
-      <td>19.7.2020</td>
+      <td>20.7.2020</td>
     </tr>
     <tr>
       <td>Osa 7</td>
       <td>13.7.2020</td>
-      <td>26.7.2020</td>
+      <td>27.7.2020</td>
     </tr>
   </tbody>
 </table>
