@@ -359,7 +359,7 @@ _ _ _  _ _ _  _ _ _
 
 Viimeisessä sudokua käsittelevässä tehtävässä toteutetaan hieman erilainen versio funktiosta, jonka avulla sudokuruudukkoon lisätään uusia lukuja.
 
-Funktio `kopioi_ja_lisaa` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen listan, rivi- ja sarakenumerot sekä luvun väliltä 1–9. Funktio _palauttaa_ kopion parametrina olevasta sudokuruudukosta, johon parametrien ilmoittama määrittelemä luku on lisätty. Funktio _ei saa muuttaa_ parametrina annettua sudokuruudukkoa.
+Funktio `kopioi_ja_lisaa` saa parametreikseen sudokuruudukkoa esittävän kaksiulotteisen listan, rivinumeron, sarakenumeron sekä luvun väliltä 1–9. Funktio _palauttaa_ parametrina saadusta sudokuruudukosta _kopion_, johon on lisätty parametrina saatu luku parametrina saatuun sijaintiin sijoitettuna. Funktio _ei saa muuttaa_ parametrina annettua sudokuruudukkoa.
 
 Seuraavassa on edellisen tehtävän funktiota `tulosta` hyödyntävä käyttöesimerkki:
 
