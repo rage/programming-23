@@ -255,7 +255,7 @@ Tässä tehtäväsarjassa toteutetaan yksinkertainen opiskelijarekisteri. Ennen 
 
 #### opiskelijoiden lisäys
 
-Toteuta ensin funktio `lisaa_opiskelija` uuden opiskeljan lisäämiseen sekä ensimmäinen versio funktiosta `tulosta`, joka tulostaa yhden opiskelijan tiedot.
+Toteuta ensin funktio `lisaa_opiskelija` uuden opiskelijan lisäämiseen sekä ensimmäinen versio funktiosta `tulosta`, joka tulostaa yhden opiskelijan tiedot.
 
 Funktioita käytetään seuraavasti:
 
@@ -268,7 +268,7 @@ tulosta(opiskelijat, "Liisa")
 tulosta(opiskelijat, "Jukka")
 ```
 
-Ohjelman tulostaa tässä vaiheessa
+Ohjelma tulostaa tässä vaiheessa
 
 <sample-output>
 

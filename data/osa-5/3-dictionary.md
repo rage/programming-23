@@ -10,7 +10,7 @@ hidden: false
 Tämän osion jälkeen
 
 - Tiedät, millainen tietorakenne on sanakirja
-- Osaat käyttää sanakirjaa eri tyyppisten avainten ja arvojen kanssa
+- Osaat käyttää sanakirjaa erityyppisten avainten ja arvojen kanssa
 - Osaat käydä läpi sanakirjan sisällön
 - Tunnet joitakin sanakirjan käyttötarkoituksia ohjelmoinnissa
 
@@ -275,7 +275,7 @@ for avain, arvo in ryhmat.items():
         print(sana)
 ```
 
-Funktio toimii pitkälti saman periaatteen mukaan kuin edellisen esimerkin funktio. Tällä kertaa kuitenkin sanakirjassa avaimiin (eli alkukirjaimiin) liittyät arvot ovat listoja.
+Funktio toimii pitkälti saman periaatteen mukaan kuin edellisen esimerkin funktio. Tällä kertaa kuitenkin sanakirjassa avaimiin (eli alkukirjaimiin) liittyvät arvot ovat listoja.
 
 Ohjelman tulostus on seuraavassa:
 
@@ -376,7 +376,7 @@ lopetetaan...
 
 </sample-output>
 
-Huomaa, että jokaiseen nimeen voi liiittyä vain yksi puhelinnumero. Jos samalle henkilölle lisätään uusi numero, se korvaa aiemmin lisätyn numeron.
+Huomaa, että jokaiseen nimeen voi liittyä vain yksi puhelinnumero. Jos samalle henkilölle lisätään uusi numero, se korvaa aiemmin lisätyn numeron.
 
 
 </programming-exercise>
