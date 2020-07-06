@@ -357,7 +357,7 @@ Kannattaa tutustua huolella esimerkkikoodiin. Se voi ensisilmäyksellä vaikutta
 
 ## Eroon turhista riveistä, välilyönneistä ja rivinvaihdoista
 
-Olemme tallentaneet excelistä nimiä taulukon csv-muodossa:
+Olemme tallentaneet Excelistä nimiä taulukon CSV-muodossa:
 
 ```sh
 etunimi; sukunimi
@@ -366,7 +366,7 @@ Jaana; Java
 Heikki; Haskell
 ```
 
-Kuten tyypillistä, excel on lisännyt sarakkeiden väliin erottimena toimivan kaksoispisteen lisäksi myös välilyönnin.
+Kuten tyypillistä, Excel on lisännyt sarakkeiden väliin erottimena toimivan puolipisteen lisäksi myös välilyönnin.
 
 Haluamme tulostaa listalla olevat sukunimet. Koska ensimmäinen rivi kertoo sarakkeiden otsikot, ohitamme sen:
 
