@@ -104,6 +104,13 @@ Tiedostoon `luvut.txt` on tallennettu lukuja, yksi luku per rivi seuraavan esime
 
 Kirjoita funktio `suurin`, joka lukee tiedoston ja palauttaa suurimman tiedostosta löytyvän luvun.
 
+Huom! Jos käytät Windowsia eikä testi löydä VS Codessa tiedostoa, voit kokeilla seuraavaa:
+
+* Mene asetuksiin valikosta _File_ -> _Preferences_ -> _Settings_
+* Etsi muutettava kohta hakusanalla "executeinfile"
+* Valitse välilehti _Workspace_
+* Laita raksi kohtaan _Python_ -> _Terminal_ -> _Execute In File Dir_
+
 </programming-exercise>
 
 ## CSV-tiedoston lukeminen
