@@ -429,7 +429,7 @@ Pelilauta koostuu merkkijonoista seuraavasti:
 * `"X"`: pelaajan 1 merkki
 * `"O"`: pelaajan 2 merkki
 
-Funktio palauttaa arvon `True`, jos nappulan saatiin sijoitettua laudalle (eli jos paikka oli tyhjä), ja arvon `False`, jos paikka oli varattu TAI jos koordinaatin arvo oli liian pieni tai suuri (eli ei väliltä 0..2).
+Funktio palauttaa arvon `True`, jos nappula saatiin sijoitettua laudalle (eli jos paikka oli tyhjä), ja arvon `False`, jos paikka oli varattu TAI jos koordinaatin arvo oli liian pieni tai suuri (eli ei väliltä 0..2).
 
 Esimerkiksi:
 
