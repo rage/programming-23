@@ -373,12 +373,12 @@ Haluamme tulostaa listalla olevat sukunimet. Koska ensimmäinen rivi kertoo sara
 ```python
 sukunimet = []
 with open("henkilot.csv") as tiedosto:
-for rivi in tiedosto:
-    osat = rivi.split(";")
-    # ohitetaan otsikkorivi
-    if osat[0] == "etunimi":
-        continue
-    sukunimet.append(osat[1])
+    for rivi in tiedosto:
+        osat = rivi.split(";")
+        # ohitetaan otsikkorivi
+        if osat[0] == "etunimi":
+            continue
+        sukunimet.append(osat[1])
 
 print(sukunimet)
 ```
@@ -410,11 +410,11 @@ Tarvittava muutos ohjelmaan on helppo:
 ```python
 sukunimet = []
 with open("h.csv") as tiedosto:
-for rivi in tiedosto:
-    osat = rivi.split(';')
-    if osat[0] == "etunimi":
-        continue # tämä oli otsikkorivi, ei huomioida!
-    sukunimet.append(osat[1].strip())
+    for rivi in tiedosto:
+        osat = rivi.split(';')
+        if osat[0] == "etunimi":
+            continue # tämä oli otsikkorivi, ei huomioida!
+        sukunimet.append(osat[1].strip())
 print(sukunimet)
 ```
 
