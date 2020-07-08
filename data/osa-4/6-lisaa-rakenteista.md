@@ -304,11 +304,11 @@ for sana in lista:
    # muutetaan listan sisältöä
 ```
 
-Turvallisempi vaihtoehto on while:n käyttö:
+Turvallisempi vaihtoehto on while-silmukan käyttö:
 
 ```python
 indeksi = 0
-While indeksi < len(lista):
+while indeksi < len(lista):
    # muutetaan listan sisältöä
 ```
 

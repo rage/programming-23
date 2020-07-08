@@ -119,12 +119,6 @@ print(luvut)
 
 </sample-output>
 
-<text-box variant='hint' name='Metodi'>
-
-Listan loppuun uusia alkoita lisäävä `append` on siis tekniseltä termiltään _metodi_. Metodit ovat sukua jo meille tutuille asioille eli _funktioille_. Metodit ovatkin eräänlaisia funktiota, mutta niiden suorittama operaatio kohdistuu siihen _olioon_, jonka kautta metodia kutsutaan, eli joka esiintyy metodikutsun alussa ennen metodin nimeä.
-
-</text-box>
-
 Seuraavassa esimerkissä ohjelman käytössä on kaksi erillistä listaa:
 
 ```python

@@ -273,7 +273,7 @@ Antti ja Venla ovat yhtä vanhoja
 Lukujen lisäksi Python osaa vertailla myös merkkijonojen suuruusjärjestystä. Merkkijono a on pienempi kuin merkkijono b, jos merkkijono a tulee aakkosjärjestyksessä ennen jonoa b.
 Huomaa kuitenkin, että tämä pätee varmasti vain kun
 - vertaillaan samankokoisia kirjaimia (eli ISOJA tai pieniä kirjaimia) keskenään ja
-- vertailtavissa sanoissa on vain englanninkielestä tuttuja kirjaimia (eli a-z tai A-Z).
+- vertailtavissa sanoissa on vain englannin kielestä tuttuja kirjaimia (eli a-z tai A-Z).
 
 Tee ohjelma, joka kysyy käyttäjältä kahta sanaa. Ohjelma tulostaa sanoista sen, joka on aakkosjärjestyksessä jälkimmäinen.
 

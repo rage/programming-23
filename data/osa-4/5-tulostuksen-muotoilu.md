@@ -79,7 +79,7 @@ Moi kaikki!
 
 ## f-merkkijonot
 
-Niin sanotut _f-merkkijonot_ tarjoavat kolmannen ja edellisiä joustavamman ja jopa helppokäyttöisemmän tavat tulostuksen muotoiluun.
+Niin sanotut _f-merkkijonot_ tarjoavat kolmannen ja edellisiä joustavamman ja jopa helppokäyttöisemmän tavan tulostuksen muotoiluun.
 
 Aiempi nimen ja iän tulostava esimerkki tehtäisiin f-merkkijonojen avulla seuraavasti:
 
