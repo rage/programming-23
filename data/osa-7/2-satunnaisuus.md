@@ -148,6 +148,33 @@ rivi = sample(kaikki_luvut, 7)
 print(rivi)
 ```
 
+<programming-exercise name='Lottonumerot' tmcname='osa07-04_lottonumerot'>
+
+Tee funktio `lottonumerot(maara: int, alaraja: int, ylaraja: int)`, joka arpoo annetun määrän satunnaislukuja väliltä `alaraja`...`ylaraja`, tallentaa ne listaan ja palauttaa listan. Lukujen tulee olla palautetussa listassa suuruusjärjestyksessä.
+
+Koska kyseessä ovat lottonumerot, sama numero ei saa esiintyä listassa kahta kertaa.
+
+Esimerkki:
+
+```python
+for numero in lottonumerot(7, 1, 39):
+    print(numero)
+```
+
+<sample-output>
+
+4
+7
+11
+16
+22
+29
+38
+
+</sample-output>
+
+</programming-exercise>
+
 ## Mistä satunnaisluvut tulevat?
 
 Moduulin [random](https://docs.python.org/3/library/random.html) toiminta perustuu algoritmiin, joka tuottaa satunnaislukuja tietyn lähtöarvon ja matemaattisten operaatioiden avulla. Lähtöarvoa kutsutaan myös nimellä _siemenarvo_ (engl. _seed value_).
@@ -172,30 +199,84 @@ Lisätietoa löydät esimerkiksi sivulta <a href="https://www.random.org/randomn
 
 </text-box>
 
+<programming-exercise name='Salasanan arpoja, osa 1' tmcname='osa07-05_salasanan_arpoja_1'>
+
+Tee funktio, jonka avulla on mahdollista luoda halutun pituisia satunnaisista pienistä kirjaimista (väliltä a-z) muodostettuja salasanoja.
+
+Esimerkki:
+
+```python
+for i in range(10):
+    print(luo_salasana(8))
+```
+
+<sample-output>
+
+lttehepy
+olsxttjl
+cbjncrzo
+dwxqjdgu
+gpfdcecs
+jabyvgar
+xnbbonbl
+ktmsjyww
+ejhprmel
+rjkoacib
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Salasanan arpoja, osa 2' tmcname='osa07-06_salasanan_arpoja_2'>
+
+Tee paranneltu versio edellisen tehtävän funktiosta. Funktio saa nyt kolme parametria, joista toinen kertoo, sisällytetäänkö salasanaan myös vähintään yksi numero, ja kolmas, sisällytetäänkö siihen vähintään yksi erikoismerkki joukosta !?=+-()#. Salasanassa täytyy olla parametreista riippumatta aina vähintään yksi kirjain.
+
+Esimerkki:
+
+```
+for i in range(10):
+    print(luo_hyva_salasana(8, True, True))
+```
+
+```
+2?0n+u31
+u=m4nl94
+#n=i6r#(
+da9?zvm?
+7h)!)g?!
+a=59x2n5
+(jr6n3b5
+9n(4i+2!
+32+qba#=
+n?b0a7ey
+```
+
+</programming-exercise>
+
 <programming-exercise name='Noppasimulaatio' tmcname='osa07-07_noppasimulaatio'>
 
-Tehdään tässä tehtävässä muutamaia funktioita, joita on mahdollista käyttää nopanheittoon liittyvissä peleissä.
+Tehdään tässä tehtävässä muutamia funktioita, joita on mahdollista käyttää nopanheittoon liittyvissä peleissä.
 
-Normaalin nopan sijaan tehtävässä käytetään ns. epätransitiivisia noppia, joista lisää tietoa esim. [tässä artikkelissa](https://singingbanana.com/dice/article.htm), tai [tässä videossa](https://www.youtube.com/watch?v=LrIp6CKUlH8).
+Normaalin nopan sijaan tehtävässä käytetään ns. epätransitiivisia noppia, joista on lisää tietoa esim. [tässä artikkelissa](https://singingbanana.com/dice/article.htm) tai [tässä videossa](https://www.youtube.com/watch?v=LrIp6CKUlH8).
 
 Käytössä on kolme noppaa:
 
-- Nopassa A on numeerot 3, 3, 3, 3, 3, 6
-- Nopassa B on numeerot 2, 2, 2, 5, 5, 5
-- Nopassa C on numeerot 1, 4, 4, 4, 4, 4
+- Nopassa A on numerot 3, 3, 3, 3, 3, 6
+- Nopassa B on numerot 2, 2, 2, 5, 5, 5
+- Nopassa C on numerot 1, 4, 4, 4, 4, 4
 
 </pre>
 
-Tee funktio `heita(noppa: str)`, joka heittää parametrinsa kertomaa noppaa, käyttöesimerkki:
+Tee funktio `heita(noppa: str)`, joka heittää parametrinsa kertomaa noppaa. Esimerkki:
 
 ```python
-for i in range (20):
+for i in range(20):
     print(heita("A"), " ", end="")
 print()
-for i in range (20):
+for i in range(20):
     print(heita("B"), " ", end="")
 print()
-for i in range (20):
+for i in range(20):
     print(heita("C"), " ", end="")
 ```
 
@@ -207,7 +288,7 @@ for i in range (20):
 
 </sample-output>
 
-Tee funktio `pelaa(noppa1: str, noppa2: str, kertaa: int)` joka heittää kokonaisluvun kertoman määrän parametreina olevia noppia. Funktio palauttaa tuplen, joka kertoo nopan1 voittojen lukumäärän, nopan2 voittojen lukumäärän ja tasapelien lukumäärän.
+Tee vielä funktio `pelaa(noppa1: str, noppa2: str, kertaa: int)` joka heittää kokonaisluvun kertoman määrän parametreina olevia noppia. Funktio palauttaa tuplen, joka kertoo nopan 1 voittojen lukumäärän, nopan 2 voittojen lukumäärän ja tasapelien lukumäärän.
 
 ```python
 tulos = pelaa("A", "C", 1000)
