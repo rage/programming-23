@@ -43,6 +43,13 @@ const StyledIcon = styled(FontAwesomeIcon)`
   margin-right: 0.25rem;
 `
 
+const WarningBox = styled(Card)`
+  margin: 2rem 0;
+  background: #f1a9a0;
+  padding: 1rem;
+  font-weight: bold;
+`
+
 class CourseOptionsEditor extends React.Component {
   async componentDidMount() {
     const data = await userDetails()
@@ -77,18 +84,22 @@ class CourseOptionsEditor extends React.Component {
       last_name: this.state.last_name,
       organizational_id: this.state.student_number,
     }
-    await updateUserDetails({
-      extraFields,
-      userField,
-    })
-    this.setState({ submitting: false })
-    this.props.onComplete()
+    try {
+      await updateUserDetails({
+        extraFields,
+        userField,
+      })
+      this.setState({ submitting: false })
+      this.props.onComplete()
+    } catch (err) {
+      this.setState({ errorObj: err, submitting: false })
+    }
   }
 
   state = {
     submitting: false,
     error: true,
-    errorObj: {},
+    errorObj: undefined,
     digital_education_for_all: false,
     marketing: false,
     research: undefined,
@@ -305,6 +316,9 @@ class CourseOptionsEditor extends React.Component {
           <InfoBox>
             <b>{this.props.t("fillRequired")}</b>
           </InfoBox>
+        )}
+        {this.state.errorObj && (
+          <WarningBox>{this.state.errorObj.toString()}</WarningBox>
         )}
       </FormContainer>
     )
