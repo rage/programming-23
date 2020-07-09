@@ -120,7 +120,7 @@ Juhannukseen on vielä 37 päivää
 
 Huomaa, että vähennyslaskun tuloksena on [timedelta](https://docs.python.org/3/library/datetime.html?highlight=datetime#timedelta-objects)-olio, jolta voi kysyä vain rajoitetusti ajan yksikköjä. Voimme kysyä päivien määrän, mutta emme voi kysyä esimerkiksi vuosien määrää, koska vuoden pituus vaihtelee.
 
-Timedelta-olion avulla on myös mahdollista selvittää mikä päivä on kuin tietty aika (viikkoina ja päiviä) lisätään johonkin päivämäärään:
+Timedelta-olion avulla on myös mahdollista selvittää, mikä ajanhetki saadaan kun tietty aika (viikkoina ja päiviä) lisätään johonkin ajanhetkeen:
 
 ```python
 from datetime import datetime, timedelta
@@ -160,7 +160,7 @@ keskiyöhön on vielä 8188 sekuntia
 
 <programming-exercise name='Kuinka vanha' tmcname='osa07-09_kuinka_vanha'>
 
-Tee ohjelma, joka kysyy käyttäjän syntymäajan (erikseen päivä, kuukausi ja vuosi) ja tulostaa kuinka monta päivää vanha käyttäjä oli 31.12.1999 seuraavan esimerkin mukaisesti:
+Tee ohjelma, joka kysyy käyttäjän syntymäajan (erikseen päivä, kuukausi ja vuosi) ja tulostaa, kuinka monta päivää vanha käyttäjä oli 31.12.1999 seuraavan esimerkin mukaisesti:
 
 <sample-output>
 
@@ -191,14 +191,14 @@ Tee funktio `onko_validi(hetu: str)`, joka palauttaa `True` tai `False` sen muka
 Ohjelman tulee tarkastaa, että
 
 * alkuosassa on ppkkvv-muodossa oleva päivämäärä, joka on olemassa oleva päivämäärä
-* välimerkki on `+`, `-` tai `A` ja
+* välimerkki on `+` (1800-luku), `-` (1900-luku) tai `A` (2000-luku) ja
 * lopussa oleva tarkastusmerkki on oikein.
 
-Tarkastumerkki lasketaan jakamalla syntymäajasta ja yksilönumerosta muodostuva numerosarja 31:llä ja ottamalla tästä jakojäännös. Merkki valitaan sitten jakojäännöksen mukaisesta indeksistä merkkijonosta `0123456789ABCDEFHJKLMNPRSTUVWXY`. Esimerkiksi jos jakojäännös on 12, valitaan indeksissä 12 oleva merkki `C`.
+Tarkastusmerkki lasketaan jakamalla syntymäajasta ja yksilönumerosta muodostuva numerosarja 31:llä ja ottamalla tästä jakojäännös. Merkki valitaan sitten jakojäännöksen mukaisesta indeksistä merkkijonosta `0123456789ABCDEFHJKLMNPRSTUVWXY`. Esimerkiksi jos jakojäännös on 12, valitaan indeksissä 12 oleva merkki `C`.
 
-Lisätietoa laskemsesta löydät esimerkiksi [Digi- ja väestötietoviraston sivuilta](https://dvv.fi/henkilotunnus).
+Lisätietoa laskemisesta löydät esimerkiksi [Digi- ja väestötietoviraston sivuilta](https://dvv.fi/henkilotunnus).
 
-**HUOM!** Pidä huolta, ettet jaa omaa henkilötunnustasi esimerkiksi testikoodin mukana, jos kysyt neuvoja tehtävään kurssin keskustelualueella tms.
+**HUOM!** Pidä huolta, ettet jaa omaa henkilötunnustasi esimerkiksi testikoodin mukana, jos kysyt neuvoja tehtävään kurssin keskustelualueella tai muualla.
 
 Oikeamuotoisia henkilötunnuksia testaamiseen ovat esimerkiksi seuraavat:
 
