@@ -247,7 +247,7 @@ for i in range(10):
 
 2?0n+u31
 u=m4nl94
-#n=i6r#(
+n#=i6r#(
 da9?zvm?
 7h)!)g?!
 a=59x2n5
