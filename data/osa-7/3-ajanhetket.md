@@ -280,7 +280,7 @@ Tiedot tallennettu tiedostoon kesakuun_loppu.txt
 
 Kunkin päivän riville on siis annettu välilyönnillä eroteltuna kolme minuuttimäärää.
 
-Ohjelma tallettaa tilaston ruutuajoista tiedostoon `kesakuun\_loppu.txt`, joka näyttää yllä olevalla syötteellä seuraavalta:
+Ohjelma tallentaa tilaston ruutuajoista tiedostoon `kesakuun_loppu.txt`, joka näyttää yllä olevalla syötteellä seuraavalta:
 
 <sample-data>
 
