@@ -13,9 +13,9 @@ Tämän osion jälkeen
 
 </text-box>
 
-Tässä luvussa tutustutaan standardikirjaston moduuliin [random](https://docs.python.org/3/library/random.html?highlight=random#module-random), joka tarjoaa välineistöä satunnaislukujen generointiin ja muun satunnaisen toiminnallisuuteen. Satunnaisuutta tarvitaan erityisesti pelejä ohjelmoitaessa.
+Tässä luvussa tutustutaan standardikirjaston moduuliin [random](https://docs.python.org/3/library/random.html?highlight=random#module-random), joka tarjoaa välineistöä satunnaislukujen generointiin ja muuhun satunnaisen toiminnallisuuteen.
 
-Tässä ja seuraavissa luvuissa esiteltävien funktioiden yhteyteen on lisäilty linkkejä standardikirjaston [dokumentaatioon](https://docs.python.org/3/library/), linkkejä kannattaa klikkailla ja pikkuhiljaa totutella siihen miltä dokumentaatio näyttää.
+Tässä ja seuraavissa luvuissa esiteltävien funktioiden yhteyteen on lisäilty linkkejä standardikirjaston [dokumentaatioon](https://docs.python.org/3/library/). Linkkejä kannattaa klikkailla ja pikkuhiljaa totutella siihen, miltä dokumentaatio näyttää.
 
 ## Luvun arpominen
 
@@ -61,7 +61,7 @@ Noppa antaa: 3
 
 </sample-output>
 
-Huomaa, että funktio `randint` toimii eri logiikalla kuin aiemmin käyttämämme funktio `range`, joka luo lukuvälin. Kun kutsumme funktiota `randint(1, 6)`, lukuväli 1...6, mutta kun kutsumme funktiota `range(1, 6)`, lukuväli on 1...5.
+Huomaa, että funktio `randint` toimii eri logiikalla kuin aiemmin käyttämämme funktio `range`, joka luo lukuvälin. Kun kutsumme funktiota `randint(1, 6)`, lukuväli on 1...6, mutta kun kutsumme funktiota `range(1, 6)`, lukuväli on 1...5.
 
 ## Lisää funktioita
 
@@ -157,7 +157,7 @@ Koska kyseessä ovat lottonumerot, sama numero ei saa esiintyä listassa kahta k
 Esimerkki:
 
 ```python
-for numero in lottonumerot(7, 1, 39):
+for numero in lottonumerot(7, 1, 40):
     print(numero)
 ```
 
@@ -229,16 +229,22 @@ rjkoacib
 
 <programming-exercise name='Salasanan arpoja, osa 2' tmcname='osa07-06_salasanan_arpoja_2'>
 
-Tee paranneltu versio edellisen tehtävän funktiosta. Funktio saa nyt kolme parametria, joista toinen kertoo, sisällytetäänkö salasanaan myös vähintään yksi numero, ja kolmas, sisällytetäänkö siihen vähintään yksi erikoismerkki joukosta !?=+-()#. Salasanassa täytyy olla parametreista riippumatta aina vähintään yksi kirjain.
+Tee paranneltu versio edellisen tehtävän funktiosta. Funktio saa nyt kolme parametria:
+
+* jos toinen parametri on `True`, salasanassa on myös (yksi tai useampi) numero
+* jos kolmas parametri on `True`, salasanassa on myös (yksi tai useampi) erikoismerkki joukosta `!?=+-()#`
+
+Salasanassa täytyy olla parametreista riippumatta aina vähintään yksi kirjain.
 
 Esimerkki:
 
-```
+```python
 for i in range(10):
     print(luo_hyva_salasana(8, True, True))
 ```
 
-```
+<sample-output>
+
 2?0n+u31
 u=m4nl94
 #n=i6r#(
@@ -249,7 +255,8 @@ a=59x2n5
 9n(4i+2!
 32+qba#=
 n?b0a7ey
-```
+
+</sample-output>
 
 </programming-exercise>
 
