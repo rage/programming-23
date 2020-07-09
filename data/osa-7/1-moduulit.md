@@ -14,7 +14,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Python-kieli sisältää itsessään joukon valmiita funktioita, esimerkiksi merkkijonojen ja listojen pituuden kertovan funktion `len`, alkioiden summan laskevan funktion `sum`. Python-kielen _standardikirjasto_ on kokoelma monenlaista hyödyllisiä funktioita ja olioita joiden avulla kielen "ilmaisuvoimaa" on helppo laajentaa. Olemme jo käyttäneet muutamassa tehtävässä standardikirjastosta joitan matemaattisia operaatioita tarjoavia funktiota, esim. neliöjuurten laskemisessa.
+Python-kieli sisältää itsessään joukon valmiita funktioita, esimerkiksi merkkijonojen ja listojen pituuden kertovan funktion `len`, alkioiden summan laskevan funktion `sum`. Python-kielen _standardikirjasto_ on kokoelma monenlaista hyödyllisiä funktioita ja olioita joiden avulla kielen "ilmaisuvoimaa" on helppo laajentaa. Olemme jo käyttäneet muutamassa tehtävässä standardikirjastosta joitain matemaattisia operaatioita tarjoavia funktioita esim. neliöjuurten laskemisessa.
 
 Standardikirjasto muodostuu _moduuleista_, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme tekemään myös moduulin itse.
 
@@ -38,7 +38,7 @@ print(math.log(8, 2))
 
 </sample-output>
 
-Koska funktiot ovat moduulissa `math`, viitataan niihin koodissa nimillä `math.sqrt` ja `math.log`.
+Koska funktiot ovat moduulissa `math`, niihin viitataan koodissa nimillä `math.sqrt` ja `math.log`.
 
 ## Moduulin osien valinta
 
