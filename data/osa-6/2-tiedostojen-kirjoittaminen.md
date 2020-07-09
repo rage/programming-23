@@ -456,10 +456,10 @@ Ohjelman suoritus näyttää seuraavalta:
 
 <sample-output>
 
-opiskelijatiedot: **opiskelijat.csv**
-tehtävätiedot: **tehtavamaarat.csv**
-koepisteet: **koepisteet.csv**
-kurssin tiedot: **kurssi.txt**
+opiskelijatiedot: **opiskelijat1.csv**
+tehtävätiedot: **tehtavat1.csv**
+koepisteet: **koepisteet1.csv**
+kurssin tiedot: **kurssi1.txt**
 Tulokset talletettu tiedostoihin tulos.txt ja tulos.csv
 
 </sample-output>
