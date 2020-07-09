@@ -104,10 +104,10 @@ Funktio antaa listan nimistä, jotka moduuli määrittelee:
 
 <programming-exercise name='Erikoismerkit' tmcname='osa07-02_erikoismerkit'>
 
-Moduulissa [string](https://docs.python.org/3/library/string.html) on merkkijonovakioita, jotka määrittelevät tiettyjä merkkiryhmiä (esim. pienet kirjaimet ja välimerkit). Tutustu näihin vakioihin ja kirjoita niitä käyttäen funktio `jaa_merkkeihin(merkkijono: str)`, joka saa parametrikseen merkkijonon. Funktio palauttaa tuplen, jossa parametrina saadu merkkijonon merkit on jaettu kolmeen eri merkkijonoon:
+Moduulissa [string](https://docs.python.org/3/library/string.html) on merkkijonovakioita, jotka määrittelevät tiettyjä merkkiryhmiä (esim. pienet kirjaimet ja välimerkit). Tutustu näihin vakioihin ja kirjoita niitä käyttäen funktio `jaa_merkkeihin(merkkijono: str)`, joka saa parametrikseen merkkijonon. Funktio palauttaa tuplen, jossa parametrina saadun merkkijonon merkit on jaettu kolmeen eri merkkijonoon:
 
 * Ensimmäisessä jonossa on kaikki pienet ja suuret englanninkieliset kirjaimet (vakio `ascii_letters`)
-* Toisesssa jonossa on kaikki vakiossa `punctuation` määritellyt välimerkit
+* Toisessa jonossa on kaikki vakiossa `punctuation` määritellyt välimerkit
 * Kolmannessa jonossa on kaikki merkit (mukaan lukien esim. välilyönnit), jotka eivät kuulu kahteen edelliseen ryhmään
 
 Merkit tulee tallentaa palautettuihin merkkijonoihin siinä järjestyksessä kuin ne esiintyvät alkuperäisessä merkkijonossa.
@@ -123,7 +123,7 @@ print(osat[2])
 
 <sample-output>
 
-TmotestiToimiikomit
+TmontestiToimiikomit
 !!!,?
 ää    ä
 
@@ -133,7 +133,7 @@ TmotestiToimiikomit
 
 <programming-exercise name='Murtoluvuilla laskeminen' tmcname='osa07-03_murtoluvuilla_laskeminen'>
 
-Tutustu Pythonin moduliin `Fractions` ja toteuta sen avulla funktio `jaa_palasiksi(maara: int)`, joka saa parametrikseen palasien määrän. Funktio jakaa luvun 1 parametrin mukaisesti yhtä suuriin murtolukupalasiin ja palauttaa nämä palaset listassa.
+Tutustu Pythonin moduuliin `fractions` ja toteuta sen avulla funktio `jaa_palasiksi(maara: int)`, joka saa parametrikseen palasien määrän. Funktio jakaa luvun 1 parametrin mukaisesti yhtä suuriin murtolukupalasiin ja palauttaa nämä palaset listassa.
 
 Esimerkki:
 
