@@ -164,18 +164,18 @@ Tee ohjelma, joka kysyy käyttäjän syntymäajan (erikseen päivä, kuukausi ja
 
 <sample-output>
 
-Päivä: *10*
-Kuukausi: *9*
-Vuosi: *1979*
+Päivä: **10**
+Kuukausi: **9**
+Vuosi: **1979**
 Olit 7417 päivää vanha, kun vuosituhat vaihtui.
 
 </sample-output>
 
 <sample-output>
 
-Päivä: *28*
-Kuukausi: *3*
-Vuosi: *2005*
+Päivä: **28**
+Kuukausi: **3**
+Vuosi: **2005**
 Et ollut syntynyt, kun vuosituhat vaihtui.
 
 </sample-output>
@@ -194,41 +194,7 @@ Ohjelman tulee tarkastaa, että
 * välimerkki on `+`, `-` tai `A` ja
 * lopussa oleva tarkastusmerkki on oikein.
 
-Tarkastumerkki lasketaan jakamalla syntymäajasta ja yksilönumerosta muodostuva numerosarja 31:llä ja ottamalla tästä jakojäännös. Merkki määräytyy sitten seuraavan kaavan mukaisesti:
-
-```
-0 = 0  
-1 = 1  
-2 = 2  
-3 = 3  
-4 = 4  
-5 = 5  
-6 = 6  
-7 = 7  
-8 = 8  
-9 = 9  
-10 = A
-11 = B
-12 = C
-13 = D 
-14 = E
-15 = F
-16 = H
-17 = J
-18 = K
-19 = L
-20 = M
-21 = N
-22 = P
-23 = R
-24 = S
-25 = T
-26 = U
-27 = V
-28 = W
-29 = X
-30 = Y 
-```
+Tarkastumerkki lasketaan jakamalla syntymäajasta ja yksilönumerosta muodostuva numerosarja 31:llä ja ottamalla tästä jakojäännös. Merkki valitaan sitten jakojäännöksen mukaisesta indeksistä merkkijonosta `0123456789ABCDEFHJKLMNPRSTUVWXY`. Esimerkiksi jos jakojäännös on 12, valitaan indeksissä 12 oleva merkki `C`.
 
 Lisätietoa laskemsesta löydät esimerkiksi [Digi- ja väestötietoviraston sivuilta](https://dvv.fi/henkilotunnus).
 
@@ -239,6 +205,8 @@ Oikeamuotoisia henkilötunnuksia testaamiseen ovat esimerkiksi seuraavat:
 * 230827-906F
 * 120488+246L
 * 310823A9877
+
+</programming-exercise>
 
 ## Aikojen muotoilu
 
