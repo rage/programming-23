@@ -326,7 +326,7 @@ Kirjoita funktio `huijarit()`, joka palauttaa listan huijanneiden opiskelijoiden
 
 Käytössäsi on edellisessä tehtävässä määritellyt datatiedostot. Kirjoita funktio `viralliset_pisteet()`, joka palauttaa sanakirjassa (dict) opiskelijoiden koepisteet seuraavien sääntöjen mukaan:
 
-* Jos samaan tehtävänumeroon on tehty useita palautuksia, vain viimeisenä tehty palautus otetaan huomioon
+* Jos samaan tehtävänumeroon on tehty useita palautuksia, korkeimman pistemäärän palautus otetaan huomioon
 * Jos tehtäväpalautus on tehty yli 3 tuntia tentin aloittamisen jälkeen, palautusta ei huomoida ollenkaan
 
 Tehtävät on numeroitu 1–8 ja jokaisesta tehtävästä voi saada 0–6 pistettä.
