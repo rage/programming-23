@@ -216,7 +216,7 @@ Voimme muotoilla ajanhetken haluamallamme tavalla [strftime](https://docs.python
 from datetime import datetime
 
 aika = datetime.now()
-print(aika.strftime("%m.%d.%Y"))
+print(aika.strftime("%d.%m.%Y"))
 ```
 
 <sample-output>
@@ -268,7 +268,7 @@ Ohjelma toimii seuraavasti:
 Tiedosto: **kesakuun_loppu.txt**
 Aloituspäivä: **24.6.2020**
 Montako päivää: **5**
-Anna ruutuajat kunakin päivänä minuutteina (TV tietokone mobiililaite)
+Anna ruutuajat kunakin päivänä minuutteina (TV tietokone mobiililaite):
 Ruutuaika 24.06.2020: **60 120 0**
 Ruutuaika 25.06.2020: **0 0 0**
 Ruutuaika 26.06.2020: **180 0 0**
