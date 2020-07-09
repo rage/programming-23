@@ -64,6 +64,22 @@ print(log(5,2))
 
 Tämä tapa voi olla kätevä testailussa ja pienissä ohjelmissa, mutta siinä on omat ongelmansa, kuten näemme myöhemmin.
 
+<programming-exercise name='Hypotenuusa' tmcname='osa07-01_hypotenuusa'>
+
+Tee funktio `hypotenuusa(kateetti1: float, kateetti2: float)`, joka saa parametrikseen suorakulmaisen kolmion kateettien pituudet. Funktio palauttaa kolmion hypotenuusan pituuden. 
+
+Ratkaisu lasketaan [Pyhtagoraan](https://fi.wikipedia.org/wiki/Pythagoraan_lause) lauseen avulla. Saat laskettua neliöjuuren `math`-moduulin funktion avulla.
+
+Esimerkkejä:
+
+```python
+print(hypotenuusa(3,4)) # 5.0
+print(hypotenuusa(5,12)) # 13.0
+print(hypotenuusa(1,1)) # 1.4142135623730951
+```
+
+</programming-exercise>
+
 ## Moduulin sisältö
 
 Pythonin dokumentaatio kertoo jokaisesta standardikirjaston moduulista, mitä moduuli sisältää ja kuinka sitä käytetään. Esimerkiksi moduulin `math` dokumentaatio on tässä:
@@ -85,5 +101,61 @@ Funktio antaa listan nimistä, jotka moduuli määrittelee:
 ['\_\_doc\_\_', '\_\_name\_\_', '\_\_package\_\_', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'hypot', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']
 
 </sample-output>
+
+<programming-exercise name='Erikoismerkit' tmcname='osa07-02_erikoismerkit'>
+
+Moduulissa [string](https://docs.python.org/3/library/string.html) on merkkijonovakioita, jotka määrittelevät tiettyjä merkkiryhmiä (esim. pienet kirjaimet ja välimerkit). Tutustu näihin vakioihin ja kirjoita niitä käyttäen funktio `jaa_merkkeihin(merkkijono: str)`, joka saa parametrikseen merkkijonon. Funktio palauttaa tuplen, jossa parametrina saadu merkkijonon merkit on jaettu kolmeen eri merkkijonoon:
+
+* Ensimmäisessä jonossa on kaikki pienet ja suuret englanninkieliset kirjaimet (vakio `ascii_letters`)
+* Toisesssa jonossa on kaikki vakiossa `punctuation` määritellyt välimerkit
+* Kolmannessa jonossa on kaikki merkit (mukaan lukien esim. välilyönnit), jotka eivät kuulu kahteen edelliseen ryhmään
+
+Merkit tulee tallentaa palautettuihin merkkijonoihin siinä järjestyksessä kuin ne esiintyvät alkuperäisessä merkkijonossa.
+
+Esimerkki:
+
+```python
+osat = jaa_merkkeihin("Tämä on testi!!! Toimiiko, mitä?")
+print(osat[0])
+print(osat[1])
+print(osat[2])
+```
+
+<sample-output>
+
+TmotestiToimiikomit
+!!!,?
+ää    ä
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Murtoluvuilla laskeminen' tmcname='osa07-03_murtoluvuilla_laskeminen'>
+
+Tutustu Pythonin moduliin `Fractions` ja toteuta sen avulla funktio `jaa_palasiksi(maara: int)`, joka saa parametrikseen palasien määrän. Funktio jakaa luvun 1 parametrin mukaisesti yhtä suuriin murtolukupalasiin ja palauttaa nämä palaset listassa.
+
+Esimerkki:
+
+```python
+for p in jaa_palasiksi(3):
+    print(p)
+
+print()
+
+print(jaa_palasiksi(5))
+```
+
+<sample-output>
+
+1/3
+1/3
+1/3
+
+[Fraction(1, 5), Fraction(1, 5), Fraction(1, 5), Fraction(1, 5), Fraction(1, 5)]
+
+</sample-output>
+
+</programming-exercise>
 
 <quiz id="5f04442f-98ea-5bc6-94b5-fc07f8eea6fa"></quiz>
