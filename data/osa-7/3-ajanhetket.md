@@ -297,5 +297,34 @@ Keskimäärin minuutteja päivässä: 156.0
 
 </programming-exercise>
 
+<programming-exercise name='Kuka huijasi?' tmcname='osa07-12_kuka_huijasi'>
+
+Tiedostossa `tentin_aloitus.csv` on tenttien aloitusaikoja muodossa `tunnus;hh:mm`.
+
+Esimerkiksi:
+
+```csv
+jarmo;09:00
+timo;18:42
+kalle;13:23
+```
+
+Lisäksi tiedostossa `palautus.csv` on tehtävien palautusaikoja muodossa `tunnus;tehtävä;pisteet;hh:mm`.
+
+Esimerkiksi:
+
+```csv
+jarmo;1;8;16:05
+timo;2;10;21:22
+jarmo;2;10;19:15
+jne...
+```
+
+Tehtäväsi on etsiä ne opiskelijat, jotka ovat käyttäneet tenttiin yli 3 tuntia aikaa, eli opiskelijat, joiden _jonkin_ tehtävän palautus on tehty yli 3 tuntia tentin aloitusajasta.
+
+Kirjoita funktio `huijarit()`, joka palauttaa listan huijanneiden opiskelijoiden käyttäjätunnuksista.
+
+</programming-exercise>
+
 <quiz id="6650c11c-31ec-5453-8c42-a938602999e8"></quiz>
 
