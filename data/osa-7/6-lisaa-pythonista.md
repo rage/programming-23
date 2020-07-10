@@ -135,6 +135,102 @@ Niiden summa on 15
 
 </sample-output>
 
+<programming-exercise name='Oma ohjelmointikieli' tmcname='osa07-18_oma_ohjelmointikieli'>
+
+Tässä tehtävässä toteutetaan oman ohjelmointikielen suorittaja. Voit käyttää tehtävässä kaikkia kurssilla oppimiasi taitoja.
+
+Ohjelma muodostuu riveistä, joista jokainen on yksi seuraavista:
+
+* `PRINT [arvo]`: tulostaa annetun arvon
+* `MOV [muuttuja] [arvo]`: asettaa muuttujaan annetun arvon
+* `ADD [muuttuja] [arvo]`: lisää muuttujaan annetun arvon
+* `SUB [muuttuja] [arvo}`: vähentää muuttujasta annetun arvon
+* `MUL [muuttuja] [arvo]`: kertoo muuttujan annetulla arvolla
+* `[kohta]:`: määrittelee kohdan, johon voidaan hypätä muualta
+* `JUMP [kohta]`: hyppää annettuun kohtaan
+* `IF [ehto] JUMP [kohta]`: jos ehto pätee, hyppää annettuun kohtaan
+* `END`: lopettaa ohjelman
+
+Ohjelmaa suoritetaan rivi kerrallaan ensimmäisestä rivistä aloittaen. Ohjelma päättyy, kun vastaan tulee komento `END` tai suoritus menee ohjelman viimeisen rivin yli.
+
+Jokaisessa ohjelmassa on 26 muuttujaa, joiden nimet ovat `A`...`Z`. Jokaisen muuttujan arvo on 0 ohjelman alussa. Merkintä `[muuttuja]` viittaa tällaiseen muuttujaan.
+
+Kaikki ohjelman käsittelemät arvot ovat kokonaislukuja. Merkintä `[arvo]` viittaa joko muuttujaan tai kokonaislukuna annettuun arvoon.
+
+Merkintä `[kohta]` on mikä tahansa kohdan nimi, joka on kirjoitettu pienillä kirjaimilla `a`...`z`. Kahdella kohdalla ei saa olla samaa nimeä.
+
+Merkintä `[ehto]` tarkoittaa ehtoa muotoa `[arvo] [vertailu] [arvo]`. Tässä `vertailu` on aina yksi seuraavista: `==`, `!=`, `<`, `<=`, `>` tai `>=`.
+
+Tee funktio `suorita(ohjelma)`, jolle annetaan ohjelma listana. Jokainen listan alkio on yksi ohjelman rivi. Funktion tulee palauttaa listana kaikki `PRINT`-komentojen tulokset ohjelman suorituksen aikana.
+
+Esimerkki 1:
+
+```python
+ohjelma = []
+ohjelma.append("MOV A 1")
+ohjelma.append("MOV B 2")
+ohjelma.append("PRINT A")
+ohjelma.append("PRINT B")
+ohjelma.append("ADD A B")
+ohjelma.append("PRINT A")
+ohjelma.append("END")
+tulos = suorita(ohjelma)
+print(tulos)
+```
+
+<sample-output>
+
+[1, 2, 3]
+
+</sample-output>
+
+Esimerkki 2:
+
+```python
+ohjelma = []
+ohjelma.append("MOV A 1")
+ohjelma.append("alku:")
+ohjelma.append("PRINT A")
+ohjelma.append("ADD A 1")
+ohjelma.append("IF A <= 10 JUMP alku")
+ohjelma.append("END")
+tulos = suorita(ohjelma)
+print(tulos)
+```
+
+<sample-output>
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+</sample-output>
+
+Esimerkki 3:
+
+```python
+ohjelma = []
+ohjelma.append("MOV A 1")
+ohjelma.append("MOV B 10")
+ohjelma.append("alku:")
+ohjelma.append("IF A >= B JUMP loppu")
+ohjelma.append("PRINT A")
+ohjelma.append("PRINT B")
+ohjelma.append("ADD A 1")
+ohjelma.append("SUB A 1")
+ohjelma.append("JUMP alku")
+ohjelma.append("loppu:")
+ohjelma.append("END")
+tulos = suorita(ohjelma)
+print(tulos)
+```
+
+<sample-output>
+
+[1, 10, 2, 9, 3, 8, 4, 7, 5, 6]
+
+</sample-output>
+
+
+</programming-exercise>
 
 Vastaa kurssin lopuksi loppukyselyyn. Kyselyn tuloksia käytetään kurssimateriaalin kehittämiseen.
 
