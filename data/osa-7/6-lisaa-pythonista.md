@@ -159,7 +159,7 @@ Kaikki ohjelman käsittelemät arvot ovat kokonaislukuja. Merkintä `[arvo]` vii
 
 Merkintä `[kohta]` on mikä tahansa kohdan nimi, joka muodostuu pienistä kirjaimista `a`...`z` sekä numeroista `0`...`9`. Kahdella kohdalla ei saa olla samaa nimeä.
 
-Merkintä `[ehto]` tarkoittaa ehtoa muotoa `[arvo] [vertailu] [arvo]`. Tässä `vertailu` on aina yksi seuraavista: `==`, `!=`, `<`, `<=`, `>` tai `>=`.
+Merkintä `[ehto]` tarkoittaa ehtoa muotoa `[arvo] [vertailu] [arvo]`. Tässä `[vertailu]` on aina yksi seuraavista: `==`, `!=`, `<`, `<=`, `>` tai `>=`.
 
 Tee funktio `suorita(ohjelma)`, jolle annetaan ohjelma listana. Jokainen listan alkio on yksi ohjelman rivi. Funktion tulee palauttaa listana kaikki `PRINT`-komentojen tulokset ohjelman suorituksen aikana.
 
