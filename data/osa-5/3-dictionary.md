@@ -416,7 +416,7 @@ lopetetaan...
 
 ## Avaimien poistaminen sanakirjasta
 
-Sanakirjasta on mahdollista myös poistaa avain-arvo-pareja. Menetelmiä tähän on kaksi. Ensimmäinen näistä on funktio `del`:
+Sanakirjasta on mahdollista myös poistaa avain-arvo-pareja. Menetelmiä tähän on kaksi. Ensimmäinen näistä on komento `del`:
 
 ```python
 henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "Lehtori"}
@@ -430,7 +430,7 @@ print(henkilokunta)
 
 </sample-output>
 
-Jos funktiota `del` kutsutaan avaimille, joita sanakirjassa ei ole, seurauksena on virhe:
+Jos komentoa `del` kutsutaan avaimille, joita sanakirjassa ei ole, seurauksena on virhe:
 
 ```python
 henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
@@ -440,7 +440,7 @@ del henkilokunta["Jukka"]
 <sample-output>
 
 <pre>
->>> del henkilokunta["jukka"]
+>>> del henkilokunta["Jukka"]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 'Jukka'
