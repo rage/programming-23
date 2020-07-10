@@ -191,33 +191,13 @@ Esimerkki 2:
 ```python
 ohjelma = []
 ohjelma.append("MOV A 1")
-ohjelma.append("alku:")
-ohjelma.append("PRINT A")
-ohjelma.append("ADD A 1")
-ohjelma.append("IF A <= 10 JUMP alku")
-ohjelma.append("END")
-tulos = suorita(ohjelma)
-print(tulos)
-```
-
-<sample-output>
-
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-</sample-output>
-
-Esimerkki 3:
-
-```python
-ohjelma = []
-ohjelma.append("MOV A 1")
 ohjelma.append("MOV B 10")
 ohjelma.append("alku:")
 ohjelma.append("IF A >= B JUMP loppu")
 ohjelma.append("PRINT A")
 ohjelma.append("PRINT B")
 ohjelma.append("ADD A 1")
-ohjelma.append("SUB A 1")
+ohjelma.append("SUB B 1")
 ohjelma.append("JUMP alku")
 ohjelma.append("loppu:")
 ohjelma.append("END")
@@ -228,6 +208,28 @@ print(tulos)
 <sample-output>
 
 [1, 10, 2, 9, 3, 8, 4, 7, 5, 6]
+
+</sample-output>
+
+Esimerkki 3:
+
+```python
+ohjelma = []
+ohjelma.append("MOV A 1")
+ohjelma.append("MOV B 1")
+ohjelma.append("alku:")
+ohjelma.append("PRINT A")
+ohjelma.append("ADD B 1")
+ohjelma.append("MUL A B")
+ohjelma.append("IF B <= 10 JUMP alku")
+ohjelma.append("END")
+tulos = suorita(ohjelma)
+print(tulos)
+```
+
+<sample-output>
+
+[1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800]
 
 </sample-output>
 
