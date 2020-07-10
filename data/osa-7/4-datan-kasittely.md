@@ -238,7 +238,7 @@ Ihmisille tarkoitetut sivut tosin eivät tulostu kovin selkeinä, mutta internet
 
 #### tieto kursseista
 
-Osoitteesta <https://studies.cs.helsinki.fi/stats/api/courses> löytyy JSON-muodossa muutaman laitoksen verkkokurssin perustiedot.
+Osoitteesta <https://studies.cs.helsinki.fi/stats-mock/api/courses> löytyy JSON-muodossa muutaman laitoksen verkkokurssin perustiedot.
 
 Tee funktio `hae_kaikki()` joka hakee ja palauttaa kaikkien menossa olevien kurssien (kentän `enabled` arvona `True`) tiedot listana tupleja. Paluuarvon muoto on seuraava:
 
@@ -257,7 +257,7 @@ Tee funktio `hae_kaikki()` joka hakee ja palauttaa kaikkien menossa olevien kurs
 
 Jokainen tuple siis sisältää seuraavat arvot:
 
-- kurssin koko nimi (`fullname`)
+- kurssin koko nimi (`fullName`)
 - nimi (`name`)
 - vuosi (`year`)
 - harjoitusten (`exercises`) yhteenlaskettu määrä
@@ -266,19 +266,17 @@ Jokainen tuple siis sisältää seuraavat arvot:
 
 *Huom2*: Tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
 
-*Huom3:* Testit käyttävät samaa dataa kuin osoitteesta <https://studies.cs.helsinki.fi/stats-mock/api/courses> löytyy. Tässä vaihtoehtoisessa osoitteessa on sama data kuin varsinaisessa osoitteessa oli 30.6. Varsinaisessa osoitteessa oleva data muuttuu sitä mukaan kun kursseja suoritetaan.
-
-*Huom4:* Testeissä käytetään myös ovelaa kikkaa, joka hieman muuttaa internetistä tulevaa dataa ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
+*Huom3:* Testeissä käytetään myös ovelaa kikkaa, joka hieman muuttaa internetistä tulevaa dataa ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
 
 #### yhden kurssin tiedot
 
-Kunkin kurssin JSON-muotoinen tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä `name` seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats/api/courses/****/stats>
+Kunkin kurssin JSON-muotoinen tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä `name` seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats-mock/api/courses/****/stats>
 
-Esimerkiksi kurssin `docker2019` tiedot ovat osoitteessa <https://studies.cs.helsinki.fi/stats/api/courses/docker2019/stats>
+Esimerkiksi kurssin `docker2019` tiedot ovat osoitteessa <https://studies.cs.helsinki.fi/stats-mock/api/courses/docker2019/stats>
 
 Tee ohjelmaasi funktio `hae_kurssi(kurssi: str)`, joka palauttaa kurssin tarkemman tehtävästatistiikan.
 
-Kun kutsutaan `hae_kurssi("docker2019")` funktio palauttaa sanakirjan, jonka sisältö on seuraava:
+Kun kutsutaan `hae_kurssi("docker2019")`, funktio palauttaa sanakirjan, jonka sisältö on seuraava:
 
 <sample-output>
 
