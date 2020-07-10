@@ -171,11 +171,11 @@ Standardikirjaston lisäksi verkosta löytyy lukuisia vapaasti käytettäviä ki
 
 * https://wiki.python.org/moin/UsefulModules
 
-<programming-exercise name='json-tiedoston käsittely' tmcname='osa07-14_jsontiedostot'>
+<programming-exercise name='JSON-tiedoston käsittely' tmcname='osa07-14_jsontiedostot'>
 
 CSV-muodon lisäksi on olemassa muitekin "koneluettavia" tiedostomuotoja. Eräs näistä on erityisesti tietojen siirrossa hyvin yleisesti käytetty [JSON](https://www.json.org/json-en.html).
 
-Json-tiedostot ovat tekstitiedostoja, joilla on tietty tarkka muoto. Seuraavassa esimerkkinä json-tiedosto, joka esittää joukkoa opiskelijoita:
+JSON-tiedostot ovat tekstitiedostoja, joilla on tietty tarkka muoto. Seuraavassa esimerkkinä JSON-tiedosto, joka esittää joukkoa opiskelijoita:
 
 ```json
 [
@@ -199,13 +199,11 @@ Json-tiedostot ovat tekstitiedostoja, joilla on tietty tarkka muoto. Seuraavassa
 ]
 ```
 
-Json-tiedostot näyttävätkin kohtuullisen tutulta Pythonin käyttäjille. Itseasiassa esimerkin sisältämä _json-objekti_ on jo suoraan validia Pythonia-koodia, joka määrittelee listan, jonka sisällö on kaksi sanakirja-olioa.
+JSON-tiedostot näyttävät kohtuullisen tutulta Pythonin käyttäjille. Itse asiassa esimerkin sisältämä _JSON-objekti_ on jo suoraan validia Pythonia-koodia, joka määrittelee listan, jonka sisältönä on kaksi sanakirja-oliota.
 
-Haasteeksi nouseekin se, miten tiedostossa oleva (tai internetistä haettava) json-muotoinen teksti saadaan muutetta eli parsittua Python-olioiksi.
+Haasteeksi nouseekin se, miten tiedostossa oleva (tai internetistä haettava) JSON-muotoinen teksti saadaan muutetta eli parsittua Python-olioiksi. Onneksi standardikirjasto sisältää tähän sopivan moduulin [json](https://docs.python.org/3/library/json.html).
 
-Onneksi standardikirjasto sisältää tähän sopivan moduulin [json](https://docs.python.org/3/library/json.html).
-
-Toteuta funktio `tulosta_henklilot(tiedosto: str)`, joka lukee esimerkin tavalla muodostetun json-tiedoston (jonka sisältönä voi olla mielivaltainen määrä henkilöitä) ja tulostaa ne seuraavassa muodossa:
+Toteuta funktio `tulosta_henkilot(tiedosto: str)`, joka lukee esimerkin tavalla muodostetun JSON-tiedoston (jonka sisältönä voi olla mielivaltainen määrä henkilöitä) ja tulostaa ne seuraavassa muodossa:
 
 <sample-output>
 
@@ -214,11 +212,11 @@ Jaana Javanainen 24 vuotta (koodaus, kalliokiipeily, lukeminen)
 
 </sample-output>
 
-Harrastukset tulee luetella samassa järjestyksessä, mistä ne löytyvät json-tiedostosta.
+Harrastukset tulee luetella samassa järjestyksessä kuin ne on annettu JSON-tiedostossa.
 
 Pääset tässä tehtävässä harjoittelemaan hieman standardikirjaston dokumentaation lukemista tulkitessasi miten kirjastoa [json](https://docs.python.org/3/library/json.html) käytetään! Kohta _Decoding JSON_ tekee sen mitä tehtävässä tarvitaan.
 
-*Vihje* tässä tehtävässä tiedostoa ei kannata lukea riveittäin, vaan parasta on lukea sen sisältö kokonaan yhteen merkkijonoon [tämän luvun](/osa-6/1-tiedostojen-lukeminen) ensimmäisen esimerkin tapaan.
+*Vihje*: tässä tehtävässä tiedostoa ei kannata lukea riveittäin, vaan parasta on lukea sen sisältö kokonaan yhteen merkkijonoon [tämän luvun](/osa-6/1-tiedostojen-lukeminen) ensimmäisen esimerkin tapaan.
 
 </programming-exercise>
 
@@ -240,9 +238,9 @@ Ihmisille tarkoitetut sivut tosin eivät tulostu kovin selkeinä, mutta internet
 
 #### tieto kursseista
 
-Osoitteesta <https://studies.cs.helsinki.fi/stats/api/courses> löytyy json-muodossa muutaman laitoksen verkkokurssin perustiedot.
+Osoitteesta <https://studies.cs.helsinki.fi/stats/api/courses> löytyy JSON-muodossa muutaman laitoksen verkkokurssin perustiedot.
 
-Tee funktio `hae_kaikki()` joka hakee ja palauttaa kaikkien menossa olevien kurssien (kentän enabled arvona _True_) tiedot listana tupleja. Paluuarvon muoto on seuraava
+Tee funktio `hae_kaikki()` joka hakee ja palauttaa kaikkien menossa olevien kurssien (kentän `enabled` arvona `True`) tiedot listana tupleja. Paluuarvon muoto on seuraava:
 
 <sample-output>
 
@@ -257,29 +255,30 @@ Tee funktio `hae_kaikki()` joka hakee ja palauttaa kaikkien menossa olevien kurs
 
 </sample-output>
 
-Jokainen tuple siis sisältää seuraavat arvot
-- kurssin koko nimi (fullname)
-- nimi (name)
-- vuosi (year)
-- harjoitusten (exercises) yhteenlaskettu määrä
+Jokainen tuple siis sisältää seuraavat arvot:
 
-*Huom:* kun suoritat testejä, huolehdi että ohjelmassasi ei kutsuta toteuttamaasi funktiota!
+- kurssin koko nimi (`fullname`)
+- nimi (`name`)
+- vuosi (`year`)
+- harjoitusten (`exercises`) yhteenlaskettu määrä
 
-*Huom2:* tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
+*Huom*: Kun suoritat testejä, huolehdi, että pääohjelmassa ei kutsuta toteuttamaasi funktiota!
 
-*Huom3:* testit käyttävät samaa dataa mitä osoitteesta <https://studies.cs.helsinki.fi/stats-mock/api/courses> löytyy. Tässä vaihtoehtoisessa osoitteessa on sama data mitä varsinaisessa osoitteessa oli 30.6. Varsinaisessa osoitteessa oleva data muuttuu sitä mukaan kun kursseja suoritetaan.
+*Huom2*: Tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
 
-*Huom4:* testeissä käytetän myös ovelaa kikkaa, jonka hieman muuttaa internetistä tulevaa dataa, ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
+*Huom3:* Testit käyttävät samaa dataa kuin osoitteesta <https://studies.cs.helsinki.fi/stats-mock/api/courses> löytyy. Tässä vaihtoehtoisessa osoitteessa on sama data kuin varsinaisessa osoitteessa oli 30.6. Varsinaisessa osoitteessa oleva data muuttuu sitä mukaan kun kursseja suoritetaan.
+
+*Huom4:* Testeissä käytetään myös ovelaa kikkaa, joka hieman muuttaa internetistä tulevaa dataa ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
 
 #### yhden kurssin tiedot
 
-Kunkin kurssin json-muotoinen tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä _name_ seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats/api/courses/****/stats>
+Kunkin kurssin JSON-muotoinen tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä `name` seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats/api/courses/****/stats>
 
-Esimerkiksi kurssin _docker2019_ tiedot ovat osoitteessa <https://studies.cs.helsinki.fi/stats/api/courses/docker2019/stats>
+Esimerkiksi kurssin `docker2019` tiedot ovat osoitteessa <https://studies.cs.helsinki.fi/stats/api/courses/docker2019/stats>
 
-Tee ohjelmaasi funktio `hae_kurssi(kurssi: str)` joka palauttaa kurssin tarkemman tehtävästatistiikan. Funktion
+Tee ohjelmaasi funktio `hae_kurssi(kurssi: str)`, joka palauttaa kurssin tarkemman tehtävästatistiikan.
 
-Kun kutsutaan `hae_kurssi("docker2019")` funktio palauttaa sanakirjan, jonka sisältö on seuraava
+Kun kutsutaan `hae_kurssi("docker2019")` funktio palauttaa sanakirjan, jonka sisältö on seuraava:
 
 <sample-output>
 
@@ -296,16 +295,16 @@ Kun kutsutaan `hae_kurssi("docker2019")` funktio palauttaa sanakirjan, jonka sis
 
 </sample-output>
 
-Sanakirjaan talletetut arvot määrittyvät seuraavasti:
+Sanakirjaan tallennetut arvot määrittyvät seuraavasti:
 
-- _viikkoja_: kurssia vastaavan jsonin "olioiden" määrä
-- *opiskelijoita* viikkojen opiskelijamäärien maksimi
-- *tunteja*: kakkien viikkojen tuntimäärien (hour_total) summa
-- *tunteja_keskimaarin*: edellinen jaettuna opsikelijamäärällä (kokonaislukuna)
-- *tehtavia*: kakkien viikkojen tehtävämäärien (exercise_total) summa
-- *tehtavia_keskimaarin*: edellinen jaettuna opsikelijamäärällä (kokonaislukuna)
+- `viikkoja`: kurssia vastaavan JSON-olioiden määrä
+- `opiskelijoita` viikkojen opiskelijamäärien maksimi
+- `tunteja`: kakkien viikkojen tuntimäärien (`hour_total`) summa
+- `tunteja_keskimaarin`: edellinen jaettuna opiskelijamäärällä (kokonaislukuna)
+- `tehtavia`: kakkien viikkojen tehtävämäärien (`exercise_total`) summa
+- `tehtavia_keskimaarin`: edellinen jaettuna opiskelijamäärällä (kokonaislukuna)
 
-*Huom:* samat huomiot pätevät tähän osaan kuin edelliseen!
+*Huom*: Samat huomiot pätevät tähän osaan kuin edelliseen!
 
 </programming-exercise>
 
@@ -342,7 +341,7 @@ usefull: usefully, useful, museful
 
 Korjausehdotukset etsitään standardikirjaston moduulin [difflib](https://docs.python.org/3/library/difflib.html) tarjoaman funktion [get\_close\_matches](https://docs.python.org/3/library/difflib.html#difflib.get_close_matches) avulla.
 
-*Huom:* jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria, eli virheellinen sana sekä lista oikeista sanoista.
+*Huom*: jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria, eli virheellinen sana sekä lista oikeista sanoista.
 
 </programming-exercise>
 
