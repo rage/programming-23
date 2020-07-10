@@ -181,7 +181,7 @@ hississä
 
 </sample-output>
 
-<programming-exercise name='Merkkiapuri' tmcname='osa07-19_merkkiapuri'>
+<programming-exercise name='Merkkiapuri' tmcname='osa07-17_merkkiapuri'>
 
 Tee moduuli `merkkiapuri`, joka sisältää seuraavat funktiot:
 
@@ -217,6 +217,8 @@ ikki!
 Tämä on testi katsotaan miten käy11
 
 </sample-output>
+
+</programming-exercise>
 
 <quiz id="325baaca-2cae-540e-9f8f-948a567ef88f"></quiz>
 
