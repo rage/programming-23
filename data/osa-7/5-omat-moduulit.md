@@ -181,6 +181,42 @@ hississä
 
 </sample-output>
 
+<programming-exercise name='Merkkiapuri' tmcname='osa07-19_merkkiapuri'>
+
+Tee moduuli `merkkiapuri`, joka sisältää seuraavat funktiot:
+
+Funktio `vaihda_koko(merkkijono: str)` saa parametrikseen merkkijonon. Funktio luo ja palauttaa uuden merkkijonon, jossa alkuperäisen merkkijonon pienet kirjaimet on muutettu isoiksi kirjaimiksi ja päinvastoin.
+
+Funktio `puolita(merkkijono: str)` palauttaa tuplessa parametrinaan saamansa merkkijonon ensimmäisen ja toisen puolikkaan. Jos merkkijonossa on pariton määrä kirjaimia, ensimmäinen puolikas on lyhyempi.
+
+Funktio `poista_erikoismerkit(merkkijono: str)` palauttaa merkkijononon, josta on poistettu kaikki muut merkit paitsi aakkoset [a...ö, A...Ö], numerot ja välilyönnit.
+
+Esimerkkejä moduulin toiminnasta:
+
+```python
+import merkkiapuri
+
+mjono = "Moi kaikki!"
+
+print(merkkiapuri.vaihda_koko(mjono))
+
+p1, p2 = merkkiapuri.puolita(mjono)
+
+print(p1)
+print(p2)
+
+m2 = merkkiapuri.poista_erikoismerkit("Tämä on testi, katsotaan miten käy!!!11!")
+print(m2)
+```
+
+<sample-output>
+
+mOI KAIKKI!
+Moi ka
+ikki!
+Tämä on testi katsotaan miten käy11
+
+</sample-output>
 
 <quiz id="325baaca-2cae-540e-9f8f-948a567ef88f"></quiz>
 
