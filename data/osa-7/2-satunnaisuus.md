@@ -234,7 +234,7 @@ Tee paranneltu versio edellisen tehtävän funktiosta. Funktio saa nyt kolme par
 * jos toinen parametri on `True`, salasanassa on myös (yksi tai useampi) numero
 * jos kolmas parametri on `True`, salasanassa on myös (yksi tai useampi) erikoismerkki joukosta `!?=+-()#`
 
-Salasanassa täytyy olla parametreista riippumatta aina vähintään yksi kirjain.
+Salasanassa täytyy olla parametreista riippumatta aina vähintään yksi kirjain. Voit olettaa, että funktiota kutsutaan aina parametreilla, joilla on mahdollista tuottaa halutunlaisia salasanoja.
 
 Esimerkki:
 
