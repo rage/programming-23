@@ -211,10 +211,9 @@ print(tulos)
 
 </sample-output>
 
-Esimerkki 3:
+Esimerkki 3 (kertoma):
 
 ```python
-# kertoma
 ohjelma = []
 ohjelma.append("MOV A 1")
 ohjelma.append("MOV B 1")
@@ -237,7 +236,6 @@ print(tulos)
 Esimerkki 4 (alkuluvut):
 
 ```python
-# alkuluvut
 ohjelma = []
 ohjelma.append("MOV N 50")
 ohjelma.append("PRINT 2")
