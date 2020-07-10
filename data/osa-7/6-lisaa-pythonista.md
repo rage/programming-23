@@ -157,7 +157,7 @@ Jokaisessa ohjelmassa on 26 muuttujaa, joiden nimet ovat `A`...`Z`. Jokaisen muu
 
 Kaikki ohjelman käsittelemät arvot ovat kokonaislukuja. Merkintä `[arvo]` viittaa joko muuttujaan tai kokonaislukuna annettuun arvoon.
 
-Merkintä `[kohta]` on mikä tahansa kohdan nimi, joka on kirjoitettu pienillä kirjaimilla `a`...`z`. Kahdella kohdalla ei saa olla samaa nimeä.
+Merkintä `[kohta]` on mikä tahansa kohdan nimi, joka muodostuu pienistä kirjaimista `a`...`z` sekä numeroista `0`...`9`. Kahdella kohdalla ei saa olla samaa nimeä.
 
 Merkintä `[ehto]` tarkoittaa ehtoa muotoa `[arvo] [vertailu] [arvo]`. Tässä `vertailu` on aina yksi seuraavista: `==`, `!=`, `<`, `<=`, `>` tai `>=`.
 
@@ -214,6 +214,7 @@ print(tulos)
 Esimerkki 3:
 
 ```python
+# kertoma
 ohjelma = []
 ohjelma.append("MOV A 1")
 ohjelma.append("MOV B 1")
@@ -233,6 +234,45 @@ print(tulos)
 
 </sample-output>
 
+Esimerkki 4 (alkuluvut):
+
+```python
+# alkuluvut
+ohjelma = []
+ohjelma.append("MOV N 50")
+ohjelma.append("PRINT 2")
+ohjelma.append("MOV A 3")
+ohjelma.append("alku:")
+ohjelma.append("MOV B 2")
+ohjelma.append("MOV Z 0")
+ohjelma.append("testi:")
+ohjelma.append("MOV C B")
+ohjelma.append("uusi:")
+ohjelma.append("IF C == A THEN virhe")
+ohjelma.append("IF C > A THEN ohi")
+ohjelma.append("ADD C B")
+ohjelma.append("JUMP uusi")
+ohjelma.append("virhe:")
+ohjelma.append("MOV Z 1")
+ohjelma.append("JUMP ohi2")
+ohjelma.append("ohi:")
+ohjelma.append("ADD B 1")
+ohjelma.append("IF B < A JUMP testi")
+ohjelma.append("ohi2:")
+ohjelma.append("IF Z == 1 JUMP ohi3")
+ohjelma.append("PRINT A")
+ohjelma.append("ohi3:")
+ohjelma.append("ADD A 1")
+ohjelma.append("IF A <= N JUMP alku")
+tulos = suorita(ohjelma)
+print(tulos)
+```
+
+<sample-output>
+
+[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+
+</sample-output>
 
 </programming-exercise>
 
