@@ -445,9 +445,9 @@ Tämän lisäksi luodaan tiedosto `tulos.csv`, jonka muoto on seuraava:
 <sample-data>
 
 <pre>
-012345678;pekka peloton;4
-012345678;jaana javanainen;3
-012345678;liisa virtanen;4
+12345678;pekka peloton;4
+12345687;jaana javanainen;3
+12345699;liisa virtanen;4
 </pre>
 
 </sample-data>
