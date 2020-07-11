@@ -344,6 +344,14 @@ viikko 39;5,9,15,35,39,41,105
 
 </sample-data>
 
+Rivissä esiintyy sama numero kahdesti:
+
+<sample-data>
+
+viikko 41;5,12,3,35,12,14,36
+
+</sample-data>
+
 Kirjoita funktio `suodata_virheelliset()`, joka luo tiedoston `korjatut_numerot.csv`. Tiedostoon on kopioitu kelvolliset rivit alkuperäisestä tiedostosta.
 
 </programming-exercise>
