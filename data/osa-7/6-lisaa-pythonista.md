@@ -168,15 +168,15 @@ Voit olettaa, että funktiolle annettu ohjelma on oikeanmuotoinen, eli funktion 
 Esimerkki 1:
 
 ```python
-ohjelma = []
-ohjelma.append("MOV A 1")
-ohjelma.append("MOV B 2")
-ohjelma.append("PRINT A")
-ohjelma.append("PRINT B")
-ohjelma.append("ADD A B")
-ohjelma.append("PRINT A")
-ohjelma.append("END")
-tulos = suorita(ohjelma)
+ohjelma1 = []
+ohjelma1.append("MOV A 1")
+ohjelma1.append("MOV B 2")
+ohjelma1.append("PRINT A")
+ohjelma1.append("PRINT B")
+ohjelma1.append("ADD A B")
+ohjelma1.append("PRINT A")
+ohjelma1.append("END")
+tulos = suorita(ohjelma1)
 print(tulos)
 ```
 
@@ -189,19 +189,19 @@ print(tulos)
 Esimerkki 2:
 
 ```python
-ohjelma = []
-ohjelma.append("MOV A 1")
-ohjelma.append("MOV B 10")
-ohjelma.append("alku:")
-ohjelma.append("IF A >= B JUMP loppu")
-ohjelma.append("PRINT A")
-ohjelma.append("PRINT B")
-ohjelma.append("ADD A 1")
-ohjelma.append("SUB B 1")
-ohjelma.append("JUMP alku")
-ohjelma.append("loppu:")
-ohjelma.append("END")
-tulos = suorita(ohjelma)
+ohjelma2 = []
+ohjelma2.append("MOV A 1")
+ohjelma2.append("MOV B 10")
+ohjelma2.append("alku:")
+ohjelma2.append("IF A >= B JUMP loppu")
+ohjelma2.append("PRINT A")
+ohjelma2.append("PRINT B")
+ohjelma2.append("ADD A 1")
+ohjelma2.append("SUB B 1")
+ohjelma2.append("JUMP alku")
+ohjelma2.append("loppu:")
+ohjelma2.append("END")
+tulos = suorita(ohjelma2)
 print(tulos)
 ```
 
@@ -214,16 +214,16 @@ print(tulos)
 Esimerkki 3 (kertoma):
 
 ```python
-ohjelma = []
-ohjelma.append("MOV A 1")
-ohjelma.append("MOV B 1")
-ohjelma.append("alku:")
-ohjelma.append("PRINT A")
-ohjelma.append("ADD B 1")
-ohjelma.append("MUL A B")
-ohjelma.append("IF B <= 10 JUMP alku")
-ohjelma.append("END")
-tulos = suorita(ohjelma)
+ohjelma3 = []
+ohjelma3.append("MOV A 1")
+ohjelma3.append("MOV B 1")
+ohjelma3.append("alku:")
+ohjelma3.append("PRINT A")
+ohjelma3.append("ADD B 1")
+ohjelma3.append("MUL A B")
+ohjelma3.append("IF B <= 10 JUMP alku")
+ohjelma3.append("END")
+tulos = suorita(ohjelma3)
 print(tulos)
 ```
 
@@ -236,33 +236,33 @@ print(tulos)
 Esimerkki 4 (alkuluvut):
 
 ```python
-ohjelma = []
-ohjelma.append("MOV N 50")
-ohjelma.append("PRINT 2")
-ohjelma.append("MOV A 3")
-ohjelma.append("alku:")
-ohjelma.append("MOV B 2")
-ohjelma.append("MOV Z 0")
-ohjelma.append("testi:")
-ohjelma.append("MOV C B")
-ohjelma.append("uusi:")
-ohjelma.append("IF C == A JUMP virhe")
-ohjelma.append("IF C > A JUMP ohi")
-ohjelma.append("ADD C B")
-ohjelma.append("JUMP uusi")
-ohjelma.append("virhe:")
-ohjelma.append("MOV Z 1")
-ohjelma.append("JUMP ohi2")
-ohjelma.append("ohi:")
-ohjelma.append("ADD B 1")
-ohjelma.append("IF B < A JUMP testi")
-ohjelma.append("ohi2:")
-ohjelma.append("IF Z == 1 JUMP ohi3")
-ohjelma.append("PRINT A")
-ohjelma.append("ohi3:")
-ohjelma.append("ADD A 1")
-ohjelma.append("IF A <= N JUMP alku")
-tulos = suorita(ohjelma)
+ohjelma4 = []
+ohjelma4.append("MOV N 50")
+ohjelma4.append("PRINT 2")
+ohjelma4.append("MOV A 3")
+ohjelma4.append("alku:")
+ohjelma4.append("MOV B 2")
+ohjelma4.append("MOV Z 0")
+ohjelma4.append("testi:")
+ohjelma4.append("MOV C B")
+ohjelma4.append("uusi:")
+ohjelma4.append("IF C == A JUMP virhe")
+ohjelma4.append("IF C > A JUMP ohi")
+ohjelma4.append("ADD C B")
+ohjelma4.append("JUMP uusi")
+ohjelma4.append("virhe:")
+ohjelma4.append("MOV Z 1")
+ohjelma4.append("JUMP ohi2")
+ohjelma4.append("ohi:")
+ohjelma4.append("ADD B 1")
+ohjelma4.append("IF B < A JUMP testi")
+ohjelma4.append("ohi2:")
+ohjelma4.append("IF Z == 1 JUMP ohi3")
+ohjelma4.append("PRINT A")
+ohjelma4.append("ohi3:")
+ohjelma4.append("ADD A 1")
+ohjelma4.append("IF A <= N JUMP alku")
+tulos = suorita(ohjelma4)
 print(tulos)
 ```
 
