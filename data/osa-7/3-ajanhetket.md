@@ -297,45 +297,5 @@ Keskimäärin minuutteja päivässä: 156.0
 
 </programming-exercise>
 
-<programming-exercise name='Kuka huijasi' tmcname='osa07-12_kuka_huijasi'>
-
-Tiedostossa `tentin_aloitus.csv` on tenttien aloitusaikoja muodossa `tunnus;hh:mm`. Esimerkiksi:
-
-```csv
-jarmo;09:00
-timo;18:42
-kalle;13:23
-```
-
-Lisäksi tiedostossa `palautus.csv` on tehtävien palautusaikoja muodossa `tunnus;tehtävä;pisteet;hh:mm`. Esimerkiksi:
-
-```csv
-jarmo;1;8;16:05
-timo;2;10;21:22
-jarmo;2;10;19:15
-jne...
-```
-
-Tehtäväsi on etsiä ne opiskelijat, jotka ovat käyttäneet tenttiin yli 3 tuntia aikaa, eli opiskelijat, joiden _jonkin_ tehtävän palautus on tehty yli 3 tuntia tentin aloitusajasta. Voit olettaa, että kaikki ajat ovat saman vuorokauden puolella.
-
-Kirjoita funktio `huijarit()`, joka palauttaa listan huijanneiden opiskelijoiden käyttäjätunnuksista.
-
-</programming-exercise>
-
-<programming-exercise name='Kuka huijasi, versio 2' tmcname='osa07-13_kuka_huijasi_2'>
-
-Käytössäsi on edellisessä tehtävässä määritellyt datatiedostot. Kirjoita funktio `viralliset_pisteet()`, joka palauttaa sanakirjassa (dict) opiskelijoiden koepisteet seuraavien sääntöjen mukaan:
-
-* Jos samaan tehtävänumeroon on tehty useita palautuksia, korkeimman pistemäärän palautus otetaan huomioon
-* Jos tehtäväpalautus on tehty yli 3 tuntia tentin aloittamisen jälkeen, palautusta ei huomioida ollenkaan
-
-Tehtävät on numeroitu 1–8 ja jokaisesta tehtävästä voi saada 0–6 pistettä.
-
-Palautetussa sanakirjassa tunnus on avain ja tehtävien yhteispistemäärä arvo.
-
-Vinkki: sisäkkäiset sanakirjat (dict) ovat mainio työkalua tallennettaessa eri opiskelijoiden pisteitä ja aikoja.
-
-</programming-exercise>
-
 <quiz id="6650c11c-31ec-5453-8c42-a938602999e8"></quiz>
 
