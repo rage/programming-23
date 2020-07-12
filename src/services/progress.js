@@ -44,7 +44,6 @@ export async function fetchProgress(t) {
     }
   })
   // TODO: this is not a good way to do this
-  toBeDeleted.push("osa07")
   toBeDeleted.forEach((o) => {
     delete progressByGroup[o]
   })
