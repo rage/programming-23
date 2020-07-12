@@ -8,38 +8,15 @@ hidden: false
 
 Tämän osion jälkeen:
 
-- Osaat etsiä hakemistossa olevia tiedostoja
 - Osaat käyttää moduulia CSV-tiedoston käsittelyyn
+- Osaat käyttää moduulia JSON-tiedoston käsittelyyn
+- Osaat hakea netissä olevan tiedoston sisällön
 
 </text-box>
 
-## Tiedostojen etsiminen
-
-Moduulin [glob](https://docs.python.org/3/library/glob.html?highlight=glob#module-glob) avulla voi etsiä hakemistossa olevat tiedostot, joiden nimellä on annettu formaatti. Esimerkiksi seuraava koodi etsii tiedostot, joiden pääte on `.py` (eli kyseessä on Python-tiedosto):
-
-```python
-from glob import glob
-
-for nimi in glob("*.py"):
-    print(nimi)
-```
-
-Ohjelman suoritus voisi näyttää vaikkapa seuraavalta:
-
-<sample-output>
-
-apina.py
-banaani.py
-cembalo.py
-testi.py
-
-</sample-output>
-
-Tämä tarkoittaa, että hakemistossa on neljä Python-tiedostoa, joiden nimet ovat `apina.py`, `banaani.py`, `cembalo.py` ja `testi.py`.
-
 ## CSV-tiedoston lukeminen
 
-Olemme tähän mennessä käsitelleet CSV-tiedostoja omalla koodilla, mutta tähän on myös valmis moduuli [csv](csv), jota voi käyttää näin:
+Olemme tähän mennessä käsitelleet CSV-tiedostoja omalla koodilla, mutta tähän on myös valmis moduuli [json](https://docs.python.org/3/library/csv.html), jota voi käyttää näin:
 
 ```python
 import csv
@@ -83,99 +60,72 @@ niin koodin tulos on:
 
 Jos vain jakaisimme rivin osiin `;`-merkkien kohdista, lukeminen ei toimisi oikein, koska myös merkkijonot jakaantuisivat.
 
-## Yhteenveto tiedostoista
+## JSON-tiedoston lukeminen
 
-Voimme nyt toteuttaa ohjelman, joka käy läpi kaikki hakemistossa olevat CSV-tiedostot ja koostaa yhteenvedon niissä olevista tiedoista. Ohjelma olettaa, että jokaisessa tiedostossa on tietyn kurssin tulokset.
+CSV-muodon lisäksi on olemassa muitakin koneluettavia tiedostomuotoja. Eräs näistä on erityisesti tietojen siirrossa yleisesti käytetty [JSON](https://www.json.org/json-en.html).
+
+JSON-tiedostot ovat tekstitiedostoja, joilla on tietty tarkka muoto. Seuraavassa esimerkkinä JSON-tiedosto `kurssit.json`, jossa on tietoa kursseista:
+
+```x
+[
+    {
+        "nimi": "Ohjelmoinnin perusteet",
+        "tunnus": "Ohpe",
+        "periodit": [1, 3]
+    },
+    {
+        "nimi": "Ohjelmoinnin jatkokurssi",
+        "tunnus": "Ohja",
+        "periodit": [2, 4]
+    },
+    {
+        "nimi": "Tietokantasovellus",
+        "tunnus": "Tsoha",
+        "periodit": [1, 2, 3, 4]
+    }
+]
+```
+
+
+JSON-tiedostot näyttävät kohtuullisen tutulta Pythonin käyttäjille. Itse asiassa tiedoston sisältö vastaa Pythonin listaa, jonka sisällä on kolme sanakirjaa.
+
+Standardikirjastossa on JSON-tiedostojen käsittelyyn moduuli [json](https://docs.python.org/3/library/json.html). Siinä oleva funktio `loads` muuttaa merkkijonona annetun JSON-datan Pythonin tietorakenteiksi. Esimerkiksi koodin
 
 ```python
-from glob import glob
-import csv
+import json
 
-tulokset = {}
-
-for nimi in glob("*.csv"):
-    kurssi = nimi.split(".")[0]
-    with open(nimi) as tiedosto:
-        for rivi in csv.reader(tiedosto, delimiter=";"):
-            opnro, tulos = rivi
-            if opnro not in tulokset:
-                tulokset[opnro] = []
-            tulokset[opnro].append((kurssi,tulos))
-
-print(tulokset)
+with open("kurssit.json") as tiedosto:
+    data = tiedosto.read()
+kurssit = json.loads(data)
+print(kurssit)
 ```
 
-Tiedosto `ohpe.txt`:
-
-```x
-012121212;5
-012345678;2
-015151515;4
-```
-
-Tiedosto `ohja.txt`:
-
-```x
-012121212;3
-012345678;5
-015151515;5
-```
-
-Tiedosto `tira.txt`:
-
-```x
-012121212;3
-015151515;2
-```
-
-Ohjelman antama tulos:
+tulos on seuraava:
 
 <sample-output>
 
-{'012121212': [('ohpe', '5'), ('ohja', '3'), ('tira', '3')], '012345678': [('ohpe', '2'), ('ohja', '5')], '015151515': [('ohpe', '4'), ('ohja', '5'), ('tira', '2')]}
+[{'nimi': 'Ohjelmoinnin perusteet', 'tunnus': 'Ohpe', 'periodit': [1, 3]}, {'nimi': 'Ohjelmoinnin jatkokurssi', 'tunnus': 'Ohja', 'periodit': [2, 4]}, {'nimi': 'Tietokantasovellus', 'tunnus': 'Tsoha', 'periodit': [1, 2, 3, 4]}]
 
 </sample-output>
 
-Voisimme vielä parantaa tulostusta vaikkapa näin:
+Koodia voisi jatkaa vaikka seuraavasti, jolloin koodi tulostaa jokaisen kurssin nimen:
 
 ```python
-for opnro in tulokset:
-    print(opnro,"tulokset:")
-    for tulos in tulokset[opnro]:
-        print(" ", tulos[0], tulos[1])
+for kurssi in kurssit:
+    print(kurssi["nimi"])
 ```
 
 <sample-output>
 
-012121212 tulokset:
-  ohpe 5
-  ohja 3
-  tira 3
-012345678 tulokset:
-  ohpe 2
-  ohja 5
-015151515 tulokset:
-  ohpe 4
-  ohja 5
-  tira 2
+Ohjelmoinnin perusteet
+Ohjelmoinnin jatkokurssi
+Tietokantasovellus
 
 </sample-output>
-
-## Moduulien etsiminen
-
-Pythonin dokumentaatiosta löytyy tietoa kaikista standardikirjaston moduuleista:
-
-* https://docs.python.org/3/library/
-
-Standardikirjaston lisäksi verkosta löytyy lukuisia vapaasti käytettäviä kirjastoja eri tarpeisiin. Joitakin yleisesti käytettyjä moduuleja on täällä:
-
-* https://wiki.python.org/moin/UsefulModules
 
 <programming-exercise name='JSON-tiedoston käsittely' tmcname='osa07-12_jsontiedostot'>
 
-CSV-muodon lisäksi on olemassa muitekin "koneluettavia" tiedostomuotoja. Eräs näistä on erityisesti tietojen siirrossa hyvin yleisesti käytetty [JSON](https://www.json.org/json-en.html).
-
-JSON-tiedostot ovat tekstitiedostoja, joilla on tietty tarkka muoto. Seuraavassa esimerkkinä JSON-tiedosto, joka esittää joukkoa opiskelijoita:
+Tarkastellaan JSON-tiedostoa, jossa on tietoa opiskelijoista seuraavassa muodossa:
 
 ```json
 [
@@ -199,10 +149,6 @@ JSON-tiedostot ovat tekstitiedostoja, joilla on tietty tarkka muoto. Seuraavassa
 ]
 ```
 
-JSON-tiedostot näyttävät kohtuullisen tutulta Pythonin käyttäjille. Itse asiassa esimerkin sisältämä _JSON-objekti_ on jo suoraan validia Pythonia-koodia, joka määrittelee listan, jonka sisältönä on kaksi sanakirja-oliota.
-
-Haasteeksi nouseekin se, miten tiedostossa oleva (tai internetistä haettava) JSON-muotoinen teksti saadaan muutetta eli parsittua Python-olioiksi. Onneksi standardikirjasto sisältää tähän sopivan moduulin [json](https://docs.python.org/3/library/json.html).
-
 Toteuta funktio `tulosta_henkilot(tiedosto: str)`, joka lukee esimerkin tavalla muodostetun JSON-tiedoston (jonka sisältönä voi olla mielivaltainen määrä henkilöitä) ja tulostaa ne seuraavassa muodossa:
 
 <sample-output>
@@ -214,27 +160,25 @@ Jaana Javanainen 24 vuotta (koodaus, kalliokiipeily, lukeminen)
 
 Harrastukset tulee luetella samassa järjestyksessä kuin ne on annettu JSON-tiedostossa.
 
-Pääset tässä tehtävässä harjoittelemaan hieman standardikirjaston dokumentaation lukemista tulkitessasi miten kirjastoa [json](https://docs.python.org/3/library/json.html) käytetään! Kohta _Decoding JSON_ tekee sen mitä tehtävässä tarvitaan.
-
-*Vihje*: tässä tehtävässä tiedostoa ei kannata lukea riveittäin, vaan parasta on lukea sen sisältö kokonaan yhteen merkkijonoon [tämän luvun](/osa-6/1-tiedostojen-lukeminen) ensimmäisen esimerkin tapaan.
-
 </programming-exercise>
 
-<programming-exercise name='Kurssien tilastot' tmcname='osa07-13_kurssistatistiikka'>
+## Netissä olevan tiedoston hakeminen
 
-Pythonin standardikirjastosta löytyvät funktion [urllib.request.urlopen](
-https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen) avulla on helppo hakea internetistä sisältöä ohjelmista käsin:
+Pythonin standardikirjaston funktion [urllib.request.urlopen](
+https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen) avulla on helppo hakea internetistä sisältöä ohjelmista käsin.
 
-Esim. seuravasti on mahdollista tulostaa Helsingin yliopiston etusivun sisältö:
+Esim. seuraava koodi tulostaa Helsingin yliopiston etusivun sisällön:
 
 ```python
 import urllib.request
 
-pyynto = urllib.request.urlopen('https://helsinki.fi')
+pyynto = urllib.request.urlopen("https://helsinki.fi")
 print(pyynto.read())
 ```
 
-Ihmisille tarkoitetut sivut tosin eivät tulostu kovin selkeinä, mutta internetissä on myös runsaasti koneluettavaa dataa, joka on usein juurikin json-muodossa.
+Ihmisille tarkoitetut sivut tosin eivät tulostu kovin selkeinä, mutta internetissä on myös runsaasti koneluettavaa dataa, joka on usein JSON-muodossa.
+
+<programming-exercise name='Kurssien tilastot' tmcname='osa07-13_kurssistatistiikka'>
 
 #### tieto kursseista
 
@@ -345,6 +289,16 @@ Palautetussa sanakirjassa tunnus on avain ja tehtävien yhteispistemäärä arvo
 Vinkki: sisäkkäiset sanakirjat (dict) ovat mainio työkalua tallennettaessa eri opiskelijoiden pisteitä ja aikoja.
 
 </programming-exercise>
+
+## Moduulien etsiminen
+
+Pythonin dokumentaatiosta löytyy tietoa kaikista standardikirjaston moduuleista:
+
+* https://docs.python.org/3/library/
+
+Standardikirjaston lisäksi verkosta löytyy lukuisia vapaasti käytettäviä kirjastoja eri tarpeisiin. Joitakin yleisesti käytettyjä moduuleja on täällä:
+
+* https://wiki.python.org/moin/UsefulModules
 
 <programming-exercise name='Spellchecker, versio 2' tmcname='osa07-16_spellchecker_versio2'>
 
