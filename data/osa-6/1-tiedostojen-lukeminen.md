@@ -426,7 +426,7 @@ Tämän jälkeen tulostus on halutunlainen:
 
 </sample-output>
 
-Merkkijonoilla on myös metodit `lstrip` ja `rstrip`, jotka poistavat ainoastaan merkkijono vasemmalla tai oikealla puolella olevia merkkejä.
+Merkkijonoilla on myös metodit `lstrip` ja `rstrip`, jotka poistavat ainoastaan merkkijonon vasemmalla tai oikealla puolella olevia merkkejä.
 
 ```python
 >>> " testimerkkijono  ".rstrip()
@@ -529,7 +529,7 @@ Tehtyjen harjoitustehtävien määrästä saa kurssipisteitä siten, että vähi
 
 Kurssin arvosana määräytyy seuraavan taulukon mukaan:
 
-koe+harjoituspisteet   | arvosana
+koe+kurssipisteet   | arvosana
 :--:|:----:
 0-14 | 0 (eli hylätty)
 15-17 | 1
@@ -718,7 +718,7 @@ Lettutaikina, valmistusaika 15 min
 
 Tee funktio `hae_raakaaine(tiedosto: str, aine: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, jotka sisältävät toisena parametrina annetun raaka-aineen.
 
-Kriteerin täyttäävät reseptit palautetaan edellisen tehtävän tapaan listana. Esimerkki funktion käytöstä:
+Kriteerin täyttävät reseptit palautetaan edellisen tehtävän tapaan listana. Esimerkki funktion käytöstä:
 
 ```python
 loydetyt = hae_raakaaine("reseptit1.txt", "maito")
@@ -749,7 +749,7 @@ Longitude;Latitude;FID;name;total_slot;operative;id
 24.944927399779715;60.158189199971673;3;Kapteeninpuistikko;16;Yes;003
 ```
 
-Kutakin asemaa kohti tiedostossa on yksi rivi, joka kertoo aseman kordinaatit, aseman nimen ja muuta tunnistetietoa.
+Kutakin asemaa kohti tiedostossa on yksi rivi, joka kertoo aseman koordinaatit, aseman nimen ja muuta tunnistetietoa.
 
 #### asemien välinen etäisyys
 
@@ -767,7 +767,7 @@ Tee ensin funktio `hae_asematiedot(tiedosto: str)`, joka lukee asematiedot tiedo
 
 </sample-output>
 
-Eli sanakirjan avaimena on aseman nimi ja arvona tuple, joka koostuu aseman kordinaateista, ensimmäisenä _Longitude_ ja toisena _Latitude_.
+Eli sanakirjan avaimena on aseman nimi ja arvona tuple, joka koostuu aseman koordinaateista, ensimmäisenä _Longitude_ ja toisena _Latitude_.
 
 Tee seuraavaksi funktio `etaisyys(asemat: dict, asema1: str, asema2: str)`, joka palauttaa parametrina kerrottujen asemien välisen etäisyyden.
 

@@ -6,7 +6,7 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tämän osion
+Tämän osion jälkeen
 
 - Tiedät mitä tarkoitetaan paikallisella muuttujalla
 - Tiedät, miten muuttujan näkyvyysalue vaikuttaa sen käyttöön
@@ -124,7 +124,7 @@ Nyt funktiossa tehty muutos `x = 3` vaikuttaa myös pääohjelmaan, eli kaikissa
 
 ## Milloin käyttää globaalia muuttujaa?
 
-Globaalien muuttujien tarkoituksena ei ole korvata funktion parametreja tai paluuarvoa. Esimerkiksi on sinänsä mahdollista tehdä seuraava funktio, joka tallentaa laskun tuloksen globaalin muuttujaan:
+Globaalien muuttujien tarkoituksena ei ole korvata funktion parametreja tai paluuarvoa. Esimerkiksi on sinänsä mahdollista tehdä seuraava funktio, joka tallentaa laskun tuloksen globaaliin muuttujaan:
 
 ```python
 def laske_summa(a, b):

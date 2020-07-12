@@ -215,7 +215,7 @@ koodarit.append(["Antti", "Linux", "Java"])
 koodarit.append(["Emilia", "Mac", "Cobol"])
 ```
 
-Kätevä tapa muuttaa lista CSV-tiedoston riviksi on käyttää metodia `join`, joka on tavallaan käänteinen metodille `split`. Metodi `join` yhdistää halutulla erotinmerkillä annetun listan merkkijonoja, esimerkiksi näin:
+Kätevä tapa muuttaa lista CSV-tiedoston riviksi on käyttää metodia `join`, joka on tavallaan käänteinen metodille `split`. Metodi `join` yhdistää halutulla erotinmerkillä annetun listan merkkijonot, esimerkiksi näin:
 
 ```python
 lista = ["apina", "banaani", "cembalo"]
@@ -256,7 +256,7 @@ TypeError: sequence item 2: expected str instance, int found
 
 <text-box variant='hint' name='Joinille kelpaava taulukko'>
 
-Lukuja sisältävä taulukko saadaan muutettua metodille `join` kelpaamaan muotoon käyttämällä seuraavaa kikkaa:
+Lukuja sisältävä taulukko saadaan muutettua metodille `join` kelpaavaan muotoon käyttämällä seuraavaa kikkaa:
 
 ```python
 rivi = ["Antti", "Helsinki", 31]

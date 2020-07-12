@@ -131,7 +131,7 @@ Kiitos!
 
 <programming-exercise name='Syötteen luku' tmcname='osa06-17_syotteen_luku'>
 
-Tee funktio `lue`, joka kysyy käyttäjältä syötettä, kunnes se on parametrien määrittelemällä välillä olevaa kokonaisluku. Funktio palauttaa käyttäjän antaman syötteen.
+Tee funktio `lue`, joka kysyy käyttäjältä syötettä, kunnes se on parametrien määrittelemällä välillä oleva kokonaisluku. Funktio palauttaa käyttäjän antaman syötteen.
 
 Funktio toimii seuraavasti:
 
