@@ -12,7 +12,7 @@ import Avatar from "@material-ui/core/Avatar"
 import Chip from "@material-ui/core/Chip"
 import Divider from "@material-ui/core/Divider"
 
-import { faCalendarAlt as icon } from "@fortawesome/free-regular-svg-icons"
+import { faUnlockAlt as icon } from "@fortawesome/free-solid-svg-icons"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
 
 const ChildrenList = styled.ul`
@@ -108,7 +108,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
 
 const StyledChip = styled(Chip)`
   span {
-    width: 6em;
+    width: 6.5em;
   }
 `
 
