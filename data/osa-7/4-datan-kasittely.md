@@ -16,7 +16,7 @@ Tämän osion jälkeen:
 
 ## CSV-tiedoston lukeminen
 
-Olemme tähän mennessä käsitelleet CSV-tiedostoja omalla koodilla, mutta tähän on myös valmis moduuli [json](https://docs.python.org/3/library/csv.html), jota voi käyttää näin:
+Olemme tähän mennessä käsitelleet CSV-tiedostoja omalla koodilla, mutta tähän on myös valmis moduuli [csv](https://docs.python.org/3/library/csv.html), jota voi käyttää näin:
 
 ```python
 import csv
