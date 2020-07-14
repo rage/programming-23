@@ -104,6 +104,8 @@ Tiedostoon `luvut.txt` on tallennettu lukuja, yksi luku per rivi seuraavan esime
 
 Kirjoita funktio `suurin`, joka lukee tiedoston ja palauttaa suurimman tiedostosta löytyvän luvun.
 
+Huomaa, että tiedoston nimi on aina `luvut.txt` eikä funktiolle anneta parametria.
+
 Huom! Jos käytät Windowsia eikä testi löydä VS Codessa tiedostoa, voit kokeilla seuraavaa:
 
 * Mene asetuksiin valikosta _File_ -> _Preferences_ -> _Settings_
