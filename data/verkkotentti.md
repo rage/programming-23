@@ -9,7 +9,7 @@ information_page: true
 
 * Tentti suoritetaan kurssitehtävien tapaan vscode-ympäristössä
 * Kurssin tentin voi suorittaa ensimmäisen kerran 22.07.2020 **klo 10:00-22:00** välisenä aikana
-* Tentti päättyy viimeistään klo 20:00. Jos haluat käyttää tenttiin maksimiajan, **aloita se viimeistään klo 18:00**
+* Tentti päättyy viimeistään klo 22:00. Jos haluat käyttää tenttiin maksimiajan, **aloita se viimeistään klo 18:00**
 * Aikaa tentin tekemiseen on **neljä tuntia**. Jos sinulla on erikseen annettu tenttiin lisäaikaa, aikaa on viisi tuntia
 
 ### Tehtäväpohjien hakeminen (ennen tenttipäivää)
