@@ -313,7 +313,7 @@ print(tulos)
 
 </programming-exercise>
 
-<programming-exercise name='Noppasimulaatio' tmcname='osa07-08_satunnaiset_sanat'>
+<programming-exercise name='Satunnaiset sanat' tmcname='osa07-08_satunnaiset_sanat'>
 
 Tehtäväpohjassa on annettu tiedosto `sanat.txt`, joka sisältää englannin kielen sanoja, yksi sana joka rivillä.
 
