@@ -142,7 +142,7 @@ Vastaava koodi _ei_ toimisi, jos käyttäisimme listoja:
 
 ```python
 pisteet = {}
-pisteet[[3, 5]]] = "apina"
+pisteet[[3, 5]] = "apina"
 pisteet[[5, 0]] = "banaani"
 pisteet[[1, 2]] = "cembalo"
 print(pisteet[[3, 5]])
@@ -223,7 +223,7 @@ Yllä oleva koodi vaihtaa keskenään muuttujien `luku1` ja `luku2` arvot, eli k
 ```python
 apu = luku1
 luku1 = luku2
-luku1 = apu
+luku2 = apu
 ```
 
 <programming-exercise name='Sanavertailu' tmcname='osa05-20_sanavertailu'>
