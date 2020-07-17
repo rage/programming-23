@@ -555,9 +555,9 @@ Tehtävätiedot: **tehtavat1.csv**
 Koepisteet: **koepisteet1.csv**
 <pre>
 nimi                          teht_lkm  teht_pist koe_pist  yht_pist  arvosana
-pekka peloton                 33        8         16        24        4
-jaana javanainen              24        6         15        21        3
-liisa virtanen                27        6         19        25        4
+pekka peloton                 21        5         9         14        0
+jaana javanainen              27        6         11        17        1
+liisa virtanen                35        8         14        22        3
 </pre>
 
 </sample-output>
