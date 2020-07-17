@@ -809,8 +809,8 @@ Tee funktio `suurin_etaisyys(asemat: dict)`, joka selvittää, mitkä kaksi asem
 
 ```python
 asemat = hae_asematiedot('stations1.csv')
-asema1, asema2, etaisyys = suurin_etaisyys(asemat)
-print(asema1, asema2, etaisyys )
+asema1, asema2, suurin = suurin_etaisyys(asemat)
+print(asema1, asema2, suurin)
 ```
 
 <sample-output>
