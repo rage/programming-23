@@ -514,6 +514,8 @@ opnro;k1;k2;k3
 12345699;10;2;2
 ```
 
+Esimerkiksi opiskelija jonka opiskelijanumero on 12345678 on saanut koeesta 4+1+4 eli yhteensä 9 pistettä.
+
 Ohjelma kysyy tiedostojen nimet ja tulostaa jokaisen opiskelijan arvosanan:
 
 <sample-output>
@@ -527,11 +529,11 @@ liisa virtanen 3
 
 </sample-output>
 
-Tehtyjen harjoitustehtävien määrästä saa kurssipisteitä siten, että vähintään 10 % tehtävämäärästä tuo 1 kurssipisteen, vähintään 20% tuo 2 kurssipistettä jne., ja 100 % eli 40 harjoitustehtävää tuo 10 kurssipistettä. Harjoitustehtävistä saatava kurssipistemäärä on kokonaisluku.
+Tehtyjen harjoitustehtävien määrästä saa _pisteitä_ siten, että vähintään 10 % tehtävämäärästä tuo 1 pisteen, vähintään 20% tuo 2 pistettä jne., ja 100 % eli 40 harjoitustehtävää tuo 10 pistettä. Harjoitustehtävistä saatava pistemäärä on kokonaisluku.
 
-Kurssin arvosana määräytyy seuraavan taulukon mukaan:
+Kurssin arvosana määräytyy kokeen ja harjoituspisteiden summan perusteella seuraavan taulukon mukaan:
 
-koe+kurssipisteet   | arvosana
+kokeen pisteet + harjoitusten pisteet   | arvosana
 :--:|:----:
 0-14 | 0 (eli hylätty)
 15-17 | 1
@@ -560,7 +562,7 @@ liisa virtanen                27        6         19        25        4
 
 </sample-output>
 
-Jokaisella rivillä siis tulostetaan opiskelijan tehtävien lukumäärä, tehtävistä saatavat kurssipisteet, koepisteet, yhteispisteet sekä arvosana "siististi" siten, että tulostus on jaoteltu sarakkeisiin. Nimisarakkeen leveys on 30 merkkiä ja muiden sarakkeiden leveys on tasan 10 merkkiä.
+Jokaisella rivillä siis tulostetaan opiskelijan tehtävien lukumäärä, tehtävistä saatavat pisteet, kokeen pisteet, yhteispisteet (koe+harjoitukset) sekä arvosana "siististi" siten, että tulostus on jaoteltu sarakkeisiin. Nimisarakkeen leveys on 30 merkkiä ja muiden sarakkeiden leveys on tasan 10 merkkiä.
 
 Tehtävässä kannattaa käyttää [osassa 4](/osa-4/5-tulostuksen-muotoilu) käsiteltyjä f-merkkijonoja.
 
