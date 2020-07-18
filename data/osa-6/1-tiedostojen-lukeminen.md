@@ -411,7 +411,7 @@ Tarvittava muutos ohjelmaan on helppo:
 
 ```python
 sukunimet = []
-with open("h.csv") as tiedosto:
+with open("henkilot.csv") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(';')
         if osat[0] == "etunimi":
