@@ -283,7 +283,7 @@ Yleensä aina on kuitenkin parasta lukea tiedosto vain kerran ja tallentaa se mu
 
 ```python
 henkilot = []
-# luetaan tiedostosta henkilöt taulukkoon
+# luetaan tiedostosta henkilöt listaan
 with open("henkilot.csv") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(";")
