@@ -8,7 +8,7 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Osaat käyttää yksinkertaisia ehtorakennetta ohjelmoinnissa
+- Osaat käyttää yksinkertaista ehtorakennetta ohjelmoinnissa
 - Tiedät, mitä tarkoitetaan totuusarvoilla
 - Osaat muodostaa ehtoja vertailuoperaattoreiden avulla
 
@@ -296,7 +296,7 @@ Tällainen ohjelma ei ole sinänsä kovin hyödyllinen, mutta myöhemmin kurssil
 
 <in-browser-programming-exercise name="Laskin" tmcname="osa01-25_laskin">
 
-Tee ohjelma, joka kysyy käyttäjältä ensin kaksi lukua ja sen jälkeen komennon. Jos komento on joko _summa_, _tulo_ tai _erotus_,ohjelma laskee syötteille kyseisen operaation tuloksen. Muussa tapauksessa ohjelma ei tulosta mitään.
+Tee ohjelma, joka kysyy käyttäjältä ensin kaksi lukua ja sen jälkeen komennon. Jos komento on joko _summa_, _tulo_ tai _erotus_, ohjelma laskee syötteille kyseisen operaation tuloksen. Muussa tapauksessa ohjelma ei tulosta mitään.
 
 Esimerkkitulostuksia:
 
@@ -355,7 +355,7 @@ Paleltaa!
 
 <in-browser-programming-exercise name="Palkka" tmcname="osa01-27_palkka">
 
-Tee ohjelma, joka kysyy tuntipalkkaa, työskenteltyjen tuntien määrää ja viikonpäivää. Ohjelma tulostaa palkan, joka on tuntipalkka kertaa tuntien määrä muina päivinä paitsi sunnuntaisin, jolloin tuntipalkka on kaksinkertainen.
+Tee ohjelma, joka kysyy tuntipalkkaa, työskenneltyjen tuntien määrää ja viikonpäivää. Ohjelma tulostaa palkan, joka on tuntipalkka kertaa tuntien määrä muina päivinä paitsi sunnuntaisin, jolloin tuntipalkka on kaksinkertainen.
 
 <sample-output>
 

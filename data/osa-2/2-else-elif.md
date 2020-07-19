@@ -140,7 +140,7 @@ else:
     print("Tasapeli!")
 ```
 
-Kolme esimerkkitulosta eri syötteilä:
+Kolme esimerkkitulosta eri syötteillä:
 
 <sample-output>
 
@@ -277,7 +277,7 @@ Huomaa kuitenkin, että tämä pätee varmasti vain kun
 
 Tee ohjelma, joka kysyy käyttäjältä kahta sanaa. Ohjelma tulostaa sanoista sen, joka on aakkosjärjestyksessä jälkimmäinen.
 
-Voit olettaa, että sanat on syötety kokonaan pienillä kirjaimilla.
+Voit olettaa, että sanat on syötetty kokonaan pienillä kirjaimilla.
 
 Esimerkkisuorituksia eri syötteillä:
 

@@ -13,7 +13,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Tässä luvussa tutustutaan standardikirjaston moduuliin [random](https://docs.python.org/3/library/random.html?highlight=random#module-random), joka tarjoaa välineistöä satunnaislukujen generointiin ja muuhun satunnaisen toiminnallisuuteen.
+Tässä luvussa tutustutaan standardikirjaston moduuliin [random](https://docs.python.org/3/library/random.html?highlight=random#module-random), joka tarjoaa välineistöä satunnaislukujen generointiin ja muuhun satunnaiseen toiminnallisuuteen.
 
 Tässä ja seuraavissa luvuissa esiteltävien funktioiden yhteyteen on lisäilty linkkejä standardikirjaston [dokumentaatioon](https://docs.python.org/3/library/). Linkkejä kannattaa klikkailla ja pikkuhiljaa totutella siihen, miltä dokumentaatio näyttää.
 

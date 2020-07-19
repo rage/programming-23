@@ -78,7 +78,7 @@ def moikkaa():
 
 Funktion `moikkaa` sisällä oleva koodi suoritetaan vasta, kun funktiota kutsutaan.
 
-Funktion alla olevaan "pääohjelmaan" kannattaa siis kirjoittaa sopivia funktiokutsuja ohjelma testaamiseksi, esimerkiksi
+Funktion alla olevaan "pääohjelmaan" kannattaa siis kirjoittaa sopivia funktiokutsuja ohjelman testaamiseksi, esimerkiksi
 
 ```python
 def moikkaa():
@@ -206,7 +206,7 @@ Silloin kun omassa funktiossa on määritelty yksi tai useampia parametreja, kan
 
 Kannattaa erityisesti miettiä, toimivatko myös "erikoistapaukset": mitä funktio esim. tekee, jos sille välitetään negatiivinen luku tai liukuluku kokonaisluvun sijasta.
 
-Jos tehtävänannossa ei ole erityisesti käsketty kirjoittamaan tiettyja funktiokutsuja, voit vapaasti lisätä omia kutsujasi pääohjelmaan - testit jättävät nämä huomiotta.
+Jos tehtävänannossa ei ole erityisesti käsketty kirjoittamaan tiettyjä funktiokutsuja, voit vapaasti lisätä omia kutsujasi pääohjelmaan - testit jättävät nämä huomiotta.
 
 </text-box>
 
