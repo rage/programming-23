@@ -468,7 +468,7 @@ Lukujen mediaani on 4
 
 </sample-output>
 
-Pieni esimerkkiohjelmamme demonstroi jo yhtä funktioiden tärkeimmäistä käyttötarkoituksista: niiden avulla ohjelma saadaan jaettua loogisiin selkeästi ymmärrettäviin kokonaisuuksiin.
+Pieni esimerkkiohjelmamme demonstroi jo yhtä funktioiden tärkeimmistä käyttötarkoituksista: niiden avulla ohjelma saadaan jaettua loogisiin selkeästi ymmärrettäviin kokonaisuuksiin.
 
 Sinänsä sama ohjelma olisi voitu tehdä myös ilman funktiota:
 

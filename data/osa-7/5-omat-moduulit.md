@@ -189,7 +189,7 @@ Funktio `vaihda_koko(merkkijono: str)` saa parametrikseen merkkijonon. Funktio l
 
 Funktio `puolita(merkkijono: str)` palauttaa tuplessa parametrinaan saamansa merkkijonon ensimmäisen ja toisen puolikkaan. Jos merkkijonossa on pariton määrä kirjaimia, ensimmäinen puolikas on lyhyempi.
 
-Funktio `poista_erikoismerkit(merkkijono: str)` palauttaa merkkijononon, josta on poistettu kaikki muut merkit paitsi aakkoset [a...ö, A...Ö], numerot ja välilyönnit.
+Funktio `poista_erikoismerkit(merkkijono: str)` palauttaa merkkijonon, josta on poistettu kaikki muut merkit paitsi aakkoset [a...ö, A...Ö], numerot ja välilyönnit.
 
 Esimerkkejä moduulin toiminnasta:
 

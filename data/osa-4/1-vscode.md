@@ -53,7 +53,7 @@ loistava valinta!
 
 </sample-output>
 
-Kirjainten koon voi jättää huomiotta esim. muuttamalla kirjaimet pienksi merkkijonojen metodilla `lower`, jota voi käyttää seuraavasti:
+Kirjainten koon voi jättää huomiotta esim. muuttamalla kirjaimet pieniksi merkkijonojen metodilla `lower`, jota voi käyttää seuraavasti:
 
 ```python
 mjono = "Visual Studio CODE"
@@ -167,7 +167,7 @@ Tarjolla näyttää siis olevan mm. metodit `reverse` ja `clear`. Kokeillaan nii
 []
 ```
 
-Metodit siis tekevät aika lailla sen, mitä nimen perustella voi olettaa. 
+Metodit siis tekevät aika lailla sen, mitä nimen perusteella voi olettaa.
 
 Huomaa, että komentotulkki ei "tulosta" mitään, kun kutsutaan esim. metodia `lista.reverse()`. Mistä tämä johtuu? Komentotulkki tekee komentojen suorituksen yhteydessä tulostuksen vain, jos suoritetulla koodirivillä on jokin arvo. Edellisessä esimerkissä saatiin tulostettua listan `luvut` arvo kirjoittamalla komentotulkkiin pelkkä muuttujan nimi. Komentotulkissa ei siis useinkaan ole tarvetta kirjottaa erikseen `print`-komentoja.
 
