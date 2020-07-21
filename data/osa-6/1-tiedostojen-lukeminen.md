@@ -283,7 +283,7 @@ Yleensä aina on kuitenkin parasta lukea tiedosto vain kerran ja tallentaa se mu
 
 ```python
 henkilot = []
-# luetaan tiedostosta henkilöt taulukkoon
+# luetaan tiedostosta henkilöt listaan
 with open("henkilot.csv") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(";")
@@ -411,7 +411,7 @@ Tarvittava muutos ohjelmaan on helppo:
 
 ```python
 sukunimet = []
-with open("h.csv") as tiedosto:
+with open("henkilot.csv") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(';')
         if osat[0] == "etunimi":
@@ -699,7 +699,7 @@ Pullataikina
 
 Huomaa, että hakusanojen kirjainten koolla ei ole merkitystä, eli hakusana _pulla_ löytää myös reseptin _Pullataikina_, joka alkaa isolla kirjaimella.
 
-#### reseptien hakeminen valmistusaika perusteella
+#### reseptien hakeminen valmistusajan perusteella
 
 Tee funktio `hae_aika(tiedosto: str, aika: int)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden valmistusaika on korkeintaan parametrina kerrottu minuuttimäärä.
 

@@ -74,7 +74,7 @@ ikkremise
 
 <programming-exercise name='Kaikki väärinpäin' tmcname='osa04-22_kaikki_vaarinpain'>
 
-Kirjoita funktio `kaikki_vaarinpain`, joka saa paramerikseen listan merkkijonoja. Funktio luo ja palauttaa uuden listan, jossa kaikki alkuperäisellä listalla olevat merkkijonot on käännetty. Myös listan alkioiden järjestys muutetaan käänteiseksi.
+Kirjoita funktio `kaikki_vaarinpain`, joka saa parametrikseen listan merkkijonoja. Funktio luo ja palauttaa uuden listan, jossa kaikki alkuperäisellä listalla olevat merkkijonot on käännetty. Myös listan alkioiden järjestys muutetaan käänteiseksi.
 
 Esimerkki funktion käytöstä:
 
@@ -373,7 +373,7 @@ print(pisin_naapurijono(lista))
 
 <programming-exercise name='Isot alkukirjaimet' tmcname='osa04-28_isot_alkukirjaimet'>
 
-Kirjoita funkto `isot_alkukirjaimet`, joka saa parametrikseen kokonaan pienillä kirjaimilla kirjoitetun tekstin. Funktio muuttaa kaikkien virkkeiden ensimmäisen kirjaimen isoksi. Jokainen virke alkaa kirjaimella ja päättyy pisteeseen, huutomerkkiin tai kysymysmerkkiin.
+Kirjoita funktio `isot_alkukirjaimet`, joka saa parametrikseen kokonaan pienillä kirjaimilla kirjoitetun tekstin. Funktio muuttaa kaikkien virkkeiden ensimmäisen kirjaimen isoksi. Jokainen virke alkaa kirjaimella ja päättyy pisteeseen, huutomerkkiin tai kysymysmerkkiin.
 
 Vinkki: Tarvitset tässä metodia `upper`, joka muuntaa merkkijonon kokonaan isoiksi kirjaimiksi.
 

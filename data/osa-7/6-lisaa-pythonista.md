@@ -31,7 +31,7 @@ print("parillinen" if x%2 == 0 else "pariton")
 
 Jälkimmäisessä koodissa on yhden rivin ehto muotoa `a if [ehto] else b`. Tällaisen lausekkeen arvo on `a`, jos ehto pätee, ja muuten `b`.
 
-Sama rakenne on joskus hyödyllinen kun tehdään ehdollinen sijoituslause. Esimerkiksi jos haluaisimme joko kasvataa muuttujaa `y` tai nollata sen riippuen muuttujan `x` arvon parillisuudesta, sensijaan että kirjoittaisimme
+Sama rakenne on joskus hyödyllinen kun tehdään ehdollinen sijoituslause. Esimerkiksi jos haluaisimme joko kasvattaa muuttujaa `y` tai nollata sen riippuen muuttujan `x` arvon parillisuudesta, sen sijaan että kirjoittaisimme
 
 ```python
 if x%2 == 0:
