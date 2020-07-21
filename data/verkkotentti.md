@@ -5,6 +5,11 @@ hidden: false
 information_page: true
 ---
 
+### Tenttiin osallistuminen
+
+* Voit osallistua tenttiin vaikka et olisi vielä suorittanut 25% jokaisesta osasta
+* Osat pitää kuitenkin suorittaa niiden deadlineen mennessä jotta voit saada arvosanan kurssista
+
 ### Tentin toteutus
 
 * Tentti suoritetaan kurssitehtävien tapaan vscode-ympäristössä
@@ -43,6 +48,12 @@ information_page: true
 
 * Ennen lopettamista palauta kaikki tehtävät vielä kertaalleen tenttiajan sisällä
 * Voit sulkea tenttitehtävä-sivun kun olet valmis. Muita toimenpiteitä ei vaadita
+
+### Tentin tulokset
+
+* Tentin tulokset tulevat sähköpostitse kun arvostelu on valmis
+* Tulosviestin yhteydessä on ohjeet kurssisuorituksen rekisteröimiseen
+* Rekisteröiminen edellyttää ilmoittautumista kurssille avoimen yliopiston kautta
 
 ### Muuta
 
