@@ -61,7 +61,9 @@ Kurssi arvostellaan seuraavalla asteikolla:
 
 Arvostelu perustuu sekä tehtyihin tehtäviin (50 % kokonaispisteistä) että kokeeseen (50 % kokonaispisteistä). Tämä tarkoittaa, että arvosteluasteikon kokonaispisteet saadaan laskemalla tämän sivun pistevisualisaation (sininen pallo oikeassa alakulmassa) kurssipisteet ja saamasi koepisteet yhteen.
 
-Kokeeseen saa osallistua, kun on tehnyt vähintään 25 % jokaisen osan ohjelmointitehtävien pisteistä.
+~~Kokeeseen saa osallistua, kun on tehnyt vähintään 25 % jokaisen osan ohjelmointitehtävien pisteistä.~~
+
+Kurssin läpipääsyyn vaaditaan vähintään 25% jokaisen osan ohjelmointitehtävien pisteistä.
 
 #### Koeleikkuri
 
