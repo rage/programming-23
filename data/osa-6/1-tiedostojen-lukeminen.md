@@ -428,7 +428,7 @@ Tämän jälkeen tulostus on halutunlainen:
 
 </sample-output>
 
-Merkkijonoilla on myös metodit `lstrip` ja `rstrip`, jotka poistavat ainoastaan merkkijonon vasemmalla tai oikealla puolella olevia merkkejä.
+Merkkijonoilla on myös metodit `lstrip` ja `rstrip`, jotka poistavat ainoastaan merkkijonon vasemmalla tai oikealla puolella olevia merkkejä.
 
 ```python
 >>> " testimerkkijono  ".rstrip()
@@ -514,7 +514,7 @@ opnro;k1;k2;k3
 12345699;10;2;2
 ```
 
-Esimerkiksi opiskelija jonka opiskelijanumero on 12345678 on saanut koeesta 4+1+4 eli yhteensä 9 pistettä.
+Esimerkiksi opiskelija jonka opiskelijanumero on 12345678 on saanut kokeesta 4+1+4 eli yhteensä 9 pistettä.
 
 Ohjelma kysyy tiedostojen nimet ja tulostaa jokaisen opiskelijan arvosanan:
 
