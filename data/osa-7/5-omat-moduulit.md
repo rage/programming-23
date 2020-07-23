@@ -212,8 +212,8 @@ print(m2)
 <sample-output>
 
 mOI KAIKKI!
-Moi ka
-ikki!
+Moi k
+aikki!
 Tämä on testi katsotaan miten käy11
 
 </sample-output>
