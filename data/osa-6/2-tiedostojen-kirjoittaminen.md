@@ -539,7 +539,7 @@ Sanapari lisätty
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **1**
 Anna sana suomeksi: **roska**
-Anna sana englanniksi: **carbage**
+Anna sana englanniksi: **garbage**
 Sanapari lisätty
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **1**
@@ -549,13 +549,13 @@ Sanapari lisätty
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **2**
 Anna sana: **bag**
-roska - carbage
+roska - garbage
 laukku - bag
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **2**
 Anna sana: **car**
 auto - car
-roska - carbage
+roska - garbage
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **2**
 Anna sana: **laukku**
