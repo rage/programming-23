@@ -274,7 +274,7 @@ Kertaa nyt tarvittaessa [edellisen osion](/osa-4/3-listat) luku _Lista funktion 
 
 Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän listan.
 
-Funktio palauttaa uuden listan, jolla on parametrina olevalla listalla olevat parilliset luvut.
+Funktio palauttaa uuden listan, jolla on parametrina olevan listan sisältämät parilliset luvut.
 
 ```python
 lista = [1, 2, 3, 4, 5]

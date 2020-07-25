@@ -370,9 +370,9 @@ Lahja	| Vero alarajalla|	Veroprosentti ylimenevästä
 200 000 — 1 000 000	|22 100|	15
 1 000 000 —	|142 100|	17
 
-Esimerkiksi 6000 euron lahjasta tulee maksaa veroa 180 euroa (100 + (6000-5000) * 0.08), ja 75000 euron lahjasta tulee maksaa veroa 7100 euroa (4700 + (75000-55000) * 0.12).
+Esimerkiksi 6000 euron lahjasta tulee maksaa veroa 180 euroa (100 + (6000-5000) * 0.08) ja 75000 euron lahjasta tulee maksaa veroa 7100 euroa (4700 + (75000-55000) * 0.12).
 
-Tee ohjelma, joka laskee lahjaveron lähimmiltä sukulaisilta annetulle lahjalle. Alla on muutama esimerkki ohjelman toiminnasta.
+Tee ohjelma, joka laskee lahjaveron lähimpien sukulaisten antamalle lahjalle. Alla on muutama esimerkki ohjelman toiminnasta.
 
 <sample-output>
 

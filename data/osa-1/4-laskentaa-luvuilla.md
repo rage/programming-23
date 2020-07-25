@@ -96,7 +96,7 @@ tulostaa
 
 ## Lukuarvojen lukeminen
 
-Aikaisemmin käytettin `input`-komentoa lukemaan käyttäjältä merkkijonoja. Samaa funktiota voidaan käyttää myös lukuarvojen lukemiseen. Tällaisessa tapauksessa muunnos merkkijonosta lukutyyppiin on kuitenkin tehtävä itse. Logiikka on samanlainen kuin edellisessä osassa opitussa `str`-funktiossa, vain funktion nimi vaihtuu.
+Aikaisemmin käytettiin `input`-komentoa lukemaan käyttäjältä merkkijonoja. Samaa funktiota voidaan käyttää myös lukuarvojen lukemiseen. Tällaisessa tapauksessa muunnos merkkijonosta lukutyyppiin on kuitenkin tehtävä itse. Logiikka on samanlainen kuin edellisessä osassa opitussa `str`-funktiossa, vain funktion nimi vaihtuu.
 
 Esimerkiksi voimme muuttaa merkkijonon kokonaisluvuksi funktiolla `int`. Seuraava ohjelma lukee käyttäjältä syntymävuoden muuttujaan `syote` ja luo sitten toisen muuttujan `vuosi`, jossa on vuosi kokonaisluvuksi muutettuna. Tämän jälkeen voimme suorittaa laskun `2020-vuosi`, jossa on mukana käyttäjän antama vuosi.
 

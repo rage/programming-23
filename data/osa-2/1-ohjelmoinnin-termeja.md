@@ -260,7 +260,7 @@ Lämpötila on 5.15
 
 </sample-output>
 
-Huomaa, että funktio ei pyöristä arvoa matemaatikasta tutulla tavalla, vaan pyöristää luvun alaspäin (kyse on siis ns. _lattiafunktiosta_):
+Huomaa, että funktio ei pyöristä arvoa matematiikasta tutulla tavalla, vaan pyöristää luvun alaspäin (kyse on siis ns. _lattiafunktiosta_):
 
 <sample-output>
 

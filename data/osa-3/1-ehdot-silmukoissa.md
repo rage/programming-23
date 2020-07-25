@@ -67,7 +67,7 @@ Koska 12 ei ole pienempi kuin 10, ohjelma ei tulosta mitään lukua.
 
 Monessa silmukassa on kolme osaa: alustus, ehto ja muutos.
 
-_Alustus_ tarkoittaa silmukassa käytettävän muuttujan tai muuttujien alkuarvojen antamista. Tämä vaihe tehdään ennen silmukkaa. _Ehto_ kirjoitetaan silmukan alkuun, ja se määrittelee, kuinka kauan silmukka suoritetaan. Joka kierroksella tapahtuva _muutos_ vie silmukan askeleen lähemmäs sen loppumista. Esimerkiksi:
+_Alustus_ tarkoittaa silmukassa käytettävän muuttujan tai muuttujien alkuarvojen antamista. Tämä vaihe tehdään ennen silmukkaa. _Ehto_ kirjoitetaan silmukan alkuun, ja se määrittelee, kuinka kauan silmukkaa suoritetaan. Joka kierroksella tapahtuva _muutos_ vie silmukan askeleen lähemmäs sen loppumista. Esimerkiksi:
 
 <img src="3_1_2.png">
 
