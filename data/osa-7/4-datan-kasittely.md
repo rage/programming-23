@@ -242,11 +242,13 @@ Sanakirjaan tallennetut arvot määrittyvät seuraavasti:
 - `viikkoja`: kurssia vastaavan JSON-olioiden määrä
 - `opiskelijoita` viikkojen opiskelijamäärien maksimi
 - `tunteja`: kakkien viikkojen tuntimäärien (`hour_total`) summa
-- `tunteja_keskimaarin`: edellinen jaettuna opiskelijamäärällä (kokonaislukuna)
+- `tunteja_keskimaarin`: edellinen jaettuna opiskelijamäärällä (kokonaislukuna pyöristettynä alaspäin)
 - `tehtavia`: kakkien viikkojen tehtävämäärien (`exercise_total`) summa
-- `tehtavia_keskimaarin`: edellinen jaettuna opiskelijamäärällä (kokonaislukuna)
+- `tehtavia_keskimaarin`: edellinen jaettuna opiskelijamäärällä (kokonaislukuna pyöristettynä alaspäin)
 
 *Huom*: Samat huomiot pätevät tähän osaan kuin edelliseen!
+
+*Huom2*: löydät [math](https://docs.python.org/3/library/math.html) -moduulista funktion, jonka avulla kokonaisluvun alaspäin pyöristäminen on helppoa
 
 </programming-exercise>
 
