@@ -14,14 +14,36 @@ Tämän osion jälkeen
 
 </text-box>
 
-Edellisen osan lopussa opimme käyttämään `while True` -silmukkaa koodin toistamiseen. Tässä tapauksessa silmukan ehtona on `True`, mikä on aina tosi. Yleisemmin voimme käyttää silmukkaa näin:
+Edellisen osan lopussa opimme käyttämään `while True` -silmukkaa koodin toistamiseen. Tässä tapauksessa silmukan ehtona on `True`, mikä on aina tosi. Esimerkiksi
+
+```python
+
+# Tulosta lukuja kunnes muuttujan a arvo on 5
+a = 1
+while True:
+    print(a)
+    a += 1
+    if a == 5:
+        break
+```
+
+<sample-output>
+
+1
+2
+3
+4
+
+</sample-output>
+
+Silmukan toimintaa voidaan monipuolistaa lisäämällä tarkasteltava ehto `while`-määrittelyyn. Yleisemmin voimme siis käyttää silmukkaa näin:
 
 ```python
 while <ehtolauseke>:
     <lohko>
 ```
 
-Ideana on, että silmukka vuorotellen tarkastaa ehdon ja suorittaa lohkossa olevan koodin, jos ehto pätee. Sitten kun ehto ei päde, ohjelman suoritus jatkuu silmukan jälkeiseltä riviltä.
+Ideana on, että silmukka vuorotellen tarkastaa ehdon ja suorittaa lohkossa olevan koodin, jos ehto on tosi. Sitten kun ehto on epätosi, ohjelman suoritus jatkuu silmukan jälkeiseltä riviltä.
 
 <img src="3_1_1.png">
 
@@ -61,7 +83,7 @@ Suoritus valmis.
 
 </sample-output>
 
-Koska 12 ei ole pienempi kuin 10, ohjelma ei tulosta mitään lukua.
+Koska 12 ei ole pienempi kuin 10, ohjelma ei tulosta yhtään lukua.
 
 ## Alustus, testaus ja muutos
 
@@ -94,6 +116,8 @@ Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuis
 (tämä jatkuu ikuisesti...)
 
 </sample-output>
+
+TODO: Yksinkertainen tehtävä, jossa tulostetaan esim. luvut 1-10, 2,4,6...20 tms.
 
 <in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa03-01_lahtolaskenta">
 

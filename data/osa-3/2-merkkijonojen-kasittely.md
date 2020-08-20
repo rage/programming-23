@@ -53,7 +53,7 @@ n = 10 # pyramidin kerrosten määrä
 rivi = "*"
 
 while n > 0:
-    print(" "*n+rivi)
+    print(" " * n + rivi)
     rivi += "**"
     n -= 1
 ```
@@ -74,6 +74,8 @@ Ohjelman tulostus on seuraava:
 ```
 
 Silmukassa oleva `print`-komento tulostaa rivin, jonka alussa on `n` välilyöntiä ja sitten muuttujan `rivi` sisältö. Tämän jälkeen muuttujan `rivi` loppuun lisätään kaksi tähteä ja muuttujan `n` arvo vähenee yhdellä.
+
+TODO: Yksinkertainen tehtävä, jossa monistetaan merkkijonoa
 
 ## Merkkijonon pituus ja indeksointi
 
@@ -99,6 +101,9 @@ Moi kaikki!
 </sample-output>
 
 Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, mukaan lukien välilyönnit. Niinpä merkkijonon `moi moi` pituus on 7.
+
+TODO: Yksinkertainen tehtävä merkkijonon pituudesta
+
 
 Yksittäinen merkkijonon merkki voidaan hakea operaattorin `[]` avulla. Operaattori kirjoitetaan merkkijonon perään, ja hakasulkeiden väliin kirjoitetaan halutun merkin _indeksi_ eli kohta merkkijonossa.
 
@@ -184,6 +189,8 @@ Ensimmäinen: t
 Viimeinen: i
 
 </sample-output>
+
+TODO: yksinkertainen ohjelma, jossa tulostetaan merkit esim. lopusta alkuun
 
 <in-browser-programming-exercise name="Toinen ja toiseksi viimeinen" tmcname="osa03-06_toinen_ja_toiseksi_viimeinen">
 
@@ -342,7 +349,9 @@ Sana: **python**
 
 ## Osajonot
 
-Merkkijonon _osajono_ muodostuu perättäisistä merkeistä. Esimerkiksi merkkijonon `esimerkki` osajonoja ovat `esi`, `imer` ja `merkki`.
+Merkkijonon _osajono_ muodostuu perättäisistä merkeistä, jotka löytyvät samassa järjestyksessä merkkijonosta.
+
+Esimerkiksi merkkijonon `esimerkki` osajonoja ovat `esi`, `imer` ja `merkki`.
 
 Voimme erottaa halutussa kohdassa olevan osajonon syntaksilla `[a:b]`,
 mikä tarkoittaa, että osajono alkaa kohdasta `a` ja päättyy juuri ennen kohtaa `b`.
@@ -360,6 +369,7 @@ print(mjono[4:10])
 
 # jos alkukohta puuttuu, se on oletuksena 0
 print(mjono[:3])
+
 # jos loppukohta puuttuu, se on oletuksena merkkijonon pituus
 print(mjono[4:])
 ```
@@ -380,11 +390,13 @@ kuuluu väliin mutta loppukohta `b` ei kuulu väliin. Miksi näin?
 
 Tähän ei ole syvällistä syytä, vaan kyseessä on käytäntö, joka esiintyy
 monessa ohjelmointikielessä.
-Yksi etu tässä on, että osajonon pituus saadaan mukavasti kaavalla `b-a`,
-mutta toisaalta täytyy aina muistaa, että kohdassa `b` oleva merkki
+Yksi etu tässä on, että osajonon pituus saadaan helposti laskettua kaavalla `b-a`.
+Toistaalta täytyy aina muistaa, että kohdassa `b` oleva merkki
 ei tule mukaan osajonoon.
 
 </text-box>
+
+TODO: Yksinkertainen tehtävä osajonoista
 
 ## Osajonon etsiminen
 
@@ -435,6 +447,8 @@ Löytyi
 ...
 
 </sample-output>
+
+TODO: Yksinkertainen tehtävä in-operaattorista
 
 Operaattori `in` palauttaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonin merkkijonoissa _metodi_ `find`, joka saa parametrikseen etsittävän osajonon palauttaa joko ensimmäisen indeksin, josta osajono löytyy, tai `-1`, jos osajonoa ei löydy merkkijonosta.
 
