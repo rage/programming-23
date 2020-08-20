@@ -21,15 +21,11 @@ Tarkastellaan seuraavaksi luokkaa, joka mallintaa suorakulmiota kaksiulotteisess
 ```python
 
 class Suorakulmio:
-    # vasen yläkulma
-    vasen_ylakulma = (0,0)
-
-    # leveys ja korkeus
-    leveys = 0
-    korkeus = 0
 
     # Konstruktori
     def __init__(self, ylakulma: tuple, leveys: int, korkeus: int):
+        # Vasen yläkulma on tuple, jossa on kaksi arvoa
+        # kokonaislukuina: x- ja y-koordinaatti
         self.vasen_ylakulma = ylakulma
         self.leveys = leveys
         self.korkeus = korkeus
@@ -109,12 +105,6 @@ Järkevämpi tulostus oliolle voidaan määritellä kirjoittamalla luokkaan meto
 ```python
 
 class Suorakulmio:
-    # vasen yläkulma
-    vasen_ylakulma = (0,0)
-
-    # leveys ja korkeus
-    leveys = 0
-    korkeus = 0
 
     # Konstruktori
     def __init__(self, ylakulma: tuple, leveys: int, korkeus: int):

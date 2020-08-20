@@ -22,9 +22,6 @@ from datetime import date
 
 # Esimerkkiluokka mallintaa kurssisuoritusta
 class Kurssisuoritus:
-    kurssi = ""
-    opintopisteet = ""
-    suorituspvm = date(1900,1,1)
 
     def __init__(self, kurssi: str, opintopisteet: int, suorituspvm: date):
         self.kurssi = kurssi
@@ -66,7 +63,6 @@ Esimerkiksi:
 ```python
 
 class Koira:
-    nimi = ""
 
     def __init__(self, nimi):
         self.__nimi = nimi
@@ -129,9 +125,6 @@ Tarkastellaan yksinkertaista esimerkkiä, jossa funktiolle välitetään Opiskel
 ```python
 
 class Opiskelija:
-    nimi = ""
-    opiskelijanumero = ""
-    opintopisteet = 0
 
     def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
         self.nimi = nimi
@@ -170,9 +163,6 @@ Olion voi myös luoda funktiossa. Mikäli funktio palauttaa viittauksen olioon, 
 from random import randint, choice
 
 class Opiskelija:
-    nimi = ""
-    opiskelijanumero = ""
-    opintopisteet = 0
 
     def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
         self.nimi = nimi
@@ -235,9 +225,6 @@ Esitellään aluksi luokka Kurssi, joka on määritelty tiedostossa `kurssi.py`:
 
 # Luokka mallintaa yhtä kurssia
 class Kurssi:
-    nimi = ""
-    koodi = ""
-    opintopisteet = 0
 
     def __init__(self, nimi: str, koodi: str, opintopisteet: int):
         self.nimi = nimi
@@ -254,9 +241,6 @@ Luokka Opiskelija mallintaa yhtä opiskelijaa. Luokka on määritelty tiedostoss
 ```python
 
 class Opiskelija:
-    nimi = ""
-    opiskelijanumero = ""
-    opintopisteet = 0
 
     def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
         self.nimi = nimi
@@ -276,9 +260,6 @@ from kurssi import Kurssi
 from opiskelija import Opiskelija
 
 class Opintosuoritus:
-    opiskelija = Opiskelija("", "", 0)
-    kurssi = Kurssi("", "", 0)
-    arvosana = 0
 
     def __init__(self, opiskelija: Opiskelija, kurssi: Kurssi, arvosana: int):
         self.opiskelija = opiskelija

@@ -39,20 +39,20 @@ Tarkastellaan esimerkkinä yksinkertaista luokkamäärittelyä:
 ```python
 
 class Pankkitili:
-    saldo = 0.0
-    omistaja = ""
+    pass
 
 ```
 
-Ohjelmakoodissa määritellään luokka, jonka nimi on `Pankkitili`. Luokan sisälle on määritelty kaksi muuttujaa, `saldo` ja `omistaja`. Luokassa määriteltyjä muuttujia kutsutaan _attribuuteiksi_ (huomaa kaksi t-kirjainta). Attribuutti tarkoittaa siis jotain olion muuttujaa - attribuutista käytetään myös nimitystä _oliomuuttuja_.
+Ohjelmakoodissa määritellään luokka, jonka nimi on `Pankkitili`. Luokalle ei ole määritelty varsinaista sisältöä, mutta tästä huolimatta luokkaa voidaan käyttää osana ohjelmaa.
+
+Tarkastellaan ohjelmaa, jossa luokasta muodostetun olion sisälle on määritelty kaksi muuttujaa, `saldo` ja `omistaja`. Olion muuttujia kutsutaan _attribuuteiksi_ (huomaa kaksi t-kirjainta). Attribuutista käytetään myös nimitystä _oliomuuttuja_.
 
 Kun luokasta luodaan olio, voidaan attribuuttien arvoja käsitellä olion kautta:
 
 ```python
 
 class Pankkitili:
-    saldo = 0.0
-    omistaja = ""
+    pass
 
 pekan_tili = Pankkitili()
 pekan_tili.omistaja = "Pekka Python"
@@ -70,13 +70,12 @@ Pekka Python
 
 </sample-output>
 
-Jos samasta luokasta luodaan useampi olio, niillä on jokaisella omat itsenäiset arvonsa attribuuteille:
+Jos samasta luokasta luodaan useampi olio, niille määritellään jokaiselle omat itsenäiset arvonsa attribuuteille.
 
 ```python
 
 class Pankkitili:
-    saldo = 0.0
-    omistaja = ""
+    pass
 
 pekan_tili = Pankkitili()
 pekan_tili.omistaja = "Pekka Python"
@@ -108,15 +107,35 @@ Pirjo Pythonen
 
 <text-box variant="info" name="Attribuuttien näkyvyys">
 
-Attribuutit ovat käytettävissä ainoastaan määrittelyluokkansa sisällä. Niitä ei voi siis käyttää luokan ulkopuolelta muuta kuin luomalla luokasta olion.
+Attribuutit ovat käytettävissä ainoastaan se olion sisällä, jossa ne on määritelty. Niitä ei voi siis käyttää olion ulkopuolelta.
 
-Tämä on sikäli loogista, että attribuutit saavat lopulliset arvonsa vasta kun luokasta luodaan olio. Luokassa olevaa attribuutit määrittelevää koodia ei suoriteta ennen kuin luokan konstruktoria kutsutaan. Tästä lisää seuraavassa osassa.
 
 </text-box>
 
 ## Konstruktorin lisääminen
 
 Niin kuin edellisestä esimerkistä huomataan, luokasta voi luoda uuden olion kutsumalla konstruktoria, joka on muotoa `LuokanNimi()`. Yleensä olisi kuitenkin kätevä antaa attrbuuteille arvot heti kun olio luodaan - nyt esimerkiksi Pankkitilin omistaja ja saldo asetetaan vasta kun pankkitiliolio on luotu.
+
+Attribuuttien asettamisessa ilman konstruktoria on myös se ongelma, että samasta luokasta luoduilla olioilla voi olla eri attribuutit. Seuraava ohjelmakoodi esimerkiksi antaa virheen, koska oliolle `pirjon_tili` ei ole määritelty attribuuttia saldo:
+
+```python
+
+class Pankkitili:
+    pass
+
+pekan_tili = Pankkitili()
+pekan_tili.omistaja = "Pekka"
+pekan_tili.saldo = 1400
+
+pirjon_tili = Pankkitili()
+pirjon_tili.omistaja = "Pirjo"
+
+print(pekan_tili.saldo)
+print(pirjon_tili.saldo) # TÄSTÄ TULEE VIRHE
+
+```
+
+Sen sijaan että attribuuttien arvot alustettaisiin luokan luomisen jälkeen, on huomattavasti parempi ajatus alustaa arvot samalla kun luokasta luodaan olio.
 
 Konstruktorimetodi kirjoitetaan luokan sisään samalla tavalla kuin attribuutitkin (ja yleensä aina attribuuttien määrityksen jälkeen).
 
@@ -125,8 +144,6 @@ Tarkastellaan Pankkitili-luokkaa, johon on lisätty konstruktori:
 ```python
 
 class Pankkitili:
-    saldo = 0.0
-    omistaja = ""
 
     # Konstruktori
     def __init__(self, saldo: float, omistaja: str):
@@ -141,7 +158,7 @@ Konstruktorin ensimmäinen parametri on nimeltään `self`. Tämä viittaa olioo
 
 `self.saldo = saldo`
 
-asettaa annetun saldon luotavan olion saldoksi. On siis tärkeä huomata, että muuttuja `self.saldo` on eri muuttuja kuin muuttuja `saldo`.
+asettaa parametrina annetun saldon luotavan olion saldoksi. On siis tärkeä huomata, että tässä yhteydessä muuttuja `self.saldo` on eri muuttuja kuin muuttuja `saldo`.
 
 KUVA
 
@@ -150,8 +167,6 @@ Nyt kun konstruktorille on määritelty parametrit, voidaan attribuuttien arvot 
 ```python
 
 class Pankkitili:
-    saldo = 0.0
-    omistaja = ""
 
     # Konstruktori
     def __init__(self, saldo: float, omistaja: str):
@@ -183,8 +198,6 @@ Attribuuttien arvoja voi edelleen muuttaa myöhemmin ohjelmakoodissa, vaikka alk
 ```python
 
 class Pankkitili:
-    saldo = 0.0
-    omistaja = ""
 
     # Konstruktori
     def __init__(self, saldo: float, omistaja: str):
@@ -220,9 +233,6 @@ Tarkastellaan vielä toista esimerkkiä luokasta ja olioista. Kirjoitetaan luokk
 from datetime import date
 
 class LottoKierros:
-    viikko = 0
-    pvm = date(1900,1,1)
-    numerot = []
 
     def __init__(self, viikko: int, pvm: date, numerot: list):
         self.viikko = viikko

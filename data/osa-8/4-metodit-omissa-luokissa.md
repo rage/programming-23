@@ -20,10 +20,6 @@ Vain attribuutteja sisältävät luokat eivät käytännössä eroa juurikaan sa
 
 # Esimerkki omaa luokkaa käyttäen
 class Pankkitili:
-    tilinumero = ""
-    omistaja = ""
-    saldo = 0.0
-    vuosikorko = 0.0
 
     def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
         self.tilinumero = tilinumero
@@ -55,10 +51,6 @@ Katsotaan esimerkkinä Pankkitili-luokan metodi, joka lisää koron pankkitilill
 ```python
 
 class Pankkitili:
-    tilinumero = ""
-    omistaja = ""
-    saldo = 0.0
-    vuosikorko = 0.0
 
     def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
         self.tilinumero = tilinumero
@@ -125,10 +117,6 @@ Esimerkiksi:
 ```python
 
 class Pankkitili:
-    tilinumero = ""
-    omistaja = ""
-    saldo = 0.0
-    vuosikorko = 0.0
 
     def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
         self.tilinumero = tilinumero
@@ -203,9 +191,6 @@ Tarkastellaan kuitenkin vielä esimerkkiä luokasta, joka mallintaa pelaajan enn
 from datetime import date
 
 class Ennatystulos:
-    pelaaja = ""
-    pvm = date(1900, 1, 1)
-    pisteet = 0
 
     def __init__(self, pelaaja: str, pv: int, kk: int, vuosi: int, pisteet: int):
         if self.nimi_ok(pelaaja):
