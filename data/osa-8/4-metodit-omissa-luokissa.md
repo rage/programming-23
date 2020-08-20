@@ -11,8 +11,6 @@ Tämän osion jälkeen:
 - Tiedät miten metodit toimivat luokissa
 - Osaat kirjoittaa metodeita omiin luokkiin
 - Ymmärrät mitä tarkoitetaan kapseloinnilla ja asiakkaalla olio-ohjelmoinnissa
-- Tiedät miten attribuutit suojataan
-- Tiedät mitä tarkoittavat havainnointi- ja asetusmetodit ja miten sellaiset muodostetaan
 
 </text-box>
 
@@ -196,269 +194,69 @@ print("Saldo nyt:", pekan_tili.saldo)
 
 ```
 
-## Asetus- ja havainnointimetodit
+Ongelma voidaan (ainakin osittain) ratkaista piilottamalla attribuutit asiakkaalta. Käytännön toteutukseen palataan tarkemmin ensi viikolla.
 
-Attribuutin arvo voidaan piilottaa lisäämällä sen nimen eteen kaksi alaviivaa (eli sen sijaan, että attribuutin nimi olisi vaikkapa `saldo`, se onkin nyt `__saldo`). Tämän jälkeen asiakas ei voi suoraan viitata attribuuttiin, vaan yritys tuottaa virheilmoituksen:
+Tarkastellaan kuitenkin vielä esimerkkiä luokasta, joka mallintaa pelaajan ennätystulosta. Luokkaan on kirjoitettu erilliset metodit, joilla voidaan tarkastaa ovatko annetut parametrit sopivia. Metodeja kutsutaan heti konstruktorissa. Näin varmistetaan luotavan olion sisäinen eheys.
 
 ```python
 
-class Pankkitili:
-    tilinumero = ""
-    omistaja = ""
-    __saldo = 0.0
-    vuosikorko = 0.0
+from datetime import date
 
-    def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
-        self.tilinumero = tilinumero
-        self.omistaja = omistaja
-        self.__saldo = saldo
-        self.vuosikorko = vuosikorko
+class Ennatystulos:
+    pelaaja = ""
+    pvm = date(1900, 1, 1)
+    pisteet = 0
 
-    # Metodi lisää koron tilin saldoon
-    def lisaa_korko(self):
-        self.__saldo += self.__saldo * self.vuosikorko
+    def __init__(self, pelaaja: str, pv: int, kk: int, vuosi: int, pisteet: int):
+        if self.nimi_ok(pelaaja):
+            self.pelaaja = pelaaja
 
-    # Metodilla "nostetaan" tililtä rahaa
-    # Metodi palauttaa true, jos nosto onnistuu, muuten False
-    def nosto(self, nostosumma: float):
-        if nostosumma <= self.saldo:
-            self.__saldo -= nostosumma
+        if self.pvm_ok(pv, kk, vuosi):
+            self.pvm = date(vuosi, kk, pv)
+
+        if self.pisteet_ok(pisteet):
+            self.pisteet = pisteet
+
+    # Apumetodit, joilla tarkistetaan ovatko syötteet ok
+    def nimi_ok(self, nimi: str):
+        return len(nimi) >= 2 # Nimessä vähintään kaksi merkkiä
+
+    def pvm_ok(self, pv, kk, vuosi):
+        try:
+            date(vuosi, kk, pv)
             return True
+        except:
+            # Poikkeus, jos yritetään muodostaa epäkelpo päivämäärä
+            return False
 
-        return False
+    def pisteet_ok(self, pisteet):
+        return pisteet >= 0
 
+if __name__ == "__main__":
+    e = Ennatystulos("Pekka", 1, 11, 2020, 235)
+    print(e.pisteet)
+    print(e.pelaaja)
+    print(e.pvm)
 
-pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500, 0.015)
-
-# Saldoa EI VOI nyt kutsua suoraan, tämä aiheuttaa virheen
-print(pekan_tili.__saldo)
+    # Epäkelpo arvo päivämäärälle
+    e2 = Ennatystulos("Piia", 4, 13, 2019, 4555)
+    print(e2.pisteet)
+    print(e2.pelaaja)
+    print(e2.pvm) # Tulostaa alkuperäisen arvon 1900-01-01
 
 ```
 
 <sample-output>
 
-AttributeError: 'Pankkitili' object has no attribute '__saldo'
+235
+Pekka
+2020-11-01
+4555
+Piia
+1900-01-01
 
 </sample-output>
 
-Mikäli halutaan, että asiakas pystyy edelleen lukemaan attribuutin arvon, pitää sille kirjoittaa niinsanottu _havainnointimetodi_. Havainnointimetodi palauttaa attribuutin arvon:
+Esimerkistä huomataan, että myös olion omiin metodeihin pitää viitata `self`-määreen avulla kun niitä kutsutaan konstruktorista. Luokkiin voidaan kirjoitaa myös ns. _staattisia metodeita_, eli metodeita, jota voidaan kutsua ilman että luokasta muodostetaan oliota. Tähän palataan kuitenkin tarkemmin ensi kerralla.
 
-```python
-
-class Pankkitili:
-    tilinumero = ""
-    omistaja = ""
-    __saldo = 0.0
-    vuosikorko = 0.0
-
-    def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
-        self.tilinumero = tilinumero
-        self.omistaja = omistaja
-        self.__saldo = saldo
-        self.vuosikorko = vuosikorko
-
-    # Metodi lisää koron tilin saldoon
-    def lisaa_korko(self):
-        self.__saldo += self.__saldo * self.vuosikorko
-
-    # Metodilla "nostetaan" tililtä rahaa
-    # Metodi palauttaa true, jos nosto onnistuu, muuten False
-    def nosto(self, nostosumma: float):
-        if nostosumma <= self.saldo:
-            self.__saldo -= nostosumma
-            return True
-
-        return False
-
-    # Julkinen havainnointimetodi, jolla käyttäjä voi pyytää saldon
-    def anna_saldo(self):
-        return self.__saldo
-
-
-pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500, 0.015)
-
-# Tämä toimii
-print(pekan_tili.anna_saldo())
-
-```
-
-Nyt Pekka-paran tilille ei kuitenkaan voi lisätä rahaa, vaan ainoastaan nostaa sitä. Lisätään siis myös metodi, jolla voidaan tallettaa tilille lisää rahaa:
-
-```python
-
-class Pankkitili:
-    tilinumero = ""
-    omistaja = ""
-    __saldo = 0.0
-    vuosikorko = 0.0
-
-    def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
-        self.tilinumero = tilinumero
-        self.omistaja = omistaja
-        self.__saldo = saldo
-        self.vuosikorko = vuosikorko
-
-    # Metodi lisää koron tilin saldoon
-    def lisaa_korko(self):
-        self.__saldo += self.__saldo * self.vuosikorko
-
-    # Metodilla "nostetaan" tililtä rahaa
-    # Metodi palauttaa true, jos nosto onnistuu, muuten False
-    def nosto(self, nostosumma: float):
-        if nostosumma <= self.saldo:
-            self.__saldo -= nostosumma
-            return True
-
-        return False
-
-    # Julkinen havainnointimetodi, jolla käyttäjä voi pyytää saldon
-    def anna_saldo(self):
-        return self.__saldo
-
-    # Julkinen metodi, jolla voidaan tallettaa tilile rahaa
-    def talleta(self, rahasumma: float):
-        self.__saldo += rahasumma
-
-
-
-pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500, 0.015)
-
-print(pekan_tili.anna_saldo())
-pekan_tili.talleta(10000)
-print(pekan_tili.anna_saldo())
-
-```
-
-## Parametrien validointi asetusmetodeissa
-
-Asetusmetodissa olisi hyvä tarkastaa, että annettu arvo on kelvollinen. Nyt negatiivisen rahasumman tallettaminen vähentää tililtä rahaa. Lisätää vielä lopuille attribuuteille asetus- ja havainnointimetodit ja lisätään asetusmetodeihin tarkastukset arvoille:
-
-```python
-
-class Pankkitili:
-    __tilinumero = ""
-    __omistaja = ""
-    __saldo = 0.0
-    __vuosikorko = 0.0
-
-    def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
-        self.__tilinumero = tilinumero
-        self.__omistaja = omistaja
-        self.__saldo = saldo
-        self.__vuosikorko = vuosikorko
-
-    # Metodi lisää koron tilin saldoon
-    def lisaa_korko(self):
-        self.__saldo += self.__saldo * self.vuosikorko
-
-    # Metodilla "nostetaan" tililtä rahaa
-    # Metodi palauttaa true, jos nosto onnistuu, muuten False
-    def nosto(self, nostosumma: float):
-        if nostosumma <= self.saldo:
-            self.__saldo -= nostosumma
-            return True
-
-        return False
-
-    # Saldon havainnointi ja asetus
-    def anna_saldo(self):
-        return self.__saldo
-
-    def talleta(self, rahasumma: float):
-        if rahasumma > 0:
-            self.__saldo += rahasumma
-
-    # Tilinumeron asetus ja havainnointi
-    def anna_tilinumero(self):
-        return self.__tilinumero
-
-    def aseta_tilinumero(self, tilinumero: str):
-        if tilinumero != "" and "-" in tilinumero:
-            self.__tilinumero = tilinumero
-
-    # Omistajan asetus ja havainnointi
-    def anna_omistaja(self):
-        return self.__omistaja
-
-    def aseta_omistaja(self, omistaja: str):
-        if omistaja != "":
-            self.__omistaja = omistaja
-
-    # Korkoprosentin asetus ja havainnointi
-    def anna_vuosikorko(self):
-        return self.__vuosikorko
-
-    def aseta_vuosikorko(self, vuosikorko: float):
-        if vuosikorko > 0:
-            self.__vuosikorko == vuosikorko
-
-```
-
-Kapseloinnin tarkoituksena on siis varmistaa asiakkaan puolesta, että olio ei päädy virheelliseen tilaan. Virheellinen tila tarkoittaa tilaa, jossa yhdellä tai useammalla olion attribuutilla on arvo, jota ei voida käsitellä. Esimerkkejä tällaisista arvoista olisivat vaikka päivämäärä 33.2.2019, tyhjä merkkijonon nimenä tai henkilön negatiivinen ikä.
-
-Vastaavat tarkastukset olisi toki hyvä tehdä myös konstruktorissa oliota luotaessa. Yksi helppo tapa on kutsua asetusmetodeita konstruktorista, jotta testejä ei tarvitse kirjoittaa useaan kertaan:
-
-```python
-
-class Pankkitili:
-    __tilinumero = ""
-    __omistaja = ""
-    __saldo = 0.0
-    __vuosikorko = 0.0
-
-    def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
-        self.aseta_tilinumero(tilinumero)
-        self.aseta_omistaja(omistaja)
-        self.aseta_vuosikorko(vuosikorko)
-
-        if saldo >= 0:
-            self.__saldo = saldo
-
-
-    # Metodi lisää koron tilin saldoon
-    def lisaa_korko(self):
-        self.__saldo += self.__saldo * self.vuosikorko
-
-    # Metodilla "nostetaan" tililtä rahaa
-    # Metodi palauttaa true, jos nosto onnistuu, muuten False
-    def nosto(self, nostosumma: float):
-        if nostosumma <= self.saldo:
-            self.__saldo -= nostosumma
-            return True
-
-        return False
-
-    # Saldon havainnointi ja asetus
-    def anna_saldo(self):
-        return self.__saldo
-
-    def talleta(self, rahasumma: float):
-        if rahasumma > 0:
-            self.__saldo += rahasumma
-
-    # Tilinumeron asetus ja havainnointi
-    def anna_tilinumero(self):
-        return self.__tilinumero
-
-    def aseta_tilinumero(self, tilinumero: str):
-        if tilinumero != "" and "-" in tilinumero:
-            self.__tilinumero = tilinumero
-
-    # Omistajan asetus ja havainnointi
-    def anna_omistaja(self):
-        return self.__omistaja
-
-    def aseta_omistaja(self, omistaja: str):
-        if omistaja != "":
-            self.__omistaja = omistaja
-
-    # Korkoprosentin asetus ja havainnointi
-    def anna_vuosikorko(self):
-        return self.__vuosikorko
-
-    def aseta_vuosikorko(self, vuosikorko: float):
-        if vuosikorko > 0:
-            self.__vuosikorko == vuosikorko
-
-```
 

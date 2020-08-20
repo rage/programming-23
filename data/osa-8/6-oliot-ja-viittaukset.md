@@ -22,23 +22,14 @@ from datetime import date
 
 # Esimerkkiluokka mallintaa kurssisuoritusta
 class Kurssisuoritus:
-    __kurssi = ""
-    __opintopisteet = ""
-    __suorituspvm = date(1900,1,1)
+    kurssi = ""
+    opintopisteet = ""
+    suorituspvm = date(1900,1,1)
 
     def __init__(self, kurssi: str, opintopisteet: int, suorituspvm: date):
         self.kurssi = kurssi
         self.opintopisteet = opintopisteet
         self.suorituspvm = suorituspvm
-
-    def anna_kurssi(self):
-        return self.kurssi
-
-    def anna_opintopisteet(self):
-        return self.opintopisteet
-
-    def anna_suorituspvm(self):
-        return self.suorituspvm
 
 
 if __name__ == "__main__":
@@ -58,8 +49,8 @@ if __name__ == "__main__":
     # Käydään läpi kaikki suoritukset, tulostetaan nimet ja lasketaan opintopisteet yhteen
     pisteet = 0
     for suoritus in suoritukset:
-        print(suoritus.anna_kurssi())
-        pisteet += suoritus.anna_opintopisteet()
+        print(suoritus.kurssi)
+        pisteet += suoritus.opintopisteet
 
     print("Pisteitä yhteensä:", pisteet)
 
@@ -75,16 +66,10 @@ Esimerkiksi:
 ```python
 
 class Koira:
-    __nimi = ""
+    nimi = ""
 
     def __init__(self, nimi):
         self.__nimi = nimi
-
-    def aseta_nimi(self, nimi):
-        self.__nimi = nimi
-
-    def __repr__(self):
-        return self.__nimi
 
 
 k = Koira("Musti")
@@ -93,17 +78,17 @@ print(k)
 print(lista)
 
 print("Muutetaan arvoa...")
-k.aseta_nimi("Rekku")
+k.nimi = "Rekku"
 print(k)
 print(lista)
 
 print("Muutetaan arvoa listasta...")
-lista[0].aseta_nimi("Fifi")
+lista[0].nimi = "Fifi"
 print(k)
 print(lista)
 
 print("Viimeinen olio listassa on eri olio kuin muut")
-lista[2].aseta_nimi("Turre")
+lista[2].nimi = "Turre"
 print(k)
 print(lista)
 
@@ -144,27 +129,22 @@ Tarkastellaan yksinkertaista esimerkkiä, jossa funktiolle välitetään Opiskel
 ```python
 
 class Opiskelija:
-    __nimi = ""
-    __opiskelijanumero = ""
-    __opintopisteet = 0
+    nimi = ""
+    opiskelijanumero = ""
+    opintopisteet = 0
 
     def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
-        self.__nimi = nimi
-        self.__opiskelijanumero = opiskelijanumero
-        self.__opintopisteet = opintopisteet
-
-    # Esimerkissä on toteutettu vain nimi-attribuutin asetusmetodi,
-    # loput asetus- ja havainnointimetodit puuuttuvat
-    def aseta_nimi(self, nimi: str):
-        self.__nimi = nimi
+        self.nimi = nimi
+        self.opiskelijanumero = opiskelijanumero
+        self.opintopisteet = opintopisteet
 
     def __repr__(self):
-        return f"Opiskelija, nimi: {self.__nimi}, opiskelijanumero: {self.__opiskelijanumero}, opintopisteet: {self.__opintopisteet}"
+        return f"Opiskelija, nimi: {self.nimi}, opiskelijanumero: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"
 
 
 # Huomaa, että tyyppivihjeenä käytetään nyt oman luokan nimeä
 def muuta_nimi(opiskelija: Opiskelija):
-    opiskelija.aseta_nimi("Olli Opiskelija")
+    opiskelija.nimi = "Olli Opiskelija"
 
 # Luodaan opiskelijaolio
 o = Opiskelija("Olli Oppilas", "12345", 10)
@@ -190,22 +170,17 @@ Olion voi myös luoda funktiossa. Mikäli funktio palauttaa viittauksen olioon, 
 from random import randint, choice
 
 class Opiskelija:
-    __nimi = ""
-    __opiskelijanumero = ""
-    __opintopisteet = 0
+    nimi = ""
+    opiskelijanumero = ""
+    opintopisteet = 0
 
     def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
-        self.__nimi = nimi
-        self.__opiskelijanumero = opiskelijanumero
-        self.__opintopisteet = opintopisteet
-
-    # Esimerkissä on toteutettu vain nimi-attribuutin asetusmetodi,
-    # loput asetus- ja havainnointimetodit puuuttuvat
-    def aseta_nimi(self, nimi: str):
-        self.__nimi = nimi
+        self.nimi = nimi
+        self.opiskelijanumero = opiskelijanumero
+        self.opintopisteet = opintopisteet
 
     def __repr__(self):
-        return f"Opiskelija, nimi: {self.__nimi}, opiskelijanumero: {self.__opiskelijanumero}, opintopisteet: {self.__opintopisteet}"
+        return f"Opiskelija, nimi: {self.nimi}, opiskelijanumero: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"
 
 
 # Metodi luo ja palauttaa Opiskelija-olion, jolla on satunnainen nimi, opiskelijanumero ja pistemäärä
@@ -227,7 +202,7 @@ def uusi_opiskelija():
 
 
 if __name__ == "__main__":
-    # kutsutaan metodia viideksi, tallennetaan tulokset listaan
+    # kutsutaan metodia viidesti, tallennetaan tulokset listaan
     opiskelijat = []
     for i in range(5):
         opiskelijat.append(uusi_opiskelija())
@@ -260,35 +235,17 @@ Esitellään aluksi luokka Kurssi, joka on määritelty tiedostossa `kurssi.py`:
 
 # Luokka mallintaa yhtä kurssia
 class Kurssi:
-    __nimi = ""
-    __koodi = ""
-    __opintopisteet = 0
+    nimi = ""
+    koodi = ""
+    opintopisteet = 0
 
     def __init__(self, nimi: str, koodi: str, opintopisteet: int):
-        self.__nimi = nimi
-        self.__koodi = koodi
-        self.__opintopisteet = opintopisteet
-
-    def anna_nimi(self):
-        return self.__nimi
-
-    def aseta_nimi(self, nimi: str):
-        self.__nimi = nimi
-
-    def anna_koodi(self):
-        return self.__koodi
-
-    def aseta_koodi(self, koodi: str):
-        self.__koodi = koodi
-
-    def anna_opintopisteet(self):
-        return self.__opintopisteet
-
-    def aseta_opintopisteet(self, opintopisteet: int):
-        self.__opintopisteet = opintopisteet
+        self.nimi = nimi
+        self.koodi = koodi
+        self.opintopisteet = opintopisteet
 
     def __repr__(self):
-        return f"{Kurssi}, nimi: {self.__nimi}, koodi: {self.__koodi}, opintopisteet: {self.__opintopisteet}"
+        return f"{Kurssi}, nimi: {self.nimi}, koodi: {self.koodi}, opintopisteet: {self.opintopisteet}"
 
 ```
 
@@ -297,35 +254,17 @@ Luokka Opiskelija mallintaa yhtä opiskelijaa. Luokka on määritelty tiedostoss
 ```python
 
 class Opiskelija:
-    __nimi = ""
-    __opiskelijanumero = ""
-    __opintopisteet = 0
+    nimi = ""
+    opiskelijanumero = ""
+    opintopisteet = 0
 
     def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
-        self.__nimi = nimi
-        self.__opiskelijanumero = opiskelijanumero
-        self.__opintopisteet = opintopisteet
-
-    def anna_nimi(self):
-        return self.__nimi
-
-    def aseta_nimi(self, nimi: str):
-        self.__nimi = nimi
-
-    def anna_opiskelijanumero(self):
-        return self.__opiskelijanumero
-
-    def aseta_opiskelijanumero(self, opiskelijanumero: str):
-        self.__opiskelijanumero = opiskelijanumero
-
-    def anna_opintopisteet(self):
-        return self.__opintopisteet
-
-    def aseta_opintopisteet(self, opintopisteet: int):
-        self.__opintopisteet = opintopisteet
+        self.nimi = nimi
+        self.opiskelijanumero = opiskelijanumero
+        self.opintopisteet = opintopisteet
 
     def __repr__(self):
-        return f"{Opiskelija}, nimi: {self.__nimi}, opiskelijanumero: {self.__opiskelijanumero}, opintopisteet: {self.__opintopisteet}"
+        return f"{Opiskelija}, nimi: {self.nimi}, opiskelijanumero: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"
 
 ```
 
@@ -337,35 +276,17 @@ from kurssi import Kurssi
 from opiskelija import Opiskelija
 
 class Opintosuoritus:
-    __opiskelija = Opiskelija("", "", 0)
-    __kurssi = Kurssi("", "", 0)
-    __arvosana = 0
+    opiskelija = Opiskelija("", "", 0)
+    kurssi = Kurssi("", "", 0)
+    arvosana = 0
 
     def __init__(self, opiskelija: Opiskelija, kurssi: Kurssi, arvosana: int):
-        self.__opiskelija = opiskelija
-        self.__kurssi = kurssi
-        self.__arvosana = arvosana
-
-    def anna_opiskelija(self):
-        return self.__opiskelija
-
-    def aseta_opiskelija(self, opiskelija: Opiskelija):
-        self.__opiskelija = opiskelija
-
-    def anna_kurssi(self):
-        return self.__kurssi
-
-    def aseta_kurssi(self, kurssi: Kurssi):
-        self.__kurssi = kurssi
-
-    def anna_arvosana(self):
-        return self.__arvosana
-
-    def aseta_arvosana(self, arvosana: int):
-        self.__arvosana = arvosana
+        self.opiskelija = opiskelija
+        self.kurssi = kurssi
+        self.arvosana = arvosana
 
     def __repr__(self):
-        return f"{Opintosuoritus}, opiskelija: {self.__opiskelija}, kurssi: {self.__kurssi}, arvosana: {self.__arvosana}"
+        return f"{Opintosuoritus}, opiskelija: {self.opiskelija}, kurssi: {self.kurssi}, arvosana: {self.arvosana}"
 
 
 ```
@@ -395,7 +316,7 @@ for opiskelija in opiskelijat:
 
 # Tulostetaan kaikista suorituksista opiskelijan nimi
 for suoritus in suoritukset:
-    print(suoritus.anna_opiskelija().anna_nimi())
+    print(suoritus.opiskelija.nimi)
 
 ```
 
@@ -408,11 +329,11 @@ Tiina
 
 </sample-output>
 
-Tarkastellaan lähemmin riviä `print(suoritus.anna_opiskelija().anna_nimi())`:
+Tarkastellaan lähemmin riviä `print(suoritus.opiskelija.nimi)`:
 
 * `suoritus` on luokan `Opintosuoritus` mukainen olio
-* Niinpä metodi `annaOpiskelija()` palauttaa `Opiskelija`-olion
-* `Opiskelija`-luokan metodi `annaNimi()` palauttaa opiskelijan nimen
+* Niinpä muuttuja opiskelija viittaa suoritukseen tallennettuun `Opiskelija`-olioon
+* `Opiskelija`-luokan muuttuja `nimi` sisältää opiskelijan nimen
 
 
 
