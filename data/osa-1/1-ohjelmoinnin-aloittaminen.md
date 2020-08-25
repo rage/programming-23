@@ -80,20 +80,6 @@ Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.
 
 </sample-output>
 
-<in-browser-programming-exercise name="Ukko Nooa" tmcname="osa01-02_ukko_nooa">
-
-Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
-
-<sample-output>
-
-Ukko Nooa, Ukko Nooa oli kunnon mies.
-Kun hän meni saunaan, laittoi laukun naulaan.
-Ukko Nooa, Ukko Nooa oli kunnon mies.
-
-</sample-output>
-
-</in-browser-programming-exercise>
-
 <in-browser-programming-exercise name="Korjaa ohjelma: seitsemän veljestä" tmcname="osa01-03_korjaa_ohjelma_7_veljesta">
 
 Ohjelman tarkoitus on tulostaa seitsemän veljestä aakkosjärjestyksessä. Ohjelmassa on kuitenkin yksi tai useampi virhe, jonka takia se ei toimi oikein.
@@ -110,6 +96,22 @@ print("Timo")
 ```
 
 </in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Ukko Nooa" tmcname="osa01-02_ukko_nooa">
+
+Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
+
+<sample-output>
+
+Ukko Nooa, Ukko Nooa oli kunnon mies.
+Kun hän meni saunaan, laittoi laukun naulaan.
+Ukko Nooa, Ukko Nooa oli kunnon mies.
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 
 ## Laskutoimitukset
 
