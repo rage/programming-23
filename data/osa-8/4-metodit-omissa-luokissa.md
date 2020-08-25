@@ -193,6 +193,11 @@ from datetime import date
 class Ennatystulos:
 
     def __init__(self, pelaaja: str, pv: int, kk: int, vuosi: int, pisteet: int):
+        # Oletusarvot
+        self.pelaaja = ""
+        self.pvm = date(1900,1,1)
+        self.pisteet = 0
+
         if self.nimi_ok(pelaaja):
             self.pelaaja = pelaaja
 
@@ -227,7 +232,7 @@ if __name__ == "__main__":
     e2 = Ennatystulos("Piia", 4, 13, 2019, 4555)
     print(e2.pisteet)
     print(e2.pelaaja)
-    print(e2.pvm) # Tulostaa alkuperäisen arvon 1900-01-01
+    print(e2.pvm) # Tulostaa oletusarvon 1900-01-01
 
 ```
 
