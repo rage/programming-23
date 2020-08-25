@@ -94,7 +94,6 @@ Ukko Nooa, Ukko Nooa oli kunnon mies.
 
 </in-browser-programming-exercise>
 
-
 <in-browser-programming-exercise name="Korjaa ohjelma: seitsemän veljestä" tmcname="osa01-03_korjaa_ohjelma_7_veljesta">
 
 Ohjelman tarkoitus on tulostaa seitsemän veljestä aakkosjärjestyksessä. Ohjelmassa on kuitenkin yksi tai useampi virhe, jonka takia se ei toimi oikein.
