@@ -134,7 +134,8 @@ class Suorakulmio:
 
     # Metodi palauttaa olion tilan merkkijonona
     def __repr__(self):
-        return f"Suorakulmio, vasen yläkulma: {self.__vasen_ylakulma}, leveys: {self.__leveys}, korkeus: {self.__korkeus}"
+        return f"Suorakulmio, vasen yläkulma: {self.vasen_ylakulma}, leveys: {self.leveys}, korkeus: {self.korkeus}"
+
 
 ```
 
