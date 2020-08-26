@@ -4,7 +4,7 @@ title: "Yleiset virheilmoitukset"
 hidden: false
 information_page: true
 banner: true
-separator_after: " "
+separator_after: "Ohjelmoinnin perusteet"
 ---
 
 Tällä sivulla kerrotaan yleisistä virheilmoituksista joihin saatat törmätä kurssin aikana.
