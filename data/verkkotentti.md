@@ -1,8 +1,9 @@
 ---
 path: "/verkkotentti"
 title: "Verkkotentti 05.08"
-hidden: false
+hidden: true
 information_page: true
+hide_in_sidebar: true
 ---
 
 ### Tenttiin osallistuminen
