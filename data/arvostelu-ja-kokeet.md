@@ -6,11 +6,19 @@ information_page: true
 sidebar_priority: 4000
 ---
 
-Kurssi suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen. Mahdolliset koepäivät ovat:
+Kurssit suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen.
 
-* ke 22.7.2020
-* ke 5.8.2020
-* la 5.9.2020
+### Ohjelmoinnin perusteet koepäivät
+
+* la 24.10.2020
+* la 7.11.2020
+* la 12.12.2020
+
+### Ohjelmoinnin jatkokurssi koepäivät
+
+* TBA
+
+## Tenttiin osallistuminen
 
 Voit osallistua mihin tahansa kokeeseen, ja kurssilla saa osallistua halutessaan useampaan kokeeseen. Opintorekisteriin jää paras suoritus.
 
@@ -60,8 +68,6 @@ Kurssi arvostellaan seuraavalla asteikolla:
 </table>
 
 Arvostelu perustuu sekä tehtyihin tehtäviin (50 % kokonaispisteistä) että kokeeseen (50 % kokonaispisteistä). Tämä tarkoittaa, että arvosteluasteikon kokonaispisteet saadaan laskemalla tämän sivun pistevisualisaation (sininen pallo oikeassa alakulmassa) kurssipisteet ja saamasi koepisteet yhteen.
-
-~~Kokeeseen saa osallistua, kun on tehnyt vähintään 25 % jokaisen osan ohjelmointitehtävien pisteistä.~~
 
 Kurssin läpipääsyyn vaaditaan vähintään 25% jokaisen osan ohjelmointitehtävien pisteistä.
 

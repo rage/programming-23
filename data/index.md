@@ -7,9 +7,12 @@ banner: true
 sidebar_priority: 5000
 ---
 
-Ohjelmoinnin perusteet on 5 op laajuinen tietojenkäsittelytieteen
-perusopintokurssi.
-Kurssi muodostuu viikoittaisista tehtävistä sekä kokeesta kurssin lopussa.
+Nämä ovat ohjelmoinnin perusteiden(TKT10002, 5 op) ja ohjelmoinnin jatkokurssin(TKT10003, 5 op) kurssisivut.
+
+Kurssit suoritetaan tekemällä viikottaisia tehtäviä ja molempien kurssien päätteeksi on pakollinen tentti.
+Tarkemmat arvosteluperusteet löytyvät [täältä](/arvostelu-ja-kokeet)
+
+Osat 1-7 muodostavat ohjelmoinnin perusteet ja osat 8-14 muodostavan ohjelmoinnin jatkokurssin.
 
 Huomaa, että jos olet suorittanut kurssin aiemmin Javalla,
 _et_ voi sisällyttää tutkintoosi suoritusta sekä Javalla että Pythonilla.
@@ -26,6 +29,8 @@ Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-m
 ## Aikataulu
 
 Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja deadline on seuraavan viikon torstaina
+
+Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
 
 <table>
   <thead>
