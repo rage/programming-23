@@ -11,13 +11,15 @@ information_page: true
 
 Voit ilmoittaa asiasta kurssikanavalla ohjaajalle tai sähköpostitse kurssin ylläpitäjille osoitteeseen ohjelmoinnin-mooc@helsinki.fi. Kiitos!
 
-### En voi aloittaa kurssia, koska en tiedä minne ilmoittautua
-
-Kurssin aloittamiseen ei tarvitse ilmoittautumista. Saat kurssin jälkeen ohjeet, miten voit saada kurssista suoritusmerkinnän Helsingin yliopiston rekisteriin.
-
 ### Kurssimateriaalin uuden osan pitäisi olla julki tänään, mutta en näe sitä
 
 Emme takaa, mihin kellonaikaan kurssimateriaalin uusi osa ilmestyy, mutta julkaisu tapahtuu aina viimeistään klo 23:59 ilmoitettuna päivänä.
+
+<notice>Alla olevat kysymykset koskevat enimmäkseen avoimen yliopiston opiskelijoita</notice>
+
+### En voi aloittaa kurssia, koska en tiedä minne ilmoittautua
+
+Kurssin aloittamiseen ei tarvitse ilmoittautumista. Saat kurssin jälkeen ohjeet, miten voit saada kurssista suoritusmerkinnän Helsingin yliopiston rekisteriin.
 
 ### Saako kursseista virallisen suorituksen?
 
