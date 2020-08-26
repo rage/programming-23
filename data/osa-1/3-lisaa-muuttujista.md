@@ -327,20 +327,17 @@ taitoihini kuuluvat
 haen työtä, josta maksetaan palkkaa 2000-3000 euroa kuussa
 </pre>
 
-Koodin _print_-komennoissa eritellään tulostettavat muuttujat pilkulla. Tämä kuitenkin aiheuttaa tulostukseen ylimääräisiä välilyöntejä.
-
-Helpoiten saat muutettua koodin toimivaksi käyttämällä tulostukseen f-merkkijonoja.
-
 </sample-output>
 
-
-Koodi tulostaa melkein oikein, mutta ei kuitenkaan ihan. Kuten muissakin kurssin tehtävissä, myös tässä on tarkat testit, tulostuksen on oltava välilyönnilleen oikein.
+Koodi tulostaa melkein oikein, mutta ei kuitenkaan ihan. Tässä tehtävissä on todella tarkat testit, jotka vaativat, että tulostus on välilyönnilleen oikein.
 
 Korjaa siis koodi siten, että tulostus näyttää oikealta. Huomaa, että erityisesti `print`-komennon muoto, jossa tulostettavat osat eritellään pilkulla, voi tuottaa yllätyksiä, sillä se lisää osien väliin välilyönnin.
 
+Helpoiten saat muutettua koodin toimivaksi käyttämällä tulostukseen f-merkkijonoja.
+
 Vihje: saat tulostettua tyhjän rivin komennolla `print()` tai lisäämällä tulostettavaan merkkijonoon merkin `\n`.
 
-Muista olla tarkkana tulostusten muodon suhteen jatkossakin kurssin tehtävissä, testit vaativat useimmiten täsmälleen esimerkkitulostusten mukaisen muotoilun!
+Muista olla tarkkana tulostusten muodon suhteen jatkossakin kurssin tehtävissä, osassa tehtävissä testit vaativat täsmälleen esimerkkitulostusten mukaisen muotoilun!
 
 </in-browser-programming-exercise>
 
