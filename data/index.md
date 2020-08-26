@@ -9,7 +9,6 @@ sidebar_priority: 5000
 
 Ohjelmoinnin perusteet on 5 op laajuinen tietojenkäsittelytieteen
 perusopintokurssi.
-Kesällä 2020 kurssi järjestetään ensimmäistä kertaa Python-kielellä.
 Kurssi muodostuu viikoittaisista tehtävistä sekä kokeesta kurssin lopussa.
 
 Huomaa, että jos olet suorittanut kurssin aiemmin Javalla,
@@ -26,10 +25,7 @@ Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-m
 
 ## Aikataulu
 
-Jokaisen osan materiaali ja tehtävät julkaistaan maanantaisin
-ja deadline on siitä kahden viikon päästä.
-Kesäkuun deadlinet ovat sunnuntaisin 23:59 ja
-heinäkuun deadlinet ovat maanantaisin 23:59.
+Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja deadline on seuraavan viikon torstaina
 
 <table>
   <thead>
@@ -42,38 +38,38 @@ heinäkuun deadlinet ovat maanantaisin 23:59.
   <tbody>
     <tr>
       <td>Osa 1</td>
-      <td>1.6.2020</td>
-      <td>14.6.2020</td>
+      <td>1.9.2020</td>
+      <td>10.9.2020</td>
     </tr>
     <tr>
       <td>Osa 2</td>
-      <td>8.6.2020</td>
-      <td>21.6.2020</td>
+      <td>8.9.2020</td>
+      <td>17.9.2020</td>
     </tr>
     <tr>
       <td>Osa 3</td>
-      <td>15.6.2020</td>
-      <td>28.6.2020</td>
+      <td>15.9.2020</td>
+      <td>24.9.2020</td>
     </tr>
     <tr>
       <td>Osa 4</td>
-      <td>22.6.2020</td>
-      <td>6.7.2020</td>
+      <td>22.9.2020</td>
+      <td>1.10.2020</td>
     </tr>
     <tr>
       <td>Osa 5</td>
-      <td>29.6.2020</td>
-      <td>13.7.2020</td>
+      <td>29.9.2020</td>
+      <td>8.10.2020</td>
     </tr>
     <tr>
       <td>Osa 6</td>
-      <td>6.7.2020</td>
-      <td>20.7.2020</td>
+      <td>6.10.2020</td>
+      <td>15.10.2020</td>
     </tr>
     <tr>
       <td>Osa 7</td>
-      <td>13.7.2020</td>
-      <td>27.7.2020</td>
+      <td>13.10.2020</td>
+      <td>22.10.2020</td>
     </tr>
   </tbody>
 </table>
