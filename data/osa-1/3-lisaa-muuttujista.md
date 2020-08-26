@@ -181,7 +181,7 @@ Ohjelman tulostus on seuraava:
 
 Kahdelle lukuarvolle `+`-operaattori siis merkitsee yhteenlaskua, merkkijonoille taas yhdistämistä peräkkäin.
 
-## Arvojen yhdistäminen
+## Arvojen yhdistäminen tulostettaessa
 
 Seuraava ohjelma ei toimi, koska `"Tulos on "` ja `tulos` ovat erityypisiä:
 
@@ -229,6 +229,64 @@ Tulos on 250
 
 Huomaa, että tässä tapauksessa arvojen väliin ilmestyy automaattisesti yksi välilyönti tulostuksessa.
 
+## Tulostaminen f-merkkijonojen avulla
+
+Niin sanotut _f-merkkijonot_ tarjoavat kolmannen ja edellisiä joustavamman ja jopa helppokäyttöisemmän tavan tulostuksen muotoiluun.
+
+Aiempi tekstin ja kokonaisluvun tulostava esimerkki tehtäisiin f-merkkijonojen avulla seuraavasti:
+
+```python
+tulos = 10 * 25
+print(f"Tulos on {tulos}")
+```
+
+Tulostettavan merkkijonon alussa on kirjain _f_, joka tarkoittaa että kyseessä on f-merkkijono. Merkkijonon sisälle on sijoitettu aaltosuluissa muuttuja _tulos_, jonka arvo tulee tulostuvan merkkijonon osaksi. Tulostus on täsmälleen sama kuin aiemmissa esimerkeissä eli
+
+<sample-output>
+
+Tulos on 250
+
+</sample-output>
+
+Yksittäisen f-merkkijonon sisälle on mahdollista laittaa useampaankin muuttujia. Esimerkiksi seuraava koodi
+
+```python
+nimi = "Arto"
+ika = 39
+kaupunki = "Espoo"
+print(f"Hei {nimi}, olet {ika}-vuotias. Auinpaikkasi on {kaupunki}.")
+```
+
+tulostuu näin:
+
+<sample-output>
+
+Hei Arto, olet 39-vuotias. Auinpaikkasi on Espoo.
+
+</sample-output>
+
+Huomaa, että täsmälleen tämän esimerkin kaltaista tulostusta on mahdotointa saada aikaan käyttämällä _print_-komennossa pilkkua:
+
+```python
+nimi = "Arto"
+ika = 39
+kaupunki = "Espoo"
+print("Hei", nimi, ", olet",ika,"-vuotias. Auinpaikkasi on", kaupunki, ".")
+```
+
+Tulostus on seuraava
+
+<sample-output>
+
+Hei Arto , olet 39 -vuotias. Auinpaikkasi on Espoo .
+
+</sample-output>
+
+Tulostuksessa on nyt välilyönti jokaisen erillisen osan välissä ja muutamassa kohdassa se aiheuttaa ongelman.
+
+Vaikka pilkullinen muoto _print_-komennosta onkin joskus kätevä, aiheuttaa se välillä harmaita hiuksia ja onkin parempi käyttää suosiolla f-merkkijonoja.
+
+F-merkkijonoilla on muitakin tulostuksen muotoiluun liittyviä käteviä omiaisuuksia, tutustumme niihin osassa 4.
 
 <in-browser-programming-exercise name="Välilyönnillä vai ilman" tmcname="osa01-10b_valilyonnilla_vai_ilman" height=400px>
 
@@ -268,6 +326,10 @@ taitoihini kuuluvat
 
 haen työtä, josta maksetaan palkkaa 2000-3000 euroa kuussa
 </pre>
+
+Koodin _print_-komennoissa eritellään tulostettavat muuttujat pilkulla. Tämä kuitenkin aiheuttaa tulostukseen ylimääräisiä välilyöntejä.
+
+Helpoiten saat muutettua koodin toimivaksi käyttämällä tulostukseen f-merkkijonoja.
 
 </sample-output>
 
