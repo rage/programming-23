@@ -504,7 +504,7 @@ Juuret ovat 2.0 ja -4.0
 
 Kertauskysely tämän osan asioihin liittyen:
 
-<quiz id="b7c4a09f-9257-4060-8553-f2ec780a4c5c"></quiz>
+<quiz id="9f783a6a-8f75-585b-a840-d577f7279eb9"></quiz>
 
 Vastaa lopuksi kyselyyn tämän viikon materiaaleista. Saat kyselyyn vastaamisesta yhden pisteen:
 

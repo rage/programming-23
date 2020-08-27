@@ -414,8 +414,8 @@ uayba
 
 </in-browser-programming-exercise>
 
-<quiz id="b38cf6f5-bf01-5df9-bd8b-317581e95aa7"></quiz>
+<quiz id="5c678c67-a7e8-503d-be68-9cc327eab95a"></quiz>
 
 Vastaa lopuksi osion loppukyselyyn:
 
-<quiz id="b3b321f0-cdd6-5d8c-8d51-661e93c4f6fa"></quiz>
+<quiz id="31ef9713-16fa-5783-af8c-440bdbe33dec"></quiz>

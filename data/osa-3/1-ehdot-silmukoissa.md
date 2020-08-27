@@ -333,4 +333,4 @@ Voit olettaa, että käyttäjän antama luku on 2 tai suurempi.
 </in-browser-programming-exercise>
 
 
-<quiz id="462bc6ae-e88e-57ee-b99f-d08a678f7929"></quiz>
+<quiz id="61e37fdf-b172-54ba-acf3-eeaef2f227d8"></quiz>
