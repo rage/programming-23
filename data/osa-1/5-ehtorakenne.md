@@ -508,4 +508,4 @@ Kertauskysely tämän osan asioihin liittyen:
 
 Vastaa lopuksi kyselyyn tämän viikon materiaaleista. Saat kyselyyn vastaamisesta yhden pisteen:
 
-<quiz id="a0f852a5-802f-466f-93e0-d4c96fa080fa"></quiz>
+<quiz id="cb9f5045-87da-5958-8239-c4492d99c5b9"></quiz>
