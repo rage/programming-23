@@ -131,4 +131,189 @@ Yleiskorko: 0.1
 
 Kun yleiskorko nousee, kaikkien luokasta määriteltyjen tilien kokonaiskorko nousee. Huomaa, että kokonaiskorko on määritelty havainnointimetodiksi, vaikkei vastaavaa attribuuttia olekaan suoraan määritelty - sen sijaan arvoksi lasketaan tilin koron ja yleiskoron summa.
 
-Tarkastellaan vielä toista esimerkkiä
+Tarkastellaan vielä toista esimerkkiä. Luokassa `Puhelinnumero` on maatunnukset (esimerkissä toki vain muutama tunnus) tallennettu sanakirjaan. Lista maatunnuksista on yhteinen kaikile luokasta luoduille puhelinnumero-olioille, koska maatunnus saman maan puhelinnumeroille on luonnollisesti aina sama.
+
+```python
+class Puhelinnumero:
+    maatunnukset = {"suomi": "+358", "ruotsi": "+46", "yhdysvallat": "+1"}
+
+    def __init__(self, nimi: str, puhelinnumero: str, maa: str):
+        self.__nimi = nimi
+        self.__puhelinnumero = puhelinnumero
+        self.__maa = maa
+
+    # Havainnointimetodissa yhdistetään maatunnus ja puhelinnumero
+    @property
+    def puhelinnumero(self):
+        # Puhelinnumerosta jää etunolla pois, kun maatunnus lisätään alkuun
+        return Puhelinnumero.maatunnukset[self.__maa] + " " + self.__puhelinnumero[1:]
+
+
+# Testataan
+if __name__ == "__main__":
+    paulan_nro = Puhelinnumero("Paula Pythonen", "050 1234 567", "suomi")
+    print(paulan_nro.puhelinnumero)
+```
+
+<sample-output>
+
++358 50 1234 567
+
+</sample-output>
+
+Kun puhelinnumero-olio luodaan, tallennetaan nimen ja numeron lisäksi maa. Haettaessa numero havainnointimetodilla, haetaan numeron eteen maatunnus luokkamuttujasta olion attribuuttiin tallennetun maatiedon avulla.
+
+Esimerkkiluokka on toiminnallisuudeltaan kovin vajavainen, katsotaan vielä miltä näyttäisi parempi toteutus, josta löytyy muun muassa havainnointi- ja asetusmetodit eri attribuuteille:
+
+```python
+
+class Puhelinnumero:
+    maatunnukset = {"suomi": "+358", "ruotsi": "+46", "yhdysvallat": "+1"}
+
+    def __init__(self, nimi: str, puhelinnumero: str, maa: str):
+        self.__nimi = nimi
+        # Tämä kutsuu metodia puhelinnumero.setter
+        self.puhelinnumero = puhelinnumero
+        # ..ja tämä metodia maa.setter
+        self.maa = maa
+
+    # Havainnointimetodissa yhdistetään maatunnus ja puhelinnumero
+    @property
+    def puhelinnumero(self):
+        # Puhelinnumerosta jää etunolla pois, kun maatunnus lisätään alkuun
+        return Puhelinnumero.maatunnukset[self.__maa] + " " + self.__puhelinnumero[1:]
+
+    @puhelinnumero.setter
+    def puhelinnumero(self, numero):
+        # Testataan, ettei puhelinnumerossa ole kuin lukuja
+        for n in numero:
+            if n not in "1234567890 ":
+                raise ValueError("Puhelinnumero saa sisältää vain lukuja ja välilyöntejä")
+        self.__puhelinnumero = numero
+
+    # Pelkkä puhelinnumero ilman maatunnusta
+    @property
+    def paikallinen_numero(self):
+        return self.__puhelinnumero
+
+    @property
+    def maa(self):
+        return self.__maa
+
+    @maa.setter
+    def maa(self, maa):
+        # testataan, että maa löytyy maatunnusten listasta
+        if maa not in Puhelinnumero.maatunnukset:
+            raise ValueError("Annettua maata ei löydy listalta.")
+        self.__maa = maa
+
+    @property
+    def nimi(self):
+        return self.__nimi
+
+    @nimi.setter
+    def nimi(self, nimi):
+        self.__nimi = nimi
+
+    # Pelkkä puhelinnumero ilman maatunnusta
+    @property
+    def paikallinen_numero(self):
+        return self.__puhelinnumero
+
+    def __repr__(self):
+        return f"Puhelinnumero - nimi: {self.__nimi}, puhelinnumero: {self.__puhelinnumero}, maa: {self.__maa}"
+
+
+# Testataan
+if __name__ == "__main__":
+    pnro = Puhelinnumero("Pertti Python", "040 111 1111", "ruotsi")
+    print(pnro)
+    print(pnro.puhelinnumero)
+    print(pnro.paikallinen_numero)
+
+```
+
+<sample-output>
+
+Puhelinnumero - nimi: Pertti Python, puhelinnumero: 040 111 1111, maa: ruotsi
++46 40 111 1111
+040 111 1111
+
+</sample-output>
+
+## Staattiset metodit
+
+Myös luokan metodit voivat olla staattisia. Tällaista metodia nimitetään joskus myös luokkametodiksi.
+
+Periaate on samanlainen kuin muuttujienkin kohdalla: staattista metodia ei ole sidottu mihinkään luokasta muodostettuun olioon, vaan se on nimensä mukaisesti luokan metodi. Niinpä staattista metodia (eli luokkametodia) voi kutsua ilman että luokasta muodostetaan oliota.
+
+Staattiset metodit ovatkin yleensä "työkalumetodeja", jotka liittyvät aiheensa puolesta jotenkin luokkaan, mutta joita on tarkoituksenmukaista kutsua ilman että luokasta on pakko muodostaa oliota. Staattiset metodit kirjoitetaan yleensä julkisina, jolloin niitä voidaan kutsua sekä luokan ulkopuolelta että luokan (ja siitä muodostettujen olioiden) sisältä.
+
+Luokkametodi merkitään annotaatiolla `@classmethod`, ja sen ensimmäinen (tai ainoa) parametri on aina `cls`. Tunnistetta `cls` käytetään samaan tapaan kuin tunnistetta `self`, mutta erotuksena on, että `cls` viittaa nykyiseen luokkaan (ja `self` tietysti nykyiseen olioon). Kummallekaan parametrille ei anneta kutsuessa arvoa, vaan Python tekee sen automaattisesti.
+
+Esimerkiksi luokassa `Rekisteriote` voisi olla staattinen metodi, jolla voidaan tarkistaa onko annettu rekisteritunnus oikeamuotoinen. Metodi on staattinen, jotta tunnuksen voi tarkastaa ilman että luodaan uutta oliota luokasta:
+
+```python
+
+class Rekisteriote:
+
+    def __init__(self, omistaja: str, merkki: str, vuosi: int, rekisteritunnus: str):
+        self.__omistaja = omistaja
+        self.__merkki = merkki
+        self.__vuosi = vuosi
+
+        # Kutsutaan metodia rekisteritunnus.setter
+        self.rekisteritunnus = rekisteritunnus
+
+    @property
+    def rekisteritunnus(self):
+        return self.__rekisteritunnus
+
+    @rekisteritunnus.setter
+    def rekisteritunnus(self, tunnus):
+        if Rekisteriote.rekisteritunnus_kelpaa(tunnus):
+            self.__rekisteritunnus = tunnus
+        else:
+            raise ValueError("Rekisteritunnus ei kelpaa")
+
+    # Luokkametodi tunnuksen validoimiseksi
+    @classmethod
+    def rekisteritunnus_kelpaa(cls, tunnus: str):
+        if len(tunnus) < 3:
+            return False
+
+        if "-" not in tunnus:
+            return False
+
+        # Tarkastellaan alku- ja loppuosaa erikseen
+        alku, loppu = tunnus.split("-")
+
+        # alkuosassa saa olla vain kirjaimia...
+        for merkki in alku:
+            if merkki.lower() not in "abcdefghijklmnopqrstuvwxyzåäö":
+                return False
+
+        # ...ja loppuosassa vain numeroita:
+        for merkki in loppu:
+            if merkki not in "1234567890":
+                return False
+
+        return True
+
+# Testataan
+if __name__ == "__main__":
+    ote = Rekisteriote("Arto Autoilija", "Volvo", "1992", "abc-123")
+
+    # Metodia voi kutsua myös ilman oliota
+    if Rekisteriote.rekisteritunnus_kelpaa("xxx-999"):
+        print("Tämä on validi tunnus!")
+
+```
+
+<sample-output>
+
+Tämä on validi tunnus!
+
+</sample-output>
+
+Rekisteriotteen oikeellisuuden voi tarkistaa kutsumalla metodia (esimerkiksi `Rekisteriote.rekisteritunnus_kelpaa("xyz-789"))`) ilman että muodostaa luokasta oliota. Samaa metodia kutsutaan myös uutta oliota muodostaessa luokan konstruktorista - huomaa kuitenkin, että myös tässä kutsussa viitataan metodiin luokan nimen avulla - ei `self`-tunnisteella!
