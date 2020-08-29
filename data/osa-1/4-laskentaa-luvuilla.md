@@ -64,7 +64,7 @@ paino = 68.55
 # pituus ilmoitetaan kaavassa metreinä
 bmi = paino / (pituus / 100) ** 2
 
-print("Painoindeksi on", bmi)
+print(f"Painoindeksi on {bmi}")
 ```
 
 Ohjelman tulostus on seuraava:
@@ -81,8 +81,8 @@ Huomaa, että Pythonissa on myös kokonaislukujakolaskuoperaattori `//`, joka tu
 x = 3
 y = 2
 
-print("/-operaattori", x/y)
-print("//-operaattori", x//y)
+print(f"/-operaattori {x/y}")
+print(f"//-operaattori {x//y}")
 ```
 
 tulostaa
@@ -103,7 +103,7 @@ Esimerkiksi voimme muuttaa merkkijonon kokonaisluvuksi funktiolla `int`. Seuraav
 ```python
 syote = input("Minä vuonna olet syntynyt? ")
 vuosi = int(syote)
-print("Ikäsi vuoden 2020 lopussa:", 2020 - vuosi)
+print(f"Ikäsi vuoden 2020 lopussa: {2020 - vuosi}" )
 ```
 <sample-output>
 
@@ -116,7 +116,7 @@ Yleensä ei kannata luoda kahta muuttujaa (tässä `syote` ja `vuosi`) lukuarvon
 
 ```python
 vuosi = int(input("Minä vuonna olet syntynyt? "))
-print("Ikäsi vuoden 2020 lopussa:", 2020 - vuosi)
+print(f"Ikäsi vuoden 2020 lopussa: {2020 - vuosi}" )
 ```
 
 Vastaavasti voimme muuttaa merkkijonon liukuluvuksi funktiolla `float`. Seuraava ohjelma kysyy käyttäjän painon ja pituuden ja laskee näiden tietojen avulla painoindeksin:
@@ -128,7 +128,7 @@ paino = float(input("Anna paino: "))
 pituus = pituus / 100
 bmi = paino / pituus ** 2
 
-print("Painoindeksi on", bmi)
+print(f"Painoindeksi on {bmi}")
 ```
 
 Ohjelman tulostus voisi näyttää vaikka seuraavalta:
@@ -180,7 +180,7 @@ luku2 = int(input("Toinen luku: "))
 luku3 = int(input("Kolmas luku: "))
 
 summa = luku1 + luku2 + luku3
-print("Lukujen summa:", summa)
+print(f"Lukujen summa: {summa}")
 ```
 
 Ohjelman esimerkkisuoritus:
@@ -208,7 +208,7 @@ summa = summa + luku
 luku = int(input("kolmas luku: "))
 summa = summa + luku
 
-print("Lukujen summa:", summa)
+print(f"Lukujen summa: {summa}")
 ```
 
 Nyt kaikki käyttäjän syötteet luetaan muuttujaan `luku`, jonka arvolla _kasvatetaan_ muuttujan `summa` arvoa joka kerta sen jälkeen kun käyttäjältä on saatu uusi syöte.
@@ -241,7 +241,7 @@ summa += luku
 luku = int(input("kolmas luku: "))
 summa += luku
 
-print("Lukujen summa:", summa)
+print(f"Lukujen summa: {summa}")
 ```
 
 Itse asiassa apumuuttujaa `luku` ei välttämättä tarvita ollenkaan. Käyttäjän antamat syötteet voitaisiin lisätätä yksi kerrallaan muuttujaan `summa` myös seuraavasti:
@@ -253,7 +253,7 @@ summa += int(input("Ensimmäinen luku: "))
 summa += int(input("Toinen luku: "))
 summa += int(input("Kolmas luku: "))
 
-print("Lukujen summa:", summa)
+print(f"Lukujen summa: {summa}")
 ```
 
 Riippuu toki tilanteesta, montako muuttujaa ohjelmassa tarvitaan. Jos käyttäjän kaikkien syötteiden arvo tulee muistaa, ei ole mahdollista "uusiokäyttää" samaa apumuuttujaa kaikkien syötteiden lukemiseen. Näin on seuraavassa esimerkissä:
@@ -262,7 +262,7 @@ Riippuu toki tilanteesta, montako muuttujaa ohjelmassa tarvitaan. Jos käyttäj�
 luku1 = int(input("Ensimmäinen luku: "))
 luku2 = int(input("Toinen luku: "))
 
-print(luku1, "+", luku2, "=", luku1 + luku2)
+print(f"{luku1} + {luku2} = {luku1+luku2}")
 ```
 
 <sample-output>

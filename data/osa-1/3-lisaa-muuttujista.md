@@ -353,7 +353,7 @@ luku2 = -1.25
 luku3 = 3.62
 
 keskiarvo = (luku1 + luku2 + luku3) / 3
-print("Keskiarvo:", keskiarvo)
+print(f"Keskiarvo: {keskiarvo}")
 ```
 
 <sample-output>
