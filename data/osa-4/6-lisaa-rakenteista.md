@@ -394,8 +394,8 @@ Moi kaikki! Halusin vaan kysyä, että miten tämä toimii? Nyt tässä on pelkk
 
 </programming-exercise>
 
-<quiz id="23d0a43c-f5fe-50a9-80f5-374dd56ef017"></quiz>
+<quiz id="93f31db6-8d49-5ebc-9e73-d61fe5ff1c17"></quiz>
 
 Vastaa lopuksi osion loppukyselyyn:
 
-<quiz id="e4e9ae85-2cc8-5d8a-a945-cbb8c3c1f649"></quiz>
+<quiz id="77182267-7cc0-58ec-989e-8b2ce40a6dc1"></quiz>

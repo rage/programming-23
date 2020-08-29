@@ -424,8 +424,8 @@ Negatiivisia 1
 
 </in-browser-programming-exercise>
 
-<quiz id="a7754e25-855a-4176-b92d-dd5d184a6913"></quiz>
+<quiz id="bcd318f7-20d3-579b-a541-b24d26fc2498"></quiz>
 
 Vastaa lopuksi koko toista osaa koskevaan loppukyselyyn:
 
-<quiz id="0a9df4f8-fb83-598f-8493-81000c253d58"></quiz>
+<quiz id="dd3ec892-1348-56f1-8b44-41836d92d02d"></quiz>

@@ -346,4 +346,4 @@ Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu, jos et s
 
 </in-browser-programming-exercise>
 
-<quiz id="7398bca5-c470-5fba-8721-e6f40fc2e4a1"></quiz>
+<quiz id="44860162-f36e-5286-9b39-6e5955040677"></quiz>

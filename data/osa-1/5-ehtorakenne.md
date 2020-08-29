@@ -127,6 +127,35 @@ Luku on nolla.
 
 </sample-output>
 
+## Sisentäminen
+
+Python tunnistaa ehtorakenteen sisällä olevan koodin siitä, että jokainen rivi on _sisennetty_ samalla tavalla. Tämä tarkoittaa, että ehtorakenteen sisällä olevan koodin alussa on tyhjää tilaa. Jokaisella rivillä tulee olla yhtä paljon tyhjää tilaa.
+
+Esimerkiksi:
+
+````python
+salasana = input("Anna salasana: ")
+
+if salasana == "kissa":
+    print("Tiesit salasanan!")
+    print("Olet siis joko oikea käyttäjä...")
+    print("...tai melkoinen hakkerivelho.")
+
+print("Ohjelman suoritus päättyi. Kiitos ja hei!")
+````
+
+Tyhjä tila saadaan aikaan _tabulaattorilla_, jonka saat Tab-näppäimestä.
+
+<img src="1_6_keyboard.png">
+
+Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Voit lopettaa sisentämisen editorissa painamalla rivin alussa `Backspace`-näppäintä.
+
+<img src="1_6_keyboard2.png">
+<small><center>
+Näppäimistökuvien alkuperä:
+ <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Pixabay</a>
+</center></small>
+
 <in-browser-programming-exercise name="Orwell" tmcname="osa01-21_orwel">
 
 Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun ja tulostaa merkkijonon "Orwell" jos luku on täsmälleen 1984. Muussa tapauksessa ohjelma ei tulosta mitään.
@@ -228,34 +257,6 @@ Kiitos!
 
 </in-browser-programming-exercise>
 
-## Sisentäminen
-
-Python tunnistaa ehtorakenteen sisällä olevan koodin siitä, että jokainen rivi on _sisennetty_ samalla tavalla. Tämä tarkoittaa, että ehtorakenteen sisällä olevan koodin alussa on tyhjää tilaa. Jokaisella rivillä tulee olla yhtä paljon tyhjää tilaa.
-
-Esimerkiksi:
-
-````python
-salasana = input("Anna salasana: ")
-
-if salasana == "kissa":
-    print("Tiesit salasanan!")
-    print("Olet siis joko oikea käyttäjä...")
-    print("...tai melkoinen hakkerivelho.")
-
-print("Ohjelman suoritus päättyi. Kiitos ja hei!")
-````
-
-Tyhjä tila saadaan aikaan _tabulaattorilla_, jonka saat Tab-näppäimestä.
-
-<img src="1_6_keyboard.png">
-
-Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Voit lopettaa sisentämisen editorissa painamalla rivin alussa `Backspace`-näppäintä.
-
-<img src="1_6_keyboard2.png">
-<small><center>
-Näppäimistökuvien alkuperä:
- <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Pixabay</a>
-</center></small>
 
 ## Totuusarvot
 
@@ -503,8 +504,8 @@ Juuret ovat 2.0 ja -4.0
 
 Kertauskysely tämän osan asioihin liittyen:
 
-<quiz id="b7c4a09f-9257-4060-8553-f2ec780a4c5c"></quiz>
+<quiz id="9f783a6a-8f75-585b-a840-d577f7279eb9"></quiz>
 
 Vastaa lopuksi kyselyyn tämän viikon materiaaleista. Saat kyselyyn vastaamisesta yhden pisteen:
 
-<quiz id="a0f852a5-802f-466f-93e0-d4c96fa080fa"></quiz>
+<quiz id="cb9f5045-87da-5958-8239-c4492d99c5b9"></quiz>

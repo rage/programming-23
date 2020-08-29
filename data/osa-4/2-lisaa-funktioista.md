@@ -539,4 +539,4 @@ Tämä kertoo funktion käyttäjälle, että parametrin `viesti` on tarkoitus ol
 
 Huomaa kuitenkin, että tyyppivihje ainoastaan neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.
 
-<quiz id="9a17c9b9-60b0-5859-975f-60ee31663e19"></quiz>
+<quiz id="d752142a-9e54-5cdb-acb9-b19c9bf4673e"></quiz>

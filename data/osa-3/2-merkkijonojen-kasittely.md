@@ -604,4 +604,4 @@ Osajono ei esiinny merkkijonossa kahdesti.
 
 </in-browser-programming-exercise>
 
-<quiz id="fa270acc-ab5e-5fbc-9112-2fb2b2b666ed"></quiz>
+<quiz id="a7504c1e-c072-5449-b8d9-22d432c01062"></quiz>
