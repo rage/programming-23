@@ -164,7 +164,7 @@ Tee ohjelma, joka kysyy käyttäjältä tämän nimen ja syntymävuoden. Ohjelma
 
 Anna nimi: **Keijo Keksitty**
 Anna syntymävuosi: **1990**
-Moi Keijo Keksitty, olet 30 vuotta vanha vuoden 2020 lopussa.
+Moi Keijo Keksitty, olet 30 vuotta vanha vuoden 2020 lopussa
 
 </sample-output>
 
@@ -321,6 +321,25 @@ Kuinka monen vuorokauden sekunnit tulostetaan? **7**
 
 </in-browser-programming-exercise>
 
+
+<in-browser-programming-exercise name="Korjaa ohjelma: Lukujen tulo" tmcname="osa01-20_korjaa_ohjelma_lukujen_tulo">
+
+Oheinen ohjelma kysyy käyttäjältä kolme lukua ja tulostaa näiden tulon (eli luvut kerrottuna toisillaan).
+Ohjelmassa on kuitenkin virhe tai virheitä, joiden takia se ei toimi. Korjaa ohjelma sellaiseksi, että se toimii oikein.
+
+Ohjelman siis pitäisi toimia esimerkiksi näin:
+
+<sample-output>
+
+Anna luku 1: **2**
+Anna luku 2: **3**
+Anna luku 3: **5**
+Tulo on 30
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 <in-browser-programming-exercise name="Lukujen summa ja tulo" tmcname="osa01-16_lukujen_summa_ja_tulo">
 
 Tee ohjelma joka kysyy käyttäjältä kaksi lukua. Ohjelma tulostaa lukujen summan ja tulon.
@@ -357,23 +376,7 @@ Lukujen summa on 16 ja keskiarvo 4.0
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Korjaa ohjelma: Lukujen tulo" tmcname="osa01-20_korjaa_ohjelma_lukujen_tulo">
 
-Oheinen ohjelma kysyy käyttäjältä kolme lukua ja tulostaa näiden tulon (eli luvut kerrottuna toisillaan).
-Ohjelmassa on kuitenkin virhe tai virheitä, joiden takia se ei toimi. Korjaa ohjelma sellaiseksi, että se toimii oikein.
-
-Ohjelman siis pitäisi toimia esimerkiksi näin:
-
-<sample-output>
-
-Anna luku 1: **2**
-Anna luku 2: **3**
-Anna luku 3: **5**
-Tulo on 30
-
-</sample-output>
-
-</in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Ruokailukustannukset" tmcname="osa01-19_ruokailukustannukset">
 
