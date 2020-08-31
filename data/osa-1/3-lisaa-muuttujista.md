@@ -240,7 +240,7 @@ tulos = 10 * 25
 print(f"Tulos on {tulos}")
 ```
 
-Tulostettavan merkkijonon alussa on kirjain _f_, joka tarkoittaa että kyseessä on f-merkkijono. Merkkijonon sisälle on sijoitettu aaltosuluissa muuttuja _tulos_, jonka arvo tulee tulostuvan merkkijonon osaksi. Tulostus on täsmälleen sama kuin aiemmissa esimerkeissä eli
+Tulostettavan merkkijonon alussa on kirjain _f_, joka tarkoittaa, että kyseessä on f-merkkijono. Merkkijonon sisälle on sijoitettu aaltosuluissa muuttuja _tulos_, jonka arvo tulee tulostuvan merkkijonon osaksi. Tulostus on täsmälleen sama kuin aiemmissa esimerkeissä eli
 
 <sample-output>
 
@@ -248,20 +248,20 @@ Tulos on 250
 
 </sample-output>
 
-Yksittäisen f-merkkijonon sisälle on mahdollista laittaa useampaankin muuttujia. Esimerkiksi seuraava koodi
+Yksittäisen f-merkkijonon sisälle on mahdollista laittaa useampiakin muuttujia. Esimerkiksi koodi
 
 ```python
 nimi = "Arto"
 ika = 39
 kaupunki = "Espoo"
-print(f"Hei {nimi}, olet {ika}-vuotias. Auinpaikkasi on {kaupunki}.")
+print(f"Hei {nimi}, olet {ika}-vuotias. Asuinpaikkasi on {kaupunki}.")
 ```
 
-tulostuu näin:
+tuottaa seuraavan tuloksen:
 
 <sample-output>
 
-Hei Arto, olet 39-vuotias. Auinpaikkasi on Espoo.
+Hei Arto, olet 39-vuotias. Asuinpaikkasi on Espoo.
 
 </sample-output>
 
@@ -271,22 +271,20 @@ Huomaa, että täsmälleen tämän esimerkin kaltaista tulostusta on mahdotointa
 nimi = "Arto"
 ika = 39
 kaupunki = "Espoo"
-print("Hei", nimi, ", olet",ika,"-vuotias. Auinpaikkasi on", kaupunki, ".")
+print("Hei", nimi, ", olet", ika, "-vuotias. Asuinpaikkasi on", kaupunki, ".")
 ```
 
-Tulostus on seuraava
+Tulostus on seuraava:
 
 <sample-output>
 
-Hei Arto , olet 39 -vuotias. Auinpaikkasi on Espoo .
+Hei Arto , olet 39 -vuotias. Asuinpaikkasi on Espoo .
 
 </sample-output>
 
 Tulostuksessa on nyt välilyönti jokaisen erillisen osan välissä ja muutamassa kohdassa se aiheuttaa ongelman.
 
-Vaikka pilkullinen muoto _print_-komennosta onkin joskus kätevä, aiheuttaa se välillä harmaita hiuksia ja onkin parempi käyttää suosiolla f-merkkijonoja.
-
-F-merkkijonoilla on muitakin tulostuksen muotoiluun liittyviä käteviä omiaisuuksia, tutustumme niihin osassa 4.
+Vaikka pilkullinen muoto _print_-komennosta on joskus kätevä, aiheuttaa se välillä harmaita hiuksia ja silloin on parempi käyttää f-merkkijonoja. Osassa 4 opimme lisää f-merkkijonojen käteviä ominaisuuksia tulosteen muotoilussa.
 
 <in-browser-programming-exercise name="Välilyönnillä vai ilman" tmcname="osa01-10b_valilyonnilla_vai_ilman" height=400px>
 
@@ -304,7 +302,7 @@ taso3 = "puoliammattilainen"
 ala = 2000
 yla = 3000
 
-print("nimeni on ", nimi," , olen ", ika, "-vuotias")
+print("nimeni on ", nimi, " , olen ", ika, "-vuotias")
 print("taitoihini kuuluvat")
 print("- ", taito1, " (", taso1, ")")
 print("- ", taito2, " (", taso2, ")")
@@ -329,15 +327,15 @@ haen työtä, josta maksetaan palkkaa 2000-3000 euroa kuussa
 
 </sample-output>
 
-Koodi tulostaa melkein oikein, mutta ei kuitenkaan ihan. Tässä tehtävissä on todella tarkat testit, jotka vaativat, että tulostus on välilyönnilleen oikein.
+Koodi tulostaa melkein oikein, mutta ei kuitenkaan ihan. Tässä tehtävässä on todella tarkat testit, jotka vaativat, että tulostus on välilyönnilleen oikein.
 
 Korjaa siis koodi siten, että tulostus näyttää oikealta. Huomaa, että erityisesti `print`-komennon muoto, jossa tulostettavat osat eritellään pilkulla, voi tuottaa yllätyksiä, sillä se lisää osien väliin välilyönnin.
 
 Helpoiten saat muutettua koodin toimivaksi käyttämällä tulostukseen f-merkkijonoja.
 
-Vihje: saat tulostettua tyhjän rivin komennolla `print()` tai lisäämällä tulostettavaan merkkijonoon merkin `\n`.
+Vihje: saat tulostettua tyhjän rivin komennolla `print` tai lisäämällä tulostettavaan merkkijonoon merkin `\n`.
 
-Muista olla tarkkana tulostusten muodon suhteen jatkossakin kurssin tehtävissä, osassa tehtävissä testit vaativat täsmälleen esimerkkitulostusten mukaisen muotoilun!
+Muista olla tarkkana tulostusten muodon suhteen jatkossakin kurssin tehtävissä. Osassa tehtävissä testit vaativat täsmälleen esimerkkitulostusten mukaisen muotoilun.
 
 </in-browser-programming-exercise>
 
