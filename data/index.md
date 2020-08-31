@@ -7,12 +7,12 @@ banner: true
 sidebar_priority: 5000
 ---
 
-Nämä ovat ohjelmoinnin perusteiden(TKT10002, 5 op) ja ohjelmoinnin jatkokurssin(TKT10003, 5 op) kurssisivut.
+Nämä ovat Ohjelmoinnin perusteiden (TKT10002, 5 op) ja Ohjelmoinnin jatkokurssin (TKT10003, 5 op) kurssisivut.
 
-Kurssit suoritetaan tekemällä viikottaisia tehtäviä ja molempien kurssien päätteeksi on pakollinen tentti.
+Kurssit suoritetaan tekemällä viikoittaisia tehtäviä ja molempien kurssien päätteeksi on pakollinen tentti.
 Tarkemmat arvosteluperusteet löytyvät [täältä](/arvostelu-ja-kokeet)
 
-Osat 1-7 muodostavat ohjelmoinnin perusteet ja osat 8-14 muodostavan ohjelmoinnin jatkokurssin.
+Osat 1-7 muodostavat Ohjelmoinnin perusteet ja osat 8-14 muodostavan Ohjelmoinnin jatkokurssin.
 
 Huomaa, että jos olet suorittanut kurssin aiemmin Javalla,
 _et_ voi sisällyttää tutkintoosi suoritusta sekä Javalla että Pythonilla.
@@ -22,13 +22,13 @@ _et_ voi sisällyttää tutkintoosi suoritusta sekä Javalla että Pythonilla.
 Kurssilla on Telegram-kanava, jonne pääset [tästä](https://t.me/ohpekesa20/).
 Kanavalla voit keskustella muiden kurssin opiskelijoiden ja ohjaajien kanssa.
 Käytössä on myös off topic -kanava jossa voit keskustella aiheista jotka eivät liity suoraan kurssin sisältöön.
-Off topic Kanavalle pääset [tästä](https://t.me/ohjelmointi20_ot)
+Off topic -kanavalle pääset [tästä](https://t.me/ohjelmointi20_ot).
 
 Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-mooc@helsinki.fi.
 
 ## Aikataulu
 
-Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja deadline on seuraavan viikon torstaina
+Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja deadline on seuraavan viikon torstaina.
 
 Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
 
