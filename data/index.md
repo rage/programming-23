@@ -24,7 +24,15 @@ Kanavalla voit keskustella muiden kurssin opiskelijoiden ja ohjaajien kanssa.
 Käytössä on myös off topic -kanava jossa voit keskustella aiheista jotka eivät liity suoraan kurssin sisältöön.
 Off topic -kanavalle pääset [tästä](https://t.me/ohjelmointi20_ot).
 
+Kurssilla järjestetään myös **zoom-paja** jonne voi tulla kysymään apua ohjaajilta. Voit kysyä apua joko tekstin välityksellä tai mikin kautta.
+
 Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-mooc@helsinki.fi.
+
+#### Ensimmäinen zoom-paja
+
+Ensimmäinen zoom-paja järjestetään 2.9 klo. 16:00-18:00. Zoom-huoneen linkki on: https://helsinki.zoom.us/j/67284471929
+
+Tarkempi aikataulu ilmestyy tälle sivulle myöhemmin.
 
 ## Aikataulu
 
