@@ -434,5 +434,4 @@ print(5 + 8 - 4)
 
 Kertauskysely tämän osan asioihin liittyen:
 
-<quiz id="0de7de23-cbff-5205-8c51-732f842984f"></quiz>
-
+<quiz id="0de7de23-cbff-5205-8c51-732f842984f0"></quiz>
