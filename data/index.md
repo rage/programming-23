@@ -28,11 +28,12 @@ Kurssilla järjestetään myös **zoom-paja** jonne voi tulla kysymään apua oh
 
 Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-mooc@helsinki.fi.
 
-#### Ensimmäinen zoom-paja
+#### Zoom-pajan aikataulu
 
-Ensimmäinen zoom-paja järjestetään 2.9 klo. 16:00-18:00. Zoom-huoneen linkki on: https://helsinki.zoom.us/j/67284471929
+* Keskiviikon zoom-paja 16-18: https://helsinki.zoom.us/j/67284471929
+* Perjantain zoom-paja 12-14: https://helsinki.zoom.us/j/68443475384
 
-Tarkempi aikataulu ilmestyy tälle sivulle myöhemmin.
+Lisää zoom-aikoja mahdollisesti tulevaisuudessa.
 
 ## Aikataulu
 
