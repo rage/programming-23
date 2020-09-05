@@ -280,7 +280,7 @@ Kun ohjelma nyt suoritetaan, ei debug-tulostuksia jostain syystä näy ollenkaan
 # ...
 
 palkka = tuntipalkka * tunnit
-print("ehto: ",paiva=="sunnnuntai")
+print("ehto:", paiva=="sunnnuntai")
 if paiva=="sunnnuntai":
     print("palkka alussa:", palkka)
     palkka * 2
@@ -304,8 +304,8 @@ Vian täytyy siis olla if-komennon ehdossa, ja kun sitä katsotaan tarkemmin, hu
 # ...
 
 palkka = tuntipalkka * tunnit
-print("ehto: ",paiva=="sunnnntai")
-if paiva=="sunnnntai":
+print("ehto:", paiva=="sunnuntai")
+if paiva=="sunnuntai":
     print("palkka alussa:", palkka)
     palkka * 2
     print("palkka kasvatuksen jälkeen:", palkka)
@@ -317,7 +317,7 @@ Koodin suoritus aiheuttaa nyt seuraavan tulostuksen:
 
 <sample-output>
 
-ehto:  True
+ehto: True
 palkka alussa: 276.0
 palkka kasvatuksen jälkeen: 276.0
 Palkka 276.0 euroa

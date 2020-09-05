@@ -214,6 +214,8 @@ Käyttäjätunnus luotu!
 
 </in-browser-programming-exercise>
 
+## silmukka ja apumuuttujat
+
 Tehdään vielä PIN-koodin tarkastavasta ohjelmasta monimutkaisempi versio, joka antaa käyttäjälle vain kolme mahdollisuutta yrittää PIN-koodin syöttämistä.
 
 Ohjelma käyttää nyt kahta apumuuttujaa. Muuttuja `yritykset` pitää kirjaa siitä, kuinka monta kertaa käyttäjä on syöttänyt koodin.  Muuttuja `onnistui` saa arvokseen joko `True` tai `False` riippuen siitä, onnistuuko kirjautuminen.
@@ -263,6 +265,112 @@ Liian monta yritystä...
 </sample-output>
 
 Silmukasta tullaan siis ulos, jos käyttäjä syöttää oikean PIN-koodin _tai_ jos yrityksiä tehdään liian monta. Silmukan jälkeinen if-lause tarkastaa muuttujan `onnistui` arvon perusteella, onko kirjautuminen onnistunut vai ei.
+
+## pro-tip: debuggaustulostus silmukassa
+
+Kun ohjelmat alkavat sisältää silmukoita, kasvavat mahdolliset bugienkin lähteet ihan uudelle tasolle, ja tämän osan [ensimmäisessä luvussa](/osa-2/1-ohjelmoinnin-termeja) mainittujen debugtulostuksien teko muuttuu entistäkin tärkeämmäksi.
+
+Esim. jos edellinen esimerkki olisi koodattu hieman väärin:
+
+```python
+yritykset = 0
+
+while True:
+    tunnus = input("Anna PIN-koodi: ")
+    yritykset += 1
+
+    if yritykset == 3:
+        onnistui = False
+        break
+
+    if tunnus == "1234":
+        onnistui = True
+        break
+
+    print("Väärin... yritä uudelleen")
+
+if onnistui:
+    print("Pinkoodi oikein!")
+else:
+    print("Liian monta yritystä...")
+```
+
+ohjelma toimii kummalliseti, se antaa yrittää PIN-koodia kolmesti, mutta valittaa että yrityksiä on liian monta vaikka lopussa syötettiin oikea koodi:
+
+<sample-output>
+
+Anna PIN-koodi: **0000**
+Väärin... yritä uudelleen
+Anna PIN-koodi: **9999**
+Väärin... yritä uudelleen
+Anna PIN-koodi: **1234**
+Liian monta yritystä...
+
+</sample-output>
+
+Bugin syy selviää lisäämällä sopivia debug-tulostuksia:
+
+```python
+while True:
+    print("whilen lohko alkaa:")
+    tunnus = input("Anna PIN-koodi: ")
+    yritykset += 1
+
+    print("yritykset:", yritykset)
+    print("ehto1:", yritykset == 3)
+    if yritykset == 3:
+        onnistui = False
+        break
+
+    print("tunnus:", tunnus)
+    print("ehto2:", tunnus == "1234")
+    if tunnus == "1234":
+        onnistui = True
+        break
+
+    print("Väärin... yritä uudelleen")
+```
+
+<sample-output>
+
+whilen lohko alkaa:
+Anna PIN-koodi: **2233**
+yritykset: 1
+ehto1: False
+tunnus: 2233
+ehto2: False
+Väärin... yritä uudelleen
+whilen lohko alkaa:
+Anna PIN-koodi: **4545**
+yritykset: 2
+ehto1: False
+tunnus: 4545
+ehto2: False
+Väärin... yritä uudelleen
+whilen lohko alkaa:
+Anna PIN-koodi: **1234**
+yritykset: 3
+ehto1: True
+Liian monta yritystä...
+
+</sample-output>
+
+Kun tulostuksia silmäillään hieman huomataan, että kolmannella while-lohkon suorituksella ensimmäisen _if_-komennon ehto on arvoltaan tosi, ja silmukasta poistutaan ennen kun ehditään tarkastaa oliko juuri syötetty salasana oikein:
+
+```python
+  while True:
+    # ....
+
+    # tämä lohko on liian aikaisin
+    if yritykset == 3:
+        onnistui = False
+        break
+
+    # tänne ei päästä enää kolmannella yrityksellä...
+    if tunnus == "1234":
+        onnistui = True
+        break
+```
 
 <in-browser-programming-exercise name="PIN ja yritysten määrä" tmcname="osa02-19_pin_ja_yritysten_maara">
 
