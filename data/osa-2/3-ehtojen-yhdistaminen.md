@@ -97,7 +97,7 @@ elif n3 > n4:
 else:
     suurin = n4
 
-print(suurin, "on suurin luku.")
+print(f" {suurin} on suurin luku.")
 ```
 
 <sample-output>
