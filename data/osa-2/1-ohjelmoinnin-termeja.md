@@ -198,7 +198,7 @@ Ongelma on siis siinä, että nollalla jakaminen ei ole sallittua ja se "kaataa"
 
 Suoritusaikaiseen virheeseen johtavat bugit ovat usein helpohkoja korjata sillä bugin aiheuttama rivi selviää virheilmoituksesta. Toki bugin varsinainen syy on usein muualla kuin virheilmoutuksen aiheuttaneessa rivissä.
 
-Joskus bugi taas ilmenee siten, että koodit tuottama tulos on virheelinen. Tälläisten bugien havaitseminen ja niiden syyn paikallistaminen voi olla haastavaa. Kurssin tehtävissä testit paljastavat usein juuri tämän kategorian bugeja. Ennen kun ongelma päästän korjaamaan, on bugi paikallistettava.
+Joskus bugi taas ilmenee siten, että koodin tuottama tulos on virheelinen. Tälläisten bugien havaitseminen ja niiden syyn paikallistaminen voi olla haastavaa. Kurssin tehtävissä testit paljastavat usein juuri tämän kategorian bugeja. Ennen kun ongelma päästään korjaamaan, on bugi paikallistettava.
 
 Koodarijargonissa bugien syiden selvittämistä kutsutaan _debuggaamiseksi_. Debuggaaminen on äärimmäisen keskeinen taito, itseasiassa ammatikseen ohjelmoivat käyttävät usein huomattavasti enemmän aikaa debuggaamiseen kuin varsinaiseen ohjelmointiin.
 
@@ -274,7 +274,7 @@ if paiva=="sunnnuntai":
 print(f"Palkka {palkka} euroa")
 ```
 
-Kun ohjelma nyt suoritetaan, ei debug-tulostuksia jostain syystä näy ollenkaan. Vaikuttaa siltä, että ohjelman suoritus ei edes mene if-haaraan. Komennon ehdossa täytyy siis olla, joku ongelma. Ehdon arvokin voidaan tulostaa koodista:
+Kun ohjelma nyt suoritetaan, ei debug-tulostuksia jostain syystä näy ollenkaan. Vaikuttaa siltä, että ohjelman suoritus ei edes mene if-haaraan. Komennon ehdossa täytyy siis olla joku ongelma. Ehdon arvokin voidaan tulostaa koodista:
 
 ```python
 # ...
