@@ -238,16 +238,28 @@ Anna luku: **950**
 Luku on pienempi kuin 1000
 Kiitos!
 
+</sample-output>
+
+<sample-output>
+
 Anna luku: **59**
 Luku on pienempi kuin 1000
 Luku on pienempi kuin 100
 Kiitos!
+
+</sample-output>
+
+<sample-output>
 
 Anna luku: **2**
 Luku on pienempi kuin 1000
 Luku on pienempi kuin 100
 Luku on pienempi kuin 10
 Kiitos!
+
+</sample-output>
+
+<sample-output>
 
 Anna luku: **1123**
 Kiitos!
