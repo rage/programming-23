@@ -355,7 +355,7 @@ Liian monta yritystä...
 
 </sample-output>
 
-Kun tulostuksia silmäillään hieman huomataan, että kolmannella while-lohkon suorituksella ensimmäisen _if_-komennon ehto on arvoltaan tosi, ja silmukasta poistutaan ennen kun ehditään tarkastaa oliko juuri syötetty salasana oikein:
+Kun tulostuksia silmäillään hieman huomataan, että kolmannella while-lohkon suorituksella ensimmäisen _if_-komennon ehto on arvoltaan tosi, ja silmukasta poistutaan ennen kuin ehditään tarkastaa oliko juuri syötetty salasana oikein:
 
 ```python
   while True:
