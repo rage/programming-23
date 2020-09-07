@@ -10,6 +10,7 @@ Tämän osion jälkeen
 - Tunnet keskeistä ohjelmoinnin termistöä
 - Tiedät lauseen ja lausekkeen eron
 - Osaat selvittää lausekkeen arvon tyypin
+- Opit etsimään virheitä debuggauksen avulla
 
 </text-box>
 
