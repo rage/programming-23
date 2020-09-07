@@ -37,6 +37,8 @@ Lisää zoom-aikoja mahdollisesti tulevaisuudessa.
 
 ## Aikataulu
 
+*Seuraava luento: tiistaina 8.10. klo 10.15 - [Zoom](https://helsinki.zoom.us/meeting/64645706846)*
+
 Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja deadline on seuraavan viikon torstaina.
 
 Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
