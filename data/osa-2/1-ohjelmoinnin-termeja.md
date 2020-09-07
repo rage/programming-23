@@ -241,9 +241,9 @@ Debugattaessa ohjelman toimintaa kokeillaan usein. Voikin olla hyödyllisä "kov
 
 ```python
 if False:
-    tuntipalkka = float(input('Tuntipalkka:  '))
-    tunnit = int(input('Työtunnit: '))
-    paiva = input('Viikonpäivä: ')
+    tuntipalkka = float(input("Tuntipalkka: "))
+    tunnit = int(input("Työtunnit: "))
+    paiva = input("Viikonpäivä: ")
 else: # suoritus tulee nyt aina tänne
     tuntipalkka = 23.0
     tunnit = 12
