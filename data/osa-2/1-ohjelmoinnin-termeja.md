@@ -172,9 +172,7 @@ SyntaxError: bad input on line 1
 
 Kun ohjelman syntaksi on kunnossa, eli ohjelma on kirjoitettu Pythonin "kieliopin" mukaisesti, mutta ohjelma ei toimi halutulla tavalla, on ohjelmassa _bugi_.
 
-Bugit ilmenevät eri tavoin.
-
-Jotkut bugit aiheuttavat suoritusaikaisen virheen. Esim. seuraava ohjelma
+Bugit ilmenevät eri tavoin. Jotkut bugit aiheuttavat suoritusaikaisen virheen. Esim. ohjelma
 
 ```python
 x = 10
@@ -184,7 +182,7 @@ tulos = x / y
 print(f"{x} jaettuna {y} on {tulos}")
 ```
 
-aiheuttaa virheen:
+aiheuttaa seuraavan virheen:
 
 <sample-output>
 
@@ -194,31 +192,31 @@ ZeroDivisionError: integer division or modulo by zero on line 3
 
 </sample-output>
 
-Ongelma on siis siinä, että nollalla jakaminen ei ole sallittua ja se "kaataa" ohjelman.
+Ongelma on siis siinä, että nollalla jakaminen ei ole sallittua ja se keskeyttää ohjelman suorituksen.
 
-Suoritusaikaiseen virheeseen johtavat bugit ovat usein helpohkoja korjata sillä bugin aiheuttama rivi selviää virheilmoituksesta. Toki bugin varsinainen syy on usein muualla kuin virheilmoutuksen aiheuttaneessa rivissä.
+Suoritusaikaiseen virheeseen johtavat bugit ovat usein helpohkoja korjata, sillä bugin aiheuttama rivi selviää virheilmoituksesta. Toki bugin varsinainen syy on usein muualla kuin virheilmoituksen aiheuttaneessa rivissä.
 
-Joskus bugi taas ilmenee siten, että koodin tuottama tulos on virheelinen. Tälläisten bugien havaitseminen ja niiden syyn paikallistaminen voi olla haastavaa. Kurssin tehtävissä testit paljastavat usein juuri tämän kategorian bugeja. Ennen kun ongelma päästään korjaamaan, on bugi paikallistettava.
+Joskus bugi taas ilmenee siten, että koodin tuottama tulos on virheellinen. Tälläisten bugien havaitseminen ja niiden syyn paikallistaminen voi olla haastavaa. Kurssin tehtävissä testit paljastavat usein juuri tämän kategorian bugeja. Ennen kuin ongelma päästään korjaamaan, on bugi paikallistettava.
 
-Koodarijargonissa bugien syiden selvittämistä kutsutaan _debuggaamiseksi_. Debuggaaminen on äärimmäisen keskeinen taito, itseasiassa ammatikseen ohjelmoivat käyttävät usein huomattavasti enemmän aikaa debuggaamiseen kuin varsinaiseen ohjelmointiin.
+Koodarijargonissa bugien syiden selvittämistä kutsutaan _debuggaamiseksi_. Debuggaaminen on äärimmäisen keskeinen taito, itse asiassa ammatikseen ohjelmoivat käyttävät usein huomattavasti enemmän aikaa debuggaamiseen kuin varsinaiseen ohjelmointiin.
 
-Eräs yksinkertainen mutta varsin tehokas debuggauskeino on lisäillä ohjelmaan "debug-tulostuksia", eli print-komentoja, joiden avulla varmistetaan että koodissa tapahtuu niitä asioita mitä ohjelmoija olettaa koodissa tapahtuvan.
+Yksinkertainen mutta varsin tehokas debuggauskeino on lisäillä ohjelmaan "debug-tulostuksia", eli `print`-komentoja, joiden avulla varmistetaan, että koodissa tapahtuu ohjelmoijan olettamia asioita.
 
-Seuraavassa on ratkaisuyritys erääseen [edellisen osan](/osa-1/5-ehtorakenne) tehtävään:
+Seuraavassa on ratkaisuyritys yhteen [edellisen osan](/osa-1/5-ehtorakenne) tehtävään:
 
 ```python
-tuntipalkka = float(input('Tuntipalkka: '))
-tunnit = int(input('Työtunnit: '))
-paiva = input('Viikonpäivä: ')
+tuntipalkka = float(input("Tuntipalkka: "))
+tunnit = int(input("Työtunnit: "))
+paiva = input("Viikonpäivä: ")
 
 palkka = tuntipalkka * tunnit
-if paiva=="sunnnuntai":
+if paiva == "sunnnuntai":
     palkka * 2
 
 print(f"Palkka {palkka} euroa")
 ```
 
-Ohjelma ei näytä toimivan oikein, testien suoritus kertoo seuraavaa:
+Ohjelma ei näytä toimivan oikein ja testien suoritus kertoo seuraavaa:
 
 <sample-output>
 
@@ -238,7 +236,7 @@ Palkka 276.0 euroa
 
 </sample-output>
 
-Debugattaessa ohjelman toimintaa kokeillaan usein. Voikin olla hyödyllisä "kovakoodata" ongelman aiheuttavat syötteet suoraan koodiin sen sijaan että ne kystyttäisiin joka kerta käyttäjältä. Tämä onnistuu esimerkiksi muuttamalla koodia tilapäisesti seuraavalla tavalla:
+Debugattaessa ohjelman toimintaa kokeillaan usein. Voikin olla hyödyllisä "kovakoodata" ongelman aiheuttavat syötteet suoraan koodiin sen sijaan, että ne kysyttäisiin joka kerta käyttäjältä. Tämä onnistuu esimerkiksi muuttamalla koodia tilapäisesti seuraavalla tavalla:
 
 
 ```python
@@ -252,13 +250,13 @@ else: # suoritus tulee nyt aina tänne
     paiva = "sunnuntai"
 
 palkka = tuntipalkka * tunnit
-if paiva=="sunnnuntai":
+if paiva == "sunnnuntai":
     palkka * 2
 
 print(f"Palkka {palkka} euroa")
 ```
 
-Syötteet voidaan lukea tarvittaessa käyttäjältä vaihtamalla if:in ehdoksi True.
+Syötteet voidaan lukea tarvittaessa käyttäjältä vaihtamalla if-rakenteen ehdoksi `True`.
 
 Seuraava askel on lisäillä koodiin _debug-tulostuksia_. Koska nimenomaan sunnuntain palkka lasketaan väärin, laitetaan sen hoitavaan osaan tulostukset korotusta ennen ja sen jälkeen:
 
@@ -266,7 +264,7 @@ Seuraava askel on lisäillä koodiin _debug-tulostuksia_. Koska nimenomaan sunnu
 # ...
 
 palkka = tuntipalkka * tunnit
-if paiva=="sunnnuntai":
+if paiva == "sunnnuntai":
     print("palkka alussa:", palkka)
     palkka * 2
     print("palkka kasvatuksen jälkeen:", palkka)
@@ -274,14 +272,14 @@ if paiva=="sunnnuntai":
 print(f"Palkka {palkka} euroa")
 ```
 
-Kun ohjelma nyt suoritetaan, ei debug-tulostuksia jostain syystä näy ollenkaan. Vaikuttaa siltä, että ohjelman suoritus ei edes mene if-haaraan. Komennon ehdossa täytyy siis olla joku ongelma. Ehdon arvokin voidaan tulostaa koodista:
+Kun ohjelma nyt suoritetaan, ei debug-tulostuksia jostain syystä näy ollenkaan. Vaikuttaa siltä, että ohjelman suoritus ei edes mene if-haaraan. Komennon ehdossa täytyy siis olla jokin ongelma. Ehdon arvokin voidaan tulostaa koodista:
 
 ```python
 # ...
 
 palkka = tuntipalkka * tunnit
 print("ehto:", paiva=="sunnnuntai")
-if paiva=="sunnnuntai":
+if paiva == "sunnnuntai":
     print("palkka alussa:", palkka)
     palkka * 2
     print("palkka kasvatuksen jälkeen:", palkka)
@@ -289,7 +287,7 @@ if paiva=="sunnnuntai":
 print(f"Palkka {palkka} euroa")
 ```
 
-Ja tosiaan kun koodi suoritetaan ehdon arvo on False eli koodi hyppää if-lohkon ohi:
+Ja tosiaan kun koodi suoritetaan, ehdon arvo on `False` eli koodi hyppää if-lohkon ohi:
 
 <sample-output>
 
@@ -298,14 +296,14 @@ Palkka 276.0 euroa
 
 </sample-output>
 
-Vian täytyy siis olla if-komennon ehdossa, ja kun sitä katsotaan tarkemmin, huomataan että _sunnuntai_ on vahingossa kirjoitettu väärin. Korjataan typo:
+Vian täytyy siis olla if-komennon ehdossa, ja kun sitä katsotaan tarkemmin, huomataan, että _sunnuntai_ on vahingossa kirjoitettu väärin. Korjataan typo:
 
 ```python
 # ...
 
 palkka = tuntipalkka * tunnit
 print("ehto:", paiva=="sunnuntai")
-if paiva=="sunnuntai":
+if paiva == "sunnuntai":
     print("palkka alussa:", palkka)
     palkka * 2
     print("palkka kasvatuksen jälkeen:", palkka)
@@ -324,16 +322,16 @@ Palkka 276.0 euroa
 
 </sample-output>
 
-Koska _tuntipalkka = 23.0_ ja _tunnit = 12_, vaikuttaa muuttujassa _palkka_ olevan oikea arvo aluksi, mutta kasvatuskomento ei kuitenkaan kasvata muuttujan arvoa. Komento on siis mitä ilmeisemmin virheellinen. Ja toden totta, komento
+Koska `tuntipalkka = 23.0` ja `tunnit = 12`, vaikuttaa muuttujassa `palkka` olevan oikea arvo aluksi, mutta kasvatuskomento ei kuitenkaan kasvata muuttujan arvoa. Komento on siis mitä ilmeisemmin virheellinen. Ja toden totta, komento
 
 ```python
 palkka * 2
 ```
 
-ainoastaan laskee tuplapalkan, mutta ei tee tulokselle mitään. Korjataan komento muotoon, joka tallettaa korotetun palkan takaisin muttujaan _palkka_:
+ainoastaan laskee tuplapalkan mutta ei tee tulokselle mitään. Korjataan komento muotoon, joka tallentaa korotetun palkan muuttujaan `palkka`:
 
 ```python
-palkka = palkka * 2
+palkka *= 2
 ```
 
 Kun ohjelma suoritetaan nyt, huomataan että lopputuloskin on oikea:
@@ -347,15 +345,15 @@ Palkka 552.0 euroa
 
 </sample-output>
 
-Kun ohjelma on kunnossa, tulee debuggaustulosteet ja muu debuggauksen takia kirjoitettu ekstrakoodi poistaa.
+Kun ohjelma on kunnossa, tulee debuggaustulosteet ja muu debuggauksen takia kirjoitettu ylimääräinen koodi poistaa.
 
-Esimerkki oli yksinkertainen ja näin lyhyessä ohjelmassa oleva bugi selviäisi varmasti myös koodia lukemalla. Monesti kuitenkin debug-printeillä pääsee huomattavasti nopeammin jyvälle siitä missä vika piilee. Printtailemalla voidaan usein varmistua siitä mitkä osat ohjelmasta toimivat "varmuudella" oikein ja bugien jäljitys voidaan nopeasti saada fokusoitua niihin koodiriveihin missä ongelma todennäköisesti piileskelee.
+Esimerkki oli yksinkertainen ja näin lyhyessä ohjelmassa oleva bugi selviäisi varmasti myös koodia lukemalla. Monesti kuitenkin debug-tulostuksilla pääsee huomattavasti nopeammin jyvälle siitä, missä vika piilee. Tulotamalla voidaan usein varmistua siitä, mitkä osat ohjelmasta toimivat "varmuudella" oikein, ja bugien jäljitys voidaan nopeasti saada kohdistettua niihin koodiriveihin, joissa ongelma todennäköisesti piileskelee.
 
-Debuggaukseen on olemassa muitakin keinoja kuin debugtulostusten tekeminen. Palaamme asiaan myöhemmin kurssilla. Suosittelen kuitenkin nyt lämpimästi, että _jokainen_ ottaa debug-tulostukset repertuaariinsa. Koodauksen ammattilaiset eivät selviä työstään ilman debugtulostelua, joten on vaikea kuvitella että aloittelijoidenkin ei kannattaisi laajentaa työkalupakkiaan tältä osin.
+Debuggaukseen on olemassa muitakin keinoja kuin debug-tulostusten tekeminen. Palaamme asiaan myöhemmin kurssilla. Sinun kannattaa tästä lähtien kurssilla käyttää debug-tulostamista virheiden etsimiseen. Ohjelmoinnin ammattilaiset eivät selviä työstään ilman debug-tulostuksia, joten on vaikea kuvitella, että aloittelijoidenkin ei kannattaisi laajentaa työkalupakkiaan tältä osin.
 
 <in-browser-programming-exercise name="Korjaa virheet" tmcname="osa02-01_korjaa_virheet" height="400px">
 
-Seuraavassa ohjelmassa on useita _syntaksivirheitä_, korjaa ohjelma siten että syntaksi on kunnossa, ja että se toimii alla olevien esimerkkien mukaisesti.
+Seuraavassa ohjelmassa on useita _syntaksivirheitä_. Korjaa ohjelma siten, että syntaksi on kunnossa ja se toimii alla olevien esimerkkien mukaisesti.
 
 ```python
   luku = input("Anna luku: ")
