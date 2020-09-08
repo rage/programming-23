@@ -78,20 +78,32 @@ def moikkaa():
 
 Funktion `moikkaa` sisällä oleva koodi suoritetaan vasta, kun funktiota kutsutaan.
 
-Funktion alla olevaan "pääohjelmaan" kannattaa siis kirjoittaa sopivia funktiokutsuja ohjelman testaamiseksi, esimerkiksi
+Funktion alla olevaan "pääohjelmaan" kannattaa siis kirjoittaa sopivia funktiokutsuja ohjelman testaamiseksi, esimerkiksi:
 
 ```python
 def moikkaa():
     print("Moi!")
 
-# Pääohjelma on se ohjelman osa, joka ei
-# ole minkään funktion sisällä
-# Kutsutaan omaa funktiota moikkaa()
-moikkaa()
+# Pääohjelma on se ohjelman osa, joka ei ole minkään funktion sisällä
+# Kutsutaan omai funktioita
 
+moikkaa()
 ```
 
+**Tärkeä huomio**: kurssin tehtävien testit edellyttävät, että funktioita testaava pääohjelma tulee aina kirjoittaa hieman erikoisella tavalla määriteltyyn if-lohkoon:
 
+```python
+def moikkaa():
+    print("Moi!")
+
+# Kirjoita pääohjelma aina seuraavanlaisen lohkon sisälle
+if __name__ == "__main__":
+    moikkaa()
+```
+
+Lohkon ulkopuolelle jätetty testikoodi aiheuttaa seuraavan virheilmoituksen:
+
+<img src="3_4_1.png">
 
 </text-box>
 
@@ -178,13 +190,13 @@ def ensimmainen(merkkijono):
      # kirjoita koodia tähän
 
 # kokeillaan funktiota:
-
-ensimmainen('python')
-ensimmainen('yhtälö')
-ensimmainen('tieto')
-ensimmainen('huominen')
-ensimmainen('omena')
-ensimmainen('nukkumaanmenoaika')
+if __name__ == "__main__":
+    ensimmainen('python')
+    ensimmainen('yhtälö')
+    ensimmainen('tieto')
+    ensimmainen('huominen')
+    ensimmainen('omena')
+    ensimmainen('nukkumaanmenoaika')
 ```
 
 <sample-output>
@@ -209,34 +221,6 @@ Kannattaa erityisesti miettiä, toimivatko myös "erikoistapaukset": mitä funkt
 Jos tehtävänannossa ei ole erityisesti käsketty kirjoittamaan tiettyjä funktiokutsuja, voit vapaasti lisätä omia kutsujasi pääohjelmaan - testit jättävät nämä huomiotta.
 
 </text-box>
-
-<in-browser-programming-exercise name="Risuneliö" tmcname="osa03-23_risunelio">
-
-Tee funktio `risunelio(pituus)` joka saa parametriksi kokonaisluvun, joka kertoo kuinka suuri risuneliö funktion pitää tulostaa:
-
-```python
-risunelio(3)
-print()
-risunelio(5)
-```
-
-<sample-output>
-
-<pre>
-###
-###
-###
-
-#####
-#####
-#####
-#####
-#####
-</pre>
-
-</sample-output>
-
-</in-browser-programming-exercise>
 
 ## Lisää esimerkkejä
 
@@ -281,7 +265,8 @@ Seuraavassa funktiossa puolestaan on kaksi parametria:
 
 ```python
 def summa(x, y):
-    print("Parametrien summa on ", x + y)
+    tulos = x + y
+    print(f"Parametrien {x} ja {y} summa on {tulos} ")
 
 summa(1, 2)
 summa(5, 24)
@@ -293,6 +278,8 @@ Parametrien summa on 3
 Parametrien summa on 29
 
 </sample-output>
+
+Funktio myös määrittelee "apumuuttujan" _tulos_, mihin se sijoittaa parametriensa summan.
 
 Huomaa, että parametrien nimillä ei ole mitään tekemistä funktion ulkopuolella olevien muuttujien kanssa. Esimerkiksi jos kutsumme äskeistä funktiota
 
@@ -316,6 +303,53 @@ Ensimmäisessä kutsussa parametrien arvot funktion sisällä ovat `x = 1` ja `y
 
 Palaamme funktioihin ja parametrien määrittelyyn tarkemmin seuraavan osan alussa.
 
+## Varoitus: globaalin muuttujan käyttö funktion sisällä
+
+Kuten olemme nähneet, funktioiden sisällä on mahdollsita määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+
+Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
+
+Seuraavassa on esimerkki funktiosta, joka käyttää "vahingossa" globaalia muuttujaa:
+
+```python
+# globaali muuttuja
+nimi = "Emilia"
+
+def tervehdi(etunimi):
+    # tulostetaan vahingossa parametrin sijaan globaalin muuttujan arvo
+    print("Hei", nimi)
+
+tervehdi("Antti")
+tervehdi("Emilia")
+```
+
+<sample-output>
+
+Hei Emilia
+Hei Emilia
+
+</sample-output>
+
+Vaikka funktiota kutsutaan oikein, se tulosaa aina globaalissa muuttujassa olevan nimen _Emilia_.
+
+<in-browser-programming-exercise name="Keskiarvo" tmcname="osa03-25_keskiarvo">
+
+Tee funktio `keskiarvo`, joka saa parametrina kolme kokonaislukua. Funktio tulostaa parametriensa keskiarvon.
+
+```python
+keskiarvo(5, 3, 1)
+keskiarvo(10, 1, 1)
+```
+
+<sample-output>
+
+3.0
+4.0
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 <in-browser-programming-exercise name="Monta tulostusta" tmcname="osa03-24_monta_tulostusta">
 
 Tee funktio `tulosta_monesti(merkkijono, kertaa)`, joka saa parametriksi merkkijonon sekä kokonaisluvun, joka kertoo, kuinka monta kertaa funktion tulee tulostaa parametrina saamansa merkkijono:
@@ -337,19 +371,29 @@ Alussa olivat suo, kuokka ja Python.
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Keskiarvo" tmcname="osa03-25_keskiarvo">
+<in-browser-programming-exercise name="Risuneliö" tmcname="osa03-23_risunelio">
 
-Tee funktio `keskiarvo`, joka saa parametrina kolme kokonaislukua. Funktio tulostaa parametriensa keskiarvon.
+Tee funktio `risunelio(pituus)` joka saa parametriksi kokonaisluvun, joka kertoo kuinka suuri risuneliö funktion pitää tulostaa:
 
 ```python
-keskiarvo(5, 3, 1)
-keskiarvo(10, 1, 1)
+risunelio(3)
+print()
+risunelio(5)
 ```
 
 <sample-output>
 
-3.0
-4.0
+<pre>
+###
+###
+###
+
+#####
+#####
+#####
+#####
+#####
+</pre>
 
 </sample-output>
 

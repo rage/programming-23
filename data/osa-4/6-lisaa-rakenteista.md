@@ -394,6 +394,45 @@ Moi kaikki! Halusin vaan kysyä, että miten tämä toimii? Nyt tässä on pelkk
 
 </programming-exercise>
 
+<in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa03-20_kirjainruudukko">
+
+**SIIRRETTY OSASTA 3**
+
+Tee ohjelma, joka tulostaa kirjainruudukon oheisten esimerkkien mukaisesti. Voit olettaa, että kerroksia on enintään 26.
+
+<sample-output>
+
+Kerrokset: **3**
+<pre>
+CCCCC
+CBBBC
+CBABC
+CBBBC
+CCCCC
+</pre>
+
+</sample-output>
+
+<sample-output>
+
+Kerrokset: **4**
+<pre>
+DDDDDDD
+DCCCCCD
+DCBBBCD
+DCBABCD
+DCBBBCD
+DCCCCCD
+DDDDDDD
+</pre>
+
+Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu, jos et saa tätä heti ratkaistua. Älä juutu tähän tehtävään, vaan tee ensin osa loppuun ja palaa tehtävään sen jälkeen. Voi myös olla ihan viisasta jättää tämä tehtävä kokonaan myöhemmäksi.
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
 <quiz id="93f31db6-8d49-5ebc-9e73-d61fe5ff1c17"></quiz>
 
 Vastaa lopuksi osion loppukyselyyn:
