@@ -90,6 +90,274 @@ Tarkastellaan ensin esimerkkiä, jossa `Tuote`-luokkaan on toteutettu metodi `__
 
 ```python
 
+class Tuote:
+    def __init__(self, nimi: str, hinta: float):
+        self.__nimi = nimi
+        self.__hinta = hinta
 
+    def __repr__(self):
+        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
+
+    @property
+    def hinta(self):
+        return self.__hinta
+
+    def __gt__(self, toinen_tuote):
+        if self.hinta > toinen_tuote.hinta:
+            return True
+        else:
+            return False
 
 ```
+
+Metodi `__gt__` palauttaa siis arvon `True`, jos nykyisen tuotteen hinta on suurempi kuin parametrina annetun tuotteen. Metodi voidaan itse asiassa kirjoittaa lyhyemminkin:
+
+```python
+
+class Tuote:
+    def __init__(self, nimi: str, hinta: float):
+        self.__nimi = nimi
+        self.__hinta = hinta
+
+    def __repr__(self):
+        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
+
+    @property
+    def hinta(self):
+        return self.__hinta
+
+    def __gt__(self, toinen_tuote):
+        return self.hinta > toinen_tuote.hinta
+
+```
+
+Nyt luokan olioita voidaan vertailla käyttäen `>`-operaattoria samalla tavalla kuin vaikkapa kokonaislukuja:
+
+```python
+
+if __name__ == "__main__":
+    appelsiini = Tuote("Appelsiini", 4.90)
+    omena = Tuote("Omena", 3.95)
+
+    if (appelsiini > omena):
+        print("Appelsiini on suurempi")
+    else:
+        print("Omena on suurempi")
+
+```
+
+<sample-output>
+
+Appelsiinin on suurempi
+
+</sample-output>
+
+Olioiden suuruusluokan vertailua toteuttaessa täytyy päättää millä perusteella suuruusjärjestys määritetään. Voisimme myös haluta, että tuotteet järjestetään hinnan sijasta nimen mukaiseen aakkosjärjestykseen. Tällöin omena olisikin appelsiinia "suurempi":
+
+```python
+
+class Tuote:
+
+    def __init__(self, nimi: str, hinta: float):
+        self.__nimi = nimi
+        self.__hinta = hinta
+
+    def __repr__(self):
+        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
+
+    @property
+    def hinta(self):
+        return self.__hinta
+
+    @property
+    def nimi(self):
+        return self.__nimi
+
+    def __gt__(self, toinen_tuote):
+        return self.nimi > toinen_tuote.nimi
+
+
+# Testataan
+if __name__ == "__main__":
+    appelsiini = Tuote("Appelsiini", 4.90)
+    omena = Tuote("Omena", 3.95)
+
+    if (appelsiini > omena):
+        print("Appelsiini on suurempi")
+    else:
+        print("Omena on suurempi")
+
+```
+
+<sample-output>
+
+Omena on suurempi
+
+</sample-output>
+
+## Muut operaattorit
+
+Eräitä tyypillisiä vertailuoperaattoreita ja näiden vastinmetodit on esitetty seuraavassa taulukossa:
+
+Operaattori | Merkitys perinteisesti | Metodin nimi
+:--:|:--:|:--:
+`<` | Pienempi kuin | `__lt__(self, toinen)`
+`>` | Suurempi kuin | `__gt__(self, toinen)`
+`==` | Yhtä suuri kuin | `__eq__(self, toinen)`
+`!=` | Eri suuri kuin | `__ne__(self, toinen)`
+`<` | Pienempi tai yhtäsuuri kuin | `__le__(self, toinen)`
+`>` | Suurempi tai yhtäsuuri kuin | `__ge__(self, toinen)`
+
+Lisäksi luokissa voidaan uudelleentoteuttaa tiettyjä muita operaattoreita, esimerkiksi
+
+Operaattori | Merkitys perinteisesti | Metodin nimi
+:--:|:--:|:--:
+`+` | Yhdistäminen | `__add__(self, toinen)`
+`-` | Vähentäminen | `__sub__(self, toinen)`
+`*` | Monistaminen | `__mul__(self, toinen)`
+`/` | Jakaminen | `__truediv__(self, toinen)`
+`//` | Kokonaisjakaminen | `__floordiv__(self, toinen)`
+
+Lisää operaattoreita ja metodien nimien vastineita löydät helposti Googlella.
+
+Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa - esimerkiksi jakaminen on loogisesti operaatio, jota on hankala perustella useimmille luokille (mitä tulee, kun jaetaan tiedosto kolmella saati toisella tiedostolla?) Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
+
+Tarkastellaan esimerkkinä luokkaa joka mallintaa yhtä muistiinpanoa. Kahden muistiinpanon yhdistäminen `+`-operaattorilla tuottaa uuden, yhdistetyn muistiinpanon, kun on toteutettu metodi `__add__`:
+
+```python
+
+from datetime import datetime
+
+class Muistiinpano:
+    def __init__(self, pvm: datetime, merkinta: str):
+        self.pvm = pvm
+        self.merkinta = merkinta
+
+    def __repr__(self):
+        return f"Muistiinpano - pvm: {self.pvm}, merkintä: {self.merkinta}"
+
+    def __add__(self, toinen):
+        # Uuden muistiinpanon ajaksi nykyinen aika
+        uusi_muistiinpano = Muistiinpano(datetime.now(), "")
+        uusi_muistiinpano.merkinta = self.merkinta + " ja " + toinen.merkinta
+        return uusi_muistiinpano
+
+# Testataan
+if __name__ == "__main__":
+    mp1 = Muistiinpano(datetime(2016, 12, 17), "Muista ostaa lahjoja")
+    mp2 = Muistiinpano(datetime(2016, 12, 23), "Muista hakea kuusi")
+
+    # Nyt voidaan yhdistää plussalla - tämä kutsuu metodia __add__
+    # luokassa Muistiipano
+    joulumuistot = mp1 + mp2
+    print(joulumuistot)
+
+```
+
+<sample-output>
+
+Muistiinpano - pvm: 2020-09-09 14:13:02.163170, merkintä: Muista ostaa lahjoja ja Muista hakea kuusi
+
+</sample-output>
+
+
+## Iteraattorit
+
+Olemme aikaisemmin käyttääneet for-lausetta erilaisten tietorakenteiden ja tiedostojen _iterointiin_ eli läpikäyntiin. Tyypillinen tapaus olisi vaikkapa seuraavanlainen funktio:
+
+```python
+
+def laske_positiiviset(lista: list):
+    n = 0
+    for alkio in lista:
+        if alkio > 0:
+            n += 1
+    return n
+
+```
+
+Funktio käy läpi listan alkio kerrallaan ja laskee positiivisten alkioiden määärän.
+
+Iterointi on mahdollista toteuttaa myös omiin luokkiin. Hyödyllistä tämä on silloin, kun luokasta muodostetut oliot tallentavat suuremman määrän alkiota. Esimerkiksi aikaisemmin kirjoitettiin luokka, joka mallintaa kirjahyllyä - olisi näppärä, jos kaikki kirjahyllyn kirjat voisi käydä läpi yhdessä silmukassa. Samalla tavalla opiskelijarekisterin kaikkien opiskelijoiden läpikäynti for-lauseella olisi kätevää.
+
+Iterointi mahdollistuu toteuttamalla luokkaan iteraattorimetodit `__iter__` ha  `__next__`. Käsitellään metodien toimintaa tarkemmin, kun on ensin tarkasteltu esimerkkinä kirjahyllylyokkaa, joka mahdollistaa kirjojen läpikäynnin:
+
+```python
+
+class Kirja:
+    def __init__(self, nimi: str, kirjailija: str, sivuja: int):
+        self.nimi = nimi
+        self.kirjailija = kirjailija
+        self.sivuja = sivuja
+
+class Kirjahylly:
+    def __init__(self):
+        self._kirjat = []
+        # laskuri iteraattoria varten
+        self.__laskuri = 0
+
+    def lisaa_kirja(self, kirja: Kirja):
+        self._kirjat.append(kirja)
+
+    # Iteraattorin alustusmetodi
+    # Tässä tulee alustaa iteroinnissa käytettävä(t) muuttuja(t)
+    def __iter__(self):
+        self.n = 0
+        # Metodi palauttaa viittauksen olioon itseensä, koska
+        # iteraattori on toteutettu samassa luokassa
+        return self
+
+    # Metodi palauttaa seuraavan alkion
+    # Jos ei ole enempää alkioita, heitetään tapahtuma
+    # StopIteration
+    def __next__(self):
+        if self.n < len(self._kirjat):
+            # Poimitaan listasta nykyinen
+            kirja = self._kirjat[self.n]
+            # Kasvatetaan laskuria yhdellä
+            self.n += 1
+            # ...ja palautetaan
+            return kirja
+        else:
+            # Ei enempää kirjoja
+            raise StopIteration
+
+```
+
+Metodissa `__iter__` siis alustetaan iteroinnissa tarvittava muuttuja tai muuttujat - tässä tapauksessa riittää, että meillä on laskuri joka osoittaa listan nykyiseen alkioon. Lisäksi tarvitaan metodi `__next__`, joka palauttaa seuraavan alkion. Esimerkkitapauksessa palautetaan listasta alkio muuttujan `n` kohdalta ja kasvatetaan muuttujan arvoa yhdellä. Jos listassa ei ole enempää alkiota, "nostetaan" poikkeus `StopIteration`, joka kertoo iteroijalle (esim. for-silmukalle), että kaikki alkiot on käyty läpi.
+
+Nyt voidaan käydä kirjahyllyn kirjat läpi esimerkiksi for-silmukassa näppärästi:
+
+```python
+
+if __name__ == "__main__":
+    k1 = Kirja("Elämäni Pythoniassa", "Pekka Python", 123)
+    k2 = Kirja("Vanhus ja Java", "Ernest Hemingjava", 204)
+    k3 = Kirja("C-itsemän veljestä", "Keijo Koodari", 997)
+
+    hylly = Kirjahylly()
+    hylly.lisaa_kirja(k1)
+    hylly.lisaa_kirja(k2)
+    hylly.lisaa_kirja(k3)
+
+    # Tulostetaan kaikkien kirjojen nimet
+    for kirja in hylly:
+        print(kirja.nimi)
+
+```
+
+<sample-output>
+
+Elämäni Pythoniassa
+Vanhus ja Java
+C-itsemän veljestä
+
+</sample-output>
+
+
+
+
+
+
+
+
