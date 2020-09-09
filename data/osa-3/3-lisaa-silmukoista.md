@@ -202,7 +202,40 @@ while True:
 
 Nyt jälkimmäinen `break`-komento keskeyttää vain sisimmän silmukan, joka tulostaa lukuja, jos ehto `luku <= 0` pätee.
 
-TODO: Helpomi sisäkkäisten silmukoiden tehtävä
+<in-browser-programming-exercise name="Kertotaulut" tmcname="osa03-15b_kertotaulut">
+
+Tee ohjelma, joka kysyy käyttäjältä positiivisen kokonaisluvun. Ohjelma tulostaa esimerkkitulostuksen mukaisesti kertolaskuja lukuun asti:
+
+Esimerkkisuorituksia:
+
+<sample-output>
+
+Anna luku: 2
+1 x 1 = 1
+1 x 2 = 2
+2 x 1 = 2
+2 x 2 = 4
+
+</sample-output>
+
+<sample-output>
+
+Anna luku: 3
+1 x 1 = 1
+1 x 2 = 2
+1 x 3 = 3
+2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+3 x 1 = 3
+3 x 2 = 6
+3 x 3 = 9
+
+</sample-output>
+
+
+
+</in-browser-programming-exercise>
 
 
 <in-browser-programming-exercise name="Sanojen ensimmäiset kirjaimet" tmcname="osa03-16_sanojen_ensimmaiset_kirjaimet">
