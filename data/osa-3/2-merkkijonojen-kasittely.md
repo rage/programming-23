@@ -148,8 +148,6 @@ Jonot ovat yhtä pitkät
 
 </sample-output>
 
-
-
 </in-browser-programming-exercise>
 
 
@@ -238,7 +236,25 @@ Viimeinen: i
 
 </sample-output>
 
-TODO: yksinkertainen ohjelma, jossa tulostetaan merkit esim. lopusta alkuun
+<in-browser-programming-exercise name="Lopusta alkuun" tmcname="osa03-05c_lopusta_alkuun">
+
+Kirjoita ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten merkkijonon merkit allekkain käänteisessä järjestyksessä lopusta alkuun.
+
+Esimerkkisuoritus:
+
+<sample-output>
+
+Anna merkkijono: **heippa**
+a
+p
+p
+i
+e
+h
+
+</sample-output>
+
+</in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Toinen ja toiseksi viimeinen" tmcname="osa03-06_toinen_ja_toiseksi_viimeinen">
 
@@ -438,13 +454,12 @@ kuuluu väliin mutta loppukohta `b` ei kuulu väliin. Miksi näin?
 
 Tähän ei ole syvällistä syytä, vaan kyseessä on käytäntö, joka esiintyy
 monessa ohjelmointikielessä.
-Yksi etu tässä on, että osajonon pituus saadaan helposti laskettua kaavalla `b-a`.
-Toistaalta täytyy aina muistaa, että kohdassa `b` oleva merkki
+
+Yksi etu tästä on, että osajonon pituus saadaan helposti laskettua kaavalla `b-a`.
+Toisaalta täytyy aina muistaa, että kohdassa `b` oleva merkki
 ei tule mukaan osajonoon.
 
 </text-box>
-
-TODO: Yksinkertainen tehtävä osajonoista
 
 ## Osajonon etsiminen
 
@@ -496,7 +511,34 @@ Löytyi
 
 </sample-output>
 
-TODO: Yksinkertainen tehtävä in-operaattorista
+<in-browser-programming-exercise name="Löytyvätkö vokaalit" tmcname="osa03-13b_loytyvatko_vokaalit">
+
+Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten tiedon löytyvätkö vokaalit a, e ja o merkkijonosta.
+
+Voit olettaa, että merkkijono on syötetty kokonaan pienillä kirjaimilla. Katso mallia esimerkkitulostuksesta.
+
+Esimerkkitulostus:
+
+<sample-output>
+
+Anna merkkijono: **heippa sulle**
+a löytyy
+e löytyy
+o ei löydy
+
+</sample-output>
+
+<sample-output>
+
+Anna merkkijono: **moi**
+a ei löydy
+e ei löydy
+o löytyy
+
+</sample-output>
+
+
+</in-browser-programming-exercise>
 
 Operaattori `in` palauttaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonin merkkijonoissa _metodi_ `find`, joka saa parametrikseen etsittävän osajonon palauttaa joko ensimmäisen indeksin, josta osajono löytyy, tai `-1`, jos osajonoa ei löydy merkkijonosta.
 
