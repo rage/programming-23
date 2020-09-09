@@ -75,7 +75,21 @@ Ohjelman tulostus on seuraava:
 
 Silmukassa oleva `print`-komento tulostaa rivin, jonka alussa on `n` välilyöntiä ja sitten muuttujan `rivi` sisältö. Tämän jälkeen muuttujan `rivi` loppuun lisätään kaksi tähteä ja muuttujan `n` arvo vähenee yhdellä.
 
-TODO: Yksinkertainen tehtävä, jossa monistetaan merkkijonoa
+<in-browser-programming-exercise name="Monta jonoa" tmcname="osa03-05a_monistetut_jonot">
+
+Kirjoita ohjelma, joka kysyy käyttäjältä merkkijonon ja määrän ja tulostaa sitten annettua merkkijonoa annetun määrän. Tulostuksen tulee tapahtua yhdelle riville yhteen pötköön.
+
+Esimerkkisuoritus:
+
+<sample-output>
+
+Anna merkkijono: **heippa**
+Anna määrä: **4**
+heippaheippaheippaheippa
+
+</sample-output>
+
+</in-browser-programming-exercise>
 
 ## Merkkijonon pituus ja indeksointi
 
@@ -102,7 +116,41 @@ Moi kaikki!
 
 Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, mukaan lukien välilyönnit. Niinpä merkkijonon `moi moi` pituus on 7.
 
-TODO: Yksinkertainen tehtävä merkkijonon pituudesta
+Silmukassa oleva `print`-komento tulostaa rivin, jonka alussa on `n` välilyöntiä ja sitten muuttujan `rivi` sisältö. Tämän jälkeen muuttujan `rivi` loppuun lisätään kaksi tähteä ja muuttujan `n` arvo vähenee yhdellä.
+
+<in-browser-programming-exercise name="Pidempi jono" tmcname="osa03-05b_pidempi_jono">
+
+Kirjoita ohjelma, joka kysyy käyttäjältä kaksi merkkijonoa ja tulostaa jonoista pidemmän (ts. sen, jossa on enemmän merkkejä). Jos jonot ovat yhtä pitkiä tulostetaan viesti "Jonot ovat yhtä pitkät"
+
+Esimerkkisuorituksia:
+
+<sample-output>
+
+Anna jono 1: **moi**
+Anna jono 2: **heippa**
+heippa on pidempi
+
+</sample-output>
+
+<sample-output>
+
+Anna jono 1: **moikkelis koikkelis**
+Anna jono 2: **heipparallaa**
+moikkelis koikkelis on pidempi
+
+</sample-output>
+
+<sample-output>
+
+Anna jono 1: **moi**
+Anna jono 2: **hei**
+Jonot ovat yhtä pitkät
+
+</sample-output>
+
+
+
+</in-browser-programming-exercise>
 
 
 Yksittäinen merkkijonon merkki voidaan hakea operaattorin `[]` avulla. Operaattori kirjoitetaan merkkijonon perään, ja hakasulkeiden väliin kirjoitetaan halutun merkin _indeksi_ eli kohta merkkijonossa.
