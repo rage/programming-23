@@ -283,6 +283,8 @@ Mihin asti: **100**
 
 Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
 
+**Miten kahden potenssit lasketaan?** Ensimmäinen kahden potenssi on luku 1. Seuraava saadaan kertomalla 1 luvulla 2, eli se on 2. Sitä seuraava saadaan taas kertomalla edellinen kahden potenssi kahdella, eli kyseessä on 2 \* 2 eli 4, ja seuraava saadaan kertomalla kahdella 4 \* 2 eli kyseesä 8, jne...
+
 </in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Luvun n potenssit" tmcname="osa03-04_luvun_n_potenssit">
@@ -318,9 +320,89 @@ Mikä kerroin: **10**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Peräkkäisten summa" tmcname="osa03-05_perakkaisten_summa">
+<in-browser-programming-exercise name="Peräkkäisten summa, versio 1" tmcname="osa03-04a_perakkaisten_summa_helpompi">
 
 Tee ohjelma, joka laskee peräkkäisten lukujen summaa 1 + 2 + 3 + ... kunnes sen arvo on vähintään käyttäjän syöttämä luku. Ohjelma toimii seuraavasti:
+
+<sample-output>
+
+Mihin asti: **2**
+3
+
+</sample-output>
+
+<sample-output>
+
+Mihin asti: **10**
+10
+
+</sample-output>
+
+<sample-output>
+
+Mihin asti: **18**
+21
+
+</sample-output>
+
+Voit olettaa, että käyttäjän antama luku on 2 tai suurempi.
+
+</in-browser-programming-exercise>
+
+## Merkkijonon rakentaminen paloista
+
+Jo kurssin [ensimetreillä](/osa-1/2-tietoa-kayttajalta) opimme, että merkkijono on mahdollista "rakentaa" useammasta pienemmästä merkkijonosta +-operaattorin avulla. Esimerkiksi
+
+```python
+sanat = "suo"
+sanat = sanat + ", kuokka"
+sanat = sanat + " ja python"
+
+print(sanat)
+```
+
+<sample-output>
+
+suo, kuokka ja python
+
+</sample-output>
+
+Huomaa, että edellinen on mahdollista kirjoittaa hieman tiiviimmin operaattorin += avulla:
+
+```python
+sanat = "suo"
+sanat += ", kuokka"
+sanat += " ja python"
+
+print(sanat)
+```
+
+Yhdistettävä merkkijonon pätkä voi olla myös f-merkkijono. Tämä saattaa olla kätevää, jos rakennettavaan merkkijonoon lisätään muuttujiss olevia arvoja. Voimme siis tehdä esim. seuraavasti:
+
+```python
+kurssi = "Ohjelmoinnin perusteet"
+arvosana = 4
+
+lausunto = "Olet saanut "
+lausunto += f"kurssilta {kurssi} "
+lausunto += f"arvosanan {arvosana}"
+
+print(lausunto)
+```
+
+<sample-output>
+
+Olet saanut kurssilta Ohjelmoinnin perusteet arvosanan 4
+
+</sample-output>
+
+Edellisessä tehtävässä laskettiin lukujen summaa kasvattamalla sen arvoa silmukan sisällä.
+
+Täsmälleen samalla idealla on mahdollista rakentaa myös merkkijonoa siten, että siihen lisätään yksi osa kerrallaan silmukassa...
+
+<in-browser-programming-exercise name="Peräkkäisten summa, versio 2" tmcname="osa03-05_perakkaisten_summa">
+
+Tee edellisestä ohjelmasta hieman kehittyneempi versio, joka tulostaa lopputuloksen lisäksi myös sen miten kyseinen summa lasketaan:
 
 <sample-output>
 
