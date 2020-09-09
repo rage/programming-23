@@ -117,7 +117,20 @@ Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuis
 
 </sample-output>
 
-TODO: Yksinkertainen tehtävä, jossa tulostetaan esim. luvut 1-10, 2,4,6...20 tms.
+<in-browser-programming-exercise name="Tulosta luvut" tmcname="osa03-00_tulosta_luvut">
+
+Kirjoita ohjelma, joka tulostaa silmukassa luvut kahdesta kolmeenkymmeneen kahden luvun välein. Jokainen luku tulostetaan omalle rivilleen.
+
+Ohjelman tulosteen alku näytää siis tältä:
+
+<sample-output>
+2
+4
+6
+8
+jne...
+</sample-output>
+
 
 <in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa03-01_lahtolaskenta">
 
