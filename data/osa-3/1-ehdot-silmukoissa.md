@@ -131,6 +131,8 @@ Ohjelman tulosteen alku näytää siis tältä:
 jne...
 </sample-output>
 
+</in-browser-programming-exercise>
+
 
 <in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa03-01_lahtolaskenta">
 
