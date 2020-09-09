@@ -62,7 +62,7 @@ Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
       <td>Osa 2</td>
       <td>8.9.2020</td>
       <td>17.9.2020</td>
-      <td>[Luentotallenne](https://youtu.be/gZcI0czbylg)</td>
+      <td><a href="https://youtu.be/gZcI0czbylg">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 3</td>
