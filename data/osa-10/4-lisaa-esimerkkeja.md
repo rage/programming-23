@@ -8,6 +8,7 @@ hidden: false
 
 Tässä osiossa
 
-- Käydään läpi pari esimerkkiä kertauksena osion 10 asioista
+- Käydään läpi muutamia esimerkkejä kertauksena osion 10 asioista
+- Esitellään pari uutta tietorakennetta
 
 </text-box>
