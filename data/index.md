@@ -49,6 +49,7 @@ Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
       <td></td>
       <td>Tehtävien julkaisu</td>
       <td>Tehtävien deadline</td>
+      <td>Luento</tS>
     </tr>
   </th>
   <tbody>
@@ -61,6 +62,7 @@ Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
       <td>Osa 2</td>
       <td>8.9.2020</td>
       <td>17.9.2020</td>
+      <td>[Luentotallenne](https://youtu.be/gZcI0czbylg)</td>
     </tr>
     <tr>
       <td>Osa 3</td>
