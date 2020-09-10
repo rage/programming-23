@@ -17,7 +17,7 @@ Tämän osion jälkeen
 
 ## Merkkijono-operaatiot
 
-Olemme jo aiemmin yhdistäneet merkkijonoja `+`-operaattorin avulla:
+Merkkijonojen yhdistäminen siis tapahtuu `+`-operaattorin avulla:
 
 ```python
 alku = "esi"
@@ -150,7 +150,6 @@ Jonot ovat yhtä pitkät
 
 </in-browser-programming-exercise>
 
-
 Yksittäinen merkkijonon merkki voidaan hakea operaattorin `[]` avulla. Operaattori kirjoitetaan merkkijonon perään, ja hakasulkeiden väliin kirjoitetaan halutun merkin _indeksi_ eli kohta merkkijonossa.
 
 Huomaa, että merkkien indeksointi alkaa nollasta: ensimmäinen merkki on siis indeksin 0 kohdalla, toinen indeksin 1 kohdalla jne.
@@ -235,6 +234,51 @@ Ensimmäinen: t
 Viimeinen: i
 
 </sample-output>
+
+## IndexError: string index out of range
+
+Merkkijonoa indeksöidessä tulee olla tarkkana indeksien kanssa. Jos viitataan merkkijonon ulkopuolelle, on seurauksena virheilmoitus _IndexError: string index out of range_:
+
+```python
+mjono = input("Anna merkkijono: ")
+print("kymmenes merkki: " + mjono[9])
+```
+
+<sample-output>
+
+Anna merkkijono: **ohjelmoinnin perusteet**
+kymmenes merkki: n
+
+</sample-output>
+
+<sample-output>
+
+Anna merkkijono: **python**
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: string index out of range
+
+</sample-output>
+
+Joskus virhetilanne johtuu ohjelmointivirheestä. Esimerkiksi merkkijonon viimeistä merkkiä tarkastellessa on erittän yleistä indeksoida vaihingossa yhtä liian pitkääe:
+
+```python
+mjono = input("Anna merkkijono: ")
+print("viimeinen merkki: " + mjono[len(mj)])
+```
+
+Koska merkkijonojen indeksit alkavat nollasta, niin viimeinen merki on indeksissä _len(mj) - 1_!
+
+On myös tilanteita, joissa ohjelman on syytä varautua siihen, että virheen lähde on käyttäjän antama syöte:
+
+```python
+mjono = input("Anna merkkijono: ")
+if len(mjono)>0:
+    print("ensimmäinen merkki: " + mjono[0])
+else:
+    print("merkkijonon pituus on nolla, eli ensimmäistä merkkiä ei ole")
+```
 
 <in-browser-programming-exercise name="Lopusta alkuun" tmcname="osa03-05c_lopusta_alkuun">
 
