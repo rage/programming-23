@@ -202,6 +202,57 @@ while True:
 
 Nyt jälkimmäinen `break`-komento keskeyttää vain sisimmän silmukan, joka tulostaa lukuja, jos ehto `luku <= 0` pätee.
 
+## Silmukoiden apumuuttujat
+
+Olemme jo monesti käyttäneet silmukoissa apu- tai indeksimuuttujaa, jonka arvo kasvaa tai laskee jokaisella silmukan lohkon suorituskerralla. Esimerkiksi seuraava ohjelma tulostaa parilliset luvut käyttäjän haluamaan lukuun asti:
+
+```python
+raja = int(input("mihin asti tulostan parilliset luvut: "))
+i = 0
+while i < raja:
+    print(i)
+    i += 2
+```
+
+<sample-output>
+
+mihin asti tulostan parilliset luvut: **8**
+0
+2
+4
+8
+
+</sample-output>
+
+Apumuuttujan _i_ arvo on silmukkaan ensimmäistä kertaa mentäessä 0 ja se kasvaa jokaisella silmukan suorituskerralla kahdella.
+
+Sisäkkäisten silmukoiden tapauksessa on tilanteita, joissa sisempi silmukka tarvitsee oman indeksimuuttujansa. Seuraava ohjelma tulostaa käyttäjän antamaan lukuun perustuvan "lukupyramidin":
+
+```python
+luku = int(input("anna luku: "))
+while luku>0:
+    i = 0
+    while i<luku:
+        print(f"{i} ", end="")
+        i += 1
+    print()
+```
+
+<sample-output>
+
+anna luku: **5**
+0 1 2 3 4
+0 1 2 3
+0 1 2
+0 1
+0
+
+</sample-output>
+
+Nyt siemmällä silmukalla on käytössä apumuuttuja _i_, jonka arvo on aina sisempään silmukkaan mentäessä 0. Muuttujan _i_ arvo kasvaa yhden välein kunnes se on yhtä suuri kuin muuttujan _luku_ nykyinen arvo, joka taas vähenee ulomman silmukan toimesta kohti nollaa.
+
+Sisempi silmukka tulostaa apumuuttujan _i_ arvot välilyönnillä eroteltuna samalle riville. Kun sisempi silmukka päättyy, tulostetaan aina rivinvaihto komennolla _print()_.
+
 <in-browser-programming-exercise name="Kertotaulut" tmcname="osa03-15b_kertotaulut">
 
 Tee ohjelma, joka kysyy käyttäjältä positiivisen kokonaisluvun. Ohjelma tulostaa esimerkkitulostuksen mukaisesti kertolaskuja lukuun asti:
@@ -232,8 +283,6 @@ Anna luku: 3
 3 x 3 = 9
 
 </sample-output>
-
-
 
 </in-browser-programming-exercise>
 

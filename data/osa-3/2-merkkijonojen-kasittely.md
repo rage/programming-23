@@ -507,6 +507,44 @@ ei tule mukaan osajonoon.
 
 </text-box>
 
+<in-browser-programming-exercise name="Osajonot 1" tmcname="osa03-07_osajonot1">
+
+Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten kaikki sen ensimmäisestä merkistä alkavat osajonot pituusjärjestyksessä.
+
+Esimerkkitulostus:
+
+<sample-output>
+
+Anna merkkijono: **testi**
+t
+te
+tes
+test
+testi
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Osajonot 2" tmcname="osa03-08_osajonot2">
+
+Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten kaikki sen viimeiseen merkkiin päättyvät osajonot pituusjärjestyksessä.
+
+Esimerkkitulostus:
+
+<sample-output>
+
+Anna merkkijono: **testi**
+i
+ti
+sti
+esti
+testi
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
 ## Osajonon etsiminen
 
 Voimme tutkia `in`-operaattorin avulla, onko merkkijonossa tiettyä osajonoa.
@@ -644,47 +682,45 @@ Merkkijonon sisältä merkkijonoa etsivä `find` on siis tekniseltä termiltää
 
 </text-box>
 
-<in-browser-programming-exercise name="Osajonot 1" tmcname="osa03-07_osajonot1">
+<in-browser-programming-exercise name="Ensimmäisen osajonon haku" tmcname="osa03-13c_osajonon_haku">
 
-Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten kaikki sen ensimmäisestä merkistä alkavat osajonot pituusjärjestyksessä.
-
-Esimerkkitulostus:
+Tee ohjelma, joka kysyy käyttäjältä merkkijonoa ja yksittäistä merkkiä. Ohjelma tulostaa merkkijonosta löytyvän ensimmäisen kolmen merkin pituisen osajonon, jonka alkukirjain on käyttäjän syöttämä merkki. Voit olettaa, että merkkijono on vähintään kolmen merkin pituinen.
 
 <sample-output>
 
-Anna merkkijono: **testi**
-t
-te
-tes
-test
-testi
+Sana: **apinatalo**
+Merkki: **a**
+api
+
+</sample-output>
+
+<sample-output>
+
+Sana: **banaani**
+Merkki: **n**
+naa
+
+</sample-output>
+
+<sample-output>
+
+Sana: **tomaatti**
+Merkki: **x**
+
+</sample-output>
+
+<sample-output>
+
+Sana: **python**
+Merkki: **n**
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Osajonot 2" tmcname="osa03-08_osajonot2">
+<in-browser-programming-exercise name="Kaikkien osajonojen haku" tmcname="osa03-14_osajonojen_haku">
 
-Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten kaikki sen viimeiseen merkkiin päättyvät osajonot pituusjärjestyksessä.
-
-Esimerkkitulostus:
-
-<sample-output>
-
-Anna merkkijono: **testi**
-i
-ti
-sti
-esti
-testi
-
-</sample-output>
-
-</in-browser-programming-exercise>
-
-<in-browser-programming-exercise name="Osajonojen haku" tmcname="osa03-14_osajonojen_haku">
-
-Tee ohjelma, joka kysyy käyttäjältä merkkijonoa ja yksittäistä merkkiä. Ohjelma tulostaa kaikki merkkijonon sisältämät kolmen merkin pituiset osajonot, joiden alkukirjain on käyttäjän syöttämä merkki. Voit olettaa, että merkkijono on vähintään kolmen merkin pituinen.
+Tee edellisestä ohjelmasta laajennettu versio, joka tulostaa _kaikki merkkijonon sisältämät kolmen merkin pituiset osajonot_, joiden alkukirjain on käyttäjän syöttämä merkki. Voit olettaa, että merkkijono on vähintään kolmen merkin pituinen.
 
 <sample-output>
 
