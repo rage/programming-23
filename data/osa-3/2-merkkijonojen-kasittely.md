@@ -280,6 +280,8 @@ else:
     print("merkkijonon pituus on nolla, eli ensimmäistä merkkiä ei ole")
 ```
 
+Tyhjä syöte (käyttäjä painaa ainoastaan enter) onkin usein sellainen, jota aiheuttaa ohjelman "kaatumisen" ellei koodari ole muistanut laittaa koodiin tarkistusta tilanteen varalta.
+
 <in-browser-programming-exercise name="Lopusta alkuun" tmcname="osa03-05c_lopusta_alkuun">
 
 Kirjoita ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten merkkijonon merkit allekkain käänteisessä järjestyksessä lopusta alkuun.
