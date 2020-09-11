@@ -31,7 +31,7 @@ while True:
         break
     summa += luku
 
-print ("Summa on", summa)
+print (f"Summa on {summa}")
 ```
 
 ```python
@@ -45,7 +45,7 @@ while luku != -1:
     if luku != -1:
         summa += luku
 
-print ("Summa on", summa)
+print (f"Summa on {summa}")
 ```
 
 Molempien ohjelmien esimerkkisuoritus voisi näyttää seuraavalta:
@@ -74,7 +74,7 @@ while summa <= 100:
         break
     summa += luku
 
-print("Summa on", summa)
+print (f"Summa on {summa}")
 ```
 
 Mahdollisia suorituksia:
@@ -115,7 +115,7 @@ while True:
     if summa > 100:
         break
 
-print("Summa on", summa)
+print (f"Summa on {summa}")
 ```
 ## continue-komento
 
@@ -136,7 +136,7 @@ while True:
         continue
     summa += luku
 
-print("Summa on", summa)
+print (f"Summa on {summa}")
 ```
 
 <sample-output>
@@ -252,6 +252,8 @@ anna luku: **5**
 Nyt siemmällä silmukalla on käytössä apumuuttuja _i_, jonka arvo on aina sisempään silmukkaan mentäessä 0. Muuttujan _i_ arvo kasvaa yhden välein kunnes se on yhtä suuri kuin muuttujan _luku_ nykyinen arvo, joka taas vähenee ulomman silmukan toimesta kohti nollaa.
 
 Sisempi silmukka tulostaa apumuuttujan _i_ arvot välilyönnillä eroteltuna samalle riville. Kun sisempi silmukka päättyy, tulostetaan aina rivinvaihto komennolla _print()_.
+
+Jos et ole 100% varma, että ymmärrät esimerkkikoodin toiminnan, kokeile kopioida koodi pythontuorin [visulaisaattoriin](http://www.pythontutor.com/visualize.html#mode=edit) ja tarkastele mitä ohjelma tulostaa, ja miten muuttujien arvot vaihtuvat koodin edetessä.
 
 <in-browser-programming-exercise name="Kertotaulut" tmcname="osa03-15b_kertotaulut">
 

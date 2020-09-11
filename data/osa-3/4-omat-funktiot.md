@@ -228,7 +228,7 @@ Katsotaan vielä pari muuta esimerkkiä parametrien käyttämisestä. Seuraavass
 
 ```python
 def nelio(x):
-    print("Luvun", x, "neliö on", x * x)
+    print(f"Luvun {x} neliö on {x * x}")
 
 nelio(2)
 nelio(5)

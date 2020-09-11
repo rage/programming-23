@@ -659,7 +659,7 @@ while True:
     osa = input("Mitä etsit? ")
     kohta = mjono.find(osa)
     if kohta >= 0:
-        print("Löytyi kohdasta",kohta)
+        print(f"Löytyi kohdasta {kohta}")
     else:
         print("Ei löytynyt")
 ```
