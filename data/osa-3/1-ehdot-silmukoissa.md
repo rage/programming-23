@@ -241,6 +241,63 @@ Mihin asti: **5**
 
 </in-browser-programming-exercise>
 
+## Koodauksen workflow ja lisää välineitä debuggaukseen
+
+Hieman haastavampaa ohjelmaa, esim. seuraavaksi vuorossa olevaa tehtävää _Kahden potenssit_, koodatessa voitaisiin lähteä liikkeelle seuraavasti:
+
+```python
+asti = int(input("Mihin asti"))
+luku = 1
+while luku == asti:
+   # koodia
+```
+
+eli aloitettaisiin syötteen lukemisesta, ja ruvettaisiin sen jälkeen miettimään silmukan lopetusehtoa sekä silmukan toimintaa.
+
+Todennäköisesti ohjelma ei ensimmäisillä kokeilukerroilla toimi ollenkaan halutulla tavalla ja koodia on testailtava kymmeniä tai jopa satoja kertoja ennen kun se alkaa toimia.
+
+Koska koodi lukee syötteitä käyttäjältä, on sen toiminnan kokeileminen hidasta ja vaivalloista, koska jokaisella testauskerralla on ohjelmalle annettava näppäimistöltä käsin sen haluamat syötteet.
+
+Itse toiminkin usein siten, että aluksi "kovakoodaan" syötteen:
+
+```python
+# kovakoodataan syötteen arvo aluksi
+asti = 8 # int(input("Mihin asti"))
+luku = 1
+while luku == asti:
+   # koodia
+```
+
+Kun ohjelma toimii yhdellä syötteellä, sitä on helppo kokeilla muilla kovakoodatuilla syötteillä ja lopulta lukemalla syöte käyttäjältä.
+
+Vastaava kikka toimii myös kurssien tehtäviin liittyvien testien ongelmatilanteita selvitellessä. Jos testi kertoo että ohjelmasi toimii väärin kun syöte on vaikkapa 42, niin kovakoodataan se syötteeksi bugin etsinnän ajaksi:
+
+```python
+# testi ilmoitti että koodi toimii väärin kun syöte on 42
+asti = 42 # int(input("Mihin asti"))
+luku = 1
+while luku == asti:
+   # koodia
+```
+
+Kurssin [edellisessä osassa](/osa-2) oli jo pariinkin otteeseen puhetta tulostuskomennon avulla tapahtuvasta debuggaamisesta. Kurssin aikana vastaantulevat ohjelmat muuttuvat koko ajan haastavimmiksi ja debuggauksen tarve tulee kasvamaan entisestään. Esimerkiksi silmukoiden lopetusehtojen saaminen toimimaan ei ole kaikissa voi olla haastavaa.
+
+Tulostuskomentoihin perustuva debuggaus kannattaa ottaa omaan työkalupakkiin viimeistään nyt. Kertaa tarvittaessa edellisen osan [ensimmäisessä ](/osa-2/1-ohjelmoinnin-termeja) ja [neljännessä](/osa-2/4-yksinkertainen-silmukka) luvussa olleet debuggausohjeet.
+
+Tulostelun lisäksi on olemassa muitakin debuggaukseen sopivia työkaluja. Eräs tälläinen on sivuston [http://www.pythontutor.com/](http://www.pythontutor.com/) tarjoama [visualisointityökalu](http://www.pythontutor.com/visualize.html#mode=edit), jonka avulla oman ohjelman koodia on mahdollista suorittaa komento komennolta, havainnoiden samalla mitä arvoja ohjelman muuttujat saavat.
+
+Seuraavassa kuva kun pythontutorilla visualisoidaan [edellisen osan](/osa-2/4-yksinkertainen-silmukka) debuggausmateriaalissa olevan hieman rikkinäisen koodin toimintaa:
+
+<img src="3_1_0.png">
+
+Punainen nuoli kertoo missä kohtaa ohjelman suoritus on menossa. Visualisaattori näyttää mitä ohjelma on tulostanut ruudulle ja mitkä ohjelman muuttujien arvot kulloisellakin suorituksen hetkellä ovat. Koodin suoritus etenee komento komennolta painiketta _Next>_ painellessa.
+
+Visualisaattorin käyttö on erittäin helppoa, riittää että tarkasteltava koodi kopioidaan [täällä](http://www.pythontutor.com/visualize.html#mode=edit) olevaan koodi-ikkunaan.
+
+Kokeneemmat ohjelmoijat tuskin käyttävät visualisaattoria koskaan, mutta aloittelijalle se voi olla oiva apuväline. Ohjelmointi ei nimittän voi perustua tuuriin tai sattumaan. Ohjelmoijan on koko ajan tiedettävä tarkalleen mitä muuttujien arvot ohjelman suorituksen aikana ovat. Jos muuttujien arvot eivät vastaakaan sitä mitä ohjelmoija olettaa, on tuloksena mitä suurimmalla todennäköisyydellä bugi.
+
+Visualisaattori ja debuggaustulostukset ovatkin erinomainen väline sille, että ohjelmoija voi helposti omin silmin varmistaa, että ohjelma todellakin toimii niin kuin sen olettaa toimivan.
+
 <in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-03_kahden_potenssit">
 
 Tee ohjelma, joka tulostaa ensin luvun 1 ja sen jälkeen kerta toisensa jälkeen aina kaksi kertaa suuremman luvun. Ohjelman siis tulostaa luvun kaksi potensseja.
