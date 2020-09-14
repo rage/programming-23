@@ -93,6 +93,8 @@ a
 
 </sample-output>
 
+TODO: Helppo tehtävä for-lauseesta
+
 ## Funktio `range`
 
 Silmukkaa tarvitaan usein myös siihen, että haluamme toistaa jonkin asian tietyn määrän kertoja tai käydä läpi tietyn lukuvälin (esimerkiksi kaikki luvut väliltä 1–100). Myös tämä onnistuu kätevästi `for`-silmukalla funktion `range` avulla.
@@ -161,6 +163,8 @@ for i in range(6, 2, -1):
 3
 
 </sample-output>
+
+TODO: Helppo tehtävä rangesta
 
 ## Lukuväli listaksi
 
