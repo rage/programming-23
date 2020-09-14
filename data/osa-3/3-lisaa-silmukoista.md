@@ -207,7 +207,7 @@ Nyt jälkimmäinen `break`-komento keskeyttää vain sisimmän silmukan, joka tu
 Olemme jo monesti käyttäneet silmukoissa apu- tai indeksimuuttujaa, jonka arvo kasvaa tai laskee jokaisella silmukan lohkon suorituskerralla. Esimerkiksi seuraava ohjelma tulostaa parilliset luvut käyttäjän haluamaan lukuun asti:
 
 ```python
-raja = int(input("mihin asti tulostan parilliset luvut: "))
+raja = int(input("Anna luku: "))
 i = 0
 while i < raja:
     print(i)
@@ -216,7 +216,7 @@ while i < raja:
 
 <sample-output>
 
-mihin asti tulostan parilliset luvut: **8**
+Anna luku: **8**
 0
 2
 4
@@ -229,10 +229,10 @@ Apumuuttujan _i_ arvo on silmukkaan ensimmäistä kertaa mentäessä 0 ja se kas
 Sisäkkäisten silmukoiden tapauksessa on tilanteita, joissa sisempi silmukka tarvitsee oman indeksimuuttujansa. Seuraava ohjelma tulostaa käyttäjän antamaan lukuun perustuvan "lukupyramidin":
 
 ```python
-luku = int(input("anna luku: "))
-while luku>0:
+luku = int(input("Anna luku: "))
+while luku > 0:
     i = 0
-    while i<luku:
+    while i < luku:
         print(f"{i} ", end="")
         i += 1
     print()
@@ -240,7 +240,7 @@ while luku>0:
 
 <sample-output>
 
-anna luku: **5**
+Anna luku: **5**
 0 1 2 3 4
 0 1 2 3
 0 1 2
@@ -249,11 +249,11 @@ anna luku: **5**
 
 </sample-output>
 
-Nyt siemmällä silmukalla on käytössä apumuuttuja _i_, jonka arvo on aina sisempään silmukkaan mentäessä 0. Muuttujan _i_ arvo kasvaa yhden välein kunnes se on yhtä suuri kuin muuttujan _luku_ nykyinen arvo, joka taas vähenee ulomman silmukan toimesta kohti nollaa.
+Nyt sisemmässä silmukalla on käytössä apumuuttuja _i_, jonka arvo on aina sisempään silmukkaan mentäessä 0. Muuttujan _i_ arvo kasvaa yhden välein, kunnes se on yhtä suuri kuin muuttujan _luku_ nykyinen arvo, joka taas vähenee ulomman silmukan vuoksi kohti nollaa.
 
-Sisempi silmukka tulostaa apumuuttujan _i_ arvot välilyönnillä eroteltuna samalle riville. Kun sisempi silmukka päättyy, tulostetaan aina rivinvaihto komennolla _print()_.
+Sisempi silmukka tulostaa apumuuttujan _i_ arvot välilyönnillä eroteltuna samalle riville. Kun sisempi silmukka päättyy, tulostetaan aina rivinvaihto komennolla `print`.
 
-Jos et ole 100% varma, että ymmärrät esimerkkikoodin toiminnan, kokeile kopioida koodi pythontuorin [visulaisaattoriin](http://www.pythontutor.com/visualize.html#mode=edit) ja tarkastele mitä ohjelma tulostaa, ja miten muuttujien arvot vaihtuvat koodin edetessä.
+Jos et ole täysin varma, että ymmärrät esimerkkikoodin toiminnan, kokeile kopioida koodi Python Tutorin [visualisaattoriin](http://www.pythontutor.com/visualize.html#mode=edit) ja tarkastele, mitä ohjelma tulostaa ja miten muuttujien arvot vaihtuvat koodin edetessä.
 
 <in-browser-programming-exercise name="Kertotaulut" tmcname="osa03-15b_kertotaulut">
 
