@@ -14,7 +14,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Edellisen osan lopussa opimme käyttämään `while True` -silmukkaa koodin toistamiseen. Tässä tapauksessa silmukan ehtona on `True`, mikä on aina tosi. Esimerkiksi
+Edellisen osan lopussa opimme käyttämään `while True` -silmukkaa koodin toistamiseen. Tässä tapauksessa silmukan ehtona on `True`, joka on aina tosi. Esimerkiksi
 
 ```python
 
@@ -168,7 +168,7 @@ Nyt!
 
 ## Ehdoista tarkemmin
 
-Silmukan ehtona voidaan käyttää mitä tahansa ehtolauseketta. Esimerkiksi seuraava ohjelma tulostaa lukuja kolmen välein niin kauan kun luku on pienempi kuin 100 eikä se ole jaollinen 5:llä:
+Silmukan ehtona voidaan käyttää mitä tahansa ehtolauseketta. Esimerkiksi seuraava ohjelma tulostaa lukuja kolmen välein niin kauan kuin luku on pienempi kuin 100 eikä se ole jaollinen 5:llä:
 
 ```python
 luku = int(input("Anna luku: "))
@@ -252,7 +252,7 @@ while luku == asti:
    # koodia
 ```
 
-eli aloitettaisiin syötteen lukemisesta, ja ruvettaisiin sen jälkeen miettimään silmukan lopetusehtoa sekä silmukan toimintaa.
+eli aloitettaisiin syötteen lukemisesta ja ruvettaisiin sen jälkeen miettimään silmukan lopetusehtoa sekä silmukan toimintaa.
 
 Todennäköisesti ohjelma ei ensimmäisillä kokeilukerroilla toimi ollenkaan halutulla tavalla ja koodia on testailtava kymmeniä tai jopa satoja kertoja ennen kun se alkaa toimia.
 
@@ -280,11 +280,11 @@ while luku == asti:
    # koodia
 ```
 
-Kurssin [edellisessä osassa](/osa-2) oli jo pariinkin otteeseen puhetta tulostuskomennon avulla tapahtuvasta debuggaamisesta. Kurssin aikana vastaan tulevat ohjelmat muuttuvat koko ajan haastavimmiksi ja debuggauksen tarve tulee kasvamaan entisestään. Esimerkiksi silmukoiden lopetusehtojen saaminen toimimaan kaikissa tapauksissa voi olla haastavaa.
+Kurssin [edellisessä osassa](/osa-2) oli jo pariinkin otteeseen puhetta tulostuskomennon avulla tapahtuvasta debuggaamisesta. Kurssin aikana vastaan tulevat ohjelmat muuttuvat koko ajan haastavammiksi ja debuggauksen tarve tulee kasvamaan entisestään. Esimerkiksi silmukoiden lopetusehtojen saaminen toimimaan kaikissa tapauksissa voi olla haastavaa.
 
 Tulostuskomentoihin perustuva debuggaus kannattaa ottaa omaan työkalupakkiin viimeistään nyt. Kertaa tarvittaessa edellisen osan [ensimmäisessä ](/osa-2/1-ohjelmoinnin-termeja) ja [neljännessä](/osa-2/4-yksinkertainen-silmukka) luvussa olleet debuggausohjeet.
 
-Tulostelun lisäksi on olemassa muitakin debuggaukseen sopivia työkaluja. Eräs tälläinen on sivuston [Python Tutorin](http://www.pythontutor.com/) tarjoama [visualisointityökalu](http://www.pythontutor.com/visualize.html#mode=edit), jonka avulla oman ohjelman koodia on mahdollista suorittaa komento komennolta, havainnoiden samalla, mitä arvoja ohjelman muuttujat saavat.
+Tulostelun lisäksi on olemassa muitakin debuggaukseen sopivia työkaluja. Eräs tälläinen on sivuston [Python Tutorin](http://www.pythontutor.com/) tarjoama [visualisointityökalu](http://www.pythontutor.com/visualize.html#mode=edit), jonka avulla oman ohjelman koodia on mahdollista suorittaa komento komennolta havainnoiden samalla, mitä arvoja ohjelman muuttujat saavat.
 
 Seuraavassa kuva, kun Python Tutorilla visualisoidaan [edellisen osan](/osa-2/4-yksinkertainen-silmukka) debuggausmateriaalissa olevan hieman rikkinäisen koodin toimintaa:
 
@@ -434,7 +434,7 @@ sanat += " ja python"
 print(sanat)
 ```
 
-Yhdistettävä merkkijonon pätkä voi olla myös f-merkkijono. Tämä saattaa olla kätevää, jos rakennettavaan merkkijonoon lisätään muuttujiss olevia arvoja. Voimme siis tehdä esim. seuraavasti:
+Yhdistettävä merkkijonon pätkä voi olla myös f-merkkijono. Tämä saattaa olla kätevää, jos rakennettavaan merkkijonoon lisätään muuttujissa olevia arvoja. Voimme siis tehdä esim. seuraavasti:
 
 ```python
 kurssi = "Ohjelmoinnin perusteet"
