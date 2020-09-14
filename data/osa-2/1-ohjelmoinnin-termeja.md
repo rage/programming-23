@@ -348,7 +348,7 @@ Palkka 552.0 euroa
 
 Kun ohjelma on kunnossa, tulee debuggaustulosteet ja muu debuggauksen takia kirjoitettu ylimääräinen koodi poistaa.
 
-Esimerkki oli yksinkertainen ja näin lyhyessä ohjelmassa oleva bugi selviäisi varmasti myös koodia lukemalla. Monesti kuitenkin debug-tulostuksilla pääsee huomattavasti nopeammin jyvälle siitä, missä vika piilee. Tulotamalla voidaan usein varmistua siitä, mitkä osat ohjelmasta toimivat "varmuudella" oikein, ja bugien jäljitys voidaan nopeasti saada kohdistettua niihin koodiriveihin, joissa ongelma todennäköisesti piileskelee.
+Esimerkki oli yksinkertainen ja näin lyhyessä ohjelmassa oleva bugi selviäisi varmasti myös koodia lukemalla. Monesti kuitenkin debug-tulostuksilla pääsee huomattavasti nopeammin jyvälle siitä, missä vika piilee. Tulostamalla voidaan usein varmistua siitä, mitkä osat ohjelmasta toimivat "varmuudella" oikein, ja bugien jäljitys voidaan nopeasti saada kohdistettua niihin koodiriveihin, joissa ongelma todennäköisesti piileskelee.
 
 Debuggaukseen on olemassa muitakin keinoja kuin debug-tulostusten tekeminen. Palaamme asiaan myöhemmin kurssilla. Sinun kannattaa tästä lähtien kurssilla käyttää debug-tulostamista virheiden etsimiseen. Ohjelmoinnin ammattilaiset eivät selviä työstään ilman debug-tulostuksia, joten on vaikea kuvitella, että aloittelijoidenkin ei kannattaisi laajentaa työkalupakkiaan tältä osin.
 
