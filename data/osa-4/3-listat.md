@@ -100,6 +100,8 @@ print(len(lista))
 
 </sample-output>
 
+TODO: Simppeli tehtävä listan alkioden muutoksista
+
 
 ## Alkioiden lisääminen ja poistaminen
 
@@ -151,6 +153,8 @@ Kengännumerot:
 [37, 44, 40, 28]
 
 </sample-output>
+
+TODO: Helppo tehtävän append-metodin käytöstä
 
 Mikäli halutaan lisätä alkio johonkin muualle kuin listan loppuun, voidaan käyttää `insert`-metodia. Metodi lisää alkion halutun indeksin paikalle. Kaikkia listalla valmiina olevia alkioita lisäyspaikasta alkaen siirretään yhdellä askeleella eteenpäin:
 
@@ -249,6 +253,8 @@ print(lista)
 
 </sample-output>
 
+TODO: Helppo esimerkikki alkon poistosta
+
 Jos listalla ei ole poistettavaa alkiota, seuraa virhe. Merkkijonoista tutulla tavalla alkion olemassaolon listalla voi testata `in`-operaattorin avulla:
 
 ```python
@@ -328,6 +334,8 @@ print(jarjestetty)
 [1, 2, 2, 4, 5]
 
 </sample-output>
+
+TODO: Helppo esimerkki listan järjestämisestä
 
 ## Suurin, pienin ja summa
 

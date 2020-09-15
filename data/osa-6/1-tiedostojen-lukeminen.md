@@ -106,7 +106,7 @@ Kirjoita funktio `suurin`, joka lukee tiedoston ja palauttaa suurimman tiedostos
 
 Huomaa, että tiedoston nimi on aina `luvut.txt` eikä funktiolle anneta parametria.
 
-Huom! Jos käytät Windowsia eikä testi löydä VS Codessa tiedostoa, voit kokeilla seuraavaa:
+Huom! Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla seuraavaa:
 
 * Mene asetuksiin valikosta _File_ -> _Preferences_ -> _Settings_
 * Etsi muutettava kohta hakusanalla "executeinfile"
