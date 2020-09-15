@@ -116,8 +116,6 @@ Moi kaikki!
 
 Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, mukaan lukien välilyönnit. Niinpä merkkijonon `moi moi` pituus on 7.
 
-Silmukassa oleva `print`-komento tulostaa rivin, jonka alussa on `n` välilyöntiä ja sitten muuttujan `rivi` sisältö. Tämän jälkeen muuttujan `rivi` loppuun lisätään kaksi tähteä ja muuttujan `n` arvo vähenee yhdellä.
-
 <in-browser-programming-exercise name="Pidempi jono" tmcname="osa03-05b_pidempi_jono">
 
 Kirjoita ohjelma, joka kysyy käyttäjältä kaksi merkkijonoa ja tulostaa jonoista pidemmän (ts. sen, jossa on enemmän merkkejä). Jos jonot ovat yhtä pitkiä tulostetaan viesti "Jonot ovat yhtä pitkät"
@@ -261,7 +259,7 @@ IndexError: string index out of range
 
 </sample-output>
 
-Joskus virhetilanne johtuu ohjelmointivirheestä. Esimerkiksi merkkijonon viimeistä merkkiä tarkastellessa on erittän yleistä indeksoida vaihingossa yhtä liian pitkääe:
+Joskus virhetilanne johtuu ohjelmointivirheestä. Esimerkiksi merkkijonon viimeistä merkkiä tarkastellessa on erittän yleistä indeksoida vaihingossa yhtä liian pitkälle:
 
 ```python
 mjono = input("Anna merkkijono: ")
@@ -347,7 +345,7 @@ Leveys: **8**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Risuaitaneliö" tmcname="osa03-10_risuaitanelio">
+<in-browser-programming-exercise name="Risuaitasuorakulmio" tmcname="osa03-10_risuaitanelio">
 
 Laajenna edellistä niin, että käyttäjä syöttää myös piirrettävien rivien määrän
 
@@ -428,7 +426,7 @@ Sana: **tosipitkämerkkijono**
 
 <in-browser-programming-exercise name="Sanalaatikko" tmcname="osa03-13_sanalaatikko">
 
-Tee ohjelma, joka kysyy käyttäjältä sanaa ja tulostaa sanan tähtiraameihin, missä sana on keskellä. Raamien leveys on 30 merkkiä, ja voit olettaa, että sana mahtuu raameihin.
+Tee ohjelma, joka kysyy käyttäjältä sanaa ja tulostaa sanan tähtiraameihin, joissa sana on keskellä. Raamien leveys on 30 merkkiä, ja voit olettaa, että sana mahtuu raameihin.
 
 Huom! Jos sanan pituus on pariton, voit tulostaa sanan kumpaan tahansa mahdollisista keskikohdista.
 
