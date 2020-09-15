@@ -294,6 +294,8 @@ Punainen nuoli kertoo missä kohtaa ohjelman suoritus on menossa. Visualisaattor
 
 Visualisaattorin käyttö on erittäin helppoa, riittää että tarkasteltava koodi kopioidaan [täällä](http://www.pythontutor.com/visualize.html#mode=edit) olevaan koodi-ikkunaan.
 
+Huomaa, että visualisaattori ei saalli skandien (ä, ö) ja käyttöä muuttujien eikä funktioiden nimissä.
+
 Kokeneemmat ohjelmoijat tuskin käyttävät visualisaattoria koskaan, mutta aloittelijalle se voi olla oiva apuväline. Ohjelmointi ei nimittän voi perustua tuuriin tai sattumaan. Ohjelmoijan on koko ajan tiedettävä tarkalleen mitä muuttujien arvot ohjelman suorituksen aikana ovat. Jos muuttujien arvot eivät vastaakaan sitä mitä ohjelmoija olettaa, on tuloksena mitä suurimmalla todennäköisyydellä bugi.
 
 Visualisaattori ja debuggaustulostukset ovatkin erinomainen väline sille, että ohjelmoija voi helposti omin silmin varmistaa, että ohjelma todellakin toimii niin kuin sen olettaa toimivan.
