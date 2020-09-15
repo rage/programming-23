@@ -81,6 +81,26 @@ mutta monet myös käyttävät termejä sekaisin.
 
 </text-box>
 
+## Huomio testien virheilmoituksista
+
+Jos ohjelmasi ei toimi oikein, antavat testit enemmän tai vähemmän hyvän virheilmoituksen. Virheilmoitus kannattaa ehdottomasti lukea huolellisesti.
+
+Joissain tilanteissa vihrilmoutus ei kerro tarkemmin mistä on kyse. Esimerkiksi seuraavassa tehtävässä saatat törmätä seuraavaan virheeseen:
+
+<img src="4_2_0a.png">
+
+Virhe kertoo että tehtävän funktiota `viiva` pitäisi pystyä kutsumaan seuraavasti:
+
+```python
+viiva(5, "")
+```
+
+Varsinaninen ongelma paljastuu kun kokeillaan mitä funktiokutsu tekee. Eli kopioidaan virheilmoituksen kertoma funktiokutsu koodiin ja painetaan vihreää kolmiota:
+
+<img src="4_2_0b.png">
+
+Koodin suorituksen viimeiset rivit kertovat mikä on vikana: koodirivin numero 4 aiheuttaa virheen _IndexError: string index out of range_. Kuten [edellisessä osassa](/osa-3/2-merkkijonojen-kasittely) mainittiin, syy tälle on se, että koodissa yritetään indeksoida merkkijonon ulkopuolelle. Tällä kertaa syynä on se, että yritetään hakea nollan pituisen merkkijonon ensimmäistä merkkiä.
+
 <programming-exercise name='Viiva' tmcname='osa04-02_viiva'>
 
 Tee funktio `viiva`, joka saa kaksi parametria (leveys, merkkijono). Funktio tulostaa ensimmäisen parametrin määrittämän pituisen viivan käyttäen toisena parametrina olevan merkkijonon ensimmäistä merkkiä. Jos parametrina oleva merkkijono on tyhjä, tulostuu viiva tähtinä.
@@ -130,18 +150,18 @@ Moikka, Emilia
 
 </sample-output>
 
-<programming-exercise name='Kuutio' tmcname='osa04-2a_kuutio'>
+<programming-exercise name='Neliö' tmcname='osa04-02a_nelio'>
 
-Tee funktio `kuutio`, joka saa kaksi parametria. Funktio tulostaa kuution jonka korkeus ja leveys korkeuden ja leveyden kertoo ensimmäinen parametri.  Toinen parametri määrittelee mitä merkkiä käyttäen kuutio piirretään.
+Tee funktio `nelio`, joka saa kaksi parametria. Funktio tulostaa neliön jonka korkeus ja leveys korkeuden ja leveyden kertoo ensimmäinen parametri.  Toinen parametri määrittelee mitä merkkiä käyttäen neliö piirretään.
 
 Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle.
 
 Pari käyttöesimerkkiä
 
 ```python
-kuutio(5, "*")
+nelio(5, "*")
 print()
-kuutio(3, "o")
+nelio(3, "o")
 ```
 
 <sample-output>
@@ -239,6 +259,8 @@ joulukuusi!
 </pre>
 
 </sample-output>
+
+**Huomaa, että joulukuusen vasemmalla puolella pitää olla täsmälleen oikea määrä välilyöntejä**. Eli vaikka kuusen muoto olisi täysin oikea, mutta sen alin "neulastaso" ei lähde ruudun vasemmasta reunasta, ei vastaus kelpaa testeille.
 
 </programming-exercise>
 
@@ -479,7 +501,7 @@ Tee kolme funktiota: `eka_sana`, `toka_sana` ja `vika_sana`. Jokainen funktioist
 
 Funktiot palauttavat nimensä mukaisesti lauseen ensimmäisen, toisen tai viimeisen sanan.
 
-Voit olettaa jokaisessa tapauksessa, että merkkijono koostuu vähintään kahdesta sanasta.
+Voit olettaa jokaisessa tapauksessa, että merkkijono koostuu vähintään kahdesta sanasta, ja että sanojen välillä on aina täsmälleen yksi välilyönti.
 
 ```python
 lause = "olipa kerran kauan sitten ohjelmoija"
