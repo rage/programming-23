@@ -130,6 +130,38 @@ Moikka, Emilia
 
 </sample-output>
 
+<programming-exercise name='Kuutio' tmcname='osa04-2a_kuutio'>
+
+Tee funktio `kuutio`, joka saa kaksi parametria. Funktio tulostaa kuution jonka korkeus ja leveys korkeuden ja leveyden kertoo ensimmäinen parametri.  Toinen parametri määrittelee mitä merkkiä käyttäen kuutio piirretään.
+
+Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle.
+
+Pari käyttöesimerkkiä
+
+```python
+kuutio(5, "*")
+print()
+kuutio(3, "o")
+```
+
+<sample-output>
+
+<pre>
+*****
+*****
+*****
+*****
+*****
+
+ooo
+ooo
+ooo
+</pre>
+
+</sample-output>
+
+</programming-exercise>
+
 <programming-exercise name='Kuvio' tmcname='osa04-03_kuvio'>
 
 Tee funktio `kuvio`, joka saa neljä parametria. Funktio tulostaa kuvion, jonka yläosana on kahden ensimmäisen parametrin määrittelemä kolmio ja alaosana ensimmäisen ja kahden jälkimmäisen parametrin määrittelemä suorakulmio.
