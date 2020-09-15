@@ -236,6 +236,7 @@ while luku > 0:
         print(f"{i} ", end="")
         i += 1
     print()
+    luku -= 1
 ```
 
 <sample-output>
@@ -249,9 +250,9 @@ Anna luku: **5**
 
 </sample-output>
 
-Nyt sisemmässä silmukalla on käytössä apumuuttuja _i_, jonka arvo on aina sisempään silmukkaan mentäessä 0. Muuttujan _i_ arvo kasvaa yhden välein, kunnes se on yhtä suuri kuin muuttujan _luku_ nykyinen arvo, joka taas vähenee ulomman silmukan vuoksi kohti nollaa.
+Nyt sisemmässä silmukassa on käytössä apumuuttuja `i`, jonka arvo on aina sisempään silmukkaan mentäessä 0. Muuttujan `i` arvo kasvaa yhden välein, kunnes se on yhtä suuri kuin muuttujan `luku` nykyinen arvo, joka taas vähenee ulomman silmukan vuoksi kohti nollaa.
 
-Sisempi silmukka tulostaa apumuuttujan _i_ arvot välilyönnillä eroteltuna samalle riville. Kun sisempi silmukka päättyy, tulostetaan aina rivinvaihto komennolla `print`.
+Sisempi silmukka tulostaa apumuuttujan `i` arvot välilyönnillä eroteltuna samalle riville. Kun sisempi silmukka päättyy, tulostetaan aina rivinvaihto komennolla `print`.
 
 Jos et ole täysin varma, että ymmärrät esimerkkikoodin toiminnan, kokeile kopioida koodi Python Tutorin [visualisaattoriin](http://www.pythontutor.com/visualize.html#mode=edit) ja tarkastele, mitä ohjelma tulostaa ja miten muuttujien arvot vaihtuvat koodin edetessä.
 

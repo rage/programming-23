@@ -116,8 +116,6 @@ Moi kaikki!
 
 Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, mukaan lukien välilyönnit. Niinpä merkkijonon `moi moi` pituus on 7.
 
-Silmukassa oleva `print`-komento tulostaa rivin, jonka alussa on `n` välilyöntiä ja sitten muuttujan `rivi` sisältö. Tämän jälkeen muuttujan `rivi` loppuun lisätään kaksi tähteä ja muuttujan `n` arvo vähenee yhdellä.
-
 <in-browser-programming-exercise name="Pidempi jono" tmcname="osa03-05b_pidempi_jono">
 
 Kirjoita ohjelma, joka kysyy käyttäjältä kaksi merkkijonoa ja tulostaa jonoista pidemmän (ts. sen, jossa on enemmän merkkejä). Jos jonot ovat yhtä pitkiä tulostetaan viesti "Jonot ovat yhtä pitkät"
@@ -215,7 +213,7 @@ i
 
 </sample-output>
 
-Pythonissa merkkeihin voi viitata myös alkaen merkkijonon lopusta käyttämällä negatiivisia indeksejä. Merkkijonon viimeinen merkki on indeksin -1 kohdalla, toiseksi viimeinen indeksin -2 kohdalla jne. Onkin kätevämpi kirjoittaa `m[-1]` kuin `m[len(m) - 1]`.
+Pythonissa merkkeihin voi viitata myös alkaen merkkijonon lopusta käyttämällä negatiivisia indeksejä. Merkkijonon viimeinen merkki on indeksin -1 kohdalla, toiseksi viimeinen indeksin -2 kohdalla jne. Onkin kätevämpi kirjoittaa `mjono[-1]` kuin `mjono[len(mjono) - 1]`.
 
 <img src="3_2_2.png">
 
@@ -241,13 +239,13 @@ Merkkijonoa indeksöidessä tulee olla tarkkana indeksien kanssa. Jos viitataan 
 
 ```python
 mjono = input("Anna merkkijono: ")
-print("kymmenes merkki: " + mjono[9])
+print("Kymmenes merkki: " + mjono[9])
 ```
 
 <sample-output>
 
 Anna merkkijono: **ohjelmoinnin perusteet**
-kymmenes merkki: n
+Kymmenes merkki: n
 
 </sample-output>
 
@@ -261,26 +259,26 @@ IndexError: string index out of range
 
 </sample-output>
 
-Joskus virhetilanne johtuu ohjelmointivirheestä. Esimerkiksi merkkijonon viimeistä merkkiä tarkastellessa on erittän yleistä indeksoida vaihingossa yhtä liian pitkääe:
+Joskus virhetilanne johtuu ohjelmointivirheestä. Esimerkiksi merkkijonon viimeistä merkkiä tarkasteltaessa on yleistä indeksoida vahingossa yhtä liian pitkälle:
 
 ```python
 mjono = input("Anna merkkijono: ")
-print("viimeinen merkki: " + mjono[len(mj)])
+print("Viimeinen merkki: " + mjono[len(mjono)])
 ```
 
-Koska merkkijonojen indeksit alkavat nollasta, niin viimeinen merki on indeksissä _len(mj) - 1_!
+Koska merkkijonojen indeksit alkavat nollasta, niin viimeinen merkki on indeksissä `len(mjono) - 1` eikä `len(mjono)`.
 
 On myös tilanteita, joissa ohjelman on syytä varautua siihen, että virheen lähde on käyttäjän antama syöte:
 
 ```python
 mjono = input("Anna merkkijono: ")
-if len(mjono)>0:
+if len(mjono) > 0:
     print("ensimmäinen merkki: " + mjono[0])
 else:
     print("merkkijonon pituus on nolla, eli ensimmäistä merkkiä ei ole")
 ```
 
-Tyhjä syöte (käyttäjä painaa ainoastaan enter) onkin usein sellainen, jota aiheuttaa ohjelman "kaatumisen" ellei koodari ole muistanut laittaa koodiin tarkistusta tilanteen varalta.
+Tyhjä syöte (käyttäjä painaa ainoastaan Enter) aiheuttaa usein ohjelman "kaatumisen", ellei koodari ole muistanut laittaa koodiin tarkistusta tilanteen varalta.
 
 <in-browser-programming-exercise name="Lopusta alkuun" tmcname="osa03-05c_lopusta_alkuun">
 
@@ -347,7 +345,7 @@ Leveys: **8**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Risuaitaneliö" tmcname="osa03-10_risuaitanelio">
+<in-browser-programming-exercise name="Risuaitasuorakulmio" tmcname="osa03-10_risuaitanelio">
 
 Laajenna edellistä niin, että käyttäjä syöttää myös piirrettävien rivien määrän
 
@@ -428,7 +426,7 @@ Sana: **tosipitkämerkkijono**
 
 <in-browser-programming-exercise name="Sanalaatikko" tmcname="osa03-13_sanalaatikko">
 
-Tee ohjelma, joka kysyy käyttäjältä sanaa ja tulostaa sanan tähtiraameihin, missä sana on keskellä. Raamien leveys on 30 merkkiä, ja voit olettaa, että sana mahtuu raameihin.
+Tee ohjelma, joka kysyy käyttäjältä sanaa ja tulostaa sanan tähtiraameihin, joissa sana on keskellä. Raamien leveys on 30 merkkiä, ja voit olettaa, että sana mahtuu raameihin.
 
 Huom! Jos sanan pituus on pariton, voit tulostaa sanan kumpaan tahansa mahdollisista keskikohdista.
 
