@@ -100,7 +100,29 @@ print(len(lista))
 
 </sample-output>
 
-TODO: Simppeli tehtävä listan alkioden muutoksista
+
+<programming-exercise name='Alkioiden arvojen muutokset' tmcname='osa04-07a_alkioiden_arvojen_muutokset'>
+
+Tee ohjelma, joka alustaa listan jossa on arvot `[1, 2, 3, 4, 5]`. Tämän jälkeen ohjelma kysyy käyttäjältä alkion indeksin ja uuden arvon, vaihtaa kyseisen alkion arvon ja tulostaa listan uudelleen. Ohjelman suoritus päättyy, jos käytäjä antaa alkion indeksiksi -1.
+
+Esimerkkisuoritus:
+
+<sample-output>
+
+Anna indeksi: 0
+Anna arvo: 10
+[10, 2, 3, 4, 5]
+Anna indeksi: 2
+Anna arvo: 250
+[10, 2, 250, 4, 5]
+Anna indeksi: 4
+Anna arvo: -45
+[10, 2, 250, 4, -45]
+Anna indeksi: -1
+
+</sample-output>
+
+</programming-exercise>
 
 
 ## Alkioiden lisääminen ja poistaminen
