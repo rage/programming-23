@@ -93,7 +93,37 @@ a
 
 </sample-output>
 
-TODO: Helppo tehtävä for-lauseesta
+<programming-exercise name='Tulostus tähdillä' tmcname='osa04-11a_tulostus_tahdilla'>
+
+Tee ohjelma, joka pyytää käyttäjää syöttämään merkkijonon ja tulostaa sitten merkkijonon kirjaimet yksitellen allekkain.
+
+Jokaisen kirjaimen jälkeen tulostetaan lisäksi tähti (*) omalle rivilleen.
+
+Esimerkiksi:
+
+<sample-output>
+
+Anna merkkijono: **Python**
+P
+*
+y
+*
+t
+*
+h
+*
+o
+*
+n
+*
+
+</sample-output>
+
+</programming-exercise>
+
+
+
+</programming-exercise>
 
 ## Funktio `range`
 
