@@ -293,7 +293,33 @@ print(lista)
 
 </sample-output>
 
-TODO: Helppo esimerkikki alkon poistosta
+<programming-exercise name='Lisäys ja poisto' tmcname='osa04-07c_lisays_ja_poisto'>
+
+Tee ohjelma, joka pyytää käyttäjää valitsemaan alkion lisäyksen tai poiston. Sekä lisäys että poisto tehdään listan loppuun. Lisättävän alkion arvo on aina yhtä suurempi kuin listan viimeinen alkio (tai 1, jos listassa ei ole alkioita).
+
+Joka operaation välissä lista tulostetaan. Katso esimerkkiä seuraavasta tulosteesta:
+
+<sample-output>
+
+Lista on nyt []
+(l)isää, (p)oista vai e(x)it: **l**
+Lista on nyt [1]
+(l)isää, (p)oista vai e(x)it: **l**
+Lista on nyt [1, 2]
+(l)isää, (p)oista vai e(x)it: **l**
+Lista on nyt [1, 2, 3]
+(l)isää, (p)oista vai e(x)it: **p**
+Lista on nyt [1, 2]
+(l)isää, (p)oista vai e(x)it: **l**
+Lista on nyt [1, 2, 3]
+(l)isää, (p)oista vai e(x)it: **x**
+Moi!
+
+</sample-output>
+
+Voit olettaa, että listalta ei yritetä poistaa alkoita, jos lista on tyhjä.
+
+</programming-exercise>
 
 Jos listalla ei ole poistettavaa alkiota, seuraa virhe. Merkkijonoista tutulla tavalla alkion olemassaolon listalla voi testata `in`-operaattorin avulla:
 
