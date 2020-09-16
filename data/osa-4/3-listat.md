@@ -401,7 +401,36 @@ print(jarjestetty)
 
 </sample-output>
 
-TODO: Helppo esimerkki listan järjestämisestä
+<programming-exercise name='Lista kahdesti' tmcname='osa04-08b_lista_kahdesti'>
+
+Tee ohjelma, joka kysyy käyttäjältä lukuja ja lisää niitä listään. Lista tulostetaan jokaisen luvun lisäyksen jälkeen kahdella eri tavalla:
+- alkiot lisäysjärjestyksessä ja
+- järjestettynä pienimmästä suurimpaan alkioon
+
+Ohjelman suoritus päättyy, kun käyttäjä syöttää luvun 0.
+
+Esimerkkisuoritus:
+
+<sample-exercise>
+
+Anna luku: **3**
+Lista: [3]
+Järjestyksessä: [3]
+Anna luku: **1**
+Lista: [3, 1]
+Järjestyksessä: [1, 3]
+Anna luku: **9**
+Lista: [3, 1, 9]
+Järjestyksessä: [1, 3, 9]
+Anna luku: **5**
+Lista: [3, 1, 9, 5]
+Järjestyksessä: [1, 3, 5, 9]
+Anna luku: **0**
+Moi!
+
+</sample-exercise>
+
+</programming-exercise>
 
 ## Suurin, pienin ja summa
 
