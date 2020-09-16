@@ -121,10 +121,6 @@ n
 
 </programming-exercise>
 
-
-
-</programming-exercise>
-
 ## Funktio `range`
 
 Silmukkaa tarvitaan usein myös siihen, että haluamme toistaa jonkin asian tietyn määrän kertoja tai käydä läpi tietyn lukuvälin (esimerkiksi kaikki luvut väliltä 1–100). Myös tämä onnistuu kätevästi `for`-silmukalla funktion `range` avulla.
@@ -194,7 +190,27 @@ for i in range(6, 2, -1):
 
 </sample-output>
 
-TODO: Helppo tehtävä rangesta
+<programming-exercise name='Negatiivisesta positiiviseen' tmcname='osa04-11b_negatiivisesta_positiiviseen'>
+
+Tee ohjelma, joka lukee käyttäjältä positiivisen kokonaisluvun N. Ohjelma tulostaa sen jälkeen luvut väliltä -N...N _nollaa lukuunottamatta_. Jokainen luku tulostetaan omalle rivilleen.
+
+Esimerkiksi
+
+<sample-output>
+
+Anna luku: **4**
+-4
+-3
+-2
+-1
+1
+2
+3
+4
+
+</sample-output>
+
+</programming-exercise>
 
 ## Lukuväli listaksi
 
