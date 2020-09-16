@@ -109,16 +109,16 @@ Esimerkkisuoritus:
 
 <sample-output>
 
-Anna indeksi: 0
-Anna arvo: 10
+Anna indeksi: **0**
+Anna arvo: **10**
 [10, 2, 3, 4, 5]
-Anna indeksi: 2
-Anna arvo: 250
+Anna indeksi: **2**
+Anna arvo: **250**
 [10, 2, 250, 4, 5]
-Anna indeksi: 4
-Anna arvo: -45
+Anna indeksi: **4**
+Anna arvo: **-45**
 [10, 2, 250, 4, -45]
-Anna indeksi: -1
+Anna indeksi: **-1**
 
 </sample-output>
 
@@ -176,7 +176,25 @@ Kengännumerot:
 
 </sample-output>
 
-TODO: Helppo tehtävän append-metodin käytöstä
+<programming-exercise name='Alkoiden lisäys listaan' tmcname='osa04-07b_alkioiden_lisays_listaan'>
+
+Tee ohjelma, joka kysyy käyttäjältä ensin lukujen määrän. Sen jälkeen ohjelma pyytää käyttäjää syöttämään annetun määrän lukuja yksitellen ja lisää ne listaan samassa järjestyksessä.
+
+Lopuksi lista tulostetaan.
+
+Esimerkkisuoritus:
+
+<sample-output>
+
+Kuinka monta lukua: **3**
+Anna luku 1: **10**
+Anna luku 2: **250**
+Anna luku 3: **34**
+Lista: [10, 250, 34]
+
+</sample-output>
+
+</programming-exercise>
 
 Mikäli halutaan lisätä alkio johonkin muualle kuin listan loppuun, voidaan käyttää `insert`-metodia. Metodi lisää alkion halutun indeksin paikalle. Kaikkia listalla valmiina olevia alkioita lisäyspaikasta alkaen siirretään yhdellä askeleella eteenpäin:
 
