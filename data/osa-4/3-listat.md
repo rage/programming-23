@@ -411,7 +411,7 @@ Ohjelman suoritus päättyy, kun käyttäjä syöttää luvun 0.
 
 Esimerkkisuoritus:
 
-<sample-exercise>
+<sample-output>
 
 Anna luku: **3**
 Lista: [3]
@@ -428,7 +428,7 @@ Järjestyksessä: [1, 3, 5, 9]
 Anna luku: **0**
 Moi!
 
-</sample-exercise>
+</sample-output>
 
 </programming-exercise>
 
