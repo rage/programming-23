@@ -14,7 +14,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Luokka voi palauttaa metodista myös sen itsensätyyppisen olion. Luokan `Tuote` metodi `alennustuote` palauttaa uuden tuotteen, jolla on sama nimi kuin nykyisellä tuotteella, mutta 25% halvempi hinta:
+Luokka voi palauttaa metodista myös sen itsensä tyyppisen olion. Luokan `Tuote` metodi `alennustuote` palauttaa uuden tuotteen, jolla on sama nimi kuin nykyisellä tuotteella, mutta 25% halvempi hinta:
 
 ```python
 
@@ -148,7 +148,7 @@ if __name__ == "__main__":
 
 <sample-output>
 
-Appelsiinin on suurempi
+Appelsiini on suurempi
 
 </sample-output>
 
