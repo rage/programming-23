@@ -240,6 +240,22 @@ print(luvut)
 
 </sample-output>
 
+## Muistutus tehtävien funktioita testaavasta omasta koodista
+
+Funktiotehtävien tehtäväpohjat ovat tähän asti näyttäneet seuraavilta
+
+```python
+# tee ratkaisu tänne
+# funktiota kannattaa testata kutsumalla sitä täällä seuraavasti
+if __name__ == "__main__":
+    lause = "olipa kerran kauan sitten ohjelmoija"
+    print(eka_sana(lause))
+    print(toka_sana(lause))
+    print(vika_sana(lause))
+```
+
+Tästä eteenpäin muistutusta siitä, että testikoodi on sijoitettava `if __name__ == "__main__"` -lohkoon ei tehäväpohjissa enää ole. Testit kuitenkin vaativat lohkon edelleen, eli joudut lisäämään sen itse.
+
 <programming-exercise name='Tähdet' tmcname='osa04-12_tahdet'>
 
 Tee funktio `lista_tahtina`, joka saa parametriksi listan kokonaislukuja. Funktio tulostaa joukon tähtirivejä siten, että listalla olevat luvut kertovat kunkin rivin tähtimäärän.
@@ -275,6 +291,8 @@ print(anagrammi("tammi", "mitta")) # False
 print(anagrammi("python", "java")) # False
 ```
 
+Vihje: funktio `sorted` toimii myös merkkijonoille.
+
 </programming-exercise>
 
 <programming-exercise name='Palindromit' tmcname='osa04-14_palindromit'>
@@ -295,6 +313,9 @@ Anna palindromi: **saippuakauppias**
 saippuakauppias on palindromi!
 
 </sample-output>
+
+**Huomaa**, että tällä kertaa pääohjelmaa **ei tule kirjoittaa**
+`if __name__ == "__main__":`-lohkon sisälle
 
 </programming-exercise>
 

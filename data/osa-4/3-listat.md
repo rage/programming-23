@@ -176,7 +176,7 @@ Kengännumerot:
 
 </sample-output>
 
-<programming-exercise name='Alkoiden lisäys listaan' tmcname='osa04-07b_alkioiden_lisays_listaan'>
+<programming-exercise name='Alkoiden lisäys listaan' tmcname='osa04-07b_alkoiden_lisays_listaan'>
 
 Tee ohjelma, joka kysyy käyttäjältä ensin lukujen määrän. Sen jälkeen ohjelma pyytää käyttäjää syöttämään annetun määrän lukuja yksitellen ja lisää ne listaan samassa järjestyksessä.
 
@@ -619,6 +619,7 @@ print("vastaus", vastaus)
 
 # huomaa, että voit kutsua funktiota myös antamalla listan suoraan funktion parametriksi
 vastaus = pituus([1, 1, 1, 1])
+print("vastaus", vastaus)
 ```
 
 <sample-output>

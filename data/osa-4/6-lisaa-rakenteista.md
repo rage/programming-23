@@ -72,7 +72,7 @@ ikkremise
 
 </sample-output>
 
-<programming-exercise name='Kaikki väärinpäin' tmcname='osa04-22_kaikki_vaarinpain'>
+<programming-exercise name='Kaikki väärinpäin' tmcname='osa04-21_kaikki_vaarinpain'>
 
 Kirjoita funktio `kaikki_vaarinpain`, joka saa parametrikseen listan merkkijonoja. Funktio luo ja palauttaa uuden listan, jossa kaikki alkuperäisellä listalla olevat merkkijonot on käännetty. Myös listan alkioiden järjestys muutetaan käänteiseksi.
 
@@ -213,7 +213,7 @@ Java on kivaa
 
 </sample-output>
 
-<programming-exercise name='Eniten kirjaimia' tmcname='osa04-23_eniten_kirjaimia'>
+<programming-exercise name='Eniten kirjaimia' tmcname='osa04-22_eniten_kirjaimia'>
 
 Kirjoita funktio `eniten_kirjainta`, joka saa parametrikseen merkkijonon. Funktio palauttaa kirjaimen, jota esiintyy eniten merkkijonossa. Jos yhtä yleisiä kirjaimia on monta, funktion tulee palauttaa niistä ensimmäisenä merkkijonossa esiintyvä.
 
@@ -237,7 +237,7 @@ k
 </programming-exercise>
 
 
-<programming-exercise name='Vokaalit pois' tmcname='osa04-24_vokaalit_pois'>
+<programming-exercise name='Vokaalit pois' tmcname='osa04-23_vokaalit_pois'>
 
 Kirjoita funktio `ilman_vokaaleja`, joka saa parametrikseen merkkijonon. Funktio palauttaa uuden merkkijonon, jossa alkuperäisen merkkijonon vokaalit on poistettu.
 
@@ -259,7 +259,7 @@ tm n smrkk
 </programming-exercise>
 
 
-<programming-exercise name='Poista isot' tmcname='osa04-25_poista_isot'>
+<programming-exercise name='Poista isot' tmcname='osa04-24_poista_isot'>
 
 Pythonin merkkijonometodi `isupper()` palauttaa arvon `True`, jos merkkijono koostuu _pelkästään isoista kirjaimista_.
 
@@ -279,16 +279,15 @@ False
 
 </sample-output>
 
-Kirjoita metodia hyödyntäen funktio `poista_isot`, joka saa parametrikseen listan merkkijonoja. Funktio poistaa listalta ne merkkijonot, jotka koostuvat kokonaan isoista kirjaimista.
+Kirjoita metodia hyödyntäen funktio `poista_isot`, joka saa parametrikseen listan merkkijonoja. Funktio palauttaa uuden listan, jolla on sen paramentrina olevasta listasta ne merkkijonot, jotka koostuvat kokonaan isoista kirjaimista.
 
-Huomaa, että funktio _ei palauta mitään_, vaan poistaa alkiot parametrinaan saamastaan listasta.
 
 Esimerkki funktion käytöstä:
 
 ```python
 lista = ["ABC", "def", "ISO", "TOINENISO", "pieni", "toinen pieni"]
-poista_isot(lista)
-print(lista)
+karsittu_lista = poista_isot(lista)
+print(karsittu_lista)
 ```
 
 <sample-output>
@@ -297,58 +296,9 @@ print(lista)
 
 </sample-output>
 
-**Huom:** listan sisällön läpikäyminen for-silmukalla siten, että listan sisältöä samalla muutetaan saattaa tuottaa yllättäviä tuloksia. Vältä siis seuraavanlaista koodia:
-
-```python
-for sana in lista:
-   # muutetaan listan sisältöä
-```
-
-Turvallisempi vaihtoehto on while-silmukan käyttö:
-
-```python
-indeksi = 0
-while indeksi < len(lista):
-   # muutetaan listan sisältöä
-```
-
 </programming-exercise>
 
-<programming-exercise name='Käännä lista osittain' tmcname='osa04-26_kaanna_lista_osittain'>
-
-Tee funktio `kaanna(lista: list, alku: int, loppu: int)`, joka kääntää listan alkiot annetulta väliltä päinvastaiseen järjestykseen.
-
-Huomaa, että funktio ei palauta uutta listaa, vaan kääntää alkiot annetusta listasta.
-
-Esimerkkejä funktion käytöstä:
-
-```python
-lista = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-kaanna(lista, 2, 5)
-print(lista)
-```
-
-<sample-output>
-
-[0, 1, 5, 4, 3, 2, 6, 7, 8]
-
-</sample-output>
-
-```python
-lista = [10, 20, 30, 40, 50, 60, 70, 80]
-kaanna(lista, 3, 5)
-print(lista)
-```
-
-<sample-output>
-
-[10, 20, 30, 60, 50, 40, 70, 80]
-
-</sample-output>
-
-</programming-exercise>
-
-<programming-exercise name='Naapureita listassa' tmcname='osa04-27_naapureita_listassa'>
+<programming-exercise name='Naapureita listassa' tmcname='osa04-25_naapureita_listassa'>
 
 Määritellään, että listan alkiot ovat naapureita, jos niiden erotus on 1. Naapureita olisivat siis esim alkiot 1 ja 2 tai alkiot 56 ja 55.
 
@@ -371,66 +321,119 @@ print(pisin_naapurijono(lista))
 
 </programming-exercise>
 
-<programming-exercise name='Isot alkukirjaimet' tmcname='osa04-28_isot_alkukirjaimet'>
+## Laajemman ohjelman tekeminen
 
-Kirjoita funktio `isot_alkukirjaimet`, joka saa parametrikseen kokonaan pienillä kirjaimilla kirjoitetun tekstin. Funktio muuttaa kaikkien virkkeiden ensimmäisen kirjaimen isoksi. Jokainen virke alkaa kirjaimella ja päättyy pisteeseen, huutomerkkiin tai kysymysmerkkiin.
+Tämän osan huipentaa ensimmäinen hieman laajempi ohjelma, jota tehdessäsi pääset soveltamaan kaikkea tähän asti opeteltua.
 
-Vinkki: Tarvitset tässä metodia `upper`, joka muuntaa merkkijonon kokonaan isoiksi kirjaimiksi.
+Sääntö numero yksi isompaa tai oikestaan mitä tahansa ohjelmaa tehdessä on se, että ei kannata yrittää ratkaista kaikkia ongelmia yhtäaikaa. Ohjelma kannattaa rakentaa pienistä paloista, esim. sopivista apufunktioista, ja kunkin palan toimivuus kannattaa varmistaa ennen kun alkaa rakentaa seuraavaa palaa. Jos näin ei tee, on aika varmaa että edessä on suuri kaaos.
 
-Esimerkki funktion kutsumisesta:
+Isompaa ohjelmaa rakentaessa on järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Yksi tapa, joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään `main`, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää. Esim. seuraavaa tehtävää voitaisiin ruveta lähestymään näin:
 
 ```python
+def main():
+    pisteet = []
+    # ohjelman koodi tänne
 
-teksti = "moi kaikki! halusin vaan kysyä, että miten tämä toimii? nyt tässä on pelkkiä pieniä kirjaimia, ja haluaisin että olisi myös isoja. olisiko liikaa vaadittu?"
-print(isot_alkukirjaimet(teksti))
-
+main()
 ```
 
+Näin ohjelman apumetodeja on mahdollista testata ilman pääohjelman suorittamista:
+
+```python
+# apumetodi, joka laskee arvosanan pisteiden perusteella
+def arvosana(pisteet):
+    # koodia
+
+def main():
+    pisteet = []
+    # ohjelman koodi tänne
+
+# kommentoidaan pääohjelma pois
+#main()
+
+# testataan apumetodia
+pistemaara = 35
+tulos = arvosana(pistemaara)
+print(tulos)
+```
+
+<programming-exercise name='Arvosanatilasto' tmcname='osa04-26_arvosanatilasto'>
+
+Tässä tehtävässä toteutetaan ohjelma kurssin arvosanatilastojen tulostamiseen.
+
+Ohjelmalle syötetään rivejä, jotka sisältävät yhden opiskelijan koepistemäärän sekä tehtyjen harjoitustehtävien määrän. Ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja.
+
+Koepisteet ovat kokonaislukuja väliltä 0–20. Tehtyjen harjoitustehtävien lukumäärät taas kokonaislukuja väliltä 0–100.
+
+Ohjelma kyselee käyttäjältä rivejä niin kauan, kunnes käyttäjä syöttää tyhjän rivin. Voit olettaa, että kaikki rivit on syötetty "oikein", eli rivillä on joko kaksi kokonaislukua tai rivi on tyhjä.
+
+Koepisteiden ja harjoitustehtävien syöttäminen etenee seuraavasti:
+
 <sample-output>
 
-Moi kaikki! Halusin vaan kysyä, että miten tämä toimii? Nyt tässä on pelkkiä pieniä kirjaimia, ja haluaisin että olisi myös isoja. Olisiko liikaa vaadittu?
+Koepisteet ja harjoitusten määrä: **15 87**
+Koepisteet ja harjoitusten määrä: **10 55**
+Koepisteet ja harjoitusten määrä: **11 40**
+Koepisteet ja harjoitusten määrä: **4 17**
+Koepisteet ja harjoitusten määrä:
+Tilasto:
 
 </sample-output>
+
+Kun käyttäjä on syöttänyt tyhjän rivin, tulostaa ohjelma tilastot.
+
+Tilastot muodostuvat seuraavasti:
+
+Tehtyjen harjoitustehtävien lukumäärästä saa _harjoituspisteitä_ siten, että vähintään 10 % tehtävämäärästä tuo yhden harjoituspisteen, 20 % tuo 2 harjoituspistettä, jne., ja 100 % eli 100 harjoitustehtävää tuo 10 harjoituspistettä. Harjoitustehtävistä saatava pistemäärä on kokonaisluku.
+
+Kurssin arvosana määräytyy kokeen pistemäärän ja harjoitustehtävistä saatavien pisteiden summasta seuraavan taulukon mukaan:
+
+koepisteet+harjoituspisteet   | arvosana
+:--:|:----:
+0–14 | 0 (eli hylätty)
+15–17 | 1
+18–20 | 2
+21–23 | 3
+24–27 | 4
+28–30 | 5
+
+Edelliseen on kuitenkin poikkeus: jos kokeen pistemäärä on alle 10, on arvosana kokonaispistemäärästä riippumatta 0 eli hylätty.
+
+Yllä olevalla esimerkkisyötteellä ohjelma tulostaa seuraavat tilastot:
+
+<sample-output>
+
+<pre>
+Tilasto:
+Pisteiden keskiarvo: 14.5
+Hyväksymisprosentti: 75.0
+Arvosanajakauma:
+  5:
+  4:
+  3: *
+  2:
+  1: **
+  0: *
+</pre>
+
+</sample-output>
+
+Desimaaliluvut tulostetaan yhden desimaalin tarkkuudella.
+
+**Vihje:**
+
+Ohjelman syöte koostuu riveistä joilla on peräkkäin kaksi numeroa:
+
+<sample-output>
+
+Koepisteet ja harjoitusten määrä: **15 87**
+
+</sample-output>
+
+Syöterivi pitää pilkkoa ensin kahtia ja muuttaa palaset kokonaisluvuksi `int`-funktiolla. Rivin pilkkominen onnistuu samaalla tavalla kun tehtävässä [Eka, toka ja vika sana](/osa-4/2-lisaa-funktioista). Siihen on olemassa myös hieman helpompi keino, merkkijonojen metodi `split`. Googlaa jos haluat, käytä esim. hakusanoja *python string split*.
+
 
 </programming-exercise>
-
-<in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa03-20_kirjainruudukko">
-
-**SIIRRETTY OSASTA 3**
-
-Tee ohjelma, joka tulostaa kirjainruudukon oheisten esimerkkien mukaisesti. Voit olettaa, että kerroksia on enintään 26.
-
-<sample-output>
-
-Kerrokset: **3**
-<pre>
-CCCCC
-CBBBC
-CBABC
-CBBBC
-CCCCC
-</pre>
-
-</sample-output>
-
-<sample-output>
-
-Kerrokset: **4**
-<pre>
-DDDDDDD
-DCCCCCD
-DCBBBCD
-DCBABCD
-DCBBBCD
-DCCCCCD
-DDDDDDD
-</pre>
-
-Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu, jos et saa tätä heti ratkaistua. Älä juutu tähän tehtävään, vaan tee ensin osa loppuun ja palaa tehtävään sen jälkeen. Voi myös olla ihan viisasta jättää tämä tehtävä kokonaan myöhemmäksi.
-
-</sample-output>
-
-</in-browser-programming-exercise>
 
 
 <quiz id="93f31db6-8d49-5ebc-9e73-d61fe5ff1c17"></quiz>

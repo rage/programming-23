@@ -364,6 +364,102 @@ paras keskiarvo 4.5 Liisa
 
 </programming-exercise>
 
+<in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa03-20_kirjainruudukko">
+
+**SIIRRETTY OSASTA 3**
+
+Tee ohjelma, joka tulostaa kirjainruudukon oheisten esimerkkien mukaisesti. Voit olettaa, että kerroksia on enintään 26.
+
+<sample-output>
+
+Kerrokset: **3**
+<pre>
+CCCCC
+CBBBC
+CBABC
+CBBBC
+CCCCC
+</pre>
+
+</sample-output>
+
+<sample-output>
+
+Kerrokset: **4**
+<pre>
+DDDDDDD
+DCCCCCD
+DCBBBCD
+DCBABCD
+DCBBBCD
+DCCCCCD
+DDDDDDD
+</pre>
+
+Varoitus: tämä tehtävä on suhteellisen haastava, eli älä masennu, jos et saa tätä heti ratkaistua. Älä juutu tähän tehtävään, vaan tee ensin osa loppuun ja palaa tehtävään sen jälkeen. Voi myös olla ihan viisasta jättää tämä tehtävä kokonaan myöhemmäksi.
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<programming-exercise name='Käännä lista osittain' tmcname='osa04-26_kaanna_lista_osittain'>
+
+Tee funktio `kaanna(lista: list, alku: int, loppu: int)`, joka kääntää listan alkiot annetulta väliltä päinvastaiseen järjestykseen.
+
+Huomaa, että funktio ei palauta uutta listaa, vaan kääntää alkiot annetusta listasta.
+
+Esimerkkejä funktion käytöstä:
+
+```python
+lista = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+kaanna(lista, 2, 5)
+print(lista)
+```
+
+<sample-output>
+
+[0, 1, 5, 4, 3, 2, 6, 7, 8]
+
+</sample-output>
+
+```python
+lista = [10, 20, 30, 40, 50, 60, 70, 80]
+kaanna(lista, 3, 5)
+print(lista)
+```
+
+<sample-output>
+
+[10, 20, 30, 60, 50, 40, 70, 80]
+
+</sample-output>
+
+</programming-exercise>
+
+
+<programming-exercise name='Isot alkukirjaimet' tmcname='osa04-28_isot_alkukirjaimet'>
+
+Kirjoita funktio `isot_alkukirjaimet`, joka saa parametrikseen kokonaan pienillä kirjaimilla kirjoitetun tekstin. Funktio muuttaa kaikkien virkkeiden ensimmäisen kirjaimen isoksi. Jokainen virke alkaa kirjaimella ja päättyy pisteeseen, huutomerkkiin tai kysymysmerkkiin.
+
+Vinkki: Tarvitset tässä metodia `upper`, joka muuntaa merkkijonon kokonaan isoiksi kirjaimiksi.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+
+teksti = "moi kaikki! halusin vaan kysyä, että miten tämä toimii? nyt tässä on pelkkiä pieniä kirjaimia, ja haluaisin että olisi myös isoja. olisiko liikaa vaadittu?"
+print(isot_alkukirjaimet(teksti))
+
+```
+
+<sample-output>
+
+Moi kaikki! Halusin vaan kysyä, että miten tämä toimii? Nyt tässä on pelkkiä pieniä kirjaimia, ja haluaisin että olisi myös isoja. Olisiko liikaa vaadittu?
+
+</sample-output>
+
+</programming-exercise>
+
 <quiz id="34b92399-871c-5cc7-9d23-7d89b6ba1d29"></quiz>
 
 Vastaa lopuksi osion loppukyselyyn:
