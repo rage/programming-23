@@ -256,6 +256,8 @@ if __name__ == "__main__":
 
 Tästä eteenpäin muistutusta siitä, että testikoodi on sijoitettava `if __name__ == "__main__"` -lohkoon ei tehäväpohjissa enää ole. Testit kuitenkin vaativat lohkon edelleen, eli joudut lisäämään sen itse.
 
+**Huomaa kuitenkin**, että jotkut tehtävät, esim. hetken kuluttua vuodossa oleva _Palindormit_ edellyttävät funktioiden lisäksi myös funktiota kutsuvaa koodia. Tätä koodia _ei tule_ sijoittaa  `if __name__ == "__main__"` -lohkon sisälle. Testit eivät nimittän suorita mitään kyseisen lohkon koodista.
+
 <programming-exercise name='Tähdet' tmcname='osa04-12_tahdet'>
 
 Tee funktio `lista_tahtina`, joka saa parametriksi listan kokonaislukuja. Funktio tulostaa joukon tähtirivejä siten, että listalla olevat luvut kertovat kunkin rivin tähtimäärän.
@@ -314,7 +316,7 @@ saippuakauppias on palindromi!
 
 </sample-output>
 
-**Huomaa**, että tällä kertaa pääohjelmaa **ei tule kirjoittaa**
+**Huomaa**, että pääohjelmaa **ei tule kirjoittaa**
 `if __name__ == "__main__":`-lohkon sisälle
 
 </programming-exercise>

@@ -105,6 +105,8 @@ Lohkon ulkopuolelle jätetty testikoodi aiheuttaa seuraavan virheilmoituksen:
 
 <img src="3_4_1.png">
 
+Kannattaa myös huomata, että testit eivät noteeraa millään tavalla `if __name__ == "__main__"` -lohkon sisälle kirjoitettua koodia. Eli tehtävien edellyttämää koodia ei sinne tule sijoittaa.
+
 </text-box>
 
 <in-browser-programming-exercise name="Seitsemän veljestä" tmcname="osa03-21_seitseman_veljesta">
