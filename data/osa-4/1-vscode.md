@@ -179,7 +179,7 @@ Tärkeä komento on `exit()`, joka sulkee komentotulkin. Erityisesti jos käytä
 
 Muutamassa edellisessä osassa on jo korostettu debuggaustaitojen tärkeyttä ja demonstroitu tulostamalla tapahtuvaa debuggausta. Visual studio code -editori tarjoaa ehkä kehittyneimmän menetelmän debuggaukseen: _visuaalisen debuggerin_.
 
-Debuggaus aloitetaan määrittelemällä koodiin ns. _breakpoint_ eli kohta mihin debuggeri pystäyttää koodin suorituksen. Breakpoint asetetaan klikkaamalla hiirellä halutun koodirivin vasemmalta puolelta.
+Debuggaus aloitetaan määrittelemällä koodiin ns. _breakpoint_ eli kohta mihin debuggeri pysäyttää koodin suorituksen. Breakpoint asetetaan klikkaamalla hiirellä halutun koodirivin vasemmalta puolelta.
 
 Seuraavassa breakpoint on asetettu [edellisen osan](/osa-3/1-ehdot-silmukoissa) tehtävän _peräkkäisten summa_ erään hieman rikkinäisen ratkaisun riville 5:
 
@@ -193,13 +193,13 @@ Debuggeri käynnistyy ja alkaa suorittaa koodia normaaliin tapaan, kunnes se tö
 
 <img src="4_1_7.png">
 
-Vasempaan reunaan on avautunut näkymä _Variables_ joka kertoo sen hetkisten muuttujien arvot. Koodia voidaan suorittaa rivi riviltä painelemalla alaspäin osoittavaa nuolta (step into).
+Vasempaan reunaan on avautunut näkymä _Variables_ joka kertoo senhetkisten muuttujien arvot. Koodia voidaan suorittaa rivi riviltä painelemalla alaspäin osoittavaa nuolta (step into).
 
 Seuraavassa tilanne kun silmukkaa on suoritettu muutamia kertoja.
 
 <img src="4_1_8.png">
 
-Debuggerin välilehti _Debug console_ mahdollistaa myös erilaisten lausekkeiden evaluonnin debuggaushetken muuttujien arvoilla. Voidaan esimerkiksi kokeilla mikä silmukan lopetusehdon arvo on:
+Debuggerin välilehti _Debug console_ mahdollistaa myös erilaisten lausekkeiden evaluoinnin debuggaushetken muuttujien arvoilla. Voidaan esimerkiksi kokeilla mikä silmukan lopetusehdon arvo on:
 
 <img src="4_1_9.png">
 
