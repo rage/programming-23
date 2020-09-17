@@ -1,6 +1,6 @@
 ---
 path: '/osa-4/1-vscode'
-title: 'Visual Studio Code -editori ja Python-tulkki'
+title: 'Visual Studio Code -editori, Python-tulkki ja debuggeri'
 hidden: false
 ---
 
@@ -9,7 +9,7 @@ hidden: false
 Tämän osion jälkeen
 
 - Osaat käyttää Visual studio Code -editoria kurssin tehtävien tekemiseen
-- Osaat suorittaa koodia interaktiivisen Python-tulkin avulla 
+- Osaat suorittaa koodia interaktiivisen Python-tulkin avulla
 
 </text-box>
 
@@ -87,7 +87,7 @@ Komentotulkkiin on mahdollista kirjoittaa mitä tahansa Pythonia, muuttujien ja 
 >>> t = [1,2,3,4,5]
 >>> for luku in t:
 ...   print(luku)
-... 
+...
 1
 2
 3
@@ -97,7 +97,7 @@ Komentotulkkiin on mahdollista kirjoittaa mitä tahansa Pythonia, muuttujien ja 
 ...   if luku<0:
 ...      luku = -luku
 ...   return luku
-... 
+...
 >>> x = 10
 >>> y = -7
 >>> itseisarvo(luku)
@@ -108,7 +108,7 @@ NameError: name 'luku' is not defined
 10
 >>> itseisarvo(y)
 7
->>> 
+>>>
 ```
 
 Parhaimmillaan komentotulkki on pienten tarkistusten tekemiseen, esim. miten tietty metodi toimii tai onko metodia ylipäätään olemassa:
@@ -120,20 +120,20 @@ Traceback (most recent call last):
 AttributeError: 'str' object has no attribute 'toupper'
 >>> "TekstIä".upper()
 'TEKSTIÄ'
->>> 
+>>>
 ```
 
 Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi käyttää komentotulkkia ja "kysyä" funktion `dir` avulla, mitä metodeja tietyllä oliolla on:
 
 ```python
 >>> dir("teksti")
-['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', 
-'__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', 
-'__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', 
-'__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', 
-'__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 
-'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 
-'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__',
+'__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__',
+'__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__',
+'__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__',
+'__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__',
+'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find',
+'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit',
 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join',
 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust','rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase',
 'title', 'translate', 'upper', 'zfill']
@@ -146,11 +146,11 @@ Listojen metodeista käy ilmi seuraavaa:
 ```python
 >>> dir([])
 ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__',
-'__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', 
-'__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', 
-'__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', 
-'__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', 
-'__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 
+'__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__',
+'__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__',
+'__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__',
+'__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__',
+'__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop',
 'remove', 'reverse', 'sort']
 >>>
 ```
@@ -174,3 +174,35 @@ Huomaa, että komentotulkki ei "tulosta" mitään, kun kutsutaan esim. metodia `
 Tärkeä komento on `exit()`, joka sulkee komentotulkin. Erityisesti jos käytät komentotulkkia Visual Studio Codessa, se tulee muistaa sulkea, ennen kuin suoritat jonkun ohjelman uudelleen "vihreällä kolmiolla". Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
 
 <img src="4_1_4.png">
+
+## Debuggeri
+
+Muutamassa edellisessä osassa on jo korostettu debuggaustaitojen tärkeyttä ja demonstroitu tulostamalla tapahtuvaa debuggausta. Visual studio code -editori tarjoaa ehkä kehittyneimmän menetelmän debuggaukseen: _visuaalisen debuggerin_.
+
+Debuggaus aloitetaan määrittelemällä koodiin ns. _breakpoint_ eli kohta mihin debuggeri pystäyttää koodin suorituksen. Breakpoint asetetaan klikkaamalla hiirellä halutun koodirivin vasemmalta puolelta.
+
+Seuraavassa breakpoint on asetettu [edellisen osan](/osa-3/1-ehdot-silmukoissa) tehtävän _peräkkäisten summa_ erään hieman rikkinäisen ratkaisun riville 5:
+
+<img src="4_1_5.png">
+
+Breakpointin asetuksen jälkeen valitaan valikosta _Run_ kohta _Start debugging_. Tämä avaa valintanäkymän, josta valitaan _Python File_:
+
+<img src="4_1_6.png">
+
+Debuggeri käynnistyy ja alkaa suorittaa koodia normaaliin tapaan, kunnes se törmää breakpointiin ja pysähtyy:
+
+<img src="4_1_7.png">
+
+Vasempaan reunaan on avautunut näkymä _Variables_ joka kertoo sen hetkisten muuttujien arvot. Koodia voidaan suorittaa rivi riviltä painelemalla alaspäin osoittavaa nuolta (step into).
+
+Seuraavassa tilanne kun silmukkaa on suoritettu muutamia kertoja.
+
+<img src="4_1_8.png">
+
+Debuggerin välilehti _Debug console_ mahdollistaa myös erilaisten lausekkeiden evaluonnin debuggaushetken muuttujien arvoilla. Voidaan esimerkiksi kokeilla mikä silmukan lopetusehdon arvo on:
+
+<img src="4_1_9.png">
+
+Ohjelmassa voi olla myös useita breakpointeja. Pysähtymisen jälkeen koodi voidaan taas käynnistään sinisellä kolmiolla (Continue) ja suoritus jatkuu kunnes ohjelma törmää seuraavaan breakpointiin...
+
+Visuaalinen debuggeri on oivallinen työkalu. On kuitenkin osittain mieltymyksistä kiinni mitä debuggaustekniikoita kukin käyttää. Debuggerin käynnistämisessä on pieni vaiva, joten itse turvaudun useimmiten debugtulostuksiin.
