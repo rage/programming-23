@@ -13,7 +13,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Olemme tähän mennessä yhdistelleet tulostettavaa tietoa `print`-komennossa kahdella tavalla.
+Olemme tähän mennessä yhdistelleet tulostettavaa tietoa `print`-komennossa kolmella eri tavalla.
 
 Ensimmäinen tapa on käyttää merkkijonojen `+`-operaattoria ja muodostaa näin yksittäinen merkkijono, jonka print saa parametrikseen:
 
@@ -79,9 +79,7 @@ Moi kaikki!
 
 ## f-merkkijonot
 
-Niin sanotut _f-merkkijonot_ tarjoavat kolmannen ja edellisiä joustavamman ja jopa helppokäyttöisemmän tavan tulostuksen muotoiluun.
-
-Aiempi nimen ja iän tulostava esimerkki tehtäisiin f-merkkijonojen avulla seuraavasti:
+Kolmas käyttämämme tapa on f-merkkijonot. Aiempi nimen ja iän tulostava esimerkki tehtäisiin f-merkkijonojen avulla seuraavasti:
 
 ```python
 nimi = "Erkki"
@@ -89,9 +87,7 @@ ika = 39
 print(f"Hei {nimi} ikäsi on {ika} vuotta")
 ```
 
-Tässä merkkijonon alussa on kirjain _f_, mikä tarkoittaa että merkkijono on f-merkkijono. Merkkijonon sisälle on sijoitettu aaltosuluissa muuttujia, joiden arvot tulevat merkkijonon osaksi. Tulostus on täsmälleen sama kuin aiemmissa esimerkeissä.
-
-Voimme muotoilla monin tavoin f-merkkijonojen avulla tapahtuvaa tulostusta. Yksi tavallinen käyttötapa on antaa liukuluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
+Olemme toistaiseksi käyttäneet f-merkkijonoja niiden kaikkein yksinkertaisimmassa mudossa.F-merkkijonot tarjoavat myös erilaisia mahdollisuuksia tulostuksen muotoiluun. Yksi tavallinen käyttötapa on antaa liukuluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
 
 ```python
 luku = 1/3
@@ -131,6 +127,24 @@ Emilia          keskellä          Emilia
 Juha-Pekka      keskellä      Juha-Pekka
 Maya            keskellä            Maya
 ```
+
+Kannattaa huomata, että f-merkkijonoja voi käyttää muuallakin kuin tulostuskomennossa.Niitä voi esim. sijoittaa muuttujiin ja sekä yhdistellä normaaleihin merkkijonoihin:
+
+```python
+nimi = "Pekka"
+ika = 59
+kaupunki = "Lappeenranta
+tervehdys = f"Hei {nimi}, olet {ika}-vuotias"
+print(tervehdys + f", asuinpaikkasi on {kaupunki}")
+```
+
+<sample-output>
+
+Hei Pekka, olet 59-vuotias,  asuinpaikkasi on Lappeenranta
+
+</sample-output>
+
+F-merkkijonon voi ajatella olevan eräänlainen funktio, joka tuottaa normaalin merkkijonon aaltosuluissa olevien "parametrien" perusteella.
 
 <programming-exercise name=' Lukulistasta merkkijonolistaksi' tmcname='osa04-20_lukulistasta_merkkijonolistaksi'>
 
