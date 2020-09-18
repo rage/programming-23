@@ -425,7 +425,7 @@ Vuotta 2020 seuraava karkausvuosi on 2024
 
 ## Merkkijonon kokoaminen plus-operaattorilla
 
-Pinkoodin tarkastavassa esimerkissä käytimme apumuuttujaa `yritykset` pitämään kirjaa siitä kuinka monta kertaa pinkoodi on syötetty:
+PIN-koodin tarkastavassa esimerkissä käytimme apumuuttujaa `yritykset` pitämään kirjaa siitä kuinka monta kertaa PIN-koodi on syötetty:
 
 ```python
 yritykset = 0
@@ -438,7 +438,7 @@ while True:
 
 Muuttuja alustetaan arvoon nolla silmukan ulkopuolella, ja jokainen silmukan suoritus kasvattaa sen arvoa yhdellä.
 
-Vastaava idea toimii myös merkkijonoille. Voisimme laajentaa ohjelmaa siten, että se kokoaa yhteen merkkijonoon kaikki käyttäjän syöttämät pinkoodit:
+Vastaava idea toimii myös merkkijonoille. Voisimme laajentaa ohjelmaa siten, että se kokoaa yhteen merkkijonoon kaikki käyttäjän syöttämät PIN-koodit:
 
 ```python
 
@@ -448,8 +448,7 @@ yritykset = 0
 while True:
     tunnus = input("Anna PIN-koodi: ")
     yritykset += 1
-    tunnukset += ", " + tunnus
-
+    tunnukset += tunnus + ", "
     # ...
 ```
 
@@ -459,18 +458,18 @@ Apumuuttuja saa aluksi arvokseen _tyhjän merkkijonon_, eli merkkijonon jonka pi
 tunnukset = ""
 ```
 
-Silmukan sisällä merkkijonoa kasvatetaan lisäämällä siihen aina pilkku ja silmukassa syötetty tunnus:
+Silmukan sisällä merkkijonoa kasvatetaan lisäämällä siihen aina silmukassa syötetty tunnus ja pilkku:
 
 ```python
     tunnus = input("Anna PIN-koodi: ")
-    tunnukset += ", " + tunnus
+    tunnukset += tunnus + ", "
 ```
 
 Jos käyttäjä syöttäisi tunnukset _1111 2222 1234_ olisi muuttujan `tunnukset` arvo lopulta
 
 <sample-output>
 
-1111, 2222, 1234
+1111, 2222, 1234,
 
 </sample-output>
 
