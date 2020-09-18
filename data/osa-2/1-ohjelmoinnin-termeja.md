@@ -404,6 +404,10 @@ print(len("moikka"))
 sana2 = "heipparallaa"
 pituus = len(sana2)
 print(pituus)
+
+tyhja_merkkijono = ""
+pituus = len(tyhja_merkkijono)
+print(pituus)
 ```
 
 <sample-output>
@@ -411,6 +415,7 @@ print(pituus)
 4
 6
 12
+0
 
 </sample-output>
 
