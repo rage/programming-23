@@ -268,6 +268,111 @@ for numero in ekan_viikon_lotto.numerot:
 
 Attribuutit voivat olla siis minkä tahansa tyyppisiä - esimerkiksi edellisessä esimerkissä jokaiseen olioon tallennetaan lista ja päivämääräolio.
 
+<programming-exercise name='Kirja' tmcname='osa08-01_kirja'>
+
+Tee luokka `Kirja`, jolla on muuttujat `nimi`, `kirjoittaja`, `genre`, `kirjoitusvuosi` sekä konstruktiori, joka alustaa muuttujat.
+
+Luokkaa käytetään seuraavasti
+
+```python
+python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
+everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
+
+print(f"{python.kirjoittaja}: {python.nimi} ({python.kirjoitusvuosi})")
+print(f"Kirjan {everest.nimi} genre on {everest.genre}")
+```
+
+<sample-output>
+
+Luciano Ramalho: Fluent Python (2015)
+Kirjan Huipulta huipulle genre on elämänkerta
+
+</sample-output>
+
+</programming-exercise>
+
+## Omien luokkien olioiden käyttö
+
+Omien luokkien olioiden käyttöön ei liity mitään ihmeellistä. Ne kättäytyvät esimerkiksi funktioiden parametrina ja paluuarvona kuten olettaa saattaa. Voisimme esimerkiksi tehdä pari apufunktioita tilien käsittelyyn:
+
+```python
+
+# funktio luo uuden tiliolion ja palauttaa sen
+def avaa_tili(nimi: str)
+    uusi_tili =  Pankkitili(0, nimi)
+    return uusi_tili
+
+# funktio asettaa parametrina saamansa rahasumman parametrina olevalle tilille
+def laita_rahaa_tilille(tili: Tili, summa: int)
+    tili.saldo += summa
+
+pekan_tili = avaa_tili("Pekka Python")
+print(pekan_tili.saldo)
+
+laita_rahaa_tilille(pekan_tili, 500)
+
+print(pekan_tili.saldo)
+
+```
+
+<sample-output>
+
+0
+500
+
+</sample-output>
+
+<programming-exercise name='Vanhempi kirja' tmcname='osa08-02_vanhempi_kirja'>
+
+Tee funktio `vanhempi(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-olioa. Funktio kertoo kumpi kirjoista on vahnmpi.
+
+Funktiota käytetään seuraavasti
+
+```python
+python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
+everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
+norma = Kirja("Sofi Oksanen", "Norma", "rikos", 2015)
+
+vanhempi(python, everest)
+vanhempi(python, norma)
+```
+
+<sample-output>
+
+Huipulta huipulle on vanhempi, se kirjoitettiin 2010
+Fluent Python ja Norma kirjoitettiin 2015
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Genren kirjat' tmcname='osa08-03_genren_kirjat'>
+
+Tee funktio `genren_kirjat(kirjat: list, genre: str)`, joka saa parametriksi listan `Kirja`-olioa, sekä genren kertovan merkkijonon.
+
+Funktio _palauttaa_ uuden listan, jolle se laittaa parametrina olevista kirjoista ne, joilla on haluttu genre:
 
 
+Funktiota käytetään seuraavasti
 
+```python
+python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
+everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
+norma = Kirja("Norma", "Sofi Oksanen", "rikos", 2015)
+
+kirjat = [python, everest, norma, Kirja("Lumiukko", "Jo Nesbø", "rikos", 2007)]
+
+print("rikoskirjoja ovat")
+for kirja in genren_kirjat(kirjat, "rikos")
+    print(f"{kirja.kirjoittaja}: {kirja.nimi}")
+```
+
+<sample-output>
+
+rikoskirjoja ovat
+Sofi Oksanen: Norma
+Jo Nesbø: Lumiukko
+
+</sample-output>
+
+</programming-exercise>
