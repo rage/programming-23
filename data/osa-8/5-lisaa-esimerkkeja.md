@@ -154,6 +154,183 @@ Suorakulmio, vasen yläkulma: (5, 3), leveys: 8, korkeus: 4
 
 </sample-output>
 
+<programming-exercise name='Maksukortti' tmcname='osa08-09_maksukortti'>
+
+Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia.
+
+Tässä tehtäväsäsarjassa tehdään luokka `Maksukortti`, jonka tarkoituksena on jäljitellä Unicafeissa tapahtuvaa maksutoimintaa.
+
+### Luokan runko
+
+Tee ohjelmaan uusi luokka nimeltä `Maksukortti`.
+
+Tee ensin luokalle konstruktori, jolle annetaan kortin alkusaldo ja joka tallentaa sen olion sisäiseen muuttujaan. Tee sitten `__repr__`-metodi, joka palauttaa kortin saldon muodossa "Kortilla on rahaa X euroa".
+
+Seuraavassa on luokan Maksukortti runko:
+
+```python
+class  Maksukortti:
+    def __init__(self, alkusaldo):
+        self.saldo = alkusaldo
+
+    def __repr__(self):
+        pass
+```
+
+Käyttöesimerkki
+
+```python
+kortti = Maksukortti(50)
+print(kortti)
+```
+
+Ohjelman tulisi tuottaa seuraava tulostus:
+
+<sample-output>
+
+Kortilla on rahaa 50.0 euroa
+
+</sample-output>
+
+### Kortilla maksaminen
+
+Täydennä Maksukortti-luokkaa seuraavilla metodeilla:
+
+- `syo_edullisesti` joka vähentää kortin saldoa 2.60 eurolla
+- `syo_maukkaasti` joka vähentää kortin saldoa 4.60 eurolla
+
+Seuraava pääohjelma testaa luokkaa
+
+```python
+kortti = Maksukortti(50)
+print(kortti)
+
+kortti.syo_edullisesti()
+print(kortti)
+
+kortti.syo_maukkaasti()
+kortti.syo_edullisesti()
+print(kortti)
+```
+
+Ohjelman tulisi tuottaa seuraava tulostus:
+
+<sample-output>
+
+Kortilla on rahaa 50.0 euroa
+Kortilla on rahaa 47.4 euroa
+Kortilla on rahaa 40.2 euroa
+
+</sample-output>
+
+Huomaa, että kortin saldo ei saa mennä negatiiviseksi:
+
+```python
+kortti = Maksukortti(4)
+print(kortti)
+
+kortti.syo_edullisesti()
+print(kortti)
+
+kortti.syo_edullisesti()
+print(kortti)
+```
+
+<sample-output>
+
+Kortilla on rahaa 4.0 euroa
+Kortilla on rahaa 2.4 euroa
+Kortilla on rahaa 2.4 euroa
+
+</sample-output>
+
+Eli kortin saldo ei enää vähene jos maksettaessa saldo ei ole riittävä.
+
+### Kortin lataaminen
+
+Lisää `Maksukortti`-luokkaan metodi lataa_rahaa
+
+Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä. Kuitenkin kortin saldo saa olla korkeintaan 150 euroa, joten jos ladattava rahamäärä ylittäisi sen, saldoksi tulisi tulla silti tasan 150 euroa.
+
+```python
+kortti = new Maksukortti(10)
+print(kortti)
+kortti.lataa_rahaa(15)
+print(kortti)
+kortti.lataa_rahaa(10)
+print(kortti)
+kortti.lataa_rahaa(200)
+print(kortti)
+
+# negatiivinen lataus ei vaikuta saldoon
+kortti.lataa_rahaa(-10)
+print(kortti)
+```
+
+<sample-output>
+
+Kortilla on rahaa 10.0 euroa
+Kortilla on rahaa 25.0 euroa
+Kortilla on rahaa 35.0 euroa
+Kortilla on rahaa 150.0 euroa
+Kortilla on rahaa 150.0 euroa
+
+</sample-output>
+
+Jos kortille yritetään ladata negatiivinen summa, tulee metodin [tuottaa poikkeus](/osa-6/3-virheet) `ValueError`:
+
+```python
+kortti = new Maksukortti(10)
+kortti.lataa_rahaa(-10)
+```
+
+<sample-output>
+
+File "testi.py", line 3, in maksukortti
+ValueError: Kortille ei saa ladata megatiivista summaa
+
+</sample-output>
+
+### Monta korttia
+
+Tee pääohjelma, joka sisältää seuraavan tapahtumasarjan:
+
+- Luo Pekan kortti. Kortin alkusaldo on 20 euroa
+- Luo Matin kortti. Kortin alkusaldo on 30 euroa
+- Pekka syö maukkaasti
+- Matti syö edullisesti
+- - Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- Pekka lataa rahaa 20 euroa
+- Matti syö maukkaasti
+- Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- Pekka syö edullisesti
+- Pekka syö edullisesti
+- Matti lataa rahaa 50 euroa
+Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+
+Pääohjelman runko
+
+```python
+pekan_kortti = Maksukortti(20)
+matin_kortti = Maksukortti(30)
+# tee koodi tänne
+```
+
+Tulostuksen tulee olla seuraava
+
+<sample-output>
+
+Pekka: Kortilla on rahaa 15.4 euroa
+Matti: Kortilla on rahaa 27.4 euroa
+Pekka: Kortilla on rahaa 35.4 euroa
+Matti: Kortilla on rahaa 22.799999999999997 euroa
+Pekka: Kortilla on rahaa 30.199999999999996 euroa
+Matti: Kortilla on rahaa 72.8 euroa
+
+</sample-output>
+
+</programming-exercise>
+
 ## Esimerkki 2: TBC
 
 LISÄÄ ESIMERKKEJÄ TÄHÄN, AINAKIN PARI ERILAISTA:
