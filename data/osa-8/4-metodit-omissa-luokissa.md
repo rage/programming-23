@@ -359,4 +359,120 @@ Piia
 
 Esimerkistä huomataan, että myös olion omiin metodeihin pitää viitata `self`-määreen avulla kun niitä kutsutaan konstruktorista. Luokkiin voidaan kirjoitaa myös ns. _staattisia metodeita_, eli metodeita, jota voidaan kutsua ilman että luokasta muodostetaan oliota. Tähän palataan kuitenkin tarkemmin ensi kerralla.
 
+**TODO** arvon palauttava metodi
 
+<programming-exercise name='Lukutilasto' tmcname='osa08-07_lukutilasto'>
+
+Tässä tehtävässä toteutetaan olio-ohjelmointia hyödyntäen samantapainen käyttäjän syöttämiä lukuja käsittelevä ohjelma kuin ohjelmoinnin perusteiden [osan 2 lopussa](/osa-2/4-yksinkertainen-silmukka#programming-exercise-lukujen-kasittelya).
+
+### Lukujen määrä
+
+Tee luokka `Lukutilasto` joka tuntee seuraavat toiminnot:
+
+- metodi `lisaa_luku` lisää uuden luvun tilastoon
+- metodi `lukujen_maara` kertoo lisättyjen lukujen määrän
+
+Luokan ei tarvitse tallentaa mihinkään lisättyjä lukuja, vaan riittää muistaa niiden määrä. Metodin `lisaa_luku` ei tässä vaiheessa tarvitse edes ottaa huomioon, mikä luku lisätään tilastoon, koska ainoa tallennettava asia on lukujen määrä.
+
+Luokan runko on seuraava:
+
+```python
+class  Lukutilasto:
+    def __init__(self):
+        self.lukuja = 0
+
+    def lisaa_luku(self, luku:int):
+        pass
+
+    def lukujen_maara(self):
+        pass
+```
+
+```python
+tilasto = Lukutilasto()
+tilasto.lisaa_luku(3)
+tilasto.lisaa_luku(5)
+tilasto.lisaa_luku(1)
+tilasto.lisaa_luku(2)
+print("Lukujen määrä:", tilasto.lukujen_maara())
+```
+
+<sample-output>
+
+Lukujen määrä: 4
+
+</sample-output>
+
+### Summa ja keskiarvo
+
+Laajenna luokkaa seuraavilla toiminnoilla:
+
+- metodi `summa` kertoo lisättyjen lukujen summan (tyhjän lukutilaston summa on 0)
+- metodi `keskiarvo` kertoo lisättyjen lukujen keskiarvon (tyhjän lukutilaston keskiarvo on 0)
+
+```python
+tilasto = Lukutilasto()
+tilasto.lisaa_luku(3)
+tilasto.lisaa_luku(5)
+tilasto.lisaa_luku(1)
+tilasto.lisaa_luku(2)
+print("Lukujen määrä:", tilasto.lukujen_maara())
+print("Summa:", tilasto.summa())
+print("Keskiarvo:", tilasto.keskiarvo())
+```
+
+<sample-output>
+
+Määrä: 4
+Summa: 11
+Keskiarvo: 2.75
+
+</sample-output>
+
+### Summa käyttäjältä
+
+Tee ohjelma, joka kysyy lukuja käyttäjältä, kunnes käyttäjä antaa luvun -1. Sitten ohjelma ilmoittaa lukujen summan.
+
+Ohjelmassa tulee käyttää `Lukutilasto`-oliota summan laskemiseen.
+
+HUOM: Älä muuta tässä osassa luokkaa `Lukutilasto`, vaan toteuta sitä hyödyntäen summan laskemiseen käytetty ohjelma.
+
+<sample-output>
+
+Anna lukuja:
+**4**
+**2**
+**5**
+**2**
+**-1**
+Summa: 13
+Keskiarvo: 4.5
+Parillisten summa: 8
+Parittomien summa: 5
+
+</sample-output>
+
+### Monta summaa
+
+Muuta edellistä ohjelmaa niin, että ohjelma laskee myös parillisten ja parittomien lukujen summaa.
+
+HUOM: Älä edelleenkään muuta luokkaa `Lukutilasto` vaan määrittele ohjelmassa kolme `Lukutilasto`-oliota ja laske ensimmäisen avulla kaikkien lukujen summa ja keskiarvo, toisen avulla parillisten lukujen summa ja kolmannen avulla parittomien lukujen summa.
+
+Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+Anna lukuja:
+**4**
+**2**
+**5**
+**2**
+**-1**
+Summa: 13
+Keskiarvo: 4.5
+Parillisten summa: 8
+Parittomien summa: 5
+
+</sample-output>
+
+</programming-exercise>
