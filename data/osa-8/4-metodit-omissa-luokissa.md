@@ -184,6 +184,116 @@ print("Saldo nyt:", pekan_tili.saldo)
 
 Ongelma voidaan (ainakin osittain) ratkaista piilottamalla attribuutit asiakkaalta. Käytännön toteutukseen palataan tarkemmin ensi viikolla.
 
+<programming-exercise name='Vähenevä laskuri' tmcname='osa08-05_vaheneva_laskuri'>
+
+Tässä tehtävässä on useampi osa. Jokainen osa vastaa yhtä tehtäväpistettä.
+
+Tehtäväpohjan mukana tulee osittain valmiiksi toteutettu luokka `VahenevaLaskuri`:
+
+```python
+class VahenevaLaskuri:
+    def __init__(self, arvo_alussa: int):
+        self.arvo = arvo_alussa
+
+    def tulosta_arvo(self):
+        print("arvo:", self.arvo)
+
+    def vahenna(self):
+        pass
+
+    # ja tänne muut metodit
+```
+
+Luokkaa käytetään seuraavasti
+
+```python
+laskuri = VahenevaLaskuri(10)
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+```
+
+<sample-output>
+
+arvo: 10
+arvo: 9
+arvo: 8
+
+</sample-output>
+
+
+### Metodin vahene toteutus
+
+Täydennä luokan runkoon metodin `vahene()` toteutus sellaiseksi, että se vähentää kutsuttavan olion oliomuuttujan arvo arvoa yhdellä. Kun olet toteuttanut metodin vahene(), edellisen esimerkin pääohjelman tulee toimia esimerkkitulosteen mukaan.
+
+### Laskurin arvo ei saa olla negatiivinen
+
+Täydennä metodin `vahene` toteutus sellaiseksi, ettei laskurin arvo mene koskaan negatiiviseksi. Eli jos laskurin arvo on jo 0, ei vähennys sitä enää vähennä.
+
+```python
+laskuri = VahenevaLaskuri(2)
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+```
+
+<sample-output>
+
+arvo: 2
+arvo: 1
+arvo: 0
+arvo: 0
+
+</sample-output>
+
+### Laskurin arvon nollaus
+
+Tee laskurille metodi `nollaa()` joka nollaa laskurin arvon, esim:
+
+```python
+laskuri = VahenevaLaskuri(100)
+laskuri.tulosta_arvo()
+laskuri.nollaa()
+```
+
+<sample-output>
+
+arvo: 100
+arvo: 0
+
+</sample-output>
+
+### Alkuperäisen arvon palautus
+
+Tee laskurille metodi `palauta_alkuperainen_arvo()` joka palauttaa laskurinlle sen alkuperäisen arvon, esim:
+
+```python
+laskuri = VahenevaLaskuri(55)
+laskuri.vahenna()
+laskuri.vahenna()
+laskuri.vahenna()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+laskuri.palauta_alkuperainen_arvo()
+laskuri.tulosta_arvo()
+```
+
+<sample-output>
+
+arvo: 55
+arvo: 51
+arvo: 55
+
+</sample-output>
+
+</programming-exercise>
+
 Tarkastellaan kuitenkin vielä esimerkkiä luokasta, joka mallintaa pelaajan ennätystulosta. Luokkaan on kirjoitettu erilliset metodit, joilla voidaan tarkastaa ovatko annetut parametrit sopivia. Metodeja kutsutaan heti konstruktorissa. Näin varmistetaan luotavan olion sisäinen eheys.
 
 ```python
