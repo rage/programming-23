@@ -196,7 +196,85 @@ uusi rivi
 
 </sample-output>
 
-Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, voidaan hyödyntää `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
+## Sisäkkäisiä listoja käyttävän koodin visualisointi
+
+Jos sisäkkäisiä listoja käsittelevät ohjelmat tuntuvat hankalalta ymmärtää, kannattaa ehdottomasti havainnollistaa niitä Python tutorin [visualisaattorilla](http://www.pythontutor.com/visualize.html). Seuraavassa kuva edellisen esimerkin visualisoinnista:
+
+<img src="5_1_0a.png">
+
+Kuten kuva paljastaa, 3x3-matriisi koostuu teknisesti ottaen neljästä listasta. Ensimmäinen lista edustaa koko matriisia, ja sen alkioina on erillisiä rivejä edustavat listat. 
+
+Kuva havainnollistaa jo sitä seikkaa, mistä puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
+
+Kuvassa tulostus on edennyt matriisin toiselle riville, mihin muuttuja `rivi` parhaillaan viittaa. Muuttuja `alkio` kertoo sen alkion jonka kohdalla tulostus on menossa, sen arvo on nyt keskimmäisen rivin kesimäinen eli 5.
+
+## Lisää matriisin käsittelyä
+
+Matriisin yksittäisten rivien käsittely on helppoa, riittää että valitaan haluttu rivi. Esimerkiksi seuraava funktio laskee halutun rivin alkioiden summan:
+
+```python
+def rivin_alkioiden_summa(matriisi, rivi_nro: int):
+    # tarkasteluun valitaan yksi rivi
+    rivi = matriisi[rivi_nro]
+    summa = 0
+    for alkio in rivi:
+        summa += alkio
+
+    return summa 
+
+m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]  
+
+summa = rivin_alkioiden_summa(m, 1)
+print(summa) # tulostuu 33 (saadaan laskemalla 9 + 1 + 12 + 11)
+```
+
+Jos taas haluttaisiin laskea tietyn sarakkeen eli "pystyrivin" alkioiden summa, tilanne olisi jo monimutkaisempi:
+
+```python
+def sarakkeen_suurin_alkio(matriisi, sarake_nro: int):
+    # summaan lisätään kaikkien rivien halutussa kohdassa oleva alkio
+    summa = 0
+    for rivi in matriisi:
+      summa += rivi[sarake_nro]
+
+    return suurin 
+
+m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]  
+
+summa = sarakkeen_suurin_alkio(m, 2)
+print(summa) # tulostuu 39 (saadaan laskemalla 3 + 12 + 9 + 15)
+```
+
+Tarkasteltava sarake siis koostuu _jokaisen rivin_ paikassa 2 olevasta alkiosta.
+
+Näidenkin ohjelmien toiminta kannattaa ehdottomasti käydä läpi [visualisaattorilla](http://www.pythontutor.com/visualize.html)!
+
+Matriisissa olevan yksittäisen arvon vaihtaminen on helppoa. Riittää että valitaan matriisin sisältä oikea rivi ja sen sisältä sarake: 
+
+```python
+def vaihda_arvoon(matriisi, rivi_nro: int, sarake_nro: int, arvo: int):
+    # haetaan oikea rivi
+    rivi = matriisi[rivi_nro]
+    # ja sen sisältä oikea kohta
+    rivi[sarake_nro] = arvo
+
+m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]  
+
+print(m)
+vaihda_arvoon(m, 2, 3, 1000)
+print(m) 
+```
+
+<sample-output>
+
+[[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]] 
+[[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 1000], [2, 9, 15, 1]] 
+
+</sample-output>
+
+Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, ei ole mahdollista käyttää "normaalia" for-silmukkaa, sillä muutettaessa sisältöä on pakko tietää muutettavien alkioiden indeksit. 
+
+Tämä taas onnistuu `while`-silmukalla tai `for`-silmukalla hyödyntämäällä `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
 
 ```python
 m = [[1,2,3], [4,5,6], [7,8,9]]
