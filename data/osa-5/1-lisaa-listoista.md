@@ -208,7 +208,7 @@ Kuten kuva paljastaa, 3x3-matriisi koostuu teknisesti ottaen neljästä listasta
 
 Kuva havainnollistaa jo sitä seikkaa, mistä puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
 
-Kuvassa tulostus on edennyt matriisin toiselle riville, mihin muuttuja `rivi` parhaillaan viittaa. Muuttuja `alkio` kertoo sen alkion jonka kohdalla tulostus on menossa, sen arvo on nyt keskimmäisen rivin kesimäinen eli 5.
+Kuvassa tulostus on edennyt matriisin toiselle riville, mihin muuttuja `rivi` parhaillaan viittaa. Muuttuja `alkio` kertoo sen alkion jonka kohdalla tulostus on menossa, sen arvo on nyt keskimmäisen rivin keskimäinen eli 5.
 
 ## Lisää matriisin käsittelyä
 
@@ -233,7 +233,7 @@ print(summa) # tulostuu 33 (saadaan laskemalla 9 + 1 + 12 + 11)
 Jos taas haluttaisiin laskea tietyn sarakkeen eli "pystyrivin" alkioiden summa, tilanne olisi jo monimutkaisempi:
 
 ```python
-def sarakkeen_suurin_alkio(matriisi, sarake_nro: int):
+def sarakkeen_alkioiden_summa(matriisi, sarake_nro: int):
     # summaan lisätään kaikkien rivien halutussa kohdassa oleva alkio
     summa = 0
     for rivi in matriisi:
@@ -243,7 +243,7 @@ def sarakkeen_suurin_alkio(matriisi, sarake_nro: int):
 
 m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]  
 
-summa = sarakkeen_suurin_alkio(m, 2)
+summa = sarakkeen_alkioiden_summa(m, 2)
 print(summa) # tulostuu 39 (saadaan laskemalla 3 + 12 + 9 + 15)
 ```
 
