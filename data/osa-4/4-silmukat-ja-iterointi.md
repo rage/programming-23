@@ -242,7 +242,7 @@ print(luvut)
 
 ## Muistutus tehtävien funktioita testaavasta omasta koodista
 
-Funktiotehtävien tehtäväpohjat ovat tähän asti näyttäneet seuraavilta
+Funktiotehtävien tehtäväpohjat ovat tähän asti näyttäneet seuraavilta:
 
 ```python
 # tee ratkaisu tänne
@@ -254,9 +254,9 @@ if __name__ == "__main__":
     print(vika_sana(lause))
 ```
 
-Tästä eteenpäin muistutusta siitä, että testikoodi on sijoitettava `if __name__ == "__main__"` -lohkoon ei tehäväpohjissa enää ole. Testit kuitenkin vaativat lohkon edelleen, eli joudut lisäämään sen itse.
+Tästä eteenpäin muistutusta siitä, että testikoodi on sijoitettava `if __name__ == "__main__"` -lohkoon, ei tehtäväpohjissa enää ole. Testit kuitenkin vaativat lohkon edelleen, eli joudut lisäämään sen itse.
 
-**Huomaa kuitenkin**, että jotkut tehtävät, esim. hetken kuluttua vuodossa oleva _Palindormit_ edellyttävät funktioiden lisäksi myös funktiota kutsuvaa koodia. Tätä koodia _ei tule_ sijoittaa  `if __name__ == "__main__"` -lohkon sisälle. Testit eivät nimittän suorita mitään kyseisen lohkon koodista.
+**Huomaa kuitenkin**, että jotkut tehtävät, esim. hetken kuluttua vuodossa oleva _Palindromit_, edellyttävät funktioiden lisäksi myös funktiota kutsuvaa koodia. Tätä koodia _ei tule_ sijoittaa  `if __name__ == "__main__"` -lohkon sisälle. Testit eivät nimittäin suorita mitään kyseisen lohkon koodista.
 
 <programming-exercise name='Tähdet' tmcname='osa04-12_tahdet'>
 
