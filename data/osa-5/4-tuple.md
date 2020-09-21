@@ -54,6 +54,8 @@ TypeError: 'tuple' object does not support item assignment
 
 </sample-output>
 
+TODO: Helppo tuplen generointitehtävä (esim. muodosta parametreista henkilötuple tms.)
+
 <programming-exercise name='Vanhin henkilöistä' tmcname='osa05-18_vanhin_henkiloista'>
 
 Tee funktio `vanhin(henkilot: list)`, joka saa parametrikseen listan henkilöitä esittäviä tupleja. Funktio etsii ja palauttaa vanhimman henkilön nimen.

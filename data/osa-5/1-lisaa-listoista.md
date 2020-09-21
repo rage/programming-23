@@ -68,6 +68,8 @@ Keskiarvo: 10.15
 
 </sample-output>
 
+TODO: Yksinkertainen tehtävä merkkijonolistasta (tai liukulukulistasta tai molemmista)
+
 
 ## Sisäkkäiset listat
 
@@ -276,6 +278,9 @@ Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, ei ole mahdol
 
 Tämä taas onnistuu `while`-silmukalla tai `for`-silmukalla hyödyntämäällä `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
 
+
+Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, voidaan hyödyntää `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
+
 ```python
 m = [[1,2,3], [4,5,6], [7,8,9]]
 
@@ -293,6 +298,8 @@ print(m)
 </sample-output>
 
 Ulompi silmukka käy `range`-funktion avulla läpi arvot nollasta matriisin pituuteen (eli matriisin rivien määrään) ja sisempi silmukka jokaisen rivin alkiot nollasta rivin pituuteen.
+
+TODO: Yksinkertainen tehtävä matriisin iteroinnista
 
 <programming-exercise name='Alkioiden määrä' tmcname='osa05-01_alkoiden_maara'>
 
