@@ -447,8 +447,6 @@ Anna lukuja:
 **-1**
 Summa: 13
 Keskiarvo: 4.5
-Parillisten summa: 8
-Parittomien summa: 5
 
 </sample-output>
 

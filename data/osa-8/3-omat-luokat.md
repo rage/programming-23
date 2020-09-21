@@ -363,7 +363,7 @@ norma = Kirja("Norma", "Sofi Oksanen", "rikos", 2015)
 kirjat = [python, everest, norma, Kirja("Lumiukko", "Jo Nesbø", "rikos", 2007)]
 
 print("rikoskirjoja ovat")
-for kirja in genren_kirjat(kirjat, "rikos")
+for kirja in genren_kirjat(kirjat, "rikos"):
     print(f"{kirja.kirjoittaja}: {kirja.nimi}")
 ```
 

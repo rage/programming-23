@@ -166,7 +166,12 @@ kello.tick()
 print(kello)
 kello.tick()
 print(kello)
-kello.aseta(1, 1)
+kello.tick()
+print(kello)
+kello.tick()
+print(kello)
+
+kello.aseta(12, 5)
 print(kello)
 ```
 
@@ -178,10 +183,10 @@ print(kello)
 23:59:59
 00:00:00
 00:00:01
-00:01:01
+12:05:01
 </sample-output>
 
-Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille aluarvot. Metodi `tick` vie kelloa sekunnin eteenpäin ja metodilla `aseta` voi asettaa kellon tunneille ja minuuteille uuden arvon.
+Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. Metodi `tick` vie kelloa sekunnin eteenpäin ja metodilla `aseta` voi asettaa kellon tunneille ja minuuteille uuden arvon.
 
 </programming-exercise>
 
@@ -270,8 +275,8 @@ print(kortti)
 <sample-output>
 
 Kortilla on rahaa 4.0 euroa
-Kortilla on rahaa 2.4 euroa
-Kortilla on rahaa 2.4 euroa
+Kortilla on rahaa 1.4 euroa
+Kortilla on rahaa 1.4 euroa
 
 </sample-output>
 
@@ -284,7 +289,7 @@ Lisää `Maksukortti`-luokkaan metodi lataa_rahaa
 Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä. Kuitenkin kortin saldo saa olla korkeintaan 150 euroa, joten jos ladattava rahamäärä ylittäisi sen, saldoksi tulisi tulla silti tasan 150 euroa.
 
 ```python
-kortti = new Maksukortti(10)
+kortti = Maksukortti(10)
 print(kortti)
 kortti.lataa_rahaa(15)
 print(kortti)
@@ -318,7 +323,7 @@ kortti.lataa_rahaa(-10)
 <sample-output>
 
 File "testi.py", line 3, in maksukortti
-ValueError: Kortille ei saa ladata megatiivista summaa
+ValueError: Kortille ei saa ladata negatiivista summaa
 
 </sample-output>
 
@@ -418,7 +423,7 @@ arvostelujen keskiarvo 3.4 pistettä
 
 ### Sarjojen haku
 
-Tee kaksi funktiota `arvosana_vahintaan(arvosana: int, sarjat: list)` ja `sisaltaa_genren(genre: srt, sarjat: list)`, joiden avulla on mahdollista etsilä listalla olevia sarjoja.
+Tee kaksi funktiota `arvosana_vahintaan(arvosana: int, sarjat: list)` ja `sisaltaa_genren(genre: srt, sarjat: list)`, joiden avulla on mahdollista etsiä listalla olevia sarjoja.
 
 Metodit toimivat seuraavasti:
 
