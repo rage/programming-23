@@ -8,7 +8,7 @@ hidden: false
 
 Tässä osiossa
 
-- Tutustutaan metodiin __str__
+- Tutustutaan metodiin __repr__
 - Esitellään lisää esimerkkejä luokista ja niistä muodostettavista olioista
 
 </text-box>
@@ -49,9 +49,6 @@ class Suorakulmio:
         x = self.vasen_ylakulma[0] + x_askeleet
         y = self.vasen_ylakulma[1] + y_askeleet
         self.vasen_ylakulma = (x, y)
-
-
-
 
 # Testataan
 suorakulmio = Suorakulmio((1,1), 5, 3)
@@ -153,6 +150,40 @@ print(sk)
 Suorakulmio, vasen yläkulma: (5, 3), leveys: 8, korkeus: 4
 
 </sample-output>
+
+<programming-exercise name='Kello' tmcname='osa08-08_kello'>
+
+Toteuta luokka `Kello`, joka toimii seuraavaan tapaan:
+
+```python
+kello = Kello(23, 59, 55)
+print(kello)
+kello.tick()
+print(kello)
+kello.tick()
+print(kello)
+kello.tick()
+print(kello)
+kello.tick()
+print(kello)
+kello.aseta(1, 1)
+print(kello)
+```
+
+<sample-output>
+23:59:55
+23:59:56
+23:59:57
+23:59:58
+23:59:59
+00:00:00
+00:00:01
+00:01:01
+</sample-output>
+
+Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille aluarvot. Metodi `tick` vie kelloa sekunnin eteenpäin ja metodilla `aseta` voi asettaa kellon tunneille ja minuuteille uuden arvon.
+
+</programming-exercise>
 
 <programming-exercise name='Maksukortti' tmcname='osa08-09_maksukortti'>
 
@@ -336,8 +367,91 @@ Matti: Kortilla on rahaa 72.8 euroa
 LISÄÄ ESIMERKKEJÄ TÄHÄN, AINAKIN PARI ERILAISTA:
 - Joku, jossa attribuuttina on lista tai dict
 
+<programming-exercise name='Sarja' tmcname='osa08-10_sarja'>
 
+### Luokka Sarja
 
+Tee luokka `Sarja`, joka toimii seuraavasti
 
+```python
+dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
+print(dexter)
+```
 
+<sample-output>
 
+Dexter (8 esityskautta)
+genret: Crime, Drama, Mystery, Thriller
+ei arvosteluja
+
+</sample-output>
+
+Konstruktorissa siis asetetaan sarjan nimi, sen esityskausien lukumäärä sekä lista, joka kertoo mihin genreen sarja kuuluu.
+
+### Arvostelujen lisääminen
+
+Tee luokalle metodi `arvostele`, jonka avulla sarjalle voi lisätä arvosanan, joka on luku väliltä 0-5. Myös metodia `__repr__` tulee muuttaa.
+
+```python
+dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
+dexter.arvostele(4)
+dexter.arvostele(5)
+dexter.arvostele(5)
+dexter.arvostele(3)
+dexter.arvostele(0)
+print(dexter)
+```
+
+<sample-output>
+
+Dexter (8 esityskautta)
+genret: Crime, Drama, Mystery, Thriller
+arvostelujen keskiarvo 3.4 pistettä
+  5: 2
+  4: 1
+  3: 1
+  2: 0
+  1: 0
+  0: 1
+
+</sample-output>
+
+### Sarjojen haku
+
+Tee kaksi funktiota `arvosana_vahintaan(arvosana: int, sarjat: list)` ja `sisaltaa_genren(genre: srt, sarjat: list)`, joiden avulla on mahdollista etsilä listalla olevia sarjoja.
+
+Metodit toimivat seuraavasti:
+
+```python
+s1 = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
+s1.arvostele(5)
+
+s2 = Sarja("South Park", 24, ["Animation", "Comedy"])
+s1.arvostele(3)
+
+s2 = Sarja("Friends", 10, ["Romance", "Comedy"])
+s1.arvostele(2)
+
+sarjat = [s1, s2, s3]
+
+print("arvosana vähintään 4.5:")
+for sarja in arvosana_vahintaan(4.5, sarjat):
+    print(sarja.nimi)
+
+print("genre Comedy:")
+for sarja in arvosana_vahintaan(4.5, sarjat):
+    print(sarja.nimi)
+```
+
+<sample-output>
+
+arvosana vähintään 4.5:
+Dexter
+
+genre Comedy:
+South Park
+Friends
+
+</sample-output>
+
+<programming-exercise />
