@@ -239,7 +239,7 @@ def sarakkeen_alkioiden_summa(matriisi, sarake_nro: int):
     for rivi in matriisi:
       summa += rivi[sarake_nro]
 
-    return suurin 
+    return summa 
 
 m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]  
 
