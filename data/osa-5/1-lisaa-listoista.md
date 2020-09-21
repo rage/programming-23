@@ -68,6 +68,8 @@ Keskiarvo: 10.15
 
 </sample-output>
 
+TODO: Yksinkertainen tehtävä merkkijonolistasta (tai liukulukulistasta tai molemmista)
+
 
 ## Sisäkkäiset listat
 
@@ -195,6 +197,8 @@ uusi rivi
 9
 
 </sample-output>
+
+TODO: Yksinkertainen tehtävä matriisin iteroinnista
 
 Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, voidaan hyödyntää `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
 

@@ -123,6 +123,8 @@ print(lista2)
 
 Mikäli samaan listaan on useampia viittauksia, sitä voidaan käsitellä minkä tahansa viittauksen kautta samalla tavalla. Toisaalta yhden viittauksen kautta tehtävä muutos heijastuu myös muihin viittauksiin.
 
+TODO: Yksinkertainen tehtävä viittauksista (onko sellaista)?
+
 ## Listan kopiointi
 
 Jos haluamme tehdä listasta erillisen kopion, voimme luoda uuden listan ja lisätä siihen jokaisen aluperäisen listan alkion:
@@ -166,6 +168,8 @@ print(kopio)
 [1, 20, 3, 4]
 
 </sample-output>
+
+TODO: Yksinkertainen tehtävä listan kopioinnista
 
 ## Lista funktion parametrina
 
@@ -288,6 +292,8 @@ def kasvata_kaikkia(lista: list):
 
     lista[:] = uusilista
 ```
+
+TODO: Yksinkertainen tehtävä, jossa funktiolla pitää muuttaa listaa
 
 <programming-exercise name='Sudoku: ruudukon tulostus ja luvun lisäys' tmcname='osa05-07_sudoku_osa5'>
 
