@@ -284,7 +284,6 @@ Puolitushakualgoritmi on helppo toteuttaa Pythonissa, koska listojen pilkkominen
 
 Jos verrataan puolitushakua _peräkkäishakuun_, algoritmien tehokkuus erottuu selvästi. Perättäishaussa alkiota lähdetään etsimään listan alusta, ja listaa käydään läpi yksi alkio kerrallaan kunnes alkio on löytynyt tai on päästy listan loppuun. Jos listan pituus on miljoona alkiota, tarvitaan perättäishaussa koko listan läpikäyntiin miljoona askelta - puolitushaussa askelia tarvitaan 20.
 
-# Esimerkki: Binääripuu
 
 
 
