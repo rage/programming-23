@@ -738,6 +738,28 @@ naa
 
 </sample-output>
 
+**Vihje** seuraava esimerkki saattaa antaa jotain inspiraatiota eräästä tavasta miten tätä tehtävää voi lähestyä
+
+```python
+sana = input("Sana: ")
+while True:
+    if len(sana) == 0:
+        break
+    print(sana)
+    sana = sana[2:]
+```
+
+<sample-output>
+
+Sana: **apinatalo**
+apinatalo
+inatalo
+atalo
+alo
+o
+
+</sample-output>
+
 </in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Toinen esiintymä" tmcname="osa03-15_toinen_esiintyma">
