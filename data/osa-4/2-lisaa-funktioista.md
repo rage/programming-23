@@ -152,7 +152,7 @@ Moikka, Emilia
 
 <programming-exercise name='Neliö' tmcname='osa04-02a_nelio'>
 
-Tee funktio `nelio`, joka saa kaksi parametria. Funktio tulostaa neliön jonka korkeus ja leveys korkeuden ja leveyden kertoo ensimmäinen parametri.  Toinen parametri määrittelee mitä merkkiä käyttäen neliö piirretään.
+Tee funktio `nelio`, joka saa kaksi parametria. Funktio tulostaa neliön jonka korkeuden ja leveyden kertoo ensimmäinen parametri.  Toinen parametri määrittelee mitä merkkiä käyttäen neliö piirretään.
 
 Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle.
 
