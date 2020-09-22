@@ -190,7 +190,7 @@ Kuinka monta lukua: **3**
 Anna luku 1: **10**
 Anna luku 2: **250**
 Anna luku 3: **34**
-Lista: [10, 250, 34]
+[10, 250, 34]
 
 </sample-output>
 
