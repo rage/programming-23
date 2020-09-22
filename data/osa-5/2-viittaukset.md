@@ -41,10 +41,15 @@ print(id(b))
 
 Viittaus eli muuttujan id on kokonaisluku, jonka voi ajatella olevan muuttujan arvon sijainnin osoite tietokoneen muistissa. Huomaa, että jos suoritat yllä olevan koodin omalla koneellasi, tulos on luultavasti erilainen, koska muuttujilla on eri viitteet.
 
+Kuten jo [edellisen osan](/osa-5/1-lisaa-listoja#heading-sisakkaisia-listoja-kayttavan-koodin-visualisointi) esimerkistä näimme python tutorin visualisaattori näyttää viitteet "nuolina" varsinaiseen sisältöön. Visualisaattori kuitenkin "huijaa" merkkijonojen tapauksessa, ja näyttää ne ikäänkuin merkkijonon sisältö olisi talletettu muuttujan sisälle:
+
+<img src="5_2_1a.png">
+
+Näin ei kuitaan ole todellisuudessa, merkkijonotkin käsitellään pythonin sisäisissä rakenteissa samaan tapaan kuin listat.
+
 Monet Pythonin sisäänrakennetut tyypit, kuten `str`, ovat _muuttumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan arvo voidaan korvata uudella arvolla:
 
 <img src="5_2_2.png">
-
 
 Pythonissa on myös tyyppejä, jotka ovat muuttuvia. Esimerkiksi listan sisältö voi muuttua ilman, että tarvitsee luoda kokonaan uusi lista:
 
@@ -123,6 +128,10 @@ print(lista2)
 
 Mikäli samaan listaan on useampia viittauksia, sitä voidaan käsitellä minkä tahansa viittauksen kautta samalla tavalla. Toisaalta yhden viittauksen kautta tehtävä muutos heijastuu myös muihin viittauksiin.
 
+Visualisaattori näyttää jälleen selkeästi mitä ohjelmassa tapahtuu:
+
+<img src="5_2_4a.png">
+
 TODO: Yksinkertainen tehtävä viittauksista (onko sellaista)?
 
 ## Listan kopiointi
@@ -148,6 +157,12 @@ lista [1, 2, 3, 3, 5]
 kopio [10, 2, 3, 3, 5, 6]
 
 </sample-output>
+
+Visualisaattorilla tarkastellen kopiointi näyttää seuraavalta:
+
+<img src="5_2_4b.png">
+
+Muuttuja `kopio` siis viittaa nyt eri listaan kuin muuttuja `lista`.
 
 Helpompi tapa listan kopioimiseen on hyödyntää `[]`-operaattoria, johon tutustuimme aiemmin kurssilla. Merkintä `[:]` tarkoittaa, että listalta valitaan kaikki alkiot, ja tämän sivuvaikutuksena syntyy kopio listasta:
 
@@ -179,7 +194,8 @@ Esimerkiksi seuraava funktio lisää uuden alkion parametrinaan saamaansa listaa
 
 ```python
 def lisaa_alkio(lista: list):
-    lista.append(10)
+    uusi_alkio = 10
+    lista.append(uusi_alkio)
 
 lista = [1,2,3]
 print(lista)
@@ -192,12 +208,21 @@ print(lista)
 [1, 2, 3, 10]
 </sample-output>
 
-Huomaa, että funktio `lisaa_alkio` ei palauta mitään, vaan muuttaa parametrinaan saamaansa listaa. Toinen tapa olisi luoda uusi lista ja palauttaa se:
+Huomaa, että funktio `lisaa_alkio` ei palauta mitään, vaan muuttaa parametrinaan saamaansa listaa.
+
+Visualisaattori havainnollistaa tilanteen seuraavasti:
+
+<img src="5_2_4c.png">
+
+_Global frame_ tarkoittaa pääohjelman muuttujia ja sinisellä oleva laatikko *lisaa_alkio* taas funktion parametreja ja muuttujia. Kuten visualisaatio havainnollistaa, funktio viittaa samaan listaan mihin pääohjelmakin viittaa, eli funktiossa listalle tehtävät muutokset näkyvät pääohjelmaan.
+
+Toinen tapa olisi luoda uusi lista ja palauttaa se:
 
 ```python
 def lisaa_alkio(lista: list) -> list:
+    uusi_alkio = 10
     kopio = lista[:]
-    kopio.append(10)
+    kopio.append(uusi_alkio)
     return kopio
 
 luvut = [1, 2, 3]
@@ -213,6 +238,8 @@ Alkuperäinen lista: [1, 2, 3]
 Uusi lista: [1, 2, 3, 10]
 
 </sample-output>
+
+Jos et ole 100% varma mitä koodissa tapahtuu, käy sen toiminta läpi visualisaattorilla!
 
 ## Parametrina olevan listan muokkaaminen
 
@@ -248,6 +275,10 @@ Seuraava kuvasarja havainnollistaa, mihin eri muuttujat viittaavat ohjelman suor
 <img src="5_2_6.png" width="400">
 
 Funktion sisällä muutettu lista siis "kadotetaan" kun funktiosta palataan, ja muuttuja `luvut` viittaa koko ajan alkuperäiseen listaan.
+
+Visualisaattori on tässäkin tapauksessa ystävä, se näyttää selkeästi miten funktio ei koske alkuperäiseen listaan ollenkaan, vaan luo uuden listan johon muutokset tehdään:
+
+<img src="5_2_4d.png">
 
 Yksi tapa korjata ongelma on kopioida uuden listan kaikki alkiot takaisin vanhaan listaan:
 
