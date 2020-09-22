@@ -420,6 +420,9 @@ Arvosanajakauma:
 
 Desimaaliluvut tulostetaan yhden desimaalin tarkkuudella.
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon! Eli jos ohjelmasi toiminnallisuus on esim. funktiossa `main`, tulee sitä kutsuva koodi kirjoittaa normaaliin tapaan, eikä ym. if-lohkoon kuten on tehtävä niissä tehtävissä, joissa edellytetään funktioiden toteuttamista.
+
 **Vihje:**
 
 Ohjelman syöte koostuu riveistä joilla on peräkkäin kaksi numeroa:
