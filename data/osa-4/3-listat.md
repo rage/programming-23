@@ -415,16 +415,16 @@ Esimerkkisuoritus:
 
 Anna luku: **3**
 Lista: [3]
-Järjestyksessä: [3]
+Järjestettynä: [3]
 Anna luku: **1**
 Lista: [3, 1]
-Järjestyksessä: [1, 3]
+Järjestettynä: [1, 3]
 Anna luku: **9**
 Lista: [3, 1, 9]
-Järjestyksessä: [1, 3, 9]
+Järjestettynä: [1, 3, 9]
 Anna luku: **5**
 Lista: [3, 1, 9, 5]
-Järjestyksessä: [1, 3, 5, 9]
+Järjestettynä: [1, 3, 5, 9]
 Anna luku: **0**
 Moi!
 
