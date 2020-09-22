@@ -85,21 +85,21 @@ mutta monet myös käyttävät termejä sekaisin.
 
 Jos ohjelmasi ei toimi oikein, antavat testit enemmän tai vähemmän hyvän virheilmoituksen. Virheilmoitus kannattaa ehdottomasti lukea huolellisesti.
 
-Joissain tilanteissa vihrilmoutus ei kerro tarkemmin mistä on kyse. Esimerkiksi seuraavassa tehtävässä saatat törmätä seuraavaan virheeseen:
+Joissain tilanteissa virheilmoitus ei kerro tarkemmin, mistä on kyse. Esimerkiksi seuraavassa tehtävässä saatat törmätä seuraavaan virheeseen:
 
 <img src="4_2_0a.png">
 
-Virhe kertoo että tehtävän funktiota `viiva` pitäisi pystyä kutsumaan seuraavasti:
+Virhe kertoo, että tehtävän funktiota `viiva` pitäisi pystyä kutsumaan seuraavasti:
 
 ```python
 viiva(5, "")
 ```
 
-Varsinaninen ongelma paljastuu kun kokeillaan mitä funktiokutsu tekee. Eli kopioidaan virheilmoituksen kertoma funktiokutsu koodiin ja painetaan vihreää kolmiota:
+Varsinainen ongelma paljastuu, kun kokeillaan, mitä funktiokutsu tekee, eli kopioidaan virheilmoituksen kertoma funktiokutsu koodiin ja painetaan vihreää kolmiota:
 
 <img src="4_2_0b.png">
 
-Koodin suorituksen viimeiset rivit kertovat mikä on vikana: koodirivin numero 4 aiheuttaa virheen _IndexError: string index out of range_. Kuten [edellisessä osassa](/osa-3/2-merkkijonojen-kasittely) mainittiin, syy tälle on se, että koodissa yritetään indeksoida merkkijonon ulkopuolelle. Tällä kertaa syynä on se, että yritetään hakea nollan pituisen merkkijonon ensimmäistä merkkiä.
+Koodin suorituksen viimeiset rivit kertovat, mikä on vikana: koodirivi numero 4 aiheuttaa virheen _IndexError: string index out of range_. Kuten [edellisessä osassa](/osa-3/2-merkkijonojen-kasittely) mainittiin, syy tälle on se, että koodissa yritetään indeksoida merkkijonon ulkopuolelle. Tällä kertaa syynä on se, että yritetään hakea nollan pituisen merkkijonon ensimmäistä merkkiä.
 
 <programming-exercise name='Viiva' tmcname='osa04-02_viiva'>
 

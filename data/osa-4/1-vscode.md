@@ -177,11 +177,11 @@ Tärkeä komento on `exit()`, joka sulkee komentotulkin. Erityisesti jos käytä
 
 ## Debuggeri
 
-Muutamassa edellisessä osassa on jo korostettu debuggaustaitojen tärkeyttä ja demonstroitu tulostamalla tapahtuvaa debuggausta. Visual studio code -editori tarjoaa ehkä kehittyneimmän menetelmän debuggaukseen: _visuaalisen debuggerin_.
+Muutamassa edellisessä osassa on jo korostettu debuggaustaitojen tärkeyttä ja demonstroitu tulostamalla tapahtuvaa debuggausta. Visual Studio Code -editori tarjoaa ehkä kehittyneimmän menetelmän debuggaukseen: _visuaalisen debuggerin_.
 
-Debuggaus aloitetaan määrittelemällä koodiin ns. _breakpoint_ eli kohta mihin debuggeri pysäyttää koodin suorituksen. Breakpoint asetetaan klikkaamalla hiirellä halutun koodirivin vasemmalta puolelta.
+Debuggaus aloitetaan määrittelemällä koodiin ns. _breakpoint_ eli kohta, johon debuggeri pysäyttää koodin suorituksen. Breakpoint asetetaan klikkaamalla hiirellä halutun koodirivin vasemmalta puolelta.
 
-Seuraavassa breakpoint on asetettu [edellisen osan](/osa-3/1-ehdot-silmukoissa) tehtävän _peräkkäisten summa_ erään hieman rikkinäisen ratkaisun riville 5:
+Seuraavassa esimerkissä breakpoint on asetettu [edellisen osan](/osa-3/1-ehdot-silmukoissa) tehtävän _Peräkkäisten summa_ erään hieman rikkinäisen ratkaisun riville 5:
 
 <img src="4_1_5.png">
 
@@ -193,16 +193,16 @@ Debuggeri käynnistyy ja alkaa suorittaa koodia normaaliin tapaan, kunnes se tö
 
 <img src="4_1_7.png">
 
-Vasempaan reunaan on avautunut näkymä _Variables_ joka kertoo senhetkisten muuttujien arvot. Koodia voidaan suorittaa rivi riviltä painelemalla alaspäin osoittavaa nuolta (step into).
+Vasempaan reunaan on avautunut näkymä _Variables_, joka kertoo senhetkisten muuttujien arvot. Koodia voidaan suorittaa rivi riviltä painelemalla alaspäin osoittavaa nuolta (_Step into_).
 
-Seuraavassa tilanne kun silmukkaa on suoritettu muutamia kertoja.
+Seuraavassa tilanne, kun silmukkaa on suoritettu muutamia kertoja:
 
 <img src="4_1_8.png">
 
-Debuggerin välilehti _Debug console_ mahdollistaa myös erilaisten lausekkeiden evaluoinnin debuggaushetken muuttujien arvoilla. Voidaan esimerkiksi kokeilla mikä silmukan lopetusehdon arvo on:
+Debuggerin välilehti _Debug console_ mahdollistaa myös erilaisten lausekkeiden evaluoinnin debuggaushetken muuttujien arvoilla. Voidaan esimerkiksi kokeilla, mikä silmukan lopetusehdon arvo on:
 
 <img src="4_1_9.png">
 
-Ohjelmassa voi olla myös useita breakpointeja. Pysähtymisen jälkeen koodi voidaan taas käynnistään sinisellä kolmiolla (Continue) ja suoritus jatkuu kunnes ohjelma törmää seuraavaan breakpointiin...
+Ohjelmassa voi olla myös useita breakpointeja. Pysähtymisen jälkeen koodi voidaan taas käynnistää sinisellä kolmiolla (_Continue_) ja suoritus jatkuu kunnes ohjelma törmää seuraavaan breakpointiin.
 
-Visuaalinen debuggeri on oivallinen työkalu. On kuitenkin osittain mieltymyksistä kiinni mitä debuggaustekniikoita kukin käyttää. Debuggerin käynnistämisessä on pieni vaiva, joten itse turvaudun useimmiten debugtulostuksiin.
+Visuaalinen debuggeri on oivallinen työkalu. On kuitenkin osittain mieltymyksistä kiinni, mitä debuggaustekniikoita kukin käyttää. Debuggerin käynnistämisessä on pieni vaiva, joten jotkut ohjelmoijat turvautuvat useimmiten debugtulostuksiin.
