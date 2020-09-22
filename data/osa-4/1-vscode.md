@@ -17,6 +17,8 @@ Olemme tähän mennessä ohjelmoineet kaikki tehtävät kurssisivuille upotettui
 
 Erilaisia ohjelmointiin sopivia editoreja on kymmeniä. Käytämme kurssilla viime vuosina suureen suosioon noussutta [Visual Studio Code](https://code.visualstudio.com/) -editoria.
 
+<notice>Jos käytät Helsingin Yliopiston fuksiläppäriä, aja komento `i-want-sudo-access` terminaalissa ja seuraa ohjeita ennen asentamista</notice>
+
 Asenna nyt Visual Studio Code ja kurssin tehtävien testien suorittamiseen käytettävä TMC-plugin [tämän ohjeen](https://www.mooc.fi/fi/installation/vscode) avulla.
 
 <programming-exercise name='Hello Visual Studio Code' tmcname='osa04-01_hello_visualstudio_code'>
