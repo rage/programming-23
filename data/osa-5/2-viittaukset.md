@@ -390,6 +390,27 @@ _ _ _  _ _ _  _ _ _
 
 </sample-output>
 
+**Vihje**
+
+Saatat tässä tehtävässä hyötyä siitä, että `print`-komentoa on mahdollista käyttää myös siten, että se ei aiheuta rivinvaihtoa:
+
+```python
+print("merkkejä ", end="")
+print("ilman välejä", end="")
+```
+
+<sample-output>
+
+merkkejä ilman välejä
+
+</sample-output>
+
+Joskus taas tarvitaan pelkkää rivinvaihtoa, ja se onnistuu seuraavasti:
+
+```python
+print()
+```
+
 </programming-exercise>
 
 <programming-exercise name='Sudoku: luvun lisäys ruudukon kopioon' tmcname='osa05-08_sudoku_osa6'>
@@ -451,6 +472,10 @@ _ _ _  _ _ _  _ _ _
 _ _ _  _ _ _  _ _ _
 
 </pre>
+
+</sample-output>
+
+**Vihje** tässä tehtävässä pitää olla tarkkana mitä kaikkea tulee kopioda, ja mihin lisäys lopulta kohdistuu. Kuten yleensäkin, visualisaattori auttaa myös nyt. Sudokuruudukon koon takia näkymä tosin on hieman normaalia sekavampi.
 
 </programming-exercise>
 

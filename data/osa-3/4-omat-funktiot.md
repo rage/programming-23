@@ -357,14 +357,22 @@ keskiarvo(10, 1, 1)
 Tee funktio `tulosta_monesti(merkkijono, kertaa)`, joka saa parametriksi merkkijonon sekä kokonaisluvun, joka kertoo, kuinka monta kertaa funktion tulee tulostaa parametrina saamansa merkkijono:
 
 ```python
-merkkijono = input("Merkkijono: ")
-kertaa = int(input("Tulostuksia: "))
+tulosta_monesti("hei", 5)
+
+print()
+
+merkkijono = "Alussa olivat suo, kuokka ja Python"
+kertaa = 3
 tulosta_monesti(merkkijono, kertaa)
 ```
 <sample-output>
 
-Merkkijono: **Alussa olivat suo, kuokka ja Python.**
-Tulostuksia: **3**
+hei
+hei
+hei
+hei
+hei
+
 Alussa olivat suo, kuokka ja Python.
 Alussa olivat suo, kuokka ja Python.
 Alussa olivat suo, kuokka ja Python.
