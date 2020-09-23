@@ -252,7 +252,7 @@ luku1 = luku2
 luku2 = apu
 ```
 
-<programming-exercise name='Opiskelijarekisteri' tmcname='osa05-21_opiskelijarekisteri'>
+<programming-exercise name='Opiskelijarekisteri' tmcname='osa05-20_opiskelijarekisteri'>
 
 Tässä tehtäväsarjassa toteutetaan yksinkertainen opiskelijarekisteri. Ennen ohjelmoinnin aloittamista kannattanee hetki miettiä, minkälaisen tietorakenteen tarvitset ohjelman tallentamien tietojen organisointiin.
 
