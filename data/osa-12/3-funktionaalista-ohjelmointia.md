@@ -1,6 +1,6 @@
 ---
-path: '/osa-12/3-paateoperaatiot'
-title: 'Pääteoperaatiot'
+path: '/osa-12/3-funktionaalista-ohjelmointia'
+title: 'Funktionaalista ohjelmointia'
 hidden: false
 ---
 
@@ -8,7 +8,7 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät mitä tarkoitetaan pääteoperaatioilla
+- Tiedät mitä tarkoitetaan funktonaalisella ohjelmoinilla
 - Osaat hyödyntää operaatioita map, reduce ja filter omissa ohjelmissasi
 
 </text-box>
