@@ -41,7 +41,7 @@ y-koordinaatti: 20
 
 </sample-output>
 
-Kuitenkaan tuplen määrittelyn jälkeen sen arvoa ei voi muuttaa, eli seuraava koodi _ei_ toimi:
+Tuplen määrittelyn jälkeen sen arvoa ei kuitenkaan voi muuttaa, eli seuraava koodi _ei_ toimi:
 
 ```python
 piste = (10, 20)
@@ -54,7 +54,31 @@ TypeError: 'tuple' object does not support item assignment
 
 </sample-output>
 
-TODO: Helppo tuplen generointitehtävä (esim. muodosta parametreista henkilötuple tms.)
+<programming-exercise name='Muodosta tuple' tmcname='osa05-17a_muodosta_tuple'>
+
+Tee funktio `tee_tuple(x: int, y: int, z: int)`, joka muodostaa ja palauttaa parametrinaan saamistaan kokonaisluvuista tuplen seuraavien sääntöjen mukaaan:
+
+1. Tuplen ensimmäinen alkio on parametreista pienin
+2. Tuplen toinen alkio on parametreista suurin
+3. Tuplen kolmas alkio on parametrien summa
+
+Esimerkki funktion kutsumisesta:
+
+```python
+
+if __name__ == "__main__":
+    print(tee_tuple(5, 3, -1))
+
+```
+
+<sample-output>
+
+(-1, 5, 7)
+
+</sample-output>
+
+
+</programming-exercise>
 
 <programming-exercise name='Vanhin henkilöistä' tmcname='osa05-18_vanhin_henkiloista'>
 
@@ -345,7 +369,7 @@ paras keskiarvo 4.5 Liisa
 
 <in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa05-21_kirjainruudukko">
 
-Tämän osan huipentaa suhteellisen haastava ongelmanratkaisua vaativa tehtävä, jonka voi tarkaista monella eri tavalla. Vaikka tehtävä on tupleja käsittelevässä luvussa, tupleja tässä tuskin kannattaa käyttää. 
+Tämän osan huipentaa suhteellisen haastava ongelmanratkaisua vaativa tehtävä, jonka voi tarkaista monella eri tavalla. Vaikka tehtävä on tupleja käsittelevässä luvussa, tupleja tässä tuskin kannattaa käyttää.
 
 Tee ohjelma, joka tulostaa kirjainruudukon oheisten esimerkkien mukaisesti. Voit olettaa, että kerroksia on enintään 26.
 
