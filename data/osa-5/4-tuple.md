@@ -54,7 +54,7 @@ TypeError: 'tuple' object does not support item assignment
 
 </sample-output>
 
-<programming-exercise name='Muodosta tuple' tmcname='osa05-17a_muodosta_tuple'>
+<programming-exercise name='Muodosta tuple' tmcname='osa05-17c_muodosta_tuple'>
 
 Tee funktio `tee_tuple(x: int, y: int, z: int)`, joka muodostaa ja palauttaa parametrinaan saamistaan kokonaisluvuista tuplen seuraavien sääntöjen mukaaan:
 

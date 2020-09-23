@@ -132,8 +132,6 @@ Visualisaattori näyttää jälleen selkeästi mitä ohjelmassa tapahtuu:
 
 <img src="5_2_4a.png">
 
-TODO: Yksinkertainen tehtävä viittauksista (onko sellaista)?
-
 ## Listan kopiointi
 
 Jos haluamme tehdä listasta erillisen kopion, voimme luoda uuden listan ja lisätä siihen jokaisen aluperäisen listan alkion:
@@ -183,8 +181,6 @@ print(kopio)
 [1, 20, 3, 4]
 
 </sample-output>
-
-TODO: Yksinkertainen tehtävä listan kopioinnista
 
 ## Lista funktion parametrina
 
@@ -313,7 +309,7 @@ Osalistaksi voidaan myös valita koko lista:
 [100, 99, 98, 97]
 ```
 
-Eli näin tulee korvatuksi koko vanhan listan sisältö. Siispä toimiva versio funktiosta näyttää seuraavalta:
+Eli näin tulee korvatuksi koko vanhan listan sisältö. Siispä eräs toimiva versio funktiosta näyttää seuraavalta:
 
 ```python
 def kasvata_kaikkia(lista: list):
@@ -324,7 +320,63 @@ def kasvata_kaikkia(lista: list):
     lista[:] = uusilista
 ```
 
-TODO: Yksinkertainen tehtävä, jossa funktiolla pitää muuttaa listaa
+...tai ilman listan kopiontia yksinkertaisesti sijoittamalla uudet arvot heti vanhaan listaan:
+
+```python
+def kasvata_kaikkia(lista: list):
+    for i in range(len(lista)):
+        lista[i] += 10
+
+```
+
+
+<programming-exercise name='Alkiot tuplana' tmcname='osa05-06a_alkiot_tuplana'>
+
+Tee funktio `tuplaa_alkiot(luvut: list)`, joka saa parametrikseen lukuja sisältävän listan.
+
+Funktio palauttaa uuden listan, jossa alkuperäisen listan alkiot on kerrottu kahdella. Funkto _ei_ saa muuttaa alkuperäistä listaa.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+if __name__ == "__main__":
+    luvut = [2, 4, 5, 3, 11, -4]
+    tuplaluvut = tuplaa_alkiot(luvut)
+    print(tuplaluvut)
+```
+<sample-output>
+
+[6, 8, 10, 6, 22, -8]
+
+</sample-output>
+
+</programming-exercise>
+
+
+<programming-exercise name='Poista pienin' tmcname='osa05-06b_poista_pienin'>
+
+Tee funktio `poista_pienin(luvut: list)`, joka saa parametrikseen lukuja sisältävän listan.
+
+Funktio etsii ja poistaa listasta pienimmän alkion. Voit olettaa, että pienin alkio esiintyy listassa vain kerran.
+
+Funktio ei siis palauta mitään, vaan muokkaa parametrinaan saamaansa listaa!
+
+Esimerkki funktion kutsumisesta:
+
+```python
+if __name__ == "__main__":
+    luvut = [2, 4, 6, 1, 3, 5]
+    poista_pienin(luvut)
+    print(luvut)
+```
+<sample-output>
+
+[2, 4, 6, 3, 5]
+
+</sample-output>
+
+</programming-exercise>
+
 
 <programming-exercise name='Sudoku: ruudukon tulostus ja luvun lisäys' tmcname='osa05-07_sudoku_osa5'>
 
