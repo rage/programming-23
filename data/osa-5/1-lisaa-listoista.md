@@ -68,8 +68,27 @@ Keskiarvo: 10.15
 
 </sample-output>
 
-TODO: Yksinkertainen tehtävä merkkijonolistasta (tai liukulukulistasta tai molemmista)
+<programming-exercise name='Pisin merkkijono' tmcname='osa05-01a_pisin_merkkijono'>
 
+Tee funktio `pisin(merkkijonot: list)`, joka saa parametrikseen listan merkkijonoja. FUnktio etsii ja palauttaa listalta pisimmän merkkijonon. Voit olettaa, että vain yksi jonoista on pisin.
+
+Esimerkkikutsu:
+
+```python
+
+if __name__ == "__main__":
+    jonot = ["moi", "moikka", "heip", "hellurei", "terve"]
+    print(pisin(jonot))
+
+```
+
+<sample-output>
+
+hellurei
+
+</sample-output>
+
+</programming-exercise>
 
 ## Sisäkkäiset listat
 
@@ -204,7 +223,7 @@ Jos sisäkkäisiä listoja käsittelevät ohjelmat tuntuvat hankalalta ymmärtä
 
 <img src="5_1_0a.png">
 
-Kuten kuva paljastaa, 3x3-matriisi koostuu teknisesti ottaen neljästä listasta. Ensimmäinen lista edustaa koko matriisia, ja sen alkioina on erillisiä rivejä edustavat listat. 
+Kuten kuva paljastaa, 3x3-matriisi koostuu teknisesti ottaen neljästä listasta. Ensimmäinen lista edustaa koko matriisia, ja sen alkioina on erillisiä rivejä edustavat listat.
 
 Kuva havainnollistaa jo sitä seikkaa, mistä puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
 
@@ -222,9 +241,9 @@ def rivin_alkioiden_summa(matriisi, rivi_nro: int):
     for alkio in rivi:
         summa += alkio
 
-    return summa 
+    return summa
 
-m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]  
+m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]
 
 summa = rivin_alkioiden_summa(m, 1)
 print(summa) # tulostuu 33 (saadaan laskemalla 9 + 1 + 12 + 11)
@@ -239,9 +258,9 @@ def sarakkeen_alkioiden_summa(matriisi, sarake_nro: int):
     for rivi in matriisi:
       summa += rivi[sarake_nro]
 
-    return summa 
+    return summa
 
-m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]  
+m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
 
 summa = sarakkeen_alkioiden_summa(m, 2)
 print(summa) # tulostuu 39 (saadaan laskemalla 3 + 12 + 9 + 15)
@@ -251,7 +270,7 @@ Tarkasteltava sarake siis koostuu _jokaisen rivin_ paikassa 2 olevasta alkiosta.
 
 Näidenkin ohjelmien toiminta kannattaa ehdottomasti käydä läpi [visualisaattorilla](http://www.pythontutor.com/visualize.html)!
 
-Matriisissa olevan yksittäisen arvon vaihtaminen on helppoa. Riittää että valitaan matriisin sisältä oikea rivi ja sen sisältä sarake: 
+Matriisissa olevan yksittäisen arvon vaihtaminen on helppoa. Riittää että valitaan matriisin sisältä oikea rivi ja sen sisältä sarake:
 
 ```python
 def vaihda_arvoon(matriisi, rivi_nro: int, sarake_nro: int, arvo: int):
@@ -260,21 +279,21 @@ def vaihda_arvoon(matriisi, rivi_nro: int, sarake_nro: int, arvo: int):
     # ja sen sisältä oikea kohta
     rivi[sarake_nro] = arvo
 
-m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]  
+m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
 
 print(m)
 vaihda_arvoon(m, 2, 3, 1000)
-print(m) 
+print(m)
 ```
 
 <sample-output>
 
-[[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]] 
-[[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 1000], [2, 9, 15, 1]] 
+[[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
+[[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 1000], [2, 9, 15, 1]]
 
 </sample-output>
 
-Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, ei ole mahdollista käyttää "normaalia" for-silmukkaa, sillä muutettaessa sisältöä on pakko tietää muutettavien alkioiden indeksit. 
+Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, ei ole mahdollista käyttää "normaalia" for-silmukkaa, sillä muutettaessa sisältöä on pakko tietää muutettavien alkioiden indeksit.
 
 Tämä taas onnistuu `while`-silmukalla tai `for`-silmukalla hyödyntämäällä `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
 
@@ -299,7 +318,6 @@ print(m)
 
 Ulompi silmukka käy `range`-funktion avulla läpi arvot nollasta matriisin pituuteen (eli matriisin rivien määrään) ja sisempi silmukka jokaisen rivin alkiot nollasta rivin pituuteen.
 
-TODO: Yksinkertainen tehtävä matriisin iteroinnista
 
 <programming-exercise name='Alkioiden määrä' tmcname='osa05-01_alkoiden_maara'>
 
