@@ -122,8 +122,10 @@ Anna indeksi: **-1**
 
 </sample-output>
 
-</programming-exercise>
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
 
+</programming-exercise>
 
 ## Alkioiden lisääminen ja poistaminen
 
@@ -193,6 +195,9 @@ Anna luku 3: **34**
 [10, 250, 34]
 
 </sample-output>
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
 
 </programming-exercise>
 
@@ -319,6 +324,9 @@ Moi!
 
 Voit olettaa, että listalta ei yritetä poistaa alkoita, jos lista on tyhjä.
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 </programming-exercise>
 
 Jos listalla ei ole poistettavaa alkiota, seuraa virhe. Merkkijonoista tutulla tavalla alkion olemassaolon listalla voi testata `in`-operaattorin avulla:
@@ -353,6 +361,9 @@ sana: **kerran**
 Annoit 4 eri sanaa
 
 </sample-output>
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
 
 </programming-exercise>
 
@@ -429,6 +440,9 @@ Anna luku: **0**
 Moi!
 
 </sample-output>
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
 
 </programming-exercise>
 

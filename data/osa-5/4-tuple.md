@@ -367,7 +367,7 @@ paras keskiarvo 4.5 Liisa
 
 </programming-exercise>
 
-<in-browser-programming-exercise name="Kirjainruudukko" tmcname="osa05-21_kirjainruudukko">
+<programming-exercise name="Kirjainruudukko" tmcname="osa05-21_kirjainruudukko">
 
 Tämän osan huipentaa suhteellisen haastava ongelmanratkaisua vaativa tehtävä, jonka voi tarkaista monella eri tavalla. Vaikka tehtävä on tupleja käsittelevässä luvussa, tupleja tässä tuskin kannattaa käyttää.
 
@@ -401,7 +401,10 @@ DDDDDDD
 
 </sample-output>
 
-</in-browser-programming-exercise>
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
+</programming-exercise>
 
 <quiz id="34b92399-871c-5cc7-9d23-7d89b6ba1d29"></quiz>
 

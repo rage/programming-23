@@ -119,6 +119,9 @@ n
 
 </sample-output>
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 </programming-exercise>
 
 ## Funktio `range`
@@ -209,6 +212,9 @@ Anna luku: **4**
 4
 
 </sample-output>
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
 
 </programming-exercise>
 

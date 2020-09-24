@@ -314,7 +314,7 @@ kirjaimella s alkavat sanat:
 
 <programming-exercise name='Histogrammi' tmcname='osa05-12_histogrammi'>
 
-Tee funktio, joka saa parametrina merkkijonon ja tulostaa merkkijonon eri kirjainten lukumäärää kuvaavan histogrammin, jossa kirjaimen jokaista esiintymää kohti tulostuu yksi tähti kirjaimen riville.
+Tee funktio `histogrammi`, joka saa parametrina merkkijonon ja tulostaa merkkijonon eri kirjainten lukumäärää kuvaavan histogrammin, jossa kirjaimen jokaista esiintymää kohti tulostuu yksi tähti kirjaimen riville.
 
 Esimerkiksi kutsuttaessa `histogrammi("abba")` tulostus on:
 
