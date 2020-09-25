@@ -224,6 +224,12 @@ oo
 
 </sample-output>
 
+**Vihje**
+
+Älä yritä ratkaista tehtävässä "kaikkia asioita" yhtä aikaa. Keskity ensin esim. siihen että saat kuvion yläosan kolmion piirtymään oikein, ja vasta sen jälkeen jatka kuvion täydentämistä alaosan suorakulmiolla.
+
+Tämä on ylipäätänsäkin ohjelmoinnissa erittäin tärkeää: **keskity pieniin osiin kerrallaan**, varmista että ne toimivat ennen kuin laajennat ratkaisuasi.
+
 </programming-exercise>
 
 <programming-exercise name='Joulukuusi' tmcname='osa04-04_joulukuusi'>
