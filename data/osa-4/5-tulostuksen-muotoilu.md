@@ -140,7 +140,7 @@ print(tervehdys + f", asuinpaikkasi on {kaupunki}")
 
 <sample-output>
 
-Hei Pekka, olet 59-vuotias,  asuinpaikkasi on Lappeenranta
+Hei Pekka, olet 59-vuotias, asuinpaikkasi on Lappeenranta
 
 </sample-output>
 
