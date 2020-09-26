@@ -285,14 +285,14 @@ Kirjoita metodia hyödyntäen funktio `poista_isot`, joka saa parametrikseen lis
 Esimerkki funktion käytöstä:
 
 ```python
-lista = ["ABC", "def", "ISO", "TOINENISO", "pieni", "toinen pieni"]
+lista = ["ABC", "def", "ISO", "TOINENISO", "pieni", "toinen pieni", "Osittain Iso"]
 karsittu_lista = poista_isot(lista)
 print(karsittu_lista)
 ```
 
 <sample-output>
 
-['def', 'pieni', 'toinen pieni']
+['def', 'pieni', 'toinen pieni', 'Osittain Iso']
 
 </sample-output>
 
