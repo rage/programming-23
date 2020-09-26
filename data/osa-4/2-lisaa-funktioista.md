@@ -507,7 +507,7 @@ Tee kolme funktiota: `eka_sana`, `toka_sana` ja `vika_sana`. Jokainen funktioist
 
 Funktiot palauttavat nimensä mukaisesti lauseen ensimmäisen, toisen tai viimeisen sanan.
 
-Voit olettaa jokaisessa tapauksessa, että merkkijono koostuu vähintään kahdesta sanasta, ja että sanojen välillä on aina täsmälleen yksi välilyönti.
+Voit olettaa jokaisessa tapauksessa, että merkkijono koostuu vähintään kahdesta sanasta, ja että sanojen välillä on aina täsmälleen yksi välilyönti, ja että merkkijonon alussa ja lopussa ei ole välilyöntejä.
 
 ```python
 lause = "olipa kerran kauan sitten ohjelmoija"
