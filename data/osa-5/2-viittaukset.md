@@ -346,7 +346,7 @@ if __name__ == "__main__":
 ```
 <sample-output>
 
-[6, 8, 10, 6, 22, -8]
+[4, 8, 10, 6, 22, -8]
 
 </sample-output>
 
