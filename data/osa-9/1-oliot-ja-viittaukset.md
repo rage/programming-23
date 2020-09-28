@@ -286,7 +286,7 @@ Kasvatuslaitoksen luokkarungossa on valmiina runko metodille punnitse:
 class Kasvatuslaitos
 
     punnitse(self, henkilo: Henkilo ) {
-        // palautetaan parametrina annetun henkilön paino
+        # palautetaan parametrina annetun henkilön paino
         return -1
 ```
 
@@ -296,13 +296,13 @@ Metodi saa parametrina henkilön ja metodin on tarkoitus palauttaa kutsujalleen 
 Seuraavassa on pääohjelma jossa kasvatuslaitos punnitsee kaksi henkilöä:
 
 ```python
-haaganNeuvola = Kasvatuslaitos()
+haagan_neuvola = Kasvatuslaitos()
 
 eero = Henkilo("Eero", 1, 110, 7)
 pekka = Henkilo("Pekka", 33, 176, 85)
 
-print(f"{eero.nimi}: paino {haaganNeuvola.punnitse(eero)} kg")
-print(f"{pekka.nimi}: paino {haaganNeuvola.punnitse(pekka)} kg")
+print(f"{eero.nimi}: paino {haagan_neuvola.punnitse(eero)} kg")
+print(f"{pekka.nimi}: paino {haagan_neuvola.punnitse(pekka)} kg")
 ```
 
 <sample-output>
@@ -319,20 +319,20 @@ Parametrina olevan olion tilaa on mahdollista muuttaa. Tee kasvatuslaitokselle m
 Seuraavassa esimerkki, jossa henkilöt ensin punnitaan, ja tämän jälkeen neuvolassa syötetään eeroa kolme kertaa. Tämän jälkeen henkilöt taas punnitaan:
 
 ```python
-haaganNeuvola = Kasvatuslaitos()
+haagan_neuvola = Kasvatuslaitos()
 
 eero = Henkilo("Eero", 1, 110, 7)
 pekka = Henkilo("Pekka", 33, 176, 85)
 
-print(f"{eero.nimi}: paino {haaganNeuvola.punnitse(eero)} kg")
-print(f"{pekka.nimi}: paino {haaganNeuvola.punnitse(pekka)} kg")
+print(f"{eero.nimi}: paino {haagan_neuvola.punnitse(eero)} kg")
+print(f"{pekka.nimi}: paino {haagan_neuvola.punnitse(pekka)} kg")
 
-haaganNeuvola.syota(eero)
-haaganNeuvola.syota(eero)
-haaganNeuvola.syota(eero)
+haagan_neuvola.syota(eero)
+haagan_neuvola.syota(eero)
+haagan_neuvola.syota(eero)
 
-print(f"{eero.nimi}: paino {haaganNeuvola.punnitse(eero)} kg")
-print(f"{pekka.nimi}: paino {haaganNeuvola.punnitse(pekka)} kg")
+print(f"{eero.nimi}: paino {haagan_neuvola.punnitse(eero)} kg")
+print(f"{pekka.nimi}: paino {haagan_neuvola.punnitse(pekka)} kg")
 ```
 
 Tulostuksen pitäisi paljastaa että Eeron paino on noussut kolmella:
@@ -353,24 +353,24 @@ Tee kasvatuslaitokselle metodi public int punnitukset() joka kertoo kuinka monta
 
 ```python
 
-haaganNeuvola = Kasvatuslaitos()
+haagan_neuvola = Kasvatuslaitos()
 
 eero = Henkilo("Eero", 1, 110, 7)
 pekka = Henkilo("Pekka", 33, 176, 85)
 
-print(f"punnituksia tehty {haaganNeuvola.punnitukset}")
+print(f"punnituksia tehty {haagan_neuvola.punnitukset}")
 
-haaganNeuvola.punnitse(eero)
-haaganNeuvola.punnitse(eero)
+haagan_neuvola.punnitse(eero)
+haagan_neuvola.punnitse(eero)
 
-print(f"punnituksia tehty {haaganNeuvola.punnitukset}")
+print(f"punnituksia tehty {haagan_neuvola.punnitukset}")
 
-haaganNeuvola.punnitse(eero)
-haaganNeuvola.punnitse(eero)
-haaganNeuvola.punnitse(eero)
-haaganNeuvola.punnitse(eero)
+haagan_neuvola.punnitse(eero)
+haagan_neuvola.punnitse(eero)
+haagan_neuvola.punnitse(eero)
+haagan_neuvola.punnitse(eero)
 
-print(f"punnituksia tehty {haaganNeuvola.punnitukset}")
+print(f"punnituksia tehty {haagan_neuvola.punnitukset}")
 ```
 
 <sample-output>
@@ -674,7 +674,6 @@ for opiskelija in opiskelijat:
 # Tulostetaan kaikista suorituksista opiskelijan nimi
 for suoritus in suoritukset:
     print(suoritus.opiskelija.nimi)
-
 ```
 
 <sample-output>
@@ -692,10 +691,94 @@ Tarkastellaan lähemmin riviä `print(suoritus.opiskelija.nimi)`:
 * Niinpä muuttuja opiskelija viittaa suoritukseen tallennettuun `Opiskelija`-olioon
 * `Opiskelija`-luokan muuttuja `nimi` sisältää opiskelijan nimen
 
+<programming-exercise name='Lemmikit' tmcname='osa09-04_lemmikit'>
+
+Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan Henkilo metodia `__repr__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun.
+
+```python
+hulda = Lemmikki("Hulda", "sekarotuinen koira")
+leevi = Henkilo("Leevi", hulda)
+
+println(leevi)
+```
+
+<sample-output>
+
+Leevi, kaverina Hulda, joka on sekarotuinen koira
+
+</sample-output>
+
+</programming-exercise>
+
+## TODO: esmierkki missä olion sisällä on lista olioita
+
+<programming-exercise name='Lahjapakkaus' tmcname='osa09-05_lahjapakkaus'>
+
+Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja Pakkaus sisältää lahjoja.
+
+## Lahja-luokka
+
+Tee luokka `Lahja`, josta muodostetut oliot kuvaavat erilaisia lahjoja. Tallennettavat tiedot ovat tavaran nimi ja paino (kg). Luokan olioiden tulee toimia seuraavasti:
+
+```python
+kirja = Lahja("Aapiskukko", 2)
+
+print("Lahjan nimi:", kirja.nimi)
+print("Lahjan paino:" ,kirja.paino
+print("Lahja:", kirja)
+```
+
+Ohjelman tulostuksen tulisi olla seuraava:
+
+<sample-output>
+
+Lahjan nimi: Aapiskukko
+Lahjan paino: 2
+Lahja: Aapiskukko (2 kg)
+
+</sample-output>
+
+## Pakkaus-luokka
+
+Tee luokka `Pakkaus`, johon voi lisätä lahjoja, ja joka pitää kirjaa pakkauksessa olevien lahjojen yhteispainosta. Luokassa tulee olla seuraavat metodit
+
+- `lisaa_lahja(self, lahja: Lahja)`, joka lisää parametrina annettavan lahjan pakkaukseen. Metodi ei palauta mitään arvoa.
+- `yhteispaino(self)`, joka palauttaa pakkauksessa olevien lahjojen yhteispainon.
+
+Seuraavassa on luokan käyttöesimerkki:
 
 
+```python
+kirja = new Lahja("Aapiskukko", 2)
+
+paketti = Pakkaus()
+paketti.lisaa_lahja(kirja)
+print(paketti.yhteispaino())
+
+cd_levy = new Lahja("Pink Floyd: Dark side of the moon", 1)
+paketti.lisaa_lahja(cd_levy)
+print(paketti.yhteispaino())
+```
+
+<sample-output>
+
+2
+3
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Lemmikit' tmcname='osa09-06_pisin'>
 
 
+```python
+```
+
+<sample-output>
+
+</sample-output>
 
 
+</programming-exercise>
 
