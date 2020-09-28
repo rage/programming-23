@@ -282,7 +282,7 @@ Tehtäväpohjassasi on valmiina jo luokka `Henkilo` sekä runko luokalle `Kasvat
 Kasvatuslaitoksen luokkarungossa on valmiina runko metodille punnitse:
 
 ```python
-class Kasvatuslaitos
+class Kasvatuslaitos:
 
     punnitse(self, henkilo: Henkilo ) {
         # palautetaan parametrina annetun henkilön paino
@@ -396,7 +396,6 @@ Toteutetaan ensin Maksukortista "tyhmä" versio. Kortilla on ainoastaan metodit 
 
 ```python
 class Maksukortti:
-
     def __init__(self, saldo: float):
         self.saldo = saldo
 
@@ -447,11 +446,10 @@ class Kassapaate:
         self.edulliset = 0
         self.maukkaat = 0
 
-    def syo_edullisesti(maksu: float)):
+    def syo_edullisesti(maksu: float):
         # edullinen lounas maksaa 2.50 euroa.
         # kasvatetaan kassan rahamäärää edullisen lounaan hinnalla ja palautetaan vaihtorahat
         # jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
-    }
 
     def syo_maukkaasti(maksu: float):
         # maukas lounas maksaa 4.30 euroa.
@@ -462,6 +460,8 @@ class Kassapaate:
         return f"kassassa rahaa {self.rahaa} edullisia lounaita myyty {self.edulliset} maukkaita lounaita myyty {self.maukkaat}"
 
 ```
+
+Käyttöesimerkki
 
 ```python
 unicafe_exactum = Kassapaate()
