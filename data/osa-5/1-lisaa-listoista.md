@@ -84,7 +84,7 @@ Keskiarvo: 10.15
 
 <programming-exercise name='Pisin merkkijono' tmcname='osa05-01a_pisin_merkkijono'>
 
-Tee funktio `pisin(merkkijonot: list)`, joka saa parametrikseen listan merkkijonoja. FUnktio etsii ja palauttaa listalta pisimmän merkkijonon. Voit olettaa, että vain yksi jonoista on pisin.
+Tee funktio `pisin(merkkijonot: list)`, joka saa parametrikseen listan merkkijonoja. Funktio etsii ja palauttaa listalta pisimmän merkkijonon. Voit olettaa, että vain yksi jonoista on pisin.
 
 Esimerkkikutsu:
 
@@ -124,7 +124,7 @@ print(lista[1][0])
 
 Mihin voimme käyttää listoja jonka sisällä on listoja?
 
-Voisimme esimerkiksi esittää henkilön tiedot listana, missä ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengännumero:
+Voisimme esimerkiksi esittää henkilön tiedot listana, jossa ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengännumero:
 
 ```python
 ["Anu", 10, 26]
@@ -374,7 +374,7 @@ sudoku = [
 ]
 ```
 
-Arvolla nolla siis kuvataan tilanne, missä ruutu on vielä tyhjä.
+Arvolla nolla siis kuvataan tilanne, jossa ruutu on vielä tyhjä.
 
 Seuraavassa vielä yksinkertainen versio sudokun tulostavasta metodista:
 
