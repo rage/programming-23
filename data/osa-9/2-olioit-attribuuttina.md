@@ -1,7 +1,7 @@
 ---
 path: '/osa-9/2-oliot-attribuuttina'
 title: 'Oliot attribuuttina'
-hidden: false
+hidden: False
 ---
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
@@ -120,7 +120,7 @@ Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henki
 hulda = Lemmikki("Hulda", "sekarotuinen koira")
 leevi = Henkilo("Leevi", hulda)
 
-println(leevi)
+print(leevi)
 ```
 
 <sample-output>
@@ -151,7 +151,7 @@ class Joukkue:
         self.nimi = nimi
         self.pelaajat = []
 
-    def lisaa_pelaaja(self, elaaja: Pelaaja):
+    def lisaa_pelaaja(self, pelaaja: Pelaaja):
         self.pelaajat.append(pelaaja)
 
     def __repr__(self):
@@ -177,7 +177,7 @@ print(kupa)
 
 <sample-output>
 
-Joukkue Kumpulan pallo, pelaajia 3. Pelaajien maalimäärät [10, 11, 1]"
+Joukkue Kumpulan pallo, pelaajia 3. Pelaajien maalimäärät [10, 22, 1]"
 
 </sample-output>
 
@@ -218,13 +218,13 @@ Seuraavassa on luokan käyttöesimerkki:
 
 
 ```python
-kirja = new Lahja("Aapiskukko", 2)
+kirja = Lahja("Aapiskukko", 2)
 
 paketti = Pakkaus()
 paketti.lisaa_lahja(kirja)
 print(paketti.yhteispaino())
 
-cd_levy = new Lahja("Pink Floyd: Dark side of the moon", 1)
+cd_levy = Lahja("Pink Floyd: Dark side of the moon", 1)
 paketti.lisaa_lahja(cd_levy)
 print(paketti.yhteispaino())
 ```
@@ -303,7 +303,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 AttributeError: 'NoneType' object has no attribute 'maalit'
 
-<sample-output>
+</sample-output>
 
 None-arvojen varalta onkin syytä tehdä tarkistus ennen kuin riskialtista koodia kutsutaan
 
@@ -340,7 +340,7 @@ Luo luokka Huone, joka sisältää oliomuuttujana listan henkilöitä, ja jolla 
 Seuraavassa käyttöesimerkki
 
 ```python
-huone = new Huone()
+huone = Huone()
 print("Huone tyhjä?", huone.on_tyhja())
 huone.lisaa(Henkilo("Lea", 183))
 huone.lisaa(Henkilo("Kenya", 182))
@@ -369,7 +369,7 @@ Terhi (185 cm)
 Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, palauttaa None-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
 
 ```python
-huone = new Huone()
+huone = Huone()
 print("Lyhin: " + huone.lyhin())
 print("Huone tyhjä?", huone.on_tyhja())
 
@@ -393,8 +393,8 @@ huone.tulosta_tiedot()
 <sample-output>
 
 Lyhin: None
-Huone tyhjä? true
-Huone tyhjä? false
+Huone tyhjä? True
+Huone tyhjä? False
 Huoneessa 4 henkilöä, yhteispituus 723 cm
 Lea (183 cm)
 Kenya (182 cm)
@@ -416,7 +416,7 @@ Nina (172 cm)
 Lisää luokalle Huone `poista_lyhin()`, ottaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa None-viitteen.
 
 ```python
-huone = new Huone()
+huone = Huone()
 print("Lyhin: " + huone.lyhin())
 
 huone.lisaa(Henkilo("Lea", 183))
@@ -453,9 +453,9 @@ Auli (186 cm)
 
 </programming-exercise>
 
-<programming-exercise name='Tavara, ja Lastiruuma' tmcname='osa09-07_tavara_matkalaukku_lastiruuma'>
+<programming-exercise name='Tavara, Matkalaukku ja Lastiruuma' tmcname='osa09-07_tavara_matkalaukku_lastiruuma'>
 
-Tässä tehtäväsarjassa tehdään luokat Tavara, ja Lastiruuma, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita.
+Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruuma`, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita.
 
 ## Tavara-luokka
 
@@ -478,7 +478,6 @@ Ohjelman tulostuksen tulisi olla seuraava:
 
 <sample-output>
 
-Esimerkkitulostus
 Kirjan nimi: Aapiskukko
 Kirjan paino: 2
 Kirja: Aapiskukko (2 kg)
@@ -531,7 +530,7 @@ Ohjelman tulostuksen tulisi olla seuraava:
 
 ## Kielenhuoltoa
 
-Ilmoitukset "0 tavaraa" ja "1 tavaraa" eivät ole kovin hyvää suomea — paremmat muodot olisivat "ei tavaroita" ja "1 tavara". Tee tämä muutos luokassa sijaitsevaan toString-metodiin.
+Ilmoitukset "0 tavaraa" ja "1 tavaraa" eivät ole kovin hyvää suomea — paremmat muodot olisivat "ei tavaroita" ja "1 tavara". Tee tämä muutos luokassa sijaitsevaan `__repr__`-metodiin.
 
 Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
 
@@ -584,7 +583,7 @@ Muokkaa myös luokkaasi siten, että käytät vain kahta oliomuuttujaa. Toinen s
 
 ## Raskain tavara
 
-Lisää vielä luokkaan metodi `raskainTavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo None.
+Lisää vielä luokkaan metodi `raskain_tavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo None.
 
 Seuraavassa on luokan käyttöesimerkki:
 
@@ -598,7 +597,7 @@ matkalaukku.lisaa_tavara(kirja)
 matkalaukku.lisaa_tavara(puhelin)
 matkalaukku.lisaa_tavara(tiiliskivi)
 
-raskain = matkalaukku.raskainTavara()
+raskain = matkalaukku.raskain_tavara()
 print("fRaskain tavara: {raskain}")
 ```
 
@@ -617,7 +616,6 @@ Tee luokka Lastiruuma, johon liittyvät seuraavat metodit:
 - konstruktori, jolle annetaan maksimipaino
 - metodi `lisaa_matkalaukku(laukku)`, joka lisää parametrina annetun matkalaukun lastiruumaan
 - metodi `__repr__`, joka palauttaa merkkijonon muotoa "x matkalaukkua (y kg)"
-Tallenna matkalaukut sopivaan ArrayList-rakenteeseen.
 
 Luokan tulee valvoa, että sen matkalaukkujen yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi uuden matkalaukun vuoksi, metodi `lisaa_matkalaukku` ei saa lisätä uutta matkalaukkua.
 

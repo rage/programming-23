@@ -415,10 +415,10 @@ Testipääohjelma:
 ```python
 kortti = Maksukortti(10)
 print("rahaa", kortti.saldo()
-onnistuiko = kortti.otaRahaa(8)
+onnistuiko = kortti.ota_rahaa(8)
 print("onnistuiko otto:" ,onnistuiko)
 print("rahaa", kortti.saldo()
-onnistuiko = kortti.otaRahaa(4)
+onnistuiko = kortti.ota_rahaa(4)
 print("onnistuiko otto:" ,onnistuiko)
 print("rahaa", kortti.saldo()
 ```
@@ -464,15 +464,15 @@ class Kassapaate:
 ```
 
 ```python
-unicafe_exactum = new Kassapaate()
+unicafe_exactum = Kassapaate()
 
-vaihtorahaa = unicafe_exactum.syoEdullisesti(10)
+vaihtorahaa = unicafe_exactum.syo_edullisesti(10)
 print"vaihtorahaa jäi " + vaihtorahaa)
 
-vaihtorahaa = unicafe_exactum.syoEdullisesti(5)
+vaihtorahaa = unicafe_exactum.syo_edullisesti(5)
 print"vaihtorahaa jäi " + vaihtorahaa)
 
-vaihtorahaa = unicafe_exactum.syoMaukkaasti(4.3)
+vaihtorahaa = unicafe_exactum.syo_maukkaasti(4.3)
 print"vaihtorahaa jäi " + vaihtorahaa)
 
 printunicafe_exactum)
@@ -497,14 +497,14 @@ class Kassapaate:
 
     def syo_edullisesti_koritlla(self, kortti:Maksukortti):
         # edullinen lounas maksaa 2.50 euroa.
-        # jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan true
-        # muuten palautetaan false
+        # jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan True
+        # muuten palautetaan False
 
 
     def syo_maukkaasti_kortilla(self, kortti:Maksukortti):
         # maukas lounas maksaa 4.30 euroa.
-        # jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan true
-        # muuten palautetaan false
+        # jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan True
+        # muuten palautetaan False
 ```
 
 **Huom:** kortilla maksaminen ei lisää kassapäätteessä olevan käteisen määrää.
@@ -534,9 +534,9 @@ printunicafe_exactum)
 <sample-output>
 
 vaihtorahaa jäi 7.5
-riittikö raha: true
-riittikö raha: false
-riittikö raha: true
+riittikö raha: True
+riittikö raha: False
+riittikö raha: True
 kassassa rahaa 1002.5 edullisia lounaita myyty 2 maukkaita lounaita myyty 1
 
 </sample-output>
@@ -579,8 +579,8 @@ print(unicafe_exactum)
 
 kassassa rahaa 1000.0 edullisia lounaita myyty 0 maukkaita lounaita myyty 0
 kortilla rahaa 2.0 euroa
-riittikö raha: false
-riittikö raha: true
+riittikö raha: False
+riittikö raha: True
 kortilla rahaa 97.7 euroa
 kassassa rahaa 1100.0 edullisia lounaita myyty 0 maukkaita lounaita myyty 1
 
@@ -713,12 +713,12 @@ Tee metodi `suurempi(verrattava: Asunto)` joka palauttaa True jos asunto-olio, j
 Esimerkki metodin toiminnasta:
 
 ```python
-eira_yksio = new Asunto(1, 16, 5500)
-kallioKaksio = new Asunto(2, 38, 4200)
-jakomaki_kolmio = new Asunto(3, 78, 2500)
+eira_yksio = Asunto(1, 16, 5500)
+kallio_kaksio = Asunto(2, 38, 4200)
+jakomaki_kolmio = Asunto(3, 78, 2500)
 
 print(eira_yksio.suurempi(kallio_kaksio))
-print(jakomaki_kolmio.suurempi(kallioKaksio))
+print(jakomaki_kolmio.suurempi(kallio_kaksio))
 ```
 
 <sample-output>
@@ -735,12 +735,12 @@ Tee metodi `hintaero(verrattava: Asunto)` joka palauttaa asunto-olion jolle meto
 Esimerkki metodin toiminnasta:
 
 ```python
-eira_yksio = new Asunto(1, 16, 5500)
-kallioKaksio = new Asunto(2, 38, 4200)
-jakomaki_kolmio = new Asunto(3, 78, 2500)
+eira_yksio = Asunto(1, 16, 5500)
+kallio_kaksio = Asunto(2, 38, 4200)
+jakomaki_kolmio = Asunto(3, 78, 2500)
 
-print(eira_yksio.hintaero(kallioKaksio))
-print(jakomaki_kolmio.hintaero(kallioKaksio))
+print(eira_yksio.hintaero(kallio_kaksio))
+print(jakomaki_kolmio.hintaero(kallio_kaksio))
 ```
 
 <sample-output>
@@ -752,17 +752,17 @@ print(jakomaki_kolmio.hintaero(kallioKaksio))
 
 ## Onko kalliimpi
 
-Tee metodi `kalliimpi(verrattava): Asunto` joka palauttaa true jos asunto-olio, jolle metodia kutsutaan on kalliimpi kuin verrattavana oleva asunto-olio.
+Tee metodi `kalliimpi(verrattava): Asunto` joka palauttaa True jos asunto-olio, jolle metodia kutsutaan on kalliimpi kuin verrattavana oleva asunto-olio.
 
 Esimerkki metodin toiminnasta:
 
 ```python
-eira_yksio = new Asunto(1, 16, 5500)
-kallioKaksio = new Asunto(2, 38, 4200)
-jakomaki_kolmio = new Asunto(3, 78, 2500)
+eira_yksio = Asunto(1, 16, 5500)
+kallio_kaksio = Asunto(2, 38, 4200)
+jakomaki_kolmio = Asunto(3, 78, 2500)
 
 print(eira_yksio.kalliimpi(kallio_kaksio))
-print(jakomaki_kolmio.kalliimpi(kallioKaksio))
+print(jakomaki_kolmio.kalliimpi(kallio_kaksio))
 ```
 
 <sample-output>
