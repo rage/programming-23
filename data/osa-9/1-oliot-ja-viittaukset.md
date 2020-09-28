@@ -119,7 +119,7 @@ Omista luokista muodostettuja olioita voi myös tallentaa esimerkiksi sanakirjaa
 
 ```
 
-## Oliot parametrina
+## Oliot funktioiden parametrina
 
 Koska omista luoduista luodut oliot ovat (yleensä) muuttuvia eli mutatoituvia, niiden toiminta parametrina välitettäessä muistuttaa listoista tuttua tapaa. Funktio, jolle olio välitetäään parametrina, voi muuttaa saamaansa oliota (edellyttäen että olio tarjoaa asiakkailleen muuttaamiseen tarvittavat operaatiot).
 
@@ -216,7 +216,187 @@ Opiskelija, nimi: Minna Pythonen, opiskelijanumero: 86211, opintopisteet: 290
 
 </sample-output>
 
-# Oliot attribuutteina
+## Oliot funktioiden parametrina
+
+Olit toimivat normaaliin tapaan myös _metodeinen_ parametrina. Tarkastellaan seuraavaa esimerkkiä:
+
+```python
+class Henkilo:
+
+    def __init__(self, nimi: str, pituus: int):
+        self.nimi = nimi
+        self.pituus = pituus
+
+class Huvipuistolaite:
+    def __init__(self, nimi, pituusraja):
+        self.kavijoita = 0
+        self.nimi = nimi
+        self.pituusraja = pituusraja
+
+    def ota_kyytiin(self, henkilo: Henkilo):
+        if henkilo.pituus<self.pituusraja:
+            return False
+
+        self.kavijoita += 1
+        return True
+
+    def __repr__(self):
+        return f"laite: {self.nimi}, kävijöitä {self.kavijoita}"
+```
+
+Huvipuistolaitteen metodi `ota_kyytiin` saa nyt parametrina luokan `Henkilo` olion. Metodi tarkistaa onko parametrina oleva henkilö liian lyhyt laitteeseen, ja palauttaa tässä tapauksessa `False`. Jos henkilö on riittävän pitkä, kasvattaa huvipuistolaite kävijämäärää yhdellä ja metodi palauttaa `True`. Seuraavassa esimerkkisuoritus:
+
+```python
+hurjakuru = Huvipuistolaite("hurjakuru", 120)
+jarkko = Henkilo("Jarkko", 172)
+venla = Henkilo("Venla", 105)
+
+ok = hurjakuru.ota_kyytiin(jarkko)
+if ok:
+    print(f"{jarkko.nimi} pääasi kyytiin")
+else:
+    print(f"{jarkko.nimi} liian lyhyt :(")
+
+ok = hurjakuru.ota_kyytiin(venla)
+if ok:
+    print(f"{venla.nimi} pääasi kyytiin")
+else:
+    print(f"{venla.nimi} liian lyhyt :(")
+
+print(hurjakuru)
+```
+
+<sample-output>
+
+Jarkko pääasi kyytiin
+Venla liian lyhyt :(
+laite: hurjakuru, kävijöitä 1
+
+</sample-output>
+
+<programming-exercise name='Kasvatuslaitos' tmcname='osa09-02_kasvatuslaitos'>
+
+Tehtäväpohjassasi on valmiina jo luokka `Henkilo` sekä runko luokalle `Kasvatuslaitos`. Kasvatuslaitosoliot käsittelevät ihmisiä eri tavalla, esim. punnitsevat ja syöttävät ihmisiä. Rakennamme tässä tehtävässä kasvatuslaitoksen. Luokan `Henkilö` koodiin ei tehtävässä ole tarkoitus koskea!
+
+## Henkilöiden punnitseminen
+
+Kasvatuslaitoksen luokkarungossa on valmiina runko metodille punnitse:
+
+```python
+class Kasvatuslaitos
+
+    punnitse(self, henkilo: Henkilo ) {
+        // palautetaan parametrina annetun henkilön paino
+        return -1
+```
+
+Metodi saa parametrina henkilön ja metodin on tarkoitus palauttaa kutsujalleen parametrina olevan henkilön paino. Paino selviää kutsumalla parametrina olevan henkilön henkilo sopivaa metodia. Eli täydennä metodin koodi!
+
+
+Seuraavassa on pääohjelma jossa kasvatuslaitos punnitsee kaksi henkilöä:
+
+```python
+haaganNeuvola = Kasvatuslaitos()
+
+eero = Henkilo("Eero", 1, 110, 7)
+pekka = Henkilo("Pekka", 33, 176, 85)
+
+print(f"{eero.nimi}: paino {haaganNeuvola.punnitse(eero)} kg")
+print(f"{pekka.nimi}: paino {haaganNeuvola.punnitse(pekka)} kg")
+```
+
+<sample-output>
+
+Eero paino: 7 kiloa
+Pekka paino: 85 kiloa
+
+</sample-output>
+
+## Syöttäminen
+
+Parametrina olevan olion tilaa on mahdollista muuttaa. Tee kasvatuslaitokselle metodi public void syota(Henkilo henkilo) joka kasvattaa parametrina olevan henkilön painoa yhdellä.
+
+Seuraavassa esimerkki, jossa henkilöt ensin punnitaan, ja tämän jälkeen neuvolassa syötetään eeroa kolme kertaa. Tämän jälkeen henkilöt taas punnitaan:
+
+```python
+haaganNeuvola = Kasvatuslaitos()
+
+eero = Henkilo("Eero", 1, 110, 7)
+pekka = Henkilo("Pekka", 33, 176, 85)
+
+print(f"{eero.nimi}: paino {haaganNeuvola.punnitse(eero)} kg")
+print(f"{pekka.nimi}: paino {haaganNeuvola.punnitse(pekka)} kg")
+
+haaganNeuvola.syota(eero)
+haaganNeuvola.syota(eero)
+haaganNeuvola.syota(eero)
+
+print(f"{eero.nimi}: paino {haaganNeuvola.punnitse(eero)} kg")
+print(f"{pekka.nimi}: paino {haaganNeuvola.punnitse(pekka)} kg")
+```
+
+Tulostuksen pitäisi paljastaa että Eeron paino on noussut kolmella:
+
+<sample-output>
+
+Eero paino: 7 kiloa
+Pekka paino: 85 kiloa
+
+Eero paino: 10 kiloa
+Pekka paino: 85 kiloa
+
+</sample-output>
+
+## Punnitusten laskeminen
+
+Tee kasvatuslaitokselle metodi public int punnitukset() joka kertoo kuinka monta punnitusta kasvatuslaitos on ylipäätään tehnyt. Huom! Tarvitset uuden oliomuuttujan punnitusten lukumäärän laskemiseen! Testipääohjelma:
+
+```python
+
+haaganNeuvola = Kasvatuslaitos()
+
+eero = Henkilo("Eero", 1, 110, 7)
+pekka = Henkilo("Pekka", 33, 176, 85)
+
+print(f"punnituksia tehty {haaganNeuvola.punnitukset}")
+
+haaganNeuvola.punnitse(eero)
+haaganNeuvola.punnitse(eero)
+
+print(f"punnituksia tehty {haaganNeuvola.punnitukset}")
+
+haaganNeuvola.punnitse(eero)
+haaganNeuvola.punnitse(eero)
+haaganNeuvola.punnitse(eero)
+haaganNeuvola.punnitse(eero)
+
+print(f"punnituksia tehty {haaganNeuvola.punnitukset}")
+
+```
+
+<sample-output>
+
+punnituksia tehty 0
+punnituksia tehty 2
+punnituksia tehty 6
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Maksukortti ja kassapääte' tmcname='osa09-03_maksukortti_ja_kassapaate'>
+
+## "Tyhmä" Maksukortti
+
+## Kassapääte ja käteiskauppa
+
+## Kortilla maksaminen
+
+## Rahan lataaminen
+
+</programming-exercise>
+
+## Oliot attribuutteina
 
 Aikaisemmin nähtiin esimerkkejä luokista, joissa attribuutteina oli käytetty esimerkiksi listoja. Samalla tavalla myös omista luokista luotuja olioita voi käyttää toisten olioiden attribuutteina. Seuraavissa esimerkeissä on määritelty luokat Kurssi, Opiskelija ja Kurssisuoritus. Kurssisuorituksessa hyödynnetään kahta ensimmäistä luokkaa. Luokkien sisäinen toteutus on jätetty hyvin lyhyeksi, jotta esimerkki ei paisuisi mahdottoman pitkäksi.
 

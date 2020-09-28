@@ -80,6 +80,7 @@ if "visual studio code" == mjono.lower():
 
 </programming-exercise>
 
+
 ## Interaktiivinen Python-tulkki
 
 Emme ole toistaiseksi puhuneet kurssilla sanallakaan eräästä Python-ohjelmoinnin tärkeimmästä työkalusta, interaktiivisesta komentotulkista.
