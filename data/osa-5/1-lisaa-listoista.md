@@ -239,7 +239,7 @@ Jos sisäkkäisiä listoja käsittelevät ohjelmat tuntuvat hankalalta ymmärtä
 
 Kuten kuva paljastaa, 3x3-matriisi koostuu teknisesti ottaen neljästä listasta. Ensimmäinen lista edustaa koko matriisia ja sen alkioina on erillisiä rivejä edustavat listat.
 
-Kuva havainnollistaa jo sitä seikkaa, mistä puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
+Kuva havainnollistaa jo sitä seikkaa, josta puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
 
 Kuvassa tulostus on edennyt matriisin toiselle riville, johon muuttuja `rivi` parhaillaan viittaa. Muuttuja `alkio` kertoo sen alkion, jonka kohdalla tulostus on menossa. Muuttujan arvo on nyt keskimmäisen rivin keskimmäinen eli 5.
 
