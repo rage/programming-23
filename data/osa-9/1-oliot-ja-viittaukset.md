@@ -371,7 +371,6 @@ haaganNeuvola.punnitse(eero)
 haaganNeuvola.punnitse(eero)
 
 print(f"punnituksia tehty {haaganNeuvola.punnitukset}")
-
 ```
 
 <sample-output>
@@ -388,11 +387,205 @@ punnituksia tehty 6
 
 ## "Tyhmä" Maksukortti
 
+Teimme edellisessä osassa luokan Maksukortti. Kortilla oli metodit edullisesti ja maukkaasti syömistä sekä rahan lataamista varten.
+
+Edellisen osan tyylillä tehdyssä Maksukortti-luokassa oli kuitenkin ongelma. Kortti tiesi lounaiden hinnan ja osasi sen ansiosta vähentää saldoa oikean määrän. Entä kun hinnat nousevat? Tai jos myyntivalikoimaan tulee uusia tuotteita? Hintojen muuttaminen tarkoittaisi, että kaikki jo käytössä olevat kortit pitäisi korvata uusilla, uudet hinnat tuntevilla korteilla.
+
+Parempi ratkaisu on tehdä kortit "tyhmiksi", hinnoista ja myytävistä tuotteista tietämättömiksi pelkän saldon säilyttäjiksi. Kaikki äly kannattaakin laittaa erillisiin olioihin, kassapäätteisiin.
+
+Toteutetaan ensin Maksukortista "tyhmä" versio. Kortilla on ainoastaan metodit saldon kysymiseen, rahan lataamiseen ja rahan ottamiseen. Täydennä alla (ja tehtäväpohjassa) olevaan luokkaan metodin `ota_rahaa(maara)` ohjeen mukaan:
+
+```python
+class Maksukortti:
+
+    def __init__(self, saldo: float):
+        self.saldo = saldo
+
+    def lataa_rahaa(self, lisays: float):
+        self.saldo += lisays
+
+
+    def ota_rahaa(self, maara: float):
+        pass
+        # toteuta metodi siten että se ottaa kortilta rahaa vain jos saldo on vähintään maara
+        # onnistuessaan metodi palauttaa True ja muuten False
+```
+
+Testipääohjelma:
+
+```python
+kortti = Maksukortti(10)
+print("rahaa", kortti.saldo()
+onnistuiko = kortti.otaRahaa(8)
+print("onnistuiko otto:" ,onnistuiko)
+print("rahaa", kortti.saldo()
+onnistuiko = kortti.otaRahaa(4)
+print("onnistuiko otto:" ,onnistuiko)
+print("rahaa", kortti.saldo()
+```
+
+<sample-output>
+
+rahaa 10.0
+onnistuiko otto: True
+rahaa 2.0
+onnistuiko otto: False
+rahaa 2.0
+
+</sample-output>
+
 ## Kassapääte ja käteiskauppa
+
+Unicafessa asioidessa asiakas maksaa joko käteisellä tai maksukortilla. Myyjä käyttää kassapäätettä kortin velottamiseen ja käteismaksujen hoitamiseen. Tehdään ensin kassapäätteestä käteismaksuihin sopiva versio.
+
+Kassapäätteen runko. Metodien kommentit kertovat halutun toiminnallisuuden:
+
+```python
+class Kassapaate:
+    __init__(self):
+        # kassassa on aluksi 1000 euroa rahaa
+        self.rahaa = 1000
+        self.edulliset = 0
+        self.maukkaat = 0
+
+    def syo_edullisesti(maksu: float)):
+        # edullinen lounas maksaa 2.50 euroa.
+        # kasvatetaan kassan rahamäärää edullisen lounaan hinnalla ja palautetaan vaihtorahat
+        # jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
+    }
+
+    def syo_maukkaasti(maksu: float):
+        # maukas lounas maksaa 4.30 euroa.
+        # kasvatetaan kassan rahamäärää maukkaan lounaan hinnalla ja palautetaan vaihtorahat
+        # jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
+
+    __repr__(self):
+        return f"kassassa rahaa {self.rahaa} edullisia lounaita myyty {self.edulliset} maukkaita lounaita myyty {self.maukkaat}"
+
+```
+
+```python
+unicafe_exactum = new Kassapaate()
+
+vaihtorahaa = unicafe_exactum.syoEdullisesti(10)
+print"vaihtorahaa jäi " + vaihtorahaa)
+
+vaihtorahaa = unicafe_exactum.syoEdullisesti(5)
+print"vaihtorahaa jäi " + vaihtorahaa)
+
+vaihtorahaa = unicafe_exactum.syoMaukkaasti(4.3)
+print"vaihtorahaa jäi " + vaihtorahaa)
+
+printunicafe_exactum)
+```
+
+<sample-output>
+
+vaihtorahaa jäi 7.5
+vaihtorahaa jäi 2.5
+vaihtorahaa jäi 0.0
+kassassa rahaa 1009.3 edullisia lounaita myyty 2 maukkaita lounaita myyty 1
+
+</sample-output>
 
 ## Kortilla maksaminen
 
+Laajennetaan kassapäätettä siten että myös kortilla voi maksaa. Teemme kassapäätteelle siis metodit joiden parametrina kassapääte saa maksukortin jolta se vähentää valitun lounaan hinnan. Seuraavassa uusien metodien rungot ja ohje niiden toteuttamiseksi:
+
+```python
+class Kassapaate:
+    # ...
+
+    def syo_edullisesti_koritlla(self, kortti:Maksukortti):
+        # edullinen lounas maksaa 2.50 euroa.
+        # jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan true
+        # muuten palautetaan false
+
+
+    def syo_maukkaasti_kortilla(self, kortti:Maksukortti):
+        # maukas lounas maksaa 4.30 euroa.
+        # jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan true
+        # muuten palautetaan false
+```
+
+**Huom:** kortilla maksaminen ei lisää kassapäätteessä olevan käteisen määrää.
+
+Seuraavassa testipääohjelma ja haluttu tulostus:
+
+```python
+
+unicafe_exactum = Kassapaate()
+
+vaihtorahaa = unicafe_exactum.syo_edullisesti(10)
+print"vaihtorahaa jäi " + vaihtorahaa)
+
+kortti = Maksukortti(7)
+
+onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(kortti)
+print"riittikö raha: " + onnistuiko)
+onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(kortti)
+print"riittikö raha: " + onnistuiko)
+onnistuiko = unicafe_exactum.syo_edullisesti_kortilla(kortti)
+print"riittikö raha: " + onnistuiko)
+
+printunicafe_exactum)
+
+```
+
+<sample-output>
+
+vaihtorahaa jäi 7.5
+riittikö raha: true
+riittikö raha: false
+riittikö raha: true
+kassassa rahaa 1002.5 edullisia lounaita myyty 2 maukkaita lounaita myyty 1
+
+</sample-output>
+
 ## Rahan lataaminen
+
+Lisätään vielä kassapäätteelle metodi jonka avulla kortille voidaan ladata lisää rahaa. Muista, että rahan lataamisen yhteydessä ladattava summa viedään kassapäätteeseen. Metodin runko:
+
+
+```python
+
+lataa_rahaa_kortille(self, kortti: Maksukortti, summa:float ):
+    pass
+```
+
+Testipääohjelma ja esimerkkisyöte:
+
+```python
+unicafe_exactum = Kassapaate()
+print(unicafe_exactum)
+
+antin_kortti = Maksukortti(2)
+
+print(f"kortilla rahaa {antin_kortti.saldo()} euroa")
+
+boolean onnistuiko = unicafe_exactum.syo_maukkaasti(antin_kortti)
+print("riittikö raha: " + onnistuiko)
+
+unicafe_exactum.lataa_rahaa_kortille(antin_kortti, 100)
+
+onnistuiko = unicafe_exactum.syo_maukkaasti(antin_kortti)
+print("riittikö raha:", onnistuiko)
+
+print(f"kortilla rahaa {antin_kortti.saldo()} euroa")
+
+print(unicafe_exactum)
+```
+
+<sample-output>
+
+kassassa rahaa 1000.0 edullisia lounaita myyty 0 maukkaita lounaita myyty 0
+kortilla rahaa 2.0 euroa
+riittikö raha: false
+riittikö raha: true
+kortilla rahaa 97.7 euroa
+kassassa rahaa 1100.0 edullisia lounaita myyty 0 maukkaita lounaita myyty 1
+
+</sample-output>
 
 </programming-exercise>
 
