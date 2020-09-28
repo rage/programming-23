@@ -217,7 +217,7 @@ Opiskelija, nimi: Minna Pythonen, opiskelijanumero: 86211, opintopisteet: 290
 
 ## Oliot metodien parametrina
 
-Olit toimivat normaaliin tapaan myös _metodeinen_ parametrina. Tarkastellaan seuraavaa esimerkkiä:
+Olito toimivat normaaliin tapaan myös _metodeinen_ parametrina. Tarkastellaan seuraavaa esimerkkiä:
 
 ```python
 class Henkilo:
@@ -227,7 +227,7 @@ class Henkilo:
         self.pituus = pituus
 
 class Huvipuistolaite:
-    def __init__(self, nimi, pituusraja):
+    def __init__(self, nimi: str, pituusraja: int):
         self.kavijoita = 0
         self.nimi = nimi
         self.pituusraja = pituusraja
@@ -252,13 +252,13 @@ venla = Henkilo("Venla", 105)
 
 ok = hurjakuru.ota_kyytiin(jarkko)
 if ok:
-    print(f"{jarkko.nimi} pääasi kyytiin")
+    print(f"{jarkko.nimi} pääsi kyytiin")
 else:
     print(f"{jarkko.nimi} liian lyhyt :(")
 
 ok = hurjakuru.ota_kyytiin(venla)
 if ok:
-    print(f"{venla.nimi} pääasi kyytiin")
+    print(f"{venla.nimi} pääsi kyytiin")
 else:
     print(f"{venla.nimi} liian lyhyt :(")
 
@@ -267,7 +267,7 @@ print(hurjakuru)
 
 <sample-output>
 
-Jarkko pääasi kyytiin
+Jarkko pääsi kyytiin
 Venla liian lyhyt :(
 laite: hurjakuru, kävijöitä 1
 
@@ -275,7 +275,7 @@ laite: hurjakuru, kävijöitä 1
 
 <programming-exercise name='Kasvatuslaitos' tmcname='osa09-02_kasvatuslaitos'>
 
-Tehtäväpohjassasi on valmiina jo luokka `Henkilo` sekä runko luokalle `Kasvatuslaitos`. Kasvatuslaitosoliot käsittelevät ihmisiä eri tavalla, esim. punnitsevat ja syöttävät ihmisiä. Rakennamme tässä tehtävässä kasvatuslaitoksen. Luokan `Henkilö` koodiin ei tehtävässä ole tarkoitus koskea!
+Tehtäväpohjassasi on valmiina jo luokka `Henkilo` sekä runko luokalle `Kasvatuslaitos`. Kasvatuslaitosoliot käsittelevät ihmisiä eri tavalla, esim. punnitsevat ja syöttävät ihmisiä. Rakennamme tässä tehtävässä kasvatuslaitoksen. Luokan `Henkilo` koodiin ei tehtävässä ole tarkoitus koskea!
 
 ## Henkilöiden punnitseminen
 
@@ -313,7 +313,7 @@ Pekka paino: 85 kiloa
 
 ## Syöttäminen
 
-Parametrina olevan olion tilaa on mahdollista muuttaa. Tee kasvatuslaitokselle metodi public void syota(Henkilo henkilo) joka kasvattaa parametrina olevan henkilön painoa yhdellä.
+Parametrina olevan olion tilaa on mahdollista muuttaa. Tee kasvatuslaitokselle metodi `syota(henkilo: Henkilo)` joka kasvattaa parametrina olevan henkilön painoa yhdellä.
 
 Seuraavassa esimerkki, jossa henkilöt ensin punnitaan, ja tämän jälkeen neuvolassa syötetään eeroa kolme kertaa. Tämän jälkeen henkilöt taas punnitaan:
 
@@ -348,7 +348,7 @@ Pekka paino: 85 kiloa
 
 ## Punnitusten laskeminen
 
-Tee kasvatuslaitokselle metodi public int punnitukset() joka kertoo kuinka monta punnitusta kasvatuslaitos on ylipäätään tehnyt. Huom! Tarvitset uuden oliomuuttujan punnitusten lukumäärän laskemiseen! Testipääohjelma:
+Tee kasvatuslaitokselle metodi `punnitukset()` joka kertoo kuinka monta punnitusta kasvatuslaitos on ylipäätään tehnyt. Huom! Tarvitset uuden oliomuuttujan punnitusten lukumäärän laskemiseen! Testipääohjelma:
 
 ```python
 
@@ -697,7 +697,7 @@ def vanhempi_kuin(self, toinen: Henkilo):
 Asuntovälitystoimiston tietojärjestelmässä kuvataan myynnissä olevaa asuntoa seuraavasta luokasta tehdyillä olioilla:
 
 ```python
-public class Asunto:
+class Asunto:
     def __init__(self, huoneita: int , nelioita: int , neliohinta:int):
         self.huoneita = huoneita
         self.nelioita = nelioita

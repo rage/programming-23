@@ -260,6 +260,11 @@ Muistiinpano - pvm: 2020-09-09 14:13:02.163170, merkintä: Muista ostaa lahjoja 
 
 </sample-output>
 
+<programming-exercise name='Raha' tmcname='osa10_'>
+</programming-exercise>
+
+<programming-exercise name='Murtoluku' tmcname='osa10_'>
+</programming-exercise>
 
 ## Iteraattorit
 
