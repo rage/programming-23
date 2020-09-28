@@ -215,7 +215,7 @@ Opiskelija, nimi: Minna Pythonen, opiskelijanumero: 86211, opintopisteet: 290
 
 </sample-output>
 
-## Oliot funktioiden parametrina
+## Oliot metodien parametrina
 
 Olit toimivat normaaliin tapaan myös _metodeinen_ parametrina. Tarkastellaan seuraavaa esimerkkiä:
 
@@ -384,13 +384,13 @@ punnituksia tehty 6
 
 <programming-exercise name='Maksukortti ja kassapääte' tmcname='osa09-03_maksukortti_ja_kassapaate'>
 
-## "Tyhmä" Maksukortti
-
 Teimme edellisessä osassa luokan Maksukortti. Kortilla oli metodit edullisesti ja maukkaasti syömistä sekä rahan lataamista varten.
 
 Edellisen osan tyylillä tehdyssä Maksukortti-luokassa oli kuitenkin ongelma. Kortti tiesi lounaiden hinnan ja osasi sen ansiosta vähentää saldoa oikean määrän. Entä kun hinnat nousevat? Tai jos myyntivalikoimaan tulee uusia tuotteita? Hintojen muuttaminen tarkoittaisi, että kaikki jo käytössä olevat kortit pitäisi korvata uusilla, uudet hinnat tuntevilla korteilla.
 
 Parempi ratkaisu on tehdä kortit "tyhmiksi", hinnoista ja myytävistä tuotteista tietämättömiksi pelkän saldon säilyttäjiksi. Kaikki äly kannattaakin laittaa erillisiin olioihin, kassapäätteisiin.
+
+## "Tyhmä" Maksukortti
 
 Toteutetaan ensin Maksukortista "tyhmä" versio. Kortilla on ainoastaan metodit saldon kysymiseen, rahan lataamiseen ja rahan ottamiseen. Täydennä alla (ja tehtäväpohjassa) olevaan luokkaan metodin `ota_rahaa(maara)` ohjeen mukaan:
 
@@ -583,6 +583,192 @@ riittikö raha: false
 riittikö raha: true
 kortilla rahaa 97.7 euroa
 kassassa rahaa 1100.0 edullisia lounaita myyty 0 maukkaita lounaita myyty 1
+
+</sample-output>
+
+</programming-exercise>
+
+## Saman luokan oliot metodien parametrina
+
+Tarkastellaan jälleen kerran yhtä versiota luokasta Henkilo:
+
+```python
+class Henkilo:
+    def __init__(self, nimi: str, syntynyt: int):
+        self.nimi = nimi
+        self.syntynyt = syntynyt
+
+    def __repr__(self):
+        return f"{self.nimi} syntynyt {self.syntynyt}"
+```
+
+Oletetaan että olemme tekemässä ohjelmaa, joka vertailee henkilöiden ikiä. Voisimme tehdä tarkoitusta varten erillisen funktion:
+
+```python
+def vanhempi_kuin(h1: Henkilo, h2: Henkilo):
+    if h1.syntynyt < h2.syntynyt:
+        return True
+    else:
+        return True
+
+muhammad = Henkilo("Muhammad ibn Musa al-Khwarizmi", 780)
+pascal = Henkilo("Blaise Pascal", 1623)
+grace = Henkilo("Grace Hopper", 1906)
+
+if vanhempi_kuin(muhammad, pascal):
+    print(f"{muhammad} on vanhenmpi kuin {pascal}")
+else:
+    print(f"{muhammad} ei ole vanhenmpi kuin {pascal}")
+
+if vanhempi_kuin(grace, pascal):
+    print(f"{grace} on vanhenmpi kuin {pascal}")
+else:
+    print(f"{grace} ei ole vanhenmpi kuin {pascal}")
+```
+
+<sample-output>
+
+Muhammad ibn Musa al-Khwarizmi on vanhempi kuin Blaise Pascal
+Grace Hopper ei ole vanhenmpi kuin  Blaise Pascal
+
+</sample-output>
+
+Olio-ohjelmoinnin henkeen kuuluu kuitenkin sijoittaa oliota käsittelevät "funktiot" luokan metodeiksi. Voisimmekin tehdä henkilölle metodin, jonka avulla henkilön ikää voidaan verrata _toiseen_ hebkilöön:
+
+```python
+class Henkilo:
+    def __init__(self, nimi: str, syntynyt: int):
+        self.nimi = nimi
+        self.syntynyt = syntynyt
+
+def vanhempi_kuin(self, toinen: Henkilo):
+    if self.syntynyt < toinen.syntynyt:
+        return True
+    else:
+        return True
+
+    def __repr__(self):
+        return f"{self.nimi} syntynyt {self.syntynyt}"
+```
+
+Nyt siis olio itse on _self_ ja _toinen_ on henkilöolio, joka toimii vertailukohtana.
+
+Huomaa miten metodin kutsuminen eroaa funktion kutsumisesta:
+
+```python
+muhammad = Henkilo("Muhammad ibn Musa al-Khwarizmi", 780)
+pascal = Henkilo("Blaise Pascal", 1623)
+grace = Henkilo("Grace Hopper", 1906)
+
+if muhammad.vanhempi_kuin(pascal):
+    print(f"{muhammad} on vanhenmpi kuin {pascal}")
+else:
+    print(f"{muhammad} ei ole vanhenmpi kuin {pascal}")
+
+if grace.vanhempi_kuin(pascal):
+    print(f"{grace} on vanhenmpi kuin {pascal}")
+else:
+    print(f"{grace} ei ole vanhenmpi kuin {pascal}")
+```
+
+Pisteen vasemmalla puolella on siis se ketä verrataan, eli se olio mihin metodin suorituksessa viittaa muuttuja `self`, parametrina taas on vertailukohta, eli metodin suoritukssa muuttujan `toinen` viittaama olio.
+
+Ohjelman tulostus on sama kuin edellisessä funktiota käyttäneessä esimerkissä.
+
+Huomaa, että if-else-rakenne metodissa `vanhempi_kuin` on oikeastaan ihan turha, sillä vertailun arvona on suoraan haluamamme totuusarvo. Voimme siis yksinkertaistaa metodia seuraavasti:
+
+```python
+class Henkilo:
+    def __init__(self, nimi: str, syntynyt: int):
+        self.nimi = nimi
+        self.syntynyt = syntynyt
+
+def vanhempi_kuin(self, toinen: Henkilo):
+    return self.syntynyt < toinen.syntynyt:
+
+    def __repr__(self):
+        return f"{self.nimi} syntynyt {self.syntynyt}"
+```
+
+
+
+<programming-exercise name='Asuntovertailu' tmcname='osa09-04_asuntovertailu'>
+
+Asuntovälitystoimiston tietojärjestelmässä kuvataan myynnissä olevaa asuntoa seuraavasta luokasta tehdyillä olioilla:
+
+```python
+public class Asunto:
+    def __init__(self, huoneita: int , nelioita: int , neliohinta:int):
+        self.huoneita = huoneita
+        self.nelioita = nelioita
+        self.neliohinta = neliohinta
+```
+
+Tehtävänä on toteuttaa muutama metodi, joiden avulla myynnissä olevia asuntoja voidaan vertailla.
+
+## Onko suurempi
+
+Tee metodi `suurempi(verrattava: Asunto)` joka palauttaa True jos asunto-olio, jolle metodia kutsutaan, on pinta-alaltaan suurempi kuin verrattavana oleva asunto-olio.
+
+Esimerkki metodin toiminnasta:
+
+```python
+eira_yksio = new Asunto(1, 16, 5500)
+kallioKaksio = new Asunto(2, 38, 4200)
+jakomaki_kolmio = new Asunto(3, 78, 2500)
+
+print(eira_yksio.suurempi(kallio_kaksio))
+print(jakomaki_kolmio.suurempi(kallioKaksio))
+```
+
+<sample-output>
+
+False
+True
+
+</sample-output>
+
+## Hintaero
+
+Tee metodi `hintaero(verrattava: Asunto)` joka palauttaa asunto-olion jolle metodia kutsuttiin ja parametrina olevan asunto-olion hintaeron. Hintaero on asuntojen hintojen erotuksen (hinta lasketaan kertomalla neliöhinta neliöillä) itseisarvo.
+
+Esimerkki metodin toiminnasta:
+
+```python
+eira_yksio = new Asunto(1, 16, 5500)
+kallioKaksio = new Asunto(2, 38, 4200)
+jakomaki_kolmio = new Asunto(3, 78, 2500)
+
+print(eira_yksio.hintaero(kallioKaksio))
+print(jakomaki_kolmio.hintaero(kallioKaksio))
+```
+
+<sample-output>
+
+71600
+35400
+
+</sample-output>
+
+## Onko kalliimpi
+
+Tee metodi `kalliimpi(verrattava): Asunto` joka palauttaa true jos asunto-olio, jolle metodia kutsutaan on kalliimpi kuin verrattavana oleva asunto-olio.
+
+Esimerkki metodin toiminnasta:
+
+```python
+eira_yksio = new Asunto(1, 16, 5500)
+kallioKaksio = new Asunto(2, 38, 4200)
+jakomaki_kolmio = new Asunto(3, 78, 2500)
+
+print(eira_yksio.kalliimpi(kallio_kaksio))
+print(jakomaki_kolmio.kalliimpi(kallioKaksio))
+```
+
+<sample-output>
+
+False
+True
 
 </sample-output>
 
