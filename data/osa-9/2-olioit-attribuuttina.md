@@ -131,7 +131,55 @@ Leevi, kaverina Hulda, joka on sekarotuinen koira
 
 </programming-exercise>
 
-## TODO: esmierkki missä olion sisällä on lista olioita
+## Olion attribuuttina lista olioita
+
+Äskeisissä esimerkeissä oliolla oli atrribuuttina yksittäinen toisen luokan olio, esim. henkilöllä on attribuuttina lemmikki-olio, opintosuorituksella attribuuttina kurssi-olio.
+
+Olio-ohjelmoinnissa törmätään erittäin usein tilanteeseen, missä oliolla on attribuuttina joukko toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
+
+```python
+class Pelaaja:
+    def __int__(self, nimi: str, maalit: int):
+        self.nimi = nimi
+        self.maalit = maalit
+
+     def __repr__(self):
+        return f"{self.nimi} maaleja {self.maalit}"
+
+class Joukkue:
+    def __int__(self, nimi: str):
+        self.nimi = nimi
+        self.pelaajat = []
+
+    def lisaa_pelaaja(self, elaaja: Pelaaja):
+        self.pelaajat.append(pelaaja)
+
+    def __repr__(self):
+        maalit = []
+        for pelaaja in self.pelaajat:
+            maalit.append(pelaaja.maalit)
+
+        return f"Joukkue {self.nimi}, pelaajia {len(self.pelaajat)}. Pelaajien maalimäärät {maalit}"
+```
+
+Käyttöesimerkki
+
+```python
+kupa = Joukkue("Kumpulan pallo")
+erkki = Pelaaja("Erkki", 10)
+kupa.lisaa_pelaaja(erkki)
+emilia = Pelaaja("Emilia", 22)
+kupa.lisaa_pelaaja(emilia)
+# huomaa, että parametriksi voidaan määritellä suoraan konstruktorin kutsu
+kupa.lisaa_pelaaja(Pelaaja("Antti", 1))
+print(kupa)
+```
+
+<sample-output>
+
+Joukkue Kumpulan pallo, pelaajia 3. Pelaajien maalimäärät [10, 11, 1]"
+
+</sample-output>
 
 <programming-exercise name='Lahjapakkaus' tmcname='osa09-05_lahjapakkaus'>
 
@@ -190,7 +238,92 @@ print(paketti.yhteispaino())
 
 </programming-exercise>
 
-TODO olematon olio Null-viite
+## None eli viite ei mihinkään
+
+Pythonissa siis muuttujat aina _viittaavat_ johonkin olioon. On tilanteita, missä haluaisimme merkitä tilannetta, missä emme viittaa mihinkään.
+
+Jos luokkaan joukkue lisättäisiin metodi, joka etsii joukkueen pelaajan, saattaisi olla luontevaa esittää paluuarvolla `None` tilanne, missä pelaajaa ei löydy:
+
+```python
+class Joukkue:
+    def __int__(self, nimi: str):
+        self.nimi = nimi
+        self.pelaajat = []
+
+    def lisaa_pelaaja(self, elaaja: Pelaaja):
+        self.pelaajat.append(pelaaja)
+
+    def etsi(self, etsitty_nimi):
+        for pelaaja in self.pelaajat:
+            if pelaaja.nimi == etsitty_nimi:
+                return pelaaja
+
+        return None
+```
+
+Käyttöesimerkki:
+
+```python
+kupa = Joukkue("Kumpulan pallo")
+erkki = Pelaaja("Erkki", 10)
+kupa.lisaa_pelaaja(erkki)
+emilia = Pelaaja("Emilia", 22)
+kupa.lisaa_pelaaja(emilia)
+kupa.lisaa_pelaaja(Pelaaja("Antti", 1))
+
+p1 = kupa.etsi("Aatti")
+print(p1)
+p2 = kupa.etsi("Jukkis")
+print(p2)
+```
+
+<sample-output>
+
+Antti maaleja 1
+None
+
+</sample-output>
+
+None-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle, joka onkin None:
+
+```python
+kupa = Joukkue("Kumpulan pallo")
+erkki = Pelaaja("Erkki", 10)
+kupa.lisaa_pelaaja(erkki)
+
+p = kupa.etsi("Jukkis")
+print(f"Jukkiksen maalimäärä {p.maalit}")
+```
+
+Jos näin tehdään, ohjelma kaatuu:
+
+<sample-output>
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'NoneType' object has no attribute 'maalit'
+
+<sample-output>
+
+None-arvojen varalta onkin syytä tehdä tarkistus ennen kuin riskialtista koodia kutsutaan
+
+```python
+kupa = Joukkue("Kumpulan pallo")
+erkki = Pelaaja("Erkki", 10)
+kupa.lisaa_pelaaja(erkki)
+
+p = kupa.etsi("Jukkis")
+if p!=None:
+    print(f"Jukkiksen maalimäärä {p.maalit}")
+else:
+    print(f"Jukkis ei pelaa Kumpulan pallossa :(")
+```
+
+<sample-output>
+
+Jukkis ei pelaa Kumpulan pallossa :(
+
+<sample-output>
 
 <programming-exercise name='Henkilöt' tmcname='osa09-06_henkilot'>
 
@@ -233,7 +366,7 @@ Terhi (185 cm)
 
 ## Lyhin henkilö
 
-Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, palauttaa Null-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
+Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, palauttaa None-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
 
 ```python
 huone = new Huone()
@@ -259,7 +392,7 @@ huone.tulosta_tiedot()
 
 <sample-output>
 
-Lyhin: null
+Lyhin: None
 Huone tyhjä? true
 Huone tyhjä? false
 Huoneessa 4 henkilöä, yhteispituus 723 cm
@@ -280,7 +413,7 @@ Nina (172 cm)
 
 ## Huoneesta ottaminen
 
-Lisää luokalle Huone `poista_lyhin()`, ottaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa null-viitteen.
+Lisää luokalle Huone `poista_lyhin()`, ottaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa None-viitteen.
 
 ```python
 huone = new Huone()
@@ -451,7 +584,7 @@ Muokkaa myös luokkaasi siten, että käytät vain kahta oliomuuttujaa. Toinen s
 
 ## Raskain tavara
 
-Lisää vielä luokkaan metodi `raskainTavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo Null.
+Lisää vielä luokkaan metodi `raskainTavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo None.
 
 Seuraavassa on luokan käyttöesimerkki:
 
