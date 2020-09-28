@@ -769,16 +769,130 @@ print(paketti.yhteispaino())
 
 </programming-exercise>
 
-<programming-exercise name='Lemmikit' tmcname='osa09-06_pisin'>
+TODO olematon olio Null-viite
 
+<programming-exercise name='Henkilöt' tmcname='osa09-06_henkilot'>
+
+Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä, ja jota voi käyttää henkilöiden pituusjärjestykseen asettamiseen — henkilön ottaminen huoneesta palauttaa aina lyhyimmän henkilön.
+
+## Huone
+
+Luo luokka Huone, joka sisältää oliomuuttujana listan henkilöitä, ja jolla on seuraavat metodit:
+
+- `lisaa(henkilo: Henkilo)` lisää huoneeseen parametrina annetun henkilön.
+- `onTyhja()` - palauttaa boolean-tyyppisen arvon True tai False, joka kertoo onko huone tyhjä.
+- `tulosta_henkilot()` tulostaa huoneessa olevat henkilöt
+
+Seuraavassa käyttöesimerkki
 
 ```python
+huone = new Huone()
+print("Huone tyhjä?", huone.on_tyhja())
+huone.lisaa(Henkilo("Lea", 183))
+huone.lisaa(Henkilo("Kenya", 182))
+huone.lisaa(Henkilo("Auli", 186))
+huone.lisaa(Henkilo("Nina", 172))
+huone.lisaa(Henkilo("Terhi", 185))
+print("Huone tyhjä?", huone.on_tyhja())
+huone.tulosta_henkilot()
 ```
 
 <sample-output>
 
+Huone tyhjä? true
+Huone tyhjä? false
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Nina (172 cm)
+Terhi (185 cm)
+
 </sample-output>
 
+## Lyhin henkilö
+
+Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, palauttaa Null-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
+
+```python
+huone = new Huone()
+print("Lyhin: " + huone.lyhin())
+print("Huone tyhjä?", huone.on_tyhja())
+
+huone.lisaa(Henkilo("Lea", 183))
+huone.lisaa(Henkilo("Kenya", 182))
+huone.lisaa(Henkilo("Auli", 186))
+huone.lisaa(Henkilo("Nina", 172))
+
+print("Huone tyhjä?", huone.on_tyhja())
+huone.tulosta_henkilot()
+
+print()
+
+lyhin = huone.lyhin()
+print(f"Lyhin: {lyhin.nimi}")
+
+print()
+huone.tulosta_henkilot()
+```
+
+<sample-output>
+
+Lyhin: null
+Huone tyhjä? true
+Huone tyhjä? false
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Nina (172 cm)
+
+Lyhin: Nina
+
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Nina (172 cm)
+
+</sample-output>
+
+## Huoneesta ottaminen
+
+Lisää luokalle Huone `poista_lyhin()`, ottaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa null-viitteen.
+
+```python
+huone = new Huone()
+print("Lyhin: " + huone.lyhin())
+
+huone.lisaa(Henkilo("Lea", 183))
+huone.lisaa(Henkilo("Kenya", 182))
+huone.lisaa(Henkilo("Auli", 186))
+huone.lisaa(Henkilo("Nina", 172))
+
+print()
+
+poistettu = huone.poista_lyhin()
+print(f"Otettiin huoneesta: {poistettu.nimi}")
+
+print()
+huone.tulosta_henkilot()
+```
+
+<sample-output>
+
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+Nina (172 cm)
+
+Otettiin huoneesta: Nina
+
+Lea (183 cm)
+Kenya (182 cm)
+Auli (186 cm)
+
+</sample-output>
 
 </programming-exercise>
 
+<programming-exercise name='Tavara, Matkalaukku ja Lastiruuma' tmcname='osa09-07_tavara_matkalaukku_lastiruuma'>
+
+</programming-exercise>
