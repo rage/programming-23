@@ -41,11 +41,11 @@ print(id(b))
 
 Viittaus eli muuttujan id on kokonaisluku, jonka voi ajatella olevan muuttujan arvon sijainnin osoite tietokoneen muistissa. Huomaa, että jos suoritat yllä olevan koodin omalla koneellasi, tulos on luultavasti erilainen, koska muuttujilla on eri viitteet.
 
-Kuten jo [edellisen osan](/osa-5/1-lisaa-listoja#heading-sisakkaisia-listoja-kayttavan-koodin-visualisointi) esimerkistä näimme python tutorin visualisaattori näyttää viitteet "nuolina" varsinaiseen sisältöön. Visualisaattori kuitenkin "huijaa" merkkijonojen tapauksessa, ja näyttää ne ikäänkuin merkkijonon sisältö olisi talletettu muuttujan sisälle:
+Kuten jo [edellisen osan](/osa-5/1-lisaa-listoja#heading-sisakkaisia-listoja-kayttavan-koodin-visualisointi) esimerkistä näimme, Python Tutorin visualisaattori näyttää viitteet "nuolina" varsinaiseen sisältöön. Visualisaattori kuitenkin "huijaa" merkkijonojen tapauksessa ja näyttää ne ikään kuin merkkijonon sisältö olisi tallennettu muuttujan sisälle:
 
 <img src="5_2_1a.png">
 
-Näin ei kuitaan ole todellisuudessa, merkkijonotkin käsitellään pythonin sisäisissä rakenteissa samaan tapaan kuin listat.
+Näin ei kuitaan ole todellisuudessa, vaan merkkijonotkin käsitellään Pythonin sisäisissä rakenteissa samaan tapaan kuin listat.
 
 Monet Pythonin sisäänrakennetut tyypit, kuten `str`, ovat _muuttumattomia_. Tämä tarkoittaa, että olion arvo ei voi koskaan muuttua. Sen sijaan arvo voidaan korvata uudella arvolla:
 
@@ -272,7 +272,7 @@ Seuraava kuvasarja havainnollistaa, mihin eri muuttujat viittaavat ohjelman suor
 
 Funktion sisällä muutettu lista siis "kadotetaan" kun funktiosta palataan, ja muuttuja `luvut` viittaa koko ajan alkuperäiseen listaan.
 
-Visualisaattori on tässäkin tapauksessa ystävä, se näyttää selkeästi miten funktio ei koske alkuperäiseen listaan ollenkaan, vaan luo uuden listan johon muutokset tehdään:
+Visualisaattori on tässäkin tapauksessa ystävä: se näyttää selkeästi, miten funktio ei koske alkuperäiseen listaan ollenkaan vaan luo uuden listan, johon muutokset tehdään:
 
 <img src="5_2_4d.png">
 

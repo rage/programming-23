@@ -1,5 +1,5 @@
 ---
-path: '/osa-9/2-kapselointi'
+path: '/osa-9/3-kapselointi'
 title: 'Kapselointi'
 hidden: false
 ---
@@ -38,7 +38,7 @@ class Opiskelija:
         self.opintopisteet += opintopisteet
 
     def __repr__(self):
-        return f"Opiskelija - nimi: {self.nimi}, op.nro: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"teet
+        return f"Opiskelija - nimi: {self.nimi}, op.nro: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"
 
 ```
 
@@ -180,6 +180,49 @@ Pankkikortti - numero: 123456, nimi: Reijo Rahakas saldo: 3000
 </sample-output>
 
 Saldoa ei voi suoraan muuttaa, koska attribuutti on piilotettu, mutta sitä voi käsitellä metodien `lisaa_rahaa` ja `kayta_rahaa` avulla. Metodeihin voidaan sijoittaa sopivia tarkastuksia, joilla varmistetaan, että olion sisäinen eheys säilyy: esimerkiksi rahaa ei voi käyttää enempää kuin mitä kortilla on saldoa jäljellä.
+
+<programming-exercise name='Auto' tmcname='osa09-08_auto'>
+
+Toteuta luokka `Auto`, autolla on _kapseloituina attribuutteina_ tieto bensatankin sisällöstä (0-60 litraa) sekä ajetuista kilometreista.
+
+Autolla on metodit
+
+- `tankkaa()`, joka täyttää bensatankin
+- `aja(km:int)`, joka ajaa parametrina olevan kilometrimäärän tai niin pitkälle kuin bensaa riittää, auto kuluttaa litran kilometrillä
+
+Auto toimii seuraavasti
+
+
+```python
+auto = Auto()
+print(auto)
+auto.tankkaa()
+print(auto)
+auto.aja(20)
+print(auto)
+auto.aja(50)
+print(auto)
+auto.aja(10)
+print(auto)
+auto.tankkaa()
+auto.tankkaa()
+print(auto)
+```
+
+<sample-output>
+
+auto: ajettu 0 km, bensaa 0 litraa
+auto: ajettu 0 km, bensaa 60 litraa
+auto: ajettu 20 km, bensaa 40 litraa
+auto: ajettu 40 km, bensaa 0 litraa
+auto: ajettu 40 km, bensaa 0 litraa
+auto: ajettu 40 km, bensaa 60 litraa
+
+</sample-output>
+
+**Huomaa**, että bensan ja ajettujen kilometrien määrä on kapseloitava, niihin ei tule pystyä vaikuttamaan muuten kuin auton metodeja kutsumalla.
+
+</programming-exercise>
 
 ## Asetus- ja havainnointimetodit
 
