@@ -609,7 +609,7 @@ def vanhempi_kuin(h1: Henkilo, h2: Henkilo):
     if h1.syntynyt < h2.syntynyt:
         return True
     else:
-        return True
+        return False
 
 muhammad = Henkilo("Muhammad ibn Musa al-Khwarizmi", 780)
 pascal = Henkilo("Blaise Pascal", 1623)
@@ -645,7 +645,7 @@ def vanhempi_kuin(self, toinen: Henkilo):
     if self.syntynyt < toinen.syntynyt:
         return True
     else:
-        return True
+        return False
 
     def __repr__(self):
         return f"{self.nimi} syntynyt {self.syntynyt}"
