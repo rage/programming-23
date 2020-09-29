@@ -413,13 +413,13 @@ Testipääohjelma:
 
 ```python
 kortti = Maksukortti(10)
-print("rahaa", kortti.saldo()
+print("rahaa", kortti.saldo())
 onnistuiko = kortti.ota_rahaa(8)
 print("onnistuiko otto:" ,onnistuiko)
-print("rahaa", kortti.saldo()
+print("rahaa", kortti.saldo())
 onnistuiko = kortti.ota_rahaa(4)
 print("onnistuiko otto:" ,onnistuiko)
-print("rahaa", kortti.saldo()
+print("rahaa", kortti.saldo())
 ```
 
 <sample-output>
