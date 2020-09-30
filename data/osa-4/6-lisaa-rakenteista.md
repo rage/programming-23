@@ -279,7 +279,7 @@ False
 
 </sample-output>
 
-Kirjoita metodia hyödyntäen funktio `poista_isot`, joka saa parametrikseen listan merkkijonoja. Funktio palauttaa uuden listan, jolla on sen parametrina olevasta listasta ne merkkijonot, jotka koostuvat kokonaan pienistä kirjaimista.
+Kirjoita metodia hyödyntäen funktio `poista_isot`, joka saa parametrikseen listan merkkijonoja. Funktio palauttaa uuden listan, jolla on sen parametrina olevasta listasta ne merkkijonot, jotka eivät koostu kokonaan isoista kirjaimista.
 
 
 Esimerkki funktion käytöstä:
