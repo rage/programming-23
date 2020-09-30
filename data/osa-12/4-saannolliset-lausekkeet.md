@@ -173,6 +173,7 @@ Ei osumaa.
 
 </sample-output>
 
+
 ### Muita erikoismerkkejä
 
 Pisteellä merkitään mitä tahansa yksittäistä merkkiä. Niinpä merkintä `c...o` vastaa esimerkiksi merkkijonoja `c-3po` tai `combo`. Merkillä `^` voidaan määritellä, että osuman pitää löytyä merkkijonon alusta, ja vastaavasti merkillä `$`, että sen on oltava lopussa.
@@ -193,6 +194,22 @@ Osuma!
 
 </sample-output>
 
-TODO: Lisää esimerkkejä?
+Kaarisulkeilla voidaan ryhmitellä alijonoja. Esimerkiksi merkintä `(ab)+c` hyväksyisi jonot `abc`, `ababc` tai `ababababababc`, mutta ei esimerkiksi jonoja `ac` tai `bc`.
+
+Esimerkiksi
+
+<sample-output>
+
+Anna lauseke: ^(jabba).*(hut)$
+Anna testijono: jabba the hut
+Osuma!
+Anna testijono: jabba a hut
+Osuma!
+Anna testijono: jarmo the hut
+Ei osumaa.
+Anna testijono: jabba the smut
+Ei osumaa.
+
+</sample-output>
 
 
