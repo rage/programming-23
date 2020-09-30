@@ -591,6 +591,10 @@ else:
 
 Kun koodi on kunnossa, voi ehtorakenteen poistaa.
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
+
 </programming-exercise>
 
 <programming-exercise name='Kurssin tulokset, osa 2' tmcname='osa06-05_kurssin_tulokset_osa2'>
@@ -631,6 +635,9 @@ kokeen pisteet + harjoitusten pisteet   | arvosana
 21-23 | 3
 24-27 | 4
 28- | 5
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
 
 </programming-exercise>
 
@@ -694,6 +701,9 @@ print(f"{luku:<10}jatkuu")
 
 Oletusarvo lukujen yhteydessä on tulostuksen sisentyminen _oikeaan_ reunaan. Merkillä `<` voidaan ohjata luvun tulostus sisentymään vasempaan reunaan.
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 </programming-exercise>
 
 <programming-exercise name='Spell checker' tmcname='osa06-07_spellchecker'>
@@ -721,6 +731,10 @@ This is *acually* good and *usefull* program
 Kirjainten koolla ei ole merkitystä ohjelman toiminnan kannalta.
 
 Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa olevaa tiedostoa `wordlist.txt`.
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 
 </programming-exercise>
 

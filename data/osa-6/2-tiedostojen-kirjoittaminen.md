@@ -100,6 +100,10 @@ Hei Arto, toivomme viihtyisiä hetkiä python-kurssimateriaalin parissa! Terveis
 
 </sample-data>
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
+
 </programming-exercise>
 
 ## Tiedon lisääminen olemassaolevaan tiedostoon
@@ -179,6 +183,10 @@ Valinta: **0**
 Heippa!
 
 </sample-output>
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 
 </programming-exercise>
 
@@ -466,6 +474,9 @@ Tulokset talletettu tiedostoihin tulos.txt ja tulos.csv
 
 Ohjelma siis ainoastaan kyselee tiedostojen nimet ja varsinaiset tulokset tallennetaan vain tiedostoihin.
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 </programming-exercise>
 
 <programming-exercise name='Henkilöt talteen' tmcname='osa06-14_henkilot_talteen'>
@@ -571,6 +582,10 @@ Sanat tallennetaan tiedostoon `sanakirja.txt`. Ohjelma lukee tiedoston sisällö
 Voit itse päättää tiedostoon tallennettavan tiedon muodon.
 
 Huomaa, että paikallisten TMC-testien ajaminen voi tyhjentää sanakirja-tiedoston.
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 
 </programming-exercise>
 
