@@ -37,7 +37,7 @@ Lisää zoom-aikoja mahdollisesti tulevaisuudessa.
 
 ## Aikataulu
 
-*Seuraava luento: tiistaina 29.9. klo 10.15 - [Zoom](https://helsinki.zoom.us/j/67123127748?pwd=c1hIN2EwbmQwZ1hNVVBKKzRvQTkzZz09)*
+*Seuraava luento: tiistaina 6.10. klo 10.15 - <!--[Zoom](https://helsinki.zoom.us/j/67123127748?pwd=c1hIN2EwbmQwZ1hNVVBKKzRvQTkzZz09)*-->
 
 Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja deadline on seuraavan viikon torstaina.
 
@@ -80,6 +80,7 @@ Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
       <td>Osa 5</td>
       <td>29.9.2020</td>
       <td>8.10.2020</td>
+      <td><a href="https://youtu.be/5HWPcbuaf9s">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 6</td>

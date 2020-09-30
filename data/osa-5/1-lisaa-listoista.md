@@ -84,7 +84,7 @@ Keskiarvo: 10.15
 
 <programming-exercise name='Pisin merkkijono' tmcname='osa05-01a_pisin_merkkijono'>
 
-Tee funktio `pisin(merkkijonot: list)`, joka saa parametrikseen listan merkkijonoja. FUnktio etsii ja palauttaa listalta pisimmän merkkijonon. Voit olettaa, että vain yksi jonoista on pisin.
+Tee funktio `pisin(merkkijonot: list)`, joka saa parametrikseen listan merkkijonoja. Funktio etsii ja palauttaa listalta pisimmän merkkijonon. Voit olettaa, että vain yksi jonoista on pisin.
 
 Esimerkkikutsu:
 
@@ -124,7 +124,7 @@ print(lista[1][0])
 
 Mihin voimme käyttää listoja jonka sisällä on listoja?
 
-Voisimme esimerkiksi esittää henkilön tiedot listana, missä ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengännumero:
+Voisimme esimerkiksi esittää henkilön tiedot listana, jossa ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengännumero:
 
 ```python
 ["Anu", 10, 26]
@@ -239,7 +239,7 @@ Jos sisäkkäisiä listoja käsittelevät ohjelmat tuntuvat hankalalta ymmärtä
 
 Kuten kuva paljastaa, 3x3-matriisi koostuu teknisesti ottaen neljästä listasta. Ensimmäinen lista edustaa koko matriisia ja sen alkioina on erillisiä rivejä edustavat listat.
 
-Kuva havainnollistaa jo sitä seikkaa, mistä puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
+Kuva havainnollistaa jo sitä seikkaa, josta puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
 
 Kuvassa tulostus on edennyt matriisin toiselle riville, johon muuttuja `rivi` parhaillaan viittaa. Muuttuja `alkio` kertoo sen alkion, jonka kohdalla tulostus on menossa. Muuttujan arvo on nyt keskimmäisen rivin keskimmäinen eli 5.
 
@@ -374,7 +374,7 @@ sudoku = [
 ]
 ```
 
-Arvolla nolla siis kuvataan tilanne, missä ruutu on vielä tyhjä.
+Arvolla nolla siis kuvataan tilanne, jossa ruutu on vielä tyhjä.
 
 Seuraavassa vielä yksinkertainen versio sudokun tulostavasta metodista:
 
