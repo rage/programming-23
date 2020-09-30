@@ -437,6 +437,96 @@ Merkkijonoilla on myös metodit `lstrip` ja `rstrip`, jotka poistavat ainoastaan
 'testimerkkijono  '
 ```
 
+## Eri tiedostoissa olevien tietojen yhdistely
+
+On hyvin yleistä, että ohjelmassa tarvittava data on talletettu useaan erilliseen tiedostoon. Tarkastellaan esimerkkinä tilannetta, missä yrityksen henkilöstön tiedot ovat omassa tiedostossaan `tyontekijat.csv`:
+
+```csv
+hetu;nimi;osoite;kaupunki
+080488-123X;Pekka Mikkola;Vilppulantie 7;00700 Helsinki
+290274-044S;Liisa Marttinen;Mannerheimintie 100 A 10;00100 Helsinki
+010479-007Z;Arto Vihavainen;Pihapolku 4;01010 Kerava
+010499-345K;Leevi Hellas;Tapiolantie 11 B;02000 Espoo
+```
+
+Työntekijöiden palkat taas ovat talletettu omaan tiedostoonsa `palkat.csv`
+
+```csv
+hetu;palkka;bonus
+080488-123X;3300;0
+290274-044S;4150;200
+010479-007Z;1300;1200
+```
+
+Molempien tiedostojen riveillä on ensin _henkilötunnus_, joka kertoo kenen tiedoista on kyse. Käyttämällä henkilötunnusta yhdistävänä tekijänä, on helppo yhdistää henkilöiden nimet ja palkat toisiinsa, ja tehdä esimerkiksi ohjelma, joka tulostaa seuraavanlaisen näkymän henkilöiden ansioihin:
+
+<sample-output>
+
+<pre>
+ansiot:
+Pekka Mikkola    3300 euroa
+Liisa Marttinen  4350 euroa
+Arto Vihavainen  2500 euroa
+</pre>
+
+</sample-output>
+
+Ohjelma käyttää aputietorakenteena kahta saankirjaa `nimet` ja `palkat`, joissa molemmissa avaimena toimii henkilötunnus:
+
+```python
+nimet = {}
+
+with open("tyontekijat.csv") as tiedosto:
+    for rivi in tiedosto:
+        osat = rivi.split(';')
+        if osat[0] == "hetu":
+            continue
+        nimet[osat[0]] = osat[1]
+
+palkat = {}
+
+with open("palkat.csv") as tiedosto:
+    for rivi in tiedosto:
+        osat = rivi.split(';')
+        if osat[0] == "hetu":
+            continue
+        palkat[osat[0]] = int(osat[1]) +int(osat[2])
+
+print("ansiot:")
+
+for hetu, nimi in nimet.items():
+    if hetu in palkat:
+        palkka = palkat[hetu]
+        print(f"{nimi:16} {palkka} euroa")
+    else:
+        print(f"{nimi:16} 0 euroa")
+```
+
+Ohjelma siis muodostaa ensin sanakirjat `nimet` ja `palkat`, joiden sisältö näyttää seuraavilta:
+
+```sh
+{
+    '080488-123X': 'Pekka Mikkola',
+    '290274-044S': 'Liisa Marttinen',
+    '010479-007Z': 'Arto Vihavainen',
+    '010499-345K': 'Leevi Hellas'
+}
+
+{
+    '080488-123X': 3300,
+    '290274-044S': 4350,
+    '010479-007Z': 2500
+}
+```
+
+
+
+Lopun for-silmukka yhdistää henkilöiden nimet ja niitä vastaavat palkat sanakirjojen avulla.
+
+Ohjelma huomioi myös tilanteen, missä henkilön palkkatietoja ei ole olemassa.
+
+Huomaa, että koska ohjelma käyttää aputietorakenteena sanakirjaa, ei henkilöitä vastaavien rivien järjestyksellä ole merkitystä.
+
 <programming-exercise name='Kurssin tulokset, osa 1' tmcname='osa06-04_kurssin_tulokset_osa1'>
 
 Ohjelma käsittelee kahta CSV-muotoista tiedostoa. Toisessa on tieto opiskelijoista:
@@ -677,6 +767,8 @@ kardemumma
 voi
 ```
 
+**Vihje** tässä tehtävässä lienee järkevintä lukea ensin tiedoston rivit listalle ja käsitellä sitten tätä listaa tehtävän edellyttämällä tavalla.
+
 #### reseptien haku nimen perusteella
 
 Tee funktio `hae_nimi(tiedosto: str, sana: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden nimessä esiintyy toisena parametrina annettu merkkijono. Funktio palauttaa listan, missä kutakin löydettyä reseptiä vastaa merkkijono, joka kertoo reseptin nimen.
@@ -719,6 +811,8 @@ Lettutaikina, valmistusaika 15 min
 </sample-output>
 
 #### reseptien hakeminen raaka-aineen perusteella
+
+**Varoitus** tämä osa on edellisiä selvästi haastavampi. Jos tehtävä ei lähde heti aukenemaan, kannattanee tehdä ensin osan muut tehtävät ja palata lopuksi takaisin tähän. Huomaa, että voit lähettää moniosaisessa tehtävässä palvelimelle myös yksittäiset osat
 
 Tee funktio `hae_raakaaine(tiedosto: str, aine: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, jotka sisältävät toisena parametrina annetun raaka-aineen.
 

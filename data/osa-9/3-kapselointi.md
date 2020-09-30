@@ -214,9 +214,9 @@ print(auto)
 auto: ajettu 0 km, bensaa 0 litraa
 auto: ajettu 0 km, bensaa 60 litraa
 auto: ajettu 20 km, bensaa 40 litraa
-auto: ajettu 40 km, bensaa 0 litraa
-auto: ajettu 40 km, bensaa 0 litraa
-auto: ajettu 40 km, bensaa 60 litraa
+auto: ajettu 60 km, bensaa 0 litraa
+auto: ajettu 60 km, bensaa 0 litraa
+auto: ajettu 60 km, bensaa 60 litraa
 
 </sample-output>
 
