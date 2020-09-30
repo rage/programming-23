@@ -735,7 +735,6 @@ Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa ole
 **Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
 `if __name__ == "__main__"`-lohkoon!
 
-
 </programming-exercise>
 
 <programming-exercise name='Reseptihaku' tmcname='osa06-08_reseptihaku'>
