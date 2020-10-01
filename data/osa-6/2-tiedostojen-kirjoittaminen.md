@@ -100,6 +100,10 @@ Hei Arto, toivomme viihtyisiä hetkiä python-kurssimateriaalin parissa! Terveis
 
 </sample-data>
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
+
 </programming-exercise>
 
 ## Tiedon lisääminen olemassaolevaan tiedostoon
@@ -179,6 +183,10 @@ Valinta: **0**
 Heippa!
 
 </sample-output>
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 
 </programming-exercise>
 
@@ -275,11 +283,37 @@ Tutustumme _Ohjelmoinnin jatkokurssilla_ tarkemmin siihen, mistä tässä `join`
 
 </text-box>
 
+## Tiedoston tyhjentäminen ja poisto
+
+Joissain tilanteissa ohjelmassa on tarvetta tyhjentää olemassaolevan tiedoston sisältö. Tämä onnistuu avaamalla tiedosto kirjoitustilassa "w" ja sulkemalla tiedosto välittömästi:
+
+```python
+with open("tyhjennettava_tiedosto.txt", "w") as tiedosto:
+    pass
+```
+
+Nyt `with`-lohkossa on ainoastaan komento `pass`, joka ei tee mitään. Komento tarvitaan, sillä Python ei salli sellaisia lohkoja missä ei ole mitään komentoja.
+
+Tiedoston tyhjennys on mahdollista tehdä myös ilman `with`-lohkokon käyttöä:
+
+```python
+open('tyhjennettava_tiedosto.txt', 'w').close()
+```
+
+Tiedosto voidaan myös poistaa kokonaan. Poisto tapahtuu seuraavasti:
+
+```python
+# poisto-komento tuodaan koodin käyttöön import-lauseella
+import os
+
+os.remove("tarpeeton_tiedosto.csv")
+```
+
 <programming-exercise name='Aineiston suodatus' tmcname='osa06-12_aineiston_suodatus'>
 
 Tiedostossa laskut.csv on tehtävien ratkaisuja seuraavan esimerkin mukaisesti:
 
-```sh
+```csv
 Arto;2+5;7
 Pekka;3-2;1
 Erkki;9+3;11
@@ -307,6 +341,24 @@ Pekka;5+5;10
 Kaksi muuta riviä olisi kirjoitettu tiedostoon `vaarat.csv`.
 
 Kirjoita rivit samassa järjestyksessä kuin ne esiintyvät alkuperäisessä tiedostossa. Älä muuta alkuperäistä tiedostoa.
+
+</programming-exercise>
+
+<programming-exercise name='Henkilöt talteen' tmcname='osa06-13_henkilot_talteen'>
+
+Kirjoita funktio `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henkilöä kuvaavan tuplen. Tuplessa on seuraavat tiedot tässä järjestyksessä:
+
+* Nimi (merkkijono)
+* Ikä (kokonaisluku)
+* Pituus (liukuluku)
+
+Tallenna henkilön tiedot tiedostoon `henkilot.csv` olemassa olevien tietojen perään. Tiedot tulee tallentaa muodosssa
+
+nimi;ikä;pituus
+
+eli yhden henkilön tiedot tulevat yhdelle riville. Jos funktiota esim. kutsuttaisiin parametrien arvoilla `("Kimmo Kimmonen", 37, 175.5)`, ohjelma kirjoittaisi tiedoston loppuun rivin
+
+`Kimmo Kimmonen;37;175.5`
 
 </programming-exercise>
 
@@ -407,7 +459,7 @@ print(hae_arvosana("Paula", viikkopisteet))
 
 Jos ohjelmasta halutaan muuttaa tai korjata "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon. Jos sama logiikka, esimerkiksi arvosanan laskeminen, olisi kopioitu useaan paikkaan, kasvaisi riski, että muutoksia ei muistettaisi tehdä kaikkiin oikeisiin paikkoihin.
 
-<programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-13_kurssin_tulokset_osa4'>
+<programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-14_kurssin_tulokset_osa4'>
 
 Laajennetaan vielä hieman aiemmin kurssien tulokset generoivaa sovellusta.
 
@@ -466,26 +518,12 @@ Tulokset talletettu tiedostoihin tulos.txt ja tulos.csv
 
 Ohjelma siis ainoastaan kyselee tiedostojen nimet ja varsinaiset tulokset tallennetaan vain tiedostoihin.
 
-</programming-exercise>
-
-<programming-exercise name='Henkilöt talteen' tmcname='osa06-14_henkilot_talteen'>
-
-Kirjoita funktio `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henkilöä kuvaavan tuplen. Tuplessa on seuraavat tiedot tässä järjestyksessä:
-
-* Nimi (merkkijono)
-* Ikä (kokonaisluku)
-* Pituus (liukuluku)
-
-Tallenna henkilön tiedot tiedostoon `henkilot.csv` olemassa olevien tietojen perään. Tiedot tulee tallentaa muodosssa
-
-nimi;ikä;pituus
-
-eli yhden henkilön tiedot tulevat yhdelle riville. Jos funktiota esim. kutsuttaisiin parametrien arvoilla `("Kimmo Kimmonen", 37, 175.5)`, ohjelma kirjoittaisi tiedoston loppuun rivin
-
-`Kimmo Kimmonen;37;175.5`
-
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
 
 </programming-exercise>
+
+
 
 <programming-exercise name='Sanahaku' tmcname='osa06-15_sanahaku'>
 
@@ -571,6 +609,10 @@ Sanat tallennetaan tiedostoon `sanakirja.txt`. Ohjelma lukee tiedoston sisällö
 Voit itse päättää tiedostoon tallennettavan tiedon muodon.
 
 Huomaa, että paikallisten TMC-testien ajaminen voi tyhjentää sanakirja-tiedoston.
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 
 </programming-exercise>
 

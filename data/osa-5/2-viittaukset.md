@@ -346,7 +346,7 @@ if __name__ == "__main__":
 ```
 <sample-output>
 
-[6, 8, 10, 6, 22, -8]
+[4, 8, 10, 6, 22, -8]
 
 </sample-output>
 
@@ -527,7 +527,7 @@ _ _ _  _ _ _  _ _ _
 
 </sample-output>
 
-**Vihje** tässä tehtävässä pitää olla tarkkana mitä kaikkea tulee kopioda, ja mihin lisäys lopulta kohdistuu. Kuten yleensäkin, visualisaattori auttaa myös nyt. Sudokuruudukon koon takia näkymä tosin on hieman normaalia sekavampi.
+**Vihje** tässä tehtävässä pitää olla tarkkana mitä kaikkea tulee kopioida, ja mihin lisäys lopulta kohdistuu. Kuten yleensäkin, [visualisaattori](http://www.pythontutor.com/visualize.html#mode=edit) auttaa myös nyt. Sudokuruudukon koon takia näkymä tosin on hieman normaalia sekavampi.
 
 </programming-exercise>
 
