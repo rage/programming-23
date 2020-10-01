@@ -28,7 +28,7 @@ vuosi = 1992
 kirja = (nimi, kirjailija, vuosi)
 
 # Tulostetaan kirjan nimi
-print(kirja[1])
+print(kirja[0])
 
 ```
 
