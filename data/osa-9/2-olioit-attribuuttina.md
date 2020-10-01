@@ -193,7 +193,7 @@ Tee luokka `Lahja`, josta muodostetut oliot kuvaavat erilaisia lahjoja. Tallenne
 kirja = Lahja("Aapiskukko", 2)
 
 print("Lahjan nimi:", kirja.nimi)
-print("Lahjan paino:" ,kirja.paino
+print("Lahjan paino:" ,kirja.paino)
 print("Lahja:", kirja)
 ```
 
@@ -467,8 +467,8 @@ Luokan tulee toimia seuraavasti
 kirja = Tavara("Aapiskukko", 2)
 puhelin = Tavara("Nokia 3210", 1)
 
-print("Kirjan nimi", kirja.nimi())
-print("Kirjan paino", kirja.paino())
+print("Kirjan nimi:", kirja.nimi())
+print("Kirjan paino:", kirja.paino())
 
 print("Kirja:", kirja)
 print("Puhelin:", puhelin)
@@ -492,7 +492,7 @@ Tee luokka `Matkalaukku`. Matkalaukkuun liittyy tavaroita ja maksimipaino, joka 
 Lisää luokkaan seuraavat:
 
 - Konstruktori, jolle annetaan maksimipaino
-- metodi `lisaa_tavara(tavara: Tavara)`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
+- metodi `lisaa_tavara(self, tavara)`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
 - metodi `__repr__`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
 
 Luokan tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaa_tavara` ei saa lisätä uutta tavaraa laukkuun.
@@ -537,7 +537,7 @@ Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
 <sample-output>
 
 ei tavaroita (0 kg)
-1 (2 kg)
+1 tavara (2 kg)
 2 tavaraa (3 kg)
 2 tavaraa (3 kg)
 
@@ -598,7 +598,7 @@ matkalaukku.lisaa_tavara(puhelin)
 matkalaukku.lisaa_tavara(tiiliskivi)
 
 raskain = matkalaukku.raskain_tavara()
-print("fRaskain tavara: {raskain}")
+print(f"Raskain tavara: {raskain}")
 ```
 
 Ohjelman tulostuksen tulisi olla seuraava:
@@ -614,7 +614,7 @@ Raskain tavara: Tiiliskivi (4 kg)
 Tee luokka Lastiruuma, johon liittyvät seuraavat metodit:
 
 - konstruktori, jolle annetaan maksimipaino
-- metodi `lisaa_matkalaukku(laukku)`, joka lisää parametrina annetun matkalaukun lastiruumaan
+- metodi `lisaa_matkalaukku(self, laukku)`, joka lisää parametrina annetun matkalaukun lastiruumaan
 - metodi `__repr__`, joka palauttaa merkkijonon muotoa "x matkalaukkua (y kg)"
 
 Luokan tulee valvoa, että sen matkalaukkujen yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi uuden matkalaukun vuoksi, metodi `lisaa_matkalaukku` ei saa lisätä uutta matkalaukkua.

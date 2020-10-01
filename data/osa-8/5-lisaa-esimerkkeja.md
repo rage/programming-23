@@ -423,7 +423,7 @@ arvostelujen keskiarvo 3.4 pistettä
 
 ### Sarjojen haku
 
-Tee kaksi funktiota `arvosana_vahintaan(arvosana: int, sarjat: list)` ja `sisaltaa_genren(genre: srt, sarjat: list)`, joiden avulla on mahdollista etsiä listalla olevia sarjoja.
+Tee kaksi funktiota `arvosana_vahintaan(arvosana: float, sarjat: list)` ja `sisaltaa_genren(genre: str, sarjat: list)`, joiden avulla on mahdollista etsiä listalla olevia sarjoja.
 
 Metodit toimivat seuraavasti:
 
@@ -432,10 +432,10 @@ s1 = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
 s1.arvostele(5)
 
 s2 = Sarja("South Park", 24, ["Animation", "Comedy"])
-s1.arvostele(3)
+s2.arvostele(3)
 
-s2 = Sarja("Friends", 10, ["Romance", "Comedy"])
-s1.arvostele(2)
+s3 = Sarja("Friends", 10, ["Romance", "Comedy"])
+s3.arvostele(2)
 
 sarjat = [s1, s2, s3]
 
@@ -444,7 +444,7 @@ for sarja in arvosana_vahintaan(4.5, sarjat):
     print(sarja.nimi)
 
 print("genre Comedy:")
-for sarja in arvosana_vahintaan(4.5, sarjat):
+for sarja in sisaltaa_genren("Comedy", sarjat):
     print(sarja.nimi)
 ```
 

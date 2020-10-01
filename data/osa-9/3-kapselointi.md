@@ -235,11 +235,11 @@ Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa 
 class Lompakko:
 
     def __init__(self, rahaa: float):
-        self._rahaa = rahaa
+        self.__rahaa = rahaa
 
 
     def __repr__(self):
-        return f"Lompakko - rahaa: {self._rahaa}"
+        return f"Lompakko - rahaa: {self.__rahaa}"
 
 ```
 

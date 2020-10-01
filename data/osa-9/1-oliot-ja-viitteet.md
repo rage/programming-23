@@ -446,17 +446,17 @@ class Kassapaate:
         self.edulliset = 0
         self.maukkaat = 0
 
-    def syo_edullisesti(maksu: float):
+    def syo_edullisesti(self, maksu: float):
         # edullinen lounas maksaa 2.50 euroa.
         # kasvatetaan kassan rahamäärää edullisen lounaan hinnalla ja palautetaan vaihtorahat
         # jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
 
-    def syo_maukkaasti(maksu: float):
+    def syo_maukkaasti(self, maksu: float):
         # maukas lounas maksaa 4.30 euroa.
         # kasvatetaan kassan rahamäärää maukkaan lounaan hinnalla ja palautetaan vaihtorahat
         # jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
 
-    __repr__(self):
+    def __repr__(self):
         return f"kassassa rahaa {self.rahaa} edullisia lounaita myyty {self.edulliset} maukkaita lounaita myyty {self.maukkaat}"
 
 ```
@@ -467,15 +467,15 @@ Käyttöesimerkki
 unicafe_exactum = Kassapaate()
 
 vaihtorahaa = unicafe_exactum.syo_edullisesti(10)
-print"vaihtorahaa jäi " + vaihtorahaa)
+print("vaihtorahaa jäi", vaihtorahaa)
 
 vaihtorahaa = unicafe_exactum.syo_edullisesti(5)
-print"vaihtorahaa jäi " + vaihtorahaa)
+print("vaihtorahaa jäi", vaihtorahaa)
 
 vaihtorahaa = unicafe_exactum.syo_maukkaasti(4.3)
-print"vaihtorahaa jäi " + vaihtorahaa)
+print("vaihtorahaa jäi", vaihtorahaa)
 
-printunicafe_exactum)
+print(unicafe_exactum)
 ```
 
 <sample-output>
@@ -495,7 +495,7 @@ Laajennetaan kassapäätettä siten että myös kortilla voi maksaa. Teemme kass
 class Kassapaate:
     # ...
 
-    def syo_edullisesti_koritlla(self, kortti:Maksukortti):
+    def syo_edullisesti_kortilla(self, kortti:Maksukortti):
         # edullinen lounas maksaa 2.50 euroa.
         # jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan True
         # muuten palautetaan False
@@ -516,16 +516,16 @@ Seuraavassa testipääohjelma ja haluttu tulostus:
 unicafe_exactum = Kassapaate()
 
 vaihtorahaa = unicafe_exactum.syo_edullisesti(10)
-print"vaihtorahaa jäi " + vaihtorahaa)
+print("vaihtorahaa jäi " + vaihtorahaa)
 
 kortti = Maksukortti(7)
 
 onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(kortti)
-print"riittikö raha: " + onnistuiko)
+print("riittikö raha:", onnistuiko)
 onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(kortti)
-print"riittikö raha: " + onnistuiko)
+print("riittikö raha:", onnistuiko)
 onnistuiko = unicafe_exactum.syo_edullisesti_kortilla(kortti)
-print"riittikö raha: " + onnistuiko)
+print("riittikö raha:", onnistuiko)
 
 printunicafe_exactum)
 
@@ -545,10 +545,9 @@ kassassa rahaa 1002.5 edullisia lounaita myyty 2 maukkaita lounaita myyty 1
 
 Lisätään vielä kassapäätteelle metodi jonka avulla kortille voidaan ladata lisää rahaa. Muista, että rahan lataamisen yhteydessä ladattava summa viedään kassapäätteeseen. Metodin runko:
 
-
 ```python
 
-lataa_rahaa_kortille(self, kortti: Maksukortti, summa:float ):
+def lataa_rahaa_kortille(self, kortti: Maksukortti, summa:float ):
     pass
 ```
 
@@ -560,17 +559,17 @@ print(unicafe_exactum)
 
 antin_kortti = Maksukortti(2)
 
-print(f"kortilla rahaa {antin_kortti.saldo()} euroa")
-
-boolean onnistuiko = unicafe_exactum.syo_maukkaasti(antin_kortti)
-print("riittikö raha: " + onnistuiko)
-
-unicafe_exactum.lataa_rahaa_kortille(antin_kortti, 100)
+print(f"kortilla rahaa {antin_kortti.saldo} euroa")
 
 onnistuiko = unicafe_exactum.syo_maukkaasti(antin_kortti)
 print("riittikö raha:", onnistuiko)
 
-print(f"kortilla rahaa {antin_kortti.saldo()} euroa")
+unicafe_exactum.lataa_rahaa_kortille(antin_kortti, 100)
+
+onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(antin_kortti)
+print("riittikö raha:", onnistuiko)
+
+print(f"kortilla rahaa {antin_kortti.saldo} euroa")
 
 print(unicafe_exactum)
 ```
@@ -708,7 +707,7 @@ Tehtävänä on toteuttaa muutama metodi, joiden avulla myynnissä olevia asunto
 
 ## Onko suurempi
 
-Tee metodi `suurempi(verrattava: Asunto)` joka palauttaa True jos asunto-olio, jolle metodia kutsutaan, on pinta-alaltaan suurempi kuin verrattavana oleva asunto-olio.
+Tee metodi `suurempi(self, verrattava)` joka palauttaa True jos asunto-olio, jolle metodia kutsutaan, on pinta-alaltaan suurempi kuin verrattavana oleva asunto-olio.
 
 Esimerkki metodin toiminnasta:
 
@@ -730,7 +729,7 @@ True
 
 ## Hintaero
 
-Tee metodi `hintaero(verrattava: Asunto)` joka palauttaa asunto-olion jolle metodia kutsuttiin ja parametrina olevan asunto-olion hintaeron. Hintaero on asuntojen hintojen erotuksen (hinta lasketaan kertomalla neliöhinta neliöillä) itseisarvo.
+Tee metodi `hintaero(self, verrattava)` joka palauttaa asunto-olion jolle metodia kutsuttiin ja parametrina olevan asunto-olion hintaeron. Hintaero on asuntojen hintojen erotuksen (hinta lasketaan kertomalla neliöhinta neliöillä) itseisarvo.
 
 Esimerkki metodin toiminnasta:
 
@@ -752,7 +751,7 @@ print(jakomaki_kolmio.hintaero(kallio_kaksio))
 
 ## Onko kalliimpi
 
-Tee metodi `kalliimpi(verrattava): Asunto` joka palauttaa True jos asunto-olio, jolle metodia kutsutaan on kalliimpi kuin verrattavana oleva asunto-olio.
+Tee metodi `kalliimpi(self, verrattava)` joka palauttaa True jos asunto-olio, jolle metodia kutsutaan on kalliimpi kuin verrattavana oleva asunto-olio.
 
 Esimerkki metodin toiminnasta:
 

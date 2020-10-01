@@ -205,8 +205,8 @@ Operaattori | Merkitys perinteisesti | Metodin nimi
 `>` | Suurempi kuin | `__gt__(self, toinen)`
 `==` | Yhtä suuri kuin | `__eq__(self, toinen)`
 `!=` | Eri suuri kuin | `__ne__(self, toinen)`
-`<` | Pienempi tai yhtäsuuri kuin | `__le__(self, toinen)`
-`>` | Suurempi tai yhtäsuuri kuin | `__ge__(self, toinen)`
+`<=` | Pienempi tai yhtäsuuri kuin | `__le__(self, toinen)`
+`>=` | Suurempi tai yhtäsuuri kuin | `__ge__(self, toinen)`
 
 Lisäksi luokissa voidaan uudelleentoteuttaa tiettyjä muita operaattoreita, esimerkiksi
 
