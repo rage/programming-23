@@ -101,7 +101,7 @@ class Korttipakka:
 
     def __alusta_pakka(self):
         self.__pakka = []
-        maat = ["pata","hertta","risti","ruutu"]
+        maat = ["pata", "hertta", "risti", "ruutu"]
         for maa in maat:
             for numero in range(1, 14):
                 self.__pakka.append((maa, numero))

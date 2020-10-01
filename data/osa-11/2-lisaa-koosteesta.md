@@ -278,7 +278,7 @@ if __name__ == "__main__":
     hylly.lisaa_kirja(k2)
     hylly.lisaa_kirja(k3)
 
-    # Luodaan lista, jossa kaikkien kirjailijoiden nimet
+    # Luodaan lista, jossa kaikkien kirjojen nimet
     kirjojen_nimet = [kirja.nimi for kirja in hylly]
     print(kirjojen_nimet)
 

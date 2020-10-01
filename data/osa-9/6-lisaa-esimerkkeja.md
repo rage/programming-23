@@ -167,7 +167,7 @@ class Opiskelija:
         return self.__muistiinpanot
 
     @muistiinpanot.setter
-    def muistiinpanot(self, mp):
+    def muistiinpanot(self, muistiinpanot):
         self.muistiinpanot = muistiinpanot
 
     def __repr__(self):
