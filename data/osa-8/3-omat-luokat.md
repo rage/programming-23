@@ -317,6 +317,29 @@ Kirjan Huipulta huipulle genre on elämänkerta
 
 </programming-exercise>
 
+<programming-exercise name='Kirjoita luokat' tmcname='osa08-xx_kirjoita_luokat'>
+
+Kirjoita alla pyydetyt luokat. Jokaisen luokan alle on kuvattu attribuuttien nimet ja tyypit.
+
+Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siinä järjestyksessä, kun ne on kuvauksessa annettu.
+
+1. Luokka Muistilista
+- attribuutti otsikko (merkkijono)
+- attribuutti merkinnät (lista)
+
+2. Luokka Asiakas
+- attribuutti tunniste (merkkijono)
+- attribuutti saldo (desimaaliluku)
+- attribuutti alennusprosentti (kokonaisluku)
+
+3. Luokka Kaapeli
+- attribuutti malli (merkkijono)
+- attribuutti pituus (desimaaliluku)
+- attribuutti maksiminopeus (kokonaisluku)
+- attribuutti kaksisuuntainen (totuusarvo)
+
+</programming-exercise>
+
 ## Omien luokkien olioiden käyttö
 
 Omien luokkien olioiden käyttöön ei liity mitään ihmeellistä. Ne kättäytyvät esimerkiksi funktioiden parametrina ja paluuarvona kuten olettaa saattaa. Voisimme esimerkiksi tehdä pari apufunktioita tilien käsittelyyn:
