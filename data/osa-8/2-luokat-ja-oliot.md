@@ -126,6 +126,60 @@ print(juhannus.month)
 
 </sample-output>
 
-Luokassa `date` on siis määritelty, että luokasta muodostettavilla olioilla on muuttujat `year`, `month` ja `day`. Kun luokasta muodostetaan olio, annetaan muuttujille arvot. Joka oliolla on omat arvonsa muuttujille:
+Luokassa `date` on siis määritelty, että luokasta muodostettavilla olioilla on muuttujat `year`, `month` ja `day`. Kun luokasta muodostetaan olio, annetaan muuttujille arvot. Joka oliolla on omat arvonsa muuttujille.
 
-KUVA
+<programming-exercise name='Vuodet listaan' tmcname='osa08-xx_vuodet_listaan'>
+
+Tee funktio `vuodet_listaan(paivamaarat: list)`, joka saa parametrikseen listan, joka sisältää `date`-tyyppisiä olioita. Funktio luo uuden listan, jolle se tallentaa päivämäärien _vuodet suuruusjärjetyksessä pienimmästä suurimpaan_.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+d1 = date(2019, 2, 3)
+d2 = date(2006, 10, 10)
+d3 = date(1993, 5, 9)
+
+vuodet = vuodet_listaan([d1, d2, d3])
+print(vuodet)
+```
+
+<sample-output>
+
+[1993, 2006, 2019]
+
+</sample-output>
+
+</programming-exercise>
+
+
+<programming-exercise name='Kauppalista' tmcname='osa08-xx_kauppalista'>
+
+Tehtävässä on määritelty valmiiksi Kauppalista-luokka, jolla voidaan mallintaa yhtä kauppalistaa.
+
+Jos kauppalistaolio on tallennettu esimerkiksi muuttujaan `kauppalista`, sitä voidaan käsitellä seuraavan esimerkin mukaisesti:
+
+```python
+
+print(kauppalista.tuotteita)
+print(kauppalista.tuote(1))
+print(kauppalista.maara(1))
+print(kauppalista.tuote(2))
+print(kauppalista.maara(2))
+
+```
+
+<sample-output>
+
+2
+Banaanit
+4
+Maito
+1
+
+</sample-output>
+
+Tee edellistä esimerkkiä hyödyntäen funktio `tuotteita_yhteensa(lista: Kauppalista)`, joka saa parametrikseen Kauppalista-tyyppisen olion. Funktio laskee listalla yhteensä olevien tuotteiden lukumäärän ja palauttaa sen.
+
+Huomaa, että kauppalistalla tuotteet indeksoidaan ykkösestä alkaen, ei nollasta.
+
+</programming-exercise>

@@ -38,9 +38,9 @@ pekan_tili = {"tilinumero": "12345-678", "omistaja": "Pekka Python", "saldo": 15
 
 ```
 
-Sanakirjaa käyttäen rakenteen toteutus on huomattavasti suoraviivaisempaa (ja ohjelmakoodi lyhyempää). Luokan hyötynä tässä yhteydessä on, että se määrittelee rakenteen "tiukemmin", jolloin kaikki luokasta muodostetut oliot ovat rakenteeltaan samanlaisia.
+Sanakirjaa käyttäen rakenteen toteutus on huomattavasti suoraviivaisempaa (ja ohjelmakoodi lyhyempää). Luokan hyötynä tässä yhteydessä on, että se määrittelee rakenteen "tiukemmin", jolloin kaikki luokasta muodostetut oliot ovat rakenteeltaan samanlaisia. Luokka on lisäksi nimetty: oliota muodostaessa viitataan Pankkitili-luokkaan ja olion tyyppi on Pankkitili eikä esimerkiksi dict.
 
-Luokilla on kuitenkin tässä yhteydessä myös se etu, että niihin voidaan lisätä attribuuttien lisäksi myös toiminnallisuutta. Itse asiassa olio-ohjelmoinnissa eräs periaatteista onkin, että olioon on yhdistetty sekä tallennettavat tiedot että operaatiot, joilla tietoa voidaan käsitellä.
+Luokilla on lisäksi tässä yhteydessä myös se etu, että niihin voidaan lisätä attribuuttien lisäksi myös toiminnallisuutta. Itse asiassa olio-ohjelmoinnissa eräs periaatteista onkin, että olioon on yhdistetty sekä tallennettavat tiedot että operaatiot, joilla tietoa voidaan käsitellä.
 
 ## Metodit luokissa
 
@@ -226,11 +226,11 @@ arvo: 8
 
 ### Metodin vahene toteutus
 
-Täydennä luokan runkoon metodin `vahene()` toteutus sellaiseksi, että se vähentää kutsuttavan olion oliomuuttujan arvo arvoa yhdellä. Kun olet toteuttanut metodin vahene(), edellisen esimerkin pääohjelman tulee toimia esimerkkitulosteen mukaan.
+Täydennä luokan runkoon metodin `vahenna()` toteutus sellaiseksi, että se vähentää kutsuttavan olion oliomuuttujan arvo arvoa yhdellä. Kun olet toteuttanut metodin vahene(), edellisen esimerkin pääohjelman tulee toimia esimerkkitulosteen mukaan.
 
 ### Laskurin arvo ei saa olla negatiivinen
 
-Täydennä metodin `vahene` toteutus sellaiseksi, ettei laskurin arvo mene koskaan negatiiviseksi. Eli jos laskurin arvo on jo 0, ei vähennys sitä enää vähennä.
+Täydennä metodin `vahenna` toteutus sellaiseksi, ettei laskurin arvo mene koskaan negatiiviseksi. Eli jos laskurin arvo on jo 0, ei vähennys sitä enää vähennä.
 
 ```python
 laskuri = VahenevaLaskuri(2)
@@ -271,7 +271,7 @@ arvo: 0
 
 ### Alkuperäisen arvon palautus
 
-Tee laskurille metodi `palauta_alkuperainen_arvo()` joka palauttaa laskurinlle sen alkuperäisen arvon, esim:
+Tee laskurille metodi `palauta_alkuperainen_arvo()` joka palauttaa laskurille sen alkuperäisen arvon, esim:
 
 ```python
 laskuri = VahenevaLaskuri(55)
@@ -294,7 +294,7 @@ arvo: 55
 
 </programming-exercise>
 
-Tarkastellaan kuitenkin vielä esimerkkiä luokasta, joka mallintaa pelaajan ennätystulosta. Luokkaan on kirjoitettu erilliset metodit, joilla voidaan tarkastaa ovatko annetut parametrit sopivia. Metodeja kutsutaan heti konstruktorissa. Näin varmistetaan luotavan olion sisäinen eheys.
+Tarkastellaan vielä esimerkkiä luokasta, joka mallintaa pelaajan ennätystulosta. Luokkaan on kirjoitettu erilliset metodit, joilla voidaan tarkastaa ovatko annetut parametrit sopivia. Metodeja kutsutaan heti konstruktorissa. Näin varmistetaan luotavan olion sisäinen eheys.
 
 ```python
 
@@ -372,7 +372,7 @@ Tee luokka `Lukutilasto` joka tuntee seuraavat toiminnot:
 - metodi `lisaa_luku` lisää uuden luvun tilastoon
 - metodi `lukujen_maara` kertoo lisättyjen lukujen määrän
 
-Luokan ei tarvitse tallentaa mihinkään lisättyjä lukuja, vaan riittää muistaa niiden määrä. Metodin `lisaa_luku` ei tässä vaiheessa tarvitse edes ottaa huomioon, mikä luku lisätään tilastoon, koska ainoa tallennettava asia on lukujen määrä.
+Luokan ei tarvitse tallentaa mihinkään lisättyjä lukuja, vaan riittää, että se muistaa niiden määrän. Metodin `lisaa_luku` ei tässä vaiheessa tarvitse edes ottaa huomioon, mikä luku lisätään tilastoon, koska ainoa tallennettava asia on lukujen määrä.
 
 Luokan runko on seuraava:
 
