@@ -10,7 +10,6 @@ Tämän osion jälkeen
 
 - Osaat luoda itse tiedoston Pythonilla
 - Osaat kirjoittaa tekstimuotoista tietoa tiedostoon
-- Tiedät, miten Pythonin `join`-metodin avulla voidaan yhdistää alkiot yhdeksi merkkijonoksi
 - Osaat kirjoittaa CSV-muotoisen tiedoston omasta datastasi
 
 </text-box>
@@ -192,24 +191,24 @@ Heippa!
 
 ## CSV-tiedoston kirjoittaminen
 
-CSV-tiedoston voi kirjoittaa rivi riviltä `write`-metodilla. Esimerkiksi seuraava esimerkki luo tiedoston `koodarit.csv`, jonka jokaisella rivillä on koodarin nimi, työympäristö ja lempikieli. Tiedot on erotettu puolipisteillä.
+CSV-tiedoston voi kirjoittaa rivi riviltä `write`-metodilla. Esimerkiksi seuraava esimerkki luo tiedoston `koodarit.csv`, jonka jokaisella rivillä on koodarin nimi, työympäristö, lempikieli ja kokemus vuosissa. Tiedot on erotettu puolipisteillä.
 
 ```python
 with open("koodarit.csv", "w") as tiedosto:
-    tiedosto.write("Erkki;Windows;Pascal\n")
-    tiedosto.write("Matti;Linux;PHP\n")
-    tiedosto.write("Antti;Linux;Java\n")
-    tiedosto.write("Emilia;Mac;Cobol\n")
+    tiedosto.write("Erkki;Windows;Pascal;10\n")
+    tiedosto.write("Matti;Linux;PHP;2\n")
+    tiedosto.write("Antti;Linux;Java;17\n")
+    tiedosto.write("Emilia;Mac;Cobol;9\n")
 ```
 
 Tämän tuloksena on seuraava tiedosto:
 
 <sample-output>
 
-Erkki;Windows;Pascal
-Matti;Linux;PHP
-Antti;Linux;Java
-Emilia;Mac;Cobol
+Erkki;Windows;Pascal;10
+Matti;Linux;PHP;2
+Antti;Linux;Java;17
+Emilia;Mac;Cobol;9
 
 </sample-output>
 
@@ -217,71 +216,31 @@ Tarkastellaan sitten tilannetta, jossa tiedostoon kirjoitettavat tiedot ovatkin 
 
 ```python
 koodarit = []
-koodarit.append(["Erkki", "Windows", "Pascal"])
-koodarit.append(["Matti", "Linux", "PHP"])
-koodarit.append(["Antti", "Linux", "Java"])
-koodarit.append(["Emilia", "Mac", "Cobol"])
+koodarit.append(["Erkki", "Windows", "Pascal", 10])
+koodarit.append(["Matti", "Linux", "PHP", 2])
+koodarit.append(["Antti", "Linux", "Java", 17])
+koodarit.append(["Emilia", "Mac", "Cobol", 9])
 ```
-
-Kätevä tapa muuttaa lista CSV-tiedoston riviksi on käyttää metodia `join`, joka on tavallaan käänteinen metodille `split`. Metodi `join` yhdistää halutulla erotinmerkillä annetun listan merkkijonot, esimerkiksi näin:
-
-```python
-lista = ["apina", "banaani", "cembalo"]
-print(",".join(lista))
-```
-
-<sample-output>
-
-apina,banaani,cembalo
-
-</sample-output>
 
 Nyt voimme kirjoittaa koodarien tiedot CSV-tiedostoon näin:
 
 ```python
 with open("koodarit.csv", "w") as tiedosto:
     for koodari in koodarit:
-        rivi = ";".join(koodari)
+        rivi = f"{koodari[0]};{koodari[1]};{koodari[2]};{koodari[3]}"
         tiedosto.write(rivi+"\n")
 ```
 
-Kannattaa kuitenkin huomata, että `join`-metodi edellyttää että sen parametrina olevassa taulukossa kaikki alkiot ovat merkkijonoja. Jos yritämme seuraavaa
+Jos koodaria kuvaavissa listoissa olisi suuri määrä alkioita, olisi csv-tiedostoon kirjoitetavien rivien muodostaminen yllä olevalla tekniikalla työläähköä, ja rivit kannattaisikin koota silmukan avulla:
 
 ```python
-rivi = ["Antti", "Helsinki", 31]
-";".join(rivi)
+with open("koodarit.csv", "w") as tiedosto:
+    for koodari in koodarit:
+        rivi = ""
+        for arvo in koodari:
+            rivi += f"{arvo};"
+        tiedosto.write(rivi+"\n")
 ```
-
-tuloksena on virheilmoitus
-
-<sample-output>
-
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: sequence item 2: expected str instance, int found
-
-</sample-output>
-
-<text-box variant='hint' name='Joinille kelpaava taulukko'>
-
-Lukuja sisältävä taulukko saadaan muutettua metodille `join` kelpaavaan muotoon käyttämällä seuraavaa kikkaa:
-
-```python
-rivi = ["Antti", "Helsinki", 31]
- ";".join(str(alkio) for alkio in rivi)
-```
-
-Lopputulos on toimiva:
-
-<sample-output>
-
-'Antti;Helsinki;31'
-
-</sample-output>
-
-Tutustumme _Ohjelmoinnin jatkokurssilla_ tarkemmin siihen, mistä tässä `join`-metodin sisällä olevassa `for`-silmukassa oikeastaan onkaan kyse.
-
-</text-box>
 
 ## Tiedoston tyhjentäminen ja poisto
 
