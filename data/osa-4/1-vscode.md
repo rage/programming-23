@@ -13,6 +13,20 @@ Tämän osion jälkeen
 
 </text-box>
 
+<text-box variant='hint' name='Kurssin tehtävien tekemisestä'>
+
+Ohjelmointitaidon kehittyminen edellyttää vahvaa rutiinia ja myös omaa soveltavaa oivaltamista. Tämän takia kurssilla on paljon tehtäviä. Osa tehtävistä on kohtuullisen suoraviivaisesti materiaalia hyödyntäviä ja osa taas aivan tarkoituksella haastavampia soveltavia tehtäviä.
+
+Ei kannata huolestua vaikka osa kurssin tehtävistä tuntuisikin ensiyrittämällä liian vaikealta. Kaikkia tehtäviä ei ole missään nimessä pakko tehdä, kuten [arvosteluperusteet](/arvostelu-ja-kokeet) toteavat: _Kurssin läpipääsyyn vaaditaan vähintään 25% jokaisen osan ohjelmointitehtävien pisteistä._
+
+**Kurssin osien tehtävät eivät etene vaikeusjärjestyksessä.** Jokaisessa aliosassa esitellään yleensä muutama uusi konsepti, joita harjoitellaan sekä helpommilla että soveltavimmilla tehtävillä. **Jos törmäät liian haastavan tuntuiseen tehtävään, hyppää seuraavaan**. Voit palata vaikeimpiin tehtäviin osan lopuksi jos aikaa vielä jää.
+
+Lohdutuksen sanana todettakoon että tällä viikolla mahdottomalta vaikuttava tehtävä näyttää melko varmasti neljän viikon päästä melko helpolta.
+
+Huomaa, että pääset deadlinen jälkeen tutkimaan myös niiden tehtävien mallivastauksia, joita et ehtinyt tekemään. Mallivastausten tutkiminen lienee opettavaista vaikka saisitkin itse tehtävän ratkaistua.
+
+</text-box>
+
 Olemme tähän mennessä ohjelmoineet kaikki tehtävät kurssisivuille upotettuihin editori-ikkunoihin. Selaineditorissa tapahtuva ohjelmointi sopii hyvin kurssin alkuun, mutta siirrymme nyt käyttämään erillistä ohjelmointiin tarkoitettua editoria.
 
 Erilaisia ohjelmointiin sopivia editoreja on kymmeniä. Käytämme kurssilla viime vuosina suureen suosioon noussutta [Visual Studio Code](https://code.visualstudio.com/) -editoria.
@@ -61,7 +75,14 @@ if "visual studio code" == mjono.lower():
     print("merkkijono oli etsitty!")
 ```
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 </programming-exercise>
+
+## Huomautus koodin suorittamisesta
+
+Visual Studio Codella koodi siis suoritetaan painamalla vihreää kolmiota. Joskus voi käydä niin, että koodisi suoritus jää kesken, esimerkiksi odottamaan käyttäjän syötettä, tai ikuiseen silmukkaan, ja siirryt jo seuraavaan tehtävään. Kun yrität suorittaa seuraavan tehtävän koodia, tuleekin esille edellisen tehtävän kesken ollut suoritus. Joissain tilanteissa joudut sammuttamaan edellisen suorituksen painamalla yhtä aikaa näppäimiä _control_ ja _c_, jotta saat suoritetuksi uuden tehtävän koodin.
 
 ## Interaktiivinen Python-tulkki
 

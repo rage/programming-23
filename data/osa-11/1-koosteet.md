@@ -35,7 +35,7 @@ Python tarjoaa kuitenin "pythonmaisemman" tavan uuden listan muodostamiseksi van
 
 Menetelmässä ideana on, että yhdellä lauseella voidaan kuvata mikä operaatio listan kaikille alkioille tehdään ennen kuin ne tallennetaan uuteen listaan.
 
-Esimerkiksi yllä esitetty ohjelma, joka luo merkkijonolistan liukulukulistan perusteella, näyttäisi listakoostetta hyödyntäen tältä:
+Esimerkiksi yllä esitetty ohjelma, joka luo merkkijonolistan kokonaislukulistan perusteella, näyttäisi listakoostetta hyödyntäen tältä:
 
 ```python
 

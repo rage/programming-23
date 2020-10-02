@@ -10,7 +10,6 @@ Tämän osion jälkeen
 
 - Osaat luoda itse tiedoston Pythonilla
 - Osaat kirjoittaa tekstimuotoista tietoa tiedostoon
-- Tiedät, miten Pythonin `join`-metodin avulla voidaan yhdistää alkiot yhdeksi merkkijonoksi
 - Osaat kirjoittaa CSV-muotoisen tiedoston omasta datastasi
 
 </text-box>
@@ -100,6 +99,10 @@ Hei Arto, toivomme viihtyisiä hetkiä python-kurssimateriaalin parissa! Terveis
 
 </sample-data>
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
+
 </programming-exercise>
 
 ## Tiedon lisääminen olemassaolevaan tiedostoon
@@ -180,28 +183,32 @@ Heippa!
 
 </sample-output>
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
+
 </programming-exercise>
 
 ## CSV-tiedoston kirjoittaminen
 
-CSV-tiedoston voi kirjoittaa rivi riviltä `write`-metodilla. Esimerkiksi seuraava esimerkki luo tiedoston `koodarit.csv`, jonka jokaisella rivillä on koodarin nimi, työympäristö ja lempikieli. Tiedot on erotettu puolipisteillä.
+CSV-tiedoston voi kirjoittaa rivi riviltä `write`-metodilla. Esimerkiksi seuraava esimerkki luo tiedoston `koodarit.csv`, jonka jokaisella rivillä on koodarin nimi, työympäristö, lempikieli ja kokemus vuosissa. Tiedot on erotettu puolipisteillä.
 
 ```python
 with open("koodarit.csv", "w") as tiedosto:
-    tiedosto.write("Erkki;Windows;Pascal\n")
-    tiedosto.write("Matti;Linux;PHP\n")
-    tiedosto.write("Antti;Linux;Java\n")
-    tiedosto.write("Emilia;Mac;Cobol\n")
+    tiedosto.write("Erkki;Windows;Pascal;10\n")
+    tiedosto.write("Matti;Linux;PHP;2\n")
+    tiedosto.write("Antti;Linux;Java;17\n")
+    tiedosto.write("Emilia;Mac;Cobol;9\n")
 ```
 
 Tämän tuloksena on seuraava tiedosto:
 
 <sample-output>
 
-Erkki;Windows;Pascal
-Matti;Linux;PHP
-Antti;Linux;Java
-Emilia;Mac;Cobol
+Erkki;Windows;Pascal;10
+Matti;Linux;PHP;2
+Antti;Linux;Java;17
+Emilia;Mac;Cobol;9
 
 </sample-output>
 
@@ -209,77 +216,63 @@ Tarkastellaan sitten tilannetta, jossa tiedostoon kirjoitettavat tiedot ovatkin 
 
 ```python
 koodarit = []
-koodarit.append(["Erkki", "Windows", "Pascal"])
-koodarit.append(["Matti", "Linux", "PHP"])
-koodarit.append(["Antti", "Linux", "Java"])
-koodarit.append(["Emilia", "Mac", "Cobol"])
+koodarit.append(["Erkki", "Windows", "Pascal", 10])
+koodarit.append(["Matti", "Linux", "PHP", 2])
+koodarit.append(["Antti", "Linux", "Java", 17])
+koodarit.append(["Emilia", "Mac", "Cobol", 9])
 ```
-
-Kätevä tapa muuttaa lista CSV-tiedoston riviksi on käyttää metodia `join`, joka on tavallaan käänteinen metodille `split`. Metodi `join` yhdistää halutulla erotinmerkillä annetun listan merkkijonot, esimerkiksi näin:
-
-```python
-lista = ["apina", "banaani", "cembalo"]
-print(",".join(lista))
-```
-
-<sample-output>
-
-apina,banaani,cembalo
-
-</sample-output>
 
 Nyt voimme kirjoittaa koodarien tiedot CSV-tiedostoon näin:
 
 ```python
 with open("koodarit.csv", "w") as tiedosto:
     for koodari in koodarit:
-        rivi = ";".join(koodari)
+        rivi = f"{koodari[0]};{koodari[1]};{koodari[2]};{koodari[3]}"
         tiedosto.write(rivi+"\n")
 ```
 
-Kannattaa kuitenkin huomata, että `join`-metodi edellyttää että sen parametrina olevassa taulukossa kaikki alkiot ovat merkkijonoja. Jos yritämme seuraavaa
+Jos koodaria kuvaavissa listoissa olisi suuri määrä alkioita, olisi csv-tiedostoon kirjoitetavien rivien muodostaminen yllä olevalla tekniikalla työläähköä, ja rivit kannattaisikin koota silmukan avulla:
 
 ```python
-rivi = ["Antti", "Helsinki", 31]
-";".join(rivi)
+with open("koodarit.csv", "w") as tiedosto:
+    for koodari in koodarit:
+        rivi = ""
+        for arvo in koodari:
+            rivi += f"{arvo};"
+        tiedosto.write(rivi+"\n")
 ```
 
-tuloksena on virheilmoitus
+## Tiedoston tyhjentäminen ja poisto
 
-<sample-output>
-
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: sequence item 2: expected str instance, int found
-
-</sample-output>
-
-<text-box variant='hint' name='Joinille kelpaava taulukko'>
-
-Lukuja sisältävä taulukko saadaan muutettua metodille `join` kelpaavaan muotoon käyttämällä seuraavaa kikkaa:
+Joissain tilanteissa ohjelmassa on tarvetta tyhjentää olemassaolevan tiedoston sisältö. Tämä onnistuu avaamalla tiedosto kirjoitustilassa "w" ja sulkemalla tiedosto välittömästi:
 
 ```python
-rivi = ["Antti", "Helsinki", 31]
- ";".join(str(alkio) for alkio in rivi)
+with open("tyhjennettava_tiedosto.txt", "w") as tiedosto:
+    pass
 ```
 
-Lopputulos on toimiva:
+Nyt `with`-lohkossa on ainoastaan komento `pass`, joka ei tee mitään. Komento tarvitaan, sillä Python ei salli sellaisia lohkoja missä ei ole mitään komentoja.
 
-<sample-output>
+Tiedoston tyhjennys on mahdollista tehdä myös ilman `with`-lohkokon käyttöä:
 
-'Antti;Helsinki;31'
+```python
+open('tyhjennettava_tiedosto.txt', 'w').close()
+```
 
-</sample-output>
+Tiedosto voidaan myös poistaa kokonaan. Poisto tapahtuu seuraavasti:
 
-Tutustumme _Ohjelmoinnin jatkokurssilla_ tarkemmin siihen, mistä tässä `join`-metodin sisällä olevassa `for`-silmukassa oikeastaan onkaan kyse.
+```python
+# poisto-komento tuodaan koodin käyttöön import-lauseella
+import os
 
-</text-box>
+os.remove("tarpeeton_tiedosto.csv")
+```
 
 <programming-exercise name='Aineiston suodatus' tmcname='osa06-12_aineiston_suodatus'>
 
 Tiedostossa laskut.csv on tehtävien ratkaisuja seuraavan esimerkin mukaisesti:
 
-```sh
+```csv
 Arto;2+5;7
 Pekka;3-2;1
 Erkki;9+3;11
@@ -307,6 +300,24 @@ Pekka;5+5;10
 Kaksi muuta riviä olisi kirjoitettu tiedostoon `vaarat.csv`.
 
 Kirjoita rivit samassa järjestyksessä kuin ne esiintyvät alkuperäisessä tiedostossa. Älä muuta alkuperäistä tiedostoa.
+
+</programming-exercise>
+
+<programming-exercise name='Henkilöt talteen' tmcname='osa06-13_henkilot_talteen'>
+
+Kirjoita funktio `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henkilöä kuvaavan tuplen. Tuplessa on seuraavat tiedot tässä järjestyksessä:
+
+* Nimi (merkkijono)
+* Ikä (kokonaisluku)
+* Pituus (liukuluku)
+
+Tallenna henkilön tiedot tiedostoon `henkilot.csv` olemassa olevien tietojen perään. Tiedot tulee tallentaa muodosssa
+
+nimi;ikä;pituus
+
+eli yhden henkilön tiedot tulevat yhdelle riville. Jos funktiota esim. kutsuttaisiin parametrien arvoilla `("Kimmo Kimmonen", 37, 175.5)`, ohjelma kirjoittaisi tiedoston loppuun rivin
+
+`Kimmo Kimmonen;37;175.5`
 
 </programming-exercise>
 
@@ -407,7 +418,7 @@ print(hae_arvosana("Paula", viikkopisteet))
 
 Jos ohjelmasta halutaan muuttaa tai korjata "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon. Jos sama logiikka, esimerkiksi arvosanan laskeminen, olisi kopioitu useaan paikkaan, kasvaisi riski, että muutoksia ei muistettaisi tehdä kaikkiin oikeisiin paikkoihin.
 
-<programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-13_kurssin_tulokset_osa4'>
+<programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-14_kurssin_tulokset_osa4'>
 
 Laajennetaan vielä hieman aiemmin kurssien tulokset generoivaa sovellusta.
 
@@ -466,26 +477,12 @@ Tulokset talletettu tiedostoihin tulos.txt ja tulos.csv
 
 Ohjelma siis ainoastaan kyselee tiedostojen nimet ja varsinaiset tulokset tallennetaan vain tiedostoihin.
 
-</programming-exercise>
-
-<programming-exercise name='Henkilöt talteen' tmcname='osa06-14_henkilot_talteen'>
-
-Kirjoita funktio `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henkilöä kuvaavan tuplen. Tuplessa on seuraavat tiedot tässä järjestyksessä:
-
-* Nimi (merkkijono)
-* Ikä (kokonaisluku)
-* Pituus (liukuluku)
-
-Tallenna henkilön tiedot tiedostoon `henkilot.csv` olemassa olevien tietojen perään. Tiedot tulee tallentaa muodosssa
-
-nimi;ikä;pituus
-
-eli yhden henkilön tiedot tulevat yhdelle riville. Jos funktiota esim. kutsuttaisiin parametrien arvoilla `("Kimmo Kimmonen", 37, 175.5)`, ohjelma kirjoittaisi tiedoston loppuun rivin
-
-`Kimmo Kimmonen;37;175.5`
-
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
 
 </programming-exercise>
+
+
 
 <programming-exercise name='Sanahaku' tmcname='osa06-15_sanahaku'>
 
@@ -571,6 +568,10 @@ Sanat tallennetaan tiedostoon `sanakirja.txt`. Ohjelma lukee tiedoston sisällö
 Voit itse päättää tiedostoon tallennettavan tiedon muodon.
 
 Huomaa, että paikallisten TMC-testien ajaminen voi tyhjentää sanakirja-tiedoston.
+
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 
 </programming-exercise>
 

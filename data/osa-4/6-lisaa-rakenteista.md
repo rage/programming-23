@@ -72,6 +72,68 @@ ikkremise
 
 </sample-output>
 
+## Varoitus: globaalin muuttujan käyttö funktion sisällä
+
+Kuten olemme nähneet, funktioiden sisällä on mahdollsita määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+
+Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
+
+Seuraavassa on esimerkki funktiosta, joka käyttää "vahingossa" globaalia muuttujaa:
+
+```python
+def tulosta_vaarinpain(nimet: list):
+    # käytetään vahingossa parametrin sijaan globaalia muuttujaa nimilista
+    i = len(nimilista) - 1
+    while i>=0:
+        print(nimilista[i])
+        i -= 1
+
+# globaali muuttuja
+nimilista = ["Antti", "Emilia", "Erkki", "Margaret"]
+tulosta_vaarinpain(nimilista)
+print()
+tulosta_vaarinpain(["Tupu", "Hupu", "Lupu"])
+```
+
+<sample-output>
+
+Margaret
+Erkki
+Emilia
+Antti
+
+Margaret
+Erkki
+Emilia
+Antti
+
+</sample-output>
+
+Vaikka funktiota kutsutaan oikein, se tulosaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
+
+Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyäksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
+
+```python
+def tulosta_vaarinpain(nimet: list):
+    # käytetään vahingossa parametrin sijaan globaalia muuttujaa nimilista
+    i = len(nimilista) - 1
+    while i>=0:
+        print(nimilista[i])
+        i -= 1
+
+# kaikki funktiota testaava koodi tämän lohkon sisälle
+if __name__ == "__main__":
+    # globaali muuttuja
+    nimilista = ["Antti", "Emilia", "Erkki", "Margaret"]
+    tulosta_vaarinpain(nimilista)
+    print()
+    tulosta_vaarinpain(["Tupu", "Hupu", "Lupu"])
+```
+
+Nyt myös globaalin muuttujan määrittely on siirtynyt `if`-lohkoon.
+
+TMC-testit suoritetaan aina siten, että mitään `if`-lohkoon sisällä olevaa koodia ei huomioida. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista` mitä ei testejä suoritettaessa ole ollenkaan olemassa.
+
 <programming-exercise name='Kaikki väärinpäin' tmcname='osa04-21_kaikki_vaarinpain'>
 
 Kirjoita funktio `kaikki_vaarinpain`, joka saa parametrikseen listan merkkijonoja. Funktio luo ja palauttaa uuden listan, jossa kaikki alkuperäisellä listalla olevat merkkijonot on käännetty. Myös listan alkioiden järjestys muutetaan käänteiseksi.
@@ -279,20 +341,20 @@ False
 
 </sample-output>
 
-Kirjoita metodia hyödyntäen funktio `poista_isot`, joka saa parametrikseen listan merkkijonoja. Funktio palauttaa uuden listan, jolla on sen paramentrina olevasta listasta ne merkkijonot, jotka koostuvat kokonaan isoista kirjaimista.
+Kirjoita metodia hyödyntäen funktio `poista_isot`, joka saa parametrikseen listan merkkijonoja. Funktio palauttaa uuden listan, jolla on sen parametrina olevasta listasta ne merkkijonot, jotka eivät koostu kokonaan isoista kirjaimista.
 
 
 Esimerkki funktion käytöstä:
 
 ```python
-lista = ["ABC", "def", "ISO", "TOINENISO", "pieni", "toinen pieni"]
+lista = ["ABC", "def", "ISO", "TOINENISO", "pieni", "toinen pieni", "Osittain Iso"]
 karsittu_lista = poista_isot(lista)
 print(karsittu_lista)
 ```
 
 <sample-output>
 
-['def', 'pieni', 'toinen pieni']
+['def', 'pieni', 'toinen pieni', 'Osittain Iso']
 
 </sample-output>
 
@@ -434,6 +496,18 @@ Koepisteet ja harjoitusten määrä: **15 87**
 </sample-output>
 
 Syöterivi pitää pilkkoa ensin kahtia ja muuttaa palaset kokonaisluvuksi `int`-funktiolla. Rivin pilkkominen onnistuu samaalla tavalla kun tehtävässä [Eka, toka ja vika sana](/osa-4/2-lisaa-funktioista). Siihen on olemassa myös hieman helpompi keino, merkkijonojen metodi `split`. Googlaa jos haluat, käytä esim. hakusanoja *python string split*.
+
+**Huomaa** että tällä hetkellä Windowsissa on ongelmia joidenkin tehtävien testien suorittamisessa. Jos törmäät seuraavaan virheilmoitukseen
+
+<img src="4_3_2.png" alt="Listan iterointi">
+
+voit suorittaa testit lähettämällä ne palvelimelle valitsemalla testien suoritusnapin oikealla puolella olevasta symbolista avautuvasta TMC-valikosta _Submit solutions_.
+
+Ongelman saa korjattua menemällä laajennuksen asennusvalikkoon ja muuttamalla "TMC Data" -kohdassa tehtävien sijainnin johonkin toiseen sijaintiin, jonka tiedostopolku on lyhempi, allaolevassa kuvassa nappi _change path_. Siirrossa saattaa kestää hetken, joten odotathan operaation päättymistä.
+
+<img src="4_3_3.png" alt="Listan iterointi">
+
+Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä.
 
 
 </programming-exercise>

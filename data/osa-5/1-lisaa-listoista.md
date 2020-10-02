@@ -15,6 +15,22 @@ Tämän osion jälkeen
 
 </text-box>
 
+<text-box variant='hint' name='Kurssin tehtävien tekemisestä'>
+
+Ohjelmointitaidon kehittyminen edellyttää vahvaa rutiinia ja myös omaa soveltavaa oivaltamista. Tämän takia kurssilla on paljon tehtäviä. Osa tehtävistä on kohtuullisen suoraviivaisesti materiaalia hyödyntäviä ja osa taas aivan tarkoituksella haastavampia soveltavia tehtäviä.
+
+Ei kannata huolestua vaikka osa kurssin tehtävistä tuntuisikin ensiyrittämällä liian vaikealta. Kaikkia tehtäviä ei ole missään nimessä pakko tehdä, kuten [arvosteluperusteet](/arvostelu-ja-kokeet) toteavat: _Kurssin läpipääsyyn vaaditaan vähintään 25% jokaisen osan ohjelmointitehtävien pisteistä._
+
+**Kurssin osien tehtävät eivät etene vaikeusjärjestyksessä.** Jokaisessa aliosassa esitellään yleensä muutama uusi konsepti, joita harjoitellaan sekä helpommilla että soveltavimmilla tehtävillä. **Jos törmäät liian haastavan tuntuiseen tehtävään, hyppää seuraavaan**. Voit palata vaikeimpiin tehtäviin osan lopuksi jos aikaa vielä jää.
+
+Lohdutuksen sanana todettakoon että tällä viikolla mahdottomalta vaikuttava tehtävä näyttää melko varmasti neljän viikon päästä melko helpolta.
+
+Huomaa, että pääset deadlinen jälkeen tutkimaan myös niiden tehtävien mallivastauksia, joita et ehtinyt tekemään. Mallivastausten tutkiminen lienee opettavaista vaikka saisitkin itse tehtävän ratkaistua.
+
+</text-box>
+
+## Lisää listoista
+
 Viime kerralla käsiteltiin lähes yksinomaan listoja, joissa alkiot ovat kokonaislukuja. Listoihin voi kuitenkin tallentaa minkä tahansa tyyppisiä arvoja. Esimerkiksi voimme tallentaa listaan merkkijonoja:
 
 ```python
@@ -68,9 +84,72 @@ Keskiarvo: 10.15
 
 </sample-output>
 
+## Muistutus: globaalin muuttujan käytön sudenkuoppa
+
+Kuten olemme nähneet, funktioiden sisällä on mahdollsita määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+
+Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
+
+Seuraavassa on esimerkki funktiosta, joka käyttää "vahingossa" globaalia muuttujaa:
+
+```python
+def tulosta_vaarinpain(nimet: list):
+    # käytetään vahingossa parametrin sijaan globaalia muuttujaa nimilista
+    i = len(nimilista) - 1
+    while i>=0:
+        print(nimilista[i])
+        i -= 1
+
+# globaali muuttuja
+nimilista = ["Antti", "Emilia", "Erkki", "Margaret"]
+tulosta_vaarinpain(nimilista)
+print()
+tulosta_vaarinpain(["Tupu", "Hupu", "Lupu"])
+```
+
+<sample-output>
+
+Margaret
+Erkki
+Emilia
+Antti
+
+Margaret
+Erkki
+Emilia
+Antti
+
+</sample-output>
+
+Vaikka funktiota kutsutaan oikein, se tulosaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
+
+Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyäksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
+
+```python
+def tulosta_vaarinpain(nimet: list):
+    # käytetään vahingossa parametrin sijaan globaalia muuttujaa nimilista
+    i = len(nimilista) - 1
+    while i>=0:
+        print(nimilista[i])
+        i -= 1
+
+# kaikki funktiota testaava koodi tämän lohkon sisälle
+if __name__ == "__main__":
+    # globaali muuttuja
+    nimilista = ["Antti", "Emilia", "Erkki", "Margaret"]
+    tulosta_vaarinpain(nimilista)
+    print()
+    tulosta_vaarinpain(["Tupu", "Hupu", "Lupu"])
+```
+
+Nyt myös globaalin muuttujan määrittely on siirtynyt `if`-lohkoon.
+
+TMC-testit suoritetaan aina siten, että mitään `if`-lohkoon sisällä olevaa koodia ei huomioida. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista` mitä ei testejä suoritettaessa ole ollenkaan olemassa.
+
+
 <programming-exercise name='Pisin merkkijono' tmcname='osa05-01a_pisin_merkkijono'>
 
-Tee funktio `pisin(merkkijonot: list)`, joka saa parametrikseen listan merkkijonoja. FUnktio etsii ja palauttaa listalta pisimmän merkkijonon. Voit olettaa, että vain yksi jonoista on pisin.
+Tee funktio `pisin(merkkijonot: list)`, joka saa parametrikseen listan merkkijonoja. Funktio etsii ja palauttaa listalta pisimmän merkkijonon. Voit olettaa, että vain yksi jonoista on pisin.
 
 Esimerkkikutsu:
 
@@ -110,7 +189,7 @@ print(lista[1][0])
 
 Mihin voimme käyttää listoja jonka sisällä on listoja?
 
-Voisimme esimerkiksi esittää henkilön tiedot listana, missä ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengännumero:
+Voisimme esimerkiksi esittää henkilön tiedot listana, jossa ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengännumero:
 
 ```python
 ["Anu", 10, 26]
@@ -219,15 +298,15 @@ uusi rivi
 
 ## Sisäkkäisiä listoja käyttävän koodin visualisointi
 
-Jos sisäkkäisiä listoja käsittelevät ohjelmat tuntuvat hankalalta ymmärtää, kannattaa ehdottomasti havainnollistaa niitä Python tutorin [visualisaattorilla](http://www.pythontutor.com/visualize.html). Seuraavassa kuva edellisen esimerkin visualisoinnista:
+Jos sisäkkäisiä listoja käsittelevät ohjelmat tuntuvat hankalalta ymmärtää, kannattaa ehdottomasti havainnollistaa niitä Python Tutorin [visualisaattorilla](http://www.pythontutor.com/visualize.html). Seuraavassa kuva edellisen esimerkin visualisoinnista:
 
 <img src="5_1_0a.png">
 
-Kuten kuva paljastaa, 3x3-matriisi koostuu teknisesti ottaen neljästä listasta. Ensimmäinen lista edustaa koko matriisia, ja sen alkioina on erillisiä rivejä edustavat listat.
+Kuten kuva paljastaa, 3x3-matriisi koostuu teknisesti ottaen neljästä listasta. Ensimmäinen lista edustaa koko matriisia ja sen alkioina on erillisiä rivejä edustavat listat.
 
-Kuva havainnollistaa jo sitä seikkaa, mistä puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
+Kuva havainnollistaa jo sitä seikkaa, josta puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
 
-Kuvassa tulostus on edennyt matriisin toiselle riville, mihin muuttuja `rivi` parhaillaan viittaa. Muuttuja `alkio` kertoo sen alkion jonka kohdalla tulostus on menossa, sen arvo on nyt keskimmäisen rivin keskimäinen eli 5.
+Kuvassa tulostus on edennyt matriisin toiselle riville, johon muuttuja `rivi` parhaillaan viittaa. Muuttuja `alkio` kertoo sen alkion, jonka kohdalla tulostus on menossa. Muuttujan arvo on nyt keskimmäisen rivin keskimmäinen eli 5.
 
 ## Lisää matriisin käsittelyä
 
@@ -360,7 +439,7 @@ sudoku = [
 ]
 ```
 
-Arvolla nolla siis kuvataan tilanne, missä ruutu on vielä tyhjä.
+Arvolla nolla siis kuvataan tilanne, jossa ruutu on vielä tyhjä.
 
 Seuraavassa vielä yksinkertainen versio sudokun tulostavasta metodista:
 

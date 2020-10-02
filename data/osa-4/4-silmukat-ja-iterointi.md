@@ -119,6 +119,9 @@ n
 
 </sample-output>
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 </programming-exercise>
 
 ## Funktio `range`
@@ -210,6 +213,9 @@ Anna luku: **4**
 
 </sample-output>
 
+**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
+`if __name__ == "__main__"`-lohkoon!
+
 </programming-exercise>
 
 ## Lukuväli listaksi
@@ -276,6 +282,17 @@ Esim. kutsuttaessa `lista_tahtina([3, 7, 1, 1, 2])` tulostus on:
 
 </sample-output>
 
+**Huomaa** että tällä hetkellä Windowsissa on ongelmia joidenkin tehtävien testien suorittamisessa. Jos törmäät seuraavaan virheilmoitukseen
+
+<img src="4_3_2.png" alt="Listan iterointi">
+
+voit suorittaa testit lähettämällä ne palvelimelle valitsemalla testien suoritusnapin oikealla puolella olevasta symbolista avautuvasta TMC-valikosta _Submit solutions_.
+
+Ongelman saa korjattua menemällä laajennuksen asennusvalikkoon ja muuttamalla "TMC Data" -kohdassa tehtävien sijainnin johonkin toiseen sijaintiin, jonka tiedostopolku on lyhempi, allaolevassa kuvassa nappi _change path_. Siirrossa saattaa kestää hetken, joten odotathan operaation päättymistä.
+
+<img src="4_3_3.png" alt="Listan iterointi">
+
+Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä.
 
 </programming-exercise>
 

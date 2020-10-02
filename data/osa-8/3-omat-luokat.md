@@ -109,8 +109,34 @@ Pirjo Pythonen
 
 Attribuutit ovat käytettävissä ainoastaan se olion sisällä, jossa ne on määritelty. Niitä ei voi siis käyttää olion ulkopuolelta.
 
-
 </text-box>
+
+<programming-exercise name='Muodosta lemmikki' tmcname='osa08-xx_muodosta_lemmikki'>
+
+Tee funktio `uusi_lemmikki(nimi: str, laji: str, vuosi: int)`, joka muodostaa uuden Lemmikki-luokan olion.
+
+Oliolla on attribuutit `nimi`, `laji` ja `syntymavuosi`. Arvot saadaan funktion parametreista.
+
+Muodostamisen jälkeen funktio palauttaa olion.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+musti = uusi_lemmikki("Musti", "koira", 2017))
+print(musti.nimi)
+print(musti.laji)
+print(musti.syntymavuosi)
+```
+
+<sample-output>
+
+Musti
+koira
+2017
+
+</sample-output>
+
+</programming-exercise>
 
 ## Konstruktorin lisääminen
 
@@ -288,6 +314,29 @@ Luciano Ramalho: Fluent Python (2015)
 Kirjan Huipulta huipulle genre on elämänkerta
 
 </sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Kirjoita luokat' tmcname='osa08-xx_kirjoita_luokat'>
+
+Kirjoita alla pyydetyt luokat. Jokaisen luokan alle on kuvattu attribuuttien nimet ja tyypit.
+
+Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siinä järjestyksessä, kun ne on kuvauksessa annettu.
+
+1. Luokka Muistilista
+- attribuutti otsikko (merkkijono)
+- attribuutti merkinnät (lista)
+
+2. Luokka Asiakas
+- attribuutti tunniste (merkkijono)
+- attribuutti saldo (desimaaliluku)
+- attribuutti alennusprosentti (kokonaisluku)
+
+3. Luokka Kaapeli
+- attribuutti malli (merkkijono)
+- attribuutti pituus (desimaaliluku)
+- attribuutti maksiminopeus (kokonaisluku)
+- attribuutti kaksisuuntainen (totuusarvo)
 
 </programming-exercise>
 

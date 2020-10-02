@@ -338,6 +338,5 @@ if __name__ == "__main__":
 </sample-output>
 
 
-
-
-
+<programming-exercise name='Pinta-alat' tmcname='osa10_'>
+</programming-exercise>

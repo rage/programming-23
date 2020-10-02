@@ -129,6 +129,41 @@ Kiitos!
 
 </sample-output>
 
+Joissain tilanteissa saattaa olla tarvetta varautua poikkeukseen, mutta poikkeuksen tapahtuessa riittää "igonorata" se, eli jättää koko asia huomiomatta `except`-lohkossa.
+
+Jos muuttaisimme edellistä esimerkkiä siten, että funktio hyväksyisi ainoastaan lukua 100 pienemmät kokonaisluvut, voisimme muuttaa toteutusta seuraavasti:
+
+```python
+def lue_pieni_kokonaisluku():
+    while True:
+        try:
+            syote = input("Syötä kokonaisluku: ")
+            luku = int(syote)
+            if luku < 100:
+                return luku
+        except ValueError:
+            pass # tämä komento ei tee mitään
+
+        print("Virheellinen syöte")
+
+luku = lue_pieni_kokonaisluku()
+print(luku, "potenssiin kolme on", luku**3)
+```
+
+<sample-output>
+
+Syötä kokonaisluku: **kolme**
+Virheellinen syöte
+Syötä kokonaisluku: **1000**
+Virheellinen syöte
+Syötä kokonaisluku: **5**
+Kiitos!
+5 potenssiin kolme on 125
+
+</sample-output>
+
+Nyt siis poikkeuksen käsittelevässä lohkossa on ainoastaan komento `pass`, joka ei tee mitään. Komento tarvitaan, sillä Python ei salli tyhjiä lohkoja.
+
 <programming-exercise name='Syötteen luku' tmcname='osa06-17_syotteen_luku'>
 
 Tee funktio `lue`, joka kysyy käyttäjältä syötettä, kunnes se on parametrien määrittelemällä välillä oleva kokonaisluku. Funktio palauttaa käyttäjän antaman syötteen.

@@ -1,5 +1,5 @@
 ---
-path: '/osa-9/5-lisaa-esimerkkeja'
+path: '/osa-9/6-lisaa-esimerkkeja'
 title: 'Lisää esimerkkejä'
 hidden: false
 ---
@@ -167,7 +167,7 @@ class Opiskelija:
         return self.__muistiinpanot
 
     @muistiinpanot.setter
-    def muistiinpanot(self, mp):
+    def muistiinpanot(self, muistiinpanot):
         self.muistiinpanot = muistiinpanot
 
     def __repr__(self):

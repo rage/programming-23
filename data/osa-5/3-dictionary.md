@@ -18,7 +18,7 @@ Tämän osion jälkeen
 
 Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat indekseissä 0, 1, 2, jne. Tämä hankaloittaa alkioiden etsimistä listalta: jotta löydämme tietyn alkion, on pahimmassa tapauksessa käytävä läpi koko lista.
 
-Tutustumme seuraavaksi _sanakirjaan_, joka on listan lisäksi toinen Pythonin perustietorakenne. Sanakirjassa jokainen alkio koostuu _avaimesta_ ja _arvosta_, ja voimme etsiä ja muuttaa tietoa avaimen perusteella.
+Tutustumme seuraavaksi _sanakirjaan_, (englanniksi _dictionary_) joka on listan lisäksi toinen Pythonin perustietorakenne. Sanakirjassa jokainen alkio koostuu _avaimesta_ ja _arvosta_, ja voimme etsiä ja muuttaa tietoa avaimen perusteella.
 
 ## Sanakirjan käyttäminen
 
@@ -314,7 +314,7 @@ kirjaimella s alkavat sanat:
 
 <programming-exercise name='Histogrammi' tmcname='osa05-12_histogrammi'>
 
-Tee funktio, joka saa parametrina merkkijonon ja tulostaa merkkijonon eri kirjainten lukumäärää kuvaavan histogrammin, jossa kirjaimen jokaista esiintymää kohti tulostuu yksi tähti kirjaimen riville.
+Tee funktio `histogrammi`, joka saa parametrina merkkijonon ja tulostaa merkkijonon eri kirjainten lukumäärää kuvaavan histogrammin, jossa kirjaimen jokaista esiintymää kohti tulostuu yksi tähti kirjaimen riville.
 
 Esimerkiksi kutsuttaessa `histogrammi("abba")` tulostus on:
 

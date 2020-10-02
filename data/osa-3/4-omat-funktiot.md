@@ -441,7 +441,6 @@ shakkilauta(6)
 
 <in-browser-programming-exercise name="Sananeliö" tmcname="osa03-27_sananelio">
 
-
 Tee funktio `nelio`, joka tulostaa sananeliön alla olevien esimerkkien mukaisesti.
 
 ```python

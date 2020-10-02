@@ -26,7 +26,7 @@
     "moodleExercise": "Moodle tehtävä:",
     "sqlTrainerExercise": "SQL trainer tehtävä:",
     "points":"Pisteitä",
-    "submitNB":"Huom! Joissakin tehtävissä voit saada yksittäisen osan ratkaisusta osan tehtävän pisteistä käyttämällä editorin 'Submit'-nappia.",
+    "submitNB":"Huom! Joissakin tehtävissä voit saada yksittäisen osan ratkaisusta osan tehtävän pisteistä lähettämällä ne palvelimelle valitsemalla 'submit solutiuon' testien suorituspainikkeen oikealla puolella olevan painikkeen avaamasta valikosta",
     "installationGuideLink":"",
     "submitHowTo":"",
     "loginForExercise":"Kirjaudu sisään nähdäksesi tehtävänannon",
