@@ -149,6 +149,8 @@ TMC-testit suoritetaan aina siten, että mitään `if`-lohkoon sisällä olevaa 
 
 <programming-exercise name='Pisin merkkijono' tmcname='osa05-01a_pisin_merkkijono'>
 
+**HUOM:** tämä ja seuraava tehtävä ovat väärässä järjestyksessä VS Coden sivupalkissa
+
 Tee funktio `pisin(merkkijonot: list)`, joka saa parametrikseen listan merkkijonoja. Funktio etsii ja palauttaa listalta pisimmän merkkijonon. Voit olettaa, että vain yksi jonoista on pisin.
 
 Esimerkkikutsu:
@@ -399,6 +401,8 @@ Ulompi silmukka käy `range`-funktion avulla läpi arvot nollasta matriisin pitu
 
 
 <programming-exercise name='Alkioiden määrä' tmcname='osa05-01_alkoiden_maara'>
+
+**HUOM:** tämä ja edellinen tehtävä ovat väärässä järjestyksessä VS Coden sivupalkissa
 
 Tee funktio `laske_alkiot(matriisi: list, alkio: int)`, joka saa parametrikseen kaksiulotteisen kokonaislukutaulukon. Funktio laskee, kuinka monta annetun alkion mukaista arvoa taulukosta löytyy.
 
