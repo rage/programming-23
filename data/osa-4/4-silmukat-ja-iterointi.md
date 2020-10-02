@@ -282,7 +282,7 @@ Esim. kutsuttaessa `lista_tahtina([3, 7, 1, 1, 2])` tulostus on:
 
 </sample-output>
 
-**Huomaa** että tällä hetkellä Windowsissa on ongelmia joidenkin tehtävien testien suorittamisessa. Jos törmäät seuraavaan virheilmoitukseen
+<!-- **Huomaa** että tällä hetkellä Windowsissa on ongelmia joidenkin tehtävien testien suorittamisessa. Jos törmäät seuraavaan virheilmoitukseen
 
 <img src="4_3_2.png" alt="Listan iterointi">
 
@@ -292,7 +292,7 @@ Ongelman saa korjattua menemällä laajennuksen asennusvalikkoon ja muuttamalla 
 
 <img src="4_3_3.png" alt="Listan iterointi">
 
-Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä.
+Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä. -->
 
 </programming-exercise>
 
