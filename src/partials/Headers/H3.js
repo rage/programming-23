@@ -6,7 +6,7 @@ const H3 = ({ children }) => {
   try {
     text = children.find((o) => typeof o === "string") || "unknown heading"
   } catch (e) {}
-  const id = `heading-${normalizeExerciseId(text)}`
+  const id = `${normalizeExerciseId(text)}`
   return (
     <h3 class="material-header" id={id}>
       {children}
