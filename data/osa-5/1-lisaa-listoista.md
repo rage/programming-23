@@ -337,7 +337,7 @@ def sarakkeen_alkioiden_summa(matriisi, sarake_nro: int):
     # summaan lisätään kaikkien rivien halutussa kohdassa oleva alkio
     summa = 0
     for rivi in matriisi:
-      summa += rivi[sarake_nro]
+        summa += rivi[sarake_nro]
 
     return summa
 

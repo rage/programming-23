@@ -313,7 +313,6 @@ class Platinakortti(Bonuskortti):
 Nyt platinakortin bonus lasketaan hyödyntämällä aluksi yliluokan vastaavaa metodia ja lisäämällä sitten ylimääräiset 5 prosenttia tähän bonukseen. Esimerkki luokkien käytöstä:
 
 ```python
-
 if __name__ == "__main__":
     kortti = Bonuskortti()
     kortti.lisaa_tuote(Tuote("Banaanit", 6.50))
@@ -327,7 +326,6 @@ if __name__ == "__main__":
 
     print(bonus)
     print(bonus2)
-
 ```
 
 <sample-output>
@@ -338,5 +336,59 @@ if __name__ == "__main__":
 </sample-output>
 
 
-<programming-exercise name='Pinta-alat' tmcname='osa10_'>
+<programming-exercise name='Pinta-alat' tmcname='osa10_1_pinta_alat'>
+
+Tehtäväpohjan mukana tulee luokka `Suorakulmio` joka nimensä mukaisesti mallintaa [suorakulmiota](https://fi.wikipedia.org/wiki/Suorakulmio). Luokkaa käytetään seuraavasti:
+
+```python
+sk = Suorakulmio(2, 3)
+print(sk)
+print("pinta-ala:", sk.pinta_ala())
+```
+
+<sample-output>
+
+suorakulmio 2x3
+pinta-ala: 6
+
+</sample-output>
+
+## Neliö
+
+Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen [neliön](https://fi.wikipedia.org/wiki/Neli%C3%B6_(geometria)) kaikki sivut ovat saman pituisia, eli neliö on eräänlainen yksinkertaisempi erikoistapaus suorakulmiosta. Luokka ei saa määritelä uusia attribuutteja!
+
+Luokkaa käytetään seuraavasti:
+
+```python
+n = Nelio(4)
+print(n)
+print("pinta-ala:", n.pinta_ala())
+```
+
+<sample-output>
+
+neliö 4x4
+pinta-ala: 16
+
+</sample-output>
+
+## Suorakulmainen kolmio
+
+Toteuta luokka `SuorakulmainenKolmio` joka perii luokan`Suorakulmio`. Luokka ei saa määritelä uusia attribuutteja! [Suorakulmaisen kolmion](https://fi.wikipedia.org/wiki/Suorakulmainen_kolmio) pinta-ala on sen korkeys*leveys jaettuna kahdella.
+
+Luokkaa käytetään seuraavasti:
+
+```python
+k = SuorakulaminenKolmio(3, 4)
+print(k)
+print("pinta-ala:", k.pinta_ala())
+```
+
+<sample-output>
+
+suorakulmainen kolmio 3x4
+pinta-ala: 6.0
+
+</sample-output>
+
 </programming-exercise>
