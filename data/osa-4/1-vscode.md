@@ -19,7 +19,7 @@ Erilaisia ohjelmointiin sopivia editoreja on kymmeniä. Käytämme kurssilla vii
 
 Asenna nyt Visual Studio Code ja kurssin tehtävien testien suorittamiseen käytettävä TMC-plugin [tämän ohjeen](https://www.mooc.fi/fi/installation/vscode) avulla.
 
-<programming-exercise name='Hello Visual Studio Code' tmcname='osa04-01_hello_visualstudio_code'>
+<programming-exercise name='Hello Visual Studio Code' tmcname='osa04-01_hello_visualstudio_code' difficulty='1'>
 
 Tee ohjelma, joka kysyy käyttäjältä, mikä editori on käytössä. Ohjelma jatkaa, kunnes vastaus on _Visual Studio Code_.
 

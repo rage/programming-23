@@ -111,6 +111,7 @@
     "editPageList3":"Find the section in the material you wish to edit. You can search for the correct section by pressing Ctrl+f and writing an appropriate search term.",
     "editPageList4":"Scroll to the bottom of the page and write a short and sweet title to the field \"Propose file change\", for example \"Fixing a typo in Part 2\".",
     "editPageList5":"Press the green button \"Propose file change\". This should redirect you to another page.",
-    "editPageList6":"In the redirected page, press the button \"New Pull Request\"."
+    "editPageList6":"In the redirected page, press the button \"New Pull Request\".",
+    "exerciseDifficulty": "Difficulty:"
 
 }

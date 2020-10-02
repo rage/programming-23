@@ -63,6 +63,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
       height,
       outputheight,
       outputposition,
+      difficulty,
     } = this.props
 
     if (!this.state.render) {
@@ -79,6 +80,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
         awardedPoints={details?.awardedPoints}
         allowRefresh={false}
         completed={details?.completed || false}
+        difficulty={difficulty}
       >
         <div>
           {deadline instanceof Date && !isNaN(deadline.getTime()) && (

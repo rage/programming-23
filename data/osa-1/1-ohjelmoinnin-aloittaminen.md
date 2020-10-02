@@ -53,7 +53,7 @@ SyntaxError: invalid syntax
 
 Python ei siis osaa tulkita tulostettavaa tekstiä oikein, jos se ei ole lainausmerkeissä.
 
-<in-browser-programming-exercise name="Hymiö" tmcname="osa01-01_hymio" height="300px">
+<in-browser-programming-exercise name="Hymiö" tmcname="osa01-01_hymio" height="300px" difficulty='1'>
 
 Kirjoita ohjelma, joka tulostaa ruudulle hymiön: :-)
 
