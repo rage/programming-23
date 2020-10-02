@@ -112,6 +112,8 @@
     "editPageList4":"Scroll to the bottom of the page and write a short and sweet title to the field \"Propose file change\", for example \"Fixing a typo in Part 2\".",
     "editPageList5":"Press the green button \"Propose file change\". This should redirect you to another page.",
     "editPageList6":"In the redirected page, press the button \"New Pull Request\".",
-    "exerciseDifficulty": "Difficulty:"
-
+    "difficultyHeader": "Difficulty: -",
+    "difficultyHeader1": "Difficulty: Easy",
+    "difficultyHeader2": "Difficulty: Mediocre",
+    "difficultyHeader3": "Difficulty: Hard"
 }

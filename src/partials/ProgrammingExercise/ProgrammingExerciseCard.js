@@ -4,7 +4,7 @@ import ContentLoader from "react-content-loader"
 import { withTranslation } from "react-i18next"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPencilAlt as icon, faRedo } from "@fortawesome/free-solid-svg-icons"
-import { Card, CardContent, Button, Typography, Tooltip } from "@material-ui/core"
+import { Card, CardContent, Button, Typography } from "@material-ui/core"
 
 import { normalizeExerciseId } from "../../util/strings"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
@@ -46,7 +46,6 @@ const HeaderTitleContainer = styled.div`
   flex: 1;
 `
 
-// Tähän sitä hyvää maukasta css
 const Difficulty = styled.span`
   position: relative;
 `
@@ -120,7 +119,7 @@ class ProgrammingExerciseCard extends React.Component {
       onRefresh,
       allowRefresh,
       completed,
-      difficulty
+      difficulty,
     } = this.props
 
     return (
@@ -133,18 +132,11 @@ class ProgrammingExerciseCard extends React.Component {
             <HeaderMuted>{this.props.t("programmingExercise")} </HeaderMuted>
             <h3>{name}</h3>
             {/*Ikävän kompleksinen. Onko syytä laittaa omaan komponenttiin?*/}
-            {difficulty ?
-              <Tooltip title={
-                <ul>
-                  <li>{this.props.t("difficultyInfo1")}</li>
-                  <li>{this.props.t("difficultyInfo2")}</li>
-                  <li>{this.props.t("difficultyInfo3")}</li>
-                </ul>
-              }>
-                <Difficulty> {this.props.t("difficulty")} {difficulty}</Difficulty>
-              </Tooltip>
-              :
-              undefined}
+            {difficulty ? (
+              <Difficulty>
+                {this.props.t(`difficultyHeader${difficulty}`)}
+              </Difficulty>
+            ) : undefined}
           </HeaderTitleContainer>
           {allowRefresh && (
             <Button onClick={onRefresh}>

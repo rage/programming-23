@@ -28,6 +28,13 @@ module.exports = {
         plugins: [
           `gatsby-remark-copy-linked-files`,
           {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              isIconAfterHeader: true,
+              removeAccents: true,
+            }
+          },
+          {
             resolve: "gatsby-remark-smartypants",
             options: {
               quotes: false,
