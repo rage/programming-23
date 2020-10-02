@@ -497,7 +497,7 @@ Koepisteet ja harjoitusten määrä: **15 87**
 
 Syöterivi pitää pilkkoa ensin kahtia ja muuttaa palaset kokonaisluvuksi `int`-funktiolla. Rivin pilkkominen onnistuu samaalla tavalla kun tehtävässä [Eka, toka ja vika sana](/osa-4/2-lisaa-funktioista). Siihen on olemassa myös hieman helpompi keino, merkkijonojen metodi `split`. Googlaa jos haluat, käytä esim. hakusanoja *python string split*.
 
-**Huomaa** että tällä hetkellä Windowsissa on ongelmia joidenkin tehtävien testien suorittamisessa. Jos törmäät seuraavaan virheilmoitukseen
+<!-- **Huomaa** että tällä hetkellä Windowsissa on ongelmia joidenkin tehtävien testien suorittamisessa. Jos törmäät seuraavaan virheilmoitukseen
 
 <img src="4_3_2.png" alt="Listan iterointi">
 
@@ -507,7 +507,7 @@ Ongelman saa korjattua menemällä laajennuksen asennusvalikkoon ja muuttamalla 
 
 <img src="4_3_3.png" alt="Listan iterointi">
 
-Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä.
+Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä. -->
 
 
 </programming-exercise>
