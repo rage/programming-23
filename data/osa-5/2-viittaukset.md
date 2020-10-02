@@ -41,7 +41,7 @@ print(id(b))
 
 Viittaus eli muuttujan id on kokonaisluku, jonka voi ajatella olevan muuttujan arvon sijainnin osoite tietokoneen muistissa. Huomaa, että jos suoritat yllä olevan koodin omalla koneellasi, tulos on luultavasti erilainen, koska muuttujilla on eri viitteet.
 
-Kuten jo [edellisen osan](/osa-5/1-lisaa-listoja#heading-sisakkaisia-listoja-kayttavan-koodin-visualisointi) esimerkistä näimme, Python Tutorin visualisaattori näyttää viitteet "nuolina" varsinaiseen sisältöön. Visualisaattori kuitenkin "huijaa" merkkijonojen tapauksessa ja näyttää ne ikään kuin merkkijonon sisältö olisi tallennettu muuttujan sisälle:
+Kuten jo [edellisen osan](/osa-5/1-lisaa-listoja#sisakkaisia-listoja-kayttavan-koodin-visualisointi) esimerkistä näimme, Python Tutorin visualisaattori näyttää viitteet "nuolina" varsinaiseen sisältöön. Visualisaattori kuitenkin "huijaa" merkkijonojen tapauksessa ja näyttää ne ikään kuin merkkijonon sisältö olisi tallennettu muuttujan sisälle:
 
 <img src="5_2_1a.png">
 

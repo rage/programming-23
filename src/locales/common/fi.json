@@ -111,6 +111,9 @@
     "editPageList3":"Etsi materiaalin kohta, johon haluat tehdä muutoksen. Voit hakea sopivaa kohtaa painamalla näppäinyhdistelmää Ctrl+f ja kirjoittamalla hakukenttään sopivan hakutermin.",
     "editPageList4":"Selaa sivun alareunaan, ja kirjoita osioon \"Propose file change\" lyhyt ja ytimekäs otsikko, esimerkiksi \"Kappaleen 2 kirjoitusvirheen korjaus\".",
     "editPageList5":"Paina vihreää nappia \"Propose file change\".",
-    "editPageList6":"Paina avautuvalta sivulta nappia \"New Pull Request\"."
-
+    "editPageList6":"Paina avautuvalta sivulta nappia \"New Pull Request\".",
+    "difficultyHeader": "Vaikeustaso: -",
+    "difficultyHeader1": "Vaikeustaso: Helppo",
+    "difficultyHeader2": "Vaikeustaso: Kohtalainen",
+    "difficultyHeader3": "Vaikeustaso: Vaikea"
 }

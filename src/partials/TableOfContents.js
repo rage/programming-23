@@ -34,7 +34,7 @@ class TableOfContents extends Component {
               {this.state.data.map((o) => {
                 return (
                   <li key={o}>
-                    <a href={`#heading-${normalizeExerciseId(o)}`}>{o}</a>
+                    <a href={`#${normalizeExerciseId(o)}`}>{o}</a>
                   </li>
                 )
               })}

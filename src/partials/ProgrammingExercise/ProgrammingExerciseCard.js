@@ -46,6 +46,10 @@ const HeaderTitleContainer = styled.div`
   flex: 1;
 `
 
+const Difficulty = styled.span`
+  position: relative;
+`
+
 const PointContentWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -115,6 +119,7 @@ class ProgrammingExerciseCard extends React.Component {
       onRefresh,
       allowRefresh,
       completed,
+      difficulty,
     } = this.props
 
     return (
@@ -126,6 +131,12 @@ class ProgrammingExerciseCard extends React.Component {
           <HeaderTitleContainer>
             <HeaderMuted>{this.props.t("programmingExercise")} </HeaderMuted>
             <h3>{name}</h3>
+            {/*Ikävän kompleksinen. Onko syytä laittaa omaan komponenttiin?*/}
+            {difficulty ? (
+              <Difficulty>
+                {this.props.t(`difficultyHeader${difficulty}`)}
+              </Difficulty>
+            ) : undefined}
           </HeaderTitleContainer>
           {allowRefresh && (
             <Button onClick={onRefresh}>

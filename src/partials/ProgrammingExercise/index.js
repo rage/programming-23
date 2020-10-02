@@ -118,7 +118,7 @@ class ProgrammingExercise extends React.Component {
   }
 
   render() {
-    const { children, name } = this.props
+    const { children, name, difficulty } = this.props
 
     if (!this.state.render) {
       return <div>Loading</div>
@@ -139,6 +139,7 @@ class ProgrammingExercise extends React.Component {
         onRefresh={this.onUpdate}
         allowRefresh={this.context.loggedIn}
         completed={completed}
+        difficulty={difficulty}
       >
         <div>
           {CourseSettings.showExerciseDescriptionWhenNotLoggedIn ? (
