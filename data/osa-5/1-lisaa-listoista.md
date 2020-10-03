@@ -645,7 +645,6 @@ Funktio kertoo onko parametrina saadusta rivi/sarakenumerosta alkava 3x3-kokoine
 
 Huomaa, että tässä tehtävässä tehtävä funktio on hieman yleiskäyttöisempi kuin sudokussa oikeasti tarvitaan. Todellisuudessahan oikeassa sudokussa tarkastellaan ainoastaan kohdista (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) ja (6, 6) alkavia neliöitä.
 
-
 ```python
 sudoku = [
   [9, 0, 0, 0, 8, 0, 3, 0, 0],
@@ -686,6 +685,8 @@ Toisen funktiokutsun tarkastelema kohdasta riviltä 1 ja sarakkeesta 2 alkava ne
 4 0 0
 </pre>
 
+Tämä neliö on siis sellainen, jota oikeassa sudokussa ei tarkasteltaisi.
+
 </programming-exercise>
 
 <programming-exercise name='Sudoku: ruudukko oikein' tmcname='osa05-06_sudoku_osa4'>
@@ -693,6 +694,7 @@ Toisen funktiokutsun tarkastelema kohdasta riviltä 1 ja sarakkeesta 2 alkava ne
 Tee funktio `sudoku_oikein(sudoku: list)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kolmen tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon), onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, jokainen sarake sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1–9.
 
 Huom: ylempänä olevaan sudokuruudukkoa esittävään kuvaan on merkitty ne 3x3-neliöt, joita sudokua ratkaistessa tulee tarkastella.
+Nämä ovat siis kohdista (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) ja (6, 6) alkavat yhdeksän neliöä.
 
 ```python
 sudoku1 = [
