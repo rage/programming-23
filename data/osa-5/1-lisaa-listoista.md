@@ -146,6 +146,89 @@ Nyt myös globaalin muuttujan määrittely on siirtynyt `if`-lohkoon.
 
 TMC-testit suoritetaan aina siten, että mitään `if`-lohkoon sisällä olevaa koodia ei huomioida. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista` mitä ei testejä suoritettaessa ole ollenkaan olemassa.
 
+## Varoitus: parametrin ylikirjoittaminen ja liian aikainen return
+
+Ennen tämän osan tehtäviin menemistä on syytä kiinnitää huomiota pariin potentiaaliseen ongelmalähteeseen. Tarkastellaan funktiota, joka kertoo löytyykö parametrina oleva luku listalta:
+
+```python
+def luku_listalla(luvut: lista, luku: int):
+    for luku in luvut:
+        if luku == luku:
+            return True
+        else:
+            return False
+```
+
+Funktio palauttaa jostain syystä aina `True`. Syynä tälle on se, että for-silmukka ylikirjoittaa parametrin `luku` arvon, ja tämän takia if-lauseen ehto on aina tosi.
+
+Ongelmasta päästään eroon nimeämällä parametri uudelleen:
+
+```python
+def luku_listalla(luvut: lista, etsittava_luku: int):
+    for luku in luvut:
+        if luku == etsittava_luku:
+            return True
+        else:
+            return False
+```
+
+Nyt if-lauseen ehto on kunnossa. Funktossa on kuitenkin uusi ongelma, se ei näytä edelleenkään toimivan. Esim. seuraava kokeilu tuo esiin bugin:
+
+```python
+on = luku_listalla([1, 2, 3, 4], 3)
+print(on)  # tulostuu False
+```
+
+Vika on nyt siinä että funktiosta poistutaan liian aikaisin. Funktio tarkistaa ainoastaan ensimmäisen luvun ja riippuen sen arvosta palauttaa heti joko arvon `True` tai `False`. Lopullista tuomiota, eli tietoa siitä että luku _ei ole listalla_ ei voi kuitenkaan antaa ennen kuin kaikki luvut on tarkastettu. Komnento `return False` pitääkin siirtää silmukan ulkopuolelle:
+
+```python
+def luku_listalla(luvut: lista, etsittava_luku: int):
+    for luku in luvut:
+        if luku == etsittava_luku:
+            return True
+
+    return False
+```
+
+Tarkastellaan vielä yhtä virheellistä esimerkkiä:
+
+```python
+def luvut_erisuuret(luvut: list):
+    # apumuuttuja, johon kerätään ne luvut jotka on jo tarkastettu
+    luvut = []
+    for luku in luvut:
+        # joko luku on nähty?
+        if luku in luvut:
+            return False
+        luvut.append(luku)
+
+    return True
+
+on = luvut_erisuuret([1, 2, 2])
+print(on)  # tulostuu True
+```
+
+Funktio siis yrittää testata ovatko kaikki listan alkiot erisuuria. Se kuitenkin palauttaa aina arvon `True`.
+
+Ongelmana on jälleen se, että funktio vahingossa ylikirjottaa parametrinsa arvon. Funkito yrittää käyttää muuttujaa `luvut` pitämään kirjaa jo vastaan tulleista luvuista ja tämä ylikirjoittaa parametrin. Lääke ongelmaan on muuttujan uudelleennimeäminen:
+
+```python
+def luvut_erisuuret(luvut: list):
+    # apumuuttuja, johon kerätään ne luvut jotka on jo tarkastettu
+    havaitut_luvut = []
+    for luku in luvut:
+        # joko luku on nähty?
+        if luku in havaitut_luvut:
+            return False
+        havaitut_luvut.append(luku)
+
+    return True
+
+on = luvut_erisuuret([1, 2, 2])
+print(on)  # tulostuu False
+```
+
+Nämä kuten oikeastaan kaikki koodia vaivaavat ongelmat selviävät debuggerilla tai [visualisaattorilla](http://www.pythontutor.com/visualize.html#mode=edit), jonka käytön tärkeyttä ei voi olla korostamatta liikaa.
 
 <programming-exercise name='Pisin merkkijono' tmcname='osa05-01a_pisin_merkkijono'>
 
@@ -648,3 +731,46 @@ True
 </programming-exercise>
 
 <quiz id="06d24c0d-ef38-5175-9254-5723f33368e9"></quiz>
+
+```py
+
+def tulosta(rekisteri:dict, nimi:str):
+    if nimi in rekisteri:
+        print(f'{nimi}:')
+        suoritukset = len(rekisteri[nimi])
+        if suoritukset > 0:
+            print(f' suorituksia {suoritukset} kurssilta:')
+            summa = 0
+            for kurssi in rekisteri[nimi]:
+                for nimi, arvosana in kurssi.items():
+                    print(f'  {nimi} {arvosana}')
+                    summa += arvosana
+            ka = summa / suoritukset
+            print(f' keskiarvo {ka:.1f}')
+        else:
+            print(' ei suorituksia')
+    else:
+        print(f'ei löytynyt ketään nimellä {nimi}')
+
+
+def tulosta(rekisteri:dict, nimi:str):
+    # eka portsari
+    if not nimi in rekisteri:
+        print(f'ei löytynyt ketään nimellä {nimi}')
+        return
+
+    print(f'{nimi}:')
+    suoritukset = len(rekisteri[nimi])
+    # toinen portsari
+    if suoritukset == 0:
+        print(' ei suorituksia')
+        return
+
+    print(f' suorituksia {suoritukset} kurssilta:')
+    summa = 0
+    for kurssi in rekisteri[nimi]:
+        for nimi, arvosana in kurssi.items():
+            print(f'  {nimi} {arvosana}')
+            summa += arvosana
+    ka = summa / suoritukset
+    print(f' keskiarvo {ka:.1f}')
