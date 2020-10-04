@@ -392,3 +392,162 @@ pinta-ala: 6.0
 </sample-output>
 
 </programming-exercise>
+
+<programming-exercise name='Sanapeli' tmcname='osa10_2_sanapeli'>
+
+Tehtäväpohja sisältää valmiin luokan `Sanapeli`, joka tarjoaa perustoiminnallisuuden erilaisten sanapelien pelaamiseen:
+
+```python
+class Sanapeli():
+    def __init__(self, kierrokset: int):
+        self.voitot1 = 0
+        self.voitot2 = 0
+        self.kierrokset = kierrokset
+
+    def kierroksen_voittaja(self, pelaaja1_sana: str, pelaaja2_sana: str):
+        # arvotaan voittaja
+        return random.randint(1, 2)
+
+    def pelaa(self):
+        print("Sanapeli:")
+        for i in range(1, self.kierrokset+1):
+            print(f"kierros {i}")
+            vastaus1 = input("pelaaja1: ")
+            vastaus2 = input("pelaaja2: ")
+
+            if self.kierroksen_voittaja(vastaus1, vastaus2) == 1:
+                self.voitot1 += 1
+                print("pelaaja 1 voitti")
+            elif self.kierroksen_voittaja(vastaus1, vastaus2) == 2:
+                self.voitot2 += 1
+                print("pelaaja 2 voitti")
+            else:
+                pass # tasapeli
+
+        print("peli päättyi, voitot:")
+        print(f"pelaaja 1: {self.voitot1}")
+        print(f"pelaaja 2: {self.voitot2}")
+```
+
+Peliä käytetään seuraavasti:
+
+```python
+p = Sanapeli(3)
+p.pelaa()
+```
+
+Esimerkkitulostus
+
+<sample-output>
+
+Sanapeli:
+kierros 1
+pelaaja1: **pitkäsana**
+pelaaja2: **??**
+pelaaja 2 voitti
+kierros 2
+pelaaja1: **olen paras**
+pelaaja2: **mitä?**
+pelaaja 1 voitti
+kierros 3
+pelaaja1: **kuka voittaa**
+pelaaja2: **minä**
+pelaaja 1 voitti
+peli päättyi voitot:
+pelaaja 1: 2
+pelaaja 2: 0
+
+</sample-output>
+
+Tässä pelin "perusversiossa" voittaja ratkaistaan arpomalla, pelaajien antamilla syötteillä ei ole tulokseen vaikutusta.
+
+## Pisin sana voittaa
+
+Tee nyt luokka `PisinSana` eli pelin versio, missä kunkin kierroksen voittaja on sen kierroksen aikana pidemmän sanan syöttänyt käyttäjä.
+
+Uusi versio toteuteaan _perimällä_ luokka `Sanapeli` ja ylikirjoittamalla sen metodi `kierroksen_voittaja` sopivalla tavalla. Uuden luokan runko on siis seuraavanlainen
+
+```python
+class PisinSana(Sanapeli):
+    def __init__(self, kierrokset: int):
+        super().__init__(kierrokset)
+
+    def kierroksen_voittaja(self, pelaaja1_sana: str, pelaaja2_sana: str):
+        # tänne voittajan ratkaiseva koodi
+```
+
+Esimerkki toiminnasta:
+
+```python
+p = PisinSana(3)
+p.pelaa()
+```
+
+<sample-output>
+
+Sanapeli:
+kierros 1
+pelaaja1: lyhyt
+pelaaja2: pitkäsana
+pelaaja 2 voitti
+kierros 2
+pelaaja1: sana
+pelaaja2: vat?
+kierros 3
+pelaaja1: olen paras
+pelaaja2: minäpäs
+pelaaja 1 voitti
+peli päättyi, voitot:
+pelaaja 1: 1
+pelaaja 2: 1
+
+</sample-output>
+
+## Eniten vokaaleja voittaa
+
+Tee nyt luokka `EnitenVokaaleja` eli pelin versio, missä kunkin kierroksen voittaja on se pelaaja, jonka sanassa oli enemmän vokaaleja.
+
+## Kivi, paperi, sakset
+
+Tee nyt luokka `KiviPaperiSakset` joka mallintaa nimensä mukaisesti [kivi, paperi ja sakset](https://fi.wikipedia.org/wiki/Kivi,_paperi_ja_sakset) -peliä.
+
+Pelin sännöt ovat seuraavat:
+
+- kivi voittaa sakset (kivellä voi rikkoa sakset eikä saksilla voi leikata kiveä)
+- paperi voittaa kiven (kiven voi peittää paperilla)
+- sakset voittaa paperin (saksilla voi leikata paperia)
+
+Jos pelaajan syöte on epäkelpo, eli se ei ole mikään sanoista _kivi, paperi, sakset_ pelaaja häviää kierroksen, ellei molempien syöte ole epäkelpo.
+
+Esimerkki toiminnasta:
+
+```python
+p = KiviPaperiSakset(4)
+p.pelaa()
+```
+
+<sample-output>
+
+Sanapeli:
+kierros 1
+pelaaja1: kivi
+pelaaja2: kivi
+kierros 2
+pelaaja1: kivi
+pelaaja2: paperi
+pelaaja 2 voitti
+kierros 3
+pelaaja1: sakset
+pelaaja2: paperi
+pelaaja 1 voitti
+kierros 3
+pelaaja1: paperi
+pelaaja2: dynamiitti
+pelaaja 1 voitti
+peli päättyi, voitot:
+pelaaja 1: 2
+pelaaja 2: 1
+
+</sample-output>
+
+</programming-exercise>
