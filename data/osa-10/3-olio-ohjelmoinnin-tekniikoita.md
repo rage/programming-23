@@ -392,7 +392,90 @@ Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, 
 
 </programming-exercise>
 
-<programming-exercise name='Murtoluku' tmcname='osa10_'>
+<programming-exercise name='Päiväys' tmcname='osa10_'>
+
+Tässä tehtävässä toteutetaan luokka `Paivaus` jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi että jokaisessa kuussa on 30 päivää.
+
+## Vertailut
+
+Toteuta luokan runko ja sille vertailuoperaattori <, >, == ja !=. Käyttöesimerkki
+
+```python
+p1 = Paivaus(4, 10, 2020)
+p2 = Paivaus(28, 12, 1985)
+p3 = Paivaus(28, 12, 1985)
+
+print(p1)
+print(p2)
+print(p1 == p2)
+print(p1 != p2)
+print(p1 == p3)
+print(p1 < p2)
+print(p1 > p2)
+```
+
+<sample-output>
+
+4.10.2020
+28.12.1985
+False
+True
+False
+False
+True
+
+</sample-output>
+
+## Kasvatus
+
+Toteuta päiväykselle operaattori +. Operaattori luo uuden päivämäärän joka on plussattavan lukeman päiviä verran suurempi kuin alkuperäinen päivämäärä. Alkuperäinen päivä ei saa muuttua.
+
+```python
+p1 = Paivaus(4, 10, 2020)
+p2 = Paivaus(28, 12, 1985)
+
+p3 = p1 + 3
+p4 = p2 + 400
+
+print(p1)
+print(p2)
+print(p3)
+print(p4)
+```
+
+<sample-output>
+
+4.10.2020
+28.12.1985
+7.10.2020
+8.2.1987
+
+</sample-output>
+
+## Erotus
+
+Toteuta päiväykselle operaattori - joka palattaa päivämäärien eron päivissä laskettuna. Huomaa, että koska oletamme jokaisessa kuukaudessa olevan 30 päivää, tässä tehtävässä vuosien päivien lukumäärä on 12*30 eli 360.
+
+Operaattori toimii seuraavasti
+
+```python
+p1 = Paivaus(4, 10, 2020)
+p2 = Paivaus(2, 11, 2020)
+p3 = Paivaus(28, 12, 1985)
+
+print(p2-p1)
+print(p1-p2)
+print(p1-p3)
+```
+
+<sample-output>
+
+28
+28
+12516
+
+</sample-output>
+
 </programming-exercise>
 
 ## Iteraattorit
