@@ -537,6 +537,8 @@ Ristinollaa pelataan 3 x 3 -kokoisella ruudukolla, johon pelaajat merkitsevät v
 
 Kirjoita funktio `pelaa_siirto(lauta: list, x: int, y: int, nappula: str)`, jossa sijoitetaan annettu pelinappula annettuihin koordinaatteihin pelilaudalla. Koordinaattien arvot ovat väliltä 0..2.
 
+**Huomaa** että tässä tehtävässä parametrit ovat eri päin kuin sudokussa, ensin annetaan saraketta kuvaava `x` ja sen jälkeen riviä kuvaava `y`.
+
 Pelilauta koostuu merkkijonoista seuraavasti:
 
 * `""`: tyhjä ruutu
