@@ -261,6 +261,135 @@ Muistiinpano - pvm: 2020-09-09 14:13:02.163170, merkintä: Muista ostaa lahjoja 
 </sample-output>
 
 <programming-exercise name='Raha' tmcname='osa10_'>
+
+Tehtäväpohjasta löytyy luokan `Raha` runko. Tässä tehtävässä laajennetaan runkoa muutamilla operaattoreilla, ja korjataan pari rungossa olevaa pientä ongelmaa
+
+## Korjaa merkkijonoesitys
+
+Rahan merkkijonoesityksen muodostava metodi ei ole nyt ihan kunnossa. Seuraavassa esimerkissä muodstetaan kaksi raha-olioa, joista jälkimmäinen ei tulostu oikein:
+
+```python
+e1 = Raha(4, 10)
+e2 = Raha(2, 5)  # kaksi euroa ja viisi senttiä
+
+print(e1)
+print(e2)
+```
+
+<sample-output>
+
+4.10 eur
+2.5 eur
+
+</sample-output>
+
+Korjaa luokan metodi `__repr__(self)` siten, että tulostus on seuraava:
+
+<sample-output>
+
+4.10 eur
+2.05 eur
+
+</sample-output>
+
+## Yhtäsuuruus
+
+Määrittele raha-oliolle funktio  `__eq__(self, toinen)`, jonka avulla rahan yhtäsuuruusvertailu saadaan toimimaan:
+
+```python
+e1 = Raha(4, 10)
+e2 = Raha(2, 5)
+e3 = Raha(4, 10)
+
+print(e1)
+print(e2)
+print(e3)
+print(e1 == e2)
+print(e1 == e3)
+```
+
+<sample-output>
+
+4.10 eur
+2.05 eur
+4.10 eur
+False
+True
+
+</sample-output>
+
+## Muut vertailut
+
+Toteuta rahalle myös seuraavat vertailuoperaatorit `<`, `>`, `!=`.
+
+```python
+e1 = Raha(4, 10)
+e2 = Raha(2, 5)
+
+print(e1 != e2)
+print(e1 < e2)
+print(e1 > e2)
+```
+
+<sample-output>
+
+True
+False
+True
+
+</sample-output>
+
+## Plus ja miinus
+
+Toteuta rahalle yhteen- ja vähennyslaskuoperaatiot. Molempien operaatioiden tulee palauttaa uusi rahaolio, ja ne eivät saa muuttaa olioa itseään tai parametrina olevaa olioa!
+
+Huomaa, että rahan arvo ei voi olla negatiivinen. Negatiiviseen tulokseen päätyvän vähennyslaskuyrityksen tulee aiheuttaa poikkeus.
+
+```python
+e1 = Raha(4, 5)
+e2 = Raha(2, 95)
+
+e3 = e1 + e2
+e4= e1 - e2
+
+print(e3)
+print(e4)
+
+e5 = e2-e1
+```
+
+<sample-output>
+
+7.00 eur
+1.10 eur
+Traceback (most recent call last):
+  File "tiedosto.py", line 416, in <module>
+    e5 = e2-e1
+  File "tiedosto.py", line 404, in __sub__
+    raise ValueError(f"negatiivinen tulos ei sallittu")
+ValueError: negatiivinen tulos ei sallittu
+
+</sample-output>
+
+## Arvoa ei voi muuttaa
+
+Luokassa on täälä hetkellä vielä pieni ongelma. Käyttäjä voi "hujaamalla" muttaa rahan arvoa:
+
+```python
+print(e1)
+e1.eurot = 1000
+print(e1)
+```
+
+<sample-output>
+
+4.05 eur
+1000.05 eur
+
+</sample-output>
+
+Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että huijaus ei onnistu.
+
 </programming-exercise>
 
 <programming-exercise name='Murtoluku' tmcname='osa10_'>
