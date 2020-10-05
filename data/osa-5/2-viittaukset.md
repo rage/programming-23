@@ -343,12 +343,12 @@ if __name__ == "__main__":
     luvut = [2, 4, 5, 3, 11, -4]
     tuplaluvut = tuplaa_alkiot(luvut)
     print("alkuperäinen:", luvut)
-    print("tuplattu:    ", tuplaluvut)
+    print("tuplattu:", tuplaluvut)
 ```
 <sample-output>
 
 alkuperäinen: [2, 4, 5, 3, 11, -4]
-tuplattu:     [4, 8, 10, 6, 22, -8]
+tuplattu: [4, 8, 10, 6, 22, -8]
 
 </sample-output>
 
