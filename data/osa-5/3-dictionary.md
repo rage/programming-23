@@ -538,7 +538,9 @@ print(s)
 
 </sample-output>
 
-**Huomaa**, että [tämä](/osa-5/2-viittaukset#lista-funktion-parametrina) pitää paikkansa myös parametrina oleville sanakirjoille!
+**Huomaa**, että [tämä](/osa-5/2-viittaukset#parametrina-olevan-listan-muokkaaminen) pitää paikkansa myös parametrina oleville sanakirjoille!
+
+Jos kohtaat tehtävässä ongelmia, katso [visualisaattorilla](http://www.pythontutor.com/visualize.html#mode=edit) mitä koodisi tekee.
 
 </programming-exercise>
 
