@@ -496,6 +496,30 @@ Poistettavaa henkilöä ei löytynyt henkilökunnasta
 
 </sample-output>
 
+Kannattaa huomata, että jos on tarvetta poistaa koko sanakirjan sisältö:
+
+```python
+henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
+for avain in henkilokunta:
+  del henkilokunta[avain]
+```
+
+seurauksena on virheilmoitus
+
+<sample-output>
+
+RuntimeError: dictionary changed size during iteration
+
+</sample-output>
+
+Syynä on se, että käytäessä läpi rakennetta `for`-lauseella, ei sen sisältöä saa muuttaa.
+
+Koko sanakirjan tyhjennys onnistuu komennolla:
+
+```python
+henkilokunta.clear()
+```
+
 <programming-exercise name='Sanakirjan kääntö' tmcname='osa05-15_sanakirjan_kaanto'>
 
 Kirjoita funktio `kaanna(sanakirja: dict)`, joka saa parametrikseen sanakirjan ja kääntää sen niin, että arvoista tulee avaimia ja päinvastoin.
@@ -513,6 +537,8 @@ print(s)
 {"eka": 1, "toka": 2, "kolmas": 3, "neljas": 4}
 
 </sample-output>
+
+**Huomaa**, että [tämä](/osa-5/2-viittaukset#lista-funktion-parametrina) pitää paikkansa myös parametrina oleville sanakirjoille!
 
 </programming-exercise>
 
