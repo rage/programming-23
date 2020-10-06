@@ -86,7 +86,7 @@ Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
       <td>Osa 6</td>
       <td>6.10.2020</td>
       <td>15.10.2020</td>
-      <td>a href="https://youtu.be/NHiwpaDfpxs">Luentotallenne</a></td>
+      <td><a href="https://youtu.be/NHiwpaDfpxs">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 7</td>
