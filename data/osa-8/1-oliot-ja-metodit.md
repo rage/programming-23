@@ -28,7 +28,7 @@ vuosi = 1992
 kirja = (nimi, kirjailija, vuosi)
 
 # Tulostetaan kirjan nimi
-print(kirja[0])
+print(kirja[1])
 
 ```
 
@@ -199,7 +199,6 @@ print(pienin_keskiarvo(h1, h2, h3))
 {"nimi": "Veijo", "tulos1": 1, "tulos2": 3, "tulos3": 1}
 
 </sample-output>
-
 
 </programming-exercise>
 

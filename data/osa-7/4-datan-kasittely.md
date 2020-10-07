@@ -206,11 +206,10 @@ Jokainen tuple siis sisältää seuraavat arvot:
 - vuosi (`year`)
 - harjoitusten (`exercises`) yhteenlaskettu määrä
 
-*Huom*: Kun suoritat testejä, huolehdi, että pääohjelmassa ei kutsuta toteuttamaasi funktiota!
 
-*Huom2*: Tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
+*Huom*: Tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
 
-*Huom3:* Testeissä käytetään myös ovelaa kikkaa, joka hieman muuttaa internetistä tulevaa dataa ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
+*Huom2:* Testeissä käytetään myös ovelaa kikkaa, joka hieman muuttaa internetistä tulevaa dataa ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
 
 #### yhden kurssin tiedot
 
@@ -335,7 +334,7 @@ usefull: usefully, useful, museful
 
 Korjausehdotukset etsitään standardikirjaston moduulin [difflib](https://docs.python.org/3/library/difflib.html) tarjoaman funktion [get\_close\_matches](https://docs.python.org/3/library/difflib.html#difflib.get_close_matches) avulla.
 
-*Huom*: jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria, eli virheellinen sana sekä lista oikeista sanoista.
+*Huom*: jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria: virheellinen sana ja lista oikeista sanoista.
 
 </programming-exercise>
 

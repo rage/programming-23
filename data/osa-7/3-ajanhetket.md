@@ -27,7 +27,7 @@ print(aika)
 
 <sample-output>
 
-2020-04-02 12:46:49.311393
+2020-10-13 12:46:49.311393
 
 </sample-output>
 
@@ -78,7 +78,7 @@ pv2 = datetime(2020, 6, 30, 18, 45) # 30.6.2020 klo 18.45
 
 ## Aikojen vertailu ja ero
 
-Voimme vertailla aikoja samaan tapaan kuin lukuja käyttämällä tuttuja vertailuoperaattoreita. Seuraava koodi antaa näytteen tästä:
+Voimme vertailla aikoja samaan tapaan kuin lukuja käyttämällä tuttuja vertailuoperaattoreita:
 
 ```python
 from datetime import datetime
@@ -180,7 +180,7 @@ Et ollut syntynyt, kun vuosituhat vaihtui.
 
 </sample-output>
 
-Voit olettaa, että kaikki annetut päivä-kuukausi-vuosi-yhdistelmät ovat mahdollisia (eli käyttäjä ei siis anna esim. 31.2.1999).
+Voit olettaa, että kaikki annetut päivä-kuukausi-vuosi-yhdistelmät ovat mahdollisia (eli käyttäjä ei siis anna esim. syötettä 31.2.1999).
 
 </programming-exercise>
 
