@@ -239,6 +239,7 @@ with open("koodarit.csv", "w") as tiedosto:
         rivi = ""
         for arvo in koodari:
             rivi += f"{arvo};"
+        rivi = rivi[:-1]
         tiedosto.write(rivi+"\n")
 ```
 
