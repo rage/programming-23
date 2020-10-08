@@ -737,45 +737,4 @@ True
 
 <quiz id="06d24c0d-ef38-5175-9254-5723f33368e9"></quiz>
 
-```py
 
-def tulosta(rekisteri:dict, nimi:str):
-    if nimi in rekisteri:
-        print(f'{nimi}:')
-        suoritukset = len(rekisteri[nimi])
-        if suoritukset > 0:
-            print(f' suorituksia {suoritukset} kurssilta:')
-            summa = 0
-            for kurssi in rekisteri[nimi]:
-                for nimi, arvosana in kurssi.items():
-                    print(f'  {nimi} {arvosana}')
-                    summa += arvosana
-            ka = summa / suoritukset
-            print(f' keskiarvo {ka:.1f}')
-        else:
-            print(' ei suorituksia')
-    else:
-        print(f'ei löytynyt ketään nimellä {nimi}')
-
-
-def tulosta(rekisteri:dict, nimi:str):
-    # eka portsari
-    if not nimi in rekisteri:
-        print(f'ei löytynyt ketään nimellä {nimi}')
-        return
-
-    print(f'{nimi}:')
-    suoritukset = len(rekisteri[nimi])
-    # toinen portsari
-    if suoritukset == 0:
-        print(' ei suorituksia')
-        return
-
-    print(f' suorituksia {suoritukset} kurssilta:')
-    summa = 0
-    for kurssi in rekisteri[nimi]:
-        for nimi, arvosana in kurssi.items():
-            print(f'  {nimi} {arvosana}')
-            summa += arvosana
-    ka = summa / suoritukset
-    print(f' keskiarvo {ka:.1f}')
