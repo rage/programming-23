@@ -165,6 +165,8 @@ Tee funktio `suorita(ohjelma)`, jolle annetaan ohjelma listana. Jokainen listan 
 
 Voit olettaa, että funktiolle annettu ohjelma on oikeanmuotoinen, eli funktion ei tarvitse toteuttaa virheenkäsittelyä.
 
+Tehtävästä on saatavilla kaksi pistettä: saat yhden pisteen, jos komennot `PRINT`, `MOV`, `ADD`, `SUB`, `MUL` ja `END` toimivat, ja vielä toisen pisteen, jos myös loput silmukoihin liittyvät komennot toimivat.
+
 Esimerkki 1:
 
 ```python
