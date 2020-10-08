@@ -143,26 +143,26 @@ Ohjelman tulee toimia seuraavan esimerkin mukaisesti:
 
 <sample-output>
 
-1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **1**
 Anna merkintä: **Tänään söin puuroa**
 Päiväkirja tallennettu
 
-1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **2**
 Merkinnät:
 Tänään söin puuroa
-1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **1**
 Anna merkintä: **Illalla kävin saunassa**
 Päiväkirja tallennettu
 
-1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **2**
 Merkinnät:
 Tänään söin puuroa
 Illalla kävin saunassa
-1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **0**
 Heippa!
 
@@ -172,12 +172,12 @@ Uusi käynnistys:
 
 <sample-output>
 
-1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **2**
 Merkinnät:
 Tänään söin puuroa
 Illalla kävin saunassa
-1 - lisaa merkintä, 2 - lue merkinnät, 0 - lopeta
+1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
 Valinta: **0**
 Heippa!
 
