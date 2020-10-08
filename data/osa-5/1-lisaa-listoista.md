@@ -407,7 +407,7 @@ def rivin_alkioiden_summa(matriisi, rivi_nro: int):
 
     return summa
 
-m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]
+m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
 
 summa = rivin_alkioiden_summa(m, 1)
 print(summa) # tulostuu 33 (saadaan laskemalla 9 + 1 + 12 + 11)
