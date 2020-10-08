@@ -439,7 +439,7 @@ Merkkijonoilla on myös metodit `lstrip` ja `rstrip`, jotka poistavat ainoastaan
 
 ## Eri tiedostoissa olevien tietojen yhdistely
 
-On hyvin yleistä, että ohjelmassa tarvittava data on talletettu useaan erilliseen tiedostoon. Tarkastellaan esimerkkinä tilannetta, missä yrityksen henkilöstön tiedot ovat omassa tiedostossaan `tyontekijat.csv`:
+On hyvin yleistä, että ohjelmassa tarvittava data on talletettu useaan erilliseen tiedostoon. Tarkastellaan esimerkkinä tilannetta, jossa yrityksen henkilöstön tiedot ovat omassa tiedostossaan `tyontekijat.csv`:
 
 ```csv
 hetu;nimi;osoite;kaupunki
@@ -523,7 +523,7 @@ Ohjelma siis muodostaa ensin sanakirjat `nimet` ja `palkat`, joiden sisältö n�
 
 Lopun for-silmukka yhdistää henkilöiden nimet ja niitä vastaavat palkat sanakirjojen avulla.
 
-Ohjelma huomioi myös tilanteen, missä henkilön palkkatietoja ei ole olemassa.
+Ohjelma huomioi myös tilanteen, jossa henkilön palkkatietoja ei ole olemassa.
 
 Huomaa, että koska ohjelma käyttää aputietorakenteena sanakirjaa, ei henkilöitä vastaavien rivien järjestyksellä ole merkitystä.
 
@@ -784,7 +784,7 @@ voi
 
 #### reseptien haku nimen perusteella
 
-Tee funktio `hae_nimi(tiedosto: str, sana: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden nimessä esiintyy toisena parametrina annettu merkkijono. Funktio palauttaa listan, missä kutakin löydettyä reseptiä vastaa merkkijono, joka kertoo reseptin nimen.
+Tee funktio `hae_nimi(tiedosto: str, sana: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden nimessä esiintyy toisena parametrina annettu merkkijono. Funktio palauttaa listan, jossa kutakin löydettyä reseptiä vastaa merkkijono, joka kertoo reseptin nimen.
 
 Esimerkki funktion käytöstä:
 
