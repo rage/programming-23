@@ -259,6 +259,8 @@ Tiedoston tyhjennys on mahdollista tehdä myös ilman `with`-lohkokon käyttöä
 open('tyhjennettava_tiedosto.txt', 'w').close()
 ```
 
+<text-box variant='hint' name='Tiedoston poistaminen'>
+
 Tiedosto voidaan myös poistaa kokonaan. Poisto tapahtuu seuraavasti:
 
 ```python
@@ -267,6 +269,13 @@ import os
 
 os.remove("tarpeeton_tiedosto.csv")
 ```
+
+Tämä ei kuitenkaan teknisten rajoitteiden takia toimi palvelimella suoritettavissa testeissä, joten käytä ylläolevia tapoja jos joudut tehtävissä tyhjentämään tiedoston.
+
+</text-box>
+
+
+
 
 <programming-exercise name='Aineiston suodatus' tmcname='osa06-12_aineiston_suodatus'>
 
