@@ -37,7 +37,7 @@ Lisää zoom-aikoja mahdollisesti tulevaisuudessa.
 
 ## Aikataulu
 
-*Seuraava luento: tiistaina 6.10. klo 10.15 - [Zoom](https://helsinki.zoom.us/j/69125361674?pwd=VzJWejlKNGNUdTlINWU5MWZGRG9Fdz09)*
+*Seuraava luento: tiistaina 13.10. klo 10.15 - [Zoom](https://helsinki.zoom.us/j/64780161075?pwd=by94UytLdGtxbHlYV3JWend1VllUUT09)*
 
 Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja deadline on seuraavan viikon torstaina.
 
