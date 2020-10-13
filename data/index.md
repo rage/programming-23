@@ -92,6 +92,7 @@ Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
       <td>Osa 7</td>
       <td>13.10.2020</td>
       <td>22.10.2020</td>
+      <td><a href="https://youtu.be/fHyT49qAwkk">Luentotallenne</a></td>
     </tr>
   </tbody>
 </table>
