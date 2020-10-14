@@ -276,8 +276,6 @@ Tämä ei kuitenkaan teknisten rajoitteiden takia toimi palvelimella suoritettav
 </text-box>
 
 
-
-
 <programming-exercise name='Aineiston suodatus' tmcname='osa06-12_aineiston_suodatus'>
 
 Tiedostossa laskut.csv on tehtävien ratkaisuja seuraavan esimerkin mukaisesti:
@@ -310,6 +308,23 @@ Pekka;5+5;10
 Kaksi muuta riviä olisi kirjoitettu tiedostoon `vaarat.csv`.
 
 Kirjoita rivit samassa järjestyksessä kuin ne esiintyvät alkuperäisessä tiedostossa. Älä muuta alkuperäistä tiedostoa.
+
+*Huomaa* että funktion tulee toimia oikein siinäkin tapauksessa että funktiota kutsutaan monta kertaa perkkäin. Eli riippumatta siitä suoritatko funktion vain kerran
+
+```python
+suodata_laskut()
+```
+
+tai useita kertoja peräkkän
+
+```python
+suodata_laskut()
+suodata_laskut()
+suodata_laskut()
+suodata_laskut()
+```
+
+tiedostojen sisältöjen tulee lopulta olla samat.
 
 </programming-exercise>
 
