@@ -169,7 +169,7 @@ print(lista)
 
 </sample-output>
 
-<programming-exercise name='Pienin keskiarvo' tmcname='osa08-xx_pienin_keskiarvo'>
+<programming-exercise name='Pienin keskiarvo' tmcname='osa08-01_pienin_keskiarvo'>
 
 Tee funktio `pienin_keskiarvo(henkilo1: dict, henkilo2: dict, henkilo3: dict)`, joka saa parametrikseen kolme sanakirjaoliota.
 
@@ -189,7 +189,7 @@ Esimerkki funktion kutsumisesta:
 ```python
 h1 = {"nimi": "Keijo", "tulos1": 2, "tulos2": 3, "tulos3": 3}
 h2 = {"nimi": "Reijo", "tulos1": 5, "tulos2": 1, "tulos3": 8}
-h3 = {"nimi": "Veijo", "tulos1": 1, "tulos2": 3, "tulos3": 1}
+h3 = {"nimi": "Veijo", "tulos1": 3, "tulos2": 1, "tulos3": 1}
 
 print(pienin_keskiarvo(h1, h2, h3))
 ```
@@ -202,7 +202,7 @@ print(pienin_keskiarvo(h1, h2, h3))
 
 </programming-exercise>
 
-<programming-exercise name='Rivien summat' tmcname='osa08-xx_kirja'>
+<programming-exercise name='Rivien summat' tmcname='osa08-02_rivien_summat'>
 
 Taulukon alkioiden arvot ovat viittauksia olioihin. Tämä pätee myös silloin, kun mallinnetaan matriisia: jokainen matriisitaulukon alkion arvo on viittaus toiseen taulukkoon (jonka alkiot taas ovat viittauksia arvoihin).
 
