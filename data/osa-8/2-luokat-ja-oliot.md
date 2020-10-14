@@ -128,9 +128,9 @@ print(juhannus.month)
 
 Luokassa `date` on siis määritelty, että luokasta muodostettavilla olioilla on muuttujat `year`, `month` ja `day`. Kun luokasta muodostetaan olio, annetaan muuttujille arvot. Joka oliolla on omat arvonsa muuttujille.
 
-<programming-exercise name='Vuodet listaan' tmcname='osa08-xx_vuodet_listaan'>
+<programming-exercise name='Vuodet listaan' tmcname='osa08-03_vuodet_listaan'>
 
-Tee funktio `vuodet_listaan(paivamaarat: list)`, joka saa parametrikseen listan, joka sisältää `date`-tyyppisiä olioita. Funktio luo uuden listan, jolle se tallentaa päivämäärien _vuodet suuruusjärjetyksessä pienimmästä suurimpaan_.
+Tee funktio `vuodet_listaan(paivamaarat: list)`, joka saa parametrikseen listan, joka sisältää `date`-tyyppisiä olioita. Funktio luo uuden listan, jolle se tallentaa päivämäärien _vuodet suuruusjärjestyksessä pienimmästä suurimpaan_.
 
 Esimerkki funktion kutsumisesta:
 
@@ -152,7 +152,7 @@ print(vuodet)
 </programming-exercise>
 
 
-<programming-exercise name='Kauppalista' tmcname='osa08-xx_kauppalista'>
+<programming-exercise name='Kauppalista' tmcname='osa08-04_kauppalista'>
 
 Tehtävässä on määritelty valmiiksi Kauppalista-luokka, jolla voidaan mallintaa yhtä kauppalistaa.
 
@@ -160,7 +160,7 @@ Jos kauppalistaolio on tallennettu esimerkiksi muuttujaan `kauppalista`, sitä v
 
 ```python
 
-print(kauppalista.tuotteita)
+print(kauppalista.tuotteita())
 print(kauppalista.tuote(1))
 print(kauppalista.maara(1))
 print(kauppalista.tuote(2))
@@ -180,6 +180,22 @@ Maito
 
 Tee edellistä esimerkkiä hyödyntäen funktio `tuotteita_yhteensa(lista: Kauppalista)`, joka saa parametrikseen Kauppalista-tyyppisen olion. Funktio laskee listalla yhteensä olevien tuotteiden lukumäärän ja palauttaa sen.
 
-Huomaa, että kauppalistalla tuotteet indeksoidaan ykkösestä alkaen, ei nollasta.
+Huomaa, että kauppalistalla tuotteet indeksoidaan ykkösestä alkaen, ei nollasta. Voit testata ohjelmaasi esim. tällä esimerkkikoodilla:
+
+```python
+if __name__ == "__main__":
+    l = Kauppalista()
+    l.lisaa("banaanit", 10)
+    l.lisaa("omenat", 5)
+    l.lisaa("ananas", 1)
+
+    print(tuotteita_yhteensa(l))
+```
+
+<sample-output>
+
+16
+
+</sample-output>
 
 </programming-exercise>

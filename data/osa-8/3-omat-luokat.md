@@ -111,9 +111,9 @@ Attribuutit ovat käytettävissä ainoastaan se olion sisällä, jossa ne on mä
 
 </text-box>
 
-<programming-exercise name='Muodosta lemmikki' tmcname='osa08-xx_muodosta_lemmikki'>
+<programming-exercise name='Muodosta lemmikki' tmcname='osa08-05_muodosta_lemmikki'>
 
-Tee funktio `uusi_lemmikki(nimi: str, laji: str, vuosi: int)`, joka muodostaa uuden Lemmikki-luokan olion.
+Määrittele luokka Lemmikki ja tee sitten funktio `uusi_lemmikki(nimi: str, laji: str, vuosi: int)`, joka muodostaa uuden Lemmikki-tyyppisen (eli Lemmikki-luokan) olion.
 
 Oliolla on attribuutit `nimi`, `laji` ja `syntymavuosi`. Arvot saadaan funktion parametreista.
 
@@ -294,9 +294,9 @@ for numero in ekan_viikon_lotto.numerot:
 
 Attribuutit voivat olla siis minkä tahansa tyyppisiä - esimerkiksi edellisessä esimerkissä jokaiseen olioon tallennetaan lista ja päivämääräolio.
 
-<programming-exercise name='Kirja' tmcname='osa08-01_kirja'>
+<programming-exercise name='Kirja' tmcname='osa08-06_kirja'>
 
-Tee luokka `Kirja`, jolla on muuttujat `nimi`, `kirjoittaja`, `genre`, `kirjoitusvuosi` sekä konstruktiori, joka alustaa muuttujat.
+Tee luokka `Kirja`, jolla on attribuutit `nimi`, `kirjoittaja`, `genre`, `kirjoitusvuosi` sekä konstruktiori, joka alustaa muuttujat.
 
 Luokkaa käytetään seuraavasti
 
