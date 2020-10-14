@@ -317,7 +317,7 @@ Kirjan Huipulta huipulle genre on elämänkerta
 
 </programming-exercise>
 
-<programming-exercise name='Kirjoita luokat' tmcname='osa08-xx_kirjoita_luokat'>
+<programming-exercise name='Kirjoita luokat' tmcname='osa08-07_kirjoita_luokat'>
 
 Kirjoita alla pyydetyt luokat. Jokaisen luokan alle on kuvattu attribuuttien nimet ja tyypit.
 
