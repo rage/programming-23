@@ -14,6 +14,21 @@ Tämän osion jälkeen
 
 </text-box>
 
+
+<text-box variant='hint' name='Kurssin tehtävien tekemisestä'>
+
+Ohjelmointitaidon kehittyminen edellyttää vahvaa rutiinia ja myös omaa soveltavaa oivaltamista. Tämän takia kurssilla on paljon tehtäviä. Osa tehtävistä on kohtuullisen suoraviivaisesti materiaalia hyödyntäviä ja osa taas aivan tarkoituksella haastavampia soveltavia tehtäviä.
+
+Ei kannata huolestua vaikka osa kurssin tehtävistä tuntuisikin ensiyrittämällä liian vaikealta. Kaikkia tehtäviä ei ole missään nimessä pakko tehdä, kuten [arvosteluperusteet](/arvostelu-ja-kokeet) toteavat: _Kurssin läpipääsyyn vaaditaan vähintään 25% jokaisen osan ohjelmointitehtävien pisteistä._
+
+**Kurssin osien tehtävät eivät etene vaikeusjärjestyksessä.** Jokaisessa aliosassa esitellään yleensä muutama uusi konsepti, joita harjoitellaan sekä helpommilla että soveltavimmilla tehtävillä. **Jos törmäät liian haastavan tuntuiseen tehtävään, hyppää seuraavaan**. Voit palata vaikeimpiin tehtäviin osan lopuksi jos aikaa vielä jää.
+
+Lohdutuksen sanana todettakoon että tällä viikolla mahdottomalta vaikuttava tehtävä näyttää melko varmasti neljän viikon päästä melko helpolta.
+
+Huomaa, että pääset deadlinen jälkeen tutkimaan myös niiden tehtävien mallivastauksia, joita et ehtinyt tekemään. Mallivastausten tutkiminen lienee opettavaista vaikka saisitkin itse tehtävän ratkaistua.
+
+</text-box>
+
 Yksi tavallinen ohjelmoinnin käyttötarkoitus on käsitellä tiedostoissa olevaa tietoa. Ohjelmat voivat lukea tietoa tiedostoista ja tallentaa tuloksia tiedostoihin. Tiedostojen avulla voimme käsitellä suuriakin aineistoja helposti automaattisesti.
 
 Oletamme tällä kurssilla, että käsiteltävät tiedostot ovat _tekstitiedostoja_ eli ne muodostuvat riveistä, joilla on tekstiä. Esimerkiksi kurssilla käytetty Visual Studio Code -editori käsittelee tekstitiedostoja. Huomaa, että esimerkiksi Word-dokumentti ei ole tekstitiedosto, vaan siinä on tekstin lisäksi muotoilutietoja ja sen käsittely ohjelmallisesti olisi vaikeaa.
@@ -106,14 +121,32 @@ Kirjoita funktio `suurin`, joka lukee tiedoston ja palauttaa suurimman tiedostos
 
 Huomaa, että tiedoston nimi on aina `luvut.txt` eikä funktiolle anneta parametria.
 
-Huom! Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla seuraavaa:
+**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla seuraavaassa heti tehtävän jälkeen olevaa ohjetta.
+
+</programming-exercise>
+
+## Mitä jos VS code ei löydä tiedostoja koodia suoritettaessa?
+
+Jos VS Code ei löydä tiedostoa suorittaessasi koodia (vihreää nappia painamalla) vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla seuraavaa:
 
 * Mene asetuksiin valikosta _File_ -> _Preferences_ -> _Settings_
 * Etsi muutettava kohta hakusanalla "executeinfile"
 * Valitse välilehti _Workspace_
 * Laita raksi kohtaan _Python_ -> _Terminal_ -> _Execute In File Dir_
 
-</programming-exercise>
+Oikein tehtynä asetus näyttää suunilleen seuraavalta:
+
+<img src="6_1_1.png">
+
+Jos edellinenkään ei toimi, voit kopioida kansiossa _src_ olevan testaukseen käytetyn tiedoston sisällön
+
+<img src="6_1_2.png">
+
+suoraan tehtäväkansion alle
+
+<img src="6_1_3.png">
+
+Saat luotua uuden tiedoston klikkaamalla tehtävän nimeä hiiren oikealla napilla ja valitsemalla _New file_.
 
 ## CSV-tiedoston lukeminen
 
@@ -189,6 +222,9 @@ Kirjoita funktio `lue_hedelmat`, joka lukee hedelmätiedoston ja muodostaa siit�
 
 Lopuksi funktio palauttaa tämän sanakirjan.
 
+**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
+
+
 </programming-exercise>
 
 <programming-exercise name='Matriisi' tmcname='osa06-03_matriisi'>
@@ -213,6 +249,8 @@ Kirjoita lisäksi funktio `rivisummat`, joka palauttaa listassa kaikkien matriis
 funktio palauttaisi listan `[6, 9]`.
 
 Vinkki: Voit kirjoittaa ohjelmaan myös muita funktioita – kannattaa siis miettiä, mitä kaikkia yhteisiä toimintoja kolmea funktiota varten vaaditaan.
+
+**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
 
 </programming-exercise>
 
@@ -519,8 +557,6 @@ Ohjelma siis muodostaa ensin sanakirjat `nimet` ja `palkat`, joiden sisältö n�
 }
 ```
 
-
-
 Lopun for-silmukka yhdistää henkilöiden nimet ja niitä vastaavat palkat sanakirjojen avulla.
 
 Ohjelma huomioi myös tilanteen, jossa henkilön palkkatietoja ei ole olemassa.
@@ -594,6 +630,7 @@ Kun koodi on kunnossa, voi ehtorakenteen poistaa.
 **Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
 `if __name__ == "__main__"`-lohkoon!
 
+**Toinen huomio** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
 
 </programming-exercise>
 
@@ -735,13 +772,16 @@ Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa ole
 **Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
 `if __name__ == "__main__"`-lohkoon!
 
+**Toinen huomio** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
+
+
 </programming-exercise>
 
 <programming-exercise name='Reseptihaku' tmcname='osa06-08_reseptihaku'>
 
 Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, valmistusajan tai raaka-aineen nimen perusteella. Ohjelma lukee reseptit käyttäjän antamasta tiedostosta.
 
-Jokainen resepti koostuu kolmesta tai useammasta rivistä reseptitiedostossa. Ensimmäisellä rivillä on reseptin nimi, toisella rivillä reseptin valmistusaika (kokonaisluku), ja kolmas ja sitä seuraavat rivit kertovat reseptin raaka-aineet. Reseptin raaka-aineiden kuvaus päättyy tyhjään riviin. Tiedostossa voi olla useampia reseptejä. Alla kuvattuna esimerkkitiedosto.
+Jokainen resepti koostuu kolmesta tai useammasta rivistä reseptitiedostossa. Ensimmäisellä rivillä on reseptin nimi, toisella rivillä reseptin valmistusaika (kokonaisluku), ja kolmas ja sitä seuraavat rivit kertovat reseptin raaka-aineet. Reseptin raaka-aineiden kuvaus päättyy tyhjään riviin, poislukien viimeinen resepti. Tiedostossa voi olla useampia reseptejä. Alla kuvattuna esimerkkitiedosto.
 
 ```sh
 Lettutaikina
@@ -803,6 +843,9 @@ Pullataikina
 </sample-output>
 
 Huomaa, että hakusanojen kirjainten koolla ei ole merkitystä, eli hakusana _pulla_ löytää myös reseptin _Pullataikina_, joka alkaa isolla kirjaimella.
+
+**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
+
 
 #### reseptien hakeminen valmistusajan perusteella
 
@@ -909,6 +952,8 @@ print(e)
 0.7753594392019532
 
 </sample-output>
+
+**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
 
 #### pisin välimatka
 

@@ -239,6 +239,7 @@ with open("koodarit.csv", "w") as tiedosto:
         rivi = ""
         for arvo in koodari:
             rivi += f"{arvo};"
+        rivi = rivi[:-1]
         tiedosto.write(rivi+"\n")
 ```
 
@@ -259,6 +260,8 @@ Tiedoston tyhjennys on mahdollista tehdä myös ilman `with`-lohkokon käyttöä
 open('tyhjennettava_tiedosto.txt', 'w').close()
 ```
 
+<text-box variant='hint' name='Tiedoston poistaminen'>
+
 Tiedosto voidaan myös poistaa kokonaan. Poisto tapahtuu seuraavasti:
 
 ```python
@@ -267,6 +270,11 @@ import os
 
 os.remove("tarpeeton_tiedosto.csv")
 ```
+
+Tämä ei kuitenkaan teknisten rajoitteiden takia toimi palvelimella suoritettavissa testeissä, joten käytä ylläolevia tapoja jos joudut tehtävissä tyhjentämään tiedoston.
+
+</text-box>
+
 
 <programming-exercise name='Aineiston suodatus' tmcname='osa06-12_aineiston_suodatus'>
 
@@ -300,6 +308,23 @@ Pekka;5+5;10
 Kaksi muuta riviä olisi kirjoitettu tiedostoon `vaarat.csv`.
 
 Kirjoita rivit samassa järjestyksessä kuin ne esiintyvät alkuperäisessä tiedostossa. Älä muuta alkuperäistä tiedostoa.
+
+*Huomaa* että funktion tulee toimia oikein siinäkin tapauksessa että funktiota kutsutaan monta kertaa perkkäin. Eli riippumatta siitä suoritatko funktion vain kerran
+
+```python
+suodata_laskut()
+```
+
+tai useita kertoja peräkkän
+
+```python
+suodata_laskut()
+suodata_laskut()
+suodata_laskut()
+suodata_laskut()
+```
+
+tiedostojen sisältöjen tulee lopulta olla samat.
 
 </programming-exercise>
 
