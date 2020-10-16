@@ -206,7 +206,7 @@ Seuraavassa on luokan Maksukortti runko:
 
 ```python
 class  Maksukortti:
-    def __init__(self, alkusaldo):
+    def __init__(self, alkusaldo: float):
         self.saldo = alkusaldo
 
     def __repr__(self):
@@ -335,14 +335,14 @@ Tee pääohjelma, joka sisältää seuraavan tapahtumasarjan:
 - Luo Matin kortti. Kortin alkusaldo on 30 euroa
 - Pekka syö maukkaasti
 - Matti syö edullisesti
-- - Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- _Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)_
 - Pekka lataa rahaa 20 euroa
 - Matti syö maukkaasti
-- Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- _Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)_
 - Pekka syö edullisesti
 - Pekka syö edullisesti
 - Matti lataa rahaa 50 euroa
-Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- _Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)_
 
 Pääohjelman runko
 
@@ -359,8 +359,8 @@ Tulostuksen tulee olla seuraava
 Pekka: Kortilla on rahaa 15.4 euroa
 Matti: Kortilla on rahaa 27.4 euroa
 Pekka: Kortilla on rahaa 35.4 euroa
-Matti: Kortilla on rahaa 22.799999999999997 euroa
-Pekka: Kortilla on rahaa 30.199999999999996 euroa
+Matti: Kortilla on rahaa 22.8 euroa
+Pekka: Kortilla on rahaa 30.2 euroa
 Matti: Kortilla on rahaa 72.8 euroa
 
 </sample-output>
@@ -393,9 +393,23 @@ ei arvosteluja
 
 Konstruktorissa siis asetetaan sarjan nimi, sen esityskausien lukumäärä sekä lista, joka kertoo mihin genreen sarja kuuluu.
 
+**Vihje:** merkkijonotaulukko saadaan muutettua haluttuja välimerkkejä sisältäväksi merkkijonoksi metodin `join` avulla seuraavasti:
+
+```python
+lista = ["Crime", "Drama", "Mystery", "Thriller"]
+merkkijono = ", ",join(lista)
+print(merkkijono)
+```
+
+<sample-output>
+
+Crime, Drama, Mystery, Thriller
+
+</sample-output>
+
 ### Arvostelujen lisääminen
 
-Tee luokalle metodi `arvostele`, jonka avulla sarjalle voi lisätä arvosanan, joka on luku väliltä 0-5. Myös metodia `__repr__` tulee muuttaa.
+Tee luokalle metodi `arvostele(arvosana: int)`, jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0-5. Myös metodia `__repr__` tulee muuttaa.
 
 ```python
 dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
@@ -411,13 +425,7 @@ print(dexter)
 
 Dexter (8 esityskautta)
 genret: Crime, Drama, Mystery, Thriller
-arvostelujen keskiarvo 3.4 pistettä
-  5: 2
-  4: 1
-  3: 1
-  2: 0
-  1: 0
-  0: 1
+arvosteluja 5, keskiarvo 3.4 pistettä
 
 </sample-output>
 
