@@ -6,6 +6,7 @@ information_page: true
 
 ### Tenttiin osallistuminen
 
+* Tenttiin ei tarvitse ilmoittautua etukäteen.
 * Kurssisuorituksen saaminen edellyttää tenttiin osallistumista.
 
 ### Tentin toteutus
