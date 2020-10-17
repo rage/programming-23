@@ -128,6 +128,56 @@ print(juhannus.month)
 
 Luokassa `date` on siis määritelty, että luokasta muodostettavilla olioilla on muuttujat `year`, `month` ja `day`. Kun luokasta muodostetaan olio, annetaan muuttujille arvot. Joka oliolla on omat arvonsa muuttujille.
 
+## Olioita käsittelevät funktiot
+
+Funktioiden parametrina oleviin olioihin ei liity oikeastaan mitään sen kummempaa. Niitä on jo kurssin aiemmissa osissa nähty runsaasti. Seuraavassa on esimerkki funktiosta, joka tarkastaa onko sen parametrina oleva `date`-olio viikonloppu:
+
+```python
+def onko_viikonloppu(paiva: date):
+    viikonpaiva = paiva.isoweekday()
+    return viikonpaiva == 6 or viikonpaiva == 7
+```
+
+Funktio siis  käyttää parametrina olevan olion metodia [isoweekday](https://docs.python.org/3/library/datetime.html#datetime.date.isoweekday), joka palauttaa viikonpäivää vastaavan numeron.
+
+Funktiota käytetään seuraavasti:
+
+```python
+joulu = date(2020, 12, 24)
+juhannus = date(2020, 6, 20)
+
+print(onko_viikonloppu(joulu))
+print(onko_viikonloppu(joulu))
+```
+
+<sample-output>
+
+False
+True
+
+</sample-output>
+
+## Metodi vs attribuutti
+
+Jos tarkastellaan `date`-oliota, niin
+
+```python
+paiva = date(2020, 12, 24)
+
+viikonpaiva = paiva.isoweekday()
+kuukausi = paiva.month
+
+print(f"viikonpäivä:", viikonpaiva)
+print(f"kuukausi:", kuukausi)
+```
+
+<sample-output>
+
+viikonpäivä: 4
+kuukausi: 12
+
+</sample-output>
+
 <programming-exercise name='Vuodet listaan' tmcname='osa08-03_vuodet_listaan'>
 
 Tee funktio `vuodet_listaan(paivamaarat: list)`, joka saa parametrikseen listan, joka sisältää `date`-tyyppisiä olioita. Funktio luo uuden listan, jolle se tallentaa päivämäärien _vuodet suuruusjärjestyksessä pienimmästä suurimpaan_.
@@ -178,7 +228,27 @@ Maito
 
 </sample-output>
 
-Tee edellistä esimerkkiä hyödyntäen funktio `tuotteita_yhteensa(lista: Kauppalista)`, joka saa parametrikseen Kauppalista-tyyppisen olion. Funktio laskee listalla yhteensä olevien tuotteiden lukumäärän ja palauttaa sen.
+Myös seuraava onnistuu:
+
+```python
+# kauppalistalla tuoteet on indeksöity ykkösestä alkaen
+for i in range(1, kauppalista.tuotteita()+1):
+    tuote = kauppalista.tuote(i)
+    maara = kauppalista.maara(i)
+    print(f"{tuote}: {maara} kpl")
+```
+
+
+<sample-output>
+
+banaanit 4 kpl
+maito 1 kpl
+
+</sample-output>
+
+Kauppalistat siis käyttäytyvät hieman listojen tavoin, niitä käsitellään kuitenkin kauppalistan tarjoamien metodien kautta, ja toisin kuin listoilla, kauppalistalla tuotteet on numeroitu ykkösestä alkaen.
+
+Tee esimerkkejä hyödyntäen funktio `tuotteita_yhteensa(lista: Kauppalista)`, joka saa parametrikseen Kauppalista-tyyppisen olion. Funktio laskee listalla yhteensä olevien tuotteiden lukumäärän ja palauttaa sen.
 
 Huomaa, että kauppalistalla tuotteet indeksoidaan ykkösestä alkaen, ei nollasta. Voit testata ohjelmaasi esim. tällä esimerkkikoodilla:
 
