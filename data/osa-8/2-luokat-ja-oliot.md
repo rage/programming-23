@@ -157,14 +157,17 @@ True
 
 </sample-output>
 
-## Metodi vs attribuutti
+## Metodi vs olion muuttuja
 
-Jos tarkastellaan `date`-oliota, niin
+Jos tarkastellaan `date`-oliota, niin huomataan että sen käsittely poikkeaa hieman riippuen siitä mitä olion "sisällöstä" ollaan tarkastelemassa
 
 ```python
 paiva = date(2020, 12, 24)
 
+# kutsutaan metodia
 viikonpaiva = paiva.isoweekday()
+
+# viitataan olion muuttujaan
 kuukausi = paiva.month
 
 print(f"viikonpäivä:", viikonpaiva)
@@ -175,6 +178,47 @@ print(f"kuukausi:", kuukausi)
 
 viikonpäivä: 4
 kuukausi: 12
+
+</sample-output>
+
+Päiväolion viikonpäivä saadaan siis selville kutsumalla _metodia_ isoweekday:
+
+```python
+viikonpaiva = paiva.isoweekday()
+```
+
+Koska on kyse metodikutsusta, niin metodin nimen perään laitetaan sulut. Jos sulut unohtuvat, on lopputulos outo:
+
+```python
+viikonpaiva =  paiva.isoweekday
+print(f"viikonpäivä:", viikonpaiva)
+```
+
+<sample-output>
+
+viikonpäivä: <built-in method isoweekday of datetime.date object at 0x10ed66450>
+
+</sample-output>
+
+Päiväolioon liittyvä kuukausi taas on "olion muuttuja", ja sen arvo selviää _viittaamalla_ muuttujaan
+
+```python
+kuukausi = paiva.month
+```
+
+Nyt siis käytössä _ei ole sulkuja_. Jos tässä tilanteessa yritettäisiin käyttää sulkuja:
+
+```python
+kuukausi = paiva.month()
+```
+
+Ohjelma aiheuttaisi virheen
+
+<sample-output>
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not callable
 
 </sample-output>
 
