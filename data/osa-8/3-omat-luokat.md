@@ -371,7 +371,7 @@ print(pekan_tili.saldo)
 
 </sample-output>
 
-<programming-exercise name='Vanhempi kirja' tmcname='osa08-02_vanhempi_kirja'>
+<programming-exercise name='Vanhempi kirja' tmcname='osa08-08_vanhempi_kirja'>
 
 Tee funktio `vanhempi(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-olioa. Funktio kertoo kumpi kirjoista on vahnmpi.
 
@@ -395,7 +395,7 @@ Fluent Python ja Norma kirjoitettiin 2015
 
 </programming-exercise>
 
-<programming-exercise name='Genren kirjat' tmcname='osa08-03_genren_kirjat'>
+<programming-exercise name='Genren kirjat' tmcname='osa08-09_genren_kirjat'>
 
 Tee funktio `genren_kirjat(kirjat: list, genre: str)`, joka saa parametriksi listan `Kirja`-olioa, sekä genren kertovan merkkijonon.
 

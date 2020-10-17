@@ -202,7 +202,7 @@ print(pienin_keskiarvo(h1, h2, h3))
 
 </programming-exercise>
 
-<programming-exercise name='Rivien summat' tmcname='osa08-02_rivien_summat'>
+<programming-exercise name='Rivien summat' tmcname='osa08-02_rivien_summmat '>
 
 Taulukon alkioiden arvot ovat viittauksia olioihin. Tämä pätee myös silloin, kun mallinnetaan matriisia: jokainen matriisitaulukon alkion arvo on viittaus toiseen taulukkoon (jonka alkiot taas ovat viittauksia arvoihin).
 

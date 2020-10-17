@@ -151,7 +151,7 @@ Suorakulmio, vasen yläkulma: (5, 3), leveys: 8, korkeus: 4
 
 </sample-output>
 
-<programming-exercise name='Kello' tmcname='osa08-08_kello'>
+<programming-exercise name='Kello' tmcname='osa08-12_kello'>
 
 Toteuta luokka `Kello`, joka toimii seuraavaan tapaan:
 
@@ -190,7 +190,7 @@ Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. 
 
 </programming-exercise>
 
-<programming-exercise name='Maksukortti' tmcname='osa08-09_maksukortti'>
+<programming-exercise name='Maksukortti' tmcname='osa08-13_maksukortti'>
 
 Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia.
 
@@ -372,7 +372,7 @@ Matti: Kortilla on rahaa 72.8 euroa
 LISÄÄ ESIMERKKEJÄ TÄHÄN, AINAKIN PARI ERILAISTA:
 - Joku, jossa attribuuttina on lista tai dict
 
-<programming-exercise name='Sarja' tmcname='osa08-10_sarja'>
+<programming-exercise name='Sarja' tmcname='osa08-14_sarja'>
 
 ### Luokka Sarja
 
@@ -467,4 +467,4 @@ Friends
 
 </sample-output>
 
-<programming-exercise />
+</programming-exercise>
