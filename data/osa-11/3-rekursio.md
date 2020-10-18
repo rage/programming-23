@@ -143,6 +143,28 @@ KUVA
 
 Olennaista funktion toimivuuden kannalta on, että funktiossa on määritelty ehto, jolla se ei kutsu itseään enää uudestaan. Tässä tapauksessa ehto on `n < 2`.
 
+[Visualisaattori](http://www.pythontutor.com/visualize.html#mode=edit) on oivallinen väline rekursiota käyttävien ohjelmien tutkimiseksi.
+
+Laajennetaan kertoman laskevaa funktiota siten, että se käyttää paria apumuuttujaa:
+
+```python
+def kertoma(n: int):
+    if n < 2:
+        return 1
+
+    edellisen_luvun_kertoma = kertoma(n - 1)
+    luvun_n_kertoma = n * edellisen_luvun_kertoma
+    return luvun_n_kertoma
+
+kertoma(5)
+```
+
+Kokeile miten [visualisaattori](http://www.pythontutor.com/visualize.html#code=def%20kertoma%28n%3A%20int%29%3A%0A%20%20%20%20if%20n%20%3C%202%3A%0A%20%20%20%20%20%20%20%20return%201%0A%0A%20%20%20%20edellisen_luvun_kertoma%20%3D%20kertoma%28n%20-%201%29%0A%20%20%20%20luvun_n_kertoma%20%3D%20n%20*%20edellisen_luvun_kertoma%0A%20%20%20%20return%20luvun_n_kertoma%0A%20%20%20%20%0Akertoma%285%29&cumulative=false&curInstr=5&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false) demonstroi rekursion etenemisen.
+
+Hieman normaalista poiketen visualisaattorissa kutsupino "kasvaa" alaspäin. Suorituksessa oleva funktiokutsu on kutsupinon alimpana oleva sinisellä merkitty "lohko", jolla on omat muuttujansa. Hetken kuluttua palautettava tulos on laskettu muuttujaan `luvun_n_kertoma`.
+
+<img src="11_1_1.png">
+
 Tarkastellaan vielä toista funktiota, joka laskee Fibonaccin n:nen luvun rekursiivisesti. Fibonaccin lukusarjassa luku on aina kahden edellisen luvun summa. Niinpä sarjan alku näyttää tältä : 1, 1, 2, 3, 5, 8, 13, 21, 34 jne.
 
 ```python
@@ -194,6 +216,110 @@ Luvulle 5 algoritmi palauttaa arvon lausekkeesta `fibonacci(4) + fibonacci(3)`, 
 jne.
 
 Rekursiivinen algoritmimme siis toimii, koska voimme todistaa jokaisen luvun kohdalla ohjelman toimivuuden aikaisempien lukujen perusteella.
+
+<programming-exercise name='Rekursiivinen summa' tmcname='osa11_'>
+
+Tee rekursiivinen funktio `rekusriivinen_summa(luku: int)`, summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
+
+```python
+def rekursiivinen_summa(luku: int):
+    # kun luku on 1, ei ole muita summattavia...
+    if luku==1:
+        return 1
+
+    # täydennä koodi...
+```
+
+Muutama käyttöesimerkki:
+
+```python
+tulos = rekursiivinen_summa(3)
+print(tulos)
+
+print(rekursiivinen_summa(5))
+print(rekursiivinen_summa(10))
+```
+
+<sample-output>
+
+6
+15
+55
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Sulut tasapainossa' tmcname='osa11_'>
+
+Tehtäväpohjassa on valmiina funktio `sulut_tasapainossa`, joka tarkastaa onko sen parametrina olevassa merkkijonossa sulut tasapainossa, eli onko jokaista "aukeavaa" sulkumerkkiä ( kohti on oma "sulkeutuva" sulkumerkki ), ja että sulut eivät mene ristiin.
+
+```python
+def sulut_tasapainossa(merkkijono: str):
+    if len(merkkijono) == 0:
+        return True
+    if not (merkkijono[0] == '(' and merkkijono[-1] == ')'):
+        return False
+
+    # poistetaan ensimmäinen ja viimeinen merkki
+    return sulut_tasapainossa(merkkijono[1:-1])
+
+ok = sulut_tasapainossa("(((())))")
+print(ok)
+
+# ei kelpaa sillä yksi loppusulku liikaa
+ok = sulut_tasapainossa("()())")
+print(ok)
+
+# ei kelpaa sillä alussa virheellinen loppusulku
+ok = sulut_tasapainossa(")()")
+print(ok)
+
+# ei kelpaa, sillä funktio ei osaa käsitellä kuin sisäkkäisiä sulkuja
+ok = sulut_tasapainossa("()(())")
+print(ok)
+```
+
+<sample-output>
+
+True
+False
+False
+False
+
+</sample-output>
+
+Laajenna funktiota siten, että se jättää huomiotta kaikki muut kuin sulkumerkit, ja että se osaa kaarisulkujen lisäksi myös hakasulut. Haka- ja kaarisulut eivät saa mennä ristiin!
+
+Seuraavassa muutama käyttöesimerkki:
+
+```python
+ok = sulut_tasapainossa("([([])])")
+print(ok)
+
+ok = sulut_tasapainossa("(python versio [3.7]) käytä tätä!")
+print(ok)
+
+# ei kelpaa sillä alussa virheellinen loppusulku
+ok = sulut_tasapainossa("(()]")
+print(ok)
+
+
+# ei kelpaa sillä erityyppiset sulut menevät ristiin
+ok = sulut_tasapainossa("([huono)]")
+print(ok)
+```
+
+<sample-output>
+
+True
+True
+False
+False
+
+</sample-output>
+
+</programming-exercise>
 
 ## Häntärekursio
 
