@@ -14,11 +14,25 @@ Tämän osion jälkeen
 
 </text-box>
 
+## Debugging revisited
+
+Kurssilla on jo moneen otteeseen puhuttu erilaisista debuggausmenetelmistä.[Visualisaattori](http://www.pythontutor.com/visualize.html#mode=edit) on jo monille tuttu ja vanha kunnon [debuggaustulostus](osa-2/1-ohjelmoinnin-termeja#debuggaaminen) toimii aina. Visual studio coden [debuggeriakin](/osa-4/1-vscode#debuggeri) monet ovat jo kokeilleet. Debuggerilla voi olla vaikeuksia selvitä tiedostoja käsittelevästä koodista, mutta siihenkin on olemassa [lääke](/osa-6/1-tiedostojen-lukeminen#tiedostoja-lukevan-koodin-debuggaus).
+
+Pythonin versio 3.7 tarjoaa vielä yhden erittäin helppokäyttöisen tavan debuggaukseen, komennon [breakpoint()](https://docs.python.org/3/library/functions.html?highlight=breakpoint#breakpoint).
+
+Voit lisätä komennon mihin kohtaan tahansa ohjelmaasi, ja kun suoritat ohjelman, pysähtyy suoritus komennon kohdalle. Seuraavassa esimerkki viime viikon tehtävän debuggaamisesta:
+
+<img src="7_1_1.png">
+
+Kun koodi pysähtyy breakpoint()-komentoon, avautuu samalla konsolinäkymä, mihin on mahdollista kirjoittaa mitä tahansa koodia ja kokeilla miten se toimisi ohjelman kyseisessä kohdassa.
+
+Komento on erityisen kätevä jos ohjelmasi joku rivi aiheuttaa virheen ja et ole ihan varma mistä virhe johtuu. Näissä tilanteissa kannattaa laittaa breakpoint-kutsu juuri ennen virheellistä riviä. Sen jälkeen on debuggerin konsolissa helppo kokeilla mikä olisi oikea komento juuri siinä kohtaa suoritettavaksi.
+
+## Moduulin käyttäminen
+
 Python-kieli sisältää itsessään joukon valmiita funktioita, esimerkiksi merkkijonojen ja listojen pituuden kertovan funktion `len`, alkioiden summan laskevan funktion `sum`. Python-kielen _standardikirjasto_ on kokoelma monenlaisia hyödyllisiä funktioita ja olioita joiden avulla kielen "ilmaisuvoimaa" on helppo laajentaa. Olemme jo käyttäneet muutamassa tehtävässä standardikirjastosta joitain matemaattisia operaatioita tarjoavia funktioita esim. neliöjuurten laskemisessa.
 
 Standardikirjasto muodostuu _moduuleista_, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme tekemään myös moduulin itse.
-
-## Moduulin käyttäminen
 
 Komento `import` ottaa käyttöön halutun moduulin. Tarkastellaan esimerkkinä moduulia `math`, jossa on matemaattisia funktioita. Seuraava koodi laskee luvun neliöjuuren funktiolla `sqrt` ja logaritmin funktiolla `log`
 
@@ -66,7 +80,7 @@ Tämä tapa voi olla kätevä testailussa ja pienissä ohjelmissa, mutta siinä 
 
 <programming-exercise name='Hypotenuusa' tmcname='osa07-01_hypotenuusa'>
 
-Tee funktio `hypotenuusa(kateetti1: float, kateetti2: float)`, joka saa parametrikseen suorakulmaisen kolmion kateettien pituudet. Funktio palauttaa kolmion hypotenuusan pituuden. 
+Tee funktio `hypotenuusa(kateetti1: float, kateetti2: float)`, joka saa parametrikseen suorakulmaisen kolmion kateettien pituudet. Funktio palauttaa kolmion hypotenuusan pituuden.
 
 Ratkaisu lasketaan [Pythagoraan](https://fi.wikipedia.org/wiki/Pythagoraan_lause) lauseen avulla. Saat laskettua neliöjuuren `math`-moduulin funktion avulla.
 
