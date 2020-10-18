@@ -28,6 +28,18 @@ Kun koodi pysähtyy breakpoint()-komentoon, avautuu samalla konsolinäkymä, mih
 
 Komento on erityisen kätevä jos ohjelmasi joku rivi aiheuttaa virheen ja et ole ihan varma mistä virhe johtuu. Näissä tilanteissa kannattaa laittaa breakpoint-kutsu juuri ennen virheellistä riviä. Sen jälkeen on debuggerin konsolissa helppo kokeilla mikä olisi oikea komento juuri siinä kohtaa suoritettavaksi.
 
+Koodin suoritusta on myös mahdollista jatkaa pysähtymisen jälkeen. Esimerkiksi konsoliin annettu komento _continue_ tai sen lyhennetty versio _c_ jatkaa suoritusta seuraavaan breakpointiin asti. Seuraavassa esimerkki siitä kun silmukaa käydään läpi muutamaan kertaan:
+
+<img src="7_1_2.png">
+
+Muut debuggerikonsolin komennot selviävät [täältä](https://docs.python.org/3/library/pdb.html#debugger-commands) tai antamalla debuggerkonsolissa komento _help_:
+
+<img src="7_1_3.png">
+
+Komento _exit_ siis lopettaa ohjelman suorituksen.
+
+Kun lopetat debuggaamisen, muista poistaa koodista komento `breakpoint()`!
+
 ## Moduulin käyttäminen
 
 Python-kieli sisältää itsessään joukon valmiita funktioita, esimerkiksi merkkijonojen ja listojen pituuden kertovan funktion `len`, alkioiden summan laskevan funktion `sum`. Python-kielen _standardikirjasto_ on kokoelma monenlaisia hyödyllisiä funktioita ja olioita joiden avulla kielen "ilmaisuvoimaa" on helppo laajentaa. Olemme jo käyttäneet muutamassa tehtävässä standardikirjastosta joitain matemaattisia operaatioita tarjoavia funktioita esim. neliöjuurten laskemisessa.
