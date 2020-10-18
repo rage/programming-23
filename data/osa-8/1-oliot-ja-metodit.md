@@ -14,12 +14,13 @@ Tämän osion jälkeen
 
 </text-box>
 
-Niin kuin kurssin ensimmäisen puolikkaan aikana huomattiin, usein on hyödyllistä mikäli samaan asiaan liittyvät tiedot voidaan yhdistää yhdeksi kokonaisuudeksi. Esimerkiksi kirjaa on kätevä mallintaa vaikka tuplen tai sanakirjan avulla, kun kaikki kirjaan liittyvät tiedot voidaan tallentaa samaan rakenteeseen.
+Kuten kurssin ensimmäisen puolikkaan aikana huomattiin, on usein hyödyllistä yhdistää samaan asiaan liittyvät tiedot yhdeksi kokonaisuudeksi. Esimerkiksi kirjaa on kätevä mallintaa vaikkapa tuplen tai sanakirjan avulla, kun kaikki kirjaan liittyvät tiedot voidaan tallentaa samaan rakenteeseen.
+
+TODO: Onko näissä syytä määritellä ensin erilliset muuttujat kentille, vai voisiko vain määritellä suoraan tuplen ja sanakirjan?
 
 Tuplea käyttämällä esimerkki voisi näyttää tältä:
 
 ```python
-
 nimi = "Nuoruuteni näppäilyt"
 kirjailija = "Pekka Python"
 vuosi = 1992
@@ -29,13 +30,11 @@ kirja = (nimi, kirjailija, vuosi)
 
 # Tulostetaan kirjan nimi
 print(kirja[0])
-
 ```
 
 Sanakirjassa on tässä yhteydessä se etu, että avaimina voidaan käyttää merkkijonoja kokonaislukujen sijasta. Näin ollen alkioille voidaan antaa niiden sisältöä kuvaavat nimet:
 
 ```python
-
 nimi = "Nuoruuteni näppäilyt"
 kirjailija = "Pekka Python"
 vuosi = 1992
@@ -45,7 +44,6 @@ kirja = {"nimi": nimi, "kirjailija": kirjailija, "vuosi": vuosi}
 
 # Tulostetaan kirjan nimi
 print(kirja["nimi"])
-
 ```
 
 Molemmissa tapauksissa tietojen tallentaminen tietorakenteeseen muodostaa _olion_. Olio on itsenäinen kokonaisuus, joka sisältää (tässä tapauksessa) toisiinsa liittyvää tietoa. Itsenäisyys tarkoitaa sitä, että olioon tehdyt muutokset eivät vaikuta muihin olioihin.
@@ -53,7 +51,6 @@ Molemmissa tapauksissa tietojen tallentaminen tietorakenteeseen muodostaa _olion
 Jos esimerkiksi muodostetaan sanakirjaa käyttäen kaksi kirjaoliota, ensimmäiseen kirjaan tehdyt muutokset eivät vaikuta toiseen kirjaan:
 
 ```python
-
 kirja1 = {"nimi": "Vanhus ja Python", "kirjailija": "Ernest Pythonen", "vuosi": 1952}
 kirja2 = {"nimi": "Seitsemän Pythonia", "kirjailija": "Aleksis Python", "vuosi": 1894}
 
@@ -64,7 +61,6 @@ kirja1["nimi"] = "Jäähyväiset aaseille"
 
 print(kirja1["nimi"])
 print(kirja2["nimi"])
-
 ```
 
 <sample-output>
@@ -80,18 +76,19 @@ KUVA TÄHÄN
 
 <text-box variant="info" name="Oliot Pythonissa">
 
-Niinkuin kurssin ensimmäisen puolikkaan aikana kerrottiin, Pythonissa kaikki arvot ovat itse asiassa olioita. Tämä tarkoittaa, että muuttujan arvo on _viittaus olioon_, ja varsinainen tieto on tallennettu olioon. Kun esimerkiksi alustetaan muuttuja a näin `a = 3`, ei muuttujan a arvo ole 3 vaan _viittaus olioon, jonka sisältö on arvo 3_.
+Kuten kurssin ensimmäisen puolikkaan aikana kerrottiin, Pythonissa kaikki arvot ovat itse asiassa olioita. Tämä tarkoittaa, että muuttujan arvo on _viittaus olioon_, ja varsinainen tieto on tallennettu olioon. Kun esimerkiksi alustetaan muuttuja `a = 3`, ei muuttujan `a` arvo ole 3 vaan _viittaus olioon, jonka sisältö on arvo 3_.
 
-Useimmissa muissa ohjelmointikielissä on olioiden lisäksi ns. perustyyppisiä arvoja (esimerkiksi kokonais- ja liukuluvut sekä totuusarvot), jotka tallennetaan sellaisenaan muuttujiin. Pythonissakin "perustyyppiset" oliot (kuten vaikkapa luvut, totuusarvot tai merkkijonot) ovat kuitenkin muuttumattomia eli _mutatoitumattomia_. Ohjelmoijan kannalta niiden käyttö ei siis juurikaan eroa perustyyppisistä arvoista.
+Useimmissa muissa ohjelmointikielissä on olioiden lisäksi ns. perustyyppisiä arvoja (esimerkiksi kokonais- ja liukuluvut sekä totuusarvot), jotka tallennetaan sellaisenaan muuttujiin. Pythonissakin perustyyppiset oliot (kuten vaikkapa luvut, totuusarvot tai merkkijonot) ovat kuitenkin muuttumattomia eli _mutatoitumattomia_. Ohjelmoijan kannalta niiden käyttö ei siis juurikaan eroa perustyyppisistä arvoista.
+
+TODO: Tämä on hyvää tekstiä, mutta voi olla vaikeaa lukijalle. Jos on "juurikaan" niin milloin se eroaa?
 
 </text-box>
 
 ## Oliot ja metodit
 
-Olioiden tietosisältöä voidaaan havainnoida ja muuttaa _metodien_ avulla. Metodilla tarkoitetaan sellaista aliohjelmaa (eli funktiota), jonka toiminta kohdistuu annettuun olioon. Metodin erottaa muista funktioista tapa jolla sitä kutsutaan: metodia kutsuttaessa kirjoitetaan ensin kohdeolio ja sen perään kutsuttava olio pisteellä erotettuna. Esimerkiksi sanakirja-tyyppisen olion kaikki arvot voidaan palauttaa metodin `values` avulla:
+Olioiden tietosisältöä voidaaan havainnoida ja muuttaa _metodien_ avulla. Metodi on funktio, jonka toiminta kohdistuu annettuun olioon. Metodin erottaa muista funktioista tapa, jolla sitä kutsutaan: ensin kirjoitetaan kohdeolio ja sen perään kutsuttava metodi pisteellä erotettuna. Esimerkiksi sanakirja-olion kaikki arvot voidaan palauttaa metodin `values` avulla:
 
 ```python
-
 # muodostetaan sanakirjatyyppinen kirjaolio
 kirja = {"nimi": "Vanhus ja Python", "kirjailija": "Ernest Pythonen", "vuosi": 1952}
 
@@ -100,7 +97,6 @@ kirja = {"nimi": "Vanhus ja Python", "kirjailija": "Ernest Pythonen", "vuosi": 1
 # pisteellä erotettuna
 for kirja in kirja.values():
     print(kirja)
-
 ```
 
 <sample-output>
@@ -111,12 +107,9 @@ Ernest Pythonen
 
 </sample-output>
 
-Samalla tavalla merkkijonometodit kohdistuvat siihen merkkijonoon, jonka kautta niitä kutsutaan.
-
-Esimerkiksi
+Samalla tavalla merkkijonometodit kohdistuvat siihen merkkijonoon, jonka kautta niitä kutsutaan. Esimerkiksi merkkijonon metodeja ovat `count` ja `find`:
 
 ```python
-
 nimi = "Keijo Keksitty"
 
 # Tulostetaan K-kirjaimien määrä
@@ -130,7 +123,6 @@ print(nimi.find("Keksitty"))
 
 # Tästä merkkijonosta osajonoa ei löydy
 print("Ihan eri jono".find("Keksitty"))
-
 ```
 
 <sample-output>
@@ -142,10 +134,9 @@ print("Ihan eri jono".find("Keksitty"))
 
 </sample-output>
 
-Merkkijonometodit palauttavat arvoja, mutta niiden avulla ei voi muuttaa merkkijonoa. Tämä johtuu siitä, että merkkijonot ovat muuttumattomia eli _mutatoitumattomia_. Joitain olioita voidaan kuitenkin muuttaa, esimerkiksi lista-olion metodien avulla voidaan esimerkiksi lisätä tai poistaa alkioita:
+Merkkijonometodit palauttavat arvoja, mutta niiden avulla ei voida muuttaa merkkijonoa. Kuitenkin esimerkiksi lista-olion metodien avulla voidaan muuttaa listan sisältöä:
 
 ```python
-
 lista = [1,2,3]
 
 # Lisätään pari alkiota
@@ -158,8 +149,6 @@ print(lista)
 lista.pop(0)
 
 print(lista)
-
-
 ```
 
 <sample-output>
@@ -173,16 +162,14 @@ print(lista)
 
 Tee funktio `pienin_keskiarvo(henkilo1: dict, henkilo2: dict, henkilo3: dict)`, joka saa parametrikseen kolme sanakirjaoliota.
 
-Jokaisessa sanakirjaoliossa on alkiot joihin viittaavat nämä avaimet:
+Jokaisessa sanakirjaoliossa on alkiot, joihin viittaavat nämä avaimet:
 
 `"nimi"`: kilpailijan nimi
 `"tulos1"`: kilpailijan ensimmäinen tulos (kokonaisluku väliltä 1...10)
 `"tulos2"`: kilpailijan toinen tulos (kuten yllä)
 `"tulos3"`: kilpailijan kolmas tulos (kuten yllä)
 
-Funktio laskee kaikkien kilpalijoiden tulosten keskiarvot, ja palauttaa sen kilpalijan, jonka keskiarvo on pienin.
-
-Palausarvona on siis sanakirjaolio.
+Funktio laskee kaikkien kilpailijoiden tulosten keskiarvot ja palauttaa sen kilpailijan, jonka keskiarvo on pienin. Funktion palautusarvona on sanakirjaolio.
 
 Esimerkki funktion kutsumisesta:
 
@@ -204,9 +191,9 @@ print(pienin_keskiarvo(h1, h2, h3))
 
 <programming-exercise name='Rivien summat' tmcname='osa08-02_rivien_summmat '>
 
-Taulukon alkioiden arvot ovat viittauksia olioihin. Tämä pätee myös silloin, kun mallinnetaan matriisia: jokainen matriisitaulukon alkion arvo on viittaus toiseen taulukkoon (jonka alkiot taas ovat viittauksia arvoihin).
+Listan alkioiden arvot ovat viittauksia olioihin. Tämä pätee myös silloin, kun mallinnetaan matriisia: jokainen päälistan alkion arvo on viittaus toiseen listaan (jonka alkiot taas ovat viittauksia arvoihin).
 
-Tee funktio rivien_summat(matriisi: list), joka saa parametrikseen kokonaislukuja sisältävän matriisin.
+Tee funktio `rivien_summat(matriisi: list)`, joka saa parametrikseen kokonaislukuja sisältävän matriisin.
 
 Funktio lisää jokaiselle matriisin riville uuden alkion, jonka arvo on rivin alkioiden summa. Funktio ei palauta mitään, vaan muokkaa parametrinaan saamaansa matriisia.
 
