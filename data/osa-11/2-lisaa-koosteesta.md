@@ -134,6 +134,28 @@ print(lause_ilman_alkuja)
 
 ```
 
+<programming-exercise name='Suodata kielletyt' tmcname='osa11_'>
+
+Tee funktio `suodata_kielletyt(merkkijono: str, kielletyt: str)` joka palauttaa sen parametrina olevasta merkkijonosta version, joka ei sisällä yhtään merkkiä sen toisena parametrina olevasta "kiellettyjen merkkien" merkkijonosta.
+
+Funktion tulee käyttää listakoostetta.
+
+Esimerkki funktion käytöstä
+
+```python
+lause = "Suo! kuokka, ja python: hieno yhdistelmä!??!?!"
+suodatettu = suodata_kielletyt(lause, "!?:,.")
+print(suodatettu)
+```
+
+<sample-output>
+
+Suo kuokka ja python hieno yhdistelmä
+
+</sample-output>
+
+</programming-exercise>
+
 ## Omat oliot koosteissa
 
 Joskus omia olioita on näppärä käsitellä tai muodostaa koosteiden avulla. Tarkastellaan seuraavaksi muutamaa esimerkkiä tähän liittyen.
@@ -284,6 +306,75 @@ if __name__ == "__main__":
 
 ```
 
+<programming-exercise name='Kauppalistan tuotteet' tmcname='osa11_'>
+
+Osan 10 tehtävässä teimme [Kauppalista-luokasta iteroitavan](/osa-10/3-olio-ohjelmoinnin-tekniikoita#programming-exercise-iteroitava-kauppalista). Iteroitavan luokan oliota voidaan käyttää listakoosteiden yhteydessä.
+
+Tee funktio nyt `tuotteet(kauppalista, maara: int)` joka saa parametriksi kauppalista-olion. Funktio palauttaa kauppalistan ostoksista niiden tuotteiden nimet, joita on listalla vähintään parametrin `maara` verran.
+
+Funktio tulee toteuttaa listakoosteen avulla. Luokan Kauppalista koodia ei saa muuttaa!
+
+Funktio toimii seuraavasti
+
+```python
+lista = Kauppalista()
+lista.lisaa("banaanit", 10)
+lista.lisaa("omenat", 5)
+lista.lisaa("alkoholiton olut", 24)
+lista.lisaa("ananas", 1)
+
+print("kauppalistalla vähintään 8 seuraavia tuotteita:")
+for tuote in tuotteet(lista, 8):
+    print(tuote)
+```
+
+<sample-output>
+
+kauppalistalla vähintään 8 seuraavia tuotteita:
+banaanit
+alkoholiton olut
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Halvempien hintaero' tmcname='osa11_'>
+
+Osan 9 tehtävässä teimme luokan [Astunto](/osa-9/1-oliot-ja-viittaukset#programming-exercise-asuntovertailu). Tässä tehtävässä on käytössä hieman laajennettu versio luokasta.
+
+Tee funktio nyt `halvemmat(asunnot: list, verrattava)` joka saa parametriksi listan asuntoja sekä yksittäisen vertailtavan asunnon. Funktio palauttaa listan, jolla on asunnoista ne jotka ovat hinnaltaan halvempia kuin vertailtava asunto sekä näiden hintaeron. Palautettavan listan alkiot ovat tupleja, joiden ensimmäinen jäsen on asunto ja toisena sen hintaero vertailtavaan.
+
+Funktio tulee toteuttaa listakoosteen avulla. Luokan Asunto koodia ei saa muuttaa!
+
+Funktio toimii seuraavasti
+
+```python
+a1 = Asunto(1, 16, 5500, "Eira yksiö")
+a2 = Asunto(2, 38, 4200, "Kallio kaksio")
+a3 = Asunto(3, 78, 2500, "Jakomäki kolmio")
+a4 = Asunto(6, 215, 500, "Suomussalmi omakotitalo")
+a5 = Asunto(4, 105, 1700, "Kerava 4h ja keittiö")
+a6 = Asunto(25, 1200, 2500, "Haikon kartano")
+
+asunnot = [a1, a2, a3, a4, a5, a6]
+
+print(f"asuntoa {a1.kuvaus} halvemmat vaihtoehdot:")
+for alkio in halvemmat(asunnot, a1):
+    print(f"{alkio[0].kuvaus:30} hintaero {alkio[1]} euroa")
+```
+
+<sample-output>
+
+asuntoa Eira yksiö halvemmat vaihtoehdot:
+Kallio kaksio                  hintaero 1300 euroa
+Jakomäki kolmio                hintaero 3000 euroa
+Suomussalmi omakotitalo        hintaero 5000 euroa
+Kerava 4h ja keittiö           hintaero 3800 euroa
+
+</sample-output>
+
+</programming-exercise>
+
 ## Koosteet sanakirjan kanssa
 
 Koosteet toimivat samalla tavalla myös sanakirjan kanssa: jos vaihdetaan hakasulkeet aaltosulkeiksi, syntyy koosteen seurauksena listan sijasta sanakirja. Koska sanakirjan alkio muodostuu kahdesta komponentista - arvosta ja alkiosta, tule molemmat komponentit antaa myös koostetta luodessa.
@@ -335,3 +426,62 @@ if __name__ == "__main__":
 {3: 6, 2: 2, 1: 1, 4: 24, 5: 120, 6: 720}
 
 </sample-output>
+
+
+def pituudet(sanat: list):
+    return { sana: len(sana) for sana in sanat }
+
+
+
+<programming-exercise name='Merkkijonojen pituudet' tmcname='osa11_'>
+
+Tee funktio `pituudet(merkkijonot: list)`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa _sanakirjan_, jossa avaimina on listan merkkijonot ja arvoina merkkijonojen pituudet.
+
+Funktio tulee toteuttaa sanakirjakoosteen avulla.
+
+Funktio toimii seuraavasti
+
+```python
+sanalista = ["suo", "kuokka" , "python", "ja", "koodari"]
+
+sanojen_pituudet = pituudet(sanalista)
+print(sanojen_pituudet)
+```
+
+<sample-output>
+
+{'suo': 3, 'kuokka': 6, 'python': 6, 'ja': 2, 'koodari': 7}
+
+</sample-output>
+
+
+</programming-exercise>
+
+<programming-exercise name='Yleisimmat sanat' tmcname='osa11_'>
+
+Tee funktio `yleisimmat_sanat(tiedoston_nimi: str, raja: int)`, joka saa parametrikseen tiedoston nimen. Funktio palauttaa sanakirjan, mikä kertoo tiedostossa olevien sanojen esiintymislukumäärän niiden sanojen osalta, joilla on vähintään toisen parametrin `raja` verran esiintymiä. Sanan kirjainten koolla ei ole merkitystä.
+
+Esim. jos funktiolla tarkasteltaisiin tiedostoa _comprehensions.txt_ jonka sisältö on seuraava
+
+```txt
+List comprehension is an elegant way to define and create lists based on existing lists.
+List comprehension is generally more compact and faster than normal functions and loops for creating list.
+However, we should avoid writing very long list comprehensions in one line to ensure that code is user-friendly.
+Remember, every list comprehension can be rewritten in for loop, but every for loop can’t be rewritten in the form of list comprehension.
+```
+
+Kutsuttaessa `yleisimmat_sanat("comprehensions.txt", 3)` funktion palauttama sanakirja näyttäisi seuraavalta:
+
+```python
+
+{ 'list': 4, 'comprehension': 4, 'is': 3, 'and': 3, 'for', 3: 'in': 3}
+
+</sample-output>
+
+Huomaa, että avaimena sanakirjassa on sanojen pienellä kirjoitetut muodot.
+
+Funktion toteutustapa on vapaa, helpoimmalla pääset hyödyntämällä lista- ja sanakirjakoosteita.
+
+
+
+</programming-exercise>

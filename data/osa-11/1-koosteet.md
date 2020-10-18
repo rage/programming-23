@@ -293,62 +293,6 @@ print(poista_pienemmat([-4, 7, 8, -100], 0))
 
 </programming-exercise>
 
-<programming-exercise name='Suodata kielletyt' tmcname='osa11_'>
-
-Tee funktio `suodata_kielletyt(merkkijono: str, kielletyt: str)` joka palauttaa sen parametrina olevasta merkkijonosta version, joka ei sisällä yhtään merkkiä sen toisena parametrina olevasta "kiellettyjen merkkien" merkkijonosta.
-
-Funktion tulee käyttää listakoostetta.
-
-Esimerkki funktion käytöstä
-
-```python
-lause = "Suo! kuokka, ja python: hieno yhdistelmä!??!?!"
-suodatettu = suodata_kielletyt(lause, "!?:,.")
-print(suodatettu)
-```
-
-<sample-output>
-
-Suo kuokka ja python hieno yhdistelmä
-
-</sample-output>
-
-**Vihje** listakoostetta voi käyttää myös merkkijonojen kanssa
-
-```python
-sana = "saippuakauppias"
-kirjaimet = [m for m in sana]
-print(kirjaimet)
-```
-
-Lopputuloksena on taulukko, joka koostuu merkkijonon yksittäisistä merkeistä:
-
-<sample-output>
-
-['s', 'a', 'i', 'p', 'p', 'u', 'a', 'k', 'a', 'u', 'p', 'p', 'i', 'a', 's']
-
-</sample-output>
-
-Merkkijonotaulukon, myös yksittäisistä merkeistä koostuvan voi muuttaa takaisin yksittäiseksi merkkijonoksi metodilla `join`:
-
-```python
-yhdistetty = " ".join(kirjaimet)
-print(yhdistetty)
-
-print("-".join(kirjaimet))
-print("".join(kirjaimet))
-```
-
-<sample-output>
-
-s a i p p u a k a u p p i a s
-s-a-i-p-p-u-a-k-a-u-p-p-i-a-s
-saippuakauppias
-
-</sample-output>
-
-</programming-exercise>
-
 ## Vaihtoehtoinen haara suodatuksessa
 
 Koosteessa voi käyttää ehtolauseen ohella myös vaihtoehtoista haaraa. Syntaksi saattaa olla alkuun hankala, koska komponenttien järjestys poikkeaa aikaisemmista tavoista. Mikäli mukana on `else`-haara, annetaan koko ehtolause ennen `for`-osuutta. Yleinen muoto olisi siis
