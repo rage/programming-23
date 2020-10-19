@@ -43,8 +43,6 @@ Koodissa määritellään luokka, jonka nimi on `Pankkitili`. Luokalle ei ole m�
 
 Tarkastellaan ohjelmaa, jossa luokasta muodostetun olion sisälle on määritelty kaksi muuttujaa, `saldo` ja `omistaja`. Olion muuttujia kutsutaan _attribuuteiksi_. Attribuutista käytetään myös nimitystä _oliomuuttuja_.
 
-TODO: Onko syytä termille attribuutti? Olion muuttuja tai kenttä tuntuisi selkeämmältä
-
 Kun luokasta luodaan olio, voidaan attribuuttien arvoja käsitellä olion kautta:
 
 ```python
@@ -99,36 +97,18 @@ Pirjo Pythonen
 
 </sample-output>
 
-Attribuutit ovat käytettävissä ainoastaan se olion sisällä, jossa ne on määritelty. Niitä ei voi siis käyttää olion ulkopuolelta.
-
-<programming-exercise name='Muodosta lemmikki' tmcname='osa08-05_muodosta_lemmikki'>
-
-Määrittele luokka `Lemmikki` ja tee sitten funktio `uusi_lemmikki(nimi: str, laji: str, vuosi: int)`, joka muodostaa uuden `Lemmikki`-tyyppisen (eli Lemmikki-luokan) olion.
-
-Oliolla on attribuutit `nimi`, `laji` ja `syntymavuosi`. Arvot saadaan funktion parametreista.
-
-Muodostamisen jälkeen funktio palauttaa olion.
-
-TODO: Tämä ei tunnu hyvältä tavalta tehdä "tyhjä" olio ja sitten erillinen funktio, joka lisää siihen jälkeenpäin kentät, vaan tässä vaiheessa olisi jo parempi käyttää konstruktoria, mikä on oikea tapa.
-
-Esimerkki funktion kutsumisesta:
+Attribuutit ovat käytettävissä ainoastaan se olion kautta, jossa ne on määritelty. Pankkitili-luokasta muodostetuilla olioilla on jokaisella omat arvonsa attribuuteille. Attribuuttien arvot haetaan olioiden kautta, esimerkiksi
 
 ```python
-musti = uusi_lemmikki("Musti", "koira", 2017))
-print(musti.nimi)
-print(musti.laji)
-print(musti.syntymavuosi)
+
+tili = Pankkitili()
+tili.saldo = 155.50
+
+print(tili.saldo) # Viittaa tilin attribuuttiin saldo
+print(saldo) # Tämä antaa virheen, koska oliomuuttuja ei ole mukana!
+
 ```
 
-<sample-output>
-
-Musti
-koira
-2017
-
-</sample-output>
-
-</programming-exercise>
 
 ## Konstruktorin lisääminen
 
@@ -153,9 +133,7 @@ print(pirjon_tili.saldo) # TÄSTÄ TULEE VIRHE
 
 Sen sijaan että attribuuttien arvot alustettaisiin luokan luomisen jälkeen, on huomattavasti parempi ajatus alustaa arvot samalla kun luokasta luodaan olio.
 
-Konstruktorimetodi kirjoitetaan luokan sisään samalla tavalla kuin attribuutitkin (ja yleensä aina attribuuttien määrityksen jälkeen).
-
-TODO: Attribuuttien määrityksen jälkeen? Tähän asti luokassa on ollut vain pass
+Konstruktorimetodi kirjoitetaan luokan sisään, yleensä heti luokan alkuun.
 
 Tarkastellaan `Pankkitili`-luokkaa, johon on lisätty konstruktori:
 
@@ -278,6 +256,7 @@ for numero in kierros1.numerot:
 
 Attribuutit voivat olla siis minkä tahansa tyyppisiä – esimerkiksi edellisessä esimerkissä jokaiseen olioon tallennetaan lista ja päivämääräolio.
 
+
 <programming-exercise name='Kirja' tmcname='osa08-06_kirja'>
 
 Tee luokka `Kirja`, jolla on attribuutit `nimi`, `kirjoittaja`, `genre`, `kirjoitusvuosi` sekä konstruktiori, joka alustaa muuttujat.
@@ -324,6 +303,8 @@ Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siin
 
 </programming-exercise>
 
+
+
 ## Omien luokkien olioiden käyttö
 
 Omien luokkien olioiden käyttöön ei liity mitään ihmeellistä. Ne kättäytyvät esimerkiksi funktioiden parametrina ja paluuarvona kuten olettaa saattaa. Voisimme esimerkiksi tehdä pari apufunktioita tilien käsittelyyn:
@@ -354,6 +335,35 @@ print(pekan_tili.saldo)
 500
 
 </sample-output>
+
+<programming-exercise name='Muodosta lemmikki' tmcname='osa08-07b_muodosta_lemmikki'>
+
+Määrittele luokka `Lemmikki`.
+
+Luokalla on konstruktori, jossa annetaan arvot attribuuteille `nimi`, `laji` ja `syntymavuosi` tässä järjestyksessä.
+
+Kirjoita sitten luokan ulkopuolelle funktio `uusi_lemmikki(nimi: str, laji: str, vuosi: int)`, joka muodostaa uuden `Lemmikki`-tyyppisen (eli Lemmikki-luokan) olion.
+
+Muodostamisen jälkeen funktio palauttaa olion.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+musti = uusi_lemmikki("Musti", "koira", 2017))
+print(musti.nimi)
+print(musti.laji)
+print(musti.syntymavuosi)
+```
+
+<sample-output>
+
+Musti
+koira
+2017
+
+</sample-output>
+
+</programming-exercise>
 
 <programming-exercise name='Vanhempi kirja' tmcname='osa08-08_vanhempi_kirja'>
 
