@@ -72,15 +72,13 @@ Seitsemän Pythonia
 
 </sample-output>
 
-KUVA TÄHÄN
+<img src="8_1_1.png">
 
 <text-box variant="info" name="Oliot Pythonissa">
 
 Kuten kurssin ensimmäisen puolikkaan aikana kerrottiin, Pythonissa kaikki arvot ovat itse asiassa olioita. Tämä tarkoittaa, että muuttujan arvo on _viittaus olioon_, ja varsinainen tieto on tallennettu olioon. Kun esimerkiksi alustetaan muuttuja `a = 3`, ei muuttujan `a` arvo ole 3 vaan _viittaus olioon, jonka sisältö on arvo 3_.
 
-Useimmissa muissa ohjelmointikielissä on olioiden lisäksi ns. perustyyppisiä arvoja (esimerkiksi kokonais- ja liukuluvut sekä totuusarvot), jotka tallennetaan sellaisenaan muuttujiin. Pythonissakin perustyyppiset oliot (kuten vaikkapa luvut, totuusarvot tai merkkijonot) ovat kuitenkin muuttumattomia eli _mutatoitumattomia_. Ohjelmoijan kannalta niiden käyttö ei siis juurikaan eroa perustyyppisistä arvoista.
-
-TODO: Tämä on hyvää tekstiä, mutta voi olla vaikeaa lukijalle. Jos on "juurikaan" niin milloin se eroaa?
+Useimmissa muissa ohjelmointikielissä on olioiden lisäksi ns. perustyyppisiä arvoja (esimerkiksi kokonais- ja liukuluvut sekä totuusarvot), jotka tallennetaan sellaisenaan muuttujiin. Pythonissakin perustyyppiset oliot (kuten vaikkapa luvut, totuusarvot tai merkkijonot) ovat kuitenkin muuttumattomia eli _mutatoitumattomia_. Ohjelmoijan kannalta niiden käyttö ei siis käytännössä eroa perustyyppisistä arvoista.
 
 </text-box>
 

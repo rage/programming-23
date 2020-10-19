@@ -119,9 +119,13 @@ Konstruktorin ensimmäinen parametri on nimeltään `self`. Tämä viittaa olioo
 
 `self.saldo = saldo`
 
-asettaa parametrina annetun saldon luotavan olion saldoksi. On tärkeä huomata, että tässä yhteydessä muuttuja `self.saldo` on eri muuttuja kuin muuttuja `saldo`.
+asettaa parametrina annetun saldon luotavan olion saldoksi. On tärkeä huomata, että tässä yhteydessä muuttuja `self.saldo` on eri muuttuja kuin muuttuja `saldo`:
 
-KUVA
+* Muuttuja `self.saldo` viittaa olion attribuuttiin. Jokaisella Pankkitili-luokan oliolla on oma saldonsa.
+
+* Muuttuja `saldo` on konstruktorimetodin `__init__` parametri, jolle annetaan arvo kun metodia kutsutaan (eli kun halutaan luoda uusi olio luokasta).
+
+
 
 Nyt kun konstruktorille on määritelty parametrit, voidaan attribuuttien arvot antaa oliota luotaessa:
 

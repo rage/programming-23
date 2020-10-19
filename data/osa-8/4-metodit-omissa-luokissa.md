@@ -359,7 +359,40 @@ Piia
 
 Esimerkistä huomataan, että myös olion omiin metodeihin pitää viitata `self`-määreen avulla kun niitä kutsutaan konstruktorista. Luokkiin voidaan kirjoitaa myös ns. _staattisia metodeita_, eli metodeita, jota voidaan kutsua ilman että luokasta muodostetaan oliota. Tähän palataan kuitenkin tarkemmin ensi kerralla.
 
-**TODO** arvon palauttava metodi
+<programming-exercise name="Etu- ja sukunimi" tmcname='osa08-10b_etu_ja_sukunimi'>
+
+Kirjoita luokka Henkilo. Henkilo-luokalla on ainoastaan yksi attribuutti, `nimi`, joka asetetaan konstruktorissa.
+
+Lisäksi luokalle tule kirjoitaa kaksi metodia:
+
+Metodi `anna_etunimi` palautta henkilön etunimen ja metodi `anna_sukunimi` vastaavasti henkilön sukunimen.
+
+Voit olettaa metodeissa, että konstruktroissa annetussa nimessä on etu- ja sukunimi eikä muita nimiä.
+
+Esimerkki luokan käytöstä
+
+```python
+if __name__ == "__main__":
+    pekka = Henkilo("Pekka Python")
+    print(pekka.anna_etunimi())
+    print(pekka.anna_sukunimi())
+
+    pauli = Henkilo("Pauli Pythonen")
+    print(pauli.anna_etunimi())
+    print(pauli.anna_sukunimi())
+```
+
+<sample-output>
+
+Pekka
+Python
+Pauli
+Pythonen
+
+</sample-output>
+
+
+</programming-exercise>
 
 <programming-exercise name='Lukutilasto' tmcname='osa08-11_lukutilasto'>
 
