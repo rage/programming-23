@@ -210,7 +210,7 @@ print(on)  # tulostuu True
 
 Funktio siis yrittää testata ovatko kaikki listan alkiot erisuuria. Se kuitenkin palauttaa aina arvon `True`.
 
-Ongelmana on jälleen se, että funktio vahingossa ylikirjottaa parametrinsa arvon. Funkito yrittää käyttää muuttujaa `luvut` pitämään kirjaa jo vastaan tulleista luvuista ja tämä ylikirjoittaa parametrin. Lääke ongelmaan on muuttujan uudelleennimeäminen:
+Ongelmana on jälleen se, että funktio vahingossa ylikirjottaa parametrinsa arvon. Funktio yrittää käyttää muuttujaa `luvut` pitämään kirjaa jo vastaan tulleista luvuista ja tämä ylikirjoittaa parametrin. Lääke ongelmaan on muuttujan uudelleennimeäminen:
 
 ```python
 def luvut_erisuuret(luvut: list):
