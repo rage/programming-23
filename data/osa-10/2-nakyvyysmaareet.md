@@ -60,9 +60,9 @@ class MuistikirjaPro(Muistikirja):
 
 ## Suojatut piirteet
 
-Miten siis piilottaa piirteet asiakkailta mutta samaan aikaan avata ne mahdollisille aliluokille? Ratkaisuksi Pythonissa on määritelty _suojattu (eli protected)_  näkyvyys piirteille.
+Toisin kuin joistain muista ohjelmointikielistä, Pythonista ei suoraan löydy ominaisuutta joka piilottaa piirteet asiakkailta mutta samaan aikaan avata ne mahdollisille aliluokille. Ratkaisuksi Python-yhteisö onkin päätynyt _konventioon_ eli yleisesti ymmärrettyyn merkintätapaan _suojattuille (eli protected)_  piirteille.
 
-Piirre voidaan piilottaa kirjoittamalla sen tunnisteen (eli nimen) eteen kaksi alaviivaa:
+Koska piirre voidaan piilottaa kirjoittamalla sen tunnisteen (eli nimen) eteen kaksi alaviivaa
 
 ```python
 
@@ -71,7 +71,7 @@ def __init__(self):
 
 ```
 
-Mikäli alaviivoja on vain yksi, piirre on _suojattu_, eli se näkyy aliluokissa mutta ei asiakkaille:
+on yleisesti sovittu että yhdellä alaviivalla alkavat piirteet ovat tarkoitettu ainoastaan luokan ja sen aliluokkien käyttöön, eikä niitä tulisi käyttää suoraan sen ulkopuolelta.
 
 ```python
 
@@ -92,7 +92,7 @@ class Muistikirja:
         self._muistiinpanot = []
 
     def lisaa_muistiinpano(self, muistiinpano):
-        self.__muistiinpanot.append(muistiinpano)
+        self._muistiinpanot.append(muistiinpano)
 
     def palauta_muistiinpano(self, indeksi):
         return self._muistiinpanot[indeksi]
