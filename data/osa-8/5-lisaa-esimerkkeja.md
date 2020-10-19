@@ -151,9 +151,52 @@ Suorakulmio, vasen yläkulma: (5, 3), leveys: 8, korkeus: 4
 
 </sample-output>
 
+<programming-exercise name='Sekuntikello' tmcname='osa08-11a_sekuntikello'>
+
+Tehtäväpohjassa on mukana luokan `Sekuntikello` runko:
+
+```python
+class Sekuntikello:
+    def __init__(self):
+        self.sekunnit = 0
+        self.minuutit = 0
+```
+
+Laajenna luokkaa siten, että se toimii seuraavasti:
+
+```python
+kello = Sekuntikello()
+for i in range(0, 3600):
+    print(kello)
+    kello.tick()
+```
+
+<sample-output>
+
+00:00
+00:01
+00:02
+... tässä välissä monta riviä
+00:59
+01:00
+01:01
+... tässä välissä erittäin monta riviä
+59:58
+59:59
+00:00
+00:01
+
+</sample-output>
+
+Metodi `tick` vie siis kelloa sekunnin eteenpäin, ja sekä sekuntien että minuuttien arvo on suuruudeltaan korkeintaan 59.
+
+**Vihje:** voit metodin `tick` testailua helpottaa se, että asetat tilapäisesti konstruktorissa sekunneille ja minuuteille valmiiksi jonkin suuremman arvon kuin 0.
+
+</programming-exercise>
+
 <programming-exercise name='Kello' tmcname='osa08-12_kello'>
 
-Toteuta luokka `Kello`, joka toimii seuraavaan tapaan:
+Toteuta edellistä tehtävää laajentava luokka `Kello`, joka toimii seuraavaan tapaan:
 
 ```python
 kello = Kello(23, 59, 55)
