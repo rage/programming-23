@@ -184,7 +184,7 @@ print("Saldo nyt:", pekan_tili.saldo)
 
 Ongelma voidaan (ainakin osittain) ratkaista piilottamalla attribuutit asiakkaalta. Käytännön toteutukseen palataan tarkemmin ensi viikolla.
 
-<programming-exercise name='Vähenevä laskuri' tmcname='osa08-05_vaheneva_laskuri'>
+<programming-exercise name='Vähenevä laskuri' tmcname='osa08-10_vaheneva_laskuri'>
 
 Tässä tehtävässä on useampi osa. Jokainen osa vastaa yhtä tehtäväpistettä.
 
@@ -361,7 +361,7 @@ Esimerkistä huomataan, että myös olion omiin metodeihin pitää viitata `self
 
 **TODO** arvon palauttava metodi
 
-<programming-exercise name='Lukutilasto' tmcname='osa08-07_lukutilasto'>
+<programming-exercise name='Lukutilasto' tmcname='osa08-11_lukutilasto'>
 
 Tässä tehtävässä toteutetaan olio-ohjelmointia hyödyntäen samantapainen käyttäjän syöttämiä lukuja käsittelevä ohjelma kuin ohjelmoinnin perusteiden [osan 2 lopussa](/osa-2/4-yksinkertainen-silmukka#programming-exercise-lukujen-kasittelya).
 

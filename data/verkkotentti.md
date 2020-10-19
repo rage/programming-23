@@ -6,6 +6,7 @@ information_page: true
 
 ### Tenttiin osallistuminen
 
+* Tenttiin ei tarvitse ilmoittautua etukäteen.
 * Kurssisuorituksen saaminen edellyttää tenttiin osallistumista.
 
 ### Tentin toteutus
@@ -50,6 +51,9 @@ information_page: true
 ### Tentin tulokset
 
 * Tentin tulokset tulevat sähköpostitse kun arvostelu on valmis.
+
+#### Tentin tulokset (avoin yliopisto)
+
 * Tulosviestin yhteydessä on ohjeet kurssisuorituksen rekisteröimiseen.
 * Rekisteröiminen edellyttää ilmoittautumista kurssille avoimen yliopiston kautta.
 

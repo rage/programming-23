@@ -19,38 +19,35 @@ Tämän osion jälkeen
 Luokka määritellään avainsanan `class` avulla. Syntaksi on
 
 ```python
-
 class LuokanNimi:
     # Luokan toteutus
-
 ```
 
-Luokat nimetään yleensä ns. _camel case_ -järjestelmässä, jossa sanat kirjoitetaan yhteen ja jokainen sana alkaa isolla alkukirjaimella. Esimerkkejä luokkien nimistä olisiva siis vaikkapa
+Luokat nimetään yleensä _camel case_ -käytännöllä niin, että sanat kirjoitetaan yhteen ja jokainen sana alkaa isolla alkukirjaimella. Esimerkkejä luokkien nimistä olisiva siis vaikkapa
 
 * Pankkitili
 * OhjelmaApuri
 * KirjastoTietokanta
 * PythonKurssinArvosanat
 
-Yhdellä luokalla pyritään mallintamaan jokin sellainen yksittäinen kokonaisuus, jonka sisältämät tiedot liittyvät kiinteästi yhteen. Monimutkaisemmissa ratkaisuissa luokka voi sisältää toisia luokkia (esimerkiksi luokka Kurssi voisi sisältää luokan Osasuoritus mukaisia olioita).
+Yhdellä luokalla pyritään mallintamaan jokin sellainen yksittäinen kokonaisuus, jonka sisältämät tiedot liittyvät kiinteästi yhteen. Monimutkaisemmissa ratkaisuissa luokka voi sisältää toisia luokkia (esimerkiksi luokka `Kurssi` voisi sisältää luokan `Osasuoritus` mukaisia olioita).
 
 Tarkastellaan esimerkkinä yksinkertaista luokkamäärittelyä:
 
 ```python
-
 class Pankkitili:
     pass
-
 ```
 
-Ohjelmakoodissa määritellään luokka, jonka nimi on `Pankkitili`. Luokalle ei ole määritelty varsinaista sisältöä, mutta tästä huolimatta luokkaa voidaan käyttää osana ohjelmaa.
+Koodissa määritellään luokka, jonka nimi on `Pankkitili`. Luokalle ei ole määritelty varsinaista sisältöä, mutta tästä huolimatta luokkaa voidaan käyttää osana ohjelmaa.
 
-Tarkastellaan ohjelmaa, jossa luokasta muodostetun olion sisälle on määritelty kaksi muuttujaa, `saldo` ja `omistaja`. Olion muuttujia kutsutaan _attribuuteiksi_ (huomaa kaksi t-kirjainta). Attribuutista käytetään myös nimitystä _oliomuuttuja_.
+Tarkastellaan ohjelmaa, jossa luokasta muodostetun olion sisälle on määritelty kaksi muuttujaa, `saldo` ja `omistaja`. Olion muuttujia kutsutaan _attribuuteiksi_. Attribuutista käytetään myös nimitystä _oliomuuttuja_.
+
+TODO: Onko syytä termille attribuutti? Olion muuttuja tai kenttä tuntuisi selkeämmältä
 
 Kun luokasta luodaan olio, voidaan attribuuttien arvoja käsitellä olion kautta:
 
 ```python
-
 class Pankkitili:
     pass
 
@@ -60,7 +57,6 @@ pekan_tili.saldo = 5.0
 
 print(pekan_tili.omistaja)
 print(pekan_tili.saldo)
-
 ```
 
 <sample-output>
@@ -73,7 +69,6 @@ Pekka Python
 Jos samasta luokasta luodaan useampi olio, niille määritellään jokaiselle omat itsenäiset arvonsa attribuuteille.
 
 ```python
-
 class Pankkitili:
     pass
 
@@ -92,7 +87,6 @@ print()
 
 print(pirjon_tili.omistaja)
 print(pirjon_tili.saldo)
-
 ```
 
 <sample-output>
@@ -105,19 +99,17 @@ Pirjo Pythonen
 
 </sample-output>
 
-<text-box variant="info" name="Attribuuttien näkyvyys">
-
 Attribuutit ovat käytettävissä ainoastaan se olion sisällä, jossa ne on määritelty. Niitä ei voi siis käyttää olion ulkopuolelta.
-
-</text-box>
 
 <programming-exercise name='Muodosta lemmikki' tmcname='osa08-05_muodosta_lemmikki'>
 
-Määrittele luokka Lemmikki ja tee sitten funktio `uusi_lemmikki(nimi: str, laji: str, vuosi: int)`, joka muodostaa uuden Lemmikki-tyyppisen (eli Lemmikki-luokan) olion.
+Määrittele luokka `Lemmikki` ja tee sitten funktio `uusi_lemmikki(nimi: str, laji: str, vuosi: int)`, joka muodostaa uuden `Lemmikki`-tyyppisen (eli Lemmikki-luokan) olion.
 
 Oliolla on attribuutit `nimi`, `laji` ja `syntymavuosi`. Arvot saadaan funktion parametreista.
 
 Muodostamisen jälkeen funktio palauttaa olion.
+
+TODO: Tämä ei tunnu hyvältä tavalta tehdä "tyhjä" olio ja sitten erillinen funktio, joka lisää siihen jälkeenpäin kentät, vaan tässä vaiheessa olisi jo parempi käyttää konstruktoria, mikä on oikea tapa.
 
 Esimerkki funktion kutsumisesta:
 
@@ -145,7 +137,6 @@ Niin kuin edellisestä esimerkistä huomataan, luokasta voi luoda uuden olion ku
 Attribuuttien asettamisessa ilman konstruktoria on myös se ongelma, että samasta luokasta luoduilla olioilla voi olla eri attribuutit. Seuraava ohjelmakoodi esimerkiksi antaa virheen, koska oliolle `pirjon_tili` ei ole määritelty attribuuttia saldo:
 
 ```python
-
 class Pankkitili:
     pass
 
@@ -158,40 +149,38 @@ pirjon_tili.omistaja = "Pirjo"
 
 print(pekan_tili.saldo)
 print(pirjon_tili.saldo) # TÄSTÄ TULEE VIRHE
-
 ```
 
 Sen sijaan että attribuuttien arvot alustettaisiin luokan luomisen jälkeen, on huomattavasti parempi ajatus alustaa arvot samalla kun luokasta luodaan olio.
 
 Konstruktorimetodi kirjoitetaan luokan sisään samalla tavalla kuin attribuutitkin (ja yleensä aina attribuuttien määrityksen jälkeen).
 
-Tarkastellaan Pankkitili-luokkaa, johon on lisätty konstruktori:
+TODO: Attribuuttien määrityksen jälkeen? Tähän asti luokassa on ollut vain pass
+
+Tarkastellaan `Pankkitili`-luokkaa, johon on lisätty konstruktori:
 
 ```python
-
 class Pankkitili:
 
     # Konstruktori
     def __init__(self, saldo: float, omistaja: str):
         self.saldo = saldo
         self.omistaja = omistaja
-
 ```
 
-Konstruktorimetodi nimi on aina `__init__`. Huomaa, että nimessä sanan init molemmilla puolilla on _kaksi alaviivaa_.
+Konstruktorimetodi nimi on aina `__init__`. Huomaa, että nimessä sanan `init` molemmilla puolilla on _kaksi alaviivaa_.
 
 Konstruktorin ensimmäinen parametri on nimeltään `self`. Tämä viittaa olioon, jota käsitellään. Asetuslause
 
 `self.saldo = saldo`
 
-asettaa parametrina annetun saldon luotavan olion saldoksi. On siis tärkeä huomata, että tässä yhteydessä muuttuja `self.saldo` on eri muuttuja kuin muuttuja `saldo`.
+asettaa parametrina annetun saldon luotavan olion saldoksi. On tärkeä huomata, että tässä yhteydessä muuttuja `self.saldo` on eri muuttuja kuin muuttuja `saldo`.
 
 KUVA
 
 Nyt kun konstruktorille on määritelty parametrit, voidaan attribuuttien arvot antaa oliota luotaessa:
 
 ```python
-
 class Pankkitili:
 
     # Konstruktori
@@ -207,7 +196,6 @@ pirjon_tili = Pankkitili(20000, "Pirjo Pythonen")
 
 print(pekan_tili.saldo)
 print(pirjon_tili.saldo)
-
 ```
 
 <sample-output>
@@ -222,7 +210,6 @@ Esimerkistä huomataan, että olioiden muodostaminen helpottuu, kun arvot voidaa
 Attribuuttien arvoja voi edelleen muuttaa myöhemmin ohjelmakoodissa, vaikka alkuarvo olisikin annettu konstruktorissa:
 
 ```python
-
 class Pankkitili:
 
     # Konstruktori
@@ -241,7 +228,6 @@ print(pekan_tili.saldo)
 # Lisätään saldoon 2000
 pekan_tili.saldo += 2000
 print(pekan_tili.saldo)
-
 ```
 
 <sample-output>
@@ -255,7 +241,6 @@ print(pekan_tili.saldo)
 Tarkastellaan vielä toista esimerkkiä luokasta ja olioista. Kirjoitetaan luokka, joka mallintaa yhtä lottokierrosta:
 
 ```python
-
 from datetime import date
 
 class LottoKierros:
@@ -267,15 +252,14 @@ class LottoKierros:
 
 
 # Luodaan uusi lottokierros
-ekan_viikon_lotto = LottoKierros(1, date(2021, 1, 2), [1,4,8,12,13,14,33])
+kierros1 = LottoKierros(1, date(2021, 1, 2), [1,4,8,12,13,14,33])
 
 # Tulostetaan tiedot
-print(ekan_viikon_lotto.viikko)
-print(ekan_viikon_lotto.pvm)
+print(kierros1.viikko)
+print(kierros1.pvm)
 
-for numero in ekan_viikon_lotto.numerot:
+for numero in kierros1.numerot:
     print(numero)
-
 ```
 
 <sample-output>
@@ -292,7 +276,7 @@ for numero in ekan_viikon_lotto.numerot:
 
 </sample-output>
 
-Attribuutit voivat olla siis minkä tahansa tyyppisiä - esimerkiksi edellisessä esimerkissä jokaiseen olioon tallennetaan lista ja päivämääräolio.
+Attribuutit voivat olla siis minkä tahansa tyyppisiä – esimerkiksi edellisessä esimerkissä jokaiseen olioon tallennetaan lista ja päivämääräolio.
 
 <programming-exercise name='Kirja' tmcname='osa08-06_kirja'>
 
@@ -371,7 +355,7 @@ print(pekan_tili.saldo)
 
 </sample-output>
 
-<programming-exercise name='Vanhempi kirja' tmcname='osa08-02_vanhempi_kirja'>
+<programming-exercise name='Vanhempi kirja' tmcname='osa08-08_vanhempi_kirja'>
 
 Tee funktio `vanhempi(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-olioa. Funktio kertoo kumpi kirjoista on vahnmpi.
 
@@ -395,7 +379,7 @@ Fluent Python ja Norma kirjoitettiin 2015
 
 </programming-exercise>
 
-<programming-exercise name='Genren kirjat' tmcname='osa08-03_genren_kirjat'>
+<programming-exercise name='Genren kirjat' tmcname='osa08-09_genren_kirjat'>
 
 Tee funktio `genren_kirjat(kirjat: list, genre: str)`, joka saa parametriksi listan `Kirja`-olioa, sekä genren kertovan merkkijonon.
 

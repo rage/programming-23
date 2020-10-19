@@ -14,7 +14,6 @@ Tämän osion jälkeen
 
 </text-box>
 
-
 <text-box variant='hint' name='Kurssin tehtävien tekemisestä'>
 
 Ohjelmointitaidon kehittyminen edellyttää vahvaa rutiinia ja myös omaa soveltavaa oivaltamista. Tämän takia kurssilla on paljon tehtäviä. Osa tehtävistä on kohtuullisen suoraviivaisesti materiaalia hyödyntäviä ja osa taas aivan tarkoituksella haastavampia soveltavia tehtäviä.
@@ -146,7 +145,15 @@ suoraan tehtäväkansion alle
 
 <img src="6_1_3.png">
 
-Saat luotua uuden tiedoston klikkaamalla tehtävän nimeä hiiren oikealla napilla ja valitsemalla _New file_.
+## Tiedostoja lukevan koodin debuggaus
+
+Jos yrität käyttää VS Coden [debuggeria](/osa-4/1-vscode#debuggeri) tiedostoja lukevan koodin suorittamiseen, törmäät ikävään virheilmoitukseen:
+
+<img src="6_1_4.png">
+
+Syynä tälle on se, että debuggeri etsii tiedostoja tehtäväkansion juuresta eikä edes _Execute In File Dir_ -asetus ei asiaa muuta. Helpoin ratkaisu ongelmaan on edellisessä luvussa kuvattu testaukseen käytetyn tiedoston kopioiminen  tehtävähakemiston juureen.
+
+Kun olet kopioinut tiedostot tehtävähakemiston juureen, joudut ehkä vielä käynnistämään visual studio coden uudelleen jotta kaikki toimisi.
 
 ## CSV-tiedoston lukeminen
 
@@ -223,7 +230,6 @@ Kirjoita funktio `lue_hedelmat`, joka lukee hedelmätiedoston ja muodostaa siit�
 Lopuksi funktio palauttaa tämän sanakirjan.
 
 **Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
-
 
 </programming-exercise>
 

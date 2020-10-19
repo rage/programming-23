@@ -285,8 +285,8 @@ Ohjelma tallentaa tilaston ruutuajoista tiedostoon `kesakuun_loppu.txt`, joka n�
 <sample-data>
 
 Ajanjakso: 24.06.2020-28.06.2020
-Yhteens채 minuutteja: 780
-Keskim채채rin minuutteja p채iv채ss채: 156.0
+Yht. minuutteja: 780
+Keskim. minuutteja: 156.0
 24.06.2020: 60/120/0
 25.06.2020: 0/0/0
 26.06.2020: 180/0/0

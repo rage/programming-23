@@ -86,7 +86,7 @@ Keskiarvo: 10.15
 
 ## Muistutus: globaalin muuttujan käytön sudenkuoppa
 
-Kuten olemme nähneet, funktioiden sisällä on mahdollsita määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+Kuten olemme nähneet, funktioiden sisällä on mahdollista määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
 
 Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
 
@@ -123,7 +123,7 @@ Antti
 
 Vaikka funktiota kutsutaan oikein, se tulosaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
 
-Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyäksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
+Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyväksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
 
 ```python
 def tulosta_vaarinpain(nimet: list):
@@ -144,7 +144,7 @@ if __name__ == "__main__":
 
 Nyt myös globaalin muuttujan määrittely on siirtynyt `if`-lohkoon.
 
-TMC-testit suoritetaan aina siten, että mitään `if`-lohkoon sisällä olevaa koodia ei huomioida. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista` mitä ei testejä suoritettaessa ole ollenkaan olemassa.
+TMC-testit suoritetaan aina siten, että mitään `if`-lohkon sisällä olevaa koodia ei huomioida. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista` mitä ei testejä suoritettaessa ole ollenkaan olemassa.
 
 ## Varoitus: parametrin ylikirjoittaminen ja liian aikainen return
 
@@ -172,7 +172,7 @@ def luku_listalla(luvut: lista, etsittava_luku: int):
             return False
 ```
 
-Nyt if-lauseen ehto on kunnossa. Funktossa on kuitenkin uusi ongelma, se ei näytä edelleenkään toimivan. Esim. seuraava kokeilu tuo esiin bugin:
+Nyt if-lauseen ehto on kunnossa. Funktiossa on kuitenkin uusi ongelma, se ei näytä edelleenkään toimivan. Esim. seuraava kokeilu tuo esiin bugin:
 
 ```python
 on = luku_listalla([1, 2, 3, 4], 3)
