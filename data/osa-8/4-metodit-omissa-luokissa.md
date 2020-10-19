@@ -437,6 +437,8 @@ Ohjelmassa tulee käyttää `Lukutilasto`-oliota summan laskemiseen.
 
 HUOM: Älä muuta tässä osassa luokkaa `Lukutilasto`, vaan toteuta sitä hyödyntäen summan laskemiseen käytetty ohjelma.
 
+HUOM2: Älä kirjoita pääohjelmaa `if __name__ == "__main__"`-lohkon sisään, jotta testit toimivat!
+
 <sample-output>
 
 Anna lukuja:
@@ -456,6 +458,8 @@ Muuta edellistä ohjelmaa niin, että ohjelma laskee myös parillisten ja paritt
 
 HUOM: Älä edelleenkään muuta luokkaa `Lukutilasto` vaan määrittele ohjelmassa kolme `Lukutilasto`-oliota ja laske ensimmäisen avulla kaikkien lukujen summa ja keskiarvo, toisen avulla parillisten lukujen summa ja kolmannen avulla parittomien lukujen summa.
 
+HUOM2: Älä kirjoita pääohjelmaa `if __name__ == "__main__"`-lohkon sisään, jotta testit toimivat!
+
 Ohjelman tulee toimia seuraavasti:
 
 <sample-output>
@@ -467,10 +471,12 @@ Anna lukuja:
 **2**
 **-1**
 Summa: 13
-Keskiarvo: 4.5
+Keskiarvo: 3.25
 Parillisten summa: 8
 Parittomien summa: 5
 
 </sample-output>
+
+
 
 </programming-exercise>
