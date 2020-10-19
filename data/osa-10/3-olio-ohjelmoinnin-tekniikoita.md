@@ -220,7 +220,7 @@ Operaattori | Merkitys perinteisesti | Metodin nimi
 
 Lisää operaattoreita ja metodien nimien vastineita löydät helposti Googlella.
 
-Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa - esimerkiksi jakaminen on loogisesti operaatio, jota on hankala perustella useimmille luokille (mitä tulee, kun jaetaan tiedosto kolmella saati toisella tiedostolla?) Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
+Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa - esimerkiksi jakaminen on loogisesti operaatio, jota on hankala perustella useimmille luokille (mitä tulee, kun jaetaan opiskelija kolmella saati toisella opiskelijalla?) Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
 
 Tarkastellaan esimerkkinä luokkaa joka mallintaa yhtä muistiinpanoa. Kahden muistiinpanon yhdistäminen `+`-operaattorilla tuottaa uuden, yhdistetyn muistiinpanon, kun on toteutettu metodi `__add__`:
 
