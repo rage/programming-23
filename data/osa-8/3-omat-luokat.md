@@ -32,14 +32,14 @@ Luokat nimetään yleensä _camel case_ -käytännöllä niin, että sanat kirjo
 
 Yhdellä luokalla pyritään mallintamaan jokin sellainen yksittäinen kokonaisuus, jonka sisältämät tiedot liittyvät kiinteästi yhteen. Monimutkaisemmissa ratkaisuissa luokka voi sisältää toisia luokkia (esimerkiksi luokka `Kurssi` voisi sisältää luokan `Osasuoritus` mukaisia olioita).
 
-Tarkastellaan esimerkkinä yksinkertaista luokkamäärittelyä:
+Tarkastellaan esimerkkinä yksinkertaista luokkamäärittelyä, josta sisältö vielä puuttuu:
 
 ```python
 class Pankkitili:
     pass
 ```
 
-Koodissa määritellään luokka, jonka nimi on `Pankkitili`. Luokalle ei ole määritelty varsinaista sisältöä, mutta tästä huolimatta luokkaa voidaan käyttää osana ohjelmaa.
+Koodissa määritellään luokka, jonka nimi on `Pankkitili`. Luokalle ei ole määritelty varsinaista sisältöä, mutta tästä huolimatta luokasta voidaan muodostaa olio.
 
 Tarkastellaan ohjelmaa, jossa luokasta muodostetun olion sisälle on määritelty kaksi muuttujaa, `saldo` ja `omistaja`. Olion muuttujia kutsutaan _attribuuteiksi_. Attribuutista käytetään myös nimitystä _oliomuuttuja_.
 
@@ -64,39 +64,6 @@ Pekka Python
 
 </sample-output>
 
-Jos samasta luokasta luodaan useampi olio, niille määritellään jokaiselle omat itsenäiset arvonsa attribuuteille.
-
-```python
-class Pankkitili:
-    pass
-
-pekan_tili = Pankkitili()
-pekan_tili.omistaja = "Pekka Python"
-pekan_tili.saldo = 5.0
-
-pirjon_tili = Pankkitili()
-pirjon_tili.omistaja = "Pirjo Pythonen"
-pirjon_tili.saldo = 1500.0
-
-print(pekan_tili.omistaja)
-print(pekan_tili.saldo)
-
-print()
-
-print(pirjon_tili.omistaja)
-print(pirjon_tili.saldo)
-```
-
-<sample-output>
-
-Pekka Python
-5.0
-
-Pirjo Pythonen
-1500.0
-
-</sample-output>
-
 Attribuutit ovat käytettävissä ainoastaan se olion kautta, jossa ne on määritelty. Pankkitili-luokasta muodostetuilla olioilla on jokaisella omat arvonsa attribuuteille. Attribuuttien arvot haetaan olioiden kautta, esimerkiksi
 
 ```python
@@ -105,7 +72,7 @@ tili = Pankkitili()
 tili.saldo = 155.50
 
 print(tili.saldo) # Viittaa tilin attribuuttiin saldo
-print(saldo) # Tämä antaa virheen, koska oliomuuttuja ei ole mukana!
+print(saldo) # TÄSTÄ TULEE VIRHE, koska oliomuuttuja ei ole mukana!
 
 ```
 
