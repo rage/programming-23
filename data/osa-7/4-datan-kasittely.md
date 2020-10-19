@@ -211,6 +211,38 @@ Jokainen tuple siis sisältää seuraavat arvot:
 
 *Huom2:* Testeissä käytetään myös ovelaa kikkaa, joka hieman muuttaa internetistä tulevaa dataa ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
 
+*Huom3:* Jotkut Mac-käyttäjät ovat törmänneet tehtävässä seuraavaan ongelmaan:
+
+```sh
+File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1353, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1124)>
+```
+
+Ongelman ratkaisutapa riippuu siitä miten python on asennettu koneellesi. Joissain tapauksissa toimii seuraava:
+
+```sh
+cd "/Applications/Python 3.8/"
+sudo "./Install Certificates.command
+```
+
+[Täällä](https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error) on ehdotettu useita erilaisia ratkaisuja ongelmaan.
+
+Eräs kikka jota voit kokeilla, on seuraava:
+
+```python
+import urllib.request
+import json
+import ssl # lisää tämä kirjasto importeihin
+
+def hae_kaikki():
+    # ja tämä rivi funktioiden alkuun
+    context = ssl._create_unverified_context()
+    # muu koodi
+```
+
+Emme ole valitettavasti pääseet testaamaan toimiiko tämä kikka. Jos toteat sen toimivan lähetä emailia matti.luukkainen@helsinki.fi tai kerro kurssitelegramissa @mluukkai
+
 #### yhden kurssin tiedot
 
 Kunkin kurssin JSON-muotoinen tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä `name` seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats-mock/api/courses/****/stats>
