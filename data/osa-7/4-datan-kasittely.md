@@ -226,6 +226,8 @@ cd "/Applications/Python 3.8/"
 sudo "./Install Certificates.command
 ```
 
+Huomaa, että cd-komennon polku riippuu käyttämästäsi Pythonin versiosta. Se voi olla myös "/Applications/Python 3.8/".
+
 [Täällä](https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error) on ehdotettu useita erilaisia ratkaisuja ongelmaan.
 
 Eräs kikka jota voit kokeilla, on seuraava:
