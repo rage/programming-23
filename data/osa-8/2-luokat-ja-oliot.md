@@ -14,10 +14,9 @@ Tämän osion jälkeen
 
 </text-box>
 
-Edellisessä osassa käsitellyt esimerkkioliot - listat, tuplet, sanakirjat ja merkkijonot - ovat siinä mielessä erikoistapauksia, että niiden kaikkien muodostamiseen on Pythonissa sisäänrakennettuna oma syntaksinsa:
+Edellisessä osassa käsitellyt esimerkkioliot – listat, tuplet, sanakirjat ja merkkijonot – ovat siinä mielessä erikoistapauksia, että niiden kaikkien muodostamiseen on Pythonissa sisäänrakennettuna oma syntaksinsa:
 
 ```python
-
 # Lista luodaan antamalla arvot hakasuluissa
 lista = [1,2,3]
 
@@ -29,13 +28,11 @@ sanakirja = {"yksi": 1, "kaksi:": 2}
 
 # Tuplessa arvot ovat sulkeissa
 oma_tuple = (1,2,3)
-
 ```
 
 Muita olioita muodostettaessa kutsutaan erityistä metodia, joka luo olion. Tällaista metodia kutsutaan _konstruktoriksi_. Tarkastellaan esimerkkinä murtolukuolioiden muodostamista Fraction-luokasta:
 
 ```python
-
 # Tuodaan käyttöön luokka Fraction modulista fractions
 from fractions import Fraction
 
@@ -53,7 +50,6 @@ print(kolmas)
 
 # Murtoluvuilla voi myös laskea
 print(puolikas + kolmasosa)
-
 ```
 
 <sample-output>
@@ -69,45 +65,41 @@ Esimerkistä huomataan, että konstuktorikutsut poikkeavat aiemmista metodikutsu
 
 ## Luokka on olion käsikirjoitus
 
-Materiaalissa on jo aiemmin vilahtanut käsite _luokka_. Edellisessä esimerkissä otettiin käyttöön luokka `Fraction` modulista `fractions`. Uudet oliot muodostettiin kutsumalla luokan `Fraction` _konstruktoria_.
+Materiaalissa on jo aiemmin vilahtanut käsite _luokka_. Edellisessä esimerkissä otettiin käyttöön luokka `Fraction` moduulista `fractions`. Uudet oliot muodostettiin kutsumalla luokan `Fraction` _konstruktoria_.
 
-Luokassa määritellään siitä muodostettavien olioiden rakenne ja toiminnallisuus. Luokkaa nimitetään tästä syystä joskus olion käsikirjoitukseksi. Luokassa siis kerrotaan millaista tietoa olio sisältää ja määritellän metodit, joiden avulla oliota voidaan käsitellä. _Olio-ohjelmoinnilla_ tarkoitetaan ohjelmointitapaa, jossa kaikki ohjelman toiminnallisuus tapahtuu luokkien ja niistä muodostettujen olioiden avulla.
+Luokassa määritellään siitä muodostettavien olioiden rakenne ja toiminnallisuus. Luokkaa nimitetään tästä syystä joskus olion käsikirjoitukseksi. Luokassa siis kerrotaan, millaista tietoa olio sisältää, ja määritellään metodit, joiden avulla oliota voidaan käsitellä. _Olio-ohjelmoinnilla_ tarkoitetaan ohjelmointitapaa, jossa ohjelman toiminnallisuus tapahtuu luokkien ja niistä muodostettujen olioiden avulla.
 
 Yhdestä luokasta voidaan muodostaa useita olioita. Niin kuin aiemmin kerrottiin, oliot ovat itsenäisiä - muutokset olioon eivät vaikuta muihin luokasta muodostettuihin olioihin. Jokaisella oliolla on oma tietosisältönsä. Vähän yksinkertaistaen voisi sanoa, että
 
 * luokassa määritellään muuttujat ja
 * oliota muodostaessa niille annetaan arvot.
 
-Luodaan esimerkkinä `Fraction`-luokasta kaksi oliota ja tulostetaan molempien nimittäjät:
+Luodaan esimerkkinä `Fraction`-luokasta kaksi olio ja tulostetaan sen osoittaja ja nimittäjä:
 
 ```python
-
 from fractions import Fraction
 
-eka = Fraction(2,5)
-toka = Fraction(9,13)
+luku = Fraction(2,5)
 
-# Tulostetaan eka nimittäjä
+# Tulostetaan osoittaja
 print(eka.numerator)
 
-# ...ja sitten toka
-print(toka.numerator)
-
+# ...ja sitten nimittäjä
+print(eka.denominator)
 ```
 
 <sample-output>
 
 2
-9
+5
 
 </sample-output>
 
-Luokassa Fraction on siis määritelty, että olioilla on muuttuja `numerator`. Jokaisella oliolla on kuitenkin oma arvonsa tälle muuttujalle.
+Luokassa `Fraction` on siis määritelty, että olioilla on muuttujat `numerator` ja `denominator`. Jokaisella oliolla on kuitenkin oma arvonsa näille muuttujille.
 
 Samalla tavalla `date`-luokasta muodostetuilla olioilla on kaikilla omat itsenäiset arvonsa vuodelle, kuukaudelle ja päivämäärälle:
 
 ```python
-
 from datetime import date
 
 joulu = date(2020, 12, 24)
@@ -116,7 +108,6 @@ juhannus = date(2020, 6, 20)
 # Tulostetaan kuukaudet molemmista
 print(joulu.month)
 print(juhannus.month)
-
 ```
 
 <sample-output>
@@ -130,7 +121,7 @@ Luokassa `date` on siis määritelty, että luokasta muodostettavilla olioilla o
 
 ## Olioita käsittelevät funktiot
 
-Funktioiden parametrina oleviin olioihin ei liity oikeastaan mitään sen kummempaa. Niitä on jo kurssin aiemmissa osissa nähty runsaasti. Seuraavassa on esimerkki funktiosta, joka tarkastaa onko sen parametrina oleva `date`-olio viikonloppu:
+Funktioiden parametrina oleviin olioihin ei liity oikeastaan mitään sen kummempaa. Niitä on jo kurssin aiemmissa osissa nähty runsaasti. Seuraavassa on esimerkki funktiosta, joka tarkastaa, onko sen parametrina oleva `date`-olio viikonloppu:
 
 ```python
 def onko_viikonloppu(paiva: date):
@@ -138,7 +129,7 @@ def onko_viikonloppu(paiva: date):
     return viikonpaiva == 6 or viikonpaiva == 7
 ```
 
-Funktio siis  käyttää parametrina olevan olion metodia [isoweekday](https://docs.python.org/3/library/datetime.html#datetime.date.isoweekday), joka palauttaa viikonpäivää vastaavan numeron.
+Funktio siis  käyttää parametrina olevan olion metodia [isoweekday](https://docs.python.org/3/library/datetime.html#datetime.date.isoweekday), joka palauttaa viikonpäivää vastaavan numeron niin, että maanantai on 1, tiistai on 2, jne.
 
 Funktiota käytetään seuraavasti:
 
@@ -157,9 +148,9 @@ True
 
 </sample-output>
 
-## Metodi vs olion muuttuja
+## Metodi vs. olion muuttuja
 
-Jos tarkastellaan `date`-oliota, niin huomataan että sen käsittely poikkeaa hieman riippuen siitä mitä olion "sisällöstä" ollaan tarkastelemassa
+Jos tarkastellaan `date`-oliota, niin huomataan, että sen käsittely poikkeaa hieman riippuen siitä, mitä asiaa olion sisällöstä tarkastellaan:
 
 ```python
 paiva = date(2020, 12, 24)
@@ -170,14 +161,14 @@ viikonpaiva = paiva.isoweekday()
 # viitataan olion muuttujaan
 kuukausi = paiva.month
 
-print(f"viikonpäivä:", viikonpaiva)
-print(f"kuukausi:", kuukausi)
+print("Viikonpäivä:", viikonpaiva)
+print("Kuukausi:", kuukausi)
 ```
 
 <sample-output>
 
-viikonpäivä: 4
-kuukausi: 12
+Viikonpäivä: 4
+Kuukausi: 12
 
 </sample-output>
 
@@ -191,28 +182,26 @@ Koska on kyse metodikutsusta, niin metodin nimen perään laitetaan sulut. Jos s
 
 ```python
 viikonpaiva =  paiva.isoweekday
-print(f"viikonpäivä:", viikonpaiva)
+print("Viikonpäivä:", viikonpaiva)
 ```
 
 <sample-output>
 
-viikonpäivä: <built-in method isoweekday of datetime.date object at 0x10ed66450>
+Viikonpäivä: <built-in method isoweekday of datetime.date object at 0x10ed66450>
 
 </sample-output>
 
-Päiväolioon liittyvä kuukausi taas on "olion muuttuja", ja sen arvo selviää _viittaamalla_ muuttujaan
+Päiväolioon liittyvä kuukausi taas on olion muuttuja, ja sen arvo selviää _viittaamalla_ muuttujaan
 
 ```python
 kuukausi = paiva.month
 ```
 
-Nyt siis käytössä _ei ole sulkuja_. Jos tässä tilanteessa yritettäisiin käyttää sulkuja:
+Nyt siis käytössä _ei ole sulkuja_. Jos tässä tilanteessa yritettäisiin käyttää sulkuja, ohjelma aiheuttaisi virheen:
 
 ```python
 kuukausi = paiva.month()
 ```
-
-Ohjelma aiheuttaisi virheen
 
 <sample-output>
 
@@ -224,7 +213,7 @@ TypeError: 'int' object is not callable
 
 <programming-exercise name='Vuodet listaan' tmcname='osa08-03_vuodet_listaan'>
 
-Tee funktio `vuodet_listaan(paivamaarat: list)`, joka saa parametrikseen listan, joka sisältää `date`-tyyppisiä olioita. Funktio luo uuden listan, jolle se tallentaa päivämäärien _vuodet suuruusjärjestyksessä pienimmästä suurimpaan_.
+Tee funktio `vuodet_listaan(paivamaarat: list)`, joka saa parametrikseen listan, joka sisältää `date`-tyyppisiä olioita. Funktio palauttaa uuden listan, jossa on päivämäärien _vuodet suuruusjärjestyksessä pienimmästä suurimpaan_.
 
 Esimerkki funktion kutsumisesta:
 
@@ -248,7 +237,7 @@ print(vuodet)
 
 <programming-exercise name='Kauppalista' tmcname='osa08-04_kauppalista'>
 
-Tehtävässä on määritelty valmiiksi Kauppalista-luokka, jolla voidaan mallintaa yhtä kauppalistaa.
+Tehtäväpohjassa on määritelty valmiiksi `Kauppalista`-luokka, jolla voidaan mallintaa yhtä kauppalistaa.
 
 Jos kauppalistaolio on tallennettu esimerkiksi muuttujaan `kauppalista`, sitä voidaan käsitellä seuraavan esimerkin mukaisesti:
 
@@ -290,9 +279,9 @@ maito 1 kpl
 
 </sample-output>
 
-Kauppalistat siis käyttäytyvät hieman listojen tavoin, niitä käsitellään kuitenkin kauppalistan tarjoamien metodien kautta, ja toisin kuin listoilla, kauppalistalla tuotteet on numeroitu ykkösestä alkaen.
+Kauppalistat siis käyttäytyvät hieman listojen tavoin, mutta niitä käsitellään kuitenkin kauppalistan tarjoamien metodien kautta. Toisin kuin listoissa, kauppalistan tuotteet on numeroitu ykkösestä alkaen.
 
-Tee esimerkkejä hyödyntäen funktio `tuotteita_yhteensa(lista: Kauppalista)`, joka saa parametrikseen Kauppalista-tyyppisen olion. Funktio laskee listalla yhteensä olevien tuotteiden lukumäärän ja palauttaa sen.
+Tee esimerkkejä hyödyntäen funktio `tuotteita_yhteensa(lista: Kauppalista)`, joka saa parametrikseen `Kauppalista`-tyyppisen olion. Funktio laskee listalla yhteensä olevien tuotteiden määrän ja palauttaa sen.
 
 Huomaa, että kauppalistalla tuotteet indeksoidaan ykkösestä alkaen, ei nollasta. Voit testata ohjelmaasi esim. tällä esimerkkikoodilla:
 
