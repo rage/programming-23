@@ -208,3 +208,100 @@ Opiskelija - nimi: Onerva Opiskelija, op.nro: 98765, opintopisteitä: 0, muistii
 
 Huomaa, että attribuutille opiskelijanumero ei ole määritelty asetusmetodia - ideana on, että opiskelijanumero ei voi muuttua.
 
+Parametrien oletusarvojen käyttöön liittyy kuitenkin eräs huomattavan iso "mutta" joka ilmenee seuraavasti esimerkistä:
+
+```python
+class Opiskelija:
+    def __init__(self, nimi, tehdyt_kurssit = []):
+        self.nimi = nimi
+        self.tehdyt_kurssit = tehdyt_kurssit
+
+    def lisaa_suoritus(self, kurssi):
+        self.tehdyt_kurssit.append(kurssi)
+
+    def __repr__(self):
+        return f"{self.nimi} (tehdyt kurssit: {self.tehdyt_kurssit})"
+
+if __name__ == "__main__":
+    anne = Opiskelija("Anne Avulias")
+    bert = Opiskelija("Bert Bartholomew")
+    cecilia = Opiskelija("Cecilia Carllsen", ["ohpe", "tikape", "tira"])
+
+    print(anne)
+    print(bert)
+    print(cecilia)
+
+    cecilia.lisaa_suoritus("otm")
+
+    print("---")
+    print(anne)
+    print(bert)
+    print(cecilia)
+
+    anne.lisaa_suoritus("ohpe")
+
+    print("---")
+    print(anne)
+    print(bert)
+    print(cecilia)
+```
+
+<sample-output>
+Anne Avulias (tehdyt kurssit: [])
+Bert Bartholomew (tehdyt kurssit: [])
+Cecilia Carllsen (tehdyt kurssit: ['ohpe', 'tikape', 'tira'])
+---
+Anne Avulias (tehdyt kurssit: [])
+Bert Bartholomew (tehdyt kurssit: [])
+Cecilia Carllsen (tehdyt kurssit: ['ohpe', 'tikape', 'tira', 'otm'])
+---
+Anne Avulias (tehdyt kurssit: ['ohpe'])
+Bert Bartholomew (tehdyt kurssit: ['ohpe'])
+Cecilia Carllsen (tehdyt kurssit: ['ohpe', 'tikape', 'tira', 'otm'])
+</sample-output>
+
+Huomataan siis, että kurssisuorituksen lisääminen Annelle muuttaa myös Bertin kurssisuorituksia! Samalla kuitenkaan kurssisuorituksen lisääminen Cecilialle ei vaikuttanut Annen tai Bertin suorituksiin. Ilmiö johtuu siitä, että python uudelleenkäyttää oletusarvoa. Yllä oleva tapa luoda Anne ja Bert vastaa siis seuraavaa koodia:
+
+```python
+kurssit = []
+anne = Opiskelija("Anne Avulias", kurssit)
+bert = Opiskelija("Bert Bartholomew", kurssit)
+```
+
+Tästä johtuen parametrin oletusarvona ei koskaan tulisi käyttää monimutkaisempia tietorakenteita, kuten esimerkiksi listoja. Korjattu versio luokan `Opiskelija` konstruktorista olisikin seuraava:
+```python
+class Opiskelija:
+    def __init__(self, nimi, tehdyt_kurssit = None):
+        self.nimi = nimi
+        if tehdyt_kurssit is None:
+            self.tehdyt_kurssit = []
+        else:
+            self.tehdyt_kurssit = tehdyt_kurssit
+
+    def lisaa_suoritus(self, kurssi):
+        self.tehdyt_kurssit.append(kurssi)
+
+    def __repr__(self):
+        return f"{self.nimi} (tehdyt kurssit: {self.tehdyt_kurssit})"
+
+if __name__ == "__main__":
+    anne = Opiskelija("Anne Avulias")
+    bert = Opiskelija("Bert Bartholomew")
+
+    print(anne)
+    print(bert)
+
+    anne.lisaa_suoritus("ohpe")
+
+    print("---")
+    print(anne)
+    print(bert)
+```
+
+<sample-output>
+Anne Avulias (tehdyt kurssit: [])
+Bert Bartholomew (tehdyt kurssit: [])
+---
+Anne Avulias (tehdyt kurssit: ['ohpe'])
+Bert Bartholomew (tehdyt kurssit: [])
+</sample-output>
