@@ -329,7 +329,7 @@ Eli kortin saldo ei enää vähene jos maksettaessa saldo ei ole riittävä.
 
 Lisää `Maksukortti`-luokkaan metodi lataa_rahaa
 
-Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä. Kuitenkin kortin saldo saa olla korkeintaan 150 euroa, joten jos ladattava rahamäärä ylittäisi sen, saldoksi tulisi tulla silti tasan 150 euroa.
+Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä.
 
 ```python
 kortti = Maksukortti(10)
@@ -340,10 +340,6 @@ kortti.lataa_rahaa(10)
 print(kortti)
 kortti.lataa_rahaa(200)
 print(kortti)
-
-# negatiivinen lataus ei vaikuta saldoon
-kortti.lataa_rahaa(-10)
-print(kortti)
 ```
 
 <sample-output>
@@ -351,7 +347,6 @@ print(kortti)
 Kortilla on rahaa 10.0 euroa
 Kortilla on rahaa 25.0 euroa
 Kortilla on rahaa 35.0 euroa
-Kortilla on rahaa 150.0 euroa
 Kortilla on rahaa 150.0 euroa
 
 </sample-output>
