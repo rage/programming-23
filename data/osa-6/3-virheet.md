@@ -29,7 +29,7 @@ Ryhmän 2 virheet voivat olla hankalampia havaita, koska virhe voi tapahtua joss
 Usein virhetilanteet ohjelmien suorituksen aikana liittyvät jotenkin virheelliseen syötteeseen. Esimerkkejä virheellisistä syötteistä ovat
 
 * puuttuvat tai tyhjät arvot: esimerkiksi pituus nolla tai tyhjä merkkijono nimenä
-* negatiiviset arvot: esimerkiksi –15 henkilön painona
+* negatiiviset arvot: esimerkiksi –15 reseptin aineosan painona
 * puuttuva tai väärän niminen tiedosto
 * liian pienet tai liian suuret arvot
 * väärä indeksi (esim. viittaaminen indeksiin 3 merkkijonossa "moi")
@@ -129,7 +129,7 @@ Kiitos!
 
 </sample-output>
 
-Joissain tilanteissa saattaa olla tarvetta varautua poikkeukseen, mutta poikkeuksen tapahtuessa riittää "igonorata" se, eli jättää koko asia huomiomatta `except`-lohkossa.
+Joissain tilanteissa saattaa olla tarvetta varautua poikkeukseen, mutta poikkeuksen tapahtuessa riittää "ignoorata" se, eli jättää koko asia huomiomatta `except`-lohkossa.
 
 Jos muuttaisimme edellistä esimerkkiä siten, että funktio hyväksyisi ainoastaan lukua 100 pienemmät kokonaisluvut, voisimme muuttaa toteutusta seuraavasti:
 
