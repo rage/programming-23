@@ -125,8 +125,6 @@ asettaa parametrina annetun saldon luotavan olion saldoksi. On tärkeä huomata,
 
 * Muuttuja `saldo` on konstruktorimetodin `__init__` parametri, jolle annetaan arvo kun metodia kutsutaan (eli kun halutaan luoda uusi olio luokasta).
 
-
-
 Nyt kun konstruktorille on määritelty parametrit, voidaan attribuuttien arvot antaa oliota luotaessa:
 
 ```python
@@ -313,7 +311,7 @@ Määrittele luokka `Lemmikki`.
 
 Luokalla on konstruktori, jossa annetaan arvot attribuuteille `nimi`, `laji` ja `syntymavuosi` tässä järjestyksessä.
 
-Kirjoita sitten luokan ulkopuolelle funktio `uusi_lemmikki(nimi: str, laji: str, vuosi: int)`, joka muodostaa uuden `Lemmikki`-tyyppisen (eli Lemmikki-luokan) olion.
+Kirjoita sitten luokan ulkopuolelle funktio `uusi_lemmikki(nimi: str, laji: str, syntymavuosi: int)`, joka muodostaa uuden `Lemmikki`-tyyppisen (eli Lemmikki-luokan) olion.
 
 Muodostamisen jälkeen funktio palauttaa olion.
 

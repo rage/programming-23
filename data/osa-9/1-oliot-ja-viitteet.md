@@ -49,15 +49,103 @@ if __name__ == "__main__":
         pisteet += suoritus.opintopisteet
 
     print("Pisteitä yhteensä:", pisteet)
-
-
 ```
+
+<sample-output>
+
+Matematiikka 1
+Ohjelmointi 1
+Fysiikka 2
+Ohjelmointi 2
+Pisteitä yhteensä: 20
+
+</sample-output>
+
+<programming-exercise name='Nopein auto' tmcname='osa09-xx_nopein_auto'>
+
+Tehtäväpohjassa oleva luokka `Auto` mallintaa autoa kahden attribuutin avulla: `merkki (str)` ja `huippunopeus (int)`.
+
+Kirjoita funktio `nopein_auto(autot: list)`, joka saa parametrikseen listan Auto-luokan olioita.
+
+Funktio palauttaa listassa olevista autoista nopeimman auton merkin. Älä muuta alkuperäistä listaa tai luokkaa Auto.
+
+Esimerkki funktion testauksesta:
+
+```python
+if __name__ == "__main__":
+    auto1 = Auto("Mersu", 195)
+    auto2 = Auto("Lada", 110)
+    auto3 = Auto("Ferrari", 280)
+    auto4 = Auto("Trabant", 85)
+
+    autot = [auto1, auto2, auto3, auto4]
+    print(nopein_auto(autot))
+```
+
+<sample-output>
+
+Ferrari
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Hyväksytyt suoritukset' tmcname='osa09-xx_hyvaksytyt_suoritukset'>
+
+Tehtäväpohjasta löytyy luokka `Koesuoritus`, joka mallintaa nimensä mukaisesti koesuoritusta. Sillä on kaksi attribuuttia, `suorittaja (str)` ja `pisteet (int)`.
+
+Kirjoita funktio `hyvaksytyt(suoritukset: list, pisteraja: int)`, joka saa parametrikseen listan koesuorituksia ja alimman hyväksytyn pistemäärän kokonaislukuna.
+
+Funktio muodostaa ja palauttaa uuden listan, johon on tallennettu ainoastaan hyväksytyt suoritukset listalta.
+
+Älä muuta alkuperäistä listaa tai luokkaa Koesuoritus!
+
+Esimerkki funktion käytöstä:
+
+```python
+if __name__ == "__main__":
+    s1 = Koesuoritus("Pekka", 12)
+    s2 = Koesuoritus("Pirjo", 19)
+    s3 = Koesuoritus("Pauli", 15)
+    s4 = Koesuoritus("Pirkko", 9)
+    s5 = Koesuoritus("Petriina", 17)
+
+    hyv = hyvaksytyt_suoritukset([s1, s2, s3, s4, s5], 15)
+    for hyvaksytty in hyv:
+        print(hyvaksytty)
+```
+
+<sample-output>
+
+Koesuoritus (suorittaja: Pirjo, pisteet: 19)
+Koesuoritus (suorittaja: Pauli, pisteet: 15)
+Koesuoritus (suorittaja: Petriina, pisteet: 17)
+
+</programming-exercise>
 
 Listaan ei itse asiassa oikeasti tallenneta olioita, vaan _viittauksia olioihin_. Niinpä sama olio voi esiintyä listassa useaan kertaan (eli käytännössä samaan olioon voidaan viitata useaan kertaan listassa ja sen ulkoupuolella):
 
-KUVA
+Esimerkiksi
 
-Esimerkiksi:
+```python
+class Tuote:
+    def __init__(self, nimi: int, yksikko: str):
+        self.nimi = nimi
+        self.yksikko = yksikko
+
+
+if __name__ == "__main__":
+    kauppalista = []
+    maito = Tuote("Maito", "litra")
+
+    kauppalista.append(maito)
+    kauppalista.append(maito)
+    kauppalista.append(Tuote("Kurkku", "kpl"))
+```
+
+<img src="9_1_1.png">
+
+Jos samaan olioon on useampi kuin yksi viittaus, on lopputuloksen kannalta yhdentekevää mitä viittauksista käytetään:
 
 ```python
 
@@ -110,11 +198,54 @@ Fifi
 
 Listan kaksi ensimmäistä alkiota viittaavat samaan Koira-luokan olioon kuin muuttuja `k`. Niinpä olion sisältöä voidaan muuttaa minkä tahansa näistä viittauksista avulla. Viimeinen alkio listassa on viittaus kokonaan toiseen olioon - niinpä muutokset eivät vaikuta siihen (lukuunottamatta viimeistä muokkausta, joka kohdistuu tähän olioon).
 
+Muista, että operaattorilla `is` voidaan tutkia onko kyseessä sama olio, ja operaattorilla `==` onko kyseessä samantyylinen olio.
+
+Niinpä esimerkiksi
+
+
+```python
+lista1 = [1,2,3]
+lista2 = [1,2,3]
+lista3 = lista1
+
+print(lista1 is lista2)
+print(lista1 is lista3)
+print(lista2 is lista3)
+
+print()
+
+print(lista1 == lista2)
+print(lista1 == lista3)
+print(lista2 == lista3)
+```
+
+<sample-output>
+
+False
+True
+False
+
+True
+True
+True
+
+</sample-output>
+
 Omista luokista muodostettuja olioita voi myös tallentaa esimerkiksi sanakirjaan (tai mihin tahansa tietorakenteeseen):
 
 ```python
 
-# ESIMERKKI TÄHÄN
+class Opiskelija:
+    def __init__(self, nimi: str, op: int):
+        self.nimi = nimi
+        self.op = op
+
+if __name__ == "__main__":
+    # Käytetään avaimena opiskelijanumeroa ja
+    # arvona Opiskelija-oliota
+    opiskelijat = {}
+    opiskelijat["12345"] = Opiskelija("Olli Opiskelija", 10)
+    opiskelijat["54321"] = Opiskelija("Outi Opiskelija", 67)
 
 ```
 

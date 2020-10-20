@@ -19,7 +19,7 @@ Olio-ohjelmoinnissa asiakkaalla tarkoitetaan luokkaa tai siitä muodostettuja ol
 1) asiakkaan kannalta luokan ja olioiden käyttö on mahdollisimman yksinkertaista ja
 2) olion _sisäinen eheys_ säilyy joka tilanteessa.
 
-Sisäisellä eheydellä tarkoitetaan, että olion _tila_ (eli käytännössä olion attribuuttien arvot) pysyy koko ajan hyväksyttävänä. Virheellinen tila olisi esimerkiksi sellainen, jossa päivämäärää esittävälle oliolle annetaan kuukauden numeroksi 13, tai opiskelijaa esittävälle oliolle opintopistemääräksi negatiivinen luku.
+Sisäisellä eheydellä tarkoitetaan, että olion _tila_ (eli käytännössä olion attribuuttien arvot) pysyy koko ajan hyväksyttävänä. Virheellinen tila olisi esimerkiksi sellainen, jossa päivämäärää esittävälle oliolle kuukauden numero on 13, tai opiskelijaa esittävällä oliolla opintopistemäärä on negatiivinen luku.
 
 Tarkastellaan esimerkkinä luokkaa Opiskelija:
 
@@ -228,7 +228,7 @@ auto: ajettu 60 km, bensaa 60 litraa
 
 Python tarjoaa myös suoraviivaisemman syntaksin attribuuttien asettamiselle ja havainnoimiselle. Näissä käytetään niinsanottuja asetus- ja havainnointimetodeita.
 
-Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa attribuutti on suojattu:
+Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa attribuutti `rahaa` on suojattu asiakkailta:
 
 ```python
 
@@ -346,6 +346,20 @@ ValueError: Rahasumma ei saa olla negatiivinen.
 
 Huomaa, että havainnointimetodi eli `@property`-annotaatio pitää esitellä luokassa ennen asetusmetodia, muuten seuraa virhe. Tämä johtuu siitä, että `@property`-annotaatio määrittelee käytettävän "asetusattribuutin" nimen (edellisessä esimerkiksi `rahaa`), ja asetusmetodi `.setter` liittää siihen uuden toiminnallisuuden.
 
+<programming-exercise name='Äänite' tmcname='osa09-xx_aanite'>
+
+Kirjoita luokka `Aanite`, joka mallintaa yksittäistä äänitystä. Luokalla on yksi _yksityinen_ attribuutti, kokonaislukutyyppinen `pituus`.
+
+Kirjoita luokalle
+
+* konstruktori, joka saa parametrikseen pituuden
+* havainnointimetodi `pituus`, joka palauttaa pituuden
+* asetusmetodi, joka asettaa pituuden arvon
+
+Jos pituudeksi yritetään asettaa nollaa pienempää arvoa, tulee asetusmetodin heittä virhe `ValueError`.
+
+</programming-exercise>
+
 Katsotaan vielä esimerkki luokasta, jolla on kaksi suojattua attribuuttia ja molemmille havainnointi- ja asetusmetodit:
 
 ```python
@@ -445,3 +459,39 @@ if __name__ == "__main__":
 Paivakirja - omistaja: Pekka, merkinnät: Tänään söin puuroa, Tänään opettelin olio-ohjelmointia, Tänään menin ajoissa nukkumaan
 
 </sample-output>
+
+<programming-exercise name='Säähavaintoasema' tmcname='osa09-xx_saahavaintoasema'>
+
+Kirjoita luokka `Havaintoasema`, johon voidaan tallentaa säähavaintoja. Luokalla on seuraavat julkiset piirteet:
+
+* konstruktori, joka saa parametriksen aseman nimen
+* metodi `lisaa_havainto(havainto: str)`, joka lisää havainnon listan peräään
+* metodi `viimeisin_havainto()`, joka palauttaa viimeksi lisätyn havainnon
+* metodi `havaintojen_maara()`, joka palauttaa havaintojen yhteismäärän
+
+Luokan kaikkien attribuuttien pitää olla asiakkaalta suojattuja. Saat itse päättää luokan sisäisen toteutuksen.
+
+Esimerkki luokan käytöstä:
+
+```python
+
+asema = Havaintoasema("Kumpula")
+asema.lisaa_havainto("Sadetta 10mm")
+asema.lisaa_havainto("Aurinkoista")
+print(asema.viimeisin_havainto())
+
+asema.lisaa_havainto("Ukkosta")
+print(asema.viimeisin_havainto())
+
+print(asema.havaintojen_maara())
+```
+
+<sample-output>
+
+Aurinkoista
+Ukkosta
+3
+
+</sample-output>
+
+</programming-exercise>

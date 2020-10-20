@@ -241,6 +241,26 @@ Puhelinnumero - nimi: Pertti Python, puhelinnumero: 040 111 1111, maa: ruotsi
 
 </sample-output>
 
+<programming-exercise name='Postinumerot' tmcname='osa09-xx_postinumerot'>
+
+Tehtäväpohjassa on määritelty luokka Kaupunki, joka mallintaa nimensä mukaisesti yksittäistä kaupunkia.
+
+Lisää luokkaan staattinen muuttuja postinumerot, joka viittaa sanakirjaan.
+
+Sanakirjassa jokainen avain on kaupungin nimi ja arvo postinumero. Molemmat ovat merkkijonoja.
+
+Sanakirjasta tulee löytyä seuraavat postinumerot:
+
+* Helsinki 00100
+* Turku 20100
+* Tampere 33100
+* Jyväskylä 40100
+* Oulu 90100
+
+Muuta toiminnallisuutta ei tarvitse toteuttaa.
+
+</programming-exercise>
+
 ## Staattiset metodit
 
 Myös luokan metodit voivat olla staattisia. Tällaista metodia nimitetään joskus myös luokkametodiksi.
@@ -317,3 +337,29 @@ Tämä on validi tunnus!
 </sample-output>
 
 Rekisteriotteen oikeellisuuden voi tarkistaa kutsumalla metodia (esimerkiksi `Rekisteriote.rekisteritunnus_kelpaa("xyz-789"))`) ilman että muodostaa luokasta oliota. Samaa metodia kutsutaan myös uutta oliota muodostaessa luokan konstruktorista - huomaa kuitenkin, että myös tässä kutsussa viitataan metodiin luokan nimen avulla - ei `self`-tunnisteella!
+
+<programming-exercise name='Lista-apuri' tmcname='osa09-xx_lista_apuri'>
+
+Kirjoita luokka ListaApuri, jonka ainoat ominaisuudet ovat seuraavat kaksi _staattista_ metodia:
+
+* Metodi `suurin_frekvenssi(lista: list)` palauttaa alkion, jota esiintyy listassa eniten.
+* Metodi `tuplia(lista: list)`, joka palauttaa sellaisten alkioden lukumäärän, jotka esiintyvät listassa vähintään kahdesti
+
+Metodeja tulee siis voida käyttää ilman että luokasta luodaan oliota.
+
+Esimerkki luokan käytöstä:
+
+```python
+luvut = [1,1,2,1,3,3,4,5,5,5,6,5,5,5]
+print(ListaApuri.suurin_frekvenssi(luvut))
+print(ListaApuri.tuplia(luvut))
+```
+
+<sample-output>
+
+5
+3
+
+</sample-output>
+
+</progarmming-exercise>

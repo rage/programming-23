@@ -135,7 +135,7 @@ Leevi, kaverina Hulda, joka on sekarotuinen koira
 
 Äskeisissä esimerkeissä oliolla oli atrribuuttina yksittäinen toisen luokan olio, esim. henkilöllä on attribuuttina lemmikki-olio, opintosuorituksella attribuuttina kurssi-olio.
 
-Olio-ohjelmoinnissa törmätään erittäin usein tilanteeseen, missä oliolla on attribuuttina joukko toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
+Olio-ohjelmoinnissa törmätään erittäin usein tilanteeseen, jossa oliolla on attribuuttina joukko toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
 
 ```python
 class Pelaaja:
@@ -240,9 +240,9 @@ print(paketti.yhteispaino())
 
 ## None eli viite ei mihinkään
 
-Pythonissa siis muuttujat aina _viittaavat_ johonkin olioon. On tilanteita, missä haluaisimme merkitä tilannetta, missä emme viittaa mihinkään.
+Pythonissa muuttujat siis aina _viittaavat_ johonkin olioon. On kuitenkin tilanteita, joissa haluaisimme määrittää arvon, joka ei viittaa mihinkään. Arvoa `None` käytetään esittämään tyhjää viittausta.
 
-Jos luokkaan joukkue lisättäisiin metodi, joka etsii joukkueen pelaajan, saattaisi olla luontevaa esittää paluuarvolla `None` tilanne, missä pelaajaa ei löydy:
+Jos esimerkiksi luokkaan joukkue lisättäisiin metodi, joka etsii joukkueen pelaajan, saattaisi olla luontevaa esittää paluuarvolla `None` tilanne, jossa pelaajaa ei löydy:
 
 ```python
 class Joukkue:
@@ -284,7 +284,7 @@ None
 
 </sample-output>
 
-None-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle, joka onkin None:
+`None`-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle, joka onkin None:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
@@ -366,7 +366,7 @@ Terhi (185 cm)
 
 ## Lyhin henkilö
 
-Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, palauttaa None-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
+Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, metodi palauttaa None-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
 
 ```python
 huone = Huone()
