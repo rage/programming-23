@@ -240,3 +240,237 @@ if __name__ == "__main__":
 </sample-output>
 
 </programming-exercise>
+
+<programming-exercise name='Tavara, Matkalaukku ja Lastiruuma' tmcname='osa09-07_tavara_matkalaukku_lastiruuma'>
+
+Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruuma`, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita.
+
+## Tavara-luokka
+
+Tee luokka Tavara, josta muodostetut oliot vastaavat erilaisia tavaroita. Tallennettavat tiedot ovat tavaran nimi ja paino (kg).
+
+Luokan tulee toimia seuraavasti
+
+```python
+kirja = Tavara("Aapiskukko", 2)
+puhelin = Tavara("Nokia 3210", 1)
+
+print("Kirjan nimi:", kirja.nimi())
+print("Kirjan paino:", kirja.paino())
+
+print("Kirja:", kirja)
+print("Puhelin:", puhelin)
+```
+
+Ohjelman tulostuksen tulisi olla seuraava:
+
+<sample-output>
+
+Kirjan nimi: Aapiskukko
+Kirjan paino: 2
+Kirja: Aapiskukko (2 kg)
+Puhelin: Nokia 3210 (1 kg)
+
+</sample-output>
+
+## Matkalaukku-luokka
+
+Tee luokka `Matkalaukku`. Matkalaukkuun liittyy tavaroita ja maksimipaino, joka määrittelee tavaroiden suurimman mahdollisen yhteispainon.
+
+Lisää luokkaan seuraavat:
+
+- Konstruktori, jolle annetaan maksimipaino
+- metodi `lisaa_tavara(self, tavara)`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
+- metodi `__repr__`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
+
+Luokan tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaa_tavara` ei saa lisätä uutta tavaraa laukkuun.
+
+Seuraavassa on luokan käyttöesimerkki:
+
+```python
+kirja = Tavara("Aapiskukko", 2)
+puhelin = Tavara("Nokia 3210", 1)
+tiiliskivi = Tavara("tiiliskivi", 4)
+
+matkalaukku = Matkalaukku(5)
+print(matkalaukku)
+
+matkalaukku.lisaa_tavara(kirja)
+print(matkalaukku)
+
+matkalaukku.lisaa_tavara(puhelin)
+print(matkalaukku)
+
+matkalaukku.lisaa_tavara(tiiliskivi)
+print(matkalaukku)
+```
+
+Ohjelman tulostuksen tulisi olla seuraava:
+
+<sample-output>
+
+0 tavaraa (0 kg)
+1 tavaraa (2 kg)
+2 tavaraa (3 kg)
+2 tavaraa (3 kg)
+
+</sample-output>
+
+## Kielenhuoltoa
+
+Ilmoitukset "0 tavaraa" ja "1 tavaraa" eivät ole kovin hyvää suomea — paremmat muodot olisivat "ei tavaroita" ja "1 tavara". Tee tämä muutos luokassa sijaitsevaan `__repr__`-metodiin.
+
+Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
+
+<sample-output>
+
+ei tavaroita (0 kg)
+1 tavara (2 kg)
+2 tavaraa (3 kg)
+2 tavaraa (3 kg)
+
+</sample-output>
+
+## Kaikki tavarat
+
+Lisää luokkaan seuraavat metodit:
+
+- `tulosta_tavarat`, joka tulostaa kaikki matkalaukussa olevat tavarat
+- `yhteispaino`, joka palauttaa tavaroiden yhteispainon
+
+Seuraavassa on luokan käyttöesimerkki:
+
+```python
+kirja = Tavara("Aapiskukko", 2)
+puhelin = Tavara("Nokia 3210", 1)
+tiiliskivi = Tavara("tiiliskivi", 4)
+
+matkalaukku = Matkalaukku(10)
+matkalaukku.lisaa_tavara(kirja)
+matkalaukku.lisaa_tavara(puhelin)
+matkalaukku.lisaa_tavara(tiiliskivi)
+
+print("Matkalaukussa on seuraavat tavarat:")
+matkalaukku.tulosta_tavarat()
+print(f"Yhteispaino: {matkalaukku.yhteispaino()} kg")
+```
+
+Ohjelman tulostuksen tulisi olla seuraava:
+
+<sample-output>
+
+Matkalaukussa on seuraavat tavarat:
+Aapiskukko (2 kg)
+Nokia 3210 (1 kg)
+Tiiliskivi (4 kg)
+Yhteispaino: 7 kg
+
+</sample-output>
+
+Muokkaa myös luokkaasi siten, että käytät vain kahta oliomuuttujaa. Toinen sisältää maksimipainon, toinen on lista laukussa olevista tavaroista.
+
+## Raskain tavara
+
+Lisää vielä luokkaan metodi `raskain_tavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo None.
+
+Seuraavassa on luokan käyttöesimerkki:
+
+```python
+kirja = Tavara("Aapiskukko", 2)
+puhelin = Tavara("Nokia 3210", 1)
+tiiliskivi = Tavara("Tiiliskivi", 4)
+
+matkalaukku = Matkalaukku(10)
+matkalaukku.lisaa_tavara(kirja)
+matkalaukku.lisaa_tavara(puhelin)
+matkalaukku.lisaa_tavara(tiiliskivi)
+
+raskain = matkalaukku.raskain_tavara()
+print(f"Raskain tavara: {raskain}")
+```
+
+Ohjelman tulostuksen tulisi olla seuraava:
+
+<sample-output>
+
+Raskain tavara: Tiiliskivi (4 kg)
+
+</sample-output>
+
+## Lastiruuma-luokka
+
+Tee luokka Lastiruuma, johon liittyvät seuraavat metodit:
+
+- konstruktori, jolle annetaan maksimipaino
+- metodi `lisaa_matkalaukku(self, laukku)`, joka lisää parametrina annetun matkalaukun lastiruumaan
+- metodi `__repr__`, joka palauttaa merkkijonon muotoa "x matkalaukkua (y kg)"
+
+Luokan tulee valvoa, että sen matkalaukkujen yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi uuden matkalaukun vuoksi, metodi `lisaa_matkalaukku` ei saa lisätä uutta matkalaukkua.
+
+Seuraavassa on luokan käyttöesimerkki:
+
+```python
+kirja = Tavara("Aapiskukko", 2)
+puhelin = Tavara("Nokia 3210", 1)
+tiiliskivi = Tavara("tiiliskivi", 4)
+
+adan_laukku = Matkalaukku(10)
+adan_laukku.lisaa_tavara(kirja)
+adan_laukku.lisaa_tavara(puhelin)
+
+pekan_laukku = Matkalaukku(10)
+pekan_laukku.lisaa_tavara(tiiliskivi)
+
+lastiruuma = Lastiruuma(1000)
+lastiruuma.lisaa_matkalaukku(adan_laukku)
+lastiruuma.lisaa_matkalaukku(pekan_laukku)
+
+print(lastiruuma)
+```
+
+<sample-output>
+
+2 matkalaukkua (7 kg)
+
+</sample-output>
+
+## Lastiruuman sisältö
+
+Lisää luokkaan metodi `tulosta_tavarat()`, joka tulostaa kaikki lastiruuman matkalaukuissa olevat tavarat.
+
+Seuraavassa on luokan käyttöesimerkki:
+
+```python
+kirja = Tavara("Aapiskukko", 2)
+puhelin = Tavara("Nokia 3210", 1)
+tiiliskivi = Tavara("tiiliskivi", 4)
+
+adan_laukku = Matkalaukku(10)
+adan_laukku.lisaa_tavara(kirja)
+adan_laukku.lisaa_tavara(puhelin)
+
+pekan_laukku = Matkalaukku(10)
+pekan_laukku.lisaa_tavara(tiiliskivi)
+
+lastiruuma = Lastiruuma(1000)
+lastiruuma.lisaa_matkalaukku(adan_laukku)
+lastiruuma.lisaa_matkalaukku(pekan_laukku)
+
+print("Ruuman matkalaukuissa on seuraavat tavarat:")
+lastiruuma.tulosta_tavarat()
+```
+
+Ohjelman tulostuksen tulisi olla seuraava:
+
+
+<sample-output>
+
+Ruuman matkalaukuissa on seuraavat tavarat:
+Aapiskukko (2 kg)
+Nokia 3210 (1 kg)
+tiiliskivi (4 kg)
+
+</sample-output>
+
+</programming-exercise>
+
