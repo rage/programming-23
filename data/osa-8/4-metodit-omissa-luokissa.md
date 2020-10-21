@@ -260,6 +260,7 @@ Tee laskurille metodi `nollaa()` joka nollaa laskurin arvon, esim:
 laskuri = VahenevaLaskuri(100)
 laskuri.tulosta_arvo()
 laskuri.nollaa()
+laskuri.tulosta_arvo()
 ```
 
 <sample-output>
