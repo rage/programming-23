@@ -61,7 +61,7 @@ Pisteitä yhteensä: 20
 
 </sample-output>
 
-<programming-exercise name='Nopein auto' tmcname='osa09-xx_nopein_auto'>
+<programming-exercise name='Nopein auto' tmcname='osa09-01_nopein_auto'>
 
 Tehtäväpohjassa oleva luokka `Auto` mallintaa autoa kahden attribuutin avulla: `merkki (str)` ja `huippunopeus (int)`.
 
@@ -90,7 +90,7 @@ Ferrari
 
 </programming-exercise>
 
-<programming-exercise name='Hyväksytyt suoritukset' tmcname='osa09-xx_hyvaksytyt_suoritukset'>
+<programming-exercise name='Hyväksytyt suoritukset' tmcname='osa09-02_hyvaksytyt_suoritukset'>
 
 Tehtäväpohjasta löytyy luokka `Koesuoritus`, joka mallintaa nimensä mukaisesti koesuoritusta. Sillä on kaksi attribuuttia, `suorittaja (str)` ja `pisteet (int)`.
 
@@ -404,7 +404,7 @@ laite: hurjakuru, kävijöitä 1
 
 </sample-output>
 
-<programming-exercise name='Kasvatuslaitos' tmcname='osa09-02_kasvatuslaitos'>
+<programming-exercise name='Kasvatuslaitos' tmcname='osa09-03_kasvatuslaitos'>
 
 Tehtäväpohjassasi on valmiina jo luokka `Henkilo` sekä runko luokalle `Kasvatuslaitos`. Kasvatuslaitosoliot käsittelevät ihmisiä eri tavalla, esim. punnitsevat ja syöttävät ihmisiä. Rakennamme tässä tehtävässä kasvatuslaitoksen. Luokan `Henkilo` koodiin ei tehtävässä ole tarkoitus koskea!
 
@@ -414,8 +414,7 @@ Kasvatuslaitoksen luokkarungossa on valmiina runko metodille punnitse:
 
 ```python
 class Kasvatuslaitos:
-
-    punnitse(self, henkilo: Henkilo ) {
+    def punnitse(self, henkilo: Henkilo):
         # palautetaan parametrina annetun henkilön paino
         return -1
 ```
@@ -488,19 +487,19 @@ haagan_neuvola = Kasvatuslaitos()
 eero = Henkilo("Eero", 1, 110, 7)
 pekka = Henkilo("Pekka", 33, 176, 85)
 
-print(f"punnituksia tehty {haagan_neuvola.punnitukset}")
+print(f"punnituksia tehty {haagan_neuvola.punnitukset()}")
 
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 
-print(f"punnituksia tehty {haagan_neuvola.punnitukset}")
+print(f"punnituksia tehty {haagan_neuvola.punnitukset()}")
 
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 
-print(f"punnituksia tehty {haagan_neuvola.punnitukset}")
+print(f"punnituksia tehty {haagan_neuvola.punnitukset()}")
 ```
 
 <sample-output>
@@ -513,7 +512,7 @@ punnituksia tehty 6
 
 </programming-exercise>
 
-<programming-exercise name='Maksukortti ja kassapääte' tmcname='osa09-03_maksukortti_ja_kassapaate'>
+<programming-exercise name='Maksukortti ja kassapääte' tmcname='osa09-04_maksukortti_ja_kassapaate'>
 
 Teimme edellisessä osassa luokan Maksukortti. Kortilla oli metodit edullisesti ja maukkaasti syömistä sekä rahan lataamista varten.
 
@@ -533,7 +532,6 @@ class Maksukortti:
     def lataa_rahaa(self, lisays: float):
         self.saldo += lisays
 
-
     def ota_rahaa(self, maara: float):
         pass
         # toteuta metodi siten että se ottaa kortilta rahaa vain jos saldo on vähintään maara
@@ -543,14 +541,15 @@ class Maksukortti:
 Testipääohjelma:
 
 ```python
-kortti = Maksukortti(10)
-print("rahaa", kortti.saldo())
-onnistuiko = kortti.ota_rahaa(8)
-print("onnistuiko otto:" ,onnistuiko)
-print("rahaa", kortti.saldo())
-onnistuiko = kortti.ota_rahaa(4)
-print("onnistuiko otto:" ,onnistuiko)
-print("rahaa", kortti.saldo())
+if __name__ == "__main__":
+    kortti = Maksukortti(10)
+    print("rahaa", kortti.saldo
+    onnistuiko = kortti.ota_rahaa(8)
+    print("onnistuiko otto:" ,onnistuiko)
+    print("rahaa", kortti.saldo
+    onnistuiko = kortti.ota_rahaa(4)
+    print("onnistuiko otto:" ,onnistuiko)
+    print("rahaa", kortti.saldo)
 ```
 
 <sample-output>
@@ -571,7 +570,7 @@ Kassapäätteen runko. Metodien kommentit kertovat halutun toiminnallisuuden:
 
 ```python
 class Kassapaate:
-    __init__(self):
+    def __init__(self):
         # kassassa on aluksi 1000 euroa rahaa
         self.rahaa = 1000
         self.edulliset = 0
@@ -822,7 +821,7 @@ def vanhempi_kuin(self, toinen: Henkilo):
 
 
 
-<programming-exercise name='Asuntovertailu' tmcname='osa09-04_asuntovertailu'>
+<programming-exercise name='Asuntovertailu' tmcname='osa09-05_asuntovertailu'>
 
 Asuntovälitystoimiston tietojärjestelmässä kuvataan myynnissä olevaa asuntoa seuraavasta luokasta tehdyillä olioilla:
 
