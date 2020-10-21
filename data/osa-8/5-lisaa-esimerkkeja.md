@@ -226,10 +226,10 @@ print(kello)
 23:59:59
 00:00:00
 00:00:01
-12:05:01
+12:05:00
 </sample-output>
 
-Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. Metodi `tick` vie kelloa sekunnin eteenpäin ja metodilla `aseta` voi asettaa kellon tunneille ja minuuteille uuden arvon.
+Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. Metodi `tick` vie kelloa sekunnin eteenpäin ja metodilla `aseta` voi asettaa kellon tunneille ja minuuteille uuden arvon ja _nollaa sekunnit_.
 
 </programming-exercise>
 
