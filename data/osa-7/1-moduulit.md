@@ -16,7 +16,7 @@ Tämän osion jälkeen
 
 ## Debugging revisited
 
-Kurssilla on jo moneen otteeseen puhuttu erilaisista debuggausmenetelmistä.[Visualisaattori](http://www.pythontutor.com/visualize.html#mode=edit) on jo monille tuttu ja vanha kunnon [debuggaustulostus](osa-2/1-ohjelmoinnin-termeja#debuggaaminen) toimii aina. Visual studio coden [debuggeriakin](/osa-4/1-vscode#debuggeri) monet ovat jo kokeilleet. Debuggerilla voi olla vaikeuksia selvitä tiedostoja käsittelevästä koodista, mutta siihenkin on olemassa [lääke](/osa-6/1-tiedostojen-lukeminen#tiedostoja-lukevan-koodin-debuggaus).
+Kurssilla on jo moneen otteeseen puhuttu erilaisista debuggausmenetelmistä. [Visualisaattori](http://www.pythontutor.com/visualize.html#mode=edit) on jo monille tuttu ja vanha kunnon [debuggaustulostus](osa-2/1-ohjelmoinnin-termeja#debuggaaminen) toimii aina. Visual Studio Coden [debuggeriakin](/osa-4/1-vscode#debuggeri) monet ovat jo kokeilleet. Debuggerilla voi olla vaikeuksia selvitä tiedostoja käsittelevästä koodista, mutta siihenkin on olemassa [lääke](/osa-6/1-tiedostojen-lukeminen#tiedostoja-lukevan-koodin-debuggaus).
 
 Pythonin versio 3.7 tarjoaa vielä yhden erittäin helppokäyttöisen tavan debuggaukseen, komennon [breakpoint()](https://docs.python.org/3/library/functions.html?highlight=breakpoint#breakpoint).
 
@@ -24,11 +24,11 @@ Voit lisätä komennon mihin kohtaan tahansa ohjelmaasi, ja kun suoritat ohjelma
 
 <img src="7_1_1.png">
 
-Kun koodi pysähtyy breakpoint()-komentoon, avautuu samalla konsolinäkymä, mihin on mahdollista kirjoittaa mitä tahansa koodia ja kokeilla miten se toimisi ohjelman kyseisessä kohdassa.
+Kun koodi pysähtyy breakpoint()-komentoon, avautuu samalla konsolinäkymä, johon on mahdollista kirjoittaa mitä tahansa koodia ja kokeilla miten se toimisi ohjelman kyseisessä kohdassa.
 
-Komento on erityisen kätevä jos ohjelmasi joku rivi aiheuttaa virheen ja et ole ihan varma mistä virhe johtuu. Näissä tilanteissa kannattaa laittaa breakpoint-kutsu juuri ennen virheellistä riviä. Sen jälkeen on debuggerin konsolissa helppo kokeilla mikä olisi oikea komento juuri siinä kohtaa suoritettavaksi.
+Komento on erityisen kätevä jos ohjelmasi jokin rivi aiheuttaa virheen, etkä ole ihan varma mistä virhe johtuu. Näissä tilanteissa kannattaa laittaa breakpoint-kutsu juuri ennen virheellistä riviä. Sen jälkeen on debuggerin konsolissa helppo kokeilla, mikä olisi oikea komento juuri siinä kohtaa suoritettavaksi.
 
-Koodin suoritusta on myös mahdollista jatkaa pysähtymisen jälkeen. Esimerkiksi konsoliin annettu komento _continue_ tai sen lyhennetty versio _c_ jatkaa suoritusta seuraavaan breakpointiin asti. Seuraavassa esimerkki siitä kun silmukaa käydään läpi muutamaan kertaan:
+Koodin suoritusta on myös mahdollista jatkaa pysähtymisen jälkeen. Esimerkiksi konsoliin annettu komento _continue_ tai sen lyhennetty versio _c_ jatkaa suoritusta seuraavaan breakpointiin asti. Seuraavassa esimerkki siitä, kun silmukkaa käydään läpi muutamaan kertaan:
 
 <img src="7_1_2.png">
 
@@ -42,9 +42,9 @@ Kun lopetat debuggaamisen, muista poistaa koodista komento `breakpoint()`!
 
 ## Moduulin käyttäminen
 
-Python-kieli sisältää itsessään joukon valmiita funktioita, esimerkiksi merkkijonojen ja listojen pituuden kertovan funktion `len`, alkioiden summan laskevan funktion `sum`. Python-kielen _standardikirjasto_ on kokoelma monenlaisia hyödyllisiä funktioita ja olioita joiden avulla kielen "ilmaisuvoimaa" on helppo laajentaa. Olemme jo käyttäneet muutamassa tehtävässä standardikirjastosta joitain matemaattisia operaatioita tarjoavia funktioita esim. neliöjuurten laskemisessa.
+Python-kieli sisältää itsessään joukon valmiita funktioita, esimerkiksi merkkijonojen ja listojen pituuden kertovan funktion `len` sekä alkioiden summan laskevan funktion `sum`. Python-kielen _standardikirjasto_ on kokoelma monenlaisia hyödyllisiä funktioita ja olioita joiden avulla kielen "ilmaisuvoimaa" on helppo laajentaa. Olemme jo käyttäneet muutamassa tehtävässä standardikirjastosta eräitä matemaattisia operaatioita tarjoavia funktioita esim. neliöjuurten laskemisessa.
 
-Standardikirjasto muodostuu _moduuleista_, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme tekemään myös moduulin itse.
+Standardikirjasto muodostuu _moduuleista_, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme myös tekemään moduulin itse.
 
 Komento `import` ottaa käyttöön halutun moduulin. Tarkastellaan esimerkkinä moduulia `math`, jossa on matemaattisia funktioita. Seuraava koodi laskee luvun neliöjuuren funktiolla `sqrt` ja logaritmin funktiolla `log`
 
@@ -159,7 +159,7 @@ TmontestiToimiikomit
 
 <programming-exercise name='Murtoluvuilla laskeminen' tmcname='osa07-03_murtoluvuilla_laskeminen'>
 
-Tutustu Pythonin moduuliin `fractions` ja toteuta sen avulla funktio `jaa_palasiksi(maara: int)`, joka saa parametrikseen palasien määrän. Funktio jakaa luvun 1 parametrin mukaisesti yhtä suuriin murtolukupalasiin ja palauttaa nämä palaset listassa.
+Tutustu Pythonin moduuliin `fractions` ja toteuta sen avulla funktio `jaa_palasiksi(maara: int)`, joka saa parametrikseen palasten määrän. Funktio jakaa luvun 1 parametrin mukaisesti yhtä suuriin murtolukupalasiin ja palauttaa nämä palaset listassa.
 
 Esimerkki:
 
