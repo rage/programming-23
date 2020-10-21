@@ -318,7 +318,7 @@ Muodostamisen jälkeen funktio palauttaa olion.
 Esimerkki funktion kutsumisesta:
 
 ```python
-musti = uusi_lemmikki("Musti", "koira", 2017))
+musti = uusi_lemmikki("Musti", "koira", 2017)
 print(musti.nimi)
 print(musti.laji)
 print(musti.syntymavuosi)
