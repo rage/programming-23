@@ -336,7 +336,7 @@ koira
 
 <programming-exercise name='Vanhempi kirja' tmcname='osa08-08_vanhempi_kirja'>
 
-Tee funktio `vanhempi(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-olioa. Funktio kertoo kumpi kirjoista on vahnmpi.
+Tee funktio `vanhempi_kirja(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-olioa. Funktio kertoo kumpi kirjoista on vahnmpi.
 
 Funktiota käytetään seuraavasti
 
