@@ -257,7 +257,7 @@ Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siin
 
 1. Luokka Muistilista
 - attribuutti otsikko (merkkijono)
-- attribuutti merkinnät (lista)
+- attribuutti merkinnat (lista)
 
 2. Luokka Asiakas
 - attribuutti tunniste (merkkijono)

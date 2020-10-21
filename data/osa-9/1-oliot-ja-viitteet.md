@@ -110,7 +110,7 @@ if __name__ == "__main__":
     s4 = Koesuoritus("Pirkko", 9)
     s5 = Koesuoritus("Petriina", 17)
 
-    hyv = hyvaksytyt_suoritukset([s1, s2, s3, s4, s5], 15)
+    hyv = hyvaksytyt([s1, s2, s3, s4, s5], 15)
     for hyvaksytty in hyv:
         print(hyvaksytty)
 ```
