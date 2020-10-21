@@ -435,7 +435,7 @@ Konstruktorissa siis asetetaan sarjan nimi, sen esityskausien lukumäärä sekä
 
 ```python
 lista = ["Crime", "Drama", "Mystery", "Thriller"]
-merkkijono = ", ",join(lista)
+merkkijono = ", ".join(lista)
 print(merkkijono)
 ```
 
