@@ -241,7 +241,7 @@ Puhelinnumero - nimi: Pertti Python, puhelinnumero: 040 111 1111, maa: ruotsi
 
 </sample-output>
 
-<programming-exercise name='Postinumerot' tmcname='osa09-xx_postinumerot'>
+<programming-exercise name='Postinumerot' tmcname='osa09-13_postinumerot'>
 
 Tehtäväpohjassa on määritelty luokka Kaupunki, joka mallintaa nimensä mukaisesti yksittäistä kaupunkia.
 
