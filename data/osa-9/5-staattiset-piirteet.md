@@ -338,11 +338,11 @@ Tämä on validi tunnus!
 
 Rekisteriotteen oikeellisuuden voi tarkistaa kutsumalla metodia (esimerkiksi `Rekisteriote.rekisteritunnus_kelpaa("xyz-789"))`) ilman että muodostaa luokasta oliota. Samaa metodia kutsutaan myös uutta oliota muodostaessa luokan konstruktorista - huomaa kuitenkin, että myös tässä kutsussa viitataan metodiin luokan nimen avulla - ei `self`-tunnisteella!
 
-<programming-exercise name='Lista-apuri' tmcname='osa09-xx_lista_apuri'>
+<programming-exercise name='Lista-apuri' tmcname='osa09-14_lista_apuri'>
 
-Kirjoita luokka ListaApuri, jonka ainoat ominaisuudet ovat seuraavat kaksi _staattista_ metodia:
+Kirjoita luokka ListaApuri, jonka ainoat ominaisuudet ovat seuraavat kaksi _staattista_ julkista metodia:
 
-* Metodi `suurin_frekvenssi(lista: list)` palauttaa alkion, jota esiintyy listassa eniten.
+* Metodi `suurin_frekvenssi(lista: list)` palauttaa alkion, jota esiintyy annetussa listassa eniten.
 * Metodi `tuplia(lista: list)`, joka palauttaa sellaisten alkioden lukumäärän, jotka esiintyvät listassa vähintään kahdesti
 
 Metodeja tulee siis voida käyttää ilman että luokasta luodaan oliota.

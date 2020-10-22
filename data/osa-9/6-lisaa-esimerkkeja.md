@@ -208,38 +208,7 @@ Opiskelija - nimi: Onerva Opiskelija, op.nro: 98765, opintopisteitä: 0, muistii
 
 Huomaa, että attribuutille opiskelijanumero ei ole määritelty asetusmetodia - ideana on, että opiskelijanumero ei voi muuttua.
 
-
-## Lisää tehtäviä
-
-<programming-exercise name='Poista tuplat' tmcname='osa09-xx_poista_tuplat'>
-
-Kirjoita funktio `poista_tuplat(lista: list)`, joka saa parametrikseen listan olioita. Oliot voivat olla minkä tyyppisiä vaan.
-
-Funktio poistaa listasta kaikki duplikaatit. Funktion suorittamisen jälkeen listassa on siis jokaiseen olioon vain yksi viittaus.
-
-Huomaa, että listassa voi olla samansisältöisiä olioita, jotka eivät kuitenkaan ole sama olio - tällöin "kaksoiskappaletta" ei pidä poistaa. Käytä siis oikeaa operaattoria vertailuun!
-
-Jos olio esiintyy listassa useamman kerran, ei ole väliä minkä kaksoiskappaleista poistat - olioiden järjestyksellä ei siis ratkaisussa ole väliä.
-
-Esimerkki funktion kutusumisesta:
-
-```python
-if __name__ == "__main__":
-    t = (1,2)
-    t2 = (1,2)
-
-    lista = [t, t, t2, (1,2,3), (2,3,4)]
-    poista_tuplat(lista)
-    print(lista)
-```
-
-<sample-output>
-
-[(1, 2), (1,2), (1, 2, 3), (2, 3, 4)]
-
-</sample-output>
-
-</programming-exercise>
+## Lisätehtävä
 
 <programming-exercise name='Tavara, Matkalaukku ja Lastiruuma' tmcname='osa09-07_tavara_matkalaukku_lastiruuma'>
 
