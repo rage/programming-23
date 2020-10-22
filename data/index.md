@@ -30,6 +30,8 @@ Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-m
 
 #### Zoom-pajan aikataulu
 
+<notice>Perjantaina 23.11 ei pidetä zoom-pajaa</notice>
+
 * Keskiviikon zoom-paja 16-18: https://helsinki.zoom.us/j/67284471929
 * Perjantain zoom-paja 12-14: https://helsinki.zoom.us/j/68443475384
 
@@ -40,8 +42,6 @@ Lisää zoom-aikoja mahdollisesti tulevaisuudessa.
 *Seuraava luento: tiistaina 13.10. klo 10.15 - [Zoom](https://helsinki.zoom.us/j/64780161075?pwd=by94UytLdGtxbHlYV3JWend1VllUUT09)*
 
 Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja deadline on seuraavan viikon torstaina.
-
-Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
 
 <table>
   <thead>
@@ -93,6 +93,41 @@ Ohjelmoinnin jatkokurssin aikataulu julkaistaan myöhemmin.
       <td>13.10.2020</td>
       <td>22.10.2020</td>
       <td><a href="https://youtu.be/fHyT49qAwkk">Luentotallenne</a></td>
+    </tr>
+    <tr>
+      <td>Osa 8</td>
+      <td>27.10.2020</td>
+      <td>5.11.2020</td>
+    </tr>
+    <tr>
+      <td>Osa 9</td>
+      <td>3.11.2020</td>
+      <td>12.11.2020</td>
+    </tr>
+    <tr>
+      <td>Osa 10</td>
+      <td>10.11.2020</td>
+      <td>19.11.2020</td>
+    </tr>
+    <tr>
+      <td>Osa 11</td>
+      <td>17.11.2020</td>
+      <td>26.11.2020</td>
+    </tr>
+    <tr>
+      <td>Osa 12</td>
+      <td>24.11.2020</td>
+      <td>3.12.2020</td>
+    </tr>
+    <tr>
+      <td>Osa 13</td>
+      <td>1.12.2020</td>
+      <td>10.12.2020</td>
+    </tr>
+    <tr>
+      <td>Osa 14</td>
+      <td>8.12.2020</td>
+      <td>17.12.2020</td>
     </tr>
   </tbody>
 </table>
