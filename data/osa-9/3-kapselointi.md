@@ -459,14 +459,15 @@ Paivakirja - omistaja: Pekka, merkinnät: Tänään söin puuroa, Tänään opet
 
 </sample-output>
 
-<programming-exercise name='Säähavaintoasema' tmcname='osa09-xx_saahavaintoasema'>
+<programming-exercise name='Säähavaintoasema' tmcname='osa09-11_havaintoasema'>
 
 Kirjoita luokka `Havaintoasema`, johon voidaan tallentaa säähavaintoja. Luokalla on seuraavat julkiset piirteet:
 
 * konstruktori, joka saa parametriksen aseman nimen
 * metodi `lisaa_havainto(havainto: str)`, joka lisää havainnon listan peräään
-* metodi `viimeisin_havainto()`, joka palauttaa viimeksi lisätyn havainnon
+* metodi `viimeisin_havainto()`, joka palauttaa viimeksi lisätyn havainnon. Jos havaintoja ei ole tehty, metodi palauttaa _tyhjän merkkijonon_.
 * metodi `havaintojen_maara()`, joka palauttaa havaintojen yhteismäärän
+* metodi `__repr__`, joka palauttaa aseman nimen ja havaintojen yhteismäärän alla olevan esimerkin mukaisessa muodossa.
 
 Luokan kaikkien attribuuttien pitää olla asiakkaalta suojattuja. Saat itse päättää luokan sisäisen toteutuksen.
 
@@ -483,6 +484,7 @@ asema.lisaa_havainto("Ukkosta")
 print(asema.viimeisin_havainto())
 
 print(asema.havaintojen_maara())
+print(asema)
 ```
 
 <sample-output>
@@ -490,6 +492,7 @@ print(asema.havaintojen_maara())
 Aurinkoista
 Ukkosta
 3
+Kumpula, 3 havaintoa
 
 </sample-output>
 
