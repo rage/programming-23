@@ -243,7 +243,19 @@ def hae_kaikki():
     # muu koodi
 ```
 
-Emme ole valitettavasti pääseet testaamaan toimiiko tämä kikka. Jos toteat sen toimivan lähetä emailia matti.luukkainen@helsinki.fi tai kerro kurssitelegramissa @mluukkai
+Toinen tapa kiertää ongelma on seuraava:
+
+ ```python
+import urllib.request
+import certifi # lisää tämä kirjasto importeihin
+import json
+
+def hae_kaikki():
+    osoite = "https://studies.cs.helsinki.fi/stats-mock/api/courses"
+    # lisätään kutsuun toinen parametri
+    pyynto = urllib.request.urlopen(osoite, cafile=certifi.where())
+    # muu koodi
+```
 
 #### yhden kurssin tiedot
 

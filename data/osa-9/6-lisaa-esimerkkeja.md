@@ -242,6 +242,13 @@ Puhelin: Nokia 3210 (1 kg)
 
 </sample-output>
 
+Luokan tulee tallettaa tieto nimestä ja painosta kapseloituna, eli seuraava ei saa onnistua:
+
+```python
+kirja = Tavara("Aapiskukko", 2)
+kirja.paino = 10
+```
+
 ## Matkalaukku-luokka
 
 Tee luokka `Matkalaukku`. Matkalaukkuun liittyy tavaroita ja maksimipaino, joka määrittelee tavaroiden suurimman mahdollisen yhteispainon.
@@ -379,6 +386,9 @@ Luokan tulee valvoa, että sen matkalaukkujen yhteispaino ei ylitä maksimipaino
 Seuraavassa on luokan käyttöesimerkki:
 
 ```python
+lastiruuma = Lastiruuma(1000)
+print(lastiruuma)
+
 kirja = Tavara("Aapiskukko", 2)
 puhelin = Tavara("Nokia 3210", 1)
 tiiliskivi = Tavara("tiiliskivi", 4)
@@ -390,16 +400,18 @@ adan_laukku.lisaa_tavara(puhelin)
 pekan_laukku = Matkalaukku(10)
 pekan_laukku.lisaa_tavara(tiiliskivi)
 
-lastiruuma = Lastiruuma(1000)
 lastiruuma.lisaa_matkalaukku(adan_laukku)
-lastiruuma.lisaa_matkalaukku(pekan_laukku)
+print(lastiruuma)
 
+lastiruuma.lisaa_matkalaukku(pekan_laukku)
 print(lastiruuma)
 ```
 
 <sample-output>
 
-2 matkalaukkua (7 kg)
+0 matkalaukkua, tilaa 1000 kg
+Yksi matkalaukku tilaa 998 kg
+2 matkalaukkua, tilaa 993 kg
 
 </sample-output>
 
