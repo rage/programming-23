@@ -181,7 +181,7 @@ Pankkikortti - numero: 123456, nimi: Reijo Rahakas saldo: 3000
 
 Saldoa ei voi suoraan muuttaa, koska attribuutti on piilotettu, mutta sitä voi käsitellä metodien `lisaa_rahaa` ja `kayta_rahaa` avulla. Metodeihin voidaan sijoittaa sopivia tarkastuksia, joilla varmistetaan, että olion sisäinen eheys säilyy: esimerkiksi rahaa ei voi käyttää enempää kuin mitä kortilla on saldoa jäljellä.
 
-<programming-exercise name='Auto' tmcname='osa09-08_auto'>
+<programming-exercise name='Auto' tmcname='osa09-09_auto'>
 
 Toteuta luokka `Auto`, autolla on _kapseloituina attribuutteina_ tieto bensatankin sisällöstä (0-60 litraa) sekä ajetuista kilometreista.
 
@@ -211,12 +211,12 @@ print(auto)
 
 <sample-output>
 
-auto: ajettu 0 km, bensaa 0 litraa
-auto: ajettu 0 km, bensaa 60 litraa
-auto: ajettu 20 km, bensaa 40 litraa
-auto: ajettu 60 km, bensaa 0 litraa
-auto: ajettu 60 km, bensaa 0 litraa
-auto: ajettu 60 km, bensaa 60 litraa
+Auto: ajettu 0 km, bensaa 0 litraa
+Auto: ajettu 0 km, bensaa 60 litraa
+Auto: ajettu 20 km, bensaa 40 litraa
+Auto: ajettu 60 km, bensaa 0 litraa
+Auto: ajettu 60 km, bensaa 0 litraa
+Auto: ajettu 60 km, bensaa 60 litraa
 
 </sample-output>
 
@@ -310,7 +310,6 @@ class Lompakko:
     def __init__(self, rahaa: float):
         self.__rahaa = rahaa
 
-
     def __repr__(self):
         return f"Lompakko - rahaa: {self.__rahaa}"
 
@@ -346,7 +345,7 @@ ValueError: Rahasumma ei saa olla negatiivinen.
 
 Huomaa, että havainnointimetodi eli `@property`-annotaatio pitää esitellä luokassa ennen asetusmetodia, muuten seuraa virhe. Tämä johtuu siitä, että `@property`-annotaatio määrittelee käytettävän "asetusattribuutin" nimen (edellisessä esimerkiksi `rahaa`), ja asetusmetodi `.setter` liittää siihen uuden toiminnallisuuden.
 
-<programming-exercise name='Äänite' tmcname='osa09-xx_aanite'>
+<programming-exercise name='Äänite' tmcname='osa09-10_aanite'>
 
 Kirjoita luokka `Aanite`, joka mallintaa yksittäistä äänitystä. Luokalla on yksi _yksityinen_ attribuutti, kokonaislukutyyppinen `pituus`.
 
@@ -356,7 +355,7 @@ Kirjoita luokalle
 * havainnointimetodi `pituus`, joka palauttaa pituuden
 * asetusmetodi, joka asettaa pituuden arvon
 
-Jos pituudeksi yritetään asettaa nollaa pienempää arvoa, tulee asetusmetodin heittä virhe `ValueError`.
+Jos pituudeksi yritetään asettaa nollaa pienempää arvoa joko konstruktorissa tai asetusmetodissa, tulee tuottaa virhe `ValueError`.
 
 </programming-exercise>
 

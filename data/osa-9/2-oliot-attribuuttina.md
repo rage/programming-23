@@ -183,7 +183,7 @@ Joukkue Kumpulan pallo, pelaajia 3. Pelaajien maalimäärät [10, 22, 1]"
 
 </sample-output>
 
-<programming-exercise name='Lahjapakkaus' tmcname='osa09-05_lahjapakkaus'>
+<programming-exercise name='Lahjapakkaus' tmcname='osa09-07_lahjapakkaus'>
 
 Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja Pakkaus sisältää lahjoja.
 
@@ -327,7 +327,7 @@ Jukkis ei pelaa Kumpulan pallossa :(
 
 <sample-output>
 
-<programming-exercise name='Henkilöt' tmcname='osa09-06_henkilot'>
+<programming-exercise name='Huoneen lyhin' tmcname='osa09-08_huoneen_lyhin'>
 
 Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä, ja jota voi käyttää henkilöiden pituusjärjestykseen asettamiseen — henkilön ottaminen huoneesta palauttaa aina lyhyimmän henkilön.
 
@@ -336,7 +336,7 @@ Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. 
 Luo luokka Huone, joka sisältää oliomuuttujana listan henkilöitä, ja jolla on seuraavat metodit:
 
 - `lisaa(henkilo: Henkilo)` lisää huoneeseen parametrina annetun henkilön.
-- `onTyhja()` - palauttaa boolean-tyyppisen arvon True tai False, joka kertoo onko huone tyhjä.
+- `on_tyhja()` - palauttaa boolean-tyyppisen arvon True tai False, joka kertoo onko huone tyhjä.
 - `tulosta_tiedot()` tulostaa huoneessa olevat henkilöt
 
 Seuraavassa käyttöesimerkki
