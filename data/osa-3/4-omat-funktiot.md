@@ -276,8 +276,8 @@ summa(5, 24)
 
 <sample-output>
 
-Parametrien summa on 3
-Parametrien summa on 29
+Parametrien 1 ja 2 summa on 3
+Parametrien 5 ja 24 summa on 29
 
 </sample-output>
 

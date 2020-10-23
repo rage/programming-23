@@ -112,9 +112,11 @@ Tarkastellaan lähemmin riviä `print(suoritus.opiskelija.nimi)`:
 * Niinpä muuttuja opiskelija viittaa suoritukseen tallennettuun `Opiskelija`-olioon
 * `Opiskelija`-luokan muuttuja `nimi` sisältää opiskelijan nimen
 
-<programming-exercise name='Lemmikit' tmcname='osa09-04_lemmikit'>
+<programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikit'>
 
-Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan Henkilo metodia `__repr__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun.
+Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan Henkilo metodia `__repr__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun alta löytyvät esimerkkitulosteen mukaisesti.
+
+Huomaa, että metodin palauttaman merkkijonon pitää olla _täsmälleen samanlainen kuin esimerkkitulosteessa esitetty_!
 
 ```python
 hulda = Lemmikki("Hulda", "sekarotuinen koira")
@@ -135,7 +137,7 @@ Leevi, kaverina Hulda, joka on sekarotuinen koira
 
 Äskeisissä esimerkeissä oliolla oli atrribuuttina yksittäinen toisen luokan olio, esim. henkilöllä on attribuuttina lemmikki-olio, opintosuorituksella attribuuttina kurssi-olio.
 
-Olio-ohjelmoinnissa törmätään erittäin usein tilanteeseen, missä oliolla on attribuuttina joukko toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
+Olio-ohjelmoinnissa törmätään erittäin usein tilanteeseen, jossa oliolla on attribuuttina joukko toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
 
 ```python
 class Pelaaja:
@@ -181,7 +183,7 @@ Joukkue Kumpulan pallo, pelaajia 3. Pelaajien maalimäärät [10, 22, 1]"
 
 </sample-output>
 
-<programming-exercise name='Lahjapakkaus' tmcname='osa09-05_lahjapakkaus'>
+<programming-exercise name='Lahjapakkaus' tmcname='osa09-07_lahjapakkaus'>
 
 Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja Pakkaus sisältää lahjoja.
 
@@ -240,9 +242,9 @@ print(paketti.yhteispaino())
 
 ## None eli viite ei mihinkään
 
-Pythonissa siis muuttujat aina _viittaavat_ johonkin olioon. On tilanteita, missä haluaisimme merkitä tilannetta, missä emme viittaa mihinkään.
+Pythonissa muuttujat siis aina _viittaavat_ johonkin olioon. On kuitenkin tilanteita, joissa haluaisimme määrittää arvon, joka ei viittaa mihinkään. Arvoa `None` käytetään esittämään tyhjää viittausta.
 
-Jos luokkaan joukkue lisättäisiin metodi, joka etsii joukkueen pelaajan, saattaisi olla luontevaa esittää paluuarvolla `None` tilanne, missä pelaajaa ei löydy:
+Jos esimerkiksi luokkaan joukkue lisättäisiin metodi, joka etsii joukkueen pelaajan, saattaisi olla luontevaa esittää paluuarvolla `None` tilanne, jossa pelaajaa ei löydy:
 
 ```python
 class Joukkue:
@@ -284,7 +286,7 @@ None
 
 </sample-output>
 
-None-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle, joka onkin None:
+`None`-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle, joka onkin None:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
@@ -325,7 +327,7 @@ Jukkis ei pelaa Kumpulan pallossa :(
 
 <sample-output>
 
-<programming-exercise name='Henkilöt' tmcname='osa09-06_henkilot'>
+<programming-exercise name='Huoneen lyhin' tmcname='osa09-08_huoneen_lyhin'>
 
 Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä, ja jota voi käyttää henkilöiden pituusjärjestykseen asettamiseen — henkilön ottaminen huoneesta palauttaa aina lyhyimmän henkilön.
 
@@ -334,7 +336,7 @@ Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. 
 Luo luokka Huone, joka sisältää oliomuuttujana listan henkilöitä, ja jolla on seuraavat metodit:
 
 - `lisaa(henkilo: Henkilo)` lisää huoneeseen parametrina annetun henkilön.
-- `onTyhja()` - palauttaa boolean-tyyppisen arvon True tai False, joka kertoo onko huone tyhjä.
+- `on_tyhja()` - palauttaa boolean-tyyppisen arvon True tai False, joka kertoo onko huone tyhjä.
 - `tulosta_tiedot()` tulostaa huoneessa olevat henkilöt
 
 Seuraavassa käyttöesimerkki
@@ -366,7 +368,7 @@ Terhi (185 cm)
 
 ## Lyhin henkilö
 
-Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, palauttaa None-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
+Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, metodi palauttaa None-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
 
 ```python
 huone = Huone()
@@ -453,235 +455,3 @@ Auli (186 cm)
 
 </programming-exercise>
 
-<programming-exercise name='Tavara, Matkalaukku ja Lastiruuma' tmcname='osa09-07_tavara_matkalaukku_lastiruuma'>
-
-Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruuma`, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita.
-
-## Tavara-luokka
-
-Tee luokka Tavara, josta muodostetut oliot vastaavat erilaisia tavaroita. Tallennettavat tiedot ovat tavaran nimi ja paino (kg).
-
-Luokan tulee toimia seuraavasti
-
-```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-
-print("Kirjan nimi:", kirja.nimi())
-print("Kirjan paino:", kirja.paino())
-
-print("Kirja:", kirja)
-print("Puhelin:", puhelin)
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-Kirjan nimi: Aapiskukko
-Kirjan paino: 2
-Kirja: Aapiskukko (2 kg)
-Puhelin: Nokia 3210 (1 kg)
-
-</sample-output>
-
-## Matkalaukku-luokka
-
-Tee luokka `Matkalaukku`. Matkalaukkuun liittyy tavaroita ja maksimipaino, joka määrittelee tavaroiden suurimman mahdollisen yhteispainon.
-
-Lisää luokkaan seuraavat:
-
-- Konstruktori, jolle annetaan maksimipaino
-- metodi `lisaa_tavara(self, tavara)`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
-- metodi `__repr__`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
-
-Luokan tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaa_tavara` ei saa lisätä uutta tavaraa laukkuun.
-
-Seuraavassa on luokan käyttöesimerkki:
-
-```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("tiiliskivi", 4)
-
-matkalaukku = Matkalaukku(5)
-print(matkalaukku)
-
-matkalaukku.lisaa_tavara(kirja)
-print(matkalaukku)
-
-matkalaukku.lisaa_tavara(puhelin)
-print(matkalaukku)
-
-matkalaukku.lisaa_tavara(tiiliskivi)
-print(matkalaukku)
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-0 tavaraa (0 kg)
-1 tavaraa (2 kg)
-2 tavaraa (3 kg)
-2 tavaraa (3 kg)
-
-</sample-output>
-
-## Kielenhuoltoa
-
-Ilmoitukset "0 tavaraa" ja "1 tavaraa" eivät ole kovin hyvää suomea — paremmat muodot olisivat "ei tavaroita" ja "1 tavara". Tee tämä muutos luokassa sijaitsevaan `__repr__`-metodiin.
-
-Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-ei tavaroita (0 kg)
-1 tavara (2 kg)
-2 tavaraa (3 kg)
-2 tavaraa (3 kg)
-
-</sample-output>
-
-## Kaikki tavarat
-
-Lisää luokkaan seuraavat metodit:
-
-- `tulosta_tavarat`, joka tulostaa kaikki matkalaukussa olevat tavarat
-- `yhteispaino`, joka palauttaa tavaroiden yhteispainon
-
-Seuraavassa on luokan käyttöesimerkki:
-
-```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("tiiliskivi", 4)
-
-matkalaukku = Matkalaukku(10)
-matkalaukku.lisaa_tavara(kirja)
-matkalaukku.lisaa_tavara(puhelin)
-matkalaukku.lisaa_tavara(tiiliskivi)
-
-print("Matkalaukussa on seuraavat tavarat:")
-matkalaukku.tulosta_tavarat()
-print(f"Yhteispaino: {matkalaukku.yhteispaino()} kg")
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-Matkalaukussa on seuraavat tavarat:
-Aapiskukko (2 kg)
-Nokia 3210 (1 kg)
-Tiiliskivi (4 kg)
-Yhteispaino: 7 kg
-
-</sample-output>
-
-Muokkaa myös luokkaasi siten, että käytät vain kahta oliomuuttujaa. Toinen sisältää maksimipainon, toinen on lista laukussa olevista tavaroista.
-
-## Raskain tavara
-
-Lisää vielä luokkaan metodi `raskain_tavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo None.
-
-Seuraavassa on luokan käyttöesimerkki:
-
-```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("Tiiliskivi", 4)
-
-matkalaukku = Matkalaukku(10)
-matkalaukku.lisaa_tavara(kirja)
-matkalaukku.lisaa_tavara(puhelin)
-matkalaukku.lisaa_tavara(tiiliskivi)
-
-raskain = matkalaukku.raskain_tavara()
-print(f"Raskain tavara: {raskain}")
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-<sample-output>
-
-Raskain tavara: Tiiliskivi (4 kg)
-
-</sample-output>
-
-## Lastiruuma-luokka
-
-Tee luokka Lastiruuma, johon liittyvät seuraavat metodit:
-
-- konstruktori, jolle annetaan maksimipaino
-- metodi `lisaa_matkalaukku(self, laukku)`, joka lisää parametrina annetun matkalaukun lastiruumaan
-- metodi `__repr__`, joka palauttaa merkkijonon muotoa "x matkalaukkua (y kg)"
-
-Luokan tulee valvoa, että sen matkalaukkujen yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi uuden matkalaukun vuoksi, metodi `lisaa_matkalaukku` ei saa lisätä uutta matkalaukkua.
-
-Seuraavassa on luokan käyttöesimerkki:
-
-```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("tiiliskivi", 4)
-
-adan_laukku = Matkalaukku(10)
-adan_laukku.lisaa_tavara(kirja)
-adan_laukku.lisaa_tavara(puhelin)
-
-pekan_laukku = Matkalaukku(10)
-pekan_laukku.lisaa_tavara(tiiliskivi)
-
-lastiruuma = Lastiruuma(1000)
-lastiruuma.lisaa_matkalaukku(adan_laukku)
-lastiruuma.lisaa_matkalaukku(pekan_laukku)
-
-print(lastiruuma)
-```
-
-<sample-output>
-
-2 matkalaukkua (7 kg)
-
-</sample-output>
-
-## Lastiruuman sisältö
-
-Lisää luokkaan metodi `tulosta_tavarat()`, joka tulostaa kaikki lastiruuman matkalaukuissa olevat tavarat.
-
-Seuraavassa on luokan käyttöesimerkki:
-
-```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("tiiliskivi", 4)
-
-adan_laukku = Matkalaukku(10)
-adan_laukku.lisaa_tavara(kirja)
-adan_laukku.lisaa_tavara(puhelin)
-
-pekan_laukku = Matkalaukku(10)
-pekan_laukku.lisaa_tavara(tiiliskivi)
-
-lastiruuma = Lastiruuma(1000)
-lastiruuma.lisaa_matkalaukku(adan_laukku)
-lastiruuma.lisaa_matkalaukku(pekan_laukku)
-
-print("Ruuman matkalaukuissa on seuraavat tavarat:")
-lastiruuma.tulosta_tavarat()
-```
-
-Ohjelman tulostuksen tulisi olla seuraava:
-
-
-<sample-output>
-
-Ruuman matkalaukuissa on seuraavat tavarat:
-Aapiskukko (2 kg)
-Nokia 3210 (1 kg)
-tiiliskivi (4 kg)
-
-</sample-output>
-
-</programming-exercise>

@@ -419,6 +419,106 @@ tulos = arvosana(pistemaara)
 print(tulos)
 ```
 
+## Tiedon välittäminen funktiosta toiseen
+
+Jos ohjelma koostuu useista funktioista, nousee esiin kysymys miten tieoa siirretään funktiosta toiseen.
+
+Seuraavassa on esimerkki ohjelmasta, joka lukee käyttäjältä joukon kokonaislukuarvoja. Sen jälkeen ohjelma tulostaa arvot ja tekee niille vielä "analyysin". Ohjelma on jaettu kolmeen erilliseen funktioon:
+
+```python
+def lue_kayttajalta(maara: int):
+    print(f"syötä {maara} lukua:")
+    luvut = []
+
+    i = maara
+    while i>0:
+        luku = int(input("anna luku: "))
+        luvut.append(luku)
+        i -= 1
+
+    return luvut
+
+def tulosta(luvut: list):
+    print("luvut ovat: ")
+    for luku in luvut:
+        print(luku)
+
+def analysoi(luvut: list):
+    ka = sum(luvut) / len(luvut)
+    return f"lukuja yhtensä {len(luvut)}, kesikarvo {ka}, pienin {min(luvut)} ja suurin {max(luvut)}"
+
+# funktioita käyttävä  "pääohjelma"
+syoteet = lue_kayttajalta(5)
+tulosta(syotteet)
+analyysin_tulos = analysoi(syotteet)
+print(analyysin_tulos)
+```
+
+Esimerkkisuoritus
+
+<sample-output>
+
+syötä 5 lukua:
+anna luku: **10**
+anna luku: **34**
+anna luku: **-32**
+anna luku: **99**
+anna luku: **-53**
+luvut ovat:
+10
+34
+-32
+99
+-53
+lukuja yhtensä 5, kesikarvo 11.6, pienin- 53 ja suurin 99
+
+</sample-output>
+
+Perusperiaatteena ohjelmassa on se, että pääohjelma "tallettaa" ohjelman käsittelemän tiedon, eli tässä tapauksessa käyttäjän syöttämät luvut muuttujassa `syoteet`.
+
+Jos lukuja on tarve käsitellä jossain funktiossa, ne välitetään sinne parametrina. Näin tapahtuu funktioissa `tulosta` ja `analysoi`.
+Jos taas funktio tuottaa tietoa, jota muut ohjelman osat tarvitsevat, palautta funktio datan returnilla. Näin tekevät käyttäjän syötteen lukeva funktio `lue_kayttajalta` sekä analyysin tekevä funktio `analysoi`.
+
+Olisi periaatteessa mahdollista, että funktiot käyttäisivät suoraan "pääohjelman" globaalia muuttujaa `syoteet`. Se [ei kuitenkaan ole ollenkaan järkevää](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil), sillä jos usea funktio pääsee sorkkimaan globaalia muuttujaa, voi ohjelmassa alkaa tapahtua jotain hallitsematonta, varsinkin kun funktioiden määrä kasvaa.
+
+Tiedon välitys funktioihin ja niistä ulos on siis järkevintä hoitaa parametrien ja paluuarvojen avulla.
+
+Jos haluaisimme tehdä edellisen esimerkin ohjelman siten, että sen "pääohjelma" eriytettäisiin omaan funktioon `main`, siirrettäisiin ohjelman käsittelmä data pääohjelmaa edustavan funktion sisäiseksi muuttujaksi:
+
+```python
+def lue_kayttajalta(maara: int):
+    print(f"syötä {maara} lukua:")
+    luvut = []
+
+    i = maara
+    while i>0:
+        luku = int(input("anna luku: "))
+        luvut.append(luku)
+        i -= 1
+
+    return luvut
+
+def tulosta(luvut: list):
+    print("luvut ovat: ")
+    for luku in luvut:
+        print(luku)
+
+def analysoi(luvut: list):
+    ka = sum(luvut) / len(luvut)
+    return f"lukuja yhtensä {len(luvut)} kesikarvo {ka} pienin{min(luvut)} ja suurin {max(luvut)}"
+
+# pääohjelmaa edustava funktio
+def main():
+    syoteet = lue_kayttajalta(5)
+    tulosta(syotteet)
+    analyysin_tulos = analysoi(syotteet)
+
+    print(analyysin_tulos)
+
+# ohjelman käynnistys
+main()
+```
+
 <programming-exercise name='Arvosanatilasto' tmcname='osa04-26_arvosanatilasto'>
 
 Tässä tehtävässä toteutetaan ohjelma kurssin arvosanatilastojen tulostamiseen.

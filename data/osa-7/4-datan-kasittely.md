@@ -206,11 +206,56 @@ Jokainen tuple siis sisältää seuraavat arvot:
 - vuosi (`year`)
 - harjoitusten (`exercises`) yhteenlaskettu määrä
 
-*Huom*: Kun suoritat testejä, huolehdi, että pääohjelmassa ei kutsuta toteuttamaasi funktiota!
 
-*Huom2*: Tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
+*Huom*: Tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
 
-*Huom3:* Testeissä käytetään myös ovelaa kikkaa, joka hieman muuttaa internetistä tulevaa dataa ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
+*Huom2:* Testeissä käytetään myös ovelaa kikkaa, joka hieman muuttaa internetistä tulevaa dataa ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
+
+*Huom3:* Jotkut Mac-käyttäjät ovat törmänneet tehtävässä seuraavaan ongelmaan:
+
+```sh
+File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1353, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1124)>
+```
+
+Ongelman ratkaisutapa riippuu siitä miten python on asennettu koneellesi. Joissain tapauksissa toimii seuraava:
+
+```sh
+cd "/Applications/Python 3.8/"
+sudo "./Install Certificates.command
+```
+
+Huomaa, että cd-komennon polku riippuu käyttämästäsi Pythonin versiosta. Se voi olla myös "/Applications/Python 3.8/".
+
+[Täällä](https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error) on ehdotettu useita erilaisia ratkaisuja ongelmaan.
+
+Eräs kikka jota voit kokeilla, on seuraava:
+
+```python
+import urllib.request
+import json
+import ssl # lisää tämä kirjasto importeihin
+
+def hae_kaikki():
+    # ja tämä rivi funktioiden alkuun
+    context = ssl._create_unverified_context()
+    # muu koodi
+```
+
+Toinen tapa kiertää ongelma on seuraava:
+
+ ```python
+import urllib.request
+import certifi # lisää tämä kirjasto importeihin
+import json
+
+def hae_kaikki():
+    osoite = "https://studies.cs.helsinki.fi/stats-mock/api/courses"
+    # lisätään kutsuun toinen parametri
+    pyynto = urllib.request.urlopen(osoite, cafile=certifi.where())
+    # muu koodi
+```
 
 #### yhden kurssin tiedot
 
@@ -271,7 +316,7 @@ jarmo;2;10;19:15
 jne...
 ```
 
-Tehtäväsi on etsiä ne opiskelijat, jotka ovat käyttäneet tenttiin yli 3 tuntia aikaa, eli opiskelijat, joiden _jonkin_ tehtävän palautus on tehty yli 3 tuntia tentin aloitusajasta. Voit olettaa, että kaikki ajat ovat saman vuorokauden puolella.
+Tehtäväsi on etsiä ne opiskelijat, jotka ovat käyttäneet tenttiin yli 3 tuntia aikaa, eli opiskelijat, joiden _jonkin_ tehtävän palautus on tehty yli 3 tuntia tentin aloitusajasta. Palautuksia voi siis olla useampi. Voit olettaa, että kaikki ajat ovat saman vuorokauden puolella.
 
 Kirjoita funktio `huijarit()`, joka palauttaa listan huijanneiden opiskelijoiden käyttäjätunnuksista.
 
@@ -335,7 +380,7 @@ usefull: usefully, useful, museful
 
 Korjausehdotukset etsitään standardikirjaston moduulin [difflib](https://docs.python.org/3/library/difflib.html) tarjoaman funktion [get\_close\_matches](https://docs.python.org/3/library/difflib.html#difflib.get_close_matches) avulla.
 
-*Huom*: jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria, eli virheellinen sana sekä lista oikeista sanoista.
+*Huom*: jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria: virheellinen sana ja lista oikeista sanoista.
 
 </programming-exercise>
 

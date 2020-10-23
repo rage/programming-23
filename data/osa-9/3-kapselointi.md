@@ -19,7 +19,7 @@ Olio-ohjelmoinnissa asiakkaalla tarkoitetaan luokkaa tai siitä muodostettuja ol
 1) asiakkaan kannalta luokan ja olioiden käyttö on mahdollisimman yksinkertaista ja
 2) olion _sisäinen eheys_ säilyy joka tilanteessa.
 
-Sisäisellä eheydellä tarkoitetaan, että olion _tila_ (eli käytännössä olion attribuuttien arvot) pysyy koko ajan hyväksyttävänä. Virheellinen tila olisi esimerkiksi sellainen, jossa päivämäärää esittävälle oliolle annetaan kuukauden numeroksi 13, tai opiskelijaa esittävälle oliolle opintopistemääräksi negatiivinen luku.
+Sisäisellä eheydellä tarkoitetaan, että olion _tila_ (eli käytännössä olion attribuuttien arvot) pysyy koko ajan hyväksyttävänä. Virheellinen tila olisi esimerkiksi sellainen, jossa päivämäärää esittävälle oliolle kuukauden numero on 13, tai opiskelijaa esittävällä oliolla opintopistemäärä on negatiivinen luku.
 
 Tarkastellaan esimerkkinä luokkaa Opiskelija:
 
@@ -181,7 +181,7 @@ Pankkikortti - numero: 123456, nimi: Reijo Rahakas saldo: 3000
 
 Saldoa ei voi suoraan muuttaa, koska attribuutti on piilotettu, mutta sitä voi käsitellä metodien `lisaa_rahaa` ja `kayta_rahaa` avulla. Metodeihin voidaan sijoittaa sopivia tarkastuksia, joilla varmistetaan, että olion sisäinen eheys säilyy: esimerkiksi rahaa ei voi käyttää enempää kuin mitä kortilla on saldoa jäljellä.
 
-<programming-exercise name='Auto' tmcname='osa09-08_auto'>
+<programming-exercise name='Auto' tmcname='osa09-09_auto'>
 
 Toteuta luokka `Auto`, autolla on _kapseloituina attribuutteina_ tieto bensatankin sisällöstä (0-60 litraa) sekä ajetuista kilometreista.
 
@@ -211,12 +211,12 @@ print(auto)
 
 <sample-output>
 
-auto: ajettu 0 km, bensaa 0 litraa
-auto: ajettu 0 km, bensaa 60 litraa
-auto: ajettu 20 km, bensaa 40 litraa
-auto: ajettu 60 km, bensaa 0 litraa
-auto: ajettu 60 km, bensaa 0 litraa
-auto: ajettu 60 km, bensaa 60 litraa
+Auto: ajettu 0 km, bensaa 0 litraa
+Auto: ajettu 0 km, bensaa 60 litraa
+Auto: ajettu 20 km, bensaa 40 litraa
+Auto: ajettu 60 km, bensaa 0 litraa
+Auto: ajettu 60 km, bensaa 0 litraa
+Auto: ajettu 60 km, bensaa 60 litraa
 
 </sample-output>
 
@@ -228,7 +228,7 @@ auto: ajettu 60 km, bensaa 60 litraa
 
 Python tarjoaa myös suoraviivaisemman syntaksin attribuuttien asettamiselle ja havainnoimiselle. Näissä käytetään niinsanottuja asetus- ja havainnointimetodeita.
 
-Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa attribuutti on suojattu:
+Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa attribuutti `rahaa` on suojattu asiakkailta:
 
 ```python
 
@@ -310,7 +310,6 @@ class Lompakko:
     def __init__(self, rahaa: float):
         self.__rahaa = rahaa
 
-
     def __repr__(self):
         return f"Lompakko - rahaa: {self.__rahaa}"
 
@@ -345,6 +344,20 @@ ValueError: Rahasumma ei saa olla negatiivinen.
 </sample-output>
 
 Huomaa, että havainnointimetodi eli `@property`-annotaatio pitää esitellä luokassa ennen asetusmetodia, muuten seuraa virhe. Tämä johtuu siitä, että `@property`-annotaatio määrittelee käytettävän "asetusattribuutin" nimen (edellisessä esimerkiksi `rahaa`), ja asetusmetodi `.setter` liittää siihen uuden toiminnallisuuden.
+
+<programming-exercise name='Äänite' tmcname='osa09-10_aanite'>
+
+Kirjoita luokka `Aanite`, joka mallintaa yksittäistä äänitystä. Luokalla on yksi _yksityinen_ attribuutti, kokonaislukutyyppinen `pituus`.
+
+Kirjoita luokalle
+
+* konstruktori, joka saa parametrikseen pituuden
+* havainnointimetodi `pituus`, joka palauttaa pituuden
+* asetusmetodi, joka asettaa pituuden arvon
+
+Jos pituudeksi yritetään asettaa nollaa pienempää arvoa joko konstruktorissa tai asetusmetodissa, tulee tuottaa virhe `ValueError`.
+
+</programming-exercise>
 
 Katsotaan vielä esimerkki luokasta, jolla on kaksi suojattua attribuuttia ja molemmille havainnointi- ja asetusmetodit:
 
@@ -445,3 +458,42 @@ if __name__ == "__main__":
 Paivakirja - omistaja: Pekka, merkinnät: Tänään söin puuroa, Tänään opettelin olio-ohjelmointia, Tänään menin ajoissa nukkumaan
 
 </sample-output>
+
+<programming-exercise name='Säähavaintoasema' tmcname='osa09-11_havaintoasema'>
+
+Kirjoita luokka `Havaintoasema`, johon voidaan tallentaa säähavaintoja. Luokalla on seuraavat julkiset piirteet:
+
+* konstruktori, joka saa parametriksen aseman nimen
+* metodi `lisaa_havainto(havainto: str)`, joka lisää havainnon listan peräään
+* metodi `viimeisin_havainto()`, joka palauttaa viimeksi lisätyn havainnon. Jos havaintoja ei ole tehty, metodi palauttaa _tyhjän merkkijonon_.
+* metodi `havaintojen_maara()`, joka palauttaa havaintojen yhteismäärän
+* metodi `__repr__`, joka palauttaa aseman nimen ja havaintojen yhteismäärän alla olevan esimerkin mukaisessa muodossa.
+
+Luokan kaikkien attribuuttien pitää olla asiakkaalta suojattuja. Saat itse päättää luokan sisäisen toteutuksen.
+
+Esimerkki luokan käytöstä:
+
+```python
+
+asema = Havaintoasema("Kumpula")
+asema.lisaa_havainto("Sadetta 10mm")
+asema.lisaa_havainto("Aurinkoista")
+print(asema.viimeisin_havainto())
+
+asema.lisaa_havainto("Ukkosta")
+print(asema.viimeisin_havainto())
+
+print(asema.havaintojen_maara())
+print(asema)
+```
+
+<sample-output>
+
+Aurinkoista
+Ukkosta
+3
+Kumpula, 3 havaintoa
+
+</sample-output>
+
+</programming-exercise>

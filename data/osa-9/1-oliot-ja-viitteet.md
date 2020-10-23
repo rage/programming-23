@@ -49,15 +49,103 @@ if __name__ == "__main__":
         pisteet += suoritus.opintopisteet
 
     print("Pisteitä yhteensä:", pisteet)
-
-
 ```
+
+<sample-output>
+
+Matematiikka 1
+Ohjelmointi 1
+Fysiikka 2
+Ohjelmointi 2
+Pisteitä yhteensä: 20
+
+</sample-output>
+
+<programming-exercise name='Nopein auto' tmcname='osa09-01_nopein_auto'>
+
+Tehtäväpohjassa oleva luokka `Auto` mallintaa autoa kahden attribuutin avulla: `merkki (str)` ja `huippunopeus (int)`.
+
+Kirjoita funktio `nopein_auto(autot: list)`, joka saa parametrikseen listan Auto-luokan olioita.
+
+Funktio palauttaa listassa olevista autoista nopeimman auton merkin. Älä muuta alkuperäistä listaa tai luokkaa Auto.
+
+Esimerkki funktion testauksesta:
+
+```python
+if __name__ == "__main__":
+    auto1 = Auto("Mersu", 195)
+    auto2 = Auto("Lada", 110)
+    auto3 = Auto("Ferrari", 280)
+    auto4 = Auto("Trabant", 85)
+
+    autot = [auto1, auto2, auto3, auto4]
+    print(nopein_auto(autot))
+```
+
+<sample-output>
+
+Ferrari
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Hyväksytyt suoritukset' tmcname='osa09-02_hyvaksytyt_suoritukset'>
+
+Tehtäväpohjasta löytyy luokka `Koesuoritus`, joka mallintaa nimensä mukaisesti koesuoritusta. Sillä on kaksi attribuuttia, `suorittaja (str)` ja `pisteet (int)`.
+
+Kirjoita funktio `hyvaksytyt(suoritukset: list, pisteraja: int)`, joka saa parametrikseen listan koesuorituksia ja alimman hyväksytyn pistemäärän kokonaislukuna.
+
+Funktio muodostaa ja palauttaa uuden listan, johon on tallennettu ainoastaan hyväksytyt suoritukset listalta.
+
+Älä muuta alkuperäistä listaa tai luokkaa Koesuoritus!
+
+Esimerkki funktion käytöstä:
+
+```python
+if __name__ == "__main__":
+    s1 = Koesuoritus("Pekka", 12)
+    s2 = Koesuoritus("Pirjo", 19)
+    s3 = Koesuoritus("Pauli", 15)
+    s4 = Koesuoritus("Pirkko", 9)
+    s5 = Koesuoritus("Petriina", 17)
+
+    hyv = hyvaksytyt([s1, s2, s3, s4, s5], 15)
+    for hyvaksytty in hyv:
+        print(hyvaksytty)
+```
+
+<sample-output>
+
+Koesuoritus (suorittaja: Pirjo, pisteet: 19)
+Koesuoritus (suorittaja: Pauli, pisteet: 15)
+Koesuoritus (suorittaja: Petriina, pisteet: 17)
+
+</programming-exercise>
 
 Listaan ei itse asiassa oikeasti tallenneta olioita, vaan _viittauksia olioihin_. Niinpä sama olio voi esiintyä listassa useaan kertaan (eli käytännössä samaan olioon voidaan viitata useaan kertaan listassa ja sen ulkoupuolella):
 
-KUVA
+Esimerkiksi
 
-Esimerkiksi:
+```python
+class Tuote:
+    def __init__(self, nimi: int, yksikko: str):
+        self.nimi = nimi
+        self.yksikko = yksikko
+
+
+if __name__ == "__main__":
+    kauppalista = []
+    maito = Tuote("Maito", "litra")
+
+    kauppalista.append(maito)
+    kauppalista.append(maito)
+    kauppalista.append(Tuote("Kurkku", "kpl"))
+```
+
+<img src="9_1_1.png">
+
+Jos samaan olioon on useampi kuin yksi viittaus, on lopputuloksen kannalta yhdentekevää mitä viittauksista käytetään:
 
 ```python
 
@@ -110,11 +198,54 @@ Fifi
 
 Listan kaksi ensimmäistä alkiota viittaavat samaan Koira-luokan olioon kuin muuttuja `k`. Niinpä olion sisältöä voidaan muuttaa minkä tahansa näistä viittauksista avulla. Viimeinen alkio listassa on viittaus kokonaan toiseen olioon - niinpä muutokset eivät vaikuta siihen (lukuunottamatta viimeistä muokkausta, joka kohdistuu tähän olioon).
 
+Muista, että operaattorilla `is` voidaan tutkia onko kyseessä sama olio, ja operaattorilla `==` onko kyseessä samantyylinen olio.
+
+Niinpä esimerkiksi
+
+
+```python
+lista1 = [1,2,3]
+lista2 = [1,2,3]
+lista3 = lista1
+
+print(lista1 is lista2)
+print(lista1 is lista3)
+print(lista2 is lista3)
+
+print()
+
+print(lista1 == lista2)
+print(lista1 == lista3)
+print(lista2 == lista3)
+```
+
+<sample-output>
+
+False
+True
+False
+
+True
+True
+True
+
+</sample-output>
+
 Omista luokista muodostettuja olioita voi myös tallentaa esimerkiksi sanakirjaan (tai mihin tahansa tietorakenteeseen):
 
 ```python
 
-# ESIMERKKI TÄHÄN
+class Opiskelija:
+    def __init__(self, nimi: str, op: int):
+        self.nimi = nimi
+        self.op = op
+
+if __name__ == "__main__":
+    # Käytetään avaimena opiskelijanumeroa ja
+    # arvona Opiskelija-oliota
+    opiskelijat = {}
+    opiskelijat["12345"] = Opiskelija("Olli Opiskelija", 10)
+    opiskelijat["54321"] = Opiskelija("Outi Opiskelija", 67)
 
 ```
 
@@ -273,7 +404,7 @@ laite: hurjakuru, kävijöitä 1
 
 </sample-output>
 
-<programming-exercise name='Kasvatuslaitos' tmcname='osa09-02_kasvatuslaitos'>
+<programming-exercise name='Kasvatuslaitos' tmcname='osa09-03_kasvatuslaitos'>
 
 Tehtäväpohjassasi on valmiina jo luokka `Henkilo` sekä runko luokalle `Kasvatuslaitos`. Kasvatuslaitosoliot käsittelevät ihmisiä eri tavalla, esim. punnitsevat ja syöttävät ihmisiä. Rakennamme tässä tehtävässä kasvatuslaitoksen. Luokan `Henkilo` koodiin ei tehtävässä ole tarkoitus koskea!
 
@@ -283,8 +414,7 @@ Kasvatuslaitoksen luokkarungossa on valmiina runko metodille punnitse:
 
 ```python
 class Kasvatuslaitos:
-
-    punnitse(self, henkilo: Henkilo ) {
+    def punnitse(self, henkilo: Henkilo):
         # palautetaan parametrina annetun henkilön paino
         return -1
 ```
@@ -357,19 +487,19 @@ haagan_neuvola = Kasvatuslaitos()
 eero = Henkilo("Eero", 1, 110, 7)
 pekka = Henkilo("Pekka", 33, 176, 85)
 
-print(f"punnituksia tehty {haagan_neuvola.punnitukset}")
+print(f"punnituksia tehty {haagan_neuvola.punnitukset()}")
 
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 
-print(f"punnituksia tehty {haagan_neuvola.punnitukset}")
+print(f"punnituksia tehty {haagan_neuvola.punnitukset()}")
 
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 
-print(f"punnituksia tehty {haagan_neuvola.punnitukset}")
+print(f"punnituksia tehty {haagan_neuvola.punnitukset()}")
 ```
 
 <sample-output>
@@ -382,7 +512,7 @@ punnituksia tehty 6
 
 </programming-exercise>
 
-<programming-exercise name='Maksukortti ja kassapääte' tmcname='osa09-03_maksukortti_ja_kassapaate'>
+<programming-exercise name='Maksukortti ja kassapääte' tmcname='osa09-04_maksukortti_ja_kassapaate'>
 
 Teimme edellisessä osassa luokan Maksukortti. Kortilla oli metodit edullisesti ja maukkaasti syömistä sekä rahan lataamista varten.
 
@@ -402,7 +532,6 @@ class Maksukortti:
     def lataa_rahaa(self, lisays: float):
         self.saldo += lisays
 
-
     def ota_rahaa(self, maara: float):
         pass
         # toteuta metodi siten että se ottaa kortilta rahaa vain jos saldo on vähintään maara
@@ -412,14 +541,15 @@ class Maksukortti:
 Testipääohjelma:
 
 ```python
-kortti = Maksukortti(10)
-print("rahaa", kortti.saldo())
-onnistuiko = kortti.ota_rahaa(8)
-print("onnistuiko otto:" ,onnistuiko)
-print("rahaa", kortti.saldo())
-onnistuiko = kortti.ota_rahaa(4)
-print("onnistuiko otto:" ,onnistuiko)
-print("rahaa", kortti.saldo())
+if __name__ == "__main__":
+    kortti = Maksukortti(10)
+    print("rahaa", kortti.saldo
+    onnistuiko = kortti.ota_rahaa(8)
+    print("onnistuiko otto:" ,onnistuiko)
+    print("rahaa", kortti.saldo
+    onnistuiko = kortti.ota_rahaa(4)
+    print("onnistuiko otto:" ,onnistuiko)
+    print("rahaa", kortti.saldo)
 ```
 
 <sample-output>
@@ -440,7 +570,7 @@ Kassapäätteen runko. Metodien kommentit kertovat halutun toiminnallisuuden:
 
 ```python
 class Kassapaate:
-    __init__(self):
+    def __init__(self):
         # kassassa on aluksi 1000 euroa rahaa
         self.rahaa = 1000
         self.edulliset = 0
@@ -691,7 +821,7 @@ def vanhempi_kuin(self, toinen: Henkilo):
 
 
 
-<programming-exercise name='Asuntovertailu' tmcname='osa09-04_asuntovertailu'>
+<programming-exercise name='Asuntovertailu' tmcname='osa09-05_asuntovertailu'>
 
 Asuntovälitystoimiston tietojärjestelmässä kuvataan myynnissä olevaa asuntoa seuraavasta luokasta tehdyillä olioilla:
 

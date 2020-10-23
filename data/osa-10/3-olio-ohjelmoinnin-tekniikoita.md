@@ -220,7 +220,7 @@ Operaattori | Merkitys perinteisesti | Metodin nimi
 
 Lisää operaattoreita ja metodien nimien vastineita löydät helposti Googlella.
 
-Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa - esimerkiksi jakaminen on loogisesti operaatio, jota on hankala perustella useimmille luokille (mitä tulee, kun jaetaan tiedosto kolmella saati toisella tiedostolla?) Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
+Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa - esimerkiksi jakaminen on loogisesti operaatio, jota on hankala perustella useimmille luokille (mitä tulee, kun jaetaan opiskelija kolmella saati toisella opiskelijalla?) Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
 
 Tarkastellaan esimerkkinä luokkaa joka mallintaa yhtä muistiinpanoa. Kahden muistiinpanon yhdistäminen `+`-operaattorilla tuottaa uuden, yhdistetyn muistiinpanon, kun on toteutettu metodi `__add__`:
 
@@ -572,9 +572,28 @@ C-itsemän veljestä
 </sample-output>
 
 
+<programming-exercise name='Iteroitava kauppalista' tmcname='osa10_'>
 
+Tehtäväpohjassa on [osan 8 tehtävästä ](/osa-8/2-luokat-ja-oliot#programming-exercise-kauppalista) tuttu luokka `Kauoppalista`. Tee luokasta iteroitava, siten että sitä voi käyttää seuraavasti:
 
+```python
+lista = Kauppalista()
+lista.lisaa("banaanit", 10)
+lista.lisaa("omenat", 5)
+lista.lisaa("ananas", 1)
 
+for tuote in lista:
+    print(f"{tuote[0]}: {tuote[1]} kpl")
+```
 
+<sample-output>
 
+banaanit: 10 kpl
+omenat: 5 kpl
+ananas: 1 kpl
 
+</sample-output>
+
+Iteraattorin metodin `__next__` tulee palauttaa tupleja, joiden ensimmäinen alkio on tuotteen nimi ja toisen listalla olevan tuotteen lukumäärä.
+
+</programming-exercise>

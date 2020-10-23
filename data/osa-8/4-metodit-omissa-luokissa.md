@@ -184,7 +184,7 @@ print("Saldo nyt:", pekan_tili.saldo)
 
 Ongelma voidaan (ainakin osittain) ratkaista piilottamalla attribuutit asiakkaalta. Käytännön toteutukseen palataan tarkemmin ensi viikolla.
 
-<programming-exercise name='Vähenevä laskuri' tmcname='osa08-05_vaheneva_laskuri'>
+<programming-exercise name='Vähenevä laskuri' tmcname='osa08-10_vaheneva_laskuri'>
 
 Tässä tehtävässä on useampi osa. Jokainen osa vastaa yhtä tehtäväpistettä.
 
@@ -260,6 +260,7 @@ Tee laskurille metodi `nollaa()` joka nollaa laskurin arvon, esim:
 laskuri = VahenevaLaskuri(100)
 laskuri.tulosta_arvo()
 laskuri.nollaa()
+laskuri.tulosta_arvo()
 ```
 
 <sample-output>
@@ -359,9 +360,42 @@ Piia
 
 Esimerkistä huomataan, että myös olion omiin metodeihin pitää viitata `self`-määreen avulla kun niitä kutsutaan konstruktorista. Luokkiin voidaan kirjoitaa myös ns. _staattisia metodeita_, eli metodeita, jota voidaan kutsua ilman että luokasta muodostetaan oliota. Tähän palataan kuitenkin tarkemmin ensi kerralla.
 
-**TODO** arvon palauttava metodi
+<programming-exercise name="Etu- ja sukunimi" tmcname='osa08-10b_etu_ja_sukunimi'>
 
-<programming-exercise name='Lukutilasto' tmcname='osa08-07_lukutilasto'>
+Kirjoita luokka Henkilo. Henkilo-luokalla on ainoastaan yksi attribuutti, `nimi`, joka asetetaan konstruktorissa.
+
+Lisäksi luokalle tule kirjoitaa kaksi metodia:
+
+Metodi `anna_etunimi` palautta henkilön etunimen ja metodi `anna_sukunimi` vastaavasti henkilön sukunimen.
+
+Voit olettaa metodeissa, että konstruktroissa annetussa nimessä on etu- ja sukunimi eikä muita nimiä.
+
+Esimerkki luokan käytöstä
+
+```python
+if __name__ == "__main__":
+    pekka = Henkilo("Pekka Python")
+    print(pekka.anna_etunimi())
+    print(pekka.anna_sukunimi())
+
+    pauli = Henkilo("Pauli Pythonen")
+    print(pauli.anna_etunimi())
+    print(pauli.anna_sukunimi())
+```
+
+<sample-output>
+
+Pekka
+Python
+Pauli
+Pythonen
+
+</sample-output>
+
+
+</programming-exercise>
+
+<programming-exercise name='Lukutilasto' tmcname='osa08-11_lukutilasto'>
 
 Tässä tehtävässä toteutetaan olio-ohjelmointia hyödyntäen samantapainen käyttäjän syöttämiä lukuja käsittelevä ohjelma kuin ohjelmoinnin perusteiden [osan 2 lopussa](/osa-2/4-yksinkertainen-silmukka#programming-exercise-lukujen-kasittelya).
 
@@ -437,6 +471,8 @@ Ohjelmassa tulee käyttää `Lukutilasto`-oliota summan laskemiseen.
 
 HUOM: Älä muuta tässä osassa luokkaa `Lukutilasto`, vaan toteuta sitä hyödyntäen summan laskemiseen käytetty ohjelma.
 
+HUOM2: Älä kirjoita pääohjelmaa `if __name__ == "__main__"`-lohkon sisään, jotta testit toimivat!
+
 <sample-output>
 
 Anna lukuja:
@@ -456,6 +492,8 @@ Muuta edellistä ohjelmaa niin, että ohjelma laskee myös parillisten ja paritt
 
 HUOM: Älä edelleenkään muuta luokkaa `Lukutilasto` vaan määrittele ohjelmassa kolme `Lukutilasto`-oliota ja laske ensimmäisen avulla kaikkien lukujen summa ja keskiarvo, toisen avulla parillisten lukujen summa ja kolmannen avulla parittomien lukujen summa.
 
+HUOM2: Älä kirjoita pääohjelmaa `if __name__ == "__main__"`-lohkon sisään, jotta testit toimivat!
+
 Ohjelman tulee toimia seuraavasti:
 
 <sample-output>
@@ -467,10 +505,12 @@ Anna lukuja:
 **2**
 **-1**
 Summa: 13
-Keskiarvo: 4.5
+Keskiarvo: 3.25
 Parillisten summa: 8
 Parittomien summa: 5
 
 </sample-output>
+
+
 
 </programming-exercise>

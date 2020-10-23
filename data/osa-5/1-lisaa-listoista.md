@@ -86,7 +86,7 @@ Keskiarvo: 10.15
 
 ## Muistutus: globaalin muuttujan käytön sudenkuoppa
 
-Kuten olemme nähneet, funktioiden sisällä on mahdollsita määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+Kuten olemme nähneet, funktioiden sisällä on mahdollista määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
 
 Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
 
@@ -123,7 +123,7 @@ Antti
 
 Vaikka funktiota kutsutaan oikein, se tulosaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
 
-Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyäksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
+Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyväksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
 
 ```python
 def tulosta_vaarinpain(nimet: list):
@@ -144,7 +144,7 @@ if __name__ == "__main__":
 
 Nyt myös globaalin muuttujan määrittely on siirtynyt `if`-lohkoon.
 
-TMC-testit suoritetaan aina siten, että mitään `if`-lohkoon sisällä olevaa koodia ei huomioida. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista` mitä ei testejä suoritettaessa ole ollenkaan olemassa.
+TMC-testit suoritetaan aina siten, että mitään `if`-lohkon sisällä olevaa koodia ei huomioida. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista` mitä ei testejä suoritettaessa ole ollenkaan olemassa.
 
 ## Varoitus: parametrin ylikirjoittaminen ja liian aikainen return
 
@@ -172,7 +172,7 @@ def luku_listalla(luvut: lista, etsittava_luku: int):
             return False
 ```
 
-Nyt if-lauseen ehto on kunnossa. Funktossa on kuitenkin uusi ongelma, se ei näytä edelleenkään toimivan. Esim. seuraava kokeilu tuo esiin bugin:
+Nyt if-lauseen ehto on kunnossa. Funktiossa on kuitenkin uusi ongelma, se ei näytä edelleenkään toimivan. Esim. seuraava kokeilu tuo esiin bugin:
 
 ```python
 on = luku_listalla([1, 2, 3, 4], 3)
@@ -210,7 +210,7 @@ print(on)  # tulostuu True
 
 Funktio siis yrittää testata ovatko kaikki listan alkiot erisuuria. Se kuitenkin palauttaa aina arvon `True`.
 
-Ongelmana on jälleen se, että funktio vahingossa ylikirjottaa parametrinsa arvon. Funkito yrittää käyttää muuttujaa `luvut` pitämään kirjaa jo vastaan tulleista luvuista ja tämä ylikirjoittaa parametrin. Lääke ongelmaan on muuttujan uudelleennimeäminen:
+Ongelmana on jälleen se, että funktio vahingossa ylikirjottaa parametrinsa arvon. Funktio yrittää käyttää muuttujaa `luvut` pitämään kirjaa jo vastaan tulleista luvuista ja tämä ylikirjoittaa parametrin. Lääke ongelmaan on muuttujan uudelleennimeäminen:
 
 ```python
 def luvut_erisuuret(luvut: list):
@@ -407,7 +407,7 @@ def rivin_alkioiden_summa(matriisi, rivi_nro: int):
 
     return summa
 
-m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]
+m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
 
 summa = rivin_alkioiden_summa(m, 1)
 print(summa) # tulostuu 33 (saadaan laskemalla 9 + 1 + 12 + 11)
@@ -737,45 +737,4 @@ True
 
 <quiz id="06d24c0d-ef38-5175-9254-5723f33368e9"></quiz>
 
-```py
 
-def tulosta(rekisteri:dict, nimi:str):
-    if nimi in rekisteri:
-        print(f'{nimi}:')
-        suoritukset = len(rekisteri[nimi])
-        if suoritukset > 0:
-            print(f' suorituksia {suoritukset} kurssilta:')
-            summa = 0
-            for kurssi in rekisteri[nimi]:
-                for nimi, arvosana in kurssi.items():
-                    print(f'  {nimi} {arvosana}')
-                    summa += arvosana
-            ka = summa / suoritukset
-            print(f' keskiarvo {ka:.1f}')
-        else:
-            print(' ei suorituksia')
-    else:
-        print(f'ei löytynyt ketään nimellä {nimi}')
-
-
-def tulosta(rekisteri:dict, nimi:str):
-    # eka portsari
-    if not nimi in rekisteri:
-        print(f'ei löytynyt ketään nimellä {nimi}')
-        return
-
-    print(f'{nimi}:')
-    suoritukset = len(rekisteri[nimi])
-    # toinen portsari
-    if suoritukset == 0:
-        print(' ei suorituksia')
-        return
-
-    print(f' suorituksia {suoritukset} kurssilta:')
-    summa = 0
-    for kurssi in rekisteri[nimi]:
-        for nimi, arvosana in kurssi.items():
-            print(f'  {nimi} {arvosana}')
-            summa += arvosana
-    ka = summa / suoritukset
-    print(f' keskiarvo {ka:.1f}')

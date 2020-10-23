@@ -132,5 +132,39 @@ Ohjelma tulostaa esimerkiksi
 
 Yksityisiä metodeja tarvitaan yleensä harvemmin kuin yksityisiä attribuutteja. Metodi kannattaa kirjoittaa yksityiseksi, jos asiakas ei tarvitse siihen suoraa pääsyä (ja varsinkin silloin, jos on todennäköistä, että asiakas voi sotkea olion sisäisen eheyden metodia kutsumalla).
 
+<programming-exercise name='Palvelumaksu' tmcname='osa09-12_palvelumaksu'>
 
+Kirjoita luokka `Pankkitili` joka mallintaa pankkitiliä. Luokalla tulee olla
+
+* konstruktori, joka saa parametrikseen tilinomistajan (str), tilinumeron (str) ja saldon (float)
+* metodi `talleta(summa: float)`, jolla tilille voidaan tallettaa rahaa
+* metodi `nosta(summa: float)`, joka nostaa tililtä rahasumman
+* havainnointimetodi `saldo`, joka palauttaa tilin saldon
+
+Lisäki luokalla on yksityinen metodi
+
+* `__palvelumaksu()`, joka vähentää tililtä yhden prosentin rahaa. Luokassa kutsutaan tätä metodia aina, kun asiakas kutsuu jompaa kumpaa metodeista `talleta` tai `nosta`. Prosentti vähennetään aina varsinaisen operaation jälkeen (eli. esimerkiksi vasta sitten, kun rahat on talletettu).
+
+Kaikki luokan attribuutit ovat yksiyisiä.
+
+Esimerkki luokan käytöstä:
+
+```python
+tili = Pankkitili("Raimo Rahakas", "12345-6789"), 1000)
+tili.nosta(100)
+print(tili.saldo)
+tili.talleta(100)
+print(tili.saldo)
+
+```
+
+<sample-output>
+
+891.0
+981.09
+
+</sample-output>
+
+
+</programming-exercise>
 

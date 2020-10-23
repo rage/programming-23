@@ -151,9 +151,52 @@ Suorakulmio, vasen yläkulma: (5, 3), leveys: 8, korkeus: 4
 
 </sample-output>
 
-<programming-exercise name='Kello' tmcname='osa08-08_kello'>
+<programming-exercise name='Sekuntikello' tmcname='osa08-11a_sekuntikello'>
 
-Toteuta luokka `Kello`, joka toimii seuraavaan tapaan:
+Tehtäväpohjassa on mukana luokan `Sekuntikello` runko:
+
+```python
+class Sekuntikello:
+    def __init__(self):
+        self.sekunnit = 0
+        self.minuutit = 0
+```
+
+Laajenna luokkaa siten, että se toimii seuraavasti:
+
+```python
+kello = Sekuntikello()
+for i in range(0, 3600):
+    print(kello)
+    kello.tick()
+```
+
+<sample-output>
+
+00:00
+00:01
+00:02
+... tässä välissä monta riviä
+00:59
+01:00
+01:01
+... tässä välissä erittäin monta riviä
+59:58
+59:59
+00:00
+00:01
+
+</sample-output>
+
+Metodi `tick` vie siis kelloa sekunnin eteenpäin, ja sekä sekuntien että minuuttien arvo on suuruudeltaan korkeintaan 59.
+
+**Vihje:** voit metodin `tick` testailua helpottaa se, että asetat tilapäisesti konstruktorissa sekunneille ja minuuteille valmiiksi jonkin suuremman arvon kuin 0.
+
+</programming-exercise>
+
+<programming-exercise name='Kello' tmcname='osa08-12_kello'>
+
+Toteuta edellistä tehtävää laajentava luokka `Kello`, joka toimii seuraavaan tapaan:
 
 ```python
 kello = Kello(23, 59, 55)
@@ -183,14 +226,14 @@ print(kello)
 23:59:59
 00:00:00
 00:00:01
-12:05:01
+12:05:00
 </sample-output>
 
-Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. Metodi `tick` vie kelloa sekunnin eteenpäin ja metodilla `aseta` voi asettaa kellon tunneille ja minuuteille uuden arvon.
+Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. Metodi `tick` vie kelloa sekunnin eteenpäin ja metodilla `aseta` voi asettaa kellon tunneille ja minuuteille uuden arvon ja _nollaa sekunnit_.
 
 </programming-exercise>
 
-<programming-exercise name='Maksukortti' tmcname='osa08-09_maksukortti'>
+<programming-exercise name='Maksukortti' tmcname='osa08-13_maksukortti'>
 
 Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia.
 
@@ -206,7 +249,7 @@ Seuraavassa on luokan Maksukortti runko:
 
 ```python
 class  Maksukortti:
-    def __init__(self, alkusaldo):
+    def __init__(self, alkusaldo: float):
         self.saldo = alkusaldo
 
     def __repr__(self):
@@ -286,7 +329,7 @@ Eli kortin saldo ei enää vähene jos maksettaessa saldo ei ole riittävä.
 
 Lisää `Maksukortti`-luokkaan metodi lataa_rahaa
 
-Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä. Kuitenkin kortin saldo saa olla korkeintaan 150 euroa, joten jos ladattava rahamäärä ylittäisi sen, saldoksi tulisi tulla silti tasan 150 euroa.
+Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä.
 
 ```python
 kortti = Maksukortti(10)
@@ -297,10 +340,6 @@ kortti.lataa_rahaa(10)
 print(kortti)
 kortti.lataa_rahaa(200)
 print(kortti)
-
-# negatiivinen lataus ei vaikuta saldoon
-kortti.lataa_rahaa(-10)
-print(kortti)
 ```
 
 <sample-output>
@@ -308,7 +347,6 @@ print(kortti)
 Kortilla on rahaa 10.0 euroa
 Kortilla on rahaa 25.0 euroa
 Kortilla on rahaa 35.0 euroa
-Kortilla on rahaa 150.0 euroa
 Kortilla on rahaa 150.0 euroa
 
 </sample-output>
@@ -335,14 +373,14 @@ Tee pääohjelma, joka sisältää seuraavan tapahtumasarjan:
 - Luo Matin kortti. Kortin alkusaldo on 30 euroa
 - Pekka syö maukkaasti
 - Matti syö edullisesti
-- - Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- _Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)_
 - Pekka lataa rahaa 20 euroa
 - Matti syö maukkaasti
-- Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- _Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)_
 - Pekka syö edullisesti
 - Pekka syö edullisesti
 - Matti lataa rahaa 50 euroa
-Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- _Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)_
 
 Pääohjelman runko
 
@@ -359,8 +397,8 @@ Tulostuksen tulee olla seuraava
 Pekka: Kortilla on rahaa 15.4 euroa
 Matti: Kortilla on rahaa 27.4 euroa
 Pekka: Kortilla on rahaa 35.4 euroa
-Matti: Kortilla on rahaa 22.799999999999997 euroa
-Pekka: Kortilla on rahaa 30.199999999999996 euroa
+Matti: Kortilla on rahaa 22.8 euroa
+Pekka: Kortilla on rahaa 30.2 euroa
 Matti: Kortilla on rahaa 72.8 euroa
 
 </sample-output>
@@ -372,7 +410,7 @@ Matti: Kortilla on rahaa 72.8 euroa
 LISÄÄ ESIMERKKEJÄ TÄHÄN, AINAKIN PARI ERILAISTA:
 - Joku, jossa attribuuttina on lista tai dict
 
-<programming-exercise name='Sarja' tmcname='osa08-10_sarja'>
+<programming-exercise name='Sarja' tmcname='osa08-14_sarja'>
 
 ### Luokka Sarja
 
@@ -393,9 +431,23 @@ ei arvosteluja
 
 Konstruktorissa siis asetetaan sarjan nimi, sen esityskausien lukumäärä sekä lista, joka kertoo mihin genreen sarja kuuluu.
 
+**Vihje:** merkkijonotaulukko saadaan muutettua haluttuja välimerkkejä sisältäväksi merkkijonoksi metodin `join` avulla seuraavasti:
+
+```python
+lista = ["Crime", "Drama", "Mystery", "Thriller"]
+merkkijono = ", ".join(lista)
+print(merkkijono)
+```
+
+<sample-output>
+
+Crime, Drama, Mystery, Thriller
+
+</sample-output>
+
 ### Arvostelujen lisääminen
 
-Tee luokalle metodi `arvostele`, jonka avulla sarjalle voi lisätä arvosanan, joka on luku väliltä 0-5. Myös metodia `__repr__` tulee muuttaa.
+Tee luokalle metodi `arvostele(arvosana: int)`, jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0-5. Myös metodia `__repr__` tulee muuttaa.
 
 ```python
 dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
@@ -411,13 +463,7 @@ print(dexter)
 
 Dexter (8 esityskautta)
 genret: Crime, Drama, Mystery, Thriller
-arvostelujen keskiarvo 3.4 pistettä
-  5: 2
-  4: 1
-  3: 1
-  2: 0
-  1: 0
-  0: 1
+arvosteluja 5, keskiarvo 3.4 pistettä
 
 </sample-output>
 
@@ -459,4 +505,4 @@ Friends
 
 </sample-output>
 
-<programming-exercise />
+</programming-exercise>

@@ -189,7 +189,7 @@ seed(1337)
 print(randint(1, 100))
 ```
 
-Kun annamme siemenarvon itse, satunnaisuutta käyttävät funktiot antavat samat tulokset ohjelman jokaisella suorituskerralla. Kuitenkin tulokset voivat riippua käytetystä Pythonin versiosta.
+Kun annamme siemenarvon itse, satunnaisuutta käyttävät funktiot antavat samat tulokset ohjelman jokaisella suorituskerralla. Tulokset voivat kuitenkin riippua käytetystä Pythonin versiosta.
 
 <text-box variant="info" name="Aito satunnaisuus">
 
