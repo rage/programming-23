@@ -150,7 +150,7 @@ Kaikki luokan attribuutit ovat yksiyisiä.
 Esimerkki luokan käytöstä:
 
 ```python
-tili = Pankkitili("Raimo Rahakas", "12345-6789"), 1000)
+tili = Pankkitili("Raimo Rahakas", "12345-6789", 1000)
 tili.nosta(100)
 print(tili.saldo)
 tili.talleta(100)
