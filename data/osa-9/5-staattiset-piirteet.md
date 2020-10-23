@@ -20,7 +20,7 @@ Tähän mennessä olemme käsitelleen _olioiden piirteitä_ - eli oliometodeita 
 
 ## Luokkamuuttujat
 
-Niin kuin on aikaisemmin opittu, jokaisella oliolla on omat itsenäiset arvonsa attribuuteille. Attribuuttien lisäksi luokassa voidaan määritellä _luokkamuuttujia_. Luokkamuuttujalla tarkoitetaan muuttujaa, jota käytetään luokan kautta - ei luokasta muodostettujen olioiden kautta. Luokkamuuttujalla on yksi yhteinen arvo riippumatta siitä, kuinka monta oliota luokasta muodostetaan.
+Niin kuin on aikaisemmin opittu, jokaisella oliolla on omat itsenäiset arvonsa attribuuteille. Attribuuttien lisäksi luokassa voidaan määritellä _luokkamuuttujia_ (eli staattisia muuttujia). Luokkamuuttujalla tarkoitetaan muuttujaa, jota käytetään luokan kautta - ei luokasta muodostettujen olioiden kautta. Luokkamuuttujalla on yksi yhteinen arvo riippumatta siitä, kuinka monta oliota luokasta muodostetaan.
 
 Luokkamuuttujan määrittely eroaa attribuutista siinä, että se määritellään ilman `self`-aluketta. Jos luokkamuuttujaa halutaan käyttää koko luokassa (ja mahdollisesti luokan ulkopuoleltakin), se tulee määritellä metodien ulkopuolella.
 
@@ -245,7 +245,7 @@ Puhelinnumero - nimi: Pertti Python, puhelinnumero: 040 111 1111, maa: ruotsi
 
 Tehtäväpohjassa on määritelty luokka Kaupunki, joka mallintaa nimensä mukaisesti yksittäistä kaupunkia.
 
-Lisää luokkaan staattinen muuttuja postinumerot, joka viittaa sanakirjaan.
+Lisää luokkaan luokkamuuttuja (eli staattinen muuttuja) postinumerot, joka viittaa sanakirjaan.
 
 Sanakirjassa jokainen avain on kaupungin nimi ja arvo postinumero. Molemmat ovat merkkijonoja.
 
