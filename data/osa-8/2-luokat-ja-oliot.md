@@ -218,11 +218,11 @@ Tee funktio `vuodet_listaan(paivamaarat: list)`, joka saa parametrikseen listan,
 Esimerkki funktion kutsumisesta:
 
 ```python
-d1 = date(2019, 2, 3)
-d2 = date(2006, 10, 10)
-d3 = date(1993, 5, 9)
+paiva1 = date(2019, 2, 3)
+paiva2 = date(2006, 10, 10)
+paiva3 = date(1993, 5, 9)
 
-vuodet = vuodet_listaan([d1, d2, d3])
+vuodet = vuodet_listaan([paiva1, paiva2, paiva3])
 print(vuodet)
 ```
 
@@ -287,12 +287,12 @@ Huomaa, että kauppalistalla tuotteet indeksoidaan ykkösestä alkaen, ei nollas
 
 ```python
 if __name__ == "__main__":
-    l = Kauppalista()
-    l.lisaa("banaanit", 10)
-    l.lisaa("omenat", 5)
-    l.lisaa("ananas", 1)
+    lista = Kauppalista()
+    lista.lisaa("banaanit", 10)
+    lista.lisaa("omenat", 5)
+    lista.lisaa("ananas", 1)
 
-    print(tuotteita_yhteensa(l))
+    print(tuotteita_yhteensa(lista))
 ```
 
 <sample-output>
