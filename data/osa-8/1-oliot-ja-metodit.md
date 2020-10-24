@@ -169,6 +169,8 @@ Jokaisessa sanakirjaoliossa on alkiot, joihin viittaavat nämä avaimet:
 
 Funktio laskee kaikkien kilpailijoiden tulosten keskiarvot ja palauttaa sen kilpailijan, jonka keskiarvo on pienin. Funktion palautusarvona on sanakirjaolio.
 
+Voit olettaa, että vain yhdellä henkilöllä on pienin keskiarvo.
+
 Esimerkki funktion kutsumisesta:
 
 ```python
@@ -181,7 +183,7 @@ print(pienin_keskiarvo(henkilo1, henkilo2, henkilo3))
 
 <sample-output>
 
-{"nimi": "Veijo", "tulos1": 1, "tulos2": 3, "tulos3": 1}
+{'nimi': 'Veijo', 'tulos1': 3, 'tulos2': 1, 'tulos3': 1}
 
 </sample-output>
 
