@@ -19,7 +19,6 @@ Tässä osiossa
 Tarkastellaan seuraavaksi luokkaa, joka mallintaa suorakulmiota kaksiulotteisessa koordinaatistossa.
 
 ```python
-
 class Suorakulmio:
 
     # Konstruktori
@@ -30,28 +29,28 @@ class Suorakulmio:
         self.leveys = leveys
         self.korkeus = korkeus
 
-    # Metodi palauttaa neliö pinta-alan
+    # Metodi palauttaa suorakulmion pinta-alan
     def pinta_ala(self):
         return self.leveys * self.korkeus
 
-    # Metodi palauttaa neliön piirin
+    # Metodi palauttaa suorakulmion piirin
     def piiri(self):
         return self.leveys * 2 + self.korkeus * 2
 
-    # Metodi palauttaa neliön oikean alakulman koordinaatit
+    # Metodi palauttaa suorakulmion oikean alakulman koordinaatit
     def oikea_alakulma(self):
         x = self.vasen_ylakulma[0]
         y = self.vasen_ylakulma[1]
         return (x + self.leveys, y + self.korkeus)
 
-    # Metodi siirtää neliötä koordinaatistossa
+    # Metodi siirtää suorakulmiota koordinaatistossa
     def siirra(self, x_askeleet: int, y_askeleet: int):
         x = self.vasen_ylakulma[0] + x_askeleet
         y = self.vasen_ylakulma[1] + y_askeleet
         self.vasen_ylakulma = (x, y)
 
 # Testataan
-suorakulmio = Suorakulmio((1,1), 5, 3)
+suorakulmio = Suorakulmio((1, 1), 5, 3)
 print(suorakulmio.piiri())
 print(suorakulmio.pinta_ala())
 print(suorakulmio.oikea_alakulma())
@@ -59,8 +58,9 @@ print(suorakulmio.oikea_alakulma())
 suorakulmio.siirra(3, 3)
 print(suorakulmio.vasen_ylakulma) # Ei metodi, joten ei sulkuja perään
 print(suorakulmio.oikea_alakulma())
-
 ```
+
+TODO: ei ole kyllä tyylikästä, että `vasen_ylakulma` ei ole metodi mutta `oikea_alakulma` on
 
 <sample-output>
 
@@ -72,19 +72,17 @@ print(suorakulmio.oikea_alakulma())
 
 </sample-output>
 
-Suorakulmion koordinaatit on tallennettu tuplena, joka sisältää kaksi kokonaislukua (käyttötarkoituksesta riippuen voisi olla järkevää tallentaa koordinaatit myös liukulukuna). Olisi mahdollista kirjoittaa myös koordinaateille oma luokkansa, mutta tässä yhteydessä tuple on riittävän toimiva vaihtoehto. Suorakulmioluokkaa itseään on helppo laajentaa, jos tarvitaan lisää ominaisuuksia.
+Suorakulmion koordinaatit on tallennettu tuplena, joka sisältää kaksi kokonaislukua (käyttötarkoituksesta riippuen voisi olla järkevää tallentaa koordinaatit myös liukulukuna). Olisi mahdollista kirjoittaa myös koordinaateille oma luokkansa, mutta tässä yhteydessä tuple on riittävä vaihtoehto. Suorakulmioluokkaa itseään on helppo laajentaa, jos tarvitaan lisää ominaisuuksia.
 
 ## Olion tulostaminen
 
 Kun omasta luokasta luotu olio tulostetaan sellaisenaan print-lauseella, lopputulos ei (varsinkaan loppukäyttäjän kannalta) ole kovin selkeä:
 
 ``` python
-
 # Viitaten edelliseen esimerkkiin: tulosteen suorakulmio-olio
 
-sk = Suorakulmio((5, 3), 8, 4)
-print(sk)
-
+suorakulmio = Suorakulmio((5, 3), 8, 4)
+print(suorakulmio)
 ```
 
 Ohjelma tulostaa jotain seuraavankaltaista:
@@ -95,12 +93,11 @@ Ohjelma tulostaa jotain seuraavankaltaista:
 
 </sample-output>
 
-Järkevämpi tulostus oliolle voidaan määritellä kirjoittamalla luokkaan metodi `__repr__(self)`, joka palauttaa merkkijonon. Python käyttää tätä merkkijonoa automaattisesti tulostuslauseesa. Ideana on, että metodilla voidaan palautta merkkijono joka esittää olion _tilan_ sellaisessa muodossa, että käyttäjän on helppo lukea se.
+Järkevämpi tulostus oliolle voidaan määritellä kirjoittamalla luokkaan metodi `__repr__(self)`, joka palauttaa merkkijonon. Python käyttää tätä merkkijonoa automaattisesti tulostuslauseessa. Ideana on, että metodilla voidaan palauttaa merkkijono, joka esittää olion _tilan_ jossain luettavassa muodossa.
 
- Lisätään luokkaan Suorakulmio tämä metodi:
+Lisätään luokkaan Suorakulmio tämä metodi:
 
 ```python
-
 class Suorakulmio:
 
     # Konstruktori
@@ -109,40 +106,18 @@ class Suorakulmio:
         self.leveys = leveys
         self.korkeus = korkeus
 
-    # Metodi palauttaa neliö pinta-alan
-    def pinta_ala(self):
-        return self.leveys * self.korkeus
-
-    # Metodi palauttaa neliön piirin
-    def piiri(self):
-        return self.leveys * 2 + self.korkeus * 2
-
-    # Metodi palauttaa neliön oikean alakulman koordinaatit
-    def oikea_alakulma(self):
-        x = self.vasen_ylakulma[0]
-        y = self.vasen_ylakulma[1]
-        return (x + self.leveys, y + self.korkeus)
-
-    # Metodi siirtää neliötä koordinaatistossa
-    def siirra(self, x_askeleet: int, y_askeleet: int):
-        x = self.vasen_ylakulma[0] + x_askeleet
-        y = self.vasen_ylakulma[1] + y_askeleet
-        self.vasen_ylakulma = (x, y)
+    # (Luokan metodit tässä välissä)
 
     # Metodi palauttaa olion tilan merkkijonona
     def __repr__(self):
         return f"Suorakulmio, vasen yläkulma: {self.vasen_ylakulma}, leveys: {self.leveys}, korkeus: {self.korkeus}"
-
-
 ```
 
-Nyt print-lause tuottaa helpommin ymmärrettävän lopputuloksen:
+Nyt `print`-lause tuottaa luettavan lopputuloksen:
 
 ```python
-
-sk = Suorakulmio((5, 3), 8, 4)
-print(sk)
-
+suorakulmio = Suorakulmio((5, 3), 8, 4)
+print(suorakulmio)
 ```
 
 <sample-output>
@@ -166,7 +141,7 @@ Laajenna luokkaa siten, että se toimii seuraavasti:
 
 ```python
 kello = Sekuntikello()
-for i in range(0, 3600):
+for i in range(3600):
     print(kello)
     kello.tick()
 ```
@@ -327,7 +302,7 @@ Eli kortin saldo ei enää vähene jos maksettaessa saldo ei ole riittävä.
 
 ### Kortin lataaminen
 
-Lisää `Maksukortti`-luokkaan metodi lataa_rahaa
+Lisää `Maksukortti`-luokkaan metodi `lataa_rahaa`.
 
 Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä.
 
@@ -405,10 +380,48 @@ Matti: Kortilla on rahaa 72.8 euroa
 
 </programming-exercise>
 
-## Esimerkki 2: TBC
+## Esimerkki 2: Tehtävälista
 
-LISÄÄ ESIMERKKEJÄ TÄHÄN, AINAKIN PARI ERILAISTA:
-- Joku, jossa attribuuttina on lista tai dict
+Seuraava luokka `Tehtavalista` toteuttaa tehtävälistan, johon voi lisätä uuden tehtävän tietyllä prioriteetilla ja hakea seuraavaksi suoritettavan tehtävän. Muita toimintoja ovat listalla olevien tehtävien määrän hakeminen sekä listan tyhjentäminen.
+
+```python
+class Tehtavalista:
+    def __init__(self):
+        self.tehtavat = []
+
+    def lisaa(self, nimi: str, prioriteetti: int):
+        self.tehtavat.append((prioriteetti, nimi))
+
+    def hae_seuraava(self):
+        self.tehtavat.sort()
+        # Metodi pop poistaa ja palauttaa listan viimeisen alkion
+        tehtava = self.tehtavat.pop()
+        # Palautetaan tuplen jälkimmäinen osa eli tehtävän nimi
+        return tehtava[1]
+
+    def yhteensa(self):
+        return len(self.tehtavat)
+
+    def tyhjenna(self):
+        self.tehtavat = []
+
+lista = Tehtavalista()
+lista.lisaa("opiskelu", 50)
+lista.lisaa("ulkoilu", 60)
+lista.lisaa("siivous", 10)
+print(lista.yhteensa()) # 3
+print(lista.hae_seuraava()) # ulkoilu
+print(lista.yhteensa()) # 2
+lista.lisaa("treffit", 100)
+print(lista.yhteensa()) # 3
+print(lista.hae_seuraava()) # treffit
+print(lista.hae_seuraava()) # opiskelu
+print(lista.yhteensa()) # 1
+lista.tyhjenna()
+print(lista.yhteensa()) # 0
+```
+
+Tässä luokassa tehtäviä säilytetään listassa, jossa on tuplena kunkin tehtävän prioriteetti ja nimi. Prioriteetti tallennetaan ensin, jolloin tärkein tehtävä on listan lopussa listan järjestämisen jälkeen. Tämän ansiosta tehtävän saa haettua ja poistettua listalta kätevästi `pop`-metodilla.
 
 <programming-exercise name='Sarja' tmcname='osa08-14_sarja'>
 
