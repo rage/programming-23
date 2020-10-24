@@ -200,7 +200,7 @@ Funktio lisää jokaiselle matriisin riville uuden alkion, jonka arvo on rivin a
 Esimerkki funktion kutsumisesta:
 
 ```python
-matriisi = [[1,2], [3,4]]
+matriisi = [[1, 2], [3, 4]]
 rivien_summat(matriisi)
 print(matriisi)
 ```
