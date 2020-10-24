@@ -228,9 +228,9 @@ Attribuutit voivat olla siis minkä tahansa tyyppisiä – esimerkiksi edellises
 
 <programming-exercise name='Kirja' tmcname='osa08-06_kirja'>
 
-Tee luokka `Kirja`, jolla on attribuutit `nimi`, `kirjoittaja`, `genre`, `kirjoitusvuosi` sekä konstruktiori, joka alustaa muuttujat.
+Tee luokka `Kirja`, jolla on attribuutteina muuttujat `nimi`, `kirjoittaja`, `genre`, `kirjoitusvuosi` sekä konstruktori, joka alustaa muuttujat.
 
-Luokkaa käytetään seuraavasti
+Luokkaa käytetään seuraavasti:
 
 ```python
 python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
@@ -253,7 +253,7 @@ Kirjan Huipulta huipulle genre on elämänkerta
 
 Kirjoita alla pyydetyt luokat. Jokaisen luokan alle on kuvattu attribuuttien nimet ja tyypit.
 
-Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siinä järjestyksessä, kun ne on kuvauksessa annettu.
+Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siinä järjestyksessä kuin ne on kuvauksessa annettu.
 
 1. Luokka Muistilista
 - attribuutti otsikko (merkkijono)
@@ -272,11 +272,9 @@ Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siin
 
 </programming-exercise>
 
-
-
 ## Omien luokkien olioiden käyttö
 
-Omien luokkien olioiden käyttöön ei liity mitään ihmeellistä. Ne kättäytyvät esimerkiksi funktioiden parametrina ja paluuarvona kuten olettaa saattaa. Voisimme esimerkiksi tehdä pari apufunktioita tilien käsittelyyn:
+Omasta luokasta muodostetut oliot käyttäytyvät esimerkiksi funktioiden parametrina ja paluuarvona samalla tavalla kuin muutkin oliot. Voisimme esimerkiksi tehdä pari apufunktiota tilien käsittelyyn:
 
 ```python
 
@@ -311,7 +309,7 @@ Määrittele luokka `Lemmikki`.
 
 Luokalla on konstruktori, jossa annetaan arvot attribuuteille `nimi`, `laji` ja `syntymavuosi` tässä järjestyksessä.
 
-Kirjoita sitten luokan ulkopuolelle funktio `uusi_lemmikki(nimi: str, laji: str, syntymavuosi: int)`, joka muodostaa uuden `Lemmikki`-tyyppisen (eli Lemmikki-luokan) olion.
+Kirjoita sitten luokan ulkopuolelle funktio `uusi_lemmikki(nimi: str, laji: str, syntymavuosi: int)`, joka muodostaa uuden `Lemmikki`-tyyppisen (eli `Lemmikki`-luokasta muodostetun) olion.
 
 Muodostamisen jälkeen funktio palauttaa olion.
 
@@ -336,17 +334,17 @@ koira
 
 <programming-exercise name='Vanhempi kirja' tmcname='osa08-08_vanhempi_kirja'>
 
-Tee funktio `vanhempi_kirja(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-olioa. Funktio kertoo kumpi kirjoista on vahnmpi.
+Tee funktio `vanhempi_kirja(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-oliota. Funktio kertoo, kumpi kirjoista on vanhempi.
 
-Funktiota käytetään seuraavasti
+Funktiota käytetään seuraavasti:
 
 ```python
 python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
 everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
 norma = Kirja("Sofi Oksanen", "Norma", "rikos", 2015)
 
-vanhempi(python, everest)
-vanhempi(python, norma)
+vanhempi_kirja(python, everest)
+vanhempi_kirja(python, norma)
 ```
 
 <sample-output>
@@ -360,12 +358,11 @@ Fluent Python ja Norma kirjoitettiin 2015
 
 <programming-exercise name='Genren kirjat' tmcname='osa08-09_genren_kirjat'>
 
-Tee funktio `genren_kirjat(kirjat: list, genre: str)`, joka saa parametriksi listan `Kirja`-olioa, sekä genren kertovan merkkijonon.
+Tee funktio `genren_kirjat(kirjat: list, genre: str)`, joka saa parametriksi listan `Kirja`-olioa sekä genren kertovan merkkijonon.
 
-Funktio _palauttaa_ uuden listan, jolle se laittaa parametrina olevista kirjoista ne, joilla on haluttu genre:
+Funktio _palauttaa_ uuden listan, jolle se laittaa parametrina olevista kirjoista ne, joilla on haluttu genre.
 
-
-Funktiota käytetään seuraavasti
+Funktiota käytetään seuraavasti:
 
 ```python
 python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
