@@ -162,21 +162,21 @@ Tee funktio `pienin_keskiarvo(henkilo1: dict, henkilo2: dict, henkilo3: dict)`, 
 
 Jokaisessa sanakirjaoliossa on alkiot, joihin viittaavat nämä avaimet:
 
-`"nimi"`: kilpailijan nimi
-`"tulos1"`: kilpailijan ensimmäinen tulos (kokonaisluku väliltä 1...10)
-`"tulos2"`: kilpailijan toinen tulos (kuten yllä)
-`"tulos3"`: kilpailijan kolmas tulos (kuten yllä)
+* `"nimi"`: kilpailijan nimi
+* `"tulos1"`: kilpailijan ensimmäinen tulos (kokonaisluku väliltä 1...10)
+* `"tulos2"`: kilpailijan toinen tulos (kuten yllä)
+* `"tulos3"`: kilpailijan kolmas tulos (kuten yllä)
 
 Funktio laskee kaikkien kilpailijoiden tulosten keskiarvot ja palauttaa sen kilpailijan, jonka keskiarvo on pienin. Funktion palautusarvona on sanakirjaolio.
 
 Esimerkki funktion kutsumisesta:
 
 ```python
-h1 = {"nimi": "Keijo", "tulos1": 2, "tulos2": 3, "tulos3": 3}
-h2 = {"nimi": "Reijo", "tulos1": 5, "tulos2": 1, "tulos3": 8}
-h3 = {"nimi": "Veijo", "tulos1": 3, "tulos2": 1, "tulos3": 1}
+henkilo1 = {"nimi": "Keijo", "tulos1": 2, "tulos2": 3, "tulos3": 3}
+henkilo2 = {"nimi": "Reijo", "tulos1": 5, "tulos2": 1, "tulos3": 8}
+henkilo3 = {"nimi": "Veijo", "tulos1": 3, "tulos2": 1, "tulos3": 1}
 
-print(pienin_keskiarvo(h1, h2, h3))
+print(pienin_keskiarvo(henkilo1, henkilo2, henkilo3))
 ```
 
 <sample-output>
@@ -198,9 +198,9 @@ Funktio lisää jokaiselle matriisin riville uuden alkion, jonka arvo on rivin a
 Esimerkki funktion kutsumisesta:
 
 ```python
-m = [[1,2], [3,4]]
-rivien_summat(m)
-print(m)
+matriisi = [[1,2], [3,4]]
+rivien_summat(matriisi)
+print(matriisi)
 ```
 
 <sample-output>
