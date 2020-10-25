@@ -121,7 +121,7 @@ Antti
 
 </sample-output>
 
-Vaikka funktiota kutsutaan oikein, se tulosaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
+Vaikka funktiota kutsutaan oikein, se tulostaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
 
 Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyväksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
 
@@ -148,7 +148,7 @@ TMC-testit suoritetaan aina siten, että mitään `if`-lohkon sisällä olevaa k
 
 ## Varoitus: parametrin ylikirjoittaminen ja liian aikainen return
 
-Ennen tämän osan tehtäviin menemistä on syytä kiinnitää huomiota pariin potentiaaliseen ongelmalähteeseen. Tarkastellaan funktiota, joka kertoo löytyykö parametrina oleva luku listalta:
+Ennen tämän osan tehtäviin menemistä on syytä kiinnittää huomiota pariin potentiaaliseen ongelmalähteeseen. Tarkastellaan funktiota, joka kertoo löytyykö parametrina oleva luku listalta:
 
 ```python
 def luku_listalla(luvut: lista, luku: int):
@@ -459,10 +459,8 @@ print(m)
 
 Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, ei ole mahdollista käyttää "normaalia" for-silmukkaa, sillä muutettaessa sisältöä on pakko tietää muutettavien alkioiden indeksit.
 
-Tämä taas onnistuu `while`-silmukalla tai `for`-silmukalla hyödyntämäällä `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
+Tämä taas onnistuu `while`-silmukalla tai `for`-silmukalla hyödyntämällä `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
 
-
-Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, voidaan hyödyntää `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
 
 ```python
 m = [[1,2,3], [4,5,6], [7,8,9]]
@@ -643,7 +641,7 @@ Tee funktio `nelio_oikein(sudoku: list, rivi_nro: int, sarake_nro: int)`, joka s
 
 Funktio kertoo onko parametrina saadusta rivi/sarakenumerosta alkava 3x3-kokoinen neliö oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
 
-Huomaa, että tässä tehtävässä tehtävä funktio on hieman yleiskäyttöisempi kuin sudokussa oikeasti tarvitaan. Todellisuudessahan oikeassa sudokussa tarkastellaan ainoastaan kohdista (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) ja (6, 6) alkavia neliöitä.
+Huomaa, että tässä tehtävässä toteutettava funktio on hieman yleiskäyttöisempi kuin sudokussa oikeasti tarvitaan. Todellisuudessahan oikeassa sudokussa tarkastellaan ainoastaan kohdista (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) ja (6, 6) alkavia neliöitä.
 
 ```python
 sudoku = [
