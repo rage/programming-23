@@ -91,7 +91,7 @@ Ohjelma tulostaa jotain seuraavankaltaista:
 
 Järkevämpi tulostus saadaan lisäämällä luokkaan metodi `__str__`, joka palauttaa ymmärrettävän kuvauksen olion tilasta merkkijonona. Kun tämä metodi on määritelty, metodin palauttama kuvaus oliosta tulee näkyviin `print`-komennossa.
 
-Lisätään luokkaan Suorakulmio metodi `__str__`:
+Lisätään luokkaan `Suorakulmio` metodi `__str__`:
 
 ```python
 class Suorakulmio:
@@ -225,12 +225,12 @@ Tässä tehtäväsäsarjassa tehdään luokka `Maksukortti`, jonka tarkoituksena
 
 Tee ohjelmaan uusi luokka nimeltä `Maksukortti`.
 
-Tee ensin luokalle konstruktori, jolle annetaan kortin alkusaldo ja joka tallentaa sen olion sisäiseen muuttujaan. Tee sitten `__str__`-metodi, joka palauttaa kortin saldon muodossa "Kortilla on rahaa X euroa".
+Tee ensin luokalle konstruktori, jolle annetaan kortin alkusaldo ja joka tallentaa sen olion sisäiseen muuttujaan. Tee sitten `__str__`-metodi, joka palauttaa kortin saldon muodossa "Kortilla on rahaa X euroa". Rahamäärä tulee tulostaa yhden desimaalin tarkkuudella.
 
 Seuraavassa on luokan Maksukortti runko:
 
 ```python
-class  Maksukortti:
+class Maksukortti:
     def __init__(self, alkusaldo: float):
         self.saldo = alkusaldo
 
