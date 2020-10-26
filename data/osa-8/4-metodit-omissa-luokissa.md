@@ -17,7 +17,6 @@ Tämän osion jälkeen:
 Vain attribuutteja sisältävät luokat eivät käytännössä eroa juurikaan sanakirjoista. Seuraavassa esimerkissä on esitetty pankkitiliä mallintava rakenne sekä oman luokan että sanakirjan avulla toteutettuna:
 
 ```python
-
 # Esimerkki omaa luokkaa käyttäen
 class Pankkitili:
 
@@ -28,17 +27,14 @@ class Pankkitili:
         self.vuosikorko = vuosikorko
 
 pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500.0, 0.015)
-
 ```
 
 ```python
-
 # Esimerkki sanakirjaa käyttäen
 pekan_tili = {"tilinumero": "12345-678", "omistaja": "Pekka Python", "saldo": 1500.0, "vuosikorko": 0.0}
-
 ```
 
-Sanakirjaa käyttäen rakenteen toteutus on huomattavasti suoraviivaisempaa (ja ohjelmakoodi lyhyempää). Luokan hyötynä tässä yhteydessä on, että se määrittelee rakenteen "tiukemmin", jolloin kaikki luokasta muodostetut oliot ovat rakenteeltaan samanlaisia. Luokka on lisäksi nimetty: oliota muodostaessa viitataan `Pankkitili`-luokkaan ja olion tyyppi on `Pankkitili` eikä sanakirja.
+Sanakirjaa käyttäen rakenteen toteutus on huomattavasti suoraviivaisempi ja koodi on lyhyempi. Luokan hyötynä tässä tapauksessa on, että se määrittelee rakenteen "tiukemmin", jolloin kaikki luokasta muodostetut oliot ovat rakenteeltaan samanlaisia. Luokka on lisäksi nimetty: oliota muodostaessa viitataan `Pankkitili`-luokkaan ja olion tyyppi on `Pankkitili` eikä sanakirja.
 
 Luokilla on lisäksi etuna, että niihin voidaan lisätä attribuuttien lisäksi myös toiminnallisuutta. Yksi olio-ohjelmoinnissa periaatteista onkin, että olioon on yhdistetty sekä tallennettavat tiedot että operaatiot, joilla tietoa voidaan käsitellä.
 
@@ -106,7 +102,7 @@ Korko lisätään vain siihen tiliin, jonka kautta metodia kutsutaan. Esimerkist
 
 ## Kapselointi
 
-Olio-ohjelmoinnin yhteydessä puhutaan usein olioiden _asiakkaista_. Asiakkaalla (client) tarkoitetaan koodin osaa, joka muodostaa olio ja käyttää sen palveluita kutsumalla metodeita. Kun olion tietosisältöä käsitellään vain olion tarjoamien metodien avulla, voidaan varmistua siitä, että olion _sisäinen eheys_ säilyy. Käytännössä tämä tarkoittaa esimerkiksi sitä, että `Pankkitili`-luokassa tarjotaan metodi, jolla tililtä nostetaan rahaa, sen sijaan, että asiakas käsittelisi suoraan attribuuttia `saldo`. Tässä metodissa voidaan sitten varmistaa, ettei tililtä nosteta enempää rahaa kuin on katetta.
+Olio-ohjelmoinnin yhteydessä puhutaan usein olioiden _asiakkaista_. Asiakkaalla (client) tarkoitetaan koodin osaa, joka muodostaa olion ja käyttää sen palveluita kutsumalla metodeita. Kun olion tietosisältöä käsitellään vain olion tarjoamien metodien avulla, voidaan varmistua siitä, että olion _sisäinen eheys_ säilyy. Käytännössä tämä tarkoittaa esimerkiksi sitä, että `Pankkitili`-luokassa tarjotaan metodi, jolla tililtä nostetaan rahaa, sen sijaan, että asiakas käsittelisi suoraan attribuuttia `saldo`. Tässä metodissa voidaan sitten varmistaa, ettei tililtä nosteta enempää rahaa kuin on katetta.
 
 Esimerkiksi:
 
@@ -153,9 +149,9 @@ Nosto ei onnistunut, rahaa ei ole tarpeeksi.
 
 </sample-output>
 
-Olion sisäisen eheyden säilyttämistä ja sopivien metodien tarjoamista asiakkalle kutsutaan _kapseloinniksi_. Tämä tarkoittaa, että olion toteutus piilotetaan asiakkaalta ja olio tarjoaa ulkopuolelle metodit, joiden avulla tietoja voi käsitellä.
+Olion sisäisen eheyden säilyttämistä ja sopivien metodien tarjoamista asiakkaalle kutsutaan _kapseloinniksi_. Tämä tarkoittaa, että olion toteutus piilotetaan asiakkaalta ja olio tarjoaa ulkopuolelle metodit, joiden avulla tietoja voi käsitellä.
 
-Pelkkä metodin lisäys ei kuitenkaan piilota attribuuttia: vaikka pankkitililuokkaan olisikin lisätty metodi rahan nostamiseksi, asiakas voi edelleen muokata `saldo`-attribuutin arvoa suoraan:
+Pelkkä metodin lisäys ei kuitenkaan piilota attribuuttia: vaikka luokkaan `Pankkitili` onkin lisätty metodi `nosto` rahan nostamiseksi, asiakas voi edelleen muokata `saldo`-attribuutin arvoa suoraan:
 
 ```python
 pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500.0, 0.015)
