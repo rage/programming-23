@@ -691,7 +691,7 @@ antin_kortti = Maksukortti(2)
 
 print(f"kortilla rahaa {antin_kortti.saldo} euroa")
 
-onnistuiko = unicafe_exactum.syo_maukkaasti(antin_kortti)
+onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(antin_kortti)
 print("riittikö raha:", onnistuiko)
 
 unicafe_exactum.lataa_rahaa_kortille(antin_kortti, 100)

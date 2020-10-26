@@ -49,7 +49,7 @@ hississä
 
 </sample-output>
 
-Huomaa moduulin kooditiedoston pitää sijaita joko samassa hakemistossa ohjelman kanssa tai jossakin Pythonin oletushakemistossa jotta sen voi ottaa käyttöön `import`-komennolla.
+Huomaa, että moduulin kooditiedoston pitää sijaita joko samassa hakemistossa ohjelman kanssa tai jossakin Pythonin oletushakemistossa, jotta sen voi ottaa käyttöön `import`-komennolla.
 
 Voimme käyttää omaa moduulia samalla periaatteella kuin standardikirjaston moduuleja. Esimerkiksi näin:
 
@@ -129,7 +129,7 @@ Tämä ei ole hyvä, koska moduulin käyttäjän ohjelmaa sotkee moduulissa olev
 
 Pythonista löytyy onneksi ratkaisu pulmaan. Ohjelmassa on mahdollista testata, suoritetaanko ohjelmaa itseään vai onko ohjelma otettu käyttöön moduulina `import`-lauseella. Tämä onnistuu muuttujan `__name__` avulla. Python tallentaa muuttujaan tiedon suoritettavasta ohjelmasta: jos ohjelmaa suoritetaan sellaisenaan, muuttujan arvo on merkkijono `__main__`. Jos ohjelma on tuotu osaksi jotain toista ohjelmaa, muuttujan arvona on suoritettavan ohjelman nimi (eli tässä tapauksessa `sanat`).
 
-Moduuliin voidaan siis lisätä edellistä tietoa hyödyntäen ehtolause, joka avulla testikoodi suoritetaan ainoastaan silloin, kun ohjelma ajetaan omana itsenään eikä toisen ohjelman osaksi tuotuna:
+Moduuliin voidaan siis lisätä edellistä tietoa hyödyntäen ehtolause, jonka avulla testikoodi suoritetaan ainoastaan silloin, kun ohjelma ajetaan omana itsenään eikä toisen ohjelman osaksi tuotuna:
 
 ```python
 def eka_sana(mjono: str) -> str:

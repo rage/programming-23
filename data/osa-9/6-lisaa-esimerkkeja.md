@@ -210,7 +210,7 @@ Huomaa, että attribuutille opiskelijanumero ei ole määritelty asetusmetodia -
 
 ## Lisätehtävä
 
-<programming-exercise name='Tavara, Matkalaukku ja Lastiruuma' tmcname='osa09-07_tavara_matkalaukku_lastiruuma'>
+<programming-exercise name='Tavara, Matkalaukku ja Lastiruuma' tmcname='osa09-15_tavara_matkalaukku_lastiruuma'>
 
 Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruuma`, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita.
 
