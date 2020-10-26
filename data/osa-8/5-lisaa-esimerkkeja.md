@@ -486,7 +486,7 @@ Crime, Drama, Mystery, Thriller
 
 ### Arvostelujen lisääminen
 
-Tee luokalle metodi `arvostele(arvosana: int)`, jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0-5. Myös metodia `__str__` tulee muuttaa.
+Tee luokalle metodi `arvostele(arvosana: int)`, jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0–5. Myös metodia `__str__` tulee muuttaa niin, että se antaa arvostelujen määrän ja keskiarvon pyöristettynä yhden desimaalin tarkkuudelle (jos arvosteluja on annettu).
 
 ```python
 dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
