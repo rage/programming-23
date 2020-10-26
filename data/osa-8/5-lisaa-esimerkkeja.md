@@ -20,23 +20,18 @@ Tarkastellaan seuraavaksi luokkaa, joka mallintaa suorakulmiota kaksiulotteisess
 
 ```python
 class Suorakulmio:
-
-    # Konstruktori
     def __init__(self, vasen_ylakulma: tuple, oikea_alakulma: tuple):
         self.vasen_ylakulma = vasen_ylakulma
         self.oikea_alakulma = oikea_alakulma
         self.leveys = oikea_alakulma[0]-vasen_ylakulma[0]
         self.korkeus = oikea_alakulma[1]-vasen_ylakulma[1]
 
-    # Metodi palauttaa suorakulmion pinta-alan
     def pinta_ala(self):
         return self.leveys * self.korkeus
 
-    # Metodi palauttaa suorakulmion piirin
     def piiri(self):
         return self.leveys * 2 + self.korkeus * 2
 
-    # Metodi siirtää suorakulmiota koordinaatistossa
     def siirra(self, x_muutos: int, y_muutos: int):
         kulma = self.vasen_ylakulma
         self.vasen_ylakulma = (kulma[0]+x_muutos, kulma[1]+y_muutos)
