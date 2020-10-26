@@ -94,9 +94,9 @@ Ohjelma tulostaa jotain seuraavankaltaista:
 
 </sample-output>
 
-Järkevämpi tulostus saadaan lisäämällä luokkaan metodi `__str__`, joka palauttaa ymmärrettävän kuvauksen olion tilasta merkkijonona. Kun tämä metodi on määritelty, Python näyttää metodin antaman kuvauksen esimerkiksi `print`-komennon tuloksena.
+Järkevämpi tulostus saadaan lisäämällä luokkaan metodi `__str__`, joka palauttaa ymmärrettävän kuvauksen olion tilasta merkkijonona. Kun tämä metodi on määritelty, Python näyttää metodin antaman kuvauksen oliosta `print`-komennossa ja `str`-funktion tuloksena.
 
-Lisätään luokkaan Suorakulmio tämä metodi:
+Lisätään luokkaan Suorakulmio metodi `__str__`:
 
 ```python
 class Suorakulmio:
@@ -108,7 +108,7 @@ class Suorakulmio:
         return f"suorakulmio {self.vasen_ylakulma} ... {self.oikea_alakulma}"
 ```
 
-Nyt `print`-lause tuottaa luettavan lopputuloksen:
+Nyt `print`-komento tuottaa luettavan lopputuloksen:
 
 ```python
 suorakulmio = Suorakulmio((1, 1), (4, 3))
@@ -120,6 +120,8 @@ print(suorakulmio)
 suorakulmio (1, 1) ... (4, 3)
 
 </sample-output>
+
+Metodin `__str__` lisäksi olioon voidaan määritellä samantapainen metodi `__repr__`, joka antaa teknisen kuvauksen olion tilasta. Tutustumme tähän metodiin tarkemmin myöhemmin.
 
 <programming-exercise name='Sekuntikello' tmcname='osa08-11a_sekuntikello'>
 
@@ -158,7 +160,7 @@ for i in range(3600):
 
 </sample-output>
 
-Metodi `tick` vie siis kelloa sekunnin eteenpäin, ja sekä sekuntien että minuuttien arvo on suuruudeltaan korkeintaan 59.
+Metodi `tick` vie siis kelloa sekunnin eteenpäin, ja sekä sekuntien että minuuttien arvo on suuruudeltaan korkeintaan 59. Lisäksi oliossa tulee olla metodi `__str__`, joka näyttää kellonajan yllä olevassa muodossa.
 
 **Vihje:** voit metodin `tick` testailua helpottaa se, että asetat tilapäisesti konstruktorissa sekunneille ja minuuteille valmiiksi jonkin suuremman arvon kuin 0.
 
