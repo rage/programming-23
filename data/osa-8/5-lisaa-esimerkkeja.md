@@ -89,7 +89,7 @@ Ohjelma tulostaa jotain seuraavankaltaista:
 
 </sample-output>
 
-Järkevämpi tulostus saadaan lisäämällä luokkaan metodi `__str__`, joka palauttaa ymmärrettävän kuvauksen olion tilasta merkkijonona. Kun tämä metodi on määritelty, Python näyttää metodin antaman kuvauksen oliosta `print`-komennossa ja `str`-funktion tuloksena.
+Järkevämpi tulostus saadaan lisäämällä luokkaan metodi `__str__`, joka palauttaa ymmärrettävän kuvauksen olion tilasta merkkijonona. Kun tämä metodi on määritelty, metodin palauttama kuvaus oliosta tulee näkyviin `print`-komennossa.
 
 Lisätään luokkaan Suorakulmio metodi `__str__`:
 
@@ -115,6 +115,21 @@ print(suorakulmio)
 suorakulmio (1, 1) ... (4, 3)
 
 </sample-output>
+
+Metodia `__str__` kutsutaan yleisemmin silloin, kun oliosta muodostetaan merkkijonokuvaus `str`-funktiolla. Seuraava koodi esittelee asiaa:
+
+```python
+suorakulmio = Suorakulmio((1, 1), (4, 3))
+kuvaus = str(suorakulmio)
+print(kuvaus)
+```
+
+<sample-output>
+
+suorakulmio (1, 1) ... (4, 3)
+
+</sample-output>
+
 
 Metodin `__str__` lisäksi olioon voidaan määritellä samantapainen metodi `__repr__`, joka antaa teknisen kuvauksen olion tilasta. Tutustumme tähän metodiin tarkemmin myöhemmin.
 
