@@ -16,8 +16,6 @@ Tämän osion jälkeen
 
 Kuten kurssin ensimmäisen puolikkaan aikana huomattiin, on usein hyödyllistä yhdistää samaan asiaan liittyvät tiedot yhdeksi kokonaisuudeksi. Esimerkiksi kirjaa on kätevä mallintaa vaikkapa tuplen tai sanakirjan avulla, kun kaikki kirjaan liittyvät tiedot voidaan tallentaa samaan rakenteeseen.
 
-TODO: Onko näissä syytä määritellä ensin erilliset muuttujat kentille, vai voisiko vain määritellä suoraan tuplen ja sanakirjan?
-
 Tuplea käyttämällä esimerkki voisi näyttää tältä:
 
 ```python
