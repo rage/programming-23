@@ -8,9 +8,9 @@ hidden: false
 
 Tämän osion jälkeen:
 
-- Tiedät miten metodit toimivat luokissa
+- Tiedät, miten metodit toimivat luokissa
 - Osaat kirjoittaa metodeita omiin luokkiin
-- Ymmärrät mitä tarkoitetaan kapseloinnilla ja asiakkaalla olio-ohjelmoinnissa
+- Ymmärrät, mitä tarkoitetaan kapseloinnilla ja asiakkaalla olio-ohjelmoinnissa
 
 </text-box>
 

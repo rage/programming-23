@@ -8,11 +8,11 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät miten omia luokkia määritellään
+- Tiedät, miten omia luokkia määritellään
 - Osaat muodostaa itse määritellystä luokasta olion
-- Osaat kirjoittaa konstruktorimetodin
-- Tiedät mitä tarkoittaa avainsana self
-- Tiedät mitä ovat attribuutit ja miten niitä käytetään
+- Osaat kirjoittaa konstruktorin
+- Tiedät, mitä tarkoittaa avainsana `self`
+- Tiedät, mitä ovat attribuutit ja miten niitä käytetään
 
 </text-box>
 

@@ -8,9 +8,9 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät mitä tarkoitetaan luokalla
+- Tiedät, mitä tarkoitetaan luokalla
 - Ymmärrät luokan ja olion yhteyden
-- Tiedät mitä olio-ohjelmointi tarkoittaa
+- Tiedät, mitä olio-ohjelmointi tarkoittaa
 
 </text-box>
 

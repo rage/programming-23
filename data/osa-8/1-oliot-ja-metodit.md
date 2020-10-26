@@ -9,7 +9,7 @@ hidden: false
 Tämän osion jälkeen
 
 - Tiedät, mitä tarkoitetaan oliolla
-- Ymmärrät mitä tarkoitetaan olioiden itsenäisyydellä
+- Ymmärrät, mitä tarkoitetaan olioiden itsenäisyydellä
 - Osaat muodostaa ja käsitellä olioita
 
 </text-box>

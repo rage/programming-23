@@ -6,10 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tässä osiossa
+Tämän osion jälkeen
 
-- Käydään läpi lisää esimerkkejä luokista ja niistä muodostettavista olioista
-- Tutustutaan metodiin `__str__`, joka muodostaa olion merkkijonoesityksen
+- Osaat luoda aiempaa monipuolisempia luokkia
+- Osaat määritellä luokkaan metodin `__str__`
 
 </text-box>
 
