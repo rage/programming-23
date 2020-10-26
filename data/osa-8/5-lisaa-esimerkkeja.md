@@ -16,18 +16,17 @@ Tässä osiossa
 
 ## Esimerkki 1: Luokka Suorakulmio
 
-Tarkastellaan seuraavaksi luokkaa, joka mallintaa suorakulmiota kaksiulotteisessa koordinaatistossa.
+Tarkastellaan seuraavaksi luokkaa, joka mallintaa suorakulmiota kaksiulotteisessa koordinaatistossa:
 
 ```python
 class Suorakulmio:
 
     # Konstruktori
-    def __init__(self, ylakulma: tuple, leveys: int, korkeus: int):
-        # Vasen yläkulma on tuple, jossa on kaksi arvoa
-        # kokonaislukuina: x- ja y-koordinaatti
-        self.vasen_ylakulma = ylakulma
-        self.leveys = leveys
-        self.korkeus = korkeus
+    def __init__(self, vasen_ylakulma: tuple, oikea_alakulma: tuple):
+        self.vasen_ylakulma = vasen_ylakulma
+        self.oikea_alakulma = oikea_alakulma
+        self.leveys = oikea_alakulma[0]-vasen_ylakulma[0]
+        self.korkeus = oikea_alakulma[1]-vasen_ylakulma[1]
 
     # Metodi palauttaa suorakulmion pinta-alan
     def pinta_ala(self):
@@ -37,51 +36,53 @@ class Suorakulmio:
     def piiri(self):
         return self.leveys * 2 + self.korkeus * 2
 
-    # Metodi palauttaa suorakulmion oikean alakulman koordinaatit
-    def oikea_alakulma(self):
-        x = self.vasen_ylakulma[0]
-        y = self.vasen_ylakulma[1]
-        return (x + self.leveys, y + self.korkeus)
-
     # Metodi siirtää suorakulmiota koordinaatistossa
-    def siirra(self, x_askeleet: int, y_askeleet: int):
-        x = self.vasen_ylakulma[0] + x_askeleet
-        y = self.vasen_ylakulma[1] + y_askeleet
-        self.vasen_ylakulma = (x, y)
-
-# Testataan
-suorakulmio = Suorakulmio((1, 1), 5, 3)
-print(suorakulmio.piiri())
-print(suorakulmio.pinta_ala())
-print(suorakulmio.oikea_alakulma())
-
-suorakulmio.siirra(3, 3)
-print(suorakulmio.vasen_ylakulma) # Ei metodi, joten ei sulkuja perään
-print(suorakulmio.oikea_alakulma())
+    def siirra(self, x_muutos: int, y_muutos: int):
+        kulma = self.vasen_ylakulma
+        self.vasen_ylakulma = (kulma[0]+x_muutos, kulma[1]+y_muutos)
+        kulma = self.oikea_alakulma
+        self.oikea_alakulma = (kulma[0]+x_muutos, kulma[1]+y_muutos)
 ```
 
-TODO: ei ole kyllä tyylikästä, että `vasen_ylakulma` ei ole metodi mutta `oikea_alakulma` on
+Kun suorakulmio luodaan, konstruktorille annetaan kaksi tuplea: vasemman yläkulman ja oikean alakulman sijainti (x- ja y-koordinaatit). Konstruktori laskee tämän perusteella suorakulmion leveyden ja korkeuden.
+
+Metodit `pinta_ala` ja `piiri` laskevat suorakulmion pinta-alan ja piirin korkeuden ja leveyden perusteella. Metodi `siirra` puolestaan siirtää suorakulmiota koordinaatistossa annetun verran x- ja y-suunnissa.
+
+Seuraava koodi testaa luokkaa:
+
+```python
+suorakulmio = Suorakulmio((1, 1), (4, 3))
+print(suorakulmio.vasen_ylakulma)
+print(suorakulmio.oikea_alakulma)
+print(suorakulmio.leveys)
+print(suorakulmio.korkeus)
+print(suorakulmio.piiri())
+print(suorakulmio.pinta_ala())
+
+suorakulmio.siirra(3, 3)
+print(suorakulmio.vasen_ylakulma)
+print(suorakulmio.oikea_alakulma)
+```
 
 <sample-output>
 
-16
-15
-(6, 4)
+(1, 1)
+(4, 3)
+3
+2
+10
+6
 (4, 4)
-(9, 7)
+(7, 6)
 
 </sample-output>
 
-Suorakulmion koordinaatit on tallennettu tuplena, joka sisältää kaksi kokonaislukua (käyttötarkoituksesta riippuen voisi olla järkevää tallentaa koordinaatit myös liukulukuna). Olisi mahdollista kirjoittaa myös koordinaateille oma luokkansa, mutta tässä yhteydessä tuple on riittävä vaihtoehto. Suorakulmioluokkaa itseään on helppo laajentaa, jos tarvitaan lisää ominaisuuksia.
-
 ## Olion tulostaminen
 
-Kun omasta luokasta luotu olio tulostetaan sellaisenaan print-lauseella, lopputulos ei (varsinkaan loppukäyttäjän kannalta) ole kovin selkeä:
+Kun omasta luokasta luotu olio tulostetaan sellaisenaan `print`-komennolla, lopputulos ei ole kovin selkeä:
 
-``` python
-# Viitaten edelliseen esimerkkiin: tulosteen suorakulmio-olio
-
-suorakulmio = Suorakulmio((5, 3), 8, 4)
+```python
+suorakulmio = Suorakulmio((1, 1), (4, 3))
 print(suorakulmio)
 ```
 
@@ -93,36 +94,30 @@ Ohjelma tulostaa jotain seuraavankaltaista:
 
 </sample-output>
 
-Järkevämpi tulostus oliolle voidaan määritellä kirjoittamalla luokkaan metodi `__repr__(self)`, joka palauttaa merkkijonon. Python käyttää tätä merkkijonoa automaattisesti tulostuslauseessa. Ideana on, että metodilla voidaan palauttaa merkkijono, joka esittää olion _tilan_ jossain luettavassa muodossa.
+Järkevämpi tulostus saadaan lisäämällä luokkaan metodi `__str__`, joka palauttaa ymmärrettävän kuvauksen olion tilasta merkkijonona. Kun tämä metodi on määritelty, Python näyttää metodin antaman kuvauksen esimerkiksi `print`-komennon tuloksena.
 
 Lisätään luokkaan Suorakulmio tämä metodi:
 
 ```python
 class Suorakulmio:
 
-    # Konstruktori
-    def __init__(self, ylakulma: tuple, leveys: int, korkeus: int):
-        self.vasen_ylakulma = ylakulma
-        self.leveys = leveys
-        self.korkeus = korkeus
-
-    # (Luokan metodit tässä välissä)
+    # Luokan muu sisältö tähän kuten ennenkin...
 
     # Metodi palauttaa olion tilan merkkijonona
-    def __repr__(self):
-        return f"Suorakulmio, vasen yläkulma: {self.vasen_ylakulma}, leveys: {self.leveys}, korkeus: {self.korkeus}"
+    def __str__(self):
+        return f"suorakulmio {self.vasen_ylakulma} ... {self.oikea_alakulma}"
 ```
 
 Nyt `print`-lause tuottaa luettavan lopputuloksen:
 
 ```python
-suorakulmio = Suorakulmio((5, 3), 8, 4)
+suorakulmio = Suorakulmio((1, 1), (4, 3))
 print(suorakulmio)
 ```
 
 <sample-output>
 
-Suorakulmio, vasen yläkulma: (5, 3), leveys: 8, korkeus: 4
+suorakulmio (1, 1) ... (4, 3)
 
 </sample-output>
 
