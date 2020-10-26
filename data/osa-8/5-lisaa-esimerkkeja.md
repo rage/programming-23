@@ -8,8 +8,8 @@ hidden: false
 
 Tässä osiossa
 
-- Tutustutaan metodiin __repr__
-- Esitellään lisää esimerkkejä luokista ja niistä muodostettavista olioista
+- Käydään läpi lisää esimerkkejä luokista ja niistä muodostettavista olioista
+- Tutustutaan metodiin `__str__`, joka muodostaa olion merkkijonoesityksen
 
 </text-box>
 
@@ -215,7 +215,7 @@ Tässä tehtäväsäsarjassa tehdään luokka `Maksukortti`, jonka tarkoituksena
 
 Tee ohjelmaan uusi luokka nimeltä `Maksukortti`.
 
-Tee ensin luokalle konstruktori, jolle annetaan kortin alkusaldo ja joka tallentaa sen olion sisäiseen muuttujaan. Tee sitten `__repr__`-metodi, joka palauttaa kortin saldon muodossa "Kortilla on rahaa X euroa".
+Tee ensin luokalle konstruktori, jolle annetaan kortin alkusaldo ja joka tallentaa sen olion sisäiseen muuttujaan. Tee sitten `__str__`-metodi, joka palauttaa kortin saldon muodossa "Kortilla on rahaa X euroa".
 
 Seuraavassa on luokan Maksukortti runko:
 
@@ -224,7 +224,7 @@ class  Maksukortti:
     def __init__(self, alkusaldo: float):
         self.saldo = alkusaldo
 
-    def __repr__(self):
+    def __str__(self):
         pass
 ```
 
@@ -379,7 +379,7 @@ Matti: Kortilla on rahaa 72.8 euroa
 
 ## Esimerkki 2: Tehtävälista
 
-Seuraava luokka `Tehtavalista` toteuttaa tehtävälistan, johon voi lisätä uuden tehtävän tietyllä prioriteetilla ja hakea seuraavaksi suoritettavan tehtävän. Muita toimintoja ovat listalla olevien tehtävien määrän hakeminen sekä listan tyhjentäminen.
+Seuraava luokka `Tehtavalista` toteuttaa tehtävälistan:
 
 ```python
 class Tehtavalista:
@@ -401,24 +401,43 @@ class Tehtavalista:
 
     def tyhjenna(self):
         self.tehtavat = []
+```
 
+Metodi `lisaa` lisää listalle uuden tehtävän tietyllä prioriteetilla ja metodi `hae_seuraava` poistaa ja palauttaa listan suurimman prioriteetin tehtävän. Lisäksi metodi `yhteensa` antaa listan tehtävien yhteismäärän ja metodi `tyhjenna` tyhjentää listan.
+
+Tehtäviä säilytetään sisäisesti listassa, jossa on tuplena kunkin tehtävän prioriteetti ja nimi. Prioriteetti tallennetaan ensin, jolloin tärkein tehtävä on listan lopussa listan järjestämisen jälkeen. Tämän ansiosta tehtävän saa haettua ja poistettua listalta kätevästi `pop`-metodilla.
+
+Seuraava koodi esittelee luokan käyttämistä:
+
+```python
 lista = Tehtavalista()
 lista.lisaa("opiskelu", 50)
 lista.lisaa("ulkoilu", 60)
 lista.lisaa("siivous", 10)
-print(lista.yhteensa()) # 3
-print(lista.hae_seuraava()) # ulkoilu
-print(lista.yhteensa()) # 2
+print(lista.yhteensa())
+print(lista.hae_seuraava())
+print(lista.yhteensa())
 lista.lisaa("treffit", 100)
-print(lista.yhteensa()) # 3
-print(lista.hae_seuraava()) # treffit
-print(lista.hae_seuraava()) # opiskelu
-print(lista.yhteensa()) # 1
+print(lista.yhteensa())
+print(lista.hae_seuraava())
+print(lista.hae_seuraava())
+print(lista.yhteensa())
 lista.tyhjenna()
-print(lista.yhteensa()) # 0
+print(lista.yhteensa())
 ```
 
-Tässä luokassa tehtäviä säilytetään listassa, jossa on tuplena kunkin tehtävän prioriteetti ja nimi. Prioriteetti tallennetaan ensin, jolloin tärkein tehtävä on listan lopussa listan järjestämisen jälkeen. Tämän ansiosta tehtävän saa haettua ja poistettua listalta kätevästi `pop`-metodilla.
+<sample-output>
+
+3
+ulkoilu
+2
+3
+treffit
+opiskelu
+1
+0
+
+</sample-output>
 
 <programming-exercise name='Sarja' tmcname='osa08-14_sarja'>
 
@@ -457,7 +476,7 @@ Crime, Drama, Mystery, Thriller
 
 ### Arvostelujen lisääminen
 
-Tee luokalle metodi `arvostele(arvosana: int)`, jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0-5. Myös metodia `__repr__` tulee muuttaa.
+Tee luokalle metodi `arvostele(arvosana: int)`, jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0-5. Myös metodia `__str__` tulee muuttaa.
 
 ```python
 dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
