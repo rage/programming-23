@@ -91,8 +91,8 @@ kirja = {"nimi": "Vanhus ja Python", "kirjailija": "Ernest Pythonen", "vuosi": 1
 # Tulostetaan kaikki arvot
 # Metodikutsu values() kirjoitetaan muuttujan perään
 # pisteellä erotettuna
-for kirja in kirja.values():
-    print(kirja)
+for arvo in kirja.values():
+    print(arvo)
 ```
 
 <sample-output>
