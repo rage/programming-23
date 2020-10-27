@@ -74,7 +74,7 @@ Yhdestä luokasta voidaan muodostaa useita olioita. Niin kuin aiemmin kerrottiin
 * luokassa määritellään muuttujat ja
 * oliota muodostaessa niille annetaan arvot.
 
-Luodaan esimerkkinä `Fraction`-luokasta kaksi olio ja tulostetaan sen osoittaja ja nimittäjä:
+Luodaan esimerkkinä `Fraction`-luokasta kaksi oliota ja tulostetaan niistä osoittaja ja nimittäjä:
 
 ```python
 from fractions import Fraction
@@ -138,7 +138,7 @@ joulu = date(2020, 12, 24)
 juhannus = date(2020, 6, 20)
 
 print(onko_viikonloppu(joulu))
-print(onko_viikonloppu(joulu))
+print(onko_viikonloppu(juhannus))
 ```
 
 <sample-output>
