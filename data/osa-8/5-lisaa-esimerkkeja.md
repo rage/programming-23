@@ -545,3 +545,7 @@ Friends
 </sample-output>
 
 </programming-exercise>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="00133f4f-9651-5716-94c0-a761b740a8c3"></quiz>
