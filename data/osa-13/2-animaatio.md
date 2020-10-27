@@ -21,7 +21,7 @@ Seuraava koodi luo animaation, jossa robotti kulkee vasemmalta oikealle ikkunass
 ```python
 def testi():
     pygame.init()
-    naytto = pygame.display.set_mode((640,480))
+    naytto = pygame.display.set_mode((640, 480))
 
     robo = pygame.image.load("robo.png")
 
@@ -92,7 +92,7 @@ Metodi `tick` on hyödyllinen, koska sen avulla animaatio toimii periaatteessa y
 ```python
 def testi():
     pygame.init()
-    naytto = pygame.display.set_mode((640,480))
+    naytto = pygame.display.set_mode((640, 480))
 
     robo = pygame.image.load("robo.png")
 
@@ -142,7 +142,7 @@ Tehdään vielä animaatio, jossa robotti _pyörii_  ikkunan keskipisteen ympär
 ```python
 def testi():
     pygame.init()
-    naytto = pygame.display.set_mode((640,480))
+    naytto = pygame.display.set_mode((640, 480))
 
     robo = pygame.image.load("robo.png")
 

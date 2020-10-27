@@ -27,7 +27,7 @@ import pygame
 
 def testi():
     pygame.init()
-    naytto = pygame.display.set_mode((640,480))
+    naytto = pygame.display.set_mode((640, 480))
 
     while True:
         for tapahtuma in pygame.event.get():
@@ -50,7 +50,7 @@ Ensimmäinen vaihe ohjelmassa on aloittaa Pygamen käyttäminen funktiolla `pyga
 
 ```python
     pygame.init()
-    naytto = pygame.display.set_mode((640,480))
+    naytto = pygame.display.set_mode((640, 480))
 ```
 
 Muuttujan `naytto` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640,480)` tarkoittaa, että tässä ohjelmassa ikkunan koko on 640x480 pikseliä.
@@ -77,7 +77,7 @@ Pelkän ikkunan näyttävä ohjelma on melko tylsä, joten laajennetaan seuraava
 ```python
 def testi():
     pygame.init()
-    naytto = pygame.display.set_mode((640,480))
+    naytto = pygame.display.set_mode((640, 480))
 
     robo = pygame.image.load("robo.png")
     naytto.blit(robo, (0, 0))
