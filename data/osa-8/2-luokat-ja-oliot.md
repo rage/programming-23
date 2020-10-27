@@ -74,7 +74,7 @@ Yhdestä luokasta voidaan muodostaa useita olioita. Niin kuin aiemmin kerrottiin
 * luokassa määritellään muuttujat ja
 * oliota muodostaessa niille annetaan arvot.
 
-Luodaan esimerkkinä `Fraction`-luokasta kaksi oliota ja tulostetaan niistä osoittaja ja nimittäjä:
+Luodaan esimerkkinä `Fraction`-luokasta olio ja tulostetaan sen osoittaja ja nimittäjä:
 
 ```python
 from fractions import Fraction
@@ -82,10 +82,10 @@ from fractions import Fraction
 luku = Fraction(2,5)
 
 # Tulostetaan osoittaja
-print(eka.numerator)
+print(luku.numerator)
 
 # ...ja sitten nimittäjä
-print(eka.denominator)
+print(luku.denominator)
 ```
 
 <sample-output>
