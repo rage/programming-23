@@ -297,7 +297,7 @@ class Ennatystulos:
         if self.nimi_ok(pelaaja):
             self.pelaaja = pelaaja
 
-        if self.paivamaara_ok(paiva, kuukausi, vuosi):
+        if self.pvm_ok(paiva, kuukausi, vuosi):
             self.paivamaara = date(vuosi, kuukausi, paiva)
 
         if self.pisteet_ok(pisteet):

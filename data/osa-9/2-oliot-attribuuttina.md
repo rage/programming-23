@@ -372,7 +372,7 @@ Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä 
 
 ```python
 huone = Huone()
-print("Lyhin: " , huone.lyhin())
+print("Lyhin: " + huone.lyhin())
 print("Huone tyhjä?", huone.on_tyhja())
 
 huone.lisaa(Henkilo("Lea", 183))
@@ -415,11 +415,11 @@ Nina (172 cm)
 
 ## Huoneesta ottaminen
 
-Lisää luokalle Huone `poista_lyhin()`, ottaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa None-viitteen.
+Lisää luokalle Huone metodi `poista_lyhin()`, joka poistaa ja palauttaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa None-viitteen.
 
 ```python
 huone = Huone()
-print("Lyhin: " , huone.lyhin())
+print("Lyhin: " + huone.lyhin())
 
 huone.lisaa(Henkilo("Lea", 183))
 huone.lisaa(Henkilo("Kenya", 182))
