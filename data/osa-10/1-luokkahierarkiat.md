@@ -335,6 +335,28 @@ if __name__ == "__main__":
 
 </sample-output>
 
+<programming-exercise name='Kannettava tietokone' tmcname='osa10_xx_kannettava_tietokone'>
+
+Tehtäväpohjassa on määritelty luokka `Tietokone`, jolla on attribuutit `malli` ja `nopeus`.
+
+Kirjoita luokka `KannettavaTietokone`, joka _perii luokan Tietokone_. Luokka saa konstruktorissa luokan Tietokone attribuuttien lisäksi kolmannen kokonaislukutyyppisen attribuutin `paino`.
+
+Kirjoita luokkaan lisäksi metodi `str`, jonka avulla voi tulostaa esimerkkisuorituksen mukaisen tulosteen olion tilasta.
+
+Esimerkki:
+
+```python
+ipm = KannettavaTietokone("IPM MikroMauri", 1500, 2)
+print(ipm)
+```
+
+<sample-output>
+
+IPM MikroMauri, 1500 MHz, 2 kg
+
+</sample-output>
+
+</programming-exercise>
 
 <programming-exercise name='Pinta-alat' tmcname='osa10_1_pinta_alat'>
 
@@ -455,7 +477,7 @@ pelaaja2: **minä**
 pelaaja 1 voitti
 peli päättyi voitot:
 pelaaja 1: 2
-pelaaja 2: 0
+pelaaja 2: 1
 
 </sample-output>
 

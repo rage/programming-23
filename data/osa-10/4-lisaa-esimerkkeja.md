@@ -8,7 +8,8 @@ hidden: false
 
 Tässä osiossa
 
-- Käydään läpi muutamia esimerkkejä kertauksena osion 10 asioista
-- Esitellään pari uutta tietorakennetta
+- Käydään läpi esimerkki käyttöliittymän ja sovelluksen logiikan erottamisesta
+- Harjoitellaan tätä itse
 
 </text-box>
+

@@ -60,7 +60,7 @@ class MuistikirjaPro(Muistikirja):
 
 ## Suojatut piirteet
 
-Toisin kuin joistain muista ohjelmointikielistä, Pythonista ei suoraan löydy ominaisuutta joka piilottaa piirteet asiakkailta mutta samaan aikaan avata ne mahdollisille aliluokille. Ratkaisuksi Python-yhteisö onkin päätynyt _konventioon_ eli yleisesti ymmärrettyyn merkintätapaan _suojattuille (eli protected)_  piirteille.
+Toisin kuin joistain muista ohjelmointikielistä, Pythonista ei suoraan löydy ominaisuutta joka piilottaa piirteet asiakkailta mutta samaan aikaan avata ne mahdollisille aliluokille. Ratkaisuksi Python-yhteisö onkin päätynyt _konventioon_ eli yleisesti ymmärrettyyn merkintätapaan _suojatuille (eli protected)_  piirteille.
 
 Koska piirre voidaan piilottaa kirjoittamalla sen tunnisteen (eli nimen) eteen kaksi alaviivaa
 
@@ -172,3 +172,84 @@ Jalkapalloilija - nimi:Petri Pythonen, lempinimi: Pyttis, pelipaikka: hyökkää
 </sample-output>
 
 
+<programming-exercise name='Superryhmä' tmcname='osa10_XX_superryhma'>
+
+Tehtäväpohjassa on valmiina luokka `SuperSankari`.
+
+Kirjoita luokka `SuperRyhma`, joka mallintaa supersankareista koostuvaa ryhmää. Luokalla pitää olla seuraava piirteet:
+
+* **Suojatut** attribuutit nimi (merkkijono), kotipaikka (merkkijono) ja jasenet (lista)
+* Konstruktori, joka saa parametrikseen tässä järjestyksessä nimen ja kotipaikan
+* Asetus- ja havainnointimetodit nimelle ja kotipaikalle
+* Metodi `lisaa_jasen(sankari: SuperSankari)`, joka lisää uuden jäsenen ryhmään
+* Metodi `tulosta_ryhma, joka tulostaa ryhmän ja sen jäsenten tiedot alla olevan esimerkin mukaisesti
+
+Esimerkki luokan käytöstä:
+
+```python
+supermiekkonen = SuperSankari("Supermiekkonen", "Supernopeus, supervoimakkuus")
+nakymaton = SuperSankari("Näkymätön Makkonen", "Näkymättömyys")
+ryhma_z = SuperRyhma("Ryhmä Z", "Kälviä")
+
+ryhma_z.lisaa_jasen(supermiekkonen)
+ryhma_z.lisaa_jasen(nakymaton)
+print(ryhma_z)
+```
+
+<sample-output>
+
+Ryhmä Z, Kälviä
+Jäsenet:
+Supermiekkonen, superkyvyt: Supernopeus, supervoimakkuus
+Näkymätön Makkonen, superkyvyt: Näkymättömyys
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Salaiset Taikajuomat' tmcname='osa10_XX_salaiset_taikajuomat'>
+
+Tehtäväpohjassa on luokka `Taikajuoma`, johon käyttäjä voi tallentaa reseptin. Luokasta löytyy konstruktorin lisäksi metodit
+
+* `lisaa_aines(ainesosa: str, maara: float)` ja
+* `tulosta_resepti()`
+
+Kirjoita `Taikajuoma`-luokan perivä luokka `SalainenTaikajuoma`, jolla resepti voidaan suojata salasanalla.
+
+Uusi luokka saa konstruktorissa taikajuoman nimen lisäksi salasanan.
+
+Lisäksi luokalla on metodit
+
+* `lisaa_aines(ainesosa: str, maara: float, salasana: str)` ja
+* `tulosta_resepti(salasana: str)`
+
+Jos metodeja kutsutaan väärällä salasanalla, ne antavat `ValueError`-poikkeuksen.
+
+Uudet metodit kutsuvat perityn luokan metodeja, jos salasana on oikein! Älä siis leikkaa ja liimaa toteutuksia luokasta Taikajuoma.
+
+Esimerkki luokan käytöstä:
+
+```python
+kutistus = SalainenTaikajuoma("Kutistus maksimus", "hokkuspokkus")
+kutistus.lisaa_aines("Kärpässieni", 1.5, "hokkuspokkus")
+kutistus.lisaa_aines("Taikahiekka", 3.0, "hokkuspokkus")
+kutistus.lisaa_aines("Sammankonkutu", 4.0, "hokkuspokkus")
+kutistus.tulosta_resepti("hokkuspokkus")
+
+kutistus.tulosta_resepti("pokkushokkus") # VÄÄRÄ SALASANA!
+```
+
+<sample-output>
+
+Kutistus maksimus:
+Kärpässieni 1.5 grammaa
+Taikahiekka 3.0 grammaa
+Sammankonkutu 4.0 grammaa
+Traceback (most recent call last):
+  File "salaiset_taikajuomat.py", line 98, in <module>
+    raise ValueError("Väärä salasana!")
+ValueError: Väärä salasana!
+
+</sample-output>
+
+</programming-exercise>
