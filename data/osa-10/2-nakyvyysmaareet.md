@@ -180,9 +180,9 @@ Kirjoita luokka `SuperRyhma`, joka mallintaa supersankareista koostuvaa ryhmää
 
 * **Suojatut** attribuutit nimi (merkkijono), kotipaikka (merkkijono) ja jasenet (lista)
 * Konstruktori, joka saa parametrikseen tässä järjestyksessä nimen ja kotipaikan
-* Asetus- ja havainnointimetodit nimelle ja kotipaikalle
+* Havainnointimetodit nimelle ja kotipaikalle
 * Metodi `lisaa_jasen(sankari: SuperSankari)`, joka lisää uuden jäsenen ryhmään
-* Metodi `tulosta_ryhma, joka tulostaa ryhmän ja sen jäsenten tiedot alla olevan esimerkin mukaisesti
+* Metodi `tulosta_ryhma`, joka tulostaa ryhmän ja sen jäsenten tiedot alla olevan esimerkin mukaisesti
 
 Esimerkki luokan käytöstä:
 
@@ -193,7 +193,7 @@ ryhma_z = SuperRyhma("Ryhmä Z", "Kälviä")
 
 ryhma_z.lisaa_jasen(supermiekkonen)
 ryhma_z.lisaa_jasen(nakymaton)
-print(ryhma_z)
+ryhma_z.tulosta_ryhma()
 ```
 
 <sample-output>
@@ -207,7 +207,7 @@ Näkymätön Makkonen, superkyvyt: Näkymättömyys
 
 </programming-exercise>
 
-<programming-exercise name='Salaiset Taikajuomat' tmcname='osa10_XX_salaiset_taikajuomat'>
+<programming-exercise name='Salainen taikajuoma' tmcname='osa10_06_salainen_taikajuoma'>
 
 Tehtäväpohjassa on luokka `Taikajuoma`, johon käyttäjä voi tallentaa reseptin. Luokasta löytyy konstruktorin lisäksi metodit
 
@@ -233,7 +233,7 @@ Esimerkki luokan käytöstä:
 kutistus = SalainenTaikajuoma("Kutistus maksimus", "hokkuspokkus")
 kutistus.lisaa_aines("Kärpässieni", 1.5, "hokkuspokkus")
 kutistus.lisaa_aines("Taikahiekka", 3.0, "hokkuspokkus")
-kutistus.lisaa_aines("Sammankonkutu", 4.0, "hokkuspokkus")
+kutistus.lisaa_aines("Sammakonkutu", 4.0, "hokkuspokkus")
 kutistus.tulosta_resepti("hokkuspokkus")
 
 kutistus.tulosta_resepti("pokkushokkus") # VÄÄRÄ SALASANA!
@@ -244,7 +244,7 @@ kutistus.tulosta_resepti("pokkushokkus") # VÄÄRÄ SALASANA!
 Kutistus maksimus:
 Kärpässieni 1.5 grammaa
 Taikahiekka 3.0 grammaa
-Sammankonkutu 4.0 grammaa
+Sammakonkutu 4.0 grammaa
 Traceback (most recent call last):
   File "salaiset_taikajuomat.py", line 98, in <module>
     raise ValueError("Väärä salasana!")
