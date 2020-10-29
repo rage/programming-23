@@ -260,7 +260,7 @@ Muistiinpano - pvm: 2020-09-09 14:13:02.163170, merkintä: Muista ostaa lahjoja 
 
 </sample-output>
 
-<programming-exercise name='Raha' tmcname='osa10_'>
+<programming-exercise name='Raha' tmcname='osa10_07_raha'>
 
 Tehtäväpohjasta löytyy luokan `Raha` runko. Tässä tehtävässä laajennetaan runkoa muutamilla operaattoreilla, ja korjataan pari rungossa olevaa pientä ongelmaa
 
@@ -283,7 +283,7 @@ print(e2)
 
 </sample-output>
 
-Korjaa luokan metodi `__repr__(self)` siten, että tulostus on seuraava:
+Korjaa luokan metodi `__str__(self)` siten, että tulostus on seuraava:
 
 <sample-output>
 
@@ -343,14 +343,14 @@ True
 
 Toteuta rahalle yhteen- ja vähennyslaskuoperaatiot. Molempien operaatioiden tulee palauttaa uusi rahaolio, ja ne eivät saa muuttaa olioa itseään tai parametrina olevaa olioa!
 
-Huomaa, että rahan arvo ei voi olla negatiivinen. Negatiiviseen tulokseen päätyvän vähennyslaskuyrityksen tulee aiheuttaa poikkeus.
+Huomaa, että rahan arvo ei voi olla negatiivinen. Negatiiviseen tulokseen päätyvän vähennyslaskuyrityksen tulee aiheuttaa ValueError-tyyppinen poikkeus.
 
 ```python
 e1 = Raha(4, 5)
 e2 = Raha(2, 95)
 
 e3 = e1 + e2
-e4= e1 - e2
+e4 = e1 - e2
 
 print(e3)
 print(e4)
@@ -388,22 +388,24 @@ print(e1)
 
 </sample-output>
 
-Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että huijaus ei onnistu.
+Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että yläpuolella esitetty huijaus ei onnistu. Luokalla ei siis saa olla kapseloimattomia attribuutteja eikä asetus- tai havainnointimetodeita euroille tai senteille!
 
 </programming-exercise>
 
-<programming-exercise name='Päiväys' tmcname='osa10_'>
+<programming-exercise name='Päiväys' tmcname='osa10_08_paivays'>
 
-Tässä tehtävässä toteutetaan luokka `Paivaus` jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi että jokaisessa kuussa on 30 päivää.
+Tässä tehtävässä toteutetaan luokka `Paivays` jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi että _jokaisessa kuussa on 30 päivää_.
+
+Huom! Edellisestä johtuen tehtävässä ei poikkeuksellisesti kannata käyttää Pythonin datetime-moduulia, vaan toteuttaa luokka itse.
 
 ## Vertailut
 
 Toteuta luokan runko ja sille vertailuoperaattori <, >, == ja !=. Käyttöesimerkki
 
 ```python
-p1 = Paivaus(4, 10, 2020)
-p2 = Paivaus(28, 12, 1985)
-p3 = Paivaus(28, 12, 1985)
+p1 = Paivays(4, 10, 2020)
+p2 = Paivays(28, 12, 1985)
+p3 = Paivays(28, 12, 1985)
 
 print(p1)
 print(p2)
@@ -431,8 +433,8 @@ True
 Toteuta päiväykselle operaattori +. Operaattori luo uuden päivämäärän joka on plussattavan lukeman päiviä verran suurempi kuin alkuperäinen päivämäärä. Alkuperäinen päivä ei saa muuttua.
 
 ```python
-p1 = Paivaus(4, 10, 2020)
-p2 = Paivaus(28, 12, 1985)
+p1 = Paivays(4, 10, 2020)
+p2 = Paivays(28, 12, 1985)
 
 p3 = p1 + 3
 p4 = p2 + 400
@@ -459,9 +461,9 @@ Toteuta päiväykselle operaattori - joka palattaa päivämäärien eron päivis
 Operaattori toimii seuraavasti
 
 ```python
-p1 = Paivaus(4, 10, 2020)
-p2 = Paivaus(2, 11, 2020)
-p3 = Paivaus(28, 12, 1985)
+p1 = Paivays(4, 10, 2020)
+p2 = Paivays(2, 11, 2020)
+p3 = Paivays(28, 12, 1985)
 
 print(p2-p1)
 print(p1-p2)
@@ -510,8 +512,6 @@ class Kirja:
 class Kirjahylly:
     def __init__(self):
         self._kirjat = []
-        # laskuri iteraattoria varten
-        self.__laskuri = 0
 
     def lisaa_kirja(self, kirja: Kirja):
         self._kirjat.append(kirja)
@@ -572,7 +572,7 @@ C-itsemän veljestä
 </sample-output>
 
 
-<programming-exercise name='Iteroitava kauppalista' tmcname='osa10_'>
+<programming-exercise name='Iteroitava kauppalista' tmcname='osa10_09_kauppalista'>
 
 Tehtäväpohjassa on [osan 8 tehtävästä ](/osa-8/2-luokat-ja-oliot#programming-exercise-kauppalista) tuttu luokka `Kauoppalista`. Tee luokasta iteroitava, siten että sitä voi käyttää seuraavasti:
 
