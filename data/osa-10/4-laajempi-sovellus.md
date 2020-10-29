@@ -9,36 +9,36 @@ hidden: false
 Tässä osiossa
 
 - Käydään tässä luvussa läpi hieman laajemman sovelluksen tekemiseen liittyviä seikkoja
-- Erityinen fokus on sovelluksen eri osa-alueiden (käyttöliittymä, sovelluslogiikka ja tiedostojen käsittely) eriyttämistä
+- Erityinen fokus on sovelluksen eri osa-alueiden (käyttöliittymä, sovelluslogiikka ja tiedostojen käsittely) eriyttämisessä
 - Harjoitellaan tätä itse
 
 </text-box>
 
 Ohjelmoinnin perusteiden ja jatkokurssin aikana on esitelty suuri määrä Pythonin tarjoamia ominaisuuksia.
 
-Ohjelmoinnin perusteissa tutustuttiin kielen kontrollirakenteisiin (while ja for), funktioihin sekä perustietorakenteisiin eli listaan ja sanakirjaan. Näytti jo hetken siltä että muuta ei tarvitaakaan ja periaatteessa näin on, ohjelmoinnin perusteiden kalustolla pystyy ilmaisemaan kaiken mikä Pythonilla on ylipäätään ilmaistavissa.
+Ohjelmoinnin perusteissa tutustuttiin kielen kontrollirakenteisiin (while ja for), funktioihin sekä perustietorakenteisiin eli listaan ja sanakirjaan. Näytti jo hetken siltä että muuta ei tarvitakaan ja periaatteessa näin on, ohjelmoinnin perusteiden kalustolla pystyy ilmaisemaan kaiken mikä Pythonilla on ylipäätään ilmaistavissa.
 
 Jatkokurssin alussa, eli kurssin osassa 8 pakkaa ruvettiin kuitenkin hämmentämään tuomalla mukaan luokat ja oliot. Milloin ja ylipäätään _miksi_ oliota tulisi käyttää jos kurssin osien 1-7 kalusto on jo ilmaisuvoimaltaan riittävä?
 
 ## Monimutkaisuuden hallintaa
 
-Monissa tilanteissa voi ja varmasti kannattaakin olla käyttämättä oliota. Esimerkiksi kun koodailen itse pieniä "kertakäyttöisiä" apuohjelmia, en tuskin koskaan käytä oliota. Tilanne alkaa olin muuttua kun siirrytään hieman suuremman kokoluokan ohjelmiin.
+Monissa tilanteissa voi ja varmasti kannattaakin olla käyttämättä oliota. Esimerkiksi kun koodailen itse pieniä "kertakäyttöisiä" apuohjelmia, en tuskin koskaan käytä oliota. Tilanne alkaa muuttua kun siirrytään hieman suuremman kokoluokan ohjelmiin.
 
-Kun ohjelmat kasvavat, alkaa niissä olevien detaljien määrä nousta hallitsemattomaksi, ellei ohjelmaa strukturoida jollain järkevällä tavalla. Itseasiassa jo ohjelmoinnin perusteissakin monien opiskelijoiden koodissa oli havaittavissa jo aivan liian liian monimutkaisia ratkaisuja, joiden ymmärtämisessä jopa alan ammattilaisilla on vaikeuksia.
+Kun ohjelmat kasvavat, alkaa niissä olevien detaljien määrä nousta hallitsemattomaksi, ellei ohjelmaa strukturoida jollain järkevällä tavalla. Itseasiassa jo ohjelmoinnin perusteissakin monien opiskelijoiden koodissa oli havaittavissa jo aivan liian monimutkaisia ratkaisuja, joiden ymmärtämisessä jopa alan ammattilaisilla on vaikeuksia.
 
 Käsite [Separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) on ollut jo vuosikymmeniä eräs ohjelmoinnin ja koko tietojenkäsittelyn keskeisiä teemoja. Wikipedian mukaan käsittellä tarkoitetaan seuraavaa
 
 _Separation of concerns is a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program_
 
-Vapaasti käännettynä kyse on periaatteesta, joka ohjaa jakamaan ohjelmakoodin pienempiin osiin, joista kukin huolehtii omasta "asiastaan". Periaatteen ideana on siis hallita ohjelmien väistämätöntä monimutkaisuutta sillä, että ohjelma jaetaan omiin osiinsa, joista kukin keskittyy omaan osa-alueeseensa.
+Vapaasti käännettynä kyse on periaatteesta, joka ohjaa jakamaan ohjelmakoodin pienempiin osiin, joista kukin huolehtii omasta "tontistaan". Periaatteen ideana on siis hallita ohjelmien väistämätöntä monimutkaisuutta sillä, että ohjelma jaetaan omiin osiinsa, joista kukin keskittyy omaan osa-alueeseensa.
 
-Funktiot ovat yksi mekanismi tämän tavoitteen saavuttamiseen, eli sen sijaan että ohjelma kirjoitetaan yhtenä isona pätkänä, koostetaan se pienistä funktioista, joista kukin ratkaiseen pienen osan ongelmasta.
+Funktiot ovat yksi mekanismi tämän tavoitteen saavuttamiseen, eli sen sijaan että ohjelma kirjoitetaan yhtenä isona kokonaisuutena, koostetaan se pienistä funktioista, joista kukin ratkaisee pienen osan ongelmasta.
 
-Olio-ohjelmointi tarjoaa funktioita jossain määrin ilmaisuvoimaisemman ja joidenkin mielestä funktioitakin "paremman" tavan saavuttaa tämä sama tavoite. Kuten olemme nähneet, olioiden avulla on mahdollista koota samaan "asiaan" liittyvä data ja sitä käsittelevä koodi, eli metodit samaan paikkaan. Oliot tarjoavat myös mekanismin käsittelemänsä datan kapselointiin, joka taas tavallaan on keino piilottaa "turhia" yksityiskohtia olion ulkopuoliselta osalta ohjelmaa.
+Olio-ohjelmointi tarjoaa funktioita jossain määrin ilmaisuvoimaisemman ja joidenkin mielestä funktioitakin "paremman" tavan saavuttaa tämä sama tavoite. Kuten olemme nähneet, olioiden avulla on mahdollista koota samaan asiaan liittyvä data ja sitä käsittelevä koodi, eli metodit samaan paikkaan. Oliot tarjoavat myös mekanismin käsittelemänsä datan kapselointiin, joka taas tavallaan on keino piilottaa "turhia" yksityiskohtia olion ulkopuoliselta osalta ohjelmaa.
 
 ## Esimerkki: puhelinluettelo
 
-Miten ohjelma sitten tulisi jakaa luokkiin ja olioihin? Kysymys ei ole helppo, ja asiaa on helpompi pohdiskella konkreettisen esimerkin kautta. Siispä toteutetaan tässä esimerkkinä olio-ohjelmointia hyödyntäen hieman samantyllinen puhelinluettelo, joka oli aiheena ohjelmoinnin perusteiden viidennen osan [tehtävässä](osa-5/3-dictionary#programming-exercise-puhelinluettelo-versio-2).
+Miten ohjelma sitten tulisi jakaa luokkiin ja olioihin? Kysymys ei ole helppo, ja asiaa on helpompi pohdiskella konkreettisen esimerkin kautta. Siispä toteutetaan tässä esimerkkinä olio-ohjelmointia hyödyntäen hieman samantyylinen puhelinluettelo, joka oli aiheena ohjelmoinnin perusteiden viidennen osan [tehtävässä](osa-5/3-dictionary#programming-exercise-puhelinluettelo-versio-2).
 
 Separation of concerns -periaatetta noudatellen koodi siis tuli jakaa osiin, joista kukin käsittelee omaa asiaansa. Olio-ohjelmoinnin piirissä tätä periaatetta ilmentää niin sanottu [yhden vastuun (single responsipility)](https://en.wikipedia.org/wiki/Single-responsibility_principle) -periaate. Ei mennä sen tarkemmin periaatteen detaljeihin, mutta maalaisjärjellä ajatellen periaatteen nimi jo kertoo mistä on kyse, _yksittäisen luokan olioiden tulisi olla vastuussa yhdestä asiasta_.
 
@@ -53,11 +53,11 @@ Myös _puhelinluettelo_ itsessään on potentiaalinen luokka, sen vastuulla on h
 
 Nämä kaksi luokkaa eli _puhelinluettelo_ ja _henkilö_ muodostavat sovelluksen ytimen, eli niin sanotun _sovelluslogiikan_. Näiden lisäksi ohjelma tarvitsee muutaman muunkin luokan.
 
-Käyttäjän kanssa tapahtuvasta interaktiosta huolehtivaa ei kannata sotkea sovelluslogiikan kanssa samaan, sehän on kokonaan oma vastuunsa, eli sovelluslogiikan luokkien lisäksi ohjelmalle tulee myös luokka, joka huolehtii ohjelman käyttöliittymästä.
+Käyttäjän kanssa tapahtuvasta interaktiosta huolehtivaa luokkaa ei kannata sotkea sovelluslogiikan kanssa samaan luokkaan - sehän on kokonaan oma vastuunsa. Eli sovelluslogiikan luokkien lisäksi ohjelmalle tulee myös luokka, joka huolehtii ohjelman käyttöliittymästä.
 
-Talletamme puhelinluettelon tiedot tiedostoon. Myös tiedoson käsittely on selkeästi oma vastuunsa, joten tulemme sisällyttämään siihen käytettävän koodin omaan luokkaansa.
+Talletamme puhelinluettelon tiedot tiedostoon. Myös tiedoston käsittely on selkeästi oma vastuunsa, joten tulemme sisällyttämään siihen käytettävän koodin omaan luokkaansa.
 
-Kun ohjelman luokkarakenne alkaa pikkuhiljaa hahottua, nousee kysymykseksi se, mistä ohjelmointi kannattaa aloittaa. Itse olen todennunt useimmiten parhaaksi tavaksi aloittaa pienellä palalla sovelluslogiikka.
+Kun ohjelman luokkarakenne alkaa pikkuhiljaa hahmottua, nousee kysymykseksi se, mistä ohjelmointi kannattaa aloittaa. Itse olen todennunt useimmiten parhaaksi tavaksi aloittaa pienellä palalla sovelluslogiikka.
 
 ## vaihe 1: sovelluslogiikan runko
 
@@ -125,7 +125,7 @@ Koodiin tullut bugi kannattaa saada kiinni ja korjata niin pian kuin mahdollista
 
 ## vaihe 2: käyttöliittymän runko
 
-Kun sovelluslogiikan ydintoiminnallisuus on kunnossa, voidaan edetä sovelluksen tekstikäyttöliittymään. Tehdään sitä varten oma luokka `PuhelinluetteloSovellus`, jonka runko on seruaava:
+Kun sovelluslogiikan ydintoiminnallisuus on kunnossa, voidaan edetä sovelluksen tekstikäyttöliittymään. Tehdään sitä varten oma luokka `PuhelinluetteloSovellus`, jonka runko on seuraava:
 
 ```python
 class PuhelinluetteloSovellus:
@@ -148,7 +148,7 @@ sovellus = PuhelinluetteloSovellus()
 sovellus.suorita()
 ```
 
-Luokka saattaa vaikuttaa jopa häämentävältä, konstruktori luo puhelinluettelon, jonka olio pitää sisällään. Metodi `suorita(self)` "käynnistää" sovelluksen tekstikäyttöliittymän, jonka ytimen muodostaa `while`-silmukka, joka kyselee käyttäjältä mikä komento halutaan suorittaa. Ennen toistolauseeseen menemistä ohjelma tulostaa käyttöohjeet, kutsumalla metodia `ohje(self)`.
+Luokka saattaa vaikuttaa jopa hämmentävältä, konstruktori luo puhelinluettelon, jonka olio pitää sisällään. Metodi `suorita(self)` "käynnistää" sovelluksen tekstikäyttöliittymän, jonka ytimen muodostaa `while`-silmukka, joka kyselee käyttäjältä mikä komento halutaan suorittaa. Ennen toistolauseeseen menemistä ohjelma tulostaa käyttöohjeet, kutsumalla metodia `ohje(self)`.
 
 Laajennetaan käyttöliittymää siten, että luetteloon voidaan lisätä uusia tietoja:
 
@@ -178,7 +178,7 @@ sovellus = PuhelinluetteloSovellus()
 sovellus.suorita()
 ```
 
-Jos valittu komento on tietojen lisäys (eli komento on _1_), kysyy käyttöliittymä nimen ja numeron käyttäjältä, ja lisää tiedot puhelinluetteloon kusumalla sopivaa luettelon metodia.
+Jos valittu komento on tietojen lisäys (eli komento on _1_), kysyy käyttöliittymä nimen ja numeron käyttäjältä, ja lisää tiedot puhelinluetteloon kutsumalla sopivaa luettelon metodia.
 
 Käyttöliittymä on siis ainoastaan vastuussa siitä että se kommunikoi käyttäjän kanssa, puhelinnumeron säilöminen nimen yhteyteen on jätetty täysin _Puhelinluettelo_-olion vastuulle.
 
@@ -323,7 +323,7 @@ class Tiedostonkasittelija():
 
 Konstruktorin parametrina annetaan tiedoston nimi. Metodi `lataa(self)` lukee tiedoston, ja pilkkoo sen rivit sanakirjaksi, missä avain on nimi ja arvona ovat nimeen liittyvät numerot.
 
-Metodi käyttää erästä Pythonin kätevää ominaisuutta: taulkosta on mahdollista ottaa erilleen yksittäisiä lukuja, sekä "loput" seuraavan kaltaisella sijoituslauseella:
+Metodi käyttää erästä Pythonin kätevää ominaisuutta: taulukosta on mahdollista ottaa erilleen yksittäisiä lukuja, sekä "loput" seuraavan kaltaisella sijoituslauseella:
 
 ```python
 taulukko = [1, 2, 3, 4, 5]
@@ -469,7 +469,7 @@ komento: **0**
 
 </sample-output>
 
-Tee laajennus sitten, että kunnioitat ohjelman rakennetta. Eli lisää luokkaan `PuhelinluetteloSovellus` uutta ominaisuutta varten sopiva apumetodi sekä oma "haara" while-silmukkaan. Lisää myös sovelluslogiikkaan eli luokkaan `Puhelinluettelo` metodi, joka mahdollistaa nimen hakemisen numeron perusteella.
+Tee laajennus sitten, että kunnioitat ohjelman rakennetta. Eli lisää luokkaan `PuhelinluetteloSovellus` uutta ominaisuutta varten sopiva apumetodi sekä oma haara while-silmukkaan. Lisää myös sovelluslogiikkaan eli luokkaan `Puhelinluettelo` metodi, joka mahdollistaa nimen hakemisen numeron perusteella.
 
 </programming-exercise>
 
@@ -506,7 +506,7 @@ Mannerheimintie 10 Helsinki
 
 Muuta koodiasi siten, että se toimii käyttäjän näkökulmasta täysin samoin kuin aiemmin, mutta luokka `Puhelinluettelo` tallettaakin henkilöt sisäisesti käyttäen luokan `Henkilo` olioita, käytännössä siis oliomuuttujna `__henkilot` tulee olla sanakirja, jolle listojen sijaan talletetaan henkilö-olioita.
 
-**VAROITUS:** kun teet koodiin tämän tehtävän kaltaista rakenteellisa muutosta, etene pienin askelin. Älä missään tapauksessa yritä tehdä "kaikkea kerrallaan", se on **varma keino ajautua pahoihin ongelmiin**.
+**VAROITUS:** kun teet koodiin tämän tehtävän kaltaista rakenteellisa muutosta, etene pienin askelin. Älä missään tapauksessa yritä tehdä kaikkea kerrallaan, se on **varma keino ajautua pahoihin ongelmiin**.
 
 Sopiva pieni askel nyt voi olla se että tarkastat ensin erikseen että luokka  `Puhelinluettelo` alkaa toimia, eli esim seuraava koodi toimii kuten olettaa saattaa:
 
@@ -562,7 +562,7 @@ komento: **0**
 
 </sample-output>
 
-**VAROITUS ja vihje:** kuten tehtävän edellisessä osassa sanottiin, älä missään tapauksessa yritä tehdä "kaikkea kerrallaan", se on **varma keino ajautua pahoihin ongelmiin**.
+**VAROITUS ja vihje:** kuten tehtävän edellisessä osassa sanottiin, älä missään tapauksessa yritä tehdä kaikkea kerrallaan, se on **varma keino ajautua pahoihin ongelmiin**.
 
 Varmista ensin että voit lisätä osoitteita luokkaan `Puhelinluettelo` ja kun olet 100% varma, että se toimii, voit laajentaa sovelluksen käyttöliittymän uuden toiminnallisuuden osalta.
 
@@ -658,6 +658,6 @@ komento: **3**
 
 Muutama huomio: kultakin kursilta tallentuu ainoastaan yksi arvosana. Arvosanaa voi korottaa, mutta se ei voi laskea.
 
-Tehtävästä on tarjolla kaksi "tehtäväpistettä". Ensimmäisen pisteen saa jos toiminnot 1 ja 2 sekä lopetus toimivat. Toisen pisteen saa jos myös toiminto 3 on toteutettu.
+Tehtävästä on tarjolla kaksi tehtäväpistettä. Ensimmäisen pisteen saa jos toiminnot 1 ja 2 sekä lopetus toimivat. Toisen pisteen saa jos myös toiminto 3 on toteutettu.
 
 </programming-exercise>
