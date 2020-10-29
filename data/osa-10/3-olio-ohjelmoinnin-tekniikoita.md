@@ -283,7 +283,7 @@ print(e2)
 
 </sample-output>
 
-Korjaa luokan metodi `__repr__(self)` siten, että tulostus on seuraava:
+Korjaa luokan metodi `__str__(self)` siten, että tulostus on seuraava:
 
 <sample-output>
 
@@ -343,14 +343,14 @@ True
 
 Toteuta rahalle yhteen- ja vähennyslaskuoperaatiot. Molempien operaatioiden tulee palauttaa uusi rahaolio, ja ne eivät saa muuttaa olioa itseään tai parametrina olevaa olioa!
 
-Huomaa, että rahan arvo ei voi olla negatiivinen. Negatiiviseen tulokseen päätyvän vähennyslaskuyrityksen tulee aiheuttaa poikkeus.
+Huomaa, että rahan arvo ei voi olla negatiivinen. Negatiiviseen tulokseen päätyvän vähennyslaskuyrityksen tulee aiheuttaa ValueError-tyyppinen poikkeus.
 
 ```python
 e1 = Raha(4, 5)
 e2 = Raha(2, 95)
 
 e3 = e1 + e2
-e4= e1 - e2
+e4 = e1 - e2
 
 print(e3)
 print(e4)
@@ -388,7 +388,7 @@ print(e1)
 
 </sample-output>
 
-Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että huijaus ei onnistu.
+Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että yläpuolella esitetty huijaus ei onnistu. Luokalla ei siis saa olla kapseloimattomia attribuutteja eikä asetus- tai havainnointimetodeita euroille tai senteille!
 
 </programming-exercise>
 
