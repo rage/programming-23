@@ -69,7 +69,7 @@ print(pekan_tili.saldo)
 
 </sample-output>
 
-Metodi `lisaa_korko` kertoo olion saldon vuorikorkoprosentilla ja lisää tuloksen nykyiseen saldoon. Metodin toiminta kohdistuu siihen olioon, jonka kautta sitä kutsutaan.
+Metodi `lisaa_korko` kertoo olion saldon vuosikorkoprosentilla ja lisää tuloksen nykyiseen saldoon. Metodin toiminta kohdistuu siihen olioon, jonka kautta sitä kutsutaan.
 
 Katsotaan vielä toinen esimerkki, jossa luokasta on muodostettu useampi olio:
 
@@ -342,7 +342,7 @@ Piia
 
 </sample-output>
 
-Esimerkistä huomataan, että myös olion omiin metodeihin pitää viitata `self`-määreen avulla, kun niitä kutsutaan konstruktorista. Luokkiin voidaan kirjoitaa myös _staattisia metodeita_ eli metodeita, jota voidaan kutsua ilman, että luokasta muodostetaan oliota. Tähän palataan kuitenkin tarkemmin ensi viikolla.
+Esimerkistä huomataan, että myös olion omiin metodeihin pitää viitata `self`-määreen avulla, kun niitä kutsutaan konstruktorista. Luokkiin voidaan kirjoitaa myös _staattisia metodeita_ eli metodeita, joita voidaan kutsua ilman, että luokasta muodostetaan oliota. Tähän palataan kuitenkin tarkemmin ensi viikolla.
 
 <programming-exercise name="Etu- ja sukunimi" tmcname='osa08-10b_etu_ja_sukunimi'>
 

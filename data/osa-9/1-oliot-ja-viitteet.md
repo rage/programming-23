@@ -123,7 +123,7 @@ Koesuoritus (suorittaja: Petriina, pisteet: 17)
 
 </programming-exercise>
 
-Listaan ei itse asiassa oikeasti tallenneta olioita, vaan _viittauksia olioihin_. Niinpä sama olio voi esiintyä listassa useaan kertaan (eli käytännössä samaan olioon voidaan viitata useaan kertaan listassa ja sen ulkoupuolella):
+Listaan ei itse asiassa oikeasti tallenneta olioita, vaan _viittauksia olioihin_. Niinpä sama olio voi esiintyä listassa useaan kertaan (eli käytännössä samaan olioon voidaan viitata useaan kertaan listassa ja sen ulkopuolella):
 
 Esimerkiksi
 
@@ -348,7 +348,7 @@ Opiskelija, nimi: Minna Pythonen, opiskelijanumero: 86211, opintopisteet: 290
 
 ## Oliot metodien parametrina
 
-Olito toimivat normaaliin tapaan myös _metodeinen_ parametrina. Tarkastellaan seuraavaa esimerkkiä:
+Oliot toimivat normaaliin tapaan myös _metodeinen_ parametrina. Tarkastellaan seuraavaa esimerkkiä:
 
 ```python
 class Henkilo:
@@ -762,7 +762,7 @@ Grace Hopper ei ole vanhenmpi kuin  Blaise Pascal
 
 </sample-output>
 
-Olio-ohjelmoinnin henkeen kuuluu kuitenkin sijoittaa oliota käsittelevät "funktiot" luokan metodeiksi. Voisimmekin tehdä henkilölle metodin, jonka avulla henkilön ikää voidaan verrata _toiseen_ hebkilöön:
+Olio-ohjelmoinnin henkeen kuuluu kuitenkin sijoittaa oliota käsittelevät "funktiot" luokan metodeiksi. Voisimmekin tehdä henkilölle metodin, jonka avulla henkilön ikää voidaan verrata _toiseen_ henkilöön:
 
 ```python
 class Henkilo:
@@ -800,7 +800,7 @@ else:
     print(f"{grace} ei ole vanhenmpi kuin {pascal}")
 ```
 
-Pisteen vasemmalla puolella on siis se ketä verrataan, eli se olio mihin metodin suorituksessa viittaa muuttuja `self`, parametrina taas on vertailukohta, eli metodin suoritukssa muuttujan `toinen` viittaama olio.
+Pisteen vasemmalla puolella on siis se ketä verrataan, eli se olio mihin metodin suorituksessa viittaa muuttuja `self`, parametrina taas on vertailukohta, eli metodin suorituksessa muuttujan `toinen` viittaama olio.
 
 Ohjelman tulostus on sama kuin edellisessä funktiota käyttäneessä esimerkissä.
 
