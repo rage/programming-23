@@ -242,6 +242,8 @@ Puhelin: Nokia 3210 (1 kg)
 
 </sample-output>
 
+Tavaralla on siis metodit `paino(self)` ja `nimi(self)` jotka palauttavat tavaran tiedot.
+
 Luokan tulee tallettaa tieto nimestä ja painosta kapseloituna, eli seuraava ei saa onnistua:
 
 ```python
@@ -259,7 +261,7 @@ Lisää luokkaan seuraavat:
 - metodi `lisaa_tavara(self, tavara)`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
 - metodi `__repr__`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
 
-Luokan tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaa_tavara` ei saa lisätä uutta tavaraa laukkuun.
+Luokan tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaa_tavara(self, tavara)` ei saa lisätä uutta tavaraa laukkuun.
 
 Seuraavassa on luokan käyttöesimerkki:
 
@@ -311,8 +313,8 @@ ei tavaroita (0 kg)
 
 Lisää luokkaan seuraavat metodit:
 
-- `tulosta_tavarat`, joka tulostaa kaikki matkalaukussa olevat tavarat
-- `yhteispaino`, joka palauttaa tavaroiden yhteispainon
+- `tulosta_tavarat(self)`, joka tulostaa kaikki matkalaukussa olevat tavarat
+- `yhteispaino(self)`, joka palauttaa tavaroiden yhteispainoa kuvaavan kokonaisluvun, joka on sen sisältävien tavaroiden painojen summa
 
 Seuraavassa on luokan käyttöesimerkki:
 
@@ -328,7 +330,8 @@ matkalaukku.lisaa_tavara(tiiliskivi)
 
 print("Matkalaukussa on seuraavat tavarat:")
 matkalaukku.tulosta_tavarat()
-print(f"Yhteispaino: {matkalaukku.yhteispaino()} kg")
+paino_yht = matkalaukku.yhteispaino()
+print(f"Yhteispaino: {paino_yht} kg")
 ```
 
 Ohjelman tulostuksen tulisi olla seuraava:
@@ -347,7 +350,7 @@ Muokkaa myös luokkaasi siten, että käytät vain kahta oliomuuttujaa. Toinen s
 
 ## Raskain tavara
 
-Lisää vielä luokkaan metodi `raskain_tavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo None.
+Lisää vielä luokkaan metodi `raskain_tavara(self)`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo `None`.
 
 Seuraavassa on luokan käyttöesimerkki:
 
@@ -417,7 +420,7 @@ Yksi matkalaukku tilaa 998 kg
 
 ## Lastiruuman sisältö
 
-Lisää luokkaan metodi `tulosta_tavarat()`, joka tulostaa kaikki lastiruuman matkalaukuissa olevat tavarat.
+Lisää luokkaan metodi `tulosta_tavarat(self)`, joka tulostaa kaikki lastiruuman matkalaukuissa olevat tavarat.
 
 Seuraavassa on luokan käyttöesimerkki:
 
