@@ -141,7 +141,7 @@ class Kirjahylly(Kirjalaatikko):
     """ Luokka mallintaa yksinkertaista kirjahyllyä """
 
     def __init__(self):
-        Kirjalaatikko.__init__(self)
+        super().__init__()
 
     def lisaa_kirja(self, kirja: Kirja, paikka: int):
         self.kirjat.insert(paikka, kirja)
@@ -214,11 +214,11 @@ Sinuhe (Mika Waltari)
  class Kirjahylly(Kirjalaatikko):
 
     def __init__(self):
-        Kirjalaatikko.__init__(self)
+        super().__init__()
 
 ```
 
-Yliluokan metodiin viitataan yliluokan nimellä. Huomaa, että tässä tapauksessa `self` pitää antaa parametriksi, vaikka yleensä Python lisää sen automaattisesti.
+Yliluokan konstuktoriin (tai yliluokkaan muutenkin) viitataan funktion `super()` avulla. Huomaa, että tässäkin tapauksessa parametri `self` lisätään automaattisesti.
 
 Tarkastellaan toisena esimerkkinä luokkaa Gradu, joka perii luokan Kirja. Aliluokasta kutsutaan yliluokan konstruktoria:
 
@@ -236,7 +236,7 @@ class Gradu(Kirja):
     """ Luokka mallintaa gradua eli ylemmän korkeakoulututkinnon lopputyötä """
 
     def __init__(self, nimi: str, kirjailija: str, arvosana: int):
-        Kirja.__init__(self, nimi, kirjailija)
+        super().__init__(nimi, kirjailija)
         self.arvosana = arvosana
 
 ```
@@ -297,11 +297,11 @@ class Bonuskortti:
 class Platinakortti(Bonuskortti):
 
     def __init__(self):
-        Bonuskortti.__init__(self)
+        super().__init__()
 
     def laske_bonus(self):
         # Kutsutaan yliluokan metodia...
-        bonus = Bonuskortti.laske_bonus(self)
+        bonus = super().laske_bonus()
 
         # ...ja lisätään vielä viisi prosenttia päälle
         bonus = bonus * 1.05
@@ -335,13 +335,13 @@ if __name__ == "__main__":
 
 </sample-output>
 
-<programming-exercise name='Kannettava tietokone' tmcname='osa10_xx_kannettava_tietokone'>
+<programming-exercise name='Kannettava tietokone' tmcname='osa10_01_kannettava_tietokone'>
 
 Tehtäväpohjassa on määritelty luokka `Tietokone`, jolla on attribuutit `malli` ja `nopeus`.
 
 Kirjoita luokka `KannettavaTietokone`, joka _perii luokan Tietokone_. Luokka saa konstruktorissa luokan Tietokone attribuuttien lisäksi kolmannen kokonaislukutyyppisen attribuutin `paino`.
 
-Kirjoita luokkaan lisäksi metodi `str`, jonka avulla voi tulostaa esimerkkisuorituksen mukaisen tulosteen olion tilasta.
+Kirjoita luokkaan lisäksi metodi `__str__`, jonka avulla voi tulostaa esimerkkisuorituksen mukaisen tulosteen olion tilasta.
 
 Esimerkki:
 
@@ -353,6 +353,36 @@ print(ipm)
 <sample-output>
 
 IPM MikroMauri, 1500 MHz, 2 kg
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Pelimuseo' tmcname='osa10_02_pelimuseo'>
+
+Tehtäväpohjassa on määritelty luokat `Tietokonepeli` ja `Pelivarasto`. Pelivarastoon voidaan säilöä tietokonepelejä.
+
+Tutustu luokkien ohjelmakoodiin ja kirjoita sitten uusi luokka `Pelimuseo`, joka perii luokan `Pelivarasto`.
+
+Pelimuseo-luokassa _uudelleentoteutetaan_ metodi `anna_pelit()` niin, että se palauttaa listassa ainoastaan ne pelit, jotka on tehty ennen vuotta 1990.
+
+Lisäksi luokassa tulee olla konstruktori, josta _kutsutaan yliluokan Pelivarasto konstruktoria_. Konstruktorilla ei ole parametreja.
+
+Esimerkiksi:
+
+```python
+museo = Pelimuseo()
+museo.lisaa_peli(Tietokonepeli("Pacman", "Namco", 1980))
+museo.lisaa_peli(Tietokonepeli("GTA 2", "Rockstar", 1999))
+museo.lisaa_peli(Tietokonepeli("Bubble Bobble", "Taito", 1986))
+for peli in museo.anna_pelit():
+    print(peli.nimi)
+```
+
+<sample-output>
+
+Pacman
+Bubble Bobble
 
 </sample-output>
 
@@ -415,11 +445,13 @@ pinta-ala: 6.0
 
 </programming-exercise>
 
-<programming-exercise name='Sanapeli' tmcname='osa10_2_sanapeli'>
+<programming-exercise name='Sanapeli' tmcname='osa10_04_sanapeli'>
 
 Tehtäväpohja sisältää valmiin luokan `Sanapeli`, joka tarjoaa perustoiminnallisuuden erilaisten sanapelien pelaamiseen:
 
 ```python
+import random
+
 class Sanapeli():
     def __init__(self, kierrokset: int):
         self.voitot1 = 0

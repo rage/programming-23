@@ -172,7 +172,7 @@ Jalkapalloilija - nimi:Petri Pythonen, lempinimi: Pyttis, pelipaikka: hyökkää
 </sample-output>
 
 
-<programming-exercise name='Superryhmä' tmcname='osa10_XX_superryhma'>
+<programming-exercise name='Superryhmä' tmcname='osa10_05_superryhma'>
 
 Tehtäväpohjassa on valmiina luokka `SuperSankari`.
 
