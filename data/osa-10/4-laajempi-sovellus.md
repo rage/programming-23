@@ -537,7 +537,7 @@ numero: **02-123456**
 
 komento: **3**
 nimi: **Emilia**
-osoite:** Viherlaaksontie 7, Espoo**
+osoite: **Viherlaaksontie 7, Espoo**
 
 komento: **2**
 nimi: **Erkki**
