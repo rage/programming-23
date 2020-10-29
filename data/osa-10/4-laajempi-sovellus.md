@@ -570,13 +570,15 @@ Varmista ensin että voit lisätä osoitteita luokkaan `Puhelinluettelo` ja kun 
 
 ## Erinäisiä huomioita
 
-Puhelinluetteloesimerkki noudattaa rakenteeltaan melko klassisia hyvän olio-ohjelmoinnin periaatteita. Kantavana ideana on siis eri vastuualueiden eroittelu eri luokkien ja metodien vastuulle. Eräs suurimmista motiiveista tällaiselle jaoittelulle on kompleksisuuden hallinta. Toinen tärkeä syy on se, että oikein tehty koodin jaoittelu tai _modularisointi_ kuten ammattijargon asian ilmaisee tekee koodista potentiaalisesti helpomman ylläpitää ja laajentaa.
+Puhelinluetteloesimerkki noudattaa rakenteeltaan melko klassisia hyvän olio-ohjelmoinnin periaatteita. Kantavana ideana on siis ohjelman vastuualueiden erottelu eri luokkien ja metodien vastuulle. Eräs suurimmista motiiveista tällaiselle jaoittelulle on kompleksisuuden hallinta. Toinen tärkeä syy on se, että oikein tehty koodin jaoittelu tai _modularisointi_ kuten ammattijargon asian ilmaisee tekee koodista potentiaalisesti helpomman ylläpitää ja laajentaa.
 
-Nostetaan esimerkistä esiin vielä pari tärkeää seikkaa. Koodi ilmentää hyvin sitä, miten sovelluslogiikan varsinainen ydin on eriytetty sekä käyttöliittymästä, että datan tallettamisesta. Tämä on tärkeää muutamastakin syystä. Ensinnäkin se mahdollistaa koodin testailun pienemmissä yksiköissä ja toisaalta koska sovelluslogiikka ei nyt riipu käyttöliittymästä tai tiedon talletustavasta, on niitä mahdollista muuttaa (ainakin johonkin pisteeseen asti) rikkomatta sovellusta.
+Oikeissa ohjelmistoissa ylivoimaisesti suurimman kustannuserän aiheuttaa juuri ylläpito (eli bugien korjailu) sekä ohjelman laajentaminen, joten tällä seikalla on taloudellisesti erittäin suuri merkitys.
 
-Tiedostojen käsittelyn suhteen kannattaa myös huomata se, että ohjelma lukee tiedostoa ainoastan kerran, käynnistysvaiheessa, ja tämän jälkeen kaikki tieto pidetään ohjelman muuttujissa. Ohjelma tallettaa tiedot kokonaisuudessaan, ja käytännössä uudelleenkijroittaa tiedoston joka kerta kokonaan uudestaan. Tiedostojen käsittely kannattaa lähes kaikissa tapauksissa tehdä näin.
+Nostetaan esimerkistä esiin vielä pari tärkeää seikkaa. Koodi ilmentää hyvin sitä, miten sovelluslogiikan varsinainen ydin on eriytetty sekä käyttöliittymästä, että datan tallettamisesta. Tämä on tärkeää muutamastakin syystä. Ensinnäkin se mahdollistaa koodin testailun pienemmissä yksiköissä ja toisaalta koska sovelluslogiikka ei nyt riipu käyttöliittymästä tai tiedon talletustavasta, on esim .käyttöliittymää mahdollista muuttaa (ainakin johonkin pisteeseen asti) rikkomatta muuta sovellusta.
 
-Lisää hyvän koodin kirjoittamiseta esim. Robert Martinin mainiossa kirjassa [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882). Kirjan koodiesimerkit ovat valitettavasti Javaa. Paneudumme ylläpidettävyydeltään ja laajennettavuudeltaan laadukkaan koodin kysymykseen tarkemmin kursseilla[Ohjelmistotekniikka](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024742-2020-08-01) ja [Ohjelmistotuotanto](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024909-2020-08-01).
+Tiedostojen käsittelyn suhteen kannattaa myös huomata se, että ohjelma lukee tiedostoa ainoastan kerran, käynnistysvaiheessa, ja tämän jälkeen kaikki tieto pidetään ohjelman muuttujissa. Ohjelma tallettaa tiedot kokonaisuudessaan, ja käytännössä uudelleenkirjoittaa tiedoston joka kerta kokonaan uudestaan. Tiedostojen käsittely kannattaa lähes kaikissa tapauksissa tehdä näin.
+
+Lisää hyvän koodin kirjoittamiseta löytyy esimerkiksi Robert Martinin mainiossa kirjassa [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882). Kirjan koodiesimerkit ovat valitettavasti Javaa. Paneudumme ylläpidettävyydeltään ja laajennettavuudeltaan laadukkaan koodin kysymykseen tarkemmin kursseilla [Ohjelmistotekniikka](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024742-2020-08-01) ja [Ohjelmistotuotanto](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024909-2020-08-01).
 
 Hyvän olio-ohjelmoinnin periaatteiden mukaisen koodin kirjoittamisella on myös hintansa. Koodia tulee todennäköisesti enemmän kuin jos sama ongelma ratkaistaisiin yhteen pötköön kirjoitetulla spagettikoodilla. Ohjelmoijan onkin aina ratkaistava se, minkälainen lähestymistapa on paras kuhunkin tilanteeseen. Joskus voi olla vain parasta häkkeröidä kasaan nopeasti jotain joka toimii nyt. Jos taas on odotettavissa että samaa koodia tullaan jatkossa laajentamaan joko koodarin itsensä tai jonkun muun toimesta, on todennäköisesti kannattavaa investoida koodin luettavuuteen ja strukturointiin jossain määrin jo alkuvaiheissa.
 
@@ -588,6 +590,74 @@ Ohjelma toimii seuraavasti:
 
 <sample-output>
 
+1 lisää suoritus
+2 hae suoritus
+3 tilastot
+0 lopetus
+
+komento: **1**
+kurssi: **Ohpe**
+arvosana: **3**
+opintopisteet: **5**
+
+komento: **2**
+kurssi: **Ohpe**
+Ohpe (5 op) arvosana 3
+
+komento: **1**
+kurssi: **Ohpe**
+arvosana: **5**
+opintopisteet: **5**
+
+komento: **2**
+kurssi: **Ohpe**
+Ohpe (5 op) arvosana 5
+
+komento: **1**
+kurssi: **Ohpe**
+arvosana: **1**
+opintopisteet: **5**
+
+komento: **2**
+kurssi: **Ohpe**
+Ohpe (5 op) arvosana 5
+
+komento: **1**
+kurssi: **Tira**
+arvosana: **1**
+opintopisteet: **10**
+
+komento: **1**
+kurssi: **Tilpe**
+arvosana: **2**
+opintopisteet: **5**
+
+komento: **1**
+kurssi: **Lapio**
+arvosana: **4**
+opintopisteet: **1**
+
+komento: **1**
+kurssi: **Lama**
+arvosana: **5**
+opintopisteet: **8**
+
+komento: **3**
+suorituksia 5 kurssilta, yhteensä 29 opintopistettä
+keskiarvo 3.4
+arvosanajakauma
+5: xx
+4: x
+3:
+2: x
+1: x
+
+komento: **3**
+
 </sample-output>
+
+Muutama huomio: kultakin kursilta tallentuu ainoastaan yksi arvosana. Arvosanaa voi korottaa, mutta se ei voi laskea.
+
+Tehtävästä on tarjolla kaksi "tehtäväpistettä". Ensimmäisen pisteen saa jos toiminnot 1 ja 2 sekä lopetus toimivat. Toisen pisteen saa jos myös toiminto 3 on toteutettu.
 
 </programming-exercise>
