@@ -47,7 +47,7 @@ Olioita käytettäessä ohjelmointiongelman "reaalimaailman asioita" vastaa ylee
 - himi
 - puhelinnumero
 
-Näistä nimi ja puhelinnumero ovat kenties "liian vähäpätöisiä" ollakseen omia luokkiaan, mutta _henkilö_ voisi hyvinkin olla oma luokkansa, jonka vastuulla on sitoa yhteen tietty nimi ja siihen liittyvät puhelinnumerot.
+Näistä nimi ja puhelinnumero ovat kenties liian vähäpätöisiä ollakseen omia luokkiaan, mutta _henkilö_ voisi hyvinkin olla oma luokkansa, jonka vastuulla on sitoa yhteen tietty nimi ja siihen liittyvät puhelinnumerot.
 
 Myös _puhelinluettelo_ itsessään on potentiaalinen luokka, sen vastuulla on hallinnoida eri henkilöiden tietoja.
 
@@ -119,7 +119,7 @@ None
 Metodi `hae_numerot` siis palauttaa arvon `None`, jos henkilö ei löydy luettelosta, jos henkilö löytyy, palautetaan lista joka sisältää henkilön puhelinnumerot.
 
 Kun itse ohjelmoin mitä tahansa ohjelmaa, kokeilen _aina_ että kirjoittamani koodi toimii kuten oletan sen toimivan, ennen kun etenen muuhun koodiin.
-Usein tämä "testikoodi" on poisheitettävää koodia, ja sikäli voisi ajatella testaamisesta olevan ylimääräistä vaivaa. Lähes 100% tapauksissa ei näin kuitenkaan ole.
+Usein tämä testikoodi on poisheitettävää koodia, ja sikäli voisi ajatella testaamisesta olevan ylimääräistä vaivaa. Lähes 100% tapauksissa ei näin kuitenkaan ole.
 
 Koodiin tullut bugi kannattaa saada kiinni ja korjata niin pian kuin mahdollista. Jos koodin toimivuuden varmistaa lähes jokaisen uuden koodirivin jälkeen, on debuggaus ja korjaaminen yleensä vaivatonta ja nopeaa, koska tällöin voi olla melko varma siitä, että ongelma johtuu hetki sitten lisätyistä koodiriveistä. Jos taas koodia testataan vasta sen jälkeen kun siihen on lisätty kymmeniä koodirivejä, on virhelähteitä moninkertaisesti.
 
@@ -148,7 +148,7 @@ sovellus = PuhelinluetteloSovellus()
 sovellus.suorita()
 ```
 
-Luokka saattaa vaikuttaa jopa hämmentävältä, konstruktori luo puhelinluettelon, jonka olio pitää sisällään. Metodi `suorita(self)` "käynnistää" sovelluksen tekstikäyttöliittymän, jonka ytimen muodostaa `while`-silmukka, joka kyselee käyttäjältä mikä komento halutaan suorittaa. Ennen toistolauseeseen menemistä ohjelma tulostaa käyttöohjeet, kutsumalla metodia `ohje(self)`.
+Luokka saattaa vaikuttaa jopa hämmentävältä, konstruktori luo puhelinluettelon, jonka olio pitää sisällään. Metodi `suorita(self)` käynnistää sovelluksen tekstikäyttöliittymän, jonka ytimen muodostaa `while`-silmukka, joka kyselee käyttäjältä mikä komento halutaan suorittaa. Ennen toistolauseeseen menemistä ohjelma tulostaa käyttöohjeet, kutsumalla metodia `ohje(self)`.
 
 Laajennetaan käyttöliittymää siten, että luetteloon voidaan lisätä uusia tietoja:
 
@@ -292,7 +292,7 @@ komento: **0**
 
 </sample-output>
 
-Koodia on aika paljon, todennäköisesti enemmän kuin jos kaikki olisi "ohjelmoitu yhteen pötköön". Koodin rakenne on kuitenkin siistihkö, ja koodin laajentamisenkaan ei pitäisi olla kovin hankalaa.
+Koodia on aika paljon, todennäköisesti enemmän kuin jos kaikki olisi ohjelmoitu yhteen pötköön. Koodin rakenne on kuitenkin siistihkö, ja koodin laajentamisenkaan ei pitäisi olla kovin hankalaa.
 
 ## vaihe 3: tietojen haku tiedostosta
 
@@ -323,7 +323,7 @@ class Tiedostonkasittelija():
 
 Konstruktorin parametrina annetaan tiedoston nimi. Metodi `lataa(self)` lukee tiedoston, ja pilkkoo sen rivit sanakirjaksi, missä avain on nimi ja arvona ovat nimeen liittyvät numerot.
 
-Metodi käyttää erästä Pythonin kätevää ominaisuutta: taulukosta on mahdollista ottaa erilleen yksittäisiä lukuja, sekä "loput" seuraavan kaltaisella sijoituslauseella:
+Metodi käyttää erästä Pythonin kätevää ominaisuutta: taulukosta on mahdollista ottaa erilleen yksittäisiä lukuja, sekä loput seuraavan kaltaisella sijoituslauseella:
 
 ```python
 taulukko = [1, 2, 3, 4, 5]
