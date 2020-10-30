@@ -323,7 +323,7 @@ class Tiedostonkasittelija():
 
 Konstruktorin parametrina annetaan tiedoston nimi. Metodi `lataa(self)` lukee tiedoston, ja pilkkoo sen rivit sanakirjaksi, missä avain on nimi ja arvona ovat nimeen liittyvät numerot.
 
-Metodi käyttää erästä Pythonin kätevää ominaisuutta: taulukosta on mahdollista ottaa erilleen yksittäisiä lukuja, sekä "loput" seuraavan kaltaisella sijoituslauseella:
+Metodi käyttää erästä Pythonin kätevää ominaisuutta: taulukosta on mahdollista ottaa erilleen yksittäisiä lukuja, sekä loput seuraavan kaltaisella sijoituslauseella:
 
 ```python
 taulukko = [1, 2, 3, 4, 5]
@@ -682,7 +682,7 @@ sovellus = PuhelinluetteloSovellus()
 sovellus.suorita()
 ```
 
-`PuhelinluetteloSovellus`-olio siis pitää sisällään sekä `Puhelinluettelo`-olion että `Tiedostonkasittelija`-olion. Jos olisimme ammattikoodareita, tekisimme sovellukseen pienen muutoksen. Nyt nimittään se, että sovellus käyttää nimenomaan tiedostoa _luettelo.txt_ tallentaamaan luettelon tiedot on sovelluksen _käyttöliittymän_ kannalta täysin turha deltaji, ja jos tuota tiedostoa haluttaisiin muuttaa, edellyttäisi se muutosta luokan `PuhelinluetteloSovellus`koodiin. Tämä taas ei ole hyvä _separation of concerns_ -periaatetta ajatellen, sillä puhelinluettelun tallentaminen ei kuulu ollenkaan käyttöliittymästä huolehtivan vastuisiin.
+`PuhelinluetteloSovellus`-olio pitää siis sisällään sekä `Puhelinluettelo`-olion että `Tiedostonkasittelija`-olion. Jos olisimme ammattikoodareita, tekisimme sovellukseen pienen muutoksen. Nyt nimittään se, että sovellus käyttää nimenomaan tiedostoa _luettelo.txt_ tallentamaan luettelon tiedot on sovelluksen _käyttöliittymän_ kannalta täysin turha deltaji, ja jos tuota tiedostoa haluttaisiin muuttaa, edellyttäisi se muutosta luokan `PuhelinluetteloSovellus`koodiin. Tämä taas ei ole hyvä _separation of concerns_ -periaatetta ajatellen, sillä puhelinluettelon tallentaminen ei kuulu ollenkaan käyttöliittymästä huolehtivan luokan vastuisiin.
 
 Parempi vaihtoehto olisikin luoda tiedostokäsittelijä  muualla ja antaa se `PuhelinluetteloSovellus`-oliolle, esimerkiksi konstruktorin parametrina:
 
@@ -701,7 +701,7 @@ sovellus = PuhelinluetteloSovellus(tallennuspalvelu)
 sovellus.suorita()
 ```
 
-Näin on saatu poistettua luokalta `PuhelinluetteloSovellus` _turha riippuvuus_ käsiteltävän tiedoston nimeen. Jos tiedoston nimi muuttuu, ei luokan koodiin tarvitse koskea ollenkaan. Riittää ainoastaan, että oliolle annetaan hieman erilainen konstruktoriparametri:
+Näin on saatu poistettua luokalta `PuhelinluetteloSovellus` _turha riippuvuus_ käsiteltävän tiedoston nimeen. Jos tiedoston nimi muuttuu, ei luokan koodiin tarvitse koskea ollenkaan. Riittää ainoastaan, että oliolle annetaan hieman erilainen konstruktoriparametri:
 
 
 ```python
@@ -718,7 +718,7 @@ sovellus = PuhelinluetteloSovellus(tallennuspalvelu)
 sovellus.suorita()
 ```
 
-Tämä sama tekniikka mahdollistaa sen, että siirrytäänkin tallentamaan puhelinluettelo tidoston sijaan esimerkiksi internetissä olevaan pilvipalveluun. On vain kirjoitettava pilvipalvelua käyttävä luokka, joka tarjoaa puhelinluettelosovellukselle samanlaiset metodit kuin `Tiedostonkasittelija`, ja tämän luokan olio voidaan antaa sovellukselle, ilman että sen koodista tulee muuttaa riviäkään:
+Tämä sama tekniikka mahdollistaa sen, että siirrytäänkin tallentamaan puhelinluettelo tiedoston sijaan esimerkiksi internetissä olevaan pilvipalveluun. On vain kirjoitettava pilvipalvelua käyttävä luokka, joka tarjoaa puhelinluettelosovellukselle samanlaiset metodit kuin `Tiedostonkasittelija`, ja tämän luokan olio voidaan antaa sovellukselle, ilman että sen koodista tulee muuttaa riviäkään:
 
 ```python
 class InternetTallennin:
