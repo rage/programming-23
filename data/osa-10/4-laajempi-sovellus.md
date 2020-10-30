@@ -437,7 +437,7 @@ class PuhelinluetteloSovellus:
                 self.ohje()
 ```
 
-<programming-exercise name='Puhelinluettelon laajennus, osa 1' tmcname='osa10_'>
+<programming-exercise name='Puhelinluettelon laajennus, osa 1' tmcname='osa10-10_puhelinluettelo_osa1'>
 
 Tässä tehtävässä tehdään pieni laajennus puhelinluettelosovellukseen. Yllä kehitetty koodi löytyy tehtäväpohjasta. Laajenna ratkaisuasi komennolla, joka mahdollistaa nimen etsimisen numeron perusteella. Laajennuksen jälkeen sovelluksen pitäisi toimia seuraavasti:
 
@@ -473,7 +473,7 @@ Tee laajennus sitten, että kunnioitat ohjelman rakennetta. Eli lisää luokkaan
 
 </programming-exercise>
 
-<programming-exercise name='Puhelinluettelon laajennus, osa 2' tmcname='osa10_'>
+<programming-exercise name='Puhelinluettelon laajennus, osa 2' tmcname='osa10-11_puhelinluettelo_osa2'>
 
 Tässä tehtävässä laajennetaan puhelinluettelosovellusta siten, että henkilöihin voi liittyä myös osoite. Yksinkertaisuuden vuoksi koodista on kuitenkin poistettu tiedostoon tallentaminen, myös muutama metodi on uudelleennimetty vastaamaan  paremmin laajennuksen jälkeistä tilannetta.
 
