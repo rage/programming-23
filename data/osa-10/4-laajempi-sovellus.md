@@ -582,7 +582,7 @@ Lisää hyvän koodin kirjoittamiseta löytyy esimerkiksi Robert Martinin mainio
 
 Hyvän olio-ohjelmoinnin periaatteiden mukaisen koodin kirjoittamisella on myös hintansa. Koodia tulee todennäköisesti enemmän kuin jos sama ongelma ratkaistaisiin yhteen pötköön kirjoitetulla spagettikoodilla. Ohjelmoijan onkin aina ratkaistava se, minkälainen lähestymistapa on paras kuhunkin tilanteeseen. Joskus voi olla vain parasta häkkeröidä kasaan nopeasti jotain joka toimii nyt. Jos taas on odotettavissa että samaa koodia tullaan jatkossa laajentamaan joko koodarin itsensä tai jonkun muun toimesta, on todennäköisesti kannattavaa investoida koodin luettavuuteen ja strukturointiin jossain määrin jo alkuvaiheissa.
 
-<programming-exercise name='Opintorekisteri' tmcname='osa10_'>
+<programming-exercise name='Opintorekisteri' tmcname='12_opintorekisteri'>
 
 Tee interaktiivinen ohjelma, jonka avulla voit pitää kirjaa opintomenestyksestäsi. Tyyli on vapaa, mutta nyt on hyvä tilaisuus harjoitella osan esimerkin kaltaisen oliorakenteen muodostamista.
 
@@ -621,6 +621,10 @@ opintopisteet: **5**
 komento: **2**
 kurssi: **Ohpe**
 Ohpe (5 op) arvosana 5
+
+komento: **2**
+kurssi: **Java-ohjelmointi**
+ei suoritusta
 
 komento: **1**
 kurssi: **Tira**
@@ -661,3 +665,70 @@ Muutama huomio: kultakin kursilta tallentuu ainoastaan yksi arvosana. Arvosanaa 
 Tehtävästä on tarjolla kaksi tehtäväpistettä. Ensimmäisen pisteen saa jos toiminnot 1 ja 2 sekä lopetus toimivat. Toisen pisteen saa jos myös toiminto 3 on toteutettu.
 
 </programming-exercise>
+
+## Epilogi
+
+Palataan vielä hetkeksi tarkastelemaan puhelinluetteloesimerkkiä, ja sen käyttöliittymän toteuttavaa luokkaa:
+
+```python
+class PuhelinluetteloSovellus:
+    def __init__(self):
+        self.__luettelo = Puhelinluettelo()
+        self.__tiedosto = Tiedostonkasittelija("luettelo.txt")
+
+    # muu koodi
+
+sovellus = PuhelinluetteloSovellus()
+sovellus.suorita()
+```
+
+`PuhelinluetteloSovellus`-olio siis pitää sisällään sekä `Puhelinluettelo`-olion että `Tiedostonkasittelija`-olion. Jos olisimme ammattikoodareita, tekisimme sovellukseen pienen muutoksen. Nyt nimittään se, että sovellus käyttää nimenomaan tiedostoa _luettelo.txt_ tallentaamaan luettelon tiedot on sovelluksen _käyttöliittymän_ kannalta täysin turha deltaji, ja jos tuota tiedostoa haluttaisiin muuttaa, edellyttäisi se muutosta luokan `PuhelinluetteloSovellus`koodiin. Tämä taas ei ole hyvä _separation of concerns_ -periaatetta ajatellen, sillä puhelinluettelun tallentaminen ei kuulu ollenkaan käyttöliittymästä huolehtivan vastuisiin.
+
+Parempi vaihtoehto olisikin luoda tiedostokäsittelijä  muualla ja antaa se `PuhelinluetteloSovellus`-oliolle, esimerkiksi konstruktorin parametrina:
+
+```python
+class PuhelinluetteloSovellus:
+    def __init__(self, tiedosto):
+        self.__luettelo = Puhelinluettelo()
+        self.__tiedosto = tiedosto
+
+    # muu koodi
+
+# luodaan tallennuksen hoitava olio
+tallennuspalvelu = Tiedostonkasittelija("luettelo.txt")
+# ja annetaan se PuhelinluetteloSovellus-oliolle konsturuktorin parametrina
+sovellus = PuhelinluetteloSovellus(tallennuspalvelu)
+sovellus.suorita()
+```
+
+Näin on saatu poistettua luokalta `PuhelinluetteloSovellus` _turha riippuvuus_ käsiteltävän tiedoston nimeen. Jos tiedoston nimi muuttuu, ei luokan koodiin tarvitse koskea ollenkaan. Riittää ainoastaan, että oliolle annetaan hieman erilainen konstruktoriparametri:
+
+
+```python
+class PuhelinluetteloSovellus:
+    def __init__(self, tiedosto):
+        self.__luettelo = Puhelinluettelo()
+        self.__tiedosto = tiedosto
+
+    # muu koodi
+
+# vaihdetaan tiedostoa
+tallennuspalvelu = Tiedostonkasittelija("uusi_luettelotiedosto.txt")
+sovellus = PuhelinluetteloSovellus(tallennuspalvelu)
+sovellus.suorita()
+```
+
+Tämä sama tekniikka mahdollistaa sen, että siirrytäänkin tallentamaan puhelinluettelo tidoston sijaan esimerkiksi internetissä olevaan pilvipalveluun. On vain kirjoitettava pilvipalvelua käyttävä luokka, joka tarjoaa puhelinluettelosovellukselle samanlaiset metodit kuin `Tiedostonkasittelija`, ja tämän luokan olio voidaan antaa sovellukselle, ilman että sen koodista tulee muuttaa riviäkään:
+
+```python
+class InternetTallennin:
+    # koodi joka tallentaa luettelon tiedot internetissä olevaan pilvipalveluun
+
+tallennuspalvelu = InternetTallennin("amazon-cloud", "mluukkai", "passwrd")
+sovellus = PuhelinluetteloSovellus(tallennuspalvelu)
+sovellus.suorita()
+```
+
+Kuten aiemmin todettiin, on tämän kaltaisten tekniikoiden käytöllä oma hintansa, koodia tulee enemmän, ja ohjelmoijan tulee harkita milloin se hinta kannattaa maksaa.
+
+Tässä esitelty tekniikka (joka kulkee ammattijargonissa nimellä _dependency injection_), missä oliolle annetaan ulkopuolelta käsin sen tarvitsema _riippuvuus_ (eli käytännössä jokin muu olio) on erittäin tyypillinen kikka ammattimaisessa koodauksessa, muun muassa siksi, että se helpottaa ohjelmistojen laajentamista sekä niiden automatisoitua testaamista. Jatkamme teeman käsittelyä kursseilla [Ohjelmistotekniikka](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024742-2020-08-01) ja [Ohjelmistotuotanto](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024909-2020-08-01).
