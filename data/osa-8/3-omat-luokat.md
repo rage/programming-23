@@ -279,7 +279,7 @@ def avaa_tili(nimi: str)
     return uusi_tili
 
 # funktio asettaa parametrina saamansa rahasumman parametrina olevalle tilille
-def laita_rahaa_tilille(tili: Tili, summa: int)
+def laita_rahaa_tilille(tili: Pankkitili, summa: int)
     tili.saldo += summa
 
 pekan_tili = avaa_tili("Pekka Python")
