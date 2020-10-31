@@ -301,4 +301,6 @@ if __name__ == "__main__":
 
 </sample-output>
 
+**Huom** koska luokan `Kauppalista` koodi on tehtäväpohjassa valmiina, ei koodissa tarvitse käyttää `import`-lausetta kuten edellisissä esimerkeissä, tehtävissä, jotka käyttävät Pythonin valmiita luokkia `Fraction` ja `date`.
+
 </programming-exercise>
