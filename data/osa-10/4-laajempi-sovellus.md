@@ -76,9 +76,9 @@ class Puhelinluettelo:
 
 ```
 
-Luokka pitää siis sisällän listan henkilöitä ja tarjoaa metodit tietojen lisäämiseen ja hakemiseen.
+Luokka pitää siis sisällään listan henkilöitä ja tarjoaa metodit tietojen lisäämiseen ja hakemiseen.
 
-Koska jokaiseen henkilöön voi liittyä useita numeroita, päätetään silti toteuttaa luettelon sisäinen tila sanakirjan avulla, se tekee nimen perusteella tapahtuvan hakemisen helpoksi. Koska sanakirjaan on helppo tallettaan nimeen liittyvät numerot, päätetäänkin että ei kuitenkaan ainakaan tässä vaiheessa määritellä ollenkaan luokkaa yksittäisen henkilön tietojen tallettamiseen.
+Koska jokaiseen henkilöön voi liittyä useita numeroita, päätetään silti toteuttaa luettelon sisäinen tila sanakirjan avulla, se tekee nimen perusteella tapahtuvan hakemisen helpoksi. Koska sanakirjaan on helppo tallettaa nimeen liittyvät numerot, päätetäänkin että ei kuitenkaan ainakaan tässä vaiheessa määritellä ollenkaan luokkaa yksittäisen henkilön tietojen tallettamiseen.
 
 Luokka laajenee seuraavasti, mukana on myös pieni toiminnan varmistava koodinpätkä:
 
@@ -262,7 +262,7 @@ sovellus = PuhelinluetteloSovellus()
 sovellus.suorita()
 ```
 
-Sovelluksen perusversio toimii nyt. Seuraavassa esimerkki soveluksen käytöstä:
+Sovelluksen perusversio toimii nyt. Seuraavassa esimerkki sovelluksen käytöstä:
 
 <sample-output>
 
