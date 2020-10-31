@@ -40,7 +40,7 @@ Tuote - nimi: Omena, hinta: 2.2425
 
 </sample-output>
 
-Kerrataaan vielä muuttujan `self` merkitys: luokan sisällä se viitaa nykyiseen olioon. Tyypillinen tapa käyttää muuttujaa onkin viitata olion omiin piirteisiin, esimerkiksi attribuuttien arvoihin. Muuttujaa voidaan käyttää myös palauttamaan koko olio (vaikka tälle onkin selvästi harvemmin tarvetta). Esimerkkiluokan `Tuote` metodi `halvempi` osaa palauttaa halvemman tuotteen, kun sille annetaan parametriksi toinen Tuote-luokan olio:
+Kerrataaan vielä muuttujan `self` merkitys: luokan sisällä se viittaa nykyiseen olioon. Tyypillinen tapa käyttää muuttujaa onkin viitata olion omiin piirteisiin, esimerkiksi attribuuttien arvoihin. Muuttujaa voidaan käyttää myös palauttamaan koko olio (vaikka tälle onkin selvästi harvemmin tarvetta). Esimerkkiluokan `Tuote` metodi `halvempi` osaa palauttaa halvemman tuotteen, kun sille annetaan parametriksi toinen Tuote-luokan olio:
 
 ```python
 
@@ -320,7 +320,7 @@ True
 
 ## Muut vertailut
 
-Toteuta rahalle myös seuraavat vertailuoperaatorit `<`, `>`, `!=`.
+Toteuta rahalle myös seuraavat vertailuoperaattorit `<`, `>`, `!=`.
 
 ```python
 e1 = Raha(4, 10)
@@ -373,7 +373,7 @@ ValueError: negatiivinen tulos ei sallittu
 
 ## Arvoa ei voi muuttaa
 
-Luokassa on täälä hetkellä vielä pieni ongelma. Käyttäjä voi "hujaamalla" muttaa rahan arvoa:
+Luokassa on tällä hetkellä vielä pieni ongelma. Käyttäjä voi "huijaamalla" muuttaa rahan arvoa:
 
 ```python
 print(e1)
@@ -456,7 +456,7 @@ print(p4)
 
 ## Erotus
 
-Toteuta päiväykselle operaattori - joka palattaa päivämäärien eron päivissä laskettuna. Huomaa, että koska oletamme jokaisessa kuukaudessa olevan 30 päivää, tässä tehtävässä vuosien päivien lukumäärä on 12*30 eli 360.
+Toteuta päiväykselle operaattori - joka palauttaa päivämäärien eron päivissä laskettuna. Huomaa, että koska oletamme jokaisessa kuukaudessa olevan 30 päivää, tässä tehtävässä vuosien päivien lukumäärä on 12*30 eli 360.
 
 Operaattori toimii seuraavasti
 
@@ -499,7 +499,7 @@ Funktio käy läpi listan alkio kerrallaan ja laskee positiivisten alkioiden mä
 
 Iterointi on mahdollista toteuttaa myös omiin luokkiin. Hyödyllistä tämä on silloin, kun luokasta muodostetut oliot tallentavat suuremman määrän alkiota. Esimerkiksi aikaisemmin kirjoitettiin luokka, joka mallintaa kirjahyllyä - olisi näppärä, jos kaikki kirjahyllyn kirjat voisi käydä läpi yhdessä silmukassa. Samalla tavalla opiskelijarekisterin kaikkien opiskelijoiden läpikäynti for-lauseella olisi kätevää.
 
-Iterointi mahdollistuu toteuttamalla luokkaan iteraattorimetodit `__iter__` ha  `__next__`. Käsitellään metodien toimintaa tarkemmin, kun on ensin tarkasteltu esimerkkinä kirjahyllylyokkaa, joka mahdollistaa kirjojen läpikäynnin:
+Iterointi mahdollistuu toteuttamalla luokkaan iteraattorimetodit `__iter__` ja  `__next__`. Käsitellään metodien toimintaa tarkemmin, kun on ensin tarkasteltu esimerkkinä kirjahyllyluokkaa, joka mahdollistaa kirjojen läpikäynnin:
 
 ```python
 
@@ -574,7 +574,7 @@ C-itsemän veljestä
 
 <programming-exercise name='Iteroitava kauppalista' tmcname='osa10-09_iteroitava_kauppalista'>
 
-Tehtäväpohjassa on [osan 8 tehtävästä ](/osa-8/2-luokat-ja-oliot#programming-exercise-kauppalista) tuttu luokka `Kauoppalista`. Tee luokasta iteroitava, siten että sitä voi käyttää seuraavasti:
+Tehtäväpohjassa on [osan 8 tehtävästä ](/osa-8/2-luokat-ja-oliot#programming-exercise-kauppalista) tuttu luokka `Kauppalista`. Tee luokasta iteroitava, siten että sitä voi käyttää seuraavasti:
 
 ```python
 lista = Kauppalista()
