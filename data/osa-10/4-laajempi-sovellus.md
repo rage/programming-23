@@ -582,7 +582,7 @@ Lisää hyvän koodin kirjoittamiseta löytyy esimerkiksi Robert Martinin mainio
 
 Hyvän olio-ohjelmoinnin periaatteiden mukaisen koodin kirjoittamisella on myös hintansa. Koodia tulee todennäköisesti enemmän kuin jos sama ongelma ratkaistaisiin yhteen pötköön kirjoitetulla spagettikoodilla. Ohjelmoijan onkin aina ratkaistava se, minkälainen lähestymistapa on paras kuhunkin tilanteeseen. Joskus voi olla vain parasta häkkeröidä kasaan nopeasti jotain joka toimii nyt. Jos taas on odotettavissa että samaa koodia tullaan jatkossa laajentamaan joko koodarin itsensä tai jonkun muun toimesta, on todennäköisesti kannattavaa investoida koodin luettavuuteen ja strukturointiin jossain määrin jo alkuvaiheissa.
 
-<programming-exercise name='Opintorekisteri' tmcname='12_opintorekisteri'>
+<programming-exercise name='Opintorekisteri' tmcname='osa10-12_opintorekisteri'>
 
 Tee interaktiivinen ohjelma, jonka avulla voit pitää kirjaa opintomenestyksestäsi. Tyyli on vapaa, mutta nyt on hyvä tilaisuus harjoitella osan esimerkin kaltaisen oliorakenteen muodostamista.
 

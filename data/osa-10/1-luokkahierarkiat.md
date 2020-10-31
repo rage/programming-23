@@ -335,7 +335,7 @@ if __name__ == "__main__":
 
 </sample-output>
 
-<programming-exercise name='Kannettava tietokone' tmcname='osa10_01_kannettava_tietokone'>
+<programming-exercise name='Kannettava tietokone' tmcname='osa10-01_kannettava_tietokone'>
 
 Tehtäväpohjassa on määritelty luokka `Tietokone`, jolla on attribuutit `malli` ja `nopeus`.
 
@@ -358,7 +358,7 @@ IPM MikroMauri, 1500 MHz, 2 kg
 
 </programming-exercise>
 
-<programming-exercise name='Pelimuseo' tmcname='osa10_02_pelimuseo'>
+<programming-exercise name='Pelimuseo' tmcname='osa10-02_pelimuseo'>
 
 Tehtäväpohjassa on määritelty luokat `Tietokonepeli` ja `Pelivarasto`. Pelivarastoon voidaan säilöä tietokonepelejä.
 

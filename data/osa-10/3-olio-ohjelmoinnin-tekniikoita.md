@@ -260,7 +260,7 @@ Muistiinpano - pvm: 2020-09-09 14:13:02.163170, merkintä: Muista ostaa lahjoja 
 
 </sample-output>
 
-<programming-exercise name='Raha' tmcname='osa10_07_raha'>
+<programming-exercise name='Raha' tmcname='osa10-07_raha'>
 
 Tehtäväpohjasta löytyy luokan `Raha` runko. Tässä tehtävässä laajennetaan runkoa muutamilla operaattoreilla, ja korjataan pari rungossa olevaa pientä ongelmaa
 
@@ -392,7 +392,7 @@ Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, 
 
 </programming-exercise>
 
-<programming-exercise name='Päiväys' tmcname='osa10_08_paivays'>
+<programming-exercise name='Päiväys' tmcname='osa10-08_paivays'>
 
 Tässä tehtävässä toteutetaan luokka `Paivays` jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi että _jokaisessa kuussa on 30 päivää_.
 
@@ -572,7 +572,7 @@ C-itsemän veljestä
 </sample-output>
 
 
-<programming-exercise name='Iteroitava kauppalista' tmcname='osa10_09_kauppalista'>
+<programming-exercise name='Iteroitava kauppalista' tmcname='osa10-09_kauppalista'>
 
 Tehtäväpohjassa on [osan 8 tehtävästä ](/osa-8/2-luokat-ja-oliot#programming-exercise-kauppalista) tuttu luokka `Kauoppalista`. Tee luokasta iteroitava, siten että sitä voi käyttää seuraavasti:
 
