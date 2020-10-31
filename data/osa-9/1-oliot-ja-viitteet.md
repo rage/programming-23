@@ -249,6 +249,10 @@ if __name__ == "__main__":
 
 ```
 
+[Visualisaattori](pythontutor.com/visualize.html) osaa havainnollistaa nämäkin asiat todella hienosti:
+
+<img src="9_1_2.png">
+
 ## Oliot funktioiden parametrina
 
 Koska omista luoduista luodut oliot ovat (yleensä) muuttuvia eli mutatoituvia, niiden toiminta parametrina välitettäessä muistuttaa listoista tuttua tapaa. Funktio, jolle olio välitetäään parametrina, voi muuttaa saamaansa oliota (edellyttäen että olio tarjoaa asiakkailleen muuttaamiseen tarvittavat operaatiot).
