@@ -453,5 +453,20 @@ Auli (186 cm)
 
 </sample-output>
 
+**Vihje**: [osassa 4](/osa-4/3-listat#alkioiden-lisaaminen-ja-poistaminen) kerrottiin miten alkion poistaminen listalta onnistuu.
+
+**Vihje2**: muista, että metodissa on mahdollista kutsua saman olion toista metodia. Eli seuraava koodi toimii
+
+```python
+class Huone:
+    # ...
+    def lyhin(self):
+        # koodi
+
+    def poista_lyhin(self):
+        lyhin_hekilo = self.lyhin()
+        # ...
+```
+
 </programming-exercise>
 

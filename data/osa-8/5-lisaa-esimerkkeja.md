@@ -333,10 +333,10 @@ Kortilla on rahaa 150.0 euroa
 
 </sample-output>
 
-Jos kortille yritetään ladata negatiivinen summa, tulee metodin [tuottaa poikkeus](/osa-6/3-virheet) `ValueError`:
+Jos kortille yritetään ladata negatiivinen summa, tulee metodin [tuottaa poikkeus](/osa-6/3-virheet#poikkeusten-tuottaminen) `ValueError`:
 
 ```python
-kortti = new Maksukortti(10)
+kortti = Maksukortti(10)
 kortti.lataa_rahaa(-10)
 ```
 
@@ -346,6 +346,8 @@ File "testi.py", line 3, in maksukortti
 ValueError: Kortille ei saa ladata negatiivista summaa
 
 </sample-output>
+
+Metodin tulee siis _tuottaa_ poikkeus, katso [osan 6](/osa-6/3-virheet#poikkeusten-tuottaminen) materiaalista miten poikkeus tuotetaan. Metodi ei missään tilanteessa itse tulosta mitään!
 
 ### Monta korttia
 

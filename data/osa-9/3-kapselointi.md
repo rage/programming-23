@@ -269,7 +269,7 @@ class Lompakko:
 
 ```
 
-Luokalle siis määritellään ensin _havainnointimetodi, joka palauttaa rahamäärän, ja sitten asetusmetodi, joka asettaa sen.
+Luokalle siis määritellään ensin _havainnointimetodi_, joka palauttaa rahamäärän, ja sitten asetusmetodi, joka asettaa sen.
 
 Kutsuminen tapahtuu esimerkiksi näin:
 
