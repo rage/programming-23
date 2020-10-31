@@ -172,7 +172,7 @@ Jalkapalloilija - nimi:Petri Pythonen, lempinimi: Pyttis, pelipaikka: hyökkää
 </sample-output>
 
 
-<programming-exercise name='Superryhmä' tmcname='osa10_05_superryhma'>
+<programming-exercise name='Superryhmä' tmcname='osa10-05_superryhma'>
 
 Tehtäväpohjassa on valmiina luokka `SuperSankari`.
 
@@ -207,7 +207,7 @@ Näkymätön Makkonen, superkyvyt: Näkymättömyys
 
 </programming-exercise>
 
-<programming-exercise name='Salainen taikajuoma' tmcname='osa10_06_salainen_taikajuoma'>
+<programming-exercise name='Salainen taikajuoma' tmcname='osa10-06_salainen_taikajuoma'>
 
 Tehtäväpohjassa on luokka `Taikajuoma`, johon käyttäjä voi tallentaa reseptin. Luokasta löytyy konstruktorin lisäksi metodit
 

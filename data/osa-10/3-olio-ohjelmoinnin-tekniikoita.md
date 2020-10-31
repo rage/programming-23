@@ -572,7 +572,7 @@ C-itsemän veljestä
 </sample-output>
 
 
-<programming-exercise name='Iteroitava kauppalista' tmcname='osa10-09_kauppalista'>
+<programming-exercise name='Iteroitava kauppalista' tmcname='osa10-09_iteroitava_kauppalista'>
 
 Tehtäväpohjassa on [osan 8 tehtävästä ](/osa-8/2-luokat-ja-oliot#programming-exercise-kauppalista) tuttu luokka `Kauoppalista`. Tee luokasta iteroitava, siten että sitä voi käyttää seuraavasti:
 

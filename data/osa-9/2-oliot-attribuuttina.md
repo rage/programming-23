@@ -112,7 +112,7 @@ Tarkastellaan lähemmin riviä `print(suoritus.opiskelija.nimi)`:
 * Niinpä muuttuja opiskelija viittaa suoritukseen tallennettuun `Opiskelija`-olioon
 * `Opiskelija`-luokan muuttuja `nimi` sisältää opiskelijan nimen
 
-<programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikit'>
+<programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikki'>
 
 Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan Henkilo metodia `__repr__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun alta löytyvät esimerkkitulosteen mukaisesti.
 
@@ -325,7 +325,7 @@ else:
 
 Jukkis ei pelaa Kumpulan pallossa :(
 
-<sample-output>
+</sample-output>
 
 <programming-exercise name='Huoneen lyhin' tmcname='osa09-08_huoneen_lyhin'>
 

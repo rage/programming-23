@@ -388,7 +388,7 @@ Bubble Bobble
 
 </programming-exercise>
 
-<programming-exercise name='Pinta-alat' tmcname='osa10_1_pinta_alat'>
+<programming-exercise name='Pinta-alat' tmcname='osa10-03_pinta_alat'>
 
 Tehtäväpohjan mukana tulee luokka `Suorakulmio` joka nimensä mukaisesti mallintaa [suorakulmiota](https://fi.wikipedia.org/wiki/Suorakulmio). Luokkaa käytetään seuraavasti:
 
@@ -445,7 +445,7 @@ pinta-ala: 6.0
 
 </programming-exercise>
 
-<programming-exercise name='Sanapeli' tmcname='osa10_04_sanapeli'>
+<programming-exercise name='Sanapeli' tmcname='osa10-04_sanapeli'>
 
 Tehtäväpohja sisältää valmiin luokan `Sanapeli`, joka tarjoaa perustoiminnallisuuden erilaisten sanapelien pelaamiseen:
 
