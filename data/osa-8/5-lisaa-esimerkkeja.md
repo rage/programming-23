@@ -347,7 +347,7 @@ ValueError: Kortille ei saa ladata negatiivista summaa
 
 </sample-output>
 
-Metodin tulee siis _tuottaa_ poikkeus, katso [osan 6](/osa-6/3-virheet#poikkeusten-tuottaminen) materiaalista miten poikkeus tuotetaan. Metodi ei missään tilanteessa itse tulosta mitään!
+**Huomaa** että metodin tulee _tuottaa_ poikkeus, katso [osan 6](/osa-6/3-virheet#poikkeusten-tuottaminen) materiaalista miten poikkeus tuotetaan. Metodi ei missään tilanteessa itse tulosta mitään!
 
 ### Monta korttia
 
