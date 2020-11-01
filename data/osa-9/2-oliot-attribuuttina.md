@@ -12,82 +12,61 @@ Tämän osion jälkeen
 
 </text-box>
 
-Aikaisemmin nähtiin esimerkkejä luokista, joissa attribuutteina oli käytetty esimerkiksi listoja. Samalla tavalla myös omista luokista luotuja olioita voi käyttää toisten olioiden attribuutteina. Seuraavissa esimerkeissä on määritelty luokat Kurssi, Opiskelija ja Kurssisuoritus. Kurssisuorituksessa hyödynnetään kahta ensimmäistä luokkaa. Luokkien sisäinen toteutus on jätetty hyvin lyhyeksi, jotta esimerkki ei paisuisi mahdottoman pitkäksi.
+Aikaisemmin nähtiin esimerkkejä luokista, joissa attribuutteina oli käytetty esimerkiksi listoja. Samalla tavalla myös omista luokista luotuja olioita voi käyttää toisten olioiden attribuutteina. Seuraavissa esimerkeissä on määritelty luokat `Kurssi`, `Opiskelija` ja `Kurssisuoritus`. Kurssisuorituksessa hyödynnetään kahta ensimmäistä luokkaa. Luokkien sisäinen toteutus on lyhyt, jotta esimerkki toisi esille oleellisen.
 
 Esimerkissä jokainen luokka on kirjoitettu omaan tiedostoonsa.
 
 Esitellään aluksi luokka Kurssi, joka on määritelty tiedostossa `kurssi.py`:
 
 ```python
-
-# Luokka mallintaa yhtä kurssia
 class Kurssi:
-
     def __init__(self, nimi: str, koodi: str, opintopisteet: int):
         self.nimi = nimi
         self.koodi = koodi
         self.opintopisteet = opintopisteet
-
-    def __repr__(self):
-        return f"{Kurssi}, nimi: {self.nimi}, koodi: {self.koodi}, opintopisteet: {self.opintopisteet}"
-
 ```
 
 Luokka Opiskelija mallintaa yhtä opiskelijaa. Luokka on määritelty tiedostossa `opiskelija.py`:
 
 ```python
-
 class Opiskelija:
-
     def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
         self.nimi = nimi
         self.opiskelijanumero = opiskelijanumero
         self.opintopisteet = opintopisteet
-
-    def __repr__(self):
-        return f"{Opiskelija}, nimi: {self.nimi}, opiskelijanumero: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"
-
 ```
 
-Luokka Opintosuoritus hyödyntää luokkia Kurssi ja Opiskelija suorituksen tallentamiseen. Huomaa, että luokat tuodaan mukaan `import`-lauseella:
+Luokka Opintosuoritus hyödyntää luokkia `Kurssi` ja `Opiskelija` suorituksen tallentamiseen. Huomaa, että luokat tuodaan mukaan `import`-lauseella:
 
 ```python
-
 from kurssi import Kurssi
 from opiskelija import Opiskelija
 
 class Opintosuoritus:
-
     def __init__(self, opiskelija: Opiskelija, kurssi: Kurssi, arvosana: int):
         self.opiskelija = opiskelija
         self.kurssi = kurssi
         self.arvosana = arvosana
-
-    def __repr__(self):
-        return f"{Opintosuoritus}, opiskelija: {self.opiskelija}, kurssi: {self.kurssi}, arvosana: {self.arvosana}"
-
-
 ```
 
 Esimerkki opintosuoritusten lisäämisestä listaan:
 
 ```python
-
 from opintosuoritus import Opintosuoritus
+from kurssi import Kurssi
+from opiskelija import Opiskelija
 
-# Opiskelijat
-olli = Opiskelija("Olli","1234",10)
-pekka = Opiskelija("Pekka", "3210",23)
-leena = Opiskelija("Leena", "9999", 43)
-tiina = Opiskelija("Tiina", "3333", 8)
+# Luodaan lista opiskelijoista
+opiskelijat = []
+opiskelijat.append(Opiskelija("Olli", "1234", 10))
+opiskelijat.append(Opiskelija("Pekka", "3210", 23))
+opiskelijat.append(Opiskelija("Leena", "9999", 43))
+opiskelijat.append(Opiskelija("Tiina", "3333", 8))
 
-# ..listaksi
-opiskelijat = [olli, pekka, leena, tiina]
-
-# Kurssi
+# Kurssi Ohjelmoinnin perusteet
 ohpe = Kurssi("Ohjelmoinnin perusteet", "ohpe1", 5)
 
-# Luo suoritukset kaikille opiskelijoille, kaikille arvosanaksi 3
+# Annetaan suoritukset kaikille opiskelijoille, kaikille arvosanaksi 3
 suoritukset = []
 for opiskelija in opiskelijat:
     suoritukset.append(Opintosuoritus(opiskelija, ohpe, 3))
@@ -109,7 +88,7 @@ Tiina
 Tarkastellaan lähemmin riviä `print(suoritus.opiskelija.nimi)`:
 
 * `suoritus` on luokan `Opintosuoritus` mukainen olio
-* Niinpä muuttuja opiskelija viittaa suoritukseen tallennettuun `Opiskelija`-olioon
+* Niinpä muuttuja `opiskelija` viittaa suoritukseen tallennettuun `Opiskelija`-olioon
 * `Opiskelija`-luokan muuttuja `nimi` sisältää opiskelijan nimen
 
 <programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikki'>
