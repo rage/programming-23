@@ -310,17 +310,17 @@ Jukkis ei pelaa Kumpulan pallossa :(
 
 <programming-exercise name='Huoneen lyhin' tmcname='osa09-08_huoneen_lyhin'>
 
-Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä, ja jota voi käyttää henkilöiden pituusjärjestykseen asettamiseen — henkilön ottaminen huoneesta palauttaa aina lyhyimmän henkilön.
+Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä ja josta voi hakea ja poistaa lyhimmän henkilön.
 
 ## Huone
 
-Luo luokka Huone, joka sisältää oliomuuttujana listan henkilöitä, ja jolla on seuraavat metodit:
+Luo luokka `Huone`, jonka sisällä on lista henkilöitä ja jolla on seuraavat metodit:
 
 - `lisaa(henkilo: Henkilo)` lisää huoneeseen parametrina annetun henkilön.
-- `on_tyhja()` - palauttaa boolean-tyyppisen arvon True tai False, joka kertoo onko huone tyhjä.
+- `on_tyhja()` - palauttaa arvon `True` tai `False`, joka kertoo, onko huone tyhjä.
 - `tulosta_tiedot()` tulostaa huoneessa olevat henkilöt
 
-Seuraavassa käyttöesimerkki
+Seuraavassa käyttöesimerkki:
 
 ```python
 huone = Huone()
@@ -349,71 +349,62 @@ Terhi (185 cm)
 
 ## Lyhin henkilö
 
-Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, metodi palauttaa None-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
+Lisää luokalle `Huone` metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, metodi palauttaa `None`-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
 
 ```python
 huone = Huone()
-print("Lyhin: " + huone.lyhin())
 print("Huone tyhjä?", huone.on_tyhja())
+print("Lyhin:", huone.lyhin())
 
 huone.lisaa(Henkilo("Lea", 183))
 huone.lisaa(Henkilo("Kenya", 182))
-huone.lisaa(Henkilo("Auli", 186))
 huone.lisaa(Henkilo("Nina", 172))
+huone.lisaa(Henkilo("Auli", 186))
+
+print()
 
 print("Huone tyhjä?", huone.on_tyhja())
-huone.tulosta_tiedot()
+print("Lyhin:", huone.lyhin())
 
 print()
 
-lyhin = huone.lyhin()
-print(f"Lyhin: {lyhin.nimi}")
-
-print()
 huone.tulosta_tiedot()
 ```
 
 <sample-output>
 
-Lyhin: None
 Huone tyhjä? True
-Huone tyhjä? False
-Huoneessa 4 henkilöä, yhteispituus 723 cm
-Lea (183 cm)
-Kenya (182 cm)
-Auli (186 cm)
-Nina (172 cm)
+Lyhin: None
 
+Huone tyhjä? False
 Lyhin: Nina
 
 Huoneessa 4 henkilöä, yhteispituus 723 cm
 Lea (183 cm)
 Kenya (182 cm)
-Auli (186 cm)
 Nina (172 cm)
+Auli (186 cm)
 
 </sample-output>
 
 ## Huoneesta ottaminen
 
-Lisää luokalle Huone metodi `poista_lyhin()`, joka poistaa ja palauttaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa None-viitteen.
+Lisää luokalle `Huone` metodi `poista_lyhin()`, joka poistaa ja palauttaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa `None`-viitteen.
 
 ```python
-huone = Huone()
-print("Lyhin: " + huone.lyhin())
-
 huone.lisaa(Henkilo("Lea", 183))
 huone.lisaa(Henkilo("Kenya", 182))
 huone.lisaa(Henkilo("Auli", 186))
 huone.lisaa(Henkilo("Nina", 172))
-
 huone.tulosta_tiedot()
+
 print()
 
 poistettu = huone.poista_lyhin()
-print(f"Otettiin huoneesta: {poistettu.nimi}")
+print(f"Otettiin huoneesta {poistettu.nimi}")
 
 print()
+
 huone.tulosta_tiedot()
 ```
 
@@ -425,7 +416,7 @@ Kenya (182 cm)
 Auli (186 cm)
 Nina (172 cm)
 
-Otettiin huoneesta: Nina
+Otettiin huoneesta Nina
 
 Huoneessa 3 henkilöä, yhteispituus 551 cm
 Lea (183 cm)
@@ -434,9 +425,9 @@ Auli (186 cm)
 
 </sample-output>
 
-**Vihje**: [osassa 4](/osa-4/3-listat#alkioiden-lisaaminen-ja-poistaminen) kerrottiin miten alkion poistaminen listalta onnistuu.
+**Vihje**: [osassa 4](/osa-4/3-listat#alkioiden-lisaaminen-ja-poistaminen) kerrottiin, miten alkion poistaminen listalta onnistuu.
 
-**Vihje2**: muista, että metodissa on mahdollista kutsua saman olion toista metodia. Eli seuraava koodi toimii
+**Vihje2**: muista, että metodissa on mahdollista kutsua saman olion toista metodia. Eli seuraava koodi toimii:
 
 ```python
 class Huone:
@@ -445,7 +436,7 @@ class Huone:
         # koodi
 
     def poista_lyhin(self):
-        lyhin_hekilo = self.lyhin()
+        lyhin_henkilo = self.lyhin()
         # ...
 ```
 
