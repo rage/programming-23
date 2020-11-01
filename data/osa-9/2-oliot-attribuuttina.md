@@ -93,7 +93,7 @@ Tarkastellaan lähemmin riviä `print(suoritus.opiskelija.nimi)`:
 
 <programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikki'>
 
-Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan Henkilo metodia `__repr__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun alta löytyvät esimerkkitulosteen mukaisesti.
+Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan `Henkilo` metodia `__str__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun alta löytyvät esimerkkitulosteen mukaisesti.
 
 Huomaa, että metodin palauttaman merkkijonon pitää olla _täsmälleen samanlainen kuin esimerkkitulosteessa esitetty_!
 
@@ -114,33 +114,31 @@ Leevi, kaverina Hulda, joka on sekarotuinen koira
 
 ## Olion attribuuttina lista olioita
 
-Äskeisissä esimerkeissä oliolla oli atrribuuttina yksittäinen toisen luokan olio, esim. henkilöllä on attribuuttina lemmikki-olio, opintosuorituksella attribuuttina kurssi-olio.
+Äskeisissä esimerkeissä oliolla oli attribuuttina yksittäinen toisen luokan olio, esim. henkilöllä attribuuttina lemmikki ja opintosuorituksella attribuuttina kurssi.
 
-Olio-ohjelmoinnissa törmätään erittäin usein tilanteeseen, jossa oliolla on attribuuttina joukko toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
+Olio-ohjelmoinnissa törmätään kutenkin usein tilanteeseen, jossa oliolla on attribuuttina joukko toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
 
 ```python
 class Pelaaja:
-    def __int__(self, nimi: str, maalit: int):
+    def __init__(self, nimi: str, maalit: int):
         self.nimi = nimi
         self.maalit = maalit
 
-     def __repr__(self):
-        return f"{self.nimi} maaleja {self.maalit}"
-
 class Joukkue:
-    def __int__(self, nimi: str):
+    def __init__(self, nimi: str):
         self.nimi = nimi
         self.pelaajat = []
 
     def lisaa_pelaaja(self, pelaaja: Pelaaja):
         self.pelaajat.append(pelaaja)
 
-    def __repr__(self):
+    def yhteenveto(self):
         maalit = []
         for pelaaja in self.pelaajat:
             maalit.append(pelaaja.maalit)
-
-        return f"Joukkue {self.nimi}, pelaajia {len(self.pelaajat)}. Pelaajien maalimäärät {maalit}"
+        print("Joukkue", self.nimi)
+        print("Pelaajia", len(self.pelaajat))
+        print("Pelaajien maalimäärät", maalit)
 ```
 
 Käyttöesimerkki
@@ -151,14 +149,16 @@ erkki = Pelaaja("Erkki", 10)
 kupa.lisaa_pelaaja(erkki)
 emilia = Pelaaja("Emilia", 22)
 kupa.lisaa_pelaaja(emilia)
-# huomaa, että parametriksi voidaan määritellä suoraan konstruktorin kutsu
+# Huomaa, että parametriksi voidaan määritellä suoraan konstruktorin kutsu
 kupa.lisaa_pelaaja(Pelaaja("Antti", 1))
-print(kupa)
+kupa.yhteenveto()
 ```
 
 <sample-output>
 
-Joukkue Kumpulan pallo, pelaajia 3. Pelaajien maalimäärät [10, 22, 1]"
+Joukkue Kumpulan pallo
+Pelaajia 3
+Pelaajien maalimäärät [10, 22, 1]
 
 </sample-output>
 
