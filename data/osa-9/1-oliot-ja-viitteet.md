@@ -385,8 +385,7 @@ class Kasvatuslaitos:
         return -1
 ```
 
-Metodi saa parametrina henkilön ja metodin on tarkoitus palauttaa kutsujalleen parametrina olevan henkilön paino. Paino selviää kutsumalla parametrina olevan henkilön henkilo sopivaa metodia. Eli täydennä metodin koodi!
-
+Metodi saa parametrina henkilön ja metodin on tarkoitus palauttaa kutsujalleen parametrina olevan henkilön paino. Paino selviää kutsumalla parametrina olevan henkilön henkilo sopivaa metodia. Sinun tulee täydentää metodin koodia sopivasti.
 
 Seuraavassa on pääohjelma jossa kasvatuslaitos punnitsee kaksi henkilöä:
 
@@ -396,14 +395,14 @@ haagan_neuvola = Kasvatuslaitos()
 eero = Henkilo("Eero", 1, 110, 7)
 pekka = Henkilo("Pekka", 33, 176, 85)
 
-print(f"{eero.nimi}: paino {haagan_neuvola.punnitse(eero)} kg")
-print(f"{pekka.nimi}: paino {haagan_neuvola.punnitse(pekka)} kg")
+print(f"{eero.nimi} painaa {haagan_neuvola.punnitse(eero)} kg")
+print(f"{pekka.nimi} painaa {haagan_neuvola.punnitse(pekka)} kg")
 ```
 
 <sample-output>
 
-Eero paino: 7 kiloa
-Pekka paino: 85 kiloa
+Eero painaa 7 kg
+Pekka painaa 85 kg
 
 </sample-output>
 
@@ -411,7 +410,7 @@ Pekka paino: 85 kiloa
 
 Parametrina olevan olion tilaa on mahdollista muuttaa. Tee kasvatuslaitokselle metodi `syota(henkilo: Henkilo)` joka kasvattaa parametrina olevan henkilön painoa yhdellä.
 
-Seuraavassa esimerkki, jossa henkilöt ensin punnitaan, ja tämän jälkeen neuvolassa syötetään eeroa kolme kertaa. Tämän jälkeen henkilöt taas punnitaan:
+Seuraavassa on esimerkki, jossa henkilöt ensin punnitaan ja tämän jälkeen neuvolassa syötetään Eeroa kolme kertaa. Tämän jälkeen henkilöt taas punnitaan:
 
 ```python
 haagan_neuvola = Kasvatuslaitos()
@@ -419,60 +418,59 @@ haagan_neuvola = Kasvatuslaitos()
 eero = Henkilo("Eero", 1, 110, 7)
 pekka = Henkilo("Pekka", 33, 176, 85)
 
-print(f"{eero.nimi}: paino {haagan_neuvola.punnitse(eero)} kg")
-print(f"{pekka.nimi}: paino {haagan_neuvola.punnitse(pekka)} kg")
+print(f"{eero.nimi} painaa {haagan_neuvola.punnitse(eero)} kg")
+print(f"{pekka.nimi} painaa {haagan_neuvola.punnitse(pekka)} kg")
 
 haagan_neuvola.syota(eero)
 haagan_neuvola.syota(eero)
 haagan_neuvola.syota(eero)
 
-print(f"{eero.nimi}: paino {haagan_neuvola.punnitse(eero)} kg")
-print(f"{pekka.nimi}: paino {haagan_neuvola.punnitse(pekka)} kg")
+print(f"{eero.nimi} painaa {haagan_neuvola.punnitse(eero)} kg")
+print(f"{pekka.nimi} painaa {haagan_neuvola.punnitse(pekka)} kg")
 ```
 
-Tulostuksen pitäisi paljastaa että Eeron paino on noussut kolmella:
+Tulostuksen pitäisi paljastaa, että Eeron paino on noussut kolmella:
 
 <sample-output>
 
-Eero paino: 7 kiloa
-Pekka paino: 85 kiloa
+Eero painaa 7 kg
+Pekka painaa 85 kg
 
-Eero paino: 10 kiloa
-Pekka paino: 85 kiloa
+Eero painaa 10 kg
+Pekka painaa 85 kg
 
 </sample-output>
 
 ## Punnitusten laskeminen
 
-Tee kasvatuslaitokselle metodi `punnitukset()` joka kertoo kuinka monta punnitusta kasvatuslaitos on ylipäätään tehnyt. Huom! Tarvitset uuden oliomuuttujan punnitusten lukumäärän laskemiseen! Testipääohjelma:
+Tee kasvatuslaitokselle metodi `punnitukset()` joka kertoo, kuinka monta punnitusta kasvatuslaitos on ylipäätään tehnyt. Huom! Tarvitset uuden oliomuuttujan punnitusten lukumäärän laskemiseen. Testipääohjelma:
 
 ```python
-
 haagan_neuvola = Kasvatuslaitos()
 
 eero = Henkilo("Eero", 1, 110, 7)
 pekka = Henkilo("Pekka", 33, 176, 85)
 
-print(f"punnituksia tehty {haagan_neuvola.punnitukset()}")
+print(f"Punnituksia tehty {haagan_neuvola.punnitukset()}")
 
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 
-print(f"punnituksia tehty {haagan_neuvola.punnitukset()}")
+print(f"Punnituksia tehty {haagan_neuvola.punnitukset()}")
 
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 haagan_neuvola.punnitse(eero)
 
-print(f"punnituksia tehty {haagan_neuvola.punnitukset()}")
+print(f"Punnituksia tehty {haagan_neuvola.punnitukset()}")
 ```
 
 <sample-output>
 
-punnituksia tehty 0
-punnituksia tehty 2
-punnituksia tehty 6
+Punnituksia tehty 0
+Punnituksia tehty 2
+Punnituksia tehty 6
 
 </sample-output>
 
@@ -480,15 +478,15 @@ punnituksia tehty 6
 
 <programming-exercise name='Maksukortti ja kassapääte' tmcname='osa09-04_maksukortti_ja_kassapaate'>
 
-Teimme edellisessä osan [tehtävässä](/osa-8/5-lisaa-esimerkkeja#programming-exercise-maksukortti) luokan Maksukortti. Kortilla oli metodit edullisesti ja maukkaasti syömistä sekä rahan lataamista varten.
+Teimme edellisessä osan [tehtävässä](/osa-8/5-lisaa-esimerkkeja#programming-exercise-maksukortti) luokan `Maksukortti`. Kortilla oli metodit edullisesti ja maukkaasti syömistä sekä rahan lataamista varten.
 
-Edellisen osan tyylillä tehdyssä Maksukortti-luokassa oli kuitenkin ongelma. Kortti tiesi lounaiden hinnan ja osasi sen ansiosta vähentää saldoa oikean määrän. Entä kun hinnat nousevat? Tai jos myyntivalikoimaan tulee uusia tuotteita? Hintojen muuttaminen tarkoittaisi, että kaikki jo käytössä olevat kortit pitäisi korvata uusilla, uudet hinnat tuntevilla korteilla.
+Edellisen osan tyylillä tehdyssä `Maksukortti`-luokassa oli kuitenkin ongelma. Kortti tiesi lounaiden hinnan ja osasi sen ansiosta vähentää saldoa oikean määrän. Entä kun hinnat nousevat? Tai jos myyntivalikoimaan tulee uusia tuotteita? Hintojen muuttaminen tarkoittaisi, että kaikki jo käytössä olevat kortit pitäisi korvata uudet hinnat tuntevilla korteilla.
 
 Parempi ratkaisu on tehdä kortit "tyhmiksi", hinnoista ja myytävistä tuotteista tietämättömiksi pelkän saldon säilyttäjiksi. Kaikki äly kannattaakin laittaa erillisiin olioihin, kassapäätteisiin.
 
 ## "Tyhmä" Maksukortti
 
-Toteutetaan ensin Maksukortista "tyhmä" versio. Kortilla on ainoastaan metodit saldon kysymiseen, rahan lataamiseen ja rahan ottamiseen. Täydennä alla (ja tehtäväpohjassa) olevaan luokkaan metodin `ota_rahaa(maara)` ohjeen mukaan:
+Toteutetaan ensin `Maksukortti`-luokasta "tyhmä" versio. Kortilla on ainoastaan metodit saldon kysymiseen, rahan lataamiseen ja rahan ottamiseen. Täydennä alla ja tehtäväpohjassa olevaan luokkaan metodin `ota_rahaa(maara)` ohjeen mukaan:
 
 ```python
 class Maksukortti:
@@ -500,8 +498,8 @@ class Maksukortti:
 
     def ota_rahaa(self, maara: float):
         pass
-        # toteuta metodi siten että se ottaa kortilta rahaa vain jos saldo on vähintään maara
-        # onnistuessaan metodi palauttaa True ja muuten False
+        # Toteuta metodi siten, että se ottaa kortilta rahaa vain, jos saldoa riittää
+        # Onnistuessaan metodi palauttaa True ja muuten False
 ```
 
 Testipääohjelma:
@@ -509,28 +507,28 @@ Testipääohjelma:
 ```python
 if __name__ == "__main__":
     kortti = Maksukortti(10)
-    print("rahaa", kortti.saldo
+    print("Rahaa", kortti.saldo)
     onnistuiko = kortti.ota_rahaa(8)
-    print("onnistuiko otto:" ,onnistuiko)
-    print("rahaa", kortti.saldo
+    print("Onnistuiko otto:" ,onnistuiko)
+    print("Rahaa", kortti.saldo)
     onnistuiko = kortti.ota_rahaa(4)
-    print("onnistuiko otto:" ,onnistuiko)
-    print("rahaa", kortti.saldo)
+    print("Onnistuiko otto:" ,onnistuiko)
+    print("Rahaa", kortti.saldo)
 ```
 
 <sample-output>
 
-rahaa 10.0
-onnistuiko otto: True
-rahaa 2.0
-onnistuiko otto: False
-rahaa 2.0
+Rahaa 10.0
+Onnistuiko otto: True
+Rahaa 2.0
+Onnistuiko otto: False
+Rahaa 2.0
 
 </sample-output>
 
 ## Kassapääte ja käteiskauppa
 
-Unicafessa asioidessa asiakas maksaa joko käteisellä tai maksukortilla. Myyjä käyttää kassapäätettä kortin velottamiseen ja käteismaksujen hoitamiseen. Tehdään ensin kassapäätteestä käteismaksuihin sopiva versio.
+Unicafessa asioidessa asiakas maksaa joko käteisellä tai maksukortilla. Myyjä käyttää kassapäätettä kortin veloittamiseen ja käteismaksujen hoitamiseen. Tehdään ensin kassapäätteestä käteismaksuihin sopiva versio.
 
 Kassapäätteen runko. Metodien kommentit kertovat halutun toiminnallisuuden:
 
@@ -685,23 +683,20 @@ kassassa rahaa 1100.0 edullisia lounaita myyty 0 maukkaita lounaita myyty 1
 
 ## Saman luokan oliot metodien parametrina
 
-Tarkastellaan jälleen kerran yhtä versiota luokasta Henkilo:
+Tarkastellaan jälleen kerran yhtä versiota luokasta `Henkilo`:
 
 ```python
 class Henkilo:
     def __init__(self, nimi: str, syntynyt: int):
         self.nimi = nimi
         self.syntynyt = syntynyt
-
-    def __repr__(self):
-        return f"{self.nimi} syntynyt {self.syntynyt}"
 ```
 
 Oletetaan että olemme tekemässä ohjelmaa, joka vertailee henkilöiden ikiä. Voisimme tehdä tarkoitusta varten erillisen funktion:
 
 ```python
-def vanhempi_kuin(h1: Henkilo, h2: Henkilo):
-    if h1.syntynyt < h2.syntynyt:
+def vanhempi_kuin(henkilo1: Henkilo, henkilo2: Henkilo):
+    if henkilo1.syntynyt < henkilo2.syntynyt:
         return True
     else:
         return False
@@ -711,20 +706,20 @@ pascal = Henkilo("Blaise Pascal", 1623)
 grace = Henkilo("Grace Hopper", 1906)
 
 if vanhempi_kuin(muhammad, pascal):
-    print(f"{muhammad} on vanhenmpi kuin {pascal}")
+    print(f"{muhammad} on vanhempi kuin {pascal}")
 else:
-    print(f"{muhammad} ei ole vanhenmpi kuin {pascal}")
+    print(f"{muhammad} ei ole vanhempi kuin {pascal}")
 
 if vanhempi_kuin(grace, pascal):
-    print(f"{grace} on vanhenmpi kuin {pascal}")
+    print(f"{grace} on vanhempi kuin {pascal}")
 else:
-    print(f"{grace} ei ole vanhenmpi kuin {pascal}")
+    print(f"{grace} ei ole vanhempi kuin {pascal}")
 ```
 
 <sample-output>
 
 Muhammad ibn Musa al-Khwarizmi on vanhempi kuin Blaise Pascal
-Grace Hopper ei ole vanhenmpi kuin  Blaise Pascal
+Grace Hopper ei ole vanhempi kuin  Blaise Pascal
 
 </sample-output>
 
@@ -736,19 +731,16 @@ class Henkilo:
         self.nimi = nimi
         self.syntynyt = syntynyt
 
-def vanhempi_kuin(self, toinen: Henkilo):
-    if self.syntynyt < toinen.syntynyt:
-        return True
-    else:
-        return False
-
-    def __repr__(self):
-        return f"{self.nimi} syntynyt {self.syntynyt}"
+    def vanhempi_kuin(self, toinen: Henkilo):
+        if self.syntynyt < toinen.syntynyt:
+            return True
+        else:
+            return False
 ```
 
-Nyt siis olio itse on _self_ ja _toinen_ on henkilöolio, joka toimii vertailukohtana.
+Nyt siis olio itse on `self` ja `toinen` on henkilöolio, joka toimii vertailukohtana.
 
-Huomaa miten metodin kutsuminen eroaa funktion kutsumisesta:
+Huomaa, miten metodin kutsuminen eroaa funktion kutsumisesta:
 
 ```python
 muhammad = Henkilo("Muhammad ibn Musa al-Khwarizmi", 780)
@@ -756,21 +748,21 @@ pascal = Henkilo("Blaise Pascal", 1623)
 grace = Henkilo("Grace Hopper", 1906)
 
 if muhammad.vanhempi_kuin(pascal):
-    print(f"{muhammad} on vanhenmpi kuin {pascal}")
+    print(f"{muhammad} on vanhempi kuin {pascal}")
 else:
-    print(f"{muhammad} ei ole vanhenmpi kuin {pascal}")
+    print(f"{muhammad} ei ole vanhempi kuin {pascal}")
 
 if grace.vanhempi_kuin(pascal):
-    print(f"{grace} on vanhenmpi kuin {pascal}")
+    print(f"{grace} on vanhempi kuin {pascal}")
 else:
-    print(f"{grace} ei ole vanhenmpi kuin {pascal}")
+    print(f"{grace} ei ole vanhempi kuin {pascal}")
 ```
 
-Pisteen vasemmalla puolella on siis se ketä verrataan, eli se olio mihin metodin suorituksessa viittaa muuttuja `self`, parametrina taas on vertailukohta, eli metodin suorituksessa muuttujan `toinen` viittaama olio.
+Pisteen vasemmalla puolella on siis verrattava henkilö, eli olio, johon metodin suorituksessa viittaa muuttuja `self`. Metodin parametrina taas on vertailukohta, eli metodin suorituksessa muuttujan `toinen` viittaama olio.
 
 Ohjelman tulostus on sama kuin edellisessä funktiota käyttäneessä esimerkissä.
 
-Huomaa, että if-else-rakenne metodissa `vanhempi_kuin` on oikeastaan ihan turha, sillä vertailun arvona on suoraan haluamamme totuusarvo. Voimme siis yksinkertaistaa metodia seuraavasti:
+Huomaa, että if-else-rakenne metodissa `vanhempi_kuin` on oikeastaan turha, sillä vertailun arvona on suoraan haluamamme totuusarvo. Voimme siis yksinkertaistaa metodia seuraavasti:
 
 ```python
 class Henkilo:
@@ -780,12 +772,7 @@ class Henkilo:
 
 def vanhempi_kuin(self, toinen: Henkilo):
     return self.syntynyt < toinen.syntynyt:
-
-    def __repr__(self):
-        return f"{self.nimi} syntynyt {self.syntynyt}"
 ```
-
-
 
 <programming-exercise name='Asuntovertailu' tmcname='osa09-05_asuntovertailu'>
 
@@ -793,17 +780,17 @@ Asuntovälitystoimiston tietojärjestelmässä kuvataan myynnissä olevaa asunto
 
 ```python
 class Asunto:
-    def __init__(self, huoneita: int , nelioita: int , neliohinta:int):
+    def __init__(self, huoneita: int, nelioita: int, neliohinta: int):
         self.huoneita = huoneita
         self.nelioita = nelioita
         self.neliohinta = neliohinta
 ```
 
-Tehtävänä on toteuttaa muutama metodi, joiden avulla myynnissä olevia asuntoja voidaan vertailla.
+Tehtävänä on toteuttaa metodeita, joiden avulla myynnissä olevia asuntoja voidaan vertailla.
 
 ## Onko suurempi
 
-Tee metodi `suurempi(self, verrattava)` joka palauttaa True jos asunto-olio, jolle metodia kutsutaan, on pinta-alaltaan suurempi kuin verrattavana oleva asunto-olio.
+Tee metodi `suurempi(self, verrattava)`, joka palauttaa `True`, jos asunto-olio itse on pinta-alaltaan suurempi kuin verrattava asunto-olio.
 
 Esimerkki metodin toiminnasta:
 
@@ -825,7 +812,7 @@ True
 
 ## Hintaero
 
-Tee metodi `hintaero(self, verrattava)` joka palauttaa asunto-olion jolle metodia kutsuttiin ja parametrina olevan asunto-olion hintaeron. Hintaero on asuntojen hintojen erotuksen (hinta lasketaan kertomalla neliöhinta neliöillä) itseisarvo.
+Tee metodi `hintaero(self, verrattava)`, joka palauttaa asunto-olion ja verrattavan asunto-olion hintaeron. Hintaero on asuntojen hintojen erotuksen (hinta lasketaan kertomalla neliöhinta neliöillä) itseisarvo.
 
 Esimerkki metodin toiminnasta:
 
@@ -845,9 +832,9 @@ print(jakomaki_kolmio.hintaero(kallio_kaksio))
 
 </sample-output>
 
-## Onko kalliimpi
+## Onko kalliimpi?
 
-Tee metodi `kalliimpi(self, verrattava)` joka palauttaa True jos asunto-olio, jolle metodia kutsutaan on kalliimpi kuin verrattavana oleva asunto-olio.
+Tee metodi `kalliimpi(self, verrattava)` joka palauttaa `True`, jos asunto-olio on kalliimpi kuin verrattavana oleva asunto-olio.
 
 Esimerkki metodin toiminnasta:
 
