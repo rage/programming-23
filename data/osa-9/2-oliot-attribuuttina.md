@@ -123,6 +123,9 @@ class Pelaaja:
     def __init__(self, nimi: str, maalit: int):
         self.nimi = nimi
         self.maalit = maalit
+        
+    def __str__(self):
+        return f"{self.nimi} (maaleja {self.maalit})"
 
 class Joukkue:
     def __init__(self, nimi: str):
@@ -145,11 +148,8 @@ Käyttöesimerkki:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
-erkki = Pelaaja("Erkki", 10)
-kupa.lisaa_pelaaja(erkki)
-emilia = Pelaaja("Emilia", 22)
-kupa.lisaa_pelaaja(emilia)
-# Huomaa, että parametriksi voidaan määritellä suoraan konstruktorin kutsu
+kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
+kupa.lisaa_pelaaja(Pelaaja("Emilia", 22))
 kupa.lisaa_pelaaja(Pelaaja("Antti", 1))
 kupa.yhteenveto()
 ```
@@ -220,24 +220,31 @@ print(pakkaus.yhteispaino())
 
 ## None eli viite ei mihinkään
 
-Pythonissa muuttujat siis aina _viittaavat_ johonkin olioon. On kuitenkin tilanteita, joissa haluaisimme määrittää arvon, joka ei viittaa mihinkään. Arvoa `None` käytetään esittämään tyhjää viittausta.
+Pythonissa muuttujat viittaavat aina johonkin olioon. On kuitenkin tilanteita, joissa haluaisimme määrittää arvon, joka ei viittaa mihinkään. Arvoa `None` käytetään esittämään tyhjää viittausta.
 
 Jos esimerkiksi luokkaan joukkue lisättäisiin metodi, joka etsii joukkueen pelaajan, saattaisi olla luontevaa esittää paluuarvolla `None` tilanne, jossa pelaajaa ei löydy:
 
 ```python
+class Pelaaja:
+    def __init__(self, nimi: str, maalit: int):
+        self.nimi = nimi
+        self.maalit = maalit
+        
+    def __str__(self):
+        return f"{self.nimi} (maaleja {self.maalit})"
+
 class Joukkue:
-    def __int__(self, nimi: str):
+    def __init__(self, nimi: str):
         self.nimi = nimi
         self.pelaajat = []
 
-    def lisaa_pelaaja(self, elaaja: Pelaaja):
+    def lisaa_pelaaja(self, pelaaja: Pelaaja):
         self.pelaajat.append(pelaaja)
 
-    def etsi(self, etsitty_nimi):
+    def etsi(self, nimi: str):
         for pelaaja in self.pelaajat:
-            if pelaaja.nimi == etsitty_nimi:
+            if pelaaja.nimi == nimi:
                 return pelaaja
-
         return None
 ```
 
@@ -245,37 +252,34 @@ Käyttöesimerkki:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
-erkki = Pelaaja("Erkki", 10)
-kupa.lisaa_pelaaja(erkki)
-emilia = Pelaaja("Emilia", 22)
-kupa.lisaa_pelaaja(emilia)
+kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
+kupa.lisaa_pelaaja(Pelaaja("Emilia", 22))
 kupa.lisaa_pelaaja(Pelaaja("Antti", 1))
 
-p1 = kupa.etsi("Aatti")
-print(p1)
-p2 = kupa.etsi("Jukkis")
-print(p2)
+pelaaja1 = kupa.etsi("Antti")
+print(pelaaja1)
+pelaaja2 = kupa.etsi("Jukkis")
+print(pelaaja2)
 ```
 
 <sample-output>
 
-Antti maaleja 1
+Antti (maaleja 1)
 None
 
 </sample-output>
 
-`None`-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle, joka onkin None:
+`None`-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle, joka onkin `None`:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
-erkki = Pelaaja("Erkki", 10)
-kupa.lisaa_pelaaja(erkki)
+kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
 
-p = kupa.etsi("Jukkis")
-print(f"Jukkiksen maalimäärä {p.maalit}")
+pelaaja = kupa.etsi("Jukkis")
+print(f"Jukkiksen maalimäärä {pelaaja.maalit}")
 ```
 
-Jos näin tehdään, ohjelma kaatuu:
+Jos näin tehdään, ohjelma päättyy virheeseen:
 
 <sample-output>
 
@@ -285,15 +289,14 @@ AttributeError: 'NoneType' object has no attribute 'maalit'
 
 </sample-output>
 
-None-arvojen varalta onkin syytä tehdä tarkistus ennen kuin riskialtista koodia kutsutaan
+`None`-arvojen varalta onkin syytä tehdä tarkistus, ennen kuin riskialtista koodia kutsutaan:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
-erkki = Pelaaja("Erkki", 10)
-kupa.lisaa_pelaaja(erkki)
+kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
 
-p = kupa.etsi("Jukkis")
-if p!=None:
+pelaaja = kupa.etsi("Jukkis")
+if pelaaja != None:
     print(f"Jukkiksen maalimäärä {p.maalit}")
 else:
     print(f"Jukkis ei pelaa Kumpulan pallossa :(")
