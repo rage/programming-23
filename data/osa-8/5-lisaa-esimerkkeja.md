@@ -43,6 +43,8 @@ Kun suorakulmio luodaan, konstruktorille annetaan kaksi tuplea: vasemman yläkul
 
 Metodit `pinta_ala` ja `piiri` laskevat suorakulmion pinta-alan ja piirin korkeuden ja leveyden perusteella. Metodi `siirra` puolestaan siirtää suorakulmiota koordinaatistossa annetun verran x- ja y-suunnissa.
 
+Huomaa, että suorakulmio esitetään koordinaatistossa, jossa x-koordinaatit kasvavat vasemmalta oikealle ja y-koordinaatit kasvavat ylhäältä alaspäin. Tämä on usein käytetty koordinaatisto ohjelmoinnissa, koska on luontevaa esittää tietokoneen näyttö niin, että vasemman yläkulman x- ja y-koordinaatti on 0.
+
 Seuraava koodi testaa luokkaa:
 
 ```python
