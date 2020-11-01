@@ -518,11 +518,11 @@ if __name__ == "__main__":
 
 <sample-output>
 
-Rahaa 10.0
+Rahaa 10
 Onnistuiko otto: True
-Rahaa 2.0
+Rahaa 2
 Onnistuiko otto: False
-Rahaa 2.0
+Rahaa 2
 
 </sample-output>
 
@@ -676,7 +676,7 @@ Riittikö raha: False
 Kortilla rahaa 102.0 euroa
 Riittikö raha: True
 Kortilla rahaa 97.7 euroa
-Kassassa rahaa 1104.3
+Kassassa rahaa 1100
 Edullisia lounaita myyty 0
 Maukkaita lounaita myyty 1
 
