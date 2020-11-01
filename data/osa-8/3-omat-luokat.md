@@ -332,7 +332,7 @@ Funktiota käytetään seuraavasti:
 ```python
 python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
 everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
-norma = Kirja("Sofi Oksanen", "Norma", "rikos", 2015)
+norma = Kirja("Norma", "Sofi Oksanen", "rikos", 2015)
 
 vanhempi_kirja(python, everest)
 vanhempi_kirja(python, norma)
