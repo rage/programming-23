@@ -141,7 +141,7 @@ class Joukkue:
         print("Pelaajien maalimäärät", maalit)
 ```
 
-Käyttöesimerkki
+Käyttöesimerkki:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
@@ -164,7 +164,7 @@ Pelaajien maalimäärät [10, 22, 1]
 
 <programming-exercise name='Lahjapakkaus' tmcname='osa09-07_lahjapakkaus'>
 
-Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja Pakkaus sisältää lahjoja.
+Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja pakkaus sisältää lahjoja.
 
 ## Lahja-luokka
 
@@ -190,24 +190,23 @@ Lahja: Aapiskukko (2 kg)
 
 ## Pakkaus-luokka
 
-Tee luokka `Pakkaus`, johon voi lisätä lahjoja, ja joka pitää kirjaa pakkauksessa olevien lahjojen yhteispainosta. Luokassa tulee olla seuraavat metodit
+Tee luokka `Pakkaus`, johon voi lisätä lahjoja ja joka pitää kirjaa pakkauksessa olevien lahjojen yhteispainosta. Luokassa tulee olla seuraavat metodit
 
 - `lisaa_lahja(self, lahja: Lahja)`, joka lisää parametrina annettavan lahjan pakkaukseen. Metodi ei palauta mitään arvoa.
 - `yhteispaino(self)`, joka palauttaa pakkauksessa olevien lahjojen yhteispainon.
 
 Seuraavassa on luokan käyttöesimerkki:
 
-
 ```python
 kirja = Lahja("Aapiskukko", 2)
 
-paketti = Pakkaus()
-paketti.lisaa_lahja(kirja)
-print(paketti.yhteispaino())
+pakkaus = Pakkaus()
+pakkaus.lisaa_lahja(kirja)
+print(pakkaus.yhteispaino())
 
 cd_levy = Lahja("Pink Floyd: Dark side of the moon", 1)
-paketti.lisaa_lahja(cd_levy)
-print(paketti.yhteispaino())
+pakkaus.lisaa_lahja(cd_levy)
+print(pakkaus.yhteispaino())
 ```
 
 <sample-output>
