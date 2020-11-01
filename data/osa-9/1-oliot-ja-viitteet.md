@@ -484,7 +484,7 @@ Edellisen osan tyylillä tehdyssä `Maksukortti`-luokassa oli kuitenkin ongelma.
 
 Parempi ratkaisu on tehdä kortit "tyhmiksi", hinnoista ja myytävistä tuotteista tietämättömiksi pelkän saldon säilyttäjiksi. Kaikki äly kannattaakin laittaa erillisiin olioihin, kassapäätteisiin.
 
-## "Tyhmä" Maksukortti
+## "Tyhmä" maksukortti
 
 Toteutetaan ensin `Maksukortti`-luokasta "tyhmä" versio. Kortilla on ainoastaan metodit saldon kysymiseen, rahan lataamiseen ja rahan ottamiseen. Täydennä alla ja tehtäväpohjassa olevaan luokkaan metodin `ota_rahaa(maara)` ohjeen mukaan:
 
@@ -508,11 +508,11 @@ Testipääohjelma:
 if __name__ == "__main__":
     kortti = Maksukortti(10)
     print("Rahaa", kortti.saldo)
-    onnistuiko = kortti.ota_rahaa(8)
-    print("Onnistuiko otto:" ,onnistuiko)
+    tulos = kortti.ota_rahaa(8)
+    print("Onnistuiko otto:", tulos)
     print("Rahaa", kortti.saldo)
-    onnistuiko = kortti.ota_rahaa(4)
-    print("Onnistuiko otto:" ,onnistuiko)
+    tulos = kortti.ota_rahaa(4)
+    print("Onnistuiko otto:", tulos)
     print("Rahaa", kortti.saldo)
 ```
 
@@ -530,108 +530,110 @@ Rahaa 2.0
 
 Unicafessa asioidessa asiakas maksaa joko käteisellä tai maksukortilla. Myyjä käyttää kassapäätettä kortin veloittamiseen ja käteismaksujen hoitamiseen. Tehdään ensin kassapäätteestä käteismaksuihin sopiva versio.
 
-Kassapäätteen runko. Metodien kommentit kertovat halutun toiminnallisuuden:
+Kassapäätteen runko on seuraavanlainen. Metodien kommentit kertovat halutun toiminnallisuuden.
 
 ```python
 class Kassapaate:
     def __init__(self):
-        # kassassa on aluksi 1000 euroa rahaa
+        # Kassassa on aluksi 1000 euroa rahaa
         self.rahaa = 1000
         self.edulliset = 0
         self.maukkaat = 0
 
     def syo_edullisesti(self, maksu: float):
-        # edullinen lounas maksaa 2.50 euroa.
-        # kasvatetaan kassan rahamäärää edullisen lounaan hinnalla ja palautetaan vaihtorahat
-        # jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
+        # Edullinen lounas maksaa 2.50 euroa.
+        # Kasvatetaan kassan rahamäärää edullisen lounaan hinnalla ja palautetaan vaihtorahat
+        # Jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
 
     def syo_maukkaasti(self, maksu: float):
-        # maukas lounas maksaa 4.30 euroa.
-        # kasvatetaan kassan rahamäärää maukkaan lounaan hinnalla ja palautetaan vaihtorahat
-        # jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
-
-    def __repr__(self):
-        return f"kassassa rahaa {self.rahaa} edullisia lounaita myyty {self.edulliset} maukkaita lounaita myyty {self.maukkaat}"
-
+        # Maukas lounas maksaa 4.30 euroa.
+        # Kasvatetaan kassan rahamäärää maukkaan lounaan hinnalla ja palautetaan vaihtorahat
+        # Jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
 ```
 
 Käyttöesimerkki
 
 ```python
-unicafe_exactum = Kassapaate()
+exactum = Kassapaate()
 
-vaihtorahaa = unicafe_exactum.syo_edullisesti(10)
-print("vaihtorahaa jäi", vaihtorahaa)
+vaihtorahaa = exactum.syo_edullisesti(10)
+print("Vaihtorahaa jäi", vaihtorahaa)
 
-vaihtorahaa = unicafe_exactum.syo_edullisesti(5)
-print("vaihtorahaa jäi", vaihtorahaa)
+vaihtorahaa = exactum.syo_edullisesti(5)
+print("Vaihtorahaa jäi", vaihtorahaa)
 
-vaihtorahaa = unicafe_exactum.syo_maukkaasti(4.3)
-print("vaihtorahaa jäi", vaihtorahaa)
+vaihtorahaa = exactum.syo_maukkaasti(4.3)
+print("Vaihtorahaa jäi", vaihtorahaa)
 
-print(unicafe_exactum)
+print("Kassassa rahaa", exactum.rahaa)
+print("Edullisia lounaita myyty", exactum.edulliset)
+print("Maukkaita lounaita myyty", exactum.maukkaat)
 ```
 
 <sample-output>
 
-vaihtorahaa jäi 7.5
-vaihtorahaa jäi 2.5
-vaihtorahaa jäi 0.0
-kassassa rahaa 1009.3 edullisia lounaita myyty 2 maukkaita lounaita myyty 1
+Vaihtorahaa jäi 7.5
+Vaihtorahaa jäi 2.5
+Vaihtorahaa jäi 0.0
+Kassassa rahaa 1009.3
+Edullisia lounaita myyty 2
+Maukkaita lounaita myyty 1
 
 </sample-output>
 
 ## Kortilla maksaminen
 
-Laajennetaan kassapäätettä siten että myös kortilla voi maksaa. Teemme kassapäätteelle siis metodit joiden parametrina kassapääte saa maksukortin jolta se vähentää valitun lounaan hinnan. Seuraavassa uusien metodien rungot ja ohje niiden toteuttamiseksi:
+Laajennetaan kassapäätettä siten, että myös kortilla voi maksaa. Teemme kassapäätteelle siis metodit, joiden parametrina kassapääte saa maksukortin, jolta se vähentää valitun lounaan hinnan. Seuraavassa ovat uusien metodien rungot ja ohje niiden toteuttamiseksi:
 
 ```python
 class Kassapaate:
     # ...
 
-    def syo_edullisesti_kortilla(self, kortti:Maksukortti):
-        # edullinen lounas maksaa 2.50 euroa.
-        # jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan True
-        # muuten palautetaan False
+    def syo_edullisesti_kortilla(self, kortti: Maksukortti):
+        # Edullinen lounas maksaa 2.50 euroa
+        # Jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan True
+        # Muuten palautetaan False
 
 
-    def syo_maukkaasti_kortilla(self, kortti:Maksukortti):
-        # maukas lounas maksaa 4.30 euroa.
-        # jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan True
-        # muuten palautetaan False
+    def syo_maukkaasti_kortilla(self, kortti: Maksukortti):
+        # Maukas lounas maksaa 4.30 euroa.
+        # Jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan True
+        # Muuten palautetaan False
 ```
 
 **Huom:** kortilla maksaminen ei lisää kassapäätteessä olevan käteisen määrää.
 
-Seuraavassa testipääohjelma ja haluttu tulostus:
+Seuraavassa on testipääohjelma ja haluttu tulostus:
 
 ```python
+exactum = Kassapaate()
 
-unicafe_exactum = Kassapaate()
-
-vaihtorahaa = unicafe_exactum.syo_edullisesti(10)
-print("vaihtorahaa jäi " + vaihtorahaa)
+vaihtorahaa = exactum.syo_edullisesti(10)
+print("Vaihtorahaa jäi", vaihtorahaa)
 
 kortti = Maksukortti(7)
 
-onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(kortti)
-print("riittikö raha:", onnistuiko)
-onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(kortti)
-print("riittikö raha:", onnistuiko)
-onnistuiko = unicafe_exactum.syo_edullisesti_kortilla(kortti)
-print("riittikö raha:", onnistuiko)
+tulos = exactum.syo_maukkaasti_kortilla(kortti)
+print("Riittikö raha:", tulos)
+tulos = exactum.syo_maukkaasti_kortilla(kortti)
+print("Riittikö raha:", tulos)
+tulos = exactum.syo_edullisesti_kortilla(kortti)
+print("Riittikö raha:", tulos)
 
-printunicafe_exactum)
-
+print("Kassassa rahaa", exactum.rahaa)
+print("Edullisia lounaita myyty", exactum.edulliset)
+print("Maukkaita lounaita myyty", exactum.maukkaat)
 ```
 
 <sample-output>
 
-vaihtorahaa jäi 7.5
-riittikö raha: True
-riittikö raha: False
-riittikö raha: True
-kassassa rahaa 1002.5 edullisia lounaita myyty 2 maukkaita lounaita myyty 1
+Vaihtorahaa jäi 7.5
+Riittikö raha: True
+Riittikö raha: False
+Riittikö raha: True
+Kassassa rahaa 1002.5
+Edullisia lounaita myyty 2
+Maukkaita lounaita myyty 1
 
 </sample-output>
 
@@ -640,42 +642,43 @@ kassassa rahaa 1002.5 edullisia lounaita myyty 2 maukkaita lounaita myyty 1
 Lisätään vielä kassapäätteelle metodi jonka avulla kortille voidaan ladata lisää rahaa. Muista, että rahan lataamisen yhteydessä ladattava summa viedään kassapäätteeseen. Metodin runko:
 
 ```python
-
-def lataa_rahaa_kortille(self, kortti: Maksukortti, summa:float ):
+def lataa_rahaa_kortille(self, kortti: Maksukortti, summa: float):
     pass
 ```
 
 Testipääohjelma ja esimerkkisyöte:
 
 ```python
-unicafe_exactum = Kassapaate()
-print(unicafe_exactum)
+exactum = Kassapaate()
 
 antin_kortti = Maksukortti(2)
+print(f"Kortilla rahaa {antin_kortti.saldo} euroa")
 
-print(f"kortilla rahaa {antin_kortti.saldo} euroa")
+tulos = exactum.syo_maukkaasti_kortilla(antin_kortti)
+print("Riittikö raha:", tulos)
 
-onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(antin_kortti)
-print("riittikö raha:", onnistuiko)
+exactum.lataa_rahaa_kortille(antin_kortti, 100)
+print(f"Kortilla rahaa {antin_kortti.saldo} euroa")
 
-unicafe_exactum.lataa_rahaa_kortille(antin_kortti, 100)
+tulos = exactum.syo_maukkaasti_kortilla(antin_kortti)
+print("Riittikö raha:", tulos)
+print(f"Kortilla rahaa {antin_kortti.saldo} euroa")
 
-onnistuiko = unicafe_exactum.syo_maukkaasti_kortilla(antin_kortti)
-print("riittikö raha:", onnistuiko)
-
-print(f"kortilla rahaa {antin_kortti.saldo} euroa")
-
-print(unicafe_exactum)
+print("Kassassa rahaa", exactum.rahaa)
+print("Edullisia lounaita myyty", exactum.edulliset)
+print("Maukkaita lounaita myyty", exactum.maukkaat)
 ```
 
 <sample-output>
 
-kassassa rahaa 1000.0 edullisia lounaita myyty 0 maukkaita lounaita myyty 0
-kortilla rahaa 2.0 euroa
-riittikö raha: False
-riittikö raha: True
-kortilla rahaa 97.7 euroa
-kassassa rahaa 1100.0 edullisia lounaita myyty 0 maukkaita lounaita myyty 1
+Kortilla rahaa 2.0 euroa
+Riittikö raha: False
+Kortilla rahaa 102.0 euroa
+Riittikö raha: True
+Kortilla rahaa 97.7 euroa
+Kassassa rahaa 1104.3
+Edullisia lounaita myyty 0
+Maukkaita lounaita myyty 1
 
 </sample-output>
 
