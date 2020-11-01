@@ -272,14 +272,13 @@ Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siin
 Omasta luokasta muodostetut oliot käyttäytyvät esimerkiksi funktioiden parametrina ja paluuarvona samalla tavalla kuin muutkin oliot. Voisimme esimerkiksi tehdä pari apufunktiota tilien käsittelyyn:
 
 ```python
-
 # funktio luo uuden tiliolion ja palauttaa sen
-def avaa_tili(nimi: str)
+def avaa_tili(nimi: str):
     uusi_tili =  Pankkitili(0, nimi)
     return uusi_tili
 
 # funktio asettaa parametrina saamansa rahasumman parametrina olevalle tilille
-def laita_rahaa_tilille(tili: Pankkitili, summa: int)
+def laita_rahaa_tilille(tili: Pankkitili, summa: int):
     tili.saldo += summa
 
 pekan_tili = avaa_tili("Pekka Python")
@@ -288,7 +287,6 @@ print(pekan_tili.saldo)
 laita_rahaa_tilille(pekan_tili, 500)
 
 print(pekan_tili.saldo)
-
 ```
 
 <sample-output>
