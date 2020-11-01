@@ -44,7 +44,7 @@ kirja = {"nimi": nimi, "kirjailija": kirjailija, "vuosi": vuosi}
 print(kirja["nimi"])
 ```
 
-Molemmissa tapauksissa tietojen tallentaminen tietorakenteeseen muodostaa _olion_. Olio on itsenäinen kokonaisuus, joka sisältää (tässä tapauksessa) toisiinsa liittyvää tietoa. Itsenäisyys tarkoitaa sitä, että olioon tehdyt muutokset eivät vaikuta muihin olioihin.
+Molemmissa tapauksissa tietojen tallentaminen tietorakenteeseen muodostaa _olion_. Olio on itsenäinen kokonaisuus, joka sisältää (tässä tapauksessa) toisiinsa liittyvää tietoa. Itsenäisyys tarkoittaa sitä, että olioon tehdyt muutokset eivät vaikuta muihin olioihin.
 
 Jos esimerkiksi muodostetaan sanakirjaa käyttäen kaksi kirjaoliota, ensimmäiseen kirjaan tehdyt muutokset eivät vaikuta toiseen kirjaan:
 
