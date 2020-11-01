@@ -561,7 +561,7 @@ Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaha
 
 <programming-exercise name='Go' tmcname='osa05-02_go'>
 
-Go-pelissä lisätään vuorotellen mustia ja valkoisia kiviä pelilaudalle. Pelin voittaa se pelaaja, jolla on enemmän kiviä laudalla pelin lopuksi.
+Go-pelissä lisätään vuorotellen mustia ja valkoisia kiviä pelilaudalle. Pelin voittaa se pelaaja, joka saa omilla kivillään rajattua enemmän aluetta pelilaudalta.
 
 Kirjoita funktio `kumpi_voitti(pelilauta: list)`, joka saa parametrikseen kaksiulotteisen taulukon, joka kuvaa pelilautaa. Taulukko koostuu kokonaisluvuista seuraavasti:
 
