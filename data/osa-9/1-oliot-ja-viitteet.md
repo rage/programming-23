@@ -241,62 +241,53 @@ if __name__ == "__main__":
 
 ## Oliot funktioiden parametrina
 
-Koska omista luoduista luodut oliot ovat (yleensä) muuttuvia eli mutatoituvia, niiden toiminta parametrina välitettäessä muistuttaa listoista tuttua tapaa. Funktio, jolle olio välitetäään parametrina, voi muuttaa saamaansa oliota (edellyttäen että olio tarjoaa asiakkailleen muuttaamiseen tarvittavat operaatiot).
+Koska omista luoduista luodut oliot ovat yleensä muuttuvia eli mutatoituvia, niiden toiminta parametrina välitettäessä muistuttaa listoista tuttua tapaa: funktio, jolle olio välitetäään parametrina, voi muuttaa saamaansa oliota.
 
-Tarkastellaan yksinkertaista esimerkkiä, jossa funktiolle välitetään Opiskelija-luokasta luotu olio. Funktion sisällä muutetaan opiskelijan nimi, ja muutos näkyy myös pääohjelmassa (koska molemmissa tilanteissa viitataan samaan olioon):
+Tarkastellaan yksinkertaista esimerkkiä, jossa funktiolle välitetään `Opiskelija`-luokasta luotu olio. Funktion sisällä muutetaan opiskelijan nimi, ja muutos näkyy myös pääohjelmassa, koska molemmissa tilanteissa viitataan samaan olioon.
 
 ```python
-
 class Opiskelija:
-
-    def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
+    def __init__(self, nimi: str, opiskelijanumero: str):
         self.nimi = nimi
         self.opiskelijanumero = opiskelijanumero
-        self.opintopisteet = opintopisteet
 
-    def __repr__(self):
-        return f"Opiskelija, nimi: {self.nimi}, opiskelijanumero: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"
-
+    def __str__(self):
+        return f"{self.nimi} ({self.opiskelijanumero})"
 
 # Huomaa, että tyyppivihjeenä käytetään nyt oman luokan nimeä
 def muuta_nimi(opiskelija: Opiskelija):
     opiskelija.nimi = "Olli Opiskelija"
 
 # Luodaan opiskelijaolio
-o = Opiskelija("Olli Oppilas", "12345", 10)
+olli = Opiskelija("Olli Oppilas", "12345")
 
-print(o)
-muuta_nimi(o)
-print(o)
-
+print(olli)
+muuta_nimi(olli)
+print(olli)
 ```
 
 <sample-output>
 
-Opiskelija, nimi: Olli Oppilas, opiskelijanumero: 12345, opintopisteet: 10
-Opiskelija, nimi: Olli Opiskelija, opiskelijanumero: 12345, opintopisteet: 10
+Olli Oppilas (12345)
+Olli Opiskelija (12345)
 
 </sample-output>
-
 
 Olion voi myös luoda funktiossa. Mikäli funktio palauttaa viittauksen olioon, on muodostettu olio käytettävissä myös pääohjelmassa:
 
 ```python
-
 from random import randint, choice
 
 class Opiskelija:
-
-    def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
+    def __init__(self, nimi: str, opiskelijanumero: str):
         self.nimi = nimi
         self.opiskelijanumero = opiskelijanumero
-        self.opintopisteet = opintopisteet
 
-    def __repr__(self):
-        return f"Opiskelija, nimi: {self.nimi}, opiskelijanumero: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"
+    def __str__(self):
+        return f"{self.nimi} ({self.opiskelijanumero})"
 
 
-# Metodi luo ja palauttaa Opiskelija-olion, jolla on satunnainen nimi, opiskelijanumero ja pistemäärä
+# Metodi luo ja palauttaa Opiskelija-olion, jolla on satunnainen nimi ja opiskelijanumero
 def uusi_opiskelija():
     etunimet = ["Arto","Pekka","Minna","Mari"]
     sukunimet = ["Virtanen", "Lahtinen", "Leinonen", "Pythonen"]
@@ -305,17 +296,13 @@ def uusi_opiskelija():
     nimi = choice(etunimet) + " " + choice(sukunimet)
 
     # Arvo opiskelijanumero
-    opnro = str(randint(10000,99999))
-
-    # Arvo opintopistemääärä
-    op = randint(0,300)
+    opiskelijanumero = str(randint(10000,99999))
 
     # Luo ja palauta opiskelijaolio
-    return Opiskelija(nimi, opnro, op)
-
+    return Opiskelija(nimi, opiskelijanumero)
 
 if __name__ == "__main__":
-    # kutsutaan metodia viidesti, tallennetaan tulokset listaan
+    # Kutsutaan metodia viidesti, tallennetaan tulokset listaan
     opiskelijat = []
     for i in range(5):
         opiskelijat.append(uusi_opiskelija())
@@ -323,26 +310,24 @@ if __name__ == "__main__":
     # Tulostetaan
     for opiskelija in opiskelijat:
         print(opiskelija)
-
 ```
 
 <sample-output>
 
-Opiskelija, nimi: Mari Lahtinen, opiskelijanumero: 36213, opintopisteet: 257
-Opiskelija, nimi: Arto Virtanen, opiskelijanumero: 11859, opintopisteet: 55
-Opiskelija, nimi: Mari Pythonen, opiskelijanumero: 77330, opintopisteet: 261
-Opiskelija, nimi: Arto Pythonen, opiskelijanumero: 86451, opintopisteet: 263
-Opiskelija, nimi: Minna Pythonen, opiskelijanumero: 86211, opintopisteet: 290
+Mari Lahtinen (36213)
+Arto Virtanen (11859)
+Mari Pythonen (77330)
+Arto Pythonen (86451)
+Minna Pythonen (86211)
 
 </sample-output>
 
 ## Oliot metodien parametrina
 
-Oliot toimivat normaaliin tapaan myös _metodeinen_ parametrina. Tarkastellaan seuraavaa esimerkkiä:
+Oliot toimivat normaaliin tapaan myös _metodien_ parametrina. Tarkastellaan seuraavaa esimerkkiä:
 
 ```python
 class Henkilo:
-
     def __init__(self, nimi: str, pituus: int):
         self.nimi = nimi
         self.pituus = pituus
@@ -354,34 +339,25 @@ class Huvipuistolaite:
         self.pituusraja = pituusraja
 
     def ota_kyytiin(self, henkilo: Henkilo):
-        if henkilo.pituus<self.pituusraja:
-            return False
+        if henkilo.pituus >= self.pituusraja:
+            self.kavijoita += 1
+            print(f"{henkilo.nimi} pääsi kyytiin")
+        else:
+            print(f"{henkilo.nimi} liian lyhyt :(")
 
-        self.kavijoita += 1
-        return True
-
-    def __repr__(self):
-        return f"laite: {self.nimi}, kävijöitä {self.kavijoita}"
+    def __str__(self):
+        return f"{self.nimi} ({self.kavijoita} kävijää)"
 ```
 
-Huvipuistolaitteen metodi `ota_kyytiin` saa nyt parametrina luokan `Henkilo` olion. Metodi tarkistaa onko parametrina oleva henkilö liian lyhyt laitteeseen, ja palauttaa tässä tapauksessa `False`. Jos henkilö on riittävän pitkä, kasvattaa huvipuistolaite kävijämäärää yhdellä ja metodi palauttaa `True`. Seuraavassa esimerkkisuoritus:
+Huvipuistolaitteen metodi `ota_kyytiin` saa nyt parametrina luokan `Henkilo` olion. Jos kävijä on riittävän pitkä, metodi päästää hänet laitteeseen ja lisää kävijöiden määrää. Seuraavassa esimerkkisuoritus:
 
 ```python
-hurjakuru = Huvipuistolaite("hurjakuru", 120)
+hurjakuru = Huvipuistolaite("Hurjakuru", 120)
 jarkko = Henkilo("Jarkko", 172)
 venla = Henkilo("Venla", 105)
 
-ok = hurjakuru.ota_kyytiin(jarkko)
-if ok:
-    print(f"{jarkko.nimi} pääsi kyytiin")
-else:
-    print(f"{jarkko.nimi} liian lyhyt :(")
-
-ok = hurjakuru.ota_kyytiin(venla)
-if ok:
-    print(f"{venla.nimi} pääsi kyytiin")
-else:
-    print(f"{venla.nimi} liian lyhyt :(")
+hurjakuru.ota_kyytiin(jarkko)
+hurjakuru.ota_kyytiin(venla)
 
 print(hurjakuru)
 ```
@@ -390,7 +366,7 @@ print(hurjakuru)
 
 Jarkko pääsi kyytiin
 Venla liian lyhyt :(
-laite: hurjakuru, kävijöitä 1
+Hurjakuru (1 kävijää)
 
 </sample-output>
 
