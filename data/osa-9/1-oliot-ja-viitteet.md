@@ -13,13 +13,11 @@ Tämän osion jälkeen
 
 </text-box>
 
-Pythonissa kaikki arvot ovat olioita. Niinpä myös omista luokista luotuja olioita voi käsitellä kuin mitä tahansa muitakin olioita: niitä on esimerkiksi helppo tallentaa listaan:
+Pythonissa kaikki arvot ovat olioita ja myös omista luokista luotuja olioita voi käsitellä kuin mitä tahansa muitakin olioita. Esimerkiksi olioita voidaan tallentaa listaan:
 
 ```python
-
 from datetime import date
 
-# Esimerkkiluokka mallintaa kurssisuoritusta
 class Kurssisuoritus:
 
     def __init__(self, kurssi: str, opintopisteet: int, suorituspvm: date):
@@ -32,10 +30,10 @@ if __name__ == "__main__":
     # Luodaan pari kurssisuoritusta ja lisätään listaan
     suoritukset = []
 
-    matikka = Kurssisuoritus("Matematiikka 1", 5, date(2020, 3, 11))
+    mat1 = Kurssisuoritus("Matematiikka 1", 5, date(2020, 3, 11))
     ohj1 = Kurssisuoritus("Ohjelmointi 1", 6, date(2019, 12, 17))
 
-    suoritukset.append(matikka)
+    suoritukset.append(mat1)
     suoritukset.append(ohj1)
 
     # Lisätään suoraan listaan muutama
@@ -43,12 +41,12 @@ if __name__ == "__main__":
     suoritukset.append(Kurssisuoritus("Ohjelmointi 2", 5, date(2020, 5, 19)))
 
     # Käydään läpi kaikki suoritukset, tulostetaan nimet ja lasketaan opintopisteet yhteen
-    pisteet = 0
+    opintopisteet = 0
     for suoritus in suoritukset:
         print(suoritus.kurssi)
-        pisteet += suoritus.opintopisteet
+        opintopisteet += suoritus.opintopisteet
 
-    print("Pisteitä yhteensä:", pisteet)
+    print("Opintopisteitä yhteensä:", pisteet)
 ```
 
 <sample-output>
@@ -57,7 +55,7 @@ Matematiikka 1
 Ohjelmointi 1
 Fysiikka 2
 Ohjelmointi 2
-Pisteitä yhteensä: 20
+Opintopisteitä yhteensä: 20
 
 </sample-output>
 
@@ -65,9 +63,9 @@ Pisteitä yhteensä: 20
 
 Tehtäväpohjassa oleva luokka `Auto` mallintaa autoa kahden attribuutin avulla: `merkki (str)` ja `huippunopeus (int)`.
 
-Kirjoita funktio `nopein_auto(autot: list)`, joka saa parametrikseen listan Auto-luokan olioita.
+Kirjoita funktio `nopein_auto(autot: list)`, joka saa parametrikseen listan `Auto`-luokan olioita.
 
-Funktio palauttaa listassa olevista autoista nopeimman auton merkin. Älä muuta alkuperäistä listaa tai luokkaa Auto.
+Funktio palauttaa listassa olevista autoista nopeimman auton merkin. Voit olettaa, että nopein auto on yksikäsitteinen. Älä muuta alkuperäistä listaa tai luokkaa `Auto`.
 
 Esimerkki funktion testauksesta:
 
@@ -96,9 +94,7 @@ Tehtäväpohjasta löytyy luokka `Koesuoritus`, joka mallintaa nimensä mukaises
 
 Kirjoita funktio `hyvaksytyt(suoritukset: list, pisteraja: int)`, joka saa parametrikseen listan koesuorituksia ja alimman hyväksytyn pistemäärän kokonaislukuna.
 
-Funktio muodostaa ja palauttaa uuden listan, johon on tallennettu ainoastaan hyväksytyt suoritukset listalta.
-
-Älä muuta alkuperäistä listaa tai luokkaa Koesuoritus!
+Funktio muodostaa ja palauttaa uuden listan, johon on tallennettu ainoastaan hyväksytyt suoritukset listalta. Älä muuta alkuperäistä listaa tai luokkaa `Koesuoritus`.
 
 Esimerkki funktion käytöstä:
 
@@ -123,9 +119,7 @@ Koesuoritus (suorittaja: Petriina, pisteet: 17)
 
 </programming-exercise>
 
-Listaan ei itse asiassa oikeasti tallenneta olioita, vaan _viittauksia olioihin_. Niinpä sama olio voi esiintyä listassa useaan kertaan (eli käytännössä samaan olioon voidaan viitata useaan kertaan listassa ja sen ulkopuolella):
-
-Esimerkiksi
+Listaan ei tarkkaan ottaen tallenneta olioita vaan _viittauksia olioihin_. Niinpä sama olio voi esiintyä listassa useaan kertaan ja samaan olioon voidaan viitata useaan kertaan listassa ja sen ulkopuolella. Esimerkiksi näin:
 
 ```python
 class Tuote:
@@ -145,67 +139,62 @@ if __name__ == "__main__":
 
 <img src="9_1_1.png">
 
-Jos samaan olioon on useampi kuin yksi viittaus, on lopputuloksen kannalta yhdentekevää mitä viittauksista käytetään:
+Jos samaan olioon on useampi kuin yksi viittaus, on lopputuloksen kannalta yhdentekevää, mitä viittauksista käytetään:
 
 ```python
-
 class Koira:
-
     def __init__(self, nimi):
         self.nimi = nimi
 
-    def __repr__(self):
+    def __str__(self):
         return self.nimi
 
+koirat = []
+musti = Koira("Musti")
+koirat.append(musti)
+koirat.append(musti)
+koirat.append(Koira("Musti"))
 
-k = Koira("Musti")
-lista = (k, k, Koira("Musti"))
-print(k)
-print(lista)
+print("Koirat alussa:")
+for koira in koirat:
+    print(koira)
 
-print("Muutetaan arvoa...")
-k.nimi = "Rekku"
-print(k)
-print(lista)
+print("Kohdan 0 koira saa uuden nimen:")
+koirat[0].nimi = "Rekku"
+for koira in koirat:
+    print(koira)
 
-print("Muutetaan arvoa listasta...")
-lista[0].nimi = "Fifi"
-print(k)
-print(lista)
-
-print("Viimeinen olio listassa on eri olio kuin muut")
-lista[2].nimi = "Turre"
-print(k)
-print(lista)
-
+print("Kohdan 2 koira saa uuden nimen:")
+koirat[2].nimi = "Fifi"
+for koira in koirat:
+    print(koira)
 ```
 
 <sample-output>
 
+Koirat alussa:
 Musti
-(Musti, Musti, Musti)
-Muutetaan muuttujan k kautta arvoa...
+Musti
+Musti
+Kohdan 0 koira saa uuden nimen:
 Rekku
-(Rekku, Rekku, Musti)
-Muutetaan arvoa listasta...
+Rekku
+Musti
+Kohdan 2 koira saa uuden nimen:
+Rekku
+Rekku
 Fifi
-(Fifi, Fifi, Musti)
-Viimeinen olio listassa on eri olio kuin muut
-Fifi
-(Fifi, Fifi, Turre)
 
 </sample-output>
 
-Listan kaksi ensimmäistä alkiota viittaavat samaan Koira-luokan olioon kuin muuttuja `k`. Niinpä olion sisältöä voidaan muuttaa minkä tahansa näistä viittauksista avulla. Viimeinen alkio listassa on viittaus kokonaan toiseen olioon - niinpä muutokset eivät vaikuta siihen (lukuunottamatta viimeistä muokkausta, joka kohdistuu tähän olioon).
+Listan kohdissa 0 ja 1 on viittaus samaan olioon,  joten olion sisältöä voidaan muuttaa kumman tahansa viittauksen kautta. Listan kohdassa 2 on kuitenkin viittaus toiseen olioon, minkä vuoksi tämän olion muuttaminen ei muuta muita.
 
-Muista, että operaattorilla `is` voidaan tutkia onko kyseessä sama olio, ja operaattorilla `==` onko kyseessä samantyylinen olio.
-
-Niinpä esimerkiksi
+Operaattorilla `is` voidaan tutkia, onko kyseessä täysin sama olio, ja operaattorilla `==` voidaan tutkia, onko kyseessä saman sisältöinen olio. Seuraava koodi havainnollistaa asiaa:
 
 
 ```python
-lista1 = [1,2,3]
-lista2 = [1,2,3]
+lista1 = [1, 2, 3]
+lista2 = [1, 2, 3]
 lista3 = lista1
 
 print(lista1 is lista2)
@@ -231,25 +220,22 @@ True
 
 </sample-output>
 
-Omista luokista muodostettuja olioita voi myös tallentaa esimerkiksi sanakirjaan (tai mihin tahansa tietorakenteeseen):
+Omista luokista muodostettuja olioita voidaan myös tallentaa esimerkiksi sanakirjaan ja muihin tietorakenteisiin:
 
 ```python
-
 class Opiskelija:
     def __init__(self, nimi: str, op: int):
         self.nimi = nimi
         self.op = op
 
 if __name__ == "__main__":
-    # Käytetään avaimena opiskelijanumeroa ja
-    # arvona Opiskelija-oliota
+    # Käytetään avaimena opiskelijanumeroa ja arvona Opiskelija-oliota
     opiskelijat = {}
     opiskelijat["12345"] = Opiskelija("Olli Opiskelija", 10)
     opiskelijat["54321"] = Opiskelija("Outi Opiskelija", 67)
-
 ```
 
-[Visualisaattori](pythontutor.com/visualize.html) osaa havainnollistaa nämäkin asiat todella hienosti:
+[Visualisaattori](pythontutor.com/visualize.html) osaa havainnollistaa nämäkin asiat hienosti:
 
 <img src="9_1_2.png">
 
