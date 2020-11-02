@@ -311,7 +311,7 @@ Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
 Lisää luokkaan seuraavat metodit:
 
 - `tulosta_tavarat`, joka tulostaa kaikki matkalaukussa olevat tavarat
-- `paino`, joka palauttaa tavaroiden yhteispainoa kuvaavan kokonaisluvun, joka on sen sisältävien tavaroiden painojen summa
+- `paino`, joka palauttaa matkalaukun yhteispainoa kuvaavan kokonaisluvun, joka on sen sisältävien tavaroiden painojen summa
 
 Seuraavassa on luokan käyttöesimerkki:
 
