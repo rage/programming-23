@@ -8,8 +8,8 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät miten metodin näkyvyys määritellään Pythonissa
-- Osaat kirjoittaa yksityisiä metodeita
+- Tiedät, miten metodin näkyvyys määritellään Pythonissa
+- Osaat kirjoittaa piilotettuja metodeita
 
 </text-box>
 

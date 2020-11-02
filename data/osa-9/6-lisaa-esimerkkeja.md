@@ -6,10 +6,10 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tässä osiossa
+Tämän osion jälkeen
 
-- Käydään läpi lisää esimerkkejä luokista ja olioista
-. Kerrataan parametrien oletusarvojen toiminta ja tarkastellaan, miten niitä voi hyödyntää metodeissa
+- Tunnet lisää esimerkkejä luokista ja olioista
+- Osaat käyttää parametrien oletusarvoja metodeissa
 
 </text-box>
 

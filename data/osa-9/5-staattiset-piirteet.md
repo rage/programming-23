@@ -8,7 +8,7 @@ hidden: false
 
 Tämän osion jälkeen:
 
-- Ymmärrät käsitteet staattinen metodi ja luokkamuuttuja
+- Ymmärrät käsitteet luokkamuuttuja ja luokkametodi
 - Tiedät miten staattiset piirteet eroavat olioiden piirteistä
 - Osaat lisätä staattisia piirteitä omiin luokkiin
 

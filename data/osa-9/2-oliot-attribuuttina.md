@@ -8,7 +8,8 @@ hidden: False
 
 Tämän osion jälkeen
 
-- Osaa tallentaa olioita toisten olioiden sisään
+- Osaat tallentaa olioita toisten olioiden sisään
+- Tiedät, mitä tarkoittaa `None`
 
 </text-box>
 
@@ -16,7 +17,7 @@ Aikaisemmin nähtiin esimerkkejä luokista, joissa attribuutteina oli käytetty 
 
 Esimerkissä jokainen luokka on kirjoitettu omaan tiedostoonsa.
 
-Esitellään aluksi luokka Kurssi, joka on määritelty tiedostossa `kurssi.py`:
+Esitellään aluksi luokka `Kurssi`, joka on määritelty tiedostossa `kurssi.py`:
 
 ```python
 class Kurssi:
@@ -26,7 +27,7 @@ class Kurssi:
         self.opintopisteet = opintopisteet
 ```
 
-Luokka Opiskelija mallintaa yhtä opiskelijaa. Luokka on määritelty tiedostossa `opiskelija.py`:
+Luokka `Opiskelija` mallintaa yhtä opiskelijaa. Luokka on määritelty tiedostossa `opiskelija.py`:
 
 ```python
 class Opiskelija:
@@ -36,7 +37,7 @@ class Opiskelija:
         self.opintopisteet = opintopisteet
 ```
 
-Luokka Opintosuoritus hyödyntää luokkia `Kurssi` ja `Opiskelija` suorituksen tallentamiseen. Huomaa, että luokat tuodaan mukaan `import`-lauseella:
+Luokka `Opintosuoritus` hyödyntää luokkia `Kurssi` ja `Opiskelija` suorituksen tallentamiseen. Huomaa, että luokat tuodaan mukaan `import`-lauseella:
 
 ```python
 from kurssi import Kurssi

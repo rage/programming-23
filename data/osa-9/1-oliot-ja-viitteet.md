@@ -8,8 +8,8 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät miten olioita voi tallentaa tietorakenteisiin
-- Tiedät miten olioiden välitys parametrina toimii
+- Tiedät, miten olioita voi tallentaa tietorakenteisiin
+- Tiedät, miten olioiden välitys parametrina toimii
 
 </text-box>
 

@@ -8,8 +8,8 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät mitä tarkoitetaan kapseloinnilla
-- Osaat muodostaa yksityisen attribuutin
+- Tiedät, mitä tarkoitetaan kapseloinnilla
+- Osaat muodostaa piilotetun attribuutin
 - Osaat kirjoittaa attribuutille asetus- ja havainnointimetodit
 
 </text-box>
