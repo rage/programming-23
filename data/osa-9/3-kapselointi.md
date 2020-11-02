@@ -376,11 +376,6 @@ class Paivakirja:
         print("Yhteensä", len(self.__merkinnat), "merkintää")
         for merkinta in self.__merkinnat:
             print("- " + merkinta)
-
-    def __repr__(self):
-        # Kootaan merkinnät yhdeksi merkkijonoksi
-        merkinnat = ", ".join(self.__merkinnat)
-        return f"Paivakirja - omistaja: {self.__omistaja}, merkinnät: {merkinnat}"
 ```
 
 ```python        
@@ -408,14 +403,13 @@ Kirjoita luokka `Havaintoasema`, johon voidaan tallentaa säähavaintoja. Luokal
 * metodi `lisaa_havainto(havainto: str)`, joka lisää havainnon listan peräään
 * metodi `viimeisin_havainto()`, joka palauttaa viimeksi lisätyn havainnon. Jos havaintoja ei ole tehty, metodi palauttaa _tyhjän merkkijonon_.
 * metodi `havaintojen_maara()`, joka palauttaa havaintojen yhteismäärän
-* metodi `__repr__`, joka palauttaa aseman nimen ja havaintojen yhteismäärän alla olevan esimerkin mukaisessa muodossa.
+* metodi `__str__`, joka palauttaa aseman nimen ja havaintojen yhteismäärän alla olevan esimerkin mukaisessa muodossa.
 
 Luokan kaikkien attribuuttien pitää olla asiakkaalta suojattuja. Saat itse päättää luokan sisäisen toteutuksen.
 
 Esimerkki luokan käytöstä:
 
 ```python
-
 asema = Havaintoasema("Kumpula")
 asema.lisaa_havainto("Sadetta 10mm")
 asema.lisaa_havainto("Aurinkoista")
