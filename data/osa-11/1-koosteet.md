@@ -345,7 +345,7 @@ if __name__ == "__main__":
 
 <programming-exercise name='Pituudet' tmcname='osa11_'>
 
-Tee funktio `pituudet(listat: lista)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa, listan mikä sisältää sen parametrina olevien listojen alkioiden keskiarvot.
+Tee funktio `pituudet(listat: list)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa, listan mikä sisältää sen parametrina olevien listojen pituudet.
 
 Funktio tulee toteuttaa listakoosteen avulla.
 
@@ -368,7 +368,7 @@ print(pituudet(listat))
 
 <programming-exercise name='Keskiarvot' tmcname='osa11_'>
 
-Tee funktio `keskiarvot(listat: lista)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa, listan mikä sisältää sen parametrina olevien listojen alkioiden keskiarvot.
+Tee funktio `keskiarvot(listat: list)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa, listan mikä sisältää sen parametrina olevien listojen alkioiden keskiarvot.
 
 Funktio tulee toteuttaa listakoosteen avulla.
 
