@@ -190,10 +190,10 @@ opiskelija4.yhteenveto()
 
 Opiskelija Olli Opiskelija (12345):
 - opintopisteitä 0
-- muistiinpanot: 
+- muistiinpanot:
 Opiskelija Outi Opiskelija (54321):
 - opintopisteitä 25
-- muistiinpanot: 
+- muistiinpanot:
 Opiskelija Olavi Opiskelija (99999):
 - opintopisteitä 140
 - muistiinpanot: lisäaika tentissä
@@ -552,3 +552,8 @@ Bert Bartholomew (tehdyt kurssit: [])
 Anne Avulias (tehdyt kurssit: ['ohpe'])
 Bert Bartholomew (tehdyt kurssit: [])
 </sample-output>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="b293be33-577b-5bc2-8579-66ec4e412d2b"></quiz>
+
