@@ -299,7 +299,7 @@ Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
 
 <sample-output>
 
-ei tavaroita (0 kg)
+0 tavaraa (0 kg)
 1 tavara (2 kg)
 2 tavaraa (3 kg)
 2 tavaraa (3 kg)
