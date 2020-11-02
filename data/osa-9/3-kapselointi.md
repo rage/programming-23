@@ -19,60 +19,52 @@ Olio-ohjelmoinnissa asiakkaalla tarkoitetaan luokkaa tai siitä muodostettuja ol
 1) asiakkaan kannalta luokan ja olioiden käyttö on mahdollisimman yksinkertaista ja
 2) olion _sisäinen eheys_ säilyy joka tilanteessa.
 
-Sisäisellä eheydellä tarkoitetaan, että olion _tila_ (eli käytännössä olion attribuuttien arvot) pysyy koko ajan hyväksyttävänä. Virheellinen tila olisi esimerkiksi sellainen, jossa päivämäärää esittävälle oliolle kuukauden numero on 13, tai opiskelijaa esittävällä oliolla opintopistemäärä on negatiivinen luku.
+Sisäisellä eheydellä tarkoitetaan, että olion _tila_ (eli käytännössä olion attribuuttien arvot) pysyy koko ajan hyväksyttävänä. Virheellinen tila olisi esimerkiksi sellainen, jossa päivämäärää esittävälle oliolle kuukauden numero on 13 tai opiskelijaa esittävällä oliolla opintopistemäärä on negatiivinen luku.
 
 Tarkastellaan esimerkkinä luokkaa Opiskelija:
 
 ```python
-
 class Opiskelija:
-
-    def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
+    def __init__(self, nimi: str, opiskelijanumero: str):
         self.nimi = nimi
         self.opiskelijanumero = opiskelijanumero
-        self.opintopisteet = opintopisteet
+        self.opintopisteet = 0
 
     def lisaa_suoritus(self, opintopisteet):
-        # Lisätään attribuutin opintopisteet arvoksi
-        # parametrimuuttujan opintopisteet arvo
-        self.opintopisteet += opintopisteet
-
-    def __repr__(self):
-        return f"Opiskelija - nimi: {self.nimi}, op.nro: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"
-
+        if opintopisteet > 0:
+            self.opintopisteet += opintopisteet
 ```
 
-Opiskelija-olio tarjoaa asiakkaalle metodin `lisaa_suoritus`, jolla opintopisteitä voidaan lisätä, esimerkiksi:
+`Opiskelija`-olio tarjoaa asiakkaalle metodin `lisaa_suoritus`, jolla opintopisteitä voidaan lisätä. Metodi varmistaa, että lisättävä opintopisteiden määrä on positiivinen. Esimerkiksi seuraava koodi lisää kolme suoritusta:
 
 ```python
-
-if __name__ == "__main__":
-    oskari = Opiskelija("Oskari Opiskelija", "12345", 0)
-    print(oskari)
-    oskari.lisaa_suoritus(10)
-    print(oskari
-
+oskari = Opiskelija("Oskari Opiskelija", "12345")
+oskari.lisaa_suoritus(5)
+oskari.lisaa_suoritus(5)
+oskari.lisaa_suoritus(10)
+print("Opintopisteet:", oskari.opintopisteet)
 ```
 
 <sample-output>
 
-Opiskelija - nimi: Oskari Opiskelija, op.nro: 12345, opintopisteet: 0
-Opiskelija - nimi: Oskari Opiskelija, op.nro: 12345, opintopisteet: 10
+Opintopisteet: 20
 
 </sample-output>
+
 
 Asiakas pystyy kuitenkin muuttamaan opintopistemäärää myös suoraan viittaamalla attribuuttiin `opintopisteet`. Näin olio voi päätyä virheelliseen tilaan, jossa se ei ole enää sisäisesti eheä:
 
 ```python
-
-if __name__ == "__main__":
-    oskari = Opiskelija("Oskari Opiskelija", "12345", 0)
-    oskari.lisaa_suoritus(10)
-    print(oskari)
-    oskari.opintopisteet -= 15
-    print(oskari)
-
+oskari = Opiskelija("Oskari Opiskelija", "12345")
+oskari.opintopisteet = -100
+print("Opintopisteet:", oskari.opintopisteet)
 ```
+
+<sample-output>
+
+Opintopisteet: -100
+
+</sample-output>
 
 ## Kapselointi
 
