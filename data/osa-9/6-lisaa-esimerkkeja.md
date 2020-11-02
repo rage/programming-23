@@ -101,16 +101,15 @@ print(jana)
 
 ## Parametrien oletusarvot
 
-Pythonissa mille tahansa parametrille voidaan asettaa oletusarvo. Oletusarvot toimivat niin metodien parametrien kuin tavallisten funktioiden parametrien kanssa.
+Pythonissa mille tahansa parametrille voidaan asettaa oletusarvo. Oletusarvoja voidaan käyttää sekä funktioiden että metodien parametreissa.
 
-Jos parametrille on annettu oletusarvo, sille ei ole pakko antaa arvoa kutsuttaessa. Jos arvo annetaan, se kumoaa oletusarvon; jos arvoa ei anneta, käytetään oletusarvoa.
+Jos parametrille on annettu oletusarvo, sille ei ole pakko antaa arvoa kutsuttaessa. Jos arvo annetaan, se syrjäyttää oletusarvon, ja jos arvoa ei anneta, käytetään oletusarvoa.
 
-Oletusarvot ovat usein hyödyllisiä konstruktoreissa: jos on oletettavaa, ettei tiettyä tietoa ole aina olemassa oliota luodessa, on parempi antaa sille vakioarvo konstruktorissa kuin antaa tämä asiakkaan huoleksi. Paitsi että tämä on asiakkaalle helpompaa, se myös ylläpitää olion sisäistä eheyttä, kun voidaan esimerkiksi olla varmoja, että "tyhjä" arvo on aina samanlainen (muuten esim. tyhjä voisi olla  esim. merkkijono `""`, arvo `None` tai vaikka merkkijono `"ei asetettu"` tms.)
+Oletusarvot ovat usein hyödyllisiä konstruktoreissa: jos on oletettavaa, ettei tiettyä tietoa ole aina olemassa oliota luodessa, on parempi antaa sille vakioarvo konstruktorissa kuin antaa tämä asiakkaan huoleksi. Tämä on asiakkaalle helpompaa ja myös ylläpitää olion sisäistä eheyttä, kun voidaan esimerkiksi olla varmoja, että "tyhjä" arvo on aina samanlainen (muuten se voisi olla esimerkiksi merkkijono `""`, arvo `None` tai merkkijono `"ei asetettu"`).
 
-Tarkastellaan esimerkkinä luokkaa, joka mallintaa Opiskelijaa. Pakollisia kenttiä luodessa ovat opiskelijanumero ja nimi (ja näistä opiskelijanumeroa ei pysty myöhemmin muuttamaan) - opintopisteet ja muistiinpanot voi halutessaan antaa oliota luodessa, mutta niille on myös asetettu oletusarvot. Luokan toiminta on kommentoitu suoraan ohjelmakoodin yhteyteen.
+Tarkastellaan esimerkkinä luokkaa, joka mallintaa opiskelijaa. Pakollisia kenttiä luodessa ovat opiskelijanumero ja nimi ja näistä opiskelijanumeroa ei pysty myöhemmin muuttamaan. Opintopisteet ja muistiinpanot voi halutessaan antaa oliota luodessa, mutta niille on myös asetettu oletusarvot. Luokan toiminta on kommentoitu suoraan ohjelmakoodin yhteyteen.
 
 ```python
-
 class Opiskelija:
     """ Mallintaaa yhtä opiskelijaa """
 
@@ -119,7 +118,7 @@ class Opiskelija:
         self.nimi = nimi
 
         if len(opiskelijanumero) < 5:
-            raise ValueError("Opiskelijanumerossa on vähintään 5 merkkiä")
+            raise ValueError("Opiskelijanumerossa tulee olla vähintään 5 merkkiä")
 
         self.__opiskelijanumero = opiskelijanumero
 
@@ -154,7 +153,6 @@ class Opiskelija:
         else:
             raise ValueError("Opintopisteet ei voi olla negatiivinen luku")
 
-
     @property
     def muistiinpanot(self):
         return self.__muistiinpanot
@@ -163,43 +161,49 @@ class Opiskelija:
     def muistiinpanot(self, muistiinpanot):
         self.muistiinpanot = muistiinpanot
 
-    def __repr__(self):
-        # Selkeyden vuoksi jaettu kahdelle riville
-        rp = f"Opiskelija - nimi: {self.__nimi}, op.nro: {self.opiskelijanumero},"
-        rp += f" opintopisteitä: {self.__opintopisteet}, muistiinpanot: {self.muistiinpanot}"
-        return rp
+    def yhteenveto(self):
+        print(f"Opiskelija {self.__nimi} ({self.opiskelijanumero}):")
+        print(f"- opintopisteitä {self.__opintopisteet}")
+        print(f"- muistiinpanot: {self.muistiinpanot}")
+```
 
-# Testi
-if __name__ == "__main__":
-    # Annetaan pelkkä nimi ja op.nro
-    o1 = Opiskelija("Olli Opiskelija", "12345")
-    print(o1)
+```python
+# Annetaan pelkkä nimi ja op.nro
+opiskelija1 = Opiskelija("Olli Opiskelija", "12345")
+opiskelija1.yhteenveto()
 
-    # Annetaan nimi, op.nro ja opintopisteet
-    o2 = Opiskelija("Outi Opiskelija", "54321", 25)
-    print(o2)
+# Annetaan nimi, op.nro ja opintopisteet
+opiskelija2 = Opiskelija("Outi Opiskelija", "54321", 25)
+opiskelija2.yhteenveto()
 
-    # Annetaan kaikki tiedot
-    o3 = Opiskelija("Olavi Opiskelija", "99999", 140, "Lisäaika tentissä")
-    print(o3)
+# Annetaan kaikki tiedot
+opiskelija3 = Opiskelija("Olavi Opiskelija", "99999", 140, "lisäaika tentissä")
+opiskelija3.yhteenveto()
 
-    # Ei anneta opintopisteitä, mutta annetaan muistiinpanot
-    # Huomaa, että parametri pitää nyt nimetä, kun järjestys ei ole oikea
-    o4 = Opiskelija("Onerva Opiskelija", "98765", muistiinpanot="Poissaoleva lukuvuonna 20-21")
-    print(o4)
-
+# Ei anneta opintopisteitä, mutta annetaan muistiinpanot
+# Huomaa, että parametri pitää nyt nimetä, kun järjestys eroaa tavallisesta
+opiskelija4 = Opiskelija("Onerva Opiskelija", "98765", muistiinpanot="poissaoleva lukuvuonna 20-21")
+opiskelija4.yhteenveto()
 ```
 
 <sample-output>
 
-Opiskelija - nimi: Olli Opiskelija, op.nro: 12345, opintopisteitä: 0, muistiinpanot:
-Opiskelija - nimi: Outi Opiskelija, op.nro: 54321, opintopisteitä: 25, muistiinpanot:
-Opiskelija - nimi: Olavi Opiskelija, op.nro: 99999, opintopisteitä: 140, muistiinpanot: Lisäaika tentissä
-Opiskelija - nimi: Onerva Opiskelija, op.nro: 98765, opintopisteitä: 0, muistiinpanot: Poissaoleva lukuvuonna 20-21
+Opiskelija Olli Opiskelija (12345):
+- opintopisteitä 0
+- muistiinpanot: 
+Opiskelija Outi Opiskelija (54321):
+- opintopisteitä 25
+- muistiinpanot: 
+Opiskelija Olavi Opiskelija (99999):
+- opintopisteitä 140
+- muistiinpanot: lisäaika tentissä
+Opiskelija Onerva Opiskelija (98765):
+- opintopisteitä 0
+- muistiinpanot: poissaoleva lukuvuonna 20-21
 
 </sample-output>
 
-Huomaa, että attribuutille opiskelijanumero ei ole määritelty asetusmetodia - ideana on, että opiskelijanumero ei voi muuttua.
+Huomaa, että attribuutille opiskelijanumero ei ole määritelty asetusmetodia, koska ideana on, että opiskelijanumero ei voi muuttua.
 
 ## Lisätehtävä
 
