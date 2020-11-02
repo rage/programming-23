@@ -14,18 +14,17 @@ Tämän osion jälkeen:
 
 </text-box>
 
-Olio-ohjelmoinnissa puhutaan _piirteistä_. Näillä tarkoitetaan olion ominaisuuksia, luokan sisälle kirjoitettuja aliohjelmia ja siinä määriteltyjä muuttujia.
+Olio-ohjelmoinnissa puhutaan _piirteistä_. Näillä tarkoitetaan olion ominaisuuksia: luokan sisälle kirjoitettuja metodeja ja luokassa määriteltyjä muuttujia.
 
-Tähän mennessä olemme käsitelleen _olioiden piirteitä_ - eli oliometodeita ja attribuutteja. Olio-ohjelmointiin kuuluvat kuitenkin myös _luokan piirteet_, joita kutsutaan usein myös _staattisiksi piirteiksi_. Myös käsitettä _luokkamuuttuja_ käytetään.
+Tähän mennessä olemme käsitelleen _olioiden piirteitä_ eli oliometodeita ja attribuutteja. Olio-ohjelmointiin kuuluvat kuitenkin myös _luokan piirteet_, joita kutsutaan usein myös _staattisiksi piirteiksi_. Myös käsitettä _luokkamuuttuja_ käytetään.
 
 ## Luokkamuuttujat
 
-Niin kuin on aikaisemmin opittu, jokaisella oliolla on omat itsenäiset arvonsa attribuuteille. Attribuuttien lisäksi luokassa voidaan määritellä _luokkamuuttujia_ (eli staattisia muuttujia). Luokkamuuttujalla tarkoitetaan muuttujaa, jota käytetään luokan kautta - ei luokasta muodostettujen olioiden kautta. Luokkamuuttujalla on yksi yhteinen arvo riippumatta siitä, kuinka monta oliota luokasta muodostetaan.
+Kuten on aiemmin opittu, jokaisella oliolla on omat itsenäiset arvonsa attribuuteille. Attribuuttien lisäksi luokassa voidaan määritellä _luokkamuuttujia_ eli staattisia muuttujia. Luokkamuuttujalla tarkoitetaan muuttujaa, jota käytetään luokan kautta eikä luokasta muodostettujen olioiden kautta. Luokkamuuttujalla on yksi yhteinen arvo riippumatta siitä, montako oliota luokasta muodostetaan.
 
-Luokkamuuttujan määrittely eroaa attribuutista siinä, että se määritellään ilman `self`-aluketta. Jos luokkamuuttujaa halutaan käyttää koko luokassa (ja mahdollisesti luokan ulkopuoleltakin), se tulee määritellä metodien ulkopuolella.
+Luokkamuuttujan määrittely eroaa attribuutista siinä, että se määritellään ilman `self`-aluketta. Jos luokkamuuttujaa halutaan käyttää koko luokassa ja mahdollisesti luokan ulkopuoleltakin, se tulee määritellä metodien ulkopuolella.
 
 ```python
-
 class Korkotili:
     yleiskorko = 0.03
 
@@ -35,33 +34,27 @@ class Korkotili:
         self.__korko = korko
 
     def lisaa_korko(self):
-        # korko on yleiskorko + tilin korko
+        # Korko on yleiskorko + tilin korko
         korko_yhteensa = Korkotili.yleiskorko + self.__korko
         saldo += saldo * korko_yhteensa
 
-    # havainnointimetodit
     @property
     def saldo(self):
         return self.__saldo
-
-
 ```
 
-Koska yleiskorko on määritelty luokassa eikä metodin sisällä, eikä sen alustuksessa ole käytetty `self`-aluketta, se on luokkamuuttuja.
+Koska yleiskorko on määritelty luokassa eikä metodin sisällä eikä sen alustuksessa ole käytetty `self`-aluketta, se on luokkamuuttuja.
 
-Luokkamuttujaan viitataan _luokan nimen_ avulla, esimerkiksi:
+Luokkamuttujaan viitataan luokan nimen avulla, esimerkiksi näin:
 
 ```python
+# Yleiskorko on olioista riippumaton
+print("Yleiskorko on", Korkotili.yleiskorko)
 
-if __name__ == "__main__":
-    # Yleiskorko on olioista riippumaton
-    print("Yleiskorko on", Korkotili.yleiskorko)
-
-    tili = Korkotili("12345", 1000, 0.05)
-    # Lisätään kokonaiskorko saldoon
-    tili.lisaa_korko()
-    print(tili.saldo)
-
+tili = Korkotili("12345", 1000, 0.05)
+# Lisätään kokonaiskorko saldoon
+tili.lisaa_korko()
+print(tili.saldo)
 ```
 
 <sample-output>
@@ -71,12 +64,11 @@ Yleiskorko on 0.03
 
 </sample-output>
 
-Luokkamuuttujiin viitataan siis _luokan nimen avulla_, esimerkiksi `Korkotili.yleiskorko`, ja oliomuuttujiin eli attribuutteihin olion nimen avulla `tili.saldo`. Oliomuuttujiin voi luonnollisesti viitata vasta kun luokasta on muodostettu olio.
+Luokkamuuttujiin viitataan siis luokan nimen avulla, esimerkiksi `Korkotili.yleiskorko`, ja oliomuuttujiin eli attribuutteihin olion nimen avulla `tili.saldo`. Oliomuuttujiin voi luonnollisesti viitata vasta, kun luokasta on muodostettu olio.
 
-Luokkamuuttujaa on kätevä käyttää, kun halutaan arvoja jotka on jaettu kaikkien olioiden kesken. Edellisessä esimerkissä oletetaan, että kaikilla pankkitileillä on sama yleiskorkoprosentti, joiden lisäksi tilille voidaan erikseen määrittää oma korkoprosenttinsa. Yleiskorkokin voi muuttua, mutta muutos vaikuttaa kaikkiin luokasta muodostettuihin olioihin:
+Luokkamuuttujaa on kätevä käyttää, kun halutaan tallentaa arvoja, jotka on jaettu kaikkien olioiden kesken. Edellisessä esimerkissä oletetaan, että kaikilla pankkitileillä on sama yleiskorkoprosentti, jonka lisäksi tilille voidaan erikseen määrittää oma korkoprosenttinsa. Yleiskorkokin voi muuttua, mutta muutos vaikuttaa kaikkiin luokasta muodostettuihin olioihin:
 
 ```python
-
 class Korkotili:
     yleiskorko = 0.03
 
@@ -84,14 +76,12 @@ class Korkotili:
         self.__tilinumero = tilinumero
         self.__saldo = saldo
         self.__korko = korko
-        abc = 123
 
     def lisaa_korko(self):
-        # korko on yleiskorko + tilin korko
+        # Korko on yleiskorko + tilin korko
         korko_yhteensa = Korkotili.yleiskorko + self.__korko
         self.__saldo += self.__saldo * korko_yhteensa
 
-    # havainnointimetodit
     @property
     def saldo(self):
         return self.__saldo
@@ -99,23 +89,22 @@ class Korkotili:
     @property
     def kokonaiskorko(self):
         return self.__korko + Korkotili.yleiskorko
+```
 
-if __name__ == "__main__":
-    tili1 = Korkotili("12345", 100, 0.03)
-    tili2 = Korkotili("54321", 200, 0.06)
+```python
+tili1 = Korkotili("12345", 100, 0.03)
+tili2 = Korkotili("54321", 200, 0.06)
 
-    print("Yleiskorko:", Korkotili.yleiskorko)
-    print(tili1.kokonaiskorko)
-    print(tili2.kokonaiskorko)
+print("Yleiskorko:", Korkotili.yleiskorko)
+print(tili1.kokonaiskorko)
+print(tili2.kokonaiskorko)
 
-    # Nostetaan yleiskorko 10:en prosenttiin
-    Korkotili.yleiskorko = 0.10
+# Nostetaan yleiskorko 10 prosenttiin
+Korkotili.yleiskorko = 0.10
 
-    print("Yleiskorko:", Korkotili.yleiskorko)
-    print(tili1.kokonaiskorko)
-    print(tili2.kokonaiskorko)
-
-
+print("Yleiskorko:", Korkotili.yleiskorko)
+print(tili1.kokonaiskorko)
+print(tili2.kokonaiskorko)
 ```
 
 <sample-output>
@@ -129,30 +118,28 @@ Yleiskorko: 0.1
 
 </sample-output>
 
-Kun yleiskorko nousee, kaikkien luokasta määriteltyjen tilien kokonaiskorko nousee. Huomaa, että kokonaiskorko on määritelty havainnointimetodiksi, vaikkei vastaavaa attribuuttia olekaan suoraan määritelty - sen sijaan arvoksi lasketaan tilin koron ja yleiskoron summa.
+Kun yleiskorko nousee, kaikkien luokasta määriteltyjen tilien kokonaiskorko nousee. Huomaa, että kokonaiskorko on määritelty havainnointimetodiksi, vaikkei vastaavaa attribuuttia olekaan suoraan määritelty. Metodi palauttaa tilin koron ja yleiskoron summan.
 
-Tarkastellaan vielä toista esimerkkiä. Luokassa `Puhelinnumero` on maatunnukset (esimerkissä toki vain muutama tunnus) tallennettu sanakirjaan. Lista maatunnuksista on yhteinen kaikile luokasta luoduille puhelinnumero-olioille, koska maatunnus saman maan puhelinnumeroille on luonnollisesti aina sama.
+Tarkastellaan vielä toista esimerkkiä. Luokassa `Puhelinnumero` on maatunnukset tallennettuna sanakirjaan. Lista maatunnuksista on yhteinen kaikille luokasta luoduille puhelinnumero-olioille, koska maatunnus saman maan puhelinnumeroille on aina sama.
 
 ```python
 class Puhelinnumero:
-    maatunnukset = {"suomi": "+358", "ruotsi": "+46", "yhdysvallat": "+1"}
+    maatunnukset = {"Suomi": "+358", "Ruotsi": "+46", "Yhdysvallat": "+1"}
 
     def __init__(self, nimi: str, puhelinnumero: str, maa: str):
         self.__nimi = nimi
         self.__puhelinnumero = puhelinnumero
         self.__maa = maa
 
-    # Havainnointimetodissa yhdistetään maatunnus ja puhelinnumero
     @property
     def puhelinnumero(self):
         # Puhelinnumerosta jää etunolla pois, kun maatunnus lisätään alkuun
         return Puhelinnumero.maatunnukset[self.__maa] + " " + self.__puhelinnumero[1:]
+```
 
-
-# Testataan
-if __name__ == "__main__":
-    paulan_nro = Puhelinnumero("Paula Pythonen", "050 1234 567", "suomi")
-    print(paulan_nro.puhelinnumero)
+```python
+paulan_nro = Puhelinnumero("Paula Pythonen", "050 1234 567", "Suomi")
+print(paulan_nro.puhelinnumero)
 ```
 
 <sample-output>
@@ -161,20 +148,19 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Kun puhelinnumero-olio luodaan, tallennetaan nimen ja numeron lisäksi maa. Haettaessa numero havainnointimetodilla, haetaan numeron eteen maatunnus luokkamuttujasta olion attribuuttiin tallennetun maatiedon avulla.
+Kun puhelinnumero-olio luodaan, tallennetaan nimen ja numeron lisäksi maa. Kun numero haetaan havainnointimetodilla, haetaan numeron eteen maatunnus luokkamuuttujasta olion attribuuttiin tallennetun maatiedon avulla.
 
-Esimerkkiluokka on toiminnallisuudeltaan kovin vajavainen, katsotaan vielä miltä näyttäisi parempi toteutus, josta löytyy muun muassa havainnointi- ja asetusmetodit eri attribuuteille:
+Esimerkkiluokka on toiminnallisuudeltaan melko vajavainen. Katsotaan vielä, miltä näyttäisi parempi toteutus, jossa on havainnointi- ja asetusmetodit eri attribuuteille:
 
 ```python
-
 class Puhelinnumero:
-    maatunnukset = {"suomi": "+358", "ruotsi": "+46", "yhdysvallat": "+1"}
+    maatunnukset = {"Suomi": "+358", "Ruotsi": "+46", "Yhdysvallat": "+1"}
 
     def __init__(self, nimi: str, puhelinnumero: str, maa: str):
         self.__nimi = nimi
         # Tämä kutsuu metodia puhelinnumero.setter
         self.puhelinnumero = puhelinnumero
-        # ..ja tämä metodia maa.setter
+        # Tämä kutsuu metodia maa.setter
         self.maa = maa
 
     # Havainnointimetodissa yhdistetään maatunnus ja puhelinnumero
@@ -185,9 +171,9 @@ class Puhelinnumero:
 
     @puhelinnumero.setter
     def puhelinnumero(self, numero):
-        # Testataan, ettei puhelinnumerossa ole kuin lukuja
-        for n in numero:
-            if n not in "1234567890 ":
+        # Varmistetaan, että puhelinnumerossa on vain numeroita ja välilyöntejä
+        for merkki in numero:
+            if merkki not in "1234567890 ":
                 raise ValueError("Puhelinnumero saa sisältää vain lukuja ja välilyöntejä")
         self.__puhelinnumero = numero
 
@@ -202,7 +188,7 @@ class Puhelinnumero:
 
     @maa.setter
     def maa(self, maa):
-        # testataan, että maa löytyy maatunnusten listasta
+        # Varmistetaan, että maa on maatunnusten listalla
         if maa not in Puhelinnumero.maatunnukset:
             raise ValueError("Annettua maata ei löydy listalta.")
         self.__maa = maa
@@ -220,22 +206,21 @@ class Puhelinnumero:
     def paikallinen_numero(self):
         return self.__puhelinnumero
 
-    def __repr__(self):
-        return f"Puhelinnumero - nimi: {self.__nimi}, puhelinnumero: {self.__puhelinnumero}, maa: {self.__maa}"
+    def __str__(self):
+        return f"{self.puhelinnumero} ({self.__nimi})"
+```
 
-
-# Testataan
+```python
 if __name__ == "__main__":
-    pnro = Puhelinnumero("Pertti Python", "040 111 1111", "ruotsi")
+    pnro = Puhelinnumero("Pertti Python", "040 111 1111", "Ruotsi")
     print(pnro)
     print(pnro.puhelinnumero)
     print(pnro.paikallinen_numero)
-
 ```
 
 <sample-output>
 
-Puhelinnumero - nimi: Pertti Python, puhelinnumero: 040 111 1111, maa: ruotsi
++46 40 111 1111 (Pertti Python)
 +46 40 111 1111
 040 111 1111
 
