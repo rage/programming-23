@@ -296,7 +296,7 @@ kupa = Joukkue("Kumpulan pallo")
 kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
 
 pelaaja = kupa.etsi("Jukkis")
-if pelaaja != None:
+if pelaaja is not None:
     print(f"Jukkiksen maalimäärä {p.maalit}")
 else:
     print(f"Jukkis ei pelaa Kumpulan pallossa :(")

@@ -209,7 +209,7 @@ Parametrien oletusarvojen käyttöön liittyy kuitenkin eräs huomattavan iso "m
 
 ```python
 class Opiskelija:
-    def __init__(self, nimi, tehdyt_kurssit = []):
+    def __init__(self, nimi, tehdyt_kurssit=[]):
         self.nimi = nimi
         self.tehdyt_kurssit = tehdyt_kurssit
 
@@ -247,7 +247,7 @@ Tästä johtuen parametrin oletusarvona ei koskaan tulisi käyttää monimutkais
 
 ```python
 class Opiskelija:
-    def __init__(self, nimi, tehdyt_kurssit = None):
+    def __init__(self, nimi, tehdyt_kurssit=None):
         self.nimi = nimi
         if tehdyt_kurssit is None:
             self.tehdyt_kurssit = []
