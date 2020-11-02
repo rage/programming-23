@@ -405,7 +405,7 @@ Kirjoita luokka `Havaintoasema`, johon voidaan tallentaa säähavaintoja. Luokal
 * metodi `havaintojen_maara()`, joka palauttaa havaintojen yhteismäärän
 * metodi `__str__`, joka palauttaa aseman nimen ja havaintojen yhteismäärän alla olevan esimerkin mukaisessa muodossa.
 
-Luokan kaikkien attribuuttien pitää olla asiakkaalta suojattuja. Saat itse päättää luokan sisäisen toteutuksen.
+Luokan kaikkien attribuuttien pitää olla asiakkaalta piilossa. Saat itse päättää luokan sisäisen toteutuksen.
 
 Esimerkki luokan käytöstä:
 
