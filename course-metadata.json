@@ -1,7 +1,7 @@
 {
   "@context": "http://schema.org",
   "@type": "Course",
-  "name": "Ohjelmoinnin perusteet, kesä 2020",
+  "name": "Ohjelmoinnin perusteet ja jatkokurssi, syksy 2020",
   "description": "",
   "provider": {
     "@type": "Organization",
@@ -16,14 +16,14 @@
   "hasCourseInstance": [
     {
       "@type": "CourseInstance",
-      "name": "Ohjelmoinnin perusteet, kesä 2020",
+      "name": "Ohjelmoinnin perusteet ja jatkokurssi, syksy 2020",
       "courseMode": ["MOOC", "online"],
       "location": {
         "@type": "Place",
         "name": "Exactum, Kumpulan kampus",
         "address": "Gustaf Hällströmin katu 2b 00560 Helsinki, Finland"
       },
-      "startDate": "2020-06-01",
+      "startDate": "2020-09-01",
       "audience": {
         "@type": "EducationalAudience",
         "educationalRole": "student",
