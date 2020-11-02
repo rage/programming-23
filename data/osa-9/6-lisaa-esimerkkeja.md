@@ -13,31 +13,28 @@ Tässä osiossa
 
 </text-box>
 
-Tarkastellaan seuraavaksi esimerkkiä, joka muodostuu kahdesta eri luokasta. Luokka `Piste` mallintaa yhtä pistettä kaksiulotteisessa koordinaatistossa ja luokka `Jana` kahden pisteen väliin jäävää janaa. Luokkien toiminta on kommentoitu ohjelmakoodiin
-
+Tarkastellaan seuraavaksi esimerkkiä, joka muodostuu kahdesta luokasta. Luokka `Piste` mallintaa yhtä pistettä kaksiulotteisessa koordinaatistossa ja luokka `Jana` kahden pisteen välistä janaa. Luokkien toiminta on kommentoitu koodiin.
 
 ```python
-
 import math
 
 class Piste:
     """ Luokka mallintaa pistettä kaksiulotteisessa koordinaatistossa """
 
     def __init__(self, x: float, y: float):
-        # Attribuutit voivat olla julkisia, koska
-        # mitkä tahansa arvot käyvät x:n ja y:n arvoiksi
+        # Attribuutit ovat julkisia, koska mitkä tahansa arvot käyvät x:n ja y:n arvoiksi
         self.x = x
         self.y = y
 
-    # Staattinen metodi, joka palauttaa uuden pisteen paikassa (0, 0)
-    # Huomaa, että luokan sisältä voi siis palauttaa uuden instanssin luokasta
+    # Luokkametodi palauttaa uuden pisteen paikassa (0, 0)
+    # Huomaa, että luokan sisältä voi palauttaa olion luokasta
     @classmethod
     def origo(cls):
         return Piste(0, 0)
 
-    # Staattinen metodi, joka muodostaa uuden pisteen annetun pisteen perusteella
-    # Uusi piste on peilikuva annetusta pisteestä jomman kumman tai molempien akselien suhteen
-    # Esim pisteen (1, 3) peilikuva x-akselin suhteen on (-1, 3)
+    # Luokkametodi muodostaa uuden pisteen annetun pisteen perusteella
+    # Uusi piste on peilikuva annetusta pisteestä jommankumman tai molempien akselien suhteen
+    # Esimerkiksi pisteen (1, 3) peilikuva x-akselin suhteen on (-1, 3)
     @classmethod
     def peilikuva(cls, piste, peilaa_x: bool, peilaa_y: bool):
         x = piste.x
@@ -49,20 +46,18 @@ class Piste:
 
         return Piste(x, y)
 
-    def __repr__(self):
-        return f"Piste - ({self.x}, {self.y})"
-
+    def __str__(self):
+        return f"({self.x}, {self.y})"
 
 class Jana:
     """ Luokka mallintaa janaa kaksiulotteisessa koordinaatistossa """
 
     def __init__(self, alku: Piste, loppu: Piste):
-        # Taaskaan ei tarvita eriskeen asetus- ja havainnointimetodeita,
-        # mitkä tahansa pisteet käyvät janan päätepisteiksi
+        # Attribuutit ovat julkisia, koska mitkä tahansa pisteet kelpaavat
         self.alku = alku
         self.loppu = loppu
 
-    # Metodi palauttaa janan pituuden
+    # Metodi laskee janan pituuden Pythagoraan lauseella
     def pituus(self):
         summa = (self.loppu.x - self.alku.x) ** 2 + (self.loppu.y - self.alku.y) ** 2
         return math.sqrt(summa)
@@ -73,36 +68,34 @@ class Jana:
         keskiy = (self.alku.y + self.loppu.y) / 2
         return Piste(keskix, keskiy)
 
-    def __repr__(self):
-        return f"Jana - alku: {self.alku}, loppu {self.loppu}"
+    def __str__(self):
+        return f"{self.alku} ... {self.loppu}"
+```
 
+```python
+piste = Piste(1,3)
+print(piste)
 
-# Testataan
-if __name__ == "__main__":
-    piste = Piste(1,3)
-    print(piste)
+origo = Piste.origo()
+print(origo)
 
-    origo = Piste.origo()
-    print(origo)
+piste2 = Piste.peilikuva(piste, True, True)
+print(piste2)
 
-    piste2 = Piste.peilikuva(piste, True, True)
-    print(piste2)
-
-    jana = Jana(piste, piste2)
-    print(jana.pituus())
-    print(jana.keskipiste())
-    print(jana)
-
+jana = Jana(piste, piste2)
+print(jana.pituus())
+print(jana.keskipiste())
+print(jana)
 ```
 
 <sample-output>
 
-Piste - (1, 3)
-Piste - (0, 0)
-Piste - (-1, -3)
+(1, 3)
+(0, 0)
+(-1, -3)
 6.324555320336759
-Piste - (0.0, 0.0)
-Jana - alku: Piste - (1, 3), loppu Piste - (-1, -3)
+(0.0, 0.0)
+(1, 3) ... (-1, -3)
 
 </sample-output>
 
