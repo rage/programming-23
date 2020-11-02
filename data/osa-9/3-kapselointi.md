@@ -350,12 +350,10 @@ Paula Palloilija
 
 </sample-output>
 
-Kolmantena esimerkkinä tarkastellaan luokkaa, joka mallintaa päiväkirjaa. Huomaa, että omistajalla on asetus- ja havainnointimetodit, mutta merkintöjen lisäys on toteutettu "perinteisillä" metodeilla. Tämä siksi, että asiakkalle ei ole haluttu tarjota suoraan pääsyä tietorakenteeseen, johon merkinnät tallennetaan. Kapseloinnista on tässä sekin hyöty, että sisäistä toteutusta voidaan myöhemmin muuttaa (esim. vaihtamalla lista vaikka sanakirjaksi) ilman että asiakkaan täytyy muuttaa omaa ohjelmakoodiaan.
+Kolmantena esimerkkinä tarkastellaan luokkaa, joka mallintaa päiväkirjaa. Huomaa, että omistajalla on asetus- ja havainnointimetodit, mutta merkintöjen lisäys on toteutettu "perinteisillä" metodeilla. Tämä siksi, että asiakkalle ei ole haluttu tarjota suoraan pääsyä tietorakenteeseen, johon merkinnät tallennetaan. Kapseloinnista on tässä sekin hyöty, että sisäistä toteutusta voidaan myöhemmin muuttaa (esim. vaihtamalla lista vaikka sanakirjaksi) ilman, että asiakkaan täytyy muuttaa omaa koodiaan.
 
 ```python
-
 class Paivakirja:
-
     def __init__(self, omistaja: str):
         self.__omistaja = omistaja
         self.__merkinnat = []
@@ -371,27 +369,34 @@ class Paivakirja:
         else:
             raise ValueError("Omistaja ei voi olla tyhjä")
 
-    # Lisää uuden merkinnän
     def lisaa_merkinta(self, merkinta: str):
         self.__merkinnat.append(merkinta)
+        
+    def tulosta(self):
+        print("Yhteensä", len(self.__merkinnat), "merkintää")
+        for merkinta in self.__merkinnat:
+            print("- " + merkinta)
 
     def __repr__(self):
         # Kootaan merkinnät yhdeksi merkkijonoksi
         merkinnat = ", ".join(self.__merkinnat)
         return f"Paivakirja - omistaja: {self.__omistaja}, merkinnät: {merkinnat}"
+```
 
-if __name__ == "__main__":
-    pk = Paivakirja("Pekka")
-    pk.lisaa_merkinta("Tänään söin puuroa")
-    pk.lisaa_merkinta("Tänään opettelin olio-ohjelmointia")
-    pk.lisaa_merkinta("Tänään menin ajoissa nukkumaan")
-    print(pk)
-
+```python        
+paivakirja = Paivakirja("Pekka")
+paivakirja.lisaa_merkinta("Tänään söin puuroa")
+paivakirja.lisaa_merkinta("Tänään opettelin olio-ohjelmointia")
+paivakirja.lisaa_merkinta("Tänään menin ajoissa nukkumaan")
+paivakirja.tulosta()
 ```
 
 <sample-output>
 
-Paivakirja - omistaja: Pekka, merkinnät: Tänään söin puuroa, Tänään opettelin olio-ohjelmointia, Tänään menin ajoissa nukkumaan
+Yhteensä 3 merkintää
+- Tänään söin puuroa
+- Tänään opettelin olio-ohjelmointia
+- Tänään menin ajoissa nukkumaan
 
 </sample-output>
 
