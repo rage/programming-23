@@ -14,6 +14,8 @@ Tämän osion jälkeen
 
 </text-box>
 
+Tämä on Ohjelmoinnin jatkokurssin ensimmäinen osa, ja kurssilla käytetään VS Codea samaan tapaan kuin Ohjelmoinnin perusteissa. Jos et ole käyttänyt ennen VS Codea, löydät [tästä](https://www.mooc.fi/fi/installation/vscode) ohjeet ympäristön asentamiseen.
+
 Kuten kurssin ensimmäisen puolikkaan aikana huomattiin, on usein hyödyllistä yhdistää samaan asiaan liittyvät tiedot yhdeksi kokonaisuudeksi. Esimerkiksi kirjaa on kätevä mallintaa vaikkapa tuplen tai sanakirjan avulla, kun kaikki kirjaan liittyvät tiedot voidaan tallentaa samaan rakenteeseen.
 
 Tuplea käyttämällä esimerkki voisi näyttää tältä:
