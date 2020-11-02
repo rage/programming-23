@@ -287,7 +287,7 @@ Huomaa, että havainnointimetodi eli `@property`-annotaatio pitää esitellä lu
 
 <programming-exercise name='Äänite' tmcname='osa09-10_aanite'>
 
-Kirjoita luokka `Aanite`, joka mallintaa yksittäistä äänitystä. Luokalla on yksi _yksityinen_ attribuutti, kokonaislukutyyppinen `pituus`.
+Kirjoita luokka `Aanite`, joka mallintaa yksittäistä äänitettä. Luokalla on yksi piilotettu attribuutti, kokonaislukutyyppinen `__pituus`.
 
 Kirjoita luokalle
 
@@ -302,9 +302,7 @@ Jos pituudeksi yritetään asettaa nollaa pienempää arvoa joko konstruktorissa
 Katsotaan vielä esimerkki luokasta, jolla on kaksi suojattua attribuuttia ja molemmille havainnointi- ja asetusmetodit:
 
 ```python
-
 class Pelaaja:
-
     def __init__(self, nimi: str, pelinumero: int):
         self.__nimi = nimi
         self.__pelinumero = pelinumero
@@ -330,27 +328,25 @@ class Pelaaja:
             self.__pelinumero = pelinumero
         else:
             raise ValueError("Pelinumeron täytyy olla positiviinen kokonaisluku")
+```
 
-    def __repr__(self):
-        return f"Pelaaja - nimi: {self.__nimi}, pelinumero: {self.__pelinumero}"
+```python
+pelaaja = Pelaaja("Pekka Palloilija", 10)
+print(pelaaja.nimi)
+print(pelaaja.pelinumero)
 
-if __name__ == "__main__":
-    p1 = Pelaaja("Pekka Palloilija", 10)
-    print(p1.nimi)
-    print(p1.pelinumero)
-
-    p1.nimi = "Paula Palloilija"
-    p1.pelinumero = 11
-
-    print(p1)
-
+pelaaja.nimi = "Paula Palloilija"
+pelaaja.pelinumero = 11
+print(pelaaja.nimi)
+print(pelaaja.pelinumero)
 ```
 
 <sample-output>
 
 Pekka Palloilija
 10
-Pelaaja - nimi: Paula Palloilija, pelinumero: 11
+Paula Palloilija
+11
 
 </sample-output>
 
