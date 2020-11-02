@@ -71,45 +71,34 @@ Opintopisteet: -100
 Luokka voi piilottaa attribuutit asiakkailta. Pythonissa tämä tapahtuu lisäämällä attribuuttimuuttujan nimen alkuun kaksi alaviivaa `__`:
 
 ```python
-
 class Pankkikortti:
-
-    # Attribuutti numero on piilotettu,
-    # nimi on näkyvissä
+    # Attribuutti numero on piilotettu, nimi on näkyvissä
     def __init__(self, numero: str, nimi: str):
         self.__numero = numero
         self.nimi = nimi
-
-    def __repr__(self):
-        return f"Pankkikortti - numero: {self.__numero}, nimi: {self.nimi}"
-
 ```
 
-Piilotettu attribuutti ei näy asiakkaalle, vaan siihen viittaaminen aiheutta virheilmoituksen. Niinpä nimen voi tulostaa ja sitä voi muuttaa...
+Piilotettu attribuutti ei näy asiakkaalle, vaan siihen viittaaminen aiheutta virheilmoituksen. Niinpä nimen voi tulostaa ja sitä voi muuttaa:
 
 ```python
-if __name__ == "__main__":
-    kortti = Pankkikortti("123456","Reijo Rahakas")
-    print(kortti.nimi)
-    kortti.nimi = "Reijo Rutiköyhä"
-    print(kortti)
+kortti = Pankkikortti("123456","Reijo Rahakas")
+print(kortti.nimi)
+kortti.nimi = "Reijo Rutiköyhä"
+print(kortti.nimi)
 ```
 
 <sample-output>
 
 Reijo Rahakas
-Pankkikortti - numero: 123456, nimi: Reijo Rutiköyhä
+Reijo Rutiköyhä
 
 </sample-output>
 
-...mutta jos kortin numeroa yritetään tulostaa, seuraa virheilmoitus:
+Mutta jos kortin numeroa yritetään tulostaa, seuraa virheilmoitus:
 
 ```python
-
-if __name__ == "__main__":
-    kortti = Pankkikortti("123456","Reijo Rahakas")
-    print(kortti.__numero)
-
+kortti = Pankkikortti("123456","Reijo Rahakas")
+print(kortti.__numero)
 ```
 
 <sample-output>
@@ -118,72 +107,62 @@ AttributeError: 'Pankkikortti' object has no attribute '__numero'
 
 </sample-output>
 
-Tietojen piilottamista asiakkaalta kutsutaan _kapseloinniksi_. Nimensä mukaisesti attribuutti siis "suljetaan kapseliin", ja asiakkalle tarjotaan sopiva rajapinta, jonka kautta tietoa voi käsitellä.
+Tietojen piilottamista asiakkaalta kutsutaan _kapseloinniksi_. Nimensä mukaisesti attribuutti siis "suljetaan kapseliin" ja asiakkalle tarjotaan sopiva rajapinta, jonka kautta tietoa voi käsitellä.
 
-Laajennetaan pankkikorttiesimerkkiä niin, että kortila on piilotettu attribuutti saldo ja tämän käsittelyyn tarkoitetut julkiset metodit, joiden avulla asiakas voi hallita saldoa:
+Laajennetaan pankkikorttiesimerkkiä niin, että kortilla on piilotettu attribuutti saldo ja tämän käsittelyyn tarkoitetut julkiset metodit, joiden avulla asiakas voi hallita saldoa:
 
 ```python
-
 class Pankkikortti:
-
-    # Attribuutti numero on piilotettu,
-    # nimi on näkyvissä
     def __init__(self, numero: str, nimi: str, saldo: float):
         self.__numero = numero
         self.nimi = nimi
         self.__saldo = saldo
 
-    def lisaa_rahaa(self, rahasumma: float):
+    def lisaa_rahaa(self, maara: float):
         if rahasumma > 0:
-            self.__saldo += rahasumma
+            self.__saldo += maara
 
-    def kayta_rahaa(self, rahasumma: float):
-        if rahasumma > 0 and rahasumma <= self.__saldo:
-            self.__saldo -= rahasumma
+    def kayta_rahaa(self, maara: float):
+        if maara > 0 and maara <= self.__saldo:
+            self.__saldo -= maara
 
-    def __repr__(self):
-        return f"Pankkikortti - numero: {self.__numero}, nimi: {self.nimi} saldo: {self.__saldo}"
+    def hae_saldo(self):
+        return self.__saldo
+```
 
-
-
-if __name__ == "__main__":
-    kortti = Pankkikortti("123456","Reijo Rahakas", 5000)
-    print(kortti)
-
-    kortti.lisaa_rahaa(500)
-    print(kortti)
-
-    kortti.kayta_rahaa(2500)
-    print(kortti)
-
-    # tämä ei onnistu, koska saldo ei riitä
-    kortti.kayta_rahaa(10000)
-    print(kortti)
-
+```python
+kortti = Pankkikortti("123456", "Reijo Rahakas", 5000)
+print(kortti.hae_saldo())
+kortti.lisaa_rahaa(100)
+print(kortti.hae_saldo())
+kortti.kayta_rahaa(500)
+print(kortti.hae_saldo())
+# Tämä ei onnistu, koska saldo ei riitä
+kortti.kayta_rahaa(10000)
+print(kortti.hae_saldo())
 ```
 
 <sample-output>
 
-Pankkikortti - numero: 123456, nimi: Reijo Rahakas saldo: 5000
-Pankkikortti - numero: 123456, nimi: Reijo Rahakas saldo: 5500
-Pankkikortti - numero: 123456, nimi: Reijo Rahakas saldo: 3000
-Pankkikortti - numero: 123456, nimi: Reijo Rahakas saldo: 3000
+5100
+4600
+4600
 
 </sample-output>
 
-Saldoa ei voi suoraan muuttaa, koska attribuutti on piilotettu, mutta sitä voi käsitellä metodien `lisaa_rahaa` ja `kayta_rahaa` avulla. Metodeihin voidaan sijoittaa sopivia tarkastuksia, joilla varmistetaan, että olion sisäinen eheys säilyy: esimerkiksi rahaa ei voi käyttää enempää kuin mitä kortilla on saldoa jäljellä.
+Saldoa ei voi suoraan muuttaa, koska attribuutti on piilotettu, mutta sitä voi muuttaa metodeilla `lisaa_rahaa` ja `kayta_rahaa` ja sen voi hakea metodilla `hae_saldo`. Metodeihin voidaan sijoittaa sopivia tarkastuksia, joilla varmistetaan, että olion sisäinen eheys säilyy: esimerkiksi rahaa ei voi käyttää enempää kuin kortilla on saldoa jäljellä.
 
 <programming-exercise name='Auto' tmcname='osa09-09_auto'>
 
-Toteuta luokka `Auto`, autolla on _kapseloituina attribuutteina_ tieto bensatankin sisällöstä (0-60 litraa) sekä ajetuista kilometreista.
+Toteuta luokka `Auto`, jossa on _kapseloituina attribuutteina_ tieto bensatankin sisällöstä (0-60 litraa) sekä ajetuista kilometreista. Auto kuluttaa litran bensaa kilometrillä.
 
-Autolla on metodit
+Luokalla on seuraavat metodit:
 
 - `tankkaa()`, joka täyttää bensatankin
-- `aja(km:int)`, joka ajaa parametrina olevan kilometrimäärän tai niin pitkälle kuin bensaa riittää, auto kuluttaa litran kilometrillä
+- `aja(km:int)`, joka ajaa parametrina olevan kilometrimäärän tai niin pitkälle kuin bensaa riittää
+- `__str__`, joka näyttää esimerkin mukaisen kuvauksen autosta
 
-Auto toimii seuraavasti
-
+Esimerkki luokan käyttämisestä:
 
 ```python
 auto = Auto()
@@ -218,35 +197,20 @@ Auto: ajettu 60 km, bensaa 60 litraa
 
 ## Asetus- ja havainnointimetodit
 
-Python tarjoaa myös suoraviivaisemman syntaksin attribuuttien asettamiselle ja havainnoimiselle. Näissä käytetään niinsanottuja asetus- ja havainnointimetodeita.
-
-Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa attribuutti `rahaa` on suojattu asiakkailta:
+Python tarjoaa myös suoraviivaisemman syntaksin attribuuttien havainnoimmiselle ja asettamiselle. Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa attribuutti `rahaa` on suojattu asiakkailta:
 
 ```python
-
 class Lompakko:
-
-    def __init__(self, rahaa: float):
-        self.__rahaa = rahaa
-
-
-    def __repr__(self):
-        return f"Lompakko - rahaa: {self.__rahaa}"
-
+    def __init__(self):
+        self.__rahaa = 0
 ```
 
-Luokkaan voidaan lisätä asetus- ja havainnointimetodit, joilla asiakas voi hallita rahamäärää:
+Luokkaan voidaan lisätä havainnointi- ja asetusmetodit, joilla asiakas voi hallita rahamäärää:
 
 ```python
-
 class Lompakko:
-
-    def __init__(self, rahaa: float):
-        self.__rahaa = rahaa
-
-
-    def __repr__(self):
-        return f"Lompakko - rahaa: {self.__rahaa}"
+    def __init__(self):
+        self.__rahaa = 0
 
     # Havainnointimetodi
     @property
@@ -258,52 +222,41 @@ class Lompakko:
     def rahaa(self, rahaa):
         if rahaa >= 0:
             self.__rahaa = rahaa
-
 ```
 
-Luokalle siis määritellään ensin _havainnointimetodi_, joka palauttaa rahamäärän, ja sitten asetusmetodi, joka asettaa sen.
+Luokalle siis määritellään ensin havainnointimetodi, joka palauttaa rahamäärän, ja sitten asetusmetodi, joka asettaa rahamäärän ja varmistaa, että uusi rahamäärä ei ole negatiivinen.
 
 Kutsuminen tapahtuu esimerkiksi näin:
 
 ```python
+lompsa = Lompakko()
+print(lompsa.rahaa)
 
-# Testi
-if __name__ == "__main__":
-    lompsa = Lompakko(10)
-    print(lompsa.rahaa)
+lompsa.rahaa = 50
+print(lompsa.rahaa)
 
-    lompsa.rahaa = 50
-    print(lompsa.rahaa)
-
-    # Yritetään asettaa negatiivinen
-    lompsa.rahaa = -30
-    print(lompsa.rahaa)
-
+lompsa.rahaa = -30
+print(lompsa.rahaa)
 ```
 
 <sample-output>
 
-10
+0
 50
 50
 
 </sample-output>
 
-Asiakkaan kannalta metodien kutsuminen muistuttaa itse asiassa attribuuttien kutsumista - kutsussa ei käytetä sulkuja: `lompsa.rahaa = 50`. Tarkoituksena onkin piilottaa (eli kapseloida) sisäinen toteutus, ja tarjota asiakkaalle vaivaton tapa muokata olion tietoja.
+Asiakkaan kannalta metodien kutsuminen muistuttaa attribuuttien kutsumista, koska kutsussa ei käytetä sulkuja vaan voi kirjoittaa esimerkiksi`lompsa.rahaa = 50`. Tarkoituksena onkin piilottaa (eli kapseloida) sisäinen toteutus ja tarjota asiakkaalle vaivaton tapa muokata olion tietoja.
 
 Edellisessä esimerkissä on kuitenkin yksi pieni vika: asiakas ei saa mitään viestiä siitä, että negatiivisen rahasumman asettaminen ei toimi. Kun arvo on selvästi virheellinen, hyvä tapa viestiä tästä on heittää poikkeus. Tässä tapauksessa oikea poikkeus voisi olla `ValueError`, joka kertoo että arvo on väärä.
 
 Korjattu versio luokasta ja testikoodi:
 
 ```python
-
 class Lompakko:
-
-    def __init__(self, rahaa: float):
-        self.__rahaa = rahaa
-
-    def __repr__(self):
-        return f"Lompakko - rahaa: {self.__rahaa}"
+    def __init__(self):
+        self.__rahaa = 0
 
     # Havainnointimetodi
     @property
@@ -316,22 +269,17 @@ class Lompakko:
         if rahaa >= 0:
             self.__rahaa = rahaa
         else:
-            raise ValueError("Rahasumma ei saa olla negatiivinen.")
+            raise ValueError("Rahasumma ei saa olla negatiivinen")
+```
 
-
-
-# Testi
-if __name__ == "__main__":
-
-    # Yritetään asettaa negatiivinen
-    lompsa.rahaa = -30
-    print(lompsa.rahaa)
-
+```python
+lompsa.rahaa = -30
+print(lompsa.rahaa)
 ```
 
 <sample-output>
 
-ValueError: Rahasumma ei saa olla negatiivinen.
+ValueError: Rahasumma ei saa olla negatiivinen
 
 </sample-output>
 
