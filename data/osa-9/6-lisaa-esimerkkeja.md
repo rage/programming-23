@@ -213,7 +213,7 @@ Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruum
 
 ## Tavara-luokka
 
-Tee luokka Tavara, josta muodostetut oliot vastaavat erilaisia tavaroita. Tallennettavat tiedot ovat tavaran nimi ja paino (kg).
+Tee luokka `Tavara`, josta muodostetut oliot vastaavat erilaisia tavaroita. Tallennettavat tiedot ovat tavaran nimi ja paino (kg).
 
 Luokan tulee toimia seuraavasti
 
@@ -239,9 +239,9 @@ Puhelin: Nokia 3210 (1 kg)
 
 </sample-output>
 
-Tavaralla on siis metodit `paino(self)` ja `nimi(self)` jotka palauttavat tavaran tiedot.
+Tavaralla on siis metodit `paino` ja `nimi` jotka palauttavat tavaran tiedot.
 
-Luokan tulee tallettaa tieto nimestä ja painosta kapseloituna, eli seuraava ei saa onnistua:
+Luokan tulee tallentaa tieto nimestä ja painosta kapseloituna, eli seuraava ei saa onnistua:
 
 ```python
 kirja = Tavara("Aapiskukko", 2)
@@ -254,11 +254,11 @@ Tee luokka `Matkalaukku`. Matkalaukkuun liittyy tavaroita ja maksimipaino, joka 
 
 Lisää luokkaan seuraavat:
 
-- Konstruktori, jolle annetaan maksimipaino
-- metodi `lisaa_tavara(self, tavara)`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
-- metodi `__repr__`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
+- konstruktori, jolle annetaan maksimipaino
+- metodi `lisaa_tavara`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
+- metodi `__str__`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
 
-Luokan tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaa_tavara(self, tavara)` ei saa lisätä uutta tavaraa laukkuun.
+Luokan tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaa_tavara` ei saa lisätä uutta tavaraa laukkuun.
 
 Seuraavassa on luokan käyttöesimerkki:
 
@@ -293,7 +293,7 @@ Ohjelman tulostuksen tulisi olla seuraava:
 
 ## Kielenhuoltoa
 
-Ilmoitukset "0 tavaraa" ja "1 tavaraa" eivät ole kovin hyvää suomea — paremmat muodot olisivat "ei tavaroita" ja "1 tavara". Tee tämä muutos luokassa sijaitsevaan `__repr__`-metodiin.
+Ilmoitukset "0 tavaraa" ja "1 tavaraa" eivät ole kovin hyvää suomea — paremmat muodot olisivat "ei tavaroita" ja "1 tavara". Tee tämä muutos luokassa sijaitsevaan `__str__`-metodiin.
 
 Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
 
@@ -310,8 +310,8 @@ ei tavaroita (0 kg)
 
 Lisää luokkaan seuraavat metodit:
 
-- `tulosta_tavarat(self)`, joka tulostaa kaikki matkalaukussa olevat tavarat
-- `yhteispaino(self)`, joka palauttaa tavaroiden yhteispainoa kuvaavan kokonaisluvun, joka on sen sisältävien tavaroiden painojen summa
+- `tulosta_tavarat`, joka tulostaa kaikki matkalaukussa olevat tavarat
+- `paino`, joka palauttaa tavaroiden yhteispainoa kuvaavan kokonaisluvun, joka on sen sisältävien tavaroiden painojen summa
 
 Seuraavassa on luokan käyttöesimerkki:
 
@@ -327,7 +327,7 @@ matkalaukku.lisaa_tavara(tiiliskivi)
 
 print("Matkalaukussa on seuraavat tavarat:")
 matkalaukku.tulosta_tavarat()
-paino_yht = matkalaukku.yhteispaino()
+paino_yht = matkalaukku.paino()
 print(f"Yhteispaino: {paino_yht} kg")
 ```
 
@@ -347,7 +347,7 @@ Muokkaa myös luokkaasi siten, että käytät vain kahta oliomuuttujaa. Toinen s
 
 ## Raskain tavara
 
-Lisää vielä luokkaan metodi `raskain_tavara(self)`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo `None`.
+Lisää vielä luokkaan metodi `raskain_tavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo `None`.
 
 Seuraavassa on luokan käyttöesimerkki:
 
@@ -375,11 +375,11 @@ Raskain tavara: Tiiliskivi (4 kg)
 
 ## Lastiruuma-luokka
 
-Tee luokka Lastiruuma, johon liittyvät seuraavat metodit:
+Tee luokka `Lastiruuma`, johon liittyvät seuraavat metodit:
 
 - konstruktori, jolle annetaan maksimipaino
-- metodi `lisaa_matkalaukku(self, laukku)`, joka lisää parametrina annetun matkalaukun lastiruumaan
-- metodi `__repr__`, joka palauttaa merkkijonon muotoa "x matkalaukkua (y kg)"
+- metodi `lisaa_matkalaukku`, joka lisää parametrina annetun matkalaukun lastiruumaan
+- metodi `__str__`, joka palauttaa merkkijonon muotoa "x matkalaukkua, tilaa y kg"
 
 Luokan tulee valvoa, että sen matkalaukkujen yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi uuden matkalaukun vuoksi, metodi `lisaa_matkalaukku` ei saa lisätä uutta matkalaukkua.
 
@@ -410,14 +410,14 @@ print(lastiruuma)
 <sample-output>
 
 0 matkalaukkua, tilaa 1000 kg
-Yksi matkalaukku tilaa 998 kg
+1 matkalaukku, tilaa 997 kg
 2 matkalaukkua, tilaa 993 kg
 
 </sample-output>
 
 ## Lastiruuman sisältö
 
-Lisää luokkaan metodi `tulosta_tavarat(self)`, joka tulostaa kaikki lastiruuman matkalaukuissa olevat tavarat.
+Lisää luokkaan metodi `tulosta_tavarat`, joka tulostaa kaikki lastiruuman matkalaukuissa olevat tavarat.
 
 Seuraavassa on luokan käyttöesimerkki:
 
