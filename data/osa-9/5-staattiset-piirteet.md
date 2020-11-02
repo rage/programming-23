@@ -228,11 +228,9 @@ if __name__ == "__main__":
 
 <programming-exercise name='Postinumerot' tmcname='osa09-13_postinumerot'>
 
-Tehtäväpohjassa on määritelty luokka Kaupunki, joka mallintaa nimensä mukaisesti yksittäistä kaupunkia.
+Tehtäväpohjassa on määritelty luokka `Kaupunki`, joka mallintaa yksittäistä kaupunkia.
 
-Lisää luokkaan luokkamuuttuja (eli staattinen muuttuja) postinumerot, joka viittaa sanakirjaan.
-
-Sanakirjassa jokainen avain on kaupungin nimi ja arvo postinumero. Molemmat ovat merkkijonoja.
+Lisää luokkaan luokkamuuttuja postinumerot, joka viittaa sanakirjaan. Sanakirjassa jokainen avain on kaupungin nimi ja arvo postinumero. Molemmat ovat merkkijonoja.
 
 Sanakirjasta tulee löytyä seuraavat postinumerot:
 
@@ -246,22 +244,18 @@ Muuta toiminnallisuutta ei tarvitse toteuttaa.
 
 </programming-exercise>
 
-## Staattiset metodit
+## Luokkametodit
 
-Myös luokan metodit voivat olla staattisia. Tällaista metodia nimitetään joskus myös luokkametodiksi.
+Luokkametodi eli staattinen metodi on luokassa oleva metodi, jota ei ole sidottu mihinkään luokasta muodostettuun olioon. Niinpä luokkametodia voi kutsua ilman, että luokasta muodostetaan oliota.
 
-Periaate on samanlainen kuin muuttujienkin kohdalla: staattista metodia ei ole sidottu mihinkään luokasta muodostettuun olioon, vaan se on nimensä mukaisesti luokan metodi. Niinpä staattista metodia (eli luokkametodia) voi kutsua ilman että luokasta muodostetaan oliota.
+Luokkametodit ovat yleensä työkalumetodeja, jotka liittyvät jotenkin luokkaan mutta joita on tarkoituksenmukaista kutsua ilman olion muodostamista. Luokkametodit ovat yleesä julkisia, jolloin niitä voidaan kutsua sekä luokan ulkopuolelta että luokan ja siitä muodostettujen olioiden sisältä.
 
-Staattiset metodit ovatkin yleensä "työkalumetodeja", jotka liittyvät aiheensa puolesta jotenkin luokkaan, mutta joita on tarkoituksenmukaista kutsua ilman että luokasta on pakko muodostaa oliota. Staattiset metodit kirjoitetaan yleensä julkisina, jolloin niitä voidaan kutsua sekä luokan ulkopuolelta että luokan (ja siitä muodostettujen olioiden) sisältä.
+Luokkametodi merkitään annotaatiolla `@classmethod` ja sen ensimmäinen parametri on aina `cls`. Tunnistetta `cls` käytetään samaan tapaan kuin tunnistetta `self`, mutta erotuksena on, että `cls` viittaa luokkaan ja `self` viittaa olioon. Kummallekaan parametrille ei anneta kutsuessa arvoa, vaan Python tekee sen automaattisesti.
 
-Luokkametodi merkitään annotaatiolla `@classmethod`, ja sen ensimmäinen (tai ainoa) parametri on aina `cls`. Tunnistetta `cls` käytetään samaan tapaan kuin tunnistetta `self`, mutta erotuksena on, että `cls` viittaa nykyiseen luokkaan (ja `self` tietysti nykyiseen olioon). Kummallekaan parametrille ei anneta kutsuessa arvoa, vaan Python tekee sen automaattisesti.
-
-Esimerkiksi luokassa `Rekisteriote` voisi olla staattinen metodi, jolla voidaan tarkistaa onko annettu rekisteritunnus oikeamuotoinen. Metodi on staattinen, jotta tunnuksen voi tarkastaa ilman että luodaan uutta oliota luokasta:
+Esimerkiksi luokassa `Rekisteriote` voisi olla staattinen metodi, jolla voidaan tarkistaa, onko annettu rekisteritunnus oikeamuotoinen. Metodi on staattinen, jotta tunnuksen voi tarkastaa myös ilman, että luodaan uutta oliota luokasta:
 
 ```python
-
 class Rekisteriote:
-
     def __init__(self, omistaja: str, merkki: str, vuosi: int, rekisteritunnus: str):
         self.__omistaja = omistaja
         self.__merkki = merkki
@@ -284,35 +278,30 @@ class Rekisteriote:
     # Luokkametodi tunnuksen validoimiseksi
     @classmethod
     def rekisteritunnus_kelpaa(cls, tunnus: str):
-        if len(tunnus) < 3:
-            return False
-
-        if "-" not in tunnus:
+        if len(tunnus) < 3 or "-" not in tunnus:
             return False
 
         # Tarkastellaan alku- ja loppuosaa erikseen
         alku, loppu = tunnus.split("-")
 
-        # alkuosassa saa olla vain kirjaimia...
+        # Alkuosassa saa olla vain kirjaimia
         for merkki in alku:
             if merkki.lower() not in "abcdefghijklmnopqrstuvwxyzåäö":
                 return False
 
-        # ...ja loppuosassa vain numeroita:
+        # Loppuosassa saa olla vain numeroita
         for merkki in loppu:
             if merkki not in "1234567890":
                 return False
 
         return True
+```
 
-# Testataan
-if __name__ == "__main__":
-    ote = Rekisteriote("Arto Autoilija", "Volvo", "1992", "abc-123")
+```python
+ote = Rekisteriote("Arto Autoilija", "Volvo", "1992", "abc-123")
 
-    # Metodia voi kutsua myös ilman oliota
-    if Rekisteriote.rekisteritunnus_kelpaa("xxx-999"):
-        print("Tämä on validi tunnus!")
-
+if Rekisteriote.rekisteritunnus_kelpaa("xyz-789"):
+    print("Tämä on validi tunnus!")
 ```
 
 <sample-output>
@@ -321,21 +310,19 @@ Tämä on validi tunnus!
 
 </sample-output>
 
-Rekisteriotteen oikeellisuuden voi tarkistaa kutsumalla metodia (esimerkiksi `Rekisteriote.rekisteritunnus_kelpaa("xyz-789"))`) ilman että muodostaa luokasta oliota. Samaa metodia kutsutaan myös uutta oliota muodostaessa luokan konstruktorista - huomaa kuitenkin, että myös tässä kutsussa viitataan metodiin luokan nimen avulla - ei `self`-tunnisteella!
+Rekisteriotteen oikeellisuuden voi tarkistaa kutsumalla metodia (esimerkiksi `Rekisteriote.rekisteritunnus_kelpaa("xyz-789"))`) ilman, että muodostaa luokasta oliota. Samaa metodia kutsutaan myös uutta oliota muodostaessa luokan konstruktorista. Huomaa kuitenkin, että myös tässä kutsussa viitataan metodiin luokan nimen avulla eikä `self`-tunnisteella!
 
 <programming-exercise name='Lista-apuri' tmcname='osa09-14_lista_apuri'>
 
-Kirjoita luokka ListaApuri, jonka ainoat ominaisuudet ovat seuraavat kaksi _staattista_ julkista metodia:
+Kirjoita luokka `ListaApuri`, jossa on seuraavat kaksi luokkametodia:
 
-* Metodi `suurin_frekvenssi(lista: list)` palauttaa alkion, jota esiintyy annetussa listassa eniten.
-* Metodi `tuplia(lista: list)`, joka palauttaa sellaisten alkioden lukumäärän, jotka esiintyvät listassa vähintään kahdesti
+* Metodi `suurin_frekvenssi(lista: list)` palauttaa alkion, jota esiintyy annetussa listassa eniten
+* Metodi `tuplia(lista: list)` palauttaa sellaisten alkioden lukumäärän, jotka esiintyvät listassa vähintään kahdesti
 
-Metodeja tulee siis voida käyttää ilman että luokasta luodaan oliota.
-
-Esimerkki luokan käytöstä:
+Metodeja tulee voida käyttää ilman, että luokasta luodaan oliota. Esimerkki luokan käytöstä:
 
 ```python
-luvut = [1,1,2,1,3,3,4,5,5,5,6,5,5,5]
+luvut = [1, 1, 2, 1, 3, 3, 4, 5, 5, 5, 6, 5, 5, 5]
 print(ListaApuri.suurin_frekvenssi(luvut))
 print(ListaApuri.tuplia(luvut))
 ```
