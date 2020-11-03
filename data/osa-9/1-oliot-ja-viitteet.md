@@ -734,7 +734,8 @@ class Henkilo:
         self.nimi = nimi
         self.syntynyt = syntynyt
 
-    def vanhempi_kuin(self, toinen: Henkilo):
+    # huomaa, että tyyppivihje pitää antaa hipsuissa jos parametri on saman luokan olio!
+    def vanhempi_kuin(self, toinen: "Henkilo"):
         if self.syntynyt < toinen.syntynyt:
             return True
         else:
@@ -751,14 +752,14 @@ pascal = Henkilo("Blaise Pascal", 1623)
 grace = Henkilo("Grace Hopper", 1906)
 
 if muhammad.vanhempi_kuin(pascal):
-    print(f"{muhammad} on vanhempi kuin {pascal}")
+    print(f"{muhamma.nimid} on vanhempi kuin {pascal.nimi}")
 else:
-    print(f"{muhammad} ei ole vanhempi kuin {pascal}")
+    print(f"{muhamma.nimid} ei ole vanhempi kuin {pascal.nimi}")
 
 if grace.vanhempi_kuin(pascal):
-    print(f"{grace} on vanhempi kuin {pascal}")
+    print(f"{grace.nimi} on vanhempi kuin {pascal.nimi}")
 else:
-    print(f"{grace} ei ole vanhempi kuin {pascal}")
+    print(f"{grace.nimi} ei ole vanhempi kuin {pascal.nimi}")
 ```
 
 Pisteen vasemmalla puolella on siis verrattava henkilö, eli olio, johon metodin suorituksessa viittaa muuttuja `self`. Metodin parametrina taas on vertailukohta, eli metodin suorituksessa muuttujan `toinen` viittaama olio.
@@ -773,8 +774,20 @@ class Henkilo:
         self.nimi = nimi
         self.syntynyt = syntynyt
 
-def vanhempi_kuin(self, toinen: Henkilo):
-    return self.syntynyt < toinen.syntynyt:
+    # huomaa, että tyyppivihje pitää antaa hipsuissa jos parametri on saman luokan olio!
+    def vanhempi_kuin(self, toinen: "Henkilo)":
+        return self.syntynyt < toinen.syntynyt:
+```
+
+Edellisestä esimerkistä kannattaa huomata se, että kun metodi saa parametrikseen toisen saman luokan olion, tulee tyyppivihe antaa hipsuissa, eli seuraava koodi aiheuttaisi virheen:
+
+```python
+class Henkilo:
+    # ...
+
+    # tämä ei toimi, Henkilo pitaa olla hipsuissa
+    def vanhempi_kuin(self, toinen: Henkilo):
+        return self.syntynyt < toinen.syntynyt:
 ```
 
 <programming-exercise name='Asuntovertailu' tmcname='osa09-05_asuntovertailu'>
