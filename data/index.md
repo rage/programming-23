@@ -30,7 +30,7 @@ Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-m
 
 #### Zoom-pajan aikataulu
 
-
+* Tiistain zoom-paja: 12-14: https://helsinki.zoom.us/j/64353754030
 * Keskiviikon zoom-paja 16-18: https://helsinki.zoom.us/j/65636048873
 
 Lisää zoom-aikoja mahdollisesti tulevaisuudessa.
