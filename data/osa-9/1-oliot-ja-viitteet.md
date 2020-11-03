@@ -46,7 +46,7 @@ if __name__ == "__main__":
         print(suoritus.kurssi)
         opintopisteet += suoritus.opintopisteet
 
-    print("Opintopisteitä yhteensä:", pisteet)
+    print("Opintopisteitä yhteensä:", opintopisteet)
 ```
 
 <sample-output>
