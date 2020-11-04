@@ -173,7 +173,9 @@ def etsi_alkio(juuri: Alkio, arvo):
 
 ```
 
-##
+## Paluu aikaan ennen rekursiota
+
+Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyädyntäen. Tässä tehtäväsarjassa ei rekursiota tarvitse eikä edes kannata käyttää. Listakoosteita sensijaan pääsee hyödyntämään!
 
 <programming-exercise name='Tehtävät ja tilauskirja' tmcname='osa11_'>
 
