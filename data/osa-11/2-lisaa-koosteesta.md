@@ -134,11 +134,11 @@ print(lause_ilman_alkuja)
 
 ```
 
-<programming-exercise name='Suodata kielletyt' tmcname='osa11_'>
+<programming-exercise name='Suodata kielletyt' tmcname='osa11_08_suodata_kielletyt'>
 
 Tee funktio `suodata_kielletyt(merkkijono: str, kielletyt: str)` joka palauttaa sen parametrina olevasta merkkijonosta version, joka ei sisällä yhtään merkkiä sen toisena parametrina olevasta "kiellettyjen merkkien" merkkijonosta.
 
-Funktion tulee käyttää listakoostetta.
+Funktion tulee käyttää listakoostetta. Funkto saa sisältää def-rivi mukaanlukien maksimissaan 3 riviä.
 
 Esimerkki funktion käytöstä
 
