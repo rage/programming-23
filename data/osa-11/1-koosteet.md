@@ -223,11 +223,11 @@ print(parhaat_tulokset(suoritukset))
 
 </programming-exercise>
 
-<programming-exercise name='Pituudet' tmcname='osa11_'>
+<programming-exercise name='Pituudet' tmcname='osa11_04_pituudet'>
 
 Tee funktio `pituudet(listat: list)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
 
-Funktio tulee toteuttaa listakoosteen avulla.
+Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Funktio toimii seuraavasti
 
