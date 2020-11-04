@@ -100,6 +100,30 @@ Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteraiivise
 
 </text-box>
 
+<programming-exercise name='Suurempia lukuja' tmcname='osa11_'>
+
+Kirjoita _rekursiivinen funktio_ listaan_lukuja(luvut: list), joka lisää listaan lukuja niin kauan, että sen pituus on viidellä jaollinen.
+
+Jokainen listaan lisättävä luku on aina yhden suurempi kuin listan viimeinen luku.
+
+Funktion pitää kutsua itseään rekursiivisesti!
+
+Esimerkki funktion kutsusta:
+
+```python
+luvut = [1,3,4,5,10,11]
+listaan_lukuja(luvut)
+print(luvut)
+```
+
+<sample-output>
+
+[1, 3, 4, 5, 10, 11, 12, 13, 14, 15]
+
+</sample-output>
+
+</programming-exercise>
+
 ## Rekursio ja paluuarvot
 
 Jos käsiteltävä olio on muuttumaton (eli mutatoitumaton), niin kuin vaikkapa merkkijono tai luku, pitäisi se myös palauttaa rekursiivisesta funktiosta. Tarkastellaan tätä tarkoitusta varten esimerkkiä, joka laskee kertoman rekursiivisesti:

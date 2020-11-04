@@ -34,7 +34,7 @@ print(isot_kirjaimet)
 
 </sample-output>
 
-Huomaa, että lopputuloksena on siis lista. Jos halutaan muodostaa merkkijonon perusteella uusi merkkijono, voidaan hyödyntää aikaisemmin esiteltyä `join`-metodia. Metodin avulla voidaan yhdistää listan alkiot merkkijonoksi. Metodi kohdistuu välimerkkiin, jolla alkiot yhdistetään.
+Huomaa, että lopputuloksena on lista. Jos halutaan muodostaa merkkijonon perusteella uusi merkkijono, voidaan hyödyntää aikaisemmin esiteltyä `join`-metodia. Metodin avulla voidaan yhdistää listan alkiot merkkijonoksi. Metodi kohdistuu välimerkkiin, jolla alkiot yhdistetään.
 
 Metodi toimii siis esimerkiksi näin
 
@@ -470,7 +470,7 @@ Remember, every list comprehension can be rewritten in for loop, but every for l
 
 Kutsuttaessa `yleisimmat_sanat("comprehensions.txt", 3)` funktion palauttama sanakirja näyttäisi seuraavalta:
 
-```python
+<sample-output>
 
 { 'list': 4, 'comprehension': 4, 'is': 3, 'and': 3, 'for', 3: 'in': 3}
 
@@ -479,7 +479,5 @@ Kutsuttaessa `yleisimmat_sanat("comprehensions.txt", 3)` funktion palauttama san
 Huomaa, että avaimena sanakirjassa on sanojen pienellä kirjoitetut muodot.
 
 Funktion toteutustapa on vapaa, helpoimmalla pääset hyödyntämällä lista- ja sanakirjakoosteita.
-
-
 
 </programming-exercise>

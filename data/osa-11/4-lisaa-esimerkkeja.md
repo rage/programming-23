@@ -72,10 +72,10 @@ Funktio saa parametrikseen juurialkion (eli kaikkein ylimmäisenä olevan alkion
 def tulosta_alkiot(juuri: Alkio):
     print(juuri.arvo)
 
-    if juuri.vasen_lapsi != None:
+    if juuri.vasen_lapsi is not None:
         tulosta_alkiot(juuri.vasen_lapsi)
 
-    if juuri.oikea_lapsi != None:
+    if juuri.oikea_lapsi is not None:
         tulosta_alkiot(juuri.oikea_lapsi)
 
 ```
@@ -102,10 +102,10 @@ Vastaavalla tavalla voidaan kirjoittaa algoritmi, joka laskee kaikkien puun alki
 def alkioiden_summa(juuri: Alkio):
     summa = juuri.arvo
 
-    if juuri.vasen_lapsi != None:
+    if juuri.vasen_lapsi is not None:
         summa += alkioiden_summa(juuri.vasen_lapsi)
 
-    if juuri.oikea_lapsi != None:
+    if juuri.oikea_lapsi is not None:
         summa += alkioiden_summa(juuri.oikea_lapsi)
 
     return summa
@@ -113,6 +113,40 @@ def alkioiden_summa(juuri: Alkio):
 ```
 
 Muuttuja `summa` alustetaan nykyisen alkion arvolla. Tämän jälkeen siihen lisätään rekursiivisesti vasemman ja oikean alipuun summat (tarkastaen taas ensin, että ne ovat olemassa). Lopuksi summa palautetaan.
+
+<programming-exercise name='Suurin alkio' tmcname='osa11_'>
+
+Kirjoita funktio `suurin_alkio(juuri: Alkio)`, joka saa parametrikseen binääripuun juurialkion.
+
+Funktion palauttaa puun suurimman alkion. Puun arvot tulee käydä läpi rekursiivisesti.
+
+Vinkki: voit muokata ratkaisusi yllä esitetystä `alkoiden_summa` -funktiosta.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+
+if __name__ == "__main__":
+    puu = Alkio(2)
+
+    puu.vasen_lapsi = Alkio(3)
+    puu.vasen_lapsi.vasen_lapsi = Alkio(5)
+    puu.vasen_lapsi.oikea_lapsi = Alkio(8)
+
+    puu.oikea_lapsi = Alkio(4)
+    puu.oikea_lapsi.oikea_lapsi = Alkio(11)
+
+    print(suurin_alkio(puu))
+
+```
+
+<sample-output>
+
+11
+
+</sample-output>
+
+</programming-exercise>
 
 ## Järjestetty binääripuu
 

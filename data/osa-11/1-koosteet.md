@@ -119,11 +119,11 @@ if __name__ == "__main__":
 
 Koosteen avulla on siis mahdollista ilmaista sama toiminnallisuus tiiviimmin ja silti yhä helposti luettavassa muodossa.
 
-<programming-exercise name='Neliojuuret' tmcname='osa11_'>
+<programming-exercise name='Neliojuuret' tmcname='osa11_01_neliojuuret'>
 
 Tee funktio `neliojuuret(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan parametrina olevien lukujen neliöjuurista. Kuten muistamme, neliöjuuren laskemiseen löytyy sopiva funktio moduulista [math](https://docs.python.org/3/library/math.html)
 
-Funktion tulee käyttää listakoostetta.
+Funktion tulee käyttää listakoostetta. Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Funktio toimii seuraavasti:
 
@@ -180,6 +180,45 @@ for rivi in rivit:
 </sample-output>
 
 </programming-exercise>
+
+<programming-exercise name='Paras koetulos' tmcname='osa11_'>
+
+Luokalla `Koesuoritus` on seuraavat julkiset attribuutit:
+
+* nimi
+* arvosana1
+* arvosana2
+* arvosana3
+
+Kirjoita funktio `parhaat_tulokset(suoritukset: list)`. Funktio saa parametrikseen listan koesuoritusolioita.
+
+Funktio palauttaa listakoostetta käyttäen uuden listan, johon on tallennettu jokaisen suorituksen paras arvosana.
+
+Huomaa, että funkton maksimipituus on kaksi riviä määrittelyineen!
+
+</programming-exercise>
+
+<programming-exercise name='Pituudet' tmcname='osa11_'>
+
+Tee funktio `pituudet(listat: list)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
+
+Funktio tulee toteuttaa listakoosteen avulla.
+
+Funktio toimii seuraavasti
+
+```python
+listat = [[1,2,3,4,5], [324, -1, 31, 7],[]]
+print(pituudet(listat))
+```
+
+<sample-output>
+
+[5, 4, 0]
+
+</sample-output>
+
+</programming-exercise>
+
 
 ## Alkoiden suodatus
 
@@ -275,7 +314,13 @@ if __name__ == "__main__":
 
 Esimerkissä lauseke on siis `(luku, kertoma(luku))`, joka muodostaa tuplen, jossa ensimmäinen alkio on alkio alkuperäisestä listasta ja toinen alkio kertoma-funktion palauttama arvo. Ehtolause on `luku > 0 and luku % 2 == 0`, jossa valikoidaan mukaan vain alkiot jotka ovat sekä positiivisia että jaollisia kahdella.
 
-<programming-exercise name='Neliöjuuret' tmcname='osa11_'>
+<programming-exercise name='Poista pienemmät' tmcname='osa11_'>
+
+Kirjoita funktio `poista_pienemma(luvut: list)`, joka saa parametrikseen listan kokonaislukuja sekä raja-arvon, joka on myös kokonaisluku.
+
+Funktio muodostaa listakoostetta käyttäen uuden listan, johon on otettu mukaan vain raja-arvoa pienemmät luvut.
+
+Esimerkki funktion käytöstä:
 
 ```python
 lukuja = [1,65, 32, -6, 9, 11]
@@ -288,6 +333,31 @@ print(poista_pienemmat([-4, 7, 8, -100], 0))
 
 [65, 32, 11]
 [7, 8]
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Vokaalit' tmcname='osa11_'>
+
+Kirjoita funktio `vokaalit(kirjaimet: list)`, joka saa parametrikseen listan merkkijonoja. Jokaisessa merkkijonossa on vain yksittäinen merkki.
+
+Tehtävänäsi on listakoostetta hyödyntäen muodostaa ja palauttaa uusi lista, joka sisältää vain alkuperäisen listan vokaalit.
+
+Esimerkki funktion käytöstä:
+
+```python
+klista = ['a','b','c','e','f','o','s','y']
+for vok in vokaalit(klista):
+    print vok
+```
+
+<sample-output>
+
+a
+e
+o
+y
 
 </sample-output>
 
@@ -343,46 +413,50 @@ if __name__ == "__main__":
 </sample-output>
 
 
-<programming-exercise name='Pituudet' tmcname='osa11_'>
+<programming-exercise name='Lottorivi' tmcname='osa11_'>
 
-Tee funktio `pituudet(listat: list)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa, listan mikä sisältää sen parametrina olevien listojen pituudet.
+## Lottorivi, osa 1
 
-Funktio tulee toteuttaa listakoosteen avulla.
+Kirjoita luokka `Lottorivi`, joka saa konstruktorissaan parametrikseen kierroksen numeron (kokonaisluku) sekä seitsemänalkioisen kokonaislukulistan. Lista kuvaa kierroksen oikeita numeroita (eli oikeaa _riviä_). Kirjoita lisäksi luokalle metodi
 
-Funktio toimii seuraavasti
+`osumien_maara(pelattu_rivi: list)`
+
+...joka palauttaa kokonaislukuna tiedon siitä, kuinka monta osumaa rivissä oli. Metodin tulee käyttää listakoostetta!
+
+Esimerkki luokan käytöstä:
 
 ```python
-listat = [[1,2,3,4,5], [324, -1, 31, 7],[]]
-print(pituudet(listat))
+oikea = Lottorivi([1,2,3,4,5,6,7])
+oma_rivi = [1,4,7,11,13,19,24]
+
+print(oikea.osumien_maara(oma_rivi))
 ```
 
 <sample-output>
 
-[5, 4, 0]
+3
 
 </sample-output>
 
-**Huom:** tässä tehtävässä et tarvitse vielä vaihtoehtoista haaraa, tämä tehtävä onkin oikeastaan alkulämmittelyä seuraavaa tehtävää varten.
+## Lottorivi, osa 2
 
-</programming-exercise>
+Kirjoita luokkaan metodi `osumat_paikoillaan(pelattu_rivi)`, joka palauttaa uuden listan. Uudessa listassa on omilla paikoillaan oikeat numerot (eli ne, jotka löytyvät myös oikeasta rivistä), muiden paikalla on -1.
 
-<programming-exercise name='Keskiarvot' tmcname='osa11_'>
+Metodin tulee käyttää listakoostetta.
 
-Tee funktio `keskiarvot(listat: list)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa, listan mikä sisältää sen parametrina olevien listojen alkioiden keskiarvot.
-
-Funktio tulee toteuttaa listakoosteen avulla.
-
-Funktio toimii seuraavasti
+Esimerkki metodin käytöstä:
 
 ```python
-listat = [[1,2,3,4,5], [324, -1, 31, 7],[]]
-print(keskiarvot(listat))
+oikea = Lottorivi([1,2,3,10,20,30,33])
+oma_rivi = [1,4,7,10,11,20,30]
+
+print(oikea.osumat_paikoillaan(oma_rivi))
 ```
 
 <sample-output>
 
-[3.0, 90.25, 0]
+[1, -1, -1, 10, -1, 20, 30]
 
 </sample-output>
 
-</programming-exercise>
+</programming-exercises>
