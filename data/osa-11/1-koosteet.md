@@ -442,7 +442,7 @@ if __name__ == "__main__":
 </sample-output>
 
 
-<programming-exercise name='Lottorivi' tmcname='osa11_'>
+<programming-exercise name='Lottorivi' tmcname='osa11_07_lottorivi'>
 
 ## Lottorivi, osa 1
 
@@ -450,7 +450,7 @@ Kirjoita luokka `Lottorivi`, joka saa konstruktorissaan parametrikseen kierrokse
 
 `osumien_maara(pelattu_rivi: list)`
 
-...joka palauttaa kokonaislukuna tiedon siitä, kuinka monta osumaa rivissä oli. Metodin tulee käyttää listakoostetta!
+...joka palauttaa kokonaislukuna tiedon siitä, kuinka monta osumaa rivissä oli. Metodin tulee käyttää listakoostetta! Metodin pituus kokonaisuudessaan (def-rivi mukaanlukien) saa olla korkeintaan 2 riviä.
 
 Esimerkki luokan käytöstä:
 
@@ -471,7 +471,7 @@ print(oikea.osumien_maara(oma_rivi))
 
 Kirjoita luokkaan metodi `osumat_paikoillaan(pelattu_rivi)`, joka palauttaa uuden listan. Uudessa listassa on omilla paikoillaan oikeat numerot (eli ne, jotka löytyvät myös oikeasta rivistä), muiden paikalla on -1.
 
-Metodin tulee käyttää listakoostetta.
+Metodin tulee käyttää listakoostetta. Metodin pituus kokonaisuudessaan (def-rivi mukaanlukien) saa olla korkeintaan 2 riviä.
 
 Esimerkki metodin käytöstä:
 
