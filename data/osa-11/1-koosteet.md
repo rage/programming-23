@@ -365,26 +365,28 @@ print(poista_pienemmat([-4, 7, 8, -100], 0))
 
 </programming-exercise>
 
-<programming-exercise name='Vokaalit' tmcname='osa11_'>
+<programming-exercise name='Vokaalilla alkavat' tmcname='osa11_06_vokaalilla_alkavat'>
 
-Kirjoita funktio `vokaalit(kirjaimet: list)`, joka saa parametrikseen listan merkkijonoja. Jokaisessa merkkijonossa on vain yksittäinen merkki.
+Kirjoita funktio `vokaalilla_alkavat(sanat: list)`, joka saa parametrikseen listan merkkijonoja.
 
-Tehtävänäsi on listakoostetta hyödyntäen muodostaa ja palauttaa uusi lista, joka sisältää vain alkuperäisen listan vokaalit.
+Tehtävänäsi on listakoostetta hyödyntäen muodostaa ja palauttaa uusi lista, joka sisältää vain alkuperäisen listan ne sanat, jotka alkavat vokaalilla (a, e, i, o, u, y, ä, ö). Sekä pienien että suurten kirjaimien pitää kelvata.
+
+Funktion maksimipituus on (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Esimerkki funktion käytöstä:
 
 ```python
-klista = ['a','b','c','e','f','o','s','y']
-for vok in vokaalit(klista):
+klista = ["auto","mopo","Etana","kissa","Koira","OMENA","appelsiini"]
+for vok in vokaalilla_alkavat(klista):
     print vok
 ```
 
 <sample-output>
 
-a
-e
-o
-y
+auto
+Etana
+OMENA
+appelsiini
 
 </sample-output>
 
