@@ -173,6 +173,291 @@ def etsi_alkio(juuri: Alkio, arvo):
 
 ```
 
+##
+
+<programming-exercise name='Tehtävät ja tilauskirja' tmcname='osa11_'>
+
+Teemme tässä tehtävässä kaksi luokkaa, joitka toimivat rakennuspalikoina seuraavassa tehtävässä aiheena olevassa sovelluksessa.
+
+## Tehtava
+
+Toteuta luokka `Tehtava` joka mallintaa ohjelmistoyritykselle annettavia työtehtäviä. Tehtävillä on
+- kuvaus
+- sekä arvio sen viemästä työmäärästä
+- tieto koodarista joka toteuttaa tehtävän
+- tieto siitä onko tehtävä valmis vai ei
+- yksikäsitteinen tunniste eli id
+
+Luokka toimii seuraavasti:
+
+```python
+t1 = Tehtava("koodaa hello world", "Erkki", 3)
+print(t1.id, t1.kuvaus, t1.koodari, t1.tyomaara)
+print(t1)
+print(t1.on_valmis())
+t1.merkkaa_valmiiksi()
+print(t1)
+print(t1.on_valmis())
+t2 = Tehtava("koodaa webbikauppa", "Antti", 10)
+t3 = Tehtava("tee mobiilisovellus työaikakirjanpitoon", "Erkki", 25)
+print(t2)
+print(t3)
+```
+
+<sample-output>
+
+1 koodaa hello world Erkki 3
+1: koodaa hello world (3 tuntia), koodari Erkki EI VALMIS
+False
+1: koodaa hello world (3 tuntia), koodari Erkki VALMIS
+True
+2: koodaa webbikauppa (10 tuntia), koodari Antti EI VALMIS
+3: tee mobiilisovellus työaikakirjanpitoon (25 tuntia), koodari Erkki EI VALMIS
+
+</sample-output>
+
+Täsmennyksiä:
+- tehtävän tilan (valmis vai ei vielä valmis) voi tarkistaa funktiolla `on_valmis(self)` joka palauttaa totuusarvon
+- tehtävä ei ole siinä vaiheessa valmis kun se luodaan
+- tehtävä merkataan valmiiksi kutsumalla metodia `merkkaa_valmiiksi(self)`
+- tehtävien id on juokseva numero, joka alkaa arvosta 1
+    - ensimmäisenä luotava tehtävä saa id:n 1, seuraava id:n 2 jne
+
+**Vihje** id kannatta toteuttaa [luokkamuuttujana](/osa-9/5-staattiset-piirteet#luokkamuuttujat).
+
+## Tilauskirja
+
+Tehdään nyt luokka `Tilauskirja`, joka kokoaa kaikki ohjelmistoyritykseltä tilatut työtehtävät, joita siis mallinnetaan luokan `Tehtava` olioilla.
 
 
+Tilauskirjan perusversiota käytetän seuraavasti:
 
+```python
+tilaukset = Tilauskirja()
+tilaukset.lisaa_tilaus("koodaa webbikauppa", "Antti", 10)
+tilaukset.lisaa_tilaus("tee mobiilisovellus työaikakirjanpitoon", "Erkki", 25)
+tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
+
+for tilaus in tilaukset.kaikki_tilauset():
+    print(tilaus)
+
+print()
+
+for koodari in tilaukset.koodarit():
+    print(koodari)
+```
+
+<sample-output>
+
+1: koodaa webbikauppa (10 tuntia), koodari Antti EI VALMIS
+2: tee mobiilisovellus työaikakirjanpitoon (25 tuntia), koodari Erkki EI VALMIS
+3: tee ohjelma matematiikan harjoitteluun (100 tuntia), koodari Antti EI VALMIS
+
+Antti
+Erkki
+
+</sample-output>
+
+Tässä vaiheessa `Tilauskirja` tarjoaa kolme metodia:
+- `lisaa_tilaus(self, kuvaus, koodari, tyomaara)` lisää uuden tilauksem tilauskirjaan. Tilauskirja tallettaa tilaukset sisäisesti `Tehtava`-olioina. Huomaa, että metodilla täytyy olla juuri nämä parametrit, muuten testit eivät hyväksy metodia!
+- `kaikki_tilauset(self)` palauttaa listana kaikki tilauskirjalla olevat tehtävät
+- `koodarti(self)` palauttaa listana kaikki koodarit, joille on tehtävä tilauskirjassa, metodi palauttama lista ei saa sisältää yhtä koodia useampaan kertaan
+
+**Vihje** Listalta on helppo poistaa duplikaatit siten että muutetaan ensin lista [set](https://docs.python.org/3.8/library/stdtypes.html#set)-tyyppiseksi. Set siis tarkoittaa joukkoa, ja joukossa kutakin alkiota voi olla vain yksi kappale. Tämän jälkeen `set` voidaan muuttaa takaisin listaksi, ja duplikaatit ovat kadonneet:
+
+```python
+lista = [1,1,3,6,4,1,3]
+lista2 = list(set(lista))
+print(lista)
+print(lista2)
+```
+
+<sample-output>
+
+[1, 1, 3, 6, 4, 1, 3]
+[1, 3, 4, 6]
+
+</sample-output>
+
+## Tilauskirjan viimeistely
+
+Tehdään luokalle `Tilikirja` vielä kolme uutta metodia.
+
+Metodi `merkkaa_valmiiksi(self, id: int)` saa parametriksi tehtävän id:n ja merkkaa kyseisen tehtävän valmiiksi:
+
+```python
+tilaukset = Tilauskirja()
+tilaukset.lisaa_tilaus("koodaa webbikauppa", "Antti", 10)
+tilaukset.lisaa_tilaus("tee mobiilisovellus työaikakirjanpitoon", "Erkki", 25)
+tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
+
+tilaukset.merkkaa_valmiiksi(1)
+tilaukset.merkkaa_valmiiksi(2)
+
+for tilaus in tilaukset.kaikki_tilauset():
+    print(tilaus)
+```
+
+<sample-output>
+
+1: koodaa webbikauppa (10 tuntia), koodari Antti VALMIS
+2: tee mobiilisovellus työaikakirjanpitoon (25 tuntia), koodari Erkki VALMIS
+3: tee ohjelma matematiikan harjoitteluun (100 tuntia), koodari Antti EI VALMIS
+
+</sample-output>
+
+Jos parametria vastaavaa tilausta ei löydy tuottaa metodi poikkeuksen `ValueError`. Kertaa tarvittaessa [täältä](/osa-6/3-virheet#poikkeusten-tuottaminen) miten poikkeus tuotetaan.
+
+Metodit `valmiit_tilauset(self)` ja `ei_valmiit_tilauset(self)` toimivat kuten olettaa saattaa, ne palauttavat nimensä mukaisen osajoukon tilauskirjan tehtävistä listana.
+
+## Tilauskirjan loppusilaus
+
+Tehdään luokalle `Tilikirja` vielä kaksi metodia.
+
+Metodi `koodarin_status(self, koodari: str)` palauttaa _tuplen_, joka kertoo koodarin valmistuneiden ja vielä valmistumattomien töiden määrän sekä näihin  kuluneiden työtuntien summan.
+
+```python
+tilaukset = Tilauskirja()
+tilaukset.lisaa_tilaus("koodaa webbikauppa", "Antti", 10)
+tilaukset.lisaa_tilaus("tee mobiilisovellus työaikakirjanpitoon", "Antti", 25)
+tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
+tilaukset.lisaa_tilaus("tee uusi facebook", "Erkki", 1000)
+
+tilaukset.merkkaa_valmiiksi(1)
+tilaukset.merkkaa_valmiiksi(2)
+
+status = tilaukset.koodarin_status("Antti")
+print(status)
+```
+
+<sample-output>
+
+(2, 1, 35, 100)
+
+</sample-output>
+
+Tuplen ensimmäinen alkio siis kertoo valmiiden töiden määrän ja toinen valmistumattomien töiden määrän. Kolmas alkio on valmiiden töiden työaika-arvioiden summa ja neljäs alkio vielä valmistumattomien töiden työmäärä-arvioiden summan.
+
+Metodi `status(self: str)` toimii kuten edellinen, mutta se palauttaa _tuplen_, joka kertoo kaikkien tilauskirjalla olevien töiden tilanteen:
+
+```python
+tilaukset = Tilauskirja()
+tilaukset.lisaa_tilaus("koodaa webbikauppa", "Antti", 10)
+tilaukset.lisaa_tilaus("tee mobiilisovellus työaikakirjanpitoon", "Antti", 25)
+tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
+
+tilaukset.merkkaa_valmiiksi(1)
+tilaukset.merkkaa_valmiiksi(2)
+
+status = tilaukset.status()
+print(status)
+```
+
+<sample-output>
+
+(2, 2, 35, 1000)
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Tehtavia' tmcname='osa11_'>
+
+Tässä tehtävässä tehdään interaktiivinen sovellus softafirmalta tilattujen tehtävien hallintaan. Tyyli on täysin vapaa, mutta voit hyödyntää sovelluksessa edellisen tehtävän aikana koodattuja rakennuspalikoita. Myös [edellisen osan viimeisen luvun](/osa-10/4-lisaa-esimerkkeja) materiaalin kertaaminen saattaa olla hyödyksi.
+
+## Ei virheiden käsittelyä
+
+Sovelluksen tulee toimia _täsmälleen_ seuraavasti:
+
+<sample-output>
+
+komennot:
+0 lopetus
+1 lisää tilaus
+2 listaa valmiit
+3 listaa ei valmiit
+4 merkitse tehtävä valmiiksi
+5 koodarit
+6 koodarin status
+
+komento: **1**
+kuvaus: **koodaa uusi facebook**
+koodari ja työmääräarvio: **joona 1000**
+lisätty!
+
+komento: **1**
+kuvaus: **tee sovellus ajanhallintaan**
+koodari ja työmääräarvio: **erkki 25**
+lisätty!
+
+komento: **1**
+kuvaus: **ohjelma musiikin teorian harjoitteluun**
+koodari ja työmääräarvio: **niina 12**
+lisätty!
+
+komento: **1**
+kuvaus: **koodaa uusi twitter**
+koodari ja työmääräarvio: **joona 55**
+lisätty!
+
+komento: **2**
+ei valmiita
+
+komento: **3**
+1: koodaa uusi facebook (1000 tuntia), koodari joona EI VALMIS
+2: tee sovellus ajanhallintaan (25 tuntia), koodari erkki EI VALMIS
+3: ohjelma musiikin teorian  harjoitteluun (12 tuntia), koodari niina EI VALMIS
+4: koodaa uusi twitter (55 tuntia), koodari joona EI VALMIS
+
+komento: **4**
+id: **2**
+merkitty valmiiksi
+
+komento: **4**
+id: **4**
+merkitty valmiiksi
+
+komento: **2**
+2: tee sovellus ajanhallintaan (25 tuntia), koodari erkki VALMIS
+4: koodaa uusi twitter (55 tuntia), koodari joona VALMIS
+
+komento: **3**
+1: koodaa uusi facebook (1000 tuntia), koodari joona EI VALMIS
+3: ohjelma musiikin teorian harjoitteluun (12 tuntia), koodari niina EI VALMIS
+
+komento: **5**
+joona
+erkki
+niina
+
+komento: **6**
+koodari: **joona**
+työt: valmiina 2 ei valmiina 1, tunteja: tehty 55 tekemättä 1000
+
+</sample-output>
+
+Ensimmäiseen tehtäväpisteeseen riittää, että sovellus toimii jos kaikki syötteet ovat virheettömiä.
+
+## Ei virheiden käsittelyä
+
+Toiseen tehtäväpisteeseen edellytetään, että sovellus toipuu käyttäjän syötteessä olevista virheistä. Virheiden käsittelyn tulee toimia siten, että missä tahansa syötteessa annettu virheellinen syöte aiheuttaa virheilmoituksen _virheellinen syöte_, ja johtaa siihen, että komentoa pyydetään uudelleen:
+
+<sample-output>
+
+komento: **1**
+kuvaus: **tee sovellus ajanhallintaan**
+koodari ja työmääräarvio: **erkki xxx**
+virheellinen syöte
+
+komento: **4**
+id: **XXXX**
+virheellinen syöte
+
+komento: **6**
+koodari: **tuntematonkoodari**
+virheellinen syöte
+
+</sample-output>
+
+
+</programming-exercise>
