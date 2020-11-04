@@ -339,11 +339,13 @@ if __name__ == "__main__":
 
 Esimerkissä lauseke on siis `(luku, kertoma(luku))`, joka muodostaa tuplen, jossa ensimmäinen alkio on alkio alkuperäisestä listasta ja toinen alkio kertoma-funktion palauttama arvo. Ehtolause on `luku > 0 and luku % 2 == 0`, jossa valikoidaan mukaan vain alkiot jotka ovat sekä positiivisia että jaollisia kahdella.
 
-<programming-exercise name='Poista pienemmät' tmcname='osa11_'>
+<programming-exercise name='Poista pienemmät' tmcname='osa11_05_poista_pienemmat'>
 
-Kirjoita funktio `poista_pienemma(luvut: list)`, joka saa parametrikseen listan kokonaislukuja sekä raja-arvon, joka on myös kokonaisluku.
+Kirjoita funktio `poista_pienemmat(luvut: list, raja: int)`, joka saa parametrikseen listan kokonaislukuja sekä raja-arvon, joka on myös kokonaisluku.
 
-Funktio muodostaa listakoostetta käyttäen uuden listan, johon on otettu mukaan vain raja-arvoa pienemmät luvut.
+Funktio muodostaa listakoostetta käyttäen uuden listan, josta on jätetty pois raja-arvoa pienemmät luvut.
+
+Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Esimerkki funktion käytöstä:
 
