@@ -190,9 +190,9 @@ for rivi in rivit:
 
 </programming-exercise>
 
-<programming-exercise name='Paras koetulos' tmcname='osa11_'>
+<programming-exercise name='Paras koetulos' tmcname='osa11_03_paras_koetulos'>
 
-Luokalla `Koesuoritus` on seuraavat julkiset attribuutit:
+Tehtäväpohjassa on valmiina luokka `Koesuoritus`, jolla on seuraavat julkiset attribuutit:
 
 * nimi
 * arvosana1
@@ -203,7 +203,23 @@ Kirjoita funktio `parhaat_tulokset(suoritukset: list)`. Funktio saa parametrikse
 
 Funktio palauttaa listakoostetta käyttäen uuden listan, johon on tallennettu jokaisen suorituksen paras arvosana.
 
-Huomaa, että funkton maksimipituus on kaksi riviä määrittelyineen!
+Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+
+Esimerkki suorituksesta:
+
+```python
+suoritus1 = Koesuoritus("Pekka",5,3,4)
+suoritus2 = Koesuoritus("Pirjo",3,4,1)
+suoritus3 = Koesuoritus("Paavo",2,1,3)
+suoritukset = [suoritus1, suoritus2, suoritus3]
+print(parhaat_tulokset(suoritukset))
+```
+
+<sample-output>
+
+[5, 4, 3]
+
+</sample-output>
 
 </programming-exercise>
 
