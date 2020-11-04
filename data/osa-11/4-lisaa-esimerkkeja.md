@@ -263,7 +263,7 @@ Erkki
 Tässä vaiheessa `Tilauskirja` tarjoaa kolme metodia:
 - `lisaa_tilaus(self, kuvaus, koodari, tyomaara)` lisää uuden tilauksem tilauskirjaan. Tilauskirja tallettaa tilaukset sisäisesti `Tehtava`-olioina. Huomaa, että metodilla täytyy olla juuri nämä parametrit, muuten testit eivät hyväksy metodia!
 - `kaikki_tilauset(self)` palauttaa listana kaikki tilauskirjalla olevat tehtävät
-- `koodarti(self)` palauttaa listana kaikki koodarit, joille on tehtävä tilauskirjassa, metodi palauttama lista ei saa sisältää yhtä koodia useampaan kertaan
+- `koodari(self)` palauttaa listana kaikki koodarit, joille on tehtävä tilauskirjassa, metodi palauttama lista ei saa sisältää yhtä koodia useampaan kertaan
 
 **Vihje** Listalta on helppo poistaa duplikaatit siten että muutetaan ensin lista [set](https://docs.python.org/3.8/library/stdtypes.html#set)-tyyppiseksi. Set siis tarkoittaa joukkoa, ja joukossa kutakin alkiota voi olla vain yksi kappale. Tämän jälkeen `set` voidaan muuttaa takaisin listaksi, ja duplikaatit ovat kadonneet:
 
