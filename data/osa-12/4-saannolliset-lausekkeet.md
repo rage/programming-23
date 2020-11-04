@@ -48,7 +48,7 @@ Pallon löytyy!
 
 Lauseke "lasketaan" valmiiksi re-modulista löytyvällä funktiolla `compile`, minkä jälkeen sen palauttamaa oliota voidaan käyttää merkkijonojen testaamiseen. Metodi `search` palauttaa arvon `None`, jos vastaavuutta ei löydy, joten sitä voidaan käyttää ehtolauseessa esimerkin tapaan. Mikäli vastaavuus löytyy, saadaan palautetusta `Match`-tyyppisestä oliosta tarvittaessa tarkempaa tietoa vastaavuudesta.
 
-Toinen esimerkki etsii  merkkijonosta luvut. Metodin `findall` palauttaa kaikki sääntöön täsmäävät alijonot listana:
+Toinen esimerkki etsii  merkkijonosta luvut. Metodi `findall` palauttaa kaikki sääntöön täsmäävät alijonot listana:
 
 ```python
 import re
