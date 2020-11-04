@@ -128,7 +128,7 @@ for tuote in jarjesta_hinnan_mukaan(tuotteet):
     print(tuote)
 ```
 
-Jos järjestämisen käyttämää apufunktiota `hintajarjestys` ei käytetä missään muussa kohtaa ohjelmaa kuin funktiossa `jarjesta_hinnan_mukaan`, sen määrittely votaisiin siirtää funktion sisälle:
+Jos järjestämisen käyttämää apufunktiota `hintajarjestys` ei käytetä missään muussa kohtaa ohjelmaa kuin funktiossa `jarjesta_hinnan_mukaan`, sen määrittely voitaisiin siirtää funktion sisälle:
 
 ```python
 def jarjesta_hinnan_mukaan(alkiot: list):
@@ -141,7 +141,7 @@ def jarjesta_hinnan_mukaan(alkiot: list):
 
 <programming-exercise name='Järjestys varastosaldon mukaan' tmcname='osa12-'>
 
-Tee funktio `jarjesta_varastosaldon_mukaan(alkiot: lista)`. Funktio saa parametrina listan tupleja, joissa kolmatena alkiona on tuotteiden varastosaldo. Funktio järjestää parametrinaan saamat tuotteet varastosaldojen  mukaiseen kasvavaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listaa.
+Tee funktio `jarjesta_varastosaldon_mukaan(alkiot: list)`. Funktio saa parametrina listan tupleja, joissa kolmantena alkiona on tuotteiden varastosaldo. Funktio järjestää parametrinaan saamat tuotteet varastosaldojen  mukaiseen kasvavaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
 Funktio toimii seruaavasti:
 
@@ -164,14 +164,14 @@ vesimeloni 22 kpl
 
 <programming-exercise name='Järjestys tuotantokausien mukaan' tmcname='osa12-'>
 
-Tee funktio `jarjesta_tutotantokausien_mukaan(alkiot: lista)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne tuotantokausien lukumäärän mukaiseen kasvavaan järjestykseen. Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listaa.
+Tee funktio `jarjesta_tuotantokausien_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne tuotantokausien lukumäärän mukaiseen kasvavaan järjestykseen. Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
 Funktio toimii seuraavasti:
 
 ```python
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
 
-for sarja in jarjesta_tutotantokausien_mukaan(tuotteet):
+for sarja in jarjesta_tuotantokausien_mukaan(tuotteet):
     print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
 ```
 
@@ -186,7 +186,7 @@ Simpsons 32 tuotantokautta
 
 <programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12-'>
 
-Tee funktio `jarjesta_tutotantokausien_mukaan(alkiot: lista)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne pisteiden mukaiseen laskevaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listaa.
+Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne pisteiden mukaiseen laskevaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
 
 
@@ -194,7 +194,7 @@ Tee funktio `jarjesta_tutotantokausien_mukaan(alkiot: lista)`. Funktio saa param
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
 
 print´("IMDB:n mukainen pistemäärä")
-for sarja in jarjesta_tutotantokausien_mukaan(tuotteet):
+for sarja in jarjesta_tuotantokausien_mukaan(tuotteet):
     print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
 ```
 
@@ -316,7 +316,7 @@ Smooth operator, pituus 9 mentriä, grade 7A
 
 ## Vaikeuden mukainen järjestys
 
-Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan nousevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaiseen pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa vaakkosjärjestystä.
+Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan nousevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
 
 Funktio toimii seuraavasti:
 
@@ -468,7 +468,7 @@ def hinta(alkio):
     return alkio[1]
 ```
 
-...paitsi että lambda-lauseketta käyttäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
+...paitsi että lambda-lauseketta käytettäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
 
 Muuten lambdan avulla muodostettava funktio on kuin mikä tahansa muukin funktio. Esimerkiksi seuraava esimerkki järjestää merkkijonot niiden viimeisten merkkien mukaiseen aakkosjärjestykseen:
 
@@ -552,7 +552,7 @@ U2 (Joshua Tree), 1986. 50 min.
 
 ## Funktiot parametreina omissa funktioissa
 
-Pythonissa on siis mahdollista välittää viittaus johonkin funktioon toiselle funktiolle. Tarkastellaan vielä esimerkkinä omaa funktiota, joka saa paramerikseen toisen funktion:
+Pythonissa on siis mahdollista välittää viittaus johonkin funktioon toiselle funktiolle. Tarkastellaan vielä esimerkkinä omaa funktiota, joka saa parametrikseen toisen funktion:
 
 ```python
 def suorita_operaatio(operaatio):
@@ -620,7 +620,7 @@ Tässä tehtävässä käsitellään tehtävän [linkki]() tapaan tupleina esite
 tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22), ("Kaali", 0.99, 1)]
 ```
 
-Toteuta funktio `hae(tuotteet: list, kriteeti)`, missä toisena parametrina on funktio, joka saa parametriksi yhten tuotetta edustavan tuplen ja palautta totuusarvon.
+Toteuta funktio `hae(tuotteet: list, kriteeri)`, missä toisena parametrina on funktio, joka saa parametriksi yhden tuotetta edustavan tuplen ja palauttaa totuusarvon.
 
 Sopiva kriteeri voisi olla esimerkiksi seuraavanlainen
 
