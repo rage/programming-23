@@ -306,13 +306,13 @@ if __name__ == "__main__":
 
 ```
 
-<programming-exercise name='Kauppalistan tuotteet' tmcname='osa11_'>
+<programming-exercise name='Kauppalistan tuotteet' tmcname='osa11_09_kauppalistan_tuotteet'>
 
-Osan 10 tehtävässä teimme [Kauppalista-luokasta iteroitavan](/osa-10/3-olio-ohjelmoinnin-tekniikoita#programming-exercise-iteroitava-kauppalista). Iteroitavan luokan oliota voidaan käyttää listakoosteiden yhteydessä.
+Osan 10 tehtävässä teimme [Kauppalista-luokasta iteroitavan](/osa-10/3-olio-ohjelmoinnin-tekniikoita#programming-exercise-iteroitava-kauppalista). Iteroitavan luokan oliota voidaan käyttää listakoosteiden yhteydessä. Tehtäväpohjassa on mukana luokasta typistetty versio, jonka toiminnallisuus riittää tähän tehtävään.
 
-Tee funktio nyt `tuotteet(kauppalista, maara: int)` joka saa parametriksi kauppalista-olion. Funktio palauttaa kauppalistan ostoksista niiden tuotteiden nimet, joita on listalla vähintään parametrin `maara` verran.
+Tee funktio nyt `kauppalistan_tuotteet(kauppalista, maara: int)` joka saa parametriksi kauppalista-olion. Funktio palauttaa kauppalistan ostoksista niiden tuotteiden nimet, joita on listalla vähintään parametrin `maara` verran.
 
-Funktio tulee toteuttaa listakoosteen avulla. Luokan Kauppalista koodia ei saa muuttaa!
+Funktio tulee toteuttaa listakoosteen avulla, ja sen pituus saa olla def-määrittelyriveineen yhteensä korkeintaan kaksi riviä. Luokan Kauppalista koodia ei saa muuttaa!
 
 Funktio toimii seuraavasti
 
@@ -324,7 +324,7 @@ lista.lisaa("alkoholiton olut", 24)
 lista.lisaa("ananas", 1)
 
 print("kauppalistalla vähintään 8 seuraavia tuotteita:")
-for tuote in tuotteet(lista, 8):
+for tuote in kauppalistan_tuotteet(lista, 8):
     print(tuote)
 ```
 
