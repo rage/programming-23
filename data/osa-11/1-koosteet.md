@@ -119,6 +119,13 @@ if __name__ == "__main__":
 
 Koosteen avulla on siis mahdollista ilmaista sama toiminnallisuus tiiviimmin ja silti yhä helposti luettavassa muodossa.
 
+Palauttamalla funktiosta suoraan kooste saadaan aikaiseksi hyvin tiivistä koodia:
+
+```python
+def kertomat(luvut: list):
+    return [kertoma(luku) for luku in luvut]
+```
+
 <programming-exercise name='Neliojuuret' tmcname='osa11_01_neliojuuret'>
 
 Tee funktio `neliojuuret(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan parametrina olevien lukujen neliöjuurista. Kuten muistamme, neliöjuuren laskemiseen löytyy sopiva funktio moduulista [math](https://docs.python.org/3/library/math.html)
@@ -144,9 +151,11 @@ for rivi in rivit:
 
 </programming-exercise>
 
-<programming-exercise name='Tähtirivit' tmcname='osa11_'>
+<programming-exercise name='Tähtirivit' tmcname='osa11_02_tahtirivit'>
 
 Tee funktio `tahtirivit(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan, joka koostuu tähtiriveistä joiden pituus vastaa parametrina olevan listan lukuja. Funktion tulee käyttää listakoostetta.
+
+Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Funktio toimii seuraavasti:
 
