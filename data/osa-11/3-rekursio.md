@@ -274,7 +274,7 @@ print(summa(10))
 
 </programming-exercise>
 
-<programming-exercise name='Sulut tasapainossa' tmcname='osa11_'>
+<programming-exercise name='Sulut tasapainossa' tmcname='osa11_15_sulut_tasapainossa'>
 
 Tehtäväpohjassa on valmiina funktio `sulut_tasapainossa`, joka tarkastaa onko sen parametrina olevassa merkkijonossa sulut tasapainossa, eli onko jokaista "aukeavaa" sulkumerkkiä ( kohti on oma "sulkeutuva" sulkumerkki ), ja että sulut eivät mene ristiin.
 
@@ -324,7 +324,7 @@ print(ok)
 ok = sulut_tasapainossa("(python versio [3.7]) käytä tätä!")
 print(ok)
 
-# ei kelpaa sillä alussa virheellinen loppusulku
+# ei kelpaa sillä virheellinen loppusulku
 ok = sulut_tasapainossa("(()]")
 print(ok)
 
@@ -333,6 +333,8 @@ print(ok)
 ok = sulut_tasapainossa("([huono)]")
 print(ok)
 ```
+
+Huomaa, että funktion ei tarvitse osata kuin yksi sisäkkäinen sulutus - sen ei siis tarvitse ymmärtää esimerkiksi jonoa "(x + 1)(y + 1)" tai jonoa "[eka](toka)".
 
 <sample-output>
 
