@@ -453,9 +453,9 @@ print(sanojen_pituudet)
 
 </programming-exercise>
 
-<programming-exercise name='Yleisimmat sanat' tmcname='osa11_'>
+<programming-exercise name='Yleisimmat sanat' tmcname='osa11_12_yleisimmat_sanat'>
 
-Tee funktio `yleisimmat_sanat(tiedoston_nimi: str, raja: int)`, joka saa parametrikseen tiedoston nimen. Funktio palauttaa sanakirjan, mikä kertoo tiedostossa olevien sanojen esiintymislukumäärän niiden sanojen osalta, joilla on vähintään toisen parametrin `raja` verran esiintymiä. Sanan kirjainten koolla ei ole merkitystä.
+Tee funktio `yleisimmat_sanat(tiedoston_nimi: str, raja: int)`, joka saa parametrikseen tiedoston nimen. Funktio palauttaa sanakirjan, joka sisältää tiedostossa olevien sanojen esiintymislukumäärän niiden sanojen osalta, joilla on vähintään toisen parametrin `raja` verran esiintymiä. Sanan kirjainten koolla ei ole merkitystä.
 
 Esim. jos funktiolla tarkasteltaisiin tiedostoa _comprehensions.txt_ jonka sisältö on seuraava
 
@@ -470,11 +470,13 @@ Kutsuttaessa `yleisimmat_sanat("comprehensions.txt", 3)` funktion palauttama san
 
 <sample-output>
 
-{ 'list': 4, 'comprehension': 4, 'is': 3, 'and': 3, 'for', 3: 'in': 3}
+{'comprehension': 4, 'is': 3, 'and': 3, 'for': 3, 'list': 4, 'in': 3}
 
 </sample-output>
 
 Huomaa, että avaimena sanakirjassa on sanojen pienellä kirjoitetut muodot.
+
+Huomaa myös, että vain kokonaiset sanat lasketaan - sana 'lists' ei siis saa kasvattaa sanan 'list' lukumäärää, vaikka osajono 'list' löytyykin jonosta 'lists'.
 
 Funktion toteutustapa on vapaa, helpoimmalla pääset hyödyntämällä lista- ja sanakirjakoosteita.
 
