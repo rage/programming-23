@@ -114,13 +114,13 @@ def alkioiden_summa(juuri: Alkio):
 
 Muuttuja `summa` alustetaan nykyisen alkion arvolla. Tämän jälkeen siihen lisätään rekursiivisesti vasemman ja oikean alipuun summat (tarkastaen taas ensin, että ne ovat olemassa). Lopuksi summa palautetaan.
 
-<programming-exercise name='Suurin alkio' tmcname='osa11_'>
+<programming-exercise name='Suurin alkio' tmcname='osa11_16_suurin_alkio'>
 
 Kirjoita funktio `suurin_alkio(juuri: Alkio)`, joka saa parametrikseen binääripuun juurialkion.
 
 Funktion palauttaa puun suurimman alkion. Puun arvot tulee käydä läpi rekursiivisesti.
 
-Vinkki: voit muokata ratkaisusi yllä esitetystä `alkoiden_summa` -funktiosta.
+Vinkki: voit hyödyntää ratkaisussasi ylempänä esitettyä `alkoiden_summa` -funktiota.
 
 Esimerkki funktion kutsumisesta:
 
