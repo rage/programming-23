@@ -100,7 +100,7 @@ Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteraiivise
 
 </text-box>
 
-<programming-exercise name='Suurempia lukuja' tmcname='osa11_'>
+<programming-exercise name='Listaan lukuja' tmcname='osa11_13_listaan_lukuja'>
 
 Kirjoita _rekursiivinen funktio_ listaan_lukuja(luvut: list), joka lisää listaan lukuja niin kauan, että sen pituus on viidellä jaollinen.
 
@@ -243,7 +243,7 @@ Rekursiivinen algoritmimme siis toimii, koska voimme todistaa jokaisen luvun koh
 
 <programming-exercise name='Rekursiivinen summa' tmcname='osa11_'>
 
-Tee rekursiivinen funktio `rekusriivinen_summa(luku: int)`, summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
+Tee rekursiivinen funktio `rekusriivinen_summa(luku: int)` summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
 
 ```python
 def rekursiivinen_summa(luku: int):
