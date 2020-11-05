@@ -100,7 +100,7 @@ Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteraiivise
 
 </text-box>
 
-<programming-exercise name='Suurempia lukuja' tmcname='osa11_'>
+<programming-exercise name='Suurempia lukuja' tmcname='osa11-13_listaan_lukuja'>
 
 Kirjoita _rekursiivinen funktio_ listaan_lukuja(luvut: list), joka lisää listaan lukuja niin kauan, että sen pituus on viidellä jaollinen.
 
@@ -241,7 +241,7 @@ jne.
 
 Rekursiivinen algoritmimme siis toimii, koska voimme todistaa jokaisen luvun kohdalla ohjelman toimivuuden aikaisempien lukujen perusteella.
 
-<programming-exercise name='Rekursiivinen summa' tmcname='osa11_'>
+<programming-exercise name='Rekursiivinen summa' tmcname='osa11-14_rekursiivinen_summa'>
 
 Tee rekursiivinen funktio `rekusriivinen_summa(luku: int)`, summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
 
@@ -274,7 +274,7 @@ print(rekursiivinen_summa(10))
 
 </programming-exercise>
 
-<programming-exercise name='Sulut tasapainossa' tmcname='osa11_'>
+<programming-exercise name='Sulut tasapainossa' tmcname='osa11-15_sulut_tasapainossa'>
 
 Tehtäväpohjassa on valmiina funktio `sulut_tasapainossa`, joka tarkastaa onko sen parametrina olevassa merkkijonossa sulut tasapainossa, eli onko jokaista "aukeavaa" sulkumerkkiä ( kohti on oma "sulkeutuva" sulkumerkki ), ja että sulut eivät mene ristiin.
 

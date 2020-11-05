@@ -126,7 +126,7 @@ def kertomat(luvut: list):
     return [kertoma(luku) for luku in luvut]
 ```
 
-<programming-exercise name='Neliojuuret' tmcname='osa11_01_neliojuuret'>
+<programming-exercise name='Neliojuuret' tmcname='osa11-01_neliojuuret'>
 
 Tee funktio `neliojuuret(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan parametrina olevien lukujen neliöjuurista. Kuten muistamme, neliöjuuren laskemiseen löytyy sopiva funktio moduulista [math](https://docs.python.org/3/library/math.html)
 
@@ -151,7 +151,7 @@ for rivi in rivit:
 
 </programming-exercise>
 
-<programming-exercise name='Tähtirivit' tmcname='osa11_02_tahtirivit'>
+<programming-exercise name='Tähtirivit' tmcname='osa11-02_tahtirivit'>
 
 Tee funktio `tahtirivit(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan, joka koostuu tähtiriveistä joiden pituus vastaa parametrina olevan listan lukuja. Funktion tulee käyttää listakoostetta.
 
@@ -190,7 +190,7 @@ for rivi in rivit:
 
 </programming-exercise>
 
-<programming-exercise name='Paras koetulos' tmcname='osa11_03_paras_koetulos'>
+<programming-exercise name='Paras koetulos' tmcname='osa11-03_paras_koetulos'>
 
 Tehtäväpohjassa on valmiina luokka `Koesuoritus`, jolla on seuraavat julkiset attribuutit:
 
@@ -223,7 +223,7 @@ print(parhaat_tulokset(suoritukset))
 
 </programming-exercise>
 
-<programming-exercise name='Pituudet' tmcname='osa11_04_pituudet'>
+<programming-exercise name='Pituudet' tmcname='osa11-04_pituudet'>
 
 Tee funktio `pituudet(listat: list)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
 
@@ -339,7 +339,7 @@ if __name__ == "__main__":
 
 Esimerkissä lauseke on siis `(luku, kertoma(luku))`, joka muodostaa tuplen, jossa ensimmäinen alkio on alkio alkuperäisestä listasta ja toinen alkio kertoma-funktion palauttama arvo. Ehtolause on `luku > 0 and luku % 2 == 0`, jossa valikoidaan mukaan vain alkiot jotka ovat sekä positiivisia että jaollisia kahdella.
 
-<programming-exercise name='Poista pienemmät' tmcname='osa11_05_poista_pienemmat'>
+<programming-exercise name='Poista pienemmät' tmcname='osa11-05_poista_pienemmat'>
 
 Kirjoita funktio `poista_pienemmat(luvut: list, raja: int)`, joka saa parametrikseen listan kokonaislukuja sekä raja-arvon, joka on myös kokonaisluku.
 
@@ -365,7 +365,7 @@ print(poista_pienemmat([-4, 7, 8, -100], 0))
 
 </programming-exercise>
 
-<programming-exercise name='Vokaalilla alkavat' tmcname='osa11_06_vokaalilla_alkavat'>
+<programming-exercise name='Vokaalilla alkavat' tmcname='osa11-06_vokaalilla_alkavat'>
 
 Kirjoita funktio `vokaalilla_alkavat(sanat: list)`, joka saa parametrikseen listan merkkijonoja.
 
@@ -442,7 +442,7 @@ if __name__ == "__main__":
 </sample-output>
 
 
-<programming-exercise name='Lottorivi' tmcname='osa11_07_lottorivi'>
+<programming-exercise name='Lottorivi' tmcname='osa11-07_lottorivi'>
 
 ## Lottorivi, osa 1
 

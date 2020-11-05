@@ -114,7 +114,7 @@ def alkioiden_summa(juuri: Alkio):
 
 Muuttuja `summa` alustetaan nykyisen alkion arvolla. Tämän jälkeen siihen lisätään rekursiivisesti vasemman ja oikean alipuun summat (tarkastaen taas ensin, että ne ovat olemassa). Lopuksi summa palautetaan.
 
-<programming-exercise name='Suurin alkio' tmcname='osa11_'>
+<programming-exercise name='Suurin alkio' tmcname='osa11-16_suurin_alkio'>
 
 Kirjoita funktio `suurin_alkio(juuri: Alkio)`, joka saa parametrikseen binääripuun juurialkion.
 
@@ -175,9 +175,9 @@ def etsi_alkio(juuri: Alkio, arvo):
 
 ## Paluu aikaan ennen rekursiota
 
-Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyädyntäen. Tässä tehtäväsarjassa ei rekursiota tarvitse eikä edes kannata käyttää. Listakoosteita sensijaan pääsee hyödyntämään!
+Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tässä tehtäväsarjassa ei rekursiota tarvitse eikä edes kannata käyttää. Listakoosteita sensijaan pääsee hyödyntämään!
 
-<programming-exercise name='Tehtävät ja tilauskirja' tmcname='osa11_'>
+<programming-exercise name='Tilauskirja' tmcname='osa11-18_tilauskirja'>
 
 Teemme tässä tehtävässä kaksi luokkaa, joitka toimivat rakennuspalikoina seuraavassa tehtävässä aiheena olevassa sovelluksessa.
 
@@ -283,7 +283,7 @@ print(lista2)
 
 ## Tilauskirjan viimeistely
 
-Tehdään luokalle `Tilikirja` vielä kolme uutta metodia.
+Tehdään luokalle `Tilauskirja` vielä kolme uutta metodia.
 
 Metodi `merkkaa_valmiiksi(self, id: int)` saa parametriksi tehtävän id:n ja merkkaa kyseisen tehtävän valmiiksi:
 
@@ -308,15 +308,13 @@ for tilaus in tilaukset.kaikki_tilauset():
 
 </sample-output>
 
-Jos parametria vastaavaa tilausta ei löydy tuottaa metodi poikkeuksen `ValueError`. Kertaa tarvittaessa [täältä](/osa-6/3-virheet#poikkeusten-tuottaminen) miten poikkeus tuotetaan.
+Jos parametria vastaavaa tilausta ei löydy, tuottaa metodi poikkeuksen `ValueError`. Kertaa tarvittaessa [täältä](/osa-6/3-virheet#poikkeusten-tuottaminen) miten poikkeus tuotetaan.
 
 Metodit `valmiit_tilauset(self)` ja `ei_valmiit_tilauset(self)` toimivat kuten olettaa saattaa, ne palauttavat nimensä mukaisen osajoukon tilauskirjan tehtävistä listana.
 
 ## Tilauskirjan loppusilaus
 
-Tehdään luokalle `Tilikirja` vielä kaksi metodia.
-
-Metodi `koodarin_status(self, koodari: str)` palauttaa _tuplen_, joka kertoo koodarin valmistuneiden ja vielä valmistumattomien töiden määrän sekä näihin  kuluneiden työtuntien summan.
+Tehdään luokalle `Tilauskirja` vielä metodi `koodarin_status(self, koodari: str)`, joka palauttaa _tuplen_, joka kertoo koodarin valmistuneiden ja vielä valmistumattomien töiden määrän sekä näihin kuluneiden työtuntien summan.
 
 ```python
 tilaukset = Tilauskirja()
@@ -340,30 +338,12 @@ print(status)
 
 Tuplen ensimmäinen alkio siis kertoo valmiiden töiden määrän ja toinen valmistumattomien töiden määrän. Kolmas alkio on valmiiden töiden työaika-arvioiden summa ja neljäs alkio vielä valmistumattomien töiden työmäärä-arvioiden summan.
 
-Metodi `status(self: str)` toimii kuten edellinen, mutta se palauttaa _tuplen_, joka kertoo kaikkien tilauskirjalla olevien töiden tilanteen:
+Jos parametria vastaavaa koodaria ei löydy, tuottaa metodi poikkeuksen `ValueError`.
 
-```python
-tilaukset = Tilauskirja()
-tilaukset.lisaa_tilaus("koodaa webbikauppa", "Antti", 10)
-tilaukset.lisaa_tilaus("tee mobiilisovellus työaikakirjanpitoon", "Antti", 25)
-tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
-
-tilaukset.merkkaa_valmiiksi(1)
-tilaukset.merkkaa_valmiiksi(2)
-
-status = tilaukset.status()
-print(status)
-```
-
-<sample-output>
-
-(2, 2, 35, 1000)
-
-</sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Tehtavia' tmcname='osa11_'>
+<programming-exercise name='Tilauskirjasovellus' tmcname='osa11-19_tilauskirjasovellus'>
 
 Tässä tehtävässä tehdään interaktiivinen sovellus softafirmalta tilattujen tehtävien hallintaan. Tyyli on täysin vapaa, mutta voit hyödyntää sovelluksessa edellisen tehtävän aikana koodattuja rakennuspalikoita. Myös [edellisen osan viimeisen luvun](/osa-10/4-lisaa-esimerkkeja) materiaalin kertaaminen saattaa olla hyödyksi.
 
@@ -412,11 +392,11 @@ komento: **3**
 4: koodaa uusi twitter (55 tuntia), koodari joona EI VALMIS
 
 komento: **4**
-id: **2**
+tunniste: **2**
 merkitty valmiiksi
 
 komento: **4**
-id: **4**
+tunniste: **4**
 merkitty valmiiksi
 
 komento: **2**
@@ -451,8 +431,17 @@ kuvaus: **tee sovellus ajanhallintaan**
 koodari ja työmääräarvio: **erkki xxx**
 virheellinen syöte
 
+komento: **1**
+kuvaus: **tee sovellus ajanhallintaan**
+koodari ja työmääräarvio: **erkki**
+virheellinen syöte
+
 komento: **4**
-id: **XXXX**
+tunniste: **1000000**
+virheellinen syöte
+
+komento: **4**
+tunniste: **XXXX**
 virheellinen syöte
 
 komento: **6**
@@ -460,6 +449,5 @@ koodari: **tuntematonkoodari**
 virheellinen syöte
 
 </sample-output>
-
 
 </programming-exercise>
