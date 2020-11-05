@@ -36,7 +36,7 @@ pekan_tili = {"tilinumero": "12345-678", "omistaja": "Pekka Python", "saldo": 15
 
 Sanakirjaa käyttäen rakenteen toteutus on huomattavasti suoraviivaisempi ja koodi on lyhyempi. Luokan hyötynä tässä tapauksessa on, että se määrittelee rakenteen "tiukemmin", jolloin kaikki luokasta muodostetut oliot ovat rakenteeltaan samanlaisia. Luokka on lisäksi nimetty: oliota muodostaessa viitataan `Pankkitili`-luokkaan ja olion tyyppi on `Pankkitili` eikä sanakirja.
 
-Luokilla on lisäksi etuna, että niihin voidaan lisätä attribuuttien lisäksi myös toiminnallisuutta. Yksi olio-ohjelmoinnissa periaatteista onkin, että olioon on yhdistetty sekä tallennettavat tiedot että operaatiot, joilla tietoa voidaan käsitellä.
+Luokilla on lisäksi etuna, että niihin voidaan lisätä attribuuttien lisäksi myös toiminnallisuutta. Yksi olio-ohjelmoinnin periaatteista onkin, että olioon on yhdistetty sekä tallennettavat tiedot että operaatiot, joilla tietoa voidaan käsitellä.
 
 ## Metodit luokissa
 
@@ -212,7 +212,7 @@ arvo: 8
 
 ### Laskurin vähentäminen
 
-Täydennä luokan runkoon metodin `vahenna` toteutus sellaiseksi, että se vähentää kutsuttavan olion oliomuuttujan arvo arvoa yhdellä. Kun olet toteuttanut metodin `vahenna`, äskeisen pääohjelman tulee toimia esimerkkitulosteen mukaan.
+Täydennä luokan runkoon metodin `vahenna` toteutus sellaiseksi, että se vähentää kutsuttavan olion oliomuuttujan arvoa yhdellä. Kun olet toteuttanut metodin `vahenna`, äskeisen pääohjelman tulee toimia esimerkkitulosteen mukaan.
 
 ### Laskurin arvo ei saa olla negatiivinen
 
@@ -474,7 +474,7 @@ Keskiarvo: 4.5
 
 Muuta edellistä ohjelmaa niin, että ohjelma laskee myös parillisten ja parittomien lukujen summaa.
 
-HUOM: Älä edelleenkään muuta luokkaa `Lukutilasto` vaan määrittele ohjelmassa kolme `Lukutilasto`-oliota ja laske ensimmäisen avulla kaikkien lukujen summa ja keskiarvo, toisen avulla parillisten lukujen summa ja kolmannen avulla parittomien lukujen summa.
+HUOM: Älä edelleenkään muuta luokkaa `Lukutilasto`, vaan määrittele ohjelmassa kolme `Lukutilasto`-oliota. Laske ensimmäisen avulla kaikkien lukujen summa ja keskiarvo, toisen avulla parillisten lukujen summa ja kolmannen avulla parittomien lukujen summa.
 
 HUOM2: Älä kirjoita pääohjelmaa `if __name__ == "__main__"`-lohkon sisään, jotta testit toimivat!
 
