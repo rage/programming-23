@@ -241,15 +241,15 @@ jne.
 
 Rekursiivinen algoritmimme siis toimii, koska voimme todistaa jokaisen luvun kohdalla ohjelman toimivuuden aikaisempien lukujen perusteella.
 
-<programming-exercise name='Rekursiivinen summa' tmcname='osa11_'>
+<programming-exercise name='Rekursiivinen summa' tmcname='osa11_14_rekursiivinen_summa'>
 
-Tee rekursiivinen funktio `rekusriivinen_summa(luku: int)` summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
+Tee rekursiivinen funktio `summa(luku: int)` summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
 
 ```python
-def rekursiivinen_summa(luku: int):
+def summa(luku: int):
     # kun luku on 1, ei ole muita summattavia...
-    if luku==1:
-        return 1
+    if luku <= 1:
+        return luku
 
     # täydennä koodi...
 ```
@@ -257,11 +257,11 @@ def rekursiivinen_summa(luku: int):
 Muutama käyttöesimerkki:
 
 ```python
-tulos = rekursiivinen_summa(3)
+tulos = summa(3)
 print(tulos)
 
-print(rekursiivinen_summa(5))
-print(rekursiivinen_summa(10))
+print(summa(5))
+print(summa(10))
 ```
 
 <sample-output>
