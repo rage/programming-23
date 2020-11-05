@@ -429,15 +429,11 @@ if __name__ == "__main__":
 
 </sample-output>
 
-
-def pituudet(sanat: list):
-    return { sana: len(sana) for sana in sanat }
-
-<programming-exercise name='Merkkijonojen pituudet' tmcname='osa11_'>
+<programming-exercise name='Merkkijonojen pituudet' tmcname='osa11_11_merkkijonojen_pituudet'>
 
 Tee funktio `pituudet(merkkijonot: list)`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa _sanakirjan_, jossa avaimina on listan merkkijonot ja arvoina merkkijonojen pituudet.
 
-Funktio tulee toteuttaa sanakirjakoosteen avulla.
+Funktio tulee toteuttaa sanakirjakoosteen avulla. Funktion maksimipituus def-määrittelyrivi mukaanlukien on kaksi riviä.
 
 Funktio toimii seuraavasti
 
