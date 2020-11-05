@@ -338,13 +338,19 @@ alkoholiton olut
 
 </programming-exercise>
 
+<<<<<<< HEAD
 <programming-exercise name='Halvempien hintaero' tmcname='osa11-10_halvempien_hintaero'>
+=======
+<programming-exercise name='Halvempien hintaero' tmcname='osa11_10_halvempien_hintaero'>
+>>>>>>> 3aa857e616ec9173d059ebc84505768fb54c1bf4
 
-Osan 9 tehtävässä teimme luokan [Astunto](/osa-9/1-oliot-ja-viittaukset#programming-exercise-asuntovertailu). Tässä tehtävässä on käytössä hieman laajennettu versio luokasta.
+Osan 9 tehtävässä teimme luokan [Asunto](/osa-9/1-oliot-ja-viittaukset#programming-exercise-asuntovertailu). Tässä tehtävässä on käytössä hieman laajennettu versio luokasta.
 
-Tee funktio nyt `halvemmat(asunnot: list, verrattava)` joka saa parametriksi listan asuntoja sekä yksittäisen vertailtavan asunnon. Funktio palauttaa listan, jolla on asunnoista ne jotka ovat hinnaltaan halvempia kuin vertailtava asunto sekä näiden hintaeron. Palautettavan listan alkiot ovat tupleja, joiden ensimmäinen jäsen on asunto ja toisena sen hintaero vertailtavaan.
+Tee funktio nyt `halvemmat(asunnot: list, verrattava: Asunto)` joka saa parametriksi listan asuntoja sekä yksittäisen vertailtavan asunnon. Funktio palauttaa listan, jolla on asunnoista ne jotka ovat hinnaltaan halvempia kuin vertailtava asunto sekä näiden hintaeron. Palautettavan listan alkiot ovat tupleja, joiden ensimmäinen jäsen on asunto ja toisena sen hintaero vertailtavaan.
 
-Funktio tulee toteuttaa listakoosteen avulla. Luokan Asunto koodia ei saa muuttaa!
+Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus def-määrittelyrivi mukaanluettuna on 2 riviä.
+
+Luokan Asunto koodia ei saa muuttaa!
 
 Funktio toimii seuraavasti
 
@@ -358,18 +364,18 @@ a6 = Asunto(25, 1200, 2500, "Haikon kartano")
 
 asunnot = [a1, a2, a3, a4, a5, a6]
 
-print(f"asuntoa {a1.kuvaus} halvemmat vaihtoehdot:")
-for alkio in halvemmat(asunnot, a1):
+print(f"asuntoa {a3.kuvaus} halvemmat vaihtoehdot:")
+for alkio in halvemmat(asunnot, a3):
     print(f"{alkio[0].kuvaus:30} hintaero {alkio[1]} euroa")
 ```
 
 <sample-output>
 
-asuntoa Eira yksiö halvemmat vaihtoehdot:
-Kallio kaksio                  hintaero 1300 euroa
-Jakomäki kolmio                hintaero 3000 euroa
-Suomussalmi omakotitalo        hintaero 5000 euroa
-Kerava 4h ja keittiö           hintaero 3800 euroa
+asuntoa Jakomäki kolmio halvemmat vaihtoehdot:
+Eira yksiö                     hintaero 107000 euroa
+Kallio kaksio                  hintaero 35400 euroa
+Suomussalmi omakotitalo        hintaero 87500 euroa
+Kerava 4h ja keittiö           hintaero 16500 euroa
 
 </sample-output>
 
@@ -427,15 +433,11 @@ if __name__ == "__main__":
 
 </sample-output>
 
-
-def pituudet(sanat: list):
-    return { sana: len(sana) for sana in sanat }
-
 <programming-exercise name='Merkkijonojen pituudet' tmcname='osa11-11_merkkijonojen_pituudet'>
 
 Tee funktio `pituudet(merkkijonot: list)`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa _sanakirjan_, jossa avaimina on listan merkkijonot ja arvoina merkkijonojen pituudet.
 
-Funktio tulee toteuttaa sanakirjakoosteen avulla.
+Funktio tulee toteuttaa sanakirjakoosteen avulla. Funktion maksimipituus def-määrittelyrivi mukaanlukien on kaksi riviä.
 
 Funktio toimii seuraavasti
 
@@ -455,9 +457,9 @@ print(sanojen_pituudet)
 
 </programming-exercise>
 
-<programming-exercise name='Yleisimmat sanat' tmcname='osa11-12_yleisimmat_sanat'>
+<programming-exercise name='Yleisimmat sanat' tmcname='osa11_12_yleisimmat_sanat'>
 
-Tee funktio `yleisimmat_sanat(tiedoston_nimi: str, raja: int)`, joka saa parametrikseen tiedoston nimen. Funktio palauttaa sanakirjan, mikä kertoo tiedostossa olevien sanojen esiintymislukumäärän niiden sanojen osalta, joilla on vähintään toisen parametrin `raja` verran esiintymiä. Sanan kirjainten koolla ei ole merkitystä.
+Tee funktio `yleisimmat_sanat(tiedoston_nimi: str, raja: int)`, joka saa parametrikseen tiedoston nimen. Funktio palauttaa sanakirjan, joka sisältää tiedostossa olevien sanojen esiintymislukumäärän niiden sanojen osalta, joilla on vähintään toisen parametrin `raja` verran esiintymiä. Sanan kirjainten koolla ei ole merkitystä.
 
 Esim. jos funktiolla tarkasteltaisiin tiedostoa _comprehensions.txt_ jonka sisältö on seuraava
 
@@ -472,11 +474,13 @@ Kutsuttaessa `yleisimmat_sanat("comprehensions.txt", 3)` funktion palauttama san
 
 <sample-output>
 
-{ 'list': 4, 'comprehension': 4, 'is': 3, 'and': 3, 'for', 3: 'in': 3}
+{'comprehension': 4, 'is': 3, 'and': 3, 'for': 3, 'list': 4, 'in': 3}
 
 </sample-output>
 
 Huomaa, että avaimena sanakirjassa on sanojen pienellä kirjoitetut muodot.
+
+Huomaa myös, että vain kokonaiset sanat lasketaan - sana 'lists' ei siis saa kasvattaa sanan 'list' lukumäärää, vaikka osajono 'list' löytyykin jonosta 'lists'.
 
 Funktion toteutustapa on vapaa, helpoimmalla pääset hyödyntämällä lista- ja sanakirjakoosteita.
 

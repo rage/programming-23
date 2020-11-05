@@ -100,7 +100,11 @@ Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteraiivise
 
 </text-box>
 
+<<<<<<< HEAD
 <programming-exercise name='Suurempia lukuja' tmcname='osa11-13_listaan_lukuja'>
+=======
+<programming-exercise name='Listaan lukuja' tmcname='osa11_13_listaan_lukuja'>
+>>>>>>> 3aa857e616ec9173d059ebc84505768fb54c1bf4
 
 Kirjoita _rekursiivinen funktio_ listaan_lukuja(luvut: list), joka lisää listaan lukuja niin kauan, että sen pituus on viidellä jaollinen.
 
@@ -241,15 +245,19 @@ jne.
 
 Rekursiivinen algoritmimme siis toimii, koska voimme todistaa jokaisen luvun kohdalla ohjelman toimivuuden aikaisempien lukujen perusteella.
 
+<<<<<<< HEAD
 <programming-exercise name='Rekursiivinen summa' tmcname='osa11-14_rekursiivinen_summa'>
+=======
+<programming-exercise name='Rekursiivinen summa' tmcname='osa11_14_rekursiivinen_summa'>
+>>>>>>> 3aa857e616ec9173d059ebc84505768fb54c1bf4
 
-Tee rekursiivinen funktio `rekusriivinen_summa(luku: int)`, summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
+Tee rekursiivinen funktio `summa(luku: int)` summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
 
 ```python
-def rekursiivinen_summa(luku: int):
+def summa(luku: int):
     # kun luku on 1, ei ole muita summattavia...
-    if luku==1:
-        return 1
+    if luku <= 1:
+        return luku
 
     # täydennä koodi...
 ```
@@ -257,11 +265,11 @@ def rekursiivinen_summa(luku: int):
 Muutama käyttöesimerkki:
 
 ```python
-tulos = rekursiivinen_summa(3)
+tulos = summa(3)
 print(tulos)
 
-print(rekursiivinen_summa(5))
-print(rekursiivinen_summa(10))
+print(summa(5))
+print(summa(10))
 ```
 
 <sample-output>
@@ -274,7 +282,7 @@ print(rekursiivinen_summa(10))
 
 </programming-exercise>
 
-<programming-exercise name='Sulut tasapainossa' tmcname='osa11-15_sulut_tasapainossa'>
+<programming-exercise name='Sulut tasapainossa' tmcname='osa11_15_sulut_tasapainossa'>
 
 Tehtäväpohjassa on valmiina funktio `sulut_tasapainossa`, joka tarkastaa onko sen parametrina olevassa merkkijonossa sulut tasapainossa, eli onko jokaista "aukeavaa" sulkumerkkiä ( kohti on oma "sulkeutuva" sulkumerkki ), ja että sulut eivät mene ristiin.
 
@@ -324,7 +332,7 @@ print(ok)
 ok = sulut_tasapainossa("(python versio [3.7]) käytä tätä!")
 print(ok)
 
-# ei kelpaa sillä alussa virheellinen loppusulku
+# ei kelpaa sillä virheellinen loppusulku
 ok = sulut_tasapainossa("(()]")
 print(ok)
 
@@ -333,6 +341,8 @@ print(ok)
 ok = sulut_tasapainossa("([huono)]")
 print(ok)
 ```
+
+Huomaa, että funktion ei tarvitse osata kuin yksi sisäkkäinen sulutus - sen ei siis tarvitse ymmärtää esimerkiksi jonoa "(x + 1)(y + 1)" tai jonoa "[eka](toka)".
 
 <sample-output>
 
@@ -433,11 +443,3 @@ False
 Puolitushakualgoritmi on helppo toteuttaa Pythonissa, koska listojen pilkkominen [:] -operaattorin avulla on vaivatonta.
 
 Jos verrataan puolitushakua _peräkkäishakuun_, algoritmien tehokkuus erottuu selvästi. Perättäishaussa alkiota lähdetään etsimään listan alusta, ja listaa käydään läpi yksi alkio kerrallaan kunnes alkio on löytynyt tai on päästy listan loppuun. Jos listan pituus on miljoona alkiota, tarvitaan perättäishaussa koko listan läpikäyntiin miljoona askelta - puolitushaussa askelia tarvitaan 20.
-
-
-
-
-
-
-
-
