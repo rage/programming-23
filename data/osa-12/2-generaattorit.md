@@ -148,7 +148,6 @@ for i in range(5):
 Toinen esimerkki, jossa generaattori tuottaa kolmimerkkisiä alijonoja englanninkielisistä aakkosista. Esimerkissä tulostetaan generaattorin 10 ensimmäistä alkiota:
 
 ```python
-# Generaattori palauttaa 2 potensseja
 alijonot = ("abcdefghijklmnopqrstuvwxyz"[i : i + 3] for i in range(24))
 
 # tulostetaan ensimmäiset 10 alijonoa
