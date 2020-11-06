@@ -548,6 +548,8 @@ Friends
 
 </sample-output>
 
+Huomaa, että yllä oleva koodi ja testit olettavat, että luokassa on attribuutti `nimi`. Jos olet käyttänyt muuta nimeä, sinun kannattaa vaihtaa se nyt.
+
 </programming-exercise>
 
 Vastaa lopuksi osion loppukyselyyn:
