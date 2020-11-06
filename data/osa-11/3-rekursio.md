@@ -100,7 +100,11 @@ Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteraiivise
 
 </text-box>
 
+<<<<<<< HEAD
+<programming-exercise name='Suurempia lukuja' tmcname='osa11-13_listaan_lukuja'>
+=======
 <programming-exercise name='Listaan lukuja' tmcname='osa11_13_listaan_lukuja'>
+>>>>>>> 3aa857e616ec9173d059ebc84505768fb54c1bf4
 
 Kirjoita _rekursiivinen funktio_ listaan_lukuja(luvut: list), joka lisää listaan lukuja niin kauan, että sen pituus on viidellä jaollinen.
 
@@ -241,7 +245,11 @@ jne.
 
 Rekursiivinen algoritmimme siis toimii, koska voimme todistaa jokaisen luvun kohdalla ohjelman toimivuuden aikaisempien lukujen perusteella.
 
+<<<<<<< HEAD
+<programming-exercise name='Rekursiivinen summa' tmcname='osa11-14_rekursiivinen_summa'>
+=======
 <programming-exercise name='Rekursiivinen summa' tmcname='osa11_14_rekursiivinen_summa'>
+>>>>>>> 3aa857e616ec9173d059ebc84505768fb54c1bf4
 
 Tee rekursiivinen funktio `summa(luku: int)` summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
 
@@ -435,11 +443,3 @@ False
 Puolitushakualgoritmi on helppo toteuttaa Pythonissa, koska listojen pilkkominen [:] -operaattorin avulla on vaivatonta.
 
 Jos verrataan puolitushakua _peräkkäishakuun_, algoritmien tehokkuus erottuu selvästi. Perättäishaussa alkiota lähdetään etsimään listan alusta, ja listaa käydään läpi yksi alkio kerrallaan kunnes alkio on löytynyt tai on päästy listan loppuun. Jos listan pituus on miljoona alkiota, tarvitaan perättäishaussa koko listan läpikäyntiin miljoona askelta - puolitushaussa askelia tarvitaan 20.
-
-
-
-
-
-
-
-

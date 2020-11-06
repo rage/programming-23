@@ -134,7 +134,7 @@ print(lause_ilman_alkuja)
 
 ```
 
-<programming-exercise name='Suodata kielletyt' tmcname='osa11_08_suodata_kielletyt'>
+<programming-exercise name='Suodata kielletyt' tmcname='osa11-08_suodata_kielletyt'>
 
 Tee funktio `suodata_kielletyt(merkkijono: str, kielletyt: str)` joka palauttaa sen parametrina olevasta merkkijonosta version, joka ei sisällä yhtään merkkiä sen toisena parametrina olevasta "kiellettyjen merkkien" merkkijonosta.
 
@@ -306,7 +306,7 @@ if __name__ == "__main__":
 
 ```
 
-<programming-exercise name='Kauppalistan tuotteet' tmcname='osa11_09_kauppalistan_tuotteet'>
+<programming-exercise name='Kauppalistan tuotteet' tmcname='osa11-09_kauppalistan_tuotteet'>
 
 Osan 10 tehtävässä teimme [Kauppalista-luokasta iteroitavan](/osa-10/3-olio-ohjelmoinnin-tekniikoita#programming-exercise-iteroitava-kauppalista). Iteroitavan luokan oliota voidaan käyttää listakoosteiden yhteydessä. Tehtäväpohjassa on mukana luokasta typistetty versio, jonka toiminnallisuus riittää tähän tehtävään.
 
@@ -338,7 +338,11 @@ alkoholiton olut
 
 </programming-exercise>
 
+<<<<<<< HEAD
+<programming-exercise name='Halvempien hintaero' tmcname='osa11-10_halvempien_hintaero'>
+=======
 <programming-exercise name='Halvempien hintaero' tmcname='osa11_10_halvempien_hintaero'>
+>>>>>>> 3aa857e616ec9173d059ebc84505768fb54c1bf4
 
 Osan 9 tehtävässä teimme luokan [Asunto](/osa-9/1-oliot-ja-viittaukset#programming-exercise-asuntovertailu). Tässä tehtävässä on käytössä hieman laajennettu versio luokasta.
 
@@ -429,7 +433,7 @@ if __name__ == "__main__":
 
 </sample-output>
 
-<programming-exercise name='Merkkijonojen pituudet' tmcname='osa11_11_merkkijonojen_pituudet'>
+<programming-exercise name='Merkkijonojen pituudet' tmcname='osa11-11_merkkijonojen_pituudet'>
 
 Tee funktio `pituudet(merkkijonot: list)`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa _sanakirjan_, jossa avaimina on listan merkkijonot ja arvoina merkkijonojen pituudet.
 
