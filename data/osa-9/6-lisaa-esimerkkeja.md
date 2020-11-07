@@ -278,6 +278,8 @@ print(opiskelija2.tehdyt_kurssit)
 
 ## Lisätehtävä
 
+Vaikka seuraava tehtävä on tässä luvussa, et tarvitse tehtävän ratkaisemiseen mitään muuta kun luvussa [Oliot attribuuttina](/osa-9/2-oliot-attribuuttina) esiteltyjä tekniikoita. Tehtävä on käytännössä hyvin samanlainen kuin tuon luvun  tehtävät [lahjapakkaus](/osa-9/2-oliot-attribuuttina#programming-exercise-lahjapakkaus) ja [huoneen lyhin](/osa-9/2-oliot-attribuuttina#programming-exercise-huoneen-lyhin).
+
 <programming-exercise name='Tavara, Matkalaukku ja Lastiruuma' tmcname='osa09-15_tavara_matkalaukku_lastiruuma'>
 
 Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruuma`, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita.
