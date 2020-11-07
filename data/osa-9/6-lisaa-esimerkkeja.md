@@ -366,7 +366,7 @@ Ohjelman tulostuksen tulisi olla seuraava:
 
 ## Kielenhuoltoa
 
-Ilmoitukset "0 tavaraa" ja "1 tavaraa" eivät ole kovin hyvää suomea — paremmat muodot olisivat "ei tavaroita" ja "1 tavara". Tee tämä muutos luokassa sijaitsevaan `__str__`-metodiin.
+Ilmoitus "1 tavaraa" ei ole kovin hyvää suomea, vaan olisi parempi sanoa "1 tavara". Tee tämä muutos luokassa sijaitsevaan `__str__`-metodiin.
 
 Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
 
