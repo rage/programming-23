@@ -304,8 +304,8 @@ Katsotaan vielä esimerkki luokasta, jolla on kaksi suojattua attribuuttia ja mo
 ```python
 class Pelaaja:
     def __init__(self, nimi: str, pelinumero: int):
-        self.__nimi = nimi
-        self.__pelinumero = pelinumero
+        self.nimi = nimi
+        self.pelinumero = pelinumero
 
     @property
     def nimi(self):
