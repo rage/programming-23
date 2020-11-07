@@ -310,7 +310,7 @@ for tilaus in tilaukset.kaikki_tilaukset():
 
 Jos parametria vastaavaa tilausta ei löydy, tuottaa metodi poikkeuksen `ValueError`. Kertaa tarvittaessa [täältä](/osa-6/3-virheet#poikkeusten-tuottaminen) miten poikkeus tuotetaan.
 
-Metodit `valmiit_tilauset(self)` ja `ei_valmiit_tilauset(self)` toimivat kuten olettaa saattaa, ne palauttavat nimensä mukaisen osajoukon tilauskirjan tehtävistä listana.
+Metodit `valmiit_tilaukset(self)` ja `ei_valmiit_tilaukset(self)` toimivat kuten olettaa saattaa, ne palauttavat nimensä mukaisen osajoukon tilauskirjan tehtävistä listana.
 
 ## Tilauskirjan loppusilaus
 
