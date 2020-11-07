@@ -197,7 +197,7 @@ Auto: ajettu 60 km, bensaa 60 litraa
 
 ## Asetus- ja havainnointimetodit
 
-Python tarjoaa myös suoraviivaisemman syntaksin attribuuttien havainnoimmiselle ja asettamiselle. Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa attribuutti `rahaa` on suojattu asiakkailta:
+Python tarjoaa myös suoraviivaisemman syntaksin attribuuttien havainnoimiselle ja asettamiselle. Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa attribuutti `rahaa` on suojattu asiakkailta:
 
 ```python
 class Lompakko:
