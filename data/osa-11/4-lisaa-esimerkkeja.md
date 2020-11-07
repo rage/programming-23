@@ -185,7 +185,7 @@ Teemme tässä tehtävässä kaksi luokkaa, joitka toimivat rakennuspalikoina se
 
 Toteuta luokka `Tehtava` joka mallintaa ohjelmistoyritykselle annettavia työtehtäviä. Tehtävillä on
 - kuvaus
-- sekä arvio sen viemästä työmäärästä
+- arvio sen viemästä työmäärästä
 - tieto koodarista joka toteuttaa tehtävän
 - tieto siitä onko tehtävä valmis vai ei
 - yksikäsitteinen tunniste eli id
@@ -232,7 +232,7 @@ Täsmennyksiä:
 Tehdään nyt luokka `Tilauskirja`, joka kokoaa kaikki ohjelmistoyritykseltä tilatut työtehtävät, joita siis mallinnetaan luokan `Tehtava` olioilla.
 
 
-Tilauskirjan perusversiota käytetän seuraavasti:
+Tilauskirjan perusversiota käytetään seuraavasti:
 
 ```python
 tilaukset = Tilauskirja()
@@ -240,7 +240,7 @@ tilaukset.lisaa_tilaus("koodaa webbikauppa", "Antti", 10)
 tilaukset.lisaa_tilaus("tee mobiilisovellus työaikakirjanpitoon", "Erkki", 25)
 tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
 
-for tilaus in tilaukset.kaikki_tilauset():
+for tilaus in tilaukset.kaikki_tilaukset():
     print(tilaus)
 
 print()
@@ -261,9 +261,9 @@ Erkki
 </sample-output>
 
 Tässä vaiheessa `Tilauskirja` tarjoaa kolme metodia:
-- `lisaa_tilaus(self, kuvaus, koodari, tyomaara)` lisää uuden tilauksem tilauskirjaan. Tilauskirja tallettaa tilaukset sisäisesti `Tehtava`-olioina. Huomaa, että metodilla täytyy olla juuri nämä parametrit, muuten testit eivät hyväksy metodia!
-- `kaikki_tilauset(self)` palauttaa listana kaikki tilauskirjalla olevat tehtävät
-- `koodari(self)` palauttaa listana kaikki koodarit, joille on tehtävä tilauskirjassa, metodi palauttama lista ei saa sisältää yhtä koodia useampaan kertaan
+- `lisaa_tilaus(self, kuvaus, koodari, tyomaara)` lisää uuden tilauksen tilauskirjaan. Tilauskirja tallettaa tilaukset sisäisesti `Tehtava`-olioina. Huomaa, että metodilla täytyy olla juuri nämä parametrit, muuten testit eivät hyväksy metodia!
+- `kaikki_tilaukset(self)` palauttaa listana kaikki tilauskirjalla olevat tehtävät
+- `koodari(self)` palauttaa listana kaikki koodarit, joille on tehtävä tilauskirjassa, metodin palauttama lista ei saa sisältää yhtä koodia useampaan kertaan
 
 **Vihje** Listalta on helppo poistaa duplikaatit siten että muutetaan ensin lista [set](https://docs.python.org/3.8/library/stdtypes.html#set)-tyyppiseksi. Set siis tarkoittaa joukkoa, ja joukossa kutakin alkiota voi olla vain yksi kappale. Tämän jälkeen `set` voidaan muuttaa takaisin listaksi, ja duplikaatit ovat kadonneet:
 
@@ -296,7 +296,7 @@ tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
 tilaukset.merkkaa_valmiiksi(1)
 tilaukset.merkkaa_valmiiksi(2)
 
-for tilaus in tilaukset.kaikki_tilauset():
+for tilaus in tilaukset.kaikki_tilaukset():
     print(tilaus)
 ```
 
@@ -336,7 +336,7 @@ print(status)
 
 </sample-output>
 
-Tuplen ensimmäinen alkio siis kertoo valmiiden töiden määrän ja toinen valmistumattomien töiden määrän. Kolmas alkio on valmiiden töiden työaika-arvioiden summa ja neljäs alkio vielä valmistumattomien töiden työmäärä-arvioiden summan.
+Tuplen ensimmäinen alkio siis kertoo valmiiden töiden määrän ja toinen valmistumattomien töiden määrän. Kolmas alkio on valmiiden töiden työaika-arvioiden summa ja neljäs alkio vielä valmistumattomien töiden työmääräarvioiden summan.
 
 Jos parametria vastaavaa koodaria ei löydy, tuottaa metodi poikkeuksen `ValueError`.
 
@@ -420,7 +420,7 @@ työt: valmiina 2 ei valmiina 1, tunteja: tehty 55 tekemättä 1000
 
 Ensimmäiseen tehtäväpisteeseen riittää, että sovellus toimii jos kaikki syötteet ovat virheettömiä.
 
-## Ei virheiden käsittelyä
+## Virheiden käsittely
 
 Toiseen tehtäväpisteeseen edellytetään, että sovellus toipuu käyttäjän syötteessä olevista virheistä. Virheiden käsittelyn tulee toimia siten, että missä tahansa syötteessa annettu virheellinen syöte aiheuttaa virheilmoituksen _virheellinen syöte_, ja johtaa siihen, että komentoa pyydetään uudelleen:
 
