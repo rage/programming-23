@@ -396,7 +396,7 @@ appelsiini
 
 Koosteessa voi käyttää ehtolauseen ohella myös vaihtoehtoista haaraa. Syntaksi saattaa olla alkuun hankala, koska komponenttien järjestys poikkeaa aikaisemmista tavoista. Mikäli mukana on `else`-haara, annetaan koko ehtolause ennen `for`-osuutta. Yleinen muoto olisi siis
 
-`[<lauseke 1> if <ehto> else <lauseke 2> for <sarja>]`
+`[<lauseke 1> if <ehto> else <lauseke 2> for <alkio> in <sarja>]`
 
 Lopputuloksena syntyvässä listassa on yksi alkio jokaista alkuperäisen sarjan alkiota kohti. Jokaiselle alkiolle suoritetaan joko lauseke 1 tai lauseke 2 riippuen siitä onko ehtolauseke tosi vai ei.
 
