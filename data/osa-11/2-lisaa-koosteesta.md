@@ -338,11 +338,7 @@ alkoholiton olut
 
 </programming-exercise>
 
-<<<<<<< HEAD
 <programming-exercise name='Halvempien hintaero' tmcname='osa11-10_halvempien_hintaero'>
-=======
-<programming-exercise name='Halvempien hintaero' tmcname='osa11_10_halvempien_hintaero'>
->>>>>>> 3aa857e616ec9173d059ebc84505768fb54c1bf4
 
 Osan 9 tehtävässä teimme luokan [Asunto](/osa-9/1-oliot-ja-viittaukset#programming-exercise-asuntovertailu). Tässä tehtävässä on käytössä hieman laajennettu versio luokasta.
 
