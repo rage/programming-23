@@ -92,6 +92,39 @@ Tarkastellaan lähemmin riviä `print(suoritus.opiskelija.nimi)`:
 * Niinpä muuttuja `opiskelija` viittaa suoritukseen tallennettuun `Opiskelija`-olioon
 * `Opiskelija`-luokan muuttuja `nimi` sisältää opiskelijan nimen
 
+## Milloin import tarvitaan?
+
+Edellisessä esimerkissä käytetään muutamassa kohdassa `import`:ia:
+
+```python
+from opintosuoritus import Opintosuoritus
+from kurssi import Kurssi
+from opiskelija import Opiskelija
+
+# koodi
+```
+
+Importia tarvitaan vain jos tiedostossa käytetään jossain muualla  määriteltyä koodia. Näin on esimerkiksi kun käytetään jotain Pythonin valmista kalustoa, esim. matemaattisia operaatiota tarjoavaa moduulia `math`:
+
+```python
+import math
+
+x = 10
+print(f"luvun {x} {neliöjuuri math.sqrt(x)}")
+```
+
+Jos kaikki koodi sijoitetaan samaan tiedostoon, kuten kaikissa kurssin tehtäväissä tapahtuu, **et tarvitse** `import`:ia luokkien käytöön.
+
+Jos siis päädyt kirjottamaan kurssilla seuraavanlaista koodia
+
+```python
+from henkilo import Henkilo
+
+# koodi
+```
+
+Ratkaisusi on todennäköisesti väärä! Lisää importin käytöstä [osan 7](/osa-7/1-moduulit/) materiaalissa.
+
 <programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikki'>
 
 Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan `Henkilo` metodia `__str__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun alta löytyvät esimerkkitulosteen mukaisesti.
@@ -111,6 +144,8 @@ Leevi, kaverina Hulda, joka on sekarotuinen koira
 
 </sample-output>
 
+**Huom:** koska kaikki koodi tulee samaan tiedostoon, etä tarvitse tehtävässä `import`:ia ollenkaan!
+
 </programming-exercise>
 
 ## Olion attribuuttina lista olioita
@@ -124,7 +159,7 @@ class Pelaaja:
     def __init__(self, nimi: str, maalit: int):
         self.nimi = nimi
         self.maalit = maalit
-        
+
     def __str__(self):
         return f"{self.nimi} (maaleja {self.maalit})"
 
@@ -230,7 +265,7 @@ class Pelaaja:
     def __init__(self, nimi: str, maalit: int):
         self.nimi = nimi
         self.maalit = maalit
-        
+
     def __str__(self):
         return f"{self.nimi} (maaleja {self.maalit})"
 
