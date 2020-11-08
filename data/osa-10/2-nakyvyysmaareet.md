@@ -148,7 +148,7 @@ class Henkilo:
 class Jalkapalloilija(Henkilo):
 
     def __init__(self, nimi: str, lempinimi: str, pelipaikka: str):
-        Henkilo.__init__(self, nimi)
+        super().__init__(nimi)
         # metodia voi kutsua, koska se on suojattu yliluokassa
         self.__lempinimi = self._isot_alkukirjaimet(lempinimi)
         self.__pelipaikka = pelipaikka
@@ -204,6 +204,8 @@ Supermiekkonen, superkyvyt: Supernopeus, supervoimakkuus
 Näkymätön Makkonen, superkyvyt: Näkymättömyys
 
 </sample-output>
+
+[Tämän](/osa-9/3-kapselointi#asetus--ja-havainnointimetodit) luvun kertaaminen voi olla hyödyksi.
 
 </programming-exercise>
 
