@@ -248,7 +248,7 @@ Muuta toiminnallisuutta ei tarvitse toteuttaa.
 
 Luokkametodi eli staattinen metodi on luokassa oleva metodi, jota ei ole sidottu mihinkään luokasta muodostettuun olioon. Niinpä luokkametodia voi kutsua ilman, että luokasta muodostetaan oliota.
 
-Luokkametodit ovat yleensä työkalumetodeja, jotka liittyvät jotenkin luokkaan mutta joita on tarkoituksenmukaista kutsua ilman olion muodostamista. Luokkametodit ovat yleesä julkisia, jolloin niitä voidaan kutsua sekä luokan ulkopuolelta että luokan ja siitä muodostettujen olioiden sisältä.
+Luokkametodit ovat yleensä työkalumetodeja, jotka liittyvät jotenkin luokkaan mutta joita on tarkoituksenmukaista kutsua ilman olion muodostamista. Luokkametodit ovat yleensä julkisia, jolloin niitä voidaan kutsua sekä luokan ulkopuolelta että luokan ja siitä muodostettujen olioiden sisältä.
 
 Luokkametodi merkitään annotaatiolla `@classmethod` ja sen ensimmäinen parametri on aina `cls`. Tunnistetta `cls` käytetään samaan tapaan kuin tunnistetta `self`, mutta erotuksena on, että `cls` viittaa luokkaan ja `self` viittaa olioon. Kummallekaan parametrille ei anneta kutsuessa arvoa, vaan Python tekee sen automaattisesti.
 
