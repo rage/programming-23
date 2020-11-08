@@ -235,7 +235,7 @@ if __name__ == "__main__":
     opiskelijat["54321"] = Opiskelija("Outi Opiskelija", 67)
 ```
 
-[Visualisaattori](pythontutor.com/visualize.html) osaa havainnollistaa nämäkin asiat hienosti:
+[Visualisaattori](http://www.pythontutor.com/visualize.html#mode=edit) osaa havainnollistaa nämäkin asiat hienosti:
 
 <img src="9_1_2.png">
 
