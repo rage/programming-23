@@ -113,6 +113,11 @@ x = 10
 print(f"luvun {x} {neliöjuuri math.sqrt(x)}")
 ```
 
+Edellisessä tehtävässä oletettiin, että luokat on määritelyt omissa tiedostoissa. Esimerkki toteaa mm.
+ _Esitellään aluksi luokka Kurssi, joka on määritelty tiedostossa kurssi.py_
+
+Ja importin tarve siis johtuu tästä.
+
 Jos kaikki koodi sijoitetaan samaan tiedostoon, kuten kaikissa kurssin tehtäväissä tapahtuu, **et tarvitse** `import`:ia luokkien käytöön.
 
 Jos siis päädyt kirjottamaan kurssilla seuraavanlaista koodia
