@@ -273,7 +273,9 @@ class Henkilo:
 
     def __str__(self):
         return f"{self.nimi} ({self.ika} vuotta)"
-        
+```
+
+```
 henkilo = Henkilo("Anna", 25)
 print(henkilo)
 print(repr(henkilo))
@@ -283,6 +285,22 @@ print(repr(henkilo))
 
 Anna (25 vuotta)
 Henkilo('Anna', 25)
+
+</sample-output>
+
+Kun tietorakenteessa (kuten listassa) on olioita, Python käyttää vähän epäloogisesti metodia `__repr__` olioiden merkkijonoesityksen muodostamiseen, kun lista tulostetaan:
+
+```
+henkilot = []
+henkilot.append(Henkilo("Anna", 25))
+henkilot.append(Henkilo("Pekka", 99))
+henkilot.append(Henkilo("Maija", 55))
+print(henkilot)
+```
+
+<sample-output>
+
+[Henkilo('Anna', 25), Henkilo('Pekka', 99), Henkilo('Maija', 55)]
 
 </sample-output>
 
