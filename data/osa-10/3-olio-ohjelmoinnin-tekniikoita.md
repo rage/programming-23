@@ -86,43 +86,18 @@ Esimerkin vertailun toteutus vaikuttaa kuitenkin melko kömpelöltä - paljon pa
 
 ## Operaattorien ylikuormitus
 
-Pythonin lasku- ja vertailuoperaattorien käyttö omien olioiden kanssa on onneksi mahdollista. Tähän käytetään tekniikkaa, jonka nimi on _operaattorien ylikuormitus_. Kankeankuuloisesta termistä huolimatta operaatio itse on melko suoraviivainen: jos halutaan, että tietty operaattori toimii myös omasta luokasta muodostettujen olioiden kanssa, luokkaan kirjoitetaan vastaava metodi joka palauttaa oikean lopputuloksen. Periaate on vastaava kuin metodin `__repr__` kanssa: Python osaa käyttää tietyllä tapaa nimettyjä metodeja tietyissä operaatioissa.
+Pythonin lasku- ja vertailuoperaattorien käyttö omien olioiden kanssa on onneksi mahdollista. Tähän käytetään tekniikkaa, jonka nimi on _operaattorien ylikuormitus_. Kun halutaan, että tietty operaattori toimii myös omasta luokasta muodostettujen olioiden kanssa, luokkaan kirjoitetaan vastaava metodi joka palauttaa oikean lopputuloksen. Periaate on vastaava kuin metodin `__str__` kanssa: Python osaa käyttää tietyllä tapaa nimettyjä metodeja tietyissä operaatioissa.
 
 Tarkastellaan ensin esimerkkiä, jossa `Tuote`-luokkaan on toteutettu metodi `__gt__` (lyhenne sanoista *g*reater *t*han) joka toteuttaa suurempi kuin -operaattorin. Tarkemmin sanottuna metodi palauttaa arvon `True`, jos nykyinen olio on suurempi kuin parametrina annettu olio.
 
 ```python
-
 class Tuote:
     def __init__(self, nimi: str, hinta: float):
         self.__nimi = nimi
         self.__hinta = hinta
 
-    def __repr__(self):
-        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
-
-    @property
-    def hinta(self):
-        return self.__hinta
-
-    def __gt__(self, toinen_tuote):
-        if self.hinta > toinen_tuote.hinta:
-            return True
-        else:
-            return False
-
-```
-
-Metodi `__gt__` palauttaa siis arvon `True`, jos nykyisen tuotteen hinta on suurempi kuin parametrina annetun tuotteen. Metodi voidaan itse asiassa kirjoittaa lyhyemminkin:
-
-```python
-
-class Tuote:
-    def __init__(self, nimi: str, hinta: float):
-        self.__nimi = nimi
-        self.__hinta = hinta
-
-    def __repr__(self):
-        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
+    def __str__(self):
+        return f"{self.__nimi} (hinta {self.__hinta})"
 
     @property
     def hinta(self):
@@ -130,22 +105,20 @@ class Tuote:
 
     def __gt__(self, toinen_tuote):
         return self.hinta > toinen_tuote.hinta
-
 ```
+
+Metodi `__gt__` palauttaa arvon `True`, jos nykyisen tuotteen hinta on suurempi kuin parametrina annetun tuotteen, ja muuten arvon `False`.
 
 Nyt luokan olioita voidaan vertailla käyttäen `>`-operaattoria samalla tavalla kuin vaikkapa kokonaislukuja:
 
 ```python
+appelsiini = Tuote("Appelsiini", 4.90)
+omena = Tuote("Omena", 3.95)
 
-if __name__ == "__main__":
-    appelsiini = Tuote("Appelsiini", 4.90)
-    omena = Tuote("Omena", 3.95)
-
-    if (appelsiini > omena):
-        print("Appelsiini on suurempi")
-    else:
-        print("Omena on suurempi")
-
+if appelsiini > omena:
+    print("Appelsiini on suurempi")
+else:
+    print("Omena on suurempi")
 ```
 
 <sample-output>
@@ -154,18 +127,16 @@ Appelsiini on suurempi
 
 </sample-output>
 
-Olioiden suuruusluokan vertailua toteuttaessa täytyy päättää millä perusteella suuruusjärjestys määritetään. Voisimme myös haluta, että tuotteet järjestetään hinnan sijasta nimen mukaiseen aakkosjärjestykseen. Tällöin omena olisikin appelsiinia "suurempi":
+Olioiden suuruusluokan vertailua toteuttaessa täytyy päättää, millä perusteella suuruusjärjestys määritetään. Voisimme myös haluta, että tuotteet järjestetään hinnan sijasta nimen mukaiseen aakkosjärjestykseen. Tällöin omena olisikin appelsiinia "suurempi":
 
 ```python
-
 class Tuote:
-
     def __init__(self, nimi: str, hinta: float):
         self.__nimi = nimi
         self.__hinta = hinta
 
-    def __repr__(self):
-        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
+    def __str__(self):
+        return f"{self.__nimi} (hinta {self.__hinta})"
 
     @property
     def hinta(self):
@@ -177,18 +148,16 @@ class Tuote:
 
     def __gt__(self, toinen_tuote):
         return self.nimi > toinen_tuote.nimi
+```
 
+```python
+appelsiini = Tuote("Appelsiini", 4.90)
+omena = Tuote("Omena", 3.95)
 
-# Testataan
-if __name__ == "__main__":
-    appelsiini = Tuote("Appelsiini", 4.90)
-    omena = Tuote("Omena", 3.95)
-
-    if (appelsiini > omena):
-        print("Appelsiini on suurempi")
-    else:
-        print("Omena on suurempi")
-
+if appelsiini > omena:
+    print("Appelsiini on suurempi")
+else:
+    print("Omena on suurempi")
 ```
 
 <sample-output>
@@ -197,9 +166,9 @@ Omena on suurempi
 
 </sample-output>
 
-## Muut operaattorit
+## Lisää operaattoreita
 
-Eräitä tyypillisiä vertailuoperaattoreita ja näiden vastinmetodit on esitetty seuraavassa taulukossa:
+Tavalliset vertailuoperaattorit ja näitä vastaavat metodit on esitetty seuraavassa taulukossa:
 
 Operaattori | Merkitys perinteisesti | Metodin nimi
 :--:|:--:|:--:
@@ -210,7 +179,7 @@ Operaattori | Merkitys perinteisesti | Metodin nimi
 `<=` | Pienempi tai yhtäsuuri kuin | `__le__(self, toinen)`
 `>=` | Suurempi tai yhtäsuuri kuin | `__ge__(self, toinen)`
 
-Lisäksi luokissa voidaan uudelleentoteuttaa tiettyjä muita operaattoreita, esimerkiksi
+Lisäksi luokissa voidaan toteuttaa tiettyjä muita operaattoreita, esimerkiksi:
 
 Operaattori | Merkitys perinteisesti | Metodin nimi
 :--:|:--:|:--:
@@ -222,12 +191,11 @@ Operaattori | Merkitys perinteisesti | Metodin nimi
 
 Lisää operaattoreita ja metodien nimien vastineita löydät helposti Googlella.
 
-Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa - esimerkiksi jakaminen on loogisesti operaatio, jota on hankala perustella useimmille luokille (mitä tulee, kun jaetaan opiskelija kolmella saati toisella opiskelijalla?) Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
+Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa. Esimerkiksi jakaminen on operaatio, jolle on hankalaa keksiä luontevaa käyttöä useimmissa luokissa (mitä tulee, kun jaetaan opiskelija kolmella saati toisella opiskelijalla?). Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
 
 Tarkastellaan esimerkkinä luokkaa joka mallintaa yhtä muistiinpanoa. Kahden muistiinpanon yhdistäminen `+`-operaattorilla tuottaa uuden, yhdistetyn muistiinpanon, kun on toteutettu metodi `__add__`:
 
 ```python
-
 from datetime import datetime
 
 class Muistiinpano:
@@ -235,30 +203,86 @@ class Muistiinpano:
         self.pvm = pvm
         self.merkinta = merkinta
 
-    def __repr__(self):
-        return f"Muistiinpano - pvm: {self.pvm}, merkintä: {self.merkinta}"
+    def __str__(self):
+        return f"{self.pvm}: {self.merkinta}"
 
     def __add__(self, toinen):
         # Uuden muistiinpanon ajaksi nykyinen aika
         uusi_muistiinpano = Muistiinpano(datetime.now(), "")
         uusi_muistiinpano.merkinta = self.merkinta + " ja " + toinen.merkinta
         return uusi_muistiinpano
+```
+        
+```python
+merkinta1 = Muistiinpano(datetime(2016, 12, 17), "Muista ostaa lahjoja")
+merkinta2 = Muistiinpano(datetime(2016, 12, 23), "Muista hakea kuusi")
 
-# Testataan
-if __name__ == "__main__":
-    mp1 = Muistiinpano(datetime(2016, 12, 17), "Muista ostaa lahjoja")
-    mp2 = Muistiinpano(datetime(2016, 12, 23), "Muista hakea kuusi")
-
-    # Nyt voidaan yhdistää plussalla - tämä kutsuu metodia __add__
-    # luokassa Muistiipano
-    joulumuistot = mp1 + mp2
-    print(joulumuistot)
-
+# Nyt voidaan yhdistää plussalla - tämä kutsuu metodia __add__ luokassa Muistiipano
+molemmat = merkinta1 + merkinta2
+print(molemmat)
 ```
 
 <sample-output>
 
-Muistiinpano - pvm: 2020-09-09 14:13:02.163170, merkintä: Muista ostaa lahjoja ja Muista hakea kuusi
+2020-09-09 14:13:02.163170: Muista ostaa lahjoja ja Muista hakea kuusi
+
+</sample-output>
+
+## Olion esitys merkkijonona
+
+Olemme toteuttaneet luokkiin usein metodin `__str__`, joka antaa merkkijonoesityksen olion sisällöstä. Toinen melko samanlainen metodi on `__repr__`, joka antaa _teknisen_  esityksen olion sisällöstä. Usein metodi `__repr__` toteutetaan niin, että se antaa koodin, joka muodostaa olion.
+
+Funktio `repr` antaa olion teknisen merkkijonoesityksen, ja lisäksi tätä esitystä käytetään, jos oliossa ei ole määritelty `__str__`-metodia. Seuraava luokka esittelee asiaa:
+
+```python
+class Henkilo:
+    def __init__(self, nimi: str, ika: int):
+        self.nimi = nimi
+        self.ika = ika
+        
+    def __repr__(self):
+        return f"Henkilo({repr(self.nimi)}, {self.ika})"
+```
+
+```
+henkilo1 = Henkilo("Anna", 25)
+henkilo2 = Henkilo("Pekka", 99)
+print(henkilo1)
+print(henkilo2)
+```
+
+<sample-output>
+
+Henkilo('Anna', 25)
+Henkilo('Pekka', 99)
+
+</sample-output>
+
+Huomaa, että metodissa `__repr__` haetaan nimen tekninen esitys metodilla `repr`, jolloin tässä tapauksessa nimen ympärille tulee `'`-merkit.
+
+Seuraavassa luokassa on toteutettu sekä metodi `__repr__` että `__str__`:
+
+```python
+class Henkilo:
+    def __init__(self, nimi: str, ika: int):
+        self.nimi = nimi
+        self.ika = ika
+        
+    def __repr__(self):
+        return f"Henkilo({repr(self.nimi)}, {self.ika})"
+
+    def __str__(self):
+        return f"{self.nimi} ({self.ika} vuotta)"
+        
+henkilo = Henkilo("Anna", 25)
+print(henkilo)
+print(repr(henkilo))
+```
+
+<sample-output>
+
+Anna (25 vuotta)
+Henkilo('Anna', 25)
 
 </sample-output>
 
