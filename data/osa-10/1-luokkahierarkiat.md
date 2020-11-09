@@ -176,7 +176,7 @@ class Opettaja:
 
 ```
 
-Yksinkertaistetustakin esimerkistä huomataan, että luokilla on yhteisiä piirteitä - tässä tapauksessa nimi ja puhelinnumero. Itse asiassa yhteisiä piirteitä olisi oikeasti paljon enemmänkin (esimerkiksi henkilötunnus, sähköpostiosoite ja osoite). Monessa tilanteessa olisi hyvä, jos yhteisiä piirteitä voitaisin käsitellä yhdellä operaatiolla: oletetaan tilanne, jossa koulun sähköpostitunnus muuttuu. Toki voitaisiin kirjoittaa kaksi käsittelfunktiota...
+Yksinkertaistetustakin esimerkistä huomataan, että luokilla on yhteisiä piirteitä - tässä tapauksessa nimi ja sähköpostiosoite. Monessa tilanteessa olisi hyvä, jos yhteisiä piirteitä voitaisin käsitellä yhdellä operaatiolla: oletetaan tilanne, jossa koulun sähköpostitunnus muuttuu. Toki voitaisiin kirjoittaa kaksi käsittelyfunktiota...
 
 ```python
 
