@@ -244,7 +244,7 @@ class Henkilo:
         return f"Henkilo({repr(self.nimi)}, {self.ika})"
 ```
 
-```
+```python3
 henkilo1 = Henkilo("Anna", 25)
 henkilo2 = Henkilo("Pekka", 99)
 print(henkilo1)
@@ -275,7 +275,7 @@ class Henkilo:
         return f"{self.nimi} ({self.ika} vuotta)"
 ```
 
-```
+```python3
 henkilo = Henkilo("Anna", 25)
 print(henkilo)
 print(repr(henkilo))
@@ -290,7 +290,7 @@ Henkilo('Anna', 25)
 
 Kun tietorakenteessa (kuten listassa) on olioita, Python käyttää vähän epäloogisesti metodia `__repr__` olioiden merkkijonoesityksen muodostamiseen, kun lista tulostetaan:
 
-```
+```python3
 henkilot = []
 henkilot.append(Henkilo("Anna", 25))
 henkilot.append(Henkilo("Pekka", 99))
