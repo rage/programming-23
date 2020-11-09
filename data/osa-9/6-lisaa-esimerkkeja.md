@@ -338,7 +338,7 @@ Seuraavassa on luokan käyttöesimerkki:
 ```python
 kirja = Tavara("Aapiskukko", 2)
 puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("tiiliskivi", 4)
+tiiliskivi = Tavara("Tiiliskivi", 4)
 
 matkalaukku = Matkalaukku(5)
 print(matkalaukku)
@@ -391,7 +391,7 @@ Seuraavassa on luokan käyttöesimerkki:
 ```python
 kirja = Tavara("Aapiskukko", 2)
 puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("tiiliskivi", 4)
+tiiliskivi = Tavara("Tiiliskivi", 4)
 
 matkalaukku = Matkalaukku(10)
 matkalaukku.lisaa_tavara(kirja)
@@ -464,7 +464,7 @@ print(lastiruuma)
 
 kirja = Tavara("Aapiskukko", 2)
 puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("tiiliskivi", 4)
+tiiliskivi = Tavara("Tiiliskivi", 4)
 
 adan_laukku = Matkalaukku(10)
 adan_laukku.lisaa_tavara(kirja)
@@ -497,7 +497,7 @@ Seuraavassa on luokan käyttöesimerkki:
 ```python
 kirja = Tavara("Aapiskukko", 2)
 puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("tiiliskivi", 4)
+tiiliskivi = Tavara("Tiiliskivi", 4)
 
 adan_laukku = Matkalaukku(10)
 adan_laukku.lisaa_tavara(kirja)
@@ -522,7 +522,7 @@ Ohjelman tulostuksen tulisi olla seuraava:
 Ruuman matkalaukuissa on seuraavat tavarat:
 Aapiskukko (2 kg)
 Nokia 3210 (1 kg)
-tiiliskivi (4 kg)
+Tiiliskivi (4 kg)
 
 </sample-output>
 
