@@ -203,8 +203,8 @@ def korjaa_email2(o: Opettaja):
 class Henkilo:
 
     def __init__(self, nimi: str, sposti: str):
-        this.nimi = nimi
-        this.sposti = sposti
+        self.nimi = nimi
+        self.sposti = sposti
 
  ```
 
@@ -217,8 +217,8 @@ class Henkilo:
 class Henkilo:
 
     def __init__(self, nimi: str, sposti: str):
-        this.nimi = nimi
-        this.sposti = sposti
+        self.nimi = nimi
+        self.sposti = sposti
 
     def vaihda_spostitunniste(self, uusi_tunniste: str):
         vanha = self.sposti.split("@")[1]
