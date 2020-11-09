@@ -533,9 +533,9 @@ Bubble Bobble
 Tehtäväpohjan mukana tulee luokka `Suorakulmio` joka nimensä mukaisesti mallintaa [suorakulmiota](https://fi.wikipedia.org/wiki/Suorakulmio). Luokkaa käytetään seuraavasti:
 
 ```python
-sk = Suorakulmio(2, 3)
-print(sk)
-print("pinta-ala:", sk.pinta_ala())
+suorakulmio = Suorakulmio(2, 3)
+print(suorakulmio)
+print("pinta-ala:", suorakulmio.pinta_ala())
 ```
 
 <sample-output>
@@ -552,9 +552,9 @@ Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen 
 Luokkaa käytetään seuraavasti:
 
 ```python
-n = Nelio(4)
-print(n)
-print("pinta-ala:", n.pinta_ala())
+nelio = Nelio(4)
+print(nelio)
+print("pinta-ala:", nelio.pinta_ala())
 ```
 
 <sample-output>
@@ -571,9 +571,9 @@ Toteuta luokka `SuorakulmainenKolmio` joka perii luokan`Suorakulmio`. Luokka ei 
 Luokkaa käytetään seuraavasti:
 
 ```python
-k = SuorakulaminenKolmio(3, 4)
-print(k)
-print("pinta-ala:", k.pinta_ala())
+kolmio = SuorakulmainenKolmio(3, 4)
+print(kolmio)
+print("pinta-ala:", kolmio.pinta_ala())
 ```
 
 <sample-output>
