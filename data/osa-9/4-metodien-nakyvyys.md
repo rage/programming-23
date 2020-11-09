@@ -130,11 +130,11 @@ Kirjoita luokka `Pankkitili` joka mallintaa pankkitiliä. Luokalla tulee olla
 * metodi `nosta(summa: float)`, joka nostaa tililtä rahasumman
 * havainnointimetodi `saldo`, joka palauttaa tilin saldon
 
-Lisäki luokalla on yksityinen metodi
+Lisäksi luokalla on yksityinen metodi
 
 * `__palvelumaksu()`, joka vähentää tililtä yhden prosentin rahaa. Luokassa kutsutaan tätä metodia aina, kun asiakas kutsuu jompaa kumpaa metodeista `talleta` tai `nosta`. Prosentti vähennetään aina varsinaisen operaation jälkeen (eli. esimerkiksi vasta sitten, kun rahat on talletettu).
 
-Kaikki luokan attribuutit ovat yksiyisiä.
+Kaikki luokan attribuutit ovat yksityisiä.
 
 Esimerkki luokan käytöstä:
 
