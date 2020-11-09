@@ -320,7 +320,7 @@ Korjaa luokan metodi `__str__(self)` siten, että tulostus on seuraava:
 
 ## Yhtäsuuruus
 
-Määrittele raha-oliolle funktio  `__eq__(self, toinen)`, jonka avulla rahan yhtäsuuruusvertailu saadaan toimimaan:
+Määrittele raha-oliolle metodi  `__eq__(self, toinen)`, jonka avulla rahan yhtäsuuruusvertailu saadaan toimimaan:
 
 ```python
 e1 = Raha(4, 10)
@@ -399,7 +399,7 @@ ValueError: negatiivinen tulos ei sallittu
 
 ## Arvoa ei voi muuttaa
 
-Luokassa on tällä hetkellä vielä pieni ongelma. Käyttäjä voi "huijaamalla" muuttaa rahan arvoa:
+Luokassa on tällä hetkellä vielä pieni ongelma, koska käyttäjä voi "huijaamalla" muuttaa rahan arvoa:
 
 ```python
 print(e1)
@@ -414,19 +414,19 @@ print(e1)
 
 </sample-output>
 
-Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että yläpuolella esitetty huijaus ei onnistu. Luokalla ei siis saa olla kapseloimattomia attribuutteja eikä asetus- tai havainnointimetodeita euroille tai senteille!
+Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että yllä oleva huijaus ei onnistu. Luokalla ei siis saa olla kapseloimattomia attribuutteja eikä asetus- tai havainnointimetodeita euroille tai senteille!
 
 </programming-exercise>
 
 <programming-exercise name='Päiväys' tmcname='osa10-08_paivays'>
 
-Tässä tehtävässä toteutetaan luokka `Paivays` jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi että _jokaisessa kuussa on 30 päivää_.
+Tässä tehtävässä toteutetaan luokka `Paivays`, jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi, että _jokaisessa kuussa on 30 päivää_.
 
-Huom! Edellisestä johtuen tehtävässä ei poikkeuksellisesti kannata käyttää Pythonin datetime-moduulia, vaan toteuttaa luokka itse.
+Huom! Edellisestä johtuen tehtävässä ei poikkeuksellisesti kannata käyttää Pythonin `datetime`-moduulia, vaan toteuttaa luokka itse.
 
 ## Vertailut
 
-Toteuta luokan runko ja sille vertailuoperaattori <, >, == ja !=. Käyttöesimerkki
+Toteuta luokan runko ja sille vertailuoperaattorit <, >, == ja !=. Käyttöesimerkki:
 
 ```python
 p1 = Paivays(4, 10, 2020)
@@ -456,7 +456,7 @@ True
 
 ## Kasvatus
 
-Toteuta päiväykselle operaattori +. Operaattori luo uuden päivämäärän joka on plussattavan lukeman päiviä verran suurempi kuin alkuperäinen päivämäärä. Alkuperäinen päivä ei saa muuttua.
+Toteuta päiväykselle operaattori +. Operaattori luo uuden päivämäärän joka on lisättävän lukeman päiviä verran suurempi kuin alkuperäinen päivämäärä. Alkuperäinen päivä ei saa muuttua.
 
 ```python
 p1 = Paivays(4, 10, 2020)
@@ -482,7 +482,7 @@ print(p4)
 
 ## Erotus
 
-Toteuta päiväykselle operaattori - joka palauttaa päivämäärien eron päivissä laskettuna. Huomaa, että koska oletamme jokaisessa kuukaudessa olevan 30 päivää, tässä tehtävässä vuosien päivien lukumäärä on 12*30 eli 360.
+Toteuta päiväykselle operaattori -, joka palauttaa päivämäärien eron päivissä laskettuna. Huomaa, että koska oletamme jokaisessa kuukaudessa olevan 30 päivää, tässä tehtävässä vuosien päivien lukumäärä on 12*30 eli 360.
 
 Operaattori toimii seuraavasti
 
@@ -508,7 +508,7 @@ print(p1-p3)
 
 ## Iteraattorit
 
-Olemme aikaisemmin käyttääneet for-lausetta erilaisten tietorakenteiden ja tiedostojen _iterointiin_ eli läpikäyntiin. Tyypillinen tapaus olisi vaikkapa seuraavanlainen funktio:
+Olemme aikaisemmin käyttäneet for-lausetta erilaisten tietorakenteiden ja tiedostojen _iterointiin_ eli läpikäyntiin. Tyypillinen tapaus olisi vaikkapa seuraavanlainen funktio:
 
 ```python
 
@@ -523,7 +523,7 @@ def laske_positiiviset(lista: list):
 
 Funktio käy läpi listan alkio kerrallaan ja laskee positiivisten alkioiden määärän.
 
-Iterointi on mahdollista toteuttaa myös omiin luokkiin. Hyödyllistä tämä on silloin, kun luokasta muodostetut oliot tallentavat suuremman määrän alkiota. Esimerkiksi aikaisemmin kirjoitettiin luokka, joka mallintaa kirjahyllyä - olisi näppärä, jos kaikki kirjahyllyn kirjat voisi käydä läpi yhdessä silmukassa. Samalla tavalla opiskelijarekisterin kaikkien opiskelijoiden läpikäynti for-lauseella olisi kätevää.
+Iterointi on mahdollista toteuttaa myös omiin luokkiin. Hyödyllistä tämä on silloin, kun luokasta muodostetut oliot tallentavat kokoelman alkioita. Esimerkiksi aikaisemmin kirjoitettiin luokka, joka mallintaa kirjahyllyä – olisi näppärä, jos kaikki kirjahyllyn kirjat voisi käydä läpi yhdessä silmukassa. Samalla tavalla opiskelijarekisterin kaikkien opiskelijoiden läpikäynti for-lauseella olisi kätevää.
 
 Iterointi mahdollistuu toteuttamalla luokkaan iteraattorimetodit `__iter__` ja  `__next__`. Käsitellään metodien toimintaa tarkemmin, kun on ensin tarkasteltu esimerkkinä kirjahyllyluokkaa, joka mahdollistaa kirjojen läpikäynnin:
 
