@@ -128,7 +128,7 @@ class Sanasto:
 
 Kun näin tapahtuu, ovt apumuuttujat olemassa ainoastaan metodin suorituksen aikana, ja niissä olevat arvot eivät pääse aiheuttamaan komplikaatioita muussa koodissa.
 
-## Luokkien erikositaminen
+## Luokkien erikoistaminen
 
 Joskus tulee vastaan tilanne, jossa luokan toimintaa olisi hyvä pyrkiä erikoistamaan, mutta vain osalle olioista. Tarkastellaan esimerkkinä tilannetta, jossa meillä on kaksi luokkaa - Opiskelija ja Opettaja. Yksinkertaistuksen vuoksi luokista on jätetty pois kaikki asetus- ja havainnointimetodit.
 
