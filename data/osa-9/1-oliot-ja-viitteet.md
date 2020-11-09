@@ -330,6 +330,30 @@ Tässä yhteydessä apumuuttujien määrittely käyttäen `self`-määrettä on 
 
 Turhien ja varsinkin epämääräisesti nimettyjen apumuuttujien liittäminen `self`-määreella olion attribuuteiksi on paitsi turhaa niin myös riskialtista. Jos samaa apumuuttujaa `self.apu` käytetään monessa eri metodissa mutta täysin eri tarkoituksiin, voivat seuraukset olla arvaamattomat ja koodissa voi ilmetä hankalasti löydettäviä bugeja.
 
+Ongelma voi tulla esiin erityisesti silloin jos apumuuttujan alkuarvo annetaan jossain muualla, esimerkiksi konstruktorissa
+
+```python
+class Sanasto:
+    def __init__(self):
+        self.__sanat = []
+        # määritellään apumuuttujia
+        self.apu = ""
+        self.apu2 = ""
+        self.apu3 = ""
+        self.apu4 = ""
+
+    # ...
+
+    def pisin_sana(self):
+        for sana in self.__sanat:
+            # tämä ei toimi sillä apu2:n tyyppi on väärä
+            if len(sana) > self.apu2:
+                self.apu2 = len(sana)
+                self.apu = sana
+
+        return self.apu
+```
+
 Siispä oikea tapa määritellä yhdessä metodissa käytettävät apumuuttujat on tehdä se _ilman_ `self`-määrettä:
 
 ```python
