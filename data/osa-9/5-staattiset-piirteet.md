@@ -201,11 +201,6 @@ class Puhelinnumero:
     def nimi(self, nimi):
         self.__nimi = nimi
 
-    # Pelkkä puhelinnumero ilman maatunnusta
-    @property
-    def paikallinen_numero(self):
-        return self.__puhelinnumero
-
     def __str__(self):
         return f"{self.puhelinnumero} ({self.__nimi})"
 ```
