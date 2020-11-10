@@ -732,3 +732,9 @@ sovellus.suorita()
 Kuten aiemmin todettiin, on tämän kaltaisten tekniikoiden käytöllä oma hintansa, koodia tulee enemmän, ja ohjelmoijan tulee harkita milloin se hinta kannattaa maksaa.
 
 Tässä esitelty tekniikka (joka kulkee ammattijargonissa nimellä _dependency injection_), missä oliolle annetaan ulkopuolelta käsin sen tarvitsema _riippuvuus_ (eli käytännössä jokin muu olio) on erittäin tyypillinen kikka ammattimaisessa koodauksessa, muun muassa siksi, että se helpottaa ohjelmistojen laajentamista sekä niiden automatisoitua testaamista. Jatkamme teeman käsittelyä kursseilla [Ohjelmistotekniikka](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024742-2020-08-01) ja [Ohjelmistotuotanto](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024909-2020-08-01).
+
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="5aed0eb3-944c-5957-b3b5-10cdf9154b92"></quiz>
+
