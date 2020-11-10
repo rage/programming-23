@@ -36,7 +36,7 @@ class Korkotili:
     def lisaa_korko(self):
         # Korko on yleiskorko + tilin korko
         korko_yhteensa = Korkotili.yleiskorko + self.__korko
-        saldo += saldo * korko_yhteensa
+        self.__saldo += self.__saldo * korko_yhteensa
 
     @property
     def saldo(self):
