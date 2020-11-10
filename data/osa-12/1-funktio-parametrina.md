@@ -143,7 +143,7 @@ def jarjesta_hinnan_mukaan(alkiot: list):
 
 Tee funktio `jarjesta_varastosaldon_mukaan(alkiot: list)`. Funktio saa parametrina listan tupleja, joissa kolmantena alkiona on tuotteiden varastosaldo. Funktio järjestää parametrinaan saamat tuotteet varastosaldojen  mukaiseen kasvavaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
-Funktio toimii seruaavasti:
+Funktio toimii seuraavasti:
 
 ```python
 tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22)]
@@ -171,7 +171,7 @@ Funktio toimii seuraavasti:
 ```python
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
 
-for sarja in jarjesta_tuotantokausien_mukaan(tuotteet):
+for sarja in jarjesta_tuotantokausien_mukaan(sarjat):
     print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
 ```
 
