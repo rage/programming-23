@@ -595,7 +595,8 @@ FUnktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaiki
 Pythonissa on siis mahdollista välittää viittaus johonkin funktioon toiselle funktiolle. Tarkastellaan vielä esimerkkinä omaa funktiota, joka saa parametrikseen toisen funktion:
 
 ```python
-def suorita_operaatio(operaatio):
+# tyyppivihje callable viittaa funktioon
+def suorita_operaatio(operaatio: callable):
     # Kutsutaan välitettyä funktiota
     return operaatio(10, 5)
 
@@ -652,15 +653,17 @@ if __name__ == "__main__":
 
 Funktiossa parametrille `kriteeri` on määritelty oletusarvoksi lambda-lauseke `lambda x: True`, jonka tuottama anonyymi funktio palauttaa arvon `True` kaikille syötteille. Niinpä oletuksena kopioidaan kaikki rivit tiedostosta toiseen. Jos käyttäjä antaa kolmannelle parametrille arvon, tämä korvaa oletusarvon.
 
-<programming-exercise name='Tuotteiden haku' tmcname='osa12-'>
+<programming-exercise name='Tuotteiden haku' tmcname='osa12_07_tuotteiden_haku'>
 
-Tässä tehtävässä käsitellään tehtävän [linkki]() tapaan tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet`seuraavasti:
+Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet`seuraavasti:
 
 ```python
 tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22), ("Kaali", 0.99, 1)]
 ```
 
-Toteuta funktio `hae(tuotteet: list, kriteeri)`, missä toisena parametrina on funktio, joka saa parametriksi yhden tuotetta edustavan tuplen ja palauttaa totuusarvon.
+Jokaisessa tuplessa ensimmäinen alkio siis edustaa nimeä, seuraava hintaa ja kolmas määrää.
+
+Toteuta funktio `hae(tuotteet: list, kriteeri: callable)`, missä toisena parametrina on funktio, joka saa parametriksi yhden tuotetta edustavan tuplen ja palauttaa totuusarvon. Funktio palauttaa listassa parametrina annetuista tuotteista ne, jotka toteuttavat kriteerin.
 
 Sopiva kriteeri voisi olla esimerkiksi seuraavanlainen
 
