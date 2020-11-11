@@ -295,7 +295,26 @@ Kirjoita luokalle
 * havainnointimetodi `pituus`, joka palauttaa pituuden
 * asetusmetodi, joka asettaa pituuden arvon
 
+Luokkaa siis käytetään seuraavasti:
+
+```python
+the_wall = Aanite(43)
+print(the_wall.pituus)
+the_wall.pituus = 44
+print(the_wall.pituus)
+```
+
+<sample-output>
+
+43
+44
+
+</sample-output>
+
 Jos pituudeksi yritetään asettaa nollaa pienempää arvoa joko konstruktorissa tai asetusmetodissa, tulee tuottaa virhe `ValueError`.
+
+Jos et muista miten poikkeus tuotetaan, kertaa
+[osan 6](/osa-6/3-virheet#poikkeusten-tuottaminen) materiaalista.
 
 </programming-exercise>
 
@@ -371,14 +390,14 @@ class Paivakirja:
 
     def lisaa_merkinta(self, merkinta: str):
         self.__merkinnat.append(merkinta)
-        
+
     def tulosta(self):
         print("Yhteensä", len(self.__merkinnat), "merkintää")
         for merkinta in self.__merkinnat:
             print("- " + merkinta)
 ```
 
-```python        
+```python
 paivakirja = Paivakirja("Pekka")
 paivakirja.lisaa_merkinta("Tänään söin puuroa")
 paivakirja.lisaa_merkinta("Tänään opettelin olio-ohjelmointia")
