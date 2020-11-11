@@ -41,7 +41,7 @@ Mitä jos haluaisimme järjestää tuotelistan hinnan perusteella?
 
 ## Funktiot parametrina
 
-Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määäräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
+Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
 
 Esimerkiksi
 
@@ -151,7 +151,7 @@ def jarjesta_hinnan_mukaan(alkiot: list):
 
 Tee funktio `jarjesta_varastosaldon_mukaan(alkiot: list)`. Funktio saa parametrina listan tupleja, joissa kolmantena alkiona on tuotteiden varastosaldo. Funktio järjestää parametrinaan saamat tuotteet varastosaldojen  mukaiseen kasvavaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
-Funktio toimii seruaavasti:
+Funktio toimii seuraavasti:
 
 ```python
 tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22)]
@@ -179,12 +179,12 @@ Funktio toimii seuraavasti:
 ```python
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
 
-for sarja in jarjesta_tuotantokausien_mukaan(tuotteet):
+for sarja in jarjesta_tuotantokausien_mukaan(sarjat):
     print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
 ```
 
 <sample-output>
-Dexter 2 tuotantokautta
+Dexter 9 tuotantokautta
 Friends 10 tuotantokautta
 Simpsons 32 tuotantokautta
 
@@ -200,8 +200,8 @@ Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina l
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
 
 print´("IMDB:n mukainen pistemäärä")
-for sarja in jarjesta_tuotantokausien_mukaan(tuotteet):
-    print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
+for sarja in jarjesta_pisteiden_mukaan(tuotteet):
+    print(f"{sarja['nimi']}  {sarja['pisteet']}")
 ```
 
 <sample-output>
@@ -287,8 +287,8 @@ print(reitti3.nimi, reitti3.pituus, reitti3.grade)
 
 <sample-output>
 
-Kantti, pituus 38 mentriä, grade 6A+
-Smooth operator, pituus 9 mentriä, grade 7A
+Kantti, pituus 38 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
 Syncro 14 8B+
 
 </sample-output>
@@ -313,10 +313,10 @@ for reitti in pituuden_mukaan():
 
 <sample-output>
 
-Kantti, pituus 38 mentriä, grade 6A+
-Syncro, pituus 14 mentriä, grade 8C+
-Pieniä askelia, pituus 12 mentriä, grade 6A+
-Smooth operator, pituus 9 mentriä, grade 7A
+Kantti, pituus 38 metriä, grade 6A+
+Syncro, pituus 14 metriä, grade 8C+
+Pieniä askelia, pituus 12 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
 
 </sample-output>
 
@@ -339,10 +339,10 @@ for reitti in vaikeuden_mukaan():
 
 <sample-output>
 
-Pieniä askelia, pituus 12 mentriä, grade 6A+
-Kantti, pituus 38 mentriä, grade 6A+
-Smooth operator, pituus 9 mentriä, grade 7A
-Syncro, pituus 14 mentriä, grade 8C+
+Pieniä askelia, pituus 12 metriä, grade 6A+
+Kantti, pituus 38 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
+Syncro, pituus 14 metriä, grade 8C+
 
 </sample-output>
 
@@ -389,7 +389,7 @@ print(k3.vaikein_reitti())
 
 Olhava, 3 reittiä, vaikein 6B
 Nalkkilan slabi 4
-Smooth operator, pituus 9 mentriä, grade 7A
+Smooth operator, pituus 9 metriä, grade 7A
 
 </sample-output>
 
