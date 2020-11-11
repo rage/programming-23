@@ -147,7 +147,7 @@ def jarjesta_hinnan_mukaan(alkiot: list):
     return sorted(alkiot, key=hintajarjestys)
 ```
 
-<programming-exercise name='Järjestys varastosaldon mukaan' tmcname='osa12-'>
+<programming-exercise name='Järjestys varastosaldon mukaan' tmcname='osa12_01_varastosaldo'>
 
 Tee funktio `jarjesta_varastosaldon_mukaan(alkiot: list)`. Funktio saa parametrina listan tupleja, joissa kolmantena alkiona on tuotteiden varastosaldo. Funktio järjestää parametrinaan saamat tuotteet varastosaldojen  mukaiseen kasvavaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
