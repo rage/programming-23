@@ -192,9 +192,9 @@ Simpsons 32 tuotantokautta
 
 </programming-exercise>
 
-<programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12-'>
+<programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12_03_pisteiden_mukaan'>
 
-Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne pisteiden mukaiseen laskevaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
+Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne _pisteiden mukaiseen laskevaan järjestykseen_.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
 ```python
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
