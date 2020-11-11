@@ -277,3 +277,183 @@ False
 </sample-output>
 
 </programming-exercise>
+
+## Loppuhuipennus
+
+Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tämä tehtävä ei sijainnostaan huolimatta liity mitenkään säännöllisiin lausekkeisiin, sensijaan luvun [Funktio parametrina](/osa-12/1-funktio-parametrina) asia tulee olemaan tarpeen, myös [listakoosteet](/osa-11/1-koosteet) voivat olla käyttökelpoisia.
+
+Sovelluksen rakenteelle voi ottaa inspiraatiota osan 10 [viimeisestä luvusta](/osa-10/4-lisaa-esimerkkeja).
+
+
+<programming-exercise name='Tilastot ojennukseen' tmcname='osa12_15-tilastot_ojennukseen'>
+
+Tässä tehtävässä tehdään sovellis, jonka avulla on mahdollista tarkastella NHL-jääkiekkoliigan tilastoja muutamassa hieman erilaisessa muodossa.
+
+Tehtäväpohjan mukana tulee kaksi json-muodossa olevaa tiedostoa `osa.json` ja `kaikki.json`, näistä ensimmäinen on tarkoitettu lähinnä testailun avuksi. Jälkimmäinen sisältää kaikkien kaudella 2019-20 pelanneiden pelaajien statistiikat.
+
+Yksittäisen pelaajan tiedot ovat seuraavassa muodossa
+
+```json
+{
+    "name": "Patrik Laine",
+    "nationality": "FIN",
+    "assists": 35,
+    "goals": 28,
+    "penalties": 22,
+    "team": "WPG",
+    "games": 68
+},
+```
+
+ja molemmat tiedostoista sisältävät yksittäisten pelaajien tiedot taulukossa.
+
+Olet todennäköisesti unohtanut miten json-muotoinen tiedosto saadaan luettua Python-ohjelmaan. Se ei ole vaikeaa voit kerrata [osan 7 materiaalista](/osa-7/4-datan-kasittely#json-tiedoston-lukeminen).
+
+Tee nyt ohjelma, joka tarjoaa seuraavanlaisen toiminnallisuuden. Ohjelma aloittaa kysymällä tiedoston nimeä. Tämän jälkeen ohjelma tarjoaa seruaavat toiminnot:
+
+- yksittäisen pelaajan tietojen haku nimen perusteella
+- listaus joukkueiden nimien lyhenteistä (aakkosjärjestyksessä)
+- listaus maiden nimien lyhenteistä (aakkosjärjestyksessä)
+
+Näistä toiminnoista saa yhden pisteeten. Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+tiedosto: **osa.json**
+
+komennot:
+0 lopeta
+1 hae pelaaja
+2 joukkueet
+3 maat
+4 joukkueen pelaajat
+5 maan pelaajat
+6 eniten pisteitä
+7 eniten maaleja
+
+komento: **1**
+nimi: **Travis Zajac**
+<pre>
+Travis Zajac         NJD   9 + 16 =  25
+</pre>
+
+komento: **2**
+BUF
+CGY
+DAL
+NJD
+NYI
+OTT
+PIT
+WPG
+WSH
+
+komento: **3**
+CAN
+CHE
+CZE
+SWE
+USA
+
+komento: **0**
+
+</sample-output>
+
+Seuraavat toiminnot tuovat toisen pisteen:
+
+- joukkueen pelaajien listaus
+  - listattuna pisteiden (joka saadaan laskemalla _goals_ + _assits_) mukaisessa järjestyksessä
+- tietyn maan pelaajat
+  - listattuna pisteiden mukaisessa järjestyksessä
+
+Toiminnallisuus on seuraava:
+
+<sample-output>
+
+tiedosto: **osa.json**
+
+komennot:
+0 lopeta
+1 hae pelaaja
+2 joukkueet
+3 maat
+4 joukkueen pelaajat
+5 maan pelaajat
+6 eniten pisteitä
+7 eniten maaleja
+
+komento: **4**
+joukkue: **OTT**
+<pre>
+Drake Batherson      OTT   3 +  7 =  10
+Jonathan Davidsson   OTT   0 +  1 =   1
+</pre>
+
+komento: **5**
+joukkue: **CAN**
+<pre>
+Jared McCann         PIT  14 + 21 =  35
+Travis Zajac         NJD   9 + 16 =  25
+Taylor Fedun         DAL   2 +  7 =   9
+Mark Jankowski       CGY   5 +  2 =   7
+Logan Shaw           WPG   3 +  2 =   5
+</pre>
+
+komento: **0**
+
+</sample-output>
+
+
+Ja kolmannen pisteen saa seuraavilla toiminnoilla:
+
+- n eniten pistettä saanutta pelaajaa
+  - jos kahden pelaajan pistemäärä on sama, ratkaisee maalimäärä
+- n eniten maaleja (_goals_) tehnyttä pelaajaa
+  - jos kahden pelaajan maalimäärä on sama, järjestysksen ratkaisee se kummalla on vähemmän otteluja (_games_)
+
+Toiminnallisuus on seuraava:
+
+<sample-output>
+
+tiedosto: **osa.json**
+
+komennot:
+0 lopeta
+1 hae pelaaja
+2 joukkueet
+3 maat
+4 joukkueen pelaajat
+5 maan pelaajat
+6 eniten pisteitä
+7 eniten maaleja
+
+komento: **6**
+kuinka monta: **2**
+<pre>
+Jakub Vrana          WSH  25 + 27 =  52
+Jared McCann         PIT  14 + 21 =  35
+</pre>
+
+komento: **6**
+kuinka monta: **5**
+
+<pre>
+Jakub Vrana          WSH  25 + 27 =  52
+Jared McCann         PIT  14 + 21 =  35
+John Klingberg       DAL   6 + 26 =  32
+Travis Zajac         NJD   9 + 16 =  25
+Conor Sheary         BUF  10 + 13 =  23
+</pre>
+
+komento: **7**
+kuinka monta: **6**
+
+<pre>
+
+</pre>
+
+komento: **0**
+
+</sample-output>
+
+</programming-exercise>
