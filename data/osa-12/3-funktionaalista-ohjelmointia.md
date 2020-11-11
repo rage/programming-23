@@ -255,7 +255,7 @@ ylikiloiset = [kala for kala in kalat if kala.paino >= 1000]
 
 <programming-exercise name='Rajatut suoritukset' tmcname='osa12-'>
 
-Tässä tehtävässä jatketaan luokkan `Suoritus` käyttämistä
+Tässä tehtävässä jatketaan luokan `Suoritus` käyttämistä
 
 ## Hyväksytyt suoritukset
 

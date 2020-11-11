@@ -17,7 +17,7 @@ Python on mainio työkalu tekstin käsittelemiseen. Sisäänrakennetut operaatio
 
 Vaativampien operaatioiden toteuttaminen saattaa kuitenkin muodostua ongelmalliseksi. Tätä tarkoitusta varten Pythonista löytyy useimpien muiden ohjelmointikielten tapaan _säännölliset lausekkeet_ (_regular expressions_).
 
-Säännöllisten lausekkeiden avulla on mahdollista määritellä hyvinkin monimutkaisia sääntöjä, joiden perusteella voidaan esimerkiski poimia, suodattaa tai etsiä alijonoja. Tässä osiossa käydään perusperiaatteen lisäksi läpi muutamia sääntöjä, lisää löydät esimerkiksi Pythonin mainiosta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
+Säännöllisten lausekkeiden avulla on mahdollista määritellä hyvinkin monimutkaisia sääntöjä, joiden perusteella voidaan esimerkiski poimia, suodattaa tai etsiä alijonoja. Tässä osiossa käydään perusperiaatteen lisäksi läpi muutamia sääntöjä, lisää löydät esimerkiksi Pythonin omasta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
 
 ## Mitä ovat säännölliset lausekkeet?
 
@@ -212,4 +212,68 @@ Ei osumaa.
 
 </sample-output>
 
+<programming-exercise name='Säännölliset lausekkeet' tmcname='osa12-'>
 
+Harjoitellaan hieman säännöllisten lausekkeiden käyttöä.
+
+## Viikonpäivät
+
+Tee säännöllisen lausekkeen avulla funktio on_viikonpaiva(merkkijono: str) joka palauttaa True jos sen parametrina saama merkkijono on viikonpäivän lyhenne (ma, ti, ke, to, pe, la tai su).
+
+Esimerkki funktion kutsumisesta:
+
+```python
+print(on_viikonpaiva("ma"))
+print(on_viikonpaiva("pe"))
+print(on_viikonpaiva("tu"))
+```
+
+<sample-output>
+
+True
+True
+False
+
+</sample-output>
+
+## Vokaalitarkistus
+
+Tee funktio kaikki_vokaaleja(merkkijono: str) joka tarkistaa säännöllisen lausekkeen avulla ovatko parametrina olevan merkkijonon kaikki merkit vokaaleja.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+print(kaikki_vokaaleja("eioueioieoieouyyyy"))
+print(kaikki_vokaaleja("autoooo"))
+```
+
+<sample-output>
+
+True
+False
+
+</sample-output>
+
+## Kellonaika
+
+Tee funktio kellonaika(merkkijono: str), joka tarkistaa säännöllisen lausekkeen avulla onko parametrina oleva merkkijono muotoa tt:mm:ss oleva kellonaika (tunnit, minuutit ja sekunnit kaksinumeroisina).
+
+Esimerkki funktion kutsumisesta:
+
+```python
+print(kellonaika("12:43:01"))
+print(kellonaika("ab:cd:ef"))
+print(kellonaika("17:59:59"))
+print(kellonaika("33:66:77"))
+```
+
+<sample-output>
+
+True
+False
+True
+False
+
+</sample-output>
+
+</programming-exercise>

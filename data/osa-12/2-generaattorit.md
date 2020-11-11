@@ -116,6 +116,76 @@ if __name__ == "__main__":
 
 </sample-output>
 
+<programming-exercise name='Parilliset luvut' tmcname='osa12-'>
+
+Kirjoita generaattorifunktio `parilliset(alku: int, maksimi: int)`, joka saa parametrikseen alkuarvon ja maksimi. Funktio tuottaa alkuarvosta lähtien parillisia lukuja. Kun saavutetaan maksimi, generaattori pysöhtyy.
+
+Kaksi esimerkkiä funktion käytöstä:
+
+```python
+luvut = parilliset(2, 10)
+for luku in luvut:
+    print(luku)
+```
+
+<sample-output>
+
+2
+4
+6
+8
+10
+
+</sample-output>
+
+```python
+luvut = parilliset(11, 21)
+for luku in luvut:
+    print(luku)
+```
+
+<sample-output>
+
+12
+14
+16
+18
+20
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Alkuluvut' tmcname='osa12-'>
+
+Alkuluvuksi sanotaan kokonaislukua, joka on tasan jaollinen ainoastaan ykkösellä ja itsellään. Esimerkkejä alkuluvuista ovat siis esimerkiksi luvut 1, 2, 3, 5, 7, 11 ja 13.
+
+Kirjota generaattorifunktio `alkuluvut(maksimi: int)`, joka luo uuden generaattorin. Generaattori palauttaa yksi kerrallaan alkulukuja alkaen ykkösestä. Jos luku on suurempi tai yhtäsuuri kuin annettu maksimi, generaattori pysäytetään.
+
+Esimerkiksi:
+
+```python
+luvut = alkuluvut(22)
+for luku in luvut:
+    print(luku)
+```
+
+<sample-output>
+
+1
+2
+3
+5
+7
+11
+13
+17
+19
+
+</sample-output>
+
+
+</programming-exercise>
 
 
 ## Generaattorikoosteet
@@ -170,8 +240,34 @@ jkl
 
 </sample-output>
 
+<programming-exercise name='Satunnaiset sanat' tmcname='osa12-'>
 
+Tee funktio `sanageneraattori(kirjaimet: str, pituus: int, maara: int)`, joka muodostaa ja palauttaa annettujen parametrien avulla satunnaisia sanoja tuottavan generaattorin.
 
+Satunnainen sana muodostetaan valitsemalla `pituus` kappaletta kirjaimia valikoimasta `kirjaimet`. Sama kirjain saa esiintyä sanassa monta kertaa.
 
+Generaattori palauttaa `maara` kappaletta sanoja ennen kuin se pysähtyy.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+sanagen = sanageneraattori("abcdefg", 3, 5)
+for sana in sanagen:
+    print(sana)
+```
+
+<sample-output>
+
+dbf
+baf
+ead
+fga
+ccc
+
+</sample-output>
+
+Huom! Voit ratkaista tehtävän itse valitsemallasi tavalla (eli käyttäen joko generaattorikoostetta tai "perinteistä" generaattoria).
+
+</programming-exercise>
 
 

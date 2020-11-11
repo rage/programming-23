@@ -110,6 +110,14 @@ Kutsuttiin hintajarjestys(('vesimeloni', 4.95))
 
 </sample-output>
 
+Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta ´sorted` löytyvää toista parametria `reversed`:
+
+```python
+tuotteet.sort(key=hintajarjestys, reverse=True)
+
+t2 = sorted(tuotteet, key=hintajarjestys, reverse=True)
+```
+
 ## Funktion sisällä määritelty funktio
 
 Jos haluaisimme siirtää edellisessä esimerkissä tehdyn järjestämisen omaan funktioonsa `jarjesta_hinnan_mukaan`, voisimme toteuttaa sen seuraavasti:
@@ -187,8 +195,6 @@ Simpsons 32 tuotantokautta
 <programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12-'>
 
 Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne pisteiden mukaiseen laskevaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
-
-
 
 ```python
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
@@ -548,7 +554,37 @@ Let It Be (Beatles), 1969. 35 min.
 Pisin levy:
 U2 (Joshua Tree), 1986. 50 min.
 
-</sample-output>
+
+<programming-exercise name='Palloilijat' tmcname='osa12-'>
+
+Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirteet:
+
+* nimi
+* pelinumero
+* tehtyjen maalien määrä `maalit`
+* annettujen syöttöjen määrä `syotot`
+* peliminuuttien määärä `minuutit`
+
+## Eniten maaleja
+
+Kirjoita funktio `eniten_maaleja`, joka saa parametrikseen listan palloilijoita.
+
+Funktio palauttaa merkkijonona sen pelaajan nimen, joka on tehnyt eniten maaleja.
+
+## Eniten pisteitä
+
+Kirjoita funktio `eniten_pisteita`, joka saa parametrikseen listan palloilijoita.
+
+Funktio palauttaa _tuplena_ sen pelaajan nimen ja pelinumeron, joka on tehnyt yhteensä eniten pisteitä. Pisteisiin lasketaan siis sekä maalit että syötöt.
+
+## Vähiten peliminuuttjea
+
+Kirjoita funktio `vahiten_syöttoja`, joka sa parametrikseen listan palloilijoita.
+
+FUnktio palauttaa sen Palloilija-olion, jolla on vähiten peliminuutteja kaikista pelaajista.
+
+
+</programming-exercise>
 
 ## Funktiot parametreina omissa funktioissa
 
