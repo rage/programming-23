@@ -22,15 +22,15 @@ Jatkokurssin alussa, eli kurssin osassa 8 pakkaa ruvettiin kuitenkin hämmentäm
 
 ## Monimutkaisuuden hallintaa
 
-Monissa tilanteissa voi ja varmasti kannattaakin olla käyttämättä oliota. Esimerkiksi kun koodailen itse pieniä "kertakäyttöisiä" apuohjelmia, en tuskin koskaan käytä oliota. Tilanne alkaa muuttua kun siirrytään hieman suuremman kokoluokan ohjelmiin.
+Monissa tilanteissa voi ja varmasti kannattaakin olla käyttämättä oliota. Esimerkiksi jos koodataan pieni "kertakäyttöinen" apuohjelma, ei ehkä ole mitään tarvetta olioille. Tilanne alkaa muuttua, kun siirrytään hieman suuremman kokoluokan ohjelmiin.
 
-Kun ohjelmat kasvavat, alkaa niissä olevien detaljien määrä nousta hallitsemattomaksi, ellei ohjelmaa strukturoida jollain järkevällä tavalla. Itseasiassa jo ohjelmoinnin perusteissakin monien opiskelijoiden koodissa oli havaittavissa jo aivan liian monimutkaisia ratkaisuja, joiden ymmärtämisessä jopa alan ammattilaisilla on vaikeuksia.
+Kun ohjelmat kasvavat, alkaa niissä olevien detaljien määrä nousta hallitsemattomaksi, ellei ohjelmaa strukturoida jollain järkevällä tavalla. Itse asiassa jo ohjelmoinnin perusteissakin monien opiskelijoiden koodissa oli havaittavissa jo aivan liian monimutkaisia ratkaisuja, joiden ymmärtämisessä jopa alan ammattilaisilla on vaikeuksia.
 
 Käsite [Separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) on ollut jo vuosikymmeniä eräs ohjelmoinnin ja koko tietojenkäsittelyn keskeisiä teemoja. Wikipedian mukaan käsittellä tarkoitetaan seuraavaa
 
 _Separation of concerns is a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program_
 
-Vapaasti käännettynä kyse on periaatteesta, joka ohjaa jakamaan ohjelmakoodin pienempiin osiin, joista kukin huolehtii omasta "tontistaan". Periaatteen ideana on siis hallita ohjelmien väistämätöntä monimutkaisuutta sillä, että ohjelma jaetaan omiin osiinsa, joista kukin keskittyy omaan osa-alueeseensa.
+Vapaasti käännettynä kyse on periaatteesta, joka ohjaa jakamaan ohjelmakoodin pienempiin osiin, joista kukin huolehtii omasta "tontistaan". Periaatteen ideana on siis hallita ohjelmien väistämätöntä monimutkaisuutta sillä, että ohjelma jaetaan omiin osiinsa, joista jokainen keskittyy omaan osa-alueeseensa.
 
 Funktiot ovat yksi mekanismi tämän tavoitteen saavuttamiseen, eli sen sijaan että ohjelma kirjoitetaan yhtenä isona kokonaisuutena, koostetaan se pienistä funktioista, joista kukin ratkaisee pienen osan ongelmasta.
 
@@ -59,7 +59,7 @@ Talletamme puhelinluettelon tiedot tiedostoon. Myös tiedoston käsittely on sel
 
 Kun ohjelman luokkarakenne alkaa pikkuhiljaa hahmottua, nousee kysymykseksi se, mistä ohjelmointi kannattaa aloittaa. Itse olen todennunt useimmiten parhaaksi tavaksi aloittaa pienellä palalla sovelluslogiikka.
 
-## vaihe 1: sovelluslogiikan runko
+## Vaihe 1: sovelluslogiikan runko
 
 Aloitetaan luokasta _Puhelinluettelo_. Runko voisi näyttää seuraavalta:
 
@@ -123,7 +123,7 @@ Usein tämä testikoodi on poisheitettävää koodia, ja sikäli voisi ajatella 
 
 Koodiin tullut bugi kannattaa saada kiinni ja korjata niin pian kuin mahdollista. Jos koodin toimivuuden varmistaa lähes jokaisen uuden koodirivin jälkeen, on debuggaus ja korjaaminen yleensä vaivatonta ja nopeaa, koska tällöin voi olla melko varma siitä, että ongelma johtuu hetki sitten lisätyistä koodiriveistä. Jos taas koodia testataan vasta sen jälkeen kun siihen on lisätty kymmeniä koodirivejä, on virhelähteitä moninkertaisesti.
 
-## vaihe 2: käyttöliittymän runko
+## Vaihe 2: käyttöliittymän runko
 
 Kun sovelluslogiikan ydintoiminnallisuus on kunnossa, voidaan edetä sovelluksen tekstikäyttöliittymään. Tehdään sitä varten oma luokka `PuhelinluetteloSovellus`, jonka runko on seuraava:
 
@@ -294,7 +294,7 @@ komento: **0**
 
 Koodia on aika paljon, todennäköisesti enemmän kuin jos kaikki olisi ohjelmoitu yhteen pötköön. Koodin rakenne on kuitenkin siistihkö, ja koodin laajentamisenkaan ei pitäisi olla kovin hankalaa.
 
-## vaihe 3: tietojen haku tiedostosta
+## Vaihe 3: tietojen haku tiedostosta
 
 Laajennetaan ohjelmaa siten, että se lataa käynnistäessään puhelinluettelon tiedostosta, joka on seuraavaa muotoa:
 
@@ -374,7 +374,7 @@ class PuhelinluetteloSovellus:
 
 Kun tiedoston luku on todettu toimivaksi, voidaan edetä viimeiseen vaiheeseen.
 
-## vaihe 4: tietojen talletus tiedostoon
+## Vaihe 4: tietojen talletus tiedostoon
 
 Viimeistellään ohjelman alustava versio vielä siten, että se tallentaa lopetettaessa puhelinluettelon takaisin tiedostoon.
 
@@ -732,3 +732,9 @@ sovellus.suorita()
 Kuten aiemmin todettiin, on tämän kaltaisten tekniikoiden käytöllä oma hintansa, koodia tulee enemmän, ja ohjelmoijan tulee harkita milloin se hinta kannattaa maksaa.
 
 Tässä esitelty tekniikka (joka kulkee ammattijargonissa nimellä _dependency injection_), missä oliolle annetaan ulkopuolelta käsin sen tarvitsema _riippuvuus_ (eli käytännössä jokin muu olio) on erittäin tyypillinen kikka ammattimaisessa koodauksessa, muun muassa siksi, että se helpottaa ohjelmistojen laajentamista sekä niiden automatisoitua testaamista. Jatkamme teeman käsittelyä kursseilla [Ohjelmistotekniikka](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024742-2020-08-01) ja [Ohjelmistotuotanto](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024909-2020-08-01).
+
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="5aed0eb3-944c-5957-b3b5-10cdf9154b92"></quiz>
+

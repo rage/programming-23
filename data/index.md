@@ -37,7 +37,7 @@ Lisää zoom-aikoja mahdollisesti tulevaisuudessa.
 
 ## Aikataulu
 
-*Seuraava luento: tiistaina 10.11. klo 10.15 - [Zoom](https://helsinki.zoom.us/j/63780739193?pwd=M00wR0djc0dJQnlGRTExVGcrRlhTQT09)*
+*Seuraava luento: tiistaina 17.11. klo 10.15 - [Zoom](https://helsinki.zoom.us/j/63780739193?pwd=M00wR0djc0dJQnlGRTExVGcrRlhTQT09)*
 
 Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja deadline on seuraavan viikon torstaina.
 
@@ -108,6 +108,7 @@ Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja d
       <td>Osa 10</td>
       <td>10.11.2020</td>
       <td>19.11.2020</td>
+      <td><a href="https://youtu.be/6fS8G5J7Dy4">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 11</td>
@@ -123,11 +124,13 @@ Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja d
       <td>Osa 13</td>
       <td>1.12.2020</td>
       <td>10.12.2020</td>
+      <td>Ei luentoa</td>
     </tr>
     <tr>
       <td>Osa 14</td>
       <td>8.12.2020</td>
       <td>17.12.2020</td>
+      <td>Ei luentoa</td>
     </tr>
   </tbody>
 </table>

@@ -242,7 +242,7 @@ if __name__ == "__main__":
 
 ## Selfillä vai ilman?
 
-Kurssin aikana on havaittu, että `self`-määreen käytössä on ollut monilla opiskelijoilla häilyvyyttä. Tarkastellaan nyt milloin selfiä tulee käyttää, ja milloin sitä kannattaa olla käyttämättä.
+Kurssin aikana on havaittu, että `self`-määreen käytössä on monilla opiskelijoilla ollut häilyvyyttä. Tarkastellaan nyt milloin selfiä tulee käyttää, ja milloin sitä kannattaa olla käyttämättä.
 
 Tarkastellaan esimerkkinä yksinkertaista luokkaa, jonka avulla joukosta sanoja on mahdollista muodostaa sanasto:
 
@@ -376,7 +376,7 @@ class Sanasto:
         return pisin
 ```
 
-Kun näin tapahtuu, ovt apumuuttujat olemassa ainoastaan metodin suorituksen aikana, ja niissä olevat arvot eivät pääse aiheuttamaan komplikaatioita muussa koodissa.
+Kun näin tapahtuu, ovat apumuuttujat olemassa ainoastaan metodin suorituksen aikana, ja niissä olevat arvot eivät pääse aiheuttamaan komplikaatioita muussa koodissa.
 
 ## Oliot funktioiden parametrina
 

@@ -36,7 +36,7 @@ class Korkotili:
     def lisaa_korko(self):
         # Korko on yleiskorko + tilin korko
         korko_yhteensa = Korkotili.yleiskorko + self.__korko
-        saldo += saldo * korko_yhteensa
+        self.__saldo += self.__saldo * korko_yhteensa
 
     @property
     def saldo(self):
@@ -201,11 +201,6 @@ class Puhelinnumero:
     def nimi(self, nimi):
         self.__nimi = nimi
 
-    # Pelkkä puhelinnumero ilman maatunnusta
-    @property
-    def paikallinen_numero(self):
-        return self.__puhelinnumero
-
     def __str__(self):
         return f"{self.puhelinnumero} ({self.__nimi})"
 ```
@@ -248,7 +243,7 @@ Muuta toiminnallisuutta ei tarvitse toteuttaa.
 
 Luokkametodi eli staattinen metodi on luokassa oleva metodi, jota ei ole sidottu mihinkään luokasta muodostettuun olioon. Niinpä luokkametodia voi kutsua ilman, että luokasta muodostetaan oliota.
 
-Luokkametodit ovat yleensä työkalumetodeja, jotka liittyvät jotenkin luokkaan mutta joita on tarkoituksenmukaista kutsua ilman olion muodostamista. Luokkametodit ovat yleesä julkisia, jolloin niitä voidaan kutsua sekä luokan ulkopuolelta että luokan ja siitä muodostettujen olioiden sisältä.
+Luokkametodit ovat yleensä työkalumetodeja, jotka liittyvät jotenkin luokkaan mutta joita on tarkoituksenmukaista kutsua ilman olion muodostamista. Luokkametodit ovat yleensä julkisia, jolloin niitä voidaan kutsua sekä luokan ulkopuolelta että luokan ja siitä muodostettujen olioiden sisältä.
 
 Luokkametodi merkitään annotaatiolla `@classmethod` ja sen ensimmäinen parametri on aina `cls`. Tunnistetta `cls` käytetään samaan tapaan kuin tunnistetta `self`, mutta erotuksena on, että `cls` viittaa luokkaan ja `self` viittaa olioon. Kummallekaan parametrille ei anneta kutsuessa arvoa, vaan Python tekee sen automaattisesti.
 

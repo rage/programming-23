@@ -16,7 +16,7 @@ Tämän osion jälkeen
 
 ## Selfillä vai ilman?
 
-Kurssin aikana on havaittu, että `self`-määreen käytössä on ollut monilla opiskelijoilla häilyvyyttä. Tarkastellaan nyt milloin selfiä tulee käyttää, ja milloin sitä kannattaa olla käyttämättä.
+Kurssin aikana on havaittu, että `self`-määreen käytössä on monilla opiskelijoilla ollut häilyvyyttä. Tarkastellaan nyt milloin selfiä tulee käyttää, ja milloin sitä kannattaa olla käyttämättä.
 
 Tarkastellaan esimerkkinä yksinkertaista luokkaa, jonka avulla joukosta sanoja on mahdollista muodostaa sanasto:
 
@@ -150,7 +150,7 @@ class Sanasto:
         return pisin
 ```
 
-Kun näin tapahtuu, ovt apumuuttujat olemassa ainoastaan metodin suorituksen aikana, ja niissä olevat arvot eivät pääse aiheuttamaan komplikaatioita muussa koodissa.
+Kun näin tapahtuu, ovat apumuuttujat olemassa ainoastaan metodin suorituksen aikana, ja niissä olevat arvot eivät pääse aiheuttamaan komplikaatioita muussa koodissa.
 
 ## Luokkien erikoistaminen
 
@@ -176,7 +176,7 @@ class Opettaja:
 
 ```
 
-Yksinkertaistetustakin esimerkistä huomataan, että luokilla on yhteisiä piirteitä - tässä tapauksessa nimi ja puhelinnumero. Itse asiassa yhteisiä piirteitä olisi oikeasti paljon enemmänkin (esimerkiksi henkilötunnus, sähköpostiosoite ja osoite). Monessa tilanteessa olisi hyvä, jos yhteisiä piirteitä voitaisin käsitellä yhdellä operaatiolla: oletetaan tilanne, jossa koulun sähköpostitunnus muuttuu. Toki voitaisiin kirjoittaa kaksi käsittelfunktiota...
+Yksinkertaistetustakin esimerkistä huomataan, että luokilla on yhteisiä piirteitä - tässä tapauksessa nimi ja sähköpostiosoite. Monessa tilanteessa olisi hyvä, jos yhteisiä piirteitä voitaisin käsitellä yhdellä operaatiolla: oletetaan tilanne, jossa koulun sähköpostitunnus muuttuu. Toki voitaisiin kirjoittaa kaksi käsittelyfunktiota...
 
 ```python
 
@@ -203,8 +203,8 @@ def korjaa_email2(o: Opettaja):
 class Henkilo:
 
     def __init__(self, nimi: str, sposti: str):
-        this.nimi = nimi
-        this.sposti = sposti
+        self.nimi = nimi
+        self.sposti = sposti
 
  ```
 
@@ -217,8 +217,8 @@ class Henkilo:
 class Henkilo:
 
     def __init__(self, nimi: str, sposti: str):
-        this.nimi = nimi
-        this.sposti = sposti
+        self.nimi = nimi
+        self.sposti = sposti
 
     def vaihda_spostitunniste(self, uusi_tunniste: str):
         vanha = self.sposti.split("@")[1]
@@ -533,9 +533,9 @@ Bubble Bobble
 Tehtäväpohjan mukana tulee luokka `Suorakulmio` joka nimensä mukaisesti mallintaa [suorakulmiota](https://fi.wikipedia.org/wiki/Suorakulmio). Luokkaa käytetään seuraavasti:
 
 ```python
-sk = Suorakulmio(2, 3)
-print(sk)
-print("pinta-ala:", sk.pinta_ala())
+suorakulmio = Suorakulmio(2, 3)
+print(suorakulmio)
+print("pinta-ala:", suorakulmio.pinta_ala())
 ```
 
 <sample-output>
@@ -552,9 +552,9 @@ Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen 
 Luokkaa käytetään seuraavasti:
 
 ```python
-n = Nelio(4)
-print(n)
-print("pinta-ala:", n.pinta_ala())
+nelio = Nelio(4)
+print(nelio)
+print("pinta-ala:", nelio.pinta_ala())
 ```
 
 <sample-output>
@@ -571,9 +571,9 @@ Toteuta luokka `SuorakulmainenKolmio` joka perii luokan`Suorakulmio`. Luokka ei 
 Luokkaa käytetään seuraavasti:
 
 ```python
-k = SuorakulaminenKolmio(3, 4)
-print(k)
-print("pinta-ala:", k.pinta_ala())
+kolmio = SuorakulmainenKolmio(3, 4)
+print(kolmio)
+print("pinta-ala:", kolmio.pinta_ala())
 ```
 
 <sample-output>

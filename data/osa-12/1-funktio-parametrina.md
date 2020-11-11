@@ -41,7 +41,7 @@ Mitä jos haluaisimme järjestää tuotelistan hinnan perusteella?
 
 ## Funktiot parametrina
 
-Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määäräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
+Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
 
 Esimerkiksi
 
@@ -110,6 +110,14 @@ Kutsuttiin hintajarjestys(('vesimeloni', 4.95))
 
 </sample-output>
 
+Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta ´sorted` löytyvää toista parametria `reversed`:
+
+```python
+tuotteet.sort(key=hintajarjestys, reverse=True)
+
+t2 = sorted(tuotteet, key=hintajarjestys, reverse=True)
+```
+
 ## Funktion sisällä määritelty funktio
 
 Jos haluaisimme siirtää edellisessä esimerkissä tehdyn järjestämisen omaan funktioonsa `jarjesta_hinnan_mukaan`, voisimme toteuttaa sen seuraavasti:
@@ -139,11 +147,11 @@ def jarjesta_hinnan_mukaan(alkiot: list):
     return sorted(alkiot, key=hintajarjestys)
 ```
 
-<programming-exercise name='Järjestys varastosaldon mukaan' tmcname='osa12-'>
+<programming-exercise name='Järjestys varastosaldon mukaan' tmcname='osa12_01_varastosaldo'>
 
 Tee funktio `jarjesta_varastosaldon_mukaan(alkiot: list)`. Funktio saa parametrina listan tupleja, joissa kolmantena alkiona on tuotteiden varastosaldo. Funktio järjestää parametrinaan saamat tuotteet varastosaldojen  mukaiseen kasvavaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
-Funktio toimii seruaavasti:
+Funktio toimii seuraavasti:
 
 ```python
 tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22)]
@@ -162,7 +170,7 @@ vesimeloni 22 kpl
 
 </programming-exercise>
 
-<programming-exercise name='Järjestys tuotantokausien mukaan' tmcname='osa12-'>
+<programming-exercise name='Järjestys tuotantokausien mukaan' tmcname='osa12_02_tuotantokaudet'>
 
 Tee funktio `jarjesta_tuotantokausien_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne tuotantokausien lukumäärän mukaiseen kasvavaan järjestykseen. Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
@@ -171,12 +179,12 @@ Funktio toimii seuraavasti:
 ```python
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
 
-for sarja in jarjesta_tuotantokausien_mukaan(tuotteet):
+for sarja in jarjesta_tuotantokausien_mukaan(sarjat):
     print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
 ```
 
 <sample-output>
-Dexter 2 tuotantokautta
+Dexter 9 tuotantokautta
 Friends 10 tuotantokautta
 Simpsons 32 tuotantokautta
 
@@ -184,18 +192,16 @@ Simpsons 32 tuotantokautta
 
 </programming-exercise>
 
-<programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12-'>
+<programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12_03_pisteiden_mukaan'>
 
-Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne pisteiden mukaiseen laskevaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
-
-
+Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne _pisteiden mukaiseen laskevaan järjestykseen_.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
 ```python
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
 
 print´("IMDB:n mukainen pistemäärä")
-for sarja in jarjesta_tuotantokausien_mukaan(tuotteet):
-    print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
+for sarja in jarjesta_pisteiden_mukaan(tuotteet):
+    print(f"{sarja['nimi']}  {sarja['pisteet']}")
 ```
 
 <sample-output>
@@ -281,8 +287,8 @@ print(reitti3.nimi, reitti3.pituus, reitti3.grade)
 
 <sample-output>
 
-Kantti, pituus 38 mentriä, grade 6A+
-Smooth operator, pituus 9 mentriä, grade 7A
+Kantti, pituus 38 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
 Syncro 14 8B+
 
 </sample-output>
@@ -307,10 +313,10 @@ for reitti in pituuden_mukaan():
 
 <sample-output>
 
-Kantti, pituus 38 mentriä, grade 6A+
-Syncro, pituus 14 mentriä, grade 8C+
-Pieniä askelia, pituus 12 mentriä, grade 6A+
-Smooth operator, pituus 9 mentriä, grade 7A
+Kantti, pituus 38 metriä, grade 6A+
+Syncro, pituus 14 metriä, grade 8C+
+Pieniä askelia, pituus 12 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
 
 </sample-output>
 
@@ -333,10 +339,10 @@ for reitti in vaikeuden_mukaan():
 
 <sample-output>
 
-Pieniä askelia, pituus 12 mentriä, grade 6A+
-Kantti, pituus 38 mentriä, grade 6A+
-Smooth operator, pituus 9 mentriä, grade 7A
-Syncro, pituus 14 mentriä, grade 8C+
+Pieniä askelia, pituus 12 metriä, grade 6A+
+Kantti, pituus 38 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
+Syncro, pituus 14 metriä, grade 8C+
 
 </sample-output>
 
@@ -383,7 +389,7 @@ print(k3.vaikein_reitti())
 
 Olhava, 3 reittiä, vaikein 6B
 Nalkkilan slabi 4
-Smooth operator, pituus 9 mentriä, grade 7A
+Smooth operator, pituus 9 metriä, grade 7A
 
 </sample-output>
 
@@ -548,14 +554,49 @@ Let It Be (Beatles), 1969. 35 min.
 Pisin levy:
 U2 (Joshua Tree), 1986. 50 min.
 
-</sample-output>
+
+<programming-exercise name='Palloilijat' tmcname='osa12_06_palloilijat'>
+
+Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirteet:
+
+* nimi
+* pelinumero
+* tehtyjen maalien määrä `maalit`
+* annettujen syöttöjen määrä `syotot`
+* peliminuuttien määärä `minuutit`
+
+Kirjoita seuraavien tehtävänantojen mukaiset funktiot
+
+Huomaa, että jokaisessa funktiossa palautetaan erityyppiset tiedot!
+
+## Eniten maaleja
+
+Kirjoita funktio `eniten_maaleja`, joka saa parametrikseen listan palloilijoita.
+
+Funktio palauttaa merkkijonona sen pelaajan _nimen_, joka on tehnyt eniten maaleja.
+
+## Eniten pisteitä
+
+Kirjoita funktio `eniten_pisteita`, joka saa parametrikseen listan palloilijoita.
+
+Funktio palauttaa _tuplena_ sen pelaajan nimen ja pelinumeron, joka on tehnyt yhteensä eniten pisteitä. Pisteisiin lasketaan siis sekä maalit että syötöt.
+
+## Vähiten peliminuuttjea
+
+Kirjoita funktio `vahiten_minutteja`, joka sa parametrikseen listan palloilijoita.
+
+FUnktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
+
+
+</programming-exercise>
 
 ## Funktiot parametreina omissa funktioissa
 
 Pythonissa on siis mahdollista välittää viittaus johonkin funktioon toiselle funktiolle. Tarkastellaan vielä esimerkkinä omaa funktiota, joka saa parametrikseen toisen funktion:
 
 ```python
-def suorita_operaatio(operaatio):
+# tyyppivihje callable viittaa funktioon
+def suorita_operaatio(operaatio: callable):
     # Kutsutaan välitettyä funktiota
     return operaatio(10, 5)
 
@@ -612,15 +653,17 @@ if __name__ == "__main__":
 
 Funktiossa parametrille `kriteeri` on määritelty oletusarvoksi lambda-lauseke `lambda x: True`, jonka tuottama anonyymi funktio palauttaa arvon `True` kaikille syötteille. Niinpä oletuksena kopioidaan kaikki rivit tiedostosta toiseen. Jos käyttäjä antaa kolmannelle parametrille arvon, tämä korvaa oletusarvon.
 
-<programming-exercise name='Tuotteiden haku' tmcname='osa12-'>
+<programming-exercise name='Tuotteiden haku' tmcname='osa12_07_tuotteiden_haku'>
 
-Tässä tehtävässä käsitellään tehtävän [linkki]() tapaan tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet`seuraavasti:
+Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet`seuraavasti:
 
 ```python
 tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22), ("Kaali", 0.99, 1)]
 ```
 
-Toteuta funktio `hae(tuotteet: list, kriteeri)`, missä toisena parametrina on funktio, joka saa parametriksi yhden tuotetta edustavan tuplen ja palauttaa totuusarvon.
+Jokaisessa tuplessa ensimmäinen alkio siis edustaa nimeä, seuraava hintaa ja kolmas määrää.
+
+Toteuta funktio `hae(tuotteet: list, kriteeri: callable)`, missä toisena parametrina on funktio, joka saa parametriksi yhden tuotetta edustavan tuplen ja palauttaa totuusarvon. Funktio palauttaa listassa parametrina annetuista tuotteista ne, jotka toteuttavat kriteerin.
 
 Sopiva kriteeri voisi olla esimerkiksi seuraavanlainen
 
