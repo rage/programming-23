@@ -176,7 +176,7 @@ for sarja in jarjesta_tuotantokausien_mukaan(tuotteet):
 ```
 
 <sample-output>
-Dexter 2 tuotantokautta
+Dexter 9 tuotantokautta
 Friends 10 tuotantokautta
 Simpsons 32 tuotantokautta
 
@@ -194,8 +194,8 @@ Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina l
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
 
 print´("IMDB:n mukainen pistemäärä")
-for sarja in jarjesta_tuotantokausien_mukaan(tuotteet):
-    print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
+for sarja in jarjesta_pisteiden_mukaan(tuotteet):
+    print(f"{sarja['nimi']}  {sarja['pisteet']}")
 ```
 
 <sample-output>
