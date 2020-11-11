@@ -41,7 +41,7 @@ Mitä jos haluaisimme järjestää tuotelistan hinnan perusteella?
 
 ## Funktiot parametrina
 
-Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määäräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
+Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
 
 Esimerkiksi
 
@@ -281,8 +281,8 @@ print(reitti3.nimi, reitti3.pituus, reitti3.grade)
 
 <sample-output>
 
-Kantti, pituus 38 mentriä, grade 6A+
-Smooth operator, pituus 9 mentriä, grade 7A
+Kantti, pituus 38 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
 Syncro 14 8B+
 
 </sample-output>
@@ -307,10 +307,10 @@ for reitti in pituuden_mukaan():
 
 <sample-output>
 
-Kantti, pituus 38 mentriä, grade 6A+
-Syncro, pituus 14 mentriä, grade 8C+
-Pieniä askelia, pituus 12 mentriä, grade 6A+
-Smooth operator, pituus 9 mentriä, grade 7A
+Kantti, pituus 38 metriä, grade 6A+
+Syncro, pituus 14 metriä, grade 8C+
+Pieniä askelia, pituus 12 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
 
 </sample-output>
 
@@ -333,10 +333,10 @@ for reitti in vaikeuden_mukaan():
 
 <sample-output>
 
-Pieniä askelia, pituus 12 mentriä, grade 6A+
-Kantti, pituus 38 mentriä, grade 6A+
-Smooth operator, pituus 9 mentriä, grade 7A
-Syncro, pituus 14 mentriä, grade 8C+
+Pieniä askelia, pituus 12 metriä, grade 6A+
+Kantti, pituus 38 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
+Syncro, pituus 14 metriä, grade 8C+
 
 </sample-output>
 
@@ -383,7 +383,7 @@ print(k3.vaikein_reitti())
 
 Olhava, 3 reittiä, vaikein 6B
 Nalkkilan slabi 4
-Smooth operator, pituus 9 mentriä, grade 7A
+Smooth operator, pituus 9 metriä, grade 7A
 
 </sample-output>
 
