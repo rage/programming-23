@@ -170,7 +170,7 @@ vesimeloni 22 kpl
 
 </programming-exercise>
 
-<programming-exercise name='Järjestys tuotantokausien mukaan' tmcname='osa12-'>
+<programming-exercise name='Järjestys tuotantokausien mukaan' tmcname='osa12_02_tuotantokaudet'>
 
 Tee funktio `jarjesta_tuotantokausien_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne tuotantokausien lukumäärän mukaiseen kasvavaan järjestykseen. Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
