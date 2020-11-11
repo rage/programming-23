@@ -555,7 +555,7 @@ Pisin levy:
 U2 (Joshua Tree), 1986. 50 min.
 
 
-<programming-exercise name='Palloilijat' tmcname='osa12-'>
+<programming-exercise name='Palloilijat' tmcname='osa12_06_palloilijat'>
 
 Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirteet:
 
@@ -565,11 +565,15 @@ Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirtee
 * annettujen syöttöjen määrä `syotot`
 * peliminuuttien määärä `minuutit`
 
+Kirjoita seuraavien tehtävänantojen mukaiset funktiot
+
+Huomaa, että jokaisessa funktiossa palautetaan erityyppiset tiedot!
+
 ## Eniten maaleja
 
 Kirjoita funktio `eniten_maaleja`, joka saa parametrikseen listan palloilijoita.
 
-Funktio palauttaa merkkijonona sen pelaajan nimen, joka on tehnyt eniten maaleja.
+Funktio palauttaa merkkijonona sen pelaajan _nimen_, joka on tehnyt eniten maaleja.
 
 ## Eniten pisteitä
 
@@ -579,9 +583,9 @@ Funktio palauttaa _tuplena_ sen pelaajan nimen ja pelinumeron, joka on tehnyt yh
 
 ## Vähiten peliminuuttjea
 
-Kirjoita funktio `vahiten_syöttoja`, joka sa parametrikseen listan palloilijoita.
+Kirjoita funktio `vahiten_minutteja`, joka sa parametrikseen listan palloilijoita.
 
-FUnktio palauttaa sen Palloilija-olion, jolla on vähiten peliminuutteja kaikista pelaajista.
+FUnktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
 
 
 </programming-exercise>
