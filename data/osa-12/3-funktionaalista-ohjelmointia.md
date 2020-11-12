@@ -102,7 +102,7 @@ print(valmiit_lista)
 ...tai esimerkiksi iteroimalla lista läpi for-lauseella ja tallentamalla käsitellyt alkiot uuteen listaan `append`-metodilla. Onkin tyypillistä, että saman asian voi toteuttaa usealla eri tavalla. Eri vaihtoehtojen tunteminen auttaa valitsemaan niistä ohjelmaan (ja omaan makuun) parhaiten sopivan.
 
 
-<programming-exercise name='Suoritukset' tmcname='osa12-'>
+<programming-exercise name='Suoritukset' tmcname='osa12-11_suoritukset'>
 
 Tehtäväpohjassa on mukana kurssisuoritusta kuvaava luokkaa `Suoritus`, jota toimii seuraavasti:
 
@@ -253,7 +253,7 @@ Taas kerran sama voitaisiin toteuttaa listakoosteena:
 ylikiloiset = [kala for kala in kalat if kala.paino >= 1000]
 ```
 
-<programming-exercise name='Rajatut suoritukset' tmcname='osa12-'>
+<programming-exercise name='Rajatut suoritukset' tmcname='osa12-12_rajatut_suoritukset'>
 
 Tässä tehtävässä jatketaan luokan `Suoritus` käyttämistä
 
@@ -267,7 +267,7 @@ s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
 s3 = Suoritus("Pekka Python", "Ohjelmoinnin jatkokurssi", 0)
 
 for suoritus in hyvaksytyt([s1, s2, s3]):
-    print(suoritus.nimi, )
+    print(suoritus.nimi)
 ```
 
 <sample-output>
@@ -324,7 +324,7 @@ Niilo Nörtti
 
 </sample-output>
 
-Toteuta funktio käyttäen `filter`-funktiota!
+Toteuta funktio käyttäen funktioita `filter`- ja `map`.
 
 </programming-exercise>
 
@@ -387,7 +387,7 @@ Aku ja Mikki sekä Tupu ynnä Hupu ja lisäksi Lupu ja Tiku sekä Taku ynnä Iin
 
 </sample-output>
 
-<programming-exercise name='Opintopisteet' tmcname='osa12-09_alkuluvut'>
+<programming-exercise name='Opintopisteet' tmcname='osa12-'>
 
 Tarkastellaan tässä tehtävässä hieman erilaista versiota luokasta `Suoritus`. Tällä kertaa se kuvastaa ainoastaan yksittäisen opiskelijan kurssisuorituksia. Luokka toimii seuraavasti:
 
