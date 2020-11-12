@@ -147,7 +147,7 @@ def jarjesta_hinnan_mukaan(alkiot: list):
     return sorted(alkiot, key=hintajarjestys)
 ```
 
-<programming-exercise name='Järjestys varastosaldon mukaan' tmcname='osa12_01_varastosaldo'>
+<programming-exercise name='Järjestys varastosaldon mukaan' tmcname='osa12-01_varastosaldo'>
 
 Tee funktio `jarjesta_varastosaldon_mukaan(alkiot: list)`. Funktio saa parametrina listan tupleja, joissa kolmantena alkiona on tuotteiden varastosaldo. Funktio järjestää parametrinaan saamat tuotteet varastosaldojen  mukaiseen kasvavaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
@@ -170,7 +170,7 @@ vesimeloni 22 kpl
 
 </programming-exercise>
 
-<programming-exercise name='Järjestys tuotantokausien mukaan' tmcname='osa12_02_tuotantokaudet'>
+<programming-exercise name='Järjestys tuotantokausien mukaan' tmcname='osa12-02_tuotantokaudet'>
 
 Tee funktio `jarjesta_tuotantokausien_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne tuotantokausien lukumäärän mukaiseen kasvavaan järjestykseen. Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
@@ -192,7 +192,7 @@ Simpsons 32 tuotantokautta
 
 </programming-exercise>
 
-<programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12_03_pisteiden_mukaan'>
+<programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12-03_pisteiden_mukaan'>
 
 Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne _pisteiden mukaiseen laskevaan järjestykseen_.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
 
@@ -270,14 +270,14 @@ Aapeli (a123), 220 op
 
 Järjestely toimii niinkuin pitää. Jos olioille arvon antavia funktioita `tunnuksen_mukaan` ja `pisteiden_mukaan` ei tarvita muuten, voimme kuitenkin vielä yksinkertaistaa ohjelmaa.
 
-<programming-exercise name='Kiipeilyreitti' tmcname='osa12-'>
+<programming-exercise name='Kiipeilyreitti' tmcname='osa12-04_kiipeilyreitti'>
 
 Tehtäväpohjan mukana tulee valmis luokka `Kiipeilyreitti`, jota käytetään seuraavasti:
 
 ```python
 reitti1 = Kiipeilyreitti("Kantti", 38, "6A+")
 reitti2 = Kiipeilyreitti("Smooth operator", 9, "7A")
-reitti2 = Kiipeilyreitti("Syncro", 14, "8C+")
+reitti3 = Kiipeilyreitti("Syncro", 14, "8C+")
 
 
 print(reitti1)
@@ -307,8 +307,8 @@ r4 = Kiipeilyreitti("Pieniä askelia", 12, "6A+")
 
 reitit = [r1, r2, r3, r4]
 
-for reitti in pituuden_mukaan():
-    print reitti
+for reitti in pituuden_mukaan(reitit):
+    print(reitti)
 ```
 
 <sample-output>
@@ -333,8 +333,8 @@ r3 = Kiipeilyreitti("Syncro", 14, "8C+")
 r4 = Kiipeilyreitti("Pieniä askelia", 12, "6A+")
 
 reitit = [r1, r2, r3, r4]
-for reitti in vaikeuden_mukaan():
-    print reitti
+for reitti in vaikeuden_mukaan(reitit):
+    print(reitti)
 ```
 
 <sample-output>
@@ -361,7 +361,7 @@ print(sorted(lista))
 
 </programming-exercise>
 
-<programming-exercise name='Kiipeilykalliot' tmcname='osa12-'>
+<programming-exercise name='Kiipeilykalliot' tmcname='osa12-05_kiipeilykalliot/'>
 
 Tehtäväpohjasta löytyy luokan `Kiipeilyreitti` lisäksi luokka `Kiipeilykallio`.
 
@@ -381,7 +381,7 @@ k3.lisaa_reitti(Kiipeilyreitti("Possu ei pidä", 12 , "6B+"))
 k3.lisaa_reitti(Kiipeilyreitti("Hedelmätarha", 8, "6A"))
 
 print(k1)
-print(k3.nimi, k3.reitteja(), k3.vaikein_reitti())
+print(k3.nimi, k3.reitteja())
 print(k3.vaikein_reitti())
 ```
 
@@ -400,7 +400,7 @@ Tee funktio `reittien_maaran_mukaan`, joka järjestää kiipeilykalliot reittien
 ```python
 # k1, k2 ja k3 määritelty kuten edellä
 kalliot = [k1, k2, k3]
-for kallio in reittien_maaran_mukaan():
+for kallio in reittien_maaran_mukaan(kalliot):
     print(kallio)
 
 ```
@@ -420,7 +420,7 @@ Tee funktio `vaikeimman_reitin_mukaan`, joka järjestää kiipeilykalliot reitti
 ```python
 # k1, k2 ja k3 määritelty kuten edellä
 kalliot = [k1, k2, k3]
-for kallio in vaikeimman_reitin_mukaan():
+for kallio in vaikeimman_reitin_mukaan(kalliot):
     print(kallio)
 
 ```
@@ -554,8 +554,9 @@ Let It Be (Beatles), 1969. 35 min.
 Pisin levy:
 U2 (Joshua Tree), 1986. 50 min.
 
+</sample-output>
 
-<programming-exercise name='Palloilijat' tmcname='osa12_06_palloilijat'>
+<programming-exercise name='Palloilijat' tmcname='osa12-06_palloilijat'>
 
 Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirteet:
 
@@ -653,7 +654,7 @@ if __name__ == "__main__":
 
 Funktiossa parametrille `kriteeri` on määritelty oletusarvoksi lambda-lauseke `lambda x: True`, jonka tuottama anonyymi funktio palauttaa arvon `True` kaikille syötteille. Niinpä oletuksena kopioidaan kaikki rivit tiedostosta toiseen. Jos käyttäjä antaa kolmannelle parametrille arvon, tämä korvaa oletusarvon.
 
-<programming-exercise name='Tuotteiden haku' tmcname='osa12_07_tuotteiden_haku'>
+<programming-exercise name='Tuotteiden haku' tmcname='osa12-07_tuotteiden_haku'>
 
 Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet`seuraavasti:
 
