@@ -113,11 +113,11 @@ x = 10
 print(f"luvun {x} {neliöjuuri math.sqrt(x)}")
 ```
 
-Edellisessä tehtävässä oletettiin, että luokat on määritelyt omissa tiedostoissa. Esimerkki toteaa mm.
+Edellisessä tehtävässä oletettiin, että luokat on määritelty omissa tiedostoissaan. Esimerkki toteaa mm.
  _Esitellään aluksi luokka Kurssi, joka on määritelty tiedostossa kurssi.py_
 ja importin tarve siis johtuu tästä.
 
-Jos kaikki koodi sijoitetaan samaan tiedostoon, kuten kaikissa kurssin tehtäväissä tapahtuu, **et tarvitse** `import`:ia luokkien käytöön.
+Jos kaikki koodi sijoitetaan samaan tiedostoon, kuten kaikissa kurssin ohjelmointitehtävissä ohjeistetaan, **et tarvitse** `import`:ia luomiesi luokkien käytöön.
 
 Jos siis päädyt kirjottamaan kurssilla seuraavanlaista koodia
 
@@ -127,7 +127,7 @@ from henkilo import Henkilo
 # koodi
 ```
 
-Ratkaisusi on todennäköisesti väärä! Lisää importin käytöstä [osan 7](/osa-7/1-moduulit/) materiaalissa.
+ratkaisusi on todennäköisesti väärä! Lisää importin käytöstä [osan 7](/osa-7/1-moduulit/) materiaalissa.
 
 <programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikki'>
 
@@ -156,7 +156,7 @@ Leevi, kaverina Hulda, joka on sekarotuinen koira
 
 Äskeisissä esimerkeissä oliolla oli attribuuttina yksittäinen toisen luokan olio, esim. henkilöllä attribuuttina lemmikki ja opintosuorituksella attribuuttina kurssi.
 
-Olio-ohjelmoinnissa törmätään kutenkin usein tilanteeseen, jossa oliolla on attribuuttina joukko toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
+Olio-ohjelmoinnissa törmätään kutenkin usein tilanteeseen, jossa oliolla on attribuuttina _joukko_ toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
 
 ```python
 class Pelaaja:
@@ -309,7 +309,7 @@ None
 
 </sample-output>
 
-`None`-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle, joka onkin `None`:
+`None`-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle (tai pyydetään attribuutin arvoa oliolta), joka onkin `None`:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
