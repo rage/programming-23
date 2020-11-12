@@ -354,7 +354,7 @@ class Sanasto:
         return self.apu
 ```
 
-Toisaalta uusien olion attribuuttien määrittely muualla kuin konstruktorissa on sikäli vaarallista, että tällöin olion attribuutit riippuvat siitä, mitä metodeja on suoritettu. Kaikilla saman luokan avulla luoduilla olioilla ei välttämättä ole samoja attribuutteja, mistä seuraa helposti bugeja.
+Toisaalta uusien olion attribuuttien määrittely _muualla_ kuin konstruktorissa on sikäli vaarallista, että tällöin olion attribuutit riippuvat siitä, mitä metodeja on suoritettu. Kaikilla saman luokan avulla luoduilla olioilla ei välttämättä ole samoja attribuutteja, mistä seuraa helposti bugeja.
 
 Siispä oikea tapa määritellä yhdessä metodissa käytettävät apumuuttujat on tehdä se _ilman_ `self`-määrettä:
 
