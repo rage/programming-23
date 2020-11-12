@@ -176,7 +176,19 @@ Ei osumaa.
 
 ### Muita erikoismerkkejä
 
-Pisteellä merkitään mitä tahansa yksittäistä merkkiä. Niinpä merkintä `c...o` vastaa esimerkiksi merkkijonoja `c-3po` tai `combo`. Merkillä `^` voidaan määritellä, että osuman pitää löytyä merkkijonon alusta, ja vastaavasti merkillä `$`, että sen on oltava lopussa.
+Pisteellä merkitään mitä tahansa yksittäistä merkkiä. Niinpä merkintä `c...o` vastaa esimerkiksi merkkijonoja `c-3po` tai `combo`. Merkillä `^` voidaan määritellä, että osuman pitää löytyä merkkijonon alusta, ja vastaavasti merkillä `$`, että sen on oltava lopussa. Näillä voidaan näppärästi myös rajata sääntö koskemaan vain annettuja merkkejä:
+
+<sample-output>
+
+Anna lauseke: ^[123]*$
+Anna testijono: 4
+Ei osumaa.
+Anna testijono: 1221
+Osuma!
+Anna testijono: 333333333
+Osuma!
+
+</sample-output>
 
 Kenoviivaa voidaan käyttää etsimään erikoismerkkejä. Merkintä `1+` tarkoitaa yhtä tai useampaa ykköstä, mutta merkintä `1\+` merkkijonoa `1+`.
 
@@ -218,7 +230,7 @@ Harjoitellaan hieman säännöllisten lausekkeiden käyttöä.
 
 ## Viikonpäivät
 
-Tee säännöllisen lausekkeen avulla funktio on_viikonpaiva(merkkijono: str) joka palauttaa True jos sen parametrina saama merkkijono on viikonpäivän lyhenne (ma, ti, ke, to, pe, la tai su).
+Tee säännöllisen lausekkeen avulla funktio on_viikonpaiva(merkkijono: str) joka palauttaa True jos sen parametrina saama merkkijono sisältää viikonpäivän lyhenteen (ma, ti, ke, to, pe, la tai su).
 
 Esimerkki funktion kutsumisesta:
 
