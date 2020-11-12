@@ -387,7 +387,7 @@ Aku ja Mikki sekä Tupu ynnä Hupu ja lisäksi Lupu ja Tiku sekä Taku ynnä Iin
 
 </sample-output>
 
-<programming-exercise name='Opintopisteet' tmcname='osa12-'>
+<programming-exercise name='Opintopisteet' tmcname='osa12-09_alkuluvut'>
 
 Tarkastellaan tässä tehtävässä hieman erilaista versiota luokasta `Suoritus`. Tällä kertaa se kuvastaa ainoastaan yksittäisen opiskelijan kurssisuorituksia. Luokka toimii seuraavasti:
 
