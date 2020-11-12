@@ -380,7 +380,7 @@ Kun näin tapahtuu, ovat apumuuttujat olemassa ainoastaan metodin suorituksen ai
 
 ## Oliot funktioiden parametrina
 
-Koska omista luoduista luodut oliot ovat yleensä muuttuvia eli mutatoituvia, niiden toiminta parametrina välitettäessä muistuttaa listoista tuttua tapaa: funktio, jolle olio välitetäään parametrina, voi muuttaa saamaansa oliota.
+Omista luokista luodut oliot ovat yleensä muuttuvia eli mutatoituvia, joten niiden toiminta parametrina välitettäessä muistuttaa esimerkiksi listoista tuttua tapaa: funktio, jolle olio välitetään parametrina, voi muuttaa kyseistä oliota.
 
 Tarkastellaan yksinkertaista esimerkkiä, jossa funktiolle välitetään `Opiskelija`-luokasta luotu olio. Funktion sisällä muutetaan opiskelijan nimi, ja muutos näkyy myös pääohjelmassa, koska molemmissa tilanteissa viitataan samaan olioon.
 
@@ -412,7 +412,7 @@ Olli Opiskelija (12345)
 
 </sample-output>
 
-Olion voi myös luoda funktiossa. Mikäli funktio palauttaa viittauksen olioon, on muodostettu olio käytettävissä myös pääohjelmassa:
+Olion voi myös luoda funktion sisällä. Mikäli funktio palauttaa viittauksen olioon, on muodostettu olio käytettävissä myös pääohjelmassa:
 
 ```python
 from random import randint, choice
@@ -426,7 +426,7 @@ class Opiskelija:
         return f"{self.nimi} ({self.opiskelijanumero})"
 
 
-# Metodi luo ja palauttaa Opiskelija-olion, jolla on satunnainen nimi ja opiskelijanumero
+# Funktio luo ja palauttaa Opiskelija-olion, jolla on satunnainen nimi ja opiskelijanumero
 def uusi_opiskelija():
     etunimet = ["Arto","Pekka","Minna","Mari"]
     sukunimet = ["Virtanen", "Lahtinen", "Leinonen", "Pythonen"]
@@ -524,7 +524,7 @@ class Kasvatuslaitos:
         return -1
 ```
 
-Metodi saa parametrina henkilön ja metodin on tarkoitus palauttaa kutsujalleen parametrina olevan henkilön paino. Paino selviää kutsumalla parametrina olevan henkilön henkilo sopivaa metodia. Sinun tulee täydentää metodin koodia sopivasti.
+Metodi saa parametrina henkilön ja metodin on tarkoitus palauttaa kutsujalleen parametrina olevan henkilön paino. Paino selviää pyytämällä parametrina olevalta henkilöltä `henkilo` sopiva attribuutti. Sinun tulee täydentää `punnitse`-metodin koodia.
 
 Seuraavassa on pääohjelma jossa kasvatuslaitos punnitsee kaksi henkilöä:
 
@@ -559,6 +559,7 @@ pekka = Henkilo("Pekka", 33, 176, 85)
 
 print(f"{eero.nimi} painaa {haagan_neuvola.punnitse(eero)} kg")
 print(f"{pekka.nimi} painaa {haagan_neuvola.punnitse(pekka)} kg")
+print() 
 
 haagan_neuvola.syota(eero)
 haagan_neuvola.syota(eero)
@@ -914,11 +915,11 @@ class Henkilo:
         self.syntynyt = syntynyt
 
     # huomaa, että tyyppivihje pitää antaa hipsuissa jos parametri on saman luokan olio!
-    def vanhempi_kuin(self, toinen: "Henkilo)":
+    def vanhempi_kuin(self, toinen: "Henkilo"):
         return self.syntynyt < toinen.syntynyt:
 ```
 
-Edellisestä esimerkistä kannattaa huomata se, että kun metodi saa parametrikseen toisen saman luokan olion, tulee tyyppivihe antaa hipsuissa, eli seuraava koodi aiheuttaisi virheen:
+Edellisestä esimerkistä kannattaa huomata se, että kun metodi saa parametrikseen toisen saman luokan olion, tulee tyyppivihje antaa hipsuissa, eli seuraava koodi aiheuttaisi virheen:
 
 ```python
 class Henkilo:
