@@ -102,7 +102,7 @@ class Sanasto:
 
 Tässä yhteydessä apumuuttujien määrittely käyttäen `self`-määrettä on todella huono idea. Kun muuttujan määrittely tapahtuu näin, liitetään muuttuja olion attribuutiksi, eli muuttuja tulee olemaan edelleen olemassa myös metodin suorituksen päätyttyä. Tämä taas on aivan tarpeetonta, koska apumuttujia ei ole tarkoitus käyttää missään muualla  luokan koodia kuin metodissa `pisin_sana(self)`.
 
-Turhien ja varsinkin epämääräisesti nimettyjen apumuuttujien liittäminen `self`-määreella olion attribuuteiksi on paitsi turhaa niin myös riskialtista. Jos samaa apumuuttujaa `self.apu` käytetään monessa eri metodissa mutta täysin eri tarkoituksiin, voivat seuraukset olla arvaamattomat ja koodissa voi ilmetä hankalasti löydettäviä bugeja.
+Turhien ja varsinkin epämääräisesti nimettyjen apumuuttujien liittäminen `self`-määreellä olion attribuuteiksi on paitsi turhaa niin myös riskialtista. Jos samaa apumuuttujaa `self.apu` käytetään monessa eri metodissa mutta täysin eri tarkoituksiin, voivat seuraukset olla arvaamattomat ja koodissa voi ilmetä hankalasti löydettäviä bugeja.
 
 Ongelma voi tulla esiin erityisesti silloin jos apumuuttujan alkuarvo annetaan jossain muualla, esimerkiksi konstruktorissa
 
