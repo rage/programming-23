@@ -547,7 +547,7 @@ pinta-ala: 6
 
 ## Neliö
 
-Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen [neliön](https://fi.wikipedia.org/wiki/Neli%C3%B6_(geometria)) kaikki sivut ovat saman pituisia, eli neliö on eräänlainen yksinkertaisempi erikoistapaus suorakulmiosta. Luokka ei saa määritelä uusia attribuutteja!
+Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen [neliön](https://fi.wikipedia.org/wiki/Neli%C3%B6_(geometria)) kaikki sivut ovat saman pituisia, eli neliö on eräänlainen yksinkertaisempi erikoistapaus suorakulmiosta. Luokka ei saa määritellä uusia attribuutteja!
 
 Luokkaa käytetään seuraavasti:
 
