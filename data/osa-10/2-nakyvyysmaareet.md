@@ -43,7 +43,7 @@ class MuistikirjaPro(Muistikirja):
     def __init__(self):
         # Tämä on ok, koska luokan Muistikirja konstruktori
         # on julkinen
-        Muistikirja.__init__(self)
+        super().__init__()
 
     # Tämä antaa virheen
     def etsi_muistiinpanot(self, hakusana):
@@ -105,7 +105,7 @@ class MuistikirjaPro(Muistikirja):
     def __init__(self):
         # Tämä on ok, koska luokan Muistikirja konstruktori
         # on julkinen
-        Muistikirja.__init__(self)
+        super().__init__()
 
     # Nyt metodi toimii, koska suojattu attribuutti näkyy
     # aliluokalle
