@@ -299,7 +299,7 @@ Sovelluksen rakenteelle voi ottaa inspiraatiota osan 10 [viimeisestä luvusta](/
 
 <programming-exercise name='Tilastot ojennukseen' tmcname='osa12_15-tilastot_ojennukseen'>
 
-Tässä tehtävässä tehdään sovellis, jonka avulla on mahdollista tarkastella NHL-jääkiekkoliigan tilastoja muutamassa hieman erilaisessa muodossa.
+Tässä tehtävässä tehdään sovellus, jonka avulla on mahdollista tarkastella NHL-jääkiekkoliigan tilastoja muutamassa hieman erilaisessa muodossa.
 
 Tehtäväpohjan mukana tulee kaksi json-muodossa olevaa tiedostoa `osa.json` ja `kaikki.json`, näistä ensimmäinen on tarkoitettu lähinnä testailun avuksi. Jälkimmäinen sisältää kaikkien kaudella 2019-20 pelanneiden pelaajien statistiikat.
 
@@ -321,7 +321,7 @@ ja molemmat tiedostoista sisältävät yksittäisten pelaajien tiedot taulukossa
 
 Olet todennäköisesti unohtanut miten json-muotoinen tiedosto saadaan luettua Python-ohjelmaan. Se ei ole vaikeaa voit kerrata [osan 7 materiaalista](/osa-7/4-datan-kasittely#json-tiedoston-lukeminen).
 
-Tee nyt ohjelma, joka tarjoaa seuraavanlaisen toiminnallisuuden. Ohjelma aloittaa kysymällä tiedoston nimeä. Tämän jälkeen ohjelma tarjoaa seruaavat toiminnot:
+Tee nyt ohjelma, joka tarjoaa seuraavanlaisen toiminnallisuuden. Ohjelma aloittaa kysymällä tiedoston nimeä. Tämän jälkeen ohjelma tarjoaa seuraavat toiminnot:
 
 - yksittäisen pelaajan tietojen haku nimen perusteella
 - listaus joukkueiden nimien lyhenteistä (aakkosjärjestyksessä)
@@ -402,7 +402,7 @@ Jonathan Davidsson   OTT   0 +  1 =   1
 </pre>
 
 komento: **5**
-joukkue: **CAN**
+maa: **CAN**
 <pre>
 Jared McCann         PIT  14 + 21 =  35
 Travis Zajac         NJD   9 + 16 =  25
