@@ -214,7 +214,7 @@ sovellus = PuhelinluetteloSovellus()
 sovellus.suorita()
 ```
 
-Erillisen metodin käyttämisen taustallakin on sama _separation of corners_ -periaate. Sen sijaan että koko käyttöliittymän toiminnallisuus sijoitettaisiin ison `while`-silmukan sisälle, tehdään jokaisesta yksittäisestä toimminnosta oma metodinsa. Tämä helpottaa kokonaisuuden hallintaa. Jos halutaan muokata tietojen lisäämisen toiminnallisuutta, tiedetään heti missä päin relevantti koodi sijaitsee.
+Erillisen metodin käyttämisen taustallakin on sama _separation of concerns_ -periaate. Sen sijaan että koko käyttöliittymän toiminnallisuus sijoitettaisiin ison `while`-silmukan sisälle, tehdään jokaisesta yksittäisestä toimminnosta oma metodinsa. Tämä helpottaa kokonaisuuden hallintaa. Jos halutaan muokata tietojen lisäämisen toiminnallisuutta, tiedetään heti missä päin relevantti koodi sijaitsee.
 
 Lisätään käyttöliittymään toiminnallisuus numeroiden hakemista varten. Sijoitetaan sen hoitava koodi heti omaan metodiinsa:
 
