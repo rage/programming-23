@@ -383,6 +383,7 @@ Toiminnallisuus on seuraava:
 <sample-output>
 
 tiedosto: **osa.json**
+luettiin 14 pelaajan tiedot
 
 komennot:
 0 lopeta
@@ -428,6 +429,7 @@ Toiminnallisuus on seuraava:
 <sample-output>
 
 tiedosto: **osa.json**
+luettiin 14 pelaajan tiedot
 
 komennot:
 0 lopeta
