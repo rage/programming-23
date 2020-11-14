@@ -434,7 +434,7 @@ Toteuta funktio `hyvaksyttyjen_opintopisteiden_summa`, joka saa parametriksi lis
 
 ```python
 s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
-s2 = Suoritus("Ohjelmoinnin jatkokutssi", 4, 0)
+s2 = Suoritus("Ohjelmoinnin jatkokutssi", 0, 4)
 s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
 summa = hyvaksyttyjen_opintopisteiden_summa([s1, s2, s3])
 ```
@@ -453,7 +453,7 @@ Toteuta funktio `keskiarvo`, joka saa parametriksi listan suorituksia ja laskee 
 
 ```python
 s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
-s2 = Suoritus("Ohjelmoinnin jatkokutssi", 4, 0)
+s2 = Suoritus("Ohjelmoinnin jatkokutssi", 0, 4)
 s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
 summa = keskiarvo([s1, s2, s3])
 ```
