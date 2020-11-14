@@ -44,7 +44,7 @@ Separation of concerns -periaatetta noudatellen koodi siis tuli jakaa osiin, joi
 
 Olioita käytettäessä ohjelmointiongelman "reaalimaailman asioita" vastaa yleensä oma luokkansa. Puhelinluettelon tapauksessa tälläisiä reaalimaailman asioita olisivat esimerkiksi:
 - henkilö
-- himi
+- nimi
 - puhelinnumero
 
 Näistä nimi ja puhelinnumero ovat kenties liian vähäpätöisiä ollakseen omia luokkiaan, mutta _henkilö_ voisi hyvinkin olla oma luokkansa, jonka vastuulla on sitoa yhteen tietty nimi ja siihen liittyvät puhelinnumerot.
