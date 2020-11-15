@@ -558,6 +558,11 @@ nimi: **Erkki**
 02-123456
 Linnankatu 75, Turku
 
+komento: **2**
+nimi: **Wilhelm**
+osoite ei tiedossa
+numero ei tiedossa
+
 komento: **0**
 
 </sample-output>
