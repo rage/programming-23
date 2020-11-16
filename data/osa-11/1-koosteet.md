@@ -364,7 +364,7 @@ Esimerkki funktion käytöstä:
 ```python
 klista = ["auto","mopo","Etana","kissa","Koira","OMENA","appelsiini"]
 for vok in vokaalilla_alkavat(klista):
-    print vok
+    print(vok)
 ```
 
 <sample-output>
