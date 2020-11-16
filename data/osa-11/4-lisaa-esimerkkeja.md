@@ -150,15 +150,15 @@ if __name__ == "__main__":
 
 ## Järjestetty binääripuu
 
-Binääripuusta on erityisesti hyötyä silloin, kun alkiot on järjestetty tietyn kaavan mukaisesti. Alkion löytäminen järjestetystä puusta on nopeaa.
+Binääripuusta on erityisesti hyötyä silloin, kun alkiot on järjestetty tietyllä tavalla. Alkion löytäminen järjestetystä puusta on nopeaa.
 
-Tarkastellaan esimerkkinä puuta, jossa alkiot on järjestetty seuraavan kaavan mukaisesti: jokaisen alkion vasen lapsi on pienempi kuin alkio itse; vastaavasti oikea alkio on suurempi kuin alkio itse.
+Tarkastellaan esimerkkinä puuta, jossa alkiot on järjestetty seuraavasti: jokaisen alkion vasen lapsi on pienempi kuin alkio itse, ja vastaavasti oikea alkio on suurempi kuin alkio itse.
 
 Alla olevassa kuvassa on esitetty esimerkki järjestetystä puusta:
 
 KUVA
 
-Nyt alkion etsimiseen voidaan kirjoitaa rekursiivinen algoritmi, joka toimii hyvin samankaltaisesti kuin aiemmin tarkastelemamme puolitushaku: jos juurialkio on tarkasteltava alkio, palautetaan arvo True. Muuten jatketaan rekursiivisesti hakua joko vasemmasta tai oikeasta alipuusta.
+Nyt alkion etsimiseen voidaan kirjoitaa rekursiivinen algoritmi, joka toimii hyvin samankaltaisesti kuin aiemmin tarkastelemamme binäärihaku: jos juurialkio on tarkasteltava alkio, palautetaan arvo `True`. Muuten jatketaan rekursiivisesti hakua joko vasemmasta tai oikeasta alipuusta. Jos alkio on tyhjä, palautetaan `False`.
 
 ```python
 
@@ -178,7 +178,7 @@ def etsi_alkio(juuri: Alkio, arvo):
 
 ## Paluu aikaan ennen rekursiota
 
-Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tässä tehtäväsarjassa ei rekursiota tarvitse eikä edes kannata käyttää. Listakoosteita sensijaan pääsee hyödyntämään!
+Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tässä tehtäväsarjassa ei rekursiota tarvitse eikä edes kannata käyttää. Listakoosteita sen sijaan pääsee hyödyntämään!
 
 <programming-exercise name='Tilauskirja' tmcname='osa11-18_tilauskirja'>
 
