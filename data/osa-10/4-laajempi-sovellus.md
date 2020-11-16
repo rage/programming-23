@@ -475,7 +475,7 @@ Tee laajennus sitten, että kunnioitat ohjelman rakennetta. Eli lisää luokkaan
 
 ## Olioita sanakirjassa
 
-Seuraavassa tehtävässä on tarkoitus muuttaa puhelinluetteloa siten, että sanakirjan arvoksi talletetaan puhelinluetteloiden listojen sijaan _olioita_.
+Seuraavassa tehtävässä on tarkoitus muuttaa puhelinluetteloa siten, että sanakirjan arvoksi talletetaan puhelinnumeroiden listojen sijaan _olioita_.
 
 Periaatteessa asiassa ei ole mitään ihmeellistä, mutta kurssilla ei vielä ole näin tehty, joten tutkitaan ennen tehtävää hieman samantapaista, mutta yksinkertaisempaa esimerkkiä.
 
