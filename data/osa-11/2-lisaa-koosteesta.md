@@ -36,7 +36,7 @@ print(isot_kirjaimet)
 
 Huomaa, että lopputuloksena on lista. Jos halutaan muodostaa merkkijonon perusteella uusi merkkijono, voidaan hyödyntää aikaisemmin esiteltyä `join`-metodia. Metodin avulla voidaan yhdistää listan alkiot merkkijonoksi. Metodi kohdistuu välimerkkiin, jolla alkiot yhdistetään.
 
-Metodi toimii siis esimerkiksi näin
+Metodi toimii siis esimerkiksi näin:
 
 ```python
 
@@ -138,7 +138,7 @@ print(lause_ilman_alkuja)
 
 Tee funktio `suodata_kielletyt(merkkijono: str, kielletyt: str)` joka palauttaa sen parametrina olevasta merkkijonosta version, joka ei sisällä yhtään merkkiä sen toisena parametrina olevasta "kiellettyjen merkkien" merkkijonosta.
 
-Funktion tulee käyttää listakoostetta. Funkto saa sisältää def-rivi mukaanlukien maksimissaan 3 riviä.
+Funktion tulee käyttää listakoostetta. Funkto saa sisältää `def`-rivi mukaanlukien maksimissaan 3 riviä.
 
 Esimerkki funktion käytöstä
 
@@ -209,9 +209,9 @@ if __name__ == "__main__":
         print(maa.nimi)
 ```
 
-Toisessa esimerkissä luokka Juoksumatka mallintaa yhtä juoksumatkaa nimineen ja pituuksineen. Nyt koosteen avulla luodaan lista Juoksumatka-olioita annettujen pituuksien mukaaan.
+Toisessa esimerkissä luokka `Juoksumatka` mallintaa yhtä juoksumatkaa nimineen ja pituuksineen. Nyt koosteen avulla luodaan lista `Juoksumatka`-olioita annettujen pituuksien mukaaan.
 
-Huomaa, että Juoksumatka-luokan konstruktorissa parametrilla `nimi` on oletusarvo, eikä sitä olioita luodessa esimerkissä erikseen annetakaan:
+Huomaa, että `Juoksumatka`-luokan konstruktorissa parametrilla `nimi` on oletusarvo, eikä sitä olioita luodessa esimerkissä erikseen annetakaan:
 
 ```python
 
@@ -312,7 +312,7 @@ Osan 10 tehtävässä teimme [Kauppalista-luokasta iteroitavan](/osa-10/3-olio-o
 
 Tee funktio nyt `kauppalistan_tuotteet(kauppalista, maara: int)` joka saa parametriksi kauppalista-olion. Funktio palauttaa kauppalistan ostoksista niiden tuotteiden nimet, joita on listalla vähintään parametrin `maara` verran.
 
-Funktio tulee toteuttaa listakoosteen avulla, ja sen pituus saa olla def-määrittelyriveineen yhteensä korkeintaan kaksi riviä. Luokan Kauppalista koodia ei saa muuttaa!
+Funktio tulee toteuttaa listakoosteen avulla, ja sen pituus saa olla `def`-määrittelyriveineen yhteensä korkeintaan kaksi riviä. Luokan Kauppalista koodia ei saa muuttaa!
 
 Funktio toimii seuraavasti
 
@@ -342,11 +342,11 @@ alkoholiton olut
 
 Osan 9 tehtävässä teimme luokan [Asunto](/osa-9/1-oliot-ja-viittaukset#programming-exercise-asuntovertailu). Tässä tehtävässä on käytössä hieman laajennettu versio luokasta.
 
-Tee funktio nyt `halvemmat(asunnot: list, verrattava: Asunto)` joka saa parametriksi listan asuntoja sekä yksittäisen vertailtavan asunnon. Funktio palauttaa listan, jolla on asunnoista ne jotka ovat hinnaltaan halvempia kuin vertailtava asunto sekä näiden hintaeron. Palautettavan listan alkiot ovat tupleja, joiden ensimmäinen jäsen on asunto ja toisena sen hintaero vertailtavaan.
+Tee funktio `halvemmat(asunnot: list, verrattava: Asunto)`, joka saa parametriksi listan asuntoja sekä yksittäisen vertailtavan asunnon. Funktio palauttaa listan, jolla on asunnoista ne, jotka ovat hinnaltaan halvempia kuin vertailtava asunto, sekä näiden hintaeron. Palautettavan listan alkiot ovat tupleja, joiden ensimmäinen jäsen on asunto ja toisena sen hintaero vertailtavaan.
 
-Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus def-määrittelyrivi mukaanluettuna on 2 riviä.
+Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus `def`-määrittelyrivi mukaanluettuna on 2 riviä.
 
-Luokan Asunto koodia ei saa muuttaa!
+Luokan `Asunto` koodia ei saa muuttaa!
 
 Funktio toimii seuraavasti
 
