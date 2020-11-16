@@ -171,6 +171,52 @@ def etsi_alkio(juuri: Alkio, arvo):
 
 ```
 
+<programming-exercise name='Pomot ja alaiset' tmcname='osa11-17_pomot_ja_alaiset'>
+
+Luokka `Tyontekija` mallintaa yrityksen työntekijää:
+
+```python
+class Tyontekija:
+    def __init__(self, nimi: str):
+        self.nimi = nimi
+        self.alaiset = []
+
+    def lisaa_alainen(self, tyontekija: 'Tyontekija'):
+        self.alaiset.append(tyontekija)
+```
+
+Tee funktio `laske_alaiset(tyontekija: Tyontekija)`, joka laskee rekursiivisesti annetun työntekijän alaisten määrän.
+
+Esimerkki funktion käyttämisestä:
+
+```python
+if __name__ == "__main__":
+    t1 = Tyontekija("Sasu")
+    t2 = Tyontekija("Erkki")
+    t3 = Tyontekija("Matti")
+    t4 = Tyontekija("Emilia")
+    t5 = Tyontekija("Antti")
+    t6 = Tyontekija("Kjell")
+    t1.lisaa_alainen(t4)
+    t1.lisaa_alainen(t6)
+    t4.lisaa_alainen(t2)
+    t4.lisaa_alainen(t3)
+    t4.lisaa_alainen(t5)
+    print(laske_alaiset(t1))
+    print(laske_alaiset(t4))
+    print(laske_alaiset(t5))
+```
+
+<sample-output>
+
+5
+3
+0
+
+</sample-output>
+
+</programming-exercise>
+
 ## Paluu aikaan ennen rekursiota
 
 Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tässä tehtäväsarjassa ei rekursiota tarvitse eikä edes kannata käyttää. Listakoosteita sen sijaan pääsee hyödyntämään!
