@@ -453,7 +453,7 @@ Kirjoita luokka `Lottorivi`, joka saa konstruktorissaan parametrikseen kierrokse
 Esimerkki luokan käytöstä:
 
 ```python
-oikea = Lottorivi([1,2,3,4,5,6,7])
+oikea = Lottorivi(5, [1,2,3,4,5,6,7])
 oma_rivi = [1,4,7,11,13,19,24]
 
 print(oikea.osumien_maara(oma_rivi))
@@ -474,7 +474,7 @@ Metodin tulee käyttää listakoostetta. Metodin pituus kokonaisuudessaan (def-r
 Esimerkki metodin käytöstä:
 
 ```python
-oikea = Lottorivi([1,2,3,10,20,30,33])
+oikea = Lottorivi(8, [1,2,3,10,20,30,33])
 oma_rivi = [1,4,7,10,11,20,30]
 
 print(oikea.osumat_paikoillaan(oma_rivi))
