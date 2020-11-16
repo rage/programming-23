@@ -453,7 +453,7 @@ print(sanojen_pituudet)
 
 </programming-exercise>
 
-<programming-exercise name='Yleisimmät sanat' tmcname='osa11_12_yleisimmat_sanat'>
+<programming-exercise name='Yleisimmät sanat' tmcname='osa11-12_yleisimmat_sanat'>
 
 Tee funktio `yleisimmat_sanat(tiedoston_nimi: str, raja: int)`, joka saa parametrikseen tiedoston nimen. Funktio palauttaa sanakirjan, joka sisältää tiedostossa olevien sanojen esiintymislukumäärän niiden sanojen osalta, joilla on vähintään toisen parametrin `raja` verran esiintymiä.
 
