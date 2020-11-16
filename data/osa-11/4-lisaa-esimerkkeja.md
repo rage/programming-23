@@ -186,11 +186,11 @@ Teemme tässä tehtävässä kaksi luokkaa, joitka toimivat rakennuspalikoina se
 
 ## Tehtava
 
-Toteuta luokka `Tehtava` joka mallintaa ohjelmistoyritykselle annettavia työtehtäviä. Tehtävillä on
+Toteuta luokka `Tehtava`, joka mallintaa ohjelmistoyritykselle annettavia työtehtäviä. Tehtävillä on
 - kuvaus
 - arvio sen viemästä työmäärästä
-- tieto koodarista joka toteuttaa tehtävän
-- tieto siitä onko tehtävä valmis vai ei
+- tieto koodarista, joka toteuttaa tehtävän
+- tieto siitä, onko tehtävä valmis vai ei
 - yksikäsitteinen tunniste eli id
 
 Luokka toimii seuraavasti:
@@ -225,10 +225,9 @@ Täsmennyksiä:
 - tehtävän tilan (valmis vai ei vielä valmis) voi tarkistaa funktiolla `on_valmis(self)` joka palauttaa totuusarvon
 - tehtävä ei ole siinä vaiheessa valmis kun se luodaan
 - tehtävä merkataan valmiiksi kutsumalla metodia `merkkaa_valmiiksi(self)`
-- tehtävien id on juokseva numero, joka alkaa arvosta 1
-    - ensimmäisenä luotava tehtävä saa id:n 1, seuraava id:n 2 jne
+- tehtävien id on juokseva numero, joka alkaa arvosta 1 (ensimmäisenä luotava tehtävä saa id:n 1, seuraava id:n 2 jne.)
 
-**Vihje** id kannatta toteuttaa [luokkamuuttujana](/osa-9/5-staattiset-piirteet#luokkamuuttujat).
+**Vihje**: id kannattaa toteuttaa [luokkamuuttujana](/osa-9/5-staattiset-piirteet#luokkamuuttujat).
 
 ## Tilauskirja
 
@@ -266,7 +265,7 @@ Erkki
 Tässä vaiheessa `Tilauskirja` tarjoaa kolme metodia:
 - `lisaa_tilaus(self, kuvaus, koodari, tyomaara)` lisää uuden tilauksen tilauskirjaan. Tilauskirja tallettaa tilaukset sisäisesti `Tehtava`-olioina. Huomaa, että metodilla täytyy olla juuri nämä parametrit, muuten testit eivät hyväksy metodia!
 - `kaikki_tilaukset(self)` palauttaa listana kaikki tilauskirjalla olevat tehtävät
-- `koodari(self)` palauttaa listana kaikki koodarit, joille on tehtävä tilauskirjassa, metodin palauttama lista ei saa sisältää yhtä koodia useampaan kertaan
+- `koodarit(self)` palauttaa listana kaikki koodarit, joille on tehtävä tilauskirjassa, metodin palauttama lista ei saa sisältää yhtä koodia useampaan kertaan
 
 **Vihje** Listalta on helppo poistaa duplikaatit siten että muutetaan ensin lista [set](https://docs.python.org/3.8/library/stdtypes.html#set)-tyyppiseksi. Set siis tarkoittaa joukkoa, ja joukossa kutakin alkiota voi olla vain yksi kappale. Tämän jälkeen `set` voidaan muuttaa takaisin listaksi, ja duplikaatit ovat kadonneet:
 
@@ -311,7 +310,7 @@ for tilaus in tilaukset.kaikki_tilaukset():
 
 </sample-output>
 
-Jos parametria vastaavaa tilausta ei löydy, tuottaa metodi poikkeuksen `ValueError`. Kertaa tarvittaessa [täältä](/osa-6/3-virheet#poikkeusten-tuottaminen) miten poikkeus tuotetaan.
+Jos parametria vastaavaa tilausta ei löydy, tuottaa metodi poikkeuksen `ValueError`. Kertaa tarvittaessa [täältä](/osa-6/3-virheet#poikkeusten-tuottaminen), miten poikkeus tuotetaan.
 
 Metodit `valmiit_tilaukset(self)` ja `ei_valmiit_tilaukset(self)` toimivat kuten olettaa saattaa, ne palauttavat nimensä mukaisen osajoukon tilauskirjan tehtävistä listana.
 
