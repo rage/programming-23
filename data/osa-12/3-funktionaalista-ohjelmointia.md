@@ -267,7 +267,7 @@ s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
 s3 = Suoritus("Pekka Python", "Ohjelmoinnin jatkokurssi", 0)
 
 for suoritus in hyvaksytyt([s1, s2, s3]):
-    print(suoritus.nimi)
+    print(suoritus)
 ```
 
 <sample-output>
@@ -289,7 +289,7 @@ s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
 s3 = Suoritus("Pekka Python", "Tietoliikenteen perusteet", 3)
 s4 = Suoritus("Olivia Ohjelmoija", "Johdatus yliopistomatematiikkaan", 3)
 
-for suoritus in hyvaksytyt([s1, s2, s3, s4]):
+for suoritus in suoritus_arvosanalla([s1, s2, s3, s4]):
     print(suoritus)
 ```
 
