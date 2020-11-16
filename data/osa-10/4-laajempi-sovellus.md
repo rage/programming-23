@@ -303,7 +303,7 @@ Erkki;02-1234567;045-4356713
 Emilia;040-324344
 ```
 
-Tiedoston käsittely on selkeästi omaa vastuualueensa, eli toteutetaan sitä varten oma luokka:
+Tiedoston käsittely on selkeästi oma vastuualueensa, eli toteutetaan sitä varten oma luokka:
 
 ```python
 class Tiedostonkasittelija():
