@@ -332,6 +332,7 @@ Näistä toiminnoista saa yhden pisteeten. Ohjelman tulee toimia seuraavasti:
 <sample-output>
 
 tiedosto: **osa.json**
+luettiin 14 pelaajan tiedot
 
 komennot:
 0 lopeta
@@ -383,6 +384,7 @@ Toiminnallisuus on seuraava:
 <sample-output>
 
 tiedosto: **osa.json**
+luettiin 14 pelaajan tiedot
 
 komennot:
 0 lopeta
@@ -402,7 +404,7 @@ Jonathan Davidsson   OTT   0 +  1 =   1
 </pre>
 
 komento: **5**
-joukkue: **CAN**
+maa: **CAN**
 <pre>
 Jared McCann         PIT  14 + 21 =  35
 Travis Zajac         NJD   9 + 16 =  25
@@ -414,7 +416,6 @@ Logan Shaw           WPG   3 +  2 =   5
 komento: **0**
 
 </sample-output>
-
 
 Ja kolmannen pisteen saa seuraavilla toiminnoilla:
 
@@ -428,6 +429,7 @@ Toiminnallisuus on seuraava:
 <sample-output>
 
 tiedosto: **osa.json**
+luettiin 14 pelaajan tiedot
 
 komennot:
 0 lopeta
@@ -461,7 +463,12 @@ komento: **7**
 kuinka monta: **6**
 
 <pre>
-
+Jakub Vrana          WSH  25 + 27 =  52
+Jared McCann         PIT  14 + 21 =  35
+Conor Sheary         BUF  10 + 13 =  23
+Travis Zajac         NJD   9 + 16 =  25
+John Klingberg       DAL   6 + 26 =  32
+Mark Jankowski       CGY   5 +  2 =   7
 </pre>
 
 komento: **0**
