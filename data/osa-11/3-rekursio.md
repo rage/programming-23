@@ -264,7 +264,7 @@ print(summa(10))
 
 </programming-exercise>
 
-<programming-exercise name='Sulut tasapainossa' tmcname='osa11_15_sulut_tasapainossa'>
+<programming-exercise name='Sulut tasapainossa' tmcname='osa11-15_sulut_tasapainossa'>
 
 Tehtäväpohjassa on valmiina funktio `sulut_tasapainossa`, joka tarkastaa, onko sen parametrina olevassa merkkijonossa sulut tasapainossa, eli onko jokaista "aukeavaa" sulkumerkkiä ( kohti on oma "sulkeutuva" sulkumerkki ), ja että sulut eivät mene ristiin.
 
@@ -424,4 +424,4 @@ False
 
 Binäärihakualgoritmi on helppo toteuttaa Pythonissa, koska listojen pilkkominen `[:]`-operaattorin avulla on vaivatonta.
 
-Jos verrataan binäärihakua _peräkkäishakuun_, algoritmien tehokkuus erottuu selvästi. Peräkkäishaussa alkiota lähdetään etsimään listan alusta ja listaa käydään läpi yksi alkio kerrallaan, kunnes alkio on löytynyt tai on päästy listan loppuun. Jos listan pituus on miljoona alkiota, tarvitaan perättäishaussa koko listan läpikäyntiin miljoona askelta - puolitushaussa askelia tarvitaan vain 20.
+Jos verrataan binäärihakua _peräkkäishakuun_, algoritmien tehokkuus erottuu selvästi. Peräkkäishaussa alkiota lähdetään etsimään listan alusta ja listaa käydään läpi yksi alkio kerrallaan, kunnes alkio on löytynyt tai on päästy listan loppuun. Jos listan pituus on miljoona alkiota, tarvitaan perättäishaussa koko listan läpikäyntiin miljoona askelta - binäärihaussa askelia tarvitaan vain 20.
