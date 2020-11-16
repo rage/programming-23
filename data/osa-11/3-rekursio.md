@@ -231,7 +231,7 @@ jne.
 
 Rekursiivinen algoritmimme siis toimii, koska voimme todistaa jokaisen luvun kohdalla ohjelman toimivuuden aikaisempien lukujen perusteella.
 
-<programming-exercise name='Rekursiivinen summa' tmcname='osa11_14_rekursiivinen_summa'>
+<programming-exercise name='Rekursiivinen summa' tmcname='osa11-14_rekursiivinen_summa'>
 
 Tee rekursiivinen funktio `summa(luku: int)` summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
 
