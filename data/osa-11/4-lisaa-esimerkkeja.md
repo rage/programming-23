@@ -451,3 +451,8 @@ virheellinen syöte
 </sample-output>
 
 </programming-exercise>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="d7407e43-b5cb-5d3d-83ff-27333a9da1ba"></quiz>
+
