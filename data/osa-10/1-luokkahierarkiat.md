@@ -208,7 +208,7 @@ class Henkilo:
 
  ```
 
- Luokassa on toteutettu siis henkilöön liittyvät piirteet. Nyt luoka Opiskelija ja Opettaja voivat _periä_ luokan ja lisätä perittyjen ominaisuuksien rinnalle uusia piirteitä:
+ Luokassa on toteutettu siis henkilöön liittyvät piirteet. Nyt luokat Opiskelija ja Opettaja voivat _periä_ luokan ja lisätä perittyjen ominaisuuksien rinnalle uusia piirteitä:
 
  Perintä tapahtuu kirjoittamalla luokan nimen perään perittävän luokan nimi sulkuihin:
 
@@ -265,7 +265,7 @@ class Kirja:
 
 
 class Kirjalaatikko:
-    """ Luokka mallinta laatikkoa, johon voidaan tallentaa kirjoja """
+    """ Luokka mallintaa laatikkoa, johon voidaan tallentaa kirjoja """
 
     def __init__(self):
         self.kirjat = []
