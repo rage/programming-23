@@ -13,7 +13,7 @@ Tässä osiossa
 </text-box>
 
 
-Rekursiivinen todellinen tehokkuus tulee esiin tilanteissa, joissa iteratiivinen ratkaisu on hankala kirjoitaa. Tarkastellaan esimerkkinä _binääripuuta_. Binääripuulla tarkoitetaan puurakennetta, jossa jokaisella alkiolla on korkeintaan kaksi "lasta". Binääripuu voisi siis näyttää esim. tältä (huomaa, että vaikka tietojenkäsittelijöitä pidetään joissain yhteyksissä luonnontieteilijöinä, käsityksemme puiden kasvusuunnasta on nurinkurinen):
+Rekursion todellinen hyöty tulee esiin tilanteissa, joissa iteratiivinen ratkaisu on hankala kirjoitaa. Tarkastellaan esimerkkinä _binääripuuta_. Binääripuulla tarkoitetaan puurakennetta, jossa jokaisella alkiolla on korkeintaan kaksi "lasta". Binääripuu voisi siis näyttää esim. tältä (huomaa, että vaikka tietojenkäsittelijöitä pidetään joissain yhteyksissä luonnontieteilijöinä, käsityksemme puiden kasvusuunnasta on nurinkurinen):
 
 KUVA BINÄÄRIPUUSTA
 
