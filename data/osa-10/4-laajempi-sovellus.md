@@ -661,7 +661,7 @@ arvosanajakauma
 2: x
 1: x
 
-komento: **3**
+komento: **0**
 
 </sample-output>
 
