@@ -15,7 +15,7 @@ Tässä osiossa
 
 Rekursiivinen todellinen tehokkuus tulee esiin tilanteissa, joissa iteratiivinen ratkaisu on hankala kirjoitaa. Tarkastellaan esimerkkinä _binääripuuta_. Binääripuulla tarkoitetaan puurakennetta, jossa jokaisella alkiolla on korkeintaan kaksi "lasta". Binääripuu voisi siis näyttää esim. tältä (huomaa, että vaikka tietojenkäsittelijöitä pidetään joissain yhteyksissä luonnontieteilijöinä, käsityksemme puiden kasvusuunnasta on nurinkurinen):
 
-KUVA BINÄÄRIPUUSTA
+<img src="11_4_1.png">
 
 Binääripuiden (ja puiden yleensäkin) käsittely rekursiivisesti on ainakin teoriassa helppoa: jos halutaan tehdä jokin operaatio binääripuun kaikille alkioille - esim. etsiä jokin tietty alkio puusta, voidaan kirjoitaa rekursiivinen algoritmi, joka
 
@@ -23,7 +23,7 @@ Binääripuiden (ja puiden yleensäkin) käsittely rekursiivisesti on ainakin te
 2. Kutsuu itseään vasemmasta lapsesta alkavalle "alipuulle"
 3. Kutsuu itseään oikeasta lapsesta alkavalle "alipuulle"
 
-KUVA ALIPUISTA
+<img src="11_4_2.png">
 
 Kun koko rekursiivinen algoritmi on käsitelty, on vierailtu kerran puun jokaisessa solussa. Iteratiivinen versio algoritmista on yleensä hankalampi kirjoittaa, koska kirjanpito vieralluista alkioista menee äkkiä monimutkaiseksi.
 
@@ -41,10 +41,7 @@ class Alkio:
 
 Nyt jos halutaan mallintaa esimerkiksi oheisen kaltainen puu:
 
-KUVA, JOSSA
-      2
-    3   4
-   5 8    11
+<img src="11_4_3.png">
 
 ...se voidaan muodostaa seuraavalla ohjelmalla:
 
@@ -154,9 +151,7 @@ Binääripuusta on erityisesti hyötyä silloin, kun alkiot on järjestetty tiet
 
 Tarkastellaan esimerkkinä puuta, jossa alkiot on järjestetty seuraavan kaavan mukaisesti: jokaisen alkion vasen lapsi on pienempi kuin alkio itse; vastaavasti oikea alkio on suurempi kuin alkio itse.
 
-Alla olevassa kuvassa on esitetty esimerkki järjestetystä puusta:
-
-KUVA
+<img src="11_4_1.png">
 
 Nyt alkion etsimiseen voidaan kirjoitaa rekursiivinen algoritmi, joka toimii hyvin samankaltaisesti kuin aiemmin tarkastelemamme puolitushaku: jos juurialkio on tarkasteltava alkio, palautetaan arvo True. Muuten jatketaan rekursiivisesti hakua joko vasemmasta tai oikeasta alipuusta.
 
@@ -165,7 +160,7 @@ Nyt alkion etsimiseen voidaan kirjoitaa rekursiivinen algoritmi, joka toimii hyv
 def etsi_alkio(juuri: Alkio, arvo):
     if juuri is None:
         return False
-        
+
     if arvo == juuri.arvo:
         return True
 
