@@ -473,6 +473,92 @@ Tee laajennus sitten, että kunnioitat ohjelman rakennetta. Eli lisää luokkaan
 
 </programming-exercise>
 
+## Olioita sanakirjassa
+
+Seuraavassa tehtävässä on tarkoitus muuttaa puhelinluetteloa siten, että sanakirjan arvoksi talletetaan puhelinluetteloiden listojen sijaan _olioita_.
+
+Periaatteessa asiassa ei ole mitään ihmeellistä, mutta kurssilla ei vielä ole näin tehty, joten tutkitaan ennen tehtävää hieman samantapaista, mutta yksinkertaisempaa esimerkkiä.
+
+Tehdään sovellus, jonka avulla voidaan pitää kirjaa kuinka monta tehtävää opiskelijat ovat tehneet kurssin aikana. Kunkin opiskelijan tehtävämäärä lasketaan yksinkertaisen olion avulla:
+
+```python
+class Tehtavalaskuri:
+    def __init__(self):
+        self.__tehtavia = 0
+
+    def merkkaa(self):
+        self.__tehtavia += 1
+
+    def tehtyja(self):
+        return self.__tehtavia
+```
+
+Luokkaa käyttävä pääohjelma on seuraavassa:
+
+```python
+opiskelijat = {}
+
+print("merkataan tehtäviä")
+while True:
+    nimi = input("opiskelija: ")
+    if len(nimi) == 0:
+        break
+
+    # luodaan tarvittaessa olio tehtävämäärän laskemista varten
+    if not nimi in opiskelijat:
+        opiskelijat[nimi] = Tehtavalaskuri()
+
+    # merkataan tehdyksi nimeä vastaavaan olioom
+    opiskelijat[nimi].merkkaa()
+
+
+for opiskelija, tehtavat in opiskelijat.items():
+    print(f"{opiskelija} tehtäviä {tehtavat.tehtyja()} kpl")
+```
+
+<sample-output>
+
+merkataan tehtäviä
+opiskelija: **pekka**
+opiskelija: **sara**
+opiskelija: **antti**
+opiskelija: **sara**
+opiskelija: **juuso**
+opiskelija: **juuso**
+opiskelija: **antti**
+opiskelija: **sara**
+opiskelija:
+pekka tehtäviä 1 kpl
+antti tehtäviä 2 kpl
+sara tehtäviä 3 kpl
+juuso tehtäviä 2 kpl
+
+</sample-output>
+
+Esimerkissä on parikin huomionarvoista seikkaa. Kun opiskelijan nimi syötetään, tarkastetaan aina ensin onko opiskelijaa vastaava olio jo sanakirjassa. Jos olioa ei ole, luodaan se:
+
+```python
+if not nimi in opiskelijat:
+    opiskelijat[nimi] = Tehtavalaskuri()
+```
+
+Tämän jälkeen _tiedetään_ että olio on olemassa. Se on joko luotu juuri tai jo aiemmin. Haettaan olio sanakirjasta, ja kutsutaan sen metodia `merkkaa`:
+
+```python
+opiskelijat[nimi].merkkaa()
+```
+
+Rivillä tapahtuu oikeastaan kaksi asiaa, ja sama voitaisiin kirjoittaa siten että sanakirjasta haettu olio sijoitettaisiin apumuuttujaan:
+
+```python
+opiskelijan_laskuri = opiskelijat[nimi]
+opiskelijan_laskuri.merkkaa()
+```
+
+Huomaa, että vaikka olio sijoitettaisiin apumuuttujaan, se ei tarkoita että olio poistuisi sanakirjasta, apumuuttuja on ainoastaan _viite_ sanakirjassa olevaan olioon.
+
+Suosittelen **lämpimästi** että kokeilet esimerkin koodia [visualisaattorissa](http://www.pythontutor.com/visualize.html#mode=edit) jos et ole 100% varma miten koodi toimii.
+
 <programming-exercise name='Puhelinluettelon laajennus, osa 2' tmcname='osa10-11_puhelinluettelo_osa2'>
 
 Tässä tehtävässä laajennetaan puhelinluettelosovellusta siten, että henkilöihin voi liittyä myös osoite. Yksinkertaisuuden vuoksi koodista on kuitenkin poistettu tiedostoon tallentaminen, myös muutama metodi on uudelleennimetty vastaamaan  paremmin laajennuksen jälkeistä tilannetta.
@@ -480,6 +566,7 @@ Tässä tehtävässä laajennetaan puhelinluettelosovellusta siten, että henkil
 ## Luokka henkilön tietojen esittämiseen
 
 Siirretään henkilön tietojen, eli puhelinnumerojen sekä osoitteen esittäminen oman luokkansa `Henkilo` vastuulle. Toteuta siis luokka siten, että se toimii seuraavasti:
+
 
 ```python
 henkilo = Henkilo("Erkki")
