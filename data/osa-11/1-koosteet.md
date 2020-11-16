@@ -380,13 +380,25 @@ appelsiini
 
 ## Vaihtoehtoinen haara suodatuksessa
 
-Koosteessa voi käyttää ehtolauseen ohella myös vaihtoehtoista haaraa. Syntaksi saattaa olla alkuun hankala, koska komponenttien järjestys poikkeaa aikaisemmista tavoista. Mikäli mukana on `else`-haara, annetaan koko ehtolause ennen `for`-osuutta. Yleinen muoto olisi siis
+Koosteessa voi käyttää ehtolauseen ohella myös vaihtoehtoista haaraa. Tämä onnistuu käyttämällä jo aiemmin mainittua _ehtolauseketta_:
+
+`<lauseke 1> if <ehto> else <lauseke 2>`
+
+...joka saa arvokseen joko lausekkeen 1 tai 2 arvon riippuen siitä, onko ehto tosi vai epätosi.
+
+Niinpä esim. ohjelma, joka tulostaa kahdesta luvusta suuremman yhdellä print-lauseella voisi näyttää tältä:
+
+```python
+luku1 = int(input("Anna luku 1:"))
+luku2 = int(input("Anna luku 2:"))
+print (luku1 if luku1 > luku2 else luku2)
+```
+
+Kun yhdistetään syntaksi listakoosteeseen, saadaan seuraavankaltainen rakenne:
 
 `[<lauseke 1> if <ehto> else <lauseke 2> for <alkio> in <sarja>]`
 
 Lopputuloksena syntyvässä listassa on yksi alkio jokaista alkuperäisen sarjan alkiota kohti. Jokaiselle alkiolle suoritetaan joko lauseke 1 tai lauseke 2 riippuen siitä onko ehtolauseke tosi vai ei.
-
-KUVA?
 
 Seuraava esimerkki muodostaa uuden listan, jossa alkuperäisen listan negatiiviset alkiot on käännetty vastaluvuikseen - positiiviset alkiot kelpuutetaan sellaisenaan. Käytännössä koostelause siis muodostaa listan alkuperäisen listan itseisarvoista.
 

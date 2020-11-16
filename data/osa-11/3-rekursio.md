@@ -161,9 +161,7 @@ Jos funktion parametrin arvo on 0 tai 1, funktio palauttaa 1 (koska kertoman mä
 
 `n * kertoma(n - 1)`
 
-Funktio siis kertoo parametrin n funktion itsensä kutsun palauttamalla arvolla. Tästä kertyvä _kutsupino_ on esitetty alla olevassa kuvassa:
-
-KUVA
+Funktio siis kertoo parametrin n funktion itsensä kutsun palauttamalla arvolla.
 
 Olennaista funktion toimivuuden kannalta on, että funktiossa on määritelty ehto, jolla se ei kutsu itseään enää uudestaan. Tässä tapauksessa ehto on `n < 2`.
 
@@ -389,9 +387,9 @@ Puolitushaun ideana on, että tarkastellaan aina listan keskimmäistä alkiota. 
 
 Jos lista on tyhjä, palautetaan tieto siitä, että alkiota ei löytynyt.
 
-Seuraava kuva havainnollistaa puolitushaun etenemistä:
+Seuraava kuva havainnollistaa puolitushaun etenemistä, kun etsitään listasta lukua 11:
 
-KUVA
+<img src="11_3_1.png">
 
 Rekursiivinen algoritmi puolitushaulle:
 
