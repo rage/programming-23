@@ -50,7 +50,7 @@ Koosteessa näyttää siis olevan jotakuinkin samat elementit kuin perinteisess�
 
 Koostelauseen ympärillä olevat hakasulkeet kertovat, että lopputuloksena on uusi lista. Lauseessa poimitaan yksi kerrallaan alkio alkuperäisestä sarjasta (esimerkkimme tapauksessa listasta), suoritetaan sille annettu lauseke ja tallennetaan se uuteen listaan. Lopputuloksena on siis lista, jossa on yhtä paljon alkioita kuin alkuperäisessä listassa, ja jossa kaikille alkiot on käsitelty samalla tavalla.
 
-KUVA
+<img src="11_1_2.png">
 
 Toisessa esimerkissä jokainen alkuperäisen listan alkio kerrotaan kymmenellä ja tallennetaan uuteen listaan:
 
