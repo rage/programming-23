@@ -508,13 +508,17 @@ while True:
     if not nimi in opiskelijat:
         opiskelijat[nimi] = Tehtavalaskuri()
 
-    # merkataan tehdyksi nimeä vastaavaan olioom
+    # merkataan tehdyksi nimeä vastaavaan olioon
     opiskelijat[nimi].merkkaa()
 
+print()
+print("tehdyt tehtävät:")
 
 for opiskelija, tehtavat in opiskelijat.items():
     print(f"{opiskelija} tehtäviä {tehtavat.tehtyja()} kpl")
 ```
+
+Käyttöesimerkki
 
 <sample-output>
 
@@ -528,6 +532,8 @@ opiskelija: **juuso**
 opiskelija: **antti**
 opiskelija: **sara**
 opiskelija:
+
+tehdyt tehtävät:
 pekka tehtäviä 1 kpl
 antti tehtäviä 2 kpl
 sara tehtäviä 3 kpl
@@ -542,20 +548,20 @@ if not nimi in opiskelijat:
     opiskelijat[nimi] = Tehtavalaskuri()
 ```
 
-Tämän jälkeen _tiedetään_ että olio on olemassa. Se on joko luotu juuri tai jo aiemmin. Haettaan olio sanakirjasta, ja kutsutaan sen metodia `merkkaa`:
+Tämän jälkeen _tiedetään_ että olio on olemassa. Se on joko luotu juuri tai jo aiemmin. Haetaan olio sanakirjasta, ja kutsutaan sen metodia `merkkaa`:
 
 ```python
 opiskelijat[nimi].merkkaa()
 ```
 
-Rivillä tapahtuu oikeastaan kaksi asiaa, ja sama voitaisiin kirjoittaa siten että sanakirjasta haettu olio sijoitettaisiin apumuuttujaan:
+Rivillä tapahtuu oikeastaan kaksi asiaa, ja sama voitaisiin kirjoittaa siten, että sanakirjasta haettu olio sijoitettaisiin apumuuttujaan:
 
 ```python
 opiskelijan_laskuri = opiskelijat[nimi]
 opiskelijan_laskuri.merkkaa()
 ```
 
-Huomaa, että vaikka olio sijoitettaisiin apumuuttujaan, se ei tarkoita että olio poistuisi sanakirjasta, apumuuttuja on ainoastaan _viite_ sanakirjassa olevaan olioon.
+Huomaa, että vaikka olio sijoitettaisiin apumuuttujaan, se _ei tarkoita_ että olio poistuisi sanakirjasta tai oliosta syntyisi kopio. Apumuuttuja on ainoastaan _viite_ sanakirjassa olevaan olioon.
 
 Suosittelen **lämpimästi** että kokeilet esimerkin koodia [visualisaattorissa](http://www.pythontutor.com/visualize.html#mode=edit) jos et ole 100% varma miten koodi toimii.
 
