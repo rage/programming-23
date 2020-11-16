@@ -163,6 +163,9 @@ Nyt alkion etsimiseen voidaan kirjoitaa rekursiivinen algoritmi, joka toimii hyv
 ```python
 
 def etsi_alkio(juuri: Alkio, arvo):
+    if juuri is None:
+        return False
+        
     if arvo == juuri.arvo:
         return True
 
