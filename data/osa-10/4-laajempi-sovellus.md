@@ -44,7 +44,7 @@ Separation of concerns -periaatetta noudatellen koodi siis tuli jakaa osiin, joi
 
 Olioita käytettäessä ohjelmointiongelman "reaalimaailman asioita" vastaa yleensä oma luokkansa. Puhelinluettelon tapauksessa tälläisiä reaalimaailman asioita olisivat esimerkiksi:
 - henkilö
-- himi
+- nimi
 - puhelinnumero
 
 Näistä nimi ja puhelinnumero ovat kenties liian vähäpätöisiä ollakseen omia luokkiaan, mutta _henkilö_ voisi hyvinkin olla oma luokkansa, jonka vastuulla on sitoa yhteen tietty nimi ja siihen liittyvät puhelinnumerot.
@@ -214,7 +214,7 @@ sovellus = PuhelinluetteloSovellus()
 sovellus.suorita()
 ```
 
-Erillisen metodin käyttämisen taustallakin on sama _separation of corners_ -periaate. Sen sijaan että koko käyttöliittymän toiminnallisuus sijoitettaisiin ison `while`-silmukan sisälle, tehdään jokaisesta yksittäisestä toimminnosta oma metodinsa. Tämä helpottaa kokonaisuuden hallintaa. Jos halutaan muokata tietojen lisäämisen toiminnallisuutta, tiedetään heti missä päin relevantti koodi sijaitsee.
+Erillisen metodin käyttämisen taustallakin on sama _separation of concerns_ -periaate. Sen sijaan että koko käyttöliittymän toiminnallisuus sijoitettaisiin ison `while`-silmukan sisälle, tehdään jokaisesta yksittäisestä toimminnosta oma metodinsa. Tämä helpottaa kokonaisuuden hallintaa. Jos halutaan muokata tietojen lisäämisen toiminnallisuutta, tiedetään heti missä päin relevantti koodi sijaitsee.
 
 Lisätään käyttöliittymään toiminnallisuus numeroiden hakemista varten. Sijoitetaan sen hoitava koodi heti omaan metodiinsa:
 
@@ -303,7 +303,7 @@ Erkki;02-1234567;045-4356713
 Emilia;040-324344
 ```
 
-Tiedoston käsittely on selkeästi omaa vastuualueensa, eli toteutetaan sitä varten oma luokka:
+Tiedoston käsittely on selkeästi oma vastuualueensa, eli toteutetaan sitä varten oma luokka:
 
 ```python
 class Tiedostonkasittelija():
@@ -341,7 +341,7 @@ print(loput)
 
 </sample-output>
 
-Sijoituslauseen viimeisenn muuttujan nimen edessä on *, ja se tarkoittaa, että viimeiseen muuttujaan kerätään taulukosta loput, eli kolmas ja sitä seuraavat alkiot.
+Sijoituslauseen viimeisen muuttujan nimen edessä on *, ja se tarkoittaa, että viimeiseen muuttujaan kerätään taulukosta loput, eli kolmas ja sitä seuraavat alkiot.
 
 Tiedostonkäsittelijääkin kannattaa ehdottomasti testata, ennen kuin se pultataan muuhun koodiin:
 
@@ -662,11 +662,11 @@ Varmista ensin että voit lisätä osoitteita luokkaan `Puhelinluettelo` ja kun 
 
 ## Erinäisiä huomioita
 
-Puhelinluetteloesimerkki noudattaa rakenteeltaan melko klassisia hyvän olio-ohjelmoinnin periaatteita. Kantavana ideana on siis ohjelman vastuualueiden erottelu eri luokkien ja metodien vastuulle. Eräs suurimmista motiiveista tällaiselle jaoittelulle on kompleksisuuden hallinta. Toinen tärkeä syy on se, että oikein tehty koodin jaoittelu tai _modularisointi_ kuten ammattijargon asian ilmaisee tekee koodista potentiaalisesti helpomman ylläpitää ja laajentaa.
+Puhelinluetteloesimerkki noudattaa rakenteeltaan melko klassisia hyvän olio-ohjelmoinnin periaatteita. Kantavana ideana on siis ohjelman vastuualueiden erottelu eri luokkien ja metodien vastuulle. Eräs suurimmista motiiveista tällaiselle jaottelulle on kompleksisuuden hallinta. Toinen tärkeä syy on se, että oikein tehty koodin jaottelu tai _modularisointi_ kuten ammattijargon asian ilmaisee tekee koodista potentiaalisesti helpomman ylläpitää ja laajentaa.
 
 Oikeissa ohjelmistoissa ylivoimaisesti suurimman kustannuserän aiheuttaa juuri ylläpito (eli bugien korjailu) sekä ohjelman laajentaminen, joten tällä seikalla on taloudellisesti erittäin suuri merkitys.
 
-Nostetaan esimerkistä esiin vielä pari tärkeää seikkaa. Koodi ilmentää hyvin sitä, miten sovelluslogiikan varsinainen ydin on eriytetty sekä käyttöliittymästä, että datan tallettamisesta. Tämä on tärkeää muutamastakin syystä. Ensinnäkin se mahdollistaa koodin testailun pienemmissä yksiköissä ja toisaalta koska sovelluslogiikka ei nyt riipu käyttöliittymästä tai tiedon talletustavasta, on esim .käyttöliittymää mahdollista muuttaa (ainakin johonkin pisteeseen asti) rikkomatta muuta sovellusta.
+Nostetaan esimerkistä esiin vielä pari tärkeää seikkaa. Koodi ilmentää hyvin sitä, miten sovelluslogiikan varsinainen ydin on eriytetty sekä käyttöliittymästä, että datan tallettamisesta. Tämä on tärkeää muutamastakin syystä. Ensinnäkin se mahdollistaa koodin testailun pienemmissä yksiköissä ja toisaalta koska sovelluslogiikka ei nyt riipu käyttöliittymästä tai tiedon talletustavasta, on esim. käyttöliittymää mahdollista muuttaa (ainakin johonkin pisteeseen asti) rikkomatta muuta sovellusta.
 
 Tiedostojen käsittelyn suhteen kannattaa myös huomata se, että ohjelma lukee tiedostoa ainoastan kerran, käynnistysvaiheessa, ja tämän jälkeen kaikki tieto pidetään ohjelman muuttujissa. Ohjelma tallettaa tiedot kokonaisuudessaan, ja käytännössä uudelleenkirjoittaa tiedoston joka kerta kokonaan uudestaan. Tiedostojen käsittely kannattaa lähes kaikissa tapauksissa tehdä näin.
 
@@ -748,7 +748,7 @@ arvosanajakauma
 2: x
 1: x
 
-komento: **3**
+komento: **0**
 
 </sample-output>
 

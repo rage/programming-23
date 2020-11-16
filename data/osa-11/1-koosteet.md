@@ -20,48 +20,42 @@ Oletetaan tilanne, jossa meillä on lista kokonaislukuja. Tämän listan peruste
 Perinteinen tapa toteuttaa operaatio näyttäisi esimerkiksi tältä:
 
 ```python
+luvut = [1, 2, 3, 6, 5, 4, 7]
 
-lukulista = [1, 2, 3, 6, 5, 4, 7]
-
-merkkijonolista = []
-for luku in lukulista:
-    merkkijonolista.append(str(luku))
-
+merkkijonot = []
+for luku in luvut:
+    merkkijonot.append(str(luku))
 ```
 
-## Listakooste (List Comprehension)
+## Listakooste
 
-Python tarjoaa kuitenin "pythonmaisemman" tavan uuden listan muodostamiseksi vanhan perusteella. Menetelmää nimitetään "listakoosteeksi", mutta huomattavasti yleisempää on käyttää englanninkielistä nimeä _list comprehension_.
+Python tarjoaa kuitenin "pythonmaisemman" tavan uuden listan muodostamiseksi vanhan perusteella. Menetelmää voidaan kutsua "listakoosteeksi", mutta huomattavasti yleisempää on käyttää englanninkielistä nimeä _list comprehension_.
 
-Menetelmässä ideana on, että yhdellä lauseella voidaan kuvata mikä operaatio listan kaikille alkioille tehdään ennen kuin ne tallennetaan uuteen listaan.
+Menetelmässä ideana on kuvata yhden rivin lausekkeella, mikä operaatio listan kaikille alkioille tehdään, ennen kuin ne tallennetaan uuteen listaan.
 
 Esimerkiksi yllä esitetty ohjelma, joka luo merkkijonolistan kokonaislukulistan perusteella, näyttäisi listakoostetta hyödyntäen tältä:
 
 ```python
-
-lukulista = [1, 2, 3, 6, 5, 4, 7]
-merkkijonolista = [str(luku) for luku in lukulista]
-
+luvut = [1, 2, 3, 6, 5, 4, 7]
+merkkijonot = [str(luku) for luku in luvut]
 ```
 
 Koosteessa näyttää siis olevan jotakuinkin samat elementit kuin perinteisessäkin toteutuksessa, mutta syntaksi on uudenlainen. Yleisemmin listakoosteen syntaksi voitaisiin esittää esimerkiksi näin:
 
 `[<lauseke> for <alkio> in <sarja>]`
 
-Koostelauseen ympärillä olevat hakasulkeet kertovat, että lopputuloksena on uusi lista. Lauseessa poimitaan yksi kerrallaan alkio alkuperäisestä sarjasta (esimerkkimme tapauksessa listasta), suoritetaan sille annettu lauseke ja tallennetaan se uuteen listaan. Lopputuloksena on siis lista, jossa on yhtä paljon alkioita kuin alkuperäisessä listassa, ja jossa kaikille alkiot on käsitelty samalla tavalla.
+Koosteen ympärillä olevat hakasulkeet kertovat, että lopputuloksena on uusi lista. Koosteessa poimitaan yksi kerrallaan alkio alkuperäisestä sarjasta (esimerkkimme tapauksessa listasta) ja tallennetaan siihen liittyvän lausekkeen arvo uuteen listaan. Lopputuloksena on lista, jossa on yhtä paljon alkioita kuin alkuperäisessä listassa ja kaikki alkiot on käsitelty samalla tavalla.
 
 <img src="11_1_2.png">
 
 Toisessa esimerkissä jokainen alkuperäisen listan alkio kerrotaan kymmenellä ja tallennetaan uuteen listaan:
 
 ```python
-
 luvut = list(range(1,10))
 print(luvut)
 
 luvut_kerrottuna = [luku * 10 for luku in luvut]
 print(luvut_kerrottuna)
-
 ```
 
 <sample-output>
@@ -71,10 +65,9 @@ print(luvut_kerrottuna)
 
 </sample-output>
 
-Lauseke voi olla mikä tahansa Pythonin lauseke - koosteessa voidaan siis esimerkiksi kutsua omaa funktiota:
+Lauseke voi olla mikä tahansa Pythonin lauseke. Esimerkiksi koosteessa voidaan kutsua itse määriteltyä funktiota:
 
 ```python
-
 def kertoma(n: int):
     """ Funktio laskee positiivisen luvun n kertoman n! """
     k = 1
@@ -87,7 +80,6 @@ if __name__ == "__main__":
     lista = [5, 2, 4, 3, 0]
     kertomat = [kertoma(luku) for luku in lista]
     print(kertomat)
-
 ```
 
 <sample-output>
@@ -128,9 +120,9 @@ def kertomat(luvut: list):
 
 <programming-exercise name='Neliojuuret' tmcname='osa11-01_neliojuuret'>
 
-Tee funktio `neliojuuret(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan parametrina olevien lukujen neliöjuurista. Kuten muistamme, neliöjuuren laskemiseen löytyy sopiva funktio moduulista [math](https://docs.python.org/3/library/math.html)
+Tee funktio `neliojuuret(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan parametrina olevien lukujen neliöjuurista. Neliöjuuren laskemiseen löytyy sopiva funktio moduulista [math](https://docs.python.org/3/library/math.html)
 
-Funktion tulee käyttää listakoostetta. Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+Funktion tulee käyttää listakoostetta. Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Funktio toimii seuraavasti:
 
@@ -153,9 +145,9 @@ for rivi in rivit:
 
 <programming-exercise name='Tähtirivit' tmcname='osa11-02_tahtirivit'>
 
-Tee funktio `tahtirivit(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan, joka koostuu tähtiriveistä joiden pituus vastaa parametrina olevan listan lukuja. Funktion tulee käyttää listakoostetta.
+Tee funktio `tahtirivit(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan, joka koostuu tähtiriveistä, joiden pituus vastaa parametrina olevan listan lukuja. Funktion tulee käyttää listakoostetta.
 
-Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Funktio toimii seuraavasti:
 
@@ -225,9 +217,9 @@ print(parhaat_tulokset(suoritukset))
 
 <programming-exercise name='Pituudet' tmcname='osa11-04_pituudet'>
 
-Tee funktio `pituudet(listat: list)` joka saa parametriksi listan joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
+Tee funktio `pituudet(listat: list)` joka saa parametriksi listan, joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
 
-Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Funktio toimii seuraavasti
 
@@ -247,21 +239,19 @@ print(pituudet(listat))
 
 ## Alkoiden suodatus
 
-Edellisissä esimerkeissä uusi lista muodostettiin kaikista alkuperäisen listan alkioista. Monissa tilanteissa olisi kuitenkin näppärää, jos voitaisiin valita alkuperäiseltä listalta vain tietyt alkiot. Koosteessa tämä onnistuu yhdistämällä siihen ehto-osa. Yleinen syntaksi on
+Edellisissä esimerkeissä uusi lista muodostettiin kaikista alkuperäisen listan alkioista. Joskus on kuitenkin näppärää, jos voitaisiin valita alkuperäiseltä listalta vain tietyt alkiot. Koosteessa tämä onnistuu yhdistämällä siihen ehto-osa. Yleinen syntaksi on seuraava:
 
 `[<lauseke> for <alkio> in <sarja> if <ehtolauseke>]`
 
-Erotuksena aikaisempaan koostelauseen loppuun kirjoitetaan siis ehtolause. Ainoastaan ne alkiot poimitaan mukaan tuloslistaan, joiden kohdalla ehtolauseke on tosi.
+Erotuksena aiempaan koosteen loppuun kirjoitetaan siis ehtolause. Ainoastaan ne alkiot poimitaan mukaan tuloslistaan, joiden kohdalla ehtolauseke on tosi.
 
-Esimerkissä poimitaan kaikki parilliset alkiot uuteen listaan. Huomaa, että lausekkeena on esimerkissä ainoastaan alkiomuuttuja - poimittavia alkioita ei siis käsitellä minkään operaation avulla ennen sijoittamista uuteen listaan:
+Esimerkissä poimitaan kaikki parilliset alkiot uuteen listaan. Huomaa, että lausekkeena on esimerkissä ainoastaan listan alkio eli poimittavia alkioita ei käsitellä minkään operaation avulla ennen sijoittamista uuteen listaan:
 
 ```python
-
 lista = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
 
 parilliset = [alkio for alkio in lista if alkio % 2 == 0]
 print(parilliset)
-
 ```
 
 <sample-output>
@@ -270,15 +260,13 @@ print(parilliset)
 
 </sample-output>
 
-Jos lausekkeeksi on määritelty jotain muuta kuin pelkkä alkio, mukaan otetuille alkoille tietysti toteutetaan tämä operaatio. Muokataan edellistä esimerkkiä niin, että uudessa listassa on kaikki alkuperäisen listan parilliset alkiot kerrotuna kymmenellä:
+Jos lausekkeeksi on määritelty jotain muuta kuin pelkkä alkio, mukaan otetuille alkoille toteutetaan tämä operaatio kuten ennenkin. Muokataan edellistä esimerkkiä niin, että uudessa listassa on kaikki alkuperäisen listan parilliset alkiot kerrotuna kymmenellä:
 
 ```python
-
 lista = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
 
 parilliset = [alkio * 10 for alkio in lista if alkio % 2 == 0]
 print(parilliset)
-
 ```
 
 <sample-output>
@@ -290,7 +278,6 @@ print(parilliset)
 Seuraavassa esimerkissä lasketaan ainoastaan positiivisten alkioiden kertoma:
 
 ```python
-
 def kertoma(n: int):
     """ Funktio laskee positiivisen luvun n kertoman n! """
     k = 1
@@ -303,7 +290,6 @@ if __name__ == "__main__":
     lista = [-2, 3, -1, 4, -10, 5, 1]
     kertomat = [kertoma(luku) for luku in lista if luku > 0]
     print(kertomat)
-
 ```
 
 <sample-output>
@@ -337,7 +323,7 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Esimerkissä lauseke on siis `(luku, kertoma(luku))`, joka muodostaa tuplen, jossa ensimmäinen alkio on alkio alkuperäisestä listasta ja toinen alkio kertoma-funktion palauttama arvo. Ehtolause on `luku > 0 and luku % 2 == 0`, jossa valikoidaan mukaan vain alkiot jotka ovat sekä positiivisia että jaollisia kahdella.
+Esimerkissä lauseke on siis `(luku, kertoma(luku))`, joka muodostaa tuplen, jossa ensimmäinen alkio on alkio alkuperäisestä listasta ja toinen alkio kertoma-funktion palauttama arvo. Ehtolauseke on `luku > 0 and luku % 2 == 0`, jossa valikoidaan mukaan vain alkiot, jotka ovat sekä positiivisia että jaollisia kahdella.
 
 <programming-exercise name='Poista pienemmät' tmcname='osa11-05_poista_pienemmat'>
 
@@ -345,7 +331,7 @@ Kirjoita funktio `poista_pienemmat(luvut: list, raja: int)`, joka saa parametrik
 
 Funktio muodostaa listakoostetta käyttäen uuden listan, josta on jätetty pois raja-arvoa pienemmät luvut.
 
-Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Esimerkki funktion käytöstä:
 
@@ -371,14 +357,14 @@ Kirjoita funktio `vokaalilla_alkavat(sanat: list)`, joka saa parametrikseen list
 
 Tehtävänäsi on listakoostetta hyödyntäen muodostaa ja palauttaa uusi lista, joka sisältää vain alkuperäisen listan ne sanat, jotka alkavat vokaalilla (a, e, i, o, u, y, ä, ö). Sekä pienien että suurten kirjaimien pitää kelvata.
 
-Funktion maksimipituus on (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+Funktion maksimipituus on (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Esimerkki funktion käytöstä:
 
 ```python
 klista = ["auto","mopo","Etana","kissa","Koira","OMENA","appelsiini"]
 for vok in vokaalilla_alkavat(klista):
-    print vok
+    print(vok)
 ```
 
 <sample-output>
@@ -394,13 +380,25 @@ appelsiini
 
 ## Vaihtoehtoinen haara suodatuksessa
 
-Koosteessa voi käyttää ehtolauseen ohella myös vaihtoehtoista haaraa. Syntaksi saattaa olla alkuun hankala, koska komponenttien järjestys poikkeaa aikaisemmista tavoista. Mikäli mukana on `else`-haara, annetaan koko ehtolause ennen `for`-osuutta. Yleinen muoto olisi siis
+Koosteessa voi käyttää ehtolauseen ohella myös vaihtoehtoista haaraa. Tämä onnistuu käyttämällä jo aiemmin mainittua _ehtolauseketta_:
+
+`<lauseke 1> if <ehto> else <lauseke 2>`
+
+...joka saa arvokseen joko lausekkeen 1 tai 2 arvon riippuen siitä, onko ehto tosi vai epätosi.
+
+Niinpä esim. ohjelma, joka tulostaa kahdesta luvusta suuremman yhdellä print-lauseella voisi näyttää tältä:
+
+```python
+luku1 = int(input("Anna luku 1:"))
+luku2 = int(input("Anna luku 2:"))
+print (luku1 if luku1 > luku2 else luku2)
+```
+
+Kun yhdistetään syntaksi listakoosteeseen, saadaan seuraavankaltainen rakenne:
 
 `[<lauseke 1> if <ehto> else <lauseke 2> for <alkio> in <sarja>]`
 
 Lopputuloksena syntyvässä listassa on yksi alkio jokaista alkuperäisen sarjan alkiota kohti. Jokaiselle alkiolle suoritetaan joko lauseke 1 tai lauseke 2 riippuen siitä onko ehtolauseke tosi vai ei.
-
-KUVA?
 
 Seuraava esimerkki muodostaa uuden listan, jossa alkuperäisen listan negatiiviset alkiot on käännetty vastaluvuikseen - positiiviset alkiot kelpuutetaan sellaisenaan. Käytännössä koostelause siis muodostaa listan alkuperäisen listan itseisarvoista.
 
@@ -455,7 +453,7 @@ Kirjoita luokka `Lottorivi`, joka saa konstruktorissaan parametrikseen kierrokse
 Esimerkki luokan käytöstä:
 
 ```python
-oikea = Lottorivi([1,2,3,4,5,6,7])
+oikea = Lottorivi(5, [1,2,3,4,5,6,7])
 oma_rivi = [1,4,7,11,13,19,24]
 
 print(oikea.osumien_maara(oma_rivi))
@@ -476,7 +474,7 @@ Metodin tulee käyttää listakoostetta. Metodin pituus kokonaisuudessaan (def-r
 Esimerkki metodin käytöstä:
 
 ```python
-oikea = Lottorivi([1,2,3,10,20,30,33])
+oikea = Lottorivi(8, [1,2,3,10,20,30,33])
 oma_rivi = [1,4,7,10,11,20,30]
 
 print(oikea.osumat_paikoillaan(oma_rivi))

@@ -102,7 +102,7 @@ class Sanasto:
 
 Tässä yhteydessä apumuuttujien määrittely käyttäen `self`-määrettä on todella huono idea. Kun muuttujan määrittely tapahtuu näin, liitetään muuttuja olion attribuutiksi, eli muuttuja tulee olemaan edelleen olemassa myös metodin suorituksen päätyttyä. Tämä taas on aivan tarpeetonta, koska apumuttujia ei ole tarkoitus käyttää missään muualla  luokan koodia kuin metodissa `pisin_sana(self)`.
 
-Turhien ja varsinkin epämääräisesti nimettyjen apumuuttujien liittäminen `self`-määreella olion attribuuteiksi on paitsi turhaa niin myös riskialtista. Jos samaa apumuuttujaa `self.apu` käytetään monessa eri metodissa mutta täysin eri tarkoituksiin, voivat seuraukset olla arvaamattomat ja koodissa voi ilmetä hankalasti löydettäviä bugeja.
+Turhien ja varsinkin epämääräisesti nimettyjen apumuuttujien liittäminen `self`-määreellä olion attribuuteiksi on paitsi turhaa niin myös riskialtista. Jos samaa apumuuttujaa `self.apu` käytetään monessa eri metodissa mutta täysin eri tarkoituksiin, voivat seuraukset olla arvaamattomat ja koodissa voi ilmetä hankalasti löydettäviä bugeja.
 
 Ongelma voi tulla esiin erityisesti silloin jos apumuuttujan alkuarvo annetaan jossain muualla, esimerkiksi konstruktorissa
 
@@ -208,7 +208,7 @@ class Henkilo:
 
  ```
 
- Luokassa on toteutettu siis henkilöön liittyvät piirteet. Nyt luoka Opiskelija ja Opettaja voivat _periä_ luokan ja lisätä perittyjen ominaisuuksien rinnalle uusia piirteitä:
+ Luokassa on toteutettu siis henkilöön liittyvät piirteet. Nyt luokat Opiskelija ja Opettaja voivat _periä_ luokan ja lisätä perittyjen ominaisuuksien rinnalle uusia piirteitä:
 
  Perintä tapahtuu kirjoittamalla luokan nimen perään perittävän luokan nimi sulkuihin:
 
@@ -265,7 +265,7 @@ class Kirja:
 
 
 class Kirjalaatikko:
-    """ Luokka mallinta laatikkoa, johon voidaan tallentaa kirjoja """
+    """ Luokka mallintaa laatikkoa, johon voidaan tallentaa kirjoja """
 
     def __init__(self):
         self.kirjat = []
@@ -547,7 +547,7 @@ pinta-ala: 6
 
 ## Neliö
 
-Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen [neliön](https://fi.wikipedia.org/wiki/Neli%C3%B6_(geometria)) kaikki sivut ovat saman pituisia, eli neliö on eräänlainen yksinkertaisempi erikoistapaus suorakulmiosta. Luokka ei saa määritelä uusia attribuutteja!
+Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen [neliön](https://fi.wikipedia.org/wiki/Neli%C3%B6_(geometria)) kaikki sivut ovat saman pituisia, eli neliö on eräänlainen yksinkertaisempi erikoistapaus suorakulmiosta. Luokka ei saa määritellä uusia attribuutteja!
 
 Luokkaa käytetään seuraavasti:
 

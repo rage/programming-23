@@ -415,7 +415,7 @@ Nalkkilan slabi, 4 reittiä, vaikein 7A
 
 ## Vaikeimman reitin mukaan
 
-Tee funktio `vaikeimman_reitin_mukaan`, joka järjestää kiipeilykalliot reittien määrän mukaiseen _laskevaan_ suuruusjärjestykseen.
+Tee funktio `vaikeimman_reitin_mukaan`, joka järjestää kiipeilykalliot kalliolta löytyvän vaikeimman reitin mukaiseen _laskevaan_ suuruusjärjestykseen.
 
 ```python
 # k1, k2 ja k3 määritelty kuten edellä
