@@ -242,21 +242,21 @@ if __name__ == "__main__":
 
 ## Selfillä vai ilman?
 
-Kurssin aikana on havaittu, että `self`-määreen käytössä on monilla opiskelijoilla ollut häilyvyyttä. Tarkastellaan nyt milloin selfiä tulee käyttää, ja milloin sitä kannattaa olla käyttämättä.
+Tässä vaiheessa kurssia `self`-määre saattaa vaikuttaa vielä hämärältä. Käytetään siis hetki sen pohtimiseen, milloin selfiä tulee käyttää, ja milloin sitä kannattaa olla käyttämättä.
 
 Tarkastellaan esimerkkinä yksinkertaista luokkaa, jonka avulla joukosta sanoja on mahdollista muodostaa sanasto:
 
 ```python
 class Sanasto:
     def __init__(self):
-        self.__sanat = []
+        self.sanat = []
 
     def lisaa_sana(self, sana: str):
-        if not sana in self.__sanat:
-            self.__sanat.append(sana)
+        if not sana in self.sanat:
+            self.sanat.append(sana)
 
     def tulosta(self):
-        for sana in sorted(self.__sanat):
+        for sana in sorted(self.sanat):
             print(sana)
 
 sanasto = Sanasto()
@@ -278,16 +278,16 @@ python
 
 </sample-output>
 
-Luokka tallentaa sanalistan oliomuuttujaan `self.__sanat`, tässä tapauksessa `self` tarvitaan ehdottomasti, muuten sama lista ei ole kaikkien olion metodien käytettävissä.
+Luokka tallentaa sanalistan oliomuuttujaan `self.sanat`. Tässä tapauksessa `self` tarvitaan ehdottomasti sekä luokan konstruktorissa että luokan muissa metodeissa tähän muuttujaan viitatessa, koska muuten sama lista ei ole kaikkien olion metodien käytettävissä.
 
 Lisätään luokalle metodi `pisin_sana(self)` joka selvittää nimensä mukaisesti sanaston pisimmän sanan (tai yhden niistä).
 
-Kurssilla on nähty seuraavan kaltaisia ratkaisuja:
+Tehtävän voisi toteuttaa vaikkapa seuraavasti, mutta näemme kohta miksei se ole kovin hyvä idea:
 
 ```python
 class Sanasto:
     def __init__(self):
-        self.__sanat = []
+        self.sanat = []
 
     # ...
 
@@ -296,7 +296,7 @@ class Sanasto:
         self.pisin = ""
         self.pisimman_pituus = 0
 
-        for sana in self.__sanat:
+        for sana in self.sanat:
             if len(sana) > self.pisimman_pituus:
                 self.pisimman_pituus = len(sana)
                 self.pisin = sana
@@ -304,12 +304,12 @@ class Sanasto:
         return self.pisin
 ```
 
-Metodi siis käyttää kahta apumuuttujaa, jotka on määritely käyttäen `self`-määrettä. Monet kurssin opiskelijat näyttävät kiintyneen huonoon muuttujien nimeämiseen, joten apumuuttujat saattaisivat olla nimetty kryptisemmin, esim. `apu` ja `apu2`:
+Metodi siis käyttää kahta apumuuttujaa, jotka on määritelty käyttäen `self`-määrettä. Jos vielä halutaan hämmentää ohjelmakoodia lukevaa, apumuuttujat voisi lisäksi nimetä kryptisemmin, esim. `apu` ja `apu2`:
 
 ```python
 class Sanasto:
     def __init__(self):
-        self.__sanat = []
+        self.sanat = []
 
     # ...
 
@@ -318,7 +318,7 @@ class Sanasto:
         self.apu = ""
         self.apu2 = 0
 
-        for sana in self.__sanat:
+        for sana in self.sanat:
             if len(sana) > self.apu2:
                 self.apu2 = len(sana)
                 self.apu = sana
@@ -326,16 +326,16 @@ class Sanasto:
         return self.apu
 ```
 
-Tässä yhteydessä apumuuttujien määrittely käyttäen `self`-määrettä on todella huono idea. Kun muuttujan määrittely tapahtuu näin, liitetään muuttuja olion attribuutiksi, eli muuttuja tulee olemaan edelleen olemassa myös metodin suorituksen päätyttyä. Tämä taas on aivan tarpeetonta, koska apumuttujia ei ole tarkoitus käyttää missään muualla  luokan koodia kuin metodissa `pisin_sana(self)`.
+Kun muuttujan määrittely tehdään `self`-määreen avulla, liitetään muuttuja olion attribuutiksi, eli muuttuja tulee olemaan edelleen olemassa myös metodin suorituksen päätyttyä. Tämä on aivan tarpeetonta, koska kyseisiä apumuuttujia on tarkoitus käyttää vain metodissa `pisin_sana(self)`. Apumuuttujien määrittely `self`-määreen avulla on siis varsin huono idea.
 
-Turhien ja varsinkin epämääräisesti nimettyjen apumuuttujien liittäminen `self`-määreella olion attribuuteiksi on paitsi turhaa niin myös riskialtista. Jos samaa apumuuttujaa `self.apu` käytetään monessa eri metodissa mutta täysin eri tarkoituksiin, voivat seuraukset olla arvaamattomat ja koodissa voi ilmetä hankalasti löydettäviä bugeja.
+Paitsi turhaa, apumuuttujien liittäminen `self`-määreella olion attribuuteiksi on myös riskialtista, varsinkin epämääräisesti nimettyjen apumuuttujien tapauksessa. Jos samaa apumuuttujaa `self.apu` käytetään monessa eri metodissa mutta täysin eri tarkoituksiin, voivat seuraukset olla arvaamattomat ja koodissa voi ilmetä hankalasti löydettäviä bugeja. 
 
-Ongelma voi tulla esiin erityisesti silloin jos apumuuttujan alkuarvo annetaan jossain muualla, esimerkiksi konstruktorissa
+Ongelma voi tulla esiin erityisesti silloin jos apumuuttujan alkuarvo annetaan jossain muualla, esimerkiksi konstruktorissa:
 
 ```python
 class Sanasto:
     def __init__(self):
-        self.__sanat = []
+        self.sanat = []
         # määritellään apumuuttujia
         self.apu = ""
         self.apu2 = ""
@@ -345,7 +345,7 @@ class Sanasto:
     # ...
 
     def pisin_sana(self):
-        for sana in self.__sanat:
+        for sana in self.sanat:
             # tämä ei toimi sillä apu2:n tyyppi on väärä
             if len(sana) > self.apu2:
                 self.apu2 = len(sana)
@@ -354,12 +354,14 @@ class Sanasto:
         return self.apu
 ```
 
+Toisaalta uusien olion attribuuttien määrittely _muualla_ kuin konstruktorissa on sikäli vaarallista, että tällöin olion attribuutit riippuvat siitä, mitä metodeja on suoritettu. Kaikilla saman luokan avulla luoduilla olioilla ei välttämättä ole samoja attribuutteja, mistä seuraa helposti bugeja.
+
 Siispä oikea tapa määritellä yhdessä metodissa käytettävät apumuuttujat on tehdä se _ilman_ `self`-määrettä:
 
 ```python
 class Sanasto:
     def __init__(self):
-        self.__sanat = []
+        self.sanat = []
 
     # ...
 
@@ -368,7 +370,7 @@ class Sanasto:
         pisin = ""
         pisimman_pituus = 0
 
-        for sana in self.__sanat:
+        for sana in self.sanat:
             if len(sana) > pisimman_pituus:
                 pisimman_pituus = len(sana)
                 pisin = sana
@@ -376,7 +378,7 @@ class Sanasto:
         return pisin
 ```
 
-Kun näin tapahtuu, ovat apumuuttujat olemassa ainoastaan metodin suorituksen aikana, ja niissä olevat arvot eivät pääse aiheuttamaan komplikaatioita muussa koodissa.
+Tällaisessa toteutuksessa apumuuttujat ovat olemassa ainoastaan metodin suorituksen aikana, ja niissä olevat arvot eivät pääse aiheuttamaan komplikaatioita muussa koodissa.
 
 ## Oliot funktioiden parametrina
 
