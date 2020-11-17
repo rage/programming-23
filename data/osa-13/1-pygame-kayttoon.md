@@ -25,17 +25,13 @@ Tässä on yksinkertainen Pygamea käyttävä testiohjelma:
 ```python
 import pygame
 
-def testi():
-    pygame.init()
-    naytto = pygame.display.set_mode((640, 480))
+pygame.init()
+naytto = pygame.display.set_mode((640, 480))
 
-    while True:
-        for tapahtuma in pygame.event.get():
-            if tapahtuma.type == pygame.QUIT:
-                return
-
-if __name__ == "__main__":
-    testi()
+while True:
+    for tapahtuma in pygame.event.get():
+        if tapahtuma.type == pygame.QUIT:
+            break
 ```
 
 Kun ohjelma käynnistetään, se näyttää käyttäjälle seuraavanlaisen ikkunan:
@@ -49,24 +45,24 @@ Katsotaan seuraavaksi tarkemmin, miten ohjelma on rakentunut. Ohjelman alussa ri
 Ensimmäinen vaihe ohjelmassa on aloittaa Pygamen käyttäminen funktiolla `pygame.init` ja luoda ikkuna funktiolla `pygame.display.set_mode`.
 
 ```python
-    pygame.init()
-    naytto = pygame.display.set_mode((640, 480))
+pygame.init()
+naytto = pygame.display.set_mode((640, 480))
 ```
 
-Muuttujan `naytto` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640,480)` tarkoittaa, että tässä ohjelmassa ikkunan koko on 640x480 pikseliä.
+Muuttujan `naytto` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640, 480)` tarkoittaa, että tässä ohjelmassa ikkunan koko on 640x480 pikseliä.
 
 Tämän jälkeen alkaa ohjelman _pääsilmukka_:
 
 ```python
-    while True:
-        for tapahtuma in pygame.event.get():
-            if tapahtuma.type == pygame.QUIT:
-                return
+while True:
+    for tapahtuma in pygame.event.get():
+        if tapahtuma.type == pygame.QUIT:
+            break
 ```
 
-Tässä ohjelmassa pääsilmukka käsittelee tapahtumat, jotka käyttöjärjestelmä välittää ohjelmalle. Joka kierroksella funktio `pygame.event.get` antaa listan tapahtumista, jotka ovat syntyneet funktion edellisen kutsukerran jälkeen.
+Pääsilmukka käsittelee tapahtumat, jotka käyttöjärjestelmä välittää ohjelmalle. Joka kierroksella funktio `pygame.event.get` antaa listan tapahtumista, jotka ovat syntyneet funktion edellisen kutsukerran jälkeen.
 
-Tässä tapauksessa ohjelma käsittelee vain tyyppiä `pygame.QUIT` olevat tapahtumat. Tällainen tapahtuma syntyy, kun käyttäjä sulkee ohjelman esimerkiksi painamalla ikkunan ylänurkassa olevaa raksia. Tämän tapahtuman seurauksena funktio päättyy ja ohjelma sulkeutuu.
+Tässä tapauksessa ohjelma käsittelee vain tyyppiä `pygame.QUIT` olevat tapahtumat. Tällainen tapahtuma syntyy, kun käyttäjä sulkee ohjelman esimerkiksi painamalla ikkunan ylänurkassa olevaa raksia. Tämän tapahtuman seurauksena silmukka päättyy ja ohjelma sulkeutuu.
 
 Voit kokeilla, mitä tapahtuu, jos ohjelma ei käsittele tapahtumaa `pygame.QUIT`. Tällöin raksin painamisen ei pitäisi vaikuttaa ohjelman toimintaan, mikä on hämmentävää käyttäjälle. Ohjelman voi kuitenkin tässäkin tapauksessa sulkea väkisin komentoriviltä painamalla Control+C.
 
@@ -75,18 +71,19 @@ Voit kokeilla, mitä tapahtuu, jos ohjelma ei käsittele tapahtumaa `pygame.QUIT
 Pelkän ikkunan näyttävä ohjelma on melko tylsä, joten laajennetaan seuraavaksi ohjelmaa niin, että se näyttää ikkunassa kuvan. Tämä onnistuu seuraavasti:
 
 ```python
-def testi():
-    pygame.init()
-    naytto = pygame.display.set_mode((640, 480))
+import pygame
 
-    robo = pygame.image.load("robo.png")
-    naytto.blit(robo, (0, 0))
-    pygame.display.flip()
+pygame.init()
+naytto = pygame.display.set_mode((640, 480))
 
-    while True:
-        for tapahtuma in pygame.event.get():
-            if tapahtuma.type == pygame.QUIT:
-                return
+robo = pygame.image.load("robo.png")
+naytto.blit(robo, (0, 0))
+pygame.display.flip()
+
+while True:
+    for tapahtuma in pygame.event.get():
+        if tapahtuma.type == pygame.QUIT:
+            break
 ```
 
 Nyt ikkuna näyttää seuraavalta:
@@ -95,14 +92,14 @@ TODO: Kuva tähän
 
 Tässä funktio `pygame.image.load` lataa muuttujaan tiedostossa `robo.png` olevan kuvan. Tämän jälkeen metodi `blit` piirtää kuvan ikkunaan kohtaan `(0, 0)` ja sitten funktio `pygame.display.flip` päivittää ikkunan sisällön. Kohta `(0, 0)` tarkoittaa, että kuvan _vasen yläkulma_  on kyseisessä kohdassa.
 
-Huomaa, että Pygamessa ja yleensä muutenkin koordinaatisto on rakennettu niin, että piirtoalueen vasen yläkulma on kohdassa `(0, 0)` ja koordinaatit kasvavat x-suunnassa oikealle ja y-suunnassa alaspäin. Tässä tapauksessa ikkunan oikean alakulman koordinaatit ovat `(640, 480)`.
+Huomaa, että Pygamessa ja yleensä muutenkin ohjelmoinnissa koordinaatisto on rakennettu niin, että piirtoalueen vasen yläkulma on kohdassa `(0, 0)` ja koordinaatit kasvavat x-suunnassa oikealle ja y-suunnassa alaspäin. Tässä tapauksessa ikkunan oikean alakulman koordinaatit ovat `(640, 480)`.
 
 Kuvan voi piirtää moneenkin kohtaan ikkunassa. Esimerkiksi seuraava koodi piirtää kuvan kolmeen eri kohtaan:
 
 ```python
-    naytto.blit(robo, (0, 0))
-    naytto.blit(robo, (300, 0))
-    naytto.blit(robo, (100, 200))
+naytto.blit(robo, (0, 0))
+naytto.blit(robo, (300, 0))
+naytto.blit(robo, (100, 200))
 ```
 
 Tällöin ikkuna näyttää seuraavalta:
@@ -112,13 +109,13 @@ TODO: Kuva tähän
 Seuraava koodi puolestaan piirtää kuvan ikkunan keskelle:
 
 ```python
-    leveys = robo.get_width()
-    korkeus = robo.get_height()
-    naytto.blit(robo, (640/2-leveys/2, 480/2-korkeus/2))
+leveys = robo.get_width()
+korkeus = robo.get_height()
+naytto.blit(robo, (320-leveys/2, 240-korkeus/2))
 ```
 
 Nyt ikkuna näyttää tältä:
 
 TODO: Kuva tähän
 
-Tässä metodi `get_width` antaa kuvan leveyden ja vastaavasti metodi `get_height` antaa kuvan korkeuden. Kun tiedetään lisäksi ikkunan leveys ja korkeus, tämän perusteella saadaan laskettua sopiva kohta kuvan vasemmalle yläkulmalle niin, että kuva sijoittuu ikkunan keskelle.
+Tässä metodi `get_width` antaa kuvan leveyden ja vastaavasti metodi `get_height` antaa kuvan korkeuden. Ikkunan keskikohta on `(320, 240)`, joten tämän avula saadaan laskettua sopiva kohta kuvan vasemmalle yläkulmalle niin, että kuva sijoittuu ikkunan keskelle.
