@@ -106,7 +106,7 @@ while True:
                 x -= 10
         if tapahtuma.type == pygame.QUIT:
             exit()
-    naytto.fill((0,0,0))
+    naytto.fill((0, 0, 0))
     naytto.blit(robo, (x, y))
     pygame.display.flip()
 ```
@@ -152,7 +152,7 @@ while True:
         x += 2
     if vasemmalle:
         x -= 2
-    naytto.fill((0,0,0))
+    naytto.fill((0, 0, 0))
     naytto.blit(robo, (x, y))
     pygame.display.flip()
     kello.tick(60)
@@ -206,7 +206,7 @@ while True:
         if tapahtuma.type == pygame.MOUSEBUTTONDOWN:
             x = tapahtuma.pos[0]-robo.get_width()/2
             y = tapahtuma.pos[1]-robo.get_height()/2
-            naytto.fill((0,0,0))
+            naytto.fill((0, 0, 0))
             naytto.blit(robo, (x, y))
             pygame.display.flip()
         if tapahtuma.type == pygame.QUIT:
@@ -241,7 +241,7 @@ while True:
             kohde_y = tapahtuma.pos[1]-robo.get_height()/2
         if tapahtuma.type == pygame.QUIT:
             exit(0)
-    naytto.fill((1, 0, 0))
+    naytto.fill((0, 0, 0))
     if robo_x > kohde_x:
         robo_x -= 1
     if robo_x < kohde_x:
