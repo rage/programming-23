@@ -1,7 +1,8 @@
 ---
-path: '/osa-10'
-title: 'Osa 10'
+path: '/osa-13'
+title: 'Osa 13'
 overview: true
+hidden: true
 ---
 
 <pages-in-this-section></pages-in-this-section>

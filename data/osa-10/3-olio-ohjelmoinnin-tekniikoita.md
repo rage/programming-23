@@ -17,41 +17,43 @@ Tämän osion jälkeen
 Luokka voi palauttaa metodista myös sen itsensä tyyppisen olion. Luokan `Tuote` metodi `alennustuote` palauttaa uuden tuotteen, jolla on sama nimi kuin nykyisellä tuotteella, mutta 25% halvempi hinta:
 
 ```python
-
 class Tuote:
-
     def __init__(self, nimi: str, hinta: float):
         self.__nimi = nimi
         self.__hinta = hinta
 
-    def __repr__(self):
-        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
+    def __str__(self):
+        return f"{self.__nimi} (hinta {self.__hinta})"
 
     def alennustuote(self):
         alennettu = Tuote(self.__nimi, self.__hinta * 0.75)
         return alennettu
+```
 
+```python
+omena1 = Tuote("Omena", 2.99)
+omena2 = omena1.alennustuote()
+print(omena1)
+print(omena2)
 ```
 
 <sample-output>
 
-Tuote - nimi: Omena, hinta: 2.99
-Tuote - nimi: Omena, hinta: 2.2425
+Omena (hinta 2.99)
+Omena (hinta 2.2425)
 
 </sample-output>
 
-Kerrataaan vielä muuttujan `self` merkitys: luokan sisällä se viitaa nykyiseen olioon. Tyypillinen tapa käyttää muuttujaa onkin viitata olion omiin piirteisiin, esimerkiksi attribuuttien arvoihin. Muuttujaa voidaan käyttää myös palauttamaan koko olio (vaikka tälle onkin selvästi harvemmin tarvetta). Esimerkkiluokan `Tuote` metodi `halvempi` osaa palauttaa halvemman tuotteen, kun sille annetaan parametriksi toinen Tuote-luokan olio:
+Kerrataaan vielä muuttujan `self` merkitys: luokan sisällä se viittaa nykyiseen olioon. Tyypillinen tapa käyttää muuttujaa onkin viitata olion omiin piirteisiin, esimerkiksi attribuuttien arvoihin. Muuttujaa voidaan käyttää myös palauttamaan koko olio (vaikka tälle onkin selvästi harvemmin tarvetta). Esimerkkiluokan `Tuote` metodi `halvempi` osaa palauttaa halvemman tuotteen, kun sille annetaan parametriksi toinen `Tuote`-luokan olio:
 
 ```python
-
 class Tuote:
-
     def __init__(self, nimi: str, hinta: float):
         self.__nimi = nimi
         self.__hinta = hinta
 
-    def __repr__(self):
-        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
+    def __str__(self):
+        return f"{self.__nimi} (hinta {self.__hinta})"
 
     @property
     def hinta(self):
@@ -62,65 +64,40 @@ class Tuote:
             return self
         else:
             return tuote
+```
 
-# Testataan
+```python
 omena = Tuote("Omena", 2.99)
 appelsiini = Tuote("Appelsiini", 3.95)
 banaani = Tuote("Banaani", 5.25)
 
 print(appelsiini.halvempi(omena))
 print(appelsiini.halvempi(banaani))
-
 ```
 
 <sample-output>
 
-Tuote - nimi: Omena, hinta: 2.99
-Tuote - nimi: Appelsiini, hinta: 3.95
+Omena (2.99)
+Appelsiini (3.95)
 
 </sample-output>
 
-Esimerkin vertailun toteutus vaikuttaa kuitenkin melko kömpelöltä - paljon parempi olisi, jos voisimme vertailla Tuote-olioita suoraan Pythonin vertailuoperaattoreilla.
+Esimerkin vertailun toteutus vaikuttaa kuitenkin melko kömpelöltä - paljon parempi olisi, jos voisimme vertailla `Tuote`-olioita suoraan Pythonin vertailuoperaattoreilla.
 
 ## Operaattorien ylikuormitus
 
-Pythonin lasku- ja vertailuoperaattorien käyttö omien olioiden kanssa on onneksi mahdollista. Tähän käytetään tekniikkaa, jonka nimi on _operaattorien ylikuormitus_. Kankeankuuloisesta termistä huolimatta operaatio itse on melko suoraviivainen: jos halutaan, että tietty operaattori toimii myös omasta luokasta muodostettujen olioiden kanssa, luokkaan kirjoitetaan vastaava metodi joka palauttaa oikean lopputuloksen. Periaate on vastaava kuin metodin `__repr__` kanssa: Python osaa käyttää tietyllä tapaa nimettyjä metodeja tietyissä operaatioissa.
+Pythonin lasku- ja vertailuoperaattorien käyttö omien olioiden kanssa on onneksi mahdollista. Tähän käytetään tekniikkaa, jonka nimi on _operaattorien ylikuormitus_. Kun halutaan, että tietty operaattori toimii myös omasta luokasta muodostettujen olioiden kanssa, luokkaan kirjoitetaan vastaava metodi joka palauttaa oikean lopputuloksen. Periaate on vastaava kuin metodin `__str__` kanssa: Python osaa käyttää tietyllä tapaa nimettyjä metodeja tietyissä operaatioissa.
 
 Tarkastellaan ensin esimerkkiä, jossa `Tuote`-luokkaan on toteutettu metodi `__gt__` (lyhenne sanoista *g*reater *t*han) joka toteuttaa suurempi kuin -operaattorin. Tarkemmin sanottuna metodi palauttaa arvon `True`, jos nykyinen olio on suurempi kuin parametrina annettu olio.
 
 ```python
-
 class Tuote:
     def __init__(self, nimi: str, hinta: float):
         self.__nimi = nimi
         self.__hinta = hinta
 
-    def __repr__(self):
-        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
-
-    @property
-    def hinta(self):
-        return self.__hinta
-
-    def __gt__(self, toinen_tuote):
-        if self.hinta > toinen_tuote.hinta:
-            return True
-        else:
-            return False
-
-```
-
-Metodi `__gt__` palauttaa siis arvon `True`, jos nykyisen tuotteen hinta on suurempi kuin parametrina annetun tuotteen. Metodi voidaan itse asiassa kirjoittaa lyhyemminkin:
-
-```python
-
-class Tuote:
-    def __init__(self, nimi: str, hinta: float):
-        self.__nimi = nimi
-        self.__hinta = hinta
-
-    def __repr__(self):
-        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
+    def __str__(self):
+        return f"{self.__nimi} (hinta {self.__hinta})"
 
     @property
     def hinta(self):
@@ -128,22 +105,20 @@ class Tuote:
 
     def __gt__(self, toinen_tuote):
         return self.hinta > toinen_tuote.hinta
-
 ```
+
+Metodi `__gt__` palauttaa arvon `True`, jos nykyisen tuotteen hinta on suurempi kuin parametrina annetun tuotteen, ja muuten arvon `False`.
 
 Nyt luokan olioita voidaan vertailla käyttäen `>`-operaattoria samalla tavalla kuin vaikkapa kokonaislukuja:
 
 ```python
+appelsiini = Tuote("Appelsiini", 4.90)
+omena = Tuote("Omena", 3.95)
 
-if __name__ == "__main__":
-    appelsiini = Tuote("Appelsiini", 4.90)
-    omena = Tuote("Omena", 3.95)
-
-    if (appelsiini > omena):
-        print("Appelsiini on suurempi")
-    else:
-        print("Omena on suurempi")
-
+if appelsiini > omena:
+    print("Appelsiini on suurempi")
+else:
+    print("Omena on suurempi")
 ```
 
 <sample-output>
@@ -152,18 +127,16 @@ Appelsiini on suurempi
 
 </sample-output>
 
-Olioiden suuruusluokan vertailua toteuttaessa täytyy päättää millä perusteella suuruusjärjestys määritetään. Voisimme myös haluta, että tuotteet järjestetään hinnan sijasta nimen mukaiseen aakkosjärjestykseen. Tällöin omena olisikin appelsiinia "suurempi":
+Olioiden suuruusluokan vertailua toteuttaessa täytyy päättää, millä perusteella suuruusjärjestys määritetään. Voisimme myös haluta, että tuotteet järjestetään hinnan sijasta nimen mukaiseen aakkosjärjestykseen. Tällöin omena olisikin appelsiinia "suurempi":
 
 ```python
-
 class Tuote:
-
     def __init__(self, nimi: str, hinta: float):
         self.__nimi = nimi
         self.__hinta = hinta
 
-    def __repr__(self):
-        return f"Tuote - nimi: {self.__nimi}, hinta: {self.__hinta}"
+    def __str__(self):
+        return f"{self.__nimi} (hinta {self.__hinta})"
 
     @property
     def hinta(self):
@@ -175,18 +148,16 @@ class Tuote:
 
     def __gt__(self, toinen_tuote):
         return self.nimi > toinen_tuote.nimi
+```
 
+```python
+appelsiini = Tuote("Appelsiini", 4.90)
+omena = Tuote("Omena", 3.95)
 
-# Testataan
-if __name__ == "__main__":
-    appelsiini = Tuote("Appelsiini", 4.90)
-    omena = Tuote("Omena", 3.95)
-
-    if (appelsiini > omena):
-        print("Appelsiini on suurempi")
-    else:
-        print("Omena on suurempi")
-
+if appelsiini > omena:
+    print("Appelsiini on suurempi")
+else:
+    print("Omena on suurempi")
 ```
 
 <sample-output>
@@ -195,9 +166,9 @@ Omena on suurempi
 
 </sample-output>
 
-## Muut operaattorit
+## Lisää operaattoreita
 
-Eräitä tyypillisiä vertailuoperaattoreita ja näiden vastinmetodit on esitetty seuraavassa taulukossa:
+Tavalliset vertailuoperaattorit ja näitä vastaavat metodit on esitetty seuraavassa taulukossa:
 
 Operaattori | Merkitys perinteisesti | Metodin nimi
 :--:|:--:|:--:
@@ -208,7 +179,7 @@ Operaattori | Merkitys perinteisesti | Metodin nimi
 `<=` | Pienempi tai yhtäsuuri kuin | `__le__(self, toinen)`
 `>=` | Suurempi tai yhtäsuuri kuin | `__ge__(self, toinen)`
 
-Lisäksi luokissa voidaan uudelleentoteuttaa tiettyjä muita operaattoreita, esimerkiksi
+Lisäksi luokissa voidaan toteuttaa tiettyjä muita operaattoreita, esimerkiksi:
 
 Operaattori | Merkitys perinteisesti | Metodin nimi
 :--:|:--:|:--:
@@ -220,12 +191,11 @@ Operaattori | Merkitys perinteisesti | Metodin nimi
 
 Lisää operaattoreita ja metodien nimien vastineita löydät helposti Googlella.
 
-Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa - esimerkiksi jakaminen on loogisesti operaatio, jota on hankala perustella useimmille luokille (mitä tulee, kun jaetaan opiskelija kolmella saati toisella opiskelijalla?) Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
+Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa. Esimerkiksi jakaminen on operaatio, jolle on hankalaa keksiä luontevaa käyttöä useimmissa luokissa (mitä tulee, kun jaetaan opiskelija kolmella saati toisella opiskelijalla?). Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
 
 Tarkastellaan esimerkkinä luokkaa joka mallintaa yhtä muistiinpanoa. Kahden muistiinpanon yhdistäminen `+`-operaattorilla tuottaa uuden, yhdistetyn muistiinpanon, kun on toteutettu metodi `__add__`:
 
 ```python
-
 from datetime import datetime
 
 class Muistiinpano:
@@ -233,34 +203,108 @@ class Muistiinpano:
         self.pvm = pvm
         self.merkinta = merkinta
 
-    def __repr__(self):
-        return f"Muistiinpano - pvm: {self.pvm}, merkintä: {self.merkinta}"
+    def __str__(self):
+        return f"{self.pvm}: {self.merkinta}"
 
     def __add__(self, toinen):
         # Uuden muistiinpanon ajaksi nykyinen aika
         uusi_muistiinpano = Muistiinpano(datetime.now(), "")
         uusi_muistiinpano.merkinta = self.merkinta + " ja " + toinen.merkinta
         return uusi_muistiinpano
+```
+        
+```python
+merkinta1 = Muistiinpano(datetime(2016, 12, 17), "Muista ostaa lahjoja")
+merkinta2 = Muistiinpano(datetime(2016, 12, 23), "Muista hakea kuusi")
 
-# Testataan
-if __name__ == "__main__":
-    mp1 = Muistiinpano(datetime(2016, 12, 17), "Muista ostaa lahjoja")
-    mp2 = Muistiinpano(datetime(2016, 12, 23), "Muista hakea kuusi")
-
-    # Nyt voidaan yhdistää plussalla - tämä kutsuu metodia __add__
-    # luokassa Muistiipano
-    joulumuistot = mp1 + mp2
-    print(joulumuistot)
-
+# Nyt voidaan yhdistää plussalla - tämä kutsuu metodia __add__ luokassa Muistiipano
+molemmat = merkinta1 + merkinta2
+print(molemmat)
 ```
 
 <sample-output>
 
-Muistiinpano - pvm: 2020-09-09 14:13:02.163170, merkintä: Muista ostaa lahjoja ja Muista hakea kuusi
+2020-09-09 14:13:02.163170: Muista ostaa lahjoja ja Muista hakea kuusi
 
 </sample-output>
 
-<programming-exercise name='Raha' tmcname='osa10_'>
+## Olion esitys merkkijonona
+
+Olemme toteuttaneet luokkiin usein metodin `__str__`, joka antaa merkkijonoesityksen olion sisällöstä. Toinen melko samanlainen metodi on `__repr__`, joka antaa _teknisen_  esityksen olion sisällöstä. Usein metodi `__repr__` toteutetaan niin, että se antaa koodin, joka muodostaa olion.
+
+Funktio `repr` antaa olion teknisen merkkijonoesityksen, ja lisäksi tätä esitystä käytetään, jos oliossa ei ole määritelty `__str__`-metodia. Seuraava luokka esittelee asiaa:
+
+```python
+class Henkilo:
+    def __init__(self, nimi: str, ika: int):
+        self.nimi = nimi
+        self.ika = ika
+        
+    def __repr__(self):
+        return f"Henkilo({repr(self.nimi)}, {self.ika})"
+```
+
+```python3
+henkilo1 = Henkilo("Anna", 25)
+henkilo2 = Henkilo("Pekka", 99)
+print(henkilo1)
+print(henkilo2)
+```
+
+<sample-output>
+
+Henkilo('Anna', 25)
+Henkilo('Pekka', 99)
+
+</sample-output>
+
+Huomaa, että metodissa `__repr__` haetaan nimen tekninen esitys metodilla `repr`, jolloin tässä tapauksessa nimen ympärille tulee `'`-merkit.
+
+Seuraavassa luokassa on toteutettu sekä metodi `__repr__` että `__str__`:
+
+```python
+class Henkilo:
+    def __init__(self, nimi: str, ika: int):
+        self.nimi = nimi
+        self.ika = ika
+        
+    def __repr__(self):
+        return f"Henkilo({repr(self.nimi)}, {self.ika})"
+
+    def __str__(self):
+        return f"{self.nimi} ({self.ika} vuotta)"
+```
+
+```python3
+henkilo = Henkilo("Anna", 25)
+print(henkilo)
+print(repr(henkilo))
+```
+
+<sample-output>
+
+Anna (25 vuotta)
+Henkilo('Anna', 25)
+
+</sample-output>
+
+Kun tietorakenteessa (kuten listassa) on olioita, Python käyttää vähän epäloogisesti metodia `__repr__` olioiden merkkijonoesityksen muodostamiseen, kun lista tulostetaan:
+
+```python3
+henkilot = []
+henkilot.append(Henkilo("Anna", 25))
+henkilot.append(Henkilo("Pekka", 99))
+henkilot.append(Henkilo("Maija", 55))
+print(henkilot)
+```
+
+<sample-output>
+
+[Henkilo('Anna', 25), Henkilo('Pekka', 99), Henkilo('Maija', 55)]
+
+</sample-output>
+
+<programming-exercise name='Raha' tmcname='osa10-07_raha'>
 
 Tehtäväpohjasta löytyy luokan `Raha` runko. Tässä tehtävässä laajennetaan runkoa muutamilla operaattoreilla, ja korjataan pari rungossa olevaa pientä ongelmaa
 
@@ -283,7 +327,7 @@ print(e2)
 
 </sample-output>
 
-Korjaa luokan metodi `__repr__(self)` siten, että tulostus on seuraava:
+Korjaa luokan metodi `__str__(self)` siten, että tulostus on seuraava:
 
 <sample-output>
 
@@ -294,7 +338,7 @@ Korjaa luokan metodi `__repr__(self)` siten, että tulostus on seuraava:
 
 ## Yhtäsuuruus
 
-Määrittele raha-oliolle funktio  `__eq__(self, toinen)`, jonka avulla rahan yhtäsuuruusvertailu saadaan toimimaan:
+Määrittele raha-oliolle metodi  `__eq__(self, toinen)`, jonka avulla rahan yhtäsuuruusvertailu saadaan toimimaan:
 
 ```python
 e1 = Raha(4, 10)
@@ -320,7 +364,7 @@ True
 
 ## Muut vertailut
 
-Toteuta rahalle myös seuraavat vertailuoperaatorit `<`, `>`, `!=`.
+Toteuta rahalle myös seuraavat vertailuoperaattorit `<`, `>`, `!=`.
 
 ```python
 e1 = Raha(4, 10)
@@ -343,14 +387,14 @@ True
 
 Toteuta rahalle yhteen- ja vähennyslaskuoperaatiot. Molempien operaatioiden tulee palauttaa uusi rahaolio, ja ne eivät saa muuttaa olioa itseään tai parametrina olevaa olioa!
 
-Huomaa, että rahan arvo ei voi olla negatiivinen. Negatiiviseen tulokseen päätyvän vähennyslaskuyrityksen tulee aiheuttaa poikkeus.
+Huomaa, että rahan arvo ei voi olla negatiivinen. Negatiiviseen tulokseen päätyvän vähennyslaskuyrityksen tulee aiheuttaa ValueError-tyyppinen poikkeus.
 
 ```python
 e1 = Raha(4, 5)
 e2 = Raha(2, 95)
 
 e3 = e1 + e2
-e4= e1 - e2
+e4 = e1 - e2
 
 print(e3)
 print(e4)
@@ -373,7 +417,7 @@ ValueError: negatiivinen tulos ei sallittu
 
 ## Arvoa ei voi muuttaa
 
-Luokassa on täälä hetkellä vielä pieni ongelma. Käyttäjä voi "hujaamalla" muttaa rahan arvoa:
+Luokassa on tällä hetkellä vielä pieni ongelma, koska käyttäjä voi "huijaamalla" muuttaa rahan arvoa:
 
 ```python
 print(e1)
@@ -388,22 +432,24 @@ print(e1)
 
 </sample-output>
 
-Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että huijaus ei onnistu.
+Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että yllä oleva huijaus ei onnistu. Luokalla ei siis saa olla kapseloimattomia attribuutteja eikä asetus- tai havainnointimetodeita euroille tai senteille!
 
 </programming-exercise>
 
-<programming-exercise name='Päiväys' tmcname='osa10_'>
+<programming-exercise name='Päiväys' tmcname='osa10-08_paivays'>
 
-Tässä tehtävässä toteutetaan luokka `Paivaus` jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi että jokaisessa kuussa on 30 päivää.
+Tässä tehtävässä toteutetaan luokka `Paivays`, jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi, että _jokaisessa kuussa on 30 päivää_.
+
+Huom! Edellisestä johtuen tehtävässä ei poikkeuksellisesti kannata käyttää Pythonin `datetime`-moduulia, vaan toteuttaa luokka itse.
 
 ## Vertailut
 
-Toteuta luokan runko ja sille vertailuoperaattori <, >, == ja !=. Käyttöesimerkki
+Toteuta luokan runko ja sille vertailuoperaattorit <, >, == ja !=. Käyttöesimerkki:
 
 ```python
-p1 = Paivaus(4, 10, 2020)
-p2 = Paivaus(28, 12, 1985)
-p3 = Paivaus(28, 12, 1985)
+p1 = Paivays(4, 10, 2020)
+p2 = Paivays(28, 12, 1985)
+p3 = Paivays(28, 12, 1985)
 
 print(p1)
 print(p2)
@@ -428,11 +474,11 @@ True
 
 ## Kasvatus
 
-Toteuta päiväykselle operaattori +. Operaattori luo uuden päivämäärän joka on plussattavan lukeman päiviä verran suurempi kuin alkuperäinen päivämäärä. Alkuperäinen päivä ei saa muuttua.
+Toteuta päiväykselle operaattori +. Operaattori luo uuden päivämäärän joka on lisättävän lukeman päiviä verran suurempi kuin alkuperäinen päivämäärä. Alkuperäinen päivä ei saa muuttua.
 
 ```python
-p1 = Paivaus(4, 10, 2020)
-p2 = Paivaus(28, 12, 1985)
+p1 = Paivays(4, 10, 2020)
+p2 = Paivays(28, 12, 1985)
 
 p3 = p1 + 3
 p4 = p2 + 400
@@ -454,14 +500,14 @@ print(p4)
 
 ## Erotus
 
-Toteuta päiväykselle operaattori - joka palattaa päivämäärien eron päivissä laskettuna. Huomaa, että koska oletamme jokaisessa kuukaudessa olevan 30 päivää, tässä tehtävässä vuosien päivien lukumäärä on 12*30 eli 360.
+Toteuta päiväykselle operaattori -, joka palauttaa päivämäärien eron päivissä laskettuna. Huomaa, että koska oletamme jokaisessa kuukaudessa olevan 30 päivää, tässä tehtävässä vuosien päivien lukumäärä on 12*30 eli 360.
 
 Operaattori toimii seuraavasti
 
 ```python
-p1 = Paivaus(4, 10, 2020)
-p2 = Paivaus(2, 11, 2020)
-p3 = Paivaus(28, 12, 1985)
+p1 = Paivays(4, 10, 2020)
+p2 = Paivays(2, 11, 2020)
+p3 = Paivays(28, 12, 1985)
 
 print(p2-p1)
 print(p1-p2)
@@ -480,7 +526,7 @@ print(p1-p3)
 
 ## Iteraattorit
 
-Olemme aikaisemmin käyttääneet for-lausetta erilaisten tietorakenteiden ja tiedostojen _iterointiin_ eli läpikäyntiin. Tyypillinen tapaus olisi vaikkapa seuraavanlainen funktio:
+Olemme aikaisemmin käyttäneet for-lausetta erilaisten tietorakenteiden ja tiedostojen _iterointiin_ eli läpikäyntiin. Tyypillinen tapaus olisi vaikkapa seuraavanlainen funktio:
 
 ```python
 
@@ -495,9 +541,9 @@ def laske_positiiviset(lista: list):
 
 Funktio käy läpi listan alkio kerrallaan ja laskee positiivisten alkioiden määärän.
 
-Iterointi on mahdollista toteuttaa myös omiin luokkiin. Hyödyllistä tämä on silloin, kun luokasta muodostetut oliot tallentavat suuremman määrän alkiota. Esimerkiksi aikaisemmin kirjoitettiin luokka, joka mallintaa kirjahyllyä - olisi näppärä, jos kaikki kirjahyllyn kirjat voisi käydä läpi yhdessä silmukassa. Samalla tavalla opiskelijarekisterin kaikkien opiskelijoiden läpikäynti for-lauseella olisi kätevää.
+Iterointi on mahdollista toteuttaa myös omiin luokkiin. Hyödyllistä tämä on silloin, kun luokasta muodostetut oliot tallentavat kokoelman alkioita. Esimerkiksi aikaisemmin kirjoitettiin luokka, joka mallintaa kirjahyllyä – olisi näppärä, jos kaikki kirjahyllyn kirjat voisi käydä läpi yhdessä silmukassa. Samalla tavalla opiskelijarekisterin kaikkien opiskelijoiden läpikäynti for-lauseella olisi kätevää.
 
-Iterointi mahdollistuu toteuttamalla luokkaan iteraattorimetodit `__iter__` ha  `__next__`. Käsitellään metodien toimintaa tarkemmin, kun on ensin tarkasteltu esimerkkinä kirjahyllylyokkaa, joka mahdollistaa kirjojen läpikäynnin:
+Iterointi mahdollistuu toteuttamalla luokkaan iteraattorimetodit `__iter__` ja  `__next__`. Käsitellään metodien toimintaa tarkemmin, kun on ensin tarkasteltu esimerkkinä kirjahyllyluokkaa, joka mahdollistaa kirjojen läpikäynnin:
 
 ```python
 
@@ -510,8 +556,6 @@ class Kirja:
 class Kirjahylly:
     def __init__(self):
         self._kirjat = []
-        # laskuri iteraattoria varten
-        self.__laskuri = 0
 
     def lisaa_kirja(self, kirja: Kirja):
         self._kirjat.append(kirja)
@@ -572,9 +616,9 @@ C-itsemän veljestä
 </sample-output>
 
 
-<programming-exercise name='Iteroitava kauppalista' tmcname='osa10_'>
+<programming-exercise name='Iteroitava kauppalista' tmcname='osa10-09_iteroitava_kauppalista'>
 
-Tehtäväpohjassa on [osan 8 tehtävästä ](/osa-8/2-luokat-ja-oliot#programming-exercise-kauppalista) tuttu luokka `Kauoppalista`. Tee luokasta iteroitava, siten että sitä voi käyttää seuraavasti:
+Tehtäväpohjassa on [osan 8 tehtävästä ](/osa-8/2-luokat-ja-oliot#programming-exercise-kauppalista) tuttu luokka `Kauppalista`. Tee luokasta iteroitava, siten että sitä voi käyttää seuraavasti:
 
 ```python
 lista = Kauppalista()

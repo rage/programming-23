@@ -14,6 +14,146 @@ Tämän osion jälkeen
 
 </text-box>
 
+## Selfillä vai ilman?
+
+Kurssin aikana on havaittu, että `self`-määreen käytössä on monilla opiskelijoilla ollut häilyvyyttä. Tarkastellaan nyt milloin selfiä tulee käyttää, ja milloin sitä kannattaa olla käyttämättä.
+
+Tarkastellaan esimerkkinä yksinkertaista luokkaa, jonka avulla joukosta sanoja on mahdollista muodostaa sanasto:
+
+```python
+class Sanasto:
+    def __init__(self):
+        self.__sanat = []
+
+    def lisaa_sana(self, sana: str):
+        if not sana in self.__sanat:
+            self.__sanat.append(sana)
+
+    def tulosta(self):
+        for sana in sorted(self.__sanat):
+            print(sana)
+
+sanasto = Sanasto()
+sanasto.lisaa_sana("python")
+sanasto.lisaa_sana("olio")
+sanasto.lisaa_sana("olio-ohjelmointi")
+sanasto.lisaa_sana("olio")
+sanasto.lisaa_sana("nörtti")
+
+sanasto.tulosta()
+```
+
+<sample-output>
+
+nörtti
+olio
+olio-ohjelmointi
+python
+
+</sample-output>
+
+Luokka tallentaa sanalistan oliomuuttujaan `self.__sanat`, tässä tapauksessa `self` tarvitaan ehdottomasti, muuten sama lista ei ole kaikkien olion metodien käytettävissä.
+
+Lisätään luokalle metodi `pisin_sana(self)` joka selvittää nimensä mukaisesti sanaston pisimmän sanan (tai yhden niistä).
+
+Kurssilla on nähty seuraavan kaltaisia ratkaisuja:
+
+```python
+class Sanasto:
+    def __init__(self):
+        self.__sanat = []
+
+    # ...
+
+    def pisin_sana(self):
+        # määritellään kaksi apumuuttujaa
+        self.pisin = ""
+        self.pisimman_pituus = 0
+
+        for sana in self.__sanat:
+            if len(sana) > self.pisimman_pituus:
+                self.pisimman_pituus = len(sana)
+                self.pisin = sana
+
+        return self.pisin
+```
+
+Metodi siis käyttää kahta apumuuttujaa, jotka on määritely käyttäen `self`-määrettä. Monet kurssin opiskelijat näyttävät kiintyneen huonoon muuttujien nimeämiseen, joten apumuuttujat saattaisivat olla nimetty kryptisemmin, esim. `apu` ja `apu2`:
+
+```python
+class Sanasto:
+    def __init__(self):
+        self.__sanat = []
+
+    # ...
+
+    def pisin_sana(self):
+        # määritellään kaksi apumuuttujaa
+        self.apu = ""
+        self.apu2 = 0
+
+        for sana in self.__sanat:
+            if len(sana) > self.apu2:
+                self.apu2 = len(sana)
+                self.apu = sana
+
+        return self.apu
+```
+
+Tässä yhteydessä apumuuttujien määrittely käyttäen `self`-määrettä on todella huono idea. Kun muuttujan määrittely tapahtuu näin, liitetään muuttuja olion attribuutiksi, eli muuttuja tulee olemaan edelleen olemassa myös metodin suorituksen päätyttyä. Tämä taas on aivan tarpeetonta, koska apumuttujia ei ole tarkoitus käyttää missään muualla  luokan koodia kuin metodissa `pisin_sana(self)`.
+
+Turhien ja varsinkin epämääräisesti nimettyjen apumuuttujien liittäminen `self`-määreellä olion attribuuteiksi on paitsi turhaa niin myös riskialtista. Jos samaa apumuuttujaa `self.apu` käytetään monessa eri metodissa mutta täysin eri tarkoituksiin, voivat seuraukset olla arvaamattomat ja koodissa voi ilmetä hankalasti löydettäviä bugeja.
+
+Ongelma voi tulla esiin erityisesti silloin jos apumuuttujan alkuarvo annetaan jossain muualla, esimerkiksi konstruktorissa
+
+```python
+class Sanasto:
+    def __init__(self):
+        self.__sanat = []
+        # määritellään apumuuttujia
+        self.apu = ""
+        self.apu2 = ""
+        self.apu3 = ""
+        self.apu4 = ""
+
+    # ...
+
+    def pisin_sana(self):
+        for sana in self.__sanat:
+            # tämä ei toimi sillä apu2:n tyyppi on väärä
+            if len(sana) > self.apu2:
+                self.apu2 = len(sana)
+                self.apu = sana
+
+        return self.apu
+```
+
+Siispä oikea tapa määritellä yhdessä metodissa käytettävät apumuuttujat on tehdä se _ilman_ `self`-määrettä:
+
+```python
+class Sanasto:
+    def __init__(self):
+        self.__sanat = []
+
+    # ...
+
+    def pisin_sana(self):
+        # tämä on oikea tapa määritellä yhden metodin sisäiset apumuuttujat
+        pisin = ""
+        pisimman_pituus = 0
+
+        for sana in self.__sanat:
+            if len(sana) > pisimman_pituus:
+                pisimman_pituus = len(sana)
+                pisin = sana
+
+        return pisin
+```
+
+Kun näin tapahtuu, ovat apumuuttujat olemassa ainoastaan metodin suorituksen aikana, ja niissä olevat arvot eivät pääse aiheuttamaan komplikaatioita muussa koodissa.
+
+## Luokkien erikoistaminen
+
 Joskus tulee vastaan tilanne, jossa luokan toimintaa olisi hyvä pyrkiä erikoistamaan, mutta vain osalle olioista. Tarkastellaan esimerkkinä tilannetta, jossa meillä on kaksi luokkaa - Opiskelija ja Opettaja. Yksinkertaistuksen vuoksi luokista on jätetty pois kaikki asetus- ja havainnointimetodit.
 
 ```python
@@ -36,7 +176,7 @@ class Opettaja:
 
 ```
 
-Yksinkertaistetustakin esimerkistä huomataan, että luokilla on yhteisiä piirteitä - tässä tapauksessa nimi ja puhelinnumero. Itse asiassa yhteisiä piirteitä olisi oikeasti paljon enemmänkin (esimerkiksi henkilötunnus, sähköpostiosoite ja osoite). Monessa tilanteessa olisi hyvä, jos yhteisiä piirteitä voitaisin käsitellä yhdellä operaatiolla: oletetaan tilanne, jossa koulun sähköpostitunnus muuttuu. Toki voitaisiin kirjoittaa kaksi käsittelfunktiota...
+Yksinkertaistetustakin esimerkistä huomataan, että luokilla on yhteisiä piirteitä - tässä tapauksessa nimi ja sähköpostiosoite. Monessa tilanteessa olisi hyvä, jos yhteisiä piirteitä voitaisin käsitellä yhdellä operaatiolla: oletetaan tilanne, jossa koulun sähköpostitunnus muuttuu. Toki voitaisiin kirjoittaa kaksi käsittelyfunktiota...
 
 ```python
 
@@ -63,12 +203,12 @@ def korjaa_email2(o: Opettaja):
 class Henkilo:
 
     def __init__(self, nimi: str, sposti: str):
-        this.nimi = nimi
-        this.sposti = sposti
+        self.nimi = nimi
+        self.sposti = sposti
 
  ```
 
- Luokassa on toteutettu siis henkilöön liittyvät piirteet. Nyt luoka Opiskelija ja Opettaja voivat _periä_ luokan ja lisätä perittyjen ominaisuuksien rinnalle uusia piirteitä:
+ Luokassa on toteutettu siis henkilöön liittyvät piirteet. Nyt luokat Opiskelija ja Opettaja voivat _periä_ luokan ja lisätä perittyjen ominaisuuksien rinnalle uusia piirteitä:
 
  Perintä tapahtuu kirjoittamalla luokan nimen perään perittävän luokan nimi sulkuihin:
 
@@ -77,8 +217,8 @@ class Henkilo:
 class Henkilo:
 
     def __init__(self, nimi: str, sposti: str):
-        this.nimi = nimi
-        this.sposti = sposti
+        self.nimi = nimi
+        self.sposti = sposti
 
     def vaihda_spostitunniste(self, uusi_tunniste: str):
         vanha = self.sposti.split("@")[1]
@@ -125,7 +265,7 @@ class Kirja:
 
 
 class Kirjalaatikko:
-    """ Luokka mallinta laatikkoa, johon voidaan tallentaa kirjoja """
+    """ Luokka mallintaa laatikkoa, johon voidaan tallentaa kirjoja """
 
     def __init__(self):
         self.kirjat = []
@@ -141,7 +281,7 @@ class Kirjahylly(Kirjalaatikko):
     """ Luokka mallintaa yksinkertaista kirjahyllyä """
 
     def __init__(self):
-        Kirjalaatikko.__init__(self)
+        super().__init__()
 
     def lisaa_kirja(self, kirja: Kirja, paikka: int):
         self.kirjat.insert(paikka, kirja)
@@ -214,11 +354,11 @@ Sinuhe (Mika Waltari)
  class Kirjahylly(Kirjalaatikko):
 
     def __init__(self):
-        Kirjalaatikko.__init__(self)
+        super().__init__()
 
 ```
 
-Yliluokan metodiin viitataan yliluokan nimellä. Huomaa, että tässä tapauksessa `self` pitää antaa parametriksi, vaikka yleensä Python lisää sen automaattisesti.
+Yliluokan konstuktoriin (tai yliluokkaan muutenkin) viitataan funktion `super()` avulla. Huomaa, että tässäkin tapauksessa parametri `self` lisätään automaattisesti.
 
 Tarkastellaan toisena esimerkkinä luokkaa Gradu, joka perii luokan Kirja. Aliluokasta kutsutaan yliluokan konstruktoria:
 
@@ -236,7 +376,7 @@ class Gradu(Kirja):
     """ Luokka mallintaa gradua eli ylemmän korkeakoulututkinnon lopputyötä """
 
     def __init__(self, nimi: str, kirjailija: str, arvosana: int):
-        Kirja.__init__(self, nimi, kirjailija)
+        super().__init__(nimi, kirjailija)
         self.arvosana = arvosana
 
 ```
@@ -297,11 +437,11 @@ class Bonuskortti:
 class Platinakortti(Bonuskortti):
 
     def __init__(self):
-        Bonuskortti.__init__(self)
+        super().__init__()
 
     def laske_bonus(self):
         # Kutsutaan yliluokan metodia...
-        bonus = Bonuskortti.laske_bonus(self)
+        bonus = super().laske_bonus()
 
         # ...ja lisätään vielä viisi prosenttia päälle
         bonus = bonus * 1.05
@@ -335,15 +475,67 @@ if __name__ == "__main__":
 
 </sample-output>
 
+<programming-exercise name='Kannettava tietokone' tmcname='osa10-01_kannettava_tietokone'>
 
-<programming-exercise name='Pinta-alat' tmcname='osa10_1_pinta_alat'>
+Tehtäväpohjassa on määritelty luokka `Tietokone`, jolla on attribuutit `malli` ja `nopeus`.
+
+Kirjoita luokka `KannettavaTietokone`, joka _perii luokan Tietokone_. Luokka saa konstruktorissa luokan Tietokone attribuuttien lisäksi kolmannen kokonaislukutyyppisen attribuutin `paino`.
+
+Kirjoita luokkaan lisäksi metodi `__str__`, jonka avulla voi tulostaa esimerkkisuorituksen mukaisen tulosteen olion tilasta.
+
+Esimerkki:
+
+```python
+ipm = KannettavaTietokone("IPM MikroMauri", 1500, 2)
+print(ipm)
+```
+
+<sample-output>
+
+IPM MikroMauri, 1500 MHz, 2 kg
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Pelimuseo' tmcname='osa10-02_pelimuseo'>
+
+Tehtäväpohjassa on määritelty luokat `Tietokonepeli` ja `Pelivarasto`. Pelivarastoon voidaan säilöä tietokonepelejä.
+
+Tutustu luokkien ohjelmakoodiin ja kirjoita sitten uusi luokka `Pelimuseo`, joka perii luokan `Pelivarasto`.
+
+Pelimuseo-luokassa _uudelleentoteutetaan_ metodi `anna_pelit()` niin, että se palauttaa listassa ainoastaan ne pelit, jotka on tehty ennen vuotta 1990.
+
+Lisäksi luokassa tulee olla konstruktori, josta _kutsutaan yliluokan Pelivarasto konstruktoria_. Konstruktorilla ei ole parametreja.
+
+Esimerkiksi:
+
+```python
+museo = Pelimuseo()
+museo.lisaa_peli(Tietokonepeli("Pacman", "Namco", 1980))
+museo.lisaa_peli(Tietokonepeli("GTA 2", "Rockstar", 1999))
+museo.lisaa_peli(Tietokonepeli("Bubble Bobble", "Taito", 1986))
+for peli in museo.anna_pelit():
+    print(peli.nimi)
+```
+
+<sample-output>
+
+Pacman
+Bubble Bobble
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Pinta-alat' tmcname='osa10-03_pinta_alat'>
 
 Tehtäväpohjan mukana tulee luokka `Suorakulmio` joka nimensä mukaisesti mallintaa [suorakulmiota](https://fi.wikipedia.org/wiki/Suorakulmio). Luokkaa käytetään seuraavasti:
 
 ```python
-sk = Suorakulmio(2, 3)
-print(sk)
-print("pinta-ala:", sk.pinta_ala())
+suorakulmio = Suorakulmio(2, 3)
+print(suorakulmio)
+print("pinta-ala:", suorakulmio.pinta_ala())
 ```
 
 <sample-output>
@@ -355,14 +547,14 @@ pinta-ala: 6
 
 ## Neliö
 
-Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen [neliön](https://fi.wikipedia.org/wiki/Neli%C3%B6_(geometria)) kaikki sivut ovat saman pituisia, eli neliö on eräänlainen yksinkertaisempi erikoistapaus suorakulmiosta. Luokka ei saa määritelä uusia attribuutteja!
+Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen [neliön](https://fi.wikipedia.org/wiki/Neli%C3%B6_(geometria)) kaikki sivut ovat saman pituisia, eli neliö on eräänlainen yksinkertaisempi erikoistapaus suorakulmiosta. Luokka ei saa määritellä uusia attribuutteja!
 
 Luokkaa käytetään seuraavasti:
 
 ```python
-n = Nelio(4)
-print(n)
-print("pinta-ala:", n.pinta_ala())
+nelio = Nelio(4)
+print(nelio)
+print("pinta-ala:", nelio.pinta_ala())
 ```
 
 <sample-output>
@@ -379,9 +571,9 @@ Toteuta luokka `SuorakulmainenKolmio` joka perii luokan`Suorakulmio`. Luokka ei 
 Luokkaa käytetään seuraavasti:
 
 ```python
-k = SuorakulaminenKolmio(3, 4)
-print(k)
-print("pinta-ala:", k.pinta_ala())
+kolmio = SuorakulmainenKolmio(3, 4)
+print(kolmio)
+print("pinta-ala:", kolmio.pinta_ala())
 ```
 
 <sample-output>
@@ -393,11 +585,13 @@ pinta-ala: 6.0
 
 </programming-exercise>
 
-<programming-exercise name='Sanapeli' tmcname='osa10_2_sanapeli'>
+<programming-exercise name='Sanapeli' tmcname='osa10-04_sanapeli'>
 
 Tehtäväpohja sisältää valmiin luokan `Sanapeli`, joka tarjoaa perustoiminnallisuuden erilaisten sanapelien pelaamiseen:
 
 ```python
+import random
+
 class Sanapeli():
     def __init__(self, kierrokset: int):
         self.voitot1 = 0
@@ -455,7 +649,7 @@ pelaaja2: **minä**
 pelaaja 1 voitti
 peli päättyi voitot:
 pelaaja 1: 2
-pelaaja 2: 0
+pelaaja 2: 1
 
 </sample-output>
 

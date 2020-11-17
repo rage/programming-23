@@ -34,9 +34,9 @@ print(isot_kirjaimet)
 
 </sample-output>
 
-Huomaa, että lopputuloksena on siis lista. Jos halutaan muodostaa merkkijonon perusteella uusi merkkijono, voidaan hyödyntää aikaisemmin esiteltyä `join`-metodia. Metodin avulla voidaan yhdistää listan alkiot merkkijonoksi. Metodi kohdistuu välimerkkiin, jolla alkiot yhdistetään.
+Huomaa, että lopputuloksena on lista. Jos halutaan muodostaa merkkijonon perusteella uusi merkkijono, voidaan hyödyntää aikaisemmin esiteltyä `join`-metodia. Metodin avulla voidaan yhdistää listan alkiot merkkijonoksi. Metodi kohdistuu välimerkkiin, jolla alkiot yhdistetään.
 
-Metodi toimii siis esimerkiksi näin
+Metodi toimii siis esimerkiksi näin:
 
 ```python
 
@@ -134,11 +134,11 @@ print(lause_ilman_alkuja)
 
 ```
 
-<programming-exercise name='Suodata kielletyt' tmcname='osa11_'>
+<programming-exercise name='Suodata kielletyt' tmcname='osa11-08_suodata_kielletyt'>
 
 Tee funktio `suodata_kielletyt(merkkijono: str, kielletyt: str)` joka palauttaa sen parametrina olevasta merkkijonosta version, joka ei sisällä yhtään merkkiä sen toisena parametrina olevasta "kiellettyjen merkkien" merkkijonosta.
 
-Funktion tulee käyttää listakoostetta.
+Funktion tulee käyttää listakoostetta. Funkto saa sisältää `def`-rivi mukaanlukien maksimissaan 3 riviä.
 
 Esimerkki funktion käytöstä
 
@@ -209,9 +209,9 @@ if __name__ == "__main__":
         print(maa.nimi)
 ```
 
-Toisessa esimerkissä luokka Juoksumatka mallintaa yhtä juoksumatkaa nimineen ja pituuksineen. Nyt koosteen avulla luodaan lista Juoksumatka-olioita annettujen pituuksien mukaaan.
+Toisessa esimerkissä luokka `Juoksumatka` mallintaa yhtä juoksumatkaa nimineen ja pituuksineen. Nyt koosteen avulla luodaan lista `Juoksumatka`-olioita annettujen pituuksien mukaaan.
 
-Huomaa, että Juoksumatka-luokan konstruktorissa parametrilla `nimi` on oletusarvo, eikä sitä olioita luodessa esimerkissä erikseen annetakaan:
+Huomaa, että `Juoksumatka`-luokan konstruktorissa parametrilla `nimi` on oletusarvo, eikä sitä olioita luodessa esimerkissä erikseen annetakaan:
 
 ```python
 
@@ -306,13 +306,13 @@ if __name__ == "__main__":
 
 ```
 
-<programming-exercise name='Kauppalistan tuotteet' tmcname='osa11_'>
+<programming-exercise name='Kauppalistan tuotteet' tmcname='osa11-09_kauppalistan_tuotteet'>
 
-Osan 10 tehtävässä teimme [Kauppalista-luokasta iteroitavan](/osa-10/3-olio-ohjelmoinnin-tekniikoita#programming-exercise-iteroitava-kauppalista). Iteroitavan luokan oliota voidaan käyttää listakoosteiden yhteydessä.
+Osan 10 tehtävässä teimme [Kauppalista-luokasta iteroitavan](/osa-10/3-olio-ohjelmoinnin-tekniikoita#programming-exercise-iteroitava-kauppalista). Iteroitavan luokan oliota voidaan käyttää listakoosteiden yhteydessä. Tehtäväpohjassa on mukana luokasta typistetty versio, jonka toiminnallisuus riittää tähän tehtävään.
 
-Tee funktio nyt `tuotteet(kauppalista, maara: int)` joka saa parametriksi kauppalista-olion. Funktio palauttaa kauppalistan ostoksista niiden tuotteiden nimet, joita on listalla vähintään parametrin `maara` verran.
+Tee funktio nyt `kauppalistan_tuotteet(kauppalista, maara: int)` joka saa parametriksi kauppalista-olion. Funktio palauttaa kauppalistan ostoksista niiden tuotteiden nimet, joita on listalla vähintään parametrin `maara` verran.
 
-Funktio tulee toteuttaa listakoosteen avulla. Luokan Kauppalista koodia ei saa muuttaa!
+Funktio tulee toteuttaa listakoosteen avulla, ja sen pituus saa olla `def`-määrittelyriveineen yhteensä korkeintaan kaksi riviä. Luokan Kauppalista koodia ei saa muuttaa!
 
 Funktio toimii seuraavasti
 
@@ -324,7 +324,7 @@ lista.lisaa("alkoholiton olut", 24)
 lista.lisaa("ananas", 1)
 
 print("kauppalistalla vähintään 8 seuraavia tuotteita:")
-for tuote in tuotteet(lista, 8):
+for tuote in kauppalistan_tuotteet(lista, 8):
     print(tuote)
 ```
 
@@ -338,13 +338,15 @@ alkoholiton olut
 
 </programming-exercise>
 
-<programming-exercise name='Halvempien hintaero' tmcname='osa11_'>
+<programming-exercise name='Halvempien hintaero' tmcname='osa11-10_halvempien_hintaero'>
 
-Osan 9 tehtävässä teimme luokan [Astunto](/osa-9/1-oliot-ja-viittaukset#programming-exercise-asuntovertailu). Tässä tehtävässä on käytössä hieman laajennettu versio luokasta.
+Osan 9 tehtävässä teimme luokan [Asunto](/osa-9/1-oliot-ja-viittaukset#programming-exercise-asuntovertailu). Tässä tehtävässä on käytössä hieman laajennettu versio luokasta.
 
-Tee funktio nyt `halvemmat(asunnot: list, verrattava)` joka saa parametriksi listan asuntoja sekä yksittäisen vertailtavan asunnon. Funktio palauttaa listan, jolla on asunnoista ne jotka ovat hinnaltaan halvempia kuin vertailtava asunto sekä näiden hintaeron. Palautettavan listan alkiot ovat tupleja, joiden ensimmäinen jäsen on asunto ja toisena sen hintaero vertailtavaan.
+Tee funktio `halvemmat(asunnot: list, verrattava: Asunto)`, joka saa parametriksi listan asuntoja sekä yksittäisen vertailtavan asunnon. Funktio palauttaa listan, jolla on asunnoista ne, jotka ovat hinnaltaan halvempia kuin vertailtava asunto, sekä näiden hintaeron. Palautettavan listan alkiot ovat tupleja, joiden ensimmäinen jäsen on asunto ja toisena sen hintaero vertailtavaan.
 
-Funktio tulee toteuttaa listakoosteen avulla. Luokan Asunto koodia ei saa muuttaa!
+Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus `def`-määrittelyrivi mukaanluettuna on 2 riviä.
+
+Luokan `Asunto` koodia ei saa muuttaa!
 
 Funktio toimii seuraavasti
 
@@ -358,18 +360,18 @@ a6 = Asunto(25, 1200, 2500, "Haikon kartano")
 
 asunnot = [a1, a2, a3, a4, a5, a6]
 
-print(f"asuntoa {a1.kuvaus} halvemmat vaihtoehdot:")
-for alkio in halvemmat(asunnot, a1):
+print(f"asuntoa {a3.kuvaus} halvemmat vaihtoehdot:")
+for alkio in halvemmat(asunnot, a3):
     print(f"{alkio[0].kuvaus:30} hintaero {alkio[1]} euroa")
 ```
 
 <sample-output>
 
-asuntoa Eira yksiö halvemmat vaihtoehdot:
-Kallio kaksio                  hintaero 1300 euroa
-Jakomäki kolmio                hintaero 3000 euroa
-Suomussalmi omakotitalo        hintaero 5000 euroa
-Kerava 4h ja keittiö           hintaero 3800 euroa
+asuntoa Jakomäki kolmio halvemmat vaihtoehdot:
+Eira yksiö                     hintaero 107000 euroa
+Kallio kaksio                  hintaero 35400 euroa
+Suomussalmi omakotitalo        hintaero 87500 euroa
+Kerava 4h ja keittiö           hintaero 16500 euroa
 
 </sample-output>
 
@@ -427,15 +429,11 @@ if __name__ == "__main__":
 
 </sample-output>
 
-
-def pituudet(sanat: list):
-    return { sana: len(sana) for sana in sanat }
-
-<programming-exercise name='Merkkijonojen pituudet' tmcname='osa11_'>
+<programming-exercise name='Merkkijonojen pituudet' tmcname='osa11-11_merkkijonojen_pituudet'>
 
 Tee funktio `pituudet(merkkijonot: list)`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa _sanakirjan_, jossa avaimina on listan merkkijonot ja arvoina merkkijonojen pituudet.
 
-Funktio tulee toteuttaa sanakirjakoosteen avulla.
+Funktio tulee toteuttaa sanakirjakoosteen avulla. Funktion maksimipituus def-määrittelyrivi mukaanlukien on kaksi riviä.
 
 Funktio toimii seuraavasti
 
@@ -455,9 +453,9 @@ print(sanojen_pituudet)
 
 </programming-exercise>
 
-<programming-exercise name='Yleisimmat sanat' tmcname='osa11_'>
+<programming-exercise name='Yleisimmät sanat' tmcname='osa11-12_yleisimmat_sanat'>
 
-Tee funktio `yleisimmat_sanat(tiedoston_nimi: str, raja: int)`, joka saa parametrikseen tiedoston nimen. Funktio palauttaa sanakirjan, mikä kertoo tiedostossa olevien sanojen esiintymislukumäärän niiden sanojen osalta, joilla on vähintään toisen parametrin `raja` verran esiintymiä. Sanan kirjainten koolla ei ole merkitystä.
+Tee funktio `yleisimmat_sanat(tiedoston_nimi: str, raja: int)`, joka saa parametrikseen tiedoston nimen. Funktio palauttaa sanakirjan, joka sisältää tiedostossa olevien sanojen esiintymislukumäärän niiden sanojen osalta, joilla on vähintään toisen parametrin `raja` verran esiintymiä.
 
 Esim. jos funktiolla tarkasteltaisiin tiedostoa _comprehensions.txt_ jonka sisältö on seuraava
 
@@ -470,16 +468,14 @@ Remember, every list comprehension can be rewritten in for loop, but every for l
 
 Kutsuttaessa `yleisimmat_sanat("comprehensions.txt", 3)` funktion palauttama sanakirja näyttäisi seuraavalta:
 
-```python
+<sample-output>
 
-{ 'list': 4, 'comprehension': 4, 'is': 3, 'and': 3, 'for', 3: 'in': 3}
+{'comprehension': 4, 'is': 3, 'and': 3, 'for': 3, 'list': 4, 'in': 3}
 
 </sample-output>
 
-Huomaa, että avaimena sanakirjassa on sanojen pienellä kirjoitetut muodot.
+Huomaa, että vain kokonaiset sanat lasketaan - sana 'lists' ei siis saa kasvattaa sanan 'list' lukumäärää, vaikka osajono 'list' löytyykin jonosta 'lists'. Lisäksi kaikki sanoissa olevat välimerkit tulee poistaa.
 
 Funktion toteutustapa on vapaa, helpoimmalla pääset hyödyntämällä lista- ja sanakirjakoosteita.
-
-
 
 </programming-exercise>

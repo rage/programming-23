@@ -133,7 +133,7 @@ Kannattaa huomata, että f-merkkijonoja voi käyttää muuallakin kuin tulostusk
 ```python
 nimi = "Pekka"
 ika = 59
-kaupunki = "Lappeenranta
+kaupunki = "Lappeenranta"
 tervehdys = f"Hei {nimi}, olet {ika}-vuotias"
 print(tervehdys + f", asuinpaikkasi on {kaupunki}")
 ```

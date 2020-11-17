@@ -41,7 +41,7 @@ Mitä jos haluaisimme järjestää tuotelistan hinnan perusteella?
 
 ## Funktiot parametrina
 
-Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määäräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
+Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
 
 Esimerkiksi
 
@@ -110,6 +110,112 @@ Kutsuttiin hintajarjestys(('vesimeloni', 4.95))
 
 </sample-output>
 
+Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta ´sorted` löytyvää toista parametria `reversed`:
+
+```python
+tuotteet.sort(key=hintajarjestys, reverse=True)
+
+t2 = sorted(tuotteet, key=hintajarjestys, reverse=True)
+```
+
+## Funktion sisällä määritelty funktio
+
+Jos haluaisimme siirtää edellisessä esimerkissä tehdyn järjestämisen omaan funktioonsa `jarjesta_hinnan_mukaan`, voisimme toteuttaa sen seuraavasti:
+
+```python
+def hintajarjestys(alkio: tuple):
+    return alkio[1]
+
+def jarjesta_hinnan_mukaan(alkiot: list):
+    # käytetään täällä funktiota hintajarjestys
+    return sorted(alkiot, key=hintajarjestys)
+
+tuotteet = [("banaani", 5.95), ("omena", 3.95), ("appelsiini", 4.50), ("vesimeloni", 4.95)]
+
+for tuote in jarjesta_hinnan_mukaan(tuotteet):
+    print(tuote)
+```
+
+Jos järjestämisen käyttämää apufunktiota `hintajarjestys` ei käytetä missään muussa kohtaa ohjelmaa kuin funktiossa `jarjesta_hinnan_mukaan`, sen määrittely voitaisiin siirtää funktion sisälle:
+
+```python
+def jarjesta_hinnan_mukaan(alkiot: list):
+    # määritellään apufunktio tällä kertaa funktion sisällä
+    def hintajarjestys(alkio: tuple):
+        return alkio[1]
+
+    return sorted(alkiot, key=hintajarjestys)
+```
+
+<programming-exercise name='Järjestys varastosaldon mukaan' tmcname='osa12-01_varastosaldo'>
+
+Tee funktio `jarjesta_varastosaldon_mukaan(alkiot: list)`. Funktio saa parametrina listan tupleja, joissa kolmantena alkiona on tuotteiden varastosaldo. Funktio järjestää parametrinaan saamat tuotteet varastosaldojen  mukaiseen kasvavaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
+
+Funktio toimii seuraavasti:
+
+```python
+tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22)]
+
+for tuote in jarjesta_varastosaldon_mukaan(tuotteet):
+    print(f"{tuote[0]} {tuote[2]} kpl")
+```
+
+<sample-output>
+appelsiini 2 kpl
+omena 3 kpl
+banaani 12 kpl
+vesimeloni 22 kpl
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Järjestys tuotantokausien mukaan' tmcname='osa12-02_tuotantokaudet'>
+
+Tee funktio `jarjesta_tuotantokausien_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne tuotantokausien lukumäärän mukaiseen kasvavaan järjestykseen. Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
+
+Funktio toimii seuraavasti:
+
+```python
+sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
+
+for sarja in jarjesta_tuotantokausien_mukaan(sarjat):
+    print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
+```
+
+<sample-output>
+Dexter 9 tuotantokautta
+Friends 10 tuotantokautta
+Simpsons 32 tuotantokautta
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12-03_pisteiden_mukaan'>
+
+Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne _pisteiden mukaiseen laskevaan järjestykseen_.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
+
+```python
+sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
+
+print´("IMDB:n mukainen pistemäärä")
+for sarja in jarjesta_pisteiden_mukaan(tuotteet):
+    print(f"{sarja['nimi']}  {sarja['pisteet']}")
+```
+
+<sample-output>
+IMDB:n mukainen pistemäärä
+Friends 8.9
+Simpsons 8.7
+Dexter 8.6
+
+</sample-output>
+
+</programming-exercise>
+
+## Omien olioiden alkioiden järjestäminen
+
 Kirjoitetaan samaa periaatetta hyödyntäen ohjelma, joka järjestää listan omasta `Opiskelija`-luokasta luotuja olioita kahden eri kriteerin avulla:
 
 ```python
@@ -164,6 +270,171 @@ Aapeli (a123), 220 op
 
 Järjestely toimii niinkuin pitää. Jos olioille arvon antavia funktioita `tunnuksen_mukaan` ja `pisteiden_mukaan` ei tarvita muuten, voimme kuitenkin vielä yksinkertaistaa ohjelmaa.
 
+<programming-exercise name='Kiipeilyreitti' tmcname='osa12-04_kiipeilyreitti'>
+
+Tehtäväpohjan mukana tulee valmis luokka `Kiipeilyreitti`, jota käytetään seuraavasti:
+
+```python
+reitti1 = Kiipeilyreitti("Kantti", 38, "6A+")
+reitti2 = Kiipeilyreitti("Smooth operator", 9, "7A")
+reitti3 = Kiipeilyreitti("Syncro", 14, "8C+")
+
+
+print(reitti1)
+print(reitti2)
+print(reitti3.nimi, reitti3.pituus, reitti3.grade)
+```
+
+<sample-output>
+
+Kantti, pituus 38 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
+Syncro 14 8B+
+
+</sample-output>
+
+## Pituuden mukainen järjestys
+
+Tee funktio `pituuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit pituuden mukaan käänteisessä järjestyksessä.
+
+Funktio toimii seuraavasti:
+
+```python
+r1 = Kiipeilyreitti("Kantti", 38, "6A+")
+r2 = Kiipeilyreitti("Smooth operator", 11, "7A")
+r3 = Kiipeilyreitti("Syncro", 14, "8C+")
+r4 = Kiipeilyreitti("Pieniä askelia", 12, "6A+")
+
+reitit = [r1, r2, r3, r4]
+
+for reitti in pituuden_mukaan(reitit):
+    print(reitti)
+```
+
+<sample-output>
+
+Kantti, pituus 38 metriä, grade 6A+
+Syncro, pituus 14 metriä, grade 8C+
+Pieniä askelia, pituus 12 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
+
+</sample-output>
+
+## Vaikeuden mukainen järjestys
+
+Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan nousevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
+
+Funktio toimii seuraavasti:
+
+```python
+r1 = Kiipeilyreitti("Kantti", 38, "6A+")
+r2 = Kiipeilyreitti("Smooth operator", 11, "7A")
+r3 = Kiipeilyreitti("Syncro", 14, "8C+")
+r4 = Kiipeilyreitti("Pieniä askelia", 12, "6A+")
+
+reitit = [r1, r2, r3, r4]
+for reitti in vaikeuden_mukaan(reitit):
+    print(reitti)
+```
+
+<sample-output>
+
+Pieniä askelia, pituus 12 metriä, grade 6A+
+Kantti, pituus 38 metriä, grade 6A+
+Smooth operator, pituus 9 metriä, grade 7A
+Syncro, pituus 14 metriä, grade 8C+
+
+</sample-output>
+
+*Vihje* jos järjestysperusteena on lista tai tuple, järjestetään ensisijaiseti ensimmäisen alkion mukaan, toissijaisesti toisen:
+
+```python
+lista = [("a", 4),("a", 2),("b", 30), ("b", 0) ]
+print(sorted(lista))
+```
+
+<sample-output>
+
+[('a', 2), ('a', 4), ('b', 0), ('b', 30)]
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Kiipeilykalliot' tmcname='osa12-05_kiipeilykalliot/'>
+
+Tehtäväpohjasta löytyy luokan `Kiipeilyreitti` lisäksi luokka `Kiipeilykallio`.
+
+```python
+k1 = Kiipeilykallio("Olhava")
+k1.lisaa_reitti(Kiipeilyreitti("Kantti", 38, "6A+"))
+k1.lisaa_reitti(Kiipeilyreitti("Suuri leikkaus", 36, "6B"))
+k1.lisaa_reitti(Kiipeilyreitti("Ruotsalaisten reitti", 42, "5+"))
+
+k2 = Kiipeilykallio("Nummi")
+k2.lisaa_reitti(Kiipeilyreitti("Syncro", 14, "8C+"))
+
+k3 = Kiipeilykallio("Nalkkilan släbi")
+k3.lisaa_reitti(Kiipeilyreitti("Pieniä askelia", 12, "6A+"))
+k3.lisaa_reitti(Kiipeilyreitti("Smooth operator", 11, "7A"))
+k3.lisaa_reitti(Kiipeilyreitti("Possu ei pidä", 12 , "6B+"))
+k3.lisaa_reitti(Kiipeilyreitti("Hedelmätarha", 8, "6A"))
+
+print(k1)
+print(k3.nimi, k3.reitteja())
+print(k3.vaikein_reitti())
+```
+
+<sample-output>
+
+Olhava, 3 reittiä, vaikein 6B
+Nalkkilan slabi 4
+Smooth operator, pituus 9 metriä, grade 7A
+
+</sample-output>
+
+## Reittien määrän mukaan
+
+Tee funktio `reittien_maaran_mukaan`, joka järjestää kiipeilykalliot reittien määrän mukaiseen kasvavaan suuruusjärjestykseen.
+
+```python
+# k1, k2 ja k3 määritelty kuten edellä
+kalliot = [k1, k2, k3]
+for kallio in reittien_maaran_mukaan(kalliot):
+    print(kallio)
+
+```
+
+<sample-output>
+
+Nummi, 1 reittiä, vaikein 8C+
+Olhava, 3 reittiä, vaikein 6B
+Nalkkilan slabi, 4 reittiä, vaikein 7A
+
+</sample-output>
+
+## Vaikeimman reitin mukaan
+
+Tee funktio `vaikeimman_reitin_mukaan`, joka järjestää kiipeilykalliot kalliolta löytyvän vaikeimman reitin mukaiseen _laskevaan_ suuruusjärjestykseen.
+
+```python
+# k1, k2 ja k3 määritelty kuten edellä
+kalliot = [k1, k2, k3]
+for kallio in vaikeimman_reitin_mukaan(kalliot):
+    print(kallio)
+
+```
+
+<sample-output>
+
+Nummi, 1 reittiä, vaikein 8C+
+Nalkkilan slabi, 4 reittiä, vaikein 7A
+Olhava, 3 reittiä, vaikein 6B
+
+</sample-output>
+
+</programming-exercise>
+
 ## Lambda-lauseke
 
 Lambda-lausekkeen avulla voidaan luoda ns. anonyymi funktio, eli funktio joka muodostetaan sillä hetkellä kun sitä tarvitaan. Lausekkeen yleinen syntaksi on
@@ -203,7 +474,7 @@ def hinta(alkio):
     return alkio[1]
 ```
 
-...paitsi että lambda-lauseketta käyttäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
+...paitsi että lambda-lauseketta käytettäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
 
 Muuten lambdan avulla muodostettava funktio on kuin mikä tahansa muukin funktio. Esimerkiksi seuraava esimerkki järjestää merkkijonot niiden viimeisten merkkien mukaiseen aakkosjärjestykseen:
 
@@ -285,12 +556,48 @@ U2 (Joshua Tree), 1986. 50 min.
 
 </sample-output>
 
+<programming-exercise name='Palloilijat' tmcname='osa12-06_palloilijat'>
+
+Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirteet:
+
+* nimi
+* pelinumero
+* tehtyjen maalien määrä `maalit`
+* annettujen syöttöjen määrä `syotot`
+* peliminuuttien määärä `minuutit`
+
+Kirjoita seuraavien tehtävänantojen mukaiset funktiot
+
+Huomaa, että jokaisessa funktiossa palautetaan erityyppiset tiedot!
+
+## Eniten maaleja
+
+Kirjoita funktio `eniten_maaleja`, joka saa parametrikseen listan palloilijoita.
+
+Funktio palauttaa merkkijonona sen pelaajan _nimen_, joka on tehnyt eniten maaleja.
+
+## Eniten pisteitä
+
+Kirjoita funktio `eniten_pisteita`, joka saa parametrikseen listan palloilijoita.
+
+Funktio palauttaa _tuplena_ sen pelaajan nimen ja pelinumeron, joka on tehnyt yhteensä eniten pisteitä. Pisteisiin lasketaan siis sekä maalit että syötöt.
+
+## Vähiten peliminuuttjea
+
+Kirjoita funktio `vahiten_minutteja`, joka sa parametrikseen listan palloilijoita.
+
+FUnktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
+
+
+</programming-exercise>
+
 ## Funktiot parametreina omissa funktioissa
 
-Pythonissa on siis mahdollista välittää viittaus johonkin funktioon toiselle funktiolle. Tarkastellaan vielä esimerkkinä omaa funktiota, joka saa paramerikseen toisen funktion:
+Pythonissa on siis mahdollista välittää viittaus johonkin funktioon toiselle funktiolle. Tarkastellaan vielä esimerkkinä omaa funktiota, joka saa parametrikseen toisen funktion:
 
 ```python
-def suorita_operaatio(operaatio):
+# tyyppivihje callable viittaa funktioon
+def suorita_operaatio(operaatio: callable):
     # Kutsutaan välitettyä funktiota
     return operaatio(10, 5)
 
@@ -346,4 +653,55 @@ if __name__ == "__main__":
 ```
 
 Funktiossa parametrille `kriteeri` on määritelty oletusarvoksi lambda-lauseke `lambda x: True`, jonka tuottama anonyymi funktio palauttaa arvon `True` kaikille syötteille. Niinpä oletuksena kopioidaan kaikki rivit tiedostosta toiseen. Jos käyttäjä antaa kolmannelle parametrille arvon, tämä korvaa oletusarvon.
+
+<programming-exercise name='Tuotteiden haku' tmcname='osa12-07_tuotteiden_haku'>
+
+Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet`seuraavasti:
+
+```python
+tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22), ("Kaali", 0.99, 1)]
+```
+
+Jokaisessa tuplessa ensimmäinen alkio siis edustaa nimeä, seuraava hintaa ja kolmas määrää.
+
+Toteuta funktio `hae(tuotteet: list, kriteeri: callable)`, missä toisena parametrina on funktio, joka saa parametriksi yhden tuotetta edustavan tuplen ja palauttaa totuusarvon. Funktio palauttaa listassa parametrina annetuista tuotteista ne, jotka toteuttavat kriteerin.
+
+Sopiva kriteeri voisi olla esimerkiksi seuraavanlainen
+
+```python
+def hinta_alle_4_euroa(tuote):
+    return tuote[1] < 4
+```
+
+Funktio siis palauttaa _True_ jos tuotteen hinta on alle 4 euroa.
+
+Funktio `haku` toimii seuraavasti:
+
+```python
+for tuote in hae(tuotteet, hinta_alle_4_euroa):
+    print(tuote)
+```
+
+<sample-output>
+
+('omena', 3.95, 3)
+('kaali', 0.99, 1)
+
+</sample-output>
+
+Kriteerifunktion voi myös määritellä lambda-funktiona. Seuraava käyttää funktiota `haku` etsimään tuotteet, joita on vähintään 11 kappaletta:
+
+```python
+for tuote in hae(tuotteet, lambda t: t[2]>10):
+    print(tuote)
+```
+
+<sample-output>
+
+('banaani', 5.95, 12)
+('vesimeloni', 4.95, 22)
+
+</sample-output>
+
+</programming-exercise>
 

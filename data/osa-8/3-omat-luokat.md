@@ -8,11 +8,11 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät miten omia luokkia määritellään
+- Tiedät, miten omia luokkia määritellään
 - Osaat muodostaa itse määritellystä luokasta olion
-- Osaat kirjoittaa konstruktorimetodin
-- Tiedät mitä tarkoittaa avainsana self
-- Tiedät mitä ovat attribuutit ja miten niitä käytetään
+- Osaat kirjoittaa konstruktorin
+- Tiedät, mitä tarkoittaa avainsana `self`
+- Tiedät, mitä ovat attribuutit ja miten niitä käytetään
 
 </text-box>
 
@@ -23,12 +23,12 @@ class LuokanNimi:
     # Luokan toteutus
 ```
 
-Luokat nimetään yleensä _camel case_ -käytännöllä niin, että sanat kirjoitetaan yhteen ja jokainen sana alkaa isolla alkukirjaimella. Esimerkkejä luokkien nimistä olisiva siis vaikkapa
+Luokat nimetään yleensä _camel case_ -käytännöllä niin, että sanat kirjoitetaan yhteen ja jokainen sana alkaa isolla alkukirjaimella. Esimerkiksi seuraavat ovat tämän käytännön mukaisia luokkien nimiä:
 
-* Pankkitili
-* OhjelmaApuri
-* KirjastoTietokanta
-* PythonKurssinArvosanat
+* `Pankkitili`
+* `OhjelmaApuri`
+* `KirjastoTietokanta`
+* `PythonKurssinArvosanat`
 
 Yhdellä luokalla pyritään mallintamaan jokin sellainen yksittäinen kokonaisuus, jonka sisältämät tiedot liittyvät kiinteästi yhteen. Monimutkaisemmissa ratkaisuissa luokka voi sisältää toisia luokkia (esimerkiksi luokka `Kurssi` voisi sisältää luokan `Osasuoritus` mukaisia olioita).
 
@@ -64,24 +64,21 @@ Pekka Python
 
 </sample-output>
 
-Attribuutit ovat käytettävissä ainoastaan se olion kautta, jossa ne on määritelty. Pankkitili-luokasta muodostetuilla olioilla on jokaisella omat arvonsa attribuuteille. Attribuuttien arvot haetaan olioiden kautta, esimerkiksi
+Attribuutit ovat käytettävissä ainoastaan sen olion kautta, jossa ne on määritelty. Pankkitili-luokasta muodostetuilla olioilla on jokaisella omat arvonsa attribuuteille. Attribuuttien arvot haetaan olioiden kautta, esimerkiksi näin:
 
 ```python
-
 tili = Pankkitili()
 tili.saldo = 155.50
 
 print(tili.saldo) # Viittaa tilin attribuuttiin saldo
 print(saldo) # TÄSTÄ TULEE VIRHE, koska oliomuuttuja ei ole mukana!
-
 ```
-
 
 ## Konstruktorin lisääminen
 
-Niin kuin edellisestä esimerkistä huomataan, luokasta voi luoda uuden olion kutsumalla konstruktoria, joka on muotoa `LuokanNimi()`. Yleensä olisi kuitenkin kätevä antaa attrbuuteille arvot heti kun olio luodaan - nyt esimerkiksi Pankkitilin omistaja ja saldo asetetaan vasta kun pankkitiliolio on luotu.
+Kuten edellisestä esimerkistä huomataan, luokasta voi luoda uuden olion kutsumalla konstruktoria, joka on muotoa `LuokanNimi()`. Yleensä olisi kuitenkin kätevä antaa attribuuteille arvot heti kun olio luodaan – nyt esimerkiksi Pankkitilin omistaja ja saldo asetetaan vasta, kun pankkitiliolio on luotu.
 
-Attribuuttien asettamisessa ilman konstruktoria on myös se ongelma, että samasta luokasta luoduilla olioilla voi olla eri attribuutit. Seuraava ohjelmakoodi esimerkiksi antaa virheen, koska oliolle `pirjon_tili` ei ole määritelty attribuuttia saldo:
+Attribuuttien asettamisessa ilman konstruktoria on myös se ongelma, että samasta luokasta luoduilla olioilla voi olla eri attribuutit. Seuraava ohjelmakoodi esimerkiksi antaa virheen, koska oliolle `pirjon_tili` ei ole määritelty attribuuttia `saldo`:
 
 ```python
 class Pankkitili:
@@ -98,9 +95,9 @@ print(pekan_tili.saldo)
 print(pirjon_tili.saldo) # TÄSTÄ TULEE VIRHE
 ```
 
-Sen sijaan että attribuuttien arvot alustettaisiin luokan luomisen jälkeen, on huomattavasti parempi ajatus alustaa arvot samalla kun luokasta luodaan olio.
+Sen sijaan että attribuuttien arvot alustettaisiin luokan luomisen jälkeen, on huomattavasti parempi ajatus alustaa arvot samalla, kun luokasta luodaan olio.
 
-Konstruktorimetodi kirjoitetaan luokan sisään, yleensä heti luokan alkuun.
+Konstruktori kirjoitetaan luokan sisään metodina `__init__` yleensä heti luokan alkuun.
 
 Tarkastellaan `Pankkitili`-luokkaa, johon on lisätty konstruktori:
 
@@ -113,7 +110,7 @@ class Pankkitili:
         self.omistaja = omistaja
 ```
 
-Konstruktorimetodi nimi on aina `__init__`. Huomaa, että nimessä sanan `init` molemmilla puolilla on _kaksi alaviivaa_.
+Konstruktorin nimi on aina `__init__`. Huomaa, että nimessä sanan `init` molemmilla puolilla on _kaksi alaviivaa_.
 
 Konstruktorin ensimmäinen parametri on nimeltään `self`. Tämä viittaa olioon, jota käsitellään. Asetuslause
 
@@ -123,7 +120,7 @@ asettaa parametrina annetun saldon luotavan olion saldoksi. On tärkeä huomata,
 
 * Muuttuja `self.saldo` viittaa olion attribuuttiin. Jokaisella Pankkitili-luokan oliolla on oma saldonsa.
 
-* Muuttuja `saldo` on konstruktorimetodin `__init__` parametri, jolle annetaan arvo kun metodia kutsutaan (eli kun halutaan luoda uusi olio luokasta).
+* Muuttuja `saldo` on konstruktorimetodin `__init__` parametri, jolle annetaan arvo, kun metodia kutsutaan (eli kun halutaan luoda uusi olio luokasta).
 
 Nyt kun konstruktorille on määritelty parametrit, voidaan attribuuttien arvot antaa oliota luotaessa:
 
@@ -134,7 +131,6 @@ class Pankkitili:
     def __init__(self, saldo: float, omistaja: str):
         self.saldo = saldo
         self.omistaja = omistaja
-
 
 # Parametrille self ei anneta arvoa, vaan Python antaa sen
 # automaattisesti
@@ -152,9 +148,9 @@ print(pirjon_tili.saldo)
 
 </sample-output>
 
-Esimerkistä huomataan, että olioiden muodostaminen helpottuu, kun arvot voidaan antaa heti oliota muodostaessa. Samalla tämä varmistaa, että arvojen antaminen ei unohdu, ja käytännössä pakottaa käyttäjän antamaan arvot attribuuteille.
+Esimerkistä huomataan, että olioiden luominen helpottuu, kun arvot voidaan antaa heti oliota muodostaessa. Samalla tämä varmistaa, että arvojen antaminen ei unohdu, ja ohjaa käyttäjää antamaan arvot attribuuteille.
 
-Attribuuttien arvoja voi edelleen muuttaa myöhemmin ohjelmakoodissa, vaikka alkuarvo olisikin annettu konstruktorissa:
+Attribuuttien arvoja voi edelleen muuttaa myöhemmin ohjelmassa, vaikka alkuarvo olisikin annettu konstruktorissa:
 
 ```python
 class Pankkitili:
@@ -163,7 +159,6 @@ class Pankkitili:
     def __init__(self, saldo: float, omistaja: str):
         self.saldo = saldo
         self.omistaja = omistaja
-
 
 pekan_tili = Pankkitili(100, "Pekka Python")
 print(pekan_tili.saldo)
@@ -223,14 +218,14 @@ for numero in kierros1.numerot:
 
 </sample-output>
 
-Attribuutit voivat olla siis minkä tahansa tyyppisiä – esimerkiksi edellisessä esimerkissä jokaiseen olioon tallennetaan lista ja päivämääräolio.
+Attribuutit voivat olla siis minkä tahansa tyyppisiä – esimerkiksi edellisessä esimerkissä jokaiseen olioon tallennetaan lista ja päivämäärä.
 
 
 <programming-exercise name='Kirja' tmcname='osa08-06_kirja'>
 
-Tee luokka `Kirja`, jolla on attribuutit `nimi`, `kirjoittaja`, `genre`, `kirjoitusvuosi` sekä konstruktiori, joka alustaa muuttujat.
+Tee luokka `Kirja`, jolla on attribuutteina muuttujat `nimi`, `kirjoittaja`, `genre` ja `kirjoitusvuosi` sekä konstruktori, joka alustaa muuttujat.
 
-Luokkaa käytetään seuraavasti
+Luokkaa käytetään seuraavasti:
 
 ```python
 python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
@@ -253,7 +248,7 @@ Kirjan Huipulta huipulle genre on elämänkerta
 
 Kirjoita alla pyydetyt luokat. Jokaisen luokan alle on kuvattu attribuuttien nimet ja tyypit.
 
-Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siinä järjestyksessä, kun ne on kuvauksessa annettu.
+Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siinä järjestyksessä kuin ne on kuvauksessa annettu.
 
 1. Luokka Muistilista
 - attribuutti otsikko (merkkijono)
@@ -272,21 +267,18 @@ Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siin
 
 </programming-exercise>
 
-
-
 ## Omien luokkien olioiden käyttö
 
-Omien luokkien olioiden käyttöön ei liity mitään ihmeellistä. Ne kättäytyvät esimerkiksi funktioiden parametrina ja paluuarvona kuten olettaa saattaa. Voisimme esimerkiksi tehdä pari apufunktioita tilien käsittelyyn:
+Omasta luokasta muodostetut oliot käyttäytyvät esimerkiksi funktioiden parametrina ja paluuarvona samalla tavalla kuin muutkin oliot. Voisimme esimerkiksi tehdä pari apufunktiota tilien käsittelyyn:
 
 ```python
-
 # funktio luo uuden tiliolion ja palauttaa sen
-def avaa_tili(nimi: str)
+def avaa_tili(nimi: str):
     uusi_tili =  Pankkitili(0, nimi)
     return uusi_tili
 
 # funktio asettaa parametrina saamansa rahasumman parametrina olevalle tilille
-def laita_rahaa_tilille(tili: Tili, summa: int)
+def laita_rahaa_tilille(tili: Pankkitili, summa: int):
     tili.saldo += summa
 
 pekan_tili = avaa_tili("Pekka Python")
@@ -295,7 +287,6 @@ print(pekan_tili.saldo)
 laita_rahaa_tilille(pekan_tili, 500)
 
 print(pekan_tili.saldo)
-
 ```
 
 <sample-output>
@@ -307,13 +298,9 @@ print(pekan_tili.saldo)
 
 <programming-exercise name='Muodosta lemmikki' tmcname='osa08-07b_muodosta_lemmikki'>
 
-Määrittele luokka `Lemmikki`.
+Määrittele luokka `Lemmikki`. Luokalla on konstruktori, jossa annetaan arvot attribuuteille `nimi`, `laji` ja `syntymavuosi` tässä järjestyksessä.
 
-Luokalla on konstruktori, jossa annetaan arvot attribuuteille `nimi`, `laji` ja `syntymavuosi` tässä järjestyksessä.
-
-Kirjoita sitten luokan ulkopuolelle funktio `uusi_lemmikki(nimi: str, laji: str, syntymavuosi: int)`, joka muodostaa uuden `Lemmikki`-tyyppisen (eli Lemmikki-luokan) olion.
-
-Muodostamisen jälkeen funktio palauttaa olion.
+Kirjoita sitten luokan ulkopuolelle funktio `uusi_lemmikki(nimi: str, laji: str, syntymavuosi: int)`, joka luo ja palauttaa uuden `Lemmikki`-tyyppisen (eli `Lemmikki`-luokkaa vastaavan) olion.
 
 Esimerkki funktion kutsumisesta:
 
@@ -336,17 +323,17 @@ koira
 
 <programming-exercise name='Vanhempi kirja' tmcname='osa08-08_vanhempi_kirja'>
 
-Tee funktio `vanhempi_kirja(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-olioa. Funktio kertoo kumpi kirjoista on vahnmpi.
+Tee funktio `vanhempi_kirja(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-oliota. Funktio kertoo, kumpi kirjoista on vanhempi.
 
-Funktiota käytetään seuraavasti
+Funktiota käytetään seuraavasti:
 
 ```python
 python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
 everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
-norma = Kirja("Sofi Oksanen", "Norma", "rikos", 2015)
+norma = Kirja("Norma", "Sofi Oksanen", "rikos", 2015)
 
-vanhempi(python, everest)
-vanhempi(python, norma)
+vanhempi_kirja(python, everest)
+vanhempi_kirja(python, norma)
 ```
 
 <sample-output>
@@ -360,12 +347,11 @@ Fluent Python ja Norma kirjoitettiin 2015
 
 <programming-exercise name='Genren kirjat' tmcname='osa08-09_genren_kirjat'>
 
-Tee funktio `genren_kirjat(kirjat: list, genre: str)`, joka saa parametriksi listan `Kirja`-olioa, sekä genren kertovan merkkijonon.
+Tee funktio `genren_kirjat(kirjat: list, genre: str)`, joka saa parametriksi listan `Kirja`-olioa sekä genren kertovan merkkijonon.
 
-Funktio _palauttaa_ uuden listan, jolle se laittaa parametrina olevista kirjoista ne, joilla on haluttu genre:
+Funktio _palauttaa_ uuden listan, jolle se laittaa parametrina olevista kirjoista ne, joilla on haluttu genre.
 
-
-Funktiota käytetään seuraavasti
+Funktiota käytetään seuraavasti:
 
 ```python
 python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)

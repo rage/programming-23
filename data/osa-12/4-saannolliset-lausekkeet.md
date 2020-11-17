@@ -17,7 +17,7 @@ Python on mainio työkalu tekstin käsittelemiseen. Sisäänrakennetut operaatio
 
 Vaativampien operaatioiden toteuttaminen saattaa kuitenkin muodostua ongelmalliseksi. Tätä tarkoitusta varten Pythonista löytyy useimpien muiden ohjelmointikielten tapaan _säännölliset lausekkeet_ (_regular expressions_).
 
-Säännöllisten lausekkeiden avulla on mahdollista määritellä hyvinkin monimutkaisia sääntöjä, joiden perusteella voidaan esimerkiski poimia, suodattaa tai etsiä alijonoja. Tässä osiossa käydään perusperiaatteen lisäksi läpi muutamia sääntöjä, lisää löydät esimerkiksi Pythonin mainiosta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
+Säännöllisten lausekkeiden avulla on mahdollista määritellä hyvinkin monimutkaisia sääntöjä, joiden perusteella voidaan esimerkiski poimia, suodattaa tai etsiä alijonoja. Tässä osiossa käydään perusperiaatteen lisäksi läpi muutamia sääntöjä, lisää löydät esimerkiksi Pythonin omasta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
 
 ## Mitä ovat säännölliset lausekkeet?
 
@@ -48,7 +48,7 @@ Pallon löytyy!
 
 Lauseke "lasketaan" valmiiksi re-modulista löytyvällä funktiolla `compile`, minkä jälkeen sen palauttamaa oliota voidaan käyttää merkkijonojen testaamiseen. Metodi `search` palauttaa arvon `None`, jos vastaavuutta ei löydy, joten sitä voidaan käyttää ehtolauseessa esimerkin tapaan. Mikäli vastaavuus löytyy, saadaan palautetusta `Match`-tyyppisestä oliosta tarvittaessa tarkempaa tietoa vastaavuudesta.
 
-Toinen esimerkki etsii  merkkijonosta luvut. Metodin `findall` palauttaa kaikki sääntöön täsmäävät alijonot listana:
+Toinen esimerkki etsii  merkkijonosta luvut. Metodi `findall` palauttaa kaikki sääntöön täsmäävät alijonot listana:
 
 ```python
 import re
@@ -176,7 +176,19 @@ Ei osumaa.
 
 ### Muita erikoismerkkejä
 
-Pisteellä merkitään mitä tahansa yksittäistä merkkiä. Niinpä merkintä `c...o` vastaa esimerkiksi merkkijonoja `c-3po` tai `combo`. Merkillä `^` voidaan määritellä, että osuman pitää löytyä merkkijonon alusta, ja vastaavasti merkillä `$`, että sen on oltava lopussa.
+Pisteellä merkitään mitä tahansa yksittäistä merkkiä. Niinpä merkintä `c...o` vastaa esimerkiksi merkkijonoja `c-3po` tai `combo`. Merkillä `^` voidaan määritellä, että osuman pitää löytyä merkkijonon alusta, ja vastaavasti merkillä `$`, että sen on oltava lopussa. Näillä voidaan näppärästi myös rajata sääntö koskemaan vain annettuja merkkejä:
+
+<sample-output>
+
+Anna lauseke: ^[123]*$
+Anna testijono: 4
+Ei osumaa.
+Anna testijono: 1221
+Osuma!
+Anna testijono: 333333333
+Osuma!
+
+</sample-output>
 
 Kenoviivaa voidaan käyttää etsimään erikoismerkkejä. Merkintä `1+` tarkoitaa yhtä tai useampaa ykköstä, mutta merkintä `1\+` merkkijonoa `1+`.
 
@@ -212,4 +224,255 @@ Ei osumaa.
 
 </sample-output>
 
+<programming-exercise name='Säännölliset lausekkeet' tmcname='osa12-'>
 
+Harjoitellaan hieman säännöllisten lausekkeiden käyttöä.
+
+## Viikonpäivät
+
+Tee säännöllisen lausekkeen avulla funktio on_viikonpaiva(merkkijono: str) joka palauttaa True jos sen parametrina saama merkkijono sisältää viikonpäivän lyhenteen (ma, ti, ke, to, pe, la tai su).
+
+Esimerkki funktion kutsumisesta:
+
+```python
+print(on_viikonpaiva("ma"))
+print(on_viikonpaiva("pe"))
+print(on_viikonpaiva("tu"))
+```
+
+<sample-output>
+
+True
+True
+False
+
+</sample-output>
+
+## Vokaalitarkistus
+
+Tee funktio kaikki_vokaaleja(merkkijono: str) joka tarkistaa säännöllisen lausekkeen avulla ovatko parametrina olevan merkkijonon kaikki merkit vokaaleja.
+
+Esimerkki funktion kutsumisesta:
+
+```python
+print(kaikki_vokaaleja("eioueioieoieouyyyy"))
+print(kaikki_vokaaleja("autoooo"))
+```
+
+<sample-output>
+
+True
+False
+
+</sample-output>
+
+## Kellonaika
+
+Tee funktio kellonaika(merkkijono: str), joka tarkistaa säännöllisen lausekkeen avulla onko parametrina oleva merkkijono muotoa tt:mm:ss oleva kellonaika (tunnit, minuutit ja sekunnit kaksinumeroisina).
+
+Esimerkki funktion kutsumisesta:
+
+```python
+print(kellonaika("12:43:01"))
+print(kellonaika("ab:cd:ef"))
+print(kellonaika("17:59:59"))
+print(kellonaika("33:66:77"))
+```
+
+<sample-output>
+
+True
+False
+True
+False
+
+</sample-output>
+
+</programming-exercise>
+
+## Loppuhuipennus
+
+Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tämä tehtävä ei sijainnostaan huolimatta liity mitenkään säännöllisiin lausekkeisiin, sensijaan luvun [Funktio parametrina](/osa-12/1-funktio-parametrina) asia tulee olemaan tarpeen, myös [listakoosteet](/osa-11/1-koosteet) voivat olla käyttökelpoisia.
+
+Sovelluksen rakenteelle voi ottaa inspiraatiota osan 10 [viimeisestä luvusta](/osa-10/4-lisaa-esimerkkeja).
+
+
+<programming-exercise name='Tilastot ojennukseen' tmcname='osa12_15-tilastot_ojennukseen'>
+
+Tässä tehtävässä tehdään sovellus, jonka avulla on mahdollista tarkastella NHL-jääkiekkoliigan tilastoja muutamassa hieman erilaisessa muodossa.
+
+Tehtäväpohjan mukana tulee kaksi json-muodossa olevaa tiedostoa `osa.json` ja `kaikki.json`, näistä ensimmäinen on tarkoitettu lähinnä testailun avuksi. Jälkimmäinen sisältää kaikkien kaudella 2019-20 pelanneiden pelaajien statistiikat.
+
+Yksittäisen pelaajan tiedot ovat seuraavassa muodossa
+
+```json
+{
+    "name": "Patrik Laine",
+    "nationality": "FIN",
+    "assists": 35,
+    "goals": 28,
+    "penalties": 22,
+    "team": "WPG",
+    "games": 68
+},
+```
+
+ja molemmat tiedostoista sisältävät yksittäisten pelaajien tiedot taulukossa.
+
+Olet todennäköisesti unohtanut miten json-muotoinen tiedosto saadaan luettua Python-ohjelmaan. Se ei ole vaikeaa voit kerrata [osan 7 materiaalista](/osa-7/4-datan-kasittely#json-tiedoston-lukeminen).
+
+Tee nyt ohjelma, joka tarjoaa seuraavanlaisen toiminnallisuuden. Ohjelma aloittaa kysymällä tiedoston nimeä. Tämän jälkeen ohjelma tarjoaa seuraavat toiminnot:
+
+- yksittäisen pelaajan tietojen haku nimen perusteella
+- listaus joukkueiden nimien lyhenteistä (aakkosjärjestyksessä)
+- listaus maiden nimien lyhenteistä (aakkosjärjestyksessä)
+
+Näistä toiminnoista saa yhden pisteeten. Ohjelman tulee toimia seuraavasti:
+
+<sample-output>
+
+tiedosto: **osa.json**
+luettiin 14 pelaajan tiedot
+
+komennot:
+0 lopeta
+1 hae pelaaja
+2 joukkueet
+3 maat
+4 joukkueen pelaajat
+5 maan pelaajat
+6 eniten pisteitä
+7 eniten maaleja
+
+komento: **1**
+nimi: **Travis Zajac**
+<pre>
+Travis Zajac         NJD   9 + 16 =  25
+</pre>
+
+komento: **2**
+BUF
+CGY
+DAL
+NJD
+NYI
+OTT
+PIT
+WPG
+WSH
+
+komento: **3**
+CAN
+CHE
+CZE
+SWE
+USA
+
+komento: **0**
+
+</sample-output>
+
+Seuraavat toiminnot tuovat toisen pisteen:
+
+- joukkueen pelaajien listaus
+  - listattuna pisteiden (joka saadaan laskemalla _goals_ + _assits_) mukaisessa järjestyksessä
+- tietyn maan pelaajat
+  - listattuna pisteiden mukaisessa järjestyksessä
+
+Toiminnallisuus on seuraava:
+
+<sample-output>
+
+tiedosto: **osa.json**
+luettiin 14 pelaajan tiedot
+
+komennot:
+0 lopeta
+1 hae pelaaja
+2 joukkueet
+3 maat
+4 joukkueen pelaajat
+5 maan pelaajat
+6 eniten pisteitä
+7 eniten maaleja
+
+komento: **4**
+joukkue: **OTT**
+<pre>
+Drake Batherson      OTT   3 +  7 =  10
+Jonathan Davidsson   OTT   0 +  1 =   1
+</pre>
+
+komento: **5**
+maa: **CAN**
+<pre>
+Jared McCann         PIT  14 + 21 =  35
+Travis Zajac         NJD   9 + 16 =  25
+Taylor Fedun         DAL   2 +  7 =   9
+Mark Jankowski       CGY   5 +  2 =   7
+Logan Shaw           WPG   3 +  2 =   5
+</pre>
+
+komento: **0**
+
+</sample-output>
+
+Ja kolmannen pisteen saa seuraavilla toiminnoilla:
+
+- n eniten pistettä saanutta pelaajaa
+  - jos kahden pelaajan pistemäärä on sama, ratkaisee maalimäärä
+- n eniten maaleja (_goals_) tehnyttä pelaajaa
+  - jos kahden pelaajan maalimäärä on sama, järjestysksen ratkaisee se kummalla on vähemmän otteluja (_games_)
+
+Toiminnallisuus on seuraava:
+
+<sample-output>
+
+tiedosto: **osa.json**
+luettiin 14 pelaajan tiedot
+
+komennot:
+0 lopeta
+1 hae pelaaja
+2 joukkueet
+3 maat
+4 joukkueen pelaajat
+5 maan pelaajat
+6 eniten pisteitä
+7 eniten maaleja
+
+komento: **6**
+kuinka monta: **2**
+<pre>
+Jakub Vrana          WSH  25 + 27 =  52
+Jared McCann         PIT  14 + 21 =  35
+</pre>
+
+komento: **6**
+kuinka monta: **5**
+
+<pre>
+Jakub Vrana          WSH  25 + 27 =  52
+Jared McCann         PIT  14 + 21 =  35
+John Klingberg       DAL   6 + 26 =  32
+Travis Zajac         NJD   9 + 16 =  25
+Conor Sheary         BUF  10 + 13 =  23
+</pre>
+
+komento: **7**
+kuinka monta: **6**
+
+<pre>
+Jakub Vrana          WSH  25 + 27 =  52
+Jared McCann         PIT  14 + 21 =  35
+Conor Sheary         BUF  10 + 13 =  23
+Travis Zajac         NJD   9 + 16 =  25
+John Klingberg       DAL   6 + 26 =  32
+Mark Jankowski       CGY   5 +  2 =   7
+</pre>
+
+komento: **0**
+
+</sample-output>
+
+</programming-exercise>

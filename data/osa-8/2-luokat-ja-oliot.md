@@ -8,9 +8,9 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Tiedät mitä tarkoitetaan luokalla
+- Tiedät, mitä tarkoitetaan luokalla
 - Ymmärrät luokan ja olion yhteyden
-- Tiedät mitä olio-ohjelmointi tarkoittaa
+- Tiedät, mitä olio-ohjelmointi tarkoittaa
 
 </text-box>
 
@@ -74,7 +74,7 @@ Yhdestä luokasta voidaan muodostaa useita olioita. Niin kuin aiemmin kerrottiin
 * luokassa määritellään muuttujat ja
 * oliota muodostaessa niille annetaan arvot.
 
-Luodaan esimerkkinä `Fraction`-luokasta kaksi olio ja tulostetaan sen osoittaja ja nimittäjä:
+Luodaan esimerkkinä `Fraction`-luokasta olio ja tulostetaan sen osoittaja ja nimittäjä:
 
 ```python
 from fractions import Fraction
@@ -82,10 +82,10 @@ from fractions import Fraction
 luku = Fraction(2,5)
 
 # Tulostetaan osoittaja
-print(eka.numerator)
+print(luku.numerator)
 
 # ...ja sitten nimittäjä
-print(eka.denominator)
+print(luku.denominator)
 ```
 
 <sample-output>
@@ -138,7 +138,7 @@ joulu = date(2020, 12, 24)
 juhannus = date(2020, 6, 20)
 
 print(onko_viikonloppu(joulu))
-print(onko_viikonloppu(joulu))
+print(onko_viikonloppu(juhannus))
 ```
 
 <sample-output>
@@ -218,11 +218,11 @@ Tee funktio `vuodet_listaan(paivamaarat: list)`, joka saa parametrikseen listan,
 Esimerkki funktion kutsumisesta:
 
 ```python
-d1 = date(2019, 2, 3)
-d2 = date(2006, 10, 10)
-d3 = date(1993, 5, 9)
+paiva1 = date(2019, 2, 3)
+paiva2 = date(2006, 10, 10)
+paiva3 = date(1993, 5, 9)
 
-vuodet = vuodet_listaan([d1, d2, d3])
+vuodet = vuodet_listaan([paiva1, paiva2, paiva3])
 print(vuodet)
 ```
 
@@ -264,7 +264,7 @@ Maito
 Myös seuraava onnistuu:
 
 ```python
-# kauppalistalla tuoteet on indeksöity ykkösestä alkaen
+# kauppalistalla tuotteet on indeksöity ykkösestä alkaen
 for i in range(1, kauppalista.tuotteita()+1):
     tuote = kauppalista.tuote(i)
     maara = kauppalista.maara(i)
@@ -287,12 +287,12 @@ Huomaa, että kauppalistalla tuotteet indeksoidaan ykkösestä alkaen, ei nollas
 
 ```python
 if __name__ == "__main__":
-    l = Kauppalista()
-    l.lisaa("banaanit", 10)
-    l.lisaa("omenat", 5)
-    l.lisaa("ananas", 1)
+    lista = Kauppalista()
+    lista.lisaa("banaanit", 10)
+    lista.lisaa("omenat", 5)
+    lista.lisaa("ananas", 1)
 
-    print(tuotteita_yhteensa(l))
+    print(tuotteita_yhteensa(lista))
 ```
 
 <sample-output>
@@ -300,5 +300,7 @@ if __name__ == "__main__":
 16
 
 </sample-output>
+
+**Huom** koska luokan `Kauppalista` koodi on tehtäväpohjassa valmiina, ei koodissa tarvitse käyttää `import`-lausetta kuten edellisissä esimerkeissä, tehtävissä, jotka käyttävät Pythonin valmiita luokkia `Fraction` ja `date`.
 
 </programming-exercise>

@@ -1,6 +1,6 @@
 const courseSettings = {
   language: "fi",
-  name: "Ohjelmoinnin perusteet, syksy 2020",
+  name: "Ohjelmoinnin perusteet ja jatkokurssi, syksy 2020",
   siteUrl: "https://python-s20.mooc.fi",
   githubUrl: "https://github.com/rage/python-s20",
   subtitle: "Johdatus ohjelmointiin Python-kielellä",

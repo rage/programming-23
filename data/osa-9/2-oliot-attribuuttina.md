@@ -8,86 +8,66 @@ hidden: False
 
 Tämän osion jälkeen
 
-- Osaa tallentaa olioita toisten olioiden sisään
+- Osaat tallentaa olioita toisten olioiden sisään
+- Tiedät, mitä tarkoittaa `None`
 
 </text-box>
 
-Aikaisemmin nähtiin esimerkkejä luokista, joissa attribuutteina oli käytetty esimerkiksi listoja. Samalla tavalla myös omista luokista luotuja olioita voi käyttää toisten olioiden attribuutteina. Seuraavissa esimerkeissä on määritelty luokat Kurssi, Opiskelija ja Kurssisuoritus. Kurssisuorituksessa hyödynnetään kahta ensimmäistä luokkaa. Luokkien sisäinen toteutus on jätetty hyvin lyhyeksi, jotta esimerkki ei paisuisi mahdottoman pitkäksi.
+Aikaisemmin nähtiin esimerkkejä luokista, joissa attribuutteina oli käytetty esimerkiksi listoja. Samalla tavalla myös omista luokista luotuja olioita voi käyttää toisten olioiden attribuutteina. Seuraavissa esimerkeissä on määritelty luokat `Kurssi`, `Opiskelija` ja `Opintosuoritus`. Opintosuorituksessa hyödynnetään kahta ensimmäistä luokkaa. Luokkien sisäinen toteutus on lyhyt, jotta esimerkki toisi esille oleellisen.
 
 Esimerkissä jokainen luokka on kirjoitettu omaan tiedostoonsa.
 
-Esitellään aluksi luokka Kurssi, joka on määritelty tiedostossa `kurssi.py`:
+Esitellään aluksi luokka `Kurssi`, joka on määritelty tiedostossa `kurssi.py`:
 
 ```python
-
-# Luokka mallintaa yhtä kurssia
 class Kurssi:
-
     def __init__(self, nimi: str, koodi: str, opintopisteet: int):
         self.nimi = nimi
         self.koodi = koodi
         self.opintopisteet = opintopisteet
-
-    def __repr__(self):
-        return f"{Kurssi}, nimi: {self.nimi}, koodi: {self.koodi}, opintopisteet: {self.opintopisteet}"
-
 ```
 
-Luokka Opiskelija mallintaa yhtä opiskelijaa. Luokka on määritelty tiedostossa `opiskelija.py`:
+Luokka `Opiskelija` mallintaa yhtä opiskelijaa. Luokka on määritelty tiedostossa `opiskelija.py`:
 
 ```python
-
 class Opiskelija:
-
     def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
         self.nimi = nimi
         self.opiskelijanumero = opiskelijanumero
         self.opintopisteet = opintopisteet
-
-    def __repr__(self):
-        return f"{Opiskelija}, nimi: {self.nimi}, opiskelijanumero: {self.opiskelijanumero}, opintopisteet: {self.opintopisteet}"
-
 ```
 
-Luokka Opintosuoritus hyödyntää luokkia Kurssi ja Opiskelija suorituksen tallentamiseen. Huomaa, että luokat tuodaan mukaan `import`-lauseella:
+Luokka `Opintosuoritus` hyödyntää luokkia `Kurssi` ja `Opiskelija` suorituksen tallentamiseen. Huomaa, että luokat tuodaan mukaan `import`-lauseella:
 
 ```python
-
 from kurssi import Kurssi
 from opiskelija import Opiskelija
 
 class Opintosuoritus:
-
     def __init__(self, opiskelija: Opiskelija, kurssi: Kurssi, arvosana: int):
         self.opiskelija = opiskelija
         self.kurssi = kurssi
         self.arvosana = arvosana
-
-    def __repr__(self):
-        return f"{Opintosuoritus}, opiskelija: {self.opiskelija}, kurssi: {self.kurssi}, arvosana: {self.arvosana}"
-
-
 ```
 
 Esimerkki opintosuoritusten lisäämisestä listaan:
 
 ```python
-
 from opintosuoritus import Opintosuoritus
+from kurssi import Kurssi
+from opiskelija import Opiskelija
 
-# Opiskelijat
-olli = Opiskelija("Olli","1234",10)
-pekka = Opiskelija("Pekka", "3210",23)
-leena = Opiskelija("Leena", "9999", 43)
-tiina = Opiskelija("Tiina", "3333", 8)
+# Luodaan lista opiskelijoista
+opiskelijat = []
+opiskelijat.append(Opiskelija("Olli", "1234", 10))
+opiskelijat.append(Opiskelija("Pekka", "3210", 23))
+opiskelijat.append(Opiskelija("Leena", "9999", 43))
+opiskelijat.append(Opiskelija("Tiina", "3333", 8))
 
-# ..listaksi
-opiskelijat = [olli, pekka, leena, tiina]
-
-# Kurssi
+# Kurssi Ohjelmoinnin perusteet
 ohpe = Kurssi("Ohjelmoinnin perusteet", "ohpe1", 5)
 
-# Luo suoritukset kaikille opiskelijoille, kaikille arvosanaksi 3
+# Annetaan suoritukset kaikille opiskelijoille, kaikille arvosanaksi 3
 suoritukset = []
 for opiskelija in opiskelijat:
     suoritukset.append(Opintosuoritus(opiskelija, ohpe, 3))
@@ -109,12 +89,49 @@ Tiina
 Tarkastellaan lähemmin riviä `print(suoritus.opiskelija.nimi)`:
 
 * `suoritus` on luokan `Opintosuoritus` mukainen olio
-* Niinpä muuttuja opiskelija viittaa suoritukseen tallennettuun `Opiskelija`-olioon
+* Niinpä muuttuja `opiskelija` viittaa suoritukseen tallennettuun `Opiskelija`-olioon
 * `Opiskelija`-luokan muuttuja `nimi` sisältää opiskelijan nimen
 
-<programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikit'>
+## Milloin import tarvitaan?
 
-Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan Henkilo metodia `__repr__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun alta löytyvät esimerkkitulosteen mukaisesti.
+Edellisessä esimerkissä käytetään muutamassa kohdassa `import`:ia:
+
+```python
+from opintosuoritus import Opintosuoritus
+from kurssi import Kurssi
+from opiskelija import Opiskelija
+
+# koodi
+```
+
+Importia tarvitaan vain jos tiedostossa käytetään jossain muualla  määriteltyä koodia. Näin on esimerkiksi kun käytetään jotain Pythonin valmista kalustoa, esim. matemaattisia operaatiota tarjoavaa moduulia `math`:
+
+```python
+import math
+
+x = 10
+print(f"luvun {x} {neliöjuuri math.sqrt(x)}")
+```
+
+Edellisessä tehtävässä oletettiin, että luokat on määritelty omissa tiedostoissaan. Esimerkki toteaa mm.
+ _Esitellään aluksi luokka Kurssi, joka on määritelty tiedostossa kurssi.py_
+ja importin tarve siis johtuu tästä.
+
+Jos kaikki koodi sijoitetaan samaan tiedostoon, kuten kaikissa kurssin ohjelmointitehtävissä ohjeistetaan, **et tarvitse** `import`:ia luomiesi luokkien käytöön.
+
+Jos siis päädyt kirjottamaan kurssilla seuraavanlaista koodia
+
+```python
+from henkilo import Henkilo
+
+# koodi
+```
+
+ratkaisusi on todennäköisesti väärä! Lisää importin käytöstä [osan 7](/osa-7/1-moduulit/) materiaalissa.
+
+<programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikki'>
+
+Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan `Henkilo` metodia `__str__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun alta löytyvät esimerkkitulosteen mukaisesti.
 
 Huomaa, että metodin palauttaman merkkijonon pitää olla _täsmälleen samanlainen kuin esimerkkitulosteessa esitetty_!
 
@@ -131,61 +148,63 @@ Leevi, kaverina Hulda, joka on sekarotuinen koira
 
 </sample-output>
 
+**Huom:** koska kaikki koodi tulee samaan tiedostoon, etä tarvitse tehtävässä `import`:ia ollenkaan!
+
 </programming-exercise>
 
 ## Olion attribuuttina lista olioita
 
-Äskeisissä esimerkeissä oliolla oli atrribuuttina yksittäinen toisen luokan olio, esim. henkilöllä on attribuuttina lemmikki-olio, opintosuorituksella attribuuttina kurssi-olio.
+Äskeisissä esimerkeissä oliolla oli attribuuttina yksittäinen toisen luokan olio, esim. henkilöllä attribuuttina lemmikki ja opintosuorituksella attribuuttina kurssi.
 
-Olio-ohjelmoinnissa törmätään erittäin usein tilanteeseen, jossa oliolla on attribuuttina joukko toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
+Olio-ohjelmoinnissa törmätään kutenkin usein tilanteeseen, jossa oliolla on attribuuttina _joukko_ toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
 
 ```python
 class Pelaaja:
-    def __int__(self, nimi: str, maalit: int):
+    def __init__(self, nimi: str, maalit: int):
         self.nimi = nimi
         self.maalit = maalit
 
-     def __repr__(self):
-        return f"{self.nimi} maaleja {self.maalit}"
+    def __str__(self):
+        return f"{self.nimi} (maaleja {self.maalit})"
 
 class Joukkue:
-    def __int__(self, nimi: str):
+    def __init__(self, nimi: str):
         self.nimi = nimi
         self.pelaajat = []
 
     def lisaa_pelaaja(self, pelaaja: Pelaaja):
         self.pelaajat.append(pelaaja)
 
-    def __repr__(self):
+    def yhteenveto(self):
         maalit = []
         for pelaaja in self.pelaajat:
             maalit.append(pelaaja.maalit)
-
-        return f"Joukkue {self.nimi}, pelaajia {len(self.pelaajat)}. Pelaajien maalimäärät {maalit}"
+        print("Joukkue", self.nimi)
+        print("Pelaajia", len(self.pelaajat))
+        print("Pelaajien maalimäärät", maalit)
 ```
 
-Käyttöesimerkki
+Käyttöesimerkki:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
-erkki = Pelaaja("Erkki", 10)
-kupa.lisaa_pelaaja(erkki)
-emilia = Pelaaja("Emilia", 22)
-kupa.lisaa_pelaaja(emilia)
-# huomaa, että parametriksi voidaan määritellä suoraan konstruktorin kutsu
+kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
+kupa.lisaa_pelaaja(Pelaaja("Emilia", 22))
 kupa.lisaa_pelaaja(Pelaaja("Antti", 1))
-print(kupa)
+kupa.yhteenveto()
 ```
 
 <sample-output>
 
-Joukkue Kumpulan pallo, pelaajia 3. Pelaajien maalimäärät [10, 22, 1]"
+Joukkue Kumpulan pallo
+Pelaajia 3
+Pelaajien maalimäärät [10, 22, 1]
 
 </sample-output>
 
 <programming-exercise name='Lahjapakkaus' tmcname='osa09-07_lahjapakkaus'>
 
-Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja Pakkaus sisältää lahjoja.
+Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja pakkaus sisältää lahjoja.
 
 ## Lahja-luokka
 
@@ -211,24 +230,23 @@ Lahja: Aapiskukko (2 kg)
 
 ## Pakkaus-luokka
 
-Tee luokka `Pakkaus`, johon voi lisätä lahjoja, ja joka pitää kirjaa pakkauksessa olevien lahjojen yhteispainosta. Luokassa tulee olla seuraavat metodit
+Tee luokka `Pakkaus`, johon voi lisätä lahjoja ja joka pitää kirjaa pakkauksessa olevien lahjojen yhteispainosta. Luokassa tulee olla seuraavat metodit
 
 - `lisaa_lahja(self, lahja: Lahja)`, joka lisää parametrina annettavan lahjan pakkaukseen. Metodi ei palauta mitään arvoa.
 - `yhteispaino(self)`, joka palauttaa pakkauksessa olevien lahjojen yhteispainon.
 
 Seuraavassa on luokan käyttöesimerkki:
 
-
 ```python
 kirja = Lahja("Aapiskukko", 2)
 
-paketti = Pakkaus()
-paketti.lisaa_lahja(kirja)
-print(paketti.yhteispaino())
+pakkaus = Pakkaus()
+pakkaus.lisaa_lahja(kirja)
+print(pakkaus.yhteispaino())
 
 cd_levy = Lahja("Pink Floyd: Dark side of the moon", 1)
-paketti.lisaa_lahja(cd_levy)
-print(paketti.yhteispaino())
+pakkaus.lisaa_lahja(cd_levy)
+print(pakkaus.yhteispaino())
 ```
 
 <sample-output>
@@ -242,24 +260,31 @@ print(paketti.yhteispaino())
 
 ## None eli viite ei mihinkään
 
-Pythonissa muuttujat siis aina _viittaavat_ johonkin olioon. On kuitenkin tilanteita, joissa haluaisimme määrittää arvon, joka ei viittaa mihinkään. Arvoa `None` käytetään esittämään tyhjää viittausta.
+Pythonissa muuttujat viittaavat aina johonkin olioon. On kuitenkin tilanteita, joissa haluaisimme määrittää arvon, joka ei viittaa mihinkään. Arvoa `None` käytetään esittämään tyhjää viittausta.
 
 Jos esimerkiksi luokkaan joukkue lisättäisiin metodi, joka etsii joukkueen pelaajan, saattaisi olla luontevaa esittää paluuarvolla `None` tilanne, jossa pelaajaa ei löydy:
 
 ```python
+class Pelaaja:
+    def __init__(self, nimi: str, maalit: int):
+        self.nimi = nimi
+        self.maalit = maalit
+
+    def __str__(self):
+        return f"{self.nimi} (maaleja {self.maalit})"
+
 class Joukkue:
-    def __int__(self, nimi: str):
+    def __init__(self, nimi: str):
         self.nimi = nimi
         self.pelaajat = []
 
-    def lisaa_pelaaja(self, elaaja: Pelaaja):
+    def lisaa_pelaaja(self, pelaaja: Pelaaja):
         self.pelaajat.append(pelaaja)
 
-    def etsi(self, etsitty_nimi):
+    def etsi(self, nimi: str):
         for pelaaja in self.pelaajat:
-            if pelaaja.nimi == etsitty_nimi:
+            if pelaaja.nimi == nimi:
                 return pelaaja
-
         return None
 ```
 
@@ -267,37 +292,34 @@ Käyttöesimerkki:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
-erkki = Pelaaja("Erkki", 10)
-kupa.lisaa_pelaaja(erkki)
-emilia = Pelaaja("Emilia", 22)
-kupa.lisaa_pelaaja(emilia)
+kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
+kupa.lisaa_pelaaja(Pelaaja("Emilia", 22))
 kupa.lisaa_pelaaja(Pelaaja("Antti", 1))
 
-p1 = kupa.etsi("Aatti")
-print(p1)
-p2 = kupa.etsi("Jukkis")
-print(p2)
+pelaaja1 = kupa.etsi("Antti")
+print(pelaaja1)
+pelaaja2 = kupa.etsi("Jukkis")
+print(pelaaja2)
 ```
 
 <sample-output>
 
-Antti maaleja 1
+Antti (maaleja 1)
 None
 
 </sample-output>
 
-`None`-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle, joka onkin None:
+`None`-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle (tai pyydetään attribuutin arvoa oliolta), joka onkin `None`:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
-erkki = Pelaaja("Erkki", 10)
-kupa.lisaa_pelaaja(erkki)
+kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
 
-p = kupa.etsi("Jukkis")
-print(f"Jukkiksen maalimäärä {p.maalit}")
+pelaaja = kupa.etsi("Jukkis")
+print(f"Jukkiksen maalimäärä {pelaaja.maalit}")
 ```
 
-Jos näin tehdään, ohjelma kaatuu:
+Jos näin tehdään, ohjelma päättyy virheeseen:
 
 <sample-output>
 
@@ -307,15 +329,14 @@ AttributeError: 'NoneType' object has no attribute 'maalit'
 
 </sample-output>
 
-None-arvojen varalta onkin syytä tehdä tarkistus ennen kuin riskialtista koodia kutsutaan
+`None`-arvojen varalta onkin syytä tehdä tarkistus, ennen kuin riskialtista koodia kutsutaan:
 
 ```python
 kupa = Joukkue("Kumpulan pallo")
-erkki = Pelaaja("Erkki", 10)
-kupa.lisaa_pelaaja(erkki)
+kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
 
-p = kupa.etsi("Jukkis")
-if p!=None:
+pelaaja = kupa.etsi("Jukkis")
+if pelaaja is not None:
     print(f"Jukkiksen maalimäärä {p.maalit}")
 else:
     print(f"Jukkis ei pelaa Kumpulan pallossa :(")
@@ -325,21 +346,21 @@ else:
 
 Jukkis ei pelaa Kumpulan pallossa :(
 
-<sample-output>
+</sample-output>
 
 <programming-exercise name='Huoneen lyhin' tmcname='osa09-08_huoneen_lyhin'>
 
-Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä, ja jota voi käyttää henkilöiden pituusjärjestykseen asettamiseen — henkilön ottaminen huoneesta palauttaa aina lyhyimmän henkilön.
+Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä ja josta voi hakea ja poistaa lyhimmän henkilön.
 
 ## Huone
 
-Luo luokka Huone, joka sisältää oliomuuttujana listan henkilöitä, ja jolla on seuraavat metodit:
+Luo luokka `Huone`, jonka sisällä on lista henkilöitä ja jolla on seuraavat metodit:
 
 - `lisaa(henkilo: Henkilo)` lisää huoneeseen parametrina annetun henkilön.
-- `on_tyhja()` - palauttaa boolean-tyyppisen arvon True tai False, joka kertoo onko huone tyhjä.
+- `on_tyhja()` - palauttaa arvon `True` tai `False`, joka kertoo, onko huone tyhjä.
 - `tulosta_tiedot()` tulostaa huoneessa olevat henkilöt
 
-Seuraavassa käyttöesimerkki
+Seuraavassa käyttöesimerkki:
 
 ```python
 huone = Huone()
@@ -368,71 +389,65 @@ Terhi (185 cm)
 
 ## Lyhin henkilö
 
-Lisää luokalle Huone metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, metodi palauttaa None-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
+Lisää luokalle `Huone` metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, metodi palauttaa `None`-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
 
 ```python
 huone = Huone()
-print("Lyhin: " + huone.lyhin())
+
 print("Huone tyhjä?", huone.on_tyhja())
+print("Lyhin:", huone.lyhin())
 
 huone.lisaa(Henkilo("Lea", 183))
 huone.lisaa(Henkilo("Kenya", 182))
-huone.lisaa(Henkilo("Auli", 186))
 huone.lisaa(Henkilo("Nina", 172))
+huone.lisaa(Henkilo("Auli", 186))
+
+print()
 
 print("Huone tyhjä?", huone.on_tyhja())
-huone.tulosta_tiedot()
+print("Lyhin:", huone.lyhin())
 
 print()
 
-lyhin = huone.lyhin()
-print(f"Lyhin: {lyhin.nimi}")
-
-print()
 huone.tulosta_tiedot()
 ```
 
 <sample-output>
 
-Lyhin: None
 Huone tyhjä? True
-Huone tyhjä? False
-Huoneessa 4 henkilöä, yhteispituus 723 cm
-Lea (183 cm)
-Kenya (182 cm)
-Auli (186 cm)
-Nina (172 cm)
+Lyhin: None
 
+Huone tyhjä? False
 Lyhin: Nina
 
 Huoneessa 4 henkilöä, yhteispituus 723 cm
 Lea (183 cm)
 Kenya (182 cm)
-Auli (186 cm)
 Nina (172 cm)
+Auli (186 cm)
 
 </sample-output>
 
 ## Huoneesta ottaminen
 
-Lisää luokalle Huone `poista_lyhin()`, ottaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa None-viitteen.
+Lisää luokalle `Huone` metodi `poista_lyhin()`, joka poistaa ja palauttaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa `None`-viitteen.
 
 ```python
 huone = Huone()
-print("Lyhin: " + huone.lyhin())
 
 huone.lisaa(Henkilo("Lea", 183))
 huone.lisaa(Henkilo("Kenya", 182))
-huone.lisaa(Henkilo("Auli", 186))
 huone.lisaa(Henkilo("Nina", 172))
-
+huone.lisaa(Henkilo("Auli", 186))
 huone.tulosta_tiedot()
+
 print()
 
 poistettu = huone.poista_lyhin()
-print(f"Otettiin huoneesta: {poistettu.nimi}")
+print(f"Otettiin huoneesta {poistettu.nimi}")
 
 print()
+
 huone.tulosta_tiedot()
 ```
 
@@ -441,10 +456,10 @@ huone.tulosta_tiedot()
 Huoneessa 4 henkilöä, yhteispituus 723 cm
 Lea (183 cm)
 Kenya (182 cm)
-Auli (186 cm)
 Nina (172 cm)
+Auli (186 cm)
 
-Otettiin huoneesta: Nina
+Otettiin huoneesta Nina
 
 Huoneessa 3 henkilöä, yhteispituus 551 cm
 Lea (183 cm)
@@ -452,6 +467,21 @@ Kenya (182 cm)
 Auli (186 cm)
 
 </sample-output>
+
+**Vihje**: [osassa 4](/osa-4/3-listat#alkioiden-lisaaminen-ja-poistaminen) kerrottiin, miten alkion poistaminen listalta onnistuu.
+
+**Vihje2**: muista, että metodissa on mahdollista kutsua saman olion toista metodia. Eli seuraava koodi toimii:
+
+```python
+class Huone:
+    # ...
+    def lyhin(self):
+        # koodi
+
+    def poista_lyhin(self):
+        lyhin_henkilo = self.lyhin()
+        # ...
+```
 
 </programming-exercise>
 

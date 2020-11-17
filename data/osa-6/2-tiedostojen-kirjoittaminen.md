@@ -577,7 +577,6 @@ laukku - bag
 Valinta: **2**
 Anna sana: **car**
 auto - car
-roska - garbage
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
 Valinta: **2**
 Anna sana: **laukku**

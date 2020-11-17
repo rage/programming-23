@@ -120,7 +120,7 @@ Kirjoita funktio `suurin`, joka lukee tiedoston ja palauttaa suurimman tiedostos
 
 Huomaa, että tiedoston nimi on aina `luvut.txt` eikä funktiolle anneta parametria.
 
-**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla seuraavaassa heti tehtävän jälkeen olevaa ohjetta.
+**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla seuraavaa heti tehtävän jälkeen olevaa ohjetta.
 
 </programming-exercise>
 
@@ -161,7 +161,7 @@ CSV-tiedosto (_Comma Separated Values_) on tekstitiedosto, jonka jokaisella rivi
 
 CSV-tiedostoja käytetään usein erilaisten aineistojen esittämiseen. Myös Excelin ja muiden vastaavien ohjelmien taulukot voidaan tallentaa CSV-muodossa, jolloin niitä on helppo käsitellä muilla ohjelmilla.
 
-Voimme lukea CSV-tiedoston rivit `for`-silmukalla, mutta miten erottaa rivillä olevat tiedot toisistaan? Helppo tapa on käyttää merkkijonojen `split`-metodia: metodille annetaan haluttu välimerkki, ja se palauttaa tiedot eroteltuna välimerkin mukaan listana merkkijonoja.
+Voimme lukea CSV-tiedoston rivit `for`-silmukalla, mutta miten erottaa rivillä olevat tiedot toisistaan? Helppo tapa on käyttää merkkijonojen `split`-metodia: metodille annetaan haluttu välimerkki, ja se palauttaa tiedot välimerkin mukaan eroteltuna listana merkkijonoja.
 
 Esimerkki metodin käytöstä:
 
@@ -227,9 +227,11 @@ appelsiini;8.0
 
 Kirjoita funktio `lue_hedelmat`, joka lukee hedelmätiedoston ja muodostaa siitä sanakirjan, jossa hedelmän nimi on avain ja hinta arvo. Hinnan tulee olla `float`-arvona sanakirjassa.
 
+Huomaa, että tiedoston nimi on aina `hedelmat.csv` eikä funktiolle anneta parametria.
+
 Lopuksi funktio palauttaa tämän sanakirjan.
 
-**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
+**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) olevaa ohjetta.
 
 </programming-exercise>
 
@@ -254,9 +256,9 @@ Kirjoita lisäksi funktio `rivisummat`, joka palauttaa listassa kaikkien matriis
 
 funktio palauttaisi listan `[6, 9]`.
 
-Vinkki: Voit kirjoittaa ohjelmaan myös muita funktioita – kannattaa siis miettiä, mitä kaikkia yhteisiä toimintoja kolmea funktiota varten vaaditaan.
+Vinkki: Voit kirjoittaa ohjelmaan myös muita funktioita – kannattaa siis miettiä, mitä kaikkia yhteisiä toimintoja kolmea funktiota varten vaaditaan. Huomaa, että tiedoston nimi on aina `matriisi.txt` eikä tehtävänannossa määritellyille funktioille anneta parametreja. Itse lisäämäsi funktiot voivat hyödyntää myös parametreja.
 
-**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
+**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) olevaa ohjetta.
 
 </programming-exercise>
 

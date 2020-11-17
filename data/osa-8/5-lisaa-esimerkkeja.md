@@ -6,85 +6,81 @@ hidden: false
 
 <text-box variant='learningObjectives' name='Oppimistavoitteet'>
 
-Tässä osiossa
+Tämän osion jälkeen
 
-- Tutustutaan metodiin __repr__
-- Esitellään lisää esimerkkejä luokista ja niistä muodostettavista olioista
+- Osaat luoda aiempaa monipuolisempia luokkia
+- Osaat määritellä luokkaan metodin `__str__`
 
 </text-box>
 
 
 ## Esimerkki 1: Luokka Suorakulmio
 
-Tarkastellaan seuraavaksi luokkaa, joka mallintaa suorakulmiota kaksiulotteisessa koordinaatistossa.
+Tarkastellaan seuraavaksi luokkaa, joka mallintaa suorakulmiota kaksiulotteisessa koordinaatistossa:
 
 ```python
-
 class Suorakulmio:
+    def __init__(self, vasen_ylakulma: tuple, oikea_alakulma: tuple):
+        self.vasen_ylakulma = vasen_ylakulma
+        self.oikea_alakulma = oikea_alakulma
+        self.leveys = oikea_alakulma[0]-vasen_ylakulma[0]
+        self.korkeus = oikea_alakulma[1]-vasen_ylakulma[1]
 
-    # Konstruktori
-    def __init__(self, ylakulma: tuple, leveys: int, korkeus: int):
-        # Vasen yläkulma on tuple, jossa on kaksi arvoa
-        # kokonaislukuina: x- ja y-koordinaatti
-        self.vasen_ylakulma = ylakulma
-        self.leveys = leveys
-        self.korkeus = korkeus
-
-    # Metodi palauttaa neliö pinta-alan
     def pinta_ala(self):
         return self.leveys * self.korkeus
 
-    # Metodi palauttaa neliön piirin
     def piiri(self):
         return self.leveys * 2 + self.korkeus * 2
 
-    # Metodi palauttaa neliön oikean alakulman koordinaatit
-    def oikea_alakulma(self):
-        x = self.vasen_ylakulma[0]
-        y = self.vasen_ylakulma[1]
-        return (x + self.leveys, y + self.korkeus)
+    def siirra(self, x_muutos: int, y_muutos: int):
+        kulma = self.vasen_ylakulma
+        self.vasen_ylakulma = (kulma[0]+x_muutos, kulma[1]+y_muutos)
+        kulma = self.oikea_alakulma
+        self.oikea_alakulma = (kulma[0]+x_muutos, kulma[1]+y_muutos)
+```
 
-    # Metodi siirtää neliötä koordinaatistossa
-    def siirra(self, x_askeleet: int, y_askeleet: int):
-        x = self.vasen_ylakulma[0] + x_askeleet
-        y = self.vasen_ylakulma[1] + y_askeleet
-        self.vasen_ylakulma = (x, y)
+Kun suorakulmio luodaan, konstruktorille annetaan kaksi tuplea: vasemman yläkulman ja oikean alakulman sijainti (x- ja y-koordinaatit). Konstruktori laskee tämän perusteella suorakulmion leveyden ja korkeuden.
 
-# Testataan
-suorakulmio = Suorakulmio((1,1), 5, 3)
+Metodit `pinta_ala` ja `piiri` laskevat suorakulmion pinta-alan ja piirin korkeuden ja leveyden perusteella. Metodi `siirra` puolestaan siirtää suorakulmiota koordinaatistossa annetun verran x- ja y-suunnissa.
+
+Huomaa, että suorakulmio esitetään koordinaatistossa, jossa x-koordinaatit kasvavat vasemmalta oikealle ja y-koordinaatit kasvavat ylhäältä alaspäin. Tämä on usein käytetty koordinaatisto ohjelmoinnissa, koska on luontevaa esittää tietokoneen näyttö niin, että vasemman yläkulman x- ja y-koordinaatti on 0.
+
+Seuraava koodi testaa luokkaa:
+
+```python
+suorakulmio = Suorakulmio((1, 1), (4, 3))
+print(suorakulmio.vasen_ylakulma)
+print(suorakulmio.oikea_alakulma)
+print(suorakulmio.leveys)
+print(suorakulmio.korkeus)
 print(suorakulmio.piiri())
 print(suorakulmio.pinta_ala())
-print(suorakulmio.oikea_alakulma())
 
 suorakulmio.siirra(3, 3)
-print(suorakulmio.vasen_ylakulma) # Ei metodi, joten ei sulkuja perään
-print(suorakulmio.oikea_alakulma())
-
+print(suorakulmio.vasen_ylakulma)
+print(suorakulmio.oikea_alakulma)
 ```
 
 <sample-output>
 
-16
-15
-(6, 4)
+(1, 1)
+(4, 3)
+3
+2
+10
+6
 (4, 4)
-(9, 7)
+(7, 6)
 
 </sample-output>
 
-Suorakulmion koordinaatit on tallennettu tuplena, joka sisältää kaksi kokonaislukua (käyttötarkoituksesta riippuen voisi olla järkevää tallentaa koordinaatit myös liukulukuna). Olisi mahdollista kirjoittaa myös koordinaateille oma luokkansa, mutta tässä yhteydessä tuple on riittävän toimiva vaihtoehto. Suorakulmioluokkaa itseään on helppo laajentaa, jos tarvitaan lisää ominaisuuksia.
-
 ## Olion tulostaminen
 
-Kun omasta luokasta luotu olio tulostetaan sellaisenaan print-lauseella, lopputulos ei (varsinkaan loppukäyttäjän kannalta) ole kovin selkeä:
+Kun omasta luokasta luotu olio tulostetaan sellaisenaan `print`-komennolla, lopputulos ei ole kovin selkeä:
 
-``` python
-
-# Viitaten edelliseen esimerkkiin: tulosteen suorakulmio-olio
-
-sk = Suorakulmio((5, 3), 8, 4)
-print(sk)
-
+```python
+suorakulmio = Suorakulmio((1, 1), (4, 3))
+print(suorakulmio)
 ```
 
 Ohjelma tulostaa jotain seuraavankaltaista:
@@ -95,61 +91,49 @@ Ohjelma tulostaa jotain seuraavankaltaista:
 
 </sample-output>
 
-Järkevämpi tulostus oliolle voidaan määritellä kirjoittamalla luokkaan metodi `__repr__(self)`, joka palauttaa merkkijonon. Python käyttää tätä merkkijonoa automaattisesti tulostuslauseesa. Ideana on, että metodilla voidaan palautta merkkijono joka esittää olion _tilan_ sellaisessa muodossa, että käyttäjän on helppo lukea se.
+Järkevämpi tulostus saadaan lisäämällä luokkaan metodi `__str__`, joka palauttaa ymmärrettävän kuvauksen olion tilasta merkkijonona. Kun tämä metodi on määritelty, metodin palauttama kuvaus oliosta tulee näkyviin `print`-komennossa.
 
- Lisätään luokkaan Suorakulmio tämä metodi:
+Lisätään luokkaan `Suorakulmio` metodi `__str__`:
 
 ```python
-
 class Suorakulmio:
 
-    # Konstruktori
-    def __init__(self, ylakulma: tuple, leveys: int, korkeus: int):
-        self.vasen_ylakulma = ylakulma
-        self.leveys = leveys
-        self.korkeus = korkeus
-
-    # Metodi palauttaa neliö pinta-alan
-    def pinta_ala(self):
-        return self.leveys * self.korkeus
-
-    # Metodi palauttaa neliön piirin
-    def piiri(self):
-        return self.leveys * 2 + self.korkeus * 2
-
-    # Metodi palauttaa neliön oikean alakulman koordinaatit
-    def oikea_alakulma(self):
-        x = self.vasen_ylakulma[0]
-        y = self.vasen_ylakulma[1]
-        return (x + self.leveys, y + self.korkeus)
-
-    # Metodi siirtää neliötä koordinaatistossa
-    def siirra(self, x_askeleet: int, y_askeleet: int):
-        x = self.vasen_ylakulma[0] + x_askeleet
-        y = self.vasen_ylakulma[1] + y_askeleet
-        self.vasen_ylakulma = (x, y)
+    # Luokan muu sisältö tähän kuten ennenkin...
 
     # Metodi palauttaa olion tilan merkkijonona
-    def __repr__(self):
-        return f"Suorakulmio, vasen yläkulma: {self.vasen_ylakulma}, leveys: {self.leveys}, korkeus: {self.korkeus}"
-
-
+    def __str__(self):
+        return f"suorakulmio {self.vasen_ylakulma} ... {self.oikea_alakulma}"
 ```
 
-Nyt print-lause tuottaa helpommin ymmärrettävän lopputuloksen:
+Nyt `print`-komento tuottaa luettavan lopputuloksen:
 
 ```python
-
-sk = Suorakulmio((5, 3), 8, 4)
-print(sk)
-
+suorakulmio = Suorakulmio((1, 1), (4, 3))
+print(suorakulmio)
 ```
 
 <sample-output>
 
-Suorakulmio, vasen yläkulma: (5, 3), leveys: 8, korkeus: 4
+suorakulmio (1, 1) ... (4, 3)
 
 </sample-output>
+
+Metodia `__str__` kutsutaan yleisemmin silloin, kun oliosta muodostetaan merkkijonokuvaus `str`-funktiolla. Seuraava koodi esittelee asiaa:
+
+```python
+suorakulmio = Suorakulmio((1, 1), (4, 3))
+kuvaus = str(suorakulmio)
+print(kuvaus)
+```
+
+<sample-output>
+
+suorakulmio (1, 1) ... (4, 3)
+
+</sample-output>
+
+
+Metodin `__str__` lisäksi olioon voidaan määritellä samantapainen metodi `__repr__`, joka antaa teknisen kuvauksen olion tilasta. Tutustumme tähän metodiin tarkemmin myöhemmin.
 
 <programming-exercise name='Sekuntikello' tmcname='osa08-11a_sekuntikello'>
 
@@ -166,7 +150,7 @@ Laajenna luokkaa siten, että se toimii seuraavasti:
 
 ```python
 kello = Sekuntikello()
-for i in range(0, 3600):
+for i in range(3600):
     print(kello)
     kello.tick()
 ```
@@ -188,7 +172,7 @@ for i in range(0, 3600):
 
 </sample-output>
 
-Metodi `tick` vie siis kelloa sekunnin eteenpäin, ja sekä sekuntien että minuuttien arvo on suuruudeltaan korkeintaan 59.
+Metodi `tick` vie siis kelloa sekunnin eteenpäin, ja sekä sekuntien että minuuttien arvo on suuruudeltaan korkeintaan 59. Lisäksi oliossa tulee olla metodi `__str__`, joka näyttää kellonajan yllä olevassa muodossa.
 
 **Vihje:** voit metodin `tick` testailua helpottaa se, että asetat tilapäisesti konstruktorissa sekunneille ja minuuteille valmiiksi jonkin suuremman arvon kuin 0.
 
@@ -237,22 +221,22 @@ Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. 
 
 Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia.
 
-Tässä tehtäväsäsarjassa tehdään luokka `Maksukortti`, jonka tarkoituksena on jäljitellä Unicafeissa tapahtuvaa maksutoimintaa.
+Tässä tehtäväsarjassa tehdään luokka `Maksukortti`, jonka tarkoituksena on jäljitellä Unicafeissa tapahtuvaa maksutoimintaa.
 
 ### Luokan runko
 
 Tee ohjelmaan uusi luokka nimeltä `Maksukortti`.
 
-Tee ensin luokalle konstruktori, jolle annetaan kortin alkusaldo ja joka tallentaa sen olion sisäiseen muuttujaan. Tee sitten `__repr__`-metodi, joka palauttaa kortin saldon muodossa "Kortilla on rahaa X euroa".
+Tee ensin luokalle konstruktori, jolle annetaan kortin alkusaldo ja joka tallentaa sen olion sisäiseen muuttujaan. Tee sitten `__str__`-metodi, joka palauttaa kortin saldon muodossa "Kortilla on rahaa X euroa". Rahamäärä tulee tulostaa yhden desimaalin tarkkuudella.
 
 Seuraavassa on luokan Maksukortti runko:
 
 ```python
-class  Maksukortti:
+class Maksukortti:
     def __init__(self, alkusaldo: float):
         self.saldo = alkusaldo
 
-    def __repr__(self):
+    def __str__(self):
         pass
 ```
 
@@ -327,7 +311,7 @@ Eli kortin saldo ei enää vähene jos maksettaessa saldo ei ole riittävä.
 
 ### Kortin lataaminen
 
-Lisää `Maksukortti`-luokkaan metodi lataa_rahaa
+Lisää `Maksukortti`-luokkaan metodi `lataa_rahaa`.
 
 Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä.
 
@@ -351,10 +335,10 @@ Kortilla on rahaa 150.0 euroa
 
 </sample-output>
 
-Jos kortille yritetään ladata negatiivinen summa, tulee metodin [tuottaa poikkeus](/osa-6/3-virheet) `ValueError`:
+Jos kortille yritetään ladata negatiivinen summa, tulee metodin [tuottaa poikkeus](/osa-6/3-virheet#poikkeusten-tuottaminen) `ValueError`:
 
 ```python
-kortti = new Maksukortti(10)
+kortti = Maksukortti(10)
 kortti.lataa_rahaa(-10)
 ```
 
@@ -364,6 +348,8 @@ File "testi.py", line 3, in maksukortti
 ValueError: Kortille ei saa ladata negatiivista summaa
 
 </sample-output>
+
+**Huomaa** että metodin tulee _tuottaa_ poikkeus, katso [osan 6](/osa-6/3-virheet#poikkeusten-tuottaminen) materiaalista miten poikkeus tuotetaan. Metodi ei missään tilanteessa itse tulosta mitään!
 
 ### Monta korttia
 
@@ -405,10 +391,67 @@ Matti: Kortilla on rahaa 72.8 euroa
 
 </programming-exercise>
 
-## Esimerkki 2: TBC
+## Esimerkki 2: Tehtävälista
 
-LISÄÄ ESIMERKKEJÄ TÄHÄN, AINAKIN PARI ERILAISTA:
-- Joku, jossa attribuuttina on lista tai dict
+Seuraava luokka `Tehtavalista` toteuttaa tehtävälistan:
+
+```python
+class Tehtavalista:
+    def __init__(self):
+        self.tehtavat = []
+
+    def lisaa(self, nimi: str, prioriteetti: int):
+        self.tehtavat.append((prioriteetti, nimi))
+
+    def hae_seuraava(self):
+        self.tehtavat.sort()
+        # Metodi pop poistaa ja palauttaa listan viimeisen alkion
+        tehtava = self.tehtavat.pop()
+        # Palautetaan tuplen jälkimmäinen osa eli tehtävän nimi
+        return tehtava[1]
+
+    def yhteensa(self):
+        return len(self.tehtavat)
+
+    def tyhjenna(self):
+        self.tehtavat = []
+```
+
+Metodi `lisaa` lisää listalle uuden tehtävän tietyllä prioriteetilla ja metodi `hae_seuraava` poistaa ja palauttaa listan suurimman prioriteetin tehtävän. Lisäksi metodi `yhteensa` antaa listan tehtävien yhteismäärän ja metodi `tyhjenna` tyhjentää listan.
+
+Tehtäviä säilytetään sisäisesti listassa, jossa on tuplena kunkin tehtävän prioriteetti ja nimi. Prioriteetti tallennetaan ensin, jolloin tärkein tehtävä on listan lopussa listan järjestämisen jälkeen. Tämän ansiosta tehtävän saa haettua ja poistettua listalta kätevästi `pop`-metodilla.
+
+Seuraava koodi esittelee luokan käyttämistä:
+
+```python
+lista = Tehtavalista()
+lista.lisaa("opiskelu", 50)
+lista.lisaa("ulkoilu", 60)
+lista.lisaa("siivous", 10)
+print(lista.yhteensa())
+print(lista.hae_seuraava())
+print(lista.yhteensa())
+lista.lisaa("treffit", 100)
+print(lista.yhteensa())
+print(lista.hae_seuraava())
+print(lista.hae_seuraava())
+print(lista.yhteensa())
+lista.tyhjenna()
+print(lista.yhteensa())
+```
+
+<sample-output>
+
+3
+ulkoilu
+2
+3
+treffit
+opiskelu
+1
+0
+
+</sample-output>
 
 <programming-exercise name='Sarja' tmcname='osa08-14_sarja'>
 
@@ -447,7 +490,7 @@ Crime, Drama, Mystery, Thriller
 
 ### Arvostelujen lisääminen
 
-Tee luokalle metodi `arvostele(arvosana: int)`, jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0-5. Myös metodia `__repr__` tulee muuttaa.
+Tee luokalle metodi `arvostele(arvosana: int)`, jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0–5. Myös metodia `__str__` tulee muuttaa niin, että se antaa arvostelujen määrän ja keskiarvon pyöristettynä yhden desimaalin tarkkuudelle (jos arvosteluja on annettu).
 
 ```python
 dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
@@ -505,4 +548,10 @@ Friends
 
 </sample-output>
 
+Huomaa, että yllä oleva koodi ja testit olettavat, että luokassa on attribuutti `nimi`. Jos olet käyttänyt muuta nimeä, sinun kannattaa vaihtaa se nyt.
+
 </programming-exercise>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="00133f4f-9651-5716-94c0-a761b740a8c3"></quiz>

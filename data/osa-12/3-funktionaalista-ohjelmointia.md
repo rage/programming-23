@@ -29,7 +29,7 @@ Tarkastellaan vielä muutamaan funktionaalisen ohjelmoinnin työkalua Pythonissa
 
 ## map
 
-Funktio `map` suorittaa annetun operaation kaikille annetun iteroitavan sarjan alkioille. Niinpä `map` muistuttaa koostetta monessa mielessä, syntaki tosin näyttää erilaiselta.
+Funktio `map` suorittaa annetun operaation kaikille annetun iteroitavan sarjan alkioille. Niinpä `map` muistuttaa koostetta monessa mielessä, syntaksi tosin näyttää erilaiselta.
 
 Tarkastellaan esimerkkinä funktiokutsua, joka muuttaa merkkijonot kokonaisluvuiksi:
 
@@ -100,6 +100,74 @@ print(valmiit_lista)
 ```
 
 ...tai esimerkiksi iteroimalla lista läpi for-lauseella ja tallentamalla käsitellyt alkiot uuteen listaan `append`-metodilla. Onkin tyypillistä, että saman asian voi toteuttaa usealla eri tavalla. Eri vaihtoehtojen tunteminen auttaa valitsemaan niistä ohjelmaan (ja omaan makuun) parhaiten sopivan.
+
+
+<programming-exercise name='Suoritukset' tmcname='osa12-11_suoritukset'>
+
+Tehtäväpohjassa on mukana kurssisuoritusta kuvaava luokkaa `Suoritus`, jota toimii seuraavasti:
+
+```python
+suoritus = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 5)
+print(suoritus.opiskelijan_nimi)
+print(suoritus.kurssi)
+print(suoritus.arvosana)
+print(suoritus)
+```
+
+<sample-output>
+
+Pekka Python
+Ohjelmoinnin perusteet
+5
+Pekka Pyrhon, arvosana kurssilta Ohjelmoinnin perusteet 5
+
+</sample-output>
+
+## Suorittajat
+
+Tee funktio `suorittajien_nimet(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktio palauttaa listan, miltä löytyy suorittajien nimet.
+
+```python
+s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
+s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
+s3 = Suoritus("Pekka Python", "Ohjelmoinnin jatkokurssi", 2)
+
+for nimi in suorittajien_nimet([s1, s2, s3]):
+    print(nimi)
+```
+
+<sample-output>
+
+Pekka Python
+Olivia Ohjelmoija
+Pekka Python
+
+</sample-output>
+
+Toteuta funktio käyttäen `map`-funktiota!
+
+## Kurssit
+
+Tee funktio `kurssien_nimet(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funkito palauttaa listan, miltä löytyy suorituksessa olevien kurssien nimet aakkosjärjestyksessä. Kukin kurssi esiintyy listalla vain kerran.
+
+```python
+s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
+s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
+s3 = Suoritus("Pekka Python", "Ohjelmoinnin jatkokurssi", 2)
+
+for nimi in kurssien_nimet([s1, s2, s3]):
+    print(nimi)
+```
+<sample-output>
+
+Ohjelmoinnin jatkokurssi
+Ohjelmoinnin perusteet
+
+</sample-output>
+
+Hyödynnä funkton toteutuksessa `map`-funktiota. Se ei tosin yksistään riitä, joten tarvitset muutakin...
+
+</programming-exercise>
 
 ## filter
 
@@ -185,11 +253,86 @@ Taas kerran sama voitaisiin toteuttaa listakoosteena:
 ylikiloiset = [kala for kala in kalat if kala.paino >= 1000]
 ```
 
+<programming-exercise name='Rajatut suoritukset' tmcname='osa12-12_rajatut_suoritukset'>
+
+Tässä tehtävässä jatketaan luokan `Suoritus` käyttämistä
+
+## Hyväksytyt suoritukset
+
+Tee funktio `hyvaksytyt(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktio palauttaa listan, miltä löytyy suorituksista ne, joiden arvosana on vähintään 1.
+
+```python
+s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
+s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
+s3 = Suoritus("Pekka Python", "Ohjelmoinnin jatkokurssi", 0)
+
+for suoritus in hyvaksytyt([s1, s2, s3]):
+    print(suoritus)
+```
+
+<sample-output>
+
+Pekka Pyrhon, arvosana kurssilta Ohjelmoinnin perusteet 3
+Olivia Ohjelmoija arvosana kurssilta Ohjelmoinnin perusteet 5
+
+</sample-output>
+
+Toteuta funktio käyttäen `filter`-funktiota!
+
+## Arvosanan suoritukset
+
+Tee funktio `suoritus_arvosanalla(suoritukset: list, arvosana: int)` joka saa parametriksi listan suoritus-oliota sekä kokonaisluvun. Funkito palauttaa listan, miltä löytyy suorituksista ne, joiden arvosana on sama kuin toisen parametrin arvo.
+
+```python
+s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
+s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
+s3 = Suoritus("Pekka Python", "Tietoliikenteen perusteet", 3)
+s4 = Suoritus("Olivia Ohjelmoija", "Johdatus yliopistomatematiikkaan", 3)
+
+for suoritus in suoritus_arvosanalla([s1, s2, s3, s4]):
+    print(suoritus)
+```
+
+<sample-output>
+
+Pekka Python, arvosana kurssilta Ohjelmoinnin perusteet 3
+Pekka Python, arvosana kurssilta Tietoliikenteen perusteet 3
+Olivia Ohjelmoija, arvosana kurssilta Johdatus yliopistomatematiikkaan 3
+
+</sample-output>
+
+Toteuta funktio käyttäen `filter`-funktiota!
+
+## Kurssin suorittajat
+
+Tee funktio `kurssin_suorittajat(suoritukset: list, kurssi: str)` joka saa parametriksi listan suoritus-oliota sekä kurssin nimen. Funktio palauttaa niiden opiskelijoiden nimet, jotka ovat suorittaneet parametrina olevan kurssin arvosanalla joka on suurempi kuin nolla.
+
+```python
+s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
+s2 = Suoritus("Olivia Ohjelmoija", "Tietoliikenteen perusteet", 5)
+s3 = Suoritus("Pekka Python", "Tietoliikenteen perusteet", 0)
+s4 = Suoritus("Niilo Nörtti", "Tietoliikenteen perusteet", 3)
+
+for suoritus in kurssin_suorittajat([s1, s2, s3, s4], "Tietoliikenteen perusteet"):
+    print(suoritus)
+```
+
+<sample-output>
+
+Olivia Ohjelmoija
+Niilo Nörtti
+
+</sample-output>
+
+Toteuta funktio käyttäen funktioita `filter`- ja `map`.
+
+</programming-exercise>
+
 ## reduce
 
 Viimeinen tarkastelemamme funktio on `reduce`. Niinkuin funktion nimi vihjaa, sen tarkoituksena on vähentää sarjan alkioiden määrä. Itse asiassa alkioiden sijasta `reduce` palauttaa yksittäisen arvon.
 
-Ideana on, että aluksi annettu operaatio suoritetan kahdelle ensimmäiselle alkiolle. Sen jälken tämän tuloksena syntyneelle alkiolle ja kolmannelle alkiolle suoritetaan sama operaatio ja niin edelleen. Funktio siis yhdistää kaikki alkiot toisiinsa annetun operaation avulla.
+Ideana on, että aluksi annettu operaatio suoritetan kahdelle ensimmäiselle alkiolle. Sen jälkeen tämän tuloksena syntyneelle alkiolle ja kolmannelle alkiolle suoritetaan sama operaatio ja niin edelleen. Funktio siis yhdistää kaikki alkiot toisiinsa annetun operaation avulla.
 
 Ensimmäinen esimerkkimme laskee kaikkien listassa olevien kokonaislukujen tulon. Huomaa, että Pythonin versiosta 3 alkaen funktio `reduce` pitää erikseen ottaa käyttöön modulista `functools`.
 
@@ -243,3 +386,85 @@ if __name__ == "__main__":
 Aku ja Mikki sekä Tupu ynnä Hupu ja lisäksi Lupu ja Tiku sekä Taku ynnä Iines
 
 </sample-output>
+
+<programming-exercise name='Opintopisteet' tmcname='osa12-13_opintopisteet'>
+
+Tarkastellaan tässä tehtävässä hieman erilaista versiota luokasta `Suoritus`. Tällä kertaa se kuvastaa ainoastaan yksittäisen opiskelijan kurssisuorituksia. Luokka toimii seuraavasti:
+
+
+```python
+suoritus = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
+print(suoritus)
+print(suoritus.kurssi)
+print(suoritus.opintopisteet)
+print(suoritus.arvosana)
+```
+
+<sample-output>
+
+Tietorakenteet ja algoritmit (10 op) arvosana 3
+Tietorakenteet ja algoritmit
+10
+3
+
+</sample-output>
+
+## Opintopistemäärä
+
+Toteuta funktio `kaikkien_opintopisteiden_summa`, joka saa parametriksi listan suorituksia ja laskee suoritusten yhteenlasketun opintopistemäärän. Funktio toimii seuraavasti
+
+```python
+s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
+s2 = Suoritus("Ohjelmoinnin jatkokutssi", 4, 5)
+s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
+summa = kaikkien_opintopisteiden_summa([s1, s2, s3])
+```
+
+<sample-output>
+
+20
+
+</sample-output>
+
+Toteuta funktio käyttäen `reduce`-funktiota!
+
+## Hyväksyttyjen opintopistemäärä
+
+Toteuta funktio `hyvaksyttyjen_opintopisteiden_summa`, joka saa parametriksi listan suorituksia ja laskee arvosanan 1 tai parempien omaavien suoritusten yhteenlasketun opintopistemäärän. Funktio toimii seuraavasti
+
+```python
+s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
+s2 = Suoritus("Ohjelmoinnin jatkokutssi", 0, 4)
+s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
+summa = hyvaksyttyjen_opintopisteiden_summa([s1, s2, s3])
+```
+
+<sample-output>
+
+15
+
+</sample-output>
+
+Toteuta funktio käyttäen `reduce`- ja `filter`-funktiota!
+
+## Hyväksyttyjen suoritusten keskiarvo
+
+Toteuta funktio `keskiarvo`, joka saa parametriksi listan suorituksia ja laskee arvosanan 1 tai parempien omaavien suoritusten arvosanojen keskiarvon. Funktio toimii seuraavasti
+
+```python
+s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
+s2 = Suoritus("Ohjelmoinnin jatkokutssi", 0, 4)
+s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
+summa = keskiarvo([s1, s2, s3])
+```
+
+<sample-output>
+
+4.0
+
+</sample-output>
+
+Hyödynnä funktion toteutuksessa `reduce`- ja `filter`-funktiota!
+
+
+</programming-exercise>

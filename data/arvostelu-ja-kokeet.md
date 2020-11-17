@@ -16,7 +16,8 @@ Kurssit suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen.
 
 ### Ohjelmoinnin jatkokurssi koepäivät
 
-* TBA
+* 17.12.2020
+* Lisää tenttipäiviä ilmoitetaan myöhemmin
 
 ## Tenttiin osallistuminen
 

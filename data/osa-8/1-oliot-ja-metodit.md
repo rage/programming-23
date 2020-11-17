@@ -9,14 +9,14 @@ hidden: false
 Tämän osion jälkeen
 
 - Tiedät, mitä tarkoitetaan oliolla
-- Ymmärrät mitä tarkoitetaan olioiden itsenäisyydellä
+- Ymmärrät, mitä tarkoitetaan olioiden itsenäisyydellä
 - Osaat muodostaa ja käsitellä olioita
 
 </text-box>
 
-Kuten kurssin ensimmäisen puolikkaan aikana huomattiin, on usein hyödyllistä yhdistää samaan asiaan liittyvät tiedot yhdeksi kokonaisuudeksi. Esimerkiksi kirjaa on kätevä mallintaa vaikkapa tuplen tai sanakirjan avulla, kun kaikki kirjaan liittyvät tiedot voidaan tallentaa samaan rakenteeseen.
+Tämä on Ohjelmoinnin jatkokurssin ensimmäinen osa, ja kurssilla käytetään VS Codea samaan tapaan kuin Ohjelmoinnin perusteissa. Jos et ole käyttänyt ennen VS Codea, löydät [tästä](https://www.mooc.fi/fi/installation/vscode) ohjeet ympäristön asentamiseen.
 
-TODO: Onko näissä syytä määritellä ensin erilliset muuttujat kentille, vai voisiko vain määritellä suoraan tuplen ja sanakirjan?
+Kuten kurssin ensimmäisen puolikkaan aikana huomattiin, on usein hyödyllistä yhdistää samaan asiaan liittyvät tiedot yhdeksi kokonaisuudeksi. Esimerkiksi kirjaa on kätevä mallintaa vaikkapa tuplen tai sanakirjan avulla, kun kaikki kirjaan liittyvät tiedot voidaan tallentaa samaan rakenteeseen.
 
 Tuplea käyttämällä esimerkki voisi näyttää tältä:
 
@@ -46,7 +46,7 @@ kirja = {"nimi": nimi, "kirjailija": kirjailija, "vuosi": vuosi}
 print(kirja["nimi"])
 ```
 
-Molemmissa tapauksissa tietojen tallentaminen tietorakenteeseen muodostaa _olion_. Olio on itsenäinen kokonaisuus, joka sisältää (tässä tapauksessa) toisiinsa liittyvää tietoa. Itsenäisyys tarkoitaa sitä, että olioon tehdyt muutokset eivät vaikuta muihin olioihin.
+Molemmissa tapauksissa tietojen tallentaminen tietorakenteeseen muodostaa _olion_. Olio on itsenäinen kokonaisuus, joka sisältää (tässä tapauksessa) toisiinsa liittyvää tietoa. Itsenäisyys tarkoittaa sitä, että olioon tehdyt muutokset eivät vaikuta muihin olioihin.
 
 Jos esimerkiksi muodostetaan sanakirjaa käyttäen kaksi kirjaoliota, ensimmäiseen kirjaan tehdyt muutokset eivät vaikuta toiseen kirjaan:
 
@@ -93,8 +93,8 @@ kirja = {"nimi": "Vanhus ja Python", "kirjailija": "Ernest Pythonen", "vuosi": 1
 # Tulostetaan kaikki arvot
 # Metodikutsu values() kirjoitetaan muuttujan perään
 # pisteellä erotettuna
-for kirja in kirja.values():
-    print(kirja)
+for arvo in kirja.values():
+    print(arvo)
 ```
 
 <sample-output>
@@ -162,26 +162,28 @@ Tee funktio `pienin_keskiarvo(henkilo1: dict, henkilo2: dict, henkilo3: dict)`, 
 
 Jokaisessa sanakirjaoliossa on alkiot, joihin viittaavat nämä avaimet:
 
-`"nimi"`: kilpailijan nimi
-`"tulos1"`: kilpailijan ensimmäinen tulos (kokonaisluku väliltä 1...10)
-`"tulos2"`: kilpailijan toinen tulos (kuten yllä)
-`"tulos3"`: kilpailijan kolmas tulos (kuten yllä)
+* `"nimi"`: kilpailijan nimi
+* `"tulos1"`: kilpailijan ensimmäinen tulos (kokonaisluku väliltä 1...10)
+* `"tulos2"`: kilpailijan toinen tulos (kuten yllä)
+* `"tulos3"`: kilpailijan kolmas tulos (kuten yllä)
 
 Funktio laskee kaikkien kilpailijoiden tulosten keskiarvot ja palauttaa sen kilpailijan, jonka keskiarvo on pienin. Funktion palautusarvona on sanakirjaolio.
+
+Voit olettaa, että vain yhdellä henkilöllä on pienin keskiarvo.
 
 Esimerkki funktion kutsumisesta:
 
 ```python
-h1 = {"nimi": "Keijo", "tulos1": 2, "tulos2": 3, "tulos3": 3}
-h2 = {"nimi": "Reijo", "tulos1": 5, "tulos2": 1, "tulos3": 8}
-h3 = {"nimi": "Veijo", "tulos1": 3, "tulos2": 1, "tulos3": 1}
+henkilo1 = {"nimi": "Keijo", "tulos1": 2, "tulos2": 3, "tulos3": 3}
+henkilo2 = {"nimi": "Reijo", "tulos1": 5, "tulos2": 1, "tulos3": 8}
+henkilo3 = {"nimi": "Veijo", "tulos1": 3, "tulos2": 1, "tulos3": 1}
 
-print(pienin_keskiarvo(h1, h2, h3))
+print(pienin_keskiarvo(henkilo1, henkilo2, henkilo3))
 ```
 
 <sample-output>
 
-{"nimi": "Veijo", "tulos1": 1, "tulos2": 3, "tulos3": 1}
+{'nimi': 'Veijo', 'tulos1': 3, 'tulos2': 1, 'tulos3': 1}
 
 </sample-output>
 
@@ -198,9 +200,9 @@ Funktio lisää jokaiselle matriisin riville uuden alkion, jonka arvo on rivin a
 Esimerkki funktion kutsumisesta:
 
 ```python
-m = [[1,2], [3,4]]
-rivien_summat(m)
-print(m)
+matriisi = [[1, 2], [3, 4]]
+rivien_summat(matriisi)
+print(matriisi)
 ```
 
 <sample-output>
