@@ -64,7 +64,7 @@
     "luxon": "^1.25.0",
     "moment": "^2.29.1",
     "monaco-editor": "^0.21.2",
-    "moocfi-python-editor": "^0.9.0-pre.7",
+    "moocfi-python-editor": "^0.9.0-pre.8",
     "moocfi-quizzes": "^0.7.36-alpha",
     "pdf-slideshow": "^0.1.4",
     "prismjs": "^1.22.0",
