@@ -375,11 +375,11 @@ Binäärihaun ideana on, että tarkastellaan aina listan keskimmäistä alkiota.
 
 Jos lista on tyhjä, palautetaan tieto siitä, että alkiota ei löytynyt.
 
-Seuraava kuva havainnollistaa binäärihaun etenemistä, kun etsitään listasta lukua 11:
+Seuraava kuva havainnollistaa binäärihaun etenemistä, kun etsitään listasta lukua 24:
 
 <img src="11_3_1.png">
 
-Rekursiivinen algoritmi binäärihaulles:
+Rekursiivinen algoritmi binäärihaulle:
 
 ```python
 
