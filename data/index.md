@@ -114,12 +114,12 @@ Jokaisen osan materiaali ja tehtävät julkaistaan viimeistään tiistaisin ja d
       <td>Osa 11</td>
       <td>17.11.2020</td>
       <td>26.11.2020</td>
+      <td><a href="https://youtu.be/Sw6WogqFjp8">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 12</td>
       <td>24.11.2020</td>
-      <td>3.12.2020</td>
-      <td><a href="https://youtu.be/Sw6WogqFjp8">Luentotallenne</a></td>
+      <td>3.12.2020</td>      
     </tr>
     <tr>
       <td>Osa 13</td>
