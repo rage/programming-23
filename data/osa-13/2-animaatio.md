@@ -33,7 +33,7 @@ kello = pygame.time.Clock()
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
-            break
+            exit()
     naytto.fill((0, 0, 0))
     naytto.blit(robo, (x, y))
     pygame.display.flip()
@@ -104,7 +104,7 @@ kello = pygame.time.Clock()
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
-            break
+            exit()
     naytto.fill((0, 0, 0))
     naytto.blit(robo, (x, y))
     pygame.display.flip()
@@ -151,7 +151,7 @@ kello = pygame.time.Clock()
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
-            break
+            exit()
     naytto.fill((0, 0, 0))
     x = 320+math.cos(kulma)*100-robo.get_width()/2
     y = 240+math.sin(kulma)*100-robo.get_height()/2

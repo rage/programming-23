@@ -31,7 +31,7 @@ naytto = pygame.display.set_mode((640, 480))
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
-            break
+            exit()
 ```
 
 Kun ohjelma käynnistetään, se näyttää käyttäjälle seuraavanlaisen ikkunan:
@@ -57,12 +57,12 @@ Tämän jälkeen alkaa ohjelman _pääsilmukka_:
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
-            break
+            exit()
 ```
 
 Pääsilmukka käsittelee tapahtumat, jotka käyttöjärjestelmä välittää ohjelmalle. Joka kierroksella funktio `pygame.event.get` antaa listan tapahtumista, jotka ovat syntyneet funktion edellisen kutsukerran jälkeen.
 
-Tässä tapauksessa ohjelma käsittelee vain tyyppiä `pygame.QUIT` olevat tapahtumat. Tällainen tapahtuma syntyy, kun käyttäjä sulkee ohjelman esimerkiksi painamalla ikkunan ylänurkassa olevaa raksia. Tämän tapahtuman seurauksena silmukka päättyy ja ohjelma sulkeutuu.
+Tässä tapauksessa ohjelma käsittelee vain tyyppiä `pygame.QUIT` olevat tapahtumat. Tällainen tapahtuma syntyy, kun käyttäjä sulkee ohjelman esimerkiksi painamalla ikkunan ylänurkassa olevaa raksia. Tämän tapahtuman seurauksena ohjelma sulkee itsensä kutsumalla `exit`-funktiota.
 
 Voit kokeilla, mitä tapahtuu, jos ohjelma ei käsittele tapahtumaa `pygame.QUIT`. Tällöin raksin painamisen ei pitäisi vaikuttaa ohjelman toimintaan, mikä on hämmentävää käyttäjälle. Ohjelman voi kuitenkin tässäkin tapauksessa sulkea väkisin komentoriviltä painamalla Control+C.
 
@@ -83,7 +83,7 @@ pygame.display.flip()
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
-            break
+            exit()
 ```
 
 Nyt ikkuna näyttää seuraavalta:
