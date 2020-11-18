@@ -36,7 +36,7 @@ while True:
 
 Kun ohjelma käynnistetään, se näyttää käyttäjälle seuraavanlaisen ikkunan:
 
-TODO: Kuva tähän
+<img src="pygame_eka.gif">
 
 Ohjelmassa ei ole kuitenkaan vielä muuta sisältöä kuin ikkunan näyttäminen. Ohjelman suoritus jatkuu niin kauan, kunnes käyttäjä sulkee ikkunan.
 
@@ -77,7 +77,7 @@ pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
 robo = pygame.image.load("robo.png")
-naytto.blit(robo, (0, 0))
+naytto.blit(robo, (100, 50))
 pygame.display.flip()
 
 while True:
@@ -86,13 +86,17 @@ while True:
             exit()
 ```
 
-Nyt ikkuna näyttää seuraavalta:
+Koodi käyttää kuvaa `robo.png`, jossa on robotin kuva:
 
-TODO: Kuva tähän
+<img src="robo.png">
 
-Tässä funktio `pygame.image.load` lataa muuttujaan tiedostossa `robo.png` olevan kuvan. Tämän jälkeen metodi `blit` piirtää kuvan ikkunaan kohtaan `(0, 0)` ja sitten funktio `pygame.display.flip` päivittää ikkunan sisällön. Kohta `(0, 0)` tarkoittaa, että kuvan _vasen yläkulma_  on kyseisessä kohdassa.
+Nyt ikkuna näyttää tältä:
 
-Huomaa, että Pygamessa ja yleensä muutenkin ohjelmoinnissa koordinaatisto on rakennettu niin, että piirtoalueen vasen yläkulma on kohdassa `(0, 0)` ja koordinaatit kasvavat x-suunnassa oikealle ja y-suunnassa alaspäin. Tässä tapauksessa ikkunan oikean alakulman koordinaatit ovat `(640, 480)`.
+<img src="pygame_kuva.gif">
+
+Tässä funktio `pygame.image.load` lataa muuttujaan tiedostossa `robo.png` olevan kuvan. Tämän jälkeen metodi `blit` piirtää kuvan ikkunaan kohtaan `(100, 50)` ja sitten funktio `pygame.display.flip` päivittää ikkunan sisällön. Kohta `(100, 50)` tarkoittaa, että kuvan _vasen yläkulma_  on kyseisessä kohdassa.
+
+Huomaa, että Pygamessa ja yleensä muutenkin ohjelmoinnissa koordinaatisto on rakennettu niin, että piirtoalueen vasen yläkulma on kohdassa `(100, 50)` ja koordinaatit kasvavat x-suunnassa oikealle ja y-suunnassa alaspäin. Tässä tapauksessa ikkunan oikean alakulman koordinaatit ovat `(640, 480)`.
 
 Kuvan voi piirtää moneenkin kohtaan ikkunassa. Esimerkiksi seuraava koodi piirtää kuvan kolmeen eri kohtaan:
 
@@ -104,7 +108,7 @@ naytto.blit(robo, (100, 200))
 
 Tällöin ikkuna näyttää seuraavalta:
 
-TODO: Kuva tähän
+<img src="pygame_kuva2.gif">
 
 Seuraava koodi puolestaan piirtää kuvan ikkunan keskelle:
 
@@ -116,6 +120,6 @@ naytto.blit(robo, (320-leveys/2, 240-korkeus/2))
 
 Nyt ikkuna näyttää tältä:
 
-TODO: Kuva tähän
+<img src="pygame_kuva3.gif">
 
 Tässä metodi `get_width` antaa kuvan leveyden ja vastaavasti metodi `get_height` antaa kuvan korkeuden. Ikkunan keskikohta on `(320, 240)`, joten tämän avula saadaan laskettua sopiva kohta kuvan vasemmalle yläkulmalle niin, että kuva sijoittuu ikkunan keskelle.
