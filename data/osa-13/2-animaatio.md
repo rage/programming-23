@@ -129,7 +129,7 @@ Seuraavat rivit huolehtivat, että robotti osaa törmätä seinään:
 ```python
     if nopeus > 0 and x+robo.get_width() >= 640:
         nopeus = -nopeus
-    if nopeus < 0 and x == 0:
+    if nopeus < 0 and x <= 0:
         nopeus = -nopeus
 ```
 
