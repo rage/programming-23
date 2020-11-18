@@ -12,10 +12,6 @@ Tämän osion jälkeen
 
 </text-box>
 
-## Lisää kuvista
-
-TODO
-
 ## Kuvioiden piirtäminen
 
 Seuraava ohjelma luo kuvan, jossa on suorakulmio, ympyrä ja viiva:
@@ -40,7 +36,7 @@ while True:
 
 Ohjelman tulos näyttää tältä:
 
-TODO: Kuva tähän
+<img src="pygame_kuviot.gif">
 
 ## Tekstin piirtäminen
 
@@ -65,7 +61,7 @@ while True:
 
 Ohjelman suoritus näyttää seuraavalta:
 
-TODO: Kuva tähän
+<img src="pygame_teksti.gif">
 
 Tässä metodi `pygame.font.SysFont` luo fonttiolion, joka käyttää järjestelmän fonttia Arial kokona 24. Tämän jälkeen olion metodi `render` luo kuvan, jossa lukee teksti "Moikka!" punaisella värillä, ja tämä kuva piirretään ikkunaan.
 
