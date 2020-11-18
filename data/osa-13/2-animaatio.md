@@ -43,7 +43,7 @@ while True:
 
 Ohjelman suoritus näyttää seuraavalta:
 
-TODO: Kuva tähän (pitäisi saada animoitu kuva)
+<img src="pygame_animaatio.gif">
 
 Katsotaan taas tarkemmin, mitä ohjelmassa tapahtuu. Jotta kuva pystyy liikkumaan, meillä täytyy olla tieto sen paikasta. Tämä onnistuu ottamalla käyttöön kaksi muuttujaa, jotka sisältävät kuvan vasemman yläkulman koordinaatit:
 
@@ -91,6 +91,8 @@ Metodi `tick` on hyödyllinen, koska sen avulla animaatio toimii periaatteessa y
 Äskeinen animaatio on muuten hieno, mutta kun robotti etenee ikkunan ulkopuolelle, animaatio jatkuu ja robotti katoaa näkyvistä. Tehdään seuraavaksi ohjelmaan parannus, jonka avulla robotin suunta muuttuu, jos se törmää seinään.
 
 ```python
+import pygame
+
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
@@ -118,7 +120,7 @@ while True:
 
 Ohjelman suoritus näyttää nyt tältä:
 
-TODO: Kuva tähän (pitäisi saada animoitu kuva)
+<img src="pygame_animaatio2.gif">
 
 Nyt ohjelmassa on uusi muuttuja `nopeus`, joka määrittää robotin liikkumistavan. Positiivinen nopeus tarkoittaa liikkumista oikealle ja negatiivinen nopeus tarkoittaa liikkumista vasemmalle. Tässä tapauksessa kun nopeus on 1, robotti liikkuu oikealle, ja kun nopeus on –1, robotti liikkuu vasemmalle.
 
@@ -140,6 +142,9 @@ Tämän koodin ansiosta robotti jatkaa loputtomasti rataa, jossa se liikkuu ensi
 Tehdään vielä animaatio, jossa robotti _pyörii_  ikkunan keskipisteen ympärillä:
 
 ```python
+import pygame
+import math
+
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
@@ -157,13 +162,13 @@ while True:
     y = 240+math.sin(kulma)*100-robo.get_height()/2
     naytto.blit(robo, (x, y))
     pygame.display.flip()
-    kulma += 0.1
+    kulma += 0.01
     kello.tick(60)
 ```
 
 Ohjelman suoritus näyttää tältä:
 
-TODO: Kuva tähän (pitäisi saada animoitu kuva)
+<img src="pygame_pyorinta.gif">
 
 Pyörimisanimaatio saadaan toteutettua trigonometrian avulla: muuttujassa `kulma` on radiaaneina robotin sijainnin kulma suhteessa ikkunan keskipisteeseen. Tästä saadaan laskettua sini- ja kosinifunktioilla robotin sijainti:
 
@@ -174,4 +179,4 @@ Pyörimisanimaatio saadaan toteutettua trigonometrian avulla: muuttujassa `kulma
 
 Tämä tarkoittaa, että robotin sijainti on ympyrällä, jonka säde on 100. Kosini antaa x-suuntaisen sijainnin ja sini puolestaan y-suuntaisen sijainnin. Jotta animaatio näyttää hyvältä, robotti lisäksi keskitetään niin, että sen keskipiste on ympyrällä.
 
-Joka kierroksella muuttujan `kulma` arvo kasvaa 0.1:llä. Koska radiaaneissa täysi ympyrä on 2π eli noin 6.28, robotti pyörii suunnilleen kierroksen verran sekunnissa.
+Joka kierroksella muuttujan `kulma` arvo kasvaa 0.01:llä. Koska radiaaneissa täysi ympyrä on 2π eli noin 6.28, robotti pyörii suunnilleen kierroksen verran 10 sekunnissa.
