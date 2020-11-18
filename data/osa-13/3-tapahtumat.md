@@ -66,9 +66,9 @@ naytto = pygame.display.set_mode((640, 480))
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.KEYDOWN:
-            if tapahtuma.key == 275:
+            if tapahtuma.scancode == 79:
                 print("oikealle")
-            if tapahtuma.key == 276:
+            if tapahtuma.scancode == 80:
                 print("vasemmalle")
         if tapahtuma.type == pygame.QUIT:
             exit()
@@ -100,9 +100,9 @@ y = 480-robo.get_height()
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.KEYDOWN:
-            if tapahtuma.key == 275:
+            if tapahtuma.scancode == 79:
                 x += 10
-            if tapahtuma.key == 276:
+            if tapahtuma.scancode == 80:
                 x -= 10
         if tapahtuma.type == pygame.QUIT:
             exit()
@@ -113,7 +113,7 @@ while True:
 
 Ohjelman suoritus voi näyttää seuraavalta:
 
-TODO: Kuva tähän (pitäisi olla animoitu)
+<img src="pygame_liikutus.gif">
 
 Tässä muuttujat `x` ja `y` sisältävät hahmon sijainnin. Käyttäjä pystyy muuttamaan muuttujaa `x`, ja muuttuja `y` on asetettu niin, että hahmo on ikkunan alalaidassa. Kun käyttäjä painaa oikealle tai vasemmalle nuolinäppäintä, hahmo liikkuu vastaavasti 10 pikseliä oikealle tai vasemmalle.
 
@@ -137,14 +137,14 @@ kello = pygame.time.Clock()
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.KEYDOWN:
-            if tapahtuma.key == 275:
+            if tapahtuma.scancode == 79:
                 oikealle = True
-            if tapahtuma.key == 276:
+            if tapahtuma.scancode == 80:
                 vasemmalle = True
         if tapahtuma.type == pygame.KEYUP:
-            if tapahtuma.key == 275:
+            if tapahtuma.scancode == 79:
                 oikealle = False
-            if tapahtuma.key == 276:
+            if tapahtuma.scancode == 80:
                 vasemmalle = False
         if tapahtuma.type == pygame.QUIT:
             exit()
@@ -215,7 +215,7 @@ while True:
 
 Ohjelman suoritus voi näyttää tältä:
 
-TODO: Kuva tähän
+<img src="pygame_hiiri.gif">
 
 Seuraava ohjelma puolestaan toteuttaa animaation, jossa robotti seuraa hiirtä. Robotin sijainti on muuttujissa `robo_x` ja `robo_y`, ja kun hiiri liikkuu, sen sijainti merkitään muuttujiin `kohde_x` ja `kohde_y`. Jos robotti ei ole hiiren kohdalla, se liikkuu sopivaan suuntaan.
 
@@ -257,4 +257,4 @@ while True:
 
 Ohjelman suoritus voi näyttää tältä:
 
-TODO: Kuva tähän
+<img src="pygame_hiiri2.gif">
