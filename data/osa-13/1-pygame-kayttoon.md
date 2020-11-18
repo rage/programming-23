@@ -123,3 +123,35 @@ Nyt ikkuna näyttää tältä:
 <img src="pygame_kuva3.gif">
 
 Tässä metodi `get_width` antaa kuvan leveyden ja vastaavasti metodi `get_height` antaa kuvan korkeuden. Ikkunan keskikohta on `(320, 240)`, joten tämän avula saadaan laskettua sopiva kohta kuvan vasemmalle yläkulmalle niin, että kuva sijoittuu ikkunan keskelle.
+
+<programming-exercise name='Neljä robottia' tmcname=''>
+
+Tee ohjelma, joka piirtää robotin jokaiseen ikkunan neljään nurkkaan. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_nelja.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Robotit rivissä' tmcname=''>
+
+Tee ohjelma, joka piirtää kymmenen robottia riviin. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_rivi.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Sata robottia' tmcname=''>
+
+Tee ohjelma, joka piirtää sata robottia: kymmenen riviä ja joka rivissä kymmenen robottia. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_sata.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Satunnaiset robotit' tmcname=''>
+
+Tee ohjelma, joka piirtää _tuhat_ robottia satunnaisiin paikkoihin. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_tuhat.gif">
+
+</programming-exercise>
