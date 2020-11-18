@@ -118,7 +118,7 @@ if __name__ == "__main__":
 
 <programming-exercise name='Parilliset luvut' tmcname='osa12-08_parilliset'>
 
-Kirjoita generaattorifunktio `parilliset(alku: int, maksimi: int)`, joka saa parametrikseen alkuarvon ja maksimi. Funktio tuottaa alkuarvosta lähtien parillisia lukuja. Kun saavutetaan maksimi, generaattori pysöhtyy.
+Kirjoita generaattorifunktio `parilliset(alku: int, maksimi: int)`, joka saa parametrikseen alkuarvon ja maksimin. Funktio tuottaa alkuarvosta lähtien parillisia lukuja. Kun saavutetaan maksimi, generaattori pysähtyy.
 
 Kaksi esimerkkiä funktion käytöstä:
 
