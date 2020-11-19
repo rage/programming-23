@@ -111,7 +111,7 @@ Tarkastellaan esimerkkinä luokkaa, joka mallintaa opiskelijaa. Pakollisia kentt
 
 ```python
 class Opiskelija:
-    """ Mallintaaa yhtä opiskelijaa """
+    """ Mallintaa yhtä opiskelijaa """
 
     def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet:int = 0, muistiinpanot:str = ""):
         # kutsuu asetusmetodia
