@@ -260,8 +260,6 @@ class Kirja:
 class Kirjahylly:
     def __init__(self):
         self._kirjat = []
-        # laskuri iteraattoria varten
-        self.__laskuri = 0
 
     def lisaa_kirja(self, kirja: Kirja):
         self._kirjat.append(kirja)
