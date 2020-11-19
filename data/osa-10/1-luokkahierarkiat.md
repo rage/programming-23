@@ -188,9 +188,9 @@ def korjaa_email2(o: Opettaja):
 
 ```
 
-...mutta saman koodin toistaminen kahteen kertaan olisi hassua. Olisi siis hyvä, jos molempien luokkien mukaisia olioita voitaisiin käsitellä yhdessä nipussa.
+...mutta saman koodin toistaminen kahteen kertaan tuntuu turhalta työltä, ja lisää virheiden mahdollisuutta. Olisi siis hyvä, jos molempien luokkien mukaisia olioita voitaisiin käsitellä samalla metodilla.
 
- Luokat kuitenkin sisältävät myös piirteitä, joita toisella luokalla ei ole. Sen takia luokkien yhdistäminen ei tunnu järkevältä.
+Luokat kuitenkin sisältävät myös piirteitä, joita toisella luokalla ei ole. Sen takia luokkien yhdistäminen ei tunnu järkevältä.
 
  ## Perintä
 
