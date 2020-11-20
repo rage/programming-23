@@ -684,7 +684,7 @@ Harjoitellaan vielä isomman ohjelmakokonaisuuden toteuttamista yhden ohjelmoint
 
 <programming-exercise name='Opintorekisteri' tmcname='osa10-12_opintorekisteri'>
 
-Tee interaktiivinen ohjelma, jonka avulla voit pitää kirjaa opintomenestyksestäsi. Tyyli on vapaa, mutta nyt on hyvä tilaisuus harjoitella osan esimerkin kaltaisen oliorakenteen muodostamista.
+Tee interaktiivinen ohjelma, jonka avulla voit pitää kirjaa opintomenestyksestäsi. Tyyli on vapaa, mutta nyt on hyvä tilaisuus harjoitella Puehlinluettelo-esimerkin kaltaisen oliorakenteen muodostamista.
 
 Ohjelma toimii seuraavasti:
 
