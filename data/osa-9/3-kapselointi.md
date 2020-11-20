@@ -283,7 +283,7 @@ ValueError: Rahasumma ei saa olla negatiivinen
 
 </sample-output>
 
-Huomaa, että havainnointimetodi eli `@property`-annotaatio pitää esitellä luokassa ennen asetusmetodia, muuten seuraa virhe. Tämä johtuu siitä, että `@property`-annotaatio määrittelee käytettävän "asetusattribuutin" nimen (edellisessä esimerkiksi `rahaa`), ja asetusmetodi `.setter` liittää siihen uuden toiminnallisuuden.
+Huomaa, että havainnointimetodi eli `@property`-dekoraattori pitää esitellä luokassa ennen asetusmetodia, muuten seuraa virhe. Tämä johtuu siitä, että `@property`-dekoraattori määrittelee käytettävän "asetusattribuutin" nimen (edellisessä esimerkiksi `rahaa`), ja asetusmetodi `.setter` liittää siihen uuden toiminnallisuuden.
 
 <programming-exercise name='Äänite' tmcname='osa09-10_aanite'>
 
