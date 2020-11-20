@@ -535,7 +535,7 @@ class Levy:
 if __name__ == "__main__":
     l1 = Levy("Nevermind", "Nirvana", 1991, 43)
     l2 = Levy("Let It Be", "Beatles", 1969, 35)
-    l3 = Levy("U2", "Joshua Tree", 1986, 50)
+    l3 = Levy("Joshua Tree", "U2", 1986, 50)
 
     levyt = [l1, l2, l3]
 
