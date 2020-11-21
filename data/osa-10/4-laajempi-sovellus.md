@@ -678,15 +678,15 @@ Tiedostojen käsittelyn suhteen kannattaa myös huomata se, että ohjelma lukee 
 
 Hyvän koodin kirjoittamisesta kerrotaan lisää esimerkiksi Robert Martinin mainiossa kirjassa [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882). Kirjan koodiesimerkit on kuitenkin toteutettu Javalla, eli esimerkkien lukeminen saattaa tässä vaiheessa olla vielä varsin työlästä. Paneudumme ylläpidettävyydeltään ja laajennettavuudeltaan laadukkaan koodin toteuttamiseen tarkemmin kursseilla [Ohjelmistotekniikka](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024742-2020-08-01) ja [Ohjelmistotuotanto](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024909-2020-08-01).
 
-Hyvän olio-ohjelmoinnin periaatteiden mukaisen koodin kirjoittamisella on myös hintansa. Koodia tulee todennäköisesti enemmän kuin jos sama ongelma ratkaistaisiin yhteen pötköön kirjoitetulla spagettikoodilla. Ohjelmoijan onkin aina ratkaistava se, minkälainen lähestymistapa on paras kuhunkin tilanteeseen. Joskus voi olla vain parasta häkkeröidä kasaan nopeasti jotain joka toimii nyt. Jos taas on odotettavissa, että samaa koodia tullaan jatkossa laajentamaan. joko koodarin itsensä tai jonkun muun toimesta, on todennäköisesti kannattavaa panostaa koodin luettavuuteen ja jäsentämiseen jossain määrin jo alkuvaiheissa.  
+Hyvän olio-ohjelmoinnin periaatteiden mukaisen koodin kirjoittamisella on myös hintansa. Koodia tulee todennäköisesti enemmän kuin jos sama ongelma ratkaistaisiin yhteen pötköön kirjoitetulla spagettikoodilla. Ohjelmoijan onkin aina ratkaistava se, minkälainen lähestymistapa on paras kuhunkin tilanteeseen. Joskus voi olla vain parasta häkkeröidä kasaan nopeasti jotain joka toimii nyt. Jos taas on odotettavissa, että samaa koodia tullaan jatkossa laajentamaan. joko koodarin itsensä tai jonkun muun toimesta, on todennäköisesti kannattavaa panostaa koodin luettavuuteen ja jäsentämiseen jossain määrin jo alkuvaiheissa.
 
 Harjoitellaan vielä isomman ohjelmakokonaisuuden toteuttamista yhden ohjelmointitehtävän verran.
 
 <programming-exercise name='Opintorekisteri' tmcname='osa10-12_opintorekisteri'>
 
-Tee interaktiivinen ohjelma, jonka avulla voit pitää kirjaa opintomenestyksestäsi. Tyyli on vapaa, mutta nyt on hyvä tilaisuus harjoitella Puehlinluettelo-esimerkin kaltaisen oliorakenteen muodostamista.
+Tee interaktiivinen ohjelma, jonka avulla voit pitää kirjaa opintomenestyksestäsi. Sovelluksen rakenteen saat päättää itse, mutta nyt on hyvä tilaisuus harjoitella Puehlinluettelo-esimerkin kaltaisen oliorakenteen muodostamista.
 
-Ohjelma toimii seuraavasti:
+Ohjelman tulee toimia seuraavasti:
 
 <sample-output>
 
