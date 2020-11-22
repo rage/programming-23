@@ -12,6 +12,14 @@ Tämän osion jälkeen
 
 </text-box>
 
+## Ikkunan otsikko
+
+Ohjelma näyttää ammattimaisemmalta, jos ikkunan otsikkopalkissa ei lue "pygame window" vaan ohjelman todellinen nimi. Tämä onnistuu näin:
+
+```python
+pygame.display.set_caption("Suuri seikkailu")
+```
+
 ## Kuvioiden piirtäminen
 
 Seuraava ohjelma luo kuvan, jossa on suorakulmio, ympyrä ja viiva:
@@ -67,23 +75,22 @@ Tässä metodi `pygame.font.SysFont` luo fonttiolion, joka käyttää järjestel
 
 Huomaa, että eri järjestelmissä on saatavilla eri fontit. Jos järjestelmässä ei ole fonttia Arial (mikä tosin on yleinen fontti), yllä oleva koodi käyttää sen sijasta järjestelmän oletusfonttia. Toinen mahdollisuus on käyttää metodia `pygame.font.Font`, jolle annetaan hakemistossa olevan fonttitiedoston nimi.
 
-## Musiikin soittaminen
+## Tehtävät
 
-Seuraava ohjelma soittaa taustalla musiikkia tiedostosta `bach.mp3`. Kuitenkin musiikki päättyy, kun käyttäjä painaa jotain näppäintä.
+Tässä on pari vaikeampaa tehtävää, joiden avulla voit harjoitella lisää tämän luvun asioita.
 
-```python
-import pygame
+<programming-exercise name='Kello' tmcname=''>
 
-pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+Tee ohjelma, joka näyttää graafisesti kellonajan. Ohjelman suorituksen tulee näyttää tältä:
 
-pygame.mixer.music.load("bach.mp3")
-pygame.mixer.music.play()
+<img src="pygame_kello.gif">
 
-while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.QUIT:
-            exit()
-        if tapahtuma.type == pygame.KEYDOWN:
-            pygame.mixer.music.stop()
-```
+</programming-exercise>
+
+<programming-exercise name='Asteroidit' tmcname=''>
+
+Tee peli, jossa pelaaja ohjaa robottia vasemmalle ja oikealle ja tavoitteena on kerätä taivaalta putoavia asteroideja. Pelaaja saa pisteen jokaisesta kerätystä asteroidista, ja pistemäärä näytetään ikkunan ylälaidassa. Peli päättyy, kun pelaaja ei saa kiinni asteroidia. Pelin tulisi näyttää tältä:
+
+<img src="pygame_asteroidit.gif">
+
+</programming-exercise>
