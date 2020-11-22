@@ -584,7 +584,7 @@ Funktio palauttaa _tuplena_ sen pelaajan nimen ja pelinumeron, joka on tehnyt yh
 
 ## Vähiten peliminuuttjea
 
-Kirjoita funktio `vahiten_minutteja`, joka sa parametrikseen listan palloilijoita.
+Kirjoita funktio `vahiten_minuutteja`, joka sa parametrikseen listan palloilijoita.
 
 Funktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
 
