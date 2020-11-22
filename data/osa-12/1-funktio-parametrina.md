@@ -586,7 +586,7 @@ Funktio palauttaa _tuplena_ sen pelaajan nimen ja pelinumeron, joka on tehnyt yh
 
 Kirjoita funktio `vahiten_minutteja`, joka sa parametrikseen listan palloilijoita.
 
-FUnktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
+Funktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
 
 
 </programming-exercise>
@@ -656,7 +656,7 @@ Funktiossa parametrille `kriteeri` on määritelty oletusarvoksi lambda-lauseke 
 
 <programming-exercise name='Tuotteiden haku' tmcname='osa12-07_tuotteiden_haku'>
 
-Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet`seuraavasti:
+Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet` seuraavasti:
 
 ```python
 tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22), ("Kaali", 0.99, 1)]
