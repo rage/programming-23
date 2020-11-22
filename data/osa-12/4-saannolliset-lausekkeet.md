@@ -224,7 +224,7 @@ Ei osumaa.
 
 </sample-output>
 
-<programming-exercise name='Säännölliset lausekkeet' tmcname='osa12-'>
+<programming-exercise name='Säännölliset lausekkeet' tmcname='osa12-14_saannolliset_lausekkeet'>
 
 Harjoitellaan hieman säännöllisten lausekkeiden käyttöä.
 
@@ -371,6 +371,22 @@ USA
 komento: **0**
 
 </sample-output>
+
+Huomaa, että pelaajien tulostusasun pitää olla täsmälleen seuraavanlainen
+
+<pre>
+Leon Draisaitl       EDM  43 + 67 = 110
+Connor McDavid       EDM  34 + 63 =  97
+Travis Zajac         NJD   9 + 16 =  25
+Mike Green           EDM   3 +  8 =  11
+Markus Granlund      EDM   3 +  1 =   4
+123456789012345678901234567890123456789
+</pre>
+
+Alimman rivin numerot on tehty helpottamaan oikean merkkimäärän laskemista. Joukkueen nimen lyhenne siis tulostetaan alkaen rivin 22. merkistä. Plus on rivin 30 merkki ja = rivin 35. merkki. Kaikki luvut tulee tasata oikeaan reunaan omaa tulostusaluettaan. Tyhjät kohdat ovat välilyöntejä.
+
+Tulostuksen muotoilu kannattaa hoitaa f-merkkijonoina samaan tapaan kuin [tässä](osa-6/1-tiedostojen-lukeminen#programming-exercise-kurssin-tulokset-osa-3) osan 6 tehtävästä.
+
 
 Seuraavat toiminnot tuovat toisen pisteen:
 
