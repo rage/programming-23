@@ -322,7 +322,7 @@ Smooth operator, pituus 9 metriä, grade 7A
 
 ## Vaikeuden mukainen järjestys
 
-Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan nousevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
+Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan laskevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
 
 Funktio toimii seuraavasti:
 
@@ -339,10 +339,10 @@ for reitti in vaikeuden_mukaan(reitit):
 
 <sample-output>
 
-Pieniä askelia, pituus 12 metriä, grade 6A+
-Kantti, pituus 38 metriä, grade 6A+
-Smooth operator, pituus 9 metriä, grade 7A
 Syncro, pituus 14 metriä, grade 8C+
+Smooth operator, pituus 11 metriä, grade 7A
+Kantti, pituus 38 metriä, grade 6A+
+Pieniä askelia, pituus 12 metriä, grade 6A+
 
 </sample-output>
 
