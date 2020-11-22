@@ -258,3 +258,43 @@ while True:
 Ohjelman suoritus voi näyttää tältä:
 
 <img src="pygame_hiiri2.gif">
+
+<programming-exercise name='Neljä suuntaa' tmcname=''>
+
+Tee ohjelma, jossa pelaaja pystyy ohjaamaan robottia neljään suuntaan nuolinäppäimillä. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_nelja_suuntaa.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Neljä seinää' tmcname=''>
+
+Laajenna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulkopuolelle mistään reunasta. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_nelja_seinaa.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Kaksi pelaajaa' tmcname=''>
+
+Tee ohjelma, jossa kaksi pelaajaa voi ohjata omia robottejaan. Toinen pelaaja käyttää nuolinäppäimiä ja toinen esimerkiksi w-s-a-d. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_kaksi_pelaajaa.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Robotti ja hiiri' tmcname=''>
+
+Tee ohjelma, jossa robotti seuraa hiirtä niin, että robotin keskikohta on aina hiiren kohdalla. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_robotti_hiiri.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Robotin paikka' tmcname=''>
+
+Tee ohjelma, jossa robotti on satunnaisessa paikassa ikkunassa. Kun pelaaja painaa hiirellä robotista, se siirtyy aina uuteen paikkaan. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_robotti_paikka.gif">
+
+</programming-exercise>
