@@ -744,5 +744,6 @@ summa = keskiarvo([s1, s2, s3])
 
 Hyödynnä funktion toteutuksessa `reduce`- ja `filter`-funktiota!
 
+[Tämä](/osa-12/3-funktionaalista-ohjelmointia#filter-palauttaa-iteraattorin) lienee syytä pitää mielessä tätä tehtävää tehdessä-
 
 </programming-exercise>
