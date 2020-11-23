@@ -480,3 +480,9 @@ komento: **0**
 </sample-output>
 
 </programming-exercise>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="169e4e52-8797-5172-b8b1-dc075bfdc866"></quiz>
+
+
