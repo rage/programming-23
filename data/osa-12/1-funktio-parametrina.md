@@ -586,6 +586,33 @@ Kirjoita funktio `vahiten_minuutteja`, joka saa parametrikseen listan palloilijo
 
 Funktio palauttaa sen `Palloilija`-olion, jolla on vähiten peliminuutteja kaikista pelaajista.
 
+## Testiohjelma
+
+Voit testata koodisi toimintaa seuraavalla ohjelmalla:
+
+```python
+if __name__ == "__main__":
+    pelaaja1 = Palloilija("Kelju Kojootti", 13, 5, 12, 46)
+    pelaaja2 = Palloilija("Maantiekiitäjä", 7, 2, 26, 55)
+    pelaaja3 = Palloilija("Uka Naakka", 9, 1, 32, 26)
+    pelaaja4 = Palloilija("Pelle Peloton", 12, 1, 11, 41)
+    pelaaja5 = Palloilija("Hessu Hopo", 4, 3, 9, 12)
+    
+    joukkue = [pelaaja1, pelaaja2, pelaaja3, pelaaja4, pelaaja5]
+    print(eniten_maaleja(joukkue))
+    print(eniten_pisteita(joukkue))
+    print(vahiten_minuutteja(joukkue))
+```
+
+Tulostuksen tulisi olla:
+
+<sample-output>
+
+Kelju Kojootti
+('Uka Naakka', 9)
+Palloilija(nimi=Hessu Hopo, pelinumero=4, maalit=3, syotot=9, minuutit=12)
+
+</sample-output>
 
 </programming-exercise>
 
