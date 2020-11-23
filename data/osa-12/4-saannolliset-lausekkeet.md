@@ -280,7 +280,7 @@ False
 
 ## Loppuhuipennus
 
-Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tämä tehtävä ei sijainnostaan huolimatta liity mitenkään säännöllisiin lausekkeisiin, sensijaan luvun [Funktio parametrina](/osa-12/1-funktio-parametrina) asia tulee olemaan tarpeen, myös [listakoosteet](/osa-11/1-koosteet) voivat olla käyttökelpoisia.
+Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tämä tehtävä ei sijainnostaan huolimatta liity mitenkään säännöllisiin lausekkeisiin, mutta luvun [Funktio parametrina](/osa-12/1-funktio-parametrina) asia tulee olemaan tarpeen ja myös [listakoosteet](/osa-11/1-koosteet) voivat olla käyttökelpoisia.
 
 Sovelluksen rakenteelle voi ottaa inspiraatiota osan 10 [viimeisestä luvusta](/osa-10/4-lisaa-esimerkkeja).
 
@@ -290,7 +290,7 @@ Tässä tehtävässä tehdään sovellus, jonka avulla on mahdollista tarkastell
 
 Tehtäväpohjan mukana tulee kaksi json-muodossa olevaa tiedostoa `osa.json` ja `kaikki.json`, näistä ensimmäinen on tarkoitettu lähinnä testailun avuksi. Jälkimmäinen sisältää kaikkien kaudella 2019-20 pelanneiden pelaajien statistiikat.
 
-Yksittäisen pelaajan tiedot ovat seuraavassa muodossa
+Yksittäisen pelaajan tiedot ovat muodossa
 
 ```json
 {
@@ -306,15 +306,15 @@ Yksittäisen pelaajan tiedot ovat seuraavassa muodossa
 
 ja molemmat tiedostoista sisältävät yksittäisten pelaajien tiedot taulukossa.
 
-Olet todennäköisesti unohtanut miten json-muotoinen tiedosto saadaan luettua Python-ohjelmaan. Se ei ole vaikeaa voit kerrata [osan 7 materiaalista](/osa-7/4-datan-kasittely#json-tiedoston-lukeminen).
+Jos et muista, miten json-muotoinen tiedosto saadaan luettua Python-ohjelmaan, voit kerrata tämän [osan 7 materiaalista](/osa-7/4-datan-kasittely#json-tiedoston-lukeminen).
 
-Tee nyt ohjelma, joka tarjoaa seuraavanlaisen toiminnallisuuden. Ohjelma aloittaa kysymällä tiedoston nimeä. Tämän jälkeen ohjelma tarjoaa seuraavat toiminnot:
+Tee nyt ohjelma, joka kysyy aluksi tiedoston nimeä ja tarjoaa sitten seuraavat toiminnot:
 
 - yksittäisen pelaajan tietojen haku nimen perusteella
 - listaus joukkueiden nimien lyhenteistä (aakkosjärjestyksessä)
 - listaus maiden nimien lyhenteistä (aakkosjärjestyksessä)
 
-Näistä toiminnoista saa yhden pisteeten. Ohjelman tulee toimia seuraavasti:
+Näistä toiminnoista saa yhden pisteen. Ohjelman tulee toimia seuraavasti:
 
 <sample-output>
 
@@ -374,17 +374,14 @@ Markus Granlund      EDM   3 +  1 =   4
 
 </sample-output>
 
-Alimman rivin numerot on tehty helpottamaan oikean merkkimäärän laskemista. Joukkueen nimen lyhenne siis tulostetaan alkaen rivin 22. merkistä. Plus on rivin 30. merkki ja = rivin 35. merkki. Kaikki luvut tulee tasata oikeaan reunaan omaa tulostusaluettaan. Tyhjät kohdat ovat välilyöntejä.
+Alimman rivin numerot on lisätty helpottamaan oikean merkkimäärän laskemista. Joukkueen nimen lyhenne siis tulostetaan alkaen rivin 22. merkistä. Plus on rivin 30. merkki ja = rivin 35. merkki. Kaikki luvut tulee tasata oikeaan reunaan omaa tulostusaluettaan. Tyhjät kohdat ovat välilyöntejä.
 
-Tulostuksen muotoilu kannattaa hoitaa f-merkkijonoina samaan tapaan kuin [tässä](osa-6/1-tiedostojen-lukeminen#programming-exercise-kurssin-tulokset-osa-3) osan 6 tehtävästä.
-
+Tulostuksen muotoilu kannattaa hoitaa f-merkkijonoina samaan tapaan kuin [tässä](osa-6/1-tiedostojen-lukeminen#programming-exercise-kurssin-tulokset-osa-3) osan 6 tehtävässä.
 
 Seuraavat toiminnot tuovat toisen pisteen:
 
-- joukkueen pelaajien listaus
-  - listattuna pisteiden (joka saadaan laskemalla _goals_ + _assits_) mukaisessa järjestyksessä
-- tietyn maan pelaajat
-  - listattuna pisteiden mukaisessa järjestyksessä
+- joukkueen pelaajien listaaminen pisteiden (joka saadaan laskemalla _goals_ + _assits_) mukaisessa järjestyksessä
+- tietyn maan pelaajien listaaminen pisteiden mukaisessa järjestyksessä
 
 Toiminnallisuus on seuraava:
 
@@ -424,7 +421,7 @@ komento: **0**
 
 </sample-output>
 
-Ja kolmannen pisteen saa seuraavilla toiminnoilla:
+Kolmannen pisteen saa seuraavilla toiminnoilla:
 
 - n eniten pistettä saanutta pelaajaa
   - jos kahden pelaajan pistemäärä on sama, ratkaisee maalimäärä
