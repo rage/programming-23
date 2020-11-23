@@ -496,11 +496,11 @@ Toteuta funktio käyttäen funktioita `filter` ja `map`.
 
 ## reduce
 
-Viimeinen tarkastelemamme funktio on `reduce`. Niinkuin funktion nimi vihjaa, sen tarkoituksena on vähentää sarjan alkioiden määrä. Itse asiassa alkioiden sijasta `reduce` palauttaa yksittäisen arvon.
+Viimeinen tarkastelemamme funktio on `reduce`. Kuten funktion nimi vihjaa, sen tarkoituksena on vähentää sarjan alkioiden määrä. Itse asiassa alkioiden sijasta `reduce` palauttaa yksittäisen arvon.
 
 Reduce toimii sitten, että se pitää mukanaan koko ajan _arvoa_, jota se muuttaa yksi kerrallaan käydessään läpi listan alkioita.
 
-Seuraavassa esimerkki, joka summaa reducen avulla listan luvut yhteen. Huomaa, että Pythonin versiosta 3 alkaen funktio `reduce` pitää erikseen ottaa käyttöön modulista `functools`.
+Seuraavassa on esimerkki, joka summaa `reduce`-funktionn avulla listan luvut yhteen. Huomaa, että Pythonin versiosta 3 alkaen funktio `reduce` pitää erikseen ottaa käyttöön moduulista `functools`.
 
 ```python
 from functools import reduce
@@ -518,7 +518,7 @@ print(lukujen_summa)
 
 </sample-output>
 
-Tarkastellaan esimerkkiä hieman tarkemmin. Funktio `reduce` saa kolme parametria. Parametreista toisena on läpikäytävä lista, ja kolmantena on reducen "laskennan" alkuarvo. Koska laskemme listan alkioiden summaa, on sopiva alkuarvo nolla.
+Tarkastellaan esimerkkiä hieman tarkemmin. Funktio `reduce` saa kolme parametria. Parametreista toisena on läpikäytävä lista, ja kolmantena on laskennan alkuarvo. Koska laskemme listan alkioiden summaa, on sopiva alkuarvo nolla.
 
 Ensimmäisenä parametrina on funktio, joka suorittaa toimenpiteen yksi kerrallaan kullekin listan alkiolle. Tällä kertaa funktio on seuraava:
 
@@ -526,9 +526,9 @@ Ensimmäisenä parametrina on funktio, joka suorittaa toimenpiteen yksi kerralla
 lambda summa, alkio: summa + alkio
 ```
 
-Funktiolla on kaksi parametria. Näistä ensimmäinen on reducerin laskema sen hetkinen tulos ja toinen parametri on käsittelyvuorossa oleva listan alkio. Funktio laskee reducerille uuden arvon parametriensa perusteella. Tällä kertaa uusi arvio on vanha summa _plus_ kyseisen alkion arvo.
+Funktiolla on kaksi parametria. Näistä ensimmäinen on laskennan sen hetkinen tulos ja toinen parametri on käsittelyvuorossa oleva listan alkio. Funktio laskee uuden arvon parametriensa perusteella. Tässä tapauksessa uusi arvio on vanha summa _plus_ kyseisen alkion arvo.
 
-Reducen toiminta hahmottuu kenties selkeämmin, jos käytetään lambdan sijaan normaalia funktiotia reducen apuna ja tehdään funktiosta aputulostuksia:
+Funktion `reduce` toiminta hahmottuu kenties selkeämmin, jos käytetään lambdan sijaan normaalia funktiota apuna ja tehdään funktiosta aputulostuksia:
 
 ```python
 from functools import reduce
@@ -541,7 +541,7 @@ def summaaja(summa, alkio):
   # uusi summa on vanha summa + alkion arvo
   return summa + alkio
 
-lukujen_summa = reduce(summaaja lista, 0)
+lukujen_summa = reduce(summaaja, lista, 0)
 
 print(lukujen_summa)
 ```
@@ -558,9 +558,9 @@ summa nyt 6, vuorossa alkio 5
 
 </sample-output>
 
-Ensimmäisenä siis käsitellään listan alkio, jonka arvo on 2. Tässä vaiheessa summa on 0, eli sillä on reducelle annettu alkiarvo. Funktio laskee ja palauttaa näiden summan eli 0+2
+Ensimmäisenä siis käsitellään listan alkio, jonka arvo on 2. Tässä vaiheessa summa on 0, eli sillä on reducelle annettu alkiarvo. Funktio laskee ja palauttaa näiden summan eli 0+2.
 
-Tämä arvo on parametrin _summa_ arvona kun funktiota kutsutaan seuraavalle listan alkiolle eli luvulle 3. Funktio laskee ja palauttaa 2 + 3 joka taas toimii parametrina seuraavalle funktiokutsulle.
+Tämä arvo on parametrin `summa` arvona kun funktiota kutsutaan seuraavalle listan alkiolle eli luvulle 3. Funktio laskee ja palauttaa 2 + 3, joka taas toimii parametrina seuraavalle funktiokutsulle.
 
 Toinen esimerkkimme laskee kaikkien listassa olevien kokonaislukujen tulon.
 
@@ -582,7 +582,7 @@ print(tulo)
 
 Koska on kyse tulosta, ei alkuarvo voi olla nyt 0 (miten käy jos se olisi nolla?), vaan sopiva arvo sille on 1.
 
-Aivan kuten filter ja map, myös reduce voi käsitellä minkä tahansa tyyppisiä olioita.
+Aivan kuten `filter` ja `map`, myös `reduce` voi käsitellä minkä tahansa tyyppisiä olioita.
 
 Tarkastellaan esimerkkinä pankin tilien yhteenlasketun saldon selvittämistä reducella:
 
@@ -626,7 +626,7 @@ pankissa rahaa yhteensä
 
 </sample-output>
 
-Huomaa miten reducerin käyttämä funktio "kaivaa" saldon jokaisen tiliolion sisältä kutsumalla tilille saldon palauttavaa metodia:
+Huomaa miten funktio `saldojen_summaaja` "kaivaa" saldon jokaisen tiliolion sisältä kutsumalla tilille saldon palauttavaa metodia:
 
 ```python
 def saldojen_summaaja(yht_saldo, tili):
@@ -635,7 +635,7 @@ def saldojen_summaaja(yht_saldo, tili):
 
 <text-box variant='hint' name='Alkuarvoton reduce'>
 
-Reducen kolmas parametri, eli alkuarvo ei itseasiassa ole kaikissa tilanteissa pakollinen. Esimerkiksi summan laskeminen onnistuisi _ilman_ alkuarvoa
+Funktion `reduce` kolmas parametri eli alkuarvo ei itse asiassa ole kaikissa tilanteissa pakollinen. Esimerkiksi summan laskeminen onnistuisi _ilman_ alkuarvoa:
 
 ```python
 lista = [2, 3, 1, 5]
@@ -647,9 +647,7 @@ print(lukujen_summa)
 
 Jos alkuarvoa ei anneta, toimii listan ensimmäinen luku alkuarvona ja "redusointi" aloitetaan vasta listan toisesta alkiosta.
 
-
-Huomaa, että jos reducella käsiteltävän listan alkiot ovat eri tyyppisiä kuin reducella laksettava arvo, on reducen kolmas parametri välttämätön. Jos yrittäisimme olla tili-esimerkissä käyttämättä alkuarvoa:
-
+Huomaa, että jos käsiteltävän listan alkiot ovat eri tyyppisiä kuin laskettava arvo, on `reduce`-funktion kolmas parametri välttämätön. Jos yrittäisimme olla tili-esimerkissä käyttämättä alkuarvoa:
 
 ```python
 saldot_yhteensa = reduce(saldojen_summaaja, tilit)
@@ -661,7 +659,7 @@ olisi seurauksena virhe
 TypeError: unsupported operand type(s) for +: 'Pankkitili' and 'int'
 ```
 
-sillä reducerifunktion parametri *yht_saldo* saisi ensimmäisellä kerralla arvokseen listan ensimmäien pankkitilin, ja sen summaaminen pankkitilin saldoon ei tietenkään ole mahdollista.
+sillä `reduce`-funktion parametri `yht_saldo` saisi ensimmäisellä kerralla arvokseen listan ensimmäisen pankkitilin ja sen summaaminen pankkitilin saldoon ei olisi mahdollista.
 
 </text-box>
 
