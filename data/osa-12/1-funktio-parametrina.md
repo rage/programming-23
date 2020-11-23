@@ -15,7 +15,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Olemme jo aikaisemmin käyttäneet metodia `sort` ja funktiota `sorted` järjestämään listoja luonnolliseen järjestykseen. Metodit toimivat sellaisenaan hyvin luvuista ja merkkijonoista koostuvien listojen kanssa, mutta jos lista sisältää vähänkään monimutkaisempia alkioita - esimerkiksi tupleja, sanakirjoja tai omista luokista muodostettuja olioita, eteen saattaa tulla tilanne, jossa Python ei järjestä listaa niin kuin ohjelmoija toivoisi.
+Olemme jo aikaisemmin käyttäneet metodia `sort` ja funktiota `sorted` järjestämään listoja luonnolliseen järjestykseen. Metodit toimivat sellaisenaan hyvin luvuista ja merkkijonoista koostuvien listojen kanssa, mutta jos lista sisältää monimutkaisempia alkioita, Python ei välttämättä järjestä listaa niin kuin ohjelmoija toivoisi.
 
 Esimerkiksi lista tupleja järjestetään oletuksena jokaisen tuplen ensimmäisen alkion perusteella:
 
@@ -41,9 +41,9 @@ Mitä jos haluaisimme järjestää tuotelistan hinnan perusteella?
 
 ## Funktiot parametrina
 
-Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
+Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määräävä avain. Avaimeksi annetaan funktio, joka kertoo, miten yksittäisen alkion arvo määritetään. Python kutsuu tätä funktiota järjestämisen aikana alkioiden vertailemiseen.
 
-Esimerkiksi
+Esimerkiksi:
 
 ```python
 def hintajarjestys(alkio: tuple):
@@ -75,7 +75,7 @@ Funktion `hintajarjestys` määrittely on melko yksinkertainen: se saa parametri
 
 `tuotteet.sort(key=hintajarjestys)`
 
-Rivillä annetaan metodille `sort` parametriksi funktio. _Ei_ siis funktion paluuarvoa, vaan _funktio kokonaisuudessaan_. Järjestysmetodi käyttää tätä viittausta ja kutsuu funktiota jokaiselle alkiolle.
+Rivillä annetaan metodille `sort` parametriksi funktio. Ei siis funktion paluuarvoa, vaan _viittaus funktioon_. Järjestysmetodi kutsuu tätä funktiota jokaiselle alkiolle.
 
 Kutsut nähdään selkeästi lisäämällä vertailufunktioomme ylimääräinen tulostuslause:
 
@@ -110,7 +110,7 @@ Kutsuttiin hintajarjestys(('vesimeloni', 4.95))
 
 </sample-output>
 
-Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta ´sorted` löytyvää toista parametria `reversed`:
+Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta ´sorted` löytyvää toista parametria `reverse`:
 
 ```python
 tuotteet.sort(key=hintajarjestys, reverse=True)
