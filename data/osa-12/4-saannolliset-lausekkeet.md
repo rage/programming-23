@@ -17,25 +17,23 @@ Python on mainio työkalu tekstin käsittelemiseen. Sisäänrakennetut operaatio
 
 Vaativampien operaatioiden toteuttaminen saattaa kuitenkin muodostua ongelmalliseksi. Tätä tarkoitusta varten Pythonista löytyy useimpien muiden ohjelmointikielten tapaan _säännölliset lausekkeet_ (_regular expressions_).
 
-Säännöllisten lausekkeiden avulla on mahdollista määritellä hyvinkin monimutkaisia sääntöjä, joiden perusteella voidaan esimerkiski poimia, suodattaa tai etsiä alijonoja. Tässä osiossa käydään perusperiaatteen lisäksi läpi muutamia sääntöjä, lisää löydät esimerkiksi Pythonin omasta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
+Säännöllisten lausekkeiden avulla on mahdollista määritellä hyvinkin monimutkaisia sääntöjä, joiden perusteella voidaan esimerkiski poimia, suodattaa tai etsiä merkkijonon osia. Tässä osiossa käydään läpi säännöllisten lausekkeiden perusteita, ja löydät lisää tietoa Pythonin omasta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
 
 ## Mitä ovat säännölliset lausekkeet?
 
-Säännölliset lausekkeet ovat tavallaan ohjelmointikieli ohjelmointikielen sisällä. Lauseilla on oma syntaksinsa, jonka mukaan ne määritellään. Ideana on, että säännöllisellä lausekkella määritellään sellaisten merkkijonojen joukko, jotka ovat tiettyjen sääntöjen mukaisia.
+Säännölliset lausekkeet ovat tavallaan ohjelmointikieli ohjelmointikielen sisällä. Lausekkeilla on oma syntaksinsa, jonka mukaan ne määritellään. Ideana on, että säännöllisellä lausekkeella määritellään sellaisten merkkijonojen joukko, jotka ovat tiettyjen sääntöjen mukaisia.
 
 Tarkistellaan yksinkertaista esimerkkiä lausekkeiden käytöstä ennen tarkempaa perehtymistä sääntöihin:
 
 ```python
 import re
-# Merkkijonot, jotka alkavat alijonolla 'P' ja
-# päättyvät alijonoon 'on'
-merkkijono = re.compile("^P.*on$")
 
-testit = ["Python", "Ponneton", "Ponttooni", "Pullero", "Pallon"]
+sanat = ["Python", "Ponneton", "Ponttooni", "Pullero", "Pallon"]
 
-for testisana in testit:
-    if merkkijono.search(testisana):
-        print(testisana, "löytyy!")
+for sana in sanat:
+    # merkkijonon tulee alkaa "P" ja päättyä "on"
+    if re.search("^P.*on$", sana):
+        print(sana, "löytyy!")
 ```
 
 <sample-output>
@@ -46,19 +44,16 @@ Pallon löytyy!
 
 </sample-output>
 
-Lauseke "lasketaan" valmiiksi re-modulista löytyvällä funktiolla `compile`, minkä jälkeen sen palauttamaa oliota voidaan käyttää merkkijonojen testaamiseen. Metodi `search` palauttaa arvon `None`, jos vastaavuutta ei löydy, joten sitä voidaan käyttää ehtolauseessa esimerkin tapaan. Mikäli vastaavuus löytyy, saadaan palautetusta `Match`-tyyppisestä oliosta tarvittaessa tarkempaa tietoa vastaavuudesta.
+Pythonissa säännöllisiä lausekkeita voi käsitellä moduulin `re` avulla. Esimerkiksi yllä olevassa koodissa oleva metodi `search` etsii merkkijonosta osaa, joka täsmää annettuun säännölliseen lausekkeeseen.
 
-Toinen esimerkki etsii  merkkijonosta luvut. Metodi `findall` palauttaa kaikki sääntöön täsmäävät alijonot listana:
+Toinen esimerkki etsii merkkijonosta luvut. Metodi `findall` palauttaa kaikki säännölliseen lausekkeeseen täsmäävät osajonot listana:
 
 ```python
 import re
 
-# Hyväksytään vain luvut
-merkkijono = re.compile("\d+")
+lause = "Eka, 2 !#kolmas 44 viisi 678xyz962"
 
-testilause = "Eka, 2 !#kolmas 44 viisi 678xyz962"
-
-luvut = re.findall(merkkijono, testilause)
+luvut = re.findall("\d+", lause)
 
 for luku in luvut:
     print(luku)
@@ -73,23 +68,20 @@ for luku in luvut:
 
 </sample-output>
 
-Molemmat ensimmäisistä esimerkeistä on kohtuullisen vaivatonta toteuttaa myös ilman säännöllisiä lausekkeita. Yleensä tällaisessa tapauksessa onkin järkevää hyödyntää Pythonin omia merkkijono-operaatioita. Näin koodista tulee useimmiten myös helpommin luettavaa.
+## Säännöllisten lausekkeiden syntaksi
 
-## Säännöt
-
-Tarkastellaan seuraavaksi sääntöjä, joita säännöllisissä lausekkeissa käytetään. Useimmissa esimerkeissä käytetään samaa testiohjelmaa eri syötteillä.
+Tarkastellaan seuraavaksi syntaksia, jota säännöllisissä lausekkeissa käytetään. Useimmissa esimerkeissä käytetään samaa testiohjelmaa eri syötteillä.
 
 ```python
 import re
 
-mjono = input("Anna lauseke: ")
-lauseke = re.compile(mjono)
+lauseke = input("Anna lauseke: ")
 
 while True:
-    testi = input("Anna testijono: ")
-    if (testi == ""):
+    mjono = input("Anna merkkijono: ")
+    if mjono == "":
         break
-    if lauseke.search(testi):
+    if re.search(lauseke, mjono):
         print("Osuma!")
     else:
         print("Ei osumaa.")
@@ -97,7 +89,7 @@ while True:
 
 ### Vaihtoehtoiset alijonot
 
-Pystyviivalla voidaan erottaa vaihtoehtoisia alijonoja. Esimerkiksi lauseke `911|112` täsmää merkkijonoihin, joista löytyy joko alijono `911` tai alijono `112`.
+Pystyviivalla voidaan erottaa vaihtoehtoisia osajonoja. Esimerkiksi lauseke `911|112` täsmää merkkijonoihin, joista löytyy joko osajono `911` tai osajono `112`.
 
 Esimerkiksi
 
@@ -144,16 +136,15 @@ Ei osumaa.
 
 ### Merkkien määrä
 
-Merkkien määrää voidaan rajata ainakin seuraavien operaattorien avulla:
+Merkkien määrää voidaan rajata esimerkiksi seuraavien operaattorien avulla:
 
-`*` kelpuuttaa nolla tai useamman osuman
-`+` kelpuuttaa yhden tai useamman osuman
-`{m}` kelpuuttaa täsmälleen m osumaa
+`*` hyväksyy nolla tai useamman osuman
+`+` hyväksyy yhden tai useamman osuman
+`{m}` hyväksyy täsmälleen m osumaa
 
-Operaattorit viittaavat niitä edeltävään määrittelyyn. Esimerkiksi `ba+b` hyväksyy esimerkiksi alijonot `bab`, `baab` tai vaikka `baaaaaaaaaaab`. Samoin `A[BCDE]*Z` kelpuuttaa esimerkiksi alijonot `AZ`, `ADZ` tai `ABCDEBCDEBCDEZ`.
+Operaattorit viittaavat niitä edeltävään lausekkeen osaan. Esimerkiksi lauseke `ba+b` hyväksyy esimerkiksi osajonot `bab`, `baab` ja `baaaaaaaaaaab`. Lauseke `A[BCDE]*Z` puolestaan hyväksyy esimerkiksi osajonot `AZ`, `ADZ` tai `ABCDEBCDEBCDEZ`.
 
-
-Esimerkiksi
+Esimerkiksi:
 
 <sample-output>
 
@@ -206,7 +197,7 @@ Osuma!
 
 </sample-output>
 
-Kaarisulkeilla voidaan ryhmitellä alijonoja. Esimerkiksi merkintä `(ab)+c` hyväksyisi jonot `abc`, `ababc` tai `ababababababc`, mutta ei esimerkiksi jonoja `ac` tai `bc`.
+Kaarisulkeilla voidaan ryhmitellä lausekkeen osia. Esimerkiksi lauseke `(ab)+c` hyväksyy jonot `abc`, `ababc` ja `ababababababc`, mutta ei esimerkiksi jonoja `ac` tai `bc`.
 
 Esimerkiksi
 
@@ -230,7 +221,7 @@ Harjoitellaan hieman säännöllisten lausekkeiden käyttöä.
 
 ## Viikonpäivät
 
-Tee säännöllisen lausekkeen avulla funktio on_viikonpaiva(merkkijono: str) joka palauttaa True jos sen parametrina saama merkkijono sisältää viikonpäivän lyhenteen (ma, ti, ke, to, pe, la tai su).
+Tee säännöllisen lausekkeen avulla funktio `on_viikonpaiva(merkkijono: str)` joka palauttaa `True`, jos sen parametrina saama merkkijono sisältää viikonpäivän lyhenteen (ma, ti, ke, to, pe, la tai su).
 
 Esimerkki funktion kutsumisesta:
 
@@ -250,7 +241,7 @@ False
 
 ## Vokaalitarkistus
 
-Tee funktio kaikki_vokaaleja(merkkijono: str) joka tarkistaa säännöllisen lausekkeen avulla ovatko parametrina olevan merkkijonon kaikki merkit vokaaleja.
+Tee funktio `kaikki_vokaaleja(merkkijono: str)`, joka tarkistaa säännöllisen lausekkeen avulla, ovatko parametrina annetun merkkijonon kaikki merkit vokaaleja.
 
 Esimerkki funktion kutsumisesta:
 
@@ -268,7 +259,7 @@ False
 
 ## Kellonaika
 
-Tee funktio kellonaika(merkkijono: str), joka tarkistaa säännöllisen lausekkeen avulla onko parametrina oleva merkkijono muotoa tt:mm:ss oleva kellonaika (tunnit, minuutit ja sekunnit kaksinumeroisina).
+Tee funktio `kellonaika(merkkijono: str)`, joka tarkistaa säännöllisen lausekkeen avulla, onko parametrina oleva merkkijono muotoa `tt:mm:ss` oleva kellonaika (tunnit, minuutit ja sekunnit kaksinumeroisina).
 
 Esimerkki funktion kutsumisesta:
 
