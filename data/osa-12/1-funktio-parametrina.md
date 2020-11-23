@@ -110,7 +110,7 @@ Kutsuttiin hintajarjestys(('vesimeloni', 4.95))
 
 </sample-output>
 
-Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta `sorted` löytyvää toista parametria `reverse`:
+Järjestys saadaan käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta `sorted` löytyvää toista parametria `reverse`:
 
 ```python
 tuotteet.sort(key=hintajarjestys, reverse=True)
@@ -226,7 +226,7 @@ class Opiskelija:
         self.tunnus = tunnus
         self.pisteet = pisteet
 
-    def __repr__(self):
+    def __str__(self):
         return f"{self.nimi} ({self.tunnus}), {self.pisteet} op."
 
 
@@ -268,7 +268,7 @@ Aapeli (a123), 220 op
 
 </sample-output>
 
-Järjestely toimii niinkuin pitää. Jos olioille arvon antavia funktioita `tunnuksen_mukaan` ja `pisteiden_mukaan` ei tarvita muuten, voimme kuitenkin vielä yksinkertaistaa ohjelmaa.
+Järjestäminen toimii niinkuin pitää. Jos olioille arvon antavia funktioita `tunnuksen_mukaan` ja `pisteiden_mukaan` ei tarvita muuten, voimme kuitenkin vielä yksinkertaistaa ohjelmaa.
 
 <programming-exercise name='Kiipeilyreitti' tmcname='osa12-04_kiipeilyreitti'>
 
@@ -437,7 +437,7 @@ Olhava, 3 reittiä, vaikein 6B
 
 ## Lambda-lauseke
 
-Lambda-lausekkeen avulla voidaan luoda ns. anonyymi funktio, eli funktio joka muodostetaan sillä hetkellä kun sitä tarvitaan. Lausekkeen yleinen syntaksi on
+Lambda-lausekkeen avulla voidaan luoda anonyymi funktio eli funktio, joka muodostetaan sillä hetkellä, kun sitä tarvitaan. Lausekkeen yleinen syntaksi on seuraava:
 
 `lambda <parametrit> : <lauseke>`
 
@@ -474,7 +474,7 @@ def hinta(alkio):
     return alkio[1]
 ```
 
-...paitsi että lambda-lauseketta käytettäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
+paitsi että lambda-lauseketta käytettäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
 
 Muuten lambdan avulla muodostettava funktio on kuin mikä tahansa muukin funktio. Esimerkiksi seuraava esimerkki järjestää merkkijonot niiden viimeisten merkkien mukaiseen aakkosjärjestykseen:
 
@@ -495,7 +495,7 @@ Markku
 
 </sample-output>
 
-Mennään vielä pidemmälle: yhdistämällä listakooste ja join-metodi lambda-lausekkeeseen, voidaan esimerkiksi järjestää merkkijonot niistä löytyvien vokaalien mukaiseen järjestykseen välittämättä muista merkeistä:
+Mennään vielä pidemmälle: yhdistämällä listakooste ja `join`-metodi lambda-lausekkeeseen voidaan esimerkiksi järjestää merkkijonot niistä löytyvien vokaalien mukaiseen järjestykseen välittämättä muista merkeistä:
 
 ```python
 mjonot = ["Mikko", "Makke", "Maija", "Markku", "Mikki"]
@@ -529,7 +529,7 @@ class Levy:
         self.kesto = kesto
 
 
-    def __repr__(self):
+    def __str__(self):
         return f"{self.nimi} ({self.esittaja}), {self.vuosi}. {self.kesto} min."
 
 if __name__ == "__main__":
@@ -623,9 +623,9 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Funktion `suorita_operaatio` lopputulos siis riippuu siitä, mikä funktio sille on välitetty parametrina. Funktioksi kelpaa mikä tahansa funktio (niin def-lauseella määritelty kuin anonyymikin) jolla on kaksi parametria.
+Funktion `suorita_operaatio` lopputulos siis riippuu siitä, mikä funktio sille on välitetty parametrina. Funktioksi kelpaa mikä tahansa funktio (niin `def`-lauseella määritelty kuin anonyymikin) jolla on kaksi parametria.
 
-Vaikkei funktioiden välittäminen parametrina olekaan kaikkein yleisimmin tarvittava operaatio, on se joka tapauksessa hyödyllinen mekanismi. Esimerkiksi seuraava ohjelma kirjoittaa tiedostosta 1 halutut rivit tiedostoon 2. Rivien valintakriteeri annetaan funktiona, joka palauttaa True, jos rivi tulee kirjoittaa toiseen tiedostoon:
+Vaikkei funktioiden välittäminen parametrina olekaan kaikkein yleisimmin tarvittava operaatio, on se joka tapauksessa hyödyllinen mekanismi. Esimerkiksi seuraava ohjelma kirjoittaa tiedostosta 1 halutut rivit tiedostoon 2. Rivien valintakriteeri annetaan funktiona, joka palauttaa `True`, jos rivi tulee kirjoittaa toiseen tiedostoon:
 
 ```python
 def kopioi_rivit(lahde_nimi: str, kohde_nimi: str, kriteeri: lambda x: True):
