@@ -183,6 +183,7 @@ for i in range(8):
 
 </sample-output>
 
+Vinkki: Voit tarkastaa, onko luku _x_ alkuluku, silmukalla, joka käy läpi luvut 2:sta lukuun _x_–1 asti. Jos jokin näistä luvuista jakaa _x_:n, niin se ei ole alkuluku.
 
 </programming-exercise>
 
