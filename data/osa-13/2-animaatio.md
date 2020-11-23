@@ -43,7 +43,7 @@ while True:
 
 Ohjelman suoritus näyttää seuraavalta:
 
-TODO: Kuva tähän (pitäisi saada animoitu kuva)
+<img src="pygame_animaatio.gif">
 
 Katsotaan taas tarkemmin, mitä ohjelmassa tapahtuu. Jotta kuva pystyy liikkumaan, meillä täytyy olla tieto sen paikasta. Tämä onnistuu ottamalla käyttöön kaksi muuttujaa, jotka sisältävät kuvan vasemman yläkulman koordinaatit:
 
@@ -91,6 +91,8 @@ Metodi `tick` on hyödyllinen, koska sen avulla animaatio toimii periaatteessa y
 Äskeinen animaatio on muuten hieno, mutta kun robotti etenee ikkunan ulkopuolelle, animaatio jatkuu ja robotti katoaa näkyvistä. Tehdään seuraavaksi ohjelmaan parannus, jonka avulla robotin suunta muuttuu, jos se törmää seinään.
 
 ```python
+import pygame
+
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
@@ -111,14 +113,14 @@ while True:
     x += nopeus
     if nopeus > 0 and x+robo.get_width() >= 640:
         nopeus = -nopeus
-    if nopeus < 0 and x == 0:
+    if nopeus < 0 and x <= 0:
         nopeus = -nopeus
     kello.tick(60)
 ```
 
 Ohjelman suoritus näyttää nyt tältä:
 
-TODO: Kuva tähän (pitäisi saada animoitu kuva)
+<img src="pygame_animaatio2.gif">
 
 Nyt ohjelmassa on uusi muuttuja `nopeus`, joka määrittää robotin liikkumistavan. Positiivinen nopeus tarkoittaa liikkumista oikealle ja negatiivinen nopeus tarkoittaa liikkumista vasemmalle. Tässä tapauksessa kun nopeus on 1, robotti liikkuu oikealle, ja kun nopeus on –1, robotti liikkuu vasemmalle.
 
@@ -127,7 +129,7 @@ Seuraavat rivit huolehtivat, että robotti osaa törmätä seinään:
 ```python
     if nopeus > 0 and x+robo.get_width() >= 640:
         nopeus = -nopeus
-    if nopeus < 0 and x == 0:
+    if nopeus < 0 and x <= 0:
         nopeus = -nopeus
 ```
 
@@ -140,6 +142,9 @@ Tämän koodin ansiosta robotti jatkaa loputtomasti rataa, jossa se liikkuu ensi
 Tehdään vielä animaatio, jossa robotti _pyörii_  ikkunan keskipisteen ympärillä:
 
 ```python
+import pygame
+import math
+
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
@@ -157,13 +162,13 @@ while True:
     y = 240+math.sin(kulma)*100-robo.get_height()/2
     naytto.blit(robo, (x, y))
     pygame.display.flip()
-    kulma += 0.1
+    kulma += 0.01
     kello.tick(60)
 ```
 
 Ohjelman suoritus näyttää tältä:
 
-TODO: Kuva tähän (pitäisi saada animoitu kuva)
+<img src="pygame_pyorinta.gif">
 
 Pyörimisanimaatio saadaan toteutettua trigonometrian avulla: muuttujassa `kulma` on radiaaneina robotin sijainnin kulma suhteessa ikkunan keskipisteeseen. Tästä saadaan laskettua sini- ja kosinifunktioilla robotin sijainti:
 
@@ -174,4 +179,52 @@ Pyörimisanimaatio saadaan toteutettua trigonometrian avulla: muuttujassa `kulma
 
 Tämä tarkoittaa, että robotin sijainti on ympyrällä, jonka säde on 100. Kosini antaa x-suuntaisen sijainnin ja sini puolestaan y-suuntaisen sijainnin. Jotta animaatio näyttää hyvältä, robotti lisäksi keskitetään niin, että sen keskipiste on ympyrällä.
 
-Joka kierroksella muuttujan `kulma` arvo kasvaa 0.1:llä. Koska radiaaneissa täysi ympyrä on 2π eli noin 6.28, robotti pyörii suunnilleen kierroksen verran sekunnissa.
+Joka kierroksella muuttujan `kulma` arvo kasvaa 0.01:llä. Koska radiaaneissa täysi ympyrä on 2π eli noin 6.28, robotti pyörii suunnilleen kierroksen verran 10 sekunnissa.
+
+<programming-exercise name='Pystyliike' tmcname=''>
+
+Tee animaatio, jossa robotti liikkuu vuorotellen ylös ja alas. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_pysty.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Reunan kierto' tmcname=''>
+
+Tee animaatio, jossa robotti kiertää ympäri ikkunan reunaa. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_kierto.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Kaksi robottia' tmcname=''>
+
+Tee animaatio, jossa kaksi robottia kulkee näytöllä vuorotellen oikealle ja vasemmalle. Alempi robotti kulkee tuplavauhtia. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_liike2.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Piirileikki' tmcname=''>
+
+Tee animaatio, jossa on kymmenen robottia piirileikissä. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_piiri.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Pomppiva pallo' tmcname=''>
+
+Tee animaatio, jossa pallo kimpoaa ikkunan reunoilta. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_pallo.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Robotti-invaasio' tmcname=''>
+
+Tee animaatio, jossa taivaalta tippuu satunnaisesti robotteja. Kun robotti laskeutuu maahan, se lähtee joko vasemmalle tai oikealle ja katoaa lopuksi ruudulta. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_invaasio.gif">
+
+</programming-exercise>

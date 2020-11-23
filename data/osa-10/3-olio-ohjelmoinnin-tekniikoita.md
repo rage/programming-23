@@ -44,7 +44,7 @@ Omena (hinta 2.2425)
 
 </sample-output>
 
-Kerrataaan vielä muuttujan `self` merkitys: luokan sisällä se viittaa nykyiseen olioon. Tyypillinen tapa käyttää muuttujaa onkin viitata olion omiin piirteisiin, esimerkiksi attribuuttien arvoihin. Muuttujaa voidaan käyttää myös palauttamaan koko olio (vaikka tälle onkin selvästi harvemmin tarvetta). Esimerkkiluokan `Tuote` metodi `halvempi` osaa palauttaa halvemman tuotteen, kun sille annetaan parametriksi toinen `Tuote`-luokan olio:
+Kerrataan vielä muuttujan `self` merkitys: luokan sisällä se viittaa nykyiseen olioon. Tyypillinen tapa käyttää muuttujaa onkin viitata olion omiin piirteisiin, esimerkiksi attribuuttien arvoihin. Muuttujaa voidaan käyttää myös palauttamaan koko olio (vaikka tälle onkin selvästi harvemmin tarvetta). Esimerkkiluokan `Tuote` metodi `halvempi` osaa palauttaa halvemman tuotteen, kun sille annetaan parametriksi toinen `Tuote`-luokan olio:
 
 ```python
 class Tuote:
@@ -310,7 +310,7 @@ Tehtäväpohjasta löytyy luokan `Raha` runko. Tässä tehtävässä laajennetaa
 
 ## Korjaa merkkijonoesitys
 
-Rahan merkkijonoesityksen muodostava metodi ei ole nyt ihan kunnossa. Seuraavassa esimerkissä muodstetaan kaksi raha-olioa, joista jälkimmäinen ei tulostu oikein:
+Rahan merkkijonoesityksen muodostava metodi ei ole nyt ihan kunnossa. Seuraavassa esimerkissä muodostetaan kaksi raha-olioa, joista jälkimmäinen ei tulostu oikein:
 
 ```python
 e1 = Raha(4, 10)
@@ -322,8 +322,8 @@ print(e2)
 
 <sample-output>
 
-4.10 eur
-2.5 eur
+4.10
+2.5
 
 </sample-output>
 
@@ -440,7 +440,7 @@ Muuta luokkan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, 
 
 Tässä tehtävässä toteutetaan luokka `Paivays`, jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi, että _jokaisessa kuussa on 30 päivää_.
 
-Huom! Edellisestä johtuen tehtävässä ei poikkeuksellisesti kannata käyttää Pythonin `datetime`-moduulia, vaan toteuttaa luokka itse.
+Huom! Edellisestä johtuen tehtävässä ei poikkeuksellisesti kannata käyttää Pythonin `datetime`-moduulia, vaan toteutetaan luokka itse.
 
 ## Vertailut
 

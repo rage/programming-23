@@ -371,15 +371,15 @@ Binäärihaussa yritetään löytää luonnollisessa järjestyksessä olevasta l
 Binäärihaun ideana on, että tarkastellaan aina listan keskimmäistä alkiota. Jos
 - keskimmäinen alkio on etsitty alkio, palautetaan tieto siitä, että alkio löytyi
 - keskimmäinen alkio on pienempi kuin etsittävä alkio, rajataan haku listan jälkimmäiselle puolikkaalle
-- keskimmäinen alkio on suurempi kuin etsittävä alkio, rajataan haku listan ensimmäiiselle puolikkaalle
+- keskimmäinen alkio on suurempi kuin etsittävä alkio, rajataan haku listan ensimmäiselle puolikkaalle
 
 Jos lista on tyhjä, palautetaan tieto siitä, että alkiota ei löytynyt.
 
-Seuraava kuva havainnollistaa binäärihaun etenemistä, kun etsitään listasta lukua 11:
+Seuraava kuva havainnollistaa binäärihaun etenemistä, kun etsitään listasta lukua 24:
 
 <img src="11_3_1.png">
 
-Rekursiivinen algoritmi binäärihaulles:
+Rekursiivinen algoritmi binäärihaulle:
 
 ```python
 

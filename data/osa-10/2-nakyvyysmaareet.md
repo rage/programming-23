@@ -35,7 +35,7 @@ class Muistikirja:
 
 ```
 
-Luokan sisäisen eheyden kannalta tietorakenteena toimivan listan piilottaminen asiakkaalta on sinänsä järkevää, koska luokka tarjoaa itse sopivat operaatiot muistiinpanojen lisäämiseksi ja selaamiseksi. Ongelmalliseksi tilanne muodostuu, jos yritetään kirjoittaa `Muistikirja`-luokan perivät luokka `ProMuistikirja`, johon halutaan lisätä muistiinpanojen etsiminen ja järjestäminen. Piilotetttu attribuutti ei ole käytettävissä myöskään aliluokissa; metodi `etsi_muistiinpanot` antaa kutsuttaessa virheen:
+Luokan sisäisen eheyden kannalta tietorakenteena toimivan listan piilottaminen asiakkaalta on sinänsä järkevää, koska luokka tarjoaa itse sopivat operaatiot muistiinpanojen lisäämiseksi ja selaamiseksi. Ongelmalliseksi tilanne muodostuu, jos yritetään kirjoittaa `Muistikirja`-luokan perivät luokka `ProMuistikirja`, johon halutaan lisätä muistiinpanojen etsiminen ja järjestäminen. Piilotettu attribuutti ei ole käytettävissä myöskään aliluokissa; metodi `etsi_muistiinpanot` antaa kutsuttaessa virheen:
 
 ```python
 class MuistikirjaPro(Muistikirja):
@@ -58,9 +58,17 @@ class MuistikirjaPro(Muistikirja):
 
 ```
 
+<sample-output>
+    
+AttributeError: 'MuistikirjaPro' object has no attribute '_MuistikirjaPro__muistiinpanot'
+
+</sample-output>
+
+
+
 ## Suojatut piirteet
 
-Toisin kuin joistain muista ohjelmointikielistä, Pythonista ei suoraan löydy ominaisuutta joka piilottaa piirteet asiakkailta mutta samaan aikaan avata ne mahdollisille aliluokille. Ratkaisuksi Python-yhteisö onkin päätynyt _konventioon_ eli yleisesti ymmärrettyyn merkintätapaan _suojatuille (eli protected)_  piirteille.
+Toisin kuin joistain muista ohjelmointikielistä, Pythonista ei suoraan löydy ominaisuutta joka piilottaa piirteet asiakkailta mutta samaan aikaan avaa ne mahdollisille aliluokille. Ratkaisuksi Python-yhteisö onkin päätynyt _konventioon_ eli yleisesti ymmärrettyyn merkintätapaan _suojatuille_ (eli _protected_)  piirteille.
 
 Koska piirre voidaan piilottaa kirjoittamalla sen tunnisteen (eli nimen) eteen kaksi alaviivaa
 

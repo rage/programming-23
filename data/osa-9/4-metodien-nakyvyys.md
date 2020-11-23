@@ -13,7 +13,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Luokassa olevien metodien näkyvyyteen voidaan vaikuttaa samalla tavalla kuin attribuuttien näkyvyyyteen. Jos metodin nimi alkaa kahdella alaviivalla `__`, metodi ei ole näkyvissä asiakkaille.
+Luokassa olevien metodien näkyvyyteen voidaan vaikuttaa samalla tavalla kuin attribuuttien näkyvyyteen. Jos metodin nimi alkaa kahdella alaviivalla `__`, metodi ei ole näkyvissä asiakkaille.
 
 Käytännössä mekanismia käytetään hiukan eri tavalla: piilotettujen attribuuttien käyttöä varten kirjoitetaan usein julkiset havainnointi- ja asetusmetodit. Piilotettu metodi on kuitenkin yleensä tarkoitettu vain luokan sisäiseen käyttöön, apumetodiksi asiakkaalta piilotettujen operaatioiden toteuttamiseksi.
 
@@ -102,7 +102,7 @@ class Korttipakka:
 
 Seuraava koodi testaa luokkaa:
 
-```
+```python
 korttipakka = Korttipakka()
 kasi1 = korttipakka.jaa(5)
 print(kasi1)
@@ -123,7 +123,7 @@ Piilotettuja metodeja tarvitaan yleensä harvemmin kuin piilotettuja attribuutte
 
 <programming-exercise name='Palvelumaksu' tmcname='osa09-12_palvelumaksu'>
 
-Kirjoita luokka `Pankkitili` joka mallintaa pankkitiliä. Luokalla tulee olla
+Kirjoita luokka `Pankkitili`, joka mallintaa pankkitiliä. Luokalla tulee olla
 
 * konstruktori, joka saa parametrikseen tilinomistajan (str), tilinumeron (str) ja saldon (float)
 * metodi `talleta(summa: float)`, jolla tilille voidaan tallettaa rahaa

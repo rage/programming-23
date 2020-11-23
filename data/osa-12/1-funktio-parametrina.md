@@ -110,7 +110,7 @@ Kutsuttiin hintajarjestys(('vesimeloni', 4.95))
 
 </sample-output>
 
-Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta ´sorted` löytyvää toista parametria `reverse`:
+Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta `sorted` löytyvää toista parametria `reverse`:
 
 ```python
 tuotteet.sort(key=hintajarjestys, reverse=True)
@@ -322,7 +322,7 @@ Smooth operator, pituus 9 metriä, grade 7A
 
 ## Vaikeuden mukainen järjestys
 
-Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan nousevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
+Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan laskevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
 
 Funktio toimii seuraavasti:
 
@@ -339,10 +339,10 @@ for reitti in vaikeuden_mukaan(reitit):
 
 <sample-output>
 
-Pieniä askelia, pituus 12 metriä, grade 6A+
-Kantti, pituus 38 metriä, grade 6A+
-Smooth operator, pituus 9 metriä, grade 7A
 Syncro, pituus 14 metriä, grade 8C+
+Smooth operator, pituus 11 metriä, grade 7A
+Kantti, pituus 38 metriä, grade 6A+
+Pieniä askelia, pituus 12 metriä, grade 6A+
 
 </sample-output>
 
@@ -535,7 +535,7 @@ class Levy:
 if __name__ == "__main__":
     l1 = Levy("Nevermind", "Nirvana", 1991, 43)
     l2 = Levy("Let It Be", "Beatles", 1969, 35)
-    l3 = Levy("U2", "Joshua Tree", 1986, 50)
+    l3 = Levy("Joshua Tree", "U2", 1986, 50)
 
     levyt = [l1, l2, l3]
 
@@ -584,9 +584,9 @@ Funktio palauttaa _tuplena_ sen pelaajan nimen ja pelinumeron, joka on tehnyt yh
 
 ## Vähiten peliminuuttjea
 
-Kirjoita funktio `vahiten_minutteja`, joka sa parametrikseen listan palloilijoita.
+Kirjoita funktio `vahiten_minuutteja`, joka sa parametrikseen listan palloilijoita.
 
-FUnktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
+Funktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
 
 
 </programming-exercise>
@@ -656,7 +656,7 @@ Funktiossa parametrille `kriteeri` on määritelty oletusarvoksi lambda-lauseke 
 
 <programming-exercise name='Tuotteiden haku' tmcname='osa12-07_tuotteiden_haku'>
 
-Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet`seuraavasti:
+Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet` seuraavasti:
 
 ```python
 tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22), ("Kaali", 0.99, 1)]

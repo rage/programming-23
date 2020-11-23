@@ -45,7 +45,7 @@ class Korkotili:
 
 Koska yleiskorko on määritelty luokassa eikä metodin sisällä eikä sen alustuksessa ole käytetty `self`-aluketta, se on luokkamuuttuja.
 
-Luokkamuttujaan viitataan luokan nimen avulla, esimerkiksi näin:
+Luokkamuuttujaan viitataan luokan nimen avulla, esimerkiksi näin:
 
 ```python
 # Yleiskorko on olioista riippumaton
