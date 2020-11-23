@@ -13,11 +13,8 @@ Tämän osion jälkeen
 
 </text-box>
 
-Python on mainio työkalu tekstin käsittelemiseen. Sisäänrakennetut operaatiot ovat yksinkertaisia käyttää mutta melko tehokkaita.
-
-Vaativampien operaatioiden toteuttaminen saattaa kuitenkin muodostua ongelmalliseksi. Tätä tarkoitusta varten Pythonista löytyy useimpien muiden ohjelmointikielten tapaan _säännölliset lausekkeet_ (_regular expressions_).
-
-Säännöllisten lausekkeiden avulla on mahdollista määritellä hyvinkin monimutkaisia sääntöjä, joiden perusteella voidaan esimerkiski poimia, suodattaa tai etsiä merkkijonon osia. Tässä osiossa käydään läpi säännöllisten lausekkeiden perusteita, ja löydät lisää tietoa Pythonin omasta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
+Python on mainio työkalu tekstin käsittelemiseen. Yksi työkalu tekstin käsittelemisessä ovat
+_säännölliset lausekkeet_ (_regular expressions_), joiden avulla voi esimerkiksi poimia ja etsiä merkkijonoja, jotka ovat tietyn muotoisia. Tässä osiossa käydään läpi säännöllisten lausekkeiden perusteita, ja löydät lisää tietoa Pythonin omasta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
 
 ## Mitä ovat säännölliset lausekkeet?
 
@@ -112,9 +109,9 @@ Ei osumaa.
 
 ### Merkkijoukot
 
-Hakasulkeiden väliin voidaan merkitä joukko hyväksyttyjä merkkejä. Esimerkiksi merkintä `[aeio]` täsmää jonoihin, joista löytyy jokin merkeistä a, e, i, tai o. Merkintätapa sallii myös väliviivan käytön. Merkintä [0-68a-d] hyväksyy jonot, joista löytyy numero nollasta kuuteen, kahdeksikko tai merkki väliltä a...d. Merkintä `[1-3][0-9]` hyväksyy kaksinumeroiset luvut väliltä 10...39.
+Hakasulkeiden väliin voidaan merkitä joukko hyväksyttyjä merkkejä. Esimerkiksi merkintä `[aeio]` täsmää jonoihin, joista löytyy jokin merkeistä a, e, i, tai o. Merkintätapa sallii myös väliviivan käytön. Merkintä `[0-68a-d]` hyväksyy jonot, joista löytyy numero nollasta kuuteen, kahdeksikko tai merkki väliltä a...d. Merkintä `[1-3][0-9]` hyväksyy kaksinumeroiset luvut väliltä 10...39.
 
-Esimerkiksi
+Esimerkiksi:
 
 <sample-output>
 
@@ -134,13 +131,13 @@ Ei osumaa.
 
 </sample-output>
 
-### Merkkien määrä
+### Toistaminen
 
-Merkkien määrää voidaan rajata esimerkiksi seuraavien operaattorien avulla:
+Lausekkeen osaa voidaan toistaa esimerkiksi seuraavien operaattorien avulla:
 
-`*` hyväksyy nolla tai useamman osuman
-`+` hyväksyy yhden tai useamman osuman
-`{m}` hyväksyy täsmälleen m osumaa
+* `*` toistaa osaa minkä tahansa määrän kertoja (myös nolla)
+* `+` toistaa osaa minkä tahansa määrän kertoja (ainakin yhden)
+* `{m}` toistaa osaa täsmälleen `m` kertaa
 
 Operaattorit viittaavat niitä edeltävään lausekkeen osaan. Esimerkiksi lauseke `ba+b` hyväksyy esimerkiksi osajonot `bab`, `baab` ja `baaaaaaaaaaab`. Lauseke `A[BCDE]*Z` puolestaan hyväksyy esimerkiksi osajonot `AZ`, `ADZ` tai `ABCDEBCDEBCDEZ`.
 
