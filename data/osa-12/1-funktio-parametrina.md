@@ -558,7 +558,7 @@ U2 (Joshua Tree), 1986. 50 min.
 
 <programming-exercise name='Palloilijat' tmcname='osa12-06_palloilijat'>
 
-Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirteet:
+Tehtäväpohjasta löytyy luokka `Palloilija`, jolla on seuraavat julkiset piirteet:
 
 * nimi
 * pelinumero
@@ -566,27 +566,25 @@ Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirtee
 * annettujen syöttöjen määrä `syotot`
 * peliminuuttien määärä `minuutit`
 
-Kirjoita seuraavien tehtävänantojen mukaiset funktiot
-
-Huomaa, että jokaisessa funktiossa palautetaan erityyppiset tiedot!
+Kirjoita seuraavien tehtävänantojen mukaiset funktiot. Huomaa, että jokaisessa funktiossa palautetaan erityyppiset tiedot.
 
 ## Eniten maaleja
 
 Kirjoita funktio `eniten_maaleja`, joka saa parametrikseen listan palloilijoita.
 
-Funktio palauttaa merkkijonona sen pelaajan _nimen_, joka on tehnyt eniten maaleja.
+Funktio palauttaa merkkijonona sen pelaajan nimen, joka on tehnyt eniten maaleja.
 
 ## Eniten pisteitä
 
 Kirjoita funktio `eniten_pisteita`, joka saa parametrikseen listan palloilijoita.
 
-Funktio palauttaa _tuplena_ sen pelaajan nimen ja pelinumeron, joka on tehnyt yhteensä eniten pisteitä. Pisteisiin lasketaan siis sekä maalit että syötöt.
+Funktio palauttaa tuplena sen pelaajan nimen ja pelinumeron, joka on tehnyt yhteensä eniten pisteitä. Pisteisiin lasketaan siis sekä maalit että syötöt.
 
 ## Vähiten peliminuuttjea
 
-Kirjoita funktio `vahiten_minuutteja`, joka sa parametrikseen listan palloilijoita.
+Kirjoita funktio `vahiten_minuutteja`, joka saa parametrikseen listan palloilijoita.
 
-Funktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
+Funktio palauttaa sen `Palloilija`-olion, jolla on vähiten peliminuutteja kaikista pelaajista.
 
 
 </programming-exercise>
