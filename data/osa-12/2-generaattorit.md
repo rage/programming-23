@@ -158,21 +158,20 @@ for luku in luvut:
 
 <programming-exercise name='Alkuluvut' tmcname='osa12-09_alkuluvut'>
 
-Alkuluvuksi sanotaan kokonaislukua, joka on tasan jaollinen ainoastaan ykkösellä ja itsellään. Esimerkkejä alkuluvuista ovat siis esimerkiksi luvut 1, 2, 3, 5, 7, 11 ja 13.
+Alkuluvuksi sanotaan kokonaislukua, joka on vähintään 2 ja jaollinen ainoastaan 1:llä ja itsellään. Ensimmäiset alkuluvut ovat 2, 3, 5, 7, 11 ja 13.
 
-Kirjota generaattorifunktio `alkuluvut()`, joka luo uuden generaattorin. Generaattori palauttaa yksi kerrallaan alkulukuja alkaen ykkösestä. Huomaa, että generaattori ei pysähdy koskaan, vaan palauttaa lisää lukuja niin kauan kuin niitä pyydetään.
+Kirjota generaattorifunktio `alkuluvut()`, joka luo uuden generaattorin. Generaattori palauttaa yksi kerrallaan alkulukuja järjestyksessä 2:sta alkaen. Huomaa, että generaattori ei pysähdy koskaan, vaan palauttaa lisää lukuja niin kauan kuin niitä pyydetään.
 
 Esimerkiksi:
 
 ```python
 luvut = alkuluvut()
-for i in range(9):
+for i in range(8):
     print(next(luvut))
 ```
 
 <sample-output>
 
-1
 2
 3
 5
