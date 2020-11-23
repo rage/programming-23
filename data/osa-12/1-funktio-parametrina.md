@@ -110,7 +110,7 @@ Kutsuttiin hintajarjestys(('vesimeloni', 4.95))
 
 </sample-output>
 
-Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta ´sorted` löytyvää toista parametria `reversed`:
+Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta `sorted` löytyvää toista parametria `reversed`:
 
 ```python
 tuotteet.sort(key=hintajarjestys, reverse=True)
