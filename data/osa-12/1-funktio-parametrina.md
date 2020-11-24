@@ -653,7 +653,7 @@ Funktion `suorita_operaatio` lopputulos siis riippuu siitä, mikä funktio sille
 Vaikkei funktioiden välittäminen parametrina olekaan kaikkein yleisimmin tarvittava operaatio, on se joka tapauksessa hyödyllinen mekanismi. Esimerkiksi seuraava ohjelma kirjoittaa tiedostosta 1 halutut rivit tiedostoon 2. Rivien valintakriteeri annetaan funktiona, joka palauttaa `True`, jos rivi tulee kirjoittaa toiseen tiedostoon:
 
 ```python
-def kopioi_rivit(lahde_nimi: str, kohde_nimi: str, kriteeri: lambda x: True):
+def kopioi_rivit(lahde_nimi: str, kohde_nimi: str, kriteeri= lambda x: True):
     with open(lahde_nimi) as lahde, open(kohde_nimi, "w") as kohde:
         for rivi in lahde:
             # Poistetaan ensin tyhjät merkit alusta ja lopusta
