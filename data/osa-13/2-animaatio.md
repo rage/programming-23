@@ -45,7 +45,7 @@ Ohjelman suoritus näyttää seuraavalta:
 
 <img src="pygame_animaatio.gif">
 
-Katsotaan taas tarkemmin, mitä ohjelmassa tapahtuu. Jotta kuva pystyy liikkumaan, meillä täytyy olla tieto sen paikasta. Tämä onnistuu ottamalla käyttöön kaksi muuttujaa, jotka sisältävät kuvan vasemman yläkulman koordinaatit:
+Katsotaan taas tarkemmin, mitä ohjelmassa tapahtuu. Jotta kuva pystyy liikkumaan, ohjelmassa täytyy olla tieto sen paikasta. Tämä onnistuu ottamalla käyttöön kaksi muuttujaa, jotka sisältävät kuvan vasemman yläkulman koordinaatit:
 
 ```python
 x = 0
@@ -68,9 +68,9 @@ Pääsilmukan sisällä on koodi, joka piirtää kuvan sen nykyiseen paikkaan:
 
 Ensin kutsutaan metodia `fill`, joka tyhjentää ikkunan mustalla värillä. Väri määritellään RGB-muodossa parametrilla `(0, 0, 0)`, mikä tarkoittaa, että värin punainen, vihreä ja sininen komponentti on 0 eli väri on musta. Jokainen komponentti voi olla välillä 0–255. Esimerkiksi `(255, 255, 255)` on valkoinen ja `(255, 0, 0)` on punainen.
 
-Tämän jälkeen kuva piirretään tuttuun tapaan metodilla `blit` ja lopuksi ikkunan sisältö päivitetään funktiolala `pygame.display.flip`.
+Tämän jälkeen kuva piirretään tuttuun tapaan metodilla `blit` ja lopuksi ikkunan sisältö päivitetään funktiolla `pygame.display.flip`.
 
-Silmukan päätteeksi muuttujan `x` arvo kasvaa kahdella, minkä ansiosta kuva liikkuu pikselin eteenpäin joka kierroksella:
+Silmukan päätteeksi muuttujan `x` arvo kasvaa, minkä ansiosta kuva liikkuu pikselin eteenpäin joka kierroksella:
 
 ```python
     x += 1
@@ -82,7 +82,7 @@ Lisäksi silmukan lopussa suoritetaan kellon metodi `tick`:
     kello.tick(60)
 ```
 
-Metodi `tick` huolehtii siitä, että animaation nopeus on sopiva: se tahdistaa silmukan niin, että silmukka pyritään suorittamaan 60 kertaa sekunnissa. Toisin sanoen kuva liikkuu sekunnissa 60 pikseliä oikealle. Tämä vastaa pelien yhteydessä käytettävää termiä _FPS_ (_frames per second_).
+Metodi `tick` huolehtii siitä, että animaation nopeus on sopiva: se tahdistaa silmukan niin, että silmukka pyritään suorittamaan 60 kertaa sekunnissa. Toisin sanoen kuva liikkuu sekunnissa 60 pikseliä oikealle. Tämä vastaa suunnilleen pelien yhteydessä käytettävää termiä _FPS_ (_frames per second_).
 
 Metodi `tick` on hyödyllinen, koska sen avulla animaatio toimii periaatteessa yhtä nopeasti jokaisella koneella. Jos silmukassa ei olisi tällaista ajastusta, pelin nopeus riippuisi siitä, kuinka nopeasti pelaajan kone toimii.
 
@@ -133,7 +133,7 @@ Seuraavat rivit huolehtivat, että robotti osaa törmätä seinään:
         nopeus = -nopeus
 ```
 
-Jos nopeus on positiivinen eli robotti liikkuu oikealle ja sen oikea reuna alkaa olla ikkunan oikean reunan ulkopuolella, robotin suunta muuttuu käänteiseksi eli se alkaa liikkua vasemmalle. Vastaavasti jos nopeus on negatiivinen ja robotin vasen reuna alkaa olla ikkunan vasemman reunan ulkopuolella, suunta muuttuu taas käänteiseksi eli robotti alkaa liikkua oikealle.
+Jos nopeus on positiivinen eli robotti liikkuu oikealle ja sen oikea reuna menee ikkunan oikean reunan ulkopuolelle, robotin suunta muuttuu käänteiseksi eli se alkaa liikkua vasemmalle. Vastaavasti jos nopeus on negatiivinen ja robotin vasen reuna menee ikkunan vasemman reunan ulkopuolelle, suunta muuttuu taas käänteiseksi eli robotti alkaa liikkua oikealle.
 
 Tämän koodin ansiosta robotti jatkaa loputtomasti rataa, jossa se liikkuu ensin koko ikkunan verran oikealle, sitten takaisin vasemmalle, sitten taas oikealle, jne.
 
@@ -218,6 +218,8 @@ Tee animaatio, jossa on kymmenen robottia piirileikissä. Ohjelman suorituksen t
 Tee animaatio, jossa pallo kimpoaa ikkunan reunoilta. Ohjelman suorituksen tulee näyttää tältä:
 
 <img src="pygame_pallo.gif">
+
+Palloa varten voit piirtää sopivan kuvatiedoston, jonka peli lataa.
 
 </programming-exercise>
 
