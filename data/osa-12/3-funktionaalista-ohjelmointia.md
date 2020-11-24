@@ -455,7 +455,7 @@ s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
 s3 = Suoritus("Pekka Python", "Tietoliikenteen perusteet", 3)
 s4 = Suoritus("Olivia Ohjelmoija", "Johdatus yliopistomatematiikkaan", 3)
 
-for suoritus in suoritus_arvosanalla([s1, s2, s3, s4]):
+for suoritus in suoritus_arvosanalla([s1, s2, s3, s4], 3):
     print(suoritus)
 ```
 
