@@ -12,7 +12,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Kurssin kahdella viimeisellä viikolla tutustumme Pygame-kirjastoon, joka on peliohjelmointiin tarkoitettu Python-kirjasto. Pygamen avulla pystyy piirtämään grafiikkaa, käsittelemään näppäimistön ja hiiren tapahtumia, soittamaan ääniä ja tekemään muuta peleissä tarvittavaa.
+Kurssin kahdella viimeisellä viikolla tutustumme Pygame-kirjastoon, joka on peliohjelmointiin tarkoitettu Python-kirjasto. Pygamen avulla pystyy piirtämään grafiikkaa, käsittelemään näppäimistön ja hiiren tapahtumia ja tekemään muuta peleissä tarvittavaa.
 
 ## Pygamen asentaminen
 
@@ -40,16 +40,14 @@ Kun ohjelma käynnistetään, se näyttää käyttäjälle seuraavanlaisen ikkun
 
 Ohjelmassa ei ole kuitenkaan vielä muuta sisältöä kuin ikkunan näyttäminen. Ohjelman suoritus jatkuu niin kauan, kunnes käyttäjä sulkee ikkunan.
 
-Katsotaan seuraavaksi tarkemmin, miten ohjelma on rakentunut. Ohjelman alussa rivi `import pygame` ottaa mukaan Pygame-kirjaston, ja ohjelman pääfunktio on `peli`, jonka sisällä on varsinainen ohjelman koodi.
-
-Ensimmäinen vaihe ohjelmassa on aloittaa Pygamen käyttäminen funktiolla `pygame.init` ja luoda ikkuna funktiolla `pygame.display.set_mode`.
+Katsotaan seuraavaksi tarkemmin, miten ohjelma on rakentunut. Ohjelman alussa rivi `import pygame` ottaa mukaan Pygame-kirjaston. Kirjaston käyttäminen alkaa kutsumalla funktiota `pygame.init`, minkä jälkeen ohjelma luo ikkunan funktiolla `pygame.display.set_mode`.
 
 ```python
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 ```
 
-Muuttujan `naytto` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640, 480)` tarkoittaa, että tässä ohjelmassa ikkunan koko on 640x480 pikseliä.
+Muuttujan `naytto` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640, 480)` tarkoittaa, että tässä ohjelmassa ikkunan leveys on 640 pikseliä ja korkeus on 480 pikseliä.
 
 Tämän jälkeen alkaa ohjelman _pääsilmukka_:
 
@@ -96,7 +94,7 @@ Nyt ikkuna näyttää tältä:
 
 Tässä funktio `pygame.image.load` lataa muuttujaan tiedostossa `robo.png` olevan kuvan. Tämän jälkeen metodi `blit` piirtää kuvan ikkunaan kohtaan `(100, 50)` ja sitten funktio `pygame.display.flip` päivittää ikkunan sisällön. Kohta `(100, 50)` tarkoittaa, että kuvan _vasen yläkulma_  on kyseisessä kohdassa.
 
-Huomaa, että Pygamessa ja yleensä muutenkin ohjelmoinnissa koordinaatisto on rakennettu niin, että piirtoalueen vasen yläkulma on kohdassa `(100, 50)` ja koordinaatit kasvavat x-suunnassa oikealle ja y-suunnassa alaspäin. Tässä tapauksessa ikkunan oikean alakulman koordinaatit ovat `(640, 480)`.
+Huomaa, että Pygamessa ja yleensä muutenkin ohjelmoinnissa koordinaatisto on rakennettu niin, että piirtoalueen vasen yläkulma on kohdassa `(0, 0)` ja koordinaatit kasvavat x-suunnassa oikealle ja y-suunnassa alaspäin. Tässä tapauksessa ikkunan oikean alakulman koordinaatit ovat `(640, 480)`.
 
 Kuvan voi piirtää moneenkin kohtaan ikkunassa. Esimerkiksi seuraava koodi piirtää kuvan kolmeen eri kohtaan:
 
