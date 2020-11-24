@@ -16,7 +16,7 @@ Tähän asti olemme toteuttaneet Pygame-ohjelman pääsilmukan niin, että se k�
 
 ## Tapahtumien käsittely
 
-Seuraavan koodin avulla voimme tutkia, mitä tapahtumia syntyy ohjelman suorituksen aikana:
+Seuraavan koodi näyttää, mitä tapahtumia syntyy ohjelman suorituksen aikana:
 
 ```python
 import pygame
@@ -74,7 +74,9 @@ while True:
             exit()
 ```
 
-Tässä näppäinkoodit 275 ja 276 tarkoittavat nuolinäppäimiä oikealle ja vasemmalle. Nämä koodit on saatu selville tutkimalla, mitä tapahtumia syntyy, kun käyttäjä painaa nuolinäppäimiä.
+TODO: Näppäinkoodit vaihtelevat eri ympäristöissä
+
+Tässä näppäinkoodit 79 ja 80 tarkoittavat nuolinäppäimiä oikealle ja vasemmalle. Nämä koodit on saatu selville tutkimalla, mitä tapahtumia syntyy, kun käyttäjä painaa nuolinäppäimiä.
 
 Esimerkiksi kun käyttäjä painaa ensin kahdesti oikealle, sitten kerran vasemmalle ja lopuksi kerran oikealle, ohjelman tulostus on seuraava:
 
@@ -160,7 +162,7 @@ while True:
 
 Koodissa on nyt muuttujat `oikealle` ja `vasemmalle`, joissa pidetään tietoa siitä, kuuluuko hahmon liikkua tällä hetkellä oikealle tai vasemmalle. Kun käyttäjä painaa alas nuolinäppäimen, vastaava muuttuja saa arvon `True`, ja kun käyttäjä nostaa alas nuolinäppäimen, vastaava muuttuja saa arvon `False`.
 
-Hahmon liike on tahdistettu kellon avulla niin, että liikkumista tapahtuu 60 kertaa sekunnissa. Jos nuolinäppäin on alhaalla, hahmo voi liikkua 2 pikseliä oikealle tai vasemmalle. Tämän seurauksena hahmo liikkuu 120 pikseliä sekunnissa, jos nuolinäppäin on painettuna.
+Hahmon liike on tahdistettu kellon avulla niin, että liikkumista tapahtuu 60 kertaa sekunnissa. Jos nuolinäppäin on alhaalla, hahmo liikkuu 2 pikseliä oikealle tai vasemmalle. Tämän seurauksena hahmo liikkuu 120 pikseliä sekunnissa, jos nuolinäppäin on painettuna.
 
 ## Hiiren käsittely
 
@@ -269,7 +271,7 @@ Tee ohjelma, jossa pelaaja pystyy ohjaamaan robottia neljään suuntaan nuolinä
 
 <programming-exercise name='Neljä seinää' tmcname=''>
 
-Laajenna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulkopuolelle mistään reunasta. Ohjelman suorituksen tulee näyttää tältä:
+Paranna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulkopuolelle mistään reunasta. Ohjelman suorituksen tulee näyttää tältä:
 
 <img src="pygame_nelja_seinaa.gif">
 
