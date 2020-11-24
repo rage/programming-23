@@ -694,6 +694,7 @@ s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
 s2 = Suoritus("Ohjelmoinnin jatkokutssi", 4, 5)
 s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
 summa = kaikkien_opintopisteiden_summa([s1, s2, s3])
+print(summa)
 ```
 
 <sample-output>
@@ -713,6 +714,7 @@ s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
 s2 = Suoritus("Ohjelmoinnin jatkokutssi", 0, 4)
 s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
 summa = hyvaksyttyjen_opintopisteiden_summa([s1, s2, s3])
+print(summa)
 ```
 
 <sample-output>
@@ -732,6 +734,7 @@ s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
 s2 = Suoritus("Ohjelmoinnin jatkokutssi", 0, 4)
 s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
 summa = keskiarvo([s1, s2, s3])
+print(summa)
 ```
 
 <sample-output>
