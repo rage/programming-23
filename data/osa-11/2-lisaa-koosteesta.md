@@ -472,7 +472,7 @@ Kutsuttaessa `yleisimmat_sanat("comprehensions.txt", 3)` funktion palauttama san
 
 </sample-output>
 
-Huomaa, että vain kokonaiset sanat lasketaan - sana 'lists' ei siis saa kasvattaa sanan 'list' lukumäärää, vaikka osajono 'list' löytyykin jonosta 'lists'. Lisäksi kaikki sanoissa olevat välimerkit tulee poistaa.
+Huomaa, että kirjainkoko vaikuttaa ja vain kokonaiset sanat lasketaan - sanat 'List' ja 'lists' eivät siis saa kasvattaa sanan 'list' lukumäärää. Lisäksi kaikki sanoissa olevat välimerkit tulee poistaa.
 
 Funktion toteutustapa on vapaa, helpoimmalla pääset hyödyntämällä lista- ja sanakirjakoosteita.
 
