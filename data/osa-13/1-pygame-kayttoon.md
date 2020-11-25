@@ -16,7 +16,21 @@ Kurssin kahdella viimeisellä viikolla tutustumme Pygame-kirjastoon, joka on pel
 
 ## Pygamen asentaminen
 
-TODO
+### Windows
+
+Avaa Windowsin terminaali napauttamalla oikean alakulman Windows-painiketta. Kirjoita aukeavaan ikkunaan `cmd` ja paina enter:
+
+<img src="13_1_1.png">
+
+Kirjoita auenneeeseen komentokehoteikkunaan seuraava komentosarja ja paina `enter`:
+
+`pip3 install pygame`
+
+Tämä asentaa Pygame-paketin koneellesi.
+
+Asennus voi vaatia järjestelmänvalvojan oikeuksia. Jos ylläoleva ei toimi, voit yrittää ajaa terminaalin järjestelmänvalvojana (valitse Windows-valikko, paina hiiren kakkospainiketta CMD-valinnan päällä ja valitse "Run as administrator" tai "Aja järjestelmänvalvojana").
+
+Huomaa, että asennus vaatii että olet asennusvaiheessa ohjeiden mukaisesti valinnut kohdan "Add Python 3.XX to path", katso [ohjeet](https://www.mooc.fi/fi/installation/vscode#python3)
 
 ## Ensimmäinen ohjelma
 
