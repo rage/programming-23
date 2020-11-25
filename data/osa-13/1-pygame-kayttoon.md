@@ -49,6 +49,7 @@ naytto = pygame.display.set_mode((640, 480))
 
 Muuttujan `naytto` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640, 480)` tarkoittaa, että tässä ohjelmassa ikkunan leveys on 640 pikseliä ja korkeus on 480 pikseliä.
 
+
 Tämän jälkeen alkaa ohjelman _pääsilmukka_:
 
 ```python
@@ -87,6 +88,8 @@ while True:
 Koodi käyttää kuvaa `robo.png`, jossa on robotin kuva:
 
 <img src="robo.png">
+
+TODO: miten robotin kuvan saa omaan ohjelmaan?
 
 Nyt ikkuna näyttää tältä:
 

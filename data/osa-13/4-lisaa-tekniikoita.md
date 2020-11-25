@@ -91,6 +91,8 @@ Tee ohjelma, joka näyttää graafisesti kellonajan. Ohjelman suorituksen tulee 
 
 Tee peli, jossa pelaaja ohjaa robottia vasemmalle ja oikealle ja tavoitteena on kerätä taivaalta putoavia asteroideja. Pelaaja saa pisteen jokaisesta kerätystä asteroidista, ja pistemäärä näytetään ikkunan ylälaidassa. Peli päättyy, kun pelaaja ei saa kiinni asteroidia. Pelin tulisi näyttää tältä:
 
+TODO: onko jossain puhuttu siitä, miten asteroidin ja pelaajan törmääminen pitäisi havaita?
+
 <img src="pygame_asteroidit.gif">
 
 </programming-exercise>

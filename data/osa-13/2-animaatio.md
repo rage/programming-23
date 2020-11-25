@@ -68,6 +68,8 @@ Pääsilmukan sisällä on koodi, joka piirtää kuvan sen nykyiseen paikkaan:
 
 Ensin kutsutaan metodia `fill`, joka tyhjentää ikkunan mustalla värillä. Väri määritellään RGB-muodossa parametrilla `(0, 0, 0)`, mikä tarkoittaa, että värin punainen, vihreä ja sininen komponentti on 0 eli väri on musta. Jokainen komponentti voi olla välillä 0–255. Esimerkiksi `(255, 255, 255)` on valkoinen ja `(255, 0, 0)` on punainen.
 
+TODO: Olisiko tässä hyvä olla linkki vaikka johonkin värivalitsimeen? Esim. https://www.rapidtables.com/web/color/RGB_Color.html
+
 Tämän jälkeen kuva piirretään tuttuun tapaan metodilla `blit` ja lopuksi ikkunan sisältö päivitetään funktiolla `pygame.display.flip`.
 
 Silmukan päätteeksi muuttujan `x` arvo kasvaa, minkä ansiosta kuva liikkuu pikselin eteenpäin joka kierroksella:
