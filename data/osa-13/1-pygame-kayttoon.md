@@ -18,7 +18,7 @@ Kurssin kahdella viimeisellä viikolla tutustumme Pygame-kirjastoon, joka on pel
 
 ### Windows
 
-Avaa Windowsin terminaali napauttamalla oikean alakulman Windows-painiketta. Kirjoita aukeavaan ikkunaan `cmd` ja paina enter:
+Avaa Windowsin terminaali napauttamalla vasemman alakulman Windows-painiketta. Kirjoita aukeavaan ikkunaan `cmd` ja paina enter:
 
 <img src="13_1_1.png">
 
