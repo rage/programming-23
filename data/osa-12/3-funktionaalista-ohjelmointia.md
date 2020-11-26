@@ -25,7 +25,7 @@ Funktionaalinen ohjelmointi on esimerkki ohjelmointiparadigmasta eli ohjelmointi
 
 Pythonin monipuolisuus tulee hyvin esille siinä, että voimme hyödyntää siinä useita eri paradigmoja - jopa samoissa ohjelmissa. Näin voimme hyödyntää tehokkainta ja selkeintä tapaa ongelmien ratkaisemiseksi.
 
-Tarkastellaan vielä muutamaan funktionaalisen ohjelmoinnin työkalua Pythonissa.
+Tarkastellaan vielä muutamaa funktionaalisen ohjelmoinnin työkalua Pythonissa.
 
 ## map
 
@@ -406,7 +406,7 @@ Tulostuu
 Hauki (1870 g.)
 Hauki (3410 g.)
 Turska (2449 g.)
-sama uudelleen"
+sama uudelleen
 
 </sample-output>
 
@@ -500,7 +500,7 @@ Viimeinen tarkastelemamme funktio on `reduce`. Kuten funktion nimi vihjaa, sen t
 
 Reduce toimii sitten, että se pitää mukanaan koko ajan _arvoa_, jota se muuttaa yksi kerrallaan käydessään läpi listan alkioita.
 
-Seuraavassa on esimerkki, joka summaa `reduce`-funktionn avulla listan luvut yhteen. Huomaa, että Pythonin versiosta 3 alkaen funktio `reduce` pitää erikseen ottaa käyttöön moduulista `functools`.
+Seuraavassa on esimerkki, joka summaa `reduce`-funktion avulla listan luvut yhteen. Huomaa, että Pythonin versiosta 3 alkaen funktio `reduce` pitää erikseen ottaa käyttöön moduulista `functools`.
 
 ```python
 from functools import reduce
@@ -558,7 +558,7 @@ summa nyt 6, vuorossa alkio 5
 
 </sample-output>
 
-Ensimmäisenä siis käsitellään listan alkio, jonka arvo on 2. Tässä vaiheessa summa on 0, eli sillä on reducelle annettu alkiarvo. Funktio laskee ja palauttaa näiden summan eli 0+2.
+Ensimmäisenä siis käsitellään listan alkio, jonka arvo on 2. Tässä vaiheessa summa on 0, eli sillä on reducelle annettu alkuarvo. Funktio laskee ja palauttaa näiden summan eli 0+2.
 
 Tämä arvo on parametrin `summa` arvona kun funktiota kutsutaan seuraavalle listan alkiolle eli luvulle 3. Funktio laskee ja palauttaa 2 + 3, joka taas toimii parametrina seuraavalle funktiokutsulle.
 
