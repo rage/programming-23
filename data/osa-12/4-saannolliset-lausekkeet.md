@@ -280,7 +280,7 @@ False
 
 ## Loppuhuipennus
 
-Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tämä tehtävä ei sijainnostaan huolimatta liity mitenkään säännöllisiin lausekkeisiin, mutta luvun [Funktio parametrina](/osa-12/1-funktio-parametrina) asia tulee olemaan tarpeen ja myös [listakoosteet](/osa-11/1-koosteet) voivat olla käyttökelpoisia.
+Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tämä tehtävä ei sijainnistaan huolimatta liity mitenkään säännöllisiin lausekkeisiin, mutta luvun [Funktio parametrina](/osa-12/1-funktio-parametrina) asia tulee olemaan tarpeen ja myös [listakoosteet](/osa-11/1-koosteet) voivat olla käyttökelpoisia.
 
 Sovelluksen rakenteelle voi ottaa inspiraatiota osan 10 [viimeisestä luvusta](/osa-10/4-lisaa-esimerkkeja).
 
