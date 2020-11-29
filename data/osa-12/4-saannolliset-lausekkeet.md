@@ -262,7 +262,7 @@ Esimerkki funktion kutsumisesta:
 
 ```python
 print(kellonaika("12:43:01"))
-print(kellonaika("ab:cd:ef"))
+print(kellonaika("AB:01:CD"))
 print(kellonaika("17:59:59"))
 print(kellonaika("33:66:77"))
 ```
