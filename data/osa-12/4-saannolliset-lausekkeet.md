@@ -43,6 +43,8 @@ Pallon löytyy!
 
 Pythonissa säännöllisiä lausekkeita voi käsitellä moduulin `re` avulla. Esimerkiksi yllä olevassa koodissa oleva metodi `search` etsii merkkijonosta osaa, joka täsmää annettuun säännölliseen lausekkeeseen.
 
+Huomaa, että säännöllinen lauseke annetaan _merkkijonona_ funktion `search` parametriksi.
+
 Toinen esimerkki etsii merkkijonosta luvut. Metodi `findall` palauttaa kaikki säännölliseen lausekkeeseen täsmäävät osajonot listana:
 
 ```python

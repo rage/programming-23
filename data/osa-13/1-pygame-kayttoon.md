@@ -32,6 +32,25 @@ Asennus voi vaatia järjestelmänvalvojan oikeuksia. Jos ylläoleva ei toimi, vo
 
 Huomaa, että asennus vaatii että olet asennusvaiheessa ohjeiden mukaisesti valinnut kohdan "Add Python 3.XX to path", katso [ohjeet](https://www.mooc.fi/fi/installation/vscode#python3)
 
+### Mac
+
+Avaa _Terminaali_, esim. painamalla oikean yläkulman suurennuslasi-symbolia:
+
+<img src="13-1-2.png">
+
+ Kirjoita aukeavaan teksikenttään `terminal` ja paina enter:
+
+<img src="13-1-3.png">
+
+Kirjoita auenneeeseen komentokehoteikkunaan seuraava komentosarja ja paina `enter`:
+
+`pip3 install pygame`
+
+<img src="13-1-4.png">
+
+
+Tämä asentaa Pygame-paketin koneellesi.
+
 ## Ensimmäinen ohjelma
 
 Tässä on yksinkertainen Pygamea käyttävä testiohjelma:
