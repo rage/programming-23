@@ -229,7 +229,7 @@ Tee animaatio, jossa pallo kimpoaa ikkunan reunoilta. Ohjelman suorituksen tulee
 
 <img src="pygame_pallo.gif">
 
-Palloa varten voit piirtää sopivan kuvatiedoston, jonka peli lataa. Laita kuva samaan hakemistoon kooditiedoston kanssa.
+Tehtäväpohjassa on palloa varten kuvatiedosto `pallo.png`.
 
 </programming-exercise>
 

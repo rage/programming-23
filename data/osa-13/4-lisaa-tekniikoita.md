@@ -97,4 +97,6 @@ Tee peli, jossa pelaaja ohjaa robottia vasemmalle ja oikealle ja tavoitteena on 
 
 <img src="pygame_asteroidit.gif">
 
+Tehtäväpohjassa on asteroidia varten kuvatiedosto `kivi.png`.
+
 </programming-exercise>
