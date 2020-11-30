@@ -66,17 +66,16 @@ naytto = pygame.display.set_mode((640, 480))
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.KEYDOWN:
-            if tapahtuma.scancode == 79:
-                print("oikealle")
-            if tapahtuma.scancode == 80:
+            if tapahtuma.key == pygame.K_LEFT:
                 print("vasemmalle")
+            if tapahtuma.key == pygame.K_RIGHT:
+                print("oikealle")
+
         if tapahtuma.type == pygame.QUIT:
             exit()
 ```
 
-TODO: Näppäinkoodit vaihtelevat eri ympäristöissä
-
-Tässä näppäinkoodit 79 ja 80 tarkoittavat nuolinäppäimiä oikealle ja vasemmalle. Nämä koodit on saatu selville tutkimalla, mitä tapahtumia syntyy, kun käyttäjä painaa nuolinäppäimiä.
+Tässä vakiot `pygame.K_LEFT` ja `pygame.K_RIGHT` tarkoittavat nuolinäppäimiä vasemmalle ja oikealle. Näppäimistön eri näppäimiä vastaavat vakiot on listattu [Pygamen dokumentaatiossa](https://www.pygame.org/docs/ref/key.html#key-constants-label).
 
 Esimerkiksi kun käyttäjä painaa ensin kahdesti oikealle, sitten kerran vasemmalle ja lopuksi kerran oikealle, ohjelman tulostus on seuraava:
 
@@ -102,12 +101,14 @@ y = 480-robo.get_height()
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.KEYDOWN:
-            if tapahtuma.scancode == 79:
-                x += 10
-            if tapahtuma.scancode == 80:
+            if tapahtuma.key == pygame.K_LEFT:
                 x -= 10
+            if tapahtuma.key == pygame.K_RIGHT:
+                x += 10
+
         if tapahtuma.type == pygame.QUIT:
             exit()
+
     naytto.fill((0, 0, 0))
     naytto.blit(robo, (x, y))
     pygame.display.flip()
@@ -117,7 +118,7 @@ Ohjelman suoritus voi näyttää seuraavalta:
 
 <img src="pygame_liikutus.gif">
 
-Tässä muuttujat `x` ja `y` sisältävät hahmon sijainnin. Käyttäjä pystyy muuttamaan muuttujaa `x`, ja muuttuja `y` on asetettu niin, että hahmo on ikkunan alalaidassa. Kun käyttäjä painaa oikealle tai vasemmalle nuolinäppäintä, hahmo liikkuu vastaavasti 10 pikseliä oikealle tai vasemmalle.
+Tässä muuttujat `x` ja `y` sisältävät hahmon sijainnin. Käyttäjä pystyy muuttamaan muuttujaa `x`, ja muuttuja `y` on asetettu niin, että hahmo on ikkunan alalaidassa. Kun käyttäjä painaa vasemmalle tai oikealle nuolinäppäintä, hahmo liikkuu vastaavasti 10 pikseliä oikealle tai vasemmalle.
 
 Yllä oleva ohjelma toimii muuten hyvin, mutta pelikokemuksessa on puutteena, että näppäintä pitää painaa uudestaan aina, kun haluaa liikkua askeleen oikealle tai vasemmalle. Olisi parempi, että voi pitää näppäintä pohjassa ja hahmo liikkuu niin kauan, kuin näppäin on pohjassa. Seuraava koodi mahdollistaa tämän:
 
@@ -139,30 +140,59 @@ kello = pygame.time.Clock()
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.KEYDOWN:
-            if tapahtuma.scancode == 79:
-                oikealle = True
-            if tapahtuma.scancode == 80:
+            if tapahtuma.key == pygame.K_LEFT:
                 vasemmalle = True
+            if tapahtuma.key == pygame.K_RIGHT:
+                oikealle = True
+
         if tapahtuma.type == pygame.KEYUP:
-            if tapahtuma.scancode == 79:
-                oikealle = False
-            if tapahtuma.scancode == 80:
+            if tapahtuma.key == pygame.K_LEFT:
                 vasemmalle = False
+            if tapahtuma.key == pygame.K_RIGHT:
+                oikealle = False
+
         if tapahtuma.type == pygame.QUIT:
             exit()
+
     if oikealle:
         x += 2
     if vasemmalle:
         x -= 2
+
     naytto.fill((0, 0, 0))
     naytto.blit(robo, (x, y))
     pygame.display.flip()
+
     kello.tick(60)
 ```
 
 Koodissa on nyt muuttujat `oikealle` ja `vasemmalle`, joissa pidetään tietoa siitä, kuuluuko hahmon liikkua tällä hetkellä oikealle tai vasemmalle. Kun käyttäjä painaa alas nuolinäppäimen, vastaava muuttuja saa arvon `True`, ja kun käyttäjä nostaa alas nuolinäppäimen, vastaava muuttuja saa arvon `False`.
 
 Hahmon liike on tahdistettu kellon avulla niin, että liikkumista tapahtuu 60 kertaa sekunnissa. Jos nuolinäppäin on alhaalla, hahmo liikkuu 2 pikseliä oikealle tai vasemmalle. Tämän seurauksena hahmo liikkuu 120 pikseliä sekunnissa, jos nuolinäppäin on painettuna.
+
+<programming-exercise name='Neljä suuntaa' tmcname=''>
+
+Tee ohjelma, jossa pelaaja pystyy ohjaamaan robottia neljään suuntaan nuolinäppäimillä. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_nelja_suuntaa.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Neljä seinää' tmcname=''>
+
+Paranna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulkopuolelle mistään reunasta. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_nelja_seinaa.gif">
+
+</programming-exercise>
+
+<programming-exercise name='Kaksi pelaajaa' tmcname=''>
+
+Tee ohjelma, jossa kaksi pelaajaa voi ohjata omia robottejaan. Toinen pelaaja käyttää nuolinäppäimiä ja toinen esimerkiksi w-s-a-d. Ohjelman suorituksen tulee näyttää tältä:
+
+<img src="pygame_kaksi_pelaajaa.gif">
+
+</programming-exercise>
 
 ## Hiiren käsittely
 
@@ -178,6 +208,7 @@ while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.MOUSEBUTTONDOWN:
             print("painoit nappia", tapahtuma.button, "kohdassa", tapahtuma.pos)
+
         if tapahtuma.type == pygame.QUIT:
             exit()
 ```
@@ -208,9 +239,11 @@ while True:
         if tapahtuma.type == pygame.MOUSEBUTTONDOWN:
             x = tapahtuma.pos[0]-robo.get_width()/2
             y = tapahtuma.pos[1]-robo.get_height()/2
+
             naytto.fill((0, 0, 0))
             naytto.blit(robo, (x, y))
             pygame.display.flip()
+
         if tapahtuma.type == pygame.QUIT:
             exit()
 ```
@@ -241,9 +274,10 @@ while True:
         if tapahtuma.type == pygame.MOUSEMOTION:
             kohde_x = tapahtuma.pos[0]-robo.get_width()/2
             kohde_y = tapahtuma.pos[1]-robo.get_height()/2
+
         if tapahtuma.type == pygame.QUIT:
             exit(0)
-    naytto.fill((0, 0, 0))
+
     if robo_x > kohde_x:
         robo_x -= 1
     if robo_x < kohde_x:
@@ -252,38 +286,17 @@ while True:
         robo_y -= 1
     if robo_y < kohde_y:
         robo_y += 1
+
+    naytto.fill((0, 0, 0))
     naytto.blit(robo, (robo_x, robo_y))
     pygame.display.flip()
+
     kello.tick(60)
 ```
 
 Ohjelman suoritus voi näyttää tältä:
 
 <img src="pygame_hiiri2.gif">
-
-<programming-exercise name='Neljä suuntaa' tmcname=''>
-
-Tee ohjelma, jossa pelaaja pystyy ohjaamaan robottia neljään suuntaan nuolinäppäimillä. Ohjelman suorituksen tulee näyttää tältä:
-
-<img src="pygame_nelja_suuntaa.gif">
-
-</programming-exercise>
-
-<programming-exercise name='Neljä seinää' tmcname=''>
-
-Paranna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulkopuolelle mistään reunasta. Ohjelman suorituksen tulee näyttää tältä:
-
-<img src="pygame_nelja_seinaa.gif">
-
-</programming-exercise>
-
-<programming-exercise name='Kaksi pelaajaa' tmcname=''>
-
-Tee ohjelma, jossa kaksi pelaajaa voi ohjata omia robottejaan. Toinen pelaaja käyttää nuolinäppäimiä ja toinen esimerkiksi w-s-a-d. Ohjelman suorituksen tulee näyttää tältä:
-
-<img src="pygame_kaksi_pelaajaa.gif">
-
-</programming-exercise>
 
 <programming-exercise name='Robotti ja hiiri' tmcname=''>
 
