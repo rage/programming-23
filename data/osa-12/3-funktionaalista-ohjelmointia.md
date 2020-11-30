@@ -576,7 +576,7 @@ print(tulo)
 
 <sample-output>
 
-240
+480
 
 </sample-output>
 
