@@ -34,9 +34,11 @@ while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
             exit()
+
     naytto.fill((0, 0, 0))
     naytto.blit(robo, (x, y))
     pygame.display.flip()
+
     x += 1
     kello.tick(60)
 ```
@@ -66,9 +68,7 @@ Pääsilmukan sisällä on koodi, joka piirtää kuvan sen nykyiseen paikkaan:
     pygame.display.flip()
 ```
 
-Ensin kutsutaan metodia `fill`, joka tyhjentää ikkunan mustalla värillä. Väri määritellään RGB-muodossa parametrilla `(0, 0, 0)`, mikä tarkoittaa, että värin punainen, vihreä ja sininen komponentti on 0 eli väri on musta. Jokainen komponentti voi olla välillä 0–255. Esimerkiksi `(255, 255, 255)` on valkoinen ja `(255, 0, 0)` on punainen.
-
-TODO: Olisiko tässä hyvä olla linkki vaikka johonkin värivalitsimeen? Esim. https://www.rapidtables.com/web/color/RGB_Color.html
+Ensin kutsutaan metodia `fill`, joka tyhjentää ikkunan mustalla värillä. Väri määritellään RGB-muodossa parametrilla `(0, 0, 0)`, mikä tarkoittaa, että värin punainen, vihreä ja sininen komponentti on 0 eli väri on musta. Jokainen komponentti voi olla välillä 0–255. Esimerkiksi `(255, 255, 255)` on valkoinen ja `(255, 0, 0)` on punainen. Verkossa on monia työkaluja, joiden avulla voi tutkia RGB-värejä, kuten [RGB Color Codes Chart](https://www.rapidtables.com/web/color/RGB_Color.html).
 
 Tämän jälkeen kuva piirretään tuttuun tapaan metodilla `blit` ja lopuksi ikkunan sisältö päivitetään funktiolla `pygame.display.flip`.
 
@@ -109,14 +109,17 @@ while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
             exit()
+
     naytto.fill((0, 0, 0))
     naytto.blit(robo, (x, y))
     pygame.display.flip()
+    
     x += nopeus
     if nopeus > 0 and x+robo.get_width() >= 640:
         nopeus = -nopeus
     if nopeus < 0 and x <= 0:
         nopeus = -nopeus
+
     kello.tick(60)
 ```
 
@@ -159,11 +162,14 @@ while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
             exit()
-    naytto.fill((0, 0, 0))
+
     x = 320+math.cos(kulma)*100-robo.get_width()/2
     y = 240+math.sin(kulma)*100-robo.get_height()/2
+
+    naytto.fill((0, 0, 0))
     naytto.blit(robo, (x, y))
     pygame.display.flip()
+
     kulma += 0.01
     kello.tick(60)
 ```
@@ -221,7 +227,7 @@ Tee animaatio, jossa pallo kimpoaa ikkunan reunoilta. Ohjelman suorituksen tulee
 
 <img src="pygame_pallo.gif">
 
-Palloa varten voit piirtää sopivan kuvatiedoston, jonka peli lataa.
+Palloa varten voit piirtää sopivan kuvatiedoston, jonka peli lataa. Laita kuva samaan hakemistoon kooditiedoston kanssa.
 
 </programming-exercise>
 
