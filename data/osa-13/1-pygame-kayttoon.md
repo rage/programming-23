@@ -186,7 +186,7 @@ Tämän osan tehtävissä ei ole automaattisia testejä, vaan testi antaa pistee
 </text-box>
 
 
-<programming-exercise name='Neljä robottia' tmcname=''>
+<programming-exercise name='Neljä robottia' tmcname='osa13-01_nelja_robottia'>
 
 Tee ohjelma, joka piirtää robotin jokaiseen ikkunan neljään nurkkaan. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -194,7 +194,7 @@ Tee ohjelma, joka piirtää robotin jokaiseen ikkunan neljään nurkkaan. Ohjelm
 
 </programming-exercise>
 
-<programming-exercise name='Robotit rivissä' tmcname=''>
+<programming-exercise name='Robotit rivissä' tmcname='osa13-02_robotit_rivissa'>
 
 Tee ohjelma, joka piirtää kymmenen robottia riviin. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -202,7 +202,7 @@ Tee ohjelma, joka piirtää kymmenen robottia riviin. Ohjelman suorituksen tulee
 
 </programming-exercise>
 
-<programming-exercise name='Sata robottia' tmcname=''>
+<programming-exercise name='Sata robottia' tmcname='osa13-03_sata_robottia'>
 
 Tee ohjelma, joka piirtää sata robottia: kymmenen riviä ja joka rivissä kymmenen robottia. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -210,7 +210,7 @@ Tee ohjelma, joka piirtää sata robottia: kymmenen riviä ja joka rivissä kymm
 
 </programming-exercise>
 
-<programming-exercise name='Satunnaiset robotit' tmcname=''>
+<programming-exercise name='Satunnaiset robotit' tmcname='osa13-04_satunnaiset robotit'>
 
 Tee ohjelma, joka piirtää _tuhat_ robottia satunnaisiin paikkoihin. Ohjelman suorituksen tulee näyttää tältä:
 

@@ -172,7 +172,7 @@ Koodissa on nyt muuttujat `oikealle` ja `vasemmalle`, joissa pidetään tietoa s
 
 Hahmon liike on tahdistettu kellon avulla niin, että liikkumista tapahtuu 60 kertaa sekunnissa. Jos nuolinäppäin on alhaalla, hahmo liikkuu 2 pikseliä oikealle tai vasemmalle. Tämän seurauksena hahmo liikkuu 120 pikseliä sekunnissa, jos nuolinäppäin on painettuna.
 
-<programming-exercise name='Neljä suuntaa' tmcname=''>
+<programming-exercise name='Neljä suuntaa' tmcname='osa13-11_nelja_suuntaa'>
 
 Tee ohjelma, jossa pelaaja pystyy ohjaamaan robottia neljään suuntaan nuolinäppäimillä. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -180,7 +180,7 @@ Tee ohjelma, jossa pelaaja pystyy ohjaamaan robottia neljään suuntaan nuolinä
 
 </programming-exercise>
 
-<programming-exercise name='Neljä seinää' tmcname=''>
+<programming-exercise name='Neljä seinää' tmcname='osa13-12_nelja_seinaa'>
 
 Paranna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulkopuolelle mistään reunasta. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -188,7 +188,7 @@ Paranna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulko
 
 </programming-exercise>
 
-<programming-exercise name='Kaksi pelaajaa' tmcname=''>
+<programming-exercise name='Kaksi pelaajaa' tmcname='osa13-13_kaksi_pelaajaa'>
 
 Tee ohjelma, jossa kaksi pelaajaa voi ohjata omia robottejaan. Toinen pelaaja käyttää nuolinäppäimiä ja toinen esimerkiksi w-s-a-d. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -300,7 +300,7 @@ Ohjelman suoritus voi näyttää tältä:
 
 <img src="pygame_hiiri2.gif">
 
-<programming-exercise name='Robotti ja hiiri' tmcname=''>
+<programming-exercise name='Robotti ja hiiri' tmcname='osa13-14_robotti_ja_hiiri'>
 
 Tee ohjelma, jossa robotti seuraa hiirtä niin, että robotin keskikohta on aina hiiren kohdalla. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -308,7 +308,7 @@ Tee ohjelma, jossa robotti seuraa hiirtä niin, että robotin keskikohta on aina
 
 </programming-exercise>
 
-<programming-exercise name='Robotin paikka' tmcname=''>
+<programming-exercise name='Robotin paikka' tmcname='osa13-15_robotin_paikka'>
 
 Tee ohjelma, jossa robotti on satunnaisessa paikassa ikkunassa. Kun pelaaja painaa hiirellä robotista, se siirtyy aina uuteen paikkaan. Ohjelman suorituksen tulee näyttää tältä:
 

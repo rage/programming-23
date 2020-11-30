@@ -191,7 +191,7 @@ Tämä tarkoittaa, että robotin sijainti on ympyrällä, jonka säde on 100. Ko
 
 Joka kierroksella muuttujan `kulma` arvo kasvaa 0.01:llä. Koska radiaaneissa täysi ympyrä on 2π eli noin 6.28, robotti pyörii suunnilleen kierroksen verran 10 sekunnissa.
 
-<programming-exercise name='Pystyliike' tmcname=''>
+<programming-exercise name='Pystyliike' tmcname='osa13-05_pystyliike'>
 
 Tee animaatio, jossa robotti liikkuu vuorotellen ylös ja alas. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -199,7 +199,7 @@ Tee animaatio, jossa robotti liikkuu vuorotellen ylös ja alas. Ohjelman suoritu
 
 </programming-exercise>
 
-<programming-exercise name='Reunan kierto' tmcname=''>
+<programming-exercise name='Reunan kierto' tmcname='osa13-06_reunan_kierto'>
 
 Tee animaatio, jossa robotti kiertää ympäri ikkunan reunaa. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -207,7 +207,7 @@ Tee animaatio, jossa robotti kiertää ympäri ikkunan reunaa. Ohjelman suorituk
 
 </programming-exercise>
 
-<programming-exercise name='Kaksi robottia' tmcname=''>
+<programming-exercise name='Kaksi robottia' tmcname='osa13-07_kaksi_robottia'>
 
 Tee animaatio, jossa kaksi robottia kulkee näytöllä vuorotellen oikealle ja vasemmalle. Alempi robotti kulkee tuplavauhtia. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -215,7 +215,7 @@ Tee animaatio, jossa kaksi robottia kulkee näytöllä vuorotellen oikealle ja v
 
 </programming-exercise>
 
-<programming-exercise name='Piirileikki' tmcname=''>
+<programming-exercise name='Piirileikki' tmcname='osa13-08_piirileikki'>
 
 Tee animaatio, jossa on kymmenen robottia piirileikissä. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -223,7 +223,7 @@ Tee animaatio, jossa on kymmenen robottia piirileikissä. Ohjelman suorituksen t
 
 </programming-exercise>
 
-<programming-exercise name='Pomppiva pallo' tmcname=''>
+<programming-exercise name='Pomppiva pallo' tmcname='osa13-09_pomppiva_pallo'>
 
 Tee animaatio, jossa pallo kimpoaa ikkunan reunoilta. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -233,7 +233,7 @@ Tehtäväpohjassa on palloa varten kuvatiedosto `pallo.png`.
 
 </programming-exercise>
 
-<programming-exercise name='Robotti-invaasio' tmcname=''>
+<programming-exercise name='Robotti-invaasio' tmcname='osa13-10_robotti_invaasio'>
 
 Tee animaatio, jossa taivaalta tippuu satunnaisesti robotteja. Kun robotti laskeutuu maahan, se lähtee joko vasemmalle tai oikealle ja katoaa lopuksi ruudulta. Ohjelman suorituksen tulee näyttää tältä:
 

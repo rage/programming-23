@@ -83,7 +83,7 @@ Huomaa, että eri järjestelmissä on saatavilla eri fontit. Jos järjestelmäss
 
 Tässä on pari vaikeampaa tehtävää, joiden avulla voit harjoitella lisää tämän luvun asioita.
 
-<programming-exercise name='Kello' tmcname=''>
+<programming-exercise name='Kello' tmcname='osa13-16_kello'>
 
 Tee ohjelma, joka näyttää graafisesti kellonajan. Ohjelman suorituksen tulee näyttää tältä:
 
@@ -91,7 +91,7 @@ Tee ohjelma, joka näyttää graafisesti kellonajan. Ohjelman suorituksen tulee 
 
 </programming-exercise>
 
-<programming-exercise name='Asteroidit' tmcname=''>
+<programming-exercise name='Asteroidit' tmcname='osa13-17_asteroidit'>
 
 Tee peli, jossa pelaaja ohjaa robottia vasemmalle ja oikealle ja tavoitteena on kerätä taivaalta putoavia asteroideja. Pelaaja saa pisteen jokaisesta kerätystä asteroidista, ja pistemäärä näytetään ikkunan ylälaidassa. Peli päättyy, kun pelaaja ei saa kiinni asteroidia. Pelin tulisi näyttää tältä:
 
