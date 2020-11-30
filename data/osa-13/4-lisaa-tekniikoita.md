@@ -37,7 +37,7 @@ pygame.draw.rect(naytto, (0, 255, 0), (50, 100, 200, 250))
 pygame.draw.circle(naytto, (255, 0, 0), (200, 150), 40)
 pygame.draw.line(naytto, (0, 0, 255), (80, 120), (300, 160), 2)
 
-pygame.display.update()
+pygame.display.flip()
 
 while True:
     for tapahtuma in pygame.event.get():
@@ -63,7 +63,7 @@ naytto.fill((0, 0, 0))
 fontti = pygame.font.SysFont("Arial", 24)
 teksti = fontti.render("Moikka!", True, (255, 0, 0))
 naytto.blit(teksti, (100, 50))
-pygame.display.update()
+pygame.display.flip()
 
 while True:
     for tapahtuma in pygame.event.get():
