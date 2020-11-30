@@ -8,7 +8,9 @@ hidden: false
 
 Tämän osion jälkeen
 
-- TODO
+- Olet tutustunut Pygamen tapahtumiin
+- Osaat tehdä ohjelman, joka lukee näppäimistön painalluksia
+- Osaat tehdä ohjelman, joka lukee hiiren tapahtumia
 
 </text-box>
 

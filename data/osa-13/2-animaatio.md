@@ -8,7 +8,9 @@ hidden: false
 
 Tämän osion jälkeen
 
-- TODO
+- Tiedät, miten voi toteuttaa animaation
+- Osaat tahdistaa ohjelman nopeuden kellon avulla
+- Osaat käyttää trigonometriaa animaatiossa
 
 </text-box>
 

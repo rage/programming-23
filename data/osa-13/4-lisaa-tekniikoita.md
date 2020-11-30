@@ -8,7 +8,9 @@ hidden: false
 
 Tämän osion jälkeen
 
-- TODO
+- Tiedät, miten ikkunan otsikkoa voi muuttaa
+- Osaat piirtää kuvioita Pygamessa
+- Osaat piirtää ikkunaan myös tekstiä
 
 </text-box>
 

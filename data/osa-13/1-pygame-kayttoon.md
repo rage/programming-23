@@ -8,7 +8,9 @@ hidden: false
 
 Tämän osion jälkeen
 
-- TODO
+- Olet asentanut Pygame-kirjaston koneellesi
+- Osaat luoda ikkunan ja sulkea ohjelman
+- Osaat piirtää ikkunaan tiedostossa olevan kuvan
 
 </text-box>
 
