@@ -61,6 +61,9 @@ import pygame
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
+naytto.fill((0,0,0))
+pygame.display.flip()
+
 while True:
     for tapahtuma in pygame.event.get():
         if tapahtuma.type == pygame.QUIT:
@@ -82,6 +85,14 @@ naytto = pygame.display.set_mode((640, 480))
 
 Muuttujan `naytto` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640, 480)` tarkoittaa, että tässä ohjelmassa ikkunan leveys on 640 pikseliä ja korkeus on 480 pikseliä.
 
+Seuraavaksi ohjelmassa on kaksi komentoa:
+
+```python
+naytto.fill((0, 0, 0))
+pygame.display.flip()
+```
+
+Metodi `fill` täyttää näytön annetulla värillä. Tässä tapauksessa värinä on `(0, 0, 0)`, mikä tarkoittaa mustaa. Sitten metodi `pygame.display.flip` päivittää näytön sisällön.
 
 Tämän jälkeen alkaa ohjelman _pääsilmukka_:
 
@@ -100,7 +111,7 @@ Voit kokeilla, mitä tapahtuu, jos ohjelma ei käsittele tapahtumaa `pygame.QUIT
 
 ## Kuva ohjelmaan
 
-Pelkän ikkunan näyttävä ohjelma on melko tylsä, joten laajennetaan seuraavaksi ohjelmaa niin, että se näyttää ikkunassa kuvan. Tämä onnistuu seuraavasti:
+Laajennetaan seuraavaksi ohjelmaa niin, että se näyttää ikkunassa kuvan. Tämä onnistuu seuraavasti:
 
 ```python
 import pygame
@@ -109,6 +120,8 @@ pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
 robo = pygame.image.load("robo.png")
+
+naytto.fill((0, 0, 0))
 naytto.blit(robo, (100, 50))
 pygame.display.flip()
 
@@ -122,7 +135,7 @@ Koodi käyttää kuvaa `robo.png`, jossa on robotin kuva:
 
 <img src="robo.png">
 
-TODO: miten robotin kuvan saa omaan ohjelmaan?
+Tiedoston `robo.png` tulee olla samassa hakemistossa ohjelman lähdekoodin kanssa, jotta ohjelma löytää kuvan. Tämän viikon tehtävissä robotin kuva on valmiina tehtäväpohjissa.
 
 Nyt ikkuna näyttää tältä:
 
