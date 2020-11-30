@@ -241,13 +241,13 @@ print(suoritus)
 Pekka Python
 Ohjelmoinnin perusteet
 5
-Pekka Pyrhon, arvosana kurssilta Ohjelmoinnin perusteet 5
+Pekka Python, arvosana kurssilta Ohjelmoinnin perusteet 5
 
 </sample-output>
 
 ## Suorittajat
 
-Tee funktio `suorittajien_nimet(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktio palauttaa listan, miltä löytyy suorittajien nimet.
+Tee funktio `suorittajien_nimet(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktio palauttaa listan, jolta löytyy suorittajien nimet.
 
 ```python
 s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
@@ -270,7 +270,7 @@ Toteuta funktio käyttäen `map`-funktiota!
 
 ## Kurssit
 
-Tee funktio `kurssien_nimet(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funkito palauttaa listan, miltä löytyy suorituksessa olevien kurssien nimet aakkosjärjestyksessä. Kukin kurssi esiintyy listalla vain kerran.
+Tee funktio `kurssien_nimet(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktto palauttaa listan, jolla on suorituksessa olevien kurssien nimet aakkosjärjestyksessä. Kukin kurssi esiintyy listalla vain kerran.
 
 ```python
 s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
@@ -425,7 +425,7 @@ Tässä tehtävässä jatketaan luokan `Suoritus` käyttämistä
 
 ## Hyväksytyt suoritukset
 
-Tee funktio `hyvaksytyt(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktio palauttaa listan, miltä löytyy suorituksista ne, joiden arvosana on vähintään 1.
+Tee funktio `hyvaksytyt(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktio palauttaa listan, jolta löytyy suorituksista ne, joiden arvosana on vähintään 1.
 
 ```python
 s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
@@ -447,7 +447,7 @@ Toteuta funktio käyttäen `filter`-funktiota!
 
 ## Arvosanan suoritukset
 
-Tee funktio `suoritus_arvosanalla(suoritukset: list, arvosana: int)` joka saa parametriksi listan suoritus-oliota sekä kokonaisluvun. Funkito palauttaa listan, miltä löytyy suorituksista ne, joiden arvosana on sama kuin toisen parametrin arvo.
+Tee funktio `suoritus_arvosanalla(suoritukset: list, arvosana: int)` joka saa parametriksi listan suoritus-oliota sekä kokonaisluvun. Funktio palauttaa listan, jolta löytyy suorituksista ne, joiden arvosana on sama kuin toisen parametrin arvo.
 
 ```python
 s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
@@ -558,7 +558,7 @@ summa nyt 6, vuorossa alkio 5
 
 </sample-output>
 
-Ensimmäisenä siis käsitellään listan alkio, jonka arvo on 2. Tässä vaiheessa summa on 0, eli sillä on reducelle annettu alkuarvo. Funktio laskee ja palauttaa näiden summan eli 0+2.
+Ensimmäisenä siis käsitellään listan alkio, jonka arvo on 2. Tässä vaiheessa summa on 0, eli sillä on reducelle annettu alkuarvo. Funktio laskee ja palauttaa näiden summan eli 0 + 2.
 
 Tämä arvo on parametrin `summa` arvona kun funktiota kutsutaan seuraavalle listan alkiolle eli luvulle 3. Funktio laskee ja palauttaa 2 + 3, joka taas toimii parametrina seuraavalle funktiokutsulle.
 
