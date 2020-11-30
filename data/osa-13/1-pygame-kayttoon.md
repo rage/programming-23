@@ -16,6 +16,12 @@ Kurssin kahdella viimeisellä viikolla tutustumme Pygame-kirjastoon, joka on pel
 
 ## Pygamen asentaminen
 
+### Linux
+
+Avaa komentorivi ja kirjoita `pip3 install pygame`.
+
+<img src="pygame_linux.png">
+
 ### Windows
 
 Avaa Windowsin terminaali napauttamalla vasemman alakulman Windows-painiketta. Kirjoita aukeavaan ikkunaan `cmd` ja paina enter:
