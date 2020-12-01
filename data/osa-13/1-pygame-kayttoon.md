@@ -210,7 +210,7 @@ Tee ohjelma, joka piirtää sata robottia: kymmenen riviä ja joka rivissä kymm
 
 </programming-exercise>
 
-<programming-exercise name='Satunnaiset robotit' tmcname='osa13-04_satunnaiset robotit'>
+<programming-exercise name='Satunnaiset robotit' tmcname='osa13-04_satunnaiset_robotit'>
 
 Tee ohjelma, joka piirtää _tuhat_ robottia satunnaisiin paikkoihin. Ohjelman suorituksen tulee näyttää tältä:
 
