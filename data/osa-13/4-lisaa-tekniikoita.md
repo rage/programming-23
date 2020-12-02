@@ -100,3 +100,10 @@ Tee peli, jossa pelaaja ohjaa robottia vasemmalle ja oikealle ja tavoitteena on 
 Tehtäväpohjassa on asteroidia varten kuvatiedosto `kivi.png`.
 
 </programming-exercise>
+
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="b4b18932-31e7-5b91-8eef-bde4fa5402ed"></quiz>
+
+
