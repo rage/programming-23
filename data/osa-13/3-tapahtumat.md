@@ -18,7 +18,7 @@ Tähän asti olemme toteuttaneet Pygame-ohjelman pääsilmukan niin, että se k�
 
 ## Tapahtumien käsittely
 
-Seuraavan koodi näyttää, mitä tapahtumia syntyy ohjelman suorituksen aikana:
+Seuraava koodi näyttää, mitä tapahtumia syntyy ohjelman suorituksen aikana:
 
 ```python
 import pygame
