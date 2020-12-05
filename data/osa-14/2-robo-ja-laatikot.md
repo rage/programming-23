@@ -125,7 +125,7 @@ Muissa tapauksissa kuitenkin laatikkoa pystyy siirtämään, jolloin laatikon ny
 
 ### Robotin siirtyminen
 
-```
+```python
         self.kartta[robo_y][robo_x] -= 4
         self.kartta[uusi_y][uusi_x] += 4
 ```
