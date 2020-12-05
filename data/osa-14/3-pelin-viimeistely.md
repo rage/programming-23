@@ -23,7 +23,7 @@ Laskurin tekeminen vaatii joitakin muutoksia koodiin. Muutetaan ensin konstrukto
 ```python
     def __init__(self):
         ...
-        self.naytto = pygame.display.set_mode((nayton_leveys, nayton_korkeus + 50))
+        self.naytto = pygame.display.set_mode((nayton_leveys, nayton_korkeus + self.skaala))
 
         self.fontti = pygame.font.SysFont("Arial", 24)
         ...
@@ -50,7 +50,7 @@ Lisäksi näytön päivityksen yhteydessä näytetään siirtojen määrä lasku
     def piirra_naytto(self):
         ...
         teksti = self.fontti.render("Siirrot: " + str(self.siirrot), True, (255, 0, 0))
-        self.naytto.blit(teksti, (25, self.korkeus * 50 + 10))
+        self.naytto.blit(teksti, (25, self.korkeus * self.skaala + 10))
         ...
 ```
 
@@ -74,10 +74,10 @@ Lisäksi piirretään ikkunan alalaitaan pelaajalle tiedoksi, että pelissä on 
     def piirra_naytto(self):
         ...
         teksti = self.fontti.render("F2 = uusi peli", True, (255, 0, 0))
-        self.naytto.blit(teksti, (200, self.korkeus * 50 + 10))
+        self.naytto.blit(teksti, (200, self.korkeus * self.skaala + 10))
 
         teksti = self.fontti.render("Esc = sulje peli", True, (255, 0, 0))
-        self.naytto.blit(teksti, (400, self.korkeus * 50 + 10))
+        self.naytto.blit(teksti, (400, self.korkeus * self.skaala + 10))
         ...
 ```
 
@@ -103,8 +103,8 @@ Jos pelaaja läpäisee pelin, metodi `piirra_naytto` näyttää asiaan kuuluvan 
         ...
         if self.peli_lapi():
             teksti = self.fontti.render("Onnittelut, läpäisit pelin!", True, (255, 0, 0))
-            teksti_x = 50 * self.leveys / 2 - teksti.get_width() / 2
-            teksti_y = 50 * self.korkeus / 2 - teksti.get_height() / 2
+            teksti_x = self.skaala * self.leveys / 2 - teksti.get_width() / 2
+            teksti_y = self.skaala * self.korkeus / 2 - teksti.get_height() / 2
             pygame.draw.rect(self.naytto, (0, 0, 0), (teksti_x, teksti_y, teksti.get_width(), teksti.get_height()))
             self.naytto.blit(teksti, (teksti_x, teksti_y))
         ...
