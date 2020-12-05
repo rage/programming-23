@@ -79,7 +79,7 @@ if __name__ == "__main__":
 
 Tämä saa aikaan ikkunan, jossa on pelin aloitustilanne:
 
-TODO: Kuva tähän
+<img src="peli.png">
 
 Katsotaan seuraavaksi tarkemmin luokassa olevaa koodia.
 
