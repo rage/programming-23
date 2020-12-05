@@ -14,6 +14,10 @@ Tämän osion jälkeen
 
 Tässä osassa tehdään Pygamen avulla hieman laajempi peli, joka on muunnelma perinteisestä Sokoban-pelistä. Pelaaja ohjaa ruudukossa olevaa robottia, jonka tehtävänä on työntää laatikot oikeille paikoille käyttäen mahdollisimman vähän siirtoja.
 
+Lopullinen peli tulee näyttämään tältä:
+
+<img src="peli.png">
+
 ## Pelin pohja
 
 Aloitetaan tekemällä pelille pohja, joka piirtää näkyviin pelin aloitustilanteen. Toteutamme pelin luokkaan `Sokoban`, jonka sisällä on pelissä tarvittavat toiminnot. Ensimmäisessä vaiheessa luokan sisältö on seuraava:
@@ -77,11 +81,7 @@ if __name__ == "__main__":
     Sokoban()
 ```
 
-Tämä saa aikaan ikkunan, jossa on pelin aloitustilanne:
-
-<img src="peli.png">
-
-Katsotaan seuraavaksi tarkemmin luokassa olevaa koodia.
+Tämä saa aikaan ikkunan, jossa on pelin aloitustilanne. Katsotaan seuraavaksi tarkemmin luokassa olevaa koodia.
 
 ## Konstruktori
 
