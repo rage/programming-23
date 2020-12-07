@@ -30,7 +30,7 @@ Siirtolaskuri nollataan pelin alussa ja jokainen siirto kasvattaa sitä yhdellä
 ```
 
 ```python
-    def liiku(self, dy, dx):
+    def liiku(self, liike_y, liike_x):
         ...
         self.siirrot += 1
 
@@ -105,7 +105,7 @@ Jos pelaaja läpäisee pelin, metodi `piirra_naytto` näyttää asiaan kuuluvan 
 Lisäksi metodin `liiku` alkua muutetaan niin, että liikkuminen ei ole enää mahdollista, kun pelaaja on läpäissyt pelin:
 
 ```python
-    def liiku(self, dy, dx):
+    def liiku(self, liike_y, liike_x):
         if self.peli_lapi():
             return
         ...
