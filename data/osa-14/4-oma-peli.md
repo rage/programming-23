@@ -40,5 +40,5 @@ Vastaa ensin osion loppukyselyyn...
 
 ...ja sitten vielä koko kurssin loppukyselyyn:
 
-<quiz id="a8c6418a-98e4-4732-b09f-bd866da480d4"></quiz>
+<quiz id="457f0c87-4363-43b4-a04d-4638ee933a95"></quiz>
 
