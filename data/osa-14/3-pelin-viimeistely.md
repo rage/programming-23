@@ -4,14 +4,6 @@ title: 'Pelin viimeistely'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
-
-Tämän osion jälkeen
-
-- TODO
-
-</text-box>
-
 Peli on jo hyvässä vaiheessa, joten nyt voimme alkaa viimeistellä pelin toteutusta. Lisäämme peliin laskurin, joka näyttää siirtojen määrän, mahdollisuuden aloittaa uusi peli ja sulkea peli näppäinkomennoilla sekä ilmoituksen, kun pelaaja onnistuu läpäisemään pelin.
 
 ## Siirtolaskuri

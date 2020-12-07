@@ -4,14 +4,6 @@ title: 'Peliprojekti'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
-
-Tämän osion jälkeen
-
-- TODO
-
-</text-box>
-
 Tässä osassa tehdään Pygamen avulla hieman laajempi peli, joka on muunnelma perinteisestä Sokoban-pelistä. Pelaaja ohjaa ruudukossa olevaa robottia, jonka tehtävänä on työntää laatikot oikeille paikoille käyttäen mahdollisimman vähän siirtoja.
 
 Lopullinen peli tulee näyttämään tältä:

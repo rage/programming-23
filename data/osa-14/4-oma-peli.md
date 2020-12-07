@@ -4,14 +4,6 @@ title: 'Oma peli'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
-
-Tämän osion jälkeen
-
-- TODO
-
-</text-box>
-
 ## Viikon tehtävä
 
 Tämän viikon tehtäväsi on tehdä oma pieni peli Pygamen avulla. Peliä varten tehtäväpohjassa on joukko kuvia, joita voit käyttää pelissä. Älä käytä muita kuvia, jotta muutkin pystyvät kokeilemaan peliä koodin perusteella.

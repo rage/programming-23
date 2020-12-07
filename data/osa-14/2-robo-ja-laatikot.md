@@ -4,14 +4,6 @@ title: 'Robotti ja laatikot'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
-
-Tämän osion jälkeen
-
-- TODO
-
-</text-box>
-
 Vaikein asia Sokoban-pelin toteutuksessa on saada robotti liikkumaan niin, että se pystyy työntämään laatikoita halutulla tavalla. Pelin pitää tunnistaa, milloin robotti pystyy siirtymään pelaajan haluamaan suuntiin, sekä käsitellä oikein tilanteet, joissa robotti työntää laatikkoa. Nyt on aika tarttua tähän haasteeseen.
 
 ## Näppäimistön käsittely
