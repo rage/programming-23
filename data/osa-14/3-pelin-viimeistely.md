@@ -148,7 +148,11 @@ Vaikka pelin ruudukko on melko pieni, peli ei ole helppo. Ensimmäinen haaste on
 
 Lyhimmän mahdollisen ratkaisun etsiminen käsin on hyvin vaikeaa, mutta tässäkin voi käyttää apuna ohjelmointia. Kurssilla _Tietorakenteet ja algoritmit_  tutustutaan tekniikoihin, joiden avulla voidaan löytää automaattisesti lyhin mahdollinen ratkaisu peliin.
 
-Vastaa lopuksi osion loppukyselyyn:
+Vastaa ensin osion loppukyselyyn...
 
 <quiz id="cf81280a-030a-5820-8c61-2648a5d4752f"></quiz>
+
+...ja sitten vielä koko kurssin loppukyselyyn:
+
+<quiz id="a8c6418a-98e4-4732-b09f-bd866da480d4"></quiz>
 
