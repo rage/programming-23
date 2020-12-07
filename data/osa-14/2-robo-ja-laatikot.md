@@ -117,7 +117,7 @@ Seuraavaksi käsitellään tapaus, jossa pelaaja yrittää ohjata robottia sein�
             self.kartta[laatikon_uusi_y][laatikon_uusi_x] += 3
 ```
 
-Jos robotin uudessa sijainnissa on luku 3 (laatikko) tai 5 (laatikko kohderuudussa), robotti työntää laatikkoa liikkuessaan. Tätä varten lasketaan muuttujiin `kolmas_y` ja `kolmas_x` laatikon uusi sijainti työntämisen jälkeen.
+Jos robotin uudessa sijainnissa on luku 3 (laatikko) tai 5 (laatikko kohderuudussa), robotti työntää laatikkoa liikkuessaan. Tätä varten lasketaan muuttujiin `laatikon_uusi_y` ja `laatikon_uusi_x` laatikon uusi sijainti työntämisen jälkeen.
 
 Laatikko ei voi siirtyä, jos uudessa kohdassa on luku 1 (seinäruutu), luku 3 (toinen laatikko) tai luku 5 (toinen laatikko kohderuudussa). Näissä tapauksissa metodi sulkee itsensä eikä tee mitään.
 
