@@ -24,7 +24,7 @@ Saat päättää pelin aiheen itse, ja pelin tulisi olla suunnilleen saman laaju
 * Pelissä on laskuri, joka näyttää, miten pelaaminen sujuu
 * Pelin koodi on jaettu sopivasti funktioihin tämän viikon esimerkin tyylisesti
 
-Kun peli on valmis, lähetä se vertaisarviointiin alla olevan lomakkeen avulla. Tämän jälkeen tutustu vielä kahden muun kurssilaisen peliin ja anna niille mielestäsi sopiva arvosana.
+Kun peli on valmis, lähetä se vertaisarviointiin alla olevan lomakkeen avulla. Tämän jälkeen tutustu vielä kahden muun kurssilaisen peliin ja anna niille mielestäsi sopiva arvosana ja kirjoita lyhyt arvio peleistä.
 
 Tämän viikon tehtävästä saat suorituksen, kun olet saanut aikaan toimivan pelin ja osallistunut vertaisarviointiin. Vertaisarvioinnissa annettu arvosana ei vaikuta kurssin pisteisiin.
 
