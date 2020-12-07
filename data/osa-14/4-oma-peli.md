@@ -12,7 +12,11 @@ Tämän osion jälkeen
 
 </text-box>
 
-## Palautusohje
+## Viikon tehtävä
+
+Tämän viikon tehtäväsi on tehdä oma pieni peli Pygamen avulla. Pelin tulisi olla suunnilleen saman laajuinen kuin tämän viikon esimerkkipeli, ja saat valita pelisi aiheen itse.
+
+## Pelin palautus
 
 <quiz id="56ec9a00-8b4b-40bd-8bdb-15f05221a90a"></quiz>
 
