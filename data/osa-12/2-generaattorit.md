@@ -118,7 +118,7 @@ if __name__ == "__main__":
 
 <programming-exercise name='Parilliset luvut' tmcname='osa12-08_parilliset'>
 
-Kirjoita generaattorifunktio `parilliset(alku: int, maksimi: int)`, joka saa parametrikseen alkuarvon ja maksimi. Funktio tuottaa alkuarvosta lähtien parillisia lukuja. Kun saavutetaan maksimi, generaattori pysöhtyy.
+Kirjoita generaattorifunktio `parilliset(alku: int, maksimi: int)`, joka saa parametrikseen alkuarvon ja maksimin. Funktio tuottaa alkuarvosta lähtien parillisia lukuja. Kun saavutetaan maksimi, generaattori pysähtyy.
 
 Kaksi esimerkkiä funktion käytöstä:
 
@@ -158,21 +158,20 @@ for luku in luvut:
 
 <programming-exercise name='Alkuluvut' tmcname='osa12-09_alkuluvut'>
 
-Alkuluvuksi sanotaan kokonaislukua, joka on tasan jaollinen ainoastaan ykkösellä ja itsellään. Esimerkkejä alkuluvuista ovat siis esimerkiksi luvut 1, 2, 3, 5, 7, 11 ja 13.
+Alkuluvuksi sanotaan kokonaislukua, joka on vähintään 2 ja jaollinen ainoastaan 1:llä ja itsellään. Ensimmäiset alkuluvut ovat 2, 3, 5, 7, 11 ja 13.
 
-Kirjota generaattorifunktio `alkuluvut()`, joka luo uuden generaattorin. Generaattori palauttaa yksi kerrallaan alkulukuja alkaen ykkösestä. Huomaa, että generaattori ei pysähdy koskaan, vaan palauttaa lisää lukuja niin kauan kuin niitä pyydetään.
+Kirjota generaattorifunktio `alkuluvut()`, joka luo uuden generaattorin. Generaattori palauttaa yksi kerrallaan alkulukuja järjestyksessä 2:sta alkaen. Huomaa, että generaattori ei pysähdy koskaan, vaan palauttaa lisää lukuja niin kauan kuin niitä pyydetään.
 
 Esimerkiksi:
 
 ```python
 luvut = alkuluvut()
-for i in range(9):
+for i in range(8):
     print(next(luvut))
 ```
 
 <sample-output>
 
-1
 2
 3
 5
@@ -184,6 +183,7 @@ for i in range(9):
 
 </sample-output>
 
+Vinkki: Voit tarkastaa, onko luku _x_ alkuluku, silmukalla, joka käy läpi luvut 2:sta lukuun _x_–1 asti. Jos jokin näistä luvuista jakaa _x_:n, niin se ei ole alkuluku.
 
 </programming-exercise>
 

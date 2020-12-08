@@ -13,29 +13,24 @@ Tämän osion jälkeen
 
 </text-box>
 
-Python on mainio työkalu tekstin käsittelemiseen. Sisäänrakennetut operaatiot ovat yksinkertaisia käyttää mutta melko tehokkaita.
-
-Vaativampien operaatioiden toteuttaminen saattaa kuitenkin muodostua ongelmalliseksi. Tätä tarkoitusta varten Pythonista löytyy useimpien muiden ohjelmointikielten tapaan _säännölliset lausekkeet_ (_regular expressions_).
-
-Säännöllisten lausekkeiden avulla on mahdollista määritellä hyvinkin monimutkaisia sääntöjä, joiden perusteella voidaan esimerkiski poimia, suodattaa tai etsiä alijonoja. Tässä osiossa käydään perusperiaatteen lisäksi läpi muutamia sääntöjä, lisää löydät esimerkiksi Pythonin omasta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
+Python on mainio työkalu tekstin käsittelemiseen. Yksi työkalu tekstin käsittelemisessä ovat
+_säännölliset lausekkeet_ (_regular expressions_), joiden avulla voi esimerkiksi poimia ja etsiä merkkijonoja, jotka ovat tietyn muotoisia. Tässä osiossa käydään läpi säännöllisten lausekkeiden perusteita, ja löydät lisää tietoa Pythonin omasta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
 
 ## Mitä ovat säännölliset lausekkeet?
 
-Säännölliset lausekkeet ovat tavallaan ohjelmointikieli ohjelmointikielen sisällä. Lauseilla on oma syntaksinsa, jonka mukaan ne määritellään. Ideana on, että säännöllisellä lausekkella määritellään sellaisten merkkijonojen joukko, jotka ovat tiettyjen sääntöjen mukaisia.
+Säännölliset lausekkeet ovat tavallaan ohjelmointikieli ohjelmointikielen sisällä. Lausekkeilla on oma syntaksinsa, jonka mukaan ne määritellään. Ideana on, että säännöllisellä lausekkeella määritellään sellaisten merkkijonojen joukko, jotka ovat tiettyjen sääntöjen mukaisia.
 
 Tarkistellaan yksinkertaista esimerkkiä lausekkeiden käytöstä ennen tarkempaa perehtymistä sääntöihin:
 
 ```python
 import re
-# Merkkijonot, jotka alkavat alijonolla 'P' ja
-# päättyvät alijonoon 'on'
-merkkijono = re.compile("^P.*on$")
 
-testit = ["Python", "Ponneton", "Ponttooni", "Pullero", "Pallon"]
+sanat = ["Python", "Ponneton", "Ponttooni", "Pullero", "Pallon"]
 
-for testisana in testit:
-    if merkkijono.search(testisana):
-        print(testisana, "löytyy!")
+for sana in sanat:
+    # merkkijonon tulee alkaa "P" ja päättyä "on"
+    if re.search("^P.*on$", sana):
+        print(sana, "löytyy!")
 ```
 
 <sample-output>
@@ -46,19 +41,18 @@ Pallon löytyy!
 
 </sample-output>
 
-Lauseke "lasketaan" valmiiksi re-modulista löytyvällä funktiolla `compile`, minkä jälkeen sen palauttamaa oliota voidaan käyttää merkkijonojen testaamiseen. Metodi `search` palauttaa arvon `None`, jos vastaavuutta ei löydy, joten sitä voidaan käyttää ehtolauseessa esimerkin tapaan. Mikäli vastaavuus löytyy, saadaan palautetusta `Match`-tyyppisestä oliosta tarvittaessa tarkempaa tietoa vastaavuudesta.
+Pythonissa säännöllisiä lausekkeita voi käsitellä moduulin `re` avulla. Esimerkiksi yllä olevassa koodissa oleva metodi `search` etsii merkkijonosta osaa, joka täsmää annettuun säännölliseen lausekkeeseen.
 
-Toinen esimerkki etsii  merkkijonosta luvut. Metodi `findall` palauttaa kaikki sääntöön täsmäävät alijonot listana:
+Huomaa, että säännöllinen lauseke annetaan _merkkijonona_ funktion `search` parametriksi.
+
+Toinen esimerkki etsii merkkijonosta luvut. Metodi `findall` palauttaa kaikki säännölliseen lausekkeeseen täsmäävät osajonot listana:
 
 ```python
 import re
 
-# Hyväksytään vain luvut
-merkkijono = re.compile("\d+")
+lause = "Eka, 2 !#kolmas 44 viisi 678xyz962"
 
-testilause = "Eka, 2 !#kolmas 44 viisi 678xyz962"
-
-luvut = re.findall(merkkijono, testilause)
+luvut = re.findall("\d+", lause)
 
 for luku in luvut:
     print(luku)
@@ -73,23 +67,20 @@ for luku in luvut:
 
 </sample-output>
 
-Molemmat ensimmäisistä esimerkeistä on kohtuullisen vaivatonta toteuttaa myös ilman säännöllisiä lausekkeita. Yleensä tällaisessa tapauksessa onkin järkevää hyödyntää Pythonin omia merkkijono-operaatioita. Näin koodista tulee useimmiten myös helpommin luettavaa.
+## Säännöllisten lausekkeiden syntaksi
 
-## Säännöt
-
-Tarkastellaan seuraavaksi sääntöjä, joita säännöllisissä lausekkeissa käytetään. Useimmissa esimerkeissä käytetään samaa testiohjelmaa eri syötteillä.
+Tarkastellaan seuraavaksi syntaksia, jota säännöllisissä lausekkeissa käytetään. Useimmissa esimerkeissä käytetään samaa testiohjelmaa eri syötteillä.
 
 ```python
 import re
 
-mjono = input("Anna lauseke: ")
-lauseke = re.compile(mjono)
+lauseke = input("Anna lauseke: ")
 
 while True:
-    testi = input("Anna testijono: ")
-    if (testi == ""):
+    mjono = input("Anna merkkijono: ")
+    if mjono == "":
         break
-    if lauseke.search(testi):
+    if re.search(lauseke, mjono):
         print("Osuma!")
     else:
         print("Ei osumaa.")
@@ -97,7 +88,7 @@ while True:
 
 ### Vaihtoehtoiset alijonot
 
-Pystyviivalla voidaan erottaa vaihtoehtoisia alijonoja. Esimerkiksi lauseke `911|112` täsmää merkkijonoihin, joista löytyy joko alijono `911` tai alijono `112`.
+Pystyviivalla voidaan erottaa vaihtoehtoisia osajonoja. Esimerkiksi lauseke `911|112` täsmää merkkijonoihin, joista löytyy joko osajono `911` tai osajono `112`.
 
 Esimerkiksi
 
@@ -120,9 +111,9 @@ Ei osumaa.
 
 ### Merkkijoukot
 
-Hakasulkeiden väliin voidaan merkitä joukko hyväksyttyjä merkkejä. Esimerkiksi merkintä `[aeio]` täsmää jonoihin, joista löytyy jokin merkeistä a, e, i, tai o. Merkintätapa sallii myös väliviivan käytön. Merkintä [0-68a-d] hyväksyy jonot, joista löytyy numero nollasta kuuteen, kahdeksikko tai merkki väliltä a...d. Merkintä `[1-3][0-9]` hyväksyy kaksinumeroiset luvut väliltä 10...39.
+Hakasulkeiden väliin voidaan merkitä joukko hyväksyttyjä merkkejä. Esimerkiksi merkintä `[aeio]` täsmää jonoihin, joista löytyy jokin merkeistä a, e, i, tai o. Merkintätapa sallii myös väliviivan käytön. Merkintä `[0-68a-d]` hyväksyy jonot, joista löytyy numero nollasta kuuteen, kahdeksikko tai merkki väliltä a...d. Merkintä `[1-3][0-9]` hyväksyy kaksinumeroiset luvut väliltä 10...39.
 
-Esimerkiksi
+Esimerkiksi:
 
 <sample-output>
 
@@ -142,18 +133,17 @@ Ei osumaa.
 
 </sample-output>
 
-### Merkkien määrä
+### Toistaminen
 
-Merkkien määrää voidaan rajata ainakin seuraavien operaattorien avulla:
+Lausekkeen osaa voidaan toistaa esimerkiksi seuraavien operaattorien avulla:
 
-`*` kelpuuttaa nolla tai useamman osuman
-`+` kelpuuttaa yhden tai useamman osuman
-`{m}` kelpuuttaa täsmälleen m osumaa
+* `*` toistaa osaa minkä tahansa määrän kertoja (myös nolla)
+* `+` toistaa osaa minkä tahansa määrän kertoja (ainakin yhden)
+* `{m}` toistaa osaa täsmälleen `m` kertaa
 
-Operaattorit viittaavat niitä edeltävään määrittelyyn. Esimerkiksi `ba+b` hyväksyy esimerkiksi alijonot `bab`, `baab` tai vaikka `baaaaaaaaaaab`. Samoin `A[BCDE]*Z` kelpuuttaa esimerkiksi alijonot `AZ`, `ADZ` tai `ABCDEBCDEBCDEZ`.
+Operaattorit viittaavat niitä edeltävään lausekkeen osaan. Esimerkiksi lauseke `ba+b` hyväksyy esimerkiksi osajonot `bab`, `baab` ja `baaaaaaaaaaab`. Lauseke `A[BCDE]*Z` puolestaan hyväksyy esimerkiksi osajonot `AZ`, `ADZ` tai `ABCDEBCDEBCDEZ`.
 
-
-Esimerkiksi
+Esimerkiksi:
 
 <sample-output>
 
@@ -206,7 +196,7 @@ Osuma!
 
 </sample-output>
 
-Kaarisulkeilla voidaan ryhmitellä alijonoja. Esimerkiksi merkintä `(ab)+c` hyväksyisi jonot `abc`, `ababc` tai `ababababababc`, mutta ei esimerkiksi jonoja `ac` tai `bc`.
+Kaarisulkeilla voidaan ryhmitellä lausekkeen osia. Esimerkiksi lauseke `(ab)+c` hyväksyy jonot `abc`, `ababc` ja `ababababababc`, mutta ei esimerkiksi jonoja `ac` tai `bc`.
 
 Esimerkiksi
 
@@ -224,13 +214,13 @@ Ei osumaa.
 
 </sample-output>
 
-<programming-exercise name='Säännölliset lausekkeet' tmcname='osa12-'>
+<programming-exercise name='Säännölliset lausekkeet' tmcname='osa12-14_saannolliset_lausekkeet'>
 
 Harjoitellaan hieman säännöllisten lausekkeiden käyttöä.
 
 ## Viikonpäivät
 
-Tee säännöllisen lausekkeen avulla funktio on_viikonpaiva(merkkijono: str) joka palauttaa True jos sen parametrina saama merkkijono sisältää viikonpäivän lyhenteen (ma, ti, ke, to, pe, la tai su).
+Tee säännöllisen lausekkeen avulla funktio `on_viikonpaiva(merkkijono: str)` joka palauttaa `True`, jos sen parametrina saama merkkijono sisältää viikonpäivän lyhenteen (ma, ti, ke, to, pe, la tai su).
 
 Esimerkki funktion kutsumisesta:
 
@@ -250,7 +240,7 @@ False
 
 ## Vokaalitarkistus
 
-Tee funktio kaikki_vokaaleja(merkkijono: str) joka tarkistaa säännöllisen lausekkeen avulla ovatko parametrina olevan merkkijonon kaikki merkit vokaaleja.
+Tee funktio `kaikki_vokaaleja(merkkijono: str)`, joka tarkistaa säännöllisen lausekkeen avulla, ovatko parametrina annetun merkkijonon kaikki merkit vokaaleja.
 
 Esimerkki funktion kutsumisesta:
 
@@ -268,13 +258,13 @@ False
 
 ## Kellonaika
 
-Tee funktio kellonaika(merkkijono: str), joka tarkistaa säännöllisen lausekkeen avulla onko parametrina oleva merkkijono muotoa tt:mm:ss oleva kellonaika (tunnit, minuutit ja sekunnit kaksinumeroisina).
+Tee funktio `kellonaika(merkkijono: str)`, joka tarkistaa säännöllisen lausekkeen avulla, onko parametrina oleva merkkijono muotoa `tt:mm:ss` oleva kellonaika (tunnit, minuutit ja sekunnit kaksinumeroisina).
 
 Esimerkki funktion kutsumisesta:
 
 ```python
 print(kellonaika("12:43:01"))
-print(kellonaika("ab:cd:ef"))
+print(kellonaika("AB:01:CD"))
 print(kellonaika("17:59:59"))
 print(kellonaika("33:66:77"))
 ```
@@ -292,18 +282,17 @@ False
 
 ## Loppuhuipennus
 
-Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tämä tehtävä ei sijainnostaan huolimatta liity mitenkään säännöllisiin lausekkeisiin, sensijaan luvun [Funktio parametrina](/osa-12/1-funktio-parametrina) asia tulee olemaan tarpeen, myös [listakoosteet](/osa-11/1-koosteet) voivat olla käyttökelpoisia.
+Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tämä tehtävä ei sijainnistaan huolimatta liity mitenkään säännöllisiin lausekkeisiin, mutta luvun [Funktio parametrina](/osa-12/1-funktio-parametrina) asia tulee olemaan tarpeen ja myös [listakoosteet](/osa-11/1-koosteet) voivat olla käyttökelpoisia.
 
 Sovelluksen rakenteelle voi ottaa inspiraatiota osan 10 [viimeisestä luvusta](/osa-10/4-lisaa-esimerkkeja).
 
-
-<programming-exercise name='Tilastot ojennukseen' tmcname='osa12_15-tilastot_ojennukseen'>
+<programming-exercise name='Tilastot ojennukseen' tmcname='osa12-15_tilastot_ojennukseen'>
 
 Tässä tehtävässä tehdään sovellus, jonka avulla on mahdollista tarkastella NHL-jääkiekkoliigan tilastoja muutamassa hieman erilaisessa muodossa.
 
 Tehtäväpohjan mukana tulee kaksi json-muodossa olevaa tiedostoa `osa.json` ja `kaikki.json`, näistä ensimmäinen on tarkoitettu lähinnä testailun avuksi. Jälkimmäinen sisältää kaikkien kaudella 2019-20 pelanneiden pelaajien statistiikat.
 
-Yksittäisen pelaajan tiedot ovat seuraavassa muodossa
+Yksittäisen pelaajan tiedot ovat muodossa
 
 ```json
 {
@@ -319,15 +308,15 @@ Yksittäisen pelaajan tiedot ovat seuraavassa muodossa
 
 ja molemmat tiedostoista sisältävät yksittäisten pelaajien tiedot taulukossa.
 
-Olet todennäköisesti unohtanut miten json-muotoinen tiedosto saadaan luettua Python-ohjelmaan. Se ei ole vaikeaa voit kerrata [osan 7 materiaalista](/osa-7/4-datan-kasittely#json-tiedoston-lukeminen).
+Jos et muista, miten json-muotoinen tiedosto saadaan luettua Python-ohjelmaan, voit kerrata tämän [osan 7 materiaalista](/osa-7/4-datan-kasittely#json-tiedoston-lukeminen).
 
-Tee nyt ohjelma, joka tarjoaa seuraavanlaisen toiminnallisuuden. Ohjelma aloittaa kysymällä tiedoston nimeä. Tämän jälkeen ohjelma tarjoaa seuraavat toiminnot:
+Tee nyt ohjelma, joka kysyy aluksi tiedoston nimeä ja tarjoaa sitten seuraavat toiminnot:
 
 - yksittäisen pelaajan tietojen haku nimen perusteella
 - listaus joukkueiden nimien lyhenteistä (aakkosjärjestyksessä)
 - listaus maiden nimien lyhenteistä (aakkosjärjestyksessä)
 
-Näistä toiminnoista saa yhden pisteeten. Ohjelman tulee toimia seuraavasti:
+Näistä toiminnoista saa yhden pisteen. Ohjelman tulee toimia seuraavasti:
 
 <sample-output>
 
@@ -372,12 +361,29 @@ komento: **0**
 
 </sample-output>
 
+Huomaa, että pelaajien tulostusasun pitää olla täsmälleen seuraavanlainen:
+
+<sample-output>
+
+<pre>
+Leon Draisaitl       EDM  43 + 67 = 110
+Connor McDavid       EDM  34 + 63 =  97
+Travis Zajac         NJD   9 + 16 =  25
+Mike Green           EDM   3 +  8 =  11
+Markus Granlund      EDM   3 +  1 =   4
+123456789012345678901234567890123456789
+</pre>
+
+</sample-output>
+
+Alimman rivin numerot on lisätty helpottamaan oikean merkkimäärän laskemista. Joukkueen nimen lyhenne siis tulostetaan alkaen rivin 22. merkistä. Plus on rivin 30. merkki ja = rivin 35. merkki. Kaikki luvut tulee tasata oikeaan reunaan omaa tulostusaluettaan. Tyhjät kohdat ovat välilyöntejä.
+
+Tulostuksen muotoilu kannattaa hoitaa f-merkkijonoina samaan tapaan kuin [tässä](/osa-6/1-tiedostojen-lukeminen#programming-exercise-kurssin-tulokset-osa-3) osan 6 tehtävässä.
+
 Seuraavat toiminnot tuovat toisen pisteen:
 
-- joukkueen pelaajien listaus
-  - listattuna pisteiden (joka saadaan laskemalla _goals_ + _assits_) mukaisessa järjestyksessä
-- tietyn maan pelaajat
-  - listattuna pisteiden mukaisessa järjestyksessä
+- joukkueen pelaajien listaaminen pisteiden (joka saadaan laskemalla _goals_ + _assits_) mukaisessa järjestyksessä
+- tietyn maan pelaajien listaaminen pisteiden mukaisessa järjestyksessä
 
 Toiminnallisuus on seuraava:
 
@@ -417,7 +423,7 @@ komento: **0**
 
 </sample-output>
 
-Ja kolmannen pisteen saa seuraavilla toiminnoilla:
+Kolmannen pisteen saa seuraavilla toiminnoilla:
 
 - n eniten pistettä saanutta pelaajaa
   - jos kahden pelaajan pistemäärä on sama, ratkaisee maalimäärä
@@ -476,3 +482,9 @@ komento: **0**
 </sample-output>
 
 </programming-exercise>
+
+Vastaa lopuksi osion loppukyselyyn:
+
+<quiz id="169e4e52-8797-5172-b8b1-dc075bfdc866"></quiz>
+
+

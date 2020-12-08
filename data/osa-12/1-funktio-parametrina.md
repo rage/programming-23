@@ -15,7 +15,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Olemme jo aikaisemmin käyttäneet metodia `sort` ja funktiota `sorted` järjestämään listoja luonnolliseen järjestykseen. Metodit toimivat sellaisenaan hyvin luvuista ja merkkijonoista koostuvien listojen kanssa, mutta jos lista sisältää vähänkään monimutkaisempia alkioita - esimerkiksi tupleja, sanakirjoja tai omista luokista muodostettuja olioita, eteen saattaa tulla tilanne, jossa Python ei järjestä listaa niin kuin ohjelmoija toivoisi.
+Olemme jo aikaisemmin käyttäneet metodia `sort` ja funktiota `sorted` järjestämään listoja luonnolliseen järjestykseen. Metodit toimivat sellaisenaan hyvin luvuista ja merkkijonoista koostuvien listojen kanssa, mutta jos lista sisältää monimutkaisempia alkioita, Python ei välttämättä järjestä listaa niin kuin ohjelmoija toivoisi.
 
 Esimerkiksi lista tupleja järjestetään oletuksena jokaisen tuplen ensimmäisen alkion perusteella:
 
@@ -41,9 +41,9 @@ Mitä jos haluaisimme järjestää tuotelistan hinnan perusteella?
 
 ## Funktiot parametrina
 
-Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määräävä avain. Avaimeksi annetaan funktio, joka kertoo miten yksittäisen alkion arvo määritetään. Suorittamalla funktion jokaiselle alkiolle Python voi järjestää ne palautettujen arvojen mukaiseen järjestykseen.
+Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määräävä avain. Avaimeksi annetaan funktio, joka kertoo, miten yksittäisen alkion arvo määritetään. Python kutsuu tätä funktiota järjestämisen aikana alkioiden vertailemiseen.
 
-Esimerkiksi
+Esimerkiksi:
 
 ```python
 def hintajarjestys(alkio: tuple):
@@ -75,7 +75,7 @@ Funktion `hintajarjestys` määrittely on melko yksinkertainen: se saa parametri
 
 `tuotteet.sort(key=hintajarjestys)`
 
-Rivillä annetaan metodille `sort` parametriksi funktio. _Ei_ siis funktion paluuarvoa, vaan _funktio kokonaisuudessaan_. Järjestysmetodi käyttää tätä viittausta ja kutsuu funktiota jokaiselle alkiolle.
+Rivillä annetaan metodille `sort` parametriksi funktio. Ei siis funktion paluuarvoa, vaan _viittaus funktioon_. Järjestysmetodi kutsuu tätä funktiota jokaiselle alkiolle.
 
 Kutsut nähdään selkeästi lisäämällä vertailufunktioomme ylimääräinen tulostuslause:
 
@@ -110,7 +110,7 @@ Kutsuttiin hintajarjestys(('vesimeloni', 4.95))
 
 </sample-output>
 
-Järjestys saadaa käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta ´sorted` löytyvää toista parametria `reversed`:
+Järjestys saadaan käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta `sorted` löytyvää toista parametria `reverse`:
 
 ```python
 tuotteet.sort(key=hintajarjestys, reverse=True)
@@ -199,8 +199,8 @@ Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina l
 ```python
 sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
 
-print´("IMDB:n mukainen pistemäärä")
-for sarja in jarjesta_pisteiden_mukaan(tuotteet):
+print("IMDB:n mukainen pistemäärä")
+for sarja in jarjesta_pisteiden_mukaan(sarjat):
     print(f"{sarja['nimi']}  {sarja['pisteet']}")
 ```
 
@@ -226,7 +226,7 @@ class Opiskelija:
         self.tunnus = tunnus
         self.pisteet = pisteet
 
-    def __repr__(self):
+    def __str__(self):
         return f"{self.nimi} ({self.tunnus}), {self.pisteet} op."
 
 
@@ -268,7 +268,7 @@ Aapeli (a123), 220 op
 
 </sample-output>
 
-Järjestely toimii niinkuin pitää. Jos olioille arvon antavia funktioita `tunnuksen_mukaan` ja `pisteiden_mukaan` ei tarvita muuten, voimme kuitenkin vielä yksinkertaistaa ohjelmaa.
+Järjestäminen toimii niinkuin pitää. Jos olioille arvon antavia funktioita `tunnuksen_mukaan` ja `pisteiden_mukaan` ei tarvita muuten, voimme kuitenkin vielä yksinkertaistaa ohjelmaa.
 
 <programming-exercise name='Kiipeilyreitti' tmcname='osa12-04_kiipeilyreitti'>
 
@@ -322,7 +322,7 @@ Smooth operator, pituus 9 metriä, grade 7A
 
 ## Vaikeuden mukainen järjestys
 
-Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan nousevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
+Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan laskevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
 
 Funktio toimii seuraavasti:
 
@@ -339,10 +339,10 @@ for reitti in vaikeuden_mukaan(reitit):
 
 <sample-output>
 
-Pieniä askelia, pituus 12 metriä, grade 6A+
-Kantti, pituus 38 metriä, grade 6A+
-Smooth operator, pituus 9 metriä, grade 7A
 Syncro, pituus 14 metriä, grade 8C+
+Smooth operator, pituus 11 metriä, grade 7A
+Kantti, pituus 38 metriä, grade 6A+
+Pieniä askelia, pituus 12 metriä, grade 6A+
 
 </sample-output>
 
@@ -437,7 +437,7 @@ Olhava, 3 reittiä, vaikein 6B
 
 ## Lambda-lauseke
 
-Lambda-lausekkeen avulla voidaan luoda ns. anonyymi funktio, eli funktio joka muodostetaan sillä hetkellä kun sitä tarvitaan. Lausekkeen yleinen syntaksi on
+Lambda-lausekkeen avulla voidaan luoda anonyymi funktio eli funktio, joka muodostetaan sillä hetkellä, kun sitä tarvitaan. Lausekkeen yleinen syntaksi on seuraava:
 
 `lambda <parametrit> : <lauseke>`
 
@@ -474,7 +474,7 @@ def hinta(alkio):
     return alkio[1]
 ```
 
-...paitsi että lambda-lauseketta käytettäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
+paitsi että lambda-lauseketta käytettäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
 
 Muuten lambdan avulla muodostettava funktio on kuin mikä tahansa muukin funktio. Esimerkiksi seuraava esimerkki järjestää merkkijonot niiden viimeisten merkkien mukaiseen aakkosjärjestykseen:
 
@@ -495,7 +495,7 @@ Markku
 
 </sample-output>
 
-Mennään vielä pidemmälle: yhdistämällä listakooste ja join-metodi lambda-lausekkeeseen, voidaan esimerkiksi järjestää merkkijonot niistä löytyvien vokaalien mukaiseen järjestykseen välittämättä muista merkeistä:
+Mennään vielä pidemmälle: yhdistämällä listakooste ja `join`-metodi lambda-lausekkeeseen voidaan esimerkiksi järjestää merkkijonot niistä löytyvien vokaalien mukaiseen järjestykseen välittämättä muista merkeistä:
 
 ```python
 mjonot = ["Mikko", "Makke", "Maija", "Markku", "Mikki"]
@@ -529,13 +529,13 @@ class Levy:
         self.kesto = kesto
 
 
-    def __repr__(self):
+    def __str__(self):
         return f"{self.nimi} ({self.esittaja}), {self.vuosi}. {self.kesto} min."
 
 if __name__ == "__main__":
     l1 = Levy("Nevermind", "Nirvana", 1991, 43)
     l2 = Levy("Let It Be", "Beatles", 1969, 35)
-    l3 = Levy("U2", "Joshua Tree", 1986, 50)
+    l3 = Levy("Joshua Tree", "U2", 1986, 50)
 
     levyt = [l1, l2, l3]
 
@@ -558,7 +558,7 @@ U2 (Joshua Tree), 1986. 50 min.
 
 <programming-exercise name='Palloilijat' tmcname='osa12-06_palloilijat'>
 
-Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirteet:
+Tehtäväpohjasta löytyy luokka `Palloilija`, jolla on seuraavat julkiset piirteet:
 
 * nimi
 * pelinumero
@@ -566,28 +566,53 @@ Tehtäväpohjasta löytyy luokka Palloilija, jolla on seuraavat julkiset piirtee
 * annettujen syöttöjen määrä `syotot`
 * peliminuuttien määärä `minuutit`
 
-Kirjoita seuraavien tehtävänantojen mukaiset funktiot
-
-Huomaa, että jokaisessa funktiossa palautetaan erityyppiset tiedot!
+Kirjoita seuraavien tehtävänantojen mukaiset funktiot. Huomaa, että jokaisessa funktiossa palautetaan erityyppiset tiedot.
 
 ## Eniten maaleja
 
 Kirjoita funktio `eniten_maaleja`, joka saa parametrikseen listan palloilijoita.
 
-Funktio palauttaa merkkijonona sen pelaajan _nimen_, joka on tehnyt eniten maaleja.
+Funktio palauttaa merkkijonona sen pelaajan nimen, joka on tehnyt eniten maaleja.
 
 ## Eniten pisteitä
 
 Kirjoita funktio `eniten_pisteita`, joka saa parametrikseen listan palloilijoita.
 
-Funktio palauttaa _tuplena_ sen pelaajan nimen ja pelinumeron, joka on tehnyt yhteensä eniten pisteitä. Pisteisiin lasketaan siis sekä maalit että syötöt.
+Funktio palauttaa tuplena sen pelaajan nimen ja pelinumeron, joka on tehnyt yhteensä eniten pisteitä. Pisteisiin lasketaan siis sekä maalit että syötöt.
 
 ## Vähiten peliminuuttjea
 
-Kirjoita funktio `vahiten_minutteja`, joka sa parametrikseen listan palloilijoita.
+Kirjoita funktio `vahiten_minuutteja`, joka saa parametrikseen listan palloilijoita.
 
-FUnktio palauttaa sen _Palloilija-olion_, jolla on vähiten peliminuutteja kaikista pelaajista.
+Funktio palauttaa sen `Palloilija`-olion, jolla on vähiten peliminuutteja kaikista pelaajista.
 
+## Testiohjelma
+
+Voit testata koodisi toimintaa seuraavalla ohjelmalla:
+
+```python
+if __name__ == "__main__":
+    pelaaja1 = Palloilija("Kelju Kojootti", 13, 5, 12, 46)
+    pelaaja2 = Palloilija("Maantiekiitäjä", 7, 2, 26, 55)
+    pelaaja3 = Palloilija("Uka Naakka", 9, 1, 32, 26)
+    pelaaja4 = Palloilija("Pelle Peloton", 12, 1, 11, 41)
+    pelaaja5 = Palloilija("Hessu Hopo", 4, 3, 9, 12)
+    
+    joukkue = [pelaaja1, pelaaja2, pelaaja3, pelaaja4, pelaaja5]
+    print(eniten_maaleja(joukkue))
+    print(eniten_pisteita(joukkue))
+    print(vahiten_minuutteja(joukkue))
+```
+
+Tulostuksen tulisi olla:
+
+<sample-output>
+
+Kelju Kojootti
+('Uka Naakka', 9)
+Palloilija(nimi=Hessu Hopo, pelinumero=4, maalit=3, syotot=9, minuutit=12)
+
+</sample-output>
 
 </programming-exercise>
 
@@ -623,12 +648,12 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Funktion `suorita_operaatio` lopputulos siis riippuu siitä, mikä funktio sille on välitetty parametrina. Funktioksi kelpaa mikä tahansa funktio (niin def-lauseella määritelty kuin anonyymikin) jolla on kaksi parametria.
+Funktion `suorita_operaatio` lopputulos siis riippuu siitä, mikä funktio sille on välitetty parametrina. Funktioksi kelpaa mikä tahansa funktio (niin `def`-lauseella määritelty kuin anonyymikin) jolla on kaksi parametria.
 
-Vaikkei funktioiden välittäminen parametrina olekaan kaikkein yleisimmin tarvittava operaatio, on se joka tapauksessa hyödyllinen mekanismi. Esimerkiksi seuraava ohjelma kirjoittaa tiedostosta 1 halutut rivit tiedostoon 2. Rivien valintakriteeri annetaan funktiona, joka palauttaa True, jos rivi tulee kirjoittaa toiseen tiedostoon:
+Vaikkei funktioiden välittäminen parametrina olekaan kaikkein yleisimmin tarvittava operaatio, on se joka tapauksessa hyödyllinen mekanismi. Esimerkiksi seuraava ohjelma kirjoittaa tiedostosta 1 halutut rivit tiedostoon 2. Rivien valintakriteeri annetaan funktiona, joka palauttaa `True`, jos rivi tulee kirjoittaa toiseen tiedostoon:
 
 ```python
-def kopioi_rivit(lahde_nimi: str, kohde_nimi: str, kriteeri: lambda x: True):
+def kopioi_rivit(lahde_nimi: str, kohde_nimi: str, kriteeri= lambda x: True):
     with open(lahde_nimi) as lahde, open(kohde_nimi, "w") as kohde:
         for rivi in lahde:
             # Poistetaan ensin tyhjät merkit alusta ja lopusta
@@ -656,7 +681,7 @@ Funktiossa parametrille `kriteeri` on määritelty oletusarvoksi lambda-lauseke 
 
 <programming-exercise name='Tuotteiden haku' tmcname='osa12-07_tuotteiden_haku'>
 
-Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet`seuraavasti:
+Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet` seuraavasti:
 
 ```python
 tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22), ("Kaali", 0.99, 1)]
