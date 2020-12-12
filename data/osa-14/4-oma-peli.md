@@ -21,7 +21,7 @@ Kun peli on valmis, lähetä se vertaisarviointiin alla olevan lomakkeen avulla.
 
 ## Osan 14 arvioinnista
 
-Tämän viikon tavoitteena on saada aikaan toimiva peli. Koska osassa on vain yksi tehtävä, *myös yritys hyväksytään*. Palauta siis pelisi ennen määräaikaa, vaikka se ei toimisikaan.
+Tämän viikon tavoitteena on saada aikaan toimiva peli. Koska osassa on vain yksi tehtävä, *myös yritys hyväksytään*. Palauta siis pelisi ennen määräaikaa, vaikka se ei toimisikaan haluamallasi tavalla.
 
 Jos et saa peliä toimimaan, kirjoita ohjelmakoodin kommentteihin miten pelin (tai jonkin puuttuvan ominaisuuden) olisi tarkoitus toimia.
 
