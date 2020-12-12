@@ -8,7 +8,7 @@ hidden: false
 
 Tämän viikon tehtäväsi on tehdä oma pieni peli Pygamen avulla. Peliä varten tehtäväpohjassa on joukko kuvia, joita voit käyttää pelissä. Älä käytä muita kuvia, jotta muutkin pystyvät kokeilemaan peliä koodin perusteella.
 
-Saat päättää pelin aiheen itse, ja pelin tulisi olla suunnilleen saman laajuinen kuin tämän viikon esimerkki. Pelin vaatimukset:
+Saat päättää pelin aiheen itse, ja pelin tulisi olla suunnilleen saman laajuinen kuin tämän viikon esimerkki. Pelin tulisi noudattaa seuraavia vaatimuksia:
 
 * Pelissä on hahmo, jota pelaaja pystyy liikuttamaan
 * Pelissä on kerättäviä asioita ja/tai vihollisia
@@ -18,7 +18,13 @@ Saat päättää pelin aiheen itse, ja pelin tulisi olla suunnilleen saman laaju
 
 Kun peli on valmis, lähetä se vertaisarviointiin alla olevan lomakkeen avulla. Tämän jälkeen tutustu vielä kahden muun kurssilaisen peliin ja anna niille mielestäsi sopiva arvosana ja kirjoita lyhyt arvio peleistä. Ota arvioinnissa huomioon sekä pelin kiinnostavuus ja pelattavuus että koodin selkeys.
 
-Tämän viikon tehtävästä saat suorituksen, kun olet saanut aikaan toimivan pelin ja osallistunut vertaisarviointiin. Vertaisarvioinnissa annettu arvosana ei vaikuta kurssin pisteisiin.
+
+## Osan 14 arvioinnista
+
+Tämän viikon tavoitteena on saada aikaan toimiva peli. Koska osassa on vain yksi tehtävä, *myös hyvä yritys hyväksytään*. Palauta siis pelisi ennen määräaikaa, vaikka se ei toimisikaan.
+
+Jos arvioit (osittain tai kokonaan) toimimatonta peliä, pyri arviossasi kertomaan mitä pelin valmiiksi saaminen olisi mielestäsi vaatinut.
+
 
 ## Vertaisarviointi
 
