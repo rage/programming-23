@@ -18,7 +18,6 @@ Saat päättää pelin aiheen itse, ja pelin tulisi olla suunnilleen saman laaju
 
 Kun peli on valmis, lähetä se vertaisarviointiin alla olevan lomakkeen avulla. Tämän jälkeen tutustu vielä kahden muun kurssilaisen peliin ja anna niille mielestäsi sopiva arvosana ja kirjoita lyhyt arvio peleistä. Ota arvioinnissa huomioon sekä pelin kiinnostavuus ja pelattavuus että koodin selkeys.
 
-
 ## Osan 14 arvioinnista
 
 Tämän viikon tavoitteena on saada aikaan toimiva peli. Koska osassa on vain yksi tehtävä, *myös yritys hyväksytään*. Palauta siis pelisi ennen määräaikaa, vaikka se ei toimisikaan haluamallasi tavalla.
@@ -27,6 +26,21 @@ Jos et saa peliä toimimaan, kirjoita ohjelmakoodin kommentteihin miten pelin (t
 
 Kun arvioit (osittain tai kokonaan) toimimatonta peliä, pyri arviossasi mahdollisuuksien mukaan kertomaan mitä pelin valmiiksi saaminen olisi mielestäsi vaatinut.
 
+## Peli-ideoita
+
+Voit valita pelin aiheen vapaasti mutta tässä on joitakin ideoita. Pelin tekemisessä on hyötyä myös viikon 13 materiaalista.
+
+### Keräilypeli
+
+* Pelaaja liikuttaa robottia nuolinäppäimillä
+* Ruudulla on kolikko, joka robotin tulee kerätä. Kun robotti saa kolikon, se siirtyy uuteen paikkaan.
+* Ruudulla liikkuu myös hirviöitä, joita robotin tulee väistellä.
+
+### Rahasade
+
+* Ruudun alareunassa on robotti, jota pelaaja voi liikuttaa vasemmalle tai oikealle
+* Taivaalta sataa rahaa, jota robotin tulee kerätä.
+* Taivaalta sataa myös hirviöitä, joita robotin tulee väistellä.
 
 ## Vertaisarviointi
 
