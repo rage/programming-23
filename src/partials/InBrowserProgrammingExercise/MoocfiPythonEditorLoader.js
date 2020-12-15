@@ -74,7 +74,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
 
     const loginPrompt = (
       <div style={{ padding: "1rem", textAlign: "center" }}>
-        <p>{t("loginToSeeExercise")}</p>
+        <p>{t("loginToAttemptExercise")}</p>
         <LoginControls />
       </div>
     )

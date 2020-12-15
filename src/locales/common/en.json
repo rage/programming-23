@@ -20,6 +20,7 @@
     "sampleOutput":"Sample output",
     "sampleData":"Sample data",
     "loginToSeeExercise":"Login to view the exercise",
+    "loginToAttemptExercise":"Login to attempt the exercise.",
     "pleaseLogin":"You are not logged in. Some parts of the material are only for logged in users. You can log in here: ",
     "inThisSection":"In this part:" ,
     "programmingExercise":"Programming exercise:",

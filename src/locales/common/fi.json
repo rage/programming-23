@@ -20,6 +20,7 @@
     "sampleOutput":"Esimerkkitulostus",
     "sampleData":"Esimerkkidata",
     "loginToSeeExercise":"Kirjaudu sisään nähdäksesi tehtävän.",
+    "loginToAttemptExercise":"Kirjaudu sisään tehdäksesi tehtävän.",
     "pleaseLogin":"Et ole kirjautunut sisään. Kaikki materiaalin osat eivät toimi ilman sisäänkirjautumista. Pääset kirjautumaan materiaaliin tästä:",
     "inThisSection":"Tässä osassa:" ,
     "programmingExercise":"Ohjelmointitehtävä:",
