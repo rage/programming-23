@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { withTranslation } from "react-i18next"
 
 import LoginStateContext from "../../contexes/LoginStateContext"
+import LoginControls from "../../components/LoginControls"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
 import { accessToken } from "../../services/moocfi"
 import ProgrammingExerciseCard from "../ProgrammingExercise/ProgrammingExerciseCard"
@@ -57,6 +58,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
 
   render() {
     const {
+      t,
       name,
       tmcname,
       children,
@@ -69,6 +71,13 @@ class InBrowserProgrammingExercisePartial extends React.Component {
     if (!this.state.render) {
       return <div>Loading</div>
     }
+
+    const loginPrompt = (
+      <div style={{ padding: "1rem", textAlign: "center" }}>
+        <p>{t("loginToSeeExercise")}</p>
+        <LoginControls />
+      </div>
+    )
 
     const details = this.state.exerciseDetails
     const deadline = details?.deadline ? new Date(details.deadline) : null
@@ -90,17 +99,21 @@ class InBrowserProgrammingExercisePartial extends React.Component {
             </StyledDeadlineText>
           )}
           <Wrapper>{children}</Wrapper>
-          <ProgrammingExercise
-            onExerciseDetailsChange={(details) => this.onUpdate(details)}
-            organization={ORGANIZATION}
-            course={COURSE}
-            exercise={tmcname}
-            token={accessToken()}
-            height={height ? height : "300px"}
-            outputHeight={outputheight ? outputheight : "auto"}
-            outputPosition={outputposition || "relative"}
-            language={language}
-          />
+          {this.context.loggedIn ? (
+            <ProgrammingExercise
+              onExerciseDetailsChange={(details) => this.onUpdate(details)}
+              organization={ORGANIZATION}
+              course={COURSE}
+              exercise={tmcname}
+              token={accessToken()}
+              height={height ? height : "300px"}
+              outputHeight={outputheight ? outputheight : "auto"}
+              outputPosition={outputposition || "relative"}
+              language={language}
+            />
+          ) : (
+            loginPrompt
+          )}
         </div>
       </ProgrammingExerciseCard>
     )
