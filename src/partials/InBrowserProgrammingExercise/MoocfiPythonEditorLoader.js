@@ -90,17 +90,19 @@ class InBrowserProgrammingExercisePartial extends React.Component {
             </StyledDeadlineText>
           )}
           <Wrapper>{children}</Wrapper>
-          <ProgrammingExercise
-            onExerciseDetailsChange={(details) => this.onUpdate(details)}
-            organization={ORGANIZATION}
-            course={COURSE}
-            exercise={tmcname}
-            token={accessToken()}
-            height={height ? height : "300px"}
-            outputHeight={outputheight ? outputheight : "auto"}
-            outputPosition={outputposition || "relative"}
-            language={language}
-          />
+          {this.context.loggedIn && (
+            <ProgrammingExercise
+              onExerciseDetailsChange={(details) => this.onUpdate(details)}
+              organization={ORGANIZATION}
+              course={COURSE}
+              exercise={tmcname}
+              token={accessToken()}
+              height={height ? height : "300px"}
+              outputHeight={outputheight ? outputheight : "auto"}
+              outputPosition={outputposition || "relative"}
+              language={language}
+            />
+          )}
         </div>
       </ProgrammingExerciseCard>
     )
