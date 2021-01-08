@@ -6,7 +6,7 @@ const courseSettings = {
   subtitle: "Johdatus ohjelmointiin Python-kielellä",
   slug: "ohjelmointi-21",
   tmcCourse: "ohjelmointi-21",
-  quizzesId: "a8c6418a-98e4-4732-b09f-bd866da480d4",
+  quizzesId: "644ecb1d-becf-4e68-aeb4-8563b6d366c6",
   tmcOrganization: "hy",
   bannerPath: "banner.svg",
   showExerciseDescriptionWhenNotLoggedIn: true,
