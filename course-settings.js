@@ -7,7 +7,7 @@ const courseSettings = {
   slug: "ohjelmointi-21",
   tmcCourse: "ohjelmointi-21",
   quizzesId: "644ecb1d-becf-4e68-aeb4-8563b6d366c6",
-  tmcOrganization: "hy",
+  tmcOrganization: "mooc",
   bannerPath: "banner.svg",
   showExerciseDescriptionWhenNotLoggedIn: true,
 }
