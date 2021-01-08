@@ -641,4 +641,4 @@ Usein pidetään hyvänä asiana, että funktiot eivät aiheuta sivuvaikutuksia,
 
 Sivuvaikutuksettomia funktioita kutsutaan myös _puhtaiksi funktioiksi_ ja erityisesti funktionaalista ohjelmointityyliä käytettäessä funktiot pyritään rakentamaan näin. Palaamme aiheeseen tarkemmin _Ohjelmoinnin jatkokurssilla_.
 
-<quiz id="b618c1c5-e18c-50c0-8166-1fa7f9a0440b"></quiz>
+<quiz id="b254a4f9-09bb-55c8-87c0-538f91e51ace"></quiz>

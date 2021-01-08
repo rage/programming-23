@@ -503,4 +503,4 @@ Voit olettaa, että käyttäjän antama luku on 2 tai suurempi.
 </in-browser-programming-exercise>
 
 
-<quiz id="61e37fdf-b172-54ba-acf3-eeaef2f227d8"></quiz>
+<quiz id="900c0293-b14c-5736-b1a3-68d4fa01ac43"></quiz>

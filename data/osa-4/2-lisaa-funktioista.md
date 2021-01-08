@@ -609,4 +609,4 @@ Tämä kertoo funktion käyttäjälle, että funktion on tarkoitus palauttaa mer
 
 Huomaa kuitenkin, että tyyppivihje ainoastaan neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri tai se palauttaa väärän tyyppisen arvon, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.
 
-<quiz id="d752142a-9e54-5cdb-acb9-b19c9bf4673e"></quiz>
+<quiz id="fb289a3b-288a-5a9f-b3d2-07ceae5866ea"></quiz>

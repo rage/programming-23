@@ -613,8 +613,8 @@ Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä. -->
 </programming-exercise>
 
 
-<quiz id="93f31db6-8d49-5ebc-9e73-d61fe5ff1c17"></quiz>
+<quiz id="925f1715-d762-5e44-a812-be13bff1aa44"></quiz>
 
 Vastaa lopuksi osion loppukyselyyn:
 
-<quiz id="77182267-7cc0-58ec-989e-8b2ce40a6dc1"></quiz>
+<quiz id="af22017f-32f0-551f-9756-297208f5de1a"></quiz>

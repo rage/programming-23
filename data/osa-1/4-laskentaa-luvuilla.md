@@ -428,4 +428,4 @@ Vihje: tehtävän tekeminen onnistuu kokonaislukujakolaskuoperaattorilla `//`
 
 Kertauskysely tämän osan asioihin liittyen:
 
-<quiz id="ba12a73f-bcb9-5df8-9adf-4e11fac179e5"></quiz>
+<quiz id="d781d54e-9792-5a79-a018-168940390580"></quiz>

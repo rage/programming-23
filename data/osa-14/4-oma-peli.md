@@ -44,15 +44,15 @@ Voit valita pelin aiheen vapaasti mutta tässä on joitakin ideoita. Pelin tekem
 
 ## Vertaisarviointi
 
-<quiz id="56ec9a00-8b4b-40bd-8bdb-15f05221a90a"></quiz>
+<quiz id="a3101454-6036-54b2-9b78-99064a8c9efe"></quiz>
 
 ## Loppukysely
 
 Vastaa ensin osion loppukyselyyn...
 
-<quiz id="cf81280a-030a-5820-8c61-2648a5d4752f"></quiz>
+<quiz id="45f0730f-4793-5430-835a-3e87aeaa23c2"></quiz>
 
 ...ja sitten vielä koko kurssin loppukyselyyn:
 
-<quiz id="457f0c87-4363-43b4-a04d-4638ee933a95"></quiz>
+<quiz id="bed259bc-56d7-5acb-91bf-3f5d174923db"></quiz>
 

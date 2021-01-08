@@ -8,20 +8,31 @@ sidebar_priority: 4000
 
 Kurssit suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen.
 
-### Ohjelmoinnin perusteet koepäivät
+### Ohjelmoinnin perusteet koepäivät 2021
 
-* la 24.10.2020
-* la 7.11.2020
-* la 12.12.2020
+* Lauantai 6.3.21
+* Lauantai 15.5.21
+* Lauantai 3.7.21
+* Lauantai 7.8.21
+* Lauantai 2.10.21
+* Lauantai 27.11.21
 
-### Ohjelmoinnin jatkokurssi koepäivät
 
-* 17.12.2020
-* Lisää tenttipäiviä ilmoitetaan myöhemmin
+### Ohjelmoinnin jatkokurssi koepäivät 2021
+
+* Lauantai 8.5.21
+* Lauantai 3.7.21
+* Lauantai 14.8.21
+* Lauantai 9.10.21
+* Lauantai 4.12.21
 
 ## Tenttiin osallistuminen
 
-Voit osallistua mihin tahansa kokeeseen, ja kurssilla saa osallistua halutessaan useampaan kokeeseen. Opintorekisteriin jää paras suoritus.
+Voit osallistua mihin tahansa kokeeseen, kun olet saanut minimimäärän tehtäviä tehtyä. Käytännössä tämä tarkoittaa, että sinulla tulee olla 25 % kaikista tehtäväkierroksen pisteistä valmiina koepäivän aamuna klo 08.00. Jos pisteitä puuttuu, tenttisuoritustasi ei arvioida.
+
+Suorituksia tarkastellaan erikseen peruskurssin (osat 1-7) ja jatkokurssin (osat 8-14) osalta.
+
+Kurssilla saa osallistua halutessaan useampaan kokeeseen. Opintorekisteriin jää paras suoritus.
 
 ## Kurssin pisteytys
 

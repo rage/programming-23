@@ -391,4 +391,4 @@ Kirjoita funktio `suodata_virheelliset()`, joka luo tiedoston `korjatut_numerot.
 
 </programming-exercise>
 
-<quiz id="78f3910a-d9d8-5b0f-a465-727de77ac6bd"></quiz>
+<quiz id="9b3e7b12-ee82-53ab-8801-7b94e39684e2"></quiz>

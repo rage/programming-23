@@ -1,7 +1,7 @@
 ---
 path: "/verkkotentti-lisa"
 title: "Verkkotentti 12.12"
-information_page: true
+information_page: false
 ---
 
 ### Tenttiin osallistuminen
