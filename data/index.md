@@ -52,7 +52,7 @@ Virallinen tieto kurssin aikatauluista julkaistaan aina tällä sivulla.
     </tr>
     <tr>
       <td>Osa 2</td>
-      <td>18.1.2021/td>
+      <td>18.1.2021</td>
       <td><!--<a href="https://youtu.be/gZcI0czbylg">Luentotallenne</a>--></td>
     </tr>
     <tr>
