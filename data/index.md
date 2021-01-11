@@ -17,6 +17,8 @@ Osat 1-7 muodostavat Ohjelmoinnin perusteet ja osat 8-14 muodostavan Ohjelmoinni
 Huomaa, että jos olet suorittanut kurssin aiemmin Javalla,
 voit sisällyttää tutkintoosi 1 + 1 op. laajuiset versiot kursseista.
 
+**Huom!** Kurssin suorittamalla **ei** voi enää hakea suoraan sisäänpääsyä laitokselle (ns. MOOC-väylä) niin kuin aikaisempina vuosina. Lisätietoa laitoksen hakuväylistä löydät [opintopolku.fi-sivustolta](https://opintopolku.fi/app/#!/haku/tietojenk%C3%A4sittelytiede?page=1&facetFilters=teachingLangCode_ffm:FI&tab=los).
+
 ## Tukiväylät
 
 Kurssilla on Telegram-kanava, jonne pääset [tästä](https://t.me/python_hy/).
