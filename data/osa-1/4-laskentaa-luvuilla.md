@@ -52,7 +52,7 @@ Laskutoimituksen osana on yleensä *operandeja* ja *operaattoreita*:
 
 Yleensä operandien tyyppi ratkaisee lopputuloksen tyypin: jos lasketaan yhteen kaksi kokonaislukua, myös tulos on kokonaisluku. Jos taas vähennetään liukuluku toisesta liukuluvusta, myös tulos on liukuluku. Itse asiassa tulos on liukuluku, jos edes yksi operandeista lausekkeessa on liukuluku.
 
-Jakolasku `/` muodostaa Pythonissa poikkeuksen sääntöön: sen tulos liukuluku, vaikka operandit olisivatkin kokonaislukuja (esim. `1 / 5` tuottaa liukuluvun `0.2`).
+Jakolasku `/` muodostaa Pythonissa poikkeuksen sääntöön: sen tulos on liukuluku, vaikka operandit olisivatkin kokonaislukuja (esim. `1 / 5` tuottaa liukuluvun `0.2`).
 
 Esimerkki:
 
