@@ -36,6 +36,18 @@ export async function fetchProgress(t) {
     },
   )
   const toBeDeleted = []
+  toBeDeleted.push("osa3")
+  toBeDeleted.push("osa4")
+  toBeDeleted.push("osa5")
+  toBeDeleted.push("osa6")
+  toBeDeleted.push("osa7")
+  toBeDeleted.push("osa8")
+  toBeDeleted.push("osa9")
+  toBeDeleted.push("osa10")
+  toBeDeleted.push("osa11")
+  toBeDeleted.push("osa12")
+  toBeDeleted.push("osa13")
+  toBeDeleted.push("osa14")
   Object.entries(progressByGroup).forEach(([group, serviceEntries]) => {
     if (
       !Object.keys(serviceEntries).find((o) => o === t("programmingService"))
