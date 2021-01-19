@@ -27,7 +27,7 @@ Kanavalla voit keskustella muiden kurssin opiskelijoiden ja ohjaajien kanssa.
 Käytössä on myös off topic -kanava jossa voit keskustella aiheista jotka eivät liity suoraan kurssin sisältöön.
 Off topic -kanavalle pääset [tästä](https://t.me/ohjelmointi20_ot).
 
-Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-mooc@helsinki.fi.
+Käytä ensisijaisesti viestintävälineenä Telegramia. Kurssin opettajiin voit olla suoraan yhteydessä sähköpostitse osoitteella erkki.kaila@helsinki.fi.
 
 
 ## Aikataulu
