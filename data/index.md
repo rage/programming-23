@@ -34,7 +34,7 @@ Voit myös ottaa yhteyttä kurssin järjestäjiin sähköpostilla ohjelmoinnin-m
 
 Kurssi on auki vuoden 2021 loppuun asti. Tehtävät julkaistaan alla olevan aikataulun mukaisesti yksi tehtäväkierros kerrallaan.
 
-Kurssilla ei normaalisti ole tarjolla luentoja. Osiin 2-12 liittyvät luentotallenteet onkin tehty syksyn 2020 kurssille. Asiasisältö on tätä kurssia vastaava, mutta talleneteilta mahdollisesti löytyvät huomautukset esimerkiksi tenttipäivämääriin tms. _eivät välttämättä pidä paikkaansa_!
+Kurssilla ei normaalisti ole tarjolla luentoja. Osiin 2-12 liittyvät luentotallenteet onkin tehty syksyn 2020 kurssille. Asiasisältö on tätä kurssia vastaava, mutta tallenteilta mahdollisesti löytyvät huomautukset esimerkiksi tenttipäivämääriin tms. liittyen _eivät välttämättä pidä paikkaansa_!
 
 Virallinen tieto kurssin aikatauluista julkaistaan aina tällä sivulla.
 
@@ -55,7 +55,7 @@ Virallinen tieto kurssin aikatauluista julkaistaan aina tällä sivulla.
     <tr>
       <td>Osa 2</td>
       <td>18.1.2021</td>
-      <td><!--<a href="https://youtu.be/gZcI0czbylg">Luentotallenne</a>--></td>
+      <td><a href="https://youtu.be/gZcI0czbylg">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 3</td>
