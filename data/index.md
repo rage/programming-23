@@ -23,6 +23,8 @@ voit sisällyttää tutkintoosi 1 + 1 op. laajuiset versiot kursseista.
 
 Kurssilla on Telegram-kanava, jonne pääset [tästä](https://t.me/python_hy/).
 Kanavalla voit keskustella muiden kurssin opiskelijoiden ja ohjaajien kanssa.
+Ohjaajia on kanavalla tiettyinä aikoina viikossa.
+Tarkan ohjausaikataulun löydät [täältä](/tuki).
 
 Käytössä on myös off topic -kanava jossa voit keskustella aiheista jotka eivät liity suoraan kurssin sisältöön.
 Off topic -kanavalle pääset [tästä](https://t.me/ohjelmointi20_ot).
