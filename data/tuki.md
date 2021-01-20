@@ -9,9 +9,9 @@ Kurssilla saa tukea tehtäviin **25.1 eteenpäin** telegramin ja zoomin kautta.
 
 ## Telegram
 
-Telegram on viestintäsovellus, josta saat lisätietota [täältä](https://telegram.org/).
+Telegram on viestintäsovellus, josta saat lisätietoa [täältä](https://telegram.org/).
 
-Ohjaajatiimi tarjoaa apua tehtävien ratkomisessa kurssin telegram-kanavalla useana päivänä viikossa. Ohjausaikana ohjaajat päivystävät kurssikanavaa ja vastaavat myös yksityisviesteinä lähetettyihin kysymyksiin. Ole huomaavainen äläkä lähetä yksityisviestejä ohjausaikoijen ulkopuolella.
+Ohjaajatiimi tarjoaa apua tehtävien ratkomisessa kurssin Telegram-kanavalla useana päivänä viikossa. Ohjausaikana ohjaajat päivystävät kurssikanavaa ja vastaavat myös yksityisviesteinä lähetettyihin kysymyksiin. Ole huomaavainen äläkä lähetä yksityisviestejä ohjausaikoijen ulkopuolella.
 
 Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
 
