@@ -150,7 +150,71 @@ Moikka, Emilia
 
 </sample-output>
 
-<programming-exercise name='Neliö' tmcname='osa04-02a_nelio'>
+
+<programming-exercise name='Risulaatikko' tmcname='osa04-02a_risulaatikko'>
+
+Tee funktio `risulaatikko`, joka piirtää risuaitamerkkiä käyttäen parametrinsa korkuisen, kymmenen merkkiä leveän risulaatikon.
+
+Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle. Älä muuta funktiota mitenkaan!
+
+Pari käyttöesimerkkiä
+
+```python
+risulaatikko(5)
+print()
+risulaatikko(2)
+```
+
+<sample-output>
+
+<pre>
+##########
+##########
+##########
+##########
+##########
+
+##########
+##########
+</pre>
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Risuneliö' tmcname='osa04-02b_risunelio'>
+
+Tee funktio `risunelio`, joka piirtää risuaitamerkkiä käyttäen parametrinsa kokoisen risuneliön.
+
+Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle. Älä muuta funktiota mitenkaan!
+
+Pari käyttöesimerkkiä
+
+```python
+risunelio(5)
+print()
+risunelio(3)
+```
+
+<sample-output>
+
+<pre>
+#####
+#####
+#####
+#####
+#####
+
+###
+###
+###
+</pre>
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Neliö' tmcname='osa04-02c_nelio'>
 
 Tee funktio `nelio`, joka saa kaksi parametria. Funktio tulostaa neliön jonka korkeuden ja leveyden kertoo ensimmäinen parametri.  Toinen parametri määrittelee mitä merkkiä käyttäen neliö piirretään.
 
@@ -176,6 +240,39 @@ nelio(3, "o")
 ooo
 ooo
 ooo
+</pre>
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Kolmio' tmcname='osa04-02d_kolmio'>
+
+Tee funktio `kolmio`, joka piirtää risuaitamerkkiä käyttäen parametrinsa korkuisen ja levyisen, risuaitakolmion.
+
+Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle. Älä muuta funktiota mitenkaan!
+
+Pari käyttöesimerkkiä
+
+```python
+kolmio(6)
+print()
+kolmio(3)
+```
+
+<sample-output>
+
+<pre>
+#
+##
+###
+####
+#####
+######
+
+#
+##
+###
 </pre>
 
 </sample-output>
@@ -605,7 +702,7 @@ def kysy_nimi() -> str:
     return nimi
  ```
 
-Tämä kertoo funktion käyttäjälle, että funktion on tarkoitus palauttaa merkkijono. 
+Tämä kertoo funktion käyttäjälle, että funktion on tarkoitus palauttaa merkkijono.
 
 Huomaa kuitenkin, että tyyppivihje ainoastaan neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri tai se palauttaa väärän tyyppisen arvon, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.
 
