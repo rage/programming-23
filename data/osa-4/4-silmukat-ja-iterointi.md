@@ -457,29 +457,29 @@ print(tulos)
 
 </programming-exercise>
 
-<programming-exercise name='Listan pisin' tmcname='osa04-18b_listan_pisin'>
+<programming-exercise name='Listan lyhin' tmcname='osa04-18b_listan_lyhin'>
 
-Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio listan pisimmän merkkijonon. Jos samanpituisia on useita (testeissä näin ei ole), voi funktio palauttaa niistä minkä vaan.
+Tee funktio `lyhin`, joka saa parametriksi listan merkkijonoja. Funktio listan lyhimmän merkkijonon. Jos samanpituisia on useita (testeissä näin ei ole), voi funktio palauttaa niistä minkä vaan. Funktio voi olettaa että listalla ei ole tyhjiä eli nollan pituisia merkkijonoja.
 
 
 ```python
 lista = ["eka", "toka", "kolmas", "seitsemäs"]
 
-tulos = pisimmat(lista)
-print(tulos) # ['seitsemäs']
+tulos = lyhin(lista)
+print(tulos)
 ```
 
 ```python
 lista = ["pekka", "emilia", "johanna", "venla", "eero", "antti"]
 
-tulos = pisimmat(lista)
+tulos = lyhin(lista)
 print(tulos)
 ```
 
 <sample-output>
 
-seitsemäs
-johanna
+eka
+eero
 
 </sample-output>
 
