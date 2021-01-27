@@ -411,6 +411,80 @@ print(uniikit(lista)) # [1, 2, 3]
 
 </programming-exercise>
 
+## Parhaan tai huonoimman etsiminen listalta
+
+Ohjelmoinnissa tulee usein esiin tilanne, missä listalta on löydettävä paras tai huonoin alkio. Ratkaisu onnistuu käyttämällä sopivaa apumuuttujaa, jonka avulla voidaan "muistaa" läpikäynnin aikana siihen mennessä löytynyt paras alkio. Tätä muistettavaa alkiota verrataan sitten yksi kerrallaan jokaiseen vastaantulevaan alkioon, ja lopulta on tiedossa koko listan paras.
+
+Algoritmin "luonnos" on seuraavassa:
+
+```python
+paras = alkuarvo # sopiva alkuarvo riippuu tilanteesta
+for alkio in lista:
+    if alkio paremi kuin paras:
+        paras = alkio
+
+# paras on nyt tiedossa!
+```
+
+Koodin yksityiskohdat riippuvat siitä minkä tyyppisiä alkioita listalla on ja mikä parhauden/huonouden vertailukriteeri on käytössä. Joissain tilanteissa myös apumuuttujia saatetaan tarvita useampia.
+
+Harjoitellaan hieman tämän ratkaisumenetelmän käyttöä.
+
+<programming-exercise name='Listan pisimmän pituus' tmcname='osa04-18a_listan_pimman_pituus'>
+
+Tee funktio `pisimmpisimman_pituus_anpituus`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa tiedon mikä on listan pisimmän merkkijonon pituus.
+
+```python
+lista = ["eka", "toka", "kolmas", "seitsemäs"]
+
+tulos = pisimmat(lista)
+print(tulos)
+```
+
+```python
+lista = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
+
+tulos = pisimmat(lista)
+print(tulos)
+```
+
+<sample-output>
+
+9
+6
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Listan pisin' tmcname='osa04-18b_listan_pisin'>
+
+Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio listan pisimmän merkkijonon. Jos samanpituisia on useita (testeissä näin ei ole), voi funktio palauttaa niistä minkä vaan.
+
+
+```python
+lista = ["eka", "toka", "kolmas", "seitsemäs"]
+
+tulos = pisimmat(lista)
+print(tulos) # ['seitsemäs']
+```
+
+```python
+lista = ["pekka", "emilia", "johanna", "venla", "eero", "antti"]
+
+tulos = pisimmat(lista)
+print(tulos)
+```
+
+<sample-output>
+
+seitsemäs
+johanna
+
+</sample-output>
+
+</programming-exercise>
+
 <programming-exercise name='Listan pisimmät' tmcname='osa04-19_listan_pisimmat'>
 
 Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa listan, joka sisältää parametrina annetun listan pisimmän merkkijonon. Jos pisimpiä merkkijonoja on useampia, funktio palauttaa ne kaikki listassa.
