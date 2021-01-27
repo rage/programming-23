@@ -413,7 +413,7 @@ print(uniikit(lista)) # [1, 2, 3]
 
 ## Parhaan tai huonoimman etsiminen listalta
 
-Ohjelmoinnissa tulee usein esiin tilanne, missä listalta on löydettävä paras tai huonoin alkio. Ratkaisu onnistuu käyttämällä sopivaa apumuuttujaa, jonka avulla voidaan "muistaa" läpikäynnin aikana siihen mennessä löytynyt paras alkio. Tätä muistettavaa alkiota verrataan sitten yksi kerrallaan jokaiseen vastaantulevaan alkioon, ja lopulta on tiedossa koko listan paras.
+Ohjelmoinnissa tulee usein esiin tilanne, missä listalta on löydettävä jonkin kriteerin mukaan paras tai huonoin alkio. Ratkaisu onnistuu käyttämällä sopivaa apumuuttujaa, jonka avulla voidaan "muistaa" läpikäynnin aikana siihen mennessä löytynyt paras alkio. Tätä muistettavaa alkiota verrataan sitten yksi kerrallaan jokaiseen vastaantulevaan alkioon, ja lopulta on tiedossa koko listan paras.
 
 Algoritmin "luonnos" on seuraavassa:
 
@@ -432,19 +432,19 @@ Harjoitellaan hieman tämän ratkaisumenetelmän käyttöä.
 
 <programming-exercise name='Listan pisimmän pituus' tmcname='osa04-18a_listan_pimman_pituus'>
 
-Tee funktio `pisimmpisimman_pituus_anpituus`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa tiedon mikä on listan pisimmän merkkijonon pituus.
+Tee funktio `pisimman_pituus`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa tiedon mikä on listan pisimmän merkkijonon pituus.
 
 ```python
 lista = ["eka", "toka", "kolmas", "seitsemäs"]
 
-tulos = pisimmat(lista)
+tulos = pisimman_pituus(lista)
 print(tulos)
 ```
 
 ```python
 lista = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
 
-tulos = pisimmat(lista)
+tulos = pisimman_pituus(lista)
 print(tulos)
 ```
 
@@ -459,7 +459,7 @@ print(tulos)
 
 <programming-exercise name='Listan lyhin' tmcname='osa04-18b_listan_lyhin'>
 
-Tee funktio `lyhin`, joka saa parametriksi listan merkkijonoja. Funktio listan lyhimmän merkkijonon. Jos samanpituisia on useita (testeissä näin ei ole), voi funktio palauttaa niistä minkä vaan. Funktio voi olettaa että listalla ei ole tyhjiä eli nollan pituisia merkkijonoja.
+Tee funktio `lyhin`, joka saa parametriksi listan merkkijonoja. Funktio tulostaa listan lyhimmän merkkijonon. Jos samanpituisia on useita (testeissä näin ei ole), voi funktio palauttaa niistä minkä vaan. Funktio voi olettaa että listalla ei ole tyhjiä eli nollan pituisia merkkijonoja.
 
 
 ```python
