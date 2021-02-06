@@ -424,6 +424,8 @@ Ryhmien määrä: 4
 
 Vihje: tehtävän tekeminen onnistuu kokonaislukujakolaskuoperaattorilla `//`
 
+Vihje2: jos et keksi miten tehtävä ratkeaa, älä huolestu suotta vaan tutustu [seuraavassa luvussa](/osa-1/5-ehtorakenne) esiteltävään <i>ehtorakenteeseen</i>. Ehtorakenteen avulla tehtävä on huomattavasti helpompi ratkaista.
+
 </in-browser-programming-exercise>
 
 Kertauskysely tämän osan asioihin liittyen:
