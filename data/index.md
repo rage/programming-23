@@ -72,7 +72,7 @@ Virallinen tieto kurssin aikatauluista julkaistaan aina tällä sivulla.
     <tr>
       <td>Osa 5</td>
       <td>8.2.2021</td>
-      <td><!--<a href="https://youtu.be/5HWPcbuaf9s">Luentotallenne</a>--></td>
+      <td><a href="https://youtu.be/5HWPcbuaf9s">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 6</td>
