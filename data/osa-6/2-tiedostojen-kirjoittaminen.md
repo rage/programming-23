@@ -131,6 +131,8 @@ Ja taas yksi.
 
 </sample-output>
 
+Tiedon lisääminen tiedostoon on kuitenkin suhteellisen harvoin tarvittava operaatio.
+
 Tiedostoon lisäämisen sijaan on usein yksinkertaisinta kirjoittaa tiedosto kokonaan uudelleen. Näin joudutaan useimmiten tekemään jos esimerkiksi tiedoston sisältö muuttuu keskeltä tiedostoa.
 
 <programming-exercise name='Päiväkirja' tmcname='osa06-11_paivakirja'>
