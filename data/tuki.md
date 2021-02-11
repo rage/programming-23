@@ -79,7 +79,7 @@ Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
       <td>15:00-16:00</td>
       <td>X</td>
       <td></td>
-      <td></td>
+      <td>X</td>
       <td>X</td>
       <td></td>
       <td></td>
@@ -95,7 +95,7 @@ Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
     </tr>
     <tr>
       <td>17:00-18:00</td>
-      <td>X</td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
