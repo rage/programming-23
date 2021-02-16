@@ -60,7 +60,7 @@ Huomaa, että ehtorakenteen ensimmäisen rivin lopussa on kaksoispiste. Seuraava
 ```python
 ika = 10
 
-# kaksoipiste unohtui seuraavan rivin lopusta
+# kaksoispiste unohtui seuraavan rivin lopusta
 if ika > 17
     print("Olet täysi-ikäinen.")
 ```
