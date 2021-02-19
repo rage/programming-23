@@ -1,7 +1,7 @@
 import React from "react"
-import ExpansionPanel from "@material-ui/core/ExpansionPanel"
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
+import Accordion from "@material-ui/core/Accordion"
+import AccordionSummary from "@material-ui/core/AccordionSummary"
+import AccordionDetails from "@material-ui/core/AccordionDetails"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleDown as icon } from "@fortawesome/free-solid-svg-icons"
 import { withTranslation } from "react-i18next"
@@ -22,14 +22,14 @@ class ExercisesInThisSection extends React.Component {
       return <div>Loading...</div>
     }
     return (
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<FontAwesomeIcon icon={icon} />}>
+      <Accordion>
+        <AccordionSummary expandIcon={<FontAwesomeIcon icon={icon} />}>
           {this.props.t("exerciseList")}
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
+        </AccordionSummary>
+        <AccordionDetails>
           <ExerciseList />
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+        </AccordionDetails>
+      </Accordion>
     )
   }
 }
