@@ -137,7 +137,7 @@ module.exports = {
         // Exclude specific pages or groups of pages using glob parameters
         // See: https://github.com/isaacs/minimatch
         // The example below will exclude the single `path/to/page` and all routes beginning with `category`
-        exclude: ["/missing-info", "/profile", "/sign-in", "/sign-up", "/404"],
+        exclude: ["/missing-info", "/profile", "/sign-in", "/sign-out", "/sign-up", "/404"],
         query: `
         {
           site {
