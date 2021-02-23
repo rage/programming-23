@@ -1,6 +1,5 @@
 import React from "react"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
-import CourseSettings from "../../../course-settings"
 
 import { useQuery } from "@apollo/react-hooks"
 import { gql } from "apollo-boost"
@@ -34,7 +33,7 @@ const PROGRESS = gql`
 `
 
 const Points = (props) => {
-  const course = props.course || CourseSettings.slug
+  // const course = props.course || CourseSettings.slug
   const { data, loading, error, refetch } = useQuery(PROGRESS)
 
   if (loading) {
@@ -60,7 +59,7 @@ const Points = (props) => {
     )
   }
 
-  const points = data.currentUser.progress.user_course_progress.progress[0]
+  // const points = data.currentUser.progress.user_course_progress.progress[0]
   const courseName = data.currentUser.progress.course.name
   return (
     <>

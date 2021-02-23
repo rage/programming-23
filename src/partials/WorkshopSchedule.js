@@ -6,6 +6,7 @@ const WorkShopSchedule = ({ slug }) => {
   const language = CourseSettings.language
   return (
     <iframe
+      title="WorkShop Schedule"
       src={`https://study.cs.helsinki.fi/pajat/api/v2/${slug}/current?name=false&lang=${language}`}
       width="100%"
       height="528"

@@ -4,8 +4,6 @@ import { nthIndex } from "../../util/strings"
 import styled from "styled-components"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
 import ExerciseSummary from "./ExerciseSummary"
-import { fetchManyQuizDetails } from "../../services/quiznator"
-import { flatten } from "../../util/arrays"
 import { fetchQuizNames } from "../../services/quizzes"
 
 const Title = styled.div`

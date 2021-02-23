@@ -1,6 +1,5 @@
 import React from "react"
 import PartProgress from "./PartProgress"
-import CourseSettings from "../../../course-settings"
 
 const splitCourses = false
 const CourseProgress = ({

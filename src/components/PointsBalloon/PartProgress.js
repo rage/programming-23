@@ -17,6 +17,7 @@ const SmallP = styled.p`
   font-size: 0.8rem;
 `
 
+// eslint-disable-next-line no-unused-vars
 const LargeP = styled.p`
   font-size: 1rem;
 `

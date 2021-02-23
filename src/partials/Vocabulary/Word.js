@@ -3,7 +3,6 @@ import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
 import { withTranslation } from "react-i18next"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import styled from "styled-components"
-import { getDescription } from "graphql"
 
 const StyledWord = styled.div`
   margin-bottom: 0.5em;

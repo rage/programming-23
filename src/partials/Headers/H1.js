@@ -9,7 +9,7 @@ const H1 = ({ children }) => {
 
   const id = `${normalizeExerciseId(text)}`
   return (
-    <h1 class="material-header" id={id}>
+    <h1 className="material-header" id={id}>
       {children}
     </h1>
   )

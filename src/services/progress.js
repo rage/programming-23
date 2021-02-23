@@ -1,8 +1,8 @@
-import { fetchProgrammingProgress, getCachedUserDetails } from "./moocfi"
+import { fetchProgrammingProgress } from "./moocfi"
 import { zip } from "../util/arrays"
-import { fetchQuizProgress } from "./quiznator"
 import { fetchQuizzesProgress } from "./quizzes"
 
+//eslint-disable-next-line no-unused-vars
 const introductionCourseGroups = [
   "osa01",
   "osa02",
@@ -20,8 +20,8 @@ export async function fetchProgress(t) {
     fetchProgrammingProgress(),
     fetchQuizzesProgress(),
   ])
-  const userDetails = await getCachedUserDetails()
-  const currentCourseVariant = userDetails?.extra_fields?.course_variant
+  // const userDetails = await getCachedUserDetails()
+  // const currentCourseVariant = userDetails?.extra_fields?.course_variant
   const progressByGroup = {}
 
   zip(serviceIdentifiers, progressesCollection).forEach(

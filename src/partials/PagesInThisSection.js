@@ -1,6 +1,6 @@
 import React, { Fragment } from "react"
 import PagesContext from "../contexes/PagesContext"
-import { nthIndex } from "../util/strings"
+import { normalizeExerciseId, nthIndex } from "../util/strings"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { withTranslation } from "react-i18next"
@@ -87,7 +87,7 @@ const PagesInThisSection = ({ style, t }) => (
           <Title>{t("inThisSection")}</Title>
           <PagesList>
             {sectionPages.map((page, i) => (
-              <Fragment>
+              <Fragment key={`page-${normalizeExerciseId(page.title)}`}>
                 <StyledLink to={page.path}>
                   <Page key={page.path} currentPage={page.path === currentPath}>
                     {i + 1}. {page.title}

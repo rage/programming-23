@@ -8,7 +8,7 @@ const H3 = ({ children }) => {
   } catch (e) {}
   const id = `${normalizeExerciseId(text)}`
   return (
-    <h3 class="material-header" id={id}>
+    <h3 className="material-header" id={id}>
       {children}
     </h3>
   )

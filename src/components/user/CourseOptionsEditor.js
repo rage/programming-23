@@ -18,10 +18,6 @@ import { updateUserDetails, userDetails } from "../../services/moocfi"
 
 import styled from "styled-components"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faInfoCircle as icon } from "@fortawesome/free-solid-svg-icons"
-import DropdownMenu from "./DropdownMenu"
-import { Link } from "gatsby"
 import { withTranslation } from "react-i18next"
 
 const Row = styled.div`
@@ -37,10 +33,6 @@ const InfoBox = styled.div`
 const FormContainer = styled.div`
   height: 100%;
   margin-top: 2rem;
-`
-
-const StyledIcon = styled(FontAwesomeIcon)`
-  margin-right: 0.25rem;
 `
 
 const WarningBox = styled(Card)`

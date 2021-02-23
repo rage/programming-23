@@ -11,8 +11,8 @@ const springLink =
   "https://www.avoin.helsinki.fi/palvelut/esittely.aspx?o=127404110"
 const summerLink =
   "https://www.avoin.helsinki.fi/palvelut/esittely.aspx?o=127404483"
-const autumnLink =
-  "https://www.avoin.helsinki.fi/palvelut/esittely.aspx?o=127404483"
+// const autumnLink =
+//   "https://www.avoin.helsinki.fi/palvelut/esittely.aspx?o=127404483"
 
 function getLink() {
   const currentDate = moment()
