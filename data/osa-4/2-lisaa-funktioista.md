@@ -640,7 +640,7 @@ Tyyppi | Pythonissa | Esimerkki
 Kokonaisluku | `int` | `23`
 Liukuluku | `float` | `-0.45`
 Merkkijono | `str` | `"Pekka Python"`
-Totuusaro | `bool` | `True`
+Totuusarvo | `bool` | `True`
 
 Kun kutsumme funktiota, funktio toimii oikein vain,
 jos annamme sille sopivan tyyppiset parametrit.
