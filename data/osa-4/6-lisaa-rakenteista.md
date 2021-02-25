@@ -74,7 +74,7 @@ ikkremise
 
 ## Varoitus: globaalin muuttujan käyttö funktion sisällä
 
-Kuten olemme nähneet, funktioiden sisällä on mahdollsita määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+Kuten olemme nähneet, funktioiden sisällä on mahdollista määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
 
 Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
 
@@ -109,7 +109,7 @@ Antti
 
 </sample-output>
 
-Vaikka funktiota kutsutaan oikein, se tulosaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
+Vaikka funktiota kutsutaan oikein, se tulostaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
 
 Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyäksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
 
@@ -387,7 +387,7 @@ print(pisin_naapurijono(lista))
 
 Tämän osan huipentaa ensimmäinen hieman laajempi ohjelma, jota tehdessäsi pääset soveltamaan kaikkea tähän asti opeteltua.
 
-Sääntö numero yksi isompaa tai oikestaan mitä tahansa ohjelmaa tehdessä on se, että ei kannata yrittää ratkaista kaikkia ongelmia yhtäaikaa. Ohjelma kannattaa rakentaa pienistä paloista, esim. sopivista apufunktioista, ja kunkin palan toimivuus kannattaa varmistaa ennen kun alkaa rakentaa seuraavaa palaa. Jos näin ei tee, on aika varmaa että edessä on suuri kaaos.
+Sääntö numero yksi isompaa tai oikeastaan mitä tahansa ohjelmaa tehdessä on se, että ei kannata yrittää ratkaista kaikkia ongelmia yhtäaikaa. Ohjelma kannattaa rakentaa pienistä paloista, esim. sopivista apufunktioista, ja kunkin palan toimivuus kannattaa varmistaa ennen kun alkaa rakentaa seuraavaa palaa. Jos näin ei tee, on aika varmaa että edessä on suuri kaaos.
 
 Isompaa ohjelmaa rakentaessa on järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Yksi tapa, joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään `main`, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää. Esim. seuraavaa tehtävää voitaisiin ruveta lähestymään näin:
 
@@ -421,95 +421,73 @@ print(tulos)
 
 ## Tiedon välittäminen funktiosta toiseen
 
-Jos ohjelma koostuu useista funktioista, nousee esiin kysymys miten tieoa siirretään funktiosta toiseen.
+Jos ohjelma koostuu useista funktioista, nousee esiin kysymys, miten tietoa siirretään funktiosta toiseen.
 
 Seuraavassa on esimerkki ohjelmasta, joka lukee käyttäjältä joukon kokonaislukuarvoja. Sen jälkeen ohjelma tulostaa arvot ja tekee niille vielä "analyysin". Ohjelma on jaettu kolmeen erilliseen funktioon:
 
 ```python
 def lue_kayttajalta(maara: int):
-    print(f"syötä {maara} lukua:")
+    print(f"Syötä {maara} lukua:")
     luvut = []
 
     i = maara
-    while i>0:
-        luku = int(input("anna luku: "))
+    while i > 0:
+        luku = int(input("Anna luku: "))
         luvut.append(luku)
         i -= 1
 
     return luvut
 
 def tulosta(luvut: list):
-    print("luvut ovat: ")
+    print("Luvut ovat: ")
     for luku in luvut:
         print(luku)
 
 def analysoi(luvut: list):
-    ka = sum(luvut) / len(luvut)
-    return f"lukuja yhtensä {len(luvut)}, kesikarvo {ka}, pienin {min(luvut)} ja suurin {max(luvut)}"
+    keskiarvo = sum(luvut) / len(luvut)
+    return f"Lukuja yhteensä {len(luvut)}, keskiarvo {keskiarvo}, pienin {min(luvut)} ja suurin {max(luvut)}"
 
-# funktioita käyttävä  "pääohjelma"
-syoteet = lue_kayttajalta(5)
+# funktioita käyttävä "pääohjelma"
+syotteet = lue_kayttajalta(5)
 tulosta(syotteet)
 analyysin_tulos = analysoi(syotteet)
 print(analyysin_tulos)
 ```
 
-Esimerkkisuoritus
+Esimerkkisuoritus:
 
 <sample-output>
 
-syötä 5 lukua:
-anna luku: **10**
-anna luku: **34**
-anna luku: **-32**
-anna luku: **99**
-anna luku: **-53**
-luvut ovat:
+Syötä 5 lukua:
+Anna luku: **10**
+Anna luku: **34**
+Anna luku: **-32**
+Anna luku: **99**
+Anna luku: **-53**
+Luvut ovat:
 10
 34
 -32
 99
 -53
-lukuja yhtensä 5, kesikarvo 11.6, pienin- 53 ja suurin 99
+Lukuja yhteensä 5, keskiarvo 11.6, pienin -53 ja suurin 99
 
 </sample-output>
 
-Perusperiaatteena ohjelmassa on se, että pääohjelma "tallettaa" ohjelman käsittelemän tiedon, eli tässä tapauksessa käyttäjän syöttämät luvut muuttujassa `syoteet`.
+Perusperiaatteena ohjelmassa on se, että pääohjelma "tallentaa" ohjelman käsittelemän tiedon eli tässä tapauksessa käyttäjän syöttämät luvut muuttujassa `syotteet`.
 
-Jos lukuja on tarve käsitellä jossain funktiossa, ne välitetään sinne parametrina. Näin tapahtuu funktioissa `tulosta` ja `analysoi`.
-Jos taas funktio tuottaa tietoa, jota muut ohjelman osat tarvitsevat, palautta funktio datan returnilla. Näin tekevät käyttäjän syötteen lukeva funktio `lue_kayttajalta` sekä analyysin tekevä funktio `analysoi`.
+Jos lukuja on tarve käsitellä jossain funktiossa, ne välitetään sinne parametrina. Näin tapahtuu funktioissa `tulosta` ja `analysoi`. Jos taas funktio tuottaa tietoa, jota muut ohjelman osat tarvitsevat, palautta funktio datan `return`-komennolla. Näin tekevät käyttäjän syötteen lukeva funktio `lue_kayttajalta` sekä analyysin tekevä funktio `analysoi`.
 
-Olisi periaatteessa mahdollista, että funktiot käyttäisivät suoraan "pääohjelman" globaalia muuttujaa `syoteet`. Se [ei kuitenkaan ole ollenkaan järkevää](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil), sillä jos usea funktio pääsee sorkkimaan globaalia muuttujaa, voi ohjelmassa alkaa tapahtua jotain hallitsematonta, varsinkin kun funktioiden määrä kasvaa.
+Olisi periaatteessa mahdollista, että funktiot käyttäisivät suoraan "pääohjelman" globaalia muuttujaa `syotteet`. Se [ei kuitenkaan ole järkevää](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil), sillä jos usea funktio pääsee sorkkimaan globaalia muuttujaa, voi ohjelmassa alkaa tapahtua jotain hallitsematonta, varsinkin kun funktioiden määrä kasvaa.
 
 Tiedon välitys funktioihin ja niistä ulos on siis järkevintä hoitaa parametrien ja paluuarvojen avulla.
 
-Jos haluaisimme tehdä edellisen esimerkin ohjelman siten, että sen "pääohjelma" eriytettäisiin omaan funktioon `main`, siirrettäisiin ohjelman käsittelmä data pääohjelmaa edustavan funktion sisäiseksi muuttujaksi:
+Jos haluaisimme tehdä edellisen esimerkin ohjelman siten, että sen "pääohjelma" eriytettäisiin omaan funktioon `main`, siirrettäisiin ohjelman käsittelemä data pääohjelmaa edustavan funktion sisäiseksi muuttujaksi:
 
 ```python
-def lue_kayttajalta(maara: int):
-    print(f"syötä {maara} lukua:")
-    luvut = []
-
-    i = maara
-    while i>0:
-        luku = int(input("anna luku: "))
-        luvut.append(luku)
-        i -= 1
-
-    return luvut
-
-def tulosta(luvut: list):
-    print("luvut ovat: ")
-    for luku in luvut:
-        print(luku)
-
-def analysoi(luvut: list):
-    ka = sum(luvut) / len(luvut)
-    return f"lukuja yhtensä {len(luvut)} kesikarvo {ka} pienin{min(luvut)} ja suurin {max(luvut)}"
-
 # pääohjelmaa edustava funktio
 def main():
-    syoteet = lue_kayttajalta(5)
+    syotteet = lue_kayttajalta(5)
     tulosta(syotteet)
     analyysin_tulos = analysoi(syotteet)
 
