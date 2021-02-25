@@ -420,7 +420,7 @@ Algoritmin "luonnos" on seuraavassa:
 ```python
 paras = alkuarvo # sopiva alkuarvo riippuu tilanteesta
 for alkio in lista:
-    if alkio paremi kuin paras:
+    if alkio parempi kuin paras:
         paras = alkio
 
 # paras on nyt tiedossa!
