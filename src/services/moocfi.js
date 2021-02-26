@@ -225,16 +225,15 @@ export function accessToken() {
 }
 
 export async function getOrganizationAndCourse() {
-  let value
-  const extraFields = (await getCachedUserDetails())?.extra_fields
-  if (extraFields?.use_course_variant === "t") {
-    const variant = CourseSettings.courseVariants.find(
-      (x) => x.course_name === extraFields?.course_variant,
+  const userDetails = loggedIn() ? await getCachedUserDetails() : undefined
+  const variant =
+    userDetails?.extra_fields?.use_course_variant === "t" &&
+    CourseSettings.courseVariants.find(
+      (x) => x.course_name === userDetails?.extra_fields?.course_variant,
     )
-    value = variant ? [variant.organization, variant.course_name] : value
-  }
-
-  return value ?? [DEFAULT_ORGANIZATION, DEFAULT_COURSE]
+  return variant
+    ? [variant.organization, variant.course_name]
+    : [DEFAULT_ORGANIZATION, DEFAULT_COURSE]
 }
 
 /**
