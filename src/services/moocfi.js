@@ -227,7 +227,7 @@ export function accessToken() {
 export async function getOrganizationAndCourse() {
   let value
   const extraFields = (await getCachedUserDetails())?.extra_fields
-  if (extraFields?.use_course_variant) {
+  if (extraFields?.use_course_variant === "t") {
     const variant = CourseSettings.courseVariants.find(
       (x) => x.course_name === extraFields?.course_variant,
     )

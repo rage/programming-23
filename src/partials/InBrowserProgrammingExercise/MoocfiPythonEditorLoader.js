@@ -50,6 +50,16 @@ class InBrowserProgrammingExercisePartial extends React.Component {
     this.setState({ render: true, organization, course })
   }
 
+  async componentDidUpdate(prevProps, prevState) {
+    const [organization, course] = await getOrganizationAndCourse()
+    if (
+      organization !== prevState.organization ||
+      course !== prevState.course
+    ) {
+      this.setState({ organization, course })
+    }
+  }
+
   onUpdate = (exerciseDetails) => {
     this.setState({
       exerciseDetails,
