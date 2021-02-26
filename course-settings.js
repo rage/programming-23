@@ -10,6 +10,12 @@ const courseSettings = {
   tmcOrganization: "mooc",
   bannerPath: "banner.svg",
   showExerciseDescriptionWhenNotLoggedIn: true,
+  courseVariants: [
+    {
+      organization: "test",
+      course_name: "python-random-testcourse"
+    }
+  ],
 }
 
 module.exports = courseSettings

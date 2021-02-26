@@ -8,13 +8,16 @@ import {
   RadioGroup,
   Card,
   CardContent,
+  Select,
+  MenuItem,
+  InputLabel,
 } from "@material-ui/core"
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
-import Loading from "../Loading"
-
+import CourseSettings from "../../../course-settings"
 import { updateUserDetails, userDetails } from "../../services/moocfi"
+import Loading from "../Loading"
 
 import styled from "styled-components"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
@@ -53,6 +56,8 @@ class CourseOptionsEditor extends React.Component {
         student_number: data.user_field?.organizational_id,
         digital_education_for_all:
           data.extra_fields?.digital_education_for_all === "t",
+        use_course_variant: data.extra_fields?.use_course_variant === "t",
+        course_variant: data.extra_fields?.course_variant ?? "",
         marketing: data.extra_fields?.marketing === "t",
         research: data.extra_fields?.research,
         loading: false,
@@ -68,6 +73,8 @@ class CourseOptionsEditor extends React.Component {
     this.setState({ submitting: true })
     let extraFields = {
       digital_education_for_all: this.state.digital_education_for_all,
+      use_course_variant: this.state.use_course_variant,
+      course_variant: this.state.course_variant,
       marketing: this.state.marketing,
       research: this.state.research,
     }
@@ -97,6 +104,8 @@ class CourseOptionsEditor extends React.Component {
     research: undefined,
     first_name: undefined,
     last_name: undefined,
+    use_course_variant: undefined,
+    course_variant: "",
     email: undefined,
     student_number: undefined,
     loading: true,
@@ -238,6 +247,48 @@ class CourseOptionsEditor extends React.Component {
                   }
                   label={this.props.t("marketing")}
                 />
+              </Row>
+
+              <h2>{this.props.t("courseInfo")}</h2>
+
+              <Row>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={this.state.use_course_variant}
+                      onChange={this.handleCheckboxInput}
+                      name="use_course_variant"
+                      value="1"
+                    />
+                  }
+                  label={this.props.t("useCourseVariantLabel")}
+                />
+              </Row>
+
+              <Row>
+                <InputLabel id="select-course">
+                  {this.props.t("courseVariant")}
+                </InputLabel>
+                <Select
+                  disabled={!this.state.use_course_variant}
+                  labelId="select-course"
+                  variant="outlined"
+                  fullWidth
+                  name="course_variant"
+                  value={this.state.course_variant}
+                  onChange={this.handleInput}
+                  onFocus={this.handleFocus}
+                  onBlur={this.handleUnFocus}
+                >
+                  <MenuItem value="" disabled>
+                    <em>{this.props.t("chooseCourse")}</em>
+                  </MenuItem>
+                  {CourseSettings.courseVariants.map((x) => (
+                    <MenuItem value={x.course_name} key={x.course_name}>
+                      {x.organization}: {x.course_name}
+                    </MenuItem>
+                  ))}
+                </Select>
               </Row>
             </div>
           </Loading>

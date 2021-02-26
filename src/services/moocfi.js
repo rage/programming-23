@@ -7,7 +7,8 @@ import CourseSettings from "../../course-settings"
 
 const { fetch } = fetchPonyfill()
 const BASE_URL = "https://tmc.mooc.fi/api/v8"
-const ORGANIZATION = CourseSettings.tmcOrganization
+const DEFAULT_ORGANIZATION = CourseSettings.tmcOrganization
+const DEFAULT_COURSE = CourseSettings.tmcCourse
 
 const tmcClient = new TmcClient(
   "59a09eef080463f90f8c2f29fbf63014167d13580e1de3562e57b9e6e4515182",
@@ -164,8 +165,9 @@ export async function fetchProgrammingExerciseDetails(exerciseName) {
   if (accessTokenValue) {
     headers["Authorization"] = `Bearer ${accessTokenValue}`
   }
+  const [organization, course] = await getOrganizationAndCourse()
   const res = await axios.get(
-    `${BASE_URL}/org/${ORGANIZATION}/courses/${await getCourse()}/exercises/${exerciseName}`,
+    `${BASE_URL}/org/${organization}/courses/${course}/exercises/${exerciseName}`,
     {
       headers: headers,
     },
@@ -187,8 +189,9 @@ export async function fetchProgrammingExerciseModelSolution(exerciseId) {
 }
 
 export async function fetchProgrammingProgress(exerciseName) {
+  const [organization, course] = await getOrganizationAndCourse()
   const res = await axios.get(
-    `${BASE_URL}/org/${ORGANIZATION}/courses/${await getCourse()}/users/current/progress`,
+    `${BASE_URL}/org/${organization}/courses/${course}/users/current/progress`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -221,21 +224,23 @@ export function accessToken() {
   }
 }
 
+export async function getOrganizationAndCourse() {
+  let value
+  const extraFields = (await getCachedUserDetails())?.extra_fields
+  if (extraFields?.use_course_variant) {
+    const variant = CourseSettings.courseVariants.find(
+      (x) => x.course_name === extraFields?.course_variant,
+    )
+    value = variant ? [variant.organization, variant.course_name] : value
+  }
+
+  return value ?? [DEFAULT_ORGANIZATION, DEFAULT_COURSE]
+}
+
+/**
+ * @deprecated Replace with getOrganizationAndCourse()
+ */
 export async function getCourseVariant() {
   const userDetails = await getCachedUserDetails()
   return userDetails?.extra_fields?.course_variant || "dl"
-}
-
-async function getCourse() {
-  const courseVariant = await getCourseVariant()
-  if (courseVariant === "nodl") {
-    return "ohjelmoinnin-perusteet"
-  }
-  if (courseVariant === "ohja-dl") {
-    return "2020-ohjelmointi-ii"
-  }
-  if (courseVariant === "ohja-nodl") {
-    return "ohjelmoinnin-jatkokurssi"
-  }
-  return CourseSettings.tmcCourse
 }
