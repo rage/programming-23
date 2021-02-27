@@ -1,16 +1,17 @@
 import React from "react"
 import {
-  TextField,
   Button,
-  FormControlLabel,
-  Checkbox,
-  Radio,
-  RadioGroup,
   Card,
   CardContent,
-  Select,
-  MenuItem,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
   InputLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+  TextField,
 } from "@material-ui/core"
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
@@ -128,6 +129,18 @@ class CourseOptionsEditor extends React.Component {
     })
   }
 
+  handleCourseVariantCheckbox = (e) => {
+    this.setState(
+      {
+        use_course_variant: e.target.checked,
+        course_variant: "",
+      },
+      () => {
+        this.validate()
+      },
+    )
+  }
+
   handleFocus = (e) => {
     const name = e.target.name
     this.setState({ focused: name })
@@ -138,9 +151,12 @@ class CourseOptionsEditor extends React.Component {
   }
 
   validate = () => {
-    this.setState((prev) => ({
-      error: prev.research === undefined,
-    }))
+    this.setState((prev) => {
+      const researchNotAnswered = prev.research === undefined
+      const missingVariant = prev.use_course_variant && !prev.course_variant
+
+      return { error: researchNotAnswered || missingVariant }
+    })
   }
 
   render() {
@@ -256,7 +272,7 @@ class CourseOptionsEditor extends React.Component {
                   control={
                     <Checkbox
                       checked={this.state.use_course_variant}
-                      onChange={this.handleCheckboxInput}
+                      onChange={this.handleCourseVariantCheckbox}
                       name="use_course_variant"
                       value="1"
                     />
@@ -266,29 +282,37 @@ class CourseOptionsEditor extends React.Component {
               </Row>
 
               <Row>
-                <InputLabel id="select-course">
-                  {this.props.t("courseVariant")}
-                </InputLabel>
-                <Select
-                  disabled={!this.state.use_course_variant}
-                  labelId="select-course"
-                  variant="outlined"
-                  fullWidth
-                  name="course_variant"
-                  value={this.state.course_variant}
-                  onChange={this.handleInput}
-                  onFocus={this.handleFocus}
-                  onBlur={this.handleUnFocus}
-                >
-                  <MenuItem value="" disabled>
-                    <em>{this.props.t("chooseCourse")}</em>
-                  </MenuItem>
-                  {CourseSettings.courseVariants.map((x) => (
-                    <MenuItem value={x.course_name} key={x.course_name}>
-                      {x.organization}: {x.course_name}
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel
+                    id="select-course"
+                    shrink={
+                      this.state.course_variant ||
+                      this.state.focused === "course_variant"
+                    }
+                  >
+                    {this.props.t("courseVariant")}
+                  </InputLabel>
+                  <Select
+                    key={this.state.use_course_variant}
+                    disabled={!this.state.use_course_variant}
+                    labelId="select-course"
+                    label={this.props.t("courseVariant")}
+                    name="course_variant"
+                    value={this.state.course_variant}
+                    onChange={this.handleInput}
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleUnFocus}
+                  >
+                    <MenuItem value="" disabled>
+                      {this.props.t("chooseCourse")}
                     </MenuItem>
-                  ))}
-                </Select>
+                    {CourseSettings.courseVariants.map((x) => (
+                      <MenuItem value={x.course_name} key={x.course_name}>
+                        {x.organization}: {x.course_name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Row>
             </div>
           </Loading>
