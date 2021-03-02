@@ -27,10 +27,10 @@ const CustomTooltip = (props) => {
   return (
     <StyledTooltip>
       <p>
-        {props.t("gotPoints")}: {props.payload[0].payload.n_points}
+        {props.t("gotPoints")}: {props.payload?.[0].payload.n_points}
       </p>
       <p>
-        {props.t("maxPoints")}: {props.payload[0].payload.max_points}
+        {props.t("maxPoints")}: {props.payload?.[0].payload.max_points}
       </p>
     </StyledTooltip>
   )
