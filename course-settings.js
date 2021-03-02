@@ -12,11 +12,11 @@ const courseSettings = {
   bannerPath: "banner.svg",
   showExerciseDescriptionWhenNotLoggedIn: true,
   courseVariants: [
-    {
-      // quizzesId: "5c89b9b6-b8a6-4079-8c4f-a4bbc80b66a4"
-      tmcOrganization: "test",
-      tmcCourse: "python-random-testcourse"
-    }
+    // {
+    //   tmcOrganization: "test",
+    //   tmcCourse: "python-random-testcourse",
+    //   // quizzesId: "5c89b9b6-b8a6-4079-8c4f-a4bbc80b66a4",
+    // }
   ],
 }
 
