@@ -53,6 +53,14 @@ class CourseOptionsEditor extends React.Component {
   async componentDidMount() {
     const data = await userDetails()
     const variants = await courseVariants()
+
+    let useCourseVariant = data.extra_fields?.use_course_variant === "t"
+    let courseVariant = data.extra_fields?.course_variant ?? ""
+    if (variants.length === 0) {
+      useCourseVariant = false
+      courseVariant = ""
+    }
+
     this.setState(
       {
         first_name: data.user_field?.first_name,
@@ -61,8 +69,8 @@ class CourseOptionsEditor extends React.Component {
         student_number: data.user_field?.organizational_id,
         digital_education_for_all:
           data.extra_fields?.digital_education_for_all === "t",
-        use_course_variant: data.extra_fields?.use_course_variant === "t",
-        course_variant: data.extra_fields?.course_variant ?? "",
+        use_course_variant: useCourseVariant,
+        course_variant: courseVariant,
         course_variants: variants,
         marketing: data.extra_fields?.marketing === "t",
         research: data.extra_fields?.research,
@@ -283,6 +291,7 @@ class CourseOptionsEditor extends React.Component {
                       value="1"
                     />
                   }
+                  disabled={this.state.course_variants.length === 0}
                   label={this.props.t("useCourseVariantLabel")}
                 />
               </Row>
