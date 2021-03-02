@@ -12,8 +12,8 @@ const courseSettings = {
   showExerciseDescriptionWhenNotLoggedIn: true,
   courseVariants: [
     {
-      organization: "test",
-      course_name: "python-random-testcourse"
+      tmcOrganization: "test",
+      tmcCourse: "python-random-testcourse"
     }
   ],
 }

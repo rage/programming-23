@@ -157,6 +157,31 @@ export function updatePassword(currentPassword, password, confirmPassword) {
     })
 }
 
+export function courseVariants() {
+  return Promise.all(
+    CourseSettings.courseVariants.map(async (x) => {
+      const courseRes = await axios.get(
+        `${BASE_URL}/org/${x.tmcOrganization}/courses/${x.tmcCourse}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken()}`,
+          },
+        },
+      )
+      const orgRes = await axios.get(`${BASE_URL}/org/${x.tmcOrganization}`, {
+        headers: { "Content-Type": "application/json" },
+      })
+      return {
+        tmcCourse: x.tmcCourse,
+        tmcOrganization: x.tmcOrganization,
+        title: courseRes.data.title,
+        organizationName: orgRes.data.name,
+      }
+    }),
+  )
+}
+
 export async function fetchProgrammingExerciseDetails(exerciseName) {
   const accessTokenValue = accessToken()
   const headers = {
@@ -228,11 +253,12 @@ export async function getOrganizationAndCourse() {
   const userDetails = loggedIn() ? await getCachedUserDetails() : undefined
   const variant =
     userDetails?.extra_fields?.use_course_variant === "t" &&
-    CourseSettings.courseVariants.find(
-      (x) => x.course_name === userDetails?.extra_fields?.course_variant,
-    )
+    CourseSettings.courseVariants.find((x) => {
+      const key = `${x.tmcOrganization}-${x.tmcCourse}`
+      return key === userDetails?.extra_fields?.course_variant
+    })
   return variant
-    ? [variant.organization, variant.course_name]
+    ? [variant.tmcOrganization, variant.tmcCourse]
     : [DEFAULT_ORGANIZATION, DEFAULT_COURSE]
 }
 

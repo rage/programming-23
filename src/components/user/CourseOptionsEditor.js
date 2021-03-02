@@ -16,8 +16,11 @@ import {
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
-import CourseSettings from "../../../course-settings"
-import { updateUserDetails, userDetails } from "../../services/moocfi"
+import {
+  courseVariants,
+  updateUserDetails,
+  userDetails,
+} from "../../services/moocfi"
 import Loading from "../Loading"
 
 import styled from "styled-components"
@@ -49,6 +52,7 @@ const WarningBox = styled(Card)`
 class CourseOptionsEditor extends React.Component {
   async componentDidMount() {
     const data = await userDetails()
+    const variants = await courseVariants()
     this.setState(
       {
         first_name: data.user_field?.first_name,
@@ -59,6 +63,7 @@ class CourseOptionsEditor extends React.Component {
           data.extra_fields?.digital_education_for_all === "t",
         use_course_variant: data.extra_fields?.use_course_variant === "t",
         course_variant: data.extra_fields?.course_variant ?? "",
+        course_variants: variants,
         marketing: data.extra_fields?.marketing === "t",
         research: data.extra_fields?.research,
         loading: false,
@@ -107,6 +112,7 @@ class CourseOptionsEditor extends React.Component {
     last_name: undefined,
     use_course_variant: undefined,
     course_variant: "",
+    course_variants: [],
     email: undefined,
     student_number: undefined,
     loading: true,
@@ -306,11 +312,14 @@ class CourseOptionsEditor extends React.Component {
                     <MenuItem value="" disabled>
                       {this.props.t("chooseCourse")}
                     </MenuItem>
-                    {CourseSettings.courseVariants.map((x) => (
-                      <MenuItem value={x.course_name} key={x.course_name}>
-                        {x.organization}: {x.course_name}
-                      </MenuItem>
-                    ))}
+                    {this.state.course_variants.map((x) => {
+                      const key = `${x.tmcOrganization}-${x.tmcCourse}`
+                      return (
+                        <MenuItem value={key} key={key}>
+                          {x.organizationName}: {x.title}
+                        </MenuItem>
+                      )
+                    })}
                   </Select>
                 </FormControl>
               </Row>
