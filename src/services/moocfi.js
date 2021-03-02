@@ -7,8 +7,6 @@ import CourseSettings from "../../course-settings"
 
 const { fetch } = fetchPonyfill()
 const BASE_URL = "https://tmc.mooc.fi/api/v8"
-const DEFAULT_ORGANIZATION = CourseSettings.tmcOrganization
-const DEFAULT_COURSE = CourseSettings.tmcCourse
 
 const tmcClient = new TmcClient(
   "59a09eef080463f90f8c2f29fbf63014167d13580e1de3562e57b9e6e4515182",
@@ -78,6 +76,7 @@ export function loggedIn() {
 }
 
 export function signOut() {
+  store.remove("tmc.courses")
   store.remove("tmc.user")
   store.remove("tmc.user.details")
   loginStateChanged()
@@ -157,8 +156,8 @@ export function updatePassword(currentPassword, password, confirmPassword) {
     })
 }
 
-export function courseVariants() {
-  return Promise.all(
+export async function courseVariants() {
+  const res = await Promise.all(
     CourseSettings.courseVariants.map(async (x) => {
       const courseRes = await axios.get(
         `${BASE_URL}/org/${x.tmcOrganization}/courses/${x.tmcCourse}`,
@@ -177,9 +176,20 @@ export function courseVariants() {
         tmcOrganization: x.tmcOrganization,
         title: courseRes.data.title,
         organizationName: orgRes.data.name,
+        quizzesId: x.quizzesId ?? CourseSettings.quizzesId,
       }
     }),
   )
+  store.set("tmc.courses", res)
+  return res
+}
+
+export function getCachedCourseVariants() {
+  let variants = store.get("tmc.courses")
+  if (!variants) {
+    variants = courseVariants()
+  }
+  return variants
 }
 
 export async function fetchProgrammingExerciseDetails(exerciseName) {
@@ -190,9 +200,9 @@ export async function fetchProgrammingExerciseDetails(exerciseName) {
   if (accessTokenValue) {
     headers["Authorization"] = `Bearer ${accessTokenValue}`
   }
-  const [organization, course] = await getOrganizationAndCourse()
+  const { tmcOrganization, tmcCourse } = await getCourseVariant()
   const res = await axios.get(
-    `${BASE_URL}/org/${organization}/courses/${course}/exercises/${exerciseName}`,
+    `${BASE_URL}/org/${tmcOrganization}/courses/${tmcCourse}/exercises/${exerciseName}`,
     {
       headers: headers,
     },
@@ -214,9 +224,9 @@ export async function fetchProgrammingExerciseModelSolution(exerciseId) {
 }
 
 export async function fetchProgrammingProgress(exerciseName) {
-  const [organization, course] = await getOrganizationAndCourse()
+  const { tmcOrganization, tmcCourse } = await getCourseVariant()
   const res = await axios.get(
-    `${BASE_URL}/org/${organization}/courses/${course}/users/current/progress`,
+    `${BASE_URL}/org/${tmcOrganization}/courses/${tmcCourse}/users/current/progress`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -249,23 +259,24 @@ export function accessToken() {
   }
 }
 
-export async function getOrganizationAndCourse() {
-  const userDetails = loggedIn() ? await getCachedUserDetails() : undefined
-  const variant =
-    userDetails?.extra_fields?.use_course_variant === "t" &&
-    CourseSettings.courseVariants.find((x) => {
-      const key = `${x.tmcOrganization}-${x.tmcCourse}`
-      return key === userDetails?.extra_fields?.course_variant
-    })
-  return variant
-    ? [variant.tmcOrganization, variant.tmcCourse]
-    : [DEFAULT_ORGANIZATION, DEFAULT_COURSE]
-}
-
-/**
- * @deprecated Replace with getOrganizationAndCourse()
- */
 export async function getCourseVariant() {
-  const userDetails = await getCachedUserDetails()
-  return userDetails?.extra_fields?.course_variant || "dl"
+  const defaultVariant = {
+    tmcOrganization: CourseSettings.tmcOrganization,
+    tmcCourse: CourseSettings.tmcCourse,
+    title: CourseSettings.name,
+    organizationName: CourseSettings.organizationName,
+    quizzesId: CourseSettings.quizzesId,
+  }
+
+  const userDetails = loggedIn() && (await getCachedUserDetails())
+  if (userDetails?.extra_fields?.use_course_variant !== "t") {
+    return defaultVariant
+  }
+
+  const variant = (await getCachedCourseVariants()).find((x) => {
+    const key = `${x.tmcOrganization}-${x.tmcCourse}`
+    return key === userDetails?.extra_fields?.course_variant
+  })
+
+  return variant || defaultVariant
 }

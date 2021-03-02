@@ -5,7 +5,7 @@ import { withTranslation } from "react-i18next"
 import LoginStateContext from "../../contexes/LoginStateContext"
 import LoginControls from "../../components/LoginControls"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
-import { accessToken, getOrganizationAndCourse } from "../../services/moocfi"
+import { accessToken, getCourseVariant } from "../../services/moocfi"
 import ProgrammingExerciseCard from "../ProgrammingExercise/ProgrammingExerciseCard"
 import { ProgrammingExercise } from "moocfi-python-editor"
 import CourseSettings from "../../../course-settings"
@@ -46,18 +46,12 @@ class InBrowserProgrammingExercisePartial extends React.Component {
   }
 
   async componentDidMount() {
-    const [organization, course] = await getOrganizationAndCourse()
-    this.setState({ render: true, organization, course })
-  }
-
-  async componentDidUpdate(prevProps, prevState) {
-    const [organization, course] = await getOrganizationAndCourse()
-    if (
-      organization !== prevState.organization ||
-      course !== prevState.course
-    ) {
-      this.setState({ organization, course })
-    }
+    const { tmcOrganization, tmcCourse } = await getCourseVariant()
+    this.setState({
+      render: true,
+      organization: tmcOrganization,
+      course: tmcCourse,
+    })
   }
 
   onUpdate = (exerciseDetails) => {
