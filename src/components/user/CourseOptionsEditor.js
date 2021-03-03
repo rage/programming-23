@@ -56,7 +56,7 @@ class CourseOptionsEditor extends React.Component {
 
     let useCourseVariant = data.extra_fields?.use_course_variant === "t"
     let courseVariant = data.extra_fields?.course_variant ?? ""
-    if (variants.length === 0) {
+    if (!variants.find((x) => x.key === courseVariant)) {
       useCourseVariant = false
       courseVariant = ""
     }
@@ -279,59 +279,62 @@ class CourseOptionsEditor extends React.Component {
                 />
               </Row>
 
-              <h2>{this.props.t("courseInfo")}</h2>
-
-              <Row>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.use_course_variant}
-                      onChange={this.handleCourseVariantCheckbox}
-                      name="use_course_variant"
-                      value="1"
+              {this.state.course_variants.length === 0 ? null : (
+                <div>
+                  <h2>{this.props.t("courseInfo")}</h2>
+                  <Row>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={this.state.use_course_variant}
+                          onChange={this.handleCourseVariantCheckbox}
+                          name="use_course_variant"
+                          value="1"
+                        />
+                      }
+                      disabled={this.state.course_variants.length === 0}
+                      label={this.props.t("useCourseVariantLabel")}
                     />
-                  }
-                  disabled={this.state.course_variants.length === 0}
-                  label={this.props.t("useCourseVariantLabel")}
-                />
-              </Row>
+                  </Row>
 
-              <Row>
-                <FormControl fullWidth variant="outlined">
-                  <InputLabel
-                    id="select-course"
-                    shrink={
-                      this.state.course_variant ||
-                      this.state.focused === "course_variant"
-                    }
-                  >
-                    {this.props.t("courseVariant")}
-                  </InputLabel>
-                  <Select
-                    key={this.state.use_course_variant}
-                    disabled={!this.state.use_course_variant}
-                    labelId="select-course"
-                    label={this.props.t("courseVariant")}
-                    name="course_variant"
-                    value={this.state.course_variant}
-                    onChange={this.handleInput}
-                    onFocus={this.handleFocus}
-                    onBlur={this.handleUnFocus}
-                  >
-                    <MenuItem value="" disabled>
-                      {this.props.t("chooseCourse")}
-                    </MenuItem>
-                    {this.state.course_variants.map((x) => {
-                      const key = `${x.tmcOrganization}-${x.tmcCourse}`
-                      return (
-                        <MenuItem value={key} key={key}>
-                          {x.organizationName}: {x.title}
+                  <Row>
+                    <FormControl fullWidth variant="outlined">
+                      <InputLabel
+                        id="select-course"
+                        shrink={
+                          this.state.course_variant ||
+                          this.state.focused === "course_variant"
+                        }
+                      >
+                        {this.props.t("courseVariant")}
+                      </InputLabel>
+                      <Select
+                        key={this.state.use_course_variant}
+                        disabled={!this.state.use_course_variant}
+                        labelId="select-course"
+                        label={this.props.t("courseVariant")}
+                        name="course_variant"
+                        value={this.state.course_variant}
+                        onChange={this.handleInput}
+                        onFocus={this.handleFocus}
+                        onBlur={this.handleUnFocus}
+                      >
+                        <MenuItem value="" disabled>
+                          {this.props.t("chooseCourse")}
                         </MenuItem>
-                      )
-                    })}
-                  </Select>
-                </FormControl>
-              </Row>
+                        {this.state.course_variants.map((x) => {
+                          const key = `${x.tmcOrganization}-${x.tmcCourse}`
+                          return (
+                            <MenuItem value={key} key={key}>
+                              {x.organizationName}: {x.title}
+                            </MenuItem>
+                          )
+                        })}
+                      </Select>
+                    </FormControl>
+                  </Row>
+                </div>
+              )}
             </div>
           </Loading>
 

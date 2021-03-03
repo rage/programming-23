@@ -72,7 +72,7 @@
     "nosid":"Leave empty if you are not currently a student at the University of Helsinki.",
     "marketing":"You can send me information about new courses",
     "courseInfo": "Course information",
-    "useCourseVariantLabel": "I am completing this course outside of MOOC or University of Helsinki.",
+    "useCourseVariantLabel": "I am participating on some other course than mooc.fi open course or University of Helsinki's course.",
     "courseVariant": "Course provider",
     "chooseCourse": "Choose course",
     "researchTitle":"Research done on this course",

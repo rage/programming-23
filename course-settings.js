@@ -11,13 +11,13 @@ const courseSettings = {
   tmcOrganization: "mooc",
   bannerPath: "banner.svg",
   showExerciseDescriptionWhenNotLoggedIn: true,
-  courseVariants: [
-    // {
-    //   tmcOrganization: "test",
-    //   tmcCourse: "python-random-testcourse",
-    //   // quizzesId: "5c89b9b6-b8a6-4079-8c4f-a4bbc80b66a4",
-    // }
-  ],
+  // courseVariants: [
+  //   {
+  //     tmcOrganization: "test",
+  //     tmcCourse: "python-random-testcourse",
+  //     // quizzesId: "5c89b9b6-b8a6-4079-8c4f-a4bbc80b66a4",
+  //   }
+  // ],
 }
 
 module.exports = courseSettings

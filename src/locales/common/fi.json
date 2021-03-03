@@ -71,7 +71,7 @@
     "sid":"Helsingin yliopiston opiskelijanumero",
     "nosid":"Jätä tyhjäksi, jos et ole tällä hetkellä Helsingin yliopiston opiskelija.",
     "courseInfo": "Kurssin tiedot",
-    "useCourseVariantLabel": "Suoritan kurssia muualla kuin MOOCissa tai Helsingin yliopistossa.",
+    "useCourseVariantLabel": "Suoritan muuta kurssia kuin mooc.fi:n kaikille avointa verkkokurssia tai Helsingin yliopiston kurssia.",
     "courseVariant": "Kurssitoteutus",
     "chooseCourse": "Valitse kurssi",
     "marketing":"Minulle voi lähettää tietoa uusista kursseista",

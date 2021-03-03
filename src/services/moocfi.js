@@ -158,7 +158,7 @@ export function updatePassword(currentPassword, password, confirmPassword) {
 
 export async function courseVariants() {
   const res = await Promise.all(
-    CourseSettings.courseVariants.map(async (x) => {
+    (CourseSettings.courseVariants ?? []).map(async (x) => {
       const courseRes = await axios.get(
         `${BASE_URL}/org/${x.tmcOrganization}/courses/${x.tmcCourse}`,
         {
@@ -172,6 +172,7 @@ export async function courseVariants() {
         headers: { "Content-Type": "application/json" },
       })
       return {
+        key: `${x.tmcOrganization}-${x.tmcCourse}`,
         tmcCourse: x.tmcCourse,
         tmcOrganization: x.tmcOrganization,
         title: courseRes.data.title,
@@ -261,6 +262,7 @@ export function accessToken() {
 
 export async function getCourseVariant() {
   const defaultVariant = {
+    key: `${CourseSettings.tmcOrganization}-${CourseSettings.tmcCourse}`,
     tmcOrganization: CourseSettings.tmcOrganization,
     tmcCourse: CourseSettings.tmcCourse,
     title: CourseSettings.name,
@@ -273,10 +275,9 @@ export async function getCourseVariant() {
     return defaultVariant
   }
 
-  const variant = (await getCachedCourseVariants()).find((x) => {
-    const key = `${x.tmcOrganization}-${x.tmcCourse}`
-    return key === userDetails?.extra_fields?.course_variant
-  })
+  const variant = (await getCachedCourseVariants()).find(
+    (x) => x.key === userDetails?.extra_fields?.course_variant,
+  )
 
   return variant || defaultVariant
 }
