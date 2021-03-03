@@ -1,20 +1,27 @@
 import React from "react"
 import {
-  TextField,
   Button,
-  FormControlLabel,
-  Checkbox,
-  Radio,
-  RadioGroup,
   Card,
   CardContent,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  InputLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+  TextField,
 } from "@material-ui/core"
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
+import {
+  courseVariants,
+  updateUserDetails,
+  userDetails,
+} from "../../services/moocfi"
 import Loading from "../Loading"
-
-import { updateUserDetails, userDetails } from "../../services/moocfi"
 
 import styled from "styled-components"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
@@ -45,6 +52,15 @@ const WarningBox = styled(Card)`
 class CourseOptionsEditor extends React.Component {
   async componentDidMount() {
     const data = await userDetails()
+    const variants = await courseVariants()
+
+    let useCourseVariant = data.extra_fields?.use_course_variant === "t"
+    let courseVariant = data.extra_fields?.course_variant ?? ""
+    if (!variants.find((x) => x.key === courseVariant)) {
+      useCourseVariant = false
+      courseVariant = ""
+    }
+
     this.setState(
       {
         first_name: data.user_field?.first_name,
@@ -53,6 +69,9 @@ class CourseOptionsEditor extends React.Component {
         student_number: data.user_field?.organizational_id,
         digital_education_for_all:
           data.extra_fields?.digital_education_for_all === "t",
+        use_course_variant: useCourseVariant,
+        course_variant: courseVariant,
+        course_variants: variants,
         marketing: data.extra_fields?.marketing === "t",
         research: data.extra_fields?.research,
         loading: false,
@@ -68,6 +87,8 @@ class CourseOptionsEditor extends React.Component {
     this.setState({ submitting: true })
     let extraFields = {
       digital_education_for_all: this.state.digital_education_for_all,
+      use_course_variant: this.state.use_course_variant,
+      course_variant: this.state.course_variant,
       marketing: this.state.marketing,
       research: this.state.research,
     }
@@ -97,6 +118,9 @@ class CourseOptionsEditor extends React.Component {
     research: undefined,
     first_name: undefined,
     last_name: undefined,
+    use_course_variant: undefined,
+    course_variant: "",
+    course_variants: [],
     email: undefined,
     student_number: undefined,
     loading: true,
@@ -119,6 +143,18 @@ class CourseOptionsEditor extends React.Component {
     })
   }
 
+  handleCourseVariantCheckbox = (e) => {
+    this.setState(
+      {
+        use_course_variant: e.target.checked,
+        course_variant: "",
+      },
+      () => {
+        this.validate()
+      },
+    )
+  }
+
   handleFocus = (e) => {
     const name = e.target.name
     this.setState({ focused: name })
@@ -129,9 +165,12 @@ class CourseOptionsEditor extends React.Component {
   }
 
   validate = () => {
-    this.setState((prev) => ({
-      error: prev.research === undefined,
-    }))
+    this.setState((prev) => {
+      const researchNotAnswered = prev.research === undefined
+      const missingVariant = prev.use_course_variant && !prev.course_variant
+
+      return { error: researchNotAnswered || missingVariant }
+    })
   }
 
   render() {
@@ -239,6 +278,63 @@ class CourseOptionsEditor extends React.Component {
                   label={this.props.t("marketing")}
                 />
               </Row>
+
+              {this.state.course_variants.length === 0 ? null : (
+                <div>
+                  <h2>{this.props.t("courseInfo")}</h2>
+                  <Row>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={this.state.use_course_variant}
+                          onChange={this.handleCourseVariantCheckbox}
+                          name="use_course_variant"
+                          value="1"
+                        />
+                      }
+                      disabled={this.state.course_variants.length === 0}
+                      label={this.props.t("useCourseVariantLabel")}
+                    />
+                  </Row>
+
+                  <Row>
+                    <FormControl fullWidth variant="outlined">
+                      <InputLabel
+                        id="select-course"
+                        shrink={
+                          this.state.course_variant ||
+                          this.state.focused === "course_variant"
+                        }
+                      >
+                        {this.props.t("courseVariant")}
+                      </InputLabel>
+                      <Select
+                        key={this.state.use_course_variant}
+                        disabled={!this.state.use_course_variant}
+                        labelId="select-course"
+                        label={this.props.t("courseVariant")}
+                        name="course_variant"
+                        value={this.state.course_variant}
+                        onChange={this.handleInput}
+                        onFocus={this.handleFocus}
+                        onBlur={this.handleUnFocus}
+                      >
+                        <MenuItem value="" disabled>
+                          {this.props.t("chooseCourse")}
+                        </MenuItem>
+                        {this.state.course_variants.map((x) => {
+                          const key = `${x.tmcOrganization}-${x.tmcCourse}`
+                          return (
+                            <MenuItem value={key} key={key}>
+                              {x.organizationName}: {x.title}
+                            </MenuItem>
+                          )
+                        })}
+                      </Select>
+                    </FormControl>
+                  </Row>
+                </div>
+              )}
             </div>
           </Loading>
 

@@ -5,9 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, LabelList, Tooltip } from "recharts"
 import { improveGroupName } from "../../util/strings"
 import CustomTooltip from "./CustomTooltip"
 import { SMALL_MEDIUM_BREAKPOINT } from "../../util/constants"
-import { getCourseVariant } from "../../services/moocfi"
 import { withTranslation } from "react-i18next"
-import CourseSettings from "../../../course-settings"
 
 const PartProgressContainer = styled.div`
   margin-bottom: 0.5rem;
@@ -102,7 +100,15 @@ const PartProgress = ({ name, data, appliesForStudyRight, t }) => {
             />
           </Bar>
         </StyledBarChart>
-        {CourseSettings.studyRightEnabled &&
+        <SmallP>
+          {t("canApplyForStudyRight")}{" "}
+          {
+            allChartData.find((o) => o.tool === t("programmingService"))
+              ?.progress
+          }
+          %.
+        </SmallP>
+        {/* {CourseSettings.studyRightEnabled &&
           appliesForStudyRight &&
           (getCourseVariant() === "nodl" ? (
             <SmallP>{t("noTimelimit")}</SmallP>
@@ -115,7 +121,7 @@ const PartProgress = ({ name, data, appliesForStudyRight, t }) => {
               }
               %.
             </SmallP>
-          ))}
+          ))} */}
       </div>
     </PartProgressContainer>
   )

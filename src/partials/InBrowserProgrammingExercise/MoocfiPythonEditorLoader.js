@@ -5,16 +5,13 @@ import { withTranslation } from "react-i18next"
 import LoginStateContext from "../../contexes/LoginStateContext"
 import LoginControls from "../../components/LoginControls"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
-import { accessToken } from "../../services/moocfi"
+import { accessToken, getCourseVariant } from "../../services/moocfi"
 import ProgrammingExerciseCard from "../ProgrammingExercise/ProgrammingExerciseCard"
 import { ProgrammingExercise } from "moocfi-python-editor"
 import CourseSettings from "../../../course-settings"
 import { Typography } from "@material-ui/core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faClock } from "@fortawesome/free-solid-svg-icons"
-
-const ORGANIZATION = CourseSettings.tmcOrganization
-const COURSE = CourseSettings.tmcCourse
 
 let language = "en"
 if (CourseSettings.language === "fi") {
@@ -43,11 +40,18 @@ class InBrowserProgrammingExercisePartial extends React.Component {
 
   state = {
     exerciseDetails: undefined,
+    organization: undefined,
+    course: undefined,
     render: false,
   }
 
   async componentDidMount() {
-    this.setState({ render: true })
+    const { tmcOrganization, tmcCourse } = await getCourseVariant()
+    this.setState({
+      render: true,
+      organization: tmcOrganization,
+      course: tmcCourse,
+    })
   }
 
   onUpdate = (exerciseDetails) => {
@@ -102,8 +106,8 @@ class InBrowserProgrammingExercisePartial extends React.Component {
           {this.context.loggedIn ? (
             <ProgrammingExercise
               onExerciseDetailsChange={(details) => this.onUpdate(details)}
-              organization={ORGANIZATION}
-              course={COURSE}
+              organization={this.state.organization}
+              course={this.state.course}
               exercise={tmcname}
               token={accessToken()}
               height={height ? height : "300px"}
