@@ -102,7 +102,7 @@ Korko lisätään vain siihen tiliin, jonka kautta metodia kutsutaan. Esimerkist
 
 ## Kapselointi
 
-Olio-ohjelmoinnin yhteydessä puhutaan usein olioiden _asiakkaista_. Asiakkaalla (client) tarkoitetaan koodin osaa, joka muodostaa olion ja käyttää sen palveluita kutsumalla metodeita. Kun olion tietosisältöä käsitellään vain olion tarjoamien metodien avulla, voidaan varmistua siitä, että olion _sisäinen eheys_ säilyy. Käytännössä tämä tarkoittaa esimerkiksi sitä, että `Pankkitili`-luokassa tarjotaan metodi, jolla tililtä nostetaan rahaa, sen sijaan, että asiakas käsittelisi suoraan attribuuttia `saldo`. Tässä metodissa voidaan sitten varmistaa, ettei tililtä nosteta enempää rahaa kuin on katetta.
+Olio-ohjelmoinnin yhteydessä puhutaan usein olioiden _asiakkaista_. Asiakkaalla (client) tarkoitetaan koodin osaa, joka muodostaa olion ja käyttää sen palveluita kutsumalla metodeita. Kun olion tietosisältöä käsitellään vain olion tarjoamien metodien avulla, voidaan varmistua siitä, että olion _sisäinen eheys_ säilyy. Käytännössä tämä tarkoittaa esimerkiksi sitä, että `Pankkitili`-luokassa tarjotaan metodi, jolla tililtä nostetaan rahaa, sen sijaan, että asiakas käsittelisi suoraan attribuuttia `saldo`. Tässä metodissa voidaan sitten esimerkiksi varmistaa, ettei tililtä nosteta enempää katetta enempää rahaa.
 
 Esimerkiksi:
 
@@ -343,6 +343,37 @@ Piia
 </sample-output>
 
 Esimerkistä huomataan, että myös olion omiin metodeihin pitää viitata `self`-määreen avulla, kun niitä kutsutaan konstruktorista. Luokkiin voidaan kirjoitaa myös _staattisia metodeita_ eli metodeita, joita voidaan kutsua ilman, että luokasta muodostetaan oliota. Tähän palataan kuitenkin tarkemmin ensi viikolla.
+
+Määrettä `self` käytetään kuitenkin vain silloin, kun viitataan _olion piirteisiin_ (eli metodeihin tai olion attribuutteihin). Olion metodeissa voidaan käyttää myös paikallisia muuttujia. Tämä on suositeltavaa, jos muuttujaan ei ole tarvetta viitata metodin ulkopuolella.
+
+Paikallinen muuttuja määritellään ilman `self`-määrettä - eli samoin kuin esimerkiksi kaikki muuttujat kurssin ensimmäisellä puoliskolla.
+
+Esimerkiksi
+
+```python
+class Bonuskortti:
+    def __init__(self, nimi: str, saldo: float):
+        self.nimi = nimi
+        self.saldo = saldo
+
+    def lisaa_bonus(self):
+        # Nyt muuttuja bonus on paikallinen muuttuja,
+        # eikä olion attribuutti - siihen siis ei voi
+        # viitata olion kautta
+        bonus = self.saldo * 0.25
+        self.saldo += bonus
+
+    def lisaa_superbonus(self):
+        # Myös muuttuja sbonus on paikallinen muuttuja
+        # Yleensä apumuuttujina käytetään paikallisia
+        # muuttujia, koska niihin ei ole tarvetta
+        # viitatata muissa metodeissa tai olion kautta
+        superbonus = self.saldo * 0.5
+        self.saldo += superbonus
+
+    def __str__(self):
+        return f"Bonuskortti(nimi={self.nimi}, saldo={self.saldo})"
+```
 
 <programming-exercise name="Etu- ja sukunimi" tmcname='osa08-10b_etu_ja_sukunimi'>
 
