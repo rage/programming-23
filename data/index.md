@@ -15,7 +15,8 @@ Tarkemmat arvosteluperusteet löytyvät [täältä](/arvostelu-ja-kokeet)
 Osat 1-7 muodostavat Ohjelmoinnin perusteet ja osat 8-14 muodostavan Ohjelmoinnin jatkokurssin.
 
 Huomaa, että jos olet suorittanut kurssin aiemmin Javalla,
-voit sisällyttää tutkintoosi 1 + 1 op. laajuiset versiot kursseista.
+voit sisällyttää tutkintoosi 1 + 1 op. laajuiset versiot kursseista. Jos olet suorittamassa 1 pisteen versiota, ole ennen tenttiä yhteydessä kurssin opettajiin. Huomaa, että yhden pisteen versioita **ei** voi merkitä rekisteriin toukokuun alun jälkeen johtuen yliopiston opintorekisterijärjestelmän muutoksista. 8.5. on siis viimeinen mahdollinen tenttipäivä tähän tarkoitukseen.
+
 
 **Huom!** Kurssin suorittamalla **ei** voi enää hakea suoraan sisäänpääsyä laitokselle (ns. MOOC-väylä) niin kuin aikaisempina vuosina. Lisätietoa laitoksen hakuväylistä löydät [opintopolku.fi-sivustolta](https://opintopolku.fi/app/#!/haku/tietojenk%C3%A4sittelytiede?page=1&facetFilters=teachingLangCode_ffm:FI&tab=los).
 
