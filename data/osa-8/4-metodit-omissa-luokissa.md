@@ -364,7 +364,7 @@ class Bonuskortti:
         self.saldo += bonus
 
     def lisaa_superbonus(self):
-        # Myös muuttuja sbonus on paikallinen muuttuja
+        # Myös muuttuja superbonus on paikallinen muuttuja
         # Yleensä apumuuttujina käytetään paikallisia
         # muuttujia, koska niihin ei ole tarvetta
         # viitatata muissa metodeissa tai olion kautta
@@ -377,7 +377,7 @@ class Bonuskortti:
 
 <programming-exercise name="Etu- ja sukunimi" tmcname='osa08-10b_etu_ja_sukunimi'>
 
-Kirjoita luokka `Henkilo`, jolla on ainoastaan yksi attribuutti `nimi`, joka asetetaan konstruktorissa.
+Kirjoita luokka `Henkilo`, jolla on _ainoastaan yksi attribuutti_ `nimi`, joka asetetaan konstruktorissa.
 
 Lisäksi luokalle tule kirjoitaa kaksi metodia:
 
