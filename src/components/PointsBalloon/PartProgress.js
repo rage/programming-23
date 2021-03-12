@@ -100,14 +100,14 @@ const PartProgress = ({ name, data, appliesForStudyRight, t }) => {
             />
           </Bar>
         </StyledBarChart>
-        <SmallP>
+        {/* <SmallP>
           {t("canApplyForStudyRight")}{" "}
           {
             allChartData.find((o) => o.tool === t("programmingService"))
               ?.progress
           }
           %.
-        </SmallP>
+        </SmallP> */}
         {/* {CourseSettings.studyRightEnabled &&
           appliesForStudyRight &&
           (getCourseVariant() === "nodl" ? (
