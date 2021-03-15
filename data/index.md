@@ -93,7 +93,7 @@ Virallinen tieto kurssin aikatauluista julkaistaan aina tällä sivulla.
     <tr>
       <td>Osa 9</td>
       <td>22.3.2021</td>
-      <td><!--<a href="https://youtu.be/HviJ-J5IXEo">Luentotallenne</a>--></td>
+      <td><a href="https://youtu.be/HviJ-J5IXEo">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 10</td>
