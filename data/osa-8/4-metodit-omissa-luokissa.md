@@ -273,7 +273,6 @@ laskuri.tulosta_arvo()
 
 <sample-output>
 
-arvo: 55
 arvo: 51
 arvo: 55
 
