@@ -262,7 +262,7 @@ if __name__ == "__main__":
 
 Tästä eteenpäin muistutusta siitä, että testikoodi on sijoitettava `if __name__ == "__main__"` -lohkoon, ei tehtäväpohjissa enää ole. Testit kuitenkin vaativat lohkon edelleen, eli joudut lisäämään sen itse.
 
-**Huomaa kuitenkin**, että jotkut tehtävät, esim. hetken kuluttua vuodossa oleva _Palindromit_, edellyttävät funktioiden lisäksi myös funktiota kutsuvaa koodia. Tätä koodia _ei tule_ sijoittaa  `if __name__ == "__main__"` -lohkon sisälle. Testit eivät nimittäin suorita mitään kyseisen lohkon koodista.
+**Huomaa kuitenkin**, että jotkut tehtävät, esim. hetken kuluttua vuorossa oleva _Palindromit_, edellyttävät funktioiden lisäksi myös funktiota kutsuvaa koodia. Tätä koodia _ei tule_ sijoittaa  `if __name__ == "__main__"` -lohkon sisälle. Testit eivät nimittäin suorita mitään kyseisen lohkon koodista.
 
 <programming-exercise name='Tähdet' tmcname='osa04-12_tahdet'>
 
