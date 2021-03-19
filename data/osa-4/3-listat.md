@@ -1,4 +1,4 @@
----
+k---
 path: '/osa-4/3-listat'
 title: 'Listat'
 hidden: false
@@ -103,7 +103,7 @@ print(len(lista))
 
 <programming-exercise name='Alkioiden arvojen muutokset' tmcname='osa04-07a_alkioiden_arvojen_muutokset'>
 
-Tee ohjelma, joka alustaa listan jossa on arvot `[1, 2, 3, 4, 5]`. Tämän jälkeen ohjelma kysyy käyttäjältä alkion indeksin ja uuden arvon, vaihtaa kyseisen alkion arvon ja tulostaa listan uudelleen. Ohjelman suoritus päättyy, jos käytäjä antaa alkion indeksiksi -1.
+Tee ohjelma, joka alustaa listan jossa on arvot `[1, 2, 3, 4, 5]`. Tämän jälkeen ohjelma kysyy käyttäjältä alkion indeksin ja uuden arvon, vaihtaa kyseisen alkion arvon ja tulostaa listan uudelleen. Ohjelman suoritus päättyy, jos käyttäjä antaa alkion indeksiksi -1.
 
 Esimerkkisuoritus:
 
@@ -414,7 +414,7 @@ print(jarjestetty)
 
 <programming-exercise name='Lista kahdesti' tmcname='osa04-08b_lista_kahdesti'>
 
-Tee ohjelma, joka kysyy käyttäjältä lukuja ja lisää niitä listään. Lista tulostetaan jokaisen luvun lisäyksen jälkeen kahdella eri tavalla:
+Tee ohjelma, joka kysyy käyttäjältä lukuja ja lisää niitä listaan. Lista tulostetaan jokaisen luvun lisäyksen jälkeen kahdella eri tavalla:
 - alkiot lisäysjärjestyksessä ja
 - järjestettynä pienimmästä suurimpaan alkioon
 
