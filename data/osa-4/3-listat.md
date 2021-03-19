@@ -1,4 +1,4 @@
-k---
+---
 path: '/osa-4/3-listat'
 title: 'Listat'
 hidden: false
