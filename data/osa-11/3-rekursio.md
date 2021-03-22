@@ -16,20 +16,20 @@ Tämän osion jälkeen
 Kuten aiemmin on huomattu, funktiot voivat kutsua toisia funktioita. Esimerkiksi näin:
 
 ```python
-def laske_positiiviset(luvut: list):
-    return len([x for x in luvut if x >= 0])
+def tervehdi(nimi : str):
+    print("Moikka,", nimi)
 
-def laske_negatiiviset(luvut: list):
-    return len(luvut) - laske_positiiviset(luvut)
+def tervehdi_monesti(nimi : str, kerrat : int):
+    for i in range(kerrat):
+        tervehdi(nimi)
 ```
 
-Kun funktiota voidaan kutsua myös toisesta funktiosta, on oletettavaa, että funktio voi kutsua myös itseään. Jos funktion syöte ei kuitenkaan muutu kutsukertojen välissä, kyseessä on "ikuinen" silmukka:
+Samaan tapaan funktio voi kutsua myös itseään. Jos kuitenkaan funktion parametrit eivät muutu kutsukertojen välissä, tästä syntyy "ikuinen silmukka":
 
 ```python
-def huuda(viesti: str):
-    s = viesti + "!"
-    # lisää huutomerkkejä?
-    return huuda(viesti)
+def tervehdi(nimi : str):
+    print("Moikka,", nimi)
+    tervehdi(nimi)
 ```
 
 Tällöin funktion kutsuminen millä tahansa merkkijonolla antaa virheilmoituksen:
@@ -42,12 +42,11 @@ RecursionError: maximum recursion depth exceeded
 
 ## Mitä rekursio tarkoittaa?
 
-Virheilmoituksessakin mainitulla _rekursiolla_ tarkoitetaan sitä, että funktio kutsuu itseään. Rekursiossa funktion syötteen pitää kuitenkin muuttua niin, että jossain vaiheessa kutsuminen lopetetaan. Perusperiaate on sama kuin silmukoissa: jotta silmukka päättyisi, tulee ehtolausekkeeseen vaikuttavien muuttujien arvojen muuttua lohkon sisällä kohti tilannetta, jossa ehtolauseke on epätosi.
+Virheilmoituksessakin mainitulla _rekursiolla_ tarkoitetaan sitä, että funktio kutsuu itseään. Rekursiossa funktion parametrien pitää kuitenkin muuttua niin, että jossain vaiheessa kutsuminen lopetetaan. Perusperiaate on sama kuin silmukoissa: jotta silmukka ei jatkuisi ikuisesti, siinä tulee olla päättymisehto, joka toteutuu jossain vaiheessa.
 
-Tarkastellaan aluksi yksinkertaista funktiota, joka lisää listan loppuun nolla-alkioita niin kauan kuin pituus on alle 10. Silmukan sijasta funktio kutsuukin itseään uudestaan, jos ehto ei täyty:
+Tarkastellaan aluksi yksinkertaista funktiota, joka lisää listan loppuun 0-alkioita niin kauan kuin listan pituus on alle 10. Silmukan sijasta funktio kutsuukin itseään uudestaan, jos ehto ei täyty:
 
 ```python
-
 def tayta_lista(luvut: list):
     """ Lisää listaan alkoita jos sen pituus on alle 10 """
     if len(luvut) < 10:
@@ -60,7 +59,6 @@ if __name__ == "__main__":
     testi = [1,2,3,4]
     tayta_lista(testi)
     print(testi)
-
 ```
 
 <sample-output>
@@ -85,20 +83,19 @@ if __name__ == "__main__":
 
 ```
 
-Esimerkeistä huomataan, että perinteinen (eli _iteratiivinen_) lähestymistapa tuottaa lyhyemmän ja selkeämmän ohjelman.
-Rekursiivinen ohjelma kuitenkin toimii ja tuottaa oikean lopputuloksen, koska funktio käsittelee jokaisella kutsukerralla samaa listaa viittauksen kautta.
+Esimerkeistä huomataan, että perinteinen (eli _iteratiivinen_) lähestymistapa tuottaa lyhyemmän ja selkeämmän ohjelman. Rekursiivinen ohjelma kuitenkin toimii ja tuottaa oikean lopputuloksen, koska funktio käsittelee jokaisella kutsukerralla samaa listaa viittauksen kautta.
 
 <text-box variant="hint" name="Iteratiivinen vai rekursiivinen?">
 
-Tietojenkäsittelytieteteessä erotetaan usein _iteratiiviset_ ja _rekursiiviset_ algoritmit. Iteratiivinen tarkoittaa kurssilla tähän asti yleensä käyttämäämme tapaa, jossa ratkaisu perustuu peräkkäisyyteen - yleensä siihen, että käsitellään rakenne silmukassa. Rekursiivinen tarkoittaa vaihtoehtoista tapaa, jossa funktio silmukan sijasta (tai lisäksi) kutsuu itseään muuttuvalla parametrin arvolla.
+Tietojenkäsittelytieteteessä erotetaan usein _iteratiiviset_ ja _rekursiiviset_ algoritmit. Iteratiivinen tarkoittaa kurssilla tähän asti yleensä käyttämäämme tapaa, jossa ratkaisu perustuu peräkkäisyyteen – yleensä siihen, että käsitellään rakenne silmukassa. Rekursiivinen tarkoittaa vaihtoehtoista tapaa, jossa funktio silmukan sijasta (tai lisäksi) kutsuu itseään muuttuvilla parametrien arvoilla.
 
-Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteraiivisesti että rekursiivisesti, mutta monessa tapauksessa jompikumpi tapa soveltuu selkeästi paremmin ongelman ratkaisemiseen.
+Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteratiivisesti että rekursiivisesti, mutta monessa tapauksessa jompikumpi tapa soveltuu selkeästi paremmin ongelman ratkaisemiseen.
 
 </text-box>
 
 <programming-exercise name='Suurempia lukuja' tmcname='osa11-13_listaan_lukuja'>
 
-Kirjoita _rekursiivinen funktio_ `listaan_lukuja(luvut: list)`, joka lisää listaan lukuja niin kauan, että sen pituus on viidellä jaollinen. Jokainen listaan lisättävä luku on aina yhden suurempi kuin listan viimeinen luku.
+Kirjoita _rekursiivinen funktio_ `listaan_lukuja(luvut: list)`, joka lisää listaan lukuja niin kauan, kunnes listan pituus on viidellä jaollinen. Jokainen listaan lisättävä luku on aina yhden suurempi kuin listan viimeinen luku.
 
 Funktion pitää kutsua itseään rekursiivisesti.
 
@@ -120,7 +117,7 @@ print(luvut)
 
 ## Rekursio ja paluuarvot
 
-Jos käsiteltävä olio on muuttumaton (eli mutatoitumaton), niin kuin vaikkapa merkkijono tai luku, pitäisi se myös palauttaa rekursiivisesta funktiosta. Tarkastellaan tätä tarkoitusta varten esimerkkiä, joka laskee kertoman rekursiivisesti:
+Rekursiivisella funktiolla voi olla myös palautusarvo. Tarkastellaan tätä tarkoitusta varten esimerkkiä, joka laskee kertoman rekursiivisesti:
 
 ```python
 
@@ -151,11 +148,7 @@ Luvun 6 kertoma on 720
 
 </sample-output>
 
-Jos funktion parametrin arvo on 0 tai 1, funktio palauttaa 1 (koska kertoman määritelmän mukaan lukujen 0 ja 1 kertoma on 1). Muuten funktio palauttaa erikoisen näköisen lausekkeen:
-
-`n * kertoma(n - 1)`
-
-Funktio siis kertoo parametrin n funktion itsensä kutsun palauttamalla arvolla.
+Jos funktion parametrin arvo on 0 tai 1, funktio palauttaa 1 (koska kertoman määritelmän mukaan lukujen 0 ja 1 kertoma on 1). Muuten funktio palauttaa lausekkeen `n * kertoma(n - 1)`. Tämä tarkoittaa, että parametri `n` kerrotaan funktion itsensä kutsun palauttamalla arvolla.
 
 Olennaista funktion toimivuuden kannalta on, että funktiossa on määritelty ehto, jolla se ei kutsu itseään enää uudestaan. Tässä tapauksessa ehto on `n < 2`.
 
@@ -171,7 +164,7 @@ def kertoma(n: int):
     edellisen_luvun_kertoma = kertoma(n - 1)
     luvun_n_kertoma = n * edellisen_luvun_kertoma
     return luvun_n_kertoma
-
+    
 kertoma(5)
 ```
 
@@ -181,7 +174,7 @@ Hieman normaalista poiketen visualisaattorissa kutsupino "kasvaa" alaspäin. Suo
 
 <img src="11_1_1.png">
 
-Tarkastellaan vielä toista funktiota, joka laskee Fibonaccin n:nen luvun rekursiivisesti. Fibonaccin lukusarjassa luku on aina kahden edellisen luvun summa. Niinpä sarjan alku näyttää tältä: 1, 1, 2, 3, 5, 8, 13, 21, 34.
+Tarkastellaan vielä toista funktiota, joka laskee halutun Fibonaccin luvun rekursiivisesti. Fibonaccin lukujonossa luku on aina kahden edellisen luvun summa. Niinpä jonon alku näyttää tältä: 1, 1, 2, 3, 5, 8, 13, 21, 34.
 
 ```python
 def fibonacci(n: int):
