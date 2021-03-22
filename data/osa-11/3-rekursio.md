@@ -330,36 +330,9 @@ False
 
 </programming-exercise>
 
-## Häntärekursio
+## Binäärihaku
 
-Edellisen kaltaisia rekursiivisia ratkaisuja nimitetään myös _häntärekursioksi (tail recursion)_. Tällä tarkoitetaan rekursiota, jossa vakiomuotoinen paluuarvo (esim kertoman tapauksessa arvo 1) aiheuttaa koko rekursiopinon "purkautumisen" ilman uusia rekursiivisia kutsuja. Häntärekursioesimerkit on usein helppo kirjoittaa myös iteratiivisesti. Alla on esitetty kertomafunktiosta sekä rekursiivinen että iteratiivinen versio:
-
-```python
-def kertoma_rekursiivinen(n):
-    """ Funktio laskee luvun n kertoman n!, eli n * (n-1) ... * 2 * 1 """
-    if n < 2:
-        return 1
-
-    if n == 2:
-        return 2
-
-    return n * kertoma_rekursiivinen(n - 1)
-
-def kertoma_iteratiivinen(n):
-    """ Funktio laskee luvun n kertoman n!, eli n * (n-1) ... * 2 * 1 """
-    luku = 1
-    while n >= 2:
-        luku *= n
-        n -= 1
-
-    return luku
-```
-
-Kutsujan kannalta molempien funktioiden toiminnallisuus on samanlainen. Ohjelmoija voi itse päättää, kumpi tapa tuntuu selkeämmältä.
-
-Tietyissä tapauksissa rekursiivinen algoritmi on myös häntärekursion tapauksessa yleensä selkeämpi. Tarkastellaan tästä esimerkkinä binäärihakualgoritmia.
-
-Binäärihaussa yritetään löytää luonnollisessa järjestyksessä olevasta listasta annettu alkio. Luonnollinen järjestys tarkoittaa tässä yhteydessä esimerkiksi lukujen järjestystä pienimmästä suurimpaan tai nimiä aakkosjärjestyksessä.
+Binäärihaussa yritetään löytää järjestyksessä olevasta listasta annettu alkio. Järjestys tarkoittaa tässä yhteydessä esimerkiksi lukujen järjestystä pienimmästä suurimpaan tai merkkijonoja aakkosjärjestyksessä.
 
 Binäärihaun ideana on, että tarkastellaan aina listan keskimmäistä alkiota. Jos
 - keskimmäinen alkio on etsitty alkio, palautetaan tieto siitä, että alkio löytyi
@@ -375,35 +348,34 @@ Seuraava kuva havainnollistaa binäärihaun etenemistä, kun etsitään listasta
 Rekursiivinen algoritmi binäärihaulle:
 
 ```python
-
-def binaarihaku(lista: list, alkio: int):
-    """ Funktio palauttaa True tai False sen mukaan löytyykö alkio listasta """
-    # Jos lista on tyhjä, ei löydy
-    if not lista:
+def binaarihaku(lista: list, alkio: int, vasen : int, oikea : int):
+    """ Funktio palauttaa True tai False sen mukaan, onko listalla alkiota """
+    # Jos hakualue on tyhjä, ei löydy
+    if vasen > oikea:
         return False
 
-    # Keskimmäinen alkio
-    keskialkio = lista[len(lista) // 2]
+    # Lasketaan hakualueen keskikohta
+    keski = (vasen+oikea)//2
 
-    # Jos on etsittävä
-    if keskialkio == alkio:
+    # Jos keskellä on etsittävä alkio
+    if lista[keski] == alkio:
         return True
 
     # Jos pienempi, etsi jälkipuoliskolta
-    if keskialkio < alkio:
-        return binaarihaku(lista[len(lista) // 2 + 1 : ], alkio)
+    if lista[keski] < alkio:
+        return binaarihaku(lista, alkio, keski+1, oikea)
+    # Muuten täytyy olla suurempi, etsitään alkupuoliskolta
+    else:
+        return binaarihaku(lista, alkio, vasen, keski-1)
 
-    # Täytyy olla suurempi, etsitään alkupuoliskolta
-    return binaarihaku(lista[ : len(lista) // 2], alkio)
 
 if __name__ == "__main__":
     # Testataan
     lista = [1, 2, 4, 5, 7, 8, 11, 13, 14, 18]
-    print(binaarihaku(lista, 2))
-    print(binaarihaku(lista, 13))
-    print(binaarihaku(lista, 6))
-    print(binaarihaku(lista, 15))
-
+    print(binaarihaku(lista, 2, 0, len(lista)-1))
+    print(binaarihaku(lista, 13, 0, len(lista)-1))
+    print(binaarihaku(lista, 6, 0, len(lista)-1))
+    print(binaarihaku(lista, 15, 0, len(lista)-1))
 ```
 
 <sample-output>
@@ -415,6 +387,6 @@ False
 
 </sample-output>
 
-Binäärihakualgoritmi on helppo toteuttaa Pythonissa, koska listojen pilkkominen `[:]`-operaattorin avulla on vaivatonta.
+Tässä funktiolle `binaarihaku` annetaan neljä parametria: viite listaan, etsittävä alkio sekä hakualueen vasen ja oikea kohta. Alussa hakualue on koko lista, jolloin vasen kohta on 0 ja oikea kohta on `len(lista)-1`. Funktio tarkastaa hakualueen keskellä olevan alkion ja joko ilmoittaa, että haluttu alkio löytyi, tai jatkaa hakua vasemmasta tai oikeasta puoliskosta.
 
-Jos verrataan binäärihakua _peräkkäishakuun_, algoritmien tehokkuus erottuu selvästi. Peräkkäishaussa alkiota lähdetään etsimään listan alusta ja listaa käydään läpi yksi alkio kerrallaan, kunnes alkio on löytynyt tai on päästy listan loppuun. Jos listan pituus on miljoona alkiota, tarvitaan perättäishaussa koko listan läpikäyntiin miljoona askelta - binäärihaussa askelia tarvitaan vain 20.
+Jos verrataan binäärihakua _peräkkäishakuun_, algoritmien tehokkuus erottuu selvästi. Peräkkäishaussa alkiota lähdetään etsimään listan alusta ja listaa käydään läpi yksi alkio kerrallaan, kunnes alkio on löytynyt tai on päästy listan loppuun. Jos listan pituus on miljoona alkiota, tarvitaan perättäishaussa koko listan läpikäyntiin miljoona askelta, mutta binäärihaussa askelia tarvitaan vain 20.
