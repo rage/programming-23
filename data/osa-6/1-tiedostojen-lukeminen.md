@@ -24,8 +24,6 @@ Ei kannata huolestua vaikka osa kurssin tehtävistä tuntuisikin ensiyrittämäl
 
 Lohdutuksen sanana todettakoon että tällä viikolla mahdottomalta vaikuttava tehtävä näyttää melko varmasti neljän viikon päästä melko helpolta.
 
-Huomaa, että pääset deadlinen jälkeen tutkimaan myös niiden tehtävien mallivastauksia, joita et ehtinyt tekemään. Mallivastausten tutkiminen lienee opettavaista vaikka saisitkin itse tehtävän ratkaistua.
-
 </text-box>
 
 Yksi tavallinen ohjelmoinnin käyttötarkoitus on käsitellä tiedostoissa olevaa tietoa. Ohjelmat voivat lukea tietoa tiedostoista ja tallentaa tuloksia tiedostoihin. Tiedostojen avulla voimme käsitellä suuriakin aineistoja helposti automaattisesti.
@@ -923,7 +921,7 @@ Tee ensin funktio `hae_asematiedot(tiedosto: str)`, joka lukee asematiedot tiedo
 {
   "Kaivopuisto: (24.950292890004903, 60.155444793742276),
   "Laivasillankatu: (24.956347471358754, 60.160959093887129),
-  "Kapteeninpuistikko: (24.944927399779715;60.158189199971673)
+  "Kapteeninpuistikko: (24.944927399779715, 60.158189199971673)
 }
 </pre>
 

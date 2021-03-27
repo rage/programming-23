@@ -426,25 +426,6 @@ pinta-ala: 16
 
 </sample-output>
 
-## Suorakulmainen kolmio
-
-Toteuta luokka `SuorakulmainenKolmio` joka perii luokan`Suorakulmio`. Luokka ei saa määritelä uusia attribuutteja! [Suorakulmaisen kolmion](https://fi.wikipedia.org/wiki/Suorakulmainen_kolmio) pinta-ala on sen korkeys*leveys jaettuna kahdella.
-
-Luokkaa käytetään seuraavasti:
-
-```python
-kolmio = SuorakulmainenKolmio(3, 4)
-print(kolmio)
-print("pinta-ala:", kolmio.pinta_ala())
-```
-
-<sample-output>
-
-suorakulmainen kolmio 3x4
-pinta-ala: 6.0
-
-</sample-output>
-
 </programming-exercise>
 
 <programming-exercise name='Sanapeli' tmcname='osa10-04_sanapeli'>

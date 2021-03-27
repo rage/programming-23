@@ -16,20 +16,20 @@ Tämän osion jälkeen
 Kuten aiemmin on huomattu, funktiot voivat kutsua toisia funktioita. Esimerkiksi näin:
 
 ```python
-def laske_positiiviset(luvut: list):
-    return len([x for x in luvut if x >= 0])
+def tervehdi(nimi : str):
+    print("Moikka,", nimi)
 
-def laske_negatiiviset(luvut: list):
-    return len(luvut) - laske_positiiviset(luvut)
+def tervehdi_monesti(nimi : str, kerrat : int):
+    for i in range(kerrat):
+        tervehdi(nimi)
 ```
 
-Kun funktiota voidaan kutsua myös toisesta funktiosta, on oletettavaa, että funktio voi kutsua myös itseään. Jos funktion syöte ei kuitenkaan muutu kutsukertojen välissä, kyseessä on "ikuinen" silmukka:
+Samaan tapaan funktio voi kutsua myös itseään. Jos kuitenkaan funktion parametrit eivät muutu kutsukertojen välissä, tästä syntyy "ikuinen silmukka":
 
 ```python
-def huuda(viesti: str):
-    s = viesti + "!"
-    # lisää huutomerkkejä?
-    return huuda(viesti)
+def tervehdi(nimi : str):
+    print("Moikka,", nimi)
+    tervehdi(nimi)
 ```
 
 Tällöin funktion kutsuminen millä tahansa merkkijonolla antaa virheilmoituksen:
@@ -42,12 +42,11 @@ RecursionError: maximum recursion depth exceeded
 
 ## Mitä rekursio tarkoittaa?
 
-Virheilmoituksessakin mainitulla _rekursiolla_ tarkoitetaan sitä, että funktio kutsuu itseään. Rekursiossa funktion syötteen pitää kuitenkin muuttua niin, että jossain vaiheessa kutsuminen lopetetaan. Perusperiaate on sama kuin silmukoissa: jotta silmukka päättyisi, tulee ehtolausekkeeseen vaikuttavien muuttujien arvojen muuttua lohkon sisällä kohti tilannetta, jossa ehtolauseke on epätosi.
+Virheilmoituksessakin mainitulla _rekursiolla_ tarkoitetaan sitä, että funktio kutsuu itseään. Rekursiossa funktion parametrien pitää kuitenkin muuttua niin, että jossain vaiheessa kutsuminen lopetetaan. Perusperiaate on sama kuin silmukoissa: jotta silmukka ei jatkuisi ikuisesti, siinä tulee olla päättymisehto, joka toteutuu jossain vaiheessa.
 
-Tarkastellaan aluksi yksinkertaista funktiota, joka lisää listan loppuun nolla-alkioita niin kauan kuin pituus on alle 10. Silmukan sijasta funktio kutsuukin itseään uudestaan, jos ehto ei täyty:
+Tarkastellaan aluksi yksinkertaista funktiota, joka lisää listan loppuun 0-alkioita niin kauan kuin listan pituus on alle 10. Silmukan sijasta funktio kutsuukin itseään uudestaan, jos ehto ei täyty:
 
 ```python
-
 def tayta_lista(luvut: list):
     """ Lisää listaan alkoita jos sen pituus on alle 10 """
     if len(luvut) < 10:
@@ -60,7 +59,6 @@ if __name__ == "__main__":
     testi = [1,2,3,4]
     tayta_lista(testi)
     print(testi)
-
 ```
 
 <sample-output>
@@ -85,20 +83,19 @@ if __name__ == "__main__":
 
 ```
 
-Esimerkeistä huomataan, että perinteinen (eli _iteratiivinen_) lähestymistapa tuottaa lyhyemmän ja selkeämmän ohjelman.
-Rekursiivinen ohjelma kuitenkin toimii ja tuottaa oikean lopputuloksen, koska funktio käsittelee jokaisella kutsukerralla samaa listaa viittauksen kautta.
+Esimerkeistä huomataan, että perinteinen (eli _iteratiivinen_) lähestymistapa tuottaa lyhyemmän ja selkeämmän ohjelman. Rekursiivinen ohjelma kuitenkin toimii ja tuottaa oikean lopputuloksen, koska funktio käsittelee jokaisella kutsukerralla samaa listaa viittauksen kautta.
 
 <text-box variant="hint" name="Iteratiivinen vai rekursiivinen?">
 
-Tietojenkäsittelytieteteessä erotetaan usein _iteratiiviset_ ja _rekursiiviset_ algoritmit. Iteratiivinen tarkoittaa kurssilla tähän asti yleensä käyttämäämme tapaa, jossa ratkaisu perustuu peräkkäisyyteen - yleensä siihen, että käsitellään rakenne silmukassa. Rekursiivinen tarkoittaa vaihtoehtoista tapaa, jossa funktio silmukan sijasta (tai lisäksi) kutsuu itseään muuttuvalla parametrin arvolla.
+Tietojenkäsittelytieteteessä erotetaan usein _iteratiiviset_ ja _rekursiiviset_ algoritmit. Iteratiivinen tarkoittaa kurssilla tähän asti yleensä käyttämäämme tapaa, jossa ratkaisu perustuu peräkkäisyyteen – yleensä siihen, että käsitellään rakenne silmukassa. Rekursiivinen tarkoittaa vaihtoehtoista tapaa, jossa funktio silmukan sijasta (tai lisäksi) kutsuu itseään muuttuvilla parametrien arvoilla.
 
-Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteraiivisesti että rekursiivisesti, mutta monessa tapauksessa jompikumpi tapa soveltuu selkeästi paremmin ongelman ratkaisemiseen.
+Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteratiivisesti että rekursiivisesti, mutta monessa tapauksessa jompikumpi tapa soveltuu selkeästi paremmin ongelman ratkaisemiseen.
 
 </text-box>
 
 <programming-exercise name='Suurempia lukuja' tmcname='osa11-13_listaan_lukuja'>
 
-Kirjoita _rekursiivinen funktio_ `listaan_lukuja(luvut: list)`, joka lisää listaan lukuja niin kauan, että sen pituus on viidellä jaollinen. Jokainen listaan lisättävä luku on aina yhden suurempi kuin listan viimeinen luku.
+Kirjoita _rekursiivinen funktio_ `listaan_lukuja(luvut: list)`, joka lisää listaan lukuja niin kauan, kunnes listan pituus on viidellä jaollinen. Jokainen listaan lisättävä luku on aina yhden suurempi kuin listan viimeinen luku.
 
 Funktion pitää kutsua itseään rekursiivisesti.
 
@@ -120,7 +117,7 @@ print(luvut)
 
 ## Rekursio ja paluuarvot
 
-Jos käsiteltävä olio on muuttumaton (eli mutatoitumaton), niin kuin vaikkapa merkkijono tai luku, pitäisi se myös palauttaa rekursiivisesta funktiosta. Tarkastellaan tätä tarkoitusta varten esimerkkiä, joka laskee kertoman rekursiivisesti:
+Rekursiivisella funktiolla voi olla myös palautusarvo. Tarkastellaan tätä tarkoitusta varten esimerkkiä, joka laskee kertoman rekursiivisesti:
 
 ```python
 
@@ -151,11 +148,7 @@ Luvun 6 kertoma on 720
 
 </sample-output>
 
-Jos funktion parametrin arvo on 0 tai 1, funktio palauttaa 1 (koska kertoman määritelmän mukaan lukujen 0 ja 1 kertoma on 1). Muuten funktio palauttaa erikoisen näköisen lausekkeen:
-
-`n * kertoma(n - 1)`
-
-Funktio siis kertoo parametrin n funktion itsensä kutsun palauttamalla arvolla.
+Jos funktion parametrin arvo on 0 tai 1, funktio palauttaa 1 (koska kertoman määritelmän mukaan lukujen 0 ja 1 kertoma on 1). Muuten funktio palauttaa lausekkeen `n * kertoma(n - 1)`. Tämä tarkoittaa, että parametri `n` kerrotaan funktion itsensä kutsun palauttamalla arvolla.
 
 Olennaista funktion toimivuuden kannalta on, että funktiossa on määritelty ehto, jolla se ei kutsu itseään enää uudestaan. Tässä tapauksessa ehto on `n < 2`.
 
@@ -171,7 +164,7 @@ def kertoma(n: int):
     edellisen_luvun_kertoma = kertoma(n - 1)
     luvun_n_kertoma = n * edellisen_luvun_kertoma
     return luvun_n_kertoma
-
+    
 kertoma(5)
 ```
 
@@ -181,7 +174,7 @@ Hieman normaalista poiketen visualisaattorissa kutsupino "kasvaa" alaspäin. Suo
 
 <img src="11_1_1.png">
 
-Tarkastellaan vielä toista funktiota, joka laskee Fibonaccin n:nen luvun rekursiivisesti. Fibonaccin lukusarjassa luku on aina kahden edellisen luvun summa. Niinpä sarjan alku näyttää tältä: 1, 1, 2, 3, 5, 8, 13, 21, 34.
+Tarkastellaan vielä toista funktiota, joka laskee halutun Fibonaccin luvun rekursiivisesti. Fibonaccin lukujonossa luku on aina kahden edellisen luvun summa. Niinpä jonon alku näyttää tältä: 1, 1, 2, 3, 5, 8, 13, 21, 34.
 
 ```python
 def fibonacci(n: int):
@@ -337,36 +330,9 @@ False
 
 </programming-exercise>
 
-## Häntärekursio
+## Binäärihaku
 
-Edellisen kaltaisia rekursiivisia ratkaisuja nimitetään myös _häntärekursioksi (tail recursion)_. Tällä tarkoitetaan rekursiota, jossa vakiomuotoinen paluuarvo (esim kertoman tapauksessa arvo 1) aiheuttaa koko rekursiopinon "purkautumisen" ilman uusia rekursiivisia kutsuja. Häntärekursioesimerkit on usein helppo kirjoittaa myös iteratiivisesti. Alla on esitetty kertomafunktiosta sekä rekursiivinen että iteratiivinen versio:
-
-```python
-def kertoma_rekursiivinen(n):
-    """ Funktio laskee luvun n kertoman n!, eli n * (n-1) ... * 2 * 1 """
-    if n < 2:
-        return 1
-
-    if n == 2:
-        return 2
-
-    return n * kertoma_rekursiivinen(n - 1)
-
-def kertoma_iteratiivinen(n):
-    """ Funktio laskee luvun n kertoman n!, eli n * (n-1) ... * 2 * 1 """
-    luku = 1
-    while n >= 2:
-        luku *= n
-        n -= 1
-
-    return luku
-```
-
-Kutsujan kannalta molempien funktioiden toiminnallisuus on samanlainen. Ohjelmoija voi itse päättää, kumpi tapa tuntuu selkeämmältä.
-
-Tietyissä tapauksissa rekursiivinen algoritmi on myös häntärekursion tapauksessa yleensä selkeämpi. Tarkastellaan tästä esimerkkinä binäärihakualgoritmia.
-
-Binäärihaussa yritetään löytää luonnollisessa järjestyksessä olevasta listasta annettu alkio. Luonnollinen järjestys tarkoittaa tässä yhteydessä esimerkiksi lukujen järjestystä pienimmästä suurimpaan tai nimiä aakkosjärjestyksessä.
+Binäärihaussa yritetään löytää järjestyksessä olevasta listasta annettu alkio. Järjestys tarkoittaa tässä yhteydessä esimerkiksi lukujen järjestystä pienimmästä suurimpaan tai merkkijonoja aakkosjärjestyksessä.
 
 Binäärihaun ideana on, että tarkastellaan aina listan keskimmäistä alkiota. Jos
 - keskimmäinen alkio on etsitty alkio, palautetaan tieto siitä, että alkio löytyi
@@ -382,35 +348,34 @@ Seuraava kuva havainnollistaa binäärihaun etenemistä, kun etsitään listasta
 Rekursiivinen algoritmi binäärihaulle:
 
 ```python
-
-def binaarihaku(lista: list, alkio: int):
-    """ Funktio palauttaa True tai False sen mukaan löytyykö alkio listasta """
-    # Jos lista on tyhjä, ei löydy
-    if not lista:
+def binaarihaku(lista: list, alkio: int, vasen : int, oikea : int):
+    """ Funktio palauttaa True tai False sen mukaan, onko listalla alkiota """
+    # Jos hakualue on tyhjä, ei löydy
+    if vasen > oikea:
         return False
 
-    # Keskimmäinen alkio
-    keskialkio = lista[len(lista) // 2]
+    # Lasketaan hakualueen keskikohta
+    keski = (vasen+oikea)//2
 
-    # Jos on etsittävä
-    if keskialkio == alkio:
+    # Jos keskellä on etsittävä alkio
+    if lista[keski] == alkio:
         return True
 
     # Jos pienempi, etsi jälkipuoliskolta
-    if keskialkio < alkio:
-        return binaarihaku(lista[len(lista) // 2 + 1 : ], alkio)
+    if lista[keski] < alkio:
+        return binaarihaku(lista, alkio, keski+1, oikea)
+    # Muuten täytyy olla suurempi, etsitään alkupuoliskolta
+    else:
+        return binaarihaku(lista, alkio, vasen, keski-1)
 
-    # Täytyy olla suurempi, etsitään alkupuoliskolta
-    return binaarihaku(lista[ : len(lista) // 2], alkio)
 
 if __name__ == "__main__":
     # Testataan
     lista = [1, 2, 4, 5, 7, 8, 11, 13, 14, 18]
-    print(binaarihaku(lista, 2))
-    print(binaarihaku(lista, 13))
-    print(binaarihaku(lista, 6))
-    print(binaarihaku(lista, 15))
-
+    print(binaarihaku(lista, 2, 0, len(lista)-1))
+    print(binaarihaku(lista, 13, 0, len(lista)-1))
+    print(binaarihaku(lista, 6, 0, len(lista)-1))
+    print(binaarihaku(lista, 15, 0, len(lista)-1))
 ```
 
 <sample-output>
@@ -422,6 +387,6 @@ False
 
 </sample-output>
 
-Binäärihakualgoritmi on helppo toteuttaa Pythonissa, koska listojen pilkkominen `[:]`-operaattorin avulla on vaivatonta.
+Tässä funktiolle `binaarihaku` annetaan neljä parametria: viite listaan, etsittävä alkio sekä hakualueen vasen ja oikea kohta. Alussa hakualue on koko lista, jolloin vasen kohta on 0 ja oikea kohta on `len(lista)-1`. Funktio tarkastaa hakualueen keskellä olevan alkion ja joko ilmoittaa, että haluttu alkio löytyi, tai jatkaa hakua vasemmasta tai oikeasta puoliskosta.
 
-Jos verrataan binäärihakua _peräkkäishakuun_, algoritmien tehokkuus erottuu selvästi. Peräkkäishaussa alkiota lähdetään etsimään listan alusta ja listaa käydään läpi yksi alkio kerrallaan, kunnes alkio on löytynyt tai on päästy listan loppuun. Jos listan pituus on miljoona alkiota, tarvitaan perättäishaussa koko listan läpikäyntiin miljoona askelta - binäärihaussa askelia tarvitaan vain 20.
+Jos verrataan binäärihakua _peräkkäishakuun_, algoritmien tehokkuus erottuu selvästi. Peräkkäishaussa alkiota lähdetään etsimään listan alusta ja listaa käydään läpi yksi alkio kerrallaan, kunnes alkio on löytynyt tai on päästy listan loppuun. Jos listan pituus on miljoona alkiota, tarvitaan perättäishaussa koko listan läpikäyntiin miljoona askelta, mutta binäärihaussa askelia tarvitaan vain 20.
