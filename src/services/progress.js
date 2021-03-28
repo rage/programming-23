@@ -36,7 +36,6 @@ export async function fetchProgress(t) {
     },
   )
   const toBeDeleted = []
-  toBeDeleted.push("osa10")
   toBeDeleted.push("osa11")
   toBeDeleted.push("osa12")
   toBeDeleted.push("osa13")
