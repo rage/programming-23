@@ -67,4 +67,4 @@ information_page: true
 * Tenttivastaukset tarkistetaan plagoinnintunnistusohjelmalla. Huijaus johtaa aina vähintään tenttisuorituksen hylkäämiseen, mahdollisesti myös kurssilta poistamiseen.
 * Tenttikysymykset muistuttavat kurssimateriaalin tehtäviä - tenttiin valmistautumiseksi kannattaa siis kertailla materiaalia.
 * Kurssin tulokset tulevat kokeen jälkeen sähköpostitse opintopisteohjeiden kera.
-* Pulmatilanteiden varalta kurssin ohjaajat päivystävät kurssin [Telegram-kanavalla](https://t.me/ohpekesa20).
+* Pulmatilanteiden varalta kurssin ohjaajat päivystävät kurssin [Telegram-kanavalla](https://t.me/python_hy).
