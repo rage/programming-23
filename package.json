@@ -1,7 +1,7 @@
 {
   "name": "ohjelmoinnin-mooc",
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
