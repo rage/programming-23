@@ -17,7 +17,7 @@ const StyledLinearProgress = styled(LinearProgress)`
   margin-left: 10px;
 `
 
-export default ({ courseName, progress, refetch }) => {
+const OverallPoints = ({ courseName, progress, refetch }) => {
   const data = progress.user_course_progress.progress.sort((a, b) =>
     a.group.localeCompare(b.group, undefined, {
       numeric: true,
@@ -55,3 +55,5 @@ export default ({ courseName, progress, refetch }) => {
     </Card>
   )
 }
+
+export default OverallPoints

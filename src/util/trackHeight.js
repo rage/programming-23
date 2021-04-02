@@ -40,7 +40,7 @@ export const trackElementHeight = (element) => {
   calculateElementHeight(element)
 }
 
-export default () => {
+const trackHeight = () => {
   window.addEventListener("resize", () => {
     document
       .querySelectorAll(".track-element-height-changes-for-animations")
@@ -49,3 +49,5 @@ export default () => {
       })
   })
 }
+
+export default trackHeight
