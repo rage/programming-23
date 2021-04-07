@@ -98,12 +98,12 @@ Virallinen tieto kurssin aikatauluista julkaistaan aina tällä sivulla.
     <tr>
       <td>Osa 10</td>
       <td>29.3.2021</td>
-      <td><!--<a href="https://youtu.be/6fS8G5J7Dy4">Luentotallenne</a>--></td>
+      <td><a href="https://youtu.be/6fS8G5J7Dy4">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 11</td>
       <td>5.4.2021</td>
-      <td><!--<a href="https://youtu.be/Sw6WogqFjp8">Luentotallenne</a>--></td>
+      <td><a href="https://youtu.be/Sw6WogqFjp8">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 12</td>
