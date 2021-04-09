@@ -52,12 +52,12 @@ class InBrowserProgrammingExercisePartial extends React.Component {
 
   async componentDidMount() {
     const { tmcOrganization, tmcCourse } = await getCourseVariant()
-    const userDetails = await getCachedUserDetails()
+    const userDetails = this.context.loggedIn && (await getCachedUserDetails())
     this.setState({
       render: true,
       organization: tmcOrganization,
       course: tmcCourse,
-      userId: userDetails.id,
+      userId: userDetails?.id,
     })
   }
 
@@ -90,7 +90,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
       </div>
     )
 
-    const details = this.state.exerciseDetails
+    const details = this.context.loggedIn && this.state.exerciseDetails
     const deadline = details?.deadline ? new Date(details.deadline) : null
 
     return (
