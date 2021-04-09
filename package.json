@@ -62,7 +62,7 @@
     "likert-react": "0.0.0-beta6",
     "luxon": "^1.26.0",
     "moment": "^2.29.1",
-    "moocfi-python-editor": "^0.13.1",
+    "moocfi-python-editor": "^0.13.2",
     "moocfi-quizzes": "^0.9.7",
     "pdf-slideshow": "^0.1.4",
     "postcss": "^8.2.9",
