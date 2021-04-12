@@ -11,6 +11,7 @@ const PartProgressContainer = styled.div`
   margin-bottom: 0.5rem;
 `
 
+// eslint-disable-next-line no-unused-vars
 const SmallP = styled.p`
   font-size: 0.8rem;
 `

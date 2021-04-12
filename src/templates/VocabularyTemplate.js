@@ -1,14 +1,14 @@
 import React, { Fragment } from "react"
+import Layout from "./Layout"
+import Container from "../components/Container"
 import { graphql } from "gatsby"
 import rehypeReact from "rehype-react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
-import Container from "../components/Container"
 import getNamedPartials from "../partials"
 import "./remark.css"
 import PagesContext from "../contexes/PagesContext"
 import { LoginStateContextProvider } from "../contexes/LoginStateContext"
-import Layout from "./Layout"
 
 const Title = styled.h1``
 
