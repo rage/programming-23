@@ -108,7 +108,7 @@ Virallinen tieto kurssin aikatauluista julkaistaan aina tällä sivulla.
     <tr>
       <td>Osa 12</td>
       <td>12.4.2021</td>
-      <td><!--<a href="https://youtu.be/23QDGaZVk4M">Luentotallenne</a>--></td>
+      <td><a href="https://youtu.be/23QDGaZVk4M">Luentotallenne</a></td>
     </tr>
     <tr>
       <td>Osa 13</td>
