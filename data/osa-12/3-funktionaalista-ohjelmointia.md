@@ -438,7 +438,7 @@ for suoritus in hyvaksytyt([s1, s2, s3]):
 
 <sample-output>
 
-Pekka Pyrhon, arvosana kurssilta Ohjelmoinnin perusteet 3
+Pekka Python, arvosana kurssilta Ohjelmoinnin perusteet 3
 Olivia Ohjelmoija arvosana kurssilta Ohjelmoinnin perusteet 5
 
 </sample-output>

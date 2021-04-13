@@ -34,15 +34,15 @@ class Piste:
 
     # Luokkametodi muodostaa uuden pisteen annetun pisteen perusteella
     # Uusi piste on peilikuva annetusta pisteestä jommankumman tai molempien akselien suhteen
-    # Esimerkiksi pisteen (1, 3) peilikuva x-akselin suhteen on (-1, 3)
+    # Esimerkiksi pisteen (1, 3) peilikuva x-akselin suhteen on (1, -3)
     @classmethod
     def peilikuva(cls, piste, peilaa_x: bool, peilaa_y: bool):
         x = piste.x
         y = piste.y
         if peilaa_x:
-            x = -x
-        if peilaa_y:
             y = -y
+        if peilaa_y:
+            x = -x
 
         return Piste(x, y)
 

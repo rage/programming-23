@@ -72,7 +72,7 @@ import Button from "../components/Button"
 import Vocabulary from "./Vocabulary"
 import VocabularyWord from "./Vocabulary/VocabularyWord"
 
-const mapping = {
+const mapping = () => ({
   test: Test,
   "pages-in-this-section": PagesInThisSection,
   "programming-exercise": ProgrammingExercise,
@@ -120,8 +120,6 @@ const mapping = {
   points: Points,
   summary: Summary,
   button: Button,
-}
+})
 
-export default () => {
-  return mapping
-}
+export default mapping

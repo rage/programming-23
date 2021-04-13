@@ -36,8 +36,6 @@ export async function fetchProgress(t) {
     },
   )
   const toBeDeleted = []
-  toBeDeleted.push("osa11")
-  toBeDeleted.push("osa12")
   toBeDeleted.push("osa13")
   toBeDeleted.push("osa14")
   Object.entries(progressByGroup).forEach(([group, serviceEntries]) => {

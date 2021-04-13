@@ -39,18 +39,21 @@ class InBrowserProgrammingExercisePartial extends React.Component {
   static contextType = LoginStateContext
 
   state = {
+    render: false,
     exerciseDetails: undefined,
     organization: undefined,
     course: undefined,
-    render: false,
+    userId: undefined,
   }
 
   async componentDidMount() {
     const { tmcOrganization, tmcCourse } = await getCourseVariant()
+    // const userDetails = this.context.loggedIn && (await getCachedUserDetails())
     this.setState({
       render: true,
       organization: tmcOrganization,
       course: tmcCourse,
+      // userId: userDetails?.id,
     })
   }
 
@@ -83,7 +86,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
       </div>
     )
 
-    const details = this.state.exerciseDetails
+    const details = this.context.loggedIn && this.state.exerciseDetails
     const deadline = details?.deadline ? new Date(details.deadline) : null
 
     return (
@@ -105,10 +108,11 @@ class InBrowserProgrammingExercisePartial extends React.Component {
           <Wrapper>{children}</Wrapper>
           {this.context.loggedIn ? (
             <ProgrammingExercise
-              onExerciseDetailsChange={(details) => this.onUpdate(details)}
+              onExerciseDetailsChange={this.onUpdate}
               organization={this.state.organization}
               course={this.state.course}
               exercise={tmcname}
+              // userId={this.state.userId}
               token={accessToken()}
               height={height ? height : "300px"}
               outputHeight={outputheight ? outputheight : "auto"}
