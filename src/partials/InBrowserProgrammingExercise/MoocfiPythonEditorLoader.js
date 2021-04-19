@@ -5,7 +5,11 @@ import { withTranslation } from "react-i18next"
 import LoginStateContext from "../../contexes/LoginStateContext"
 import LoginControls from "../../components/LoginControls"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
-import { accessToken, getCourseVariant } from "../../services/moocfi"
+import {
+  accessToken,
+  getCachedUserDetails,
+  getCourseVariant,
+} from "../../services/moocfi"
 import ProgrammingExerciseCard from "../ProgrammingExercise/ProgrammingExerciseCard"
 import { ProgrammingExercise } from "moocfi-python-editor"
 import CourseSettings from "../../../course-settings"
@@ -48,12 +52,12 @@ class InBrowserProgrammingExercisePartial extends React.Component {
 
   async componentDidMount() {
     const { tmcOrganization, tmcCourse } = await getCourseVariant()
-    // const userDetails = this.context.loggedIn && (await getCachedUserDetails())
+    const userDetails = this.context.loggedIn && (await getCachedUserDetails())
     this.setState({
       render: true,
       organization: tmcOrganization,
       course: tmcCourse,
-      // userId: userDetails?.id,
+      userId: userDetails?.id,
     })
   }
 
@@ -112,7 +116,7 @@ class InBrowserProgrammingExercisePartial extends React.Component {
               organization={this.state.organization}
               course={this.state.course}
               exercise={tmcname}
-              // userId={this.state.userId}
+              userId={this.state.userId}
               token={accessToken()}
               height={height ? height : "300px"}
               outputHeight={outputheight ? outputheight : "auto"}
