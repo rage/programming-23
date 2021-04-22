@@ -44,6 +44,15 @@ Voit valita pelin aiheen vapaasti mutta tässä on joitakin ideoita. Pelin tekem
 
 ## Vertaisarviointi
 
+Arvioi peliä esimerkiksi seuraavien kriteerien mukaan:
+
+* Miltä peli näyttää?
+* Onko peli *pelattava*, ts. onko sen pelaaminen hauskaa ja sujuvaa?
+* Onko peli-idea kiinnostava?
+* Miten hyvin peliohjelma on kirjoitettu? Onko pelissä hyödynnetty tarvittavissa kohdin järkevästi funktioita ja luokkia?
+
+Hyvään arvioon kuuluu yleensä se, että löydät ohjelmasta sekä hyviä puolia että jotain kehitettävää.
+
 <quiz id="a3101454-6036-54b2-9b78-99064a8c9efe"></quiz>
 
 ## Loppukysely
