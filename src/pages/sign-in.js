@@ -120,7 +120,7 @@ class SignInPage extends React.Component {
 
               <Row>
                 <TextField
-                  id="outlined-adornment-password"
+                  id="outlined-adornment-email"
                   variant="outlined"
                   type="text"
                   label={this.props.t("user:emailUsername")}
