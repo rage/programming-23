@@ -10,10 +10,10 @@ const quizzesLanguage = language === "en" ? "en_US" : "fi_FI"
 export async function fetchQuizzesProgress() {
   const { quizzesId } = await getCourseVariant()
   const response = await axios.get(
-    `https://quizzes.mooc.fi/api/v1/courses/${quizzesId}/users/current/progress`,
+    `https://quizzes.mooc.fi/api/v2/general/course/${quizzesId}/progress`,
     { headers: { Authorization: `Bearer ${accessToken()}` } },
   )
-  return response.data?.points_by_group
+  return response.data
 }
 
 export async function fetchQuizNames() {
