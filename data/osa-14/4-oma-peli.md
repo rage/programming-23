@@ -18,6 +18,24 @@ Saat päättää pelin aiheen itse, ja pelin tulisi olla suunnilleen saman laaju
 
 Kun peli on valmis, lähetä se vertaisarviointiin alla olevan lomakkeen avulla. Tämän jälkeen tutustu vielä kahden muun kurssilaisen peliin ja anna niille mielestäsi sopiva arvosana ja kirjoita lyhyt arvio peleistä. Ota arvioinnissa huomioon sekä pelin kiinnostavuus ja pelattavuus että koodin selkeys.
 
+### Pelin lähettäminen
+
+Pelin lähetys onnistuu lähettämällä oma ohjelmakoodi TMC Paste -ominaisuuden avulla palvelimelle ja liittämällä linkki palautuslomakkeeseen.
+
+Klikkaa ensin TMC-painiketta (silmän oikealla puolella oleva painike). Tämä avaa valikon, josta löydät oikean ominaisuuden kirjoittamalla hakukenttään sanan `send`:
+
+<img src="tmc_paste_1.png">
+
+Kun klikkaat valintaa `Send exercise to TMC Paste`, ruudun oikeaan alakulmaan putkahtaa tieto siitä, että ohjelmakoodin on lähetetty palvelimelle:
+
+<img src="tmc_paste_2.png">
+
+Saat linkin kopioitua leikepöydälle klikkaamalla painiketta `Open URL` ja valitsemalla aukeavasta ikkunasta valihtoehdon `Copy`.
+
+<img src="tmc_paste_3.png">
+
+Tämä linkki sinun tulee liittää palautuslomakkeeseen.
+
 ## Osan 14 arvioinnista
 
 Tämän viikon tavoitteena on saada aikaan toimiva peli. Koska osassa on vain yksi tehtävä, *myös yritys hyväksytään*. Voit siis palauttaa pelisi vaikka se ei toimisikaan haluamallasi tavalla.
