@@ -26,7 +26,7 @@ Klikkaa ensin TMC-painiketta (silmän oikealla puolella oleva painike). Tämä a
 
 <img src="tmc_paste_1.png">
 
-Kun klikkaat valintaa `Send exercise to TMC Paste`, ruudun oikeaan alakulmaan putkahtaa tieto siitä, että ohjelmakoodin on lähetetty palvelimelle:
+Kun klikkaat valintaa `Send Exercise to TMC Paste`, ruudun oikeaan alakulmaan putkahtaa tieto siitä, että ohjelmakoodi on lähetetty palvelimelle:
 
 <img src="tmc_paste_2.png">
 
