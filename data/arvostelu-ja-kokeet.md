@@ -11,8 +11,9 @@ Kurssit suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen.
 ### Ohjelmoinnin perusteet koepäivät 2021
 
 * Lauantai 6.3.21
-* **Lauantai 24.4.21 (UUSI)**
+* Lauantai 24.4.21
 * Lauantai 15.5.21
+* **Lauantai 5.6.21 (UUSI)**
 * Lauantai 3.7.21
 * Lauantai 7.8.21
 * Lauantai 2.10.21
