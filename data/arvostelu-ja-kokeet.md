@@ -13,6 +13,7 @@ Kurssit suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen.
 * Lauantai 6.3.21
 * Lauantai 24.4.21
 * Lauantai 15.5.21
+* **Lauantai 5.6.21 (UUSI)**
 * Lauantai 3.7.21
 * Lauantai 7.8.21
 * Lauantai 2.10.21
@@ -22,7 +23,6 @@ Kurssit suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen.
 ### Ohjelmoinnin jatkokurssi koepäivät 2021
 
 * Lauantai 8.5.21
-* **Lauantai 5.6.21 (UUSI)**
 * Lauantai 3.7.21
 * Lauantai 14.8.21
 * Lauantai 9.10.21
