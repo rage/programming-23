@@ -4,14 +4,16 @@ title: "Tukea tehtäviin"
 hidden: false
 information_page: true
 ---
-
-Kurssilla saa tukea tehtäviin **25.1 eteenpäin** telegramin ja zoomin kautta.
+<notice>
+Kevään telegram-ohjaus on päättynyt. Kesän ohjausaikataulu päivitetään tälle sivulle lähiviikkoina.
+</notice>
 
 ## Telegram
 
-Telegram on viestintäsovellus, josta saat lisätietoa [täältä](https://telegram.org/).
+Telegram on viestintäsovellus, josta saat lisätietoa [täältä](https://telegram.org/). Löydät kurssin telegram-kanavan [täältä](https://t.me/python_hy).
 
-Ohjaajatiimi tarjoaa apua tehtävien ratkomisessa kurssin Telegram-kanavalla useana päivänä viikossa. Ohjausaikana ohjaajat päivystävät kurssikanavaa ja vastaavat myös yksityisviesteinä lähetettyihin kysymyksiin. Ole huomaavainen äläkä lähetä yksityisviestejä ohjausaikoijen ulkopuolella.
+Ohjaajatiimi tarjoaa apua tehtävien ratkomisessa kurssin telegram-kanavalla useana päivänä viikossa. Ohjausaikana ohjaajat päivystävät kurssikanavalla ja vastaavat myös yksityisviesteihin.
+Ole huomaavainen äläkä lähetä yksityisviestejä ohjausaikoijen ulkopuolella.
 
 Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
 
@@ -36,7 +38,7 @@ Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
       <td></td>
       <td></td>
       <td></td>
-      <td>X</td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
@@ -45,51 +47,51 @@ Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
       <td></td>
       <td></td>
       <td></td>
-      <td>X</td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
       <td>12:00-13:00</td>
       <td></td>
       <td></td>
-      <td>X</td>
       <td></td>
-      <td>X</td>
+      <td></td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
       <td>13:00-14:00</td>
       <td></td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>14:00-15:00</td>
       <td></td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
       <td></td>
-      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>15:00-16:00</td>
-      <td>X</td>
       <td></td>
-      <td>X</td>
-      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>16:00-17:00</td>
-      <td>X</td>
       <td></td>
       <td></td>
-      <td>X</td>
+      <td></td>
+      <td></td>
       <td></td>
       <td></td>
     </tr>
@@ -104,7 +106,7 @@ Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
     </tr>
     <tr>
       <td>18:00-19:00</td>
-      <td>X</td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -113,7 +115,7 @@ Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
     </tr>
     <tr>
       <td>19:00-20:00</td>
-      <td>X</td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -123,11 +125,3 @@ Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
   </tbody>
 </table>
 
-
-### Zoom
-
-Ohjausta järjestetään samanaikaisesti Zoomissa tiistaisin klo. 13:00-15:00 ja torstaisin klo. 15:00-17:00.
-
-Tiistain zoom-huone: https://helsinki.zoom.us/j/62575850027
-
-Torstain zoom-huone: https://helsinki.zoom.us/j/61392382478
