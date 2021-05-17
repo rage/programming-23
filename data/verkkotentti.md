@@ -1,6 +1,6 @@
 ---
 path: "/verkkotentti"
-title: "Verkkotentti 15.5"
+title: "Verkkotentti 5.6"
 information_page: true
 ---
 
@@ -12,7 +12,7 @@ information_page: true
 ### Tentin toteutus
 
 * Tentti suoritetaan kurssitehtävien tapaan vscode-ympäristössä.
-* Kurssin tentin voi suorittaa ensimmäisen kerran 24.4.2021 **klo 10:00-22:00** välisenä aikana.
+* Kurssin tentin voi suorittaa 5.6.2021 **klo 10:00-22:00** välisenä aikana.
 * Tentti päättyy viimeistään klo 22:00. Jos haluat käyttää tenttiin maksimiajan, **aloita se viimeistään klo 18:00**.
 * Aikaa tentin tekemiseen on **neljä tuntia**. Jos sinulla on erikseen annettu tenttiin lisäaikaa, aikaa on viisi tuntia.
 
@@ -24,7 +24,7 @@ information_page: true
 2. Valitse TMC-valikosta `My courses`-näkymä.
 3. Paina `Add new course`-nappulaa.
 4. Valitse organisaatioksi `Helsingin yliopisto`.
-5. Valitse kurssiksi `OHPE Python, kevät 2021, Verkkotentti 3`.
+5. Valitse kurssiksi `OHJA Python, kevät 2021, Verkkotentti 2`.
 6. Lataa tehtäväpohjat.
 7. Testaa tehtävien lähettämistä.
 8. Jos saat lähetettyä tehtävät palvelimelle niin olet valmis tekemään tentin, muutoin ole yhteydessä ohjaajaan.
@@ -33,8 +33,8 @@ information_page: true
 
 * Tenttikysymykset ilmestyvät <a href="https://exams.mooc.fi/fi">https://exams.mooc.fi/fi</a> sivulle tenttipäivänä klo 10:00.
 * Tentti-sivuille kirjaudutaan käyttäen normaaleja mooc.fi-tunnuksia.
-* Valitse kurssiksi `OHPE Python, kevät 2021, Verkkotentti 3`.
-* Jos olet oikeutettu lisäaikaan valitse `OHPE Python, kevät 2021, Verkkotentti 3 (LISÄAIKA)`.
+* Valitse kurssiksi `OHJA Python, kevät 2021, Verkkotentti 2`.
+* Jos olet oikeutettu lisäaikaan valitse `OHJA Python, kevät 2021, Verkkotentti 2 (LISÄAIKA)`.
 * Tenttiaika alkaa siitä hetkestä kun painat `Aloita tentti` -linkkiä.
 
 <notice>
