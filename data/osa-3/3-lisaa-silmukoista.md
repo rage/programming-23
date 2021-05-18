@@ -220,7 +220,7 @@ Anna luku: **8**
 0
 2
 4
-8
+6
 
 </sample-output>
 
