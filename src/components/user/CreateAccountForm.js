@@ -109,9 +109,8 @@ class CreateAccountForm extends React.Component {
       if (password !== password_confirmation) {
         newState.error += this.props.t("passwordsNoMatch")
         newState.errorObj.password = this.props.t("passwordsNoMatch")
-        newState.errorObj.password_confirmation = this.props.t(
-          "passwordsNoMatch",
-        )
+        newState.errorObj.password_confirmation =
+          this.props.t("passwordsNoMatch")
       }
     }
 
