@@ -127,7 +127,7 @@ export default class CourseContentTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     page: markdownRemark(frontmatter: { path: { eq: $path } }) {
       htmlAst
       html
