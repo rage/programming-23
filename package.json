@@ -44,7 +44,7 @@
     "gatsby-remark-emojis": "^0.4.3",
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "^5.2.0",
-    "gatsby-remark-prismjs": "^5.0.0",
+    "gatsby-remark-prismjs": "^5.2.0",
     "gatsby-remark-smartypants": "^4.0.0",
     "gatsby-source-filesystem": "^3.3.0",
     "gatsby-transformer-remark": "^4.0.0",
