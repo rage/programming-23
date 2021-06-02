@@ -4,86 +4,87 @@ title: 'Ohjelmoinnin aloittaminen'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning objectives'>
 
-Tämän osion jälkeen
+After this section
 
-- Olet kirjoittanut ja suorittanut ensimmäisen Python-ohjelmasi
-- Osaat käyttää print-komentoa viestien tulostamiseen
-- Osaat laskea laskuja ohjelmoimalla
+- You will have written and run your first Python program
+- You will know how to use the print command 
+- You will be able to use programming for arithmetic calculations
 
 </text-box>
 
-Tietokoneohjelmat koostuvat _komennoista_ eli yksinkertaisista toimintaohjeista, joita kone suorittaa yksi kerrallaan. Komennot voivat esimerkiksi suorittaa laskutoimituksia, vertailla koneen muistissa olevia tietoja, aiheuttaa muutoksen ohjelman toimintaan tai välittää viestejä ja kysellä tietoja käyttäjältä.
+Computer programs consist of _commands_, which are simple instructions. A computer executes these commands one by one. Among other things, commands can be used to perform calculations, compare things in the computer's memory, cause changes in how the program functions, relay messages or ask for information from the program's user.
 
-Aloitetaan ohjelmointiin tutustuminen yksinkertaisesta komennosta `print`, joka _tulostaa_ tekstiä. Tulostaminen tarkoittaa käytännössä sitä, että ohjelma näyttää tekstiä ruudulla.
+Let's begin programming by getting familiar with the `print` command, which _prints_ text. In this context, printing essentially means that the program will show text on the screen.
 
-Esimerkiksi seuraava ohjelma tulostaa rivin "Moi kaikki!":
+The following program will print the line "Hi there!":
 
 ```python
-print("Moi kaikki!")
+print("Hi there!")
 ```
 
-Kun suoritamme ohjelman, se tuottaa seuraavan tuloksen:
+When the program is run, it produces this:
 
 <sample-output>
 
-Moi kaikki!
+Hi there!
 
 </sample-output>
 
-Huomaa, että ohjelman koodi tulee kirjoittaa tarkalleen yllä olevalla tavalla, jotta se toimii. Esimerkiksi jos yritämme tulostaa rivin käyttämättä lainausmerkkejä
+The program will not work unless the code is written exactly as it is above. For example, trying to run the print command without the quotation marks, like so
 
 ```python
-print(Moi kaikki!)
+print(Hi there!)
 ```
 
-ohjelma ei toimi, ja seurauksena on seuraava virheilmoitus:
+will not print out the message, but instead causes an error:
 
 <sample-output>
 
 <pre>
 File "<stdin>", line 1
-  print(Moi kaikki!)
+  print(Hi there!)
                    ^
 SyntaxError: invalid syntax
 </pre>
 
 </sample-output>
 
-Python ei siis osaa tulkita tulostettavaa tekstiä oikein, jos se ei ole lainausmerkeissä.
+In summary, if you want to print text, it must all be encased in quotation marks or Python will not interpret it correctly.
 
 <in-browser-programming-exercise name="Emoticon" tmcname="part01-01_emoticon" height="300px">
 
-Kirjoita ohjelma, joka tulostaa ruudulle hymiön: :-)
+Write a program which prints out an emoticon: :-)
 
 </in-browser-programming-exercise>
 
-## Ohjelman eteneminen
+## A program progresses
 
-Kun kirjoitamme useita komentoja peräkkäin,
-ne suoritetaan järjestyksessä ylhäältä alas.
-Esimerkiksi ohjelma
+Multiple commands written in succession will be executed in order from first to last.
+For example this program
 
 ```python
-print("Tervetuloa opettelemaan ohjelmointia!")
-print("Aluksi harjoitellaan print-komennon käyttöä.")
-print("Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.")
+print("Welcome to Programming 101!") 
+print("First we will practice using the print command.")
+print("This program prints three lines of text on the screen.")
 ```
-tulostaa ruudulle seuraavat rivit:
+prints the following lines on the screen:
 
 <sample-output>
 
-Tervetuloa opettelemaan ohjelmointia!
-Aluksi harjoitellaan print-komennon käyttöä.
-Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.
+Welcome to Programming 101!
+First we will practice using the print command.
+This program prints three lines of text on the screen.
 
 </sample-output>
 
 <in-browser-programming-exercise name="Fix the code: Seven Brothers" tmcname="part01-03_seven_brothers">
 
-Ohjelman tarkoitus on tulostaa seitsemän veljestä aakkosjärjestyksessä. Ohjelmassa on kuitenkin yksi tai useampi virhe, jonka takia se ei toimi oikein.
-Korjaa ohjelma niin, että veljekset tulostuvat oikeassa järjestyksessä.
+"Seitsemän veljestä" is one of the first novels ever written in Finnish. It is the story of seven orphaned brothers learning to make their way in the world ([read more on Wikipedia](https://en.wikipedia.org/wiki/Seitsem%C3%A4n_veljest%C3%A4)). 
+
+This program is supposed to print out the names of the brothers in alphabetical order, but it's not working quite right yet. Please fix the program so that the names are printed in the correct order.
+
 
 ```python
 print("Simeoni")
