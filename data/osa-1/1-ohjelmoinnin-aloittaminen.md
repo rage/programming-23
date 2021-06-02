@@ -53,7 +53,7 @@ SyntaxError: invalid syntax
 
 Python ei siis osaa tulkita tulostettavaa tekstiä oikein, jos se ei ole lainausmerkeissä.
 
-<in-browser-programming-exercise name="Hymiö" tmcname="osa01-01_hymio" height="300px">
+<in-browser-programming-exercise name="Emoticon" tmcname="part01-01_emoticon" height="300px">
 
 Kirjoita ohjelma, joka tulostaa ruudulle hymiön: :-)
 
@@ -80,7 +80,7 @@ Tämä ohjelma tulostaa ruudulle kolme riviä tekstiä.
 
 </sample-output>
 
-<in-browser-programming-exercise name="Korjaa ohjelma: seitsemän veljestä" tmcname="osa01-03_korjaa_ohjelma_7_veljesta">
+<in-browser-programming-exercise name="Fix the code: Seven Brothers" tmcname="part01-03_seven_brothers">
 
 Ohjelman tarkoitus on tulostaa seitsemän veljestä aakkosjärjestyksessä. Ohjelmassa on kuitenkin yksi tai useampi virhe, jonka takia se ei toimi oikein.
 Korjaa ohjelma niin, että veljekset tulostuvat oikeassa järjestyksessä.
@@ -98,7 +98,7 @@ print("Timo")
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Ukko Nooa" tmcname="osa01-02_ukko_nooa">
+<in-browser-programming-exercise name="Row, Row, Row Your Boat" tmcname="part01-02_row_your_boat">
 
 Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
 
@@ -179,13 +179,13 @@ print("Tuntien määrä vuodessa:")
 print(365*24) # 365 päivää, 24 h / pv
 ```
 
-<in-browser-programming-exercise name="Minuutit vuodessa" tmcname="osa01-04_minuuttien_maara_vuodessa">
+<in-browser-programming-exercise name="Minutes in a year" tmcname="part01-04_minutes_in_a_year">
 
 Tee ohjelma, joka tulostaa minuuttien määrän vuodessa. Käytä edellisen esimerkin tapaan Pythonia tekemään laskutoimitus!
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Ohjelma tulostaa koodia" tmcname="osa01-05_ohjelma_tulostaa_koodia">
+<in-browser-programming-exercise name="Print some code" tmcname="part01-05_print_code">
 
 Tulostuslauseessa voi käyttää kaksinkertaisten lainausmerkkien `"` lisäksi myös yksinkertaista lainausmerkkiä `'`.
 
