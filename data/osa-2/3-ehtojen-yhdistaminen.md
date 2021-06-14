@@ -187,7 +187,7 @@ pistemäärä   | arvosana
 70-79 | 3
 80-89| 4
 90-100 | 5
-> 100 |  mahdotonta!
+\> 100 |  mahdotonta!
 
 Esimerkkitulostuksia:
 
