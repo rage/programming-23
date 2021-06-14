@@ -55,7 +55,7 @@ In summary, if you want to print text, it must all be encased in quotation marks
 
 <in-browser-programming-exercise name="Emoticon" tmcname="part01-01_emoticon" height="300px">
 
-Write a program which prints out an emoticon: :-)
+Please write a program which prints out an emoticon: :-)
 
 </in-browser-programming-exercise>
 
@@ -183,7 +183,7 @@ print(365*24) # 365 days, 24 hours in each day
 
 <in-browser-programming-exercise name="Minutes in a year" tmcname="part01-04_minutes_in_a_year">
 
-Write a program which prints out the number of minutes in a year. Use Python code to perform the calculation, as in the previous code example. 
+Please write a program which prints out the number of minutes in a year. Use Python code to perform the calculation, as in the previous code example. 
 
 </in-browser-programming-exercise>
 
@@ -205,7 +205,7 @@ print('"Come right back!", shouted the police officer.')
 
 </sample-output>
 
-Write a program which prints out the following:
+Please write a program which prints out the following:
 
 <sample-output>
 
