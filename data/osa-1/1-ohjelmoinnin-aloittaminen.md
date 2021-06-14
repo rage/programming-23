@@ -79,7 +79,7 @@ This program prints three lines of text on the screen.
 
 </sample-output>
 
-<in-browser-programming-exercise name="Fix the code: Seven Brothers" tmcname="part01-03_seven_brothers">
+<in-browser-programming-exercise name="Fix the code: Seven Brothers" tmcname="part01-02_seven_brothers">
 
 "Seitsemän veljestä" is one of the first novels ever written in Finnish. It is the story of seven orphaned brothers learning to make their way in the world ([read more on Wikipedia](https://en.wikipedia.org/wiki/Seitsem%C3%A4n_veljest%C3%A4)). 
 
@@ -99,7 +99,7 @@ print("Timo")
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Row, Row, Row Your Boat" tmcname="part01-02_row_your_boat">
+<in-browser-programming-exercise name="Row, Row, Row Your Boat" tmcname="part01-03_row_your_boat">
 
 Please write a program which prints out the following lines exactly as they are written here, punctuation and all: 
 
