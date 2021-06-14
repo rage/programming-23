@@ -10,7 +10,7 @@ After this section
 
 - You will have written and run your first Python program
 - You will know how to use the print command 
-- You will be able to use programming for arithmetic calculations
+- You will be able to use programming for arithmetic operations
 
 </text-box>
 
@@ -73,7 +73,7 @@ prints the following lines on the screen:
 
 <sample-output>
 
-Welcome to Programming 101!
+Welcome to Introduction to Programming!
 First we will practice using the print command.
 This program prints three lines of text on the screen.
 
@@ -101,29 +101,30 @@ print("Timo")
 
 <in-browser-programming-exercise name="Row, Row, Row Your Boat" tmcname="part01-02_row_your_boat">
 
-Kirjoita ohjelma, joka tulostaa ruudulle seuraavat rivit (tarkalleen annetussa muodossa välimerkkeineen):
+Please write a program which prints out the following lines exactly as they are written here, punctuation and all: 
 
 <sample-output>
 
-Ukko Nooa, Ukko Nooa oli kunnon mies.
-Kun hän meni saunaan, laittoi laukun naulaan.
-Ukko Nooa, Ukko Nooa oli kunnon mies.
+Row, row, row your boat,
+Gently down the stream.
+Merrily, merrily, merrily, merrily,
+Life is but a dream.
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
 
-## Laskutoimitukset
+## Arithmetic operations
 
-Jos laitamme `print`-komennon sisälle laskutoimituksen, tulostuu ruudulle laskutoimituksen tulos. Esimerkiksi ohjelma
+You can also put arithmetic operations inside a `print` command. Running it will then print out the result of the operation. For example, the following program
 
 ```python
 print(2 + 5)
 print(3 * 3)
 print(2 + 2 * 10)
 ```
-tulostaa ruudulle seuraavat rivit:
+prints out these lines:
 
 <sample-output>
 
@@ -133,14 +134,14 @@ tulostaa ruudulle seuraavat rivit:
 
 </sample-output>
 
-Huomaa, että laskutoimituksen ympärille ei kirjoiteta lainausmerkkejä. Lainausmerkeillä merkitään _merkkijono_, joka tulostetaan ruudulle sellaisenaan. Huomaa siis seuraavien komentojen ero:
+Notice the lack of quotation marks around the arithmetic operations above. Quotation marks are used to signify _strings_, that is, _sequences of characters_. These are usually printed out exactly as they are written. Thus, the following two commands produce two quite different results:
 
 ```python
 print(2 + 2 * 10)
 print("2 + 2 * 10")
 ```
 
-Ohjelman tulostus on:
+This program prints out:
 
 <sample-output>
 
@@ -149,22 +150,22 @@ Ohjelman tulostus on:
 
 </sample-output>
 
-Jälkimmäisessä tapauksessa Python ei laske laskutoimitusta, vaan tulostaa sen ruudulle.
-Merkkijonot siis tulostetaan ruudulle sellaisenaan riippumatta niiden sisällöstä.
+With the second line of code, Python does not calculate the result of the operation, but instead prints out the operation itself. 
+In summary, strings are usually printed out just as they are written, without any reference to their contents.
 
-## Kommentit
+## Commenting
 
-Jos rivin alussa on merkki `#`, rivi on kommentti, jolloin rivillä oleva teksti ei vaikuta ohjelman toimintaan.
+Any line beginning with a hashtag `#` is a comment. This means that any text on that line will not in any way affect how the program functions - Python will simply ignore it.
 
-Kommenttien avulla ohjelmoija voi selostaa itselleen ja muille ohjelmoijille, miten ohjelma toimii. Esimerkiksi seuraavassa ohjelmassa kommentit selittävät käytettyä laskukaavaa:
+Comments are used for explaining how a program works, to both the programmer themselves, and others reading the program code. In this program a comment explains the calculation performed in the code: 
 
 ```python
-print("Tuntien määrä vuodessa:")
-# vuodessa on 365 päivää ja jokaisessa 24 tuntia
+print("Hours in a year:")
+# there are 365 days in a year and 24 hours in each day
 print(365*24)
 ```
 
-Kun ohjelma suoritetaan, kommenteissa oleva teksti ei näy mitenkään ohjelman käyttäjälle:
+When the program is run, any text in comments will not be visible to the user:
 
 <sample-output>
 
@@ -173,42 +174,42 @@ Tuntien määrä vuodessa:
 
 </sample-output>
 
-Lyhyempi kommentti voi olla myös rivin lopussa:
+Short comments can also be added to the end of a line: 
 
 ```python
-print("Tuntien määrä vuodessa:")
-print(365*24) # 365 päivää, 24 h / pv
+print("Hours in a year:")
+print(365*24) # 365 days, 24 hours in each day
 ```
 
 <in-browser-programming-exercise name="Minutes in a year" tmcname="part01-04_minutes_in_a_year">
 
-Tee ohjelma, joka tulostaa minuuttien määrän vuodessa. Käytä edellisen esimerkin tapaan Pythonia tekemään laskutoimitus!
+Write a program which prints out the number of minutes in a year. Use Python code to perform the calculation, as in the previous code example. 
 
 </in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Print some code" tmcname="part01-05_print_code">
 
-Tulostuslauseessa voi käyttää kaksinkertaisten lainausmerkkien `"` lisäksi myös yksinkertaista lainausmerkkiä `'`.
+Thus far you have probably used double quotation marks `"` to print out strings, but Python also accepts single quotation marks `'`.
 
-Tämä on kätevää, kun haluat tulostaa lainausmerkkejä:
+This comes in handy if you ever want to print out the actual quotation marks themselves:
 
 ```python
 
-print('"Heti takaisin!", poliisi huusi.')
+print('"Come right back!", shouted the police officer.')
 
 ```
 
 <sample-output>
 
-"Heti takaisin!", poliisi huusi.
+"Come right back!", shouted the police officer.
 
 </sample-output>
 
-Tee ohjelma, jonka tulostus on seuraava:
+Write a program which prints out the following:
 
 <sample-output>
 
-print("Moi kaikki!")
+print("Hello there!")
 
 </sample-output>
 
@@ -219,6 +220,6 @@ print("Moi kaikki!")
 
 
 
-Kertauskysely tämän osan asioihin liittyen:
+A quiz to review the contents of this section:
 
 <quiz id="f1d6d205-dfd6-5c6f-b148-b332dfd64289"></quiz>
