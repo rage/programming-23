@@ -134,7 +134,7 @@ prints out these lines:
 
 </sample-output>
 
-Notice the lack of quotation marks around the arithmetic operations above. Quotation marks are used to signify _strings_, that is, _sequences of characters_. These are usually printed out exactly as they are written. Thus, the following two commands produce two quite different results:
+Notice the lack of quotation marks around the arithmetic operations above. Quotation marks are used to signify _strings_. In the context of programming, strings are sequences of characters. They can consist of letters, numbers and any other types of characters, such as punctuation. Strings aren't just words as we commonly understand them, but instead a single string can be as long as multiple complete sentences. Strings are usually printed out exactly as they are written. Thus, the following two commands produce two quite different results:
 
 ```python
 print(2 + 2 * 10)
