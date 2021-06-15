@@ -1,6 +1,6 @@
 ---
-path: '/osa-1/1-ohjelmoinnin-aloittaminen'
-title: 'Ohjelmoinnin aloittaminen'
+path: '/part-1/1-getting-started'
+title: 'Getting started'
 hidden: false
 ---
 
