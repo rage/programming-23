@@ -4,89 +4,87 @@ title: 'Tietoa käyttäjältä'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name='Learning objectives'>
 
-Tämän osion jälkeen
+After this section
 
-- Osaat kirjoittaa ohjelman, joka lukee tietoa käyttäjältä
-- Osaat käyttää muuttujaa syötteen lukemisessa ja tulostamisessa
-- Osaat yhdistää merkkijonoja toisiinsa
+- You will know how to write a program which uses input from the user
+- You will know how to use variables to store input and print it out 
+- You will be able to combine strings
 
 </text-box>
 
-_Syöte_ tarkoittaa tietoa, jonka ohjelman käyttäjä antaa ohjelmalle. Pythonissa voimme lukea rivin käyttäjän antamaa syötettä `input`-komennolla. Komento näyttää samalla viestin käyttäjälle, jossa voi pyytää syötettä.
+_Input_ refers to any information a user gives to the program. Specifically, the Python command `input` reads in a line of input written by the user. It may also be used display a message to the user, to prompt for specific input from the user.
 
-Esimerkiksi seuraava ohjelma lukee käyttäjän nimen `input`-komennolla ja
-tulostaa ruudulle tervehdyksen `print`-komennolla:
-
+The following program reads in the name of the user with the `input` command. It then prints it out with the `print` command:
+ 
 ```python
-nimi = input("Anna nimesi: ")
-print("Moi vaan, " + nimi)
+name = input("What is your name? ")
+print("Hi there, " + name)
 ```
 
-Ohjelman suoritus voisi näyttää esimerkiksi seuraavalta (käyttäjän kirjoittama syöte on merkitty punaisella):
+The execution of this program could look like this (input from the user in red):
 
 <sample-output>
 
-Anna nimesi: **Pekka Python**
-Moi vaan, Pekka Python
+What is your name? **Paul Python**
+Hi there, Paul Python
 
 </sample-output>
 
-Ohjelman tulostama teksti riippuu siis osittain käyttäjän syötteestä. Niinpä ohjelman suoritus voisi näyttää myös tältä:
+What this program prints out is partially dependent on input from the user. That means the execution of the program could also look like this:
 
 <sample-output>
 
-Anna nimesi: **Outi Ohjelmoija**
-Moi vaan, Outi Ohjelmoija
+What is your name? **Paula Programmer**
+Hi there, Paula Programmer
 
 </sample-output>
 
-Ohjelmassa esiintyvä sana `nimi` on _muuttuja_. Muuttujalla tarkoitetaan ohjelmoinnissa paikkaa, johon voidaan tallentaa jokin _arvo_ kuten merkkijono tai lukuarvo. Tämä arvo voidaan myöhemmin lukea tai sitä voidaan muuttaa.
+The word `name` in this program is a _variable_. In the context of programming, a variable is a location for storing some _value_, such as a string or a number. This value can be used later, and it can also be changed.
 
-<text-box variant="hint" name="Muuttujan nimen valinta">
+<text-box variant="hint" name="Naming variables">
 
-Muuttujat voi periaatteesssa ohjelmissa nimetä vapaasti, tiettyjä Python-kielen asettamia rajoituksia noudattaen.
+In principle, variables can be named quite freely, within certain limits specified in the Python language.
 
-Tällä kurssilla muuttujat ja muut vastaavat ohjelmien osat nimetään suomeksi.
-Ohjelmoinnissa käytetään kuitenkin yleisesti kielenä englantia – jos etsit Googlen avulla ohjelmointiesimerkkejä, kielenä on usein englanti.
+It is a common international programming practice to name variables in English, but you may come across code where variables are named in other languages, such as the native language of the programmer. The name of the variable has no direct effect on its content, so the name, in that sense, does not matter. However, it can often be helpful in understanding how code functions if variables are named logically and in English.
 
 </text-box>
 
-<in-browser-programming-exercise name="Nimi kahdesti" tmcname="osa01-06_nimi_kahdesti">
+<in-browser-programming-exercise name="Name twice" tmcname="part01-06_name_twice">
 
-Kirjoita ohjelma, joka kysyy käyttäjän nimeä ja tämän jälkeen tulostaa nimen kahteen kertaan peräkkäisille riveille.
+Please write a program which asks for the user's name and then prints it twice, on two consecutive lines.
 
-Ohjelman tulee toimia seuraavasti:
+An example of the how the program should function:
 
 <sample-output>
 
-Anna nimesi: **Pekka**
-Pekka
-Pekka
+Anna nimesi: **Paul**
+Paul
+Paul
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-## Muuttujaan viittaaminen
+## Referencing a variable
 
-Muuttujaan voidaan viitata ohjelmassa useasti:
+A single variable can be referred to many times in a program:
 
 ```python
-nimi = input("Anna nimesi: ")
+name = input("What is your name? ")
 
-print("Moi, " + nimi + "!")
-print(nimi + " on aika kiva nimi.")
+print("Hi, " + name + "!")
+print(name + " is quite a nice name.")
 ```
 
-Esimerkkitulostus, kun käyttäjä antaa nimen `Pauli Python`:
+If the user gives the name `Paul Python`, this program prints out the following:
 
 <sample-output>
 
-Anna nimesi: **Pauli Python**
-Moi, Pauli Python!
-Pauli Python on aika kiva nimi.
+What is your name? **Paul Python**
+Hi, Paul Python!
+Paul Python is quite a nice name.
 
 </sample-output>
 
