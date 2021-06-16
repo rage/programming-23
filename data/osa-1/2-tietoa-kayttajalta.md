@@ -59,7 +59,7 @@ An example of the how the program should function:
 
 <sample-output>
 
-Anna nimesi: **Paul**
+What is your name? **Paul**
 Paul
 Paul
 
