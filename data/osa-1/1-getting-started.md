@@ -170,7 +170,7 @@ When the program is run, any text in comments will not be visible to the user:
 
 <sample-output>
 
-Tuntien määrä vuodessa:
+Hours in a year:
 8760
 
 </sample-output>
