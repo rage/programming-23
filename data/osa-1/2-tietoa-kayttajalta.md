@@ -108,7 +108,7 @@ Moi Erkki Esimerkki! Varmistan vielä: nimesi on siis Erkki Esimerkki?
 
 </sample-output>
 
-<in-browser-programming-exercise name="Name and exclamation marks" tmcname="osa01-07_name_and_exclamation_marks">
+<in-browser-programming-exercise name="Name and exclamation marks" tmcname="part01-07_name_and_exclamation_marks">
 
 Kirjoita ohjelma, joka kysyy käyttäjän nimeä ja tämän jälkeen tulostaa nimen kaksi kertaa samalle riville siten, että rivin alussa lopussa sekä nimien välissä on huutomerkki.
 
