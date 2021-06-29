@@ -8,7 +8,7 @@ hidden: false
 
 After this section
 
-- You will be able to use variables in calculations
+- You will be able to use variables in various arithmetic operations
 - You will know how to deal with numbers in user input
 - You will know how to cast values into other fundamental data types 
 
@@ -377,56 +377,56 @@ The sum of the numbers is 16 and the mean is 4.0
 
 
 
-<in-browser-programming-exercise name="Ruokailukustannukset" tmcname="osa01-19_ruokailukustannukset">
+<in-browser-programming-exercise name="Food expenditure" tmcname="part01-19_food_expenditure">
 
-Tee ohjelma, joka arvioi käyttäjän keskimääräisiä ruokailukustannuksia.
+Please write a program which estimates a user's typical food expenditure.
 
-Ohjelma kysyy, kuinka monta kertaa viikossa käyttäjä käy Unicafessa ja Unicafe-lounaan hinnan sekä viikon muiden ruokaostosten hinnan.
+The program asks the user how many times a week they eat at the student cafeteria. Then it asks for the price of a typical student lunch, and for money spent on groceries during the week.
 
-Näiden tietojen perusteella ohjelma laskee käyttäjän keskimääräiset ruokamenot sekä viikossa että yhtenä päivänä.
+Based on this information the program calculates the user's typical food expenditure both weekly and daily.
 
-Ohjelman tulee toimia seuraavasti:
+The program should function as follows:
 
 <sample-output>
 
-Montako kertaa viikossa syöt Unicafessa? **4**
-Unicafe-lounaan hinta? **2.5**
-Paljonko käytät viikossa ruokaostoksiin? **28.5**
+How many times a week do you eat at the student cafeteria? **4**
+The price of a typical student lunch? **2.5**
+How much money do you spend on groceries in a week? **28.5**
 
-Kustannukset keskimäärin:
-Päivässä 5.5 euroa
-Viikossa 38.5 euroa
+Average food expenditure:
+Daily: 5.5 euros
+Weeklt: 38.5 euros
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Opiskelijat ryhmiin" tmcname="osa01-18_opiskelijat_ryhmiin">
+<in-browser-programming-exercise name="Students in groups" tmcname="part01-20_students_in_groups">
 
-Tee ohjelma, joka kysyy kurssin opiskelijoiden määrän ja ryhmän koon ja ilmoittaa, montako ryhmää opiskelijoista muodostuu. Jos jako ei mene tasan, yhdessä ryhmässä voi olla vähemmän opiskelijoita, mutta kaikissa muissa on oltava haluttu määrä.
+Please write a program which asks for the number of students on a course and the desired group size. The program will then print out how many groups are formed from the students on the course. If the division is not even, one of the groups may have fewer members than specified. 
 
 <sample-output>
 
-Montako opiskelijaa? **8**
-Mikä on ryhmän koko? **4**
-Ryhmien määrä: 2
+How many students on the course? **8**
+Desired group size? **4**
+Number of groups formed: 2
 
 </sample-output>
 
 <sample-output>
 
-Montako opiskelijaa? **11**
-Mikä on ryhmän koko? **3**
-Ryhmien määrä: 4
+How many students on the course? **11**
+Desired group size? **3**
+Number of groups formed: 4
 
 </sample-output>
 
-Vihje: tehtävän tekeminen onnistuu kokonaislukujakolaskuoperaattorilla `//`
+Hint: the integer division operator `//` could come in handy here.
 
-Vihje2: jos et keksi miten tehtävä ratkeaa, älä huolestu suotta vaan tutustu [seuraavassa luvussa](/osa-1/5-ehtorakenne) esiteltävään <i>ehtorakenteeseen</i>. Ehtorakenteen avulla tehtävä on huomattavasti helpompi ratkaista.
+Hint 2: if you can't get your code working as expected, don't panic. The topic of the [next section](/part-1/5-conditional-programming) is _conditional programming_. This exercise is much easier to solve using a conditional construction.
 
 </in-browser-programming-exercise>
 
-Kertauskysely tämän osan asioihin liittyen:
+A quiz to review the contents of this section:
 
 <quiz id="d781d54e-9792-5a79-a018-168940390580"></quiz>
