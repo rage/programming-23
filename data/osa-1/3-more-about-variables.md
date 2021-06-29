@@ -1,5 +1,5 @@
 ---
-path: "/osa-1/3-lisaa-muuttujista"
+path: "/osa-1/3-more-about-variables"
 title: "More about variables"
 hidden: false
 ---
