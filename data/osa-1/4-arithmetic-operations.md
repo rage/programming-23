@@ -341,35 +341,35 @@ The product is 30
 
 <in-browser-programming-exercise name="Sum and product" tmcname="part01-17_sum_and_product">
 
-Please write Tee ohjelma joka kysyy käyttäjältä kaksi lukua. Ohjelma tulostaa lukujen summan ja tulon.
+Please write a program which asks the user for two numbers. The program will then print out the sum and the product of the two numbers.
 
-Ohjelman tulee toimia seuraavasti:
+The program should function as follows:
 
 <sample-output>
 
-Luku 1: **3**
-Luku 2: **7**
-Lukujen summa 10
-Lukujen tulo 21
+Number 1: **3**
+Number 2: **7**
+The sum of the numbers: 10
+The product of the numbers: 21
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Lukujen summa ja keskiarvo" tmcname="osa01-17_lukujen_summa_ja_keskiarvo">
+<in-browser-programming-exercise name="Sum and mean" tmcname="part01-18_sum_and_mean">
 
-Tee ohjelma, joka lukee käyttäjältä neljä lukua ja tulostaa niiden summan ja keskiarvon
+Please write a program which asks the user for four numbers. The program then prints out the sum and the mean of the numbers.
 
-Ohjelman tulee toimia seuraavasti:
+The program should function as follows:
 
 <sample-output>
 
-Luku 1: **2**
-Luku 2: **1**
-Luku 3: **6**
-Luku 4: **7**
-Lukujen summa on 16 ja keskiarvo 4.0
+Number 1: **2**
+Number 2: **1**
+Number 3: **6**
+Number 4: **7**
+The sum of the numbers is 16 and the mean is 4.0
 
 </sample-output>
 
