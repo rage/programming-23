@@ -322,7 +322,7 @@ Seconds in that many days: 604800
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Fix the code: Product" tmcname="osa01-16_product">
+<in-browser-programming-exercise name="Fix the code: Product" tmcname="part01-16_product">
 
 This program asks the user for three numbers. The program then prints out their product, that is, the numbers multiplied by each other. There is, however, something wrong with the program, it doesn't work quite right.Please fix it.
 
