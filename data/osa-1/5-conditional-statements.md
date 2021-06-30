@@ -1,23 +1,23 @@
 ---
-path: "/osa-1/5-ehtorakenne"
-title: "Ehtorakenne"
+path: "/osa-1/5-conditional-statements"
+title: "Conditional statements"
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
-- Osaat käyttää yksinkertaista ehtorakennetta ohjelmoinnissa
-- Tiedät, mitä tarkoitetaan totuusarvoilla
-- Osaat muodostaa ehtoja vertailuoperaattoreiden avulla
+- You will be able to use a simple conditional statement in programming
+- You will know what a Boolean value is
+- You will be able to express conditionals with comparison operators
 
 </text-box>
 
 Tähän mennessä kaikissa ohjelmissamme on suoritettu samat rivit samassa järjestyksessä.
 Usein on kuitenkin tarpeen määritellä ohjelmaan osia, jotka suoritetaan vain tietyissä tilanteissa.
 
-Tarkastellaan ensin esimerkkiä, joka tarkastelee, onko henkilö täysi-ikäinen:
+Esimerkiksi seuraava koodi tarkastaa, onko henkilö täysi-ikäinen:
 
 ```python
 ika = int(input("Kuinka vanha olet? "))
@@ -40,7 +40,7 @@ Seuraava asiakas, kiitos!
 
 </sample-output>
 
-Jos kuitenkin ikä ei ole suurempi kuin 17, käy näin:
+Jos kuitenkaan ikä ei ole suurempi kuin 17, käy näin:
 
 <sample-output>
 
@@ -514,7 +514,7 @@ Juuret ovat 2.0 ja -4.0
 
 </in-browser-programming-exercise>
 
-Kertauskysely tämän osan asioihin liittyen:
+A quiz to review the contents of this section:
 
 <quiz id="bc7e500f-a91e-5709-8ae6-34637ff01737"></quiz>
 
