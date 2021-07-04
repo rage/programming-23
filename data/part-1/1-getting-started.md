@@ -1,5 +1,5 @@
 ---
-path: '/osa-1/1-getting-started'
+path: '/part-1/1-getting-started'
 title: 'Getting started'
 hidden: false
 ---

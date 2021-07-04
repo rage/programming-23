@@ -1,5 +1,5 @@
 ---
-path: "/osa-1/5-conditional-statements"
+path: "/part-1/5-conditional-statements"
 title: "Conditional statements"
 hidden: false
 ---

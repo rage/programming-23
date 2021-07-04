@@ -1,5 +1,5 @@
 ---
-path: '/osa-1/2-information-from-the-user'
+path: '/part-1/2-information-from-the-user'
 title: 'Information from the user'
 hidden: false
 ---

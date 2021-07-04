@@ -1,5 +1,5 @@
 ---
-path: "/osa-1/4-arithmetic-operations"
+path: "/part-1/4-arithmetic-operations"
 title: "Arithmetic operations"
 hidden: false
 ---
