@@ -147,7 +147,7 @@ You can use the Tab key, short for _tabulator_ key, to insert a set amount of wh
 
 <img src="1_6_keyboard.png">
 
-The majority of text editors will automatically indent the following line when the Enter key is pressed after a colon character. When you want to end a code block you can use the `Backspace` key to return to the beginning of the line.
+Many text editors will automatically indent the following line when the Enter key is pressed after a colon character. When you want to end an indented code block you can use the `Backspace` key to return to the beginning of the line.
 
 <img src="1_6_keyboard2.png">
 <small><center>
@@ -229,7 +229,7 @@ Next please!
 
 <in-browser-programming-exercise name="Order of magnitude" tmcname="part01-24_order_of_magnitude">
 
-Please write a program which asks the user for an integer number. The program should then print out the magnitude of the number according to the following examples:
+Please write a program which asks the user for an integer number. The program should then print out the magnitude of the number according to the following examples.
 
 <sample-output>
 
@@ -269,54 +269,56 @@ Thank you!
 </in-browser-programming-exercise>
 
 
-## Totuusarvot
+## Boolean values
 
-Ehtorakenteessa käytettävä ehto saa totuusarvon `True` (tosi) tai `False` (epätosi). Esimerkiksi ehto `a < 5` on tosi jos `a` on alle 5 ja epätosi jos `a` on 5 tai suurempi.
+Any condition used in a conditional statement will result in a truth value, that is, either true or false. For example, the condition `a < 5` is true if `a` is less than 5, and false if `a` is equal to or greater than 5.
 
-Voimme asettaa ehdon tuloksen muuttujan arvoksi samaan tapaan kuin laskutoimituksen tuloksen:
+Especially in programming these types of values are often called _Boolean_ values, and in Python they are handled by the `bool` data type. Variables of type `bool` can only have two values: `True` or `False`. 
+
+The result of the evaluation of a conditional statement can be stored in a variable just like any result of a calculation:
 
 ```python
 a = 3
-ehto = a < 5
-print(ehto)
-if ehto:
-    print("a on pienempi kuin 5")
+condition = a < 5
+print(condition)
+if condition:
+    print("a is less than 5")
 ```
 
 <sample-output>
 
 True
-a on pienempi kuin 5
+a is less than 5
 
 </sample-output>
 
-Voimme käyttää koodissa myös sanoja `True` ja `False`. Esimerkiksi seuraava koodi suorittaa `print`-komennon aina, koska ehdon arvona on `True`:
+The Python keywords `True` and `False` can also be used directly. In the following example the `print` command is executed every time, because the value of the condition is `True`:
 
 ```python
-ehto = True
-if ehto:
-    print("Tänne tullaan aina")
+condition = True
+if condition:
+    print("This is printed every time.")
 ```
 
 <sample-output>
 
-Tänne tullaan aina
+This is printed every time.
 
 </sample-output>
 
-Tällainen ohjelma ei ole sinänsä kovin hyödyllinen, mutta myöhemmin kurssilla näemme, mitä hyötyä on totuusarvoista muuttujissa.
+A program like this is not very useful, but later on during the course you will see examples of Boolean variables coming in very handy. 
 
-<in-browser-programming-exercise name="Laskin" tmcname="osa01-25_laskin">
+<in-browser-programming-exercise name="Calculator" tmcname="part01-calculator">
 
-Tee ohjelma, joka kysyy käyttäjältä ensin kaksi lukua ja sen jälkeen komennon. Jos komento on joko _summa_, _tulo_ tai _erotus_, ohjelma laskee syötteille kyseisen operaation tuloksen. Muussa tapauksessa ohjelma ei tulosta mitään.
+Please write a program which asks the user for two numbers and an operation. If the operation is _add_, _multiply_ or _subtract_, the program should calculate and print out the result of the operation with the given numbers. If the user types in anything else, the program should print out nothing.
 
-Esimerkkitulostuksia:
+Some examples of expected behaviour:
 
 <sample-output>
 
-Luku 1: **10**
-Luku 2: **17**
-Komento: **summa**
+Number 1: **10**
+Number 2: **17**
+Operation: **add**
 
 10 + 17 = 27
 
@@ -324,9 +326,9 @@ Komento: **summa**
 
 <sample-output>
 
-Luku 1: **4**
-Luku 2: **6**
-Komento: **tulo**
+Number 1: **4**
+Number 2: **6**
+Operation: **multiply**
 
 4 * 6 = 24
 
@@ -334,9 +336,9 @@ Komento: **tulo**
 
 <sample-output>
 
-Luku 1: **4**
-Luku 2: **6**
-Komento: **erotus**
+Number 1: **4**
+Number 2: **6**
+Operation: **subtract**
 
 4 - 6 = -2
 
@@ -344,140 +346,140 @@ Komento: **erotus**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Lämpötilat" tmcname="osa01-26_lampotilat">
+<in-browser-programming-exercise name="Temperatures" tmcname="part01-26_temperatures">
 
-Tee ohjelma, joka kysyy käyttäjältä lämpötilan fahrenheit-asteina, ja tulostaa sitten lämpötilan celsius-asteina. Jos lämpötila celsius-asteina on pienempi kuin 0, ohjelma tulostaa lisäksi viestin "Paleltaa!".
+Please write a program which asks the user for a temperature in degrees Fahrenheit, and then prints out the same in degrees Celsius. If the converted temperature falls below zero degrees Celsius, the program should also print out "Brr! It's cold in here!".
 
-Kaavan fahrenheit-asteiden muuntamiseksi celsius-asteiksi voit etsiä esimerkiksi googlaamalla.
+The formula for converting degrees Fahrenheit to degrees Celsius can be found easily by any search engine of your choice.
 
-Kaksi esimerkkisuoritusta:
+Two examples of expected behaviour:
 
 <sample-output>
 
-Anna lämpötila (F): **101**
-101 fahrenheit-astetta on 38.333333333333336 celsius-astetta
+Please give a temperature (F): **101**
+101 degrees Fahrenheit equals 38.333333333333336 degrees Celsius
 
-Anna lämpötila (F): **21**
-21 fahrenheit-astetta on -6.111111111111111 celsius-astetta
-Paleltaa!
+Please give a temperature (F): **21**
+21 degrees Fahrenheit equals -6.111111111111111 degrees Celsius
+Brr! It's cold in here!
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Palkka" tmcname="osa01-27_palkka">
+<in-browser-programming-exercise name="Daily wages" tmcname="part01-27_daily_wages">
 
-Tee ohjelma, joka kysyy tuntipalkkaa, työskenneltyjen tuntien määrää ja viikonpäivää. Ohjelma tulostaa palkan, joka on tuntipalkka kertaa tuntien määrä muina päivinä paitsi sunnuntaisin, jolloin tuntipalkka on kaksinkertainen.
+Please write a program which asks for the hourly wage, hours worked, and the day of the week. The program should then print out the daily wages, which equal hourly wage multiplied by hours worked, except on Sundays when the hourly wage is doubled.
 
 <sample-output>
 
-Tuntipalkka: **8.5**
-Työtunnit: **3**
-Viikonpäivä: **maanantai**
-Palkka 25.5 euroa
+Hourly wage: **8.5**
+Hours worked: **3**
+Day of the week: **maanantai**
+Daily wages: 25.5 euros
 
 </sample-output>
 
 <sample-output>
 
-Tuntipalkka: **12.5**
-Työtunnit: **10**
-Viikonpäivä: **sunnuntai**
-Palkka 250.0 euroa
-
-</sample-output>
-
-</in-browser-programming-exercise>
-
-<in-browser-programming-exercise name="Korjaa ohjelma: Korkoa kortille" tmcname="osa01-28_korjaaa_ohjelma_korkoa_kortille">
-
-Ohjelmassa lasketaan bonuskortin saldoon vuoden lopussa lisättävä bonuspistemäärä seuraavan kaavan mukaisesti:
-
-* Jos bonuspisteitä on alle sata, korkona saa 10 % lisää pisteitä
-* Muussa tapauksessa korkona saa 15 % lisää pisteitä
-
-Ohjelma siis toimii esim. näin:
-
-<sample-output>
-
-Kuinka paljon pisteitä? **55**
-Sait 10 % bonusta
-Pisteitä on nyt 60.5
-
-</sample-output>
-
-Ohjelma toimii kuitenkin jollain syötteillä oudosti:
-
-<sample-output>
-
-Kuinka paljon pisteitä? **95**
-Sait 10 % bonusta
-Sait 15 % bonusta
-Pisteitä on nyt 120.175
-
-</sample-output>
-
-Korjaa ohjelma niin, että bonusta tulee joko 10 % tai 15 %, ei koskaan molempia.
-
-</in-browser-programming-exercise>
-
-<in-browser-programming-exercise name="Huomiset vaatteet" tmcname="osa01-29_huomisen_vaatteet">
-
-Tee ohjelma, joka kysyy huomisen sääennusteen ja suosittelee sen mukaista pukeutumista.
-
-Suositus vaihtelee sen mukaan, onko lämpötila yli 20 astetta, yli 10 astetta vai yli 5 astetta. Myös sade vaikuttaa suositukseen.
-
-Ohjelma toimii seuraavasti:
-
-<sample-output>
-
-Kerro huominen sääennuste:
-Lämpötila: **21**
-Sataako (kyllä/ei): **ei**
-Pue housut ja t-paita
-
-</sample-output>
-
-<sample-output>
-
-Kerro huominen sääennuste:
-Lämpötila: **11**
-Sataako (kyllä/ei): **ei**
-Pue housut ja t-paita
-Ota myös pitkähihainen paita
-
-</sample-output>
-
-<sample-output>
-
-Kerro huominen sääennuste:
-Lämpötila: **7**
-Sataako (kyllä/ei): **ei**
-Pue housut ja t-paita
-Ota myös pitkähihainen paita
-Pue päälle takki
-
-</sample-output>
-
-<sample-output>
-
-Kerro huominen sääennuste:
-Lämpötila: **3**
-Sataako (kyllä/ei): **kyllä**
-Pue housut ja t-paita
-Ota myös pitkähihainen paita
-Pue päälle takki
-Suosittelen lämmintä takkia
-Kannattaa ottaa myös hanskat
-Muista sateenvarjo!
+Hourly wage: **12.5**
+Hours worked: **10**
+Day of the week: **sunnuntai**
+Daily wages: 250.0 euros
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Toisen asteen yhtälön ratkaiseminen" tmcname="osa01-30_toisen_asteen_yhtalo">
+<in-browser-programming-exercise name="Loyalty bonus" tmcname="part01-28_loyalty_bonus">
 
-Pythonin `math`-moduulissa on funktio `sqrt`, jolla voi laskea luvun neliöjuuren. Voit käyttää sitä ohjelmassa seuraavasti:
+This program calculates the end of year bonus a customer receives on their loyalty card. The bonus is calculated with the following formula:
+
+* If there are less than a hundred points on the card, the bonus is 10 % 
+* In any other case the bonus is 15 % 
+
+The program should work like this:
+
+<sample-output>
+
+How many points are on your card? **55**
+Your bonus is 10 %
+You now have 60.5 points
+
+</sample-output>
+
+But there is a problem with the program, so with some inputs it doesn't work quite right:
+
+<sample-output>
+
+How many points are on your card? **95**
+Your bonus is 10 %
+Your bonus is 15 %
+You now have 120.175 points
+
+</sample-output>
+
+Please fix the program so that there is always either a 10 % or a 15 % bonus, but never both.
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="What to wear tomorrow" tmcname="part01-29_what_to_wear_tomorrow">
+
+Please write a program which asks for tomorrow's weather forecast and then suggests weather-appropriate clothing.
+
+The suggestion should change if the temperature is over 20, 10 or 5 degrees, and also if there is rain on the radar.
+
+Some examples of expected behaviour:
+
+<sample-output>
+
+What is the weather forecast for tomorrow?
+Temperature: **21**
+Will it rain (yes/no): **no**
+Wear jeans and a T-shirt
+
+</sample-output>
+
+<sample-output>
+
+What is the weather forecast for tomorrow?
+Temperature: **11**
+Will it rain (yes/no): **no**
+Wear jeans and a T-shirt
+I recommend a jumper as well
+
+</sample-output>
+
+<sample-output>
+
+What is the weather forecast for tomorrow?
+Temperature: **7**
+Will it rain (yes/no): **no**
+Wear jeans and a T-shirt
+I recommend a jumper as well
+Take a jacket with you
+
+</sample-output>
+
+<sample-output>
+
+What is the weather forecast for tomorrow?
+Temperature: **3**
+Will it rain (yes/no): **yes**
+Wear jeans and a T-shirt
+I recommend a jumper as well
+Take a jacket with you
+Make it a warm coat, actually
+I think gloves are in order
+Don't forget your umbrella!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Solving a quadratic equation" tmcname="part01-30_quadratic_formula">
+
+In the Python `math` module there is the function `sqrt`, which calculates the square root of a number. You can use it like so:
 
 ```python
 from math import sqrt
@@ -485,7 +487,7 @@ from math import sqrt
 print(sqrt(9))
 ```
 
-Ohjelma tulostaa:
+This should print out
 
 <sample-output>
 
@@ -493,21 +495,21 @@ Ohjelma tulostaa:
 
 </sample-output>
 
-Kirjoita ohjelma, joka ratkaisee toisen asteen yhtälön ax²+bx+c. Ohjelmalle annetaan arvot a, b ja c, ja sen tulee laskea juuret (eli ratkaisut) kaavalla
+Please write a program for solving a quadratic equation of the form ax²+bx+c. The program asks for values a, b and c. It should then use the quadratic formula to solve the equation. The quadratic formula expressed with the Python `sqrt` function is as follows:
 
 x = (-b ± sqrt(b²-4ac))/(2a).
 
-Voit olettaa, että yhtälöllä on kaksi juurta, jolloin yllä oleva kaava toimii.
+You can assume the equation will always have two real roots, so the above formula will always work.
 
-Esimerkkituloste:
+An example of expected behaviour:
 
 <sample-output>
 
-Anna a: **1**
-Anna b: **2**
-Anna c: **-8**
+Value of a: **1**
+Value of b: **2**
+Value of c: **-8**
 
-Juuret ovat 2.0 ja -4.0
+The roots are 2.0 and -4.0
 
 </sample-output>
 
@@ -517,6 +519,6 @@ A quiz to review the contents of this section:
 
 <quiz id="bc7e500f-a91e-5709-8ae6-34637ff01737"></quiz>
 
-Vastaa lopuksi kyselyyn tämän viikon materiaaleista. Saat kyselyyn vastaamisesta yhden pisteen:
+Please reply to a quick questionnaire on this week's materials. The questionnaire is worth one exercise point.
 
 <quiz id="1d2102eb-0c2f-5185-a240-9814db357c8a"></quiz>
