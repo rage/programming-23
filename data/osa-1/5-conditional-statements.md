@@ -14,255 +14,254 @@ After this section
 
 </text-box>
 
-Tähän mennessä kaikissa ohjelmissamme on suoritettu samat rivit samassa järjestyksessä.
-Usein on kuitenkin tarpeen määritellä ohjelmaan osia, jotka suoritetaan vain tietyissä tilanteissa.
+Thus far every program we have written has been executed line by line in order. Instead of executing every line of code every single time a program is run, it is often useful to create sections of the program which are are only executed in certain situations.
 
-Esimerkiksi seuraava koodi tarkastaa, onko henkilö täysi-ikäinen:
+For example, the following code checks whether the user is of age::
 
 ```python
-ika = int(input("Kuinka vanha olet? "))
+age = int(input("How old are you? "))
 
-if ika > 17:
-    print("Olet täysi-ikäinen.")
-    print("Tässä siis sinulle ikiomaksi GTA6.")
+if age > 17:
+    print("You are of age!")
+    print("Here's a copy of GTA6 for you.")
 
-print("Seuraava asiakas, kiitos!")
+print("Next customer, please!")
 ```
 
-Ohjelman suoritus näyttää tältä, kun ikä on suurempi kuin 17:
+When the user is over the age of 17, the execution of the program should look like this:
 
 <sample-output>
 
-Kuinka vanha olet? **18**
-Olet täysi-ikäinen!
-Tässä siis sinulle ikiomaksi GTA6.
-Seuraava asiakas, kiitos!
+How old are you? **18**
+You are of age!
+Here's a copy of GTA6 for you.
+Next customer, please!
 
 </sample-output>
 
-Jos kuitenkaan ikä ei ole suurempi kuin 17, käy näin:
+If the user is 17 or under, only this is printed out:
 
 <sample-output>
 
-Kuinka vanha olet? **16**
-Seuraava asiakas, kiitos!
+How old are you? **16**
+Next customer, please!
 
 </sample-output>
 
-Esimerkkejä tarkastelemalla huomataan, että syötteenä annettu arvo vaikuttaa nyt siihen, mitkä osat ohjelmasta suoritetaan. Ohjelmassa on käytössä _ehtorakenne_, jonka sisällä oleva koodi suoritetaan vain, kun annettu ehto on tosi.
+These examples show us that the value given as input affects which parts of the program are executed. The program contains a _conditional statement_ and a block of code which is executed only if the statement is true. 
 
 <img src="1_6.png">
 
-Ehtorakenteessa avainsanaa `if` seuraa jokin _ehto_, kuten kahden arvon vertailu. Tämän jälkeen tuleva koodi suoritetaan vain, jos ehto pitää paikkansa.
+In a conditional statement the keyword `if` is followed by a _condition_, such as a comparison of two values. The code block following the statement is only executed if the statement is true.
 
-Huomaa, että ehtorakenteen ensimmäisen rivin lopussa on kaksoispiste. Seuraavassa koodissa kaksoispiste on unohtunut:
+Notice the colon character following the conditional statement. In the following code there is no colon:
 
 ```python
-ika = 10
+age = 10
 
-# kaksoispiste unohtui seuraavan rivin lopusta
-if ika > 17
-    print("Olet täysi-ikäinen.")
+# no colon at the end of the following line
+if age > 17
+    print("You are of age.")
 ```
 
-Tämän seurauksena koodi antaa virheen:
+Upon execution this causes an error:
 
 <sample-output>
 <pre>
-File "ohjelma.py", line 3
-  if ika > 17
+File "program.py", line 3
+  if age > 17
             ^
 SyntaxError: invalid syntax
 </pre>
 </sample-output>
 
-## Vertailuoperaattorit
+## Comparison operators
 
-Tyypillinen ehto on kahden arvon vertailu. Pythonin vertailuoperaattorit ovat:
+Very typically conditions consist of comparing two values. Here is a table with the most common comparison operators used in Python:
 
-| Operaattori | Merkitys       | Esimerkki    |
-|:-----------:|----------------|--------------|
-| `==` | Yhtä suuri    | `a == b` |
-| `!=` | Eri suuri | `a != b` |
-| `>` | Suurempi | `a > b` |
-| `>=` | Suurempi tai yhtä suuri | `a >= b` |
-| `<` | Pienempi | `a < b` |
-| `<=` | Pienempi tai yhtä suuri | `a <= b` |
+| Operator    | Purpose        | Example    |
+|:-----------:|----------------|------------|
+| `==` | Equal to     | `a == b` |
+| `!=` | Not equal to | `a != b` |
+| `>`  | Greater than | `a > b`  |
+| `>=` | Greater than or equal to | `a >= b` |
+| `<`  | Less than    | `a < b`  |
+| `<=` | Less than or equal to    | `a <= b` |
 
-Tarkastellaan esimerkkinä ohjelmaa, joka tulostaa tiedon siitä, onko käyttäjän syöttämä luku negatiivinen, positiivinen vai nolla:
+Let's have a look at a program which prints out different things based on whether the number the user inputs is negative, positive or zero:
 
 ```python
-luku = int(input("Anna luku: "))
+number = int(input("Please give me a number: "))
 
-if luku < 0:
-    print("Luku on negatiivinen.")
+if number < 0:
+    print("The number is negative.")
 
-if luku > 0:
-    print("Luku on positiivinen.")
+if number > 0:
+    print("The number is positive.")
 
-if luku == 0:
-    print("Luku on nolla.")
+if number == 0:
+    print("The number is zero.")
 ```
 
-Ohjelma suoritettuna kolme kertaa eri syötteillä:
+Examples of how the program functions with three different inputs:
 
 <sample-output>
 
-Anna luku: **15**
-Luku on positiivinen.
+Please give me a number: **15**
+The number is positive.
 
 </sample-output>
 
 <sample-output>
 
-Anna luku: **-18**
-Luku on negatiivinen.
+Please give me a number: **-18**
+The number is negative.
 
 </sample-output>
 
 <sample-output>
 
-Anna luku: **0**
-Luku on nolla.
+Please give me a number: **0**
+The number is zero.
 
 </sample-output>
 
-## Sisentäminen
+## Indentation
 
-Python tunnistaa ehtorakenteen sisällä olevan koodin siitä, että jokainen rivi on _sisennetty_ samalla tavalla. Tämä tarkoittaa, että ehtorakenteen sisällä olevan koodin alussa on tyhjää tilaa. Jokaisella rivillä tulee olla yhtä paljon tyhjää tilaa.
+Python recognises that a block of code is connected to a conditional statement if each line of code in the block is _indented_ the same. That is, there should be a bit of whitespace at the beginning of every line of code within the code block. Each line should have the same amount of whitespace.
 
-Esimerkiksi:
+For example:
 
 ````python
-salasana = input("Anna salasana: ")
+password = input("Please type in a password: ")
 
-if salasana == "kissa":
-    print("Tiesit salasanan!")
-    print("Olet siis joko oikea käyttäjä...")
-    print("...tai melkoinen hakkerivelho.")
+if password == "kittycat":
+    print("You knew the password!")
+    print("You must be either the intended user...")
+    print("...or quite an accomplished hacker.")
 
-print("Ohjelman suoritus päättyi. Kiitos ja hei!")
+print("The program has finished its execution. Thanks and bye!")
 ````
 
-Tyhjä tila saadaan aikaan _tabulaattorilla_, jonka saat Tab-näppäimestä.
+You can use the Tab key, short for _tabulator_ key, to insert a set amount of whitespace.
 
 <img src="1_6_keyboard.png">
 
-Suurin osa editoreista osaa automaattisesti sisentää rivin, kun edellinen rivi päättyy kaksoispisteeseen. Voit lopettaa sisentämisen editorissa painamalla rivin alussa `Backspace`-näppäintä.
+The majority of text editors will automatically indent the following line when the Enter key is pressed after a colon character. When you want to end a code block you can use the `Backspace` key to return to the beginning of the line.
 
 <img src="1_6_keyboard2.png">
 <small><center>
-Näppäimistökuvien alkuperä:
+The source of the keyboard pictures:
  <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Pixabay</a>
 </center></small>
 
-<in-browser-programming-exercise name="Orwell" tmcname="osa01-21_orwel">
+<in-browser-programming-exercise name="Orwell" tmcname="part01-21_orwell">
 
-Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun ja tulostaa merkkijonon "Orwell" jos luku on täsmälleen 1984. Muussa tapauksessa ohjelma ei tulosta mitään.
+Please write a program which asks the user for an integer number. The program should print out "Orwell" if the number is exactly 1984, and otherwise do nothing.
 
 <sample-output>
 
-Anna luku: **2020**
+Please give me a number: **2020**
 
 </sample-output>
 
 <sample-output>
 
-Anna luku: **1984**
+Please give me a number: **1984**
 Orwell
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Itseisarvo" tmcname="osa01-22_itseisarvo">
+<in-browser-programming-exercise name="Absolute value" tmcname="part01-22_absolute_value">
 
-Kirjoita ohjelma, joka lukee käyttäjältä kokonaisluvun. Mikäli luku on pienempi kuin 0, ohjelma tulostaa luvun kerrottuna luvulla -1. Muulloin ohjelma tulostaa käyttäjän syöttämän luvun. Alla on muutamia esimerkkejä ohjelman odotetusta toiminnasta.
+Please write a program which asks the user for an integer number. If the number is less than zero, the program should print out the number multiplied by -1. Otherwise the program prints out the the number as is. Please have a look at the examples of expected behaviour below.
 
 <sample-output>
 
-Anna luku: **-7**
-Luvun itseisarvo on 7
+Please give me a number: **-7**
+The absolute value of this number is 7
 
 </sample-output>
 
 <sample-output>
 
-Anna luku: **1**
-Luvun itseisarvo on 1
+Please give a me number: **1**
+The absolute value of this number is 1
 
 </sample-output>
 
 <sample-output>
 
-Anna luku: **-99**
-Luvun itseisarvo on 99
-
-</sample-output>
-
-</in-browser-programming-exercise>
-
-
-<in-browser-programming-exercise name="Keittoa vai ei" tmcname="osa01-23_keittoa_vai_ei">
-
-Kirjoita ohjelma, joka kysyy ensin käyttäjän nimen. Jos nimi on mikä tahansa muu kuin "Jerry", ohjelma kysyy keittoannosten lukumäärän ja kertoo sitten kokonaishinnan. Yksi annos maksaa 5,90.
-
-Kaksi esimerkkisuoritusta:
-
-<sample-output>
-
-Mikä on nimesi: **Kramer**
-Kuinka monta annosta keittoa: **2**
-Kokonaishinta on 11.8
-Seuraava!
-
-</sample-output>
-
-<sample-output>
-
-Mikä on nimesi: **Jerry**
-Seuraava!
+Please give a me number: **-99**
+The absolute value of this number is 99
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Luvun suuruusluokka" tmcname="osa01-24_luvun_suuruusluokka">
+<in-browser-programming-exercise name="Soup or no soup" tmcname="part01-23_soup_or_no_soup">
 
-Tee ohjelma, joka lukee käyttäjältä kokonaisluvun ja kertoo sitten sen suuruusluokan oheisten esimerkkisuoritusten mukaisesti:
+Please write a program which asks for the user's name. If the name is anything but "Jerry", the program then asks for the number of portions and prints out the total cost. The price of a single portion is 5.90.
+
+Two examples of the program's execution:
 
 <sample-output>
 
-Anna luku: **950**
-Luku on pienempi kuin 1000
-Kiitos!
+Please tell me your name: **Kramer**
+How many portions of soup? **2**
+The total cost is 11.8
+Next please!
 
 </sample-output>
 
 <sample-output>
 
-Anna luku: **59**
-Luku on pienempi kuin 1000
-Luku on pienempi kuin 100
-Kiitos!
+Please tell me your name: **Jerry**
+Next please!
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+
+<in-browser-programming-exercise name="Order of magnitude" tmcname="part01-24_order_of_magnitude">
+
+Please write a program which asks the user for an integer number. The program should then print out the magnitude of the number according to the following examples:
+
+<sample-output>
+
+Please give me a number: **950**
+This number is smaller than 1000
+Thank you!
 
 </sample-output>
 
 <sample-output>
 
-Anna luku: **2**
-Luku on pienempi kuin 1000
-Luku on pienempi kuin 100
-Luku on pienempi kuin 10
-Kiitos!
+Please give me a number: **59**
+This number is smaller than 1000
+This number is smaller than 100
+Thank you!
 
 </sample-output>
 
 <sample-output>
 
-Anna luku: **1123**
-Kiitos!
+Please give me a number: **2**
+This number is smaller than 1000
+This number is smaller than 100
+This number is smaller than 10
+Thank you!
+
+</sample-output>
+
+<sample-output>
+
+Please give me a number: **1123**
+Thank you!
 
 </sample-output>
 

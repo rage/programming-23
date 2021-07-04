@@ -423,7 +423,7 @@ Number of groups formed: 4
 
 Hint: the integer division operator `//` could come in handy here.
 
-Hint 2: if you can't get your code working as expected, don't panic. The topic of the [next section](/part-1/5-conditional-statements) is _conditional statements_. This exercise is much easier to solve using a conditional construction.
+Hint 2: if you can't get your code working as expected, don't panic. The topic of the [next section](/part-1/5-conditional-statements) is _conditional statements_. This exercise is much easier to solve with a conditional construction.
 
 </in-browser-programming-exercise>
 
