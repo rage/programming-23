@@ -1,5 +1,5 @@
 ---
-path: '/osa-2/4-yksinkertainen-silmukka'
+path: '/part-2/4-yksinkertainen-silmukka'
 title: 'Yksinkertainen silmukka'
 hidden: false
 ---

@@ -1,5 +1,5 @@
 ---
-path: '/osa-2/1-ohjelmoinnin-termeja'
+path: '/part-2/1-ohjelmoinnin-termeja'
 title: 'Ohjelmoinnin termejä'
 ---
 
@@ -157,23 +157,11 @@ SyntaxError: invalid syntax
 
 </sample-output>
 
-Kurssin ensimmäisessä kolmessa osassa käytössä oleva selainympäristö ei valitettavasti käytä täysin samoja virheilmoituksia kun "oikea" python-ympäristö, jonka otamme käyttöön osassa 4.
-
-Edellinen esimerkki tuottaa selainympäristön pythonissa seuraavanlaisen hieman vähemmän kuvaavan virheilmoituksen:
-
-<sample-output>
-
-<pre>
-SyntaxError: bad input on line 1
-</pre>
-
-</sample-output>
-
 ## Debuggaaminen
 
-Kun ohjelman syntaksi on kunnossa, eli ohjelma on kirjoitettu Pythonin "kieliopin" mukaisesti, mutta ohjelma ei toimi halutulla tavalla, on ohjelmassa _bugi_.
+Kun ohjelman syntaksi on kunnossa mutta ohjelma ei toimi halutulla tavalla, ohjelmassa on _bugi_.
 
-Bugit ilmenevät eri tavoin. Jotkut bugit aiheuttavat suoritusaikaisen virheen. Esim. ohjelma
+Bugit ilmenevät eri tavoin. Jotkin bugit aiheuttavat suoritusaikaisen virheen. Esim. ohjelma
 
 ```python
 x = 10
@@ -199,9 +187,9 @@ Suoritusaikaiseen virheeseen johtavat bugit ovat usein helpohkoja korjata, sill�
 
 Joskus bugi taas ilmenee siten, että koodin tuottama tulos on virheellinen. Tälläisten bugien havaitseminen ja niiden syyn paikallistaminen voi olla haastavaa. Kurssin tehtävissä testit paljastavat usein juuri tämän kategorian bugeja. Ennen kuin ongelma päästään korjaamaan, on bugi paikallistettava.
 
-Koodarijargonissa bugien syiden selvittämistä kutsutaan _debuggaamiseksi_. Debuggaaminen on äärimmäisen keskeinen taito, itse asiassa ammatikseen ohjelmoivat käyttävät usein huomattavasti enemmän aikaa debuggaamiseen kuin varsinaiseen ohjelmointiin.
+Koodarijargonissa bugien syiden selvittämistä kutsutaan _debuggaamiseksi_. Debuggaaminen on äärimmäisen keskeinen taito, ja ammatikseen ohjelmoivat käyttävät usein enemmän aikaa debuggaamiseen kuin varsinaiseen ohjelmointiin.
 
-Yksinkertainen mutta varsin tehokas debuggauskeino on lisäillä ohjelmaan "debug-tulostuksia", eli `print`-komentoja, joiden avulla varmistetaan, että koodissa tapahtuu ohjelmoijan olettamia asioita.
+Yksinkertainen mutta tehokas debuggauskeino on lisätä ohjelmaan debug-tulostuksia eli `print`-komentoja, joiden avulla varmistetaan, että koodissa tapahtuu ohjelmoijan olettamia asioita.
 
 Seuraavassa on ratkaisuyritys yhteen [edellisen osan](/osa-1/5-ehtorakenne) tehtävään:
 
@@ -239,16 +227,13 @@ Palkka 276.0 euroa
 
 Debugattaessa ohjelman toimintaa kokeillaan usein. Voikin olla hyödyllisä "kovakoodata" ongelman aiheuttavat syötteet suoraan koodiin sen sijaan, että ne kysyttäisiin joka kerta käyttäjältä. Tämä onnistuu esimerkiksi muuttamalla koodia tilapäisesti seuraavalla tavalla:
 
-
 ```python
-if False:
-    tuntipalkka = float(input("Tuntipalkka: "))
-    tunnit = int(input("Työtunnit: "))
-    paiva = input("Viikonpäivä: ")
-else: # suoritus tulee nyt aina tänne
-    tuntipalkka = 23.0
-    tunnit = 12
-    paiva = "sunnuntai"
+# tuntipalkka = float(input("Tuntipalkka: "))
+# tunnit = int(input("Työtunnit: "))
+# paiva = input("Viikonpäivä: ")
+tuntipalkka = 23.0
+tunnit = 12
+paiva = "sunnuntai"
 
 palkka = tuntipalkka * tunnit
 if paiva == "sunnnuntai":
@@ -256,8 +241,6 @@ if paiva == "sunnnuntai":
 
 print(f"Palkka {palkka} euroa")
 ```
-
-Syötteet voidaan lukea tarvittaessa käyttäjältä vaihtamalla if-rakenteen ehdoksi `True`.
 
 Seuraava askel on lisäillä koodiin _debug-tulostuksia_. Koska nimenomaan sunnuntain palkka lasketaan väärin, laitetaan sen hoitavaan osaan tulostukset korotusta ennen ja sen jälkeen:
 
@@ -352,62 +335,62 @@ Esimerkki oli yksinkertainen ja näin lyhyessä ohjelmassa oleva bugi selviäisi
 
 Debuggaukseen on olemassa muitakin keinoja kuin debug-tulostusten tekeminen. Palaamme asiaan myöhemmin kurssilla. Sinun kannattaa tästä lähtien kurssilla käyttää debug-tulostamista virheiden etsimiseen. Ohjelmoinnin ammattilaiset eivät selviä työstään ilman debug-tulostuksia, joten on vaikea kuvitella, että aloittelijoidenkin ei kannattaisi laajentaa työkalupakkiaan tältä osin.
 
-<in-browser-programming-exercise name="Korjaa virheet" tmcname="osa02-01_korjaa_virheet" height="400px">
+<in-browser-programming-exercise name="Fix the syntax" tmcname="part02-01_fix_syntax" height="400px">
 
-Seuraavassa ohjelmassa on useita _syntaksivirheitä_. Korjaa ohjelma siten, että syntaksi on kunnossa ja se toimii alla olevien esimerkkien mukaisesti.
+The following program contains several _syntactic errors_. Please fix the program so that the syntax is in order and the program works as specified by the examples below. 
 
 ```python
-  luku = input("Anna luku: ")
-  if luku>100
-    print("Luku oli suurempi kuin sata")
-    luku - 100
-    print("Nyt luvun arvo on pienentynyt sadalla)
-     print("Arvo on nyt"+ luku)
- print(luku + " taitaa olla onnenlukuni!")
- print("Hyvää päivänjatkoa!)
+  number = input("Please give me a number: ")
+  if number>100
+    print("The number was greater than one hundred")
+    number - 100
+    print("Now its value has decreased by one hundred)
+     print("Its value is now"+ number)
+ print(number + " must be my lucky number!")
+ print("Have a nice day!)
 ```
 
 <sample-output>
 
-Anna luku: **13**
-13 taitaa olla onnenlukuni!
-Hyvää päivänjatkoa!
+Please give me a number: **13**
+13 must be my lucky number!
+Have a nice day!
 
 </sample-output>
 
 <sample-output>
 
 Anna luku: **101**
-Luku oli suurempi kuin sata
-Nyt luvun arvo on pienentynyt sadalla
-Arvo on nyt 1
-1 taitaa olla onnenlukuni!
-Hyvää päivänjatkoa!
+The number was greater than one hundred
+Now its value has decreased by one hundred
+Its value is now 1
+1 must be my lucky number!
+Have a nice day!
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Merkkien määrä" tmcname="osa02-02_merkkien_maara">
+<in-browser-programming-exercise name="Number of characters" tmcname="part02-02_number_of_characters">
 
-Funktiolla `len` voidaan laskea (muun muassa) merkkijonon pituus. Funktio palauttaa merkkijonossa olevien merkkien määrän.
+The function `len` can be used to find out the length of a string, among other things. The function returns the number of characters in a string.
 
-Esimerkkejä funktion toiminnasta:
+Some examples of how this works::
 
 ```python
-sana = "abcd"
-print(len(sana))
+word = "abcd"
+print(len(word))
 
-print(len("moikka"))
+print(len("hi there"))
 
-sana2 = "heipparallaa"
-pituus = len(sana2)
-print(pituus)
+word2 = "howdydoody"
+length = len(word2)
+print(length)
 
-tyhja_merkkijono = ""
-pituus = len(tyhja_merkkijono)
-print(pituus)
+empty_string = ""
+length = len(empty_string)
+print(length)
 ```
 
 <sample-output>
@@ -419,78 +402,78 @@ print(pituus)
 
 </sample-output>
 
-Tee ohjelma, joka lukee käyttäjältä sanan ja tulostaa sanan merkkien määrän, mikäli niitä on enemmän kuin yksi.
+Please write a program which asks the user for a word and then prints out the number of characters if there was more than one.
 
-Esimerkkisuorituksia:
+Examples of expected behaviour:
 
 <sample-output>
 
-Anna sana: hei
-Sanassa hei on 3 kirjainta
-Kiitos!
+Please give me a word: **hey**
+There are 3 letters in the word hey
+Thank you!
 
 </sample-output>
 
 <sample-output>
 
-Anna sana: banaani
-Sanassa banaani on 7 kirjainta
-Kiitos!
+Please give me a word: **banana**
+There are 6 letters in the word banana
+Thank you!
 
 </sample-output>
 
 <sample-output>
 
-Anna sana: b
-Kiitos!
+Please give me a word: **b**
+Thank you!
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Tyyppimuunnos" tmcname="osa02-03_tyyppimuunnos">
+<in-browser-programming-exercise name="Typecasting" tmcname="part02-03_typecasting">
 
-Pythonissa voidaan usein muuntaa jokin arvo tyypistä toiseen. Esimerkiksi liukuluku voidaan muuntaa kokonaisluvuksi funktion `int` avulla:
+When programming in Python, often we need to change the data type of a value. For example, a floating point number can be converted into an integer with the function `int`:
 
 ```python
 
-lampo = float(input("Anna lämpötila: "))
+temperature = float(input("Please give me a temperature: "))
 
-print("Lämpötila on", lampo)
+print("The temperature is", temperature)
 
-print("...eli pyöreästi", int(lampo))
+print("...and rounded down it is", int(temperature))
 
 ```
 
 <sample-output>
 
-Anna lämpötila: **5.15**
-Lämpötila on 5.15
-...eli pyöreästi 5
+Please give me a temperature: **5.15**
+The temperature is 5.15
+...and rounded down it is 5
 
 </sample-output>
 
-Huomaa, että funktio ei pyöristä arvoa matematiikasta tutulla tavalla, vaan pyöristää luvun alaspäin (kyse on siis ns. _lattiafunktiosta_):
+Notice the function always rounds down, and not according to the rounding rules in mathematics. This is an example of a _floor function_. 
 
 <sample-output>
 
-Anna lämpötila: **8.99**
-Lämpötila on 8.99
-...eli pyöreästi 8
+Please give me a temperature: **8.99**
+The temperature is 8.99
+...and rounded down it is 8
 
 </sample-output>
 
-Tee int-funktiota hyödyntäen ohjelma, joka kysyy käyttäjältä desimaaliluvun ja tulostaa erikseen luvun kokonaisosan ja desimaaliosan.
+Please write a program which asks the user for a floating point number and then prints out the integer part and the decimal part separately. Use the Python `int` function.
 
-Huom! Voit olettaa, että annettu desimaaliluku on suurempi kuin nolla.
+You can assume the number given by the user is always greater than zero.
 
-Esimerkiksi
+An example of expected behaviour:
 
 <sample-output>
 
-Anna luku: **1.34**
-Kokonaisosa: 1
-Desimaaliosa: 0.34
+Please give me a number: **1.34**
+Integer part: 1
+Decimal part: 0.34
 
 </sample-output>
 

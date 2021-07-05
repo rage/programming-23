@@ -1,5 +1,5 @@
 ---
-path: '/osa-2/3-ehtojen-yhdistäminen'
+path: '/part-2/3-ehtojen-yhdistäminen'
 title: 'Ehtojen yhdistäminen'
 hidden: false
 ---

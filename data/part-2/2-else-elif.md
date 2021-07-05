@@ -1,5 +1,5 @@
 ---
-path: '/osa-2/2-else-elif'
+path: '/part-2/2-else-elif'
 title: 'Lisää ehtolauseita'
 hidden: false
 ---
@@ -95,24 +95,24 @@ Pääsy kielletty
 </sample-output>
 
 
-<in-browser-programming-exercise name="Täysi-ikäisyys" tmcname="osa02-04_taysi_ikaisyys" height="400px">
+<in-browser-programming-exercise name="Age of maturity" tmcname="part02-04_age_of_maturity" height="400px">
 
-Tee ohjelma, joka kysyy käyttäjän ikää ja kertoo, onko tämä täysi-ikäinen (eli 18-vuotias tai vanhempi).
+Please write a program which asks the user for their age. The program should then print out a message based on whether the user is of age or not, using 18 as the age of maturity.
 
-Esimerkkitulostuksia:
+Some examples of expected behaviour:
 
 <sample-output>
 
-Kuinka vanha olet? **12**
-Et ole täysi-ikäinen!
+How old are you? **12**
+You are not of age!
 
 </sample-output>
 
 
 <sample-output>
 
-Kuinka vanha olet? **32**
-Olet täysi-ikäinen!
+How old are you? **32**
+You are of age!
 
 </sample-output>
 
@@ -203,105 +203,104 @@ Kiitos ja hei.
 
 </sample-output>
 
-<in-browser-programming-exercise name=" Suurempi tai yhtäsuuri" tmcname="osa02-05_suurempi_tai_yhtasuuri"  height="400px">
+<in-browser-programming-exercise name="Greater than or equal to" tmcname="part02-05_greater_or_equal"  height="400px">
 
-Tee ohjelma, joka kysyy käyttäjältä kaksi kokonaislukua ja tulostaa niistä suuremman. Jos luvut ovat yhtä suuret, ohjelma huomaa myös tämän.
+Please write a program which asks for two integer numbers. The program should then print out whichever is greater. If the numbers are equal, the program should print a different message.
 
-Esimerkkitulostuksia:
+Some examples of expected behaviour:
 
 <sample-output>
 
-Anna ensimmäinen luku: **5**
-Anna toinen luku: **3**
-Suurempi luku: 5
+Please give me the first number: **5**
+Please give me another number: **3**
+The greater number was: 5
 
 </sample-output>
 
 <sample-output>
 
-Anna ensimmäinen luku: **5**
-Anna toinen luku: **8**
-Suurempi luku: 8
+Please give me the first number:: **5**
+Please give me another number: **8**
+The greater number was: 8
 
 </sample-output>
 
 <sample-output>
 
-Anna ensimmäinen luku: **5**
-Anna toinen luku: **5**
-Luvut ovat yhtä suuret!
-
-</sample-output>
-
-</in-browser-programming-exercise>
-
-
-<in-browser-programming-exercise name="Vanhempi" tmcname="osa02-06_vanhempi" height="550px">
-
-Tee ohjelma, joka kysyy kahden henkilön nimen ja iän ja tulostaa vanhemman henkilön nimen.
-
-Esimerkkisyötteitä
-
-<sample-output>
-
-Henkilö 1:
-Nimi: **Teppo**
-Ikä: **26**
-Henkilö 2:
-Nimi: **Tiina**
-Ikä: **27**
-Vanhempi on Tiina
-
-</sample-output>
-
-<sample-output>
-
-Henkilö 1:
-Nimi: **Antti**
-Ikä: **1**
-Henkilö 2:
-Nimi: **Venla**
-Ikä: **1**
-Antti ja Venla ovat yhtä vanhoja
+Please give me the first number: **5**
+Please give me another number: **5**
+The numbers are equal!
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Aakkosjärjestyksessä viimeinen" tmcname="osa02-07_aakkkosjarjestyksessa_viimeinen"  height="500px">
 
-Lukujen lisäksi Python osaa vertailla myös merkkijonojen suuruusjärjestystä. Merkkijono a on pienempi kuin merkkijono b, jos merkkijono a tulee aakkosjärjestyksessä ennen jonoa b.
-Huomaa kuitenkin, että tämä pätee varmasti vain kun
-- vertaillaan samankokoisia kirjaimia (eli ISOJA tai pieniä kirjaimia) keskenään ja
-- vertailtavissa sanoissa on vain englannin kielestä tuttuja kirjaimia (eli a-z tai A-Z).
+<in-browser-programming-exercise name="The elder" tmcname="part02-06_elder" height="550px">
 
-Tee ohjelma, joka kysyy käyttäjältä kahta sanaa. Ohjelma tulostaa sanoista sen, joka on aakkosjärjestyksessä jälkimmäinen.
+Please write a program which asks for the names and ages of two persons. The program should then print out the name of the elder.
 
-Voit olettaa, että sanat on syötetty kokonaan pienillä kirjaimilla.
-
-Esimerkkisuorituksia eri syötteillä:
+Some examples of expected behaviour:
 
 <sample-output>
 
-Anna 1. sana: **auto**
-Anna 2. sana: **mopo**
-mopo on aakkosjärjestyksessä viimeinen.
+Person 1:
+Name: **Alan**
+Age: **26**
+Person 2:
+Name: **Ada**
+Age: **27**
+The elder is Ada
 
 </sample-output>
 
 <sample-output>
 
-Anna 1. sana: **zorro**
-Anna 2. sana: **batman**
-zorro on aakkosjärjestyksessä viimeinen.
+Person 1:
+Name: **Bill**
+Age: **1**
+Person 2:
+Name: **Jean**
+Age: **1**
+Bill and Jean are the same age
+
+</sample-output>
+
+</in-browser-programming-exercise>
+
+<in-browser-programming-exercise name="Alphabetically last" tmcname="part02-07_alphabetically_last"  height="500px">
+
+In addition to numbers, you can also use Python comparison operators on strings. The string a is smaller than string b if it comes alphabetically before b. Notice however that the comparison is only reliable if 
+- the strings of characters to be compared are of the same case, i.e. both UPPER or lower case
+- only the standard English alphabet of a to z, or A to Z, is used.
+
+Please write a program which asks the user for two words. The program should then print out whichever of the two comes alphabetically last. 
+
+You can assume all words will be typed in lower case entirely.
+
+Some examples of expected behaviour:
+
+<sample-output>
+
+Please give me the 1st word: **car**
+Please give me the 2nd word: **scooter**
+scooter comes alphabetically last.
 
 </sample-output>
 
 <sample-output>
 
-Anna 1. sana: **python**
-Anna 2. sana: **python**
-Annoit saman sanan kahdesti.
+Please give me the 1st word: **zorro**
+Please give me the 2nd word: **batman**
+zorro comes alphabetically last.
+
+</sample-output>
+
+<sample-output>
+
+Please give me the 1st word: **python**
+Please give me the 2nd word: **python**
+You gave the same word twice.
 
 </sample-output>
 
