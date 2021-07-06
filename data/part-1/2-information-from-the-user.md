@@ -157,7 +157,7 @@ If the same variable is used to store more than one input, each new value will r
 address = input("What is your address? ")
 print("So you live at address " + address)
 
-address = input("Please give me a new address: ")
+address = input("Please type in a new address: ")
 print("Your address is now " + address)
 ```
 
@@ -167,7 +167,7 @@ An example execution of the program:
 
 What is your address? **Python Path 101, Flat 3D**
 So you live at address Python Path 101, Flat 3D
-Please give me a new address: **New Road 999**
+Please type in a new address: **New Road 999**
 Your address is now New Road 999
 
 </sample-output>
@@ -176,7 +176,7 @@ This means that if the same variable is used to store two inputs in succession, 
 
 ```python
 address = input("What is your address? ")
-address = input("Please give me a new address: ")
+address = input("Please type in a new address: ")
 
 print("Your address is now " + address)
 ```
@@ -186,7 +186,7 @@ Esimerkkisuoritus:
 <sample-output>
 
 What is your address? **Python Path 10**
-Please give me a new address: **Programmer's Walk 23**
+Please type in a new address: **Programmer's Walk 23**
 Your address is now Programmer's Walk 23
 
 </sample-output>
@@ -232,8 +232,8 @@ Please write a program which prints out the following story. The user gives a na
 
 <sample-output>
 
-Please give a name: **Mary**
-Please give a year: **1572**
+Please type in a name: **Mary**
+Please type in a year: **1572**
 
 Mary is valiant knight, born in the year 1572. One morning Mary woke up to an awful racket: a dragon was approaching the village. Only Mary could save the village's residents.
 

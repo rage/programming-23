@@ -8,13 +8,13 @@ hidden: false
 
 After this section
 
-- You will have written and run your first Python program
+- You will have written and executed your first Python program
 - You will know how to use the print command 
 - You will be able to use programming for arithmetic operations
 
 </text-box>
 
-Computer programs consist of _commands_, which are simple instructions. A computer executes these commands one by one. Among other things, commands can be used to perform calculations, compare things in the computer's memory, cause changes in how the program functions, relay messages or ask for information from the program's user.
+Computer programs consist of _commands_, which are quite simply instructions. A computer executes these commands one by one. Among other things, commands can be used to perform calculations, compare things in the computer's memory, cause changes in how the program functions, relay messages or ask for information from the program's user.
 
 Let's begin programming by getting familiar with the `print` command, which _prints_ text. In this context, printing essentially means that the program will show text on the screen.
 
