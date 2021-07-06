@@ -519,6 +519,6 @@ A quiz to review the contents of this section:
 
 <quiz id="bc7e500f-a91e-5709-8ae6-34637ff01737"></quiz>
 
-Please reply to a quick questionnaire on this week's materials. The questionnaire is worth one exercise point.
+Please respond to a quick questionnaire on this week's materials. The questionnaire is worth one exercise point.
 
 <quiz id="1d2102eb-0c2f-5185-a240-9814db357c8a"></quiz>

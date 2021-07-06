@@ -14,6 +14,8 @@ Tämän osion jälkeen
 
 </text-box>
 
+<!---Muista tsekata tämä: https://github.com/rage/ohjelmointi-21/commit/4784adf869af834a4fc483d11b326362dc60eaf3 ja poista sitten tämä rivi -- >
+
 Silmukka eli toistolause on ehtolauseen lisäksi keskeinen ohjausrakenne ohjelmoinnissa. Aloitetaan toistamiseen tutustuminen tarkastelemalla Pythonin `while`-silmukkaa yksinkertaisten esimerkkien kautta. Ensi viikolla tutustutaan sitten monipuolisemmin sen mahdollisuuksiin.
 
 Periaatteessa silmukka muistuttaa ehtolausetta. Ideana kuitenkin on, että sen avulla voidaan toistaa samaa koodia useamman kerran.
@@ -102,36 +104,40 @@ PIN-koodi oikein!
 
 </sample-output>
 
-<in-browser-programming-exercise name="Jatketaanko" tmcname="osa02-15_jatketaanko">
+<in-browser-programming-exercise name="Shall we continue?" tmcname="part02-15_shall_we_continue">
 
-Kirjoita edellä olevaa toistolause-esimerkkiä mukaillen ohjelma, joka tulostaa viestin "moi" ja kysyy käyttäjältä "Jatketaanko?" kunnes käyttäjä syöttää merkkijonon "ei". Tämän jälkeen tulostetaan merkkijono "ei sitten" ja suoritus päättyy.
-
-Esimerkkitulostus
+Let's create a program with a similar structure as in the example above. This program should print out the message "hi" and then ask "Shall we continue?" until the user inputs "no". Then the program should print out "okay then" and finish. Please have a look at the example below.
 
 <sample-output>
 
-moi
-Jatketaanko? **kyllä**
-moi
-Jatketaanko? **yes**
-moi
-Jatketaanko? **jawohl**
-moi
-Jatketaanko? **ei**
-ei sitten
+hi
+Shall we continue? **yes**
+hi
+Shall we continue? **oui**
+hi
+Shall we continue? **jawohl**
+hi
+Shall we continue? **no**
+okay then
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Syötteen rajaus" tmcname="osa02-16_syotteen_rajaus">
+<in-browser-programming-exercise name="Input validation" tmcname="part02-16_input_validation">
 
-Kirjoita ohjelma, joka kysyy käyttäjältä lukuja. Mikäli luku on negatiivinen (eli pienempi kuin nolla), käyttäjälle tulostetaan viesti "Epäkelpo luku" ja käyttäjältä kysytään uutta lukua. Jos taas luku on nolla, lukujen lukeminen lopetetaan ja ohjelma poistuu toistolauseesta.
+Please write a program which asks the user for integer numbers. 
 
-Mikäli luku on positiivinen, ohjelma tulostaa luvun neliöjuuren käyttäen `sqrt`-funktiota, joka on tuotu ohjelmaan `import`-lauseella. Esimerkki funktion käytöstä:
+If the number is below zero, the program should print out the message "Invalid number" and ask for another number. 
+
+If the number is above zero, the program should print out the square root of the number using the Python `sqrt` function.
+
+If the user inputs the number zero, the program should stop asking for numbers and exit the loop.
+
+Below you'll find a reminder of how the `sqrt` function is used. Remember to `import` it in the beginning of the program.
 
 ```python
-# Tämä pitää olla ohjelman alussa, jotta sqrt toimii
+# sqrt function will not work without this line in the beginning of the program
 from math import sqrt
 
 print(sqrt(9))
@@ -143,72 +149,74 @@ print(sqrt(9))
 
 </sample-output>
 
-Esimerkki ohjelman suorituksesta:
+An example of expected behaviour of your program:
 
 <sample-output>
 
-Syötä luku: **16**
+Please give me a number: **16**
 4.0
-Syötä luku: **4**
+Please give me a number: **4**
 2.0
-Syötä luku: **-3**
-Epäkelpo luku
-Syötä luku: **1**
+Please give me a number: **-3**
+Invalid number
+Please give me a number: **1**
 1.0
-Syötä luku: **0**
-Lopetetaan...
+Please give me a number: **0**
+Exiting...
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa02-17_lahtolaskenta">
+<in-browser-programming-exercise name="Countdown" tmcname="part02-17_countdown">
 
-Tehtäväpohjassa olevan ohjelman
+This program should print out a countdown. The code is as follows:
 
 ```python
-luku = 5
-print("Lähtölaskenta!")
+number = 5
+print("Countdown!")
 while True:
-  print(luku)
-  luku = luku - 1
-  if luku > 0:
+  print(number)
+  number = number - 1
+  if number > 0:
     break
 
-print("Nyt!")
+print("Now!")
 ```
 
-olisi tarkoitus toimia seuraavasti:
+This should print out
 
 <sample-output>
 
-Lähtölaskenta!
+Countdown!
 5
 4
 3
 2
 1
-Nyt!
+Now!
 
 </sample-output>
 
-Korjaa ohjelmassa oleva ongelma.
+However, the program doesn't quite work. Please fix it.
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Salasana uudelleen" tmcname="osa02-18_salasana_uudelleen">
+<in-browser-programming-exercise name="Repeat password" tmcname="part02-18_repeat_password">
 
-Tee ohjelma, joka kysyy käyttäjältä salasanaa ja tämän jälkeen pyytää toistamaan salasanan niin kauan, kunnes käyttäjä syöttää ensimmäisenä annetun salasanan uudelleen.
+Please write a program which asks the user for a password. The program should then ask the user to type in the password again. If the user types in something else, the program should keep on asking until the user types the first password again correctly.
+
+Have a look at the expected behaviour below:
 
 <sample-output>
 
-Salasana: **sekred**
-Toista salasana: **salainen**
-Ei ollut sama!
-Toista salasana: **enmuistaenää123**
-Ei ollut sama!
-Toista salasana: **sekred**
-Käyttäjätunnus luotu!
+Password: **sekred**
+Repeat password: **secret**
+They do not match!
+Repeat password: **cantremember**
+They do not match!
+Repeat password: **sekred**
+User account created!
 
 </sample-output>
 
@@ -372,52 +380,52 @@ Kun tulostuksia silmäillään hieman huomataan, että kolmannella while-lohkon 
         break
 ```
 
-<in-browser-programming-exercise name="PIN ja yritysten määrä" tmcname="osa02-19_pin_ja_yritysten_maara">
+<in-browser-programming-exercise name="PIN and number of tries" tmcname="part02-19_pin_and_number_of_tries">
 
-Tee sovellus, joka kysyy käyttäjältä PIN-koodia niin kauan, kunnes käyttäjä antaa oikean PIN-koodin _4321_. Ohjelma kertoo yritysten lukumäärän:
+Please write a program which keeps asking the user for a PIN code until they type in the correct one, which is _4321_. The program should then print out the number of times the user tried different codes.
 
 <sample-output>
 
-PIN-koodi: **3245**
-Väärin
-PIN-koodi: **1234**
-Väärin
-PIN-koodi: **0000**
-Väärin
-PIN-koodi: **4321**
-Oikein, tarvitsit 4 yritystä
+PIN: **3245**
+Wrong
+PIN: **1234**
+Wrong
+PIN: **0000**
+Wrong
+PIN: **4321**
+Correct! It took you 4 tries
 
 </sample-output>
 
-Tulostus on hieman erilainen jos PIN-koodi on oikea heti ensimmäiselä yrityksellä:
+If the user gets it right on the first go, the program should print out something a bit different:
 
 <sample-output>
 
-PIN-koodi: **4321**
-Oikein, tarvitsit vain yhden yrityksen!
+PIN: **4321**
+Correct! It only took you one single try!
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Seuraava karkausvuosi" tmcname="osa02-20_seuraava_karkausvuosi">
+<in-browser-programming-exercise name="The next leap year" tmcname="part02-20_next_leap_year">
 
-Tee ohjelma, joka kyselee käyttäjältä vuosilukua ja kertoo milloin on seuraava karkausvuosi.
+Please write a program which asks the user for a year, and prints out the next leap year.
 
 <sample-output>
 
-Vuosi: **2019**
-Vuotta 2019 seuraava karkausvuosi on 2020
+Year: **2023**
+The next leap year after 2023 is 2024
 
 </sample-output>
 
-Jos käyttäjän syöttämä vuosi on karkausvuosi (kuten esim. 2020) ei ohjelma kerro tätä vuotta vaan sitä seuraavan karkausvuoden:
+If the user inputs a year which is a leap year (such as 2024), the program should print out the following leap year:
 
 <sample-output>
 
-Vuosi: **2020**
-Vuotta 2020 seuraava karkausvuosi on 2024
+Year: **2024**
+The next leap year after 2024 is 2028
 
 </sample-output>
 
@@ -474,117 +482,122 @@ Jos käyttäjä syöttäisi tunnukset _1111 2222 1234_ olisi muuttujan `tunnukse
 </sample-output>
 
 
-<in-browser-programming-exercise name="Tarina" tmcname="osa02-21_tarina">
+<in-browser-programming-exercise name="Story" tmcname="part02-21_story">
 
-### Osa 1
+### Part 1
 
-Tee ohjelma, joka pyytää käyttäjää syöttämään sanoja. Kun käyttäjä syöttää sanan `loppu`, ohjelma tulostaa sanoista muodostuneen tarinan ja suoritus päättyy.
+Please write a program which keeps asking the user for words. If the user types in `end`, the program should print out the story the words formed, and finish.
 
 <sample-output>
 
-Anna sana: **Olipa**
-Anna sana: **kerran**
-Anna sana: **pieni**
-Anna sana: **talo**
-Anna sana: **preerialla**
-Anna sana: **loppu**
-Olipa kerran pieni talo preerialla
+Please give me a word: **Once**
+Please give me a word: **upon**
+Please give me a word: **a**
+Please give me a word: **time**
+Please give me a word: **there**
+Please give me a word: **was**
+Please give me a word: **a**
+Please give me a word: **girl**
+Once upon a time there was a girl
 
 </sample-output>
 
 ### Osa 2
 
-Muokkaa edellisen tehtävän ohjelmaa niin, että sanojen syöttäminen päättyy, jos käyttäjä syöttää sanan `loppu` tai käyttäjä syöttää saman sanan kaksi kertaa peräkkäin.
+Change the program so that the loop ends also if the user types in the same word twice.
 
 <sample-output>
 
-Anna sana: **Alussa**
-Anna sana: **oli**
-Anna sana: **suo**
-Anna sana: **kuokka**
-Anna sana: **ja**
-Anna sana: **Jussi**
-Anna sana: **Jussi**
-Alussa oli suo kuokka ja Jussi
+Please give me a word: **It**
+Please give me a word: **was**
+Please give me a word: **a**
+Please give me a word: **dark**
+Please give me a word: **and**
+Please give me a word: **stormy**
+Please give me a word: **night**
+Please give me a word: **night**
+It was a dark and stormy night
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Lukujen käsittelyä" tmcname="osa02-22_lukujen_kasittelya">
+<in-browser-programming-exercise name="Working with numbers" tmcname="part02-22_working_with_numbers">
 
-Tee ohjelma, joka pyytää käyttäjää syöttämään kokonaislukuja. Ohjelma pyytää lukuja niin kauan kunnes käyttäjä syöttää nollan.
+Please write a program which asks the user for integer numbers. The program should keep asking for numbers until the user types in zero.
 
 <sample-output>
 
-Syötä kokonaislukuja, 0 lopettaa:
-Luku: **5**
-Luku: **22**
-Luku: **9**
-Luku: **-2**
-Luku: **0**
+Please give me numbers. Type in 0 to finish.
+Number: **5**
+Number: **22**
+Number: **9**
+Number: **-2**
+Number: **0**
 
 </sample-output>
 
-### Osa 1: lukumäärä
+### Part 1: Count
 
-Syötteiden lukemisen jälkeen ohjelman tulee tulostaa syötettyjen lukujen lukumäärä. Syötteen loppumisesta kertovaa nollaa ei tule ottaa huomioon lukumäärässä.
+After reading in the numbers the program should print out how many numbers were typed in. The zero at the end should not be included in the count.
 
-Tarvitset tässä uuden muuttujan, jonka avulla pidät kirjaa luettujen lukujen määrästä.
+You will need a new variable here to keep track of the numbers typed in.
 
 <sample-output>
 
-... lukujen kysely
-Lukuja yhteensä 4
+... the program asks for numbers
+Numbers typed in: 4
 
 </sample-output>
 
-### Osa 2: summa
+### Part 2: Sum
 
-Laajenna ohjelmaa siten, että se tulostaa syötettyjen lukujen summa. Syötteen loppumisesta kertovaa nollaa ei tule ottaa huomioon summan laskemisessa.
+The program should also print out the sum of all the numbers typed in. The zero at the end should not be included in the calculation.
 
-Ohjelman tulostus laajenee seuraavasti:
+The program should now print out the following:
 
 <sample-output>
 
-... lukujen kysely
-Lukuja yhteensä 4
-Lukujen summa 34
+... the program asks for numbers
+Numbers typed in: 4
+The sum of the numbers is 34
 
 </sample-output>
 
-### Osa 3: keskiarvo
+### Part 3: Mean
 
-Laajenna ohjelmaa siten, että se tulostaa syötettyjen lukujen keskiarvon. Syötteen loppumisesta kertovaa nollaa ei tule ottaa huomioon keskiarvon laskemisessa. Voit olettaa, että käyttäjä syöttää aina vähintään yhden luvun.
+The program should also print out the mean of the numbers. The zero at the end should not be included in the calculation. You may assume the user will always type in at least one valid non-zero number.
 
 <sample-output>
 
-... lukujen kysely
-Lukuja yhteensä 4
-Lukujen summa 34
-Lukujen keskiarvo 8.5
+... the program asks for numbers
+Numbers typed in: 4
+The sum of the numbers is 34
+The mean of the numbers is 8.5
 
 </sample-output>
 
-#### Osa 4: positiiviset ja negatiiviset
+#### Part 4: Positives and negatives
 
-Laajenna ohjelmaa siten, että se tulostaa positiivisten ja negatiivisten lukujen lukumäärät
+The program should also print out the how many of the numbers were positive and how many were negative.
 
 <sample-output>
 
-... lukujen kysely
-Lukuja yhteensä 4
-Lukujen summa 34
-Lukujen keskiarvo 8.5
-Positiivisia 3
-Negatiivisia 1
+... the program asks for numbers
+Numbers typed in: 4
+The sum of the numbers is 34
+The mean of the numbers is 8.5
+Positive numbers: 3
+Negative numbers: 1
 
 </sample-output>
 
 </in-browser-programming-exercise>
+
+A quiz to review the contents of this section:
 
 <quiz id="63a51999-e525-5f1d-a333-b26392a5585b"></quiz>
 
-Vastaa lopuksi koko toista osaa koskevaan loppukyselyyn:
+Please respond to a quick questionnaire on this week's materials. 
 
 <quiz id="90b0d94a-54b0-5c0f-aa19-9832ae67e9b9"></quiz>

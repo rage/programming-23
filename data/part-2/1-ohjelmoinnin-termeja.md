@@ -479,4 +479,6 @@ Decimal part: 0.34
 
 </in-browser-programming-exercise>
 
+A quiz to review the contents of this section:
+
 <quiz id="eb4b41d3-b83b-5815-a1d5-ae9b377aa274"></quiz>

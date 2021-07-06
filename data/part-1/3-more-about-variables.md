@@ -114,9 +114,9 @@ test!!!
   
 * There is no set limit to the length of a variable name in Python, but there are some other limitations. A variable name should begin with a letter, and it can only contains letters, numbers and underscores &#95;.
 
-* Lower and upper case letters are different characters. The variables `name`, `Name` and `NAME` are all different variables.
+* Lowercase and uppercase letters are different characters. The variables `name`, `Name` and `NAME` are all different variables.
 
-* It is a common programming practice in Python to use only lower case characters in variable names. If the variable name consists of multiple words, use an underscore between the words.
+* It is a common programming practice in Python to use only lowercase characters in variable names. If the variable name consists of multiple words, use an underscore between the words.
 
 </text-box>
 

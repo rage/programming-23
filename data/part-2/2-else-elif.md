@@ -271,12 +271,12 @@ Bill and Jean are the same age
 <in-browser-programming-exercise name="Alphabetically last" tmcname="part02-07_alphabetically_last"  height="500px">
 
 In addition to numbers, you can also use Python comparison operators on strings. The string a is smaller than string b if it comes alphabetically before b. Notice however that the comparison is only reliable if 
-- the strings of characters to be compared are of the same case, i.e. both UPPER or lower case
+- the characters compared are of the same case, i.e. both UPPERCASE or both lowercase
 - only the standard English alphabet of a to z, or A to Z, is used.
 
 Please write a program which asks the user for two words. The program should then print out whichever of the two comes alphabetically last. 
 
-You can assume all words will be typed in lower case entirely.
+You can assume all words will be typed in lowercase entirely.
 
 Some examples of expected behaviour:
 
@@ -305,5 +305,7 @@ You gave the same word twice.
 </sample-output>
 
 </in-browser-programming-exercise>
+
+A quiz to review the contents of this section:
 
 <quiz id="82f644fe-5d89-5153-842a-11d5d11bc059"></quiz>
