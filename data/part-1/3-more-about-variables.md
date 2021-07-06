@@ -68,7 +68,7 @@ The value stored in a variable can change, as the word _variable_ implies. In th
 In the following program the variable `word` has three different values:
 
 ```python
-word = input("Please give me a word: ")
+word = input("Please type in a word: ")
 print(word)
 
 word = input("And another word: ")
@@ -80,7 +80,7 @@ print(word)
 
 <sample-output>
 
-Please give me a word: **first**
+Please type in a word: **first**
 first
 And another word: **second**
 second
@@ -93,7 +93,7 @@ The value stored in the variable changes each time the variable is assigned a ne
 The new value of a variable can be derived from its old value. In the following example the variable `word` is first assigned a value based on user input. Then it is assigned a new value, which is the old value with three exclamation marks added to the end.
 
 ```python
-word = input("Please give a word: ")
+word = input("Please type in a word: ")
 print(word)
 
 word = word + "!!!"
@@ -102,7 +102,7 @@ print(word)
 
 <sample-output>
 
-Please give a word: **test**
+Please type in a word: **test**
 test
 test!!!
 
@@ -313,7 +313,7 @@ The program should print out _exactly_ the following:
 <sample-output>
 
 <pre>
-My name is Tim Tester, I am 20 years old
+my name is Tim Tester, I am 20 years old
 
 my skills are
  - python (beginner)

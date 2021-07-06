@@ -149,7 +149,7 @@ The program should function as follows:
 
 <sample-output>
 
-Please give a number: **3**
+Please type in a number: **3**
 3 times 5 is 15
 
 </sample-output>
@@ -330,9 +330,9 @@ An example exectution of the program:
 
 <sample-output>
 
-Please give the first number: **2**
-Please give the second number: **3**
-Please give the third number: **5**
+Please type in the first number: **2**
+Please type in the second number: **3**
+Please type in the third number: **5**
 The product is 30
 
 </sample-output>
