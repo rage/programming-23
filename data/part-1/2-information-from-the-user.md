@@ -215,14 +215,14 @@ Here is a program which should ask for three utterances and print them out, like
 
 <sample-output>
 
-The 1st part: **eeny**
-The 2nd part: **meeny**
-The 3rd part: **miny, moe**
-eeny, meeny, miny, moe!
+The 1st part: **hickory**
+The 2nd part: **dickory**
+The 3rd part: **dock**
+hickory-dickory-dock!
 
 </sample-output>
 
-However, there is something wrong with the code below. Please fix it. 
+However, there is something wrong with the code below. Please fix it.
 
 </in-browser-programming-exercise>
 
