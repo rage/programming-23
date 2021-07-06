@@ -14,7 +14,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-<!---Muista tsekata tämä: https://github.com/rage/ohjelmointi-21/commit/4784adf869af834a4fc483d11b326362dc60eaf3 ja poista sitten tämä rivi -- >
+[comment]: <> (Muista tsekata tämä: https://github.com/rage/ohjelmointi-21/commit/4784adf869af834a4fc483d11b326362dc60eaf3 ja poista sitten tämä rivi)
 
 Silmukka eli toistolause on ehtolauseen lisäksi keskeinen ohjausrakenne ohjelmoinnissa. Aloitetaan toistamiseen tutustuminen tarkastelemalla Pythonin `while`-silmukkaa yksinkertaisten esimerkkien kautta. Ensi viikolla tutustutaan sitten monipuolisemmin sen mahdollisuuksiin.
 
@@ -106,7 +106,7 @@ PIN-koodi oikein!
 
 <in-browser-programming-exercise name="Shall we continue?" tmcname="part02-15_shall_we_continue">
 
-Let's create a program with a similar structure as in the example above. This program should print out the message "hi" and then ask "Shall we continue?" until the user inputs "no". Then the program should print out "okay then" and finish. Please have a look at the example below.
+Let's create a program with a similar structure to the example above. This program should print out the message "hi" and then ask "Shall we continue?" until the user inputs "no". Then the program should print out "okay then" and finish. Please have a look at the example below.
 
 <sample-output>
 
