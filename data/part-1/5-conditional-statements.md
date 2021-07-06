@@ -91,7 +91,7 @@ Very typically conditions consist of comparing two values. Here is a table with 
 Let's have a look at a program which prints out different things based on whether the number the user inputs is negative, positive or zero:
 
 ```python
-number = int(input("Please give me a number: "))
+number = int(input("Please type in a number: "))
 
 if number < 0:
     print("The number is negative.")
@@ -107,21 +107,21 @@ Examples of how the program functions with three different inputs:
 
 <sample-output>
 
-Please give me a number: **15**
+Please type in a number: **15**
 The number is positive.
 
 </sample-output>
 
 <sample-output>
 
-Please give me a number: **-18**
+Please type in a number: **-18**
 The number is negative.
 
 </sample-output>
 
 <sample-output>
 
-Please give me a number: **0**
+Please type in a number: **0**
 The number is zero.
 
 </sample-output>
@@ -161,13 +161,13 @@ Please write a program which asks the user for an integer number. The program sh
 
 <sample-output>
 
-Please give me a number: **2020**
+Please type in a number: **2020**
 
 </sample-output>
 
 <sample-output>
 
-Please give me a number: **1984**
+Please type in a number: **1984**
 Orwell
 
 </sample-output>
@@ -180,21 +180,21 @@ Please write a program which asks the user for an integer number. If the number 
 
 <sample-output>
 
-Please give me a number: **-7**
+Please type in a number: **-7**
 The absolute value of this number is 7
 
 </sample-output>
 
 <sample-output>
 
-Please give a me number: **1**
+Please type in a number: **1**
 The absolute value of this number is 1
 
 </sample-output>
 
 <sample-output>
 
-Please give a me number: **-99**
+Please type in a number: **-99**
 The absolute value of this number is 99
 
 </sample-output>
@@ -233,7 +233,7 @@ Please write a program which asks the user for an integer number. The program sh
 
 <sample-output>
 
-Please give me a number: **950**
+Please type in a number: **950**
 This number is smaller than 1000
 Thank you!
 
@@ -241,7 +241,7 @@ Thank you!
 
 <sample-output>
 
-Please give me a number: **59**
+Please type in a number: **59**
 This number is smaller than 1000
 This number is smaller than 100
 Thank you!
@@ -250,7 +250,7 @@ Thank you!
 
 <sample-output>
 
-Please give me a number: **2**
+Please type in a number: **2**
 This number is smaller than 1000
 This number is smaller than 100
 This number is smaller than 10
@@ -260,7 +260,7 @@ Thank you!
 
 <sample-output>
 
-Please give me a number: **1123**
+Please type in a number: **1123**
 Thank you!
 
 </sample-output>
@@ -356,10 +356,10 @@ Two examples of expected behaviour:
 
 <sample-output>
 
-Please give a temperature (F): **101**
+Please type in a temperature (F): **101**
 101 degrees Fahrenheit equals 38.333333333333336 degrees Celsius
 
-Please give a temperature (F): **21**
+Please type in a temperature (F): **21**
 21 degrees Fahrenheit equals -6.111111111111111 degrees Celsius
 Brr! It's cold in here!
 
