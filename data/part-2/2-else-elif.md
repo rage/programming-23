@@ -211,24 +211,24 @@ Some examples of expected behaviour:
 
 <sample-output>
 
-Please give me the first number: **5**
-Please give me another number: **3**
+Please type in the first number: **5**
+Please type in another number: **3**
 The greater number was: 5
 
 </sample-output>
 
 <sample-output>
 
-Please give me the first number:: **5**
-Please give me another number: **8**
+Please type in the first number:: **5**
+Please type in another number: **8**
 The greater number was: 8
 
 </sample-output>
 
 <sample-output>
 
-Please give me the first number: **5**
-Please give me another number: **5**
+Please type in the first number: **5**
+Please type in another number: **5**
 The numbers are equal!
 
 </sample-output>
@@ -282,24 +282,24 @@ Some examples of expected behaviour:
 
 <sample-output>
 
-Please give me the 1st word: **car**
-Please give me the 2nd word: **scooter**
+Please type in the 1st word: **car**
+Please type in the 2nd word: **scooter**
 scooter comes alphabetically last.
 
 </sample-output>
 
 <sample-output>
 
-Please give me the 1st word: **zorro**
-Please give me the 2nd word: **batman**
+Please type in the 1st word: **zorro**
+Please type in the 2nd word: **batman**
 zorro comes alphabetically last.
 
 </sample-output>
 
 <sample-output>
 
-Please give me the 1st word: **python**
-Please give me the 2nd word: **python**
+Please type in the 1st word: **python**
+Please type in the 2nd word: **python**
 You gave the same word twice.
 
 </sample-output>

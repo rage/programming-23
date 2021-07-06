@@ -153,15 +153,15 @@ An example of expected behaviour of your program:
 
 <sample-output>
 
-Please give me a number: **16**
+Please type in a number: **16**
 4.0
-Please give me a number: **4**
+Please type in a number: **4**
 2.0
-Please give me a number: **-3**
+Please type in a number: **-3**
 Invalid number
-Please give me a number: **1**
+Please type in a number: **1**
 1.0
-Please give me a number: **0**
+Please type in a number: **0**
 Exiting...
 
 </sample-output>
@@ -490,14 +490,14 @@ Please write a program which keeps asking the user for words. If the user types 
 
 <sample-output>
 
-Please give me a word: **Once**
-Please give me a word: **upon**
-Please give me a word: **a**
-Please give me a word: **time**
-Please give me a word: **there**
-Please give me a word: **was**
-Please give me a word: **a**
-Please give me a word: **girl**
+Please type in a word: **Once**
+Please type in a word: **upon**
+Please type in a word: **a**
+Please type in a word: **time**
+Please type in a word: **there**
+Please type in a word: **was**
+Please type in a word: **a**
+Please type in a word: **girl**
 Once upon a time there was a girl
 
 </sample-output>
@@ -508,14 +508,14 @@ Change the program so that the loop ends also if the user types in the same word
 
 <sample-output>
 
-Please give me a word: **It**
-Please give me a word: **was**
-Please give me a word: **a**
-Please give me a word: **dark**
-Please give me a word: **and**
-Please give me a word: **stormy**
-Please give me a word: **night**
-Please give me a word: **night**
+Please type in a word: **It**
+Please type in a word: **was**
+Please type in a word: **a**
+Please type in a word: **dark**
+Please type in a word: **and**
+Please type in a word: **stormy**
+Please type in a word: **night**
+Please type in a word: **night**
 It was a dark and stormy night
 
 </sample-output>
@@ -528,7 +528,7 @@ Please write a program which asks the user for integer numbers. The program shou
 
 <sample-output>
 
-Please give me numbers. Type in 0 to finish.
+Please type in numbers. Type in 0 to finish.
 Number: **5**
 Number: **22**
 Number: **9**

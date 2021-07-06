@@ -151,7 +151,7 @@ Some examples:
 
 <sample-output>
 
-Please give me your name: **Morty**
+Please type in your name: **Morty**
 I think you might be one of Mickey Mouse's nephews.
 
 </sample-output>
@@ -306,21 +306,21 @@ Some examples:
 
 <sample-output>
 
-Please give me a year: **2011**
+Please type in a year: **2011**
 That year is not a leap year.
 
 </sample-output>
 
 <sample-output>
 
-Please give me a year: **2020**
+Please type in a year: **2020**
 That year is a leap year.
 
 </sample-output>
 
 <sample-output>
 
-Please give me a year: **1800**
+Please type in a year: **1800**
 That year is not a leap year.
 
 </sample-output>

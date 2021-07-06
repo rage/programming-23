@@ -340,7 +340,7 @@ Debuggaukseen on olemassa muitakin keinoja kuin debug-tulostusten tekeminen. Pal
 The following program contains several _syntactic errors_. Please fix the program so that the syntax is in order and the program works as specified by the examples below. 
 
 ```python
-  number = input("Please give me a number: ")
+  number = input("Please type in a number: ")
   if number>100
     print("The number was greater than one hundred")
     number - 100
@@ -352,7 +352,7 @@ The following program contains several _syntactic errors_. Please fix the progra
 
 <sample-output>
 
-Please give me a number: **13**
+Please type in a number: **13**
 13 must be my lucky number!
 Have a nice day!
 
@@ -408,7 +408,7 @@ Examples of expected behaviour:
 
 <sample-output>
 
-Please give me a word: **hey**
+Please type in a word: **hey**
 There are 3 letters in the word hey
 Thank you!
 
@@ -416,7 +416,7 @@ Thank you!
 
 <sample-output>
 
-Please give me a word: **banana**
+Please type in a word: **banana**
 There are 6 letters in the word banana
 Thank you!
 
@@ -424,7 +424,7 @@ Thank you!
 
 <sample-output>
 
-Please give me a word: **b**
+Please type in a word: **b**
 Thank you!
 
 </sample-output>
@@ -437,7 +437,7 @@ When programming in Python, often we need to change the data type of a value. Fo
 
 ```python
 
-temperature = float(input("Please give me a temperature: "))
+temperature = float(input("Please type in a temperature: "))
 
 print("The temperature is", temperature)
 
@@ -447,7 +447,7 @@ print("...and rounded down it is", int(temperature))
 
 <sample-output>
 
-Please give me a temperature: **5.15**
+Please type in a temperature: **5.15**
 The temperature is 5.15
 ...and rounded down it is 5
 
@@ -457,7 +457,7 @@ Notice the function always rounds down, and not according to the rounding rules 
 
 <sample-output>
 
-Please give me a temperature: **8.99**
+Please type in a temperature: **8.99**
 The temperature is 8.99
 ...and rounded down it is 8
 
@@ -471,7 +471,7 @@ An example of expected behaviour:
 
 <sample-output>
 
-Please give me a number: **1.34**
+Please type in a number: **1.34**
 Integer part: 1
 Decimal part: 0.34
 
