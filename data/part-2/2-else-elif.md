@@ -1,96 +1,95 @@
 ---
 path: '/part-2/2-else-elif'
-title: 'Lisää ehtolauseita'
+title: 'More conditionals'
 hidden: false
 ---
 
+<text-box variant='learningObjectives' name="Learning objectives">
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+After this section
 
-Tämän osion jälkeen
-
-- Osaat luoda vaihtoehtoisia haaroja toistolauseisiin
-- Ymmärrät `if`-, `elif`- ja `else`-lauseiden merkityksen ehtolauseessa
-- Osaat soveltaa jakojäännöstä `%` ehdoissa
+- You will know how to create multiple branches within conditional statements
+- You understand the purpose of `if`, `elif` and `else` statements within a conditional statement
+- You will be able to use the modulo operation `%` within Boolean expressions
 
 </text-box>
 
-Tarkastellaan ohjelmaa, joka tulostaa tiedon siitä, onko käyttäjän syöte negatiivinen vai positiivinen tai nolla:
+Let's have a look at a program which asks the user to input a number, and then prints out different messages based on whether the number is below zero, or zero or above:
 
 ```python
-luku = int(input("Anna luku: "))
+number = int(input("Please type in a number: "))
 
-if luku < 0:
-    print("Luku on negatiivinen")
+if number < 0:
+    print("The number is negative")
 
-if luku >= 0:
-    print("Luku on positiivinen tai nolla")
+if number >= 0:
+    print("The number is positive or zero")
 ```
 
-Ohjelma on hiukan kömpelö. Jokaisen mahdollisen syötteen kohdalla halutaan suorittaa vain toinen lohkoista, koska aina pätee joko `luku < 0` tai `luku >= 0`. Ensimmäinen vertailu sisältää tavallaan kaiken olennaisen: jos tulos on tosi, luku on negatiivinen, ja jos se on epätosi, luku on positiivinen tai nolla.
+This looks a bit clumsy and repetitive. We only ever want to execute one of the `if` blocks, because the input will always be either below zero, or zero or above. That is, either `number < 0` or `number >= 0` is true, but never both at the same time. So, the first conditional statement actually contains all we need here. If it is true, the number is negative. If it is false, the number equals zero or is positive.
 
-Toisen vertailun sijasta onkin usein näppärämpää luoda vaihtoehtoinen haara, joka suoritetaan, _jos ehto on epätosi_. Tätä tarkoitusta varten käytetään `else`-lausetta.
+Instead of creating a whole another conditional statement, as in the example above, it is possible to create another branch of the same conditional statement to cover all cases _where the condition was false_. This is called the `else` statement.
 
-Edellinen esimerkki kirjoitettuna uudestaan:
+The previous example rewritten:
 
 ```python
-luku = int(input("Anna luku: "))
+number = int(input("Please type in a number: "))
 
-if luku < 0:
-    print("Luku on negatiivinen")
+if number < 0:
+    print("The number is negative")
 else:
-    print("Luku on positiivinen tai nolla")
+    print("The number is positive or zero")
 ```
 
-Kun käytetään if-else-rakennetta, suoritetaan vaihtoehtoisista lohkoista aina jompikumpi. Seuraava kuva havainnollistaa asiaa:
+When using an if-else construction, one and exactly one of the branches will always be executed. The following picture illustrates the structure:
 
 <img src="2_2_1.png">
 
-Huomaa, että else-haaraa ei voi olla olemassa ilman edeltävää if-haaraa. Koko if-else-rakenne lohkoineen muodostaa yhden _ehtolauseen_.
+NB: there can never be an else branch without an if branch before it. The if-else construction as a whole forms a single _conditional statement_.
 
-Seuraava esimerkki tutkii, onko käyttäjän syöttämä luku parillinen vai ei. Parillisuuden selvittämiseen käytetään jakojäännösoperaattoria `%`. Jakojäännöksellä on kätevä testata luvun parillisuutta: jos luvun jakojäännös kahdella on nolla, luku on parillinen, ja muuten pariton.
+The following example checks whether a number given by the user is even or not. Parity can be checked with the modulo operator `%`, which produces the remainder of an integer division operation. When divided by two, if the remainder is zero, the number is even. Otherwise the number is odd.
 
 ```python
-luku = int(input("Anna luku: "))
+number = int(input("Please type in a number: "))
 
-if luku % 2 == 0:
-    print("Luku on parillinen")
+if number % 2 == 0:
+    print("The number is even")
 else:
-    print("Luku on pariton")
+    print("The number is odd")
 ```
 
 <sample-output>
 
-Anna luku: **5**
-Luku on pariton
+Please type in a number: **5**
+The number is odd
 
 </sample-output>
 
-Kolmas esimerkki, jossa vertaillaan merkkijonojen samuutta:
+Another example with string comparison:
 
 ```python
-oikea = "kissa"
-salasana = input("Anna salasana: ")
+correct = "kittycat"
+password = input("Please type in the password: ")
 
-if salasana == oikea:
-    print("Tervetuloa")
+if password == correct:
+    print("Welcome")
 else:
-    print("Pääsy kielletty")
+    print("No admittance")
 ```
 
-Kaksi esimerkkisuoritusta eri syötteillä:
+With two different inputs this should print out:
 
 <sample-output>
 
-Anna salasana: **kissa**
-Tervetuloa
+Please type in the password: **kittycat**
+Welcome
 
 </sample-output>
 
 <sample-output>
 
-Anna salasana: **apina**
-Pääsy kielletty
+Please type in the password: **monkey**
+No admittance
 
 </sample-output>
 
@@ -118,88 +117,89 @@ You are of age!
 
 </in-browser-programming-exercise>
 
-## Vaihtoehtoiset haarat elif-lauseella
+## Alternative branches using the elif statement
 
-Usein vaihtoehtoja on kuitenkin enemmän kuin kaksi. Esimerkiksi jalkapallo-ottelun lopputulosta käsitellessä olisi hyvä varautua kolmeen vaihtoehtoiseen lopputulokseen kotijoukkueen kannalta: voitto, häviö tai tasapeli.
+Often there are more than two options the program should account for. For example, the result of a football match could go three ways: home wins, away wins, or there is a tie.
 
+A conditional statement can be added to with an `elif` branch. It is short for the words "else if", which means the branch will contain an alternative to the original condition.
 Ehtolausetta voidaan laajentaa `elif`-haaralla. Se on lyhenne sanoista "else if", ja tarkoittaa nimensä mukaisesti vaihtoehtoa alkuperäiselle ehdolle.
 
 <img src="2_2_2.png">
 
-Tarkastellaan esimerkkiä, jossa selvitetään ottelun voittaja:
+Let's have a look at a program which determines the winner of a match:
 
 ```python
-maalit_koti = int(input("Kotijoukkueen maalimäärä: "))
-maalit_vieras = int(input("Vierasjoukkueen maalimäärä: "))
+goals_home = int(input("Home goals scored: "))
+goals_away = int(input("Away goals scored: "))
 
-if maalit_koti > maalit_vieras:
-    print("Kotijoukkue voitti!")
-elif maalit_vieras > maalit_koti:
-    print("Vierasjoukkue voitti!")
+if goals_home > goals_away:
+    print("The home team won!")
+elif goals_away > goals_home:
+    print("The away team won!")
 else:
-    print("Tasapeli!")
+    print("It's a tie!")
 ```
 
-Kolme esimerkkitulosta eri syötteillä:
+This program could print out three different statements given different inputs:
 
 <sample-output>
 
-Kotijoukkueen maalimäärä: **4**
-Vierasjoukkueen maalimäärä: **2**
-Kotijoukkue voitti!
+Home goals scored: **4**
+Away goals scored: **2**
+The home team won!
 
 </sample-output>
 
 <sample-output>
 
-Kotijoukkueen maalimäärä: **0**
-Vierasjoukkueen maalimäärä: **6**
-Vierasjoukkue voitti!
+Home goals scored: **0**
+Away goals scored: **6**
+The away team won!
 
 </sample-output>
 
 <sample-output>
 
-Kotijoukkueen maalimäärä: **3**
-Vierasjoukkueen maalimäärä: **3**
-Tasapeli!
+Home goals scored: **3**
+Away goals scored: **3**
+It's a tie!
 
 </sample-output>
 
-Esimerkissä ehtolauseessa on siis kolme vaihtoehtoista haaraa, joista suoritetaan aina yksi. Ehtolauseessa `elif`-haaroja voi olla useampia, eikä `else`-haara ole pakollinen.
+In the above example there are three alternative branches, exactly one of which will always be executed. However, there is no limit to the number of `elif` branches a conditional statement can contain, and the `else` branch is not mandatory.
 
-Esimerkiksi:
+This is also a valid conditional statement:
 
 ```python
-print("Joulukalenteri")
-pvm = input("Mikä päivä nyt on? ")
+print("Holiday calendar")
+date = input("What is the date today? ")
 
-if pvm == "24.12.":
-    print("Nyt on jouluaatto")
-elif pvm == "25.12.":
-    print("Nyt on joulupäivä")
-elif pvm == "26.12.":
-    print("Nyt on tapaninpäivä")
+if date == "Dec 26":
+    print("It's Boxing Day")
+elif date == "Dec 31":
+    print("It's Hogmanay")
+elif date == "Jan 1":
+    print("It's New Year's Day")
 
-print("Kiitos ja hei.")
+print("Thanks and bye.")
 ```
 
 <sample-output>
 
-Joulukalenteri
-Mikä päivä nyt on? **25.12.**
-Nyt on joulupäivä
-Kiitos ja hei.
+Holiday calendar
+What is the date today? **Dec 31**
+It's Hogmanay
+Thanks and bye.
 
 </sample-output>
 
-Huomaa, että ehtolauseessa ei edellisessä esimerkissä ole ollenkaan else-haaraa. Jos käyttäjä syöttää jonkin sellaisen päivämäärän, jota ei täytä ehtoa jossain `if`- tai `elif`-lauseessa, ohjelmassa ei suoriteta mitään ehtolauseen kolmesta lohkosta.
+Notice the previous example has no `else` branch. If the user inputs a date which is not mentioned in any of the `if` or `elif` branches, or inputs a date in a different format, none of the three branches of the conditional statement is executed.
 
 <sample-output>
 
-Joulukalenteri
-Mikä päivä nyt on? **1.1.**
-Kiitos ja hei.
+Holiday calendar
+What is the date today? **Dec 25**
+Thanks and bye.
 
 </sample-output>
 
