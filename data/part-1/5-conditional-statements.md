@@ -306,9 +306,9 @@ This is printed every time.
 
 </sample-output>
 
-A program like this is not very useful, but later on during the course you will see examples of Boolean variables coming in very handy. 
+A program like this is not very useful, but later on during the course you will see examples of Boolean variables coming in very handy.
 
-<in-browser-programming-exercise name="Calculator" tmcname="part01-calculator">
+<in-browser-programming-exercise name="Calculator" tmcname="part01-25_calculator">
 
 Please write a program which asks the user for two numbers and an operation. If the operation is _add_, _multiply_ or _subtract_, the program should calculate and print out the result of the operation with the given numbers. If the user types in anything else, the program should print out nothing.
 
