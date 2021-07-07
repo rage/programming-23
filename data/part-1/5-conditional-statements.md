@@ -275,7 +275,7 @@ Any condition used in a conditional statement will result in a truth value, that
 
 Especially in programming these types of values are often called _Boolean_ values, and in Python they are handled by the `bool` data type. Variables of type `bool` can only have two values: `True` or `False`. 
 
-The result of the evaluation of a conditional statement can be stored in a variable just like any result of a calculation:
+The result of the evaluation of the condition in a conditional statement can be stored in a variable just like the result of any calculation:
 
 ```python
 a = 3

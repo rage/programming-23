@@ -256,7 +256,7 @@ if day == "Sunnday":
 print(f"Daily wages: {daily_wages} euros")
 ```
 
-Running the code now reveals nothing - the debugging print statements aren't printed at all. It seems that the contents of the `if` block aren't executed at all, so there must be a problem with the conditional expression itself. It is also possible to print out the value of the conditional expression:
+Running the code now reveals nothing - the debugging print statements aren't printed at all. It seems that the contents of the `if` block aren't executed at all, so there must be a problem with the conditional statement itself. It is also possible to print out the evaluated Boolean value of the condition:
 
 ```python
 # ...
@@ -271,7 +271,7 @@ if day == "Sunnday":
 print(f"Daily wages: {daily_wages} euros")
 ```
 
-Indeed, the value of the expression is `False`, so the contents of the if block are never executed:
+Indeed, the value is `False`, so the contents of the if block are never executed:
 
 <sample-output>
 
@@ -280,7 +280,7 @@ Daily wages: 276.0 euros
 
 </sample-output>
 
-The issue must then lie within the conditional expression of the `if` statement. Looks like there is a typo in `Sunnday`. Let's fix this (in both the print command and the `if` statement):
+The issue must then lie within the Boolean expression of the `if` statement, `day == "Sunnday"`. Looks like there is a typo in `Sunnday`. Let's fix this (in both the print command and the `if` statement):
 
 ```python
 # ...
