@@ -4,9 +4,9 @@ title: 'More loops'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Ymmärrät milloin `break`-komentoa tarvitaan silmukan keskeyttämiseen
 - Osaat siirtyä silmukan seuraavalle kierrokselle `continue`-komennolla
@@ -394,5 +394,7 @@ Anna luku: **6**
 </sample-output>
 
 </in-browser-programming-exercise>
+
+A quiz to review the contents of this section:
 
 <quiz id="b1118ae8-8dd4-563a-b6a5-0c274136535c"></quiz>

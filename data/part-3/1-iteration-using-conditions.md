@@ -4,9 +4,9 @@ title: 'Iteration using conditions'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Osaat tehdä while-silmukan, jonka alkurivillä on ehto
 - Tiedät, mikä merkitys alustuksella, ehdolla ja muutoksella on silmukassa
@@ -497,5 +497,6 @@ Voit olettaa, että käyttäjän antama luku on 2 tai suurempi.
 
 </in-browser-programming-exercise>
 
+A quiz to review the contents of this section:
 
 <quiz id="900c0293-b14c-5736-b1a3-68d4fa01ac43"></quiz>

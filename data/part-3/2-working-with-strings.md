@@ -4,9 +4,9 @@ title: 'Working with strings'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Osaat käyttää operaattoreita `+` ja `*` merkkijonojen kanssa
 - Osaat laskea merkkijonon pituuden
@@ -790,5 +790,7 @@ Osajono ei esiinny merkkijonossa kahdesti.
 </sample-output>
 
 </in-browser-programming-exercise>
+
+A quiz to review the contents of this section:
 
 <quiz id="6bfa7eab-80de-52e2-afe5-285af914099f"></quiz>
