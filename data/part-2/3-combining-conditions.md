@@ -1,116 +1,105 @@
 ---
-path: '/part-2/3-ehtojen-yhdistäminen'
-title: 'Ehtojen yhdistäminen'
+path: '/part-2/3-combining-conditions'
+title: 'Combining conditions'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
-- Osaat käyttää `and`-, `or`- ja `not`-operaattoreita ehdoissa
-- Osaat kirjoittaa sisäkkäisiä ehtolauseita
+- You will know how to use the operators `and`, `or` and `not` in conditions
+- You will be able to write nested conditionals
 
 </text-box>
 
-## Loogiset operaattorit
+## Logical operators
 
-Ehtojen yhdistämisessä voidaan käyttää loogisia operaattoreita `and` ja `or`.
-Operaattori `and` vaatii, että useampi ehto pätee samaan aikaan,
-ja operaattori `or` vaatii, että yksi tai useampi ehdoista pätee.
+You can combine conditions with the logical operators `and` and `or`. The operator `and` specifies that all conditions must be true at the same time. The operator `or` specifies that at least one of the conditions must be true.
 
-Esimerkiksi ehto `luku >= 5 and luku <= 8` vaatii,
-että luku on samaan aikaan ainakin 5 ja enintään 8.
-Toisin sanoen luvun tulee olla välillä 5..8.
+For example the condition `number >= 5 and number <= 8` determines that `number` must simultaneously be at least 5 and at most 8. That is, it must be between 5 and 8.
 
 ```python
-luku = int(input("Anna luku: "))
-if luku >= 5 and luku <= 8:
-    print("Luku on välillä 5..8")
+number = int(input("Please type in a number: "))
+if number >= 5 and number <= 8:
+    print("The number is between 5 and 8")
 ```
 
-Ehto `luku < 5 or luku > 8` puolestaan vaatii,
-että luku on alle 5 tai yli 8.
-Toisin sanoen luku ei saa olla välillä 5..8.
+Meanwhile, the condition `number < 5 or number > 8` determines that `number` must be either less than 5 or greater than 8. That is, it must not be within the range of 5 to 8.
 
 ```python
-luku = int(input("Anna luku: "))
-if luku < 5 or luku > 8:
-    print("Luku ei ole välillä 5..8")
+number = int(input("Please type in a number: "))
+if number < 5 or number > 8:
+    print("The number is not within the range of 5 to 8")
 ```
 
-Seuraava taulukko näyttää operaattoreiden toiminnan eri tilanteissa:
+Thw following truth table contains the behaviour of these operators in different situations:
 
-a   | b   | a and b | a or b |
-:--:|:---:|:-------:|:------:|
-False | False | False | False |
-True | False | False | True |
-False | True | False | True |
-True | True | True | True |
+a     | b     | a and b | a or b |
+:----:|:-----:|:-------:|:------:|
+False | False | False   | False  |
+True  | False | False   | True   |
+False | True  | False   | True   |
+True  | True  | True    | True   |
 
-Voimme käyttää ehdoissa myös operaattoria `not`, joka muuttaa totuusarvon
-käänteiseksi:
+Sometimes it is necessary to know if something is _not_ true. The operator `not` negates a condition:
 
-a   | not a
-:--:|:----:
+a     | not a
+:----:|:----:
 True  | False
 False | True
 
-Esimerkiksi voisimme toteuttaa äskeisen koodin myös näin:
+The above example with the range of 5 to 8 excluded could also be programmed like this:
 
 ```python
-luku = int(input("Anna luku: "))
-if not (luku >= 5 and luku <= 8):
-    print("Luku ei ole välillä 5..8")
+number = int(input("Please type in a number: "))
+if not (number >= 5 and number <= 8):
+    print("The number is not within the range of 5 to 8")
 ```
 
-<text-box variant='hint' name='Ehtojen ketjuttaminen'>
+Especially in programming, logical operators are often called _Boolean operators_.
 
-Ehto `x >= a and x <= b` on tavallinen tapa testata,
-onko luku `x` välillä `a`..`b`.
-Tällainen ehto toimii samalla tavalla eri ohjelmointikielissä.
+<text-box variant='hint' name="Simplified combined conditions">
 
-Python-kielen erikoisuutena on, että myös lyhyempi ehto
-`a <= x <= b` toimii, eli ehtoja on mahdollista ketjuttaa.
-Tällaisia ehtoja käytetään kuitenkin melko harvoin,
-ehkä tottumuksesta muihin ohjelmointikieliin.
+The condition `x >= a and x <= b` is a very common way of checking whether the number `x` falls within the range of `a` to `b`. An expression with this structure works the same way in most programming languages.
+
+Python also allows a simplified notation for combining conditions: `a <= x <= b` achieves the same result as the longer version using `and`. This shorter notation might be more familiar from mathematics, but it is not very widely used in Python programming, possibly because of the influence of other programming languages.
 
 </text-box>
 
-## Lisää ehtoja
+## Combining and chaining conditions
 
-Seuraava ohjelma kysyy käyttäjältä neljä lukua ja selvittää sitten
-luvuista suurimman ehtojen avulla:
+The following program asks the user to type in four numbers. It then works out which of the four is the greatest with the help of some conditions:
 
 ```python
-n1 = int(input("Anna luku 1: "))
-n2 = int(input("Anna luku 2: "))
-n3 = int(input("Anna luku 3: "))
-n4 = int(input("Anna luku 4: "))
+n1 = int(input("Number 1: "))
+n2 = int(input("Number 2: "))
+n3 = int(input("Number 3: "))
+n4 = int(input("Number 4: "))
 
 if n1 > n2 and n1 > n3 and n1 > n4:
-    suurin = n1
+    greatest = n1
 elif n2 > n3 and n2 > n4:
-    suurin = n2
+    greatest = n2
 elif n3 > n4:
-    suurin = n3
+    greatest = n3
 else:
-    suurin = n4
+    greatest = n4
 
-print(f" {suurin} on suurin luku.")
+print(f" {greatest} is the greatest of the numbers.")
 ```
 
 <sample-output>
 
-Anna luku 1: **2**
-Anna luku 2: **4**
-Anna luku 3: **1**
-Anna luku 4: **1**
-4 on suurin luku.
+Number 1: **2**
+Number 2: **4**
+Number 3: **1**
+Number 4: **1**
+4 is the greatest of the numbers.
 
 </sample-output>
 
-Esimerkissä ensimmäinen ehto `n1 > n2 and n1 > n3 and n1 > n4` on tosi vain, mikäli kaikki kolme ehtoa ovat tosia.
+In the above example the first condition `n1 > n2 and n1 > n3 and n1 > n4` is true only if all three conditions within are true.
 
 <in-browser-programming-exercise name="Age check" tmcname="part02-08_age_check">
 
@@ -247,54 +236,53 @@ FizzBuzz
 
 </in-browser-programming-exercise>
 
-## Sisäkkäiset ehtolauseet
+## Nested conditionals
 
-Ehtolauseita voidaan kirjoittaa toistensa sisään. Esimerkiksi seuraava ohjelma tunnistaa positiivisista luvuista parittomat ja parilliset:
+Conditional statements can also be nested within other conditional statements. For example, the following program checks whether a number is above zero, and then whether it is odd or even:
 
 ```python
-luku = int(input("Anna luku: "))
+number = int(input("Please type in a number: "))
 
-if luku > 0:
-    if luku % 2 == 0:
-        print("Luku on parillinen")
+if number > 0:
+    if number % 2 == 0:
+        print("The number is even")
     else:
-        print("Luku on pariton")
+        print("The number is odd")
 else:
-    print("Luku on negatiivinen")
+    print("The number is negative or zero")
 ```
 
-Esimerkkitulostus kolmella eri syötteellä:
+Some examples of how this program behaves:
 
 <sample-output>
 
-Anna luku: **3**
-Luku on pariton
+Please type in a number: **3**
+The number is odd
 
-Anna luku: **18**
-Luku on parillinen
+Please type in a number: **18**
+The number is even
 
-Anna luku: **-4**
-Luku on negatiivinen
+Please type in a number: **-4**
+The number is negative or zero
 
 </sample-output>
 
-Sisäkkäisiä ehtolauseita käytettäessä on tärkeä muistaa oikeat sisennykset. Esimerkiksi `else`-haara yhdistetään oikeaan `if`-lauseeseen juuri saman sisennyksen perusteella.
+With nested conditional statements it is crucial to get the indentations right. Indentations determine which branches are linked together. For example, an `if` branch and an `else` branch with the same amount of whitespace are determined to be branches of the same conditional statement.
 
-Huomaa, että monissa tapauksissa voidaan käyttää joko sisäkkäisiä ehtolauseita tai loogisia operaattoreita. Seuraava esimerkki on toiminnallisesti sama kuin edellinen esimerkki, eli se tulostaa tiedon siitä, onko positiivinen kokonaisluku parillinen vai pariton.
+The same result can often be achieved using either nested conditional statements or conditions combined with logical operators. The example below is functionally no different from the example above in the sense that it will print out the exactly same things with the same inputs:
 
 ```python
-luku = int(input("Anna luku: "))
+number = int(input("Please type in a number: "))
 
-if luku > 0 and luku % 2 == 0:
-    print("Luku on parillinen")
+if number > 0 and number % 2 == 0:
+    print("The number is even")
 elif luku > 0 and luku % 2 != 0:
-    print("Luku on pariton")
+    print("The number is odd")
 else:
-    print("Luku on negatiivinen.")
+    print("The number is negative or zero")
 ```
 
-Tilanteesta riippuu, kumpaa tapaa kannattaa käyttää. Tässä esimerkissä ensimmäinen vaihtoehto tuntuu useimpien mielestä paremmalta.
-
+Neither approach is intrinsically better than the other, but in different situations one or the other may seem more logical. In this particular example most people find the first version with nesting to be more intuitive.
 
 <in-browser-programming-exercise name="Leap year" tmcname="part02-12_leap_year">
 
