@@ -274,7 +274,7 @@ The loop is exited _either_ when the user types the correct PIN _or_ if there ha
 
 ## Debugging print statements in loops
 
-Adding loops to programs also adds to the potential sources of bugs. It becomes even more important to master the use of debugging print statements as introduce in the [first section of this part](/part-2/1-programming-terminology).
+Adding loops to programs also adds to the potential sources of bugs. It becomes even more important to master the use of debugging print statements as introduced in the [first section of this part](/part-2/1-programming-terminology).
 
 Let's have a look at a program almost identical to the previous example, but with one crucial difference:
 
@@ -361,13 +361,13 @@ Too many attempts...
 
 </sample-output>
 
-From the above printouts we can see that on the third iteration of the loop the condition of the first `if` statement is `True`, and the loop is exited. This iteration never gets to the second `if` statement, which checks whether the code was typed in correctly:
+From the above printouts we can see that during the third iteration of the loop the condition of the first `if` statement is `True`, and the loop is exited. This iteration never gets to the second `if` statement, which checks whether the code was typed in correctly:
 
 ```python
   while True:
     # ....
 
-    # this block comes too early
+    # this block is executed too early
     if attempts == 3:
         success = False
         break
@@ -378,7 +378,9 @@ From the above printouts we can see that on the third iteration of the loop the 
         break
 ```
 
-<in-browser-programming-exercise name="PIN and number of tries" tmcname="part02-19_pin_and_number_of_tries">
+The order of conditional statements, or of different branches within a conditional statement, is a common cause for bugs, especially in loops. Debugging print statements are often the simplest way of finding their cause.
+
+<in-browser-programming-exercise name="PIN and number of attempts" tmcname="part02-19_pin_and_number_of_attempts">
 
 Please write a program which keeps asking the user for a PIN code until they type in the correct one, which is _4321_. The program should then print out the number of times the user tried different codes.
 
@@ -391,16 +393,16 @@ Wrong
 PIN: **0000**
 Wrong
 PIN: **4321**
-Correct! It took you 4 tries
+Correct! It took you 4 attempts
 
 </sample-output>
 
-If the user gets it right on the first go, the program should print out something a bit different:
+If the user gets it right on the first try, the program should print out something a bit different:
 
 <sample-output>
 
 PIN: **4321**
-Correct! It only took you one single try!
+Correct! It only took you one single attempt!
 
 </sample-output>
 
