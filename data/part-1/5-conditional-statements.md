@@ -79,16 +79,16 @@ SyntaxError: invalid syntax
 
 Very typically conditions consist of comparing two values. Here is a table with the most common comparison operators used in Python:
 
-| Operator    | Purpose        | Example    |
-|:-----------:|----------------|------------|
-| `==` | Equal to     | `a == b` |
-| `!=` | Not equal to | `a != b` |
-| `>`  | Greater than | `a > b`  |
-| `>=` | Greater than or equal to | `a >= b` |
-| `<`  | Less than    | `a < b`  |
-| `<=` | Less than or equal to    | `a <= b` |
+| Operator | Purpose        | Example  |
+|:--------:|----------------|----------|
+| `==`     | Equal to       | `a == b` |
+| `!=`     | Not equal to   | `a != b` |
+| `>`      | Greater than   | `a > b`  |
+| `>=`     | Greater than or equal to | `a >= b` |
+| `<`      | Less than      | `a < b`  |
+| `<=`     | Less than or equal to    | `a <= b` |
 
-Let's have a look at a program which prints out different things based on whether the number the user inputs is negative, positive or zero:
+Let's have a look at a program which prints out different things based on whether the number the user inputs is negative, positive or equal to zero:
 
 ```python
 number = int(input("Please type in a number: "))
@@ -273,9 +273,11 @@ Thank you!
 
 Any condition used in a conditional statement will result in a truth value, that is, either true or false. For example, the condition `a < 5` is true if `a` is less than 5, and false if `a` is equal to or greater than 5.
 
-Especially in programming these types of values are often called _Boolean_ values, and in Python they are handled by the `bool` data type. Variables of type `bool` can only have two values: `True` or `False`. 
+Especially in programming these types of values are usually called _Boolean_ values, named after the English mathematician George Boole. In Python they are handled by the `bool` data type. Variables of type `bool` can only have two values: `True` or `False`.
 
-The result of the evaluation of the condition in a conditional statement can be stored in a variable just like the result of any calculation:
+Any bit of code that results in a Boolean value is called a _Boolean expression_. For example, the condition in a conditional statement is always a Boolean expression.
+
+The result of a Boolean expression can be stored in a variable just like the result of any numerical calculation:
 
 ```python
 a = 3

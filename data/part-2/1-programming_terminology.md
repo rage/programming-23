@@ -59,18 +59,18 @@ NB: the main block of a Python program must always be at the leftmost edge of th
 
 ## Expression
 
-An _expression_ is a bit code that is of a determined data type. When the program is executed, the expression is evaluated and will have a value that can be used in the program. 
+An _expression_ is a bit code that results in a determined data type. When the program is executed, the expression is evaluated so that it has a value that can then be used in the program.
 
 Here are a few examples of expressions:
 
-| Expression | Value | Type | Python data type |
-|------------|-------|------|------------------|
-|`2 + 4 + 3` | `9` | integer | `int` |
+| Expression | Value  | Type    | Python data type |
+|------------|--------|---------|------------------|
+|`2 + 4 + 3` | `9`    | integer | `int` |
 |`"abc" + "de"` | `"abcde"` | string | `str`|
-|`11 / 2` | `5.5` | floating point number | `float` |
+|`11 / 2`    | `5.5`  | floating point number | `float` |
 |`2 * 5 > 9` | `True` | Boolean value | `bool`|
 
-Because all expression have a type, they can be assigned to variables: 
+Because all expressions have a type, they can be assigned to variables:
 
 ```python
 # the variable x is assigned the value of the expression 1 + 2 
@@ -104,7 +104,7 @@ In this case the function also _returns_ a value. After the function has been ex
 
 ## Data type
 
-The _data type_ refers to the characteristics of any value present in the program. In the following bit of code the data type of the variable `name` is string or `str`, and the data type of the variable `result` is integer or `int`.:
+_Data type_ refers to the characteristics of any value present in the program. In the following bit of code the data type of the variable `name` is string or `str`, and the data type of the variable `result` is integer or `int`:
 
 ```python
 name = "Anna"
@@ -129,7 +129,7 @@ print(type(100))
 
 Similarly to natural languages, the _syntax_ of a programming language determines how the code of a program should be written. Each programming language has their own specific syntax.
 
-The syntax of Python specifies, among other things, that the first line of an `if`-statement should end in a colon character, and the block of the statement should be indented:
+The syntax of Python specifies, among other things, that the first line of an `if` statement should end in a colon character, and the block of the statement should be indented:
 
 ```python
 if name == "Anna":
@@ -146,7 +146,7 @@ if name == "Anna"
 <sample-output>
 
 <pre>
-  File "testi.py", line 1
+  File "test.py", line 1
     if name == "Anna"
                     ^
 SyntaxError: invalid syntax
@@ -181,15 +181,15 @@ ZeroDivisionError: integer division or modulo by zero on line 3
 
 The problem here is mathematical in nature: division by zero is not allowed, and this halts the execution of the program.
 
-Errors during execution are usually rather easy to fix, because the error message states the line of code causing the error. Of course the actual reason for the bug might be somewhere quite different than the line of code throwing the error.
+Errors during execution are usually rather easy to fix, because the error message states the line of code causing the error. Of course the actual reason for the bug might be somewhere quite different than the line of code causing the error.
 
-Sometimes the result the code produces is wrong, which reveals a bug in the program. Discovering and locating this type of bug can be challenging. In the programming exercises of this course the tests are usually intended to reveal bugs of this type. Before a bug can be fixed, it's cause must first be located.
+Sometimes a bug in program is revealed because the result the code produces is wrong. Discovering and locating this type of bug can be challenging. In the programming exercises of this course the tests are usually intended to reveal bugs of this type. Before a bug can be fixed, its cause must first be located.
 
 Programming jargon refers to discovering the causes of bugs as _debugging_. It is an extremely important skill in any programmer's toolbox. Professional programmers often spend more time debugging than writing fresh code.
 
 A simple yet effective way of debugging a program is adding debugging print statements to your code. Verifying the results of your code with `print` commands gives a quick confirmation the code does what you want it to do. 
 
-The following is an attempt to solve one of the exercises from the [previous section](/part-1/5-conditional-statments):
+The following is an attempt to solve one of the exercises from the [previous section](/part-1/5-conditional-statements):
 
 ```python
 hourly_wage = float(input("Hourly wage: "))
@@ -256,7 +256,7 @@ if day == "Sunnday":
 print(f"Daily wages: {daily_wages} euros")
 ```
 
-Running the code now reveals nothing - the debugging print statements aren't printed at all. It seems that the contents of the `if` block aren't executed at all, so there must be a problem with the conditional statement itself. It is also possible to print out the evaluated Boolean value of the condition:
+Running the code now reveals nothing - the debugging print statements aren't printed at all. It seems that the contents of the `if` block aren't executed at all, so there must be a problem with the conditional statement. Let's try printing out the evaluated Boolean value of the condition:
 
 ```python
 # ...
@@ -280,7 +280,7 @@ Daily wages: 276.0 euros
 
 </sample-output>
 
-The issue must then lie within the Boolean expression of the `if` statement, `day == "Sunnday"`. Looks like there is a typo in `Sunnday`. Let's fix this (in both the print command and the `if` statement):
+The issue must then lie within the Boolean expression of the `if` statement, `day == "Sunnday"`. Looks like there's a typo in `"Sunnday"`. Let's fix this (in both the print command and the `if` statement):
 
 ```python
 # ...
@@ -312,13 +312,13 @@ It seems the value stored in `daily_wages` is correct at first - `hourly_wage = 
 daily_wages * 2
 ```
 
-does double the value, but it doesn't store the new value anywhere. Let's fix it so it stores the new value in the variable `daily_wages`:
+does double the value, but it doesn't store the new value anywhere. Let's change it so it stores the new value in the variable `daily_wages`:
 
 ```python
 daily_wages *= 2
 ```
 
-Running the program now reveals that the printout at the end is now also correct:
+Running the program again reveals that the printout at the end is now also correct:
 
 <sample-output>
 
@@ -331,9 +331,9 @@ Daily wages: 552.0 euros
 
 When the program has been fixed, remember to remove all debugging print statements and other code added for debugging purposes.
 
-This example was quite simple, and in such a short program one could probably figure out the bugs just by reading the code carefully. However, debugging print statements are usually a quick way to get a feeling for where the problem might lie. Print statements can be used to figure out which parts of the program seem to work correctly, so bug tracking efforts can be concentrated on the section of code where the problems most likely lie.
+This example was quite simple, and in such a short program one could probably figure out the bugs just by reading the code carefully. However, using debugging print statements is often a quick way to get a feeling for where the problem might lie. Print statements can be used to figure out which parts of the program seem to work correctly, so bug tracking efforts can be concentrated on the sections of code where the problems most likely lie.
 
-Debugging print statements are only one tool for debugging programs. We will come back to this subject later on during this course. You should now get in the habit of using print statement debugging to look for mistakes in your code. Programming professionals cannot get by without using them, so it is a very useful tool for beginners as well.
+Debugging print statements are only one tool for debugging programs. We will come back to this subject later on during this course. You should now get into the habit of using debugging print statements to look for mistakes in your code. Programming professionals cannot get by without using them, so it is a very useful tool for beginners as well.
 
 <in-browser-programming-exercise name="Fix the syntax" tmcname="part02-01_fix_syntax" height="400px">
 
