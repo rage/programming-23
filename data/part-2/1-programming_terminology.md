@@ -34,7 +34,7 @@ In the above case there are two statements within a conditional statement.
 
 ## Block
 
-A _Block_ is a group of consecutive statements that are at the same level in the structure of the program. For example, the block of a conditional statement contains those statements which are executed only if the conditional expression is true. 
+A _Block_ is a group of consecutive statements that are at the same level in the structure of the program. For example, the block of a conditional statement contains those statements which are executed only if the condition is true.
 
 ```python
 if age > 17:
@@ -197,7 +197,7 @@ hours = int(input("Hours worked: "))
 day = input("Day of the week: ")
 
 daily_wages = hourly_wage * hours
-if day == "Sunnday":
+if day == "sunday":
     daily_wages * 2
 
 print(f"Daily wages: {daily_wages} euros")
@@ -236,7 +236,7 @@ hours = 12
 day = "Sunday"
 
 daily_wages = hourly_wage * hours
-if day == "Sunnday":
+if day == "sunday":
     daily_wages * 2
 
 print(f"Daily wages: {daily_wages} euros")
@@ -248,7 +248,7 @@ The next step could be adding _debugging print statements_. The problematic part
 # ...
 
 daily_wages = hourly_wage * hours
-if day == "Sunnday":
+if day == "sunday":
     print("wages before:", daily_wages)
     daily_wages * 2
     print("wages after doubling:", daily_wages)
@@ -256,14 +256,14 @@ if day == "Sunnday":
 print(f"Daily wages: {daily_wages} euros")
 ```
 
-Running the code now reveals nothing - the debugging print statements aren't printed at all. It seems that the contents of the `if` block aren't executed at all, so there must be a problem with the conditional statement. Let's try printing out the evaluated Boolean value of the condition:
+Running the code now reveals nothing - the debugging print statements aren't printed at all. It seems that the contents of the `if` block aren't executed at all, so there must be a problem with the conditional statement. Let's try printing out the value of the Boolean expression:
 
 ```python
 # ...
 
 daily_wages = hourly_wage * hours
-print("condition:", day == "Sunnday")
-if day == "Sunnday":
+print("condition:", day == "sunday")
+if day == "sunday":
     print("wages before:", daily_wages)
     daily_wages * 2
     print("wages after doubling:", daily_wages)
@@ -280,7 +280,7 @@ Daily wages: 276.0 euros
 
 </sample-output>
 
-The issue must then lie within the Boolean expression of the `if` statement, `day == "Sunnday"`. Looks like there's a typo in `"Sunnday"`. Let's fix this (in both the print command and the `if` statement):
+The issue must then lie within the condition of the `if` statement. As in so many situations in programming, the case of letters matters also in comparisons. Notice how the "sunday" in the Boolean expression has not been capitalized, but in the input it was. Let's fix this (in both the print command and the `if` statement):
 
 ```python
 # ...
@@ -312,7 +312,7 @@ It seems the value stored in `daily_wages` is correct at first - `hourly_wage = 
 daily_wages * 2
 ```
 
-does double the value, but it doesn't store the new value anywhere. Let's change it so it stores the new value in the variable `daily_wages`:
+does double the value, but it doesn't store the new value anywhere. Let's change it so it also stores the new value:
 
 ```python
 daily_wages *= 2
