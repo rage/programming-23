@@ -1,6 +1,6 @@
 ---
-path: '/osa-3/4-omat-funktiot'
-title: 'Omat funktiot'
+path: '/part-3/4-defining-functions'
+title: 'Defining functions'
 hidden: false
 ---
 
@@ -67,9 +67,7 @@ Tämä on oma funktio!
 
 Huom! Tästä eteenpäin valtaosassa kurssin tehtäviä pyydetään kirjoittamaan oma funktio (tai funktioita).
 
-Kun ohjelma koostuu pelkästään funktiosta, ei sen suorittaminen näytä tekevän mitään.
-
-Esim. seuraava ohjelma ei tulosta vielä ajettaessa mitään:
+Kun ohjelma koostuu pelkästään funktiosta, ei sen suorittaminen näytä tekevän mitään. Esimerkiksi seuraava ohjelma ei tulosta mitään:
 
 ```python
 def moikkaa():
@@ -85,12 +83,12 @@ def moikkaa():
     print("Moi!")
 
 # Pääohjelma on se ohjelman osa, joka ei ole minkään funktion sisällä
-# Kutsutaan omai funktioita
+# Kutsutaan omaa funktiota
 
 moikkaa()
 ```
 
-**Tärkeä huomio**: kurssin tehtävien testit edellyttävät, että funktioita testaava pääohjelma tulee aina kirjoittaa hieman erikoisella tavalla määriteltyyn if-lohkoon:
+**Tärkeä huomio**: kurssin tehtävien testit edellyttävät, että funktioita testaava pääohjelma tulee kirjoittaa seuraavasti määriteltyyn `if`-lohkoon:
 
 ```python
 def moikkaa():
@@ -105,7 +103,7 @@ Lohkon ulkopuolelle jätetty testikoodi aiheuttaa seuraavan virheilmoituksen:
 
 <img src="3_4_1.png">
 
-Kannattaa myös huomata, että testit eivät noteeraa millään tavalla `if __name__ == "__main__"` -lohkon sisälle kirjoitettua koodia. Eli tehtävien edellyttämää koodia ei sinne tule sijoittaa.
+Kannattaa myös huomata, että testit eivät suorita `if __name__ == "__main__"` -lohkon sisälle kirjoitettua koodia eikä sinne tule sijoittaa tehtävien edellyttämää koodia.
 
 </text-box>
 
@@ -129,10 +127,7 @@ Tuomas
 
 ## Funktion parametri
 
-Usein funktiolla on yksi tai useampi _parametri_,
-jolla sen toimintaan voi vaikuttaa.
-Esimerkiksi Pythonin valmiissa funktioissa `print` ja `input`
-parametrin avulla annetaan näytettävä teksti:
+Usein funktiolla on yksi tai useampi _parametri_, jolla sen toimintaan voi vaikuttaa. Esimerkiksi Pythonin valmiissa funktioissa `print` ja `input` parametrin avulla annetaan näytettävä teksti:
 
 ```python
 print("Hei!")                     # parametrina merkkijono "Hei!"
@@ -181,7 +176,7 @@ tervehdi(nimi)
 
 niin parametrin `kohde` arvo funktiossa on merkkijono `Antti`.
 
-Parametrien ja myös funktioiden nimeämistä koskevat samat periaatteet kuin mitä olemme jo aiemmin käsitelleet, eli nimien kannattaa olla kuvaavia ja käytössä ovat ensisijaisesti pienet kirjaimet sekä alaviiva.
+Funktioiden ja parametrien nimeämistä koskevat samat periaatteet kuin mitä olemme jo aiemmin käsitelleet, eli nimien kannattaa olla kuvaavia ja käytössä ovat ensisijaisesti pienet kirjaimet sekä alaviiva.
 
 <in-browser-programming-exercise name="Ensimmäinen merkki" tmcname="osa03-22_ensimmainen_merkki">
 
@@ -216,11 +211,11 @@ n
 
 <text-box variant='hint' name='Omien funktioiden testaaminen: parametrit'>
 
-Silloin kun omassa funktiossa on määritelty yksi tai useampia parametreja, kannattaa funktiota testata usealla erilaisella parametrilla.
+Kun omassa funktiossa on määritelty yksi tai useampia parametreja, kannattaa funktiota testata usealla erilaisella parametrilla.
 
-Kannattaa erityisesti miettiä, toimivatko myös "erikoistapaukset": mitä funktio esim. tekee, jos sille välitetään negatiivinen luku tai liukuluku kokonaisluvun sijasta.
+Kannattaa erityisesti miettiä, toimivatko myös "erikoistapaukset": mitä funktio esimerkiksi tekee, jos sille annetaan negatiivinen luku tai liukuluku kokonaisluvun sijasta.
 
-Jos tehtävänannossa ei ole erityisesti käsketty kirjoittamaan tiettyjä funktiokutsuja, voit vapaasti lisätä omia kutsujasi pääohjelmaan - testit jättävät nämä huomiotta.
+Jos tehtävänannossa ei ole erityisesti käsketty kirjoittamaan tiettyjä funktiokutsuja, voit vapaasti lisätä omia kutsujasi pääohjelmaan ja testit jättävät nämä huomiotta.
 
 </text-box>
 
@@ -268,7 +263,7 @@ Seuraavassa funktiossa puolestaan on kaksi parametria:
 ```python
 def summa(x, y):
     tulos = x + y
-    print(f"Parametrien {x} ja {y} summa on {tulos} ")
+    print(f"Parametrien {x} ja {y} summa on {tulos} ")
 
 summa(1, 2)
 summa(5, 24)
@@ -307,7 +302,7 @@ Palaamme funktioihin ja parametrien määrittelyyn tarkemmin seuraavan osan alus
 
 ## Varoitus: globaalin muuttujan käyttö funktion sisällä
 
-Kuten olemme nähneet, funktioiden sisällä on mahdollsita määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+Kuten olemme nähneet, funktioiden sisällä on mahdollista määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
 
 Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
 
@@ -354,7 +349,7 @@ keskiarvo(10, 1, 1)
 
 <in-browser-programming-exercise name="Monta tulostusta" tmcname="osa03-24_monta_tulostusta">
 
-Tee funktio `tulosta_monesti(merkkijono, kertaa)`, joka saa parametriksi merkkijonon sekä kokonaisluvun, joka kertoo, kuinka monta kertaa funktion tulee tulostaa parametrina saamansa merkkijono:
+Tee funktio `tulosta_monesti(merkkijono, kertaa)`, joka saa parametriksi merkkijonon sekä kokonaisluvun, joka kertoo, montako kertaa funktion tulee tulostaa parametrina saamansa merkkijono:
 
 ```python
 tulosta_monesti("hei", 5)

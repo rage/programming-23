@@ -1,6 +1,6 @@
 ---
-path: '/osa-3/1-ehdot-silmukoissa'
-title: 'Ehdot silmukoissa'
+path: '/part-3/1-iteration-using-conditions'
+title: 'Iteration using conditions'
 hidden: false
 ---
 
@@ -18,18 +18,17 @@ Tämän osion jälkeen
 
 Ohjelmointitaidon kehittyminen edellyttää vahvaa rutiinia ja myös omaa soveltavaa oivaltamista. Tämän takia kurssilla on paljon tehtäviä. Osa tehtävistä on kohtuullisen suoraviivaisesti materiaalia hyödyntäviä ja osa taas aivan tarkoituksella haastavampia soveltavia tehtäviä.
 
-Ei kannata huolestua vaikka osa kurssin tehtävistä tuntuisikin ensiyrittämällä liian vaikealta. Kaikkia tehtäviä ei ole missään nimessä pakko tehdä, kuten [arvosteluperusteet](/arvostelu-ja-kokeet) toteavat: _Kurssin läpipääsyyn vaaditaan vähintään 25% jokaisen osan ohjelmointitehtävien pisteistä._
+Ei kannata huolestua, vaikka osa kurssin tehtävistä tuntuisikin ensiyrittämällä liian vaikealta. Kaikkia tehtäviä ei ole pakko tehdä, kuten [arvosteluperusteet](/arvostelu-ja-kokeet) toteavat, _kurssin läpipääsyyn vaaditaan vähintään 25 % jokaisen osan ohjelmointitehtävien pisteistä._
 
-**Kurssin osien tehtävät eivät etene vaikeusjärjestyksessä.** Jokaisessa aliosassa esitellään yleensä muutama uusi konsepti, joita harjoitellaan sekä helpommilla että soveltavimmilla tehtävillä. **Jos törmäät liian haastavan tuntuiseen tehtävään, hyppää seuraavaan**. Voit palata vaikeimpiin tehtäviin osan lopuksi jos aikaa vielä jää.
+**Kurssin osien tehtävät eivät etene vaikeusjärjestyksessä.** Jokaisessa aliosassa esitellään yleensä muutama uusi konsepti, joita harjoitellaan sekä helpommilla että soveltavimmilla tehtävillä. **Jos törmäät liian haastavan tuntuiseen tehtävään, hyppää seuraavaan**. Voit palata vaikeimpiin tehtäviin osan lopuksi, jos aikaa vielä jää.
 
-Lohdutuksen sanana todettakoon että tällä viikolla mahdottomalta vaikuttava tehtävä näyttää melko varmasti neljän viikon päästä melko helpolta.
+Lohdutuksen sanana todettakoon, että tällä viikolla mahdottomalta vaikuttava tehtävä näyttää melko varmasti neljän viikon päästä melko helpolta.
 
 </text-box>
 
 Edellisen osan lopussa opimme käyttämään `while True` -silmukkaa koodin toistamiseen. Tässä tapauksessa silmukan ehtona on `True`, joka on aina tosi. Esimerkiksi
 
 ```python
-
 # Tulosta lukuja kunnes muuttujan a arvo on 5
 a = 1
 while True:
@@ -48,7 +47,7 @@ while True:
 
 </sample-output>
 
-Silmukan toimintaa voidaan monipuolistaa lisäämällä tarkasteltava ehto `while`-määrittelyyn. Yleisemmin voimme siis käyttää silmukkaa näin:
+Silmukan toimintaa voidaan monipuolistaa käyttämällä ehtoa `while`-määrittelyssä. Yleisemmin voimme siis käyttää silmukkaa näin:
 
 ```python
 while <ehtolauseke>:
@@ -116,7 +115,7 @@ while luku < 10:
 print("Suoritus valmis.")
 ```
 
-Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuiseen silmukkaan eli toistaa samaa koodia, kunnes käyttäjä katkaisee ohjelman suorituksen (esimerkiksi painamalla `CTRL` + `C`):
+Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuiseen silmukkaan eli toistaa samaa koodia, kunnes käyttäjä katkaisee ohjelman suorituksen (esimerkiksi painamalla `Control` + `C`):
 
 <sample-output>
 
@@ -253,7 +252,7 @@ Mihin asti: **5**
 
 </in-browser-programming-exercise>
 
-## Koodauksen workflow ja lisää välineitä debuggaukseen
+## Lisää debuggauksesta
 
 Hieman haastavampaa ohjelmaa, esim. seuraavaksi vuorossa olevaa tehtävää _Kahden potenssit_, koodatessa voitaisiin lähteä liikkeelle seuraavasti:
 
@@ -264,11 +263,11 @@ while luku == asti:
    # koodia
 ```
 
-eli aloitettaisiin syötteen lukemisesta ja ruvettaisiin sen jälkeen miettimään silmukan lopetusehtoa sekä silmukan toimintaa.
+Tässä on aloitettu syötteen lukemisesta, minkä jälkeen ruvetaan miettimään silmukan lopetusehtoa sekä silmukan toimintaa.
 
-Todennäköisesti ohjelma ei ensimmäisillä kokeilukerroilla toimi ollenkaan halutulla tavalla ja koodia on testailtava kymmeniä tai jopa satoja kertoja ennen kun se alkaa toimia.
+Todennäköisesti ohjelma ei ensimmäisillä kokeilukerroilla toimi halutulla tavalla ja koodia on testailtava kymmeniä tai jopa satoja kertoja ennen kuin se alkaa toimia.
 
-Koska koodi lukee syötteitä käyttäjältä, on sen toiminnan kokeileminen hidasta ja vaivalloista, koska jokaisella testauskerralla on ohjelmalle annettava näppäimistöltä käsin sen haluamat syötteet.
+Koska koodi lukee syötteitä käyttäjältä, sen toiminnan kokeileminen on hidasta ja vaivalloista, koska jokaisella testauskerralla on ohjelmalle annettava näppäimistöltä käsin sen haluamat syötteet.
 
 Yksi tapa toimia on "kovakoodata" syöte aluksi:
 
@@ -296,21 +295,19 @@ Kurssin [edellisessä osassa](/osa-2) oli jo pariinkin otteeseen puhetta tulostu
 
 Tulostuskomentoihin perustuva debuggaus kannattaa ottaa omaan työkalupakkiin viimeistään nyt. Kertaa tarvittaessa edellisen osan [ensimmäisessä ](/osa-2/1-ohjelmoinnin-termeja) ja [neljännessä](/osa-2/4-yksinkertainen-silmukka) luvussa olleet debuggausohjeet.
 
-Tulostelun lisäksi on olemassa muitakin debuggaukseen sopivia työkaluja. Eräs tälläinen on sivuston [Python Tutorin](http://www.pythontutor.com/) tarjoama [visualisointityökalu](http://www.pythontutor.com/visualize.html#mode=edit), jonka avulla oman ohjelman koodia on mahdollista suorittaa komento komennolta havainnoiden samalla, mitä arvoja ohjelman muuttujat saavat.
+Tulostamisen lisäksi on olemassa muitakin debuggaukseen sopivia työkaluja. Eräs tälläinen on sivuston [Python Tutor](http://www.pythontutor.com/) tarjoama [visualisointityökalu](http://www.pythontutor.com/visualize.html#mode=edit), jonka avulla oman ohjelman koodia on mahdollista suorittaa komento komennolta havainnoiden samalla, mitä arvoja ohjelman muuttujat saavat.
 
-Seuraavassa kuva, kun Python Tutorilla visualisoidaan [edellisen osan](/osa-2/4-yksinkertainen-silmukka) debuggausmateriaalissa olevan hieman rikkinäisen koodin toimintaa:
+Seuraavassa kuvassa Python Tutorilla visualisoidaan [edellisen osan](/osa-2/4-yksinkertainen-silmukka) debuggausmateriaalissa olevan hieman rikkinäisen koodin toimintaa:
 
 <img src="3_1_0.png">
 
-Punainen nuoli kertoo, missä kohtaa ohjelman suoritus on menossa. Visualisaattori näyttää, mitä ohjelma on tulostanut ruudulle ja mitkä ohjelman muuttujien arvot kulloisellakin suorituksen hetkellä ovat. Koodin suoritus etenee komento komennolta painiketta _Next>_ painellessa.
+Punainen nuoli kertoo, missä kohtaa ohjelman suoritus on menossa. Visualisaattori näyttää, mitä ohjelma on tulostanut ruudulle ja mitkä ovat ohjelman muuttujien arvot kullakin suorituksen hetkellä. Koodin suoritus etenee komento komennolta painiketta _Next>_ painellessa.
 
-Visualisaattorin käyttö on erittäin helppoa, koska riittää että tarkasteltava koodi kopioidaan [täällä](http://www.pythontutor.com/visualize.html#mode=edit) olevaan koodi-ikkunaan.
+Visualisaattorin käyttö on erittäin helppoa, koska riittää että tarkasteltava koodi kopioidaan [koodi-ikkunaan](http://www.pythontutor.com/visualize.html#mode=edit). Huomaa, että visualisaattori ei saalli ääkkösten käyttämistä muuttujien eikä funktioiden nimissä.
 
-Huomaa, että visualisaattori ei saalli skandien (ä, ö) ja käyttöä muuttujien eikä funktioiden nimissä.
+Kokeneemmat ohjelmoijat tuskin käyttävät visualisaattoria koskaan, mutta aloittelijalle se voi olla oiva apuväline. Ohjelmointi ei nimittäin voi perustua tuuriin tai sattumaan. Ohjelmoijan on koko ajan tiedettävä tarkalleen, mitä muuttujien arvot ohjelman suorituksen aikana ovat. Jos muuttujien arvot eivät vastaakaan ohjelmoijan olettamaa, on tuloksena mitä suurimmalla todennäköisyydellä bugi.
 
-Kokeneemmat ohjelmoijat tuskin käyttävät visualisaattoria koskaan, mutta aloittelijalle se voi olla oiva apuväline. Ohjelmointi ei nimittäin voi perustua tuuriin tai sattumaan. Ohjelmoijan on koko ajan tiedettävä tarkalleen, mitä muuttujien arvot ohjelman suorituksen aikana ovat. Jos muuttujien arvot eivät vastaakaan sitä mitä ohjelmoija olettaa, on tuloksena mitä suurimmalla todennäköisyydellä bugi.
-
-Visualisaattori ja debuggaustulostukset ovat erinomainen väline sille, että ohjelmoija voi helposti omin silmin varmistaa, että ohjelma todellakin toimii, niin kuin sen olettaa toimivan.
+Visualisaattori ja debuggaustulostukset ovat erinomainen väline siihen, että ohjelmoija voi omin silmin varmistaa, että ohjelma todellakin toimii kuten sen olettaa toimivan.
 
 <in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-03_kahden_potenssit">
 
@@ -352,9 +349,9 @@ Mihin asti: **100**
 
 </sample-output>
 
-Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
+Älä käytä tässä tehtävässä `while`-komennon ehtona arvoa `True`!
 
-**Miten kahden potenssit lasketaan?** Ensimmäinen kahden potenssi on luku 1. Seuraava saadaan kertomalla 1 luvulla 2, eli se on 2. Sitä seuraava saadaan taas kertomalla edellinen kahden potenssi kahdella, eli kyseessä on 2 \* 2 eli 4, ja seuraava saadaan kertomalla kahdella 4 \* 2 eli kyseesä 8, jne...
+**Miten kahden potenssit lasketaan?** Ensimmäinen kahden potenssi on luku 1. Seuraava saadaan kertomalla 1 luvulla 2, eli se on 2. Sitä seuraava saadaan taas kertomalla edellinen kahden potenssi kahdella, eli kyseessä on 2 \* 2 eli 4, ja seuraava saadaan kertomalla kahdella 4 \* 2 eli kyseessä on 8, jne...
 
 </in-browser-programming-exercise>
 
@@ -387,7 +384,7 @@ Mikä kerroin: **10**
 
 </sample-output>
 
-Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
+Älä käytä tässä tehtävässä `while`-komennon ehtona arvoa `True`!
 
 </in-browser-programming-exercise>
 

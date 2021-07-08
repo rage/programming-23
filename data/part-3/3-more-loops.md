@@ -1,6 +1,6 @@
 ---
-path: '/osa-3/3-lisaa-silmukoista'
-title: 'Lisää silmukoista'
+path: '/part-3/3-more-loops'
+title: 'More loops'
 hidden: false
 ---
 
@@ -8,7 +8,7 @@ hidden: false
 
 Tämän osion jälkeen
 
-- Osaat keskeyttää silmukan `break`-komennolla
+- Ymmärrät milloin `break`-komentoa tarvitaan silmukan keskeyttämiseen
 - Osaat siirtyä silmukan seuraavalle kierrokselle `continue`-komennolla
 - Ymmärrät sisäkkäisen silmukan toiminnan
 
@@ -224,7 +224,7 @@ Anna luku: **8**
 
 </sample-output>
 
-Apumuuttujan _i_ arvo on silmukkaan ensimmäistä kertaa mentäessä 0 ja se kasvaa jokaisella silmukan suorituskerralla kahdella.
+Apumuuttujan `i` arvo on silmukkaan ensimmäistä kertaa mentäessä 0 ja se kasvaa jokaisella silmukan suorituskerralla kahdella.
 
 Sisäkkäisten silmukoiden tapauksessa on tilanteita, joissa sisempi silmukka tarvitsee oman indeksimuuttujansa. Seuraava ohjelma tulostaa käyttäjän antamaan lukuun perustuvan "lukupyramidin":
 
@@ -311,7 +311,7 @@ h
 
 Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun. Jos käyttäjä syöttää negatiivisen luvun tai nollan, ohjelman suoritus päättyy. Muuten ohjelma tulostaa luvun kertoman.
 
-Kertoma lasketaan kertomalla keskenään luku ja kaikki sitä pienemmät positiiviset kokonaisluvut. Esim. luvun 5 kertoma on 1 * 2 * 3 * 4 * 5 == 120.
+Kertoma lasketaan kertomalla keskenään luku ja kaikki sitä pienemmät positiiviset kokonaisluvut. Esim. luvun 5 kertoma on 1 * 2 * 3 * 4 * 5 = 120.
 
 Esimerkkisuorituksia:
 

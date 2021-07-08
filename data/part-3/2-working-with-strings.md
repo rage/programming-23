@@ -1,6 +1,6 @@
 ---
-path: '/osa-3/2-merkkijonojen-kasittely'
-title: 'Merkkijonojen käsittely'
+path: '/part-3/2-working-with-strings'
+title: 'Working with strings'
 hidden: false
 ---
 
@@ -17,7 +17,7 @@ Tämän osion jälkeen
 
 ## Merkkijono-operaatiot
 
-Merkkijonojen yhdistäminen siis tapahtuu `+`-operaattorin avulla:
+Merkkijonojen yhdistäminen tapahtuu `+`-operaattorin avulla:
 
 ```python
 alku = "esi"
@@ -45,8 +45,7 @@ apinaapinaapina
 
 </sample-output>
 
-Silmukan ja merkkijono-operaatioiden avulla voimme tehdä ohjelman,
-joka piirtää pyramidin:
+Silmukan ja merkkijono-operaatioiden avulla voimme tehdä ohjelman, joka piirtää pyramidin:
 
 ```python
 n = 10 # pyramidin kerrosten määrä
@@ -114,7 +113,7 @@ Moi kaikki!
 
 </sample-output>
 
-Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, mukaan lukien välilyönnit. Niinpä merkkijonon `moi moi` pituus on 7.
+Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, mukaan lukien välilyönnit. Esimerkiksi merkkijonon `moi moi` pituus on 7.
 
 <in-browser-programming-exercise name="Pidempi jono" tmcname="osa03-05b_pidempi_jono">
 
@@ -150,7 +149,7 @@ Jonot ovat yhtä pitkät
 
 Yksittäinen merkkijonon merkki voidaan hakea operaattorin `[]` avulla. Operaattori kirjoitetaan merkkijonon perään, ja hakasulkeiden väliin kirjoitetaan halutun merkin _indeksi_ eli kohta merkkijonossa.
 
-Huomaa, että merkkien indeksointi alkaa nollasta: ensimmäinen merkki on siis indeksin 0 kohdalla, toinen indeksin 1 kohdalla jne.
+Huomaa, että merkkien indeksointi alkaa nollasta: ensimmäinen merkki on indeksin 0 kohdalla, toinen indeksin 1 kohdalla jne.
 
 <img src="3_2_1.png">
 
@@ -235,7 +234,7 @@ Viimeinen: i
 
 ## IndexError: string index out of range
 
-Merkkijonoa indeksöidessä tulee olla tarkkana indeksien kanssa. Jos viitataan merkkijonon ulkopuolelle, on seurauksena virheilmoitus _IndexError: string index out of range_:
+Merkkijonon käsittelyssä tulee olla tarkkana indeksien kanssa. Jos viitataan merkkijonon ulkopuolelle, on seurauksena virheilmoitus _IndexError: string index out of range_:
 
 ```python
 mjono = input("Anna merkkijono: ")
@@ -273,12 +272,12 @@ On myös tilanteita, joissa ohjelman on syytä varautua siihen, että virheen l�
 ```python
 mjono = input("Anna merkkijono: ")
 if len(mjono) > 0:
-    print("ensimmäinen merkki: " + mjono[0])
+    print("Ensimmäinen merkki: " + mjono[0])
 else:
-    print("merkkijonon pituus on nolla, eli ensimmäistä merkkiä ei ole")
+    print("Merkkijono on tyhjä eli ensimmäistä merkkiä ei ole")
 ```
 
-Tyhjä syöte (käyttäjä painaa ainoastaan Enter) aiheuttaa usein ohjelman "kaatumisen", ellei koodari ole muistanut laittaa koodiin tarkistusta tilanteen varalta.
+Tässä koodissa tyhjä syöte (käyttäjä painaa ainoastaan Enter) aiheuttaisi virheen, ellei koodari olisi laittaa tarkastusta tilanteen varalta.
 
 <in-browser-programming-exercise name="Lopusta alkuun" tmcname="osa03-05c_lopusta_alkuun">
 
@@ -457,13 +456,9 @@ Sana: **python**
 
 ## Osajonot
 
-Merkkijonon _osajono_ muodostuu perättäisistä merkeistä, jotka löytyvät samassa järjestyksessä merkkijonosta.
+Merkkijonon _osajono_ muodostuu peräkkäisistä merkeistä, jotka ovat merkkijonon osana. Esimerkiksi merkkijonon `esimerkki` osajonoja ovat `esi`, `imer` ja `merkki`.
 
-Esimerkiksi merkkijonon `esimerkki` osajonoja ovat `esi`, `imer` ja `merkki`.
-
-Voimme erottaa halutussa kohdassa olevan osajonon syntaksilla `[a:b]`,
-mikä tarkoittaa, että osajono alkaa kohdasta `a` ja päättyy juuri ennen kohtaa `b`.
-Voimme ajatella alku- ja loppukohdan merkkien vasemmalle puolelle piirretyiksi viivoiksi alla olevan kuvan mukaisesti:
+Voimme erottaa halutussa kohdassa olevan osajonon syntaksilla `[a:b]`, mikä tarkoittaa, että osajono alkaa kohdasta `a` ja päättyy juuri ennen kohtaa `b`. Voimme ajatella alku- ja loppukohdan merkkien vasemmalle puolelle piirretyiksi viivoiksi alla olevan kuvan mukaisesti:
 
 <img src="3_2_3.png">
 
@@ -622,9 +617,9 @@ o löytyy
 
 </in-browser-programming-exercise>
 
-Operaattori `in` palauttaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonin merkkijonoissa _metodi_ `find`, joka saa parametrikseen etsittävän osajonon palauttaa joko ensimmäisen indeksin, josta osajono löytyy, tai `-1`, jos osajonoa ei löydy merkkijonosta.
+Operaattori `in` palauttaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonin merkkijonoissa _metodi_ `find`, joka saa parametrikseen etsittävän osajonon ja palauttaa joko ensimmäisen indeksin, josta osajono löytyy, tai `-1`, jos osajonoa ei löydy merkkijonosta.
 
-Metodi tarkoittaa suunnilleen samaa kuin funktio, mutta se liittyy tiettyyn merkkijonoon. Metodia käytetään seuraavasti:
+Metodia käytetään seuraavasti:
 
 <img src="3_2_4.png">
 
@@ -676,7 +671,7 @@ Löytyi kohdasta 2
 
 <text-box variant='hint' name='Metodi'>
 
-Merkkijonon sisältä merkkijonoa etsivä `find` on siis tekniseltä termiltään _metodi_. Metodit ovat sukua jo meille tutuille asioille eli _funktioille_. Metodit ovatkin eräänlaisia funktioita, mutta niiden suorittama operaatio kohdistuu siihen _olioon_, jonka kautta metodia kutsutaan, eli joka esiintyy metodikutsun alussa ennen metodin nimeä.
+Merkkijonon sisältä merkkijonoa etsivä `find` on siis _metodi_. Metodit ovat sukua jo meille tutuille asioille eli _funktioille_. Metodit ovatkin eräänlaisia funktioita, mutta niiden suorittama operaatio kohdistuu siihen _olioon_, jonka kautta metodia kutsutaan, eli joka esiintyy metodikutsun alussa ennen metodin nimeä. Metodin `find` tapauksessa oliona on merkkijono, jonka osajonoa etsitään.
 
 </text-box>
 
