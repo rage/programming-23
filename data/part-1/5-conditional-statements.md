@@ -377,7 +377,7 @@ Please write a program which asks for the hourly wage, hours worked, and the day
 
 Hourly wage: **8.5**
 Hours worked: **3**
-Day of the week: **maanantai**
+Day of the week: **Monday**
 Daily wages: 25.5 euros
 
 </sample-output>
@@ -386,7 +386,7 @@ Daily wages: 25.5 euros
 
 Hourly wage: **12.5**
 Hours worked: **10**
-Day of the week: **sunnuntai**
+Day of the week: **Sunday**
 Daily wages: 250.0 euros
 
 </sample-output>
