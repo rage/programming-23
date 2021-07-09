@@ -360,7 +360,7 @@ Have a nice day!
 
 <sample-output>
 
-Anna luku: **101**
+Please type in a number: **101**
 The number was greater than one hundred
 Now its value has decreased by one hundred
 Its value is now 1
