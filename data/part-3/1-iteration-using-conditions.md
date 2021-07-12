@@ -8,28 +8,28 @@ hidden: false
 
 After this section
 
-- Osaat tehdä while-silmukan, jonka alkurivillä on ehto
-- Tiedät, mikä merkitys alustuksella, ehdolla ja muutoksella on silmukassa
-- Osaat käyttää erilaisia ehtoja silmukoissa
+- You will be able to create a while loop with a condition
+- You will know what roles initialisation, condition and updating variables perform in a loop
+- You will be able to create loops with different kinds of conditions
 
 </text-box>
 
-<text-box variant='hint' name='Kurssin tehtävien tekemisestä'>
+<text-box variant='hint' name="About the exercises on this course">
 
-Ohjelmointitaidon kehittyminen edellyttää vahvaa rutiinia ja myös omaa soveltavaa oivaltamista. Tämän takia kurssilla on paljon tehtäviä. Osa tehtävistä on kohtuullisen suoraviivaisesti materiaalia hyödyntäviä ja osa taas aivan tarkoituksella haastavampia soveltavia tehtäviä.
+Becoming a proficient programmer requires a lot of practice, sometimes even quite mechanical practice. It also requires developing problem solving skills and applying intuition. This is why there are a lot of exercises in this course. Some of them ask you to quite straightforwardly apply what you have learnt in the material, but some of them are intentionally more challenging and open-ended.
 
-Ei kannata huolestua, vaikka osa kurssin tehtävistä tuntuisikin ensiyrittämällä liian vaikealta. Kaikkia tehtäviä ei ole pakko tehdä, kuten [arvosteluperusteet](/arvostelu-ja-kokeet) toteavat, _kurssin läpipääsyyn vaaditaan vähintään 25 % jokaisen osan ohjelmointitehtävien pisteistä._
+Some of the exercises might at first seem overwhelming, but this is nothing to worry about. None of the exercises is strictly mandatory, and in fact _only 25 % of the points in each part is required to pass the course._ You can find more details about passing the course on the page [on grading](/grading-and-exams).
 
-**Kurssin osien tehtävät eivät etene vaikeusjärjestyksessä.** Jokaisessa aliosassa esitellään yleensä muutama uusi konsepti, joita harjoitellaan sekä helpommilla että soveltavimmilla tehtävillä. **Jos törmäät liian haastavan tuntuiseen tehtävään, hyppää seuraavaan**. Voit palata vaikeimpiin tehtäviin osan lopuksi, jos aikaa vielä jää.
+**The exercises are not in any specific order of difficulty.** Each section usually introduces some new programming concepts, and these are then practiced with both simpler and more complicated exercises. **If you come across an exercise that feels too difficult, move on to the next one.** You can always come back to the more difficult exercises if you have time later.
 
-Lohdutuksen sanana todettakoon, että tällä viikolla mahdottomalta vaikuttava tehtävä näyttää melko varmasti neljän viikon päästä melko helpolta.
+When the going inevitably gets tough, a word of consolation: a task that seems impossibly difficult this week will likely feel rather easy in about four weeks' time.
 
 </text-box>
 
-Edellisen osan lopussa opimme käyttämään `while True` -silmukkaa koodin toistamiseen. Tässä tapauksessa silmukan ehtona on `True`, joka on aina tosi. Esimerkiksi
+In the previous section we learnt to use the `while True` loop to repeat sections of code. In that construction the condition of the loop is `True`, so the condition is fulfilled every time and the loop must be exited from in some other way. For example:
 
 ```python
-# Tulosta lukuja kunnes muuttujan a arvo on 5
+# Print numbers until the variable a equals 5
 a = 1
 while True:
     print(a)
@@ -47,75 +47,75 @@ while True:
 
 </sample-output>
 
-Silmukan toimintaa voidaan monipuolistaa käyttämällä ehtoa `while`-määrittelyssä. Yleisemmin voimme siis käyttää silmukkaa näin:
+Of course the condition doesn't always have to be true, but instead any Boolean expression can be used as the condition. The general structure of the `while` statement is as follows:
 
 ```python
-while <ehtolauseke>:
-    <lohko>
+while <condition>:
+    <block>
 ```
 
-Ideana on, että silmukka vuorotellen tarkastaa ehdon ja suorittaa lohkossa olevan koodin, jos ehto on tosi. Sitten kun ehto on epätosi, ohjelman suoritus jatkuu silmukan jälkeiseltä riviltä.
+The idea here is that the execution goes back and forth, checking if the condition is true and executing the code within the block, over and over again. If the condition at any point is false, execution of the program continues from the line after the `while` statement.
 
 <img src="3_1_1.png">
 
-Esimerkiksi seuraavassa silmukassa ehtona on `luku < 10` eli silmukan koodi suoritetaan, jos luku on alle 10.
+In the following loop we have the condition `number < 10`. The block within the loop is executed only if the variable number is less than 10.
 
 ```python
-luku = int(input("Anna luku: "))
+number = int(input("Please type in a number: "))
 
-while luku < 10:
-    print(luku)
-    luku += 1
+while number < 10:
+    print(number)
+    number += 1
 
-print("Suoritus valmis.")
+print("Execution finished.")
 ```
 
-Ohjelman tulostus voi olla seuraava:
+This could print out:
 
 <sample-output>
 
-Anna luku: **4**
+Please type in a number: **4**
 4
 5
 6
 7
 8
 9
-Suoritus valmis.
+Execution finished.
 
 </sample-output>
 
-Koska ehto tarkastetaan aina ennen silmukan koodin suoritusta, on mahdollista, ettei koodia suoriteta kertaakaan. Esimerkiksi:
+The condition is checked always before the block within the loop is executed. It is thus possible the block doesn't ever get executed, like so:
 
 <sample-output>
 
-Anna luku: **12**
-Suoritus valmis.
+Please type in a number: **12**
+Execution finished.
 
 </sample-output>
 
-Koska 12 ei ole pienempi kuin 10, ohjelma ei tulosta yhtään lukua.
+12 is not less than 10, so the program doesn't print out a single number.
 
-## Alustus, testaus ja muutos
+## Initialisation, condition and update
 
-Monessa silmukassa on kolme osaa: alustus, ehto ja muutos.
+To create a loop you'll often need to include three distinct steps: initialisation, condition, and updating the iteration variables.
 
-_Alustus_ tarkoittaa silmukassa käytettävän muuttujan tai muuttujien alkuarvojen antamista. Tämä vaihe tehdään ennen silmukkaa. _Ehto_ kirjoitetaan silmukan alkuun, ja se määrittelee, kuinka kauan silmukkaa suoritetaan. Joka kierroksella tapahtuva _muutos_ vie silmukan askeleen lähemmäs sen loppumista. Esimerkiksi:
+_Initialisation_ refers to setting the initial value(s) of the variable(s) used within the condition of the loop. This is performed before the loop is first entered. The _condition_ defines how long the loop is to be executed. It is set out at the very beginning of the loop. Finally, within each iteration of the loop the iteration variables are _updated_, so that each iteration brings the loop one step closer to its conclusion. The following image illustrates these steps:
 
 <img src="3_1_2.png">
 
-Jos jokin kolmesta osasta puuttuu, silmukka ei toimi oikein. Yksi tyypillinen virhe on muutoksen unohtaminen:
+If any one of these three components is missing the loop will likely not function correctly. A typical error is omitting the update step:
 
 ```python
-luku = 1
+number = 1
 
-while luku < 10:
-    print(luku)
+while number < 10:
+    print(number)
 
-print("Suoritus valmis.")
+print("Execution finished.")
 ```
 
-Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuiseen silmukkaan eli toistaa samaa koodia, kunnes käyttäjä katkaisee ohjelman suorituksen (esimerkiksi painamalla `Control` + `C`):
+Here, the value of the variable `number` never changes. The program is stuck in an infinite loop, and the exact same bit of code is repeated over and over again until the user stops the execution, for example by pressing `Control` + `C`:
 
 <sample-output>
 
@@ -124,7 +124,7 @@ Koska muuttujan `luku` arvo ei koskaan muutu, jää ohjelma suoritettaessa ikuis
 1
 1
 1
-(tämä jatkuu ikuisesti...)
+(continued ad infinitum...)
 
 </sample-output>
 
