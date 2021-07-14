@@ -8,215 +8,215 @@ hidden: false
 
 After this section
 
-- Ymmärrät milloin `break`-komentoa tarvitaan silmukan keskeyttämiseen
-- Osaat siirtyä silmukan seuraavalle kierrokselle `continue`-komennolla
-- Ymmärrät sisäkkäisen silmukan toiminnan
+- You will understand when the `break` command is needed to break out of loops
+- You will be able to use the `continue` command to move to the next iteration
+- You will understand how nested loops work
 
 </text-box>
 
-## break-komento
+## The break command
 
-Aiemmin silmukoiden yhteydessä tutustuttiin `break`-komentoon. Komennolla voidaan katkaista silmukan suoritus välittömästi. Tyypillinen esimerkki komennon käytöstä on silmukka, jossa kysytään käyttäjältä syötteitä, ja suoritus päättyy, kun käyttäjä antaa tietyn syötteen.
+You have already come across the `break` command. It can be used to stop the execution of a loop immediately. A typical example of where it is used is a situation where the program asks the user for input, and the execution ends only when a specific input is received.
 
-Vastaavaan toiminnallisuuteen päästään myös ilman `break`-komentoa sopivan ehdon avulla. Alla olevat esimerkit toteuttavat molemmat ohjelman, joka laskee käyttäjän syötteiden summan kun käyttäjä syöttää luvun -1:
+The same functionality can be achieved without the `break` command, using a suitable condition. The two programs below both ask the user to type in numbers, and calculate the sum of the numbers until the user types in -1.
 
 ```python
-# 1. versio break-komennon avulla
+# 1st version using the break command
 
-summa = 0
+sum = 0
 
 while True:
-    luku = int(input("Anna luku, -1 lopettaa: "))
-    if luku == -1:
+    number = int(input("Please type in a number, -1 to exit: "))
+    if number == -1:
         break
-    summa += luku
+    sum += number
 
-print (f"Summa on {summa}")
+print (f"The sum is {sum}")
 ```
 
 ```python
-# 2. versio ilman break-komentoa
+# 2nd version without the break command
 
-summa = 0
-luku = 0
+sum = 0
+number = 0
 
-while luku != -1:
-    luku = int(input("Anna luku, -1 lopettaa: "))
-    if luku != -1:
-        summa += luku
+while number != -1:
+    number = int(input("Please type in a number, -1 to exit: "))
+    if number != -1:
+        sum += number
 
-print (f"Summa on {summa}")
+print (f"The sum is {sum}")
 ```
 
-Molempien ohjelmien esimerkkisuoritus voisi näyttää seuraavalta:
+Both programs print out the same thing with the same inputs, for example:
 
 <sample-output>
 
-Anna luku, -1 lopettaa: **2**
-Anna luku, -1 lopettaa: **4**
-Anna luku, -1 lopettaa: **5**
-Anna luku, -1 lopettaa: **3**
-Anna luku, -1 lopettaa: **-1**
-Summa on 14
+Please type in a number, -1 to exit: **2**
+Please type in a number, -1 to exit: **4**
+Please type in a number, -1 to exit: **5**
+Please type in a number, -1 to exit: **3**
+Please type in a number, -1 to exit: **-1**
+The sum is 14
 
 </sample-output>
 
-Molemmat versiot ovat toiminnallisuudeltaan siis käytännössä samanlaisia. Ensimmäinen tapa on kuitenkin usein helpompi, koska ehto `luku == -1` riittää kirjoittaa vain kerran eikä muuttujaa `luku` tarvitse alustaa silmukan ulkopuolella.
+So, the two programs are functionally practically identical. However, the first method is often easier, as the condition `number == -1` appears only once, and the variable `number` doesn't have to be initialised outside the loop.
 
-Komentoa `break` voidaan käyttää myös silloin, kun silmukassa on annettu jokin muu ehto kuin pelkkä totuusarvo `True`. Esimerkiksi seuraava silmukka jatkuu niin kauan, kuin annettujen lukujen summa on enintään 100. Kuitenkin silmukka katkeaa myös, jos käyttäjä antaa luvun -1.
+The `break` command and a suitable condition can also be used together in a while loop. For example, the following loop is repeated as long as the sum of the numbers is at most 100, but it also stops if the user types in the number -1.
 
 ```python
-summa = 0
+sum = 0
 
-while summa <= 100:
-    luku = int(input("Anna luku, -1 lopettaa: "))
-    if luku == -1:
+while sum <= 100:
+    number = int(input("Please type in a number, -1 to exit: "))
+    if number == -1:
         break
-    summa += luku
+    sum += number
 
-print (f"Summa on {summa}")
+print (f"The sum is {sum}")
 ```
 
-Mahdollisia suorituksia:
+SOme examples of the program's execution:
 
 <sample-output>
 
-Anna luku, -1 lopettaa: **15**
-Anna luku, -1 lopettaa: **8**
-Anna luku, -1 lopettaa: **21**
-Anna luku, -1 lopettaa: **-1**
-Summa on 44
+Please type in a number, -1 to exit: **15**
+Please type in a number, -1 to exit: **8**
+Please type in a number, -1 to exit: **21**
+Please type in a number, -1 to exit: **-1**
+The sum is 44
 
 </sample-output>
 
 <sample-output>
 
-Anna luku, -1 lopettaa: **15**
-Anna luku, -1 lopettaa: **8**
-Anna luku, -1 lopettaa: **21**
-Anna luku, -1 lopettaa: **45**
-Anna luku, -1 lopettaa: **17**
-Summa on 106
+Please type in a number, -1 to exit: **15**
+Please type in a number, -1 to exit: **8**
+Please type in a number, -1 to exit: **21**
+Please type in a number, -1 to exit: **45**
+Please type in a number, -1 to exit: **17**
+The sum is 106
 
 </sample-output>
 
-Ensimmäisessä tapauksessa silmukka päättyy, koska käyttäjä antaa luvun -1. Toisessa tapauksessa silmukka päättyy, koska lukujen summa on yli 100.
+In the first example the execution of the loop stops beacuse the user types in the number -1. In the second example it stops because the sum of the numbers exceeded 100.
 
-Toisaalta voisimme toteuttaa vastaavasti toimivan silmukan myös näin:
+As always in programming, there are many ways to reach the same functionality. The following program is functionally identical to the above:
 
 ```python
-summa = 0
+sum = 0
 
 while True:
-    luku = int(input("Anna luku, -1 lopettaa: "))
-    if luku == -1:
+    number = int(input("Please type in a number, -1 to exit: "))
+    if number == -1:
         break
-    summa += luku
-    if summa > 100:
+    sum += number
+    if sum > 100:
         break
 
-print (f"Summa on {summa}")
+print (f"The sum is {sum}")
 ```
-## continue-komento
+## The continue command
 
-Komento `continue` on toinen tapa vaikuttaa silmukan suoritukseen. Kun silmukan sisällä tulee vastaan komento `continue`, hyppää suoritus välittömästi silmukan alkuun riville, jossa on silmukan ehto. Tämän jälkeen silmukan suoritus jatkuu normaalisti ehdon tarkastamisella:
+Another way to change the way a loop is executed is the `continue` command. It causes the execution of the loop to jump straight to the beginning of the loop, where the condition of the loop is. Then the execution continues normally with checking the condition:
 
 <img src="3_3.png">
 
-Esimerkiksi seuraava ohjelma laskee summaan mukaan vain luvut, jotka ovat pienempiä kuin 10. Jos luku on 10 tai suurempi, suoritus palaa silmukan alkuun eikä lukua lisätä summaan.
+For example, the following program sums up numbers from input, but it only includes the numbers which are smaller than 10. If the number is 10 or greater, the execution jumps to the beginning of the loop and the number is not added to the sum.
 
 ```python
-summa = 0
+sum = 0
 
 while True:
-    luku = int(input("Anna luku, -1 lopettaa: "))
-    if luku == -1:
+    number = int(input("Please type in a number, -1 to exit: "))
+    if number == -1:
         break
-    if luku >= 10:
+    if number >= 10:
         continue
-    summa += luku
+    sum += number
 
-print (f"Summa on {summa}")
+print (f"The sum is {sum}")
 ```
 
 <sample-output>
 
-Anna luku, -1 lopettaa: **4**
-Anna luku, -1 lopettaa: **7**
-Anna luku, -1 lopettaa: **99**
-Anna luku, -1 lopettaa: **5**
-Anna luku, -1 lopettaa: **-1**
-Summa on 16
+Please type in a number, -1 to exit: **4**
+Please type in a number, -1 to exit: **7**
+Please type in a number, -1 to exit: **99**
+Please type in a number, -1 to exit: **5**
+Please type in a number, -1 to exit: **-1**
+The sum is 16
 
 </sample-output>
 
-## Sisäkkäiset silmukat
+## Nested loops
 
-Silmukoita voidaan kirjoittaa toisten silmukoiden sisään. Esimerkiksi seuraava ohjelma kysyy käyttäjältä silmukassa luvun ja tulostaa sen avulla lukujonon toisen silmukan avulla:
+Just like `if` statements, loops can also be placed inside other loops. For example, the following program uses a loop to ask the user to input numbers. It then uses another loop inside the first one to print a countdown from the given number down to 1:
 
 ```python
 while True:
-    luku = int(input("Anna luku: "))
-    if luku == -1:
+    number = int(input("Please type in a number: "))
+    if number == -1:
         break
-    while luku > 0:
-        print(luku)
-        luku -= 1
+    while number > 0:
+        print(number)
+        number -= 1
 ```
 
 <sample-output>
 
-Anna luku: **4**
+Please type in a number: **4**
 4
 3
 2
 1
-Anna luku: **3**
+Please type in a number: **3**
 3
 2
 1
-Anna luku: **6**
+Please type in a number: **6**
 6
 5
 4
 3
 2
 1
-Anna luku: **-1**
+Please type in a number: **-1**
 
 </Sample-output>
 
-Huomaa, että kun silmukoita on sisäkkäin, komennot `break` ja `continue` vaikuttavat vain sisimpään silmukkaan. Esimerkiksi voisimme toteuttaa äskeisen ohjelman vähän eri tavalla myös näin:
+When there are nested loops, `break` and `continue` commands only affect the innermost loop which they are a part of. The previous example could also be written like this:
 
 ```python
 while True:
-    luku = int(input("Anna luku: "))
-    if luku == -1:
+    number = int(input("Please type in a number: "))
+    if number == -1:
         break
     while True:
-        if luku <= 0:
+        if number <= 0:
             break
-        print(luku)
-        luku -= 1
+        print(number)
+        number -= 1
 ```
 
-Nyt jälkimmäinen `break`-komento keskeyttää vain sisimmän silmukan, joka tulostaa lukuja, jos ehto `luku <= 0` pätee.
+Here the latter `break` command only stops the innermost loop, which is used to print the numbers. 
 
-## Silmukoiden apumuuttujat
+## More helper variables with loops
 
-Olemme jo monesti käyttäneet silmukoissa apu- tai indeksimuuttujaa, jonka arvo kasvaa tai laskee jokaisella silmukan lohkon suorituskerralla. Esimerkiksi seuraava ohjelma tulostaa parilliset luvut käyttäjän haluamaan lukuun asti:
+We've already used helper variables that increase or decrease with every iteration of a loop many times before, so the following program should look quite familiar in structure. The program prints out all even numbers above zero until a limit set by the user:
 
 ```python
-raja = int(input("Anna luku: "))
+limit = int(input("Please type in a number: "))
 i = 0
-while i < raja:
+while i < limit:
     print(i)
     i += 2
 ```
 
 <sample-output>
 
-Anna luku: **8**
+Please type in a number: **8**
 0
 2
 4
@@ -224,24 +224,24 @@ Anna luku: **8**
 
 </sample-output>
 
-Apumuuttujan `i` arvo on silmukkaan ensimmäistä kertaa mentäessä 0 ja se kasvaa jokaisella silmukan suorituskerralla kahdella.
+The helper variable `i` is set to 0 before the loop, and it increases by two with every iteration.
 
-Sisäkkäisten silmukoiden tapauksessa on tilanteita, joissa sisempi silmukka tarvitsee oman indeksimuuttujansa. Seuraava ohjelma tulostaa käyttäjän antamaan lukuun perustuvan "lukupyramidin":
+Using nested loops sometimes necessitates a separate helper variable for the inner loop. The program below prints out a "number pyramid" based on a number given by the user:
 
 ```python
-luku = int(input("Anna luku: "))
-while luku > 0:
+number = int(input("Please type in a number: "))
+while number > 0:
     i = 0
-    while i < luku:
+    while i < number:
         print(f"{i} ", end="")
         i += 1
     print()
-    luku -= 1
+    number -= 1
 ```
 
 <sample-output>
 
-Anna luku: **5**
+Please type in a number: **5**
 0 1 2 3 4
 0 1 2 3
 0 1 2
@@ -250,21 +250,21 @@ Anna luku: **5**
 
 </sample-output>
 
-Nyt sisemmässä silmukassa on käytössä apumuuttuja `i`, jonka arvo on aina sisempään silmukkaan mentäessä 0. Muuttujan `i` arvo kasvaa yhden välein, kunnes se on yhtä suuri kuin muuttujan `luku` nykyinen arvo, joka taas vähenee ulomman silmukan vuoksi kohti nollaa.
+In this program the outer loop uses the helper variable `number`, which decreases by 1 with each iteration until it reaches 0. The helper variable `i` is set to 0 just before the inner loop is entered, each time the outer loop repeats.
 
-Sisempi silmukka tulostaa apumuuttujan `i` arvot välilyönnillä eroteltuna samalle riville. Kun sisempi silmukka päättyy, tulostetaan aina rivinvaihto komennolla `print`.
+The inner loop uses the helper variable `i`, which increases by 1 with each iteration of the inner loop. The inner loop repeats until `i` is equal to `number`, and prints out each value of `i` on the same line, separated by a space character. When the inner loop finishes, the `print` command in the outer loop starts a new line.
 
-Jos et ole täysin varma, että ymmärrät esimerkkikoodin toiminnan, kokeile kopioida koodi Python Tutorin [visualisaattoriin](http://www.pythontutor.com/visualize.html#mode=edit) ja tarkastele, mitä ohjelma tulostaa ja miten muuttujien arvot vaihtuvat koodin edetessä.
+Now remember that with each iteration of the outer loop the value of `number` decreases, so the amount of times the inner loop repeats also decreases. With each repetition the line of numbers gets shorter, and thus we get the pyramid shape.
 
-<in-browser-programming-exercise name="Kertotaulut" tmcname="osa03-15b_kertotaulut">
+Nested loops can get confusing fast, but understanding the way they work is essential. You may well find the Python Tutor [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) helpful in understanding how this example works. Copy the above code into the code window of the tool and follow the formation of the printout and the changing values of the helper variables as the execution progresses.
 
-Tee ohjelma, joka kysyy käyttäjältä positiivisen kokonaisluvun. Ohjelma tulostaa esimerkkitulostuksen mukaisesti kertolaskuja lukuun asti:
+<in-browser-programming-exercise name="Multiplication" tmcname="part03-23_multiplication">
 
-Esimerkkisuorituksia:
+Please write a program which asks the user for a positive integer number. The program then prints out a list of multiplication operations until both operands reach the number given by the user. See the examples below for details:
 
 <sample-output>
 
-Anna luku: 2
+Please type in a number: 2
 1 x 1 = 1
 1 x 2 = 2
 2 x 1 = 2
@@ -274,7 +274,7 @@ Anna luku: 2
 
 <sample-output>
 
-Anna luku: 3
+Please type in a number: 3
 1 x 1 = 1
 1 x 2 = 2
 1 x 3 = 3
@@ -290,60 +290,63 @@ Anna luku: 3
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Sanojen ensimmäiset kirjaimet" tmcname="osa03-16_sanojen_ensimmaiset_kirjaimet">
+<in-browser-programming-exercise name="First letters of words" tmcname="part03-24_first_letters_of_words">
 
-Tee ohjelma, joka kysyy käyttäjältä lauseen. Ohjelma tulostaa jokaisen sanan ensimmäisen kirjaimen ruudulle omille riveilleen.
+Please write a program which asks the user to type in a sentence. The program then prints out the first letter of each word in the sentence, each on a separate line.
 
-Esimerkkisuoritus:
+An example of expected behaviour:
 
 <sample-output>
 
-Anna lause: **Vesihiisi sihisi hississä**
-V
+Please type in a sentence: **Humpty Dumpty sat on a wall**
+H
+D
 s
-h
+o
+a
+w
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Kertomat" tmcname="osa03-17_kertomat">
+<in-browser-programming-exercise name="Factorial" tmcname="part03-25_factorial">
 
-Tee ohjelma, joka kysyy käyttäjältä kokonaisluvun. Jos käyttäjä syöttää negatiivisen luvun tai nollan, ohjelman suoritus päättyy. Muuten ohjelma tulostaa luvun kertoman.
+Please write a program which asks the user to type in an integer number. If the user types in a number equal to or below 0, the execution ends. Otherwise the program prints out the factorial of the number.
 
-Kertoma lasketaan kertomalla keskenään luku ja kaikki sitä pienemmät positiiviset kokonaisluvut. Esim. luvun 5 kertoma on 1 * 2 * 3 * 4 * 5 = 120.
+The factorial of a number involves multiplying the number by all the positive integers smaller than itself. In other words, it is the product of all positive integers less than or equal to the number. For example, the factorial of 5 is 1 * 2 * 3 * 4 * 5 = 120.
 
-Esimerkkisuorituksia:
+Some examples of expected behaviour:
 
 <sample-output>
 
-Anna luku: **3**
-Luvun 3 kertoma on 6
-Anna luku: **4**
-Luvun 4 kertoma on 24
-Anna luku: **-1**
-Kiitos ja moi!
+Please type in a number: **3**
+The factorial of the number 3 is 6
+Please type in a number: **4**
+The factorial of the number 4 is 24
+Please type in a number: **-1**
+Thanks and bye!
 
 </sample-output>
 
 <sample-output>
 
-Anna luku: **1**
-Luvun 1 kertoma on 1
-Anna luku: **0**
-Kiitos ja moi!
+Please type in a number: **1**
+The factorial of the number 1 is 1
+Please type in a number: **0**
+Thanks and bye!
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Parit ympäri" tmcname="osa03-18_parit_ympari">
+<in-browser-programming-exercise name="Flip the pairs" tmcname="part03-26_flip_the_pairs">
 
-Tee ohjelma, joka tulostaa luvut 1:stä käyttäjän antamaan lukuun. Luvut on kuitenkin käännetty pareittain ympäri.
+Please write a program which asks the user to type in a number. The program then prints out all the positive integer values from 1 up to the number. However, the order of the numbers is changed so that each pair or numbers is flipped - 2 before 1, 4 before 3 and so forth. See the examples below for details.
 
 <sample-output>
 
-Anna luku: **5**
+Please type in a number: **5**
 2
 1
 4
@@ -354,7 +357,7 @@ Anna luku: **5**
 
 <sample-output>
 
-Anna luku: **6**
+Please type in a number: **6**
 2
 1
 4
@@ -366,13 +369,13 @@ Anna luku: **6**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Vuorotellen" tmcname="osa03-19_vuorotellen">
+<in-browser-programming-exercise name="Taking turns" tmcname="part03-27_taking_turns">
 
-Tee ohjelma, joka kysyy käyttäjältä luvun ja tulostaa sitten lukuja vuorotellen seuraavien esimerkkien mukaisesti.
+Please write a program which asks the user to type in a number. The program then prints out the positive integers between 1 and the number itself, alternating between the two ends of the range as in the examples below.
 
 <sample-output>
 
-Anna luku: **5**
+Please type in a number: **5**
 1
 5
 2
@@ -383,7 +386,7 @@ Anna luku: **5**
 
 <sample-output>
 
-Anna luku: **6**
+Please type in a number: **6**
 1
 6
 2
