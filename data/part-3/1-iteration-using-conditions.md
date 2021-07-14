@@ -8,7 +8,7 @@ hidden: false
 
 After this section
 
-- You will be able to create a while loop with a condition
+- You will know how to create a while loop with a condition
 - You will know what roles initialisation, condition and updating variables perform in a loop
 - You will be able to create loops with different kinds of conditions
 
@@ -16,7 +16,7 @@ After this section
 
 <text-box variant='hint' name="About the exercises on this course">
 
-Becoming a proficient programmer requires a lot of practice, sometimes even quite mechanical practice. It also requires developing problem solving skills and applying intuition. This is why there are a lot of exercises in this course. Some of them ask you to quite straightforwardly apply what you have learnt in the material, but some of them are intentionally more challenging and open-ended.
+Becoming a proficient programmer requires a lot of practice, sometimes even quite mechanical practice. It also involves developing problem solving skills and applying intuition. This is why there are a lot of exercises of different kinds on this course. Some of them ask you to quite straightforwardly apply what you have learnt in the material, but some of them are intentionally more challenging and open-ended.
 
 Some of the exercises might at first seem overwhelming, but this is nothing to worry about. None of the exercises is strictly mandatory, and in fact _only 25 % of the points in each part is required to pass the course._ You can find more details about passing the course on the page [on grading](/grading-and-exams).
 
@@ -128,72 +128,72 @@ Here, the value of the variable `number` never changes. The program is stuck in 
 
 </sample-output>
 
-<in-browser-programming-exercise name="Tulosta luvut" tmcname="osa03-00_tulosta_luvut">
+<in-browser-programming-exercise name="Print numbers" tmcname="part03-01_print_numbers">
 
-Kirjoita ohjelma, joka tulostaa silmukassa luvut kahdesta kolmeenkymmeneen kahden luvun välein. Jokainen luku tulostetaan omalle rivilleen.
+Please write a program which prints out all the even numbers between two and thirty, using a loop. Print each number on a separate line.
 
-Ohjelman tulosteen alku näytää siis tältä:
+The beginning of your output should look like this:
 
 <sample-output>
 2
 4
 6
 8
-jne...
+etc...
 </sample-output>
 
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Lähtölaskenta" tmcname="osa03-01_lahtolaskenta">
+<in-browser-programming-exercise name="Countdown" tmcname="part03-02_countdown">
 
-Korjaa tehtäväpohjassa oleva ohjelma
+The program below ahs some syntactic issues:
 
 ```python
-print("Valmiina?")
-luku = int(input("Anna luku: "))
-while luku = 0:
-print(luku)
-print("Nyt!")
+print("Are you ready?")
+number = int(input("Please type in a number: "))
+while number = 0:
+print(number)
+print("Now!")
 ```
 
-siten että se toimii seuraavasti:
+Please fix it so that it prints out the following:
 
 <sample-output>
 
-Valmiina?
-Anna luku: **5**
+Are you ready?
+Please type in a number: **5**
 5
 4
 3
 2
 1
-Nyt!
+Now!
 
 </sample-output>
 
-Älä tällä kertaa käytä `while True` -silmukkaa!
+This exercise is similar to the countdown exercise in the last section, but please don't use a `while True` loop this time round!
 
 
 </in-browser-programming-exercise>
 
-## Ehdoista tarkemmin
+## Writing conditions
 
-Silmukan ehtona voidaan käyttää mitä tahansa ehtolauseketta. Esimerkiksi seuraava ohjelma tulostaa lukuja kolmen välein niin kauan kuin luku on pienempi kuin 100 eikä se ole jaollinen 5:llä:
+Any Boolean expression or combination thereof is a valid condition in a loop. For example, the following program prints out every third number, but only as long as the number is less than 100 and not divisible by 5:
 
 ```python
-luku = int(input("Anna luku: "))
+number = int(input("Please type in a number: "))
 
-while luku < 100 and luku % 5 != 0:
-    print(luku)
-    luku += 3
+while number < 100 and number % 5 != 0:
+    print(number)
+    number += 3
 ```
 
-Kaksi esimerkkitulostusta eri syötteillä:
+Two examples of the program's execution with different inputs:
 
 <sample-output>
 
-Anna luku: **28**
+Please type in a number: **28**
 28
 31
 34
@@ -203,44 +203,44 @@ Anna luku: **28**
 
 <sample-output>
 
-Anna luku: **96**
+Please type in a number: **96**
 96
 99
 
 </sample-output>
 
-Luvun 28 kohdalla silmukka päättyy lukuun 37, koska seuraava luku 40 on jaollinen 5:llä. Luvun 96 kohdalla silmukka päättyy lukuun 99, koska seuraava luku 102 ei ole alle 100.
+When the input is 28, the loop ends with the number 37, because the next number is 40, which is divisible by 5. When the input is 96, the loop ends with the number 99, because the next number is 102, which is not less than 100.
 
-Silmukan ehtoa kirjoittaessa on tärkeä varmistua siitä, että silmukan suoritus päättyy. Esimerkiksi seuraava ohjelma on joko päättyvä tai ei-päättyvä riippuen alkuarvosta:
+Whenever you write a loop you should make sure that the execution of the loop will always end at some point. The following program either finishes or doesn't, depending on the input:
 
 ```python
-luku = int(input("Anna luku: "))
+number = int(input("Please type in a number: "))
 
-while luku != 10:
-    print(luku)
-    luku += 2
+while number != 10:
+    print(number)
+    number += 2
 ```
 
-Jos syötteenä on parillinen luku, joka on enintään 10, silmukan suoritus päättyy:
+If the input is an even number and equals 10 or less, the loop will terminate:
 
 <sample-output>
 
-Anna luku: **4**
+Please type in a number: **4**
 4
 6
 8
 
 </sample-output>
 
-Muissa tapauksissa silmukka on kuitenkin ikuinen, koska muuttuja ei koskaan saavuta arvoa 10. Tällaisia syötteitä ovat esimerkiksi 3 ja 12.
+In any other case the loop gets executed endlessly, as there is no way the variable could then ever equal 10. For example 3 or 12 are inputs that would end in an infinite loop.
 
-<in-browser-programming-exercise name="Luvut" tmcname="osa03-02_luvut">
+<in-browser-programming-exercise name="Numbers" tmcname="part03-03_numbers">
 
-Tee ohjelma, joka tulostaa kaikki käyttäjän antamaa lukua pienemmät luvut alkaen luvusta yksi.
+Please write a program which asks the user for a number The program then prints out all numbers greater than zero but smaller than the input.
 
 <sample-output>
 
-Mihin asti: **5**
+Upper limit: **5**
 1
 2
 3
@@ -248,76 +248,75 @@ Mihin asti: **5**
 
 </sample-output>
 
-Älä käytä tässä tehtävässä while-komennon ehtona arvoa `True`!
+Please don't use the value `True` as the condition of your `while` loop in this exercise!
 
 </in-browser-programming-exercise>
 
-## Lisää debuggauksesta
+## Debugging tips
 
-Hieman haastavampaa ohjelmaa, esim. seuraavaksi vuorossa olevaa tehtävää _Kahden potenssit_, koodatessa voitaisiin lähteä liikkeelle seuraavasti:
-
-```python
-asti = int(input("Mihin asti"))
-luku = 1
-while luku == asti:
-   # koodia
-```
-
-Tässä on aloitettu syötteen lukemisesta, minkä jälkeen ruvetaan miettimään silmukan lopetusehtoa sekä silmukan toimintaa.
-
-Todennäköisesti ohjelma ei ensimmäisillä kokeilukerroilla toimi halutulla tavalla ja koodia on testailtava kymmeniä tai jopa satoja kertoja ennen kuin se alkaa toimia.
-
-Koska koodi lukee syötteitä käyttäjältä, sen toiminnan kokeileminen on hidasta ja vaivalloista, koska jokaisella testauskerralla on ohjelmalle annettava näppäimistöltä käsin sen haluamat syötteet.
-
-Yksi tapa toimia on "kovakoodata" syöte aluksi:
+Imagine you are writing some slightly more complicated program, such as the one in the next exercise, _Powers of two_. The first efforts could look like this:
 
 ```python
-# kovakoodataan syötteen arvo aluksi
-asti = 8 # int(input("Mihin asti"))
-luku = 1
-while luku == asti:
-   # koodia
+limit = int(input("Upper limit:"))
+number = 1
+while number == limit:
+   # more code
 ```
 
-Kun ohjelma toimii yhdellä syötteellä, sitä on helppo kokeilla muilla kovakoodatuilla syötteillä ja lopulta lukemalla syöte käyttäjältä.
+Here the program starts with reading the input, and continues with the outline of the loop and some attempt at a condition.
 
-Vastaava kikka toimii myös kurssien tehtäviin liittyvien testien ongelmatilanteita selvitellessä. Jos testi kertoo, että ohjelmasi toimii väärin, kun syöte on vaikkapa 42, niin kovakoodataan se syötteeksi bugin etsinnän ajaksi:
+It is likely the code will not work as desired on the first try. It might have to be tested dozens or even hundreds of times before it works correctly.
+
+This bit of code always asks for input from the user, which makes testing it slow and cumbersome. Each time the program is tested, input must be typed in.
+
+One way around this in "hardcoding" the input while testing:
 
 ```python
-# testi ilmoitti että koodi toimii väärin kun syöte on 42
-asti = 42 # int(input("Mihin asti"))
-luku = 1
-while luku == asti:
-   # koodia
+# let's hardcode the input value for testing
+limit = 8 # int(input("Upper limit"))
+number = 1
+while number == limit:
+   # more code 
+```
+When the program works with the one hardcoded input, it is easy to test it with other hardcoded inputs as well. When it seems to work correctly all round, it can be tested with input from the user.
+
+This trick works with many of the tests that the exercises on this course are graded with. If the test tells you that the program works incorrectly when the input is, say, 42, that input can be hardcoded into the program while you look for the source of the bug:
+
+```python
+# the test said the program works incorrectly when the input is 42
+limit = 42 # int(input("Upper limit"))
+number = 1
+while number == limit:
+   # more code
 ```
 
-Kurssin [edellisessä osassa](/osa-2) oli jo pariinkin otteeseen puhetta tulostuskomennon avulla tapahtuvasta debuggaamisesta. Kurssin aikana vastaan tulevat ohjelmat muuttuvat koko ajan haastavammiksi ja debuggauksen tarve tulee kasvamaan entisestään. Esimerkiksi silmukoiden lopetusehtojen saaminen toimimaan kaikissa tapauksissa voi olla haastavaa.
+Print statement debugging was mentioned a few times in the [previous part](/part-2) of the course. The programs you are asked to write will become more and more challenging as the course advances. The amount of debugging you will have to do will likely increase accordingly. Common causes for bugs lie in the conditions that terminate loops; they may work correctly for some inputs and fail for others, and it is not always obvious why that is.
 
-Tulostuskomentoihin perustuva debuggaus kannattaa ottaa omaan työkalupakkiin viimeistään nyt. Kertaa tarvittaessa edellisen osan [ensimmäisessä ](/osa-2/1-ohjelmoinnin-termeja) ja [neljännessä](/osa-2/4-yksinkertainen-silmukka) luvussa olleet debuggausohjeet.
+That is why it is high time you included print statement debugging in your programming practices, if you haven't done so already. You can find debugging instructions in the [first](/part-2/1-programming terminology) and the [fourth](/part-2/4-simple_loops) section of the previous part.
 
-Tulostamisen lisäksi on olemassa muitakin debuggaukseen sopivia työkaluja. Eräs tälläinen on sivuston [Python Tutor](http://www.pythontutor.com/) tarjoama [visualisointityökalu](http://www.pythontutor.com/visualize.html#mode=edit), jonka avulla oman ohjelman koodia on mahdollista suorittaa komento komennolta havainnoiden samalla, mitä arvoja ohjelman muuttujat saavat.
+Besides print statements, there are many other tools that can be used for debugging. One of these is the [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) on the [Python Tutor](http://www.pythontutor.com/) website. The tool allows you to execute your code line by line, and also shows you the values stored in variables at each stage.
 
-Seuraavassa kuvassa Python Tutorilla visualisoidaan [edellisen osan](/osa-2/4-yksinkertainen-silmukka) debuggausmateriaalissa olevan hieman rikkinäisen koodin toimintaa:
+The slightly broken code from the debugging example in the [previous section](/part-2/4-simple_loops) is visualised with Python Tutor in the following image:
 
 <img src="3_1_0.png">
 
-Punainen nuoli kertoo, missä kohtaa ohjelman suoritus on menossa. Visualisaattori näyttää, mitä ohjelma on tulostanut ruudulle ja mitkä ovat ohjelman muuttujien arvot kullakin suorituksen hetkellä. Koodin suoritus etenee komento komennolta painiketta _Next>_ painellessa.
+The red arrow points to where the execution of the program is at the moment. The tool displays what has been printed out so far, and also shows the value each variable has at each step. The execution moves forward line by line as you press _Next_.
 
-Visualisaattorin käyttö on erittäin helppoa, koska riittää että tarkasteltava koodi kopioidaan [koodi-ikkunaan](http://www.pythontutor.com/visualize.html#mode=edit). Huomaa, että visualisaattori ei saalli ääkkösten käyttämistä muuttujien eikä funktioiden nimissä.
+All you need to do to use the visualisation tool is to copy your code and paste it into the [code window](http://www.pythontutor.com/visualize.html#mode=edit) of the tool. The tool does have some limitations compared to the version of Python used on this course. If you come across any cryptic error messages, it may be better to try some other debugging method. 
 
-Kokeneemmat ohjelmoijat tuskin käyttävät visualisaattoria koskaan, mutta aloittelijalle se voi olla oiva apuväline. Ohjelmointi ei nimittäin voi perustua tuuriin tai sattumaan. Ohjelmoijan on koko ajan tiedettävä tarkalleen, mitä muuttujien arvot ohjelman suorituksen aikana ovat. Jos muuttujien arvot eivät vastaakaan ohjelmoijan olettamaa, on tuloksena mitä suurimmalla todennäköisyydellä bugi.
+More experienced programmers are rarely heavy users of the visualisation tool, but for a beginner it can be a valuable aid. Programming as a discipline has little room for luck or chance. It is essential that a programmer understands what values are created by their code at any given moment in the execution. If the values stored in variables are not as expected, there is most likely a bug in the program.
 
-Visualisaattori ja debuggaustulostukset ovat erinomainen väline siihen, että ohjelmoija voi omin silmin varmistaa, että ohjelma todellakin toimii kuten sen olettaa toimivan.
+The visualisation tool and debugging print statements are both great ways for a programmer to see with their own eyes that a program does exactly what was expected of it.
 
-<in-browser-programming-exercise name="Kahden potenssit" tmcname="osa03-03_kahden_potenssit">
+<in-browser-programming-exercise name="Powers of two" tmcname="part03-04_powers_of_two">
 
-Tee ohjelma, joka tulostaa ensin luvun 1 ja sen jälkeen kerta toisensa jälkeen aina kaksi kertaa suuremman luvun. Ohjelma siis tulostaa luvun kaksi potensseja.
+Please write a program which asks the user to type in an upper limit. The program then prints out numbers so that each subsequent number is the previous one doubled, starting from the number 1. That is, the program prints out powers of two in order.
 
-Ohjelman suoritus päättyy, kun on tulostettu luku, joka on korkeintaan käyttäjän syötteen suuruinen. Yhtään käyttäjän syötettä suurempaa lukua ei siis tulosteta!
+The execution of the program finishes when the next number to be printed would be greater than the limit set by the user. No numbers greater than the limit should be printed.
 
 <sample-output>
 
-Mihin asti: **8**
+Upper limit: **8**
 1
 2
 4
@@ -327,7 +326,7 @@ Mihin asti: **8**
 
 <sample-output>
 
-Mihin asti: **20**
+Upper limit: **20**
 1
 2
 4
@@ -338,7 +337,7 @@ Mihin asti: **20**
 
 <sample-output>
 
-Mihin asti: **100**
+Upper limit: **100**
 1
 2
 4
@@ -349,20 +348,20 @@ Mihin asti: **100**
 
 </sample-output>
 
-Älä käytä tässä tehtävässä `while`-komennon ehtona arvoa `True`!
+Please don't use the value `True` as the condition of your `while` loop in this exercise!
 
-**Miten kahden potenssit lasketaan?** Ensimmäinen kahden potenssi on luku 1. Seuraava saadaan kertomalla 1 luvulla 2, eli se on 2. Sitä seuraava saadaan taas kertomalla edellinen kahden potenssi kahdella, eli kyseessä on 2 \* 2 eli 4, ja seuraava saadaan kertomalla kahdella 4 \* 2 eli kyseessä on 8, jne...
+**What are powers of two?** The first power of two is the number 1. The next one is 1 times 2, which is 2. The next is 2 times 2, which is 4. The next is 4 times 2, which is 8, and so forth. Each power is the sequence is multiplied by two to produce the next one.
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Luvun n potenssit" tmcname="osa03-04_luvun_n_potenssit">
+<in-browser-programming-exercise name="Powers of base n" tmcname="part03-05_powers_of_base_n">
 
-Muuta edellistä ohjelmaa siten, että käyttäjä saa määrätä kertoimen (edellisessä ohjelmassa kerroin oli aina 2), eli sen, minkä luvun potensseja ohjelma tulostaa.
+Please change the program from the previous exercise so that the user gets to input also the base which is multiplied (in the previous program the base was always 2). 
 
 <sample-output>
 
-Mihin asti: **27**
-Mikä kerroin: **3**
+Upper limit: **27**
+Base: **3**
 1
 3
 9
@@ -372,8 +371,8 @@ Mikä kerroin: **3**
 
 <sample-output>
 
-Mihin asti: **1234567**
-Mikä kerroin: **10**
+Upper limit: **1234567**
+Base: **10**
 1
 10
 100
@@ -384,116 +383,116 @@ Mikä kerroin: **10**
 
 </sample-output>
 
-Älä käytä tässä tehtävässä `while`-komennon ehtona arvoa `True`!
+Please don't use the value `True` as the condition of your `while` loop in this exercise!
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Peräkkäisten summa, versio 1" tmcname="osa03-04a_perakkaisten_summa_helpompi">
+<in-browser-programming-exercise name="The sum of consecutive numbers, version 1" tmcname="part03-06_consecutive_sum_v1">
 
-Tee ohjelma, joka laskee peräkkäisten lukujen summaa 1 + 2 + 3 + ... kunnes sen arvo on vähintään käyttäjän syöttämä luku. Ohjelma toimii seuraavasti:
+Please write a program which asks the user to type in a limit. The program then calculates the sum of consecutive numbers (1 + 2 +3 + ...) until the sum is at least equal to the limit set by the user. The program should function as follows:
 
 <sample-output>
 
-Mihin asti: **2**
+Limit: **2**
 3
 
 </sample-output>
 
 <sample-output>
 
-Mihin asti: **10**
+Limit: **10**
 10
 
 </sample-output>
 
 <sample-output>
 
-Mihin asti: **18**
+Limit: **18**
 21
 
 </sample-output>
 
-Voit olettaa, että käyttäjän antama luku on 2 tai suurempi.
+You may assume the number typed in by the user is always equal to 2 or higher.
 
 </in-browser-programming-exercise>
 
-## Merkkijonon rakentaminen paloista
+## Building strings
 
-Jo kurssin [ensimetreillä](/osa-1/2-tietoa-kayttajalta) opimme, että merkkijono on mahdollista "rakentaa" useammasta pienemmästä merkkijonosta +-operaattorin avulla. Esimerkiksi
+In the very [first week of the course](/part-1/2-information-from-the-user) we learnt that it is possible to "build" strings out of shorter strings with the `+` operator. For example, this is valid Python code:
 
 ```python
-sanat = "suo"
-sanat = sanat + ", kuokka"
-sanat = sanat + " ja python"
+words = "pride"
+words = words + ", prejudice"
+words = words + " and python"
 
-print(sanat)
+print(words)
 ```
 
 <sample-output>
 
-suo, kuokka ja python
+pride, prejudice and python
 
 </sample-output>
 
-Huomaa, että edellinen on mahdollista kirjoittaa hieman tiiviimmin operaattorin += avulla:
+The `+=` operator allows us to write this a little more compactly:
 
 ```python
-sanat = "suo"
-sanat += ", kuokka"
-sanat += " ja python"
+words = "pride"
+words += ", prejudice"
+words += " and python"
 
-print(sanat)
+print(words)
 ```
 
-Yhdistettävä merkkijonon pätkä voi olla myös f-merkkijono. Tämä saattaa olla kätevää, jos rakennettavaan merkkijonoon lisätään muuttujissa olevia arvoja. Voimme siis tehdä esim. seuraavasti:
+This also applies to f-strings, which may come in handy if values stored in variables are needed as parts of the resulting string. For example this would work:
 
 ```python
-kurssi = "Ohjelmoinnin perusteet"
-arvosana = 4
+course = "Introduction to programming"
+grade = 4
 
-lausunto = "Olet saanut "
-lausunto += f"kurssilta {kurssi} "
-lausunto += f"arvosanan {arvosana}"
+verdict = "You have received "
+verdict += f"the grade {grade} "
+verdict += f"from the course {course}"
 
-print(lausunto)
+print(verdict)
 ```
 
 <sample-output>
 
-Olet saanut kurssilta Ohjelmoinnin perusteet arvosanan 4
+You have received the grade 4 from the course Introduction to programming
 
 </sample-output>
 
-Edellisessä tehtävässä laskettiin lukujen summaa kasvattamalla sen arvoa silmukan sisällä.
+In the previous exercise you calculated the sum of consecutive numbers by always adding a new value inside a loop.
 
-Täsmälleen samalla idealla on mahdollista rakentaa myös merkkijonoa siten, että siihen lisätään yksi osa kerrallaan silmukassa...
+The exact same idea applies to strings as well: you can add new parts to a string within a loop. This technique should be useful in the following exercise.
 
-<in-browser-programming-exercise name="Peräkkäisten summa, versio 2" tmcname="osa03-05_perakkaisten_summa">
+<in-browser-programming-exercise name="The sum of consecutive numbers, version 2" tmcname="part03-07_consecutive_sum_v2">
 
-Tee edellisestä ohjelmasta hieman kehittyneempi versio, joka tulostaa lopputuloksen lisäksi myös sen miten kyseinen summa lasketaan:
-
-<sample-output>
-
-Mihin asti: **2**
-Laskettiin 1 + 2 = 3
-
-</sample-output>
+Please write a new version of the program in the previous exercise. In addition to the result it should also print out the calculation performed:
 
 <sample-output>
 
-Mihin asti: **10**
-Laskettiin 1 + 2 + 3 + 4 = 10
+Limit: **2**
+The consecutive sum: 1 + 2 = 3
 
 </sample-output>
 
 <sample-output>
 
-Mihin asti: **18**
-Laskettiin 1 + 2 + 3 + 4 + 5 + 6 = 21
+Limit: **10**
+The consecutive sum: 1 + 2 + 3 + 4 = 10
 
 </sample-output>
 
-Voit olettaa, että käyttäjän antama luku on 2 tai suurempi.
+<sample-output>
+
+Limit: **18**
+The consecutive sum: 1 + 2 + 3 + 4 + 5 + 6 = 21
+
+</sample-output>
+
+You may assume the number typed in by the user is always equal to 2 or higher.
 
 </in-browser-programming-exercise>
 

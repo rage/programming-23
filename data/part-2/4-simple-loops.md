@@ -220,7 +220,7 @@ User account created!
 
 </in-browser-programming-exercise>
 
-## Silmukka ja apumuuttujat
+## Loops and helper variables
 
 Let's make the PIN checking example a bit more realistic. This version lets the user attempt typing in a PIN only three times.
 
