@@ -8,56 +8,56 @@ hidden: false
 
 After this section
 
-- Osaat käyttää operaattoreita `+` ja `*` merkkijonojen kanssa
-- Osaat laskea merkkijonon pituuden
-- Tiedät, mitä tarkoittaa merkkijonon indeksointi
-- Osaat etsiä osajonoja merkkijonosta
+- You will be able to use the operators `+` and `*` with strings
+- You will know how to find out the legth of a string
+- You will know what is meant by string indexing
+- You will know how to look for substrings within a string
 
 </text-box>
 
-## Merkkijono-operaatiot
+## String operations
 
-Merkkijonojen yhdistäminen tapahtuu `+`-operaattorin avulla:
+Strings can be combined, or _concatenated_, with the `+` operator:
 
 ```python
-alku = "esi"
-loppu = "merkki"
-sana = alku+loppu
-print(sana)
+begin = "ex"
+end = "ample"
+word = begin+end
+print(word)
 ```
 
 <sample-output>
 
-esimerkki
+example
 
 </sample-output>
 
-Myös `*`-operaattoria voidaan käyttää merkkijonojen yhteydessä. Jos toinen operandi kertolaskussa on merkkijono ja toinen kokonaisluku, saadaan merkkijonoa monistettua annettu määrä. Esimerkiksi:
+The `*` operator can also be used with strings, when one of the operands is an integer. The string operand is then repeated the number of times specified by the integer. For example this would work:
 
 ```python
-sana = "apina"
-print(sana*3)
+word = "banana"
+print(word*3)
 ```
 
 <sample-output>
 
-apinaapinaapina
+bananabananabanana
 
 </sample-output>
 
-Silmukan ja merkkijono-operaatioiden avulla voimme tehdä ohjelman, joka piirtää pyramidin:
+Using string operations together with a loop we can write a program which draws a pyramid:
 
 ```python
-n = 10 # pyramidin kerrosten määrä
-rivi = "*"
+n = 10 # number of layers in the pyramid
+row = "*"
 
 while n > 0:
-    print(" " * n + rivi)
-    rivi += "**"
+    print(" " * n + row)
+    row += "**"
     n -= 1
 ```
 
-Ohjelman tulostus on seuraava:
+This prints out the following:
 
 ```x
           *
@@ -72,185 +72,184 @@ Ohjelman tulostus on seuraava:
  *******************
 ```
 
-Silmukassa oleva `print`-komento tulostaa rivin, jonka alussa on `n` välilyöntiä ja sitten muuttujan `rivi` sisältö. Tämän jälkeen muuttujan `rivi` loppuun lisätään kaksi tähteä ja muuttujan `n` arvo vähenee yhdellä.
+The `print` command within the loop prints a line, which begins with `n` spaces, followed by whatever is stored in the variable `row`. Then two stars are added to the end of the variable `row`, and the value of the variable `n` is decreased by 1.
 
-<in-browser-programming-exercise name="Monta jonoa" tmcname="osa03-05a_monistetut_jonot">
+<in-browser-programming-exercise name="String multiplied" tmcname="part03-08_string_multiplied">
 
-Kirjoita ohjelma, joka kysyy käyttäjältä merkkijonon ja määrän ja tulostaa sitten annettua merkkijonoa annetun määrän. Tulostuksen tulee tapahtua yhdelle riville yhteen pötköön.
+Please write a program which asks the user for a string and an amount. The program then prints out the string as many times as specified by the amount. The printout should all be on one line, with no extra spaces or symbols added.
 
-Esimerkkisuoritus:
+An example of expected behaviour:
 
 <sample-output>
 
-Anna merkkijono: **heippa**
-Anna määrä: **4**
-heippaheippaheippaheippa
+Please type in a string: **hiya**
+Please type in an amount: **4**
+hiyahiyahiyahiya
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-## Merkkijonon pituus ja indeksointi
+## The length and index of a string
 
-Funktio `len` palauttaa kokonaisluvun, joka on merkkijonon pituus merkkeinä. Esimerkiksi `len("moi")` palauttaa 3, koska merkkijonossa `moi` on 3 merkkiä.
+The function `len` returns the number of characters in a string, which is always an integer value. For example, `len("hey")` returns 3, because there are three characters in the string `hey`.
 
-Seuraava ohjelma tulostaa käyttäjän syöttämän merkkijonon "alleviivattuna" monistamalla merkkiä `-` syötteen pituuden mukaisen määrän:
+The following program asks the user for a string and then prints it "underlined" by multiplying the character `-` by the length of the input:
 
 ```python
-mjono = input("Anna merkkijono: ")
-print(mjono)
-print("-"*len(mjono))
+input_string = input("Please type in a string: ")
+print(input_string)
+print("-"*len(input_string))
 ```
 
 <sample-output>
 
-Anna merkkijono: **Moi kaikki!**
+Please type in a string: **Hi there!**
 
 <pre>
-Moi kaikki!
------------
+Hi there!
+---------
 </pre>
 
 </sample-output>
 
-Pituuteen lasketaan mukaan kaikki merkkijonossa olevat merkit, mukaan lukien välilyönnit. Esimerkiksi merkkijonon `moi moi` pituus on 7.
+The length of a string counts in all the characters in the string, including whitespace. FOr example, the length of the string `bye bye` is 7.
 
-<in-browser-programming-exercise name="Pidempi jono" tmcname="osa03-05b_pidempi_jono">
+<in-browser-programming-exercise name="The longer string" tmcname="part03-09_longer_string">
 
-Kirjoita ohjelma, joka kysyy käyttäjältä kaksi merkkijonoa ja tulostaa jonoista pidemmän (ts. sen, jossa on enemmän merkkejä). Jos jonot ovat yhtä pitkiä tulostetaan viesti "Jonot ovat yhtä pitkät"
+Please write a program which asks the user for two strings and then prints out whichever is the longer of the two - that is, whichever has the more characters. If the strings are of equal length, the program should print out "The strings are equally long".
 
-Esimerkkisuorituksia:
+Some examples of expected behaviour:
 
 <sample-output>
 
-Anna jono 1: **moi**
-Anna jono 2: **heippa**
-heippa on pidempi
+Please type in string 1: **hey**
+Please type in string 2: **hiya**
+hiya is longer
 
 </sample-output>
 
 <sample-output>
 
-Anna jono 1: **moikkelis koikkelis**
-Anna jono 2: **heipparallaa**
-moikkelis koikkelis on pidempi
+Please type in string 1: **howdy doody**
+Please type in string 2: **hola**
+howdy doody is longer
 
 </sample-output>
 
 <sample-output>
 
-Anna jono 1: **moi**
-Anna jono 2: **hei**
-Jonot ovat yhtä pitkät
+Please type in string 1: **hey**
+Please type in string 2: **bye**
+The strings are equally long
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-Yksittäinen merkkijonon merkki voidaan hakea operaattorin `[]` avulla. Operaattori kirjoitetaan merkkijonon perään, ja hakasulkeiden väliin kirjoitetaan halutun merkin _indeksi_ eli kohta merkkijonossa.
+As strings are strings of characters, any single character in a string can also be retrieved. The operator `[]` finds the character with the _index_ specified within the brackets. 
 
-Huomaa, että merkkien indeksointi alkaa nollasta: ensimmäinen merkki on indeksin 0 kohdalla, toinen indeksin 1 kohdalla jne.
+The index refers to a position in the string, counting up from zero. The first character in the string has index 0, the second character has index 1, and so forth.
 
 <img src="3_2_1.png">
 
-Esimerkiksi:
+For example, this program
 
 ```python
 
-mjono = input("Anna merkkijono: ")
-print(mjono[0])
-print(mjono[1])
-print(mjono[3])
+input_string = input("Please type in a string: ")
+print(input_string[0])
+print(input_string[1])
+print(input_string[3])
 
 ```
 
-Ohjelma tulostaa:
+would print out this:
 
 <sample-output>
 
-Anna merkkijono: **apina**
-a
-p
-n
+Please type in a string: **monkey**
+m
+o
+k
 
 </sample-output>
 
-Koska merkkijonon ensimmäinen merkki on indeksin 0 kohdalla, on viimeinen merkki vastaavasti indeksin _pituus_ – 1 kohdalla. Esimerkiksi seuraava ohjelma tulostaa merkkijonon ensimmäisen ja viimeisen merkin:
+Since the first character in a string has the index 0, the last character has the index _length - 1_. The following program prints out the first and the last characters of a string:
 
 ```python
-mjono = input("Anna merkkijono: ")
-print("Ensimmäinen: " + mjono[0])
-print("Viimeinen: " + mjono[len(mjono) - 1])
+input_string = input("Please type in a string: ")
+print("First character: " + input_string[0])
+print("Last character: " + input_string[len(input_string) - 1])
 ```
 
 <sample-output>
 
-Anna merkkijono: **testi**
-Ensimmäinen: t
-Viimeinen: i
+Please type in a string: **testing**
+First character: t
+Last character: g
 
 </sample-output>
 
-Seuraava ohjelma puolestaan käy läpi kaikki merkkijonon merkit vasemmalta oikealle silmukan avulla:
+The following program loops through all the characters in a string from first to last:
 
 ```python
-mjono = input("Anna merkkijono: ")
-kohta = 0
-while kohta < len(mjono):
-    print(mjono[kohta])
-    kohta += 1
+input_string = input("Please type in a string: ")
+index = 0
+while index < len(input_string):
+    print(input_string[index])
+    index += 1
 ```
 
 <sample-output>
 
-Anna merkkijono: **testi**
+Please type in a string: **test**
 t
 e
 s
 t
-i
 
 </sample-output>
 
-Pythonissa merkkeihin voi viitata myös alkaen merkkijonon lopusta käyttämällä negatiivisia indeksejä. Merkkijonon viimeinen merkki on indeksin -1 kohdalla, toiseksi viimeinen indeksin -2 kohdalla jne. Onkin kätevämpi kirjoittaa `mjono[-1]` kuin `mjono[len(mjono) - 1]`.
+You can also use negative indexing to access characters counting from the end of the string. The last character in a string is at index -1, the second to last character is at index -2, and so forth. You can think of `input_string[-1]` as shorthand for `input_string[len(input_string) - 1]`.
 
 <img src="3_2_2.png">
 
-Tämän avulla aiempi ohjelma voidaan toteuttaa paremmin näin:
+The example from above can be simplified with negative indexing:
 
 ```python
-mjono = input("Anna merkkijono: ")
-print("Ensimmäinen: " + mjono[0])
-print("Viimeinen: " + mjono[-1])
+input_string = input("Please type in a string: ")
+print("First character: " + input_string[0])
+print("Last character: " + input_string[-1])
 ```
 
 <sample-output>
 
-Anna merkkijono: **testi**
-Ensimmäinen: t
-Viimeinen: i
+Please type in a string: **testing**
+First character: t
+Last character: g
 
 </sample-output>
 
 ## IndexError: string index out of range
 
-Merkkijonon käsittelyssä tulee olla tarkkana indeksien kanssa. Jos viitataan merkkijonon ulkopuolelle, on seurauksena virheilmoitus _IndexError: string index out of range_:
+If you tried the above examples for yourself, you may already have come across the error message _IndexError: string index out of range_. This error appears if you try to access an index which is not present in the string.
 
 ```python
-mjono = input("Anna merkkijono: ")
-print("Kymmenes merkki: " + mjono[9])
+input_string = input("Please type in a string: ")
+print("The tenth character: " + input_string[9])
 ```
 
 <sample-output>
 
-Anna merkkijono: **ohjelmoinnin perusteet**
-Kymmenes merkki: n
+Please type in a string: **introduction to programming**
+The tenth character: i
 
 </sample-output>
 
 <sample-output>
 
-Anna merkkijono: **python**
+Please type in a string: **python**
 
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -258,75 +257,72 @@ IndexError: string index out of range
 
 </sample-output>
 
-Joskus virhetilanne johtuu ohjelmointivirheestä. Esimerkiksi merkkijonon viimeistä merkkiä tarkasteltaessa on yleistä indeksoida vahingossa yhtä liian pitkälle:
+Sometimes an indexing error error is caused by a bug in the code. For example, it is quite common to index too far when trying to access the last characters in a string:
 
 ```python
-mjono = input("Anna merkkijono: ")
-print("Viimeinen merkki: " + mjono[len(mjono)])
+input_string = input("Please type in a string: ")
+print("Last character: " + input_string[len(input_string)])
 ```
 
-Koska merkkijonojen indeksit alkavat nollasta, niin viimeinen merkki on indeksissä `len(mjono) - 1` eikä `len(mjono)`.
+Since string indexing begins at zero, the last character is at index `len(input_string) - 1`, not at `len(input_string)`.
 
-On myös tilanteita, joissa ohjelman on syytä varautua siihen, että virheen lähde on käyttäjän antama syöte:
+There are situations where the program should prepare for errors caused by input from the user:
 
 ```python
-mjono = input("Anna merkkijono: ")
-if len(mjono) > 0:
-    print("Ensimmäinen merkki: " + mjono[0])
+input_string = input("Please type in a string: ")
+if len(input_string) > 0:
+    print("First character: " + input_string[0])
 else:
-    print("Merkkijono on tyhjä eli ensimmäistä merkkiä ei ole")
+    print("The input string is empty. There is no first character")
 ```
 
-Tässä koodissa tyhjä syöte (käyttäjä painaa ainoastaan Enter) aiheuttaisi virheen, ellei koodari olisi laittaa tarkastusta tilanteen varalta.
+In the example above, if the programmer hadn't included a check for the length of the input string, a string of length zero would have caused an error. A string of length zero is also called and empty string, and here it would be achieved by just pressing Enter at the prompt.
 
-<in-browser-programming-exercise name="Lopusta alkuun" tmcname="osa03-05c_lopusta_alkuun">
+<in-browser-programming-exercise name="End to beginning" tmcname="part03-10_end_to_beginning">
 
-Kirjoita ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten merkkijonon merkit allekkain käänteisessä järjestyksessä lopusta alkuun.
+Please write a program which asks the user for a string. The program then prints out the input string in reversed order, from end to beginning. Each character should be on a separate line.
 
-Esimerkkisuoritus:
+An example of expected behaviour:
 
 <sample-output>
 
-Anna merkkijono: **heippa**
+Please type in a string: **hiya**
 a
-p
-p
+y
 i
-e
 h
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Toinen ja toiseksi viimeinen" tmcname="osa03-06_toinen_ja_toiseksi_viimeinen">
+<in-browser-programming-exercise name="Second and second to last characters" tmcname="part03-11_second_and_second_to_last">
 
-
-Tee ohjelma, joka kysyy käyttäjältä sanan ja kertoo, ovatko sen toinen ja toiseksi viimeinen merkki samoja.
+Please write a program which asks the user for a string. The program then prints out a message based on whether the second character and the second to last character are the same or not. See the examples below.
 
 <sample-output>
 
-Anna sana: **python**
-Toinen ja toiseksi viimeinen kirjain eroavat
+Please type in a string: **python**
+The second and the second to last characters are different
 
 </sample-output>
 
 <sample-output>
 
-Anna sana: **pascal**
-Toinen ja toiseksi viimeinen kirjain on a
+Please type in a string: **pascal**
+The second and the second to last characters are a
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Risuaitaviiva" tmcname="osa03-09_risuaitaviiva">
+<in-browser-programming-exercise name="A line of hashes" tmcname="part03-12_line_of_hashes">
 
-Tee ohjelma, joka piirtää käyttäjän määräämän levyisen risuaitaviivan.
+Please write a program which prints out a line of hash characters, the width of which is chosen by the user.
 
 <sample-output>
 
-Leveys: **3**
+Width: **3**
 <pre>
 ###
 </pre>
@@ -335,7 +331,7 @@ Leveys: **3**
 
 <sample-output>
 
-Leveys: **8**
+Width: **8**
 <pre>
 ########
 </pre>
@@ -344,14 +340,14 @@ Leveys: **8**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Risuaitasuorakulmio" tmcname="osa03-10_risuaitanelio">
+<in-browser-programming-exercise name="A rectangle of hashes" tmcname="part03-13_rectangle_of_hashes">
 
-Laajenna edellistä niin, että käyttäjä syöttää myös piirrettävien rivien määrän
+Please modify the previous program so that it also asks for the height, and prints out a rectangle of hash characters accordingly.
 
 <sample-output>
 
-Leveys: **10**
-Korkeus: **3**
+Width: **10**
+Height: **3**
 ##########
 ##########
 ##########
@@ -360,42 +356,42 @@ Korkeus: **3**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Alleviivaus" tmcname="osa03-11_alleviivaus">
+<in-browser-programming-exercise name="Underlining" tmcname="part03-14_underlining">
 
-Tee ohjelma, joka pyytää käyttäjältä merkkijonoja ja tulostaa kunkin merkkijonon oheisen esimerkin mukaisesti alleviivattuna. Ohjelman suoritus päättyy, kun käyttäjä syöttää tyhjän merkkijonon, eli merkkijonon jonka pituus on 0.
+Please write a program which asks the user for strings using a loop. The program prints out each string underlined as shown in the examples below. The execution ends when the user inputs an empty string - that is, just presses Enter at the prompt.
 
 <sample-output>
 
-Anna merkkijono: **Moi kaikki!**
+Please type in a string: **Hi there!**
 <pre>
-Moi kaikki!
------------
+Hi there!
+---------
 </pre>
-Anna merkkijono: **Tämä on testijono**
+Please type in a string: **This is a test**
 <pre>
-Tämä on testijono
------------------
+This is a test
+--------------
 </pre>
-Anna merkkijono: **a**
+Please type in a string: **a**
 <pre>
 a
 -
 </pre>
-Anna merkkijono:
+Please type in a string:
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Tasaus oikeaan" tmcname="osa03-12_tasaus_oikeaan">
+<in-browser-programming-exercise name="Right-aligned" tmcname="part03-15_right_aligned">
 
-Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sen niin, että tulostetuksi tulee tasan 20 merkkiä. Jos merkkijono on lyhyempi, alkuun tulee tarvittava määrä tähtiä `*`.
+Please write a program which asks the user for a string and then prints it out so that exactly 20 characters are displayed. If the input is shorter than 20 characters, the beginning of the line is filled in with `*` characters.
 
-Voit olettaa, että syötetyssä merkkijonossa on enintään 20 merkkiä.
+You may assume the input string is at most 20 characters long.
 
 <sample-output>
 
-Sana: **python**
+Please type in a string: **python**
 <pre>
 **************python
 </pre>
@@ -404,18 +400,18 @@ Sana: **python**
 
 <sample-output>
 
-Sana: **pitkämerkkijono**
+Please type in a string: **alongerstring**
 <pre>
-*****pitkämerkkijono
+*******alongerstring
 </pre>
 
 </sample-output>
 
 <sample-output>
 
-Sana: **tosipitkämerkkijono**
+Please type in a string: **averyverylongstring**
 <pre>
-*tosipitkämerkkijono
+*averyverylongstring
 </pre>
 
 </sample-output>
@@ -423,18 +419,18 @@ Sana: **tosipitkämerkkijono**
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Sanalaatikko" tmcname="osa03-13_sanalaatikko">
+<in-browser-programming-exercise name="A framed word" tmcname="part03-16_framed_word">
 
-Tee ohjelma, joka kysyy käyttäjältä sanaa ja tulostaa sanan tähtiraameihin, joissa sana on keskellä. Raamien leveys on 30 merkkiä, ja voit olettaa, että sana mahtuu raameihin.
+Please write a program which asks the user for a string and then prints out a frame of `*` characters with the word in the centre. The width of the frame should be 30 characters. You may assume the input string will always fit inside the frame.
 
-Huom! Jos sanan pituus on pariton, voit tulostaa sanan kumpaan tahansa mahdollisista keskikohdista.
+If the length of the input string is an odd number, you may print out the word in either of the two possible centre locations.
 
 <sample-output>
 
-Sana: **koe**
+Sana: **testing**
 <pre>
 ******************************
-*            koe             *
+*          testing           *
 ******************************
 </pre>
 
@@ -454,106 +450,97 @@ Sana: **python**
 </in-browser-programming-exercise>
 
 
-## Osajonot
+## Substrings and slices
 
-Merkkijonon _osajono_ muodostuu peräkkäisistä merkeistä, jotka ovat merkkijonon osana. Esimerkiksi merkkijonon `esimerkki` osajonoja ovat `esi`, `imer` ja `merkki`.
+A _substring_ of a string is a sequence of characters that forms a part of the string. For example, the string `example` contains the substrings `exam`, `amp` and `ple`, among others. In Python programming, the process of selecting substrings is usually called _slicing_, and a substring is often referred to as a _slice_. The two terms can often be used interchangeably.
 
-Voimme erottaa halutussa kohdassa olevan osajonon syntaksilla `[a:b]`, mikä tarkoittaa, että osajono alkaa kohdasta `a` ja päättyy juuri ennen kohtaa `b`. Voimme ajatella alku- ja loppukohdan merkkien vasemmalle puolelle piirretyiksi viivoiksi alla olevan kuvan mukaisesti:
+If you know the beginning and end indexes of the slice you wish to extract, you can do so with the notation `[a:b]`. This means the slice begins at the index `a` and ends at the last character before index `b` - that is, including the first, but excluding the last. You can think of the indexes as separator lines drawn on the left side of the indexed character, as illustrated in the image below:
 
 <img src="3_2_3.png">
 
-Seuraava esimerkki esittelee osajonojen hakemista:
+Let's have a closer look at some sliced strings:
 
 ```python
-mjono = "saippuakauppias"
+input_string = "presumptious"
 
-print(mjono[0:3])
-print(mjono[4:10])
+print(input_string[0:3])
+print(input_string[4:10])
 
-# jos alkukohta puuttuu, se on oletuksena 0
-print(mjono[:3])
+# if the beginning index is left out, it defaults to 0
+print(input_string[:3])
 
-# jos loppukohta puuttuu, se on oletuksena merkkijonon pituus
-print(mjono[4:])
+# if the end index is left out, it defaults to the length of the string
+print(input_string[4:])
 ```
 
 <sample-output>
 
-sai
-puakau
-sai
-puakauppias
+pre
+umptio
+pre
+umptious
 
 </sample-output>
 
-<text-box variant='hint' name='Puoliavoimet välit'>
+<text-box variant='hint' name='Half open intervals'>
 
-Merkkijonojen käsittelyssä väli `[a:b]` on _puoliavoin_ eli alkukohta `a`
-kuuluu väliin mutta loppukohta `b` ei kuulu väliin. Miksi näin?
+In Python string processing the interval `[a:b]` is _half open_, which means that the character at the beginning index `a` is included in the interval, but the character at the end index `b` is left out. Why is that?
 
-Tähän ei ole syvällistä syytä, vaan kyseessä on käytäntö, joka esiintyy
-monessa ohjelmointikielessä.
+There is no profound reason for this feature. Rather it is a convention inherited from other programming languages.
 
-Yksi etu tästä on, että osajonon pituus saadaan helposti laskettua kaavalla `b-a`.
-Toisaalta täytyy aina muistaa, että kohdassa `b` oleva merkki
-ei tule mukaan osajonoon.
+Half open intervals may feel unintuitive, but in practice they do have some advantages. For example, you can easily calculate the length of a slice with `b-a`. On the other hand, you must always remember that the character at the index `b` will not be included in the slice.
 
 </text-box>
 
-<in-browser-programming-exercise name="Osajonot 1" tmcname="osa03-07_osajonot1">
+<in-browser-programming-exercise name="Slices, part 1" tmcname="part03-17_slices_part_1">
 
-Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten kaikki sen ensimmäisestä merkistä alkavat osajonot pituusjärjestyksessä.
-
-Esimerkkitulostus:
+Please write a program which asks the user to type in a string. The program then prints out all the slices which begin with the first character, from the shortest to the longest. Have a look at the example below.
 
 <sample-output>
 
-Anna merkkijono: **testi**
+Please type in a string: **test**
 t
 te
 tes
 test
-testi
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Osajonot 2" tmcname="osa03-08_osajonot2">
+<in-browser-programming-exercise name="Slices, part 2" tmcname="part03-18_slices_part_2">
 
-Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten kaikki sen viimeiseen merkkiin päättyvät osajonot pituusjärjestyksessä.
-
-Esimerkkitulostus:
+Please write a program which asks the user to type in a string. The program then prints out all the slices which end with the last character, from the shortest to the longest. Have a look at the example below.
 
 <sample-output>
 
-Anna merkkijono: **testi**
-i
-ti
-sti
-esti
-testi
+Please type in a string: **test**
+t
+st
+est
+test
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-## Osajonon etsiminen
+## Searching for substrings
 
-Voimme tutkia `in`-operaattorin avulla, onko merkkijonossa tiettyä osajonoa.
-Lauseke `a in b` on tosi, jos merkkijonossa `b` on osajono `a`.
+The `in` operator can tell us if a string contains a particular substring. The Boolean expression `a in b` is true, if `b` contains the substring `a`.
 
-Esimerkiksi
+For example, this bit of code
 
 ```python
-mjono = "testi"
+input_string = "test"
 
-print("t" in mjono)
-print("x" in mjono)
-print("est" in mjono)
-print("ets" in mjono)
+print("t" in input_string)
+print("x" in input_string)
+print("es" in input_string)
+print("ets" in input_string)
 ```
 
+prints out the following:
+
 <sample-output>
 
 True
@@ -563,75 +550,73 @@ False
 
 </sample-output>
 
-Seuraava ohjelma antaa käyttäjän etsiä merkkijonon osajonoja:
+The program below lets the user search for substrings within a string hardcoded into the program:
 
 ```python
-mjono = "saippuakauppias"
+input_string = "perpendicular"
 
 while True:
-    osa = input("Mitä etsit? ")
-    if osa in mjono:
-        print("Löytyi")
+    substring = input("What are you looking for? ")
+    if substring in input_string:
+        print("Found it")
     else:
-        print("Ei löytynyt")
+        print("Not found")
 ```
 
 <sample-output>
 
-Mitä etsit? **kaup**
-Löytyi
-Mitä etsit? **abc**
-Ei löytynyt
-Mitä etsit? **ippu**
-Löytyi
+What are you looking for? **perp**
+Found it
+What are you looking for? **abc**
+Not found
+What are you looking for? **pen**
+Found it
 ...
 
 </sample-output>
 
-<in-browser-programming-exercise name="Löytyvätkö vokaalit" tmcname="osa03-13b_loytyvatko_vokaalit">
+<in-browser-programming-exercise name="Does it contain vowels" tmcname="part03-19_does_it_contain_vowels">
 
-Tee ohjelma, joka kysyy käyttäjältä merkkijonon ja tulostaa sitten tiedon löytyvätkö vokaalit a, e ja o merkkijonosta.
+Please write a program which asks the user to input a string. The program then prints out different messages if the string contains any of the vowels a, e, or o.
 
-Voit olettaa, että merkkijono on syötetty kokonaan pienillä kirjaimilla. Katso mallia esimerkkitulostuksesta.
-
-Esimerkkitulostus:
+You may assume the input will be in lowercase entirely. Have a look at the examples below.
 
 <sample-output>
 
-Anna merkkijono: **heippa sulle**
-a löytyy
-e löytyy
-o ei löydy
+Please type in a string: **hello there**
+a not found
+e found
+o found
 
 </sample-output>
 
 <sample-output>
 
-Anna merkkijono: **moi**
-a ei löydy
-e ei löydy
-o löytyy
+Please type in a string: **hiya**
+a found
+e not found
+o not found
 
 </sample-output>
 
 
 </in-browser-programming-exercise>
 
-Operaattori `in` palauttaa tiedon osajonon esiintymisestä, muttei tietoa siitä, _mistä_ se löytyy. Tätä varten Pythonin merkkijonoissa _metodi_ `find`, joka saa parametrikseen etsittävän osajonon ja palauttaa joko ensimmäisen indeksin, josta osajono löytyy, tai `-1`, jos osajonoa ei löydy merkkijonosta.
+The operator `in` returns a Boolean value, so it will only tell us _if_ a substring exists in a string, but it will not be useful in finding out _where_ exactly it is. The Python string method `find` can be used for this purpose. It takes the substring searched for as a parameter, and returns either the first index where it is found, or `-1` if the substring is not found within the string. 
 
-Metodia käytetään seuraavasti:
+The image below illustrates how it is used:
 
 <img src="3_2_4.png">
 
-Esimerkkejä metodin käyttämisestä:
+Some examples of how `find` is used:
 
 ```python
-mjono = "testi"
+input_string = "test"
 
-print(mjono.find("t"))
-print(mjono.find("x"))
-print(mjono.find("est"))
-print(mjono.find("ets"))
+print(input_string.find("t"))
+print(input_string.find("x"))
+print(input_string.find("es"))
+print(input_string.find("ets"))
 ```
 
 <sample-output>
@@ -643,149 +628,148 @@ print(mjono.find("ets"))
 
 </sample-output>
 
-Voimme myös laajentaa hakuohjelmaa näin:
+The above substring search example implemented with `find`:
 
 ```python
-mjono = "saippuakauppias"
+input_string = "perpendicular"
 
 while True:
-    osa = input("Mitä etsit? ")
-    kohta = mjono.find(osa)
-    if kohta >= 0:
-        print(f"Löytyi kohdasta {kohta}")
+    substring = input("What are you looking for? ")
+    index = input_string.find(substring)
+    if index >= 0:
+        print(f"Found it at the index {index}")
     else:
-        print("Ei löytynyt")
+        print("Not found")
 ```
 
 <sample-output>
 
-Mitä etsit? **kaup**
-Löytyi kohdasta 7
-Mitä etsit? **abc**
-Ei löytynyt
-Mitä etsit? **ippu**
-Löytyi kohdasta 2
+What are you looking for? **perp**
+Found it at the index 7
+What are you looking for? **abc**
+Not found
+What are you looking for? **pen**
+Found it at the index 2
 ...
 
 </sample-output>
 
-<text-box variant='hint' name='Metodi'>
+<text-box variant='hint' name='Methods'>
 
-Merkkijonon sisältä merkkijonoa etsivä `find` on siis _metodi_. Metodit ovat sukua jo meille tutuille asioille eli _funktioille_. Metodit ovatkin eräänlaisia funktioita, mutta niiden suorittama operaatio kohdistuu siihen _olioon_, jonka kautta metodia kutsutaan, eli joka esiintyy metodikutsun alussa ennen metodin nimeä. Metodin `find` tapauksessa oliona on merkkijono, jonka osajonoa etsitään.
+Above we used the string _method_ `find`. Methods work quite similarly to the _functions_ covered in the previous part. What distinguishes them from functions is that methods are always attached to the _object_ they are called on. The object is the entity named before the method in the method call. In the case of `find` the object of the method is the string where the method looks for the substring it has as a parameter.
 
 </text-box>
 
-<in-browser-programming-exercise name="Ensimmäisen osajonon haku" tmcname="osa03-13c_osajonon_haku">
+<in-browser-programming-exercise name="Find the first substring" tmcname="part03-20_find_first_substring">
 
-Tee ohjelma, joka kysyy käyttäjältä merkkijonoa ja yksittäistä merkkiä. Ohjelma tulostaa merkkijonosta löytyvän ensimmäisen kolmen merkin pituisen osajonon, jonka alkukirjain on käyttäjän syöttämä merkki. Voit olettaa, että merkkijono on vähintään kolmen merkin pituinen.
+Please write a program which asks the user to type in a string and a single character. The program then prints the first three character slice which begins with the character specified by the user. You may assume the input string is at least three characters long. The program must print out three characters, or else nothing.
 
 <sample-output>
 
-Sana: **apinatalo**
-Merkki: **a**
-api
+Please type in a word: **mammoth**
+Please type in a character: **m**
+mam
 
 </sample-output>
 
 <sample-output>
 
-Sana: **banaani**
-Merkki: **n**
-naa
+Please type in a word: **banana**
+Please type in a character: **n**
+nan
 
 </sample-output>
 
 <sample-output>
 
-Sana: **tomaatti**
-Merkki: **x**
+Please type in a word: **tomato**
+Please type in a character: **x**
 
 </sample-output>
 
 <sample-output>
 
-Sana: **python**
-Merkki: **n**
+Please type in a word: **python**
+Please type in a character: **n**
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Kaikkien osajonojen haku" tmcname="osa03-14_osajonojen_haku">
+<in-browser-programming-exercise name="Find all the substrings" tmcname="part03-21_find_all_substrings">
 
-Tee edellisestä ohjelmasta laajennettu versio, joka tulostaa _kaikki merkkijonon sisältämät kolmen merkin pituiset osajonot_, joiden alkukirjain on käyttäjän syöttämä merkki. Voit olettaa, että merkkijono on vähintään kolmen merkin pituinen.
+Please make an extended version of the previous program, which prints out _all the substrings which are at least three characters long_, and which begin with the character specified by the user. You may assume the input string is at least three characters long.
 
 <sample-output>
 
-Sana: **apinatalo**
-Merkki: **a**
-api
-ata
-alo
+Please type in a word: **mammoth**
+Please type in a character: **m**
+mam
+mmo
+mot
 
 </sample-output>
 
 <sample-output>
 
-Sana: **banaani**
-Merkki: **n**
-naa
+Please type in a word: **banana**
+Please type in a character: **n**
+nan
 
 </sample-output>
 
-**Vihje** seuraava esimerkki saattaa antaa jotain inspiraatiota eräästä tavasta miten tätä tehtävää voi lähestyä
+**Hint** the following example may give you some inspiration as to how this exercise could be tackled:
 
 ```python
-sana = input("Sana: ")
+word = input("Word: ")
 while True:
-    if len(sana) == 0:
+    if len(word) == 0:
         break
-    print(sana)
-    sana = sana[2:]
+    print(word)
+    word = word[2:]
 ```
 
 <sample-output>
 
-Sana: **apinatalo**
-apinatalo
-inatalo
-atalo
-alo
-o
+Word: **mammoth**
+mammoth
+mmoth
+oth
+h
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Toinen esiintymä" tmcname="osa03-15_toinen_esiintyma">
+<in-browser-programming-exercise name="The second occurrence" tmcname="part03-2_second_occurrence">
 
-Tee ohjelma, joka etsii merkkijonosta osajonon toisen esiintymän. Jos toista (tai edes ensimmäistä) esiintymää ei löydy, ohjelma tulostaa tästä tiedon.
+Please write a program which finds the _second_ occurrence of a substring. If there is no second (or first) occurrence, the program should print out a message accordingly.
 
-Määritellään tässä yhteydessä, että esiintymät _eivät_ voi mennä päällekkäin, merkkijonossa `aaaa` osajonon `aa` toinen esiintymä löytyy siis indeksin 2 kohdalta.
+In this exercise the occurrences _cannot_ overlap. For example, in the string `aaaa` the second occurrence of the substring `aa` is at index 2.
 
-Muutama esimerkkisuoritus:
+Some examples of expected behaviour:
 
 <sample-output>
 
-Anna merkkijono: **abcabc**
-Anna osajono: **ab**
-Osajonon toinen esiintymä on kohdassa 3.
+Please type in a string: **abcabc**
+Please type in a substring: **ab**
+The second occurrence of the substring is at index 3.
 
 </sample-output>
 
 <sample-output>
 
-Anna merkkijono: **saippuakauppias**
-Anna osajono: **a**
-Osajonon toinen esiintymä on kohdassa 6.
+Please type in a string: **methodology**
+Please type in a substring: **o**
+The second occurrence of the substring is at index 6.
 
 </sample-output>
 
 <sample-output>
 
-Anna merkkijono: **aybabtu**
-Anna osajono: **ba**
-Osajono ei esiinny merkkijonossa kahdesti.
+Please type in a string: **aybabtu**
+Please type in a substring: **ba**
+The substring does not occur twice in the string.
 
 </sample-output>
 
