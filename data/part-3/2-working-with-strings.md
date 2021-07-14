@@ -741,7 +741,7 @@ h
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="The second occurrence" tmcname="part03-2_second_occurrence">
+<in-browser-programming-exercise name="The second occurrence" tmcname="part03-22_second_occurrence">
 
 Please write a program which finds the _second_ occurrence of a substring. If there is no second (or first) occurrence, the program should print out a message accordingly.
 
