@@ -400,7 +400,7 @@ instead, the program should print out this:
 
 <in-browser-programming-exercise name="Fix the code: Print a single line" tmcname="part01-12_print_a_single_line">
 
-Each `print` command usually prints out a line of its own, complete with a change of line at the end. However, if the `print` command is given an additional parameter `end = ""`, it will not print a line change.
+Each `print` command usually prints out a line of its own, complete with a change of line at the end. However, if the `print` command is given an additional argument `end = ""`, it will not print a line change.
 
 For example:
 

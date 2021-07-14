@@ -86,15 +86,15 @@ y = 3 * x + x**2
 
 ## Function
 
-A _function_ executes some functionality. Functions can also have one or more _parameters_, which are data that can be fed to and processed by the function.
+A _function_ executes some functionality. Functions can also have one or more _arguments_, which are data that can be fed to and processed by the function. Arguments are often also referred to as _parameters_, and the difference between the two terms is not always clear. For now it should suffice to remember that both terms refer to data passed to the function.
 
-A function is executed when it is _called_. That is, when in the code the function (and its parameters, if any) are mentioned. The following code calls the `print` function with the parameter `"this is a parameter"`: 
+A function is executed when it is _called_. That is, when the function (and its arguments, if any) is mentioned in the code. The following code calls the `print` function with the argument `"this is an argument"`: 
 
 ```python
-print("this is a parameter")
+print("this is an argument")
 ```
 
-Another function you've already used often is the `input` function which asks the user for input. The parameter of this function is the message that is shown to the user:
+Another function you've already used often is the `input` function which asks the user for input. The argument of this function is the message that is shown to the user:
 
 ```python
 name = input("Please type in your name: ")

@@ -577,7 +577,7 @@ Found it
 
 <in-browser-programming-exercise name="Does it contain vowels" tmcname="part03-19_does_it_contain_vowels">
 
-Please write a program which asks the user to input a string. The program then prints out different messages if the string contains any of the vowels a, e, or o.
+Please write a program which asks the user to input a string. The program then prints out different messages if the string contains any of the vowels a, e or o.
 
 You may assume the input will be in lowercase entirely. Have a look at the examples below.
 
@@ -602,7 +602,7 @@ o not found
 
 </in-browser-programming-exercise>
 
-The operator `in` returns a Boolean value, so it will only tell us _if_ a substring exists in a string, but it will not be useful in finding out _where_ exactly it is. The Python string method `find` can be used for this purpose. It takes the substring searched for as a parameter, and returns either the first index where it is found, or `-1` if the substring is not found within the string. 
+The operator `in` returns a Boolean value, so it will only tell us _if_ a substring exists in a string, but it will not be useful in finding out _where_ exactly it is. Instead, the Python string method `find` can be used for this purpose. It takes the substring searched for as an argument, and returns either the first index where it is found, or `-1` if the substring is not found within the string. 
 
 The image below illustrates how it is used:
 
@@ -656,7 +656,7 @@ Found it at the index 2
 
 <text-box variant='hint' name='Methods'>
 
-Above we used the string _method_ `find`. Methods work quite similarly to the _functions_ covered in the previous part. What distinguishes them from functions is that methods are always attached to the _object_ they are called on. The object is the entity named before the method in the method call. In the case of `find` the object of the method is the string where the method looks for the substring it has as a parameter.
+Above we used the string _method_ `find`. Methods work quite similarly to the _functions_ covered in the previous part. What distinguishes them from functions is that methods are always attached to the _object_ they are called on. The object is the entity named before the method in the method call. In the case of `find` the object is the string where the method looks for the substring it has as an argument.
 
 </text-box>
 
