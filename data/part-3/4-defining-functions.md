@@ -9,7 +9,7 @@ hidden: false
 After this section
 
 - You will know how to write and call your own functions
-- You will understand what is meant by the parameter of a function
+- You will understand what is meant by the argument and the parameter of a function
 - You will be able to define parameters in your own functions
 
 </text-box>
