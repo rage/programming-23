@@ -74,7 +74,7 @@ ikkremise
 
 ## Varoitus: globaalin muuttujan käyttö funktion sisällä
 
-Kuten olemme nähneet, funktioiden sisällä on mahdollista määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+Funktioiden sisällä on mahdollista määritellä muuttujia, mutta tämän lisäksi funktio näkee sen ulkopuolella pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
 
 Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
 
@@ -84,7 +84,7 @@ Seuraavassa on esimerkki funktiosta, joka käyttää "vahingossa" globaalia muut
 def tulosta_vaarinpain(nimet: list):
     # käytetään vahingossa parametrin sijaan globaalia muuttujaa nimilista
     i = len(nimilista) - 1
-    while i>=0:
+    while i >= 0:
         print(nimilista[i])
         i -= 1
 
@@ -111,7 +111,7 @@ Antti
 
 Vaikka funktiota kutsutaan oikein, se tulostaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
 
-Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyäksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
+Kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyäksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
 
 ```python
 def tulosta_vaarinpain(nimet: list):
@@ -132,7 +132,7 @@ if __name__ == "__main__":
 
 Nyt myös globaalin muuttujan määrittely on siirtynyt `if`-lohkoon.
 
-TMC-testit suoritetaan aina siten, että mitään `if`-lohkoon sisällä olevaa koodia ei huomioida. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista` mitä ei testejä suoritettaessa ole ollenkaan olemassa.
+TMC-testit suoritetaan aina siten, että mitään `if`-lohkon sisällä olevaa koodia ei suoriteta. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista`, jota ei testejä suoritettaessa ole lainkaan olemassa.
 
 <programming-exercise name='Kaikki väärinpäin' tmcname='osa04-21_kaikki_vaarinpain'>
 
@@ -387,9 +387,9 @@ print(pisin_naapurijono(lista))
 
 Tämän osan huipentaa ensimmäinen hieman laajempi ohjelma, jota tehdessäsi pääset soveltamaan kaikkea tähän asti opeteltua.
 
-Sääntö numero yksi isompaa tai oikeastaan mitä tahansa ohjelmaa tehdessä on se, että ei kannata yrittää ratkaista kaikkia ongelmia yhtäaikaa. Ohjelma kannattaa rakentaa pienistä paloista, esim. sopivista apufunktioista, ja kunkin palan toimivuus kannattaa varmistaa ennen kun alkaa rakentaa seuraavaa palaa. Jos näin ei tee, on aika varmaa että edessä on suuri kaaos.
+Sääntö numero yksi isompaa tai oikeastaan mitä tahansa ohjelmaa tehdessä on se, että ei kannata yrittää ratkaista kaikkia ongelmia yhtä aikaa. Ohjelma kannattaa rakentaa pienistä paloista kuten sopivista apufunktioista, ja kunkin palan toimivuus kannattaa varmistaa ennen kun alkaa rakentaa seuraavaa palaa. Jos näin ei tee, on aika varmaa että edessä on suuri kaaos.
 
-Isompaa ohjelmaa rakentaessa on järkevintä testailla ohjelman funktioita aluksi erillään ns. "pääohjelmasta". Yksi tapa, joka tekee tämän helpoksi, on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään `main`, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää. Esim. seuraavaa tehtävää voitaisiin ruveta lähestymään näin:
+Isompaa ohjelmaa rakentaessa on järkevää testailla ohjelman funktioita aluksi erillään pääohjelmasta. Yksi helppo tapa on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään `main`, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää. Esimerkiksi seuraavaa tehtävää voitaisiin ruveta lähestymään näin:
 
 ```python
 def main():
@@ -430,11 +430,9 @@ def lue_kayttajalta(maara: int):
     print(f"Syötä {maara} lukua:")
     luvut = []
 
-    i = maara
-    while i > 0:
+    for i in range(maara):
         luku = int(input("Anna luku: "))
         luvut.append(luku)
-        i -= 1
 
     return luvut
 
@@ -476,13 +474,13 @@ Lukuja yhteensä 5, keskiarvo 11.6, pienin -53 ja suurin 99
 
 Perusperiaatteena ohjelmassa on se, että pääohjelma "tallentaa" ohjelman käsittelemän tiedon eli tässä tapauksessa käyttäjän syöttämät luvut muuttujassa `syotteet`.
 
-Jos lukuja on tarve käsitellä jossain funktiossa, ne välitetään sinne parametrina. Näin tapahtuu funktioissa `tulosta` ja `analysoi`. Jos taas funktio tuottaa tietoa, jota muut ohjelman osat tarvitsevat, palautta funktio datan `return`-komennolla. Näin tekevät käyttäjän syötteen lukeva funktio `lue_kayttajalta` sekä analyysin tekevä funktio `analysoi`.
+Jos lukuja on tarve käsitellä jossain funktiossa, ne välitetään sinne parametrina. Näin tapahtuu funktioissa `tulosta` ja `analysoi`. Jos taas funktio tuottaa tietoa, jota muut ohjelman osat tarvitsevat, palauttaa funktio datan `return`-komennolla. Näin tekevät käyttäjän syötteen lukeva funktio `lue_kayttajalta` sekä analyysin tekevä funktio `analysoi`.
 
-Olisi periaatteessa mahdollista, että funktiot käyttäisivät suoraan "pääohjelman" globaalia muuttujaa `syotteet`. Se [ei kuitenkaan ole järkevää](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil), sillä jos usea funktio pääsee sorkkimaan globaalia muuttujaa, voi ohjelmassa alkaa tapahtua jotain hallitsematonta, varsinkin kun funktioiden määrä kasvaa.
+Olisi periaatteessa mahdollista, että funktiot käyttäisivät suoraan "pääohjelman" globaalia muuttujaa `syotteet`. Se [ei kuitenkaan ole järkevää](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil), sillä jos funktiot muuttamaan globaalia muuttujaa, voi ohjelmassa alkaa tapahtua jotain hallitsematonta, varsinkin kun funktioiden määrä kasvaa.
 
 Tiedon välitys funktioihin ja niistä ulos on siis järkevintä hoitaa parametrien ja paluuarvojen avulla.
 
-Jos haluaisimme tehdä edellisen esimerkin ohjelman siten, että sen "pääohjelma" eriytettäisiin omaan funktioon `main`, siirrettäisiin ohjelman käsittelemä data pääohjelmaa edustavan funktion sisäiseksi muuttujaksi:
+Jos haluaisimme tehdä edellisen esimerkin ohjelman siten, että sen pääohjelma eriytettäisiin omaan funktioon `main`, siirrettäisiin ohjelman käsittelemä data pääohjelmaa edustavan funktion sisäiseksi muuttujaksi:
 
 ```python
 # pääohjelmaa edustava funktio

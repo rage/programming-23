@@ -13,18 +13,6 @@ Tämän osion jälkeen
 
 </text-box>
 
-<text-box variant='hint' name='Kurssin tehtävien tekemisestä'>
-
-Ohjelmointitaidon kehittyminen edellyttää vahvaa rutiinia ja myös omaa soveltavaa oivaltamista. Tämän takia kurssilla on paljon tehtäviä. Osa tehtävistä on kohtuullisen suoraviivaisesti materiaalia hyödyntäviä ja osa taas aivan tarkoituksella haastavampia soveltavia tehtäviä.
-
-Ei kannata huolestua vaikka osa kurssin tehtävistä tuntuisikin ensiyrittämällä liian vaikealta. Kaikkia tehtäviä ei ole missään nimessä pakko tehdä, kuten [arvosteluperusteet](/arvostelu-ja-kokeet) toteavat: _Kurssin läpipääsyyn vaaditaan vähintään 25% jokaisen osan ohjelmointitehtävien pisteistä._
-
-**Kurssin osien tehtävät eivät etene vaikeusjärjestyksessä.** Jokaisessa aliosassa esitellään yleensä muutama uusi konsepti, joita harjoitellaan sekä helpommilla että soveltavimmilla tehtävillä. **Jos törmäät liian haastavan tuntuiseen tehtävään, hyppää seuraavaan**. Voit palata vaikeimpiin tehtäviin osan lopuksi jos aikaa vielä jää.
-
-Lohdutuksen sanana todettakoon että tällä viikolla mahdottomalta vaikuttava tehtävä näyttää melko varmasti neljän viikon päästä melko helpolta.
-
-</text-box>
-
 Olemme tähän mennessä ohjelmoineet kaikki tehtävät kurssisivuille upotettuihin editori-ikkunoihin. Selaineditorissa tapahtuva ohjelmointi sopii hyvin kurssin alkuun, mutta siirrymme nyt käyttämään erillistä ohjelmointiin tarkoitettua editoria.
 
 Erilaisia ohjelmointiin sopivia editoreja on kymmeniä. Käytämme kurssilla viime vuosina suureen suosioon noussutta [Visual Studio Code](https://code.visualstudio.com/) -editoria.
@@ -78,9 +66,9 @@ if "visual studio code" == mjono.lower():
 
 </programming-exercise>
 
-## Huomautus koodin suorittamisesta
+## Koodin suorittaminen
 
-Visual Studio Codella koodi siis suoritetaan painamalla vihreää kolmiota. Joskus voi käydä niin, että koodisi suoritus jää kesken, esimerkiksi odottamaan käyttäjän syötettä, tai ikuiseen silmukkaan, ja siirryt jo seuraavaan tehtävään. Kun yrität suorittaa seuraavan tehtävän koodia, tuleekin esille edellisen tehtävän kesken ollut suoritus. Joissain tilanteissa joudut sammuttamaan edellisen suorituksen painamalla yhtä aikaa näppäimiä _control_ ja _c_, jotta saat suoritetuksi uuden tehtävän koodin.
+Visual Studio Codessa koodi suoritetaan painamalla vihreää kolmiota. Joskus koodisi suoritus voi jää kesken, esimerkiksi odottamaan käyttäjän syötettä tai ikuiseen silmukkaan, ja siirryt jo seuraavaan tehtävään. Kun yrität suorittaa seuraavan tehtävän koodia, tuleekin esille edellisen tehtävän kesken ollut suoritus. Joissain tilanteissa joudut sammuttamaan edellisen suorituksen painamalla yhtä aikaa näppäimiä _Control_+_C_, jotta saat suoritetuksi uuden tehtävän koodin.
 
 ## Interaktiivinen Python-tulkki
 
@@ -90,13 +78,13 @@ Komentotulkki käynnistyy antamalla komentoriviltä komento `python3` (joissain 
 
 <img src="4_1_1.png">
 
-Komentotulkki on myös mahdollista avata Visual Studio Code -editorin sisälle, ensin suorittamalla jokin ohjelma "vihreällä kolmiolla" ja sen jälkeen kirjoittamalla avautuvaan _Terminal_-näkymään `python3` (tai `python`)
+Komentotulkki on myös mahdollista avata Visual Studio Coden sisälle, ensin suorittamalla jokin ohjelma "vihreällä kolmiolla" ja sen jälkeen kirjoittamalla avautuvaan _Terminal_-näkymään `python3` (tai `python`)
 
 <img src="4_1_2.png">
 
-On olemassa myös selaimessa toimivia interaktiivisia tulkkeja, esim. <https://www.python.org/shell/>
+On olemassa myös selaimessa toimivia interaktiivisia tulkkeja, kuten <https://www.python.org/shell/>.
 
-Komentotulkki tarjoaa interaktiivisen tavan suorittaa Python-koodia rivi riviltä sitä mukaa kuin käyttäjä kirjoittaa koodia. Ideana on siis se, että käyttäjä kirjoittaa yhden koodirivin ja Python suorittaa rivin välittömästi ja näyttää rivin operaation tuloksen:
+Komentotulkki tarjoaa interaktiivisen tavan suorittaa Python-koodia rivi riviltä sitä mukaa kuin käyttäjä kirjoittaa koodia. Ideana on, että kun käyttäjä kirjoittaa rivin koodia, Python suorittaa rivin välittömästi ja näyttää rivin operaation tuloksen:
 
 <img src="4_1_3.png">
 
@@ -142,7 +130,7 @@ AttributeError: 'str' object has no attribute 'toupper'
 >>>
 ```
 
-Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi käyttää komentotulkkia ja "kysyä" funktion `dir` avulla, mitä metodeja tietyllä oliolla on:
+Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi käyttää komentotulkkia ja kysyä funktiolla `dir`, mitä metodeja tietyllä oliolla on:
 
 ```python
 >>> dir("teksti")
@@ -158,7 +146,7 @@ Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi 
 'title', 'translate', 'upper', 'zfill']
 ```
 
-Kuten näemme, merkkijonoilla on suuri määrä metodeja. Kurssin tässä vaiheessa kannattaa ehkä unohtaa alaviivoja sisältävät metodit, mutta muut voivat olla käyttökelpoisia. Osa metodien toiminnasta voi selvitä jo kokeilemalla, osan toiminta selviää helposti googlaamalla.
+Kuten näemme, merkkijonoilla on suuri määrä metodeja. Kurssin tässä vaiheessa ei kannata välittää alaviivoja sisältävistä metodeista, mutta muut voivat olla käyttökelpoisia. Osa metodien toiminnasta voi selvitä kokeilemalla, osan toiminta selviää googlaamalla.
 
 Listojen metodeista käy ilmi seuraavaa:
 
@@ -188,19 +176,19 @@ Tarjolla näyttää siis olevan mm. metodit `reverse` ja `clear`. Kokeillaan nii
 
 Metodit siis tekevät aika lailla sen, mitä nimen perusteella voi olettaa.
 
-Huomaa, että komentotulkki ei "tulosta" mitään, kun kutsutaan esim. metodia `lista.reverse()`. Mistä tämä johtuu? Komentotulkki tekee komentojen suorituksen yhteydessä tulostuksen vain, jos suoritetulla koodirivillä on jokin arvo. Edellisessä esimerkissä saatiin tulostettua listan `luvut` arvo kirjoittamalla komentotulkkiin pelkkä muuttujan nimi. Komentotulkissa ei siis useinkaan ole tarvetta kirjottaa erikseen `print`-komentoja.
+Huomaa, että komentotulkki ei näytä mitään tulosta, kun kutsutaan esim. metodia `lista.reverse()`. Mistä tämä johtuu? Komentotulkki tekee komentojen suorituksen yhteydessä tulostuksen vain, jos suoritetulla koodirivillä on jokin arvo. Edellisessä esimerkissä saatiin tulostettua listan `luvut` arvo kirjoittamalla komentotulkkiin pelkkä muuttujan nimi. Komentotulkissa ei siis useinkaan ole tarvetta kirjottaa erikseen `print`-komentoja.
 
-Tärkeä komento on `exit()`, joka sulkee komentotulkin. Erityisesti jos käytät komentotulkkia Visual Studio Codessa, se tulee muistaa sulkea, ennen kuin suoritat jonkun ohjelman uudelleen "vihreällä kolmiolla". Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
+Tärkeä komento on `exit()`, joka sulkee komentotulkin. Erityisesti jos käytät komentotulkkia Visual Studio Codessa, se tulee muistaa sulkea, ennen kuin suoritat jonkin ohjelman uudelleen"vihreällä kolmiolla. Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
 
 <img src="4_1_4.png">
 
 ## Debuggeri
 
-Muutamassa edellisessä osassa on jo korostettu debuggaustaitojen tärkeyttä ja demonstroitu tulostamalla tapahtuvaa debuggausta. Visual Studio Code -editori tarjoaa ehkä kehittyneimmän menetelmän debuggaukseen: _visuaalisen debuggerin_.
+Muutamassa edellisessä osassa on jo korostettu debuggaustaitojen tärkeyttä ja demonstroitu tulostamalla tapahtuvaa debuggausta. Visual Studio Code sisältää debuggausta varten _visuaalisen debuggerin_.
 
-Debuggaus aloitetaan määrittelemällä koodiin ns. _breakpoint_ eli kohta, johon debuggeri pysäyttää koodin suorituksen. Breakpoint asetetaan klikkaamalla hiirellä halutun koodirivin vasemmalta puolelta.
+Debuggaus aloitetaan määrittelemällä koodiin _breakpoint_ eli kohta, johon debuggeri pysäyttää koodin suorituksen. Breakpoint asetetaan klikkaamalla hiirellä halutun koodirivin vasemmalta puolelta.
 
-Seuraavassa esimerkissä breakpoint on asetettu [edellisen osan](/osa-3/1-ehdot-silmukoissa) tehtävän _Peräkkäisten summa_ erään hieman rikkinäisen ratkaisun riville 5:
+Seuraavassa esimerkissä breakpoint on asetettu [edellisen osan](/osa-3/1-ehdot-silmukoissa) tehtävän _Peräkkäisten summa_ hieman virheellisen ratkaisun riville 5:
 
 <img src="4_1_5.png">
 
@@ -214,14 +202,14 @@ Debuggeri käynnistyy ja alkaa suorittaa koodia normaaliin tapaan, kunnes se tö
 
 Vasempaan reunaan on avautunut näkymä _Variables_, joka kertoo senhetkisten muuttujien arvot. Koodia voidaan suorittaa rivi riviltä painelemalla alaspäin osoittavaa nuolta (_Step into_).
 
-Seuraavassa tilanne, kun silmukkaa on suoritettu muutamia kertoja:
+Seuraavassa tilanteessa silmukkaa on suoritettu muutamia kertoja:
 
 <img src="4_1_8.png">
 
-Debuggerin välilehti _Debug console_ mahdollistaa myös erilaisten lausekkeiden evaluoinnin debuggaushetken muuttujien arvoilla. Voidaan esimerkiksi kokeilla, mikä silmukan lopetusehdon arvo on:
+Debuggerin välilehti _Debug console_ mahdollistaa myös lausekkeiden arvojen näyttämisen debuggaushetken muuttujien arvoilla. Voidaan esimerkiksi kokeilla, mikä silmukan lopetusehdon arvo on:
 
 <img src="4_1_9.png">
 
-Ohjelmassa voi olla myös useita breakpointeja. Pysähtymisen jälkeen koodi voidaan taas käynnistää sinisellä kolmiolla (_Continue_) ja suoritus jatkuu kunnes ohjelma törmää seuraavaan breakpointiin.
+Ohjelmassa voi olla myös useita breakpointeja. Pysähtymisen jälkeen koodi voidaan taas käynnistää sinisellä kolmiolla (_Continue_) ja suoritus jatkuu, kunnes ohjelma törmää seuraavaan breakpointiin.
 
-Visuaalinen debuggeri on oivallinen työkalu. On kuitenkin osittain mieltymyksistä kiinni, mitä debuggaustekniikoita kukin käyttää. Debuggerin käynnistämisessä on pieni vaiva, joten jotkut ohjelmoijat turvautuvat useimmiten debugtulostuksiin.
+Visuaalinen debuggeri on vaihtoehto debug-tulostuksille, mutta on mieltymyksistä kiinni, mitä debuggaustekniikoita kukin ohjelmoija käyttää. On hyvä kokeilla erilaisia tapoja ja valita itselle sopiva tapa.

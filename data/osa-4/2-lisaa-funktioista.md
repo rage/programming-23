@@ -15,7 +15,7 @@ Tämän osion jälkeen
 
 </text-box>
 
-Tutustuimme edellisen osan lopussa omien funktioiden toteuttamiseen. Jatketaan funktioiden parissa. Funktioiden määrittely tapahtuu avainsanan `def` avulla:
+Funktioiden määrittely tapahtuu avainsanan `def` avulla:
 
 ```python
 def viesti():
@@ -29,7 +29,7 @@ Näin määriteltyä funktiota nimeltä `viesti` kutsutaan seuraavasti:
 viesti()
 ```
 
-Ohjelman tulostus on seuraava:
+Tällöin ohjelman tulostus on seuraava:
 
 <sample-output>
 
@@ -39,7 +39,7 @@ Tämä tulee funktiosta
 
 ## Funktion parametrit
 
-Kuten muistamme, funktiolla voi olla yksi tai useampi parametri. Parametrit määritellään suluissa funktion nimen jälkeen.
+Funktiolla voi olla yksi tai useampi parametri. Parametrit määritellään suluissa funktion nimen jälkeen.
 
 Esimerkiksi seuraavassa koodissa funktiolla `tervehdi` on yksi parametri ja funktiolla `summa` on kaksi parametria.
 
@@ -81,7 +81,7 @@ mutta monet myös käyttävät termejä sekaisin.
 
 </text-box>
 
-## Huomio testien virheilmoituksista
+## Testien virheilmoitukset
 
 Jos ohjelmasi ei toimi oikein, antavat testit enemmän tai vähemmän hyvän virheilmoituksen. Virheilmoitus kannattaa ehdottomasti lukea huolellisesti.
 
@@ -99,7 +99,7 @@ Varsinainen ongelma paljastuu, kun kokeillaan, mitä funktiokutsu tekee, eli kop
 
 <img src="4_2_0b.png">
 
-Koodin suorituksen viimeiset rivit kertovat, mikä on vikana: koodirivi numero 4 aiheuttaa virheen _IndexError: string index out of range_. Kuten [edellisessä osassa](/osa-3/2-merkkijonojen-kasittely) mainittiin, syy tälle on se, että koodissa yritetään indeksoida merkkijonon ulkopuolelle. Tällä kertaa syynä on se, että yritetään hakea nollan pituisen merkkijonon ensimmäistä merkkiä.
+Koodin suorituksen viimeiset rivit kertovat, mikä on vikana: koodin rivi 4 aiheuttaa virheen _IndexError: string index out of range_. Kuten [edellisessä osassa](/osa-3/2-merkkijonojen-kasittely) mainittiin, syy tälle on se, että koodissa yritetään indeksoida merkkijonon ulkopuolelle. Tällä kertaa syynä on se, että yritetään hakea nollan pituisen merkkijonon ensimmäistä merkkiä.
 
 <programming-exercise name='Viiva' tmcname='osa04-02_viiva'>
 
@@ -369,16 +369,16 @@ joulukuusi!
 
 ## Funktion paluuarvo
 
-Funktiot voivat myös palauttaa arvoja. Meille jo tuttu Pythonin valmis funktio `input` _palauttaa_ käyttäjän antaman syötteen. Funktion palauttama arvo voidaan esimerkiksi sijoittaa muuttujaan:
+Funktiot voivat myös palauttaa arvoja. Esimerkiksi Pythonin valmis funktio `input` _palauttaa_ käyttäjän antaman syötteen. Funktion palauttama arvo voidaan esimerkiksi sijoittaa muuttujaan:
 
 ```python
-sana = input("syötä merkkijono: ")
+sana = input("Anna sana: ")
 ```
 
 Myös kokonaislukujen lukemisessa yhdessä funktion `input` kanssa käytettävä funktio `int` palauttaa arvon:
 
 ```python
-luku = int(input("syötä kokonaisluku: "))
+luku = int(input("Anna kokonaisluku: "))
 ```
 
 Funktio `int` saa parametrinaan funktion `input` palauttaman merkkijonon ja palauttaa sen kokonaislukutyyppisenä.
@@ -428,8 +428,8 @@ def pienin(a,b):
         return a
     return b
 
-print(pienin(3,7))
-print(pienin(5,2))
+print(pienin(3, 7))
+print(pienin(5, 2))
 ```
 
 Tässä ideana on, että jos `a` on pienempi kuin `b`, niin funktio palauttaa arvon `a` ja päättyy. Muuten funktion suoritus jatkuu eteenpäin, jolloin se palauttaa arvon `b`.
@@ -448,7 +448,7 @@ def tervehdi(nimi):
     if nimi == "":
         print("???")
         return
-    print("Moikka, "+nimi)
+    print("Moikka,", nimi)
 
 tervehdi("Emilia")
 tervehdi("")

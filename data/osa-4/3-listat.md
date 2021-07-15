@@ -520,7 +520,7 @@ Listan pituus: 4
 
 ## Lista funktion parametrina ja paluuarvona
 
-Omatekemiemme funktioiden parametreina voi olla myös listoja. Seuraavassa on funktio, joka selvittää parametrina listan _mediaanin_ eli keskimmäisen alkion järjestetyssä listassa:
+Itse tekemiemme funktioiden parametreina voi olla myös listoja. Seuraavassa on funktio, joka selvittää parametrina listan _mediaanin_ eli keskimmäisen alkion järjestetyssä listassa:
 
 ```python
 def mediaani(lista: list):

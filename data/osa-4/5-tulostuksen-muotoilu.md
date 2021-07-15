@@ -87,7 +87,7 @@ ika = 39
 print(f"Hei {nimi} ikäsi on {ika} vuotta")
 ```
 
-Olemme toistaiseksi käyttäneet f-merkkijonoja niiden kaikkein yksinkertaisimmassa mudossa.F-merkkijonot tarjoavat myös erilaisia mahdollisuuksia tulostuksen muotoiluun. Yksi tavallinen käyttötapa on antaa liukuluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
+Olemme toistaiseksi käyttäneet f-merkkijonoja vain niiden yksinkertaisimmassa muodossa. F-merkkijonot tarjoavat kuitenkin monia muitakin mahdollisuuksia tulostuksen muotoiluun. Yksi tavallinen käyttötapa on antaa liukuluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
 
 ```python
 luku = 1/3
@@ -111,7 +111,7 @@ print(f"Luku on {luku:.2f}")
 Luku on 0.33
 ```
 
-Muotoiluohje `.2f` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella. Huom: kirjain _f_ kakkosen jälkeen tarkoittaa että muotoiluohje koskee desimaalilukua eli `float`-tyyppistä arvoa!
+Muotoiluohje `.2f` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella. Kirjain _f_ luvun 2 jälkeen tarkoittaa, että muotoiluohje koskee desimaalilukua eli `float`-tyyppistä arvoa!
 
 Tässä on vielä toisenlainen esimerkki, jossa tulostetaan nimiä 15 merkin levyiseen tekstialueeseen, ensin vasemmalle sisennettynä ja sen jälkeen oikealle sisennettynä:
 
@@ -128,7 +128,7 @@ Juha-Pekka      keskellä      Juha-Pekka
 Maya            keskellä            Maya
 ```
 
-Kannattaa huomata, että f-merkkijonoja voi käyttää muuallakin kuin tulostuskomennossa.Niitä voi esim. sijoittaa muuttujiin ja sekä yhdistellä normaaleihin merkkijonoihin:
+F-merkkijonoja voi käyttää muuallakin kuin tulostuskomennossa. Niitä voi esimerkiksi sijoittaa muuttujiin ja sekä yhdistellä normaaleihin merkkijonoihin:
 
 ```python
 nimi = "Pekka"
