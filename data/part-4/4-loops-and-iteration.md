@@ -1,5 +1,5 @@
 ---
-path: '/osa-4/4-loops-and-iteration'
+path: '/part-4/4-loops-and-iteration'
 title: 'Loops and iteration'
 hidden: false
 ---
