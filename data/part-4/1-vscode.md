@@ -8,61 +8,60 @@ hidden: false
 
 After this section
 
-- Osaat käyttää Visual studio Code -editoria kurssin tehtävien tekemiseen
-- Osaat suorittaa koodia interaktiivisen Python-tulkin avulla
+- You will be equipped to use the Visual Studio Code editor to complete the exercises on this course
+- You will be familiar with the interactive Python interpreter, and are able to use it to run code 
 
 </text-box>
 
-Olemme tähän mennessä ohjelmoineet kaikki tehtävät kurssisivuille upotettuihin editori-ikkunoihin. Selaineditorissa tapahtuva ohjelmointi sopii hyvin kurssin alkuun, mutta siirrymme nyt käyttämään erillistä ohjelmointiin tarkoitettua editoria.
+Thus far all exercises on this course have been completed on the course pages in embedded editor windows. Programming in the browser is very suitable for the first steps in programming, but now it is time to start using a separate editor especially made for programming.
 
-Erilaisia ohjelmointiin sopivia editoreja on kymmeniä. Käytämme kurssilla viime vuosina suureen suosioon noussutta [Visual Studio Code](https://code.visualstudio.com/) -editoria.
+There are dozens of different editors that are suited to programming. On this course we will use the [Visual Studio Code](https://code.visualstudio.com/) editor, which has been gaining traction in recent years.
 
-Asenna nyt Visual Studio Code ja kurssin tehtävien testien suorittamiseen käytettävä TMC-plugin [tämän ohjeen](https://www.mooc.fi/fi/installation/vscode) avulla.
+Please install the Visual Studio Code editor on your own computer now. You will also need the TMC plugin, which will take care of running the tests that go with the exercises. [Here is a guide](https://www.mooc.fi/en/installation/vscode) for installing both.
 
-<programming-exercise name='Hello Visual Studio Code' tmcname='osa04-01_hello_visualstudio_code'>
+<programming-exercise name='Hello Visual Studio Code' tmcname='part04-01_hello_visual_studio_code'>
 
-Tee ohjelma, joka kysyy käyttäjältä, mikä editori on käytössä. Ohjelma jatkaa, kunnes vastaus on _Visual Studio Code_.
+Please write a program which asks the user which editor they are using. The program keeps asking until the user types in _Visual Studio Code_.
 
-Seuraava käyttöesimerkki havainnollistaa ohjelman haluttua tulostusta:
-
-<sample-output>
-
-Editori: **Emacs**
-ei ole hyvä
-Editori: **Vim**
-ei ole hyvä
-Editori: **Word**
-surkea
-Editori: **Atom**
-ei ole hyvä
-Editori: **Visual Studio Code**
-loistava valinta!
-
-</sample-output>
-
-Jos käyttäjä kirjoittaa Word tai Notepad, ohjelma vastaa _surkea_. Muissa epäkelvoissa tapauksissa vastaus on _ei ole hyvä_.
-
-Ohjelman tulee toimia siten, että "oikean vastauksen" kirjoitusasu ei riipu siitä, kirjoitetaanko vastaus isoja vai pieniä kirjaimia käyttämällä:
+Have a look at the example of expected behaviour below:
 
 <sample-output>
 
-Editori: **NOTEPAD**
-surkea
-Editori: **viSUal STudiO cODe**
-loistava valinta!
+Editor: **Emacs**
+not good
+Editor: **Vim**
+not good
+Editor: **Word**
+awful
+Editor: **Atom**
+not good
+Editor: **Visual Studio Code**
+an excellent choice!
 
 </sample-output>
 
-Kirjainten koon voi jättää huomiotta esim. muuttamalla kirjaimet pieniksi merkkijonojen metodilla `lower`, jota voi käyttää seuraavasti:
+If the user types in Word or Notepad, the program counters with _awful_. Other unacceptable editor choices receive the reply _not good_.
+
+The program should be case-insensitive in its reactions. That is, the same user input in lowercase, upeprcase or a mix thereof should trigger the same reaction:
+
+<sample-output>
+
+Editor: **NOTEPAD**
+awful
+Editor: **viSUal STudiO cODe**
+an excellent choice!
+
+</sample-output>
+
+The simplest way to ensure case-insensitivity is converting all characters to the same case. The Python string method `lower` converts all characters in the string to lowercase. An example of its use:
 
 ```python
-mjono = "Visual Studio CODE"
-if "visual studio code" == mjono.lower():
-    print("merkkijono oli etsitty!")
+mystring = "Visual Studio CODE"
+if "visual studio code" == mystring.lower():
+    print("this was the string I was looking for!")
 ```
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within a `if __name__ == "__main__"` block. The same applies to any other exercise that doesn't explicitly ask for functions.
 
 </programming-exercise>
 
