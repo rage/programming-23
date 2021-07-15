@@ -86,7 +86,7 @@ y = 3 * x + x**2
 
 ## Function
 
-A _function_ executes some functionality. Functions can also have one or more _arguments_, which are data that can be fed to and processed by the function. Arguments are often also referred to as _parameters_, and the difference between the two terms is not always clear. For now it should suffice to remember that both terms refer to data passed to the function.
+A _function_ executes some functionality. Functions can also take one or more _arguments_, which are data that can be fed to and processed by the function. Arguments are sometimes also referred to as _parameters_, and the difference between the two terms is not always clear. For now it should suffice to remember that both terms refer to data passed to the function.
 
 A function is executed when it is _called_. That is, when the function (and its arguments, if any) is mentioned in the code. The following code calls the `print` function with the argument `"this is an argument"`: 
 

@@ -8,108 +8,110 @@ hidden: false
 
 After this section
 
-- Osaat luoda oman funktion ja kutsua sitä
-- Ymmärrät, mikä on funktion parametri
-- Osaat käyttää parametreja omissa funktioissa
+- You will know how to write and call your own functions
+- You will understand what is meant by the parameter of a function
+- You will be able to define parameters in your own functions
 
 </text-box>
 
-Aikaisemmissa osissa on käytetty esimerkiksi funktioita `len`, `print` ja `input` eri tarkoituksiin. Nämä ovat Pythonin sisäänrakennettuja funktioita, mutta voimme myös määritellä omia funktioita.
+We have already used functions such as `len`, `print` and `input` in our programs. These are functions built into Python, and so always ready at our disposal, no matter which environment we are programming in. However, it is also possible to define your own functions.
 
-## Funktion määrittely
+## The function definition
 
-Oma funktio määritellään avainsanalla `def` (lyhenne sanasta define). Funktiolle annetaan jokin _nimi_, jonka jälkeen on alku- ja loppusulku. Tämän jälkeen annetaan lohkossa funktioon kuuluva koodi.
+Before a function can be used, it must be defined. Any function definition begins with the keyword `def`, short for _define_. Then comes the _name_ of the function, followed by parentheses and a colon character. This is called the _header_ of the function. After this, indented just like `while` and `if` blocks, comes the _body_ of the function.
 
-Esimerkiksi seuraava koodi määrittelee funktion `viesti`:
+For example, the following code defines the function `message`:
 
 ```python
-def viesti():
-    print("Tämä on oma funktio!")
+def message():
+    print("This is my very own function!")
 ```
 
-Jos yllä oleva ohjelma suoritetaan, se ei näytä tekevän mitään. Tämä johtuu siitä, että funktion sisältämä koodi suoritetaan vasta silloin, kun funktiota _kutsutaan_.
+If the program above is executed, nothing seems to happen. This is because the code in the body of the function is only executed when the function is _called_.
 
-Funktion kutsuminen tapahtuu funktion nimellä. Esimerkiksi seuraava koodi kutsuu funktiota:
+Calling a function is as simple as mentioning its name in your code. Adding a function call to the end of the above program, like so
 
 ```python
-def viesti():
-    print("Tämä on oma funktio!")
+def message():
+    print("This is my very own function!")
 
-viesti()
+message()
+```
+results in a printed statement:
+
+<sample-output>
+
+This is my very own function!
+
+</sample-output>
+
+When a function has been defined it can be called multiple times:
+
+```python
+def message():
+    print("This is my very own function!")
+
+message()
+message()
+message()
 ```
 
 <sample-output>
 
-Tämä on oma funktio!
+This is my very own function!
+This is my very own function!
+This is my very own function!
 
 </sample-output>
 
-Samaa funktiota voidaan määrittelyn jälkeen kutsua useita kertoja.
+<text-box variant='hint' name='Testing your own functions'>
+
+NB: from now on the majority of the exercises on this course will ask you to write your own function or functions.
+
+When a program consists of only functions, executing it doesn't seem to have any effect. The following code doesn't print out anything, even though there is a print statement:
 
 ```python
-def viesti():
-    print("Tämä on oma funktio!")
-
-viesti()
-viesti()
-viesti()
+def greet():
+    print("Hi!")
 ```
 
-<sample-output>
+The reason nothing is printed out is that the code within the body of the `greet` function is only executed when the function is called.
 
-Tämä on oma funktio!
-Tämä on oma funktio!
-Tämä on oma funktio!
-
-</sample-output>
-
-<text-box variant='hint' name='Omien funktioiden testaaminen'>
-
-Huom! Tästä eteenpäin valtaosassa kurssin tehtäviä pyydetään kirjoittamaan oma funktio (tai funktioita).
-
-Kun ohjelma koostuu pelkästään funktiosta, ei sen suorittaminen näytä tekevän mitään. Esimerkiksi seuraava ohjelma ei tulosta mitään:
+The "main" program below the function should contain appropriate function calls, so that the program can be tested. In fact, Python treats all code that is not within function definitions as part of the _main function_, which gets executed when the file itself is evaluated or executed. So, lets add a function call:
 
 ```python
-def moikkaa():
-    print("Moi!")
+def greet():
+    print("Hi!")
+
+# All code not within function definitions is part of the main function of your program
+# Calling our function:
+
+greet()
 ```
 
-Funktion `moikkaa` sisällä oleva koodi suoritetaan vasta, kun funktiota kutsutaan.
-
-Funktion alla olevaan "pääohjelmaan" kannattaa siis kirjoittaa sopivia funktiokutsuja ohjelman testaamiseksi, esimerkiksi:
+**Important**: on this course the automatic tests that are run on the exercise files require that no commands are left in the main function of your solution. That is, any code that you yourself use for testing must be contained in a specially defined `if` block:
 
 ```python
-def moikkaa():
-    print("Moi!")
+def greet():
+    print("Hi!")
 
-# Pääohjelma on se ohjelman osa, joka ei ole minkään funktion sisällä
-# Kutsutaan omaa funktiota
-
-moikkaa()
-```
-
-**Tärkeä huomio**: kurssin tehtävien testit edellyttävät, että funktioita testaava pääohjelma tulee kirjoittaa seuraavasti määriteltyyn `if`-lohkoon:
-
-```python
-def moikkaa():
-    print("Moi!")
-
-# Kirjoita pääohjelma aina seuraavanlaisen lohkon sisälle
+# Write your main function within a block like this:
 if __name__ == "__main__":
-    moikkaa()
+    greet()
 ```
 
-Lohkon ulkopuolelle jätetty testikoodi aiheuttaa seuraavan virheilmoituksen:
+Any code left outside the above block causes an error:
 
 <img src="3_4_1.png">
 
-Kannattaa myös huomata, että testit eivät suorita `if __name__ == "__main__"` -lohkon sisälle kirjoitettua koodia eikä sinne tule sijoittaa tehtävien edellyttämää koodia.
+The purpose of this is to make sure that your solution gets tested on a clean slate, as the tests often check what your functions print out. It is worth noting that the tests will not execute any code from within the `if __name__ == "__main__"` block, so no code that is needed to fulfil the requirements of the exercise should be placed within the block.
 
 </text-box>
 
-<in-browser-programming-exercise name="Seitsemän veljestä" tmcname="osa03-21_seitseman_veljesta">
+<in-browser-programming-exercise name="Seven Brothers" tmcname="part03-28_seven_brothers">
 
-Tee funktio `seitseman_veljesta` jonka kutsuminen tulostaa seitsemän veljeksen nimet aakkosjärjestyksessä:
+Please write a function named `seven_brothers`. When the function is called, it should print out the names of the seven brothers in alphabetical order, as in the example below. See the [similarly named exercise in part 1](/part-1/1-getting-started#programming-exercise-fix-the-code-seven-brothers) for more details about the brothers.
+
 
 <sample-output>
 
@@ -125,75 +127,79 @@ Tuomas
 
 </in-browser-programming-exercise>
 
-## Funktion parametri
+## Function arguments
 
-Usein funktiolla on yksi tai useampi _parametri_, jolla sen toimintaan voi vaikuttaa. Esimerkiksi Pythonin valmiissa funktioissa `print` ja `input` parametrin avulla annetaan näytettävä teksti:
-
-```python
-print("Hei!")                     # parametrina merkkijono "Hei!"
-nimi = input("Kerro nimesi: ")    # parametrina merkkijono "Kerro nimesi: "
-print(nimi)                       # parametrina muuttujan nimi arvo
-```
-
-Voimme määritellä parametreja myös omille funktioillemme. Parametrit määritellään funktion nimen jälkeen olevien sulkujen sisällä:
+Functions often take one or more _arguments_, which may affect what the function does. For example, the built-in Python functions `print` and `input` take the text that is displayed as an argument:
 
 ```python
-def tervehdi(kohde):
-    print("Hei", kohde)
+print("Hi!")                           # argument is the string "Hi!"
+name = input("What is your name? ")    # argument is the string "What is your name? "
+print(name)                            # argument is the value of the variable name
 ```
 
-Jos funktiota kutsutaan kaksi kertaa
+It was mentioned before that the terms _argument_ and _parameter_ are used to refer to the same thing. The distinction is that while _argument_ is used with the data passed to the function when the function is called, _inside_ the function the arguments are assigned to variables called _parameters_. So, approximately, when the function is called, we call the passed bits of data arguments, but when we are defining a function, we call them parameters. 
+
+This may seem like a futile semantic distintion, and to make things even muddier, not all sources follow this definition. On this course we attempt to keep the distinction clear, however, as knowing the correct terminology will help you understand other sources besides this course material.
+
+Let's define some functions that take arguments. In the function definition, the parameters are defined within the parentheses after the function name:
 
 ```python
-tervehdi("Emilia")
-tervehdi("maailma!")
+def hello(target):
+    print("Hello", target)
 ```
 
-tulostaa se kaksi erilaista tervehdystä:
+Calling this function twice, like so
+
+```python
+hello("Emily")
+hello("world!")
+```
+
+prints out two different greetings:
 
 <sample-output>
 
-Hei Emilia
-Hei maailma!
+Hello Emily
+Hello world!
 
 </sample-output>
 
-Katsotaan funktion määrittelyä vielä tarkemmin:
+Let's take a closer look at the function definition:
 
 ```python
-def tervehdi(kohde):
-    print("Hei", kohde)
+def hello(target):
+    print("Hello", target)
 ```
 
-Määrittelimme ensimmäisellä rivillä, että funktion parametri on nimeltään `kohde`. Toisella rivillä `print`-komento käyttää parametrissa `kohde` olevaa arvoa.
+On the first line, in the function header, we defined that this function takes an argument, and assigns it to a parameter named `target`. In the body of the function the `print` command uses the value stored in `target`.
 
-Kun funktiota kutsutaan, saa parametri _funktiokutsussa_ annettavan arvon. Esimerkiksi kun kutsutaan
+When the function is called, the parameter is set to the value of the argument used in the function call. For example, the following function call
 
 ```python
-nimi = "Antti"
-tervehdi(nimi)
+name = "Alan"
+hello(name)
 ```
 
-niin parametrin `kohde` arvo funktiossa on merkkijono `Antti`.
+causes the parameter `target` to be set to the value `"Alan"`. 
 
-Funktioiden ja parametrien nimeämistä koskevat samat periaatteet kuin mitä olemme jo aiemmin käsitelleet, eli nimien kannattaa olla kuvaavia ja käytössä ovat ensisijaisesti pienet kirjaimet sekä alaviiva.
+The names of functions and their parameters follow the same principles as the names of variables. They should be descriptive, and contain primarily lowercase letters and underscore characters.
 
-<in-browser-programming-exercise name="Ensimmäinen merkki" tmcname="osa03-22_ensimmainen_merkki">
+<in-browser-programming-exercise name="The first character" tmcname="part03-29_first_character">
 
-Täydennä koodipohjassa oleva funktio `ensimmainen` siten, että se tulostaa parametrinaan saamansa merkkijonon ensimmäisen merkin.
+The exercise contains the outline of the function `first_character`. Please complete it so that it prints out the first character of the string it takes as its argument.
 
 ```python
-def ensimmainen(merkkijono):
-     # kirjoita koodia tähän
+def first_character(text):
+     # write your code here
 
-# kokeillaan funktiota:
+# testing the function:
 if __name__ == "__main__":
-    ensimmainen('python')
-    ensimmainen('yhtälö')
-    ensimmainen('tieto')
-    ensimmainen('huominen')
-    ensimmainen('omena')
-    ensimmainen('nukkumaanmenoaika')
+    first_character('python')
+    first_character('yellow')
+    first_character('tomorrow')
+    first_character('heliotrope')
+    first_character('open')
+    first_character('night')
 ```
 
 <sample-output>
@@ -209,133 +215,133 @@ n
 
 </in-browser-programming-exercise>
 
-<text-box variant='hint' name='Omien funktioiden testaaminen: parametrit'>
+<text-box variant='hint' name='Testing your functions with arguments'>
 
-Kun omassa funktiossa on määritelty yksi tai useampia parametreja, kannattaa funktiota testata usealla erilaisella parametrilla.
+Whenever your functions take one or more arguments, it is recommended to test the functions with various different arguments.
 
-Kannattaa erityisesti miettiä, toimivatko myös "erikoistapaukset": mitä funktio esimerkiksi tekee, jos sille annetaan negatiivinen luku tai liukuluku kokonaisluvun sijasta.
+Pay special heed to "special cases" specific to the type of argument you are using. How will your function behave if the argument is a negative number, or a floating point numbers instead of an integer? What happens if the argument is an empty string?
 
-Jos tehtävänannossa ei ole erityisesti käsketty kirjoittamaan tiettyjä funktiokutsuja, voit vapaasti lisätä omia kutsujasi pääohjelmaan ja testit jättävät nämä huomiotta.
+If the assignment doesn't explicitly specify function calls, you may freely include your own inside the main function, which the tests will ignore.
 
 </text-box>
 
-## Lisää esimerkkejä
+## More examples
 
-Katsotaan vielä pari muuta esimerkkiä parametrien käyttämisestä. Seuraavassa funktiossa parametri on luku:
+Let's have a look at some more examples of functions which take arguments. In the following function definition the parameter is a number:
 
 ```python
-def nelio(x):
-    print(f"Luvun {x} neliö on {x * x}")
+def squared(x):
+    print(f"The square of the number {x} is {x * x}")
 
-nelio(2)
-nelio(5)
+squared(2)
+squared(5)
 ```
 
 <sample-output>
 
-Luvun 2 neliö on 4
-Luvun 5 neliö on 25
+The square of the number 2 is 4
+The square of the number 5 is 25
 
 </sample-output>
 
-Seuraavassa esimerkissä funktion sisällä on ehtorakenne:
+In this function definition there is an `if` statement within the body of the function:
 
 ```python
-def tervehdi(nimi):
-    if nimi == "Emilia":
-        print("Heippa,", nimi)
+def hello(name):
+    if name == "Emily":
+        print("Hello", name)
     else:
-        print("Moikka,", nimi)
+        print("Hi", name)
 
-tervehdi("Emilia")
-tervehdi("Matti")
+hello("Emily")
+hello("Mark")
 ```
 
 <sample-output>
 
-Heippa, Emilia
-Moikka, Matti
+Hello Emily
+Hi Mark
 
 </sample-output>
 
-Seuraavassa funktiossa puolestaan on kaksi parametria:
+This function takes two arguments:
 
 ```python
-def summa(x, y):
-    tulos = x + y
-    print(f"Parametrien {x} ja {y} summa on {tulos} ")
+def sum(x, y):
+    result = x + y
+    print(f"The sum of the arguments {x} and {y} is {result} ")
 
-summa(1, 2)
-summa(5, 24)
+sum(1, 2)
+sum(5, 24)
 ```
 
 <sample-output>
 
-Parametrien 1 ja 2 summa on 3
-Parametrien 5 ja 24 summa on 29
+The sum of the arguments 1 and 2 is 3
+The sum of the arguments 5 and 24 is 29
 
 </sample-output>
 
-Funktio myös määrittelee "apumuuttujan" _tulos_, mihin se sijoittaa parametriensa summan.
+The function also uses the helper variable `result`, which it uses to store the sum of its arguments.
 
-Huomaa, että parametrien nimillä ei ole mitään tekemistä funktion ulkopuolella olevien muuttujien kanssa. Esimerkiksi jos kutsumme äskeistä funktiota
+Notice how the names of the parameters within the function definition have no relation to any variables outside it. We might just as well call the above function like this:
 
 ```python
 x = 100
 y = 30
-summa(1, 2)
-summa(x + y, 10)
+sum(1, 2)
+sum(x + y, 10)
 ```
 
-niin tuloksena on:
+This should print out 
 
 <sample-output>
 
-Parametrien summa on 3
-Parametrien summa on 140
+The sum of the arguments 1 and 2 is 3
+The sum of the arguments 130 and 10 is 140
 
 </sample-output>
 
-Ensimmäisessä kutsussa parametrien arvot funktion sisällä ovat `x = 1` ja `y = 2`, ja toisessa kutsussa arvot ovat `x = 130` ja `y = 10`.
+In the first function call the parameters are assigned the values `x = 1` and `y = 2`. In the second function call they are assigned the values `x = 130` and `y = 10`, regardless of the similarly named variables used in the function call.
 
-Palaamme funktioihin ja parametrien määrittelyyn tarkemmin seuraavan osan alussa.
+We will come back to function definitions in the beginning of the next part of the course.
 
-## Varoitus: globaalin muuttujan käyttö funktion sisällä
+## Warning: using global variables within functions
 
-Kuten olemme nähneet, funktioiden sisällä on mahdollista määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+In the examples above we saw that it is possible to assign new variables within function definitions. The function can also see variables assigned outside it, in the main function. Such variables are called _global_ variables.
 
-Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
+Using global variables from within functions is usually a bad idea. Among other issues, doing that may cause bugs that are difficult to trace.
 
-Seuraavassa on esimerkki funktiosta, joka käyttää "vahingossa" globaalia muuttujaa:
+Below is an example of a function that uses a global variable "by mistake":
 
 ```python
-# globaali muuttuja
-nimi = "Emilia"
+# this is a global variable
+name = "Betty"
 
-def tervehdi(etunimi):
-    # tulostetaan vahingossa parametrin sijaan globaalin muuttujan arvo
-    print("Hei", nimi)
+def hello(given_name):
+    # using the global variable instead of the parameter by mistake
+    print("Hello", name)
 
-tervehdi("Antti")
-tervehdi("Emilia")
+hello("Steve")
+hello("Betty")
 ```
 
 <sample-output>
 
-Hei Emilia
-Hei Emilia
+Hello Betty
+Hello Betty
 
 </sample-output>
 
-Vaikka funktiota kutsutaan oikein, se tulosaa aina globaalissa muuttujassa olevan nimen _Emilia_.
+No matter how many different arguments we call the function with, it will always print out the value `"Betty"` stored in the global variable.
 
-<in-browser-programming-exercise name="Keskiarvo" tmcname="osa03-25_keskiarvo">
+<in-browser-programming-exercise name="Mean" tmcname="part03-30_mean">
 
-Tee funktio `keskiarvo`, joka saa parametrina kolme kokonaislukua. Funktio tulostaa parametriensa keskiarvon.
+Please write a function named `mean`, which takes three integer arguments. The function should print out the arithmetic mean of the three arguments.
 
 ```python
-keskiarvo(5, 3, 1)
-keskiarvo(10, 1, 1)
+mean(5, 3, 1)
+mean(10, 1, 1)
 ```
 
 <sample-output>
@@ -347,43 +353,43 @@ keskiarvo(10, 1, 1)
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Monta tulostusta" tmcname="osa03-24_monta_tulostusta">
+<in-browser-programming-exercise name="Print many times" tmcname="part03-31_print_many_times">
 
-Tee funktio `tulosta_monesti(merkkijono, kertaa)`, joka saa parametriksi merkkijonon sekä kokonaisluvun, joka kertoo, montako kertaa funktion tulee tulostaa parametrina saamansa merkkijono:
+Please write a function named `print_many_times(text, times)`, which takes a string and an integer as arguments. The integer argument specifies how many times the string argument should be printed out:
 
 ```python
-tulosta_monesti("hei", 5)
+print_many_times("hi", 5)
 
 print()
 
-merkkijono = "Alussa olivat suo, kuokka ja Python"
-kertaa = 3
-tulosta_monesti(merkkijono, kertaa)
+text = "All Pythons, except one, grow up"
+times = 3
+print_many_times(text, times)
 ```
 <sample-output>
 
-hei
-hei
-hei
-hei
-hei
+hi
+hi
+hi
+hi
+hi
 
-Alussa olivat suo, kuokka ja Python.
-Alussa olivat suo, kuokka ja Python.
-Alussa olivat suo, kuokka ja Python.
+All Pythons, except one, grow up.
+All Pythons, except one, grow up.
+All Pythons, except one, grow up.
 
 </sample-output>
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Risuneliö" tmcname="osa03-23_risunelio">
+<in-browser-programming-exercise name="A square of hashes" tmcname="part03-32_square_of_hashes">
 
-Tee funktio `risunelio(pituus)` joka saa parametriksi kokonaisluvun, joka kertoo kuinka suuri risuneliö funktion pitää tulostaa:
+Please write a function named `hash_square(length)`, which takes an integer argument. The function prints out a square of hash characters, and the argument specifies the length of the side of the square.
 
 ```python
-risunelio(3)
+hash_square(3)
 print()
-risunelio(5)
+hash_square(5)
 ```
 
 <sample-output>
@@ -404,14 +410,14 @@ risunelio(5)
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Shakkilauta" tmcname="osa03-26_shakkilauta">
+<in-browser-programming-exercise name="Chessboard" tmcname="part03-33_chessboard">
 
-Tee funktio `shakkilauta`, joka tulostaa shakkilaudan numeroista 0 ja 1 alla olevien esimerkkien mukaisesti.
+Please write a function named `chessboard`, which prints out a chessboard made out of ones and zeroes. The function takes an integer argument, which specifies the length of the side of the board. See the examples below for details:
 
 ```python
-shakkilauta(3)
+chessboard(3)
 print()
-shakkilauta(6)
+chessboard(6)
 ```
 
 <sample-output>
@@ -434,14 +440,14 @@ shakkilauta(6)
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Sananeliö" tmcname="osa03-27_sananelio">
+<in-browser-programming-exercise name="A word squared" tmcname="part03-34_word_squared">
 
-Tee funktio `nelio`, joka tulostaa sananeliön alla olevien esimerkkien mukaisesti.
+Please write a function named `squared`, which takes a string argument and an integer argument, and prints out a square of characters as specified by the examples below.
 
 ```python
-nelio("ab", 3)
+squared("ab", 3)
 print()
-nelio("aybabtu", 5)
+squared("aybabtu", 5)
 ```
 
 <sample-output>
