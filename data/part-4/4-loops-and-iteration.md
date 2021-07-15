@@ -1,6 +1,6 @@
 ---
-path: '/osa-4/4-silmukat-ja-iterointi'
-title: 'Silmukat ja iterointi'
+path: '/osa-4/4-loops-and-iteration'
+title: 'Loops and iteration'
 hidden: false
 ---
 

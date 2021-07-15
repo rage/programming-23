@@ -1,6 +1,6 @@
 ---
-path: '/osa-4/5-tulostuksen-muotoilu'
-title: Tulostuksen muotoilu
+path: '/part-4/5-print-statement-formatting'
+title: Print statement formatting
 hidden: false
 ---
 

@@ -1,6 +1,6 @@
 ---
-path: '/osa-4/2-lisaa-funktioista'
-title: 'Lisää funktioista'
+path: '/part-4/2-more-functions'
+title: 'More functions'
 hidden: false
 ---
 

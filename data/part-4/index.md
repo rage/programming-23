@@ -1,6 +1,6 @@
 ---
-path: '/osa-4'
-title: 'Osa 4'
+path: '/part-4'
+title: 'Part 4'
 overview: true
 hidden: false
 ---

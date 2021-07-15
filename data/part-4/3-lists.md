@@ -1,6 +1,6 @@
 ---
-path: '/osa-4/3-listat'
-title: 'Listat'
+path: '/part-4/3-lists'
+title: 'Lists'
 hidden: false
 ---
 

@@ -1,6 +1,6 @@
 ---
-path: '/osa-4/6-lisaa-rakenteista'
-title: 'Lisää merkkijonoista ja listoista'
+path: '/part-4/6-strings-and-lists'
+title: 'More strings and lists'
 hidden: false
 ---
 

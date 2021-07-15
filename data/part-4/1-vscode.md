@@ -1,6 +1,6 @@
 ---
-path: '/osa-4/1-vscode'
-title: 'Visual Studio Code -editori, Python-tulkki ja debuggeri'
+path: '/part-4/1-vscode'
+title: 'The Visual Studio Code editor, Python interpreter and debugging tool'
 hidden: false
 ---
 
