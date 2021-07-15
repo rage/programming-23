@@ -4,9 +4,9 @@ title: Tulostuksen muotoilu
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, miten `print`-komennon tulostusta saa muokattua parametrien avulla
 - Osaat käyttää f-merkkijonoja tulosteen muotoilussa
@@ -167,5 +167,7 @@ print(lista2)
 </sample-output>
 
 </programming-exercise>
+
+A quiz to review the contents of this section:
 
 <quiz id="90d650f3-fde1-5132-ade9-73f3b4bf6189"></quiz>

@@ -4,9 +4,9 @@ title: 'Lisää merkkijonoista ja listoista'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tunnet lisää tapoja erottaa osia merkkijonosta tai listasta
 - Ymmärrät, mitä tarkoittaa merkkijonon muuttumattomuus
@@ -588,9 +588,10 @@ Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä. -->
 
 </programming-exercise>
 
+A quiz to review the contents of this section:
 
 <quiz id="925f1715-d762-5e44-a812-be13bff1aa44"></quiz>
 
-Vastaa lopuksi osion loppukyselyyn:
+Please respond to a quick questionnaire on this week's materials. 
 
 <quiz id="af22017f-32f0-551f-9756-297208f5de1a"></quiz>

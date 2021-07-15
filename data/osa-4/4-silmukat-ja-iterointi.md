@@ -4,9 +4,9 @@ title: 'Silmukat ja iterointi'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, mitä tarkoitetaan iteroinnilla
 - Tiedät, miten `for`-silmukka toimii
@@ -506,5 +506,7 @@ print(tulos) # ['emilia', 'juhani']
 ```
 
 </programming-exercise>
+
+A quiz to review the contents of this section:
 
 <quiz id="b1a91143-3137-5833-a771-6801f541a43b"></quiz>
