@@ -217,11 +217,11 @@ n
 
 <text-box variant='hint' name='Testing your functions with arguments'>
 
-Whenever your functions take one or more arguments, it is recommended to test the functions with various different arguments.
+Whenever your function takes one or more arguments, it is recommended to test it with various different arguments.
 
-Pay special heed to "special cases" specific to the type of argument you are using. How will your function behave if the argument is a negative number, or a floating point numbers instead of an integer? What happens if the argument is an empty string?
+Pay special heed to "special cases" specific to the type of argument you are using. How will your function behave if the argument is zero or a negative number, or a floating point number instead of an integer? What happens if the argument is an empty string?
 
-If the assignment doesn't explicitly specify function calls, you may freely include your own inside the main function, which the tests will ignore.
+If the exercise assignment doesn't explicitly tell you to include function calls, you may freely include your own inside the main function, which the tests will ignore.
 
 </text-box>
 
