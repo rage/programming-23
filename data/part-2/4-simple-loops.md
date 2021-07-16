@@ -529,7 +529,7 @@ Please write a program which asks the user for integer numbers. The program shou
 
 <sample-output>
 
-Please type in numbers. Type in 0 to finish.
+Please type in integer numbers. Type in 0 to finish.
 Number: **5**
 Number: **22**
 Number: **9**
