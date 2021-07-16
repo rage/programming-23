@@ -1,6 +1,6 @@
 ---
 path: '/part-4/1-vscode'
-title: 'The Visual Studio Code editor, Python interpreter and debugging tool'
+title: 'The Visual Studio Code editor, Python interpreter and built-in debugging tool'
 hidden: false
 ---
 
@@ -17,7 +17,7 @@ Thus far all exercises on this course have been completed on the course pages in
 
 There are dozens of different editors that are suited to programming. On this course we will use the [Visual Studio Code](https://code.visualstudio.com/) editor, which has been gaining traction in recent years.
 
-Please install the Visual Studio Code editor on your own computer now. You will also need the TMC plugin, which will take care of running the tests that go with the exercises. [Here is a guide](https://www.mooc.fi/en/installation/vscode) for installing both.
+Please install the Visual Studio Code editor on your own computer now. You will also need the TMC plugin, which will take care of running the tests that go with the exercises. [Here is a guide](https://www.mooc.fi/en/installation/vscode) for installing and running both. Read the instructions on working on and submitting exercises and complete the task below:
 
 <programming-exercise name='Hello Visual Studio Code' tmcname='part04-01_hello_visual_studio_code'>
 
@@ -42,7 +42,7 @@ an excellent choice!
 
 If the user types in Word or Notepad, the program counters with _awful_. Other unacceptable editor choices receive the reply _not good_.
 
-The program should be case-insensitive in its reactions. That is, the same user input in lowercase, upeprcase or a mix thereof should trigger the same reaction:
+The program should be case-insensitive in its reactions. That is, the same user input in lowercase, uppercase or a mix thereof should trigger the same reaction:
 
 <sample-output>
 
@@ -53,7 +53,7 @@ an excellent choice!
 
 </sample-output>
 
-The simplest way to ensure case-insensitivity is converting all characters to the same case. The Python string method `lower` converts all characters in the string to lowercase. An example of its use:
+The simplest way to achieve this is converting all characters to the same case. The Python string method `lower` converts a string to lowercase entirely. An example of its use:
 
 ```python
 mystring = "Visual Studio CODE"
@@ -61,78 +61,78 @@ if "visual studio code" == mystring.lower():
     print("this was the string I was looking for!")
 ```
 
-**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within a `if __name__ == "__main__"` block. The same applies to any other exercise that doesn't explicitly ask for functions.
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block. The same applies to any upcoming exercises that don't explicitly ask for functions.
 
 </programming-exercise>
 
-## Koodin suorittaminen
+## Executing code
 
-Visual Studio Codessa koodi suoritetaan painamalla vihreää kolmiota. Joskus koodisi suoritus voi jää kesken, esimerkiksi odottamaan käyttäjän syötettä tai ikuiseen silmukkaan, ja siirryt jo seuraavaan tehtävään. Kun yrität suorittaa seuraavan tehtävän koodia, tuleekin esille edellisen tehtävän kesken ollut suoritus. Joissain tilanteissa joudut sammuttamaan edellisen suorituksen painamalla yhtä aikaa näppäimiä _Control_+_C_, jotta saat suoritetuksi uuden tehtävän koodin.
+In Visual Studio Code the easiest way to execute your code is clicking on the green triangle. Sometimes it happens that some program is left running in the background, maybe waiting for input from the user or stuck in an infinite loop, without you realising it. This is usually noticed when trying to execute the next program, which simply will not run because the previous execution is still hogging up resources. A quick fix is pressing on the keys _Control_+_C_ at the same time, which stops the execution of any ongoing process. The next program should now run fine.
 
-## Interaktiivinen Python-tulkki
+## The interactive Python interpreter
 
-Emme ole toistaiseksi puhuneet kurssilla sanallakaan eräästä Python-ohjelmoinnin tärkeimmästä työkalusta, interaktiivisesta komentotulkista.
+One of the most important tools for any Python programmer is the interactive Python interpreter.
 
-Komentotulkki käynnistyy antamalla komentoriviltä komento `python3` (joissain tapauksissa, esim. Windowsilla komento saattaa olla `python`). Esim. Macilla komentotulkin avaaminen näyttää seuraavalta:
+Starting up the interpreter sometimes depends on your platform. In a Linux or Mac system, you can type in `python3` in the terminal. In Windows, the command on the command line might be `python`. Firing up the interpreter on a Mac looks like this:
 
 <img src="4_1_1.png">
 
-Komentotulkki on myös mahdollista avata Visual Studio Coden sisälle, ensin suorittamalla jokin ohjelma "vihreällä kolmiolla" ja sen jälkeen kirjoittamalla avautuvaan _Terminal_-näkymään `python3` (tai `python`)
+It is also possible to start the interpreter inside Visual Studio Code. First you should execute a program by clicking on the green triangle. This should open a _Terminal_ section on your screen, where you can now type in `python3` (or `python`):
 
 <img src="4_1_2.png">
 
-On olemassa myös selaimessa toimivia interaktiivisia tulkkeja, kuten <https://www.python.org/shell/>.
+You can also try a browser-based Python interpreter, such as <https://www.python.org/shell/>.
 
-Komentotulkki tarjoaa interaktiivisen tavan suorittaa Python-koodia rivi riviltä sitä mukaa kuin käyttäjä kirjoittaa koodia. Ideana on, että kun käyttäjä kirjoittaa rivin koodia, Python suorittaa rivin välittömästi ja näyttää rivin operaation tuloksen:
+The interpreter is a way of executing Python code line by line as soon as you write it. When you write a line of code and press _Enter_, the interpreter executes the code right away and shows you the results:
 
 <img src="4_1_3.png">
 
-Komentotulkkiin on mahdollista kirjoittaa mitä tahansa Pythonia, muuttujien ja metodienkin määrittely on mahdollista:
+Any Python code that can be written in a file can also be written in the interpreter. You can even assign variables and define methods:
 
 ```python
 >>> t = [1,2,3,4,5]
->>> for luku in t:
-...   print(luku)
+>>> for number in t:
+...   print(number)
 ...
 1
 2
 3
 4
 5
->>> def itseisarvo(luku):
-...   if luku<0:
-...      luku = -luku
-...   return luku
+>>> def absolute_value(number):
+...   if number<0:
+...      number = -number
+...   return number
 ...
 >>> x = 10
 >>> y = -7
->>> itseisarvo(luku)
+>>> absolute_value(number)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-NameError: name 'luku' is not defined
->>> itseisarvo(x)
+NameError: name 'number' is not defined
+>>> absolute_value(x)
 10
->>> itseisarvo(y)
+>>> absolute_value(y)
 7
 >>>
 ```
 
-Parhaimmillaan komentotulkki on pienten tarkistusten tekemiseen, esim. miten tietty metodi toimii tai onko metodia ylipäätään olemassa:
+The interpreter is best suited to making small checks. For instance, you can try out functions and methods, or check if they exist at all:
 
 ```python
->>> "TekstIä".toupper()
+>>> "TextYteXt".toupper()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 AttributeError: 'str' object has no attribute 'toupper'
->>> "TekstIä".upper()
-'TEKSTIÄ'
+>>> "TextYteXt".upper()
+'TEXTYTEXT'
 >>>
 ```
 
-Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi käyttää komentotulkkia ja kysyä funktiolla `dir`, mitä metodeja tietyllä oliolla on:
+If there is a method you need, and you can _almost_ remember its name, it's sometimes faster to skip Google and use the `dir` function in the interpreter. It tells you which methods are available to use on a given object:
 
 ```python
->>> dir("teksti")
+>>> dir("text")
 ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__',
 '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__',
 '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__',
@@ -145,9 +145,9 @@ Jos muistaa melkein jonkin metodin nimen, googlaamisen sijaan voi olla nopeampi 
 'title', 'translate', 'upper', 'zfill']
 ```
 
-Kuten näemme, merkkijonoilla on suuri määrä metodeja. Kurssin tässä vaiheessa ei kannata välittää alaviivoja sisältävistä metodeista, mutta muut voivat olla käyttökelpoisia. Osa metodien toiminnasta voi selvitä kokeilemalla, osan toiminta selviää googlaamalla.
+Python strings have a lot of methods available, as you can see above. At this juncture it might be best to ignore any methods that have underscores in their names, but the rest may well prove useful. Some of them you can figure out by trying them out, and the rest you can search for online.
 
-Listojen metodeista käy ilmi seuraavaa:
+Python lists don't have quite so many methods:
 
 ```python
 >>> dir([])
@@ -161,54 +161,54 @@ Listojen metodeista käy ilmi seuraavaa:
 >>>
 ```
 
-Tarjolla näyttää siis olevan mm. metodit `reverse` ja `clear`. Kokeillaan niitä:
+Let's try a few of them, `reverse` and `clear` seem promising:
 
 ```python
->>> luvut = [1,2,3,4,5]
->>> luvut.reverse()
->>> luvut
+>>> numbers = [1,2,3,4,5]
+>>> numbers.reverse()
+>>> numbers
 [5, 4, 3, 2, 1]
->>> luvut.clear()
->>> luvut
+>>> numbers.clear()
+>>> numbers
 []
 ```
 
-Metodit siis tekevät aika lailla sen, mitä nimen perusteella voi olettaa.
+As you can see, these methods do pretty much what you would expect based on their names.
 
-Huomaa, että komentotulkki ei näytä mitään tulosta, kun kutsutaan esim. metodia `lista.reverse()`. Mistä tämä johtuu? Komentotulkki tekee komentojen suorituksen yhteydessä tulostuksen vain, jos suoritetulla koodirivillä on jokin arvo. Edellisessä esimerkissä saatiin tulostettua listan `luvut` arvo kirjoittamalla komentotulkkiin pelkkä muuttujan nimi. Komentotulkissa ei siis useinkaan ole tarvetta kirjottaa erikseen `print`-komentoja.
+Notice how the interpreter doesn't print out anything when you run the command `numbers.reverse()`. Why is that? The interpreter prints something out only if the line of code has a value. In the above example we printed out the value of the list `numbers` by typing in just the name of the variable. In fact, it is rarely necessary to explicitly type in `print` commands in the interpreter. Neither is it wrong to include them, however.
 
-Tärkeä komento on `exit()`, joka sulkee komentotulkin. Erityisesti jos käytät komentotulkkia Visual Studio Codessa, se tulee muistaa sulkea, ennen kuin suoritat jonkin ohjelman uudelleen"vihreällä kolmiolla. Jos tämä unohtuu, on seurauksena hieman erikoinen virheilmoitus:
+Remember to close the interpreter when you are finished. The commands `quit()` or `exit()` will close it, as will the key combo _Control_+_D_ (Linux/Mac) or _Control_+_Z_ (Windows). Especially in Visual Studio Code this is important, as trying to execute another Python program while the interpreter is still running results in a rather cryptic error message:
 
 <img src="4_1_4.png">
 
-## Debuggeri
+## The built-in debugger
 
-Muutamassa edellisessä osassa on jo korostettu debuggaustaitojen tärkeyttä ja demonstroitu tulostamalla tapahtuvaa debuggausta. Visual Studio Code sisältää debuggausta varten _visuaalisen debuggerin_.
+We have already spent a fair amount of time and effort on developing debugging skills, mainly through print statement debugging. The Visual Studio Code editor has another tool at your disposal: a built-in _visual debugger_.
 
-Debuggaus aloitetaan määrittelemällä koodiin _breakpoint_ eli kohta, johon debuggeri pysäyttää koodin suorituksen. Breakpoint asetetaan klikkaamalla hiirellä halutun koodirivin vasemmalta puolelta.
+To start debugging first you have to define a _breakpoint_ in your code. A breakpoint is a point in your program where the debugger halts execution. You can set a breakpoint by clicking on the left edge of any line in your program.
 
-Seuraavassa esimerkissä breakpoint on asetettu [edellisen osan](/osa-3/1-ehdot-silmukoissa) tehtävän _Peräkkäisten summa_ hieman virheellisen ratkaisun riville 5:
+The following example is a slightly faulty attempt at solving the exercise _The sum of consecutive numbers_ in the [previous part](/part-3/1-iteration-using-conditions). There is a breakpoint on line 5:
 
 <img src="4_1_5.png">
 
-Breakpointin asetuksen jälkeen valitaan valikosta _Run_ kohta _Start debugging_. Tämä avaa valintanäkymän, josta valitaan _Python File_:
+After the breakpoint has been set, choose _Start debugging_ from the _Run_ menu. This opens a list of options, where you should select _Python File_:
 
 <img src="4_1_6.png">
 
-Debuggeri käynnistyy ja alkaa suorittaa koodia normaaliin tapaan, kunnes se törmää breakpointiin ja pysähtyy:
+This starts the debugger, which executes your code as usual until the execution reaches a breakpoint and halts:
 
 <img src="4_1_7.png">
 
-Vasempaan reunaan on avautunut näkymä _Variables_, joka kertoo senhetkisten muuttujien arvot. Koodia voidaan suorittaa rivi riviltä painelemalla alaspäin osoittavaa nuolta (_Step into_).
+On the left there is now the _Variables_ view, which contains the current values of all variables active in the code. You can proceed with the execution line by line by clicking on the down arrow, which is labelled _Step into_.
 
-Seuraavassa tilanteessa silmukkaa on suoritettu muutamia kertoja:
+In the image below the loop in the code has already been repeated a few times:
 
 <img src="4_1_8.png">
 
-Debuggerin välilehti _Debug console_ mahdollistaa myös lausekkeiden arvojen näyttämisen debuggaushetken muuttujien arvoilla. Voidaan esimerkiksi kokeilla, mikä silmukan lopetusehdon arvo on:
+The debugger has a _Debug console_ tab, which lets you evaluate expressions with the current values stored in the variables. For example, you can check the value of the Boolean epxression in the condition of the loop:
 
 <img src="4_1_9.png">
 
-Ohjelmassa voi olla myös useita breakpointeja. Pysähtymisen jälkeen koodi voidaan taas käynnistää sinisellä kolmiolla (_Continue_) ja suoritus jatkuu, kunnes ohjelma törmää seuraavaan breakpointiin.
+You can include several breakpoints in your program code. When execution has halted, you can start it again by clicking on the blue triangle. Execution proceeds until it reaches the next breakpoint.
 
-Visuaalinen debuggeri on vaihtoehto debug-tulostuksille, mutta on mieltymyksistä kiinni, mitä debuggaustekniikoita kukin ohjelmoija käyttää. On hyvä kokeilla erilaisia tapoja ja valita itselle sopiva tapa.
+The built-in visual debugger is a good alternative to debugging print statements. It is up to you which you choose to employ more in the future. Each programmer has their own preferences, but it's always a good idea to try different options before settling on any choice.
