@@ -547,7 +547,7 @@ You will need a new variable here to keep track of the numbers typed in.
 <sample-output>
 
 ... the program asks for numbers
-Numbers typed in: 4
+Numbers typed in 4
 
 </sample-output>
 
@@ -560,7 +560,7 @@ The program should now print out the following:
 <sample-output>
 
 ... the program asks for numbers
-Numbers typed in: 4
+Numbers typed in 4
 The sum of the numbers is 34
 
 </sample-output>
@@ -572,7 +572,7 @@ The program should also print out the mean of the numbers. The zero at the end s
 <sample-output>
 
 ... the program asks for numbers
-Numbers typed in: 4
+Numbers typed in 4
 The sum of the numbers is 34
 The mean of the numbers is 8.5
 
@@ -585,11 +585,11 @@ The program should also print out the how many of the numbers were positive and 
 <sample-output>
 
 ... the program asks for numbers
-Numbers typed in: 4
+Numbers typed in 4
 The sum of the numbers is 34
 The mean of the numbers is 8.5
-Positive numbers: 3
-Negative numbers: 1
+Positive numbers 3
+Negative numbers 1
 
 </sample-output>
 
