@@ -8,108 +8,104 @@ hidden: false
 
 After this section
 
-- Tiedät lisää funktion parametrien käyttämisestä
-- Osaat palauttaa arvon funktiosta ja käyttää sitä kutsukohdassa
-- Osaat merkitä tyyppivihjeet parametreille ja paluuarvolle
+- You will know more about the arguments and parameters of functions
+- You will know how to return values from functions, and how to use the values in your code
+- You will be able to add type hints for parameters and return values
 
 </text-box>
 
-Funktioiden määrittely tapahtuu avainsanan `def` avulla:
+Let's quickly recap Python functions. Functions are defined with the keyword `def`:
 
 ```python
-def viesti():
-    print("Tämä tulee funktiosta")
+def message():
+    print("This message was brought to you by a function")
 ```
 
-Näin määriteltyä funktiota nimeltä `viesti` kutsutaan seuraavasti:
-
+This function can be called in your program code like this:
 
 ```python
-viesti()
+message()
 ```
 
-Tällöin ohjelman tulostus on seuraava:
+Your program would then print out
 
 <sample-output>
 
-Tämä tulee funktiosta
+This message was brought to you by a function
 
 </sample-output>
 
-## Funktion parametrit
+## The parameters and arguments of a function
 
-Funktiolla voi olla yksi tai useampi parametri. Parametrit määritellään suluissa funktion nimen jälkeen.
+A function can take one or more arguments. When the function is called, the arguments are assigned to variables defined in the function definition. These variables are called parameters, and they are listed inside the parentheses after the function name.
 
-Esimerkiksi seuraavassa koodissa funktiolla `tervehdi` on yksi parametri ja funktiolla `summa` on kaksi parametria.
+In the following code the function `greet` has one parameter defined, while the function `sum` has two.
 
 ```python
-def tervehdi(nimi):
-    print("Moikka,", nimi)
+def greet(name):
+    print("Hello there,", name)
 
-def summa(a, b):
-    print("Parametrien summa on", a + b)
+def sum(a, b):
+    print("The sum of the arguments is", a + b)
 ```
 
 ```python
-tervehdi("Emilia")
-summa(2, 3)
+greet("Emily")
+sum(2, 3)
 ```
 
 <sample-output>
 
-Moikka, Emilia
-Parametrien summa on 5
+Hello there, Emily
+The sum of the arguments is 5
 
 </sample-output>
 
-<text-box variant='hint' name='Muodollinen ja todellinen parametri'>
+<text-box variant='hint' name='Formal vs actual, parameter vs argument'>
 
-Mitä oikeastaan tapahtuu, kun suoritetaan funktiokutsu `tervehdi("Emilia")`?
+The terminology around data passed to functions can feel confusing. To make matters worse, some sources refer to what we have called parameters and arguments as _formal_ and _actual parameters_. Other sources call them _formal_ and _actual arguments_. [The Python documentation](https://docs.python.org/3/glossary.html#term-argument) specifies only the terms _argument_ and _parameter_, so that is what we will use as well.
 
-Funktion määrittelyssä `tervehdi(nimi)` oleva `nimi` on funktion
-_muodollinen parametri_. Parametrin nimi on annettu funktion alussa,
-ja sitä voidaan käyttää funktiossa muuttujan tavoin.
+What actually happens when the function call `greet("Emily")` is executed?
 
-Funktion kutsussa `tervehdi("Emilia")` oleva `"Emilia"` on funktion
-_todellinen parametri_. Kun funktiota kutsutaan, todellinen parametri
-sijoitetaan muodollisen parametrin arvoksi.
+In the function definition `greet(name)` the parameter `name` behaves for all intents and purposes just like a normal variable. We can and do use it within the function just like we use variables in the main function in our programs.
 
-Joskus termillä _parametri_ viitataan muodolliseen parametriin ja
-termillä _argumentti_ viitataan todelliseen parametriin,
-mutta monet myös käyttävät termejä sekaisin.
+In the function call `greet("Emily")` the argument `"Emily"` is just like any other string we have come across before. We can and will assign it to a variable. 
+
+So, when the function call is executed, the value of the argument, `"Emily"`, is assigned to the parameter variable `name`. For the duration of _this execution_ of the function, `name = "Emily"`. When the function is called with a different argument, the value of `name` will be different.
+
+This terminology may all seem a bit superfluous, but computer science as a discipline does aim to be as exact a science as possible. Using well defined terminology helps.
 
 </text-box>
 
-## Testien virheilmoitukset
+## Error messages when running tests
 
-Jos ohjelmasi ei toimi oikein, antavat testit enemmän tai vähemmän hyvän virheilmoituksen. Virheilmoitus kannattaa ehdottomasti lukea huolellisesti.
+Most exercises on this course have automatic tests attached to them. If your program doesn't work as specified in the task, the tests will show an error message which may or may not be helpful. It is usually worth the trouble to read the error message carefully. 
 
-Joissain tilanteissa virheilmoitus ei kerro tarkemmin, mistä on kyse. Esimerkiksi seuraavassa tehtävässä saatat törmätä seuraavaan virheeseen:
+In some situations the error message might not tell you very much at all. In the next exercise below you may come across this error message:
 
 <img src="4_2_0a.png">
 
-Virhe kertoo, että tehtävän funktiota `viiva` pitäisi pystyä kutsumaan seuraavasti:
-
+The message just states that you should be able to call the function `line` with the specified arguments:
 ```python
-viiva(5, "")
+line(5, "")
 ```
 
-Varsinainen ongelma paljastuu, kun kokeillaan, mitä funktiokutsu tekee, eli kopioidaan virheilmoituksen kertoma funktiokutsu koodiin ja painetaan vihreää kolmiota:
+The actual issue becomes clear when we try executing the function call specified in the error message. You can do this by copying the function call into your program and clicking on the green triangle:
 
 <img src="4_2_0b.png">
 
-Koodin suorituksen viimeiset rivit kertovat, mikä on vikana: koodin rivi 4 aiheuttaa virheen _IndexError: string index out of range_. Kuten [edellisessä osassa](/osa-3/2-merkkijonojen-kasittely) mainittiin, syy tälle on se, että koodissa yritetään indeksoida merkkijonon ulkopuolelle. Tällä kertaa syynä on se, että yritetään hakea nollan pituisen merkkijonon ensimmäistä merkkiä.
+The last lines produced by the execution, highlighted in the above image, tell us that line 4 of our code causes the error _IndexError: string index out of range_. In the [previous part](/part-3/2-working-with-strings) there was a similar example, where we tried to use an index that fell outside the scope of the string. This time the reason is that we are trying to use the first character from a string of length 0.
 
-<programming-exercise name='Viiva' tmcname='osa04-02_viiva'>
+<programming-exercise name='Line' tmcname='part04-02_line'>
 
-Tee funktio `viiva`, joka saa kaksi parametria (leveys, merkkijono). Funktio tulostaa ensimmäisen parametrin määrittämän pituisen viivan käyttäen toisena parametrina olevan merkkijonon ensimmäistä merkkiä. Jos parametrina oleva merkkijono on tyhjä, tulostuu viiva tähtinä.
+Please write a function named `line`, which takes two arguments: an integer and a string. The function prints out a line of text, the length of which is specified by the first argument. The character used to draw the line should be the first character in the second argument. If the second argument is an empty string, the line should consist of stars.
 
-Käyttöesimerkki:
+An example of expected behaviour:
 
 ```python
-viiva(7, "%")
-viiva(10, "LOL")
-viiva(3, "")
+line(7, "%")
+line(10, "LOL")
+line(3, "")
 ```
 
 <sample-output>
@@ -124,44 +120,42 @@ LLLLLLLLLL
 
 </programming-exercise>
 
-## Sisäkkäiset kutsut
+## Function calls within function calls
 
-Voimme kutsua funktiota myös toisen funktion sisältä. Esimerkiksi seuraavassa ohjelmassa funktio
-`tervehdi_monesti` kutsuu funktiota `tervehdi` halutun määrän kertoja:
+You can call a function from within another function. In fact, we have done so many times before when we called the `print` function within our own functions in the previous part. Our own functions are functionally no different. In the following example the function `greet_many_times` calls the function `greet` as many times as specified by the argument `times`:
 
 ```python
-def tervehdi(nimi):
-    print("Moikka", nimi)
+def greet(name):
+    print("Hello there,", name)
 
-def tervehdi_monesti(nimi, kerrat):
-    while kerrat > 0:
-        tervehdi(nimi)
-        kerrat -= 1
+def greet_many_times(name, times):
+    while times > 0:
+        greet(name)
+        times -= 1
 
-tervehdi_monesti("Emilia", 3)
+greet_many_times("Emily", 3)
 ```
 
 <sample-output>
 
-Moikka, Emilia
-Moikka, Emilia
-Moikka, Emilia
+Hello there, Emily
+Hello there, Emily
+Hello there, Emily
 
 </sample-output>
 
+<programming-exercise name='A box of hashes' tmcname='part04-03_box_of_hashes'>
 
-<programming-exercise name='Risulaatikko' tmcname='osa04-02a_risulaatikko'>
+Please write a function named `box_of_hashes`, which prints out a rectangle of hash characters. The function takes one argument, which specifies the height of the rectangle. The rectangle should be ten characters wide.
 
-Tee funktio `risulaatikko`, joka piirtää risuaitamerkkiä käyttäen parametrinsa korkuisen, kymmenen merkkiä leveän risulaatikon.
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
 
-Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle. Älä muuta funktiota mitenkaan!
-
-Pari käyttöesimerkkiä
+Some examples of how the function should work:
 
 ```python
-risulaatikko(5)
+box_of_hashes(5)
 print()
-risulaatikko(2)
+box_of_hashes(2)
 ```
 
 <sample-output>
@@ -181,18 +175,18 @@ risulaatikko(2)
 
 </programming-exercise>
 
-<programming-exercise name='Risuneliö' tmcname='osa04-02b_risunelio'>
+<programming-exercise name='A square of hashes' tmcname='part04-04_square_of_hashes'>
 
-Tee funktio `risunelio`, joka piirtää risuaitamerkkiä käyttäen parametrinsa kokoisen risuneliön.
+Please write a function named `square_of_hashes`, which draws a square of hash characters. The function takes one argument, which determines the length of the side of the square.
 
-Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle. Älä muuta funktiota mitenkaan!
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
 
-Pari käyttöesimerkkiä
+Some examples:
 
 ```python
-risunelio(5)
+square_of_hashes(5)
 print()
-risunelio(3)
+square_of_hashes(3)
 ```
 
 <sample-output>
@@ -213,18 +207,18 @@ risunelio(3)
 
 </programming-exercise>
 
-<programming-exercise name='Neliö' tmcname='osa04-02c_nelio'>
+<programming-exercise name='A square' tmcname='part04-05_square'>
 
-Tee funktio `nelio`, joka saa kaksi parametria. Funktio tulostaa neliön jonka korkeuden ja leveyden kertoo ensimmäinen parametri.  Toinen parametri määrittelee mitä merkkiä käyttäen neliö piirretään.
+Please write a function named `square`, which prints out a square of characters, and takes two arguments. The first parameter specifies the length of the side of the square. The second parameter specifies the character used to draw the square.
 
-Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle. Älä muuta funktiota mitenkaan!
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
 
-Pari käyttöesimerkkiä
+Some examples:
 
 ```python
-nelio(5, "*")
+square(5, "*")
 print()
-nelio(3, "o")
+square(3, "o")
 ```
 
 <sample-output>
@@ -245,18 +239,18 @@ ooo
 
 </programming-exercise>
 
-<programming-exercise name='Kolmio' tmcname='osa04-02d_kolmio'>
+<programming-exercise name='A triangle' tmcname='part04-06_triangle'>
 
-Tee funktio `kolmio`, joka piirtää risuaitamerkkiä käyttäen parametrinsa korkuisen ja levyisen, risuaitakolmion.
+Please write a function named `triangle`, which draws a triangle of hashes, and takes one argument. The triangle should be as tall and as wide as the value of the argument.
 
-Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle. Älä muuta funktiota mitenkaan!
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
 
-Pari käyttöesimerkkiä
+Some examples:
 
 ```python
-kolmio(6)
+triangle(6)
 print()
-kolmio(3)
+triangle(3)
 ```
 
 <sample-output>
@@ -278,20 +272,20 @@ kolmio(3)
 
 </programming-exercise>
 
-<programming-exercise name='Kuvio' tmcname='osa04-03_kuvio'>
+<programming-exercise name='A shape' tmcname='part04-07_shape'>
 
-Tee funktio `kuvio`, joka saa neljä parametria. Funktio tulostaa kuvion, jonka yläosana on kahden ensimmäisen parametrin määrittelemä kolmio ja alaosana ensimmäisen ja kahden jälkimmäisen parametrin määrittelemä suorakulmio.
+Please write a function named `shape`, which takes four arguments. The first two arguments specify a triangle, as above. The first, third and fourth argument specify the dimensions and filler character of a rectangle. The function prints first the triangle and then the rectangle below it.
 
-Funktion tulee kutsua edellisen tehtävän funktiota `viiva` kaiken tulostuksen tekemiseen! Kopioi edellisen tehtävän funktion koodi tämän tehtävän funktion koodin yläpuolelle.
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
 
-Pari käyttöesimerkkiä
+Some examples:
 
 ```python
-kuvio(5, "X", 3, "*")
+shape(5, "X", 3, "*")
 print()
-kuvio(2, "o", 4, "+")
+shape(2, "o", 4, "+")
 print()
-kuvio(3, ".", 0, ",")
+shape(3, ".", 0, ",")
 ```
 
 <sample-output>
@@ -320,24 +314,24 @@ oo
 
 </sample-output>
 
-**Vihje**
+**Hint**
 
-Älä yritä ratkaista tehtävässä "kaikkia asioita" yhtä aikaa. Keskity ensin esim. siihen että saat kuvion yläosan kolmion piirtymään oikein, ja vasta sen jälkeen jatka kuvion täydentämistä alaosan suorakulmiolla.
+Don't try and solve this exercise "all at once". A good first step would be to make sure you can print the triangle reliably. Then you can try adding the rectangle.
 
-Tämä on ylipäätänsäkin ohjelmoinnissa erittäin tärkeää: **keskity pieniin osiin kerrallaan**, varmista että ne toimivat ennen kuin laajennat ratkaisuasi.
+This is one of the most important skills of a programmer: **concentrate on small, tangible sections of the problem at a time**. Solve and verify partial solutions, and use them to build towards a complete solution.
 
 </programming-exercise>
 
-<programming-exercise name='Joulukuusi' tmcname='osa04-04_joulukuusi'>
+<programming-exercise name='A spruce' tmcname='part04-08_spruce'>
 
-Tee funktio `joulukuusi`, joka saa yhden parametrin. Funktio tulostaa tekstin joulukuusi! ja parametrinsa kokoisen joulukuusen.
+Please write a function named `spruce`, which takes one argument. The function prints out the text `a spruce!`, and the a spruce tree, the size of which is specified by the argument.
 
-Esim. kutsuttaessa `joulukuusi(3)` tulostuu
+Calling `spruce(3)` should print out
 
 <sample-output>
 
 <pre>
-joulukuusi!
+a spruce!
   *
  ***
 *****
@@ -346,12 +340,12 @@ joulukuusi!
 
 </sample-output>
 
-Esim. kutsuttaessa `joulukuusi(5)` tulostuu
+Calling `spruce(5)` should print out
 
 <sample-output>
 
 <pre>
-joulukuusi!
+a spruce!
     *
    ***
   *****
@@ -362,76 +356,76 @@ joulukuusi!
 
 </sample-output>
 
-**Huomaa, että joulukuusen vasemmalla puolella pitää olla täsmälleen oikea määrä välilyöntejä**. Eli vaikka kuusen muoto olisi täysin oikea, mutta sen alin "neulastaso" ei lähde ruudun vasemmasta reunasta, ei vastaus kelpaa testeille.
+**NB: to the left of the spruce there should be exactly the right amount of whitespace**. If the shape of the spruce looks correct, but the left edge of the tree is not touching the left edge of the screen, the tests will not accept the solution.
 
 </programming-exercise>
 
-## Funktion paluuarvo
+## The return value of a function
 
-Funktiot voivat myös palauttaa arvoja. Esimerkiksi Pythonin valmis funktio `input` _palauttaa_ käyttäjän antaman syötteen. Funktion palauttama arvo voidaan esimerkiksi sijoittaa muuttujaan:
+Functions can also return values. For instance, the built-in Python function `input` _returns_ an input string typed in by the user. The value a function returns can be stored in a variable:
 
 ```python
-sana = input("Anna sana: ")
+word = input("Please type in a word: ")
 ```
 
-Myös kokonaislukujen lukemisessa yhdessä funktion `input` kanssa käytettävä funktio `int` palauttaa arvon:
+When you want an integer value from the user, the input from the user has to be converted into an integer. The function we've used for this purpose is `int`, and it also returns a value:
 
 ```python
-luku = int(input("Anna kokonaisluku: "))
+number = int(input("Please type in an integer: "))
 ```
 
-Funktio `int` saa parametrinaan funktion `input` palauttaman merkkijonon ja palauttaa sen kokonaislukutyyppisenä.
+The function `int` takes the string returned by `input` as its argument, and returns an integer type value of the same.
 
-## Funktion arvon palauttaminen return-komennolla
+## The return statement
 
-Myös itse määrittelemämme funktiot voivat palauttaa arvoja käyttämällä komentoa `return`. Esimerkiksi seuraava funktio `summa` palauttaa annettujen lukujen summan:
+The functions you define yourself can also return values. To do this you need the `return` statement. For example, the following function `sum` returns the sum of its parameters:
 
 ```python
-def summa(a, b):
+def sum(a, b):
     return a + b
 
-vastaus = summa(2, 3)
+result = sum(2, 3)
 
-print("Summa:", vastaus)
+print("Sum:", result)
 ```
 
 <sample-output>
 
-Summa: 5
+Sum: 5
 
 </sample-output>
 
-Seuraavassa on vielä toinen esimerkki, jossa funktio kysyy käyttäjän nimen ja palauttaa sen:
+Here's another example of a return value. This function asks for the user's name and returns that:
 
 ```python
-def kysy_nimi():
-    nimi = input("Mikä on nimesi? ")
-    return nimi
+def ask_for_name():
+    name = input("What is your name? ")
+    return name
 
-nimi = kysy_nimi()
-print("Moikka,", nimi)
+name = ask_for_name()
+print("Hello there,", name)
 ```
 
 <sample-output>
 
-Mikä on nimesi? **Anna**
-Moikka, Anna
+What is your name? **Anna**
+Hello there, Anna
 
 </sample-output>
 
-Kannattaa huomata, että komento `return` lopettaa funktion suorituksen saman tien. Niinpä voimme tehdä seuraavan funktion:
+The `return` statement ends the execution of the function immediately. The following is a nifty way to create a comparison function:
 
 ```python
-def pienin(a,b):
+def smallest(a,b):
     if a < b:
         return a
     return b
 
-print(pienin(3, 7))
-print(pienin(5, 2))
+print(smallest(3, 7))
+print(smallest(5, 2))
 ```
 
-Tässä ideana on, että jos `a` on pienempi kuin `b`, niin funktio palauttaa arvon `a` ja päättyy. Muuten funktion suoritus jatkuu eteenpäin, jolloin se palauttaa arvon `b`.
+The idea here is that if `a` is smaller than `b`, the function returns `a` and exits immediately. If not, the execution continues to the next line, where the value `b` is returned. A function can never execute two separate `return` statements with a single function call.
 
 <sample-output>
 
@@ -440,100 +434,100 @@ Tässä ideana on, että jos `a` on pienempi kuin `b`, niin funktio palauttaa ar
 
 </sample-output>
 
-Voimme myös käyttää `return`-komentoa siihen, että poistumme funktiosta palauttamatta mitään:
+You can make use of the `return` statement even if the function doesn't return a value. It's purpose then is to end the execution of the function:
 
 ```python
-def tervehdi(nimi):
-    if nimi == "":
+def greet(name):
+    if name == "":
         print("???")
         return
-    print("Moikka,", nimi)
+    print("Hello there,", name)
 
-tervehdi("Emilia")
-tervehdi("")
-tervehdi("Matti")
+greet("Emily")
+greet("")
+greet("Mark")
 ```
 
-Jos `nimi` on tyhjä merkkijono, niin funktio tulostaa `???` ja päättyy.
+If the argument (that gets stored in the variable `name`) is an empty string, the function prints out `???` and exits.
 
 <sample-output>
 
-Moikka, Emilia
+Hello there, Emily
 ???
-Moikka, Matti
+Hello there, Mark
 
 </sample-output>
 
-## Funktion paluuarvojen käyttö
+## Using return values from functions
 
-Kuten olemme jo nähneet, funktioiden paluuarvoja on mahdollista sijoittaa muuttujiin:
+We already know that the return values of functions can be stored in variables:
 
 ```python
-def summa(a, b):
+def sum(a, b):
     return a + b
 
-tulos = summa(4, 6)
-print("Summa on", tulos)
+result = sum(4, 6)
+print("The sum is", result)
 ```
 
 <sample-output>
 
-Summa on 10
+The sum is 10
 
 </sample-output>
 
-Koska funktion paluuarvo käyttäytyy kuten mikä tahansa arvo, ei apumuuttuja ole tarpeen ja paluuarvoa on mahdollista käyttää suoraan komennon `print` parametrina:
+The return value of a function is a value just like any other. It is not necessary to store it in a variable in order give it as an argument to the `print` command:
 
 ```python
-print("Summa on", summa(4, 6))
+print("The sum is", sum(4, 6))
 ```
 
-Voimme myös antaa funktion palauttaman arvon toiselle funktiolle:
+The return value of a function can become the argument of another function:
 
 ```python
-def summa(a, b):
+def sum(a, b):
     return a+b
 
-def erotus(a, b):
+def difference(a, b):
     return a-b
 
-tulos = erotus(summa(5, 2), summa(2, 3))
-print("Vastaus on", tulos)
+result = difference(sum(5, 2), sum(2, 3))
+print("The result is", result)
 ```
 
 <sample-output>
 
-Vastaus on 2
+The result is 2
 
 </sample-output>
 
-Tässä tapauksessa suoritetaan ensin sisemmät funktiokutsut `summa(5, 2)` ja `summa(2, 3)`, joiden  palauttamat arvot 7 ja 5 käytetään ulomman funktiokutsun parametreina.
+In this case the inner function calls `sum(5, 2)` and `sum(2, 3)` are executed first. The values they return (7 and 5) are used as the arguments of the outer function call.
 
-Ulompi funktiokutsu `erotus(7, 5)` palauttaa arvon 2, joka sijoitetaan muuttujan `tulos` arvoksi ja tulostetaan ruudulle.
+The outer function call `difference(7, 5)` returns the value 2, which is stored in the variable `result` and printed out.
 
-Funktioiden palauttamat arvot toimivat täysin samalla tavalla kuin mitkä tahansa arvot Pythonissa. Niitä voidaan tulostaa, sijoittaa muuttujaan, käyttää osana lausekkeita tai käyttää parametreina muissa funktiokutsuissa.
+In summary, values returned by functions work exactly like any other value in Python. They can be printed out, stored in variables, used in expressions and used as arguments in other function calls.
 
-## Arvon palauttaminen, return ja print
+## The difference between return and print
 
-Joskus aloittelija hämmentyy funktioiden paluuarvon ja funktiossa tapahtuvan tulostuksen välistä eroa. Tarkastellaan kahta versiota funktiosta, joka selvittää kahden parametrinsa maksimiarvon:
+Sometimes the difference between, on the one hand, a function returning a value, and, on the other, a print statement within a function can be confusing. Let's have a look at two different ways of implementing a function that works out which of its two arguments is greater in value:
 
 ```python
-def maksimi1(a, b):
+def max1(a, b):
     if a > b:
         return a
     else:
         return b
 
-def maksimi2(a, b):
+def max2(a, b):
     if a > b:
         print(a)
     else:
         print(b)
 
-vastaus = maksimi1(3, 5)
-print(vastaus)
+result = max1(3, 5)
+print(result)
 
-maksimi2(7, 2)
+max2(7, 2)
 ```
 
 <sample-output>
@@ -543,135 +537,133 @@ maksimi2(7, 2)
 
 </sample-output>
 
-Molemmat funktiot näyttävät toimivan hyvin, kumpikin selvittää maksimiarvon. Funktioissa on kuitenkin eräs ratkaiseva ero. Funktioista ensimmäinen `maksimi1` _palauttaa_ selvittämänsä arvon. Se ei itse tulosta mitään, eli jos suoritetaan koodi
+Both versions seem to be working just fine, as the maximum values are printed correctly. There is a fundamental difference between the two, however. The first of the two functions, `max1`, does not print out anything on its own, but instead it _returns_ the value which is greater. If we execute the following line
 
 ```python
-maksimi1(3, 5)
+max1(3, 5)
 ```
 
-ei näytä tapahtuvan mitään. Funktion paluuarvo on siis otettava talteen muuttujaan, jos se halutaan tulostaa:
+nothing seems to happen. The return value of the function has to be used in some way in the code which called the function. For instance, it can be store in a variable and printed out:
 
 ```python
-vastaus = maksimi1(3, 5)
-print(vastaus)
+result = max1(3, 5)
+print(result)
 ```
 
-Funktioista toinen `maksimi2` taas tulostaa itse `print`-komentoa käyttäen lukujen maksimin, eli riittää kutsua
+The second version, `max2`, uses the `print` command to print out the greater value. If we want to see the value, it is enough to call the function
 
 ```python
-maksimi2(7, 5)
+max2(7, 5)
 ```
 
-ja maksimi tulostuu ruudulle. Tämän funktion huono puoli on kuitenkin se, että funktion selvittämää arvoa ei ole mahdollista saada funktion ulkopuolelle muun ohjelman käsiteltäväksi. Tämän takia arvon palauttava funktio on useimmiten parempi vaihtoehto.
+and the greater value is printed out. The downside of this handy function is that the value worked out by the function is not available for use in the program which called it. That is why functions which return values are often the better option.
 
-<programming-exercise name='Luvuista suurin' tmcname='osa04-05_luvuista_suurin'>
+<programming-exercise name='The greatest number' tmcname='part04-09_greatest_number'>
 
-Tee funktio  `luvuista_suurin`, joka saa parametriksi kolme kokonaislukua. Funktio palauttaa return-lausetta käyttäen luvuista suurimman.
+Please write a function named  `greatest_number`, which takes three arguments. The function returns the greatest value of the three.
 
-Käyttöesimerkki
-
-```python
-print(luvuista_suurin(3, 4, 1)) # 4
-print(luvuista_suurin(99, -4, 7)) # 99
-print(luvuista_suurin(0, 0, 0)) # 0
-```
-
-</programming-exercise>
-
-<programming-exercise name='Merkit samat' tmcname='osa04-06_merkit_samat'>
-
-Tee funktio `samat`, joka saa parametriksi merkkijonon ja kaksi merkkijonon indeksejä kuvaavaa kokonaislukua. Funktio palauttaa `return`-lausetta käyttäen tiedon (`True` tai `False`) siitä, ovatko merkkijonon parametreina olevien indeksien osoittamissa paikoissa olevat merkit samat. Jos jompikumpi indekseistä ei osu merkkijonon sisälle, palauttaa metodi `False`.
-
-Muutama esimerkki:
+An example of how the function is used:
 
 ```python
-# samat merkit o ja o
-print(samat("koodari", 1, 2)) # True
-
-# eri merkit k ja a
-print(samat("koodari", 0, 4)) # False
-
-# toinen indeksi ei ole merkkijonon sisällä
-print(samat("koodari", 0, 10)) # False
+print(greatest_number(3, 4, 1)) # 4
+print(greatest_number(99, -4, 7)) # 99
+print(greatest_number(0, 0, 0)) # 0
 ```
 
 </programming-exercise>
 
-<programming-exercise name='Eka, toka ja vika sana' tmcname='osa04-07_eka_toka_vika_sana'>
+<programming-exercise name='Same characters' tmcname='part04-10_same_characters'>
 
-Tee kolme funktiota: `eka_sana`, `toka_sana` ja `vika_sana`. Jokainen funktioista saa parametrikseen lauseen (eli merkkijonon).
+Please write a function named `same_chars`, which takes one string and two integers as arguments. The integers refer to indexes within the string. The function should return `True` if the two characters at the indexes specified are the same. Otherwise, and especially if either of the indexes falls outside the scope of the string, the function returns `False`.
 
-Funktiot palauttavat nimensä mukaisesti lauseen ensimmäisen, toisen tai viimeisen sanan.
-
-Voit olettaa jokaisessa tapauksessa, että merkkijono koostuu vähintään kahdesta sanasta, ja että sanojen välillä on aina täsmälleen yksi välilyönti, ja että merkkijonon alussa ja lopussa ei ole välilyöntejä.
+Some examples of how the function is used:
 
 ```python
-lause = "olipa kerran kauan sitten ohjelmoija"
+# same characters m and m
+print(same_chars("programmer", 6, 7)) # True
 
-print(eka_sana(lause)) # olipa
-print(toka_sana(lause)) # kerran
-print(vika_sana(lause)) # ohjelmoija
+# different characters p and r
+print(same_chars("programmer", 0, 4)) # False
+
+# the second index is not within the string
+print(same_chars("programmer", 0, 12)) # False
+```
+
+</programming-exercise>
+
+<programming-exercise name='First, second and last words' tmcname='part04-11_first_second_last'>
+
+Please write three functions: `first_word`, `second_word` ja `last_word`. Each function takes a string argument.
+
+As their names imply, the functions return either the first, the second or the last word in the sentence they receive as their string argument.
+
+In each case you may assume the argument string contains at least two separate words, and all words are separated by exactly one space character. There will be no spaces in the beginning or the end of the argument strings.
+
+```python
+sentence = "it was a dark and stormy python"
+
+print(first_word(sentence)) # it
+print(second_word(sentence)) # was
+print(last_word(sentence)) # python
 ```
 
 <sample-output>
 
-olipa
-kerran
-ohjelmoija
+it
+was
+python
 
 </sample-output>
 
 ```python
-lause = "olipa kerran"
+sentence = "it was"
 
-print(toka_sana(lause)) # kerran
-print(vika_sana(lause)) # kerran
+print(second_word(sentence)) # was
+print(last_word(sentence)) # was
 ```
 
 </programming-exercise>
 
-## Parametrin tyyppi
+## The type of the argument
 
-Kerrataan vielä tähän mennessä läpikäydyt tyypit:
+A quick recap of the data types we've come across so far:
 
-Tyyppi | Pythonissa | Esimerkki
-:------|:----------:|-----------
-Kokonaisluku | `int` | `23`
-Liukuluku | `float` | `-0.45`
-Merkkijono | `str` | `"Pekka Python"`
-Totuusarvo | `bool` | `True`
+Type          | Python data type | Example
+:-------------|:----------------:|------
+integer       | `int`            | `23`
+floating point number | `float`  | `-0.45`
+string        | `str`            | `"Pekka Python"`
+Boolean value | `bool`           | `True`
 
-Kun kutsumme funktiota, funktio toimii oikein vain,
-jos annamme sille sopivan tyyppiset parametrit.
-Tarkastellaan esimerkkinä seuraavaa funktiota:
+When you call a function it will only work correctly if the arguments you give it are of the right type. Let's have a look at an example:
 
 ```python
-def tulosta_monesti(viesti, kerrat):
-    while kerrat > 0:
-        print(viesti)
-        kerrat -= 1
+def print_many_times(message, times):
+    while times > 0:
+        print(message)
+        times -= 1
 ```
 
-Funktio toimii mainiosti, jos kutsumme sitä näin:
+The function works as expected if we call it like this:
 
 ```python
-tulosta_monesti("Moikka", 5)
+print_many_times("Hello there", 5)
 ```
 
 <sample-output>
 
-Moikka
-Moikka
-Moikka
-Moikka
-Moikka
+Hello there
+Hello there
+Hello there
+Hello there
+Hello there
 
 </sample-output>
 
-Kuitenkaan funktio ei toimi, jos annamme sille väärän tyyppisen parametrin:
+However, if we give the function an argument of the wrong type, it will not work:
 
 ```python
-tulosta_monesti("Moikka", "Emilia")
+print_many_times("Hello there", "Emily")
 ```
 
 <sample-output>
@@ -680,30 +672,30 @@ TypeError: '>' not supported between instances of 'str' and 'int'
 
 </sample-output>
 
-Tässä ongelmaksi tulee, että funktion jälkimmäistä parametria `kerrat` vertaillaan kokonaislukuun 0. Kun parametri on `"Emilia"` eikä kokonaisluku, tämä aiheuttaa virheen.
+The problem here is that in the function definition the second parameter `times` is compared to an integer, `0`. The argument given was `"Emily"`, which is a string, not an integer. Strings and integers can't be compared so simply, so an error ensues.
 
-Voimme antaa funktion määrittelyssä _tyyppivihjeen_, joka ilmaisee, millaista tietoa parametreihin on tarkoitus sijoittaa:
+To avoid issues like this you can include _type hints_ in your function definitions. The type hint specifies the type of the argument intended for the function:
 
 ```python
-def tulosta_monesti(viesti : str, kerrat : int):
-    while kerrat > 0:
-        print(viesti)
-        kerrat -= 1
+def print_many_times(message : str, times : int):
+    while times > 0:
+        print(message)
+        times -= 1
 ```
 
-Tämä kertoo funktion käyttäjälle, että parametrin `viesti` on tarkoitus olla merkkijono, kun taas parametrin `kerrat` on tarkoitus olla kokonaisluku.
+This tells anyone using the function that the argument stored in `message` is supposed to be a string, and the argument stored in `times` is supposed to be an integer.
 
-Vastaavasti funktion paaluarvon tyypin voi vihjata funktion määrittelyssä:
+Similarly the return value of a function can be hinted at in the function definition:
 
 ```python
-def kysy_nimi() -> str:
-    nimi = input("Mikä on nimesi? ")
-    return nimi
+def ask_for_name() -> str:
+    name = input("Mikä on nimesi? ")
+    return name
  ```
 
-Tämä kertoo funktion käyttäjälle, että funktion on tarkoitus palauttaa merkkijono.
+This tells the user of the function that the function is supposed to return a string.
 
-Huomaa kuitenkin, että tyyppivihje ainoastaan neuvoo, mikä tyypin tulisi olla, mutta ei valvo sitä. Jos funktiolle annetaan väärän tyyppinen parametri tai se palauttaa väärän tyyppisen arvon, funktio suoritetaan kuitenkin, mutta se toimii mahdollisesti väärin.
+NB: Type hinting is literally just hinting about the type of the argument or the return value. It is not a guarantee of type, and definitely not a safeguard against type errors. If a function receives an argument or returns a value of the wrong type, the function is still executed, but it might work incorrectly.
 
 A quiz to review the contents of this section:
 
