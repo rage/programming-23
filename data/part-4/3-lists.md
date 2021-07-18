@@ -8,45 +8,45 @@ hidden: false
 
 After this section
 
-- Tiedät, mitä lista tarkoittaa ohjelmoinnissa
-- Osaat viitata listan yksittäisiin alkioihin
-- Osaat lisätä ja poistaa listan alkioita
-- Osaat hyödyntää valmiita funktioita ja metodeita listojen käsittelyyn
+- You will know what lists are in Python
+- You will be able access a specified item within a list
+- You will know how to add items to a list, and to remove them
+- You will be familiar with built-in list functions and methods
 
 </text-box>
 
-Tähän asti olemme tallentaneet ohjelmissa käytettävää tietoa muuttujien avulla. Yksittäisillä muuttujilla on kuitenkin rajoituksensa. Jos ohjelman käsittelemä tiedon määrä on vaihteleva ja saattaa olla suuri, olisi vaivalloista määritellä jokaiselle arvolle erillinen muuttuja.
+Thus far in our programs we have stored data with variables, each bit of data usually having their own named variable. This obviously has its limitations, as it can get cumbersome to define separate variables for everything when there is a lot of data to handle. 
 
-_Lista_ on kokoelma tietoa, johon viitataan yhteisen nimen kautta. Listan sisältö kirjoitetaan hakasulkeiden sisään, ja jokaista listalla olevaa arvoa kutsutaan _alkioksi_.
+A Python _list_ is a collection of values which is accessed via a single variable name. The contents of the list are written within square brackets. The values contained in the list are called _items_, or sometimes _elements_.
 
-Esimerkiksi seuraava koodi luo uuden tyhjän listan:
+The following command creates a new, empty list
 
 ```python
-lista = []
+my_list = []
 ```
 
-Seuraava koodi puolestaan luo listan, jossa on valmiina viisi alkiota:
+whereas this command creates a list with five items in it:
 
 ```python
-lista = [7, 2, 2, 5, 2]
+my_list = [7, 2, 2, 5, 2]
 ```
 
-## Listan alkioihin viittaaminen
+## Accessing items in a list
 
-Listan alkiot on indeksoitu samalla tavalla kuin merkkijonon yksittäiset merkit. Tässäkin tapauksessa indeksointi alkaa nollasta:
+The items in a list are indexed in exactly the same way as characters in a string. Indexing starts from zero and the last index is the length of the list minus 1:
 
-<img src="4_2_1.png" alt="Lista indeksoidaan nollasta alkaen">
+<img src="4_2_1.png" alt="Lists are indexed starting from 0">
 
-Yksittäiseen listan alkioon voidaan viitata samalla tavalla kuin merkkijonon yksittäisiin merkkeihin hakasulkujen avulla. Esimerkiksi:
+A single list item can be accessed just like a single character in a string could, with square brackets:
 
 ```python
-lista = [7, 2, 2, 5, 2]
+my_list = [7, 2, 2, 5, 2]
 
-print(lista[0])
-print(lista[1])
-print(lista[3])
+print(my_list[0])
+print(my_list[1])
+print(my_list[3])
 
-print("Kahden ekan summa:", lista[0] + lista[1])
+print("The sum of the first two items:", my_list[0] + my_list[1])
 ```
 
 <sample-output>
@@ -54,15 +54,15 @@ print("Kahden ekan summa:", lista[0] + lista[1])
 7
 2
 5
-Kahden ekan summa: 9
+The sum of the first two items: 9
 
 </sample-output>
 
-Voimme tulostaa listan koko sisällön näin:
+The entire contents of the list also can be printed:
 
 ```python
-lista = [7, 2, 2, 5, 2]
-print(lista)
+my_list = [7, 2, 2, 5, 2]
+print(my_list)
 ```
 
 <sample-output>
@@ -71,13 +71,13 @@ print(lista)
 
 </sample-output>
 
-Listan alkioita voidaan myös muuttaa. Alkion arvon muuttaminen tapahtuu sijoittamalla uusi arvo vanhan paikalle – siis samalla tavalla kuin muuttujia käytettäessä:
+Unlike strings, lists are mutable, which means that their contents can change. You can assign a new value to an item, just like you an assign a new value to a variable:
 
 ```python
-lista = [7, 2, 2, 5, 2]
-print(lista)
-lista[1] = 3
-print(lista)
+my_list = [7, 2, 2, 5, 2]
+print(my_list)
+my_list[1] = 3
+print(my_list)
 ```
 
 <sample-output>
@@ -87,11 +87,11 @@ print(lista)
 
 </sample-output>
 
-Funktio `len` antaa listan alkioiden määrän:
+The function `len` gives you the number of items in a list:
 
 ```python
-lista = [7, 2, 2, 5, 2]
-print(len(lista))
+my_list = [7, 2, 2, 5, 2]
+print(len(my_list))
 ```
 
 <sample-output>
@@ -101,42 +101,41 @@ print(len(lista))
 </sample-output>
 
 
-<programming-exercise name='Alkioiden arvojen muutokset' tmcname='osa04-07a_alkioiden_arvojen_muutokset'>
+<programming-exercise name='Change the value of an item' tmcname='part04-12_change_value_of_item'>
 
-Tee ohjelma, joka alustaa listan jossa on arvot `[1, 2, 3, 4, 5]`. Tämän jälkeen ohjelma kysyy käyttäjältä alkion indeksin ja uuden arvon, vaihtaa kyseisen alkion arvon ja tulostaa listan uudelleen. Ohjelman suoritus päättyy, jos käyttäjä antaa alkion indeksiksi -1.
+Please write a program which initialises a list with the values `[1, 2, 3, 4, 5]`. Then the program should ask the user for an index and a new value, replace the value at the given index, and print the list again. This should be looped over until the user gives -1 for the index.
 
-Esimerkkisuoritus:
+An example execution of the program:
 
 <sample-output>
 
-Anna indeksi: **0**
-Anna arvo: **10**
+Index: **0**
+New value: **10**
 [10, 2, 3, 4, 5]
-Anna indeksi: **2**
-Anna arvo: **250**
+Index: **2**
+New value: **250**
 [10, 2, 250, 4, 5]
-Anna indeksi: **4**
-Anna arvo: **-45**
+Index: **4**
+New value: **-45**
 [10, 2, 250, 4, -45]
-Anna indeksi: **-1**
+Index: **-1**
 
 </sample-output>
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
-## Alkioiden lisääminen ja poistaminen
+## Adding and removing items
 
-Listan loppuun voidaan lisätä uusia alkoita `append`-metodin avulla. Metodia käytetään seuraavasti:
+The `append` method adds items to the end of a list. It works like this:
 
 ```python
-luvut = []
-luvut.append(5)
-luvut.append(10)
-luvut.append(3)
-print(luvut)
+numbers = []
+numbers.append(5)
+numbers.append(10)
+numbers.append(3)
+print(numbers)
 ```
 
 <sample-output>
@@ -145,75 +144,74 @@ print(luvut)
 
 </sample-output>
 
-Seuraavassa esimerkissä ohjelman käytössä on kaksi erillistä listaa:
+The following example makes use of two separate lists:
 
 ```python
-luvut = []
-kengannumerot = []
+numbers = []
+shoe_sizes = []
 
-luvut.append(5)
-luvut.append(10)
-luvut.append(3)
+numbers.append(5)
+numbers.append(10)
+numbers.append(3)
 
-kengannumerot.append(37)
-kengannumerot.append(44)
-kengannumerot.append(40)
-kengannumerot.append(28)
+shoe_sizes.append(37)
+shoe_sizes.append(44)
+shoe_sizes.append(40)
+shoe_sizes.append(28)
 
-print("Luvut:")
-print(luvut)
+print("Numbers:")
+print(numbers)
 
-print("Kengännumerot:")
-print(kengannumerot)
+print("Shoe sizes:")
+print(shoe_sizes)
 ```
 
-Lisäys menee siis siihen listaan, mihin metodikutsu kohdistetaan:
+The item is appended to the list on which the method is called:
 
 <sample-output>
 
-Luvut:
+Numbers:
 [5, 10, 3]
-Kengännumerot:
+Shoe sizes:
 [37, 44, 40, 28]
 
 </sample-output>
 
-<programming-exercise name='Alkoiden lisäys listaan' tmcname='osa04-07b_alkoiden_lisays_listaan'>
+<programming-exercise name='Add items to a list' tmcname='part04-13_add_items_to_list'>
 
-Tee ohjelma, joka kysyy käyttäjältä ensin lukujen määrän. Sen jälkeen ohjelma pyytää käyttäjää syöttämään annetun määrän lukuja yksitellen ja lisää ne listaan samassa järjestyksessä.
+Please write a program which first asks the user for the number of items to be added. Then the program should ask for the given number of values, one by one, and add them to a list in the order they were typed in. Finally, the list is printed out.
 
-Lopuksi lista tulostetaan.
-
-Esimerkkisuoritus:
+An example of expected behaviour:
 
 <sample-output>
 
-Kuinka monta lukua: **3**
-Anna luku 1: **10**
-Anna luku 2: **250**
-Anna luku 3: **34**
+How many items: **3**
+Item 1: **10**
+Item 2: **250**
+Item 3: **34**
 [10, 250, 34]
 
 </sample-output>
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
-Mikäli halutaan lisätä alkio johonkin muualle kuin listan loppuun, voidaan käyttää `insert`-metodia. Metodi lisää alkion halutun indeksin paikalle. Kaikkia listalla valmiina olevia alkioita lisäyspaikasta alkaen siirretään yhdellä askeleella eteenpäin:
+If you want to specify a location in the list where an item should be added, you can use the `insert` method. The method adds an item at the specified index. All the items already in the list with an index equal to or higher than the specified index are moved one index further, "to the right":
 
-<img src="4_2_2.png" alt = "Alkion lisäys listaan">
+<img src="4_2_2.png" alt = "Inserting an item to a list">
 
-Esimerkiksi
+So, for instance this program
 
 ```python
-luvut = [1, 2, 3, 4, 5, 6]
-luvut.insert(0, 10)
-print(luvut)
-luvut.insert(2, 20)
-print(luvut)
+numbers = [1, 2, 3, 4, 5, 6]
+numbers.insert(0, 10)
+print(numbers)
+numbers.insert(2, 20)
+print(numbers)
 ```
+
+prints out this:
 
 <sample-output>
 
@@ -222,20 +220,20 @@ print(luvut)
 
 </sample-output>
 
-Alkioita voidaan poistaa listasta kahden eri lähtökohdan mukaisesti:
+There are two different approaches to removing an item from a list:
 
-* Jos tiedetään, _missä_ poistettava alkio sijaitsee, voidaan käyttää metodia `pop`.
-* Jos tiedetään, _mikä_ poistettavan alkion arvo on, käytetään metodia `remove`.
+* If the _index_ of the item is known, you can use the method `pop`.
+* If the _contents_ of the item are known, you can use the method `remove`.
 
-Metodille `pop` annetaan poistettavan alkion indeksi. Esimerkiksi seuraava koodi poistaa listalta alkiot kohdista 2 ja 3. Huomaa, että alkioiden indeksit muuttuvat poiston jälkeen.
+So, the method `pop` takes the index of the item you want to remove as its argument. The following program removes items at indexes 2 and 3 from the list. Notice how the indexes of the remaining items change when one is removed.
 
 ```python
-lista = [1, 2, 3, 4, 5, 6]
+my_list = [1, 2, 3, 4, 5, 6]
 
-lista.pop(2)
-print(lista)
-lista.pop(3)
-print(lista)
+my_list.pop(2)
+print(my_list)
+my_list.pop(3)
+print(my_list)
 ```
 
 <sample-output>
@@ -245,14 +243,14 @@ print(lista)
 
 </sample-output>
 
-Metodi `pop` myös _palauttaa_ poistetun listan alkion:
+It's useful to remember that the method `pop` also _returns_ the removed item:
 
 ```python
-lista = [4, 2, 7, 2, 5]
+my_list = [4, 2, 7, 2, 5]
 
-luku = lista.pop(2)
-print(luku)
-print(lista)
+number = my_list.pop(2)
+print(number)
+print(my_list)
 ```
 
 <sample-output>
@@ -262,16 +260,18 @@ print(lista)
 
 </sample-output>
 
-Metodille `remove` annetaan indeksin sijasta poistettavan alkion arvo. Esimerkiksi:
+The method `remove`, on the other hand, takes the value of the item to be removed as its argument. For example, this program
 
 ```python
-lista = [1, 2, 3, 4, 5, 6]
+my_list = [1, 2, 3, 4, 5, 6]
 
-lista.remove(2)
-print(lista)
-lista.remove(5)
-print(lista)
+my_list.remove(2)
+print(my_list)
+my_list.remove(5)
+print(my_list)
 ```
+
+prints out this:
 
 <sample-output>
 
@@ -280,15 +280,15 @@ print(lista)
 
 </sample-output>
 
-Huomaa, että metodi poistaa listalta _ensimmäisen_ alkion, jolla on annettu arvo:
+The method removes the _first_ occurrence of the value in the list, much like the string function `find` returned the first occurrence of a substring:
 
 ```python
-lista = [1, 2, 1, 2]
+my_list = [1, 2, 1, 2]
 
-lista.remove(1)
-print(lista)
-lista.remove(1)
-print(lista)
+my_list.remove(1)
+print(my_list)
+my_list.remove(1)
+print(my_list)
 ```
 
 <sample-output>
@@ -298,83 +298,81 @@ print(lista)
 
 </sample-output>
 
-<programming-exercise name='Lisäys ja poisto' tmcname='osa04-07c_lisays_ja_poisto'>
+<programming-exercise name='Addition and removal' tmcname='part04-14_addition_and_removal'>
 
-Tee ohjelma, joka pyytää käyttäjää valitsemaan alkion lisäyksen tai poiston. Sekä lisäys että poisto tehdään listan loppuun. Lisättävän alkion arvo on aina yhtä suurempi kuin listan viimeinen alkio (tai 1, jos listassa ei ole alkioita).
+Please write a program which asks the user to choose between addition and removal. Depending on the choice, the program adds an item to or removes an item from the end of a list. The item that is added must always be one greater than the last item in the list. The first item to be added must be 1.
 
-Joka operaation välissä lista tulostetaan. Katso esimerkkiä seuraavasta tulosteesta:
+The list is printed out in the beginning and after each operation. Have a look at the example execution below:
 
 <sample-output>
 
-Lista on nyt []
-(l)isää, (p)oista vai e(x)it: **l**
-Lista on nyt [1]
-(l)isää, (p)oista vai e(x)it: **l**
-Lista on nyt [1, 2]
-(l)isää, (p)oista vai e(x)it: **l**
-Lista on nyt [1, 2, 3]
-(l)isää, (p)oista vai e(x)it: **p**
-Lista on nyt [1, 2]
-(l)isää, (p)oista vai e(x)it: **l**
-Lista on nyt [1, 2, 3]
-(l)isää, (p)oista vai e(x)it: **x**
-Moi!
+The list is now []
+a(d)d, (r)emove or e(x)it: **d**
+The list is now [1]
+a(d)d, (r)emove or e(x)it: **d**
+The list is now [1, 2]
+a(d)d, (r)emove or e(x)it: **d**
+The list is now [1, 2, 3]
+a(d)d, (r)emove or e(x)it: **r**
+The list is now [1, 2]
+a(d)d, (r)emove or e(x)it: **d**
+The list is now [1, 2, 3]
+a(d)d, (r)emove or e(x)it: **x**
+Bye!
 
 </sample-output>
 
-Voit olettaa, että listalta ei yritetä poistaa alkoita, jos lista on tyhjä.
+You may assume that if the list is empty, there will not be an attempt to remove items.
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
-Jos listalla ei ole poistettavaa alkiota, seuraa virhe. Merkkijonoista tutulla tavalla alkion olemassaolon listalla voi testata `in`-operaattorin avulla:
+If the specified item is not in the list, the `remove` function causes an error. Just like with strings, we can check for the presence of an item with the `in` operator:
 
 ```python
-lista = [1, 3, 4]
+my_list = [1, 3, 4]
 
-if 1 in lista:
-    print("Listalla on alkio 1")
+if 1 in my_list:
+    print("The list contains item 1")
 
-if 2 in lista:
-    print("listalla on alkio 2")
+if 2 in my_list:
+    print("The list contains item 2")
 ```
 
 <sample-output>
 
-Listalla on alkio 1
+The list contains item 1
 
 </sample-output>
 
-<programming-exercise name='Sama sana kahdesti' tmcname='osa04-08_sama_sana_kahdesti'>
+<programming-exercise name='Same word twice' tmcname='part04-15_same_word_twice'>
 
-Tee ohjelma, joka kyselee käyttäjältä sanoja. Kun käyttäjä syöttää jonkin sanan kahdesti, ohjelma tulostaa eri sanojen määrän ja lopettaa toimintansa.
+Please write a program which asks the user for words. If the user types in a word for the second time, the program should print out the number of different words typed in, and exit.
 
 <sample-output>
 
-sana: **olipa**
-sana: **kerran**
-sana: **kauan**
-sana: **sitten**
-sana: **kerran**
-Annoit 4 eri sanaa
+Word: **once**
+Word: **upon**
+Word: **a**
+Word: **time**
+Word: **upon**
+You typed in 4 different words
 
 </sample-output>
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
-## Listan järjestäminen
+## Sorting lists
 
-Listan alkiot voidaan _järjestää_ pienimmästä suurimpaan metodin `sort` avulla:
+The items in a list can be _sorted_ from smallest to greatest with the method `sort`.
 
 ```python
-lista = [2,5,1,2,4]
-lista.sort()
-print(lista)
+my_list = [2,5,1,2,4]
+my_list.sort()
+print(my_list)
 ```
 
 <sample-output>
@@ -383,11 +381,11 @@ print(lista)
 
 </sample-output>
 
-Toinen tapa on käyttää funktiota `sorted`, joka _palauttaa_ järjestetyn listan:
+Notice how the method modifies the list itself. Sometimes we don't want to change the original list, so we use the function `sorted` instead. It _returns_ a sorted list:
 
 ```python
-lista = [2,5,1,2,4]
-print(sorted(lista))
+my_list = [2,5,1,2,4]
+print(sorted(my_list)))
 ```
 
 <sample-output>
@@ -396,13 +394,13 @@ print(sorted(lista))
 
 </sample-output>
 
-Huomaa ero näissä tavoissa: `sort` muuttaa listan sisällön järjestetyksi, kun taas `sorted` luo uuden järjestetyn listan. Jälkimmäisessä tavassa voimme säilyttää myös listan alkuperäisen järjestyksen:
+Remember the difference between the two: `sort` changes the order of the original list in place, whereas `sorted` creates a new, ordered copy of the list. With `sorted` we can preserve the original order of the list:
 
 ```python
-alkuperainen = [2, 5, 1, 2, 4]
-jarjestetty = sorted(alkuperainen)
-print(alkuperainen)
-print(jarjestetty)
+original = [2, 5, 1, 2, 4]
+in_order = sorted(original)
+print(original)
+print(in_order)
 ```
 
 <sample-output>
@@ -412,279 +410,277 @@ print(jarjestetty)
 
 </sample-output>
 
-<programming-exercise name='Lista kahdesti' tmcname='osa04-08b_lista_kahdesti'>
+<programming-exercise name='List twice' tmcname='part04-16_list_twice'>
 
-Tee ohjelma, joka kysyy käyttäjältä lukuja ja lisää niitä listaan. Lista tulostetaan jokaisen luvun lisäyksen jälkeen kahdella eri tavalla:
-- alkiot lisäysjärjestyksessä ja
-- järjestettynä pienimmästä suurimpaan alkioon
+Please write a program which asks the user to type in values and adds them to a list. After each addition the list is printed out in two different ways:
+- in the order the items were added
+- ordered from smallest to greatest
 
-Ohjelman suoritus päättyy, kun käyttäjä syöttää luvun 0.
+The program exits when the user types in 0.
 
-Esimerkkisuoritus:
+An example of expected behaviour:
 
 <sample-output>
 
-Anna luku: **3**
-Lista: [3]
-Järjestettynä: [3]
-Anna luku: **1**
-Lista: [3, 1]
-Järjestettynä: [1, 3]
-Anna luku: **9**
-Lista: [3, 1, 9]
-Järjestettynä: [1, 3, 9]
-Anna luku: **5**
-Lista: [3, 1, 9, 5]
-Järjestettynä: [1, 3, 5, 9]
-Anna luku: **0**
-Moi!
+New item: **3**
+The list now: [3]
+The list in order: [3]
+New item: **1**
+The list now: [3, 1]
+The list in order: [1, 3]
+New item: **9**
+The list now: [3, 1, 9]
+The list in order: [1, 3, 9]
+New item: **5**
+The list now: [3, 1, 9, 5]
+The list in order: [1, 3, 5, 9]
+New item: **0**
+Bye!
 
 </sample-output>
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
-## Suurin, pienin ja summa
+## Maximum, minimum and sum
 
-Funktiot `max` ja `min` antavat listan suurimman ja pienimmän alkion.
-Funktio `sum` puolestaan laskee listan alkioiden summan.
+The functions `max` and `min`, short for maximum and minimum, return the greatest and smallest item in a list, respectively. The function `sum` returns the sum of all items in a list.
 
 ```python
-lista = [5, 2, 3, 1, 4]
+my_list = [5, 2, 3, 1, 4]
 
-suurin = max(lista)
-pienin = min(lista)
-summa = sum(lista)
+greatest = max(my_list))
+smallest = min(my_list))
+list_sum = sum(my_list))
 
-print("Pienin:", pienin)
-print("Suurin:", suurin)
-print("Summa:", summa)
+print("Smallest:", smallest)
+print("Greatest:", greatest)
+print("Sum:", list_sum)
 ```
 
 <sample-output>
 
-Pienin: 1
-Suurin: 5
-Summa: 15
+Smallest: 1
+Greatest: 5
+Sum: 15
 
 </sample-output>
 
-## Metodit vs. funktiot
+## Methods vs functions
 
-Pythonissa on ehkä hieman hämmentävästi käytössä kaksi eri tapaa listojen käsittelyyn.
-
-Suurin osa käsittelystä tapahtuu _metodien_ avulla. Esimerkiksi `append` ja `sort` ovat metodeja, joita kutsutaan listamuuttujan kautta pistenotaatiolla:
+There are two different ways of processing lists in Python, which can get confusing. For the most part you will use list _methods_, such as `append` and `sort`. They are used with the dot `.` operator on the list variable:
 
 ```python
-lista = []
+my_list = []
 
-# metodikutsuja
-lista.append(3)
-lista.append(1)
-lista.append(7)
-lista.append(2)
+# method calls
+my_list.append(3)
+my_list.append(1)
+my_list.append(7)
+my_list.append(2)
 
-# metodikutsu
-lista.sort()
+# another method call
+my_list.sort()
 ```
 
- Sen sijaan esimerkiksi `max`,  `min`, `len` ja `sorted` ovat _funktioita_, joille lista annetaan parametrina:
+Some _functions_ are happy to take a list as an argument. Above we saw the functions `max`,  `min`, `len` and `sorted` do just that:
 
 ```python
-lista = [3, 2, 7, 1]
+my_list = [3, 2, 7, 1]
 
-# funktiokutsuissa lista on parametrina
-suurin = max(lista)
-pienin = min(lista)
-pituus = len(lista)
+# function calls take the list as an argument
+greatest = max(my_list))
+smallest = min(my_list))
+length = len(my_list))
 
-print("Pienin:", pienin)
-print("Suurin:", suurin)
-print("Listan pituus:", pituus)
+print("Smallest:", smallest)
+print("Greatest:", greatest)
+print("Length of the list:", length)
 
-# funktiokutsu: lista on parametrina, järjestetty lista paluuarvona
-jarjestyksessa = sorted(lista)
-print(jarjestyksessa)
+# another function call; the list itself is an argument, the function returns a sorted copy
+in_order = sorted(my_list))
+print(in_order)
 ```
 
 <sample-output>
 
-Pienin: 1
-Suurin: 7
-Listan pituus: 4
+Smallest: 1
+Greatest: 7
+Length of the list: 4
 [1, 2, 3, 7]
 
 </sample-output>
 
-## Lista funktion parametrina ja paluuarvona
+## A list as an argument or a return value
 
-Itse tekemiemme funktioiden parametreina voi olla myös listoja. Seuraavassa on funktio, joka selvittää parametrina listan _mediaanin_ eli keskimmäisen alkion järjestetyssä listassa:
+Just like the built-in functions above, our own functions can also take a list as an argument and produce a list as a return value. The following function works out the central value in an ordered list, also called the _median_ value:
 
 ```python
-def mediaani(lista: list):
-    jarjestetty = sorted(lista)
-    keskikohta = len(jarjestetty) // 2
-    return jarjestetty[keskikohta]
+def median(my_list: list):
+    ordered = sorted(my_list))
+    list_centre = len(ordered) // 2
+    return ordered[list_centre]
 ```
 
-Funktio selvittää mediaanin tekemällä parametrinaan saamasta listasta järjestetyn version ja palauttamalla sen keskimmäisen alkion. Huomaa, että käytössä on kokonaislukujakolasku `//`, koska listan indeksin tulee olla kokonaisluku.
+The function creates an ordered version of the list given as an argument and returns the item in the very middle. Notice the integer division operator `//` used here. The index of a list should always be an integer.
 
-Seuraavassa on esimerkki funktion käytöstä:
+The function works like this:
 
 ```python
-kengannumerot = [45, 44, 36, 39, 40]
-print("Kengännumeroiden mediaani on", mediaani(kengannumerot))
+shoe_sizes = [45, 44, 36, 39, 40]
+print("The median of the shoe sizes is", median(shoe_sizes))
 
-iat = [1, 56, 34, 22, 5, 77, 5]
-print("Ikien mediaani on", mediaani(iat))
+ages = [1, 56, 34, 22, 5, 77, 5]
+print("The median of the ages is", median(ages))
 ```
 
 <sample-output>
 
-Kengännumeroiden mediaani on 40
-Ikien mediaani on 22
+The median of the shoe sizes is 40
+The median of the ages is 22
 
 </sample-output>
 
-Funktio voi myös palauttaa listan. Seuraavassa on funktio, joka palauttaa listan käyttäjän syöttämiä kokonaislukuja:
+A function can also return a list. The following function asks the user to type in integers and returns the input as a list:
 
 ```python
-def lue_luvut():
-    luvut = []
+def input_numbers():
+    numbers = []
     while True:
-        syote = input("Anna luku (tyhjä lopettaa): ")
-        if len(syote) == 0:
+        user_input = input("Please type in an integer, leave empty to exit: ")
+        if len(user_input) == 0:
             break
-        luvut.append(int(syote))
-    return luvut
+        numbers.append(int(user_input))
+    return numbers
 ```
 
-Funktio käyttää lista-tyyppistä apumuuttujaa `luvut`, johon se lisää kaikki käyttäjän antamat luvut. Silmukan jälkeen funktio palauttaa `return`-komennon avulla listan `luvut`.
+The function makes use of a helper variable `numbers`, which is a list. All the numbers typed in by the user are added to the list. When the loop is exited from, the function returns the list with the comand `return numbers`.
 
-Funktiota käytetään seuraavasti:
+Calling the function like this
 
-```python
-luvut = lue_luvut()
+```python 
+numbers = input_numbers()
 
-print("Suurin luku on", max(luvut))
-print("Lukujen mediaani on", mediaani(luvut))
+print("The greatest number is", max(numbers))
+print("The median of the numbers is", median(numbers))
 ```
+
+could print this, for example:
 
 <sample-output>
 
-Anna luku (tyhjä lopettaa): **5**
-Anna luku (tyhjä lopettaa): **-22**
-Anna luku (tyhjä lopettaa): **4**
-Anna luku (tyhjä lopettaa): **35**
-Anna luku (tyhjä lopettaa): **1**
-Anna luku (tyhjä lopettaa):
-Suurin luku on 35
-Lukujen mediaani on 4
+Please type in an integer, leave empty to exit: **5**
+Please type in an integer, leave empty to exit: **-22**
+Please type in an integer, leave empty to exit: **4**
+Please type in an integer, leave empty to exit: **35**
+Please type in an integer, leave empty to exit: **1**
+Please type in an integer, leave empty to exit:
+The greatest number is 35
+The median of the numbers is 4
 
 </sample-output>
 
-Pieni esimerkkiohjelmamme demonstroi jo yhtä funktioiden tärkeimmistä käyttötarkoituksista: niiden avulla ohjelma saadaan jaettua loogisiin selkeästi ymmärrettäviin kokonaisuuksiin.
+This small example demonstrates one of the most important uses of functions: they can help you divide your code into smaller, easily understandable and logical wholes.
 
-Sinänsä sama ohjelma olisi voitu tehdä myös ilman funktiota:
+Of course the same functionality could be achieved without writing any of our own functions:
 
 ```python
-luvut = []
+numbers = []
 while True:
-    syote = input("Anna luku (tyhjä lopettaa): ")
-    if len(syote) == 0:
+    user_input = input("Please type in an integer, leave empty to exit: ")
+    if len(user_input) == 0:
         break
-    luvut.append(int(syote))
+    numbers.append(int(user_input))
 
-jarjestetty = sorted(luvut)
-keskikohta = len(jarjestetty) // 2
-mediaani = jarjestetty[keskikohta]
+ordered = sorted(numbers)
+list_centre = len(ordered) // 2
+median = ordered[list_centre]
 
-print("Suurin luku on", max(luvut))
-print("Lukujen mediaani on", mediaani)
+print("The greatest number is", max(numbers))
+print("The median of the numbers is", median)
 ```
 
-Nyt kuitenkin ohjelman logiikan seuraaminen on vaikeampaa, koska ei ole enää yhtä selvää, mitkä komennot liittyvät minkäkin kokonaisuuden (syötteiden lukeminen, mediaanin laskeminen, ohjelman muu toiminta) toteuttamiseen.
+In this version following the programming logic is more difficult, as it is no longer clear which commands are a part of which functionality. The code fulfils the same purposes - reading in input, calculating the median value, and so on - but the structure is less clear.
 
-Jako funktioiksi siis selkeyttää koodin rakennetta ja tuo esille loogisia kokonaisuuksia. Tämän ansiosta on myös helpompaa varmistaa, että ohjelma toimii halutulla tavalla, koska voimme testata erikseen tiettyä funktiota (esim. toimiiko funktio `mediaani` oikein).
+Organising your code into separate functions will improve you program's readability, but also make it easier to handle logical wholes. This in turn helps you verify the program works as intended, as each function can be tested separately.
 
-Ohjelman rakenteen loogisen jakamisen lisäksi funktioiden toinen käyttötarkoitus on koodin _uusiokäyttö_. Jos ohjelmassa on tarvetta tehdä samankaltainen operaatio useaan kertaan, kannattaa sitä varten luoda oma selkeästi nimetty funktio:
+Another important use for functions is making code _reusable_. If you need to achieve some functionality twice is your program, it is a good idea to create your own function and name it appropriately:
 
 ```python
-print("Kengännumerot:")
-kengat = lue_luvut()
+print("Shoe sizes:")
+shoe_sizes = input_numbers()
 
-print("Painot:")
-painot = lue_luvut()
+print("Weights:")
+weights = input_numbers()
 
-print("Pituudet:")
-pituudet = lue_luvut()
+print("Heights:")
+heughts = input_numbers()
 ```
 
-<programming-exercise name='Listan pituus' tmcname='osa04-09_listan_pituus'>
+<programming-exercise name='The length os a list' tmcname='part04-17_length_of_list'>
 
-Tee funktio `pituus`, joka palauttaa parametrinaan saamansa listan pituuden.
+Please write a function named `length` which takes a list as its argument and returns the length of the list.
 
 ```python
-lista = [1, 2, 3, 4, 5]
-vastaus = pituus(lista)
-print("vastaus", vastaus)
+my_list = [1, 2, 3, 4, 5]
+result = length(my_list))
+print("The length is", result)
 
-# huomaa, että voit kutsua funktiota myös antamalla listan suoraan funktion parametriksi
-vastaus = pituus([1, 1, 1, 1])
-print("vastaus", vastaus)
+# the list given as an argument doesn't need to be stored in any variable
+result = pituus([1, 1, 1, 1])
+print("The length is", result)
 ```
 
 <sample-output>
 
-vastaus 5
-vastaus 4
+The length is 5
+The length is 4
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Keskiarvo' tmcname='osa04-10_keskiarvo'>
+<programming-exercise name='Arithmetic mean' tmcname='part04-18_mean>
 
-Tee funktio `keskiarvo`, joka palauttaa parametrinaan saamansa kokonaislukuja sisältävän listan alkioiden keskiarvon.
+Please write a function named `mean`, which takes a list of integers as an argument. The function returns the arithmetic mean of the values in the list.
 
 ```python
-lista = [1, 2, 3, 4, 5]
-vastaus = keskiarvo(lista)
-print("vastaus", vastaus)
+my_list = [1, 2, 3, 4, 5]
+result = mean(my_list))
+print("result", result)
 ```
 
 <sample-output>
 
-vastaus 3.0
+mean value is 3.0
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Vaihteluväli' tmcname='osa04-11_vaihteluvali'>
+<programming-exercise name='The range of a list' tmcname='part04-19_range_of_list'>
 
-Tee funktio `vaihteluvali`, joka palauttaa parametrinaan saamansa kokonaislukuja sisältävän listan vaihteluvälin (eli suurimman ja pienimmän alkion erotuksen).
+Please write a function named  `range_of_list`, which takes a list of integers as an argument. The function returns the difference between the smallest and the largest value in the list.
+
 
 ```python
-lista = [1, 2, 3, 4, 5]
-vastaus = vaihteluvali(lista)
-print("vastaus", vastaus)
+my_list = [1, 2, 3, 4, 5]
+result = range_of_list(my_list))
+print("The range of the list is", result)
 ```
 
 <sample-output>
 
-vastaus 4
+The range of the list is 4
 
 </sample-output>
 
-
 </programming-exercise>
 
-## Lisää listan käsittelystä
+## More ways to use lists
 
-Pythonissa on paljon muitakin mahdollisuuksia listan käsittelyyn. Voit tutustua niihin Pythonin [dokumentaation](https://docs.python.org/3/tutorial/datastructures.html) kautta.
+There are many more ways to use lists in Python. The Python [documentation](https://docs.python.org/3/tutorial/datastructures.html) is a good place to start if you want to know more.
 
 A quiz to review the contents of this section:
 

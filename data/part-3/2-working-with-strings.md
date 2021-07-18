@@ -9,7 +9,7 @@ hidden: false
 After this section
 
 - You will be able to use the operators `+` and `*` with strings
-- You will know how to find out the legth of a string
+- You will know how to find out the length of a string
 - You will know what is meant by string indexing
 - You will know how to look for substrings within a string
 
