@@ -1,6 +1,6 @@
 ---
-path: '/part-4/4-loops-and-iteration'
-title: 'Loops and iteration'
+path: '/part-4/4-definite-iteration'
+title: 'Definite iteration'
 hidden: false
 ---
 
@@ -8,21 +8,21 @@ hidden: false
 
 After this section
 
-- Tiedät, mitä tarkoitetaan iteroinnilla
-- Tiedät, miten `for`-silmukka toimii
-- Osaat käyttää `for`-silmukkaa listojen ja merkkijonojen läpikäyntiin
+- You will know the difference between definite and indefinite iteration 
+- You will know how a Python `for` loop works
+- You will be able to use a `for` loop to iterate through lists and strings
 
 </text-box>
 
-Voimme käydä listan alkiot läpi `while`-silmukalla samaan tapaan kuin olemme aiemmin käyneet läpi merkkijonon merkkejä. Esimerkiksi seuraava ohjelma tulostaa kaikki listan alkiot omille riveilleen:
+YOu can use a `while` loop to go through the items in a list, just like we used while loops to go through strings. The following program prints out the items in the list, each on a separate line:
 
 ```python
-lista = [3, 2, 4, 5, 2]
+my_list = [3, 2, 4, 5, 2]
 
-kohta = 0
-while kohta < len(lista):
-    print(lista[kohta])
-    kohta += 1
+index = 0
+while index < len(my_list):
+    print(my_list[index])
+    index += 1
 ```
 
 <sample-output>
@@ -35,30 +35,32 @@ while kohta < len(lista):
 
 </sample-output>
 
-Tämä on kuitenkin melko vaivalloinen tapa, sillä joudumme käyttämään indeksimuuttujaa `kohta`, joka "muistaa", missä kohtaa listaa ollaan menossa. Nyt on aika opetella parempi tapa listan, merkkijonon tai muun vastaavan rakenteen läpikäyntiin.
+This obviously works, but it is a rather complicated way of going throigh a list, as we have to use a helper variable `index` to remember which item in the list we are at. Fortunately, Python offers a more intuitive way of traversing through lists, strings and other similar structures.
 
-## for-silmukka
+## The for loop
 
-Pythonin `for`-silmukka käy läpi annetun rakenteen sisällön. Esimerkiksi voimme käydä läpi kaikki listalla olevat alkiot vasemmalta oikealle. Ohjelmoinnissa tällaista läpikäyntiä kutsutaan myös nimellä _iterointi_.
+When you want to go through some ready collection of items, the Python `for` loop will do this for you. For instance, the loop can go through all items in a list from first to last.
 
-Ideana on, että `for`-silmukka poimii yksi kerrallaan kunkin alkion ja suorittaa kaikille saman operaation. Näin ohjelmoijan ei tarvitse itse huolehtia, mistä kohdasta alkio haetaan missäkin vaiheessa. Silmukan syntaksi on seuraava:
+When using a `while` loop the program doesn't "know" beforehand how many iterations the loop will perform. It will repeat until the condition becomes false, or the loop is otherwise broken out of. That is why it falls under _indefinite iteration_. With a for loop the number of iterations is determined when the loop is set up, and so it falls under _definite iteration_.
+
+The idea is that the `for` loop takes the items in the collection one by one and performs the same actions on each. The programmer does not have to concern themselves with which item is being handled when. The syntax of the for loop is as follows:
 
 ```python
-for <muuttuja> in <rakenne>:
-    <lohko>
+for <variable> in <collection>:
+    <block>
 ```
 
-Kun `for`-silmukka käy listan läpi, se poimii vuorollaan kunkin alkion, sijoittaa sen muuttujaan ja suorittaa lohkon. Kun silmukka on käynyt kaikki alkiot läpi, ohjelman suoritus jatkuu silmukan jälkeiseltä riviltä.
+The `for` loop takes an item in the collection, assigns it to the variable, processes the block of code, and moves on to the next item. When all items in the collection have been processed, execution of the program continues from the line after the loop.
 
-<img src="4_3_1.png" alt="Listan iterointi">
+<img src="4_3_1.png" alt="Iterating through a list">
 
-Seuraava ohjelma tulostaa listan kaikki alkiot `for`-silmukan avulla:
+The following program prints out all items in a list using a `for` loop:
 
 ```python
-lista = [3, 2, 4, 5, 2]
+my_list = [3, 2, 4, 5, 2]
 
-for alkio in lista:
-    print(alkio)
+for item in my_list:
+    print(item)
 ```
 
 <sample-output>
@@ -71,25 +73,25 @@ for alkio in lista:
 
 </sample-output>
 
-Jos verrataan tätä edelliseen esimerkkiin, huomataan, että `for`-silmukka selkeyttää suoraviivaista listan alkioiden läpikäyntiä huomattavasti.
+Compared to the example at the beginning of this section, the structure is much easier to understand here. A `for` loop makes straightforward traversal through a collection of items very simple.
 
-Voimme käydä samalla idealla läpi myös merkkijonon merkit:
+The same principle applies to characters in a string:
 
 ```python
-nimi = input("Anna nimesi: ")
+name = input("Please type in your name: ")
 
-for merkki in nimi:
-    print(merkki)
+for character in name:
+    print(character)
 ```
 
 <sample-output>
 
-Anna nimesi: Pekka
-P
-e
-k
-k
+Please type in your name: Grace
+G
+r
 a
+c
+e
 
 </sample-output>
 
@@ -233,7 +235,7 @@ range(2, 7)
 
 </sample-output>
 
-Tutustumme asiaan tarkemmin Ohjelmoinnin jatkokurssilla, mutta on hyvä tietää, että voimme muuttaa lukuvälin listaksi funktiolla `list`. Tällöin listaan tulevat kaikki lukuväliin kuuluvat arvot:
+Tutustumme asiaan tarkemmin Ohjelmoinnin jatkokurssilla, mutta on hyvä tietää, että voimme muuttaa lukuvälin my_listksi funktiolla `list`. Tällöin my_listan tulevat kaikki lukuväliin kuuluvat arvot:
 
 ```python
 luvut = list(range(2, 7))
@@ -345,8 +347,8 @@ Tee funktio `positiivisten_summa`, joka saa parametriksi kokonaislukuja sisält�
 Funktio palauttaa listan positiivisten lukujen summan.
 
 ```python
-lista = [1, -2, 3, -4, 5]
-vastaus = positiivisten_summa(lista)
+my_list = [1, -2, 3, -4, 5]
+vastaus = positiivisten_summa(my_list)
 print("vastaus", vastaus)
 ```
 
@@ -367,8 +369,8 @@ Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän lis
 Funktio palauttaa uuden listan, jolla on parametrina olevan listan sisältämät parilliset luvut.
 
 ```python
-lista = [1, 2, 3, 4, 5]
-uusi_lista = parilliset(lista)
+my_list = [1, 2, 3, 4, 5]
+uusi_my_list = parilliset(my_list)
 print("alkuperäinen", lista)
 print("uusi", uusi_lista)
 ```
@@ -405,8 +407,8 @@ Tee funktio `uniikit`, joka saa parametriksi kokonaislukuja sisältävän listan
 Funktio palauttaa uuden listan, joka sisältää parametrina annetun listan luvut suuruusjärjestyksessä siten, että jokainen luku on listalla vain kerran.
 
 ```python
-lista = [3, 2, 2, 1, 3, 3, 1]
-print(uniikit(lista)) # [1, 2, 3]
+my_list = [3, 2, 2, 1, 3, 3, 1]
+print(uniikit(my_list)) # [1, 2, 3]
 ```
 
 </programming-exercise>
@@ -419,7 +421,7 @@ Algoritmin "luonnos" on seuraavassa:
 
 ```python
 paras = alkuarvo # sopiva alkuarvo riippuu tilanteesta
-for alkio in lista:
+for alkio in my_list:
     if alkio parempi kuin paras:
         paras = alkio
 
@@ -435,16 +437,16 @@ Harjoitellaan hieman tämän ratkaisumenetelmän käyttöä.
 Tee funktio `pisimman_pituus`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa tiedon mikä on listan pisimmän merkkijonon pituus.
 
 ```python
-lista = ["eka", "toka", "kolmas", "seitsemäs"]
+my_list = ["eka", "toka", "kolmas", "seitsemäs"]
 
-tulos = pisimman_pituus(lista)
+tulos = pisimman_pituus(my_list)
 print(tulos)
 ```
 
 ```python
-lista = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
+my_list = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
 
-tulos = pisimman_pituus(lista)
+tulos = pisimman_pituus(my_list)
 print(tulos)
 ```
 
@@ -463,16 +465,16 @@ Tee funktio `lyhin`, joka saa parametriksi listan merkkijonoja. Funktio tulostaa
 
 
 ```python
-lista = ["eka", "toka", "kolmas", "seitsemäs"]
+my_list = ["eka", "toka", "kolmas", "seitsemäs"]
 
-tulos = lyhin(lista)
+tulos = lyhin(my_list)
 print(tulos)
 ```
 
 ```python
-lista = ["pekka", "emilia", "johanna", "venla", "eero", "antti"]
+my_list = ["pekka", "emilia", "johanna", "venla", "eero", "antti"]
 
-tulos = lyhin(lista)
+tulos = lyhin(my_list)
 print(tulos)
 ```
 
@@ -492,16 +494,16 @@ Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio palau
 Nimien järjestyksen tuloslistassa tulee noudattaa nimien järjestystä alkuperäisessä listassa.
 
 ```python
-lista = ["eka", "toka", "kolmas", "seitsemäs"]
+my_list = ["eka", "toka", "kolmas", "seitsemäs"]
 
-tulos = pisimmat(lista)
+tulos = pisimmat(my_list)
 print(tulos) # ['seitsemäs']
 ```
 
 ```python
-lista = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
+my_list = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
 
-tulos = pisimmat(lista)
+tulos = pisimmat(my_list)
 print(tulos) # ['emilia', 'juhani']
 ```
 
