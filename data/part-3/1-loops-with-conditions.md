@@ -1,6 +1,6 @@
 ---
-path: '/part-3/1-iteration-using-conditions'
-title: 'Iteration using conditions'
+path: '/part-3/1-loops-with-conditions'
+title: 'Loops with conditions'
 hidden: false
 ---
 
@@ -100,7 +100,7 @@ Execution finished.
 
 To create a loop you'll often need to include three distinct steps: initialisation, condition, and updating the iteration variables.
 
-_Initialisation_ refers to setting the initial value(s) of the variable(s) used within the condition of the loop. This is performed before the loop is first entered. The _condition_ defines how long the loop is to be executed. It is set out at the very beginning of the loop. Finally, within each iteration of the loop the iteration variables are _updated_, so that each iteration brings the loop one step closer to its conclusion. The following image illustrates these steps:
+_Initialisation_ refers to setting the initial value(s) of the variable(s) used within the condition of the loop, which are often called the iteration or iterator variables. This is performed before the loop is first entered. The _condition_ defines how long the loop is to be executed. It is set out at the very beginning of the loop. Finally, within each repetition of the loop the variables involved in the condition are _updated_, so that each iteration brings the loop one step closer to its conclusion. The following image illustrates these steps:
 
 <img src="3_1_2.png">
 

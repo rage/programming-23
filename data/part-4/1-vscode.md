@@ -187,7 +187,7 @@ We have already spent a fair amount of time and effort on developing debugging s
 
 To start debugging first you have to define a _breakpoint_ in your code. A breakpoint is a point in your program where the debugger halts execution. You can set a breakpoint by clicking on the left edge of any line in your program.
 
-The following example is a slightly faulty attempt at solving the exercise _The sum of consecutive numbers_ in the [previous part](/part-3/1-iteration-using-conditions). There is a breakpoint on line 5:
+The following example is a slightly faulty attempt at solving the exercise _The sum of consecutive numbers_ in the [previous part](/part-3/1-loops-with-conditions). There is a breakpoint on line 5:
 
 <img src="4_1_5.png">
 

@@ -14,9 +14,9 @@ After this section
 
 </text-box>
 
-We have now covered conditional structures in some detail. Another central technique in programming is iteration. Together these form the fundamental control structures any programmer must master. They are called control structures because essentially they allow you to control which lines of code get executed when. While conditional structures allow you to choose _between_ sections of code, iteration structures allow you to _repeat_ sections of code. They are often called _loops_ because they loop through code for some number of iterations.
+We have now covered conditional structures in some detail. Another central technique in programming is repetition, or _iteration_. Together these form the fundamental control structures any programmer must master. They are called control structures because essentially they allow you to control which lines of code get executed when. While conditional structures allow you to _choose between_ sections of code, iteration structures allow you to _repeat_ sections of code. They are often called _loops_ because they loop through code for some number of repetitions. The process of executing one repetition of a loop is also referred to as an iteration of the loop.
 
-This section covers a simple `while` loop. Its structure is similar to the conditional statements we already covered. In the next part we will delve into some more sophisticated examples.
+This section introduces a simple `while` loop. Its structure is similar to the conditional statements we already covered. In the next part we will delve into some more sophisticated examples.
 
 Let's have a look at a program which asks the user to type in a number and then prints out the number squared. This continues until the user types in -1.
 
@@ -49,7 +49,7 @@ Thanks and bye!
 
 As you can see above, the program asks for several numbers, thanks to the `while` statement in the program. When the user types in -1, the `break` command is executed, which exits the loop and execution continues from the first line after the `while` block.
 
-With loops it is crucial that there is always a way to exit the loop at some point in the code, otherwise the iteration could go on forever. To illustrate this, let's change the above example a little:
+With loops it is crucial that there is always a way to exit the loop at some point in the code, otherwise the repetition could go on forever. To illustrate this, let's change the above example a little:
 
 ```python
 number = int(input("Please type in a number, -1 to quit: "))
@@ -466,7 +466,7 @@ The helper variable is initialized to _an empty string_, that is, a string with 
 codes = ""
 ```
 
-Upon each iteration the string gets longer, as the code the user typed in is added, along with a comma:
+With each iteration the string gets longer, as the code the user typed in is added, along with a comma:
 
 ```python
     code = input("Please type in your PIN: ")
