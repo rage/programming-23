@@ -382,169 +382,167 @@ print(longest_series_of_neighbours(my_list))
 
 </programming-exercise>
 
-## Laajemman ohjelman tekeminen
+## Developing a larger programming project
 
-Tämän osan huipentaa ensimmäinen hieman laajempi ohjelma, jota tehdessäsi pääset soveltamaan kaikkea tähän asti opeteltua.
+This fourth part culminates in a slightly larger programming project, where you get to apply many of the techniques learnt so far.
 
-Sääntö numero yksi isompaa tai oikeastaan mitä tahansa ohjelmaa tehdessä on se, että ei kannata yrittää ratkaista kaikkia ongelmia yhtä aikaa. Ohjelma kannattaa rakentaa pienistä paloista kuten sopivista apufunktioista, ja kunkin palan toimivuus kannattaa varmistaa ennen kun alkaa rakentaa seuraavaa palaa. Jos näin ei tee, on aika varmaa että edessä on suuri kaaos.
+Rule No. 1 in tackling any programming project is not trying to solve everything at once. The program should be built out of smaller sections, such as helper functions. You should verify the operation of each part before moving on to the next. If you try to handle too much at once, most likely only chaos ensues.
 
-Isompaa ohjelmaa rakentaessa on järkevää testailla ohjelman funktioita aluksi erillään pääohjelmasta. Yksi helppo tapa on tehdä myös pääohjelmasta oma funktio, esimerkiksi nimeltään `main`, jonka ohjelman funktioiden ulkopuoleinen osa käynnistää. Esimerkiksi seuraavaa tehtävää voitaisiin ruveta lähestymään näin:
+To do this you will need a way of testing your functions outside the main function. You can achieve this by defining a main function excplicitly, and calling this function from outside any other function in the program. A single function call is then easy to comment out for testing. The first steps in building the following programming project could look like this:
 
 ```python
 def main():
-    pisteet = []
-    # ohjelman koodi tänne
+    points = []
+    # your program code goes here
 
 main()
 ```
 
-Näin ohjelman apumetodeja on mahdollista testata ilman pääohjelman suorittamista:
+Now the helper functions can be tested without running the main function:
 
 ```python
-# apumetodi, joka laskee arvosanan pisteiden perusteella
-def arvosana(pisteet):
-    # koodia
+# helper function for determining the grade based on the amount of points
+def grade(points):
+    # more code
 
 def main():
-    pisteet = []
-    # ohjelman koodi tänne
+    all_points = []
+    # your program code goes here
 
-# kommentoidaan pääohjelma pois
+# comment out the main function
 #main()
 
-# testataan apumetodia
-pistemaara = 35
-tulos = arvosana(pistemaara)
-print(tulos)
+# test the helper function
+student_points = 35
+result = grade(student_points)
+print(result)
 ```
 
-## Tiedon välittäminen funktiosta toiseen
+## Passing data from one function to another
 
-Jos ohjelma koostuu useista funktioista, nousee esiin kysymys, miten tietoa siirretään funktiosta toiseen.
+When a program contains multiple functions, the question arises: how do you pass data from one function to another?
 
-Seuraavassa on esimerkki ohjelmasta, joka lukee käyttäjältä joukon kokonaislukuarvoja. Sen jälkeen ohjelma tulostaa arvot ja tekee niille vielä "analyysin". Ohjelma on jaettu kolmeen erilliseen funktioon:
+The following example asks the user for some integer values. The program then prints out these values and performs an "analysis" on them. The program is divided into three separate functions:
 
 ```python
-def lue_kayttajalta(maara: int):
-    print(f"Syötä {maara} lukua:")
-    luvut = []
+def input_from_user(how_many: int):
+    print(f"Please type in {how_many} numbers:")
+    numbers = []
 
-    for i in range(maara):
-        luku = int(input("Anna luku: "))
-        luvut.append(luku)
+    for i in range(how_many):
+        number = int(input(f"Number {i+1}: "))
+        numbers.append(number)
 
-    return luvut
+    return numbers
 
-def tulosta(luvut: list):
-    print("Luvut ovat: ")
-    for luku in luvut:
-        print(luku)
+def print_result(numbers: list):
+    print("The numbers are: ")
+    for number in numbers:
+        print(number)
 
-def analysoi(luvut: list):
-    keskiarvo = sum(luvut) / len(luvut)
-    return f"Lukuja yhteensä {len(luvut)}, keskiarvo {keskiarvo}, pienin {min(luvut)} ja suurin {max(luvut)}"
+def analyze(numbers: list):
+    mean = sum(numbers) / len(numbers)
+    return f"There are altogether {len(numbers)} numbers, the mean is {mean}, the smallest is {min(numbers)} and the greatest is {max(numbers)}"
 
-# funktioita käyttävä "pääohjelma"
-syotteet = lue_kayttajalta(5)
-tulosta(syotteet)
-analyysin_tulos = analysoi(syotteet)
-print(analyysin_tulos)
+# the "main function" using these functions
+inputs = input_from_user(5)
+print_result(inputs)
+analysis_result = analyze(inputs)
+print(analysis_result)
 ```
 
-Esimerkkisuoritus:
+When the program is executed, it could go like this:
 
 <sample-output>
 
-Syötä 5 lukua:
-Anna luku: **10**
-Anna luku: **34**
-Anna luku: **-32**
-Anna luku: **99**
-Anna luku: **-53**
-Luvut ovat:
+Please type in 5 numbers:
+Number 1: **10**
+Number 2: **34**
+Number 3: **-32**
+Number 4: **99**
+Number 5: **-53**
+The numbers are: 
 10
 34
 -32
 99
 -53
-Lukuja yhteensä 5, keskiarvo 11.6, pienin -53 ja suurin 99
+There are altogether 5 numbers, the mean is 11.6, the smallest is -53 and the greatest is 99
 
 </sample-output>
 
-Perusperiaatteena ohjelmassa on se, että pääohjelma "tallentaa" ohjelman käsittelemän tiedon eli tässä tapauksessa käyttäjän syöttämät luvut muuttujassa `syotteet`.
+The idea here is that the main function "saves" all data processed by the program. In this case all that is needed is the inut from the user in the variable `inputs`.
 
-Jos lukuja on tarve käsitellä jossain funktiossa, ne välitetään sinne parametrina. Näin tapahtuu funktioissa `tulosta` ja `analysoi`. Jos taas funktio tuottaa tietoa, jota muut ohjelman osat tarvitsevat, palauttaa funktio datan `return`-komennolla. Näin tekevät käyttäjän syötteen lukeva funktio `lue_kayttajalta` sekä analyysin tekevä funktio `analysoi`.
+If the input is needed in a function, it is passed as an argument. This happens with the functions `print_result` and `analyze`. If the function produces data that is needed elsewhere in the program, the function returns it with the `return` command. This happens with the functions `input_from_user` and `analyze`.
 
-Olisi periaatteessa mahdollista, että funktiot käyttäisivät suoraan "pääohjelman" globaalia muuttujaa `syotteet`. Se [ei kuitenkaan ole järkevää](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil), sillä jos funktiot muuttamaan globaalia muuttujaa, voi ohjelmassa alkaa tapahtua jotain hallitsematonta, varsinkin kun funktioiden määrä kasvaa.
+You could use the global function `inputs` from the main function directly in the helper functions. We have already covered why that is a bad idea, but [here is another explanation](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil). If functions are able to change a global variable, unexpected things may start happening in the program, especially when the number of functions grows large.
 
-Tiedon välitys funktioihin ja niistä ulos on siis järkevintä hoitaa parametrien ja paluuarvojen avulla.
+Passing data into and out of functions is best handled by arguments and return values.
 
-Jos haluaisimme tehdä edellisen esimerkin ohjelman siten, että sen pääohjelma eriytettäisiin omaan funktioon `main`, siirrettäisiin ohjelman käsittelemä data pääohjelmaa edustavan funktion sisäiseksi muuttujaksi:
+You could also separate the implicit main function in the example above into its own function. Then the variable `inputs` would no longer be a global variable, but instead a local variable within the `main` function:
 
 ```python
-# pääohjelmaa edustava funktio
+# your main function goes here
 def main():
-    syotteet = lue_kayttajalta(5)
-    tulosta(syotteet)
-    analyysin_tulos = analysoi(syotteet)
+    inputs = input_from_user(5)
+    print_result(inputs)
+    analysis_result = analyze(inputs)
 
-    print(analyysin_tulos)
+    print(analysis_result)
 
-# ohjelman käynnistys
+# run the main function
 main()
 ```
 
-<programming-exercise name='Arvosanatilasto' tmcname='part04-38_arvosanatilasto'>
+<programming-exercise name='Grade statistics' tmcname='part04-38_grade_statistics'>
 
-Tässä tehtävässä toteutetaan ohjelma kurssin arvosanatilastojen tulostamiseen.
+In this exercise you will write a program for printing out grade statistics for a single student.
 
-Ohjelmalle syötetään rivejä, jotka sisältävät yhden opiskelijan koepistemäärän sekä tehtyjen harjoitustehtävien määrän. Ohjelma tulostaa niiden perusteella arvosanoihin liittyviä tilastoja.
+The program asks the user for exam points and exercises completed from the courses the student has taken, and then prints out statistics based on the numbers.
 
-Koepisteet ovat kokonaislukuja väliltä 0–20. Tehtyjen harjoitustehtävien lukumäärät taas kokonaislukuja väliltä 0–100.
+Exam points are integers between 0 and 20. Exercise points are integers between 0 and 100.
 
-Ohjelma kyselee käyttäjältä rivejä niin kauan, kunnes käyttäjä syöttää tyhjän rivin. Voit olettaa, että kaikki rivit on syötetty "oikein", eli rivillä on joko kaksi kokonaislukua tai rivi on tyhjä.
+The program kees asking for input until the user types in an empty line. You may assume all lines contain valid input, that is, there are two integers on the line or the line is empty.
 
-Koepisteiden ja harjoitustehtävien syöttäminen etenee seuraavasti:
+And example of how the data is typed in:
 
 <sample-output>
 
-Koepisteet ja harjoitusten määrä: **15 87**
-Koepisteet ja harjoitusten määrä: **10 55**
-Koepisteet ja harjoitusten määrä: **11 40**
-Koepisteet ja harjoitusten määrä: **4 17**
-Koepisteet ja harjoitusten määrä:
-Tilasto:
+Exam points and exercises completed: **15 87**
+Exam points and exercises completed: **10 55**
+Exam points and exercises completed: **11 40**
+Exam points and exercises completed: **4 17**
+Exam points and exercises completed:
+Statistics:
 
 </sample-output>
 
-Kun käyttäjä on syöttänyt tyhjän rivin, tulostaa ohjelma tilastot.
+When the user types in an empty line the program prints out statistics. They are formulated as follows:
 
-Tilastot muodostuvat seuraavasti:
+The exercises completed are converted into _exercise points_, so that completing at least 10% of the exercises grant one point, 20% grants two points, and so forth. Completing all the 100 exercises grants 10 exercise points. Remember, the number of exercises completed is also an integer value.
 
-Tehtyjen harjoitustehtävien lukumäärästä saa _harjoituspisteitä_ siten, että vähintään 10 % tehtävämäärästä tuo yhden harjoituspisteen, 20 % tuo 2 harjoituspistettä, jne., ja 100 % eli 100 harjoitustehtävää tuo 10 harjoituspistettä. Harjoitustehtävistä saatava pistemäärä on kokonaisluku.
+The grade for the course is determined based on the following table:
 
-Kurssin arvosana määräytyy kokeen pistemäärän ja harjoitustehtävistä saatavien pisteiden summasta seuraavan taulukon mukaan:
-
-koepisteet+harjoituspisteet   | arvosana
+exam points + exercise points   | grade
 :--:|:----:
-0–14 | 0 (eli hylätty)
+0–14 | 0 (i.e. fail)
 15–17 | 1
 18–20 | 2
 21–23 | 3
 24–27 | 4
 28–30 | 5
 
-Edelliseen on kuitenkin poikkeus: jos kokeen pistemäärä on alle 10, on arvosana kokonaispistemäärästä riippumatta 0 eli hylätty.
+There is also an exam cutoff threshold. If the student received less than 10 points from the exam, they automatically fail the course regardless of total number of points.
 
-Yllä olevalla esimerkkisyötteellä ohjelma tulostaa seuraavat tilastot:
+With the example input from above the program would print out the following statistics:
 
 <sample-output>
 
 <pre>
-Tilasto:
-Pisteiden keskiarvo: 14.5
-Hyväksymisprosentti: 75.0
-Arvosanajakauma:
+Statistics:
+Points average: 14.5
+Pass percentage: 75.0
+Grade distribution:
   5:
   4:
   3: *
@@ -555,22 +553,21 @@ Arvosanajakauma:
 
 </sample-output>
 
-Desimaaliluvut tulostetaan yhden desimaalin tarkkuudella.
+Floating point numbers should be printed out with one decimal precision.
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon! Eli jos ohjelmasi toiminnallisuus on esim. funktiossa `main`, tulee sitä kutsuva koodi kirjoittaa normaaliin tapaan, eikä ym. if-lohkoon kuten on tehtävä niissä tehtävissä, joissa edellytetään funktioiden toteuttamista.
+**NB:** this exercise doesn't ask you to write any specific functions, so you should __not__ place any code within an `if __name__ == "__main__"` block. If any functionality in your program is e.g. in the `main` function, you should include the code calling this function normally, and not contain it in an `if` block like in the exercises which specify certain functions.
 
-**Vihje:**
+**Hint:**
 
-Ohjelman syöte koostuu riveistä joilla on peräkkäin kaksi numeroa:
+The user input in this program consists of lines with two integer values:
 
 <sample-output>
 
-Koepisteet ja harjoitusten määrä: **15 87**
+Exam points and exercises completed: **15 87**
 
 </sample-output>
 
-Syöterivi pitää pilkkoa ensin kahtia ja muuttaa palaset kokonaisluvuksi `int`-funktiolla. Rivin pilkkominen onnistuu samaalla tavalla kun tehtävässä [Eka, toka ja vika sana](/osa-4/2-lisaa-funktioista). Siihen on olemassa myös hieman helpompi keino, merkkijonojen metodi `split`. Googlaa jos haluat, käytä esim. hakusanoja *python string split*.
+You have to first split the input line in two and then convert the sections into integers with the `int` function. Splitting the input can be achieved in the same way as in the exercise [First, second and last words](/part-4/2-more-functions#programming-exercise-first-second-and-last-words), but there is a simpler way as well. The string method `split` will chop the input up nicely. You will find more information by searching for *python string split* online.
 
 <!-- **Huomaa** että tällä hetkellä Windowsissa on ongelmia joidenkin tehtävien testien suorittamisessa. Jos törmäät seuraavaan virheilmoitukseen
 
@@ -583,7 +580,6 @@ Ongelman saa korjattua menemällä laajennuksen asennusvalikkoon ja muuttamalla 
 <img src="4_3_3.png" alt="Listan iterointi">
 
 Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä. -->
-
 
 </programming-exercise>
 
