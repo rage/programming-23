@@ -8,30 +8,30 @@ hidden: false
 
 After this section
 
-- Tunnet lisää tapoja erottaa osia merkkijonosta tai listasta
-- Ymmärrät, mitä tarkoittaa merkkijonon muuttumattomuus
-- Osaat käyttää metodeita `count` ja `replace`
+- You will be familiar with more methods for slicing strings and lists
+- You will understand what immutability of strings means
+- You will be able to use the methods `count` and `replace`
 
 </text-box>
 
-Olemme käyttäneet aiemmin `[]`-syntaksia merkkijonon osajonon erottamiseen:
+You are already familiar with the `[]` syntax for accessing a part of a string:
 
 ```python
-mjono = "esimerkki"
-print(mjono[3:7])
+my_string = "exemplary"
+print(my_string[3:7])
 ```
 
 <sample-output>
 
-merk
+mpla
 
 </sample-output>
 
-Sama syntaksi toimii myös listoissa, ja voimme erottaa sen avulla listan osan:
+The same syntax works with lists. Lists can be sliced just like strings:
 
 ```python
-lista = [3,4,2,4,6,1,2,4,2]
-print(lista[3:7])
+my_list = [3,4,2,4,6,1,2,4,2]
+print(my_list[3:7])
 ```
 
 <sample-output>
@@ -40,130 +40,130 @@ print(lista[3:7])
 
 </sample-output>
 
-## Lisää erottamisesta
+## More slices
 
-Itse asiassa `[]`-syntaksi toimii hyvin samalla periaatteella kuin `range`-funktio, eli voimme antaa sille myös askeleen:
+In fact the `[]` syntax works very similarly to the `range` function, which means we can also give it a step:
 
 ```python
-mjono = "esimerkki"
-print(mjono[0:7:2])
-lista = [1,2,3,4,5,6,7,8]
-print(lista[6:2:-1])
+my_string = "exemplary"
+print(my_string[0:7:2])
+my_list = [1,2,3,4,5,6,7,8]
+print(my_list[6:2:-1])
 ```
 
 <sample-output>
 
-eiek
+eepa
 [7, 6, 5, 4]
 
 </sample-output>
 
-Jos emme anna jotain arvoa, oletuksena koko sisältö valitaan mukaan. Tämän avulla voimme tehdä seuraavan lyhyen ohjelman, joka kääntää merkkijonon:
+If we omit either of the indices, the operator defaults to including everything. Among other things, this allows us to write a very short program to reverse a string:
 
 ```python
-mjono = input("Kirjoita merkkijono: ")
-print(mjono[::-1])
+my_string = input("Please type in a string: ")
+print(my_string[::-1])
 ```
 
 <sample-output>
 
-Kirjoita merkkijono: **esimerkki**
-ikkremise
+Please type in a string: **exemplary**
+yralpmexe
 
 </sample-output>
 
-## Varoitus: globaalin muuttujan käyttö funktion sisällä
+## Warning: using global variables within functions
 
-Funktioiden sisällä on mahdollista määritellä muuttujia, mutta tämän lisäksi funktio näkee sen ulkopuolella pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+We know it is possible to assign new variables within function definitions, but the function can also see variables assigned outside it, in the main function. Such variables are called _global_ variables.
 
-Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
+Using global variables from within functions is usually a bad idea. Among other issues, doing that may cause bugs that are difficult to trace.
 
-Seuraavassa on esimerkki funktiosta, joka käyttää "vahingossa" globaalia muuttujaa:
+Below is an example of a function that uses a global variable "by mistake":
 
 ```python
-def tulosta_vaarinpain(nimet: list):
-    # käytetään vahingossa parametrin sijaan globaalia muuttujaa nimilista
-    i = len(nimilista) - 1
+def print_reversed(names: list):
+    # using the global variable instead of the parameter by accident
+    i = len(name_list) - 1
     while i >= 0:
-        print(nimilista[i])
+        print(name_list[i])
         i -= 1
 
-# globaali muuttuja
-nimilista = ["Antti", "Emilia", "Erkki", "Margaret"]
-tulosta_vaarinpain(nimilista)
+# here the global variable is assigned
+name_list = ["Steve", "Jean", "Katherine", "Paul"]
+print_reversed(name_list)
 print()
-tulosta_vaarinpain(["Tupu", "Hupu", "Lupu"])
+print_reversed(["Huey", "Dewey", "Louie"])
 ```
 
 <sample-output>
 
-Margaret
-Erkki
-Emilia
-Antti
+Paul
+Katherine
+Jean
+Steve
 
-Margaret
-Erkki
-Emilia
-Antti
+Paul
+Katherine
+Jean
+Steve
 
 </sample-output>
 
-Vaikka funktiota kutsutaan oikein, se tulostaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
+Even though the function calls both have the right kind of arguments, the function always prints out what is stored in the global variable `name_list`.
 
-Kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyäksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
+To make matters even more muddled, remember that all code for testing your functions should be placed within the `if __name__ == "__main__":` block for the automatic tests. The previous example should be modified:
 
 ```python
-def tulosta_vaarinpain(nimet: list):
-    # käytetään vahingossa parametrin sijaan globaalia muuttujaa nimilista
-    i = len(nimilista) - 1
+def print_reversed(names: list):
+    # using the global variable instead of the parameter by accident
+    i = len(name_list) - 1
     while i>=0:
-        print(nimilista[i])
+        print(name_list[i])
         i -= 1
 
-# kaikki funktiota testaava koodi tämän lohkon sisälle
+# All the code for testing the function should be within this block
 if __name__ == "__main__":
-    # globaali muuttuja
-    nimilista = ["Antti", "Emilia", "Erkki", "Margaret"]
-    tulosta_vaarinpain(nimilista)
+    # here the global variable is assigned
+    name_list = ["Steve", "Jean", "Katherine", "Paul"]
+    print_reversed(name_list)
     print()
-    tulosta_vaarinpain(["Tupu", "Hupu", "Lupu"])
+    print_reversed(["Huey", "Dewey", "Louie"])
 ```
 
-Nyt myös globaalin muuttujan määrittely on siirtynyt `if`-lohkoon.
+Notice the global variable is assgined within the `if` block now.
 
-TMC-testit suoritetaan aina siten, että mitään `if`-lohkon sisällä olevaa koodia ei suoriteta. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista`, jota ei testejä suoritettaessa ole lainkaan olemassa.
+The automatic tests in the TMC system are executed without running any of the code in the `if` block. So, in this latter example the function couldn't even theoretically work at all, since it refers to the variable `name_list`, which doesn't exist at all when the tests are executed.
 
-<programming-exercise name='Kaikki väärinpäin' tmcname='osa04-21_kaikki_vaarinpain'>
+<programming-exercise name='Everything reversed' tmcname='part04-33_everything_reversed'>
 
-Kirjoita funktio `kaikki_vaarinpain`, joka saa parametrikseen listan merkkijonoja. Funktio luo ja palauttaa uuden listan, jossa kaikki alkuperäisellä listalla olevat merkkijonot on käännetty. Myös listan alkioiden järjestys muutetaan käänteiseksi.
+Please write a function named `everything_reversed` which takes a list of strings as an argument. The function returns a new list with all of the items on the original list reversed. Also the order of items should be reversed on the new list.
 
-Esimerkki funktion käytöstä:
+An example of how the function should work:
 
 ```python
-lista = ["Moi", "kaikki", "esimerkki", "vielä yksi"]
-lista2 = kaikki_vaarinpain(lista)
-print(lista2)
+my_list = ["Hi", "there", "example", "one more"]
+new_list = everything_reversed(my_list)
+print(new_list)
 ```
 
 <sample-output>
 
-['isky äleiv', 'ikkremise', 'ikkiak', 'ioM']
+['erom eno', 'elpmaxe', 'ereht', 'iH']
 
 </sample-output>
 
 </programming-exercise>
 
-## Merkkijonoa ei voi muuttaa
+## Strings are immutable
 
-Merkkijonoilla ja listoilla on paljon yhteistä, ja useimmat operaatiot toimivat samalla tavalla sekä merkkijonoille että listoille. Kuitenkin erona on, että merkkijonoa _ei voi muuttaa_. Esimerkiksi seuraava koodi ei toimi tarkoitetulla tavalla:
+Strings and lists have a lot in common, especially in the way they behave with different operators. The main difference is that strings are _immutable_, that is, they cannot be changed.
 
 ```python
-mjono = "esimerkki"
-mjono[0] = "a"
+my_string = "exemplary"
+my_string[0] = "a"
 ```
 
-Koska merkkijonoa ei voi muuttaa, ohjelman suoritus aiheuttaa virheen:
+Strings cannot be changed, so the execution of this program causes an error:
 
 <sample-output>
 
@@ -171,40 +171,40 @@ TypeError: 'str' object does not support item assignment
 
 </sample-output>
 
-Samankaltainen virhe seuraa, jos yritetään esimerkiksi järjestää merkkijonoa järjestykseen `sort`-metodilla.
+A similar error follows if you try to sort a string with the `sort` method.
 
-Vaikka merkkijonoa ei voi muuttaa, voimme silti sijoittaa merkkijonon paikalle toisen merkkijonon.
+Strings themselves are immutable, but the variables holding them are not. A string can be replaced by another string.
 
-Onkin tärkeää huomata ero seuraavien esimerkkien välillä:
+The following two examples are thus fundamentally different:
 
 ```python
-lista = [1,2,3]
-lista[0] = 10
+my_list = [1,2,3]
+my_list[0] = 10
 ```
 
 <img src="4_4_1.png">
 
 ```python
-mjono = "Moi"
-mjono = mjono + "!"
+my_string = "Hi"
+my_string = my_string + "!"
 ```
 
 <img src="4_4_2.png">
 
-Ensimmäisessä esimerkissä listan sisältö muuttuu. Toisessa esimerkissä alkuperäinen merkkijono korvataan toisella merkkijonolla. Alkuperäinen merkkijono jää muistiin, mutta siihen ei enää ole viittausta, joten sitä ei voi enää käyttää ohjelmassa.
+The first example changes the contents of the referenced list. The second example replaces the reference to the original string with a reference to another string. The original string is still somewhere in computer memory, but there is no reference to it, and it cannot be used in the program any longer.
 
-Tähän palataan tarkemmin ensi viikolla, kun puhutaan listojen käytöstä funktioiden parametreina ja paluuarvoina.
+We will return to this subject in the next part, where references to lists are explored in more detail.
 
-## Lisää metodeita
+## More methods for lists and strings
 
-Metodin `count` avulla voidaan laskea osajonon esiintymien määrä. Metodi toimii samaan tapaan sekä merkkijonon että listan kanssa. Esimerkiksi näin:
+The method `count` counts the number of times the specified item or substring occurs in the target. The method works similarly with both strings and lists: 
 
 ```python
-mjono = "Vesihiisi sihisi hississä"
-print(mjono.count("si"))
+my_string = "How much wood would a woodchuck chuck if a woodchuck could chuck wood"
+print(my_string.count("ch"))
 
-lista = [1,2,3,1,4,5,1,6]
-print(lista.count(1))
+my_list = [1,2,3,1,4,5,1,6]
+print(my_list.count(1))
 ```
 
 <sample-output>
@@ -214,124 +214,124 @@ print(lista.count(1))
 
 </sample-output>
 
-Huomaa, että metodi `count` ei laske päällekkäisiä esiintymiä. Esimerkiksi metodin mukaan merkkijonossa `aaaa` esiintyy kaksi kertaa osajono `aa`, vaikka oikeastaan esiintymiä olisi kolme, jos päällekkäiset esiintymät sallitaan.
+The method will not count overlapping occurrences. For example, in the string `aaaa` the method counts only two occurrences of the substring `aa`, even though there would actually be three if overlapping occurrences were allowed.
 
-Metodin `replace` avulla voidaan muodostaa uusi merkkijono, jossa tietty merkkijono on korvattu toisella merkkijonolla. Esimerkiksi:
+The method `replace` creates a new string, where a specified substring is replaced with another string:
 
 ```python
-mjono = "Moi kaikki"
-uusi = mjono.replace("Moi", "Hei")
-print(uusi)
+my_string = "Hi there"
+new_string = my_string.replace("Hi", "Hey")
+print(new_string)
 ```
 
 <sample-output>
 
-Hei kaikki
+Hey there
 
 </sample-output>
 
-Metodi korvaa kaikki merkkijonon esiintymät:
+The method will replace all occurrences of the substring:
 
 ```python
-lause = "hei heilan löysin minä heinikosta hei"
-print(lause.replace("hei", "HEI"))
+sentence = "sheila sells seashells on the seashore"
+print(sentence.replace("she", "SHE"))
 ```
 
 <sample-output>
 
-HEI HEIlan löysin minä HEInikosta HEI
+SHEila sells seaSHElls on the seashore
 
 </sample-output>
 
-Tyypillinen virhe `replace`-metodia käytettäessä on unohtaa, että merkkijonot ovat muuttumattomia:
+A typical mistake when using the `replace` method is forgetting strings are immutable:
 
 ```python
-mjono = "Python on kivaa"
+my_string = "Python is fun"
 
-# Korvataan alijono, muttei tallenneta tulosta mihinkään...
-mjono.replace("Python", "Java")
-print(mjono)
+# Replaces the substring but doesn't store the result...
+my_string.replace("Python", "Java")
+print(my_string)
 ```
 
 <sample-output>
 
-Python on kivaa
+Python is fun
 
 </sample-output>
 
-Jos vanhaa jonoa ei tarvita, voidaan uusi jono sijoittaa samaan muuttujaan:
+If the old string is no longer needed, the new string can be assigned to the same variable:
 
 ```python
-mjono = "Python on kivaa"
+my_string = "Python is fun"
 
-# Korvataan alijono, tallennetaan tulos samaan muuttujaan
-mjono = mjono.replace("Python", "Java")
-print(mjono)
+# Replaces the substring and stores the result in the same variable
+my_string = my_string.replace("Python", "Java")
+print(my_string)
 ```
 
 <sample-output>
 
-Java on kivaa
+Java is fun
 
 </sample-output>
 
-<programming-exercise name='Eniten kirjaimia' tmcname='osa04-22_eniten_kirjaimia'>
+<programming-exercise name='Most common character' tmcname='part04-34_most_common_character'>
 
-Kirjoita funktio `eniten_kirjainta`, joka saa parametrikseen merkkijonon. Funktio palauttaa kirjaimen, jota esiintyy eniten merkkijonossa. Jos yhtä yleisiä kirjaimia on monta, funktion tulee palauttaa niistä ensimmäisenä merkkijonossa esiintyvä.
+Please write a function named `most_common_character` which takes a string argument. The function returns the character which has the most occurrences within the string. If there are many characters with equally many occurrences, the one which appears first in the string should be returned.
 
-Esimerkki funktion käytöstä:
+An example of expected behaviour:
 
 ```python
-mjono = "abcbdbe"
-print(eniten_kirjainta(mjono))
+first_string = "abcbdbe"
+print(most_common_character(first_string))
 
-toinen_jono = "esimerkkimerkkijonokki"
-print(eniten_kirjainta(toinen_jono))
+second_string = "exemplaryelementary"
+print(most_common_character(second_string))
 ```
 
 <sample-output>
 
 b
-k
+e
 
 </sample-output>
 
 </programming-exercise>
 
 
-<programming-exercise name='Vokaalit pois' tmcname='osa04-23_vokaalit_pois'>
+<programming-exercise name='No vowels allowed' tmcname='part04-23_no_vowels'>
 
-Kirjoita funktio `ilman_vokaaleja`, joka saa parametrikseen merkkijonon. Funktio palauttaa uuden merkkijonon, jossa alkuperäisen merkkijonon vokaalit on poistettu.
+Please write a function named `no_vowels` which takes a string argument, The function returns a new string which is the same as the original but with all vowels removed. 
 
-Voit olettaa, että merkkijono koostuu pelkästään pienistä suomen kielen kirjaimista a...ö.
+You can assume the string will contain only characters from the lowercase English alphabet a...z.
 
-Esimerkki funktion käytöstä:
+An example of expected behaviour:
 
 ```python
-mjono = "tämä on esimerkki"
-print(ilman_vokaaleja(mjono))
+my_string = "this is an example"
+print(no_vowels(my_string))
 ```
 
 <sample-output>
 
-tm n smrkk
+ths s n exmpl
 
 </sample-output>
 
 </programming-exercise>
 
 
-<programming-exercise name='Poista isot' tmcname='osa04-24_poista_isot'>
+<programming-exercise name='No shouting allowed' tmcname='part04-36_no_shouting'>
 
-Pythonin merkkijonometodi `isupper()` palauttaa arvon `True`, jos merkkijono koostuu _pelkästään isoista kirjaimista_.
+The Python string method `isupper()` returns `True` if a string consists of _only_ uppercase characters.
 
-Esimerkiksi:
+Some examples:
 
 ```python
 print("XYZ".isupper())
 
-onko_iso = "Abc".isupper()
-print(onko_iso)
+is_it_upper = "Abc".isupper()
+print(is_it_upper)
 ```
 
 <sample-output>
@@ -341,38 +341,37 @@ False
 
 </sample-output>
 
-Kirjoita metodia hyödyntäen funktio `poista_isot`, joka saa parametrikseen listan merkkijonoja. Funktio palauttaa uuden listan, jolla on sen parametrina olevasta listasta ne merkkijonot, jotka eivät koostu kokonaan isoista kirjaimista.
+Please use the `isupper` method to write a function named `no_shouting` which takes a list of strings as an argument. The function returns a new list containing only those items from the original which do not consist of solely uppercase characters.
 
-
-Esimerkki funktion käytöstä:
+An example of expected behaviour:
 
 ```python
-lista = ["ABC", "def", "ISO", "TOINENISO", "pieni", "toinen pieni", "Osittain Iso"]
-karsittu_lista = poista_isot(lista)
-print(karsittu_lista)
+my_list = ["ABC", "def", "UPPER", "ANOTHERUPPER", "lower", "another lower", "Capitalized"]
+pruned_list = no_shouting(my_list)
+print(pruned_list)
 ```
 
 <sample-output>
 
-['def', 'pieni', 'toinen pieni', 'Osittain Iso']
+['def', 'lower', 'another lower', 'Capitalized']
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Naapureita listassa' tmcname='osa04-25_naapureita_listassa'>
+<programming-exercise name='Neighbours in a list' tmcname='part04-37_neighbours_in_list'>
 
-Määritellään, että listan alkiot ovat naapureita, jos niiden erotus on 1. Naapureita olisivat siis esim alkiot 1 ja 2 tai alkiot 56 ja 55.
+Let's decide that the items in a list are neighbours if their difference is 1. So, items 1 and 2 would be neighbours, and so would items 56 and 55.
 
-Kirjoita funktio `pisin_naapurijono`, joka etsii listasta pisimmän peräkkäisiä naapureita sisältävän osalistan ja palauttaa sen pituuden.
+Please write a function named `longest_series_of_neighbours` which looks for the longest series of neighbours within the list, and returns its length. 
 
-Esimerkiksi listassa `[1, 2, 5, 4, 3, 4]` pisin tällainen osalista olisi `[5, 4, 3, 4]`, ja sen pituus 4.
+For example, in the list `[1, 2, 5, 4, 3, 4]` the longest list of neighbours would be  `[5, 4, 3, 4]`, with a length of 4.
 
-Esimerkki funktion kutsumisesta:
+An example function call:
 
 ```python
-lista = [1, 2, 5, 7, 6, 5, 6, 3, 4, 1, 0]
-print(pisin_naapurijono(lista))
+my_list = [1, 2, 5, 7, 6, 5, 6, 3, 4, 1, 0]
+print(longest_series_of_neighbours(my_list))
 ```
 
 <sample-output>
@@ -495,7 +494,7 @@ def main():
 main()
 ```
 
-<programming-exercise name='Arvosanatilasto' tmcname='osa04-26_arvosanatilasto'>
+<programming-exercise name='Arvosanatilasto' tmcname='part04-38_arvosanatilasto'>
 
 Tässä tehtävässä toteutetaan ohjelma kurssin arvosanatilastojen tulostamiseen.
 
