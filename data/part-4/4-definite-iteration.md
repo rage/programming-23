@@ -14,7 +14,7 @@ After this section
 
 </text-box>
 
-YOu can use a `while` loop to go through the items in a list, just like we used while loops to go through strings. The following program prints out the items in the list, each on a separate line:
+You can use a `while` loop to go through the items in a list, just like we used while loops to go through strings. The following program prints out the items in the list, each on a separate line:
 
 ```python
 my_list = [3, 2, 4, 5, 2]
@@ -35,7 +35,7 @@ while index < len(my_list):
 
 </sample-output>
 
-This obviously works, but it is a rather complicated way of going throigh a list, as we have to use a helper variable `index` to remember which item in the list we are at. Fortunately, Python offers a more intuitive way of traversing through lists, strings and other similar structures.
+This obviously works, but it is a rather complicated way of going through a list, as you have to use a helper variable `index` to remember which item in the list you're at. Fortunately, Python offers a more intuitive way of traversing through lists, strings and other similar structures.
 
 ## The for loop
 
@@ -86,7 +86,7 @@ for character in name:
 
 <sample-output>
 
-Please type in your name: Grace
+Please type in your name: **Grace**
 G
 r
 a
@@ -95,17 +95,15 @@ e
 
 </sample-output>
 
-<programming-exercise name='Tulostus tähdillä' tmcname='osa04-11a_tulostus_tahdilla'>
+<programming-exercise name='Star-studded' tmcname='part04-20_star_studded'>
 
-Tee ohjelma, joka pyytää käyttäjää syöttämään merkkijonon ja tulostaa sitten merkkijonon kirjaimet yksitellen allekkain.
+Please write a program which asks the user to type in a string. The program then prints each input character on a separate line. After each character there should be a star (*) printed on its own line.
 
-Jokaisen kirjaimen jälkeen tulostetaan lisäksi tähti (*) omalle rivilleen.
-
-Esimerkiksi:
+This is how it should work:
 
 <sample-output>
 
-Anna merkkijono: **Python**
+Please type in a string: **Python**
 P
 *
 y
@@ -121,16 +119,15 @@ n
 
 </sample-output>
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
-## Funktio `range`
+## The function `range`
 
-Silmukkaa tarvitaan usein myös siihen, että haluamme toistaa jonkin asian tietyn määrän kertoja tai käydä läpi tietyn lukuvälin (esimerkiksi kaikki luvut väliltä 1–100). Myös tämä onnistuu kätevästi `for`-silmukalla funktion `range` avulla.
+Often you know how many times you want to repeat a certain bit of code. You might, for example, wish to go through all the numbers between 1 and 100. The `range` function plugged into a `for` loop will do this for you.
 
-Voimme kutsua `range`-funktiota monella tavalla. Yksinkertaisin tapa on `range(n)`, jolloin silmukka käy läpi kokonaisluvut 0:sta lukuun `n`–1:
+There are a few different ways to call the range function. The simplest way is to give the function just one argument which signifies the end-point of the range. The end-point itself is excluded, just like we saw with string slices. The function call `range(n)` provides a loop wth a range from 0 to `n-1`:
 
 ```python
 for i in range(5):
@@ -147,7 +144,7 @@ for i in range(5):
 
 </sample-output>
 
-Kun annamme kaksi parametria, `range(a, b)` aloittaa luvusta `a` ja lopettaa lukuun `b`–1:
+With two arguments the function will return a range between the two numbers. The function `range(a,b)` provides a range starting from `a` and ending at `b-1`:
 
 ```python
 for i in range(3, 7):
@@ -163,7 +160,7 @@ for i in range(3, 7):
 
 </sample-output>
 
-Kun annamme kolme parametria, `range(a, b, c)` aloittaa luvusta `a`, lopettaa lukuun `b`–1 ja muuttaa lukua `c`:llä joka askeleella:
+Finally, with a third argument you can also specify the size of the _step_ the range takes between each value. The function call `range(a, b, c)` provides a range starting from `a`, ending at `b-1`, and changing by `c` with every step:
 
 ```python
 for i in range(1, 9, 2):
@@ -179,7 +176,7 @@ for i in range(1, 9, 2):
 
 </sample-output>
 
-Voimme myös antaa negatiivisen askeleen, jolloin luvut käydään läpi käänteisesti:
+A step can also be negative. Then the range will be in reversed orded. Notice the first two arguments are also flipped here:
 
 ```python
 for i in range(6, 2, -1):
@@ -195,15 +192,15 @@ for i in range(6, 2, -1):
 
 </sample-output>
 
-<programming-exercise name='Negatiivisesta positiiviseen' tmcname='osa04-11b_negatiivisesta_positiiviseen'>
+<programming-exercise name='From negative to positive' tmcname='part04-21_negative_to_positive'>
 
-Tee ohjelma, joka lukee käyttäjältä positiivisen kokonaisluvun N. Ohjelma tulostaa sen jälkeen luvut väliltä -N...N _nollaa lukuunottamatta_. Jokainen luku tulostetaan omalle rivilleen.
+Please write a program which asks the user for a positive integer N. The program then prints out all numbers between -N and N inclusive, but _leaves out the number 0_. Each number should be printed on a separate line.
 
-Esimerkiksi
+An example of expected behaviour:
 
 <sample-output>
 
-Anna luku: **4**
+Please type in a positive integer: **4**
 -4
 -3
 -2
@@ -215,18 +212,17 @@ Anna luku: **4**
 
 </sample-output>
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
-## Lukuväli listaksi
+## From a range to a list
 
-Funktio `range` palauttaa lukuvälin, joka voidaan käydä läpi listan kaltaisesti mutta joka ei kuitenkaan ole lista. Tämän näkee siitä, että jos tulostamme funktion palauttaman arvon, näemme vain kuvauksen lukuvälistä:
+The function `range` returns a range object which in many ways behaves like a list, but isn't actually one. If you try printing out the value the function returns, you will only see a description of a range object:
 
 ```python
-luvut = range(2, 7)
-print(luvut)
+numbers = range(2, 7)
+print(numbers)
 ```
 
 <sample-output>
@@ -235,11 +231,12 @@ range(2, 7)
 
 </sample-output>
 
-Tutustumme asiaan tarkemmin Ohjelmoinnin jatkokurssilla, mutta on hyvä tietää, että voimme muuttaa lukuvälin my_listksi funktiolla `list`. Tällöin my_listan tulevat kaikki lukuväliin kuuluvat arvot:
+The function `list` will actually convert a range into a list. The list will contain all values that are in the range.
+The Advanced Course in Programming course which follows this one will shed more light on this subject.
 
 ```python
-luvut = list(range(2, 7))
-print(luvut)
+numbers = list(range(2, 7))
+print(numbers)
 ```
 
 <sample-output>
@@ -248,29 +245,29 @@ print(luvut)
 
 </sample-output>
 
-## Muistutus tehtävien funktioita testaavasta omasta koodista
+## A reminder of the demands of the automatic tests
 
-Funktiotehtävien tehtäväpohjat ovat tähän asti näyttäneet seuraavilta:
+So far, when the exercises have asked you to write functions, the templates have looked like this:
 
 ```python
-# tee ratkaisu tänne
-# funktiota kannattaa testata kutsumalla sitä täällä seuraavasti
+# Write your solution here
+# You can test your function by calling it within the following block
 if __name__ == "__main__":
-    lause = "olipa kerran kauan sitten ohjelmoija"
-    print(eka_sana(lause))
-    print(toka_sana(lause))
-    print(vika_sana(lause))
+    lause = "it was a dark and stormy python"
+    print(first_word(sentence))
+    print(second_word(sentence))
+    print(last_word(sentence))
 ```
 
-Tästä eteenpäin muistutusta siitä, että testikoodi on sijoitettava `if __name__ == "__main__"` -lohkoon, ei tehtäväpohjissa enää ole. Testit kuitenkin vaativat lohkon edelleen, eli joudut lisäämään sen itse.
+From now on there will be no more reminders in the templates to use the `if __name__ == "__main__"` block. However, the automatic tests will still demand its use, so you will have to add the block yourself when you test your function within the main function of your program.
 
-**Huomaa kuitenkin**, että jotkut tehtävät, esim. hetken kuluttua vuorossa oleva _Palindromit_, edellyttävät funktioiden lisäksi myös funktiota kutsuvaa koodia. Tätä koodia _ei tule_ sijoittaa  `if __name__ == "__main__"` -lohkon sisälle. Testit eivät nimittäin suorita mitään kyseisen lohkon koodista.
+**NB:** some exercises, like the _Palindromes_ exercise coming up in this section, expect you to also write code which calls the function you wrote. This code should _not_ be placed within an `if __name__ == "__main__"` block. The automatic tests will not execute any code within that block, so your solution will not be complete if you place your function calls there.
 
-<programming-exercise name='Tähdet' tmcname='osa04-12_tahdet'>
+<programming-exercise name='List of stars' tmcname='part04-22_list_of_stars'>
 
-Tee funktio `lista_tahtina`, joka saa parametriksi listan kokonaislukuja. Funktio tulostaa joukon tähtirivejä siten, että listalla olevat luvut kertovat kunkin rivin tähtimäärän.
+Please write a function named `list_of_stars` which takes a list of integers as its argument. The function should print out lines of star characters. The numbers in the list specify how many stars each line should contain.
 
-Esim. kutsuttaessa `lista_tahtina([3, 7, 1, 1, 2])` tulostus on:
+For example, with the function call `list_of_stars([3, 7, 1, 1, 2])` the following should be printed out:
 
 <sample-output>
 
@@ -298,213 +295,204 @@ Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä. -->
 
 </programming-exercise>
 
-<programming-exercise name='Anagrammi' tmcname='osa04-13_anagrammi'>
+<programming-exercise name='Anagrams' tmcname='part04-23_anagrams'>
 
-Tee funktio `anagrammi` joka saa parametriksi kaksi merkkijonoa. Funktio palauttaa `True`, jos merkkijonot ovat anagrammeja eli ne muodostuvat täsmälleen samoista kirjaimista.
+Please write a function named `anagrams` which takes two strings as arguments. The function returns `True` if the strings are anagrams of each other, that is, if they contain the exact same characters. 
 
-Esimerkiksi funktiota voisi käyttää näin:
+Some examples of how the function should work:
 
 ```python
-print(anagrammi("talo", "tola")) # True
-print(anagrammi("talo", "lato")) # True
-print(anagrammi("talo", "olat")) # True
-print(anagrammi("tammi", "mitta")) # False
-print(anagrammi("python", "java")) # False
+print(anagrams("tame", "meta")) # True
+print(anagrams("tame", "mate")) # True
+print(anagrams("tame", "team")) # True
+print(anagrams("tabby", "batty")) # False
+print(anagrams("python", "java")) # False
 ```
 
-Vihje: funktio `sorted` toimii myös merkkijonoille.
+Hint: the function `sorted` can be used on strings as well.
 
 </programming-exercise>
 
-<programming-exercise name='Palindromit' tmcname='osa04-14_palindromit'>
+<programming-exercise name='Palindromes' tmcname='part04-24_palindromes'>
 
-Tee funktio `palindromi`, joka saa parametriksi merkkijonon ja palauttaa True, jos merkkijono on palindromi (eli samansisältöinen luettuna alusta loppuun tai lopusta alkuun).
+Please write a function named `palindromes` which takes a string argument and returns `True` if the string is a palindrome. Palindromes are words which are the same spelled backwards as forwards.
 
-Tee myös funktiota hyödyntävä pääohjelma, joka kyselee käyttäjältä sanoja niin kauan, kunnes käyttäjä syöttää palindromin:
+Please also write a main function which asks the user to type in words until they type in a palindrome:
 
 <sample-output>
 
-Anna sana: **python**
-ei ollut palindromi
-Anna sana: **java**
-ei ollut palindromi
-Anna palindromi: **kauppias**
-ei ollut palindromi
-Anna palindromi: **saippuakauppias**
-saippuakauppias on palindromi!
+Please type in a palindrome: **python**
+that wasn't a palindrome
+Please type in a palindrome: **java**
+that wasn't a palindrome
+Please type in a palindrome: **oddoreven**
+that wasn't a palindrome
+Please type in a palindrome: **neveroddoreven**
+neveroddoreven is a palindrome!
 
 </sample-output>
 
-**Huomaa**, että pääohjelmaa **ei tule kirjoittaa**
-`if __name__ == "__main__":`-lohkon sisälle
+**NB:**, the main function **should not be** within an `if __name__ == "__main__":` block
 
 </programming-exercise>
 
-<programming-exercise name='Positiivisten summa' tmcname='osa04-15_positiivisten_summa'>
+<programming-exercise name='The sum of positive numbers' tmcname='part04-25_sum_of_positives'>
 
-Tee funktio `positiivisten_summa`, joka saa parametriksi kokonaislukuja sisältävän listan.
-
-Funktio palauttaa listan positiivisten lukujen summan.
+Please write a function named `sum_of_positives` which takes a list of integers as an argument. The function returns the sum of the positive values in the list.
 
 ```python
 my_list = [1, -2, 3, -4, 5]
-vastaus = positiivisten_summa(my_list)
-print("vastaus", vastaus)
+result = sum_of_positives(my_list)
+print("The result is", result)
 ```
 
 <sample-output>
 
-vastaus 9
+The result is 9
 
 </sample-output>
 
 </programming-exercise>
 
-Kertaa nyt tarvittaessa [edellisen osion](/osa-4/3-listat) luku _Lista funktion parametrina ja paluuarvona_!
+In these exercises we will be using lists as arguments and return values. This was covered in the [previous section](/part-4/3-lists#a-list-as-an-argument-or-a-return-value), if you need a refresher.
 
-<programming-exercise name='Parilliset' tmcname='osa04-16_parilliset'>
+<programming-exercise name='Even numbers' tmcname='part04-26_even_numbers'>
 
-Tee funktio `parilliset`, joka saa parametriksi kokonaislukuja sisältävän listan.
-
-Funktio palauttaa uuden listan, jolla on parametrina olevan listan sisältämät parilliset luvut.
+Please write a function named `even_numbers` which takes a list of integers as an argument. The function returns a new list containing the even numbers from the original list.
 
 ```python
 my_list = [1, 2, 3, 4, 5]
-uusi_my_list = parilliset(my_list)
-print("alkuperäinen", lista)
-print("uusi", uusi_lista)
+new_list = even_numbers(my_list)
+print("original", my_list)
+print("new", new_list)
 ```
 
 <sample-output>
 
-alkuperäinen [1, 2, 3, 4, 5]
-uusi [2, 4]
+original [1, 2, 3, 4, 5]
+new [2, 4]
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Summalista' tmcname='osa04-17_summalista'>
+<programming-exercise name='The sum of lists' tmcname='part04-27_sum_of_lists'>
 
-Tee funktio `summa`, joka saa parametriksi kaksi kokonaislukuja sisältävää listaa. Molemmissa listoissa on sama määrä alkioita.
+Please write a function named `list_sum` which takes two lists of integers as arguments. The function returns a new list which contains the sums of the items at each index in the two original lists. You may assume both lists have the same number of items. 
 
-Funktio palauttaa uuden listan, jonka alkiot muodostuvat parametreina olevien listojen alkioiden summista.
-
-Esim:
+An example of the function at work:
 
 ```python
 a = [1, 2, 3]
 b = [7, 8, 9]
-print(summa(a, b)) # [8, 10, 12]
+print(list_sum(a, b)) # [8, 10, 12]
 ```
 
 </programming-exercise>
 
-<programming-exercise name='Uniikit' tmcname='osa04-18_uniikit'>
+<programming-exercise name='Distinct numbers' tmcname='part04-28_distinct_numbers'>
 
-Tee funktio `uniikit`, joka saa parametriksi kokonaislukuja sisältävän listan.
-
-Funktio palauttaa uuden listan, joka sisältää parametrina annetun listan luvut suuruusjärjestyksessä siten, että jokainen luku on listalla vain kerran.
+Please write a function named `distinct_numbers` which take a list of integers as an argument. The function returns a new list containing the numbers from the original list in order of magnitude, and so that each distinct number is present only once.
 
 ```python
 my_list = [3, 2, 2, 1, 3, 3, 1]
-print(uniikit(my_list)) # [1, 2, 3]
+print(distinct_numbers(my_list)) # [1, 2, 3]
 ```
 
 </programming-exercise>
 
 ## Parhaan tai huonoimman etsiminen listalta
 
-Ohjelmoinnissa tulee usein esiin tilanne, missä listalta on löydettävä jonkin kriteerin mukaan paras tai huonoin alkio. Ratkaisu onnistuu käyttämällä sopivaa apumuuttujaa, jonka avulla voidaan "muistaa" läpikäynnin aikana siihen mennessä löytynyt paras alkio. Tätä muistettavaa alkiota verrataan sitten yksi kerrallaan jokaiseen vastaantulevaan alkioon, ja lopulta on tiedossa koko listan paras.
+A very common programming task is finding the best or worst item in a list, according to some criteria. A simple solution is using a helper variable to "remember" which of the items processed so far was the most suitable. This temporary best choice is then compared to each item in turn, and at the end of the iteration the variable contains the best of the bunch.
 
-Algoritmin "luonnos" on seuraavassa:
+A rough draft which doesn't quite compile yet:
 
 ```python
-paras = alkuarvo # sopiva alkuarvo riippuu tilanteesta
-for alkio in my_list:
-    if alkio parempi kuin paras:
-        paras = alkio
+best = initial_value # The initial values depends on the situation
+for item in my_list:
+    if item is better than best:
+        best = item
 
-# paras on nyt tiedossa!
+# We now have the best one figured out!
 ```
 
-Koodin yksityiskohdat riippuvat siitä minkä tyyppisiä alkioita listalla on ja mikä parhauden/huonouden vertailukriteeri on käytössä. Joissain tilanteissa myös apumuuttujia saatetaan tarvita useampia.
+The details of the program code depend on the type of items in the list, and also on the criteria for choosing the best (or worst) item. Sometimes you may need more than on ehelper variable.
 
-Harjoitellaan hieman tämän ratkaisumenetelmän käyttöä.
+Let's practice this method a little:
 
-<programming-exercise name='Listan pisimmän pituus' tmcname='osa04-18a_listan_pimman_pituus'>
+<programming-exercise name='The length of the longest in the list' tmcname='part04-29_length_of_longest'>
 
-Tee funktio `pisimman_pituus`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa tiedon mikä on listan pisimmän merkkijonon pituus.
+Please write a function named `length_of_longest` which takes a list of strings as an argument. The function returns the length of the longest string.
 
 ```python
-my_list = ["eka", "toka", "kolmas", "seitsemäs"]
+my_list = ["first", "second", "fourth", "eleventh"]
 
-tulos = pisimman_pituus(my_list)
-print(tulos)
+result = length_of_longest(my_list)
+print(result)
 ```
 
 ```python
-my_list = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
+my_list = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
 
-tulos = pisimman_pituus(my_list)
-print(tulos)
+result = length_of_longest(my_list)
+print(result)
 ```
 
 <sample-output>
 
+8
 9
-6
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Listan lyhin' tmcname='osa04-18b_listan_lyhin'>
+<programming-exercise name='The shortest in the list' tmcname='part04-30_shortest_in_list'>
 
-Tee funktio `lyhin`, joka saa parametriksi listan merkkijonoja. Funktio tulostaa listan lyhimmän merkkijonon. Jos samanpituisia on useita (testeissä näin ei ole), voi funktio palauttaa niistä minkä vaan. Funktio voi olettaa että listalla ei ole tyhjiä eli nollan pituisia merkkijonoja.
+Please write a function named `shortest` which takes a list of strings as an argument. The function prints out whichever is the shortest. If more than one are equally short, the function can print any of the shortest strings (there will be no such situation in the tests). You may assume there will be no empty strings in the list.
 
 
 ```python
-my_list = ["eka", "toka", "kolmas", "seitsemäs"]
+my_list = ["first", "second", "fourth", "eleventh"]
 
-tulos = lyhin(my_list)
-print(tulos)
+result = shortest(my_list)
+print(result)
 ```
 
 ```python
-my_list = ["pekka", "emilia", "johanna", "venla", "eero", "antti"]
+my_list = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
 
-tulos = lyhin(my_list)
-print(tulos)
+result = shortest(my_list)
+print(result)
 ```
 
 <sample-output>
 
-eka
-eero
+first
+tim
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Listan pisimmät' tmcname='osa04-19_listan_pisimmat'>
+<programming-exercise name='All the longest in the list' tmcname='part04-31_all_longest_in_list'>
 
-Tee funktio `pisimmat`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa listan, joka sisältää parametrina annetun listan pisimmän merkkijonon. Jos pisimpiä merkkijonoja on useampia, funktio palauttaa ne kaikki listassa.
+Please write a function named `all_the_longest` which takes a list of strings as an argument. The function returns a list containing the longest string in the original list. If more than one are equally long, the function should return all of the strings.
 
-Nimien järjestyksen tuloslistassa tulee noudattaa nimien järjestystä alkuperäisessä listassa.
+The order of the strings in the returned list should be the same as in the original.
 
 ```python
-my_list = ["eka", "toka", "kolmas", "seitsemäs"]
+my_list = ["first", "second", "fourth", "eleventh"]
 
-tulos = pisimmat(my_list)
-print(tulos) # ['seitsemäs']
+result = all_the_longest(my_list)
+print(result) # ['eleventh']
 ```
 
 ```python
-my_list = ["pekka", "emilia", "venla", "eero", "antti", "juhani"]
+my_list = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
 
-tulos = pisimmat(my_list)
-print(tulos) # ['emilia', 'juhani']
+result = all_the_longest(my_list)
+print(result) # ['dorothy', 'richard']
 ```
 
 </programming-exercise>

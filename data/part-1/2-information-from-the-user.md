@@ -172,7 +172,7 @@ Your address is now New Road 999
 
 </sample-output>
 
-This means that if the same variable is used to store two inputs in succession, there is no way to access the first input value after it has been replaces by the second:
+This means that if the same variable is used to store two inputs in succession, there is no way to access the first input value after it has been replaced by the second:
 
 ```python
 address = input("What is your address? ")

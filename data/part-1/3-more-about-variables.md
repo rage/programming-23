@@ -108,7 +108,7 @@ test!!!
 
 </sample-output>
 
-<text-box variant="hint" name="Lisää muuttujan nimen valinnasta">
+<text-box variant="hint" name="Choosing a good name for a variable">
 
 * It is often useful to name variables according to what they are used for. For example, if the variable contains a word, the name `word` is a better choice than, say, `a`. 
   
