@@ -8,156 +8,156 @@ hidden: false
 
 After this section
 
-- Tiedät, miten `print`-komennon tulostusta saa muokattua parametrien avulla
-- Osaat käyttää f-merkkijonoja tulosteen muotoilussa
+- You will know how to use arguments to format the result of the `print` command
+- You will be able to use f-strings to format printouts
 
 </text-box>
 
-Olemme tähän mennessä yhdistelleet tulostettavaa tietoa `print`-komennossa kolmella eri tavalla.
+So far we have learnt three methods for formulating the argument given to the `print` command.
 
-Ensimmäinen tapa on käyttää merkkijonojen `+`-operaattoria ja muodostaa näin yksittäinen merkkijono, jonka print saa parametrikseen:
-
-```python
-nimi = "Erkki"
-ika = 39
-print("Hei " + nimi + " ikäsi on " + str(ika) + " vuotta" )
-```
-
-Tämä tapa edellyttää, että kaikki yhdistettävät osat ovat merkkijonoja. Koska muuttuja `ika` on tyypiltään kokonaisluku, se on muutettu yhdistämistä varten merkkijonoksi funktiolla `str`.
-
-Toinen käyttämämme tapa on eritellä tulostuksen osat pilkulla:
+The first is the `+` operator for strings. It allows simple concatenation of string segments:
 
 ```python
-print("Hei", nimi, "ikäsi on", ika, "vuotta" )
+name = "Mark"
+age = 37
+print("Hi " + name + " your age is " + str(age) + " years" )
 ```
 
-Tämän koodin lopputulos on sama kuin edellisen esimerkin. Näin käytettynä `print` tulostaa kaikki parametrinsa välilyönnillä eroteltuna. Etuna tässä tavassa on, että tulostettavat osat voivat olla eri tyyppisiä eli tyyppimuunnosta merkkijonoksi ei tarvita.
+This method will not work if any of the segments are not strings. In the example above, since the variable `age` is an integer, it has been converted into a string with the `str` function.
 
-Automaattisesta välilyönnistä pilkulla eriteltyjen osien välillä on mahdollista päästä eroon antamalla funktiolle parametri `sep`:
+The second method is considering each segment of the argument as a separate argument, and splitting them up with commas:
 
 ```python
-print("Hei", nimi, "ikäsi on", ika, "vuotta", sep="")
+print("Hi", name, "your age is", age, "years" )
 ```
 
-Tulostus on nyt seuraava:
+This code produces the exact same result as the previous version. The `print` command normally adds a space character between each argument.The advantage here is that the segments can be of different types, so there is no need to convert anything into a string.
+
+If you want to remove the automatically added spaces, you can add a special named argument `sep`:
+
+```python
+print("Hi", name, "your age is", age, "years", sep="")
+```
+
+This prints out
 
 <sample-output>
 
-HeiErkkiikäsi on39vuotta
+HiMarkyour age is37years
 
 </sample-output>
 
 
-Parametri `sep=""` on _nimetty parametri_, joka määrittelee, että pilkulla eroteltujen osien väliin laitetaan ainoastaan tyhjä merkkijono. Voisimme myös saada jokaisen osan tulostumaan omalle rivilleen määrittelemällä erottimeksi `"\n"` eli rivinvaihtoa kuvaavan merkin:
+The argument `sep=""` is a _keyword argument_, and its name is short for _separator_. It specifies that the other arguments should now be separated by an empty string. You can set the separator to any string you like. For example, if you wanted each argument on a separate line, you could set the separator as `"\n"`, which is the newline character:
 
 ```python
-print("Hei", nimi, "ikäsi on", ika, "vuotta", sep="\n")
+print("Hi", name, "your age is", age, "years", sep="\n")
 ```
 
 <sample-output>
 
-Hei
-Erkki
-ikäsi on
-39
-vuotta
+Hi
+Mark
+your age is
+37
+years
 
 </sample-output>
 
-Oletusarvoisesti print-komento päättyy rivinvaihtoon, mutta tätä voidaan muokata parametrin `end` avulla. Esim. jos `end` saa arvoksi tyhjän merkkijonon, `print`-komento ei aiheuta automaattista rivinvaihtoa:
+By default the print command always ends in a newline character, but you can change this as well. The keyword argument `end` specifies what is put at the end of a line. Setting `end` to an empty string means that there is no newline character at the end of the printout:
 
 ```python
-print("Moi ", end="")
-print("kaikki!")
+print("Hi ", end="")
+print("there!")
 ```
 
 <sample-output>
 
-Moi kaikki!
+Hi there!
 
 </sample-output>
 
-## f-merkkijonot
+## f-strings
 
-Kolmas käyttämämme tapa on f-merkkijonot. Aiempi nimen ja iän tulostava esimerkki tehtäisiin f-merkkijonojen avulla seuraavasti:
+The third method to prepare strings is f-strings. The previous example with the name and the age would look like this formulated with f-strings:
 
 ```python
-nimi = "Erkki"
-ika = 39
-print(f"Hei {nimi} ikäsi on {ika} vuotta")
+name = "Erkki"
+age = 39
+print(f"Hi {name} your age is {age} years")
 ```
 
-Olemme toistaiseksi käyttäneet f-merkkijonoja vain niiden yksinkertaisimmassa muodossa. F-merkkijonot tarjoavat kuitenkin monia muitakin mahdollisuuksia tulostuksen muotoiluun. Yksi tavallinen käyttötapa on antaa liukuluvun tulostuksessa näytettävien desimaalien määrä. Oletusarvoisesti tulostuu jokin määrä desimaaleja:
+Thus far we have only used very simple f-strings, but they can be very versatile in formatting printed out content. One very common use case is setting the number of decimals that are printed out with a floating point number. By default the number is quite high:
 
 ```python
-luku = 1/3
-print("Luku on", luku)
+number = 1/3
+print(f"The number is {number}")
 ```
 
 <sample-output>
 
-Luku on 0.333333333333333
+The number is 0.333333333333333
 
 </sample-output>
 
-Saamme määriteltyä tulostuvien desimaalien määrän f-merkkijonon avulla. Tulostuksen muoto määritellään lisäämällä aaltosulkeiden sisään tulostettavan muuttujan jälkeen kaksoispiste ja _muotoiluohje_:
+The specific format we want the number to be displayed in can be set within the curly brackets of the variable expression. Let's add a colon character and a _format specifier_ after the variable name:
 
 ```python
-luku = 1/3
-print(f"Luku on {luku:.2f}")
+number = 1/3
+print(f"The number is {number:.2f}")
 ```
 
 ```python
-Luku on 0.33
+The number is 0.33
 ```
 
-Muotoiluohje `.2f` siis määrittelee, että desimaaliluku tulostetaan _kahden desimaalin_ tarkkuudella. Kirjain _f_ luvun 2 jälkeen tarkoittaa, että muotoiluohje koskee desimaalilukua eli `float`-tyyppistä arvoa!
+The format specifier `.2f` states that we want to display 2 decimals. The letter _f_ at the end means that we want the variable to be displayed as a `float`, i.e. a floating point number.
 
-Tässä on vielä toisenlainen esimerkki, jossa tulostetaan nimiä 15 merkin levyiseen tekstialueeseen, ensin vasemmalle sisennettynä ja sen jälkeen oikealle sisennettynä:
+Here's another example, where we specify the amount of whitespace reserved for the variable in the printout. Both times the variable `name` is included it has a space of 15 characters reserved. First the names are justified to the left, and then they are justified to the right:
 
 ```python
-nimet =  [ "Antti", "Emilia", "Juha-Pekka", "Maya" ]
-for nimi in nimet:
-  print(f"{nimi:15} keskellä {nimi:>15}")
+names =  [ "Steve", "Jean", "Katherine", "Paul" ]
+for name in names:
+  print(f"{name:15} centre {name:>15}")
 ```
 
 ```python
-Antti           keskellä           Antti
-Emilia          keskellä          Emilia
-Juha-Pekka      keskellä      Juha-Pekka
-Maya            keskellä            Maya
+Steve           centre           Steve
+Jean            centre            Jean
+Katherine       centre       Katherine
+Paul            centre            Paul
 ```
 
-F-merkkijonoja voi käyttää muuallakin kuin tulostuskomennossa. Niitä voi esimerkiksi sijoittaa muuttujiin ja sekä yhdistellä normaaleihin merkkijonoihin:
+The uses of f-strings are not restricted to `print` commands. They can be assigned to variables and combined with other strings:
 
 ```python
-nimi = "Pekka"
-ika = 59
-kaupunki = "Lappeenranta"
-tervehdys = f"Hei {nimi}, olet {ika}-vuotias"
-print(tervehdys + f", asuinpaikkasi on {kaupunki}")
+name = "Larry"
+age = 48
+city = "Palo Alto"
+greeting = f"Hi {name}, you are {age} years of age"
+print(greeting + f", and you live in {city}")
 ```
 
 <sample-output>
 
-Hei Pekka, olet 59-vuotias, asuinpaikkasi on Lappeenranta
+Hi Larry, you are 48 years of age, and you live in Palo Alto
 
 </sample-output>
 
-F-merkkijonon voi ajatella olevan eräänlainen funktio, joka tuottaa normaalin merkkijonon aaltosuluissa olevien "parametrien" perusteella.
+You can think of an f-string as a sort of function, which creates a normal string based on the "arguments" within the curly brackets.
 
-<programming-exercise name=' Lukulistasta merkkijonolistaksi' tmcname='osa04-20_lukulistasta_merkkijonolistaksi'>
+<programming-exercise name='Integers to strings' tmcname='part04-32_integers_to_strings'>
 
-Kirjoita funktio `muotoile`, joka saa parametrikseen liukulukuja sisältävän listan. Funktio muodostaa listan perusteella uuden merkkijonoja sisältävän listan, jossa jokainen liukulukulistan alkio esitetään pyöristettynä kahden desimaalin tarkkuuteen. Listan alkioiden järjestyksen tulee säilyä.
+Please write a function named `formatted` which takes a list of floating point numbers as an argument. The function returns a new list which contains each element of the original list as a string, rounded to two decimal points. The order of the items in the list should remain unchanged.
 
-_Vinkki: Käytä liukulukujen muotoiluun merkkijonoiksi f-merkkijonoa._
+_Hint: use f-strings to format the floating point numbers as suitable strings._
 
-Esimerkki funktion käytöstä:
+An example of expected beahviour:
 
 ```python
-lista = [1.234, 0.3333, 0.11111, 3.446]
-lista2 = muotoile(lista)
-print(lista2)
+my_list = [1.234, 0.3333, 0.11111, 3.446]
+new_list = formatted(my_list)
+print(new_list)
 ```
 
 <sample-output>
