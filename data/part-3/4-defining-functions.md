@@ -306,6 +306,7 @@ In the first function call the parameters are assigned the values `x = 1` and `y
 
 We will come back to function definitions in the beginning of the next part of the course.
 
+<!--a similar warning is in sections 3-4, 4-6 and 5-1, check them all if you're changing this-->
 ## Warning: using global variables within functions
 
 In the examples above we saw that it is possible to assign new variables within function definitions. The function can also see variables assigned outside it, in the main function. Such variables are called _global_ variables.

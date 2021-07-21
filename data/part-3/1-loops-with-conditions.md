@@ -14,6 +14,7 @@ After this section
 
 </text-box>
 
+<!--the same text is in sections 3-1, 5-1 and 5-1, check them all if you're changing this-->
 <text-box variant='hint' name="About the exercises on this course">
 
 Becoming a proficient programmer requires a lot of practice, sometimes even quite mechanical practice. It also involves developing problem solving skills and applying intuition. This is why there are a lot of exercises of different kinds on this course. Some of them ask you to quite straightforwardly apply what you have learnt in the material, but some of them are intentionally more challenging and open-ended.

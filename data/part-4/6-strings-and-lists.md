@@ -72,6 +72,7 @@ yralpmexe
 
 </sample-output>
 
+<!--a similar warning is in sections 3-4, 4-6 and 5-1, check them all if you're changing this-->
 ## Warning: using global variables within functions
 
 We know it is possible to assign new variables within function definitions, but the function can also see variables assigned outside it, in the main function. Such variables are called _global_ variables.
