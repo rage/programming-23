@@ -1,6 +1,6 @@
 ---
 path: '/part-5/3-dictionary'
-title: 'Sanakirja'
+title: 'Dictionary'
 hidden: false
 ---
 
