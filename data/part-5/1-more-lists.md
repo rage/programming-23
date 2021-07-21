@@ -8,9 +8,9 @@ hidden: false
 
 After this section
 
-- Osaat luoda listoja, joissa on erityyppistä tietoa
-- Tiedät, miten listoja voi käyttää tiedon ryhmittelyyn
-- Osaat tallentaa matriisin kaksiulotteisena listana
+- You will be able to create lists with different types of items
+- You will know how to use lists to organise data
+- You will be able to store a matrix as a two-dimensional list
 
 </text-box>
 
@@ -27,47 +27,47 @@ When the going inevitably gets tough, a word of consolation: a task that seems i
 
 </text-box>
 
-## Lisää listoista
+## Lists with different types of data
 
-Viime kerralla käsiteltiin lähes yksinomaan listoja, joissa alkiot ovat kokonaislukuja. Listoihin voi kuitenkin tallentaa minkä tahansa tyyppisiä arvoja. Esimerkiksi voimme tallentaa listaan merkkijonoja:
+In the previous part we mainly handled lists with integer items, but in fact any types of values can be stored in lists. A list of strings could look like this:
 
 ```python
-nimet = ["Maija", "Liisa", "Pekka"]
-print(nimet)
-nimet.append("Kalle")
-print(nimet)
+names = ["Marlyn", "Ruth", "Paul"]
+print(names)
+names.append("David")
+print(names)
 
-print("Listalla nimiä:", len(nimet))
-print("Nimet aakkosjärjestyksessä:")
-nimet.sort()
-for nimi in nimet:
-  print(nimi)
+print("Number of names on the list:", len(names))
+print("Names in alphabetical order:")
+names.sort()
+for name in names:
+  print(name)
 ```
 
 <sample-output>
 
-['Maija', 'Liisa', 'Pekka']
-['Maija', 'Liisa', 'Pekka', 'Kalle']
-Listalla nimiä: 4
-Nimet aakkosjärjestyksessä:
-Kalle
-Liisa
-Maija
-Pekka
+['Marlyn', 'Ruth', 'Paul']
+['Marlyn', 'Ruth', 'Paul', 'David']
+Number of names on the list: 4
+Names in alphabetical order:
+David
+Marlyn
+Paul
+Ruth
 
 </sample-output>
 
-Samalla tavalla listalle voidaan tallentaa liukulukuja:
+Floating point numbers are also valid list items:
 
 ```python
-mittaukset = [-2.5, 1.1, 7.5, 14.6, 21.0, 19.2]
+measurements = [-2.5, 1.1, 7.5, 14.6, 21.0, 19.2]
 
-for mittaus in mittaukset:
-    print(mittaus)
+for measure in measurements:
+    print(measure)
 
-keskiarvo = sum(mittaukset) / len(mittaukset)
+mean = sum(measurements) / len(measurements)
 
-print("Keskiarvo:", keskiarvo)
+print("The mean is:", mean)
 ```
 
 <sample-output>
@@ -78,7 +78,7 @@ print("Keskiarvo:", keskiarvo)
 14.6
 21.0
 19.2
-Keskiarvo: 10.15
+The mean is: 10.15
 
 </sample-output>
 
