@@ -1,12 +1,12 @@
 ---
-path: '/osa-5/2-viittaukset'
-title: 'Viittaukset'
+path: '/part-5/2-Referencing'
+title: 'Referencing'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, mitä tarkoitetaan viittaustyyppisellä muuttujalla
 - Tiedät, että samaan olioon voi olla useampia viittauksia
@@ -640,5 +640,7 @@ Koska funktio `sorted` palauttaa uuden järjestetyn listan, toiseksi pienimmän 
 Usein pidetään hyvänä asiana, että funktiot eivät aiheuta sivuvaikutuksia, sillä sivuvaikutukset voivat hankaloittaa ohjelmien toimivuuden varmistamista.
 
 Sivuvaikutuksettomia funktioita kutsutaan myös _puhtaiksi funktioiksi_ ja erityisesti funktionaalista ohjelmointityyliä käytettäessä funktiot pyritään rakentamaan näin. Palaamme aiheeseen tarkemmin _Ohjelmoinnin jatkokurssilla_.
+
+A quiz to review the contents of this section:
 
 <quiz id="b254a4f9-09bb-55c8-87c0-538f91e51ace"></quiz>

@@ -1,13 +1,12 @@
 ---
-path: '/osa-5/1-lisaa-listoja'
-title: 'Lisää listoista'
+path: '/part-5/1-more-lists'
+title: 'More lists'
 hidden: false
 ---
 
+<text-box variant='learningObjectives' name="Learning objectives">
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
-
-Tämän osion jälkeen
+After this section
 
 - Osaat luoda listoja, joissa on erityyppistä tietoa
 - Tiedät, miten listoja voi käyttää tiedon ryhmittelyyn
@@ -731,6 +730,8 @@ True
 </sample-output>
 
 </programming-exercise>
+
+A quiz to review the contents of this section:
 
 <quiz id="ccb6dcbf-1065-513f-9294-15f42a318300"></quiz>
 

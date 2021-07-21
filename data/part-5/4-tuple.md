@@ -1,12 +1,12 @@
 ---
-path: '/osa-5/4-tuple'
+path: '/part-5/4-tuple'
 title: 'Tuple'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, millainen tietorakenne on tuple
 - Osaat muodostaa tuplen erityyppisistä arvoista
@@ -406,8 +406,10 @@ DDDDDDD
 
 </programming-exercise>
 
+A quiz to review the contents of this section:
+
 <quiz id="69694e01-4c47-5b9d-8a00-b0d96a477dc7"></quiz>
 
-Vastaa lopuksi osion loppukyselyyn:
+Please respond to a quick questionnaire on this week's materials. 
 
 <quiz id="58d819fb-3280-55b4-bef3-8045ebdb14fe"></quiz>

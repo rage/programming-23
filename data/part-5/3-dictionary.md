@@ -1,13 +1,12 @@
 ---
-path: '/osa-5/3-dictionary'
+path: '/part-5/3-dictionary'
 title: 'Sanakirja'
 hidden: false
 ---
 
+<text-box variant='learningObjectives' name="Learning objectives">
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
-
-Tämän osion jälkeen
+After this section
 
 - Tiedät, millainen tietorakenne on sanakirja
 - Osaat käyttää sanakirjaa erityyppisten avainten ja arvojen kanssa
@@ -677,5 +676,7 @@ print(lista)
 </sample-output>
 
 </programming-exercise>
+
+A quiz to review the contents of this section:
 
 <quiz id="6361eeca-a2e2-5577-892c-749706d754f0"></quiz>
