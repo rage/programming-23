@@ -427,7 +427,7 @@ If the length of the input string is an odd number, you may print out the word i
 
 <sample-output>
 
-Sana: **testing**
+Word: **testing**
 <pre>
 ******************************
 *          testing           *
@@ -438,7 +438,7 @@ Sana: **testing**
 
 <sample-output>
 
-Sana: **python**
+Word: **python**
 <pre>
 ******************************
 *           python           *
