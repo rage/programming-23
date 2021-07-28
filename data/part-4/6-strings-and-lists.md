@@ -131,7 +131,7 @@ if __name__ == "__main__":
     print_reversed(["Huey", "Dewey", "Louie"])
 ```
 
-Notice the global variable is assgined within the `if` block now.
+Notice the global variable is assigned within the `if` block now.
 
 The automatic tests in the TMC system are executed without running any of the code in the `if` block. So, in this latter example the function couldn't even theoretically work at all, since it refers to the variable `name_list`, which doesn't exist at all when the tests are executed.
 

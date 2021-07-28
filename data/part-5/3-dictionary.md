@@ -129,7 +129,7 @@ Kurssilla _Tietorakenteet ja algoritmit_ tutustutaan tarkemmin hajautustauluihin
 
 Huomaa, että sanakirjassa olevaa avainta vastaavan arvon ei tarvitse olla muuttumaton, vaan voimme tallentaa mitä tahansa tietoa arvoiksi. Sama arvo voi myös esiintyä samassa hakemistossa enemmän kuin yhden kerran.
 
-<programming-exercise name='Kertaa kymmenen' tmcname='osa05-10b_kertaa_kymmenen'>
+<programming-exercise name='Times ten' tmcname='part05-14_times_ten'>
 
 Tee funktio `kertaa_kymmenen(alku: int, loppu: int)`, joka muodostaa ja palauttaa uuden sanakirjan. Sanakirjassa on avaimina luvut väliltä `alku`..`loppu`.
 
@@ -150,7 +150,7 @@ print(d)
 
 </programming-exercise>
 
-<programming-exercise name='Kertomat' tmcname='osa05-11_kertomat'>
+<programming-exercise name='Factorials' tmcname='part05-15_factorials'>
 
 Tee funktio `kertomat(n: int)`, joka palauttaa lukujen 1..`n` kertomat sanakirjassa siten, että luku on avain ja luvun kertoma arvo, johon avain viittaa.
 
@@ -311,7 +311,7 @@ kirjaimella s alkavat sanat:
 
 </sample-output>
 
-<programming-exercise name='Histogrammi' tmcname='osa05-12_histogrammi'>
+<programming-exercise name='Histogram' tmcname='part05-16_histogram'>
 
 Tee funktio `histogrammi`, joka saa parametrina merkkijonon ja tulostaa merkkijonon eri kirjainten lukumäärää kuvaavan histogrammin, jossa kirjaimen jokaista esiintymää kohti tulostuu yksi tähti kirjaimen riville.
 
@@ -343,7 +343,7 @@ k *
 
 </programming-exercise>
 
-<programming-exercise name='Puhelinluettelo, versio 1' tmcname='osa05-13_puhelinluettelo_versio1'>
+<programming-exercise name='Phone book, version 1' tmcname='part05-17_phone_book_v1'>
 
 Tee puhelinluettelo, joka toimii seuraavasti:
 
@@ -382,7 +382,7 @@ Huomaa, että jokaiseen nimeen voi liittyä vain yksi puhelinnumero. Jos samalle
 
 </programming-exercise>
 
-<programming-exercise name='Puhelinluettelo, versio 2' tmcname='osa05-14_puhelinluettelo_versio2'>
+<programming-exercise name='Phone book, version 2' tmcname='part05-18_phone_book_v2'>
 
 Tee puhelinluettelosta paranneltu versio, missä jokaisella henkilöllä voi olla useampia puhelinnumeroita. Ohjelma toimii kuten edellisessä tehtävässä, mutta nyt se listaa jokaisen numeron:
 
@@ -519,7 +519,7 @@ Koko sanakirjan tyhjennys onnistuu komennolla:
 henkilokunta.clear()
 ```
 
-<programming-exercise name='Sanakirjan kääntö' tmcname='osa05-15_sanakirjan_kaanto'>
+<programming-exercise name='Invert a dictionary' tmcname='part05-19_invert_dictionary'>
 
 Kirjoita funktio `kaanna(sanakirja: dict)`, joka saa parametrikseen sanakirjan ja kääntää sen niin, että arvoista tulee avaimia ja päinvastoin.
 
@@ -543,7 +543,7 @@ Jos kohtaat tehtävässä ongelmia, katso [visualisaattorilla](http://www.python
 
 </programming-exercise>
 
-<programming-exercise name='Luvut sanoina' tmcname='osa05-16_luvut_sanoina'>
+<programming-exercise name='Numbers spelled out' tmcname='part05-20_numbers_spelled_out'>
 
 Kirjoita funktio `lukukirja()`, joka palauttaa uuden sanakirjan. Palautettu rakenne sisältää avaimina luvut nollasta 99:ään. Sanakirjan arvoina ovat luvut kirjaimin kirjoitettuna. Katso esimerkkiä alla:
 
@@ -624,7 +624,7 @@ Keskipituus on 173.0
 
 </sample-output>
 
-<programming-exercise name='Elokuvarekisteri' tmcname='osa05-17_elokuvarekisteri'>
+<programming-exercise name='Movie database' tmcname='part05-21_movie_database'>
 
 Kirjoita funktio `lisaa_elokuva(rekisteri: list, nimi: str, ohjaaja: str, vuosi: int, pituus: int)`, joka lisää yhden elokuvaolion elokuvarekisteriin.
 
@@ -654,7 +654,7 @@ print(rekisteri)
 
 </programming-exercise>
 
-<programming-exercise name='Etsi elokuvat' tmcname='osa05-17b_etsi_elokuvat'>
+<programming-exercise name='Find movies' tmcname='part05-22_find_movies'>
 
 Kirjoita funktio `etsi_elokuvat(rekisteri: list, hakusana: str)`, joka käsittelee edellisessä tehtävässä luotua elokuvarekisteriä. Funktio muodostaa uuden listan, jolle kopioidaan rekisteristä ne elokuvat, joiden nimestä löytyy hakusana. Pienet ja isot kirjaimet eivät merkitse haussa, joten hakusanalla `paj` pitää löytyä sekä elokuva `Tappajahai` että elokuva `Pajatoiminnan historia`.
 

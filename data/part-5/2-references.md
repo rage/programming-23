@@ -1,6 +1,6 @@
 ---
-path: '/part-5/2-Referencing'
-title: 'Referencing'
+path: '/part-5/2-References'
+title: 'References'
 hidden: false
 ---
 
@@ -330,7 +330,7 @@ def kasvata_kaikkia(lista: list):
 ```
 
 
-<programming-exercise name='Alkiot tuplana' tmcname='osa05-06a_alkiot_tuplana'>
+<programming-exercise name='Items multiplied by two' tmcname='part05-08_items_multiplied_by_two'>
 
 Tee funktio `tuplaa_alkiot(luvut: list)`, joka saa parametrikseen lukuja sisältävän listan.
 
@@ -355,7 +355,7 @@ tuplattu: [4, 8, 10, 6, 22, -8]
 </programming-exercise>
 
 
-<programming-exercise name='Poista pienin' tmcname='osa05-06b_poista_pienin'>
+<programming-exercise name='Remove the smallest' tmcname='part05-09_remove_smallest'>
 
 Tee funktio `poista_pienin(luvut: list)`, joka saa parametrikseen lukuja sisältävän listan.
 
@@ -380,7 +380,7 @@ if __name__ == "__main__":
 </programming-exercise>
 
 
-<programming-exercise name='Sudoku: ruudukon tulostus ja luvun lisäys' tmcname='osa05-07_sudoku_osa5'>
+<programming-exercise name='Sudoku: print out the grid and add a number' tmcname='part05-10_sudoku_print_and_add'>
 
 Tässä tehtävässä toteutetaan vielä kaksi funktiota sudokua varten: `tulosta` ja `lisays`.
 
@@ -467,7 +467,7 @@ print()
 
 </programming-exercise>
 
-<programming-exercise name='Sudoku: luvun lisäys ruudukon kopioon' tmcname='osa05-08_sudoku_osa6'>
+<programming-exercise name='Sudoku: add number to a copy of the grid' tmcname='part05-11_sudoku_add_to_copy'>
 
 Viimeisessä sudokua käsittelevässä tehtävässä toteutetaan hieman erilainen versio funktiosta, jonka avulla sudokuruudukkoon lisätään uusia lukuja.
 
@@ -533,7 +533,7 @@ _ _ _  _ _ _  _ _ _
 
 </programming-exercise>
 
-<programming-exercise name='Ristinolla' tmcname='osa05-09_ristinolla'>
+<programming-exercise name='Tic-Tac-Toe' tmcname='part05-12_tic_tac_toe'>
 
 Ristinollaa pelataan 3 x 3 -kokoisella ruudukolla, johon pelaajat merkitsevät vuorotellen ristin tai nollan. Pelin voittaa se pelaaja, joka saa ensimmäisenä kolme merkkiä pystyyn, vaakaan tai kulmittain. Peli päättyy tasapeliin, jos kumpikaan pelaaja ei saa kolmen sarjaa.
 
@@ -566,7 +566,7 @@ True
 
 </programming-exercise>
 
-<programming-exercise name='Matriisin kääntö' tmcname='osa05-10_matriisin_kaanto'>
+<programming-exercise name='Transpose a matrix' tmcname='part05-13_transpose_matrix'>
 
 Kirjoita funktio `transponoi(matriisi: list)`, joka saa parametrikseen kaksiulotteisen kokonaislukuja sisältävän taulukon eli matriisin. Funktio _transponoi_ matriisin eli muuntaa rivit sarakkeiksi ja päinvastoin.
 

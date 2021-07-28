@@ -280,7 +280,7 @@ prints out this:
 
 </sample-output>
 
-The method removes the _first_ occurrence of the value in the list, much like the string function `find` returned the first occurrence of a substring:
+The method removes the _first_ occurrence of the value in the list, much like the string function `find` returns the first occurrence of a substring:
 
 ```python
 my_list = [1, 2, 1, 2]

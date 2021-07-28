@@ -54,7 +54,7 @@ TypeError: 'tuple' object does not support item assignment
 
 </sample-output>
 
-<programming-exercise name='Muodosta tuple' tmcname='osa05-17c_muodosta_tuple'>
+<programming-exercise name='Create a tuple' tmcname='part05-23_create_tuple'>
 
 Tee funktio `tee_tuple(x: int, y: int, z: int)`, joka muodostaa ja palauttaa parametrinaan saamistaan kokonaisluvuista tuplen seuraavien sääntöjen mukaaan:
 
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
 </programming-exercise>
 
-<programming-exercise name='Vanhin henkilöistä' tmcname='osa05-18_vanhin_henkiloista'>
+<programming-exercise name='The oldest person' tmcname='part05-24_oldest_person'>
 
 Tee funktio `vanhin(henkilot: list)`, joka saa parametrikseen listan henkilöitä esittäviä tupleja. Funktio etsii ja palauttaa vanhimman henkilön nimen.
 
@@ -106,7 +106,7 @@ Maija
 
 </programming-exercise>
 
-<programming-exercise name='Vanhemmat henkilöt' tmcname='osa05-19_vanhemmat_henkilot'>
+<programming-exercise name='Elder people' tmcname='part05-25_elder_people'>
 
 Oletetaan, että meillä on edelleen käytössä edellisessä tehtävässä esitellyt henkilö-tuplet.
 
@@ -252,7 +252,7 @@ luku1 = luku2
 luku2 = apu
 ```
 
-<programming-exercise name='Opiskelijarekisteri' tmcname='osa05-20_opiskelijarekisteri'>
+<programming-exercise name='Student database' tmcname='part05-26_student_database'>
 
 Tässä tehtäväsarjassa toteutetaan yksinkertainen opiskelijarekisteri. Ennen ohjelmoinnin aloittamista kannattanee hetki miettiä, minkälaisen tietorakenteen tarvitset ohjelman tallentamien tietojen organisointiin.
 
@@ -367,7 +367,7 @@ paras keskiarvo 4.5 Liisa
 
 </programming-exercise>
 
-<programming-exercise name="Kirjainruudukko" tmcname="osa05-21_kirjainruudukko">
+<programming-exercise name="A square of letters" tmcname="part05-27_letter_square">
 
 Tämän osan huipentaa suhteellisen haastava ongelmanratkaisua vaativa tehtävä, jonka voi tarkaista monella eri tavalla. Vaikka tehtävä on tupleja käsittelevässä luvussa, tupleja tässä tuskin kannattaa käyttää.
 

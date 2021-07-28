@@ -484,17 +484,17 @@ umptious
 
 <text-box variant='hint' name='Half open intervals'>
 
-In Python string processing the interval `[a:b]` is _half open_, which means that the character at the beginning index `a` is included in the interval, but the character at the end index `b` is left out. Why is that?
+In Python string processing the interval `[a:b]` is _half open_, which in this case means that the character at the beginning index `a` is included in the interval, but the character at the end index `b` is left out. Why is that?
 
 There is no profound reason for this feature. Rather it is a convention inherited from other programming languages.
 
-Half open intervals may feel unintuitive, but in practice they do have some advantages. For example, you can easily calculate the length of a slice with `b-a`. On the other hand, you must always remember that the character at the index `b` will not be included in the slice.
+Half open intervals may feel unintuitive, but in practice they do have some advantages. For example, you can easily calculate the length of a slice with `b-a`. On the other hand, you must always remember that the character at the end index `b` will not be included in the slice.
 
 </text-box>
 
-<in-browser-programming-exercise name="Slices, part 1" tmcname="part03-17_slices_part_1">
+<in-browser-programming-exercise name="Substrings, part 1" tmcname="part03-17_substrings_part_1">
 
-Please write a program which asks the user to type in a string. The program then prints out all the slices which begin with the first character, from the shortest to the longest. Have a look at the example below.
+Please write a program which asks the user to type in a string. The program then prints out all the substrings which begin with the first character, from the shortest to the longest. Have a look at the example below.
 
 <sample-output>
 
@@ -508,9 +508,9 @@ test
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Slices, part 2" tmcname="part03-18_slices_part_2">
+<in-browser-programming-exercise name="Substrings, part 2" tmcname="part03-18_substrings_part_2">
 
-Please write a program which asks the user to type in a string. The program then prints out all the slices which end with the last character, from the shortest to the longest. Have a look at the example below.
+Please write a program which asks the user to type in a string. The program then prints out all the substrings which end with the last character, from the shortest to the longest. Have a look at the example below.
 
 <sample-output>
 

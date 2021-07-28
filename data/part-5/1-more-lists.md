@@ -21,7 +21,7 @@ Becoming a proficient programmer requires a lot of practice, sometimes even quit
 
 Some of the exercises might at first seem overwhelming, but this is nothing to worry about. None of the exercises is strictly mandatory, and in fact _only 25 % of the points in each part is required to pass the course._ You can find more details about passing the course on the [page on grading](/grading-and-exams).
 
-**The exercises are not in any specific order of difficulty.** Each section usually introduces some new programming concepts, and these are then practiced with both simpler and more complicated exercises. **If you come across an exercise that feels too difficult, move on to the next one.** You can always come back to the more difficult exercises if you have time later.
+**The exercises are not in any specific order of difficulty.** Each section usually introduces some new programming concepts, and these are then practised with both simpler and more complicated exercises. **If you come across an exercise that feels too difficult, move on to the next one.** You can always come back to the more difficult exercises if you have time later.
 
 When the going inevitably gets tough, a word of consolation: a task that seems impossibly difficult this week will likely feel rather easy in about four weeks' time.
 
@@ -83,185 +83,183 @@ The mean is: 10.15
 </sample-output>
 
 <!--a similar warning is in sections 3-4, 4-6 and 5-1, check them all if you're changing this-->
-## Muistutus: globaalin muuttujan käytön sudenkuoppa
+## Reminder: using global variables within functions
 
-Kuten olemme nähneet, funktioiden sisällä on mahdollista määritellä muuttujia. Kannattaa myös huomata se, että funktio näkee sen ulkopuolella, eli pääohjelmassa määritellyt muuttujat. Tälläisia muuttujia sanotaan _globaaleiksi_ muuttujiksi.
+We know it is possible to assign new variables within function definitions, but the function can also see variables assigned outside it, in the main function. Such variables are called _global_ variables.
 
-Globalien muuttujien käyttämistä funktioista käsin ei useimmiten pidetä hyvänä asiana muun muassa siksi, että ne saattavat johtaa ikäviin bugeihin.
+Using global variables from within functions is usually a bad idea. Among other issues, doing that may cause bugs that are difficult to trace.
 
-Seuraavassa on esimerkki funktiosta, joka käyttää "vahingossa" globaalia muuttujaa:
+Below is an example of a function that uses a global variable "by mistake":
 
 ```python
-def tulosta_vaarinpain(nimet: list):
-    # käytetään vahingossa parametrin sijaan globaalia muuttujaa nimilista
-    i = len(nimilista) - 1
-    while i>=0:
-        print(nimilista[i])
+def print_reversed(names: list):
+    # using the global variable instead of the parameter by accident
+    i = len(name_list) - 1
+    while i >= 0:
+        print(name_list[i])
         i -= 1
 
-# globaali muuttuja
-nimilista = ["Antti", "Emilia", "Erkki", "Margaret"]
-tulosta_vaarinpain(nimilista)
+# here the global variable is assigned
+name_list = ["Steve", "Jean", "Katherine", "Paul"]
+print_reversed(name_list)
 print()
-tulosta_vaarinpain(["Tupu", "Hupu", "Lupu"])
+print_reversed(["Huey", "Dewey", "Louie"])
 ```
 
 <sample-output>
 
-Margaret
-Erkki
-Emilia
-Antti
+Paul
+Katherine
+Jean
+Steve
 
-Margaret
-Erkki
-Emilia
-Antti
+Paul
+Katherine
+Jean
+Steve
 
 </sample-output>
 
-Vaikka funktiota kutsutaan oikein, se tulostaa aina globaalissa muuttujassa _nimilista_ olevat nimet.
+Even though the function calls both have the right kind of arguments, the function always prints out what is stored in the global variable `name_list`.
 
-Kuten olemme nähneet, kaikki funktioita testaava koodi on kirjoitettava erillisen lohkon sisälle, jotta TMC-testit hyväksyisivät koodin. Edellinen esimerkki siis tulisi toteuttaa seuraavasti:
+To make matters even more muddled, remember that all code for testing your functions should be placed within the `if __name__ == "__main__":` block for the automatic tests. The previous example should be modified:
 
 ```python
-def tulosta_vaarinpain(nimet: list):
-    # käytetään vahingossa parametrin sijaan globaalia muuttujaa nimilista
-    i = len(nimilista) - 1
+def print_reversed(names: list):
+    # using the global variable instead of the parameter by accident
+    i = len(name_list) - 1
     while i>=0:
-        print(nimilista[i])
+        print(name_list[i])
         i -= 1
 
-# kaikki funktiota testaava koodi tämän lohkon sisälle
+# All the code for testing the function should be within this block
 if __name__ == "__main__":
-    # globaali muuttuja
-    nimilista = ["Antti", "Emilia", "Erkki", "Margaret"]
-    tulosta_vaarinpain(nimilista)
+    # here the global variable is assigned
+    name_list = ["Steve", "Jean", "Katherine", "Paul"]
+    print_reversed(name_list)
     print()
-    tulosta_vaarinpain(["Tupu", "Hupu", "Lupu"])
+    print_reversed(["Huey", "Dewey", "Louie"])
 ```
 
-Nyt myös globaalin muuttujan määrittely on siirtynyt `if`-lohkoon.
+Notice the global variable is assigned within the `if` block now.
 
-TMC-testit suoritetaan aina siten, että mitään `if`-lohkon sisällä olevaa koodia ei huomioida. Tämän takia funktio ei voi edes teoriassa toimia, sillä se viittaa muuttujaan `nimilista` mitä ei testejä suoritettaessa ole ollenkaan olemassa.
+The automatic tests in the TMC system are executed without running any of the code in the `if` block. So, in this latter example the function couldn't even theoretically work at all, since it refers to the variable `name_list`, which doesn't exist at all when the tests are executed.
 
-## Varoitus: parametrin ylikirjoittaminen ja liian aikainen return
+## Warning: overwriting a parameter and returning too early
 
-Ennen tämän osan tehtäviin menemistä on syytä kiinnittää huomiota pariin potentiaaliseen ongelmalähteeseen. Tarkastellaan funktiota, joka kertoo löytyykö parametrina oleva luku listalta:
+There are a couple of novel sources of bugs we should look at before jumping into the exercises in this part. Let's have a look at a function which tells us whether an integer is found within a list. Both are defined as parameters of the function:
 
 ```python
-def luku_listalla(luvut: lista, luku: int):
-    for luku in luvut:
-        if luku == luku:
+def number_in_list(numbers: list, number: int):
+    for number in numbers:
+        if number == number:
             return True
         else:
             return False
 ```
 
-Funktio palauttaa jostain syystä aina `True`. Syynä tälle on se, että for-silmukka ylikirjoittaa parametrin `luku` arvon, ja tämän takia if-lauseen ehto on aina tosi.
+This function seems to always return `True`. The reason is that the `for` loop overwrites the value stored in the parameter `number`. Thus the condition in the `if` statement is always true.
 
-Ongelmasta päästään eroon nimeämällä parametri uudelleen:
+Renaming the parameter solves the problem:
 
 ```python
-def luku_listalla(luvut: lista, etsittava_luku: int):
-    for luku in luvut:
-        if luku == etsittava_luku:
+def number_in_list(numbers: list, searched_number: int):
+    for number in numbers:
+        if number == searched_number:
             return True
         else:
             return False
 ```
 
-Nyt if-lauseen ehto on kunnossa. Funktiossa on kuitenkin uusi ongelma, se ei näytä edelleenkään toimivan. Esim. seuraava kokeilu tuo esiin bugin:
+Now the condition in the `if` statement looks better. But there is a new problem, since the function still doesn't seem to work correctly. Trying out the following manifests a bug:
 
 ```python
-on = luku_listalla([1, 2, 3, 4], 3)
-print(on)  # tulostuu False
+found = number_in_list([1, 2, 3, 4], 3)
+print(found)  # prints out False
 ```
 
-Vika on nyt siinä että funktiosta poistutaan liian aikaisin. Funktio tarkistaa ainoastaan ensimmäisen luvun ja riippuen sen arvosta palauttaa heti joko arvon `True` tai `False`. Lopullista tuomiota, eli tietoa siitä että luku _ei ole listalla_ ei voi kuitenkaan antaa ennen kuin kaikki luvut on tarkastettu. Komento `return False` pitääkin siirtää silmukan ulkopuolelle:
+The issue here is that the function returns too early, without checking all the numbers in the list. In fact, the function takes only the first item in the list, and returns `True` or `False` depending on its value. We cannot know whether a number is _not present_ in the list until we have checked all the items in the list. The `return False` command should be placed outside the `for` loop:
 
 ```python
-def luku_listalla(luvut: lista, etsittava_luku: int):
-    for luku in luvut:
-        if luku == etsittava_luku:
+def number_in_list(numbers: list, searched_number: int):
+    for number in numbers:
+        if number == searched_number:
             return True
 
     return False
 ```
 
-Tarkastellaan vielä yhtä virheellistä esimerkkiä:
+Let's have a look at another faulty function:
 
 ```python
-def luvut_erisuuret(luvut: list):
-    # apumuuttuja, johon kerätään ne luvut jotka on jo tarkastettu
-    luvut = []
-    for luku in luvut:
-        # joko luku on nähty?
-        if luku in luvut:
+def unique_numbers(numbers: list):
+    # a helper variable to store all the numbers we've already checked
+    numbers = []
+    for number in numbers:
+        # have we seen this number already?
+        if number in numbers:
             return False
-        luvut.append(luku)
+        numbers.append(number)
 
     return True
 
-on = luvut_erisuuret([1, 2, 2])
-print(on)  # tulostuu True
+unique = unique_numbers([1, 2, 2])
+print(unique)  # prints out True
 ```
 
-Funktio siis yrittää testata ovatko kaikki listan alkiot erisuuria. Se kuitenkin palauttaa aina arvon `True`.
+This function is supposed to check whether all numbers in a list are distinct from each other, but it always returns `True`.
 
-Ongelmana on jälleen se, että funktio vahingossa ylikirjottaa parametrinsa arvon. Funktio yrittää käyttää muuttujaa `luvut` pitämään kirjaa jo vastaan tulleista luvuista ja tämä ylikirjoittaa parametrin. Lääke ongelmaan on muuttujan uudelleennimeäminen:
+Here the function again overwrites the value stored in its parameter by mistake. The function tries to use the variable `numbers` to store all the numbers already checked, but this overwrites the original argument list. Renaming the helper variable is an easy fix:
 
 ```python
-def luvut_erisuuret(luvut: list):
-    # apumuuttuja, johon kerätään ne luvut jotka on jo tarkastettu
-    havaitut_luvut = []
-    for luku in luvut:
-        # joko luku on nähty?
-        if luku in havaitut_luvut:
+def unique_numbers(numbers: list):
+    # a helper variable to store all the numbers we've already checked
+    numbers_checked = []
+    for number in numbers:
+        # have we seen this number already?
+        if number in numbers_checked:
             return False
-        havaitut_luvut.append(luku)
+        numbers_checked.append(number)
 
     return True
 
-on = luvut_erisuuret([1, 2, 2])
-print(on)  # tulostuu False
+unique = unique_numbers([1, 2, 2])
+print(unique)  # prints out False
 ```
 
-Nämä kuten oikeastaan kaikki koodia vaivaavat ongelmat selviävät debuggerilla tai [visualisaattorilla](http://www.pythontutor.com/visualize.html#mode=edit), jonka käytön tärkeyttä ei voi olla korostamatta liikaa.
+Problems like this, and many others, can be located and fixed with the help of the debugger or the [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit). Learning to use these efficiently cannot be emphasised enough.
 
-<programming-exercise name='Pisin merkkijono' tmcname='osa05-01a_pisin_merkkijono'>
+<programming-exercise name='The longest string' tmcname='part05-01_longest_string'>
 
-**HUOM:** tämä ja seuraava tehtävä ovat väärässä järjestyksessä VS Coden sivupalkissa
+Please write a function named `longest(strings: list)` which takes a list of strings as its argument. The function finds and returns the longest string in the list. You may assume there is always a single longest string in the list.
 
-Tee funktio `pisin(merkkijonot: list)`, joka saa parametrikseen listan merkkijonoja. Funktio etsii ja palauttaa listalta pisimmän merkkijonon. Voit olettaa, että vain yksi jonoista on pisin.
-
-Esimerkkikutsu:
+An example of expected behaviour:
 
 ```python
 
 if __name__ == "__main__":
-    jonot = ["moi", "moikka", "heip", "hellurei", "terve"]
-    print(pisin(jonot))
+    strings = ["hi", "hiya", "hello", "howdydoody", "hi there"]
+    print(longest(strings))
 
 ```
 
 <sample-output>
 
-hellurei
+howdydoody
 
 </sample-output>
 
 </programming-exercise>
 
-## Sisäkkäiset listat
+## Lists within lists
 
-Listan alkiot voivat olla myös listoja:
+The items in a list can be lists themselves:
 
 ```python
-lista = [[5, 2, 3], [4, 1], [2, 2, 5, 1]]
-print(lista)
-print(lista[1])
-print(lista[1][0])
+my_list = [[5, 2, 3], [4, 1], [2, 2, 5, 1]]
+print(my_list)
+print(my_list[1])
+print(my_list[1][0])
 ```
 <sample-output>
 
@@ -271,61 +269,61 @@ print(lista[1][0])
 
 </sample-output>
 
-Mihin voimme käyttää listoja jonka sisällä on listoja?
+Why would lists within lists be useful?
 
-Voisimme esimerkiksi esittää henkilön tiedot listana, jossa ensimmäisenä alkiona on henkilön nimi, toisena ikä ja kolmantena kengännumero:
+Remember that lists can contain items of different types. You could store information about a person in a list. For instance, you could include their name as the first item, their age as the second item, and their height in meters as the third item:
 
 ```python
-["Anu", 10, 26]
+["Anu", 10, 1.38]
 ```
 
-Vastaavasti joukko henkilöitä on lista, joka sisältää yksittäisiä henkilöä kuvaavia listoja:
+A database of persons could then be a list whose items would be lists containing information about a single person:
 
 ```python
-henkilot = [["Anu", 10, 26], ["Petteri", 7, 22], ["Emilia", 32, 37], ["Antti", 39, 44]]
+persons = [["Betty", 10, 1.37], ["Peter", 7, 1.25], ["Emily", 32, 1.64], ["Alan", 39, 1.78]]
 
-for henkilo in henkilot:
-  nimi = henkilo[0]
-  ika = henkilo[1]
-  kenka = henkilo[2]
-  print(f"{nimi}: ikä {ika} vuotta, kengännumero {kenka}")
+for person in persons:
+  name = person[0]
+  age = person[1]
+  height = person[2]
+  print(f"{name}: age {age} years, height {height} meters")
 ```
 
 <sample-output>
 
-Anu: ikä 10 vuotta, kengännumero 26
-Petteri: ikä  7 vuotta, kengännumero 22
-Emilia: ikä 32 vuotta, kengännumero 37
-Antti: ikä 39 vuotta, kengännumero 44
+Betty: age 10 years, height 1.37 meters
+Peter: age 7 years, height 1.25 meters
+Emily: age 32 years, height 1.64 meters
+Alan: age 39 years, height 1.78 meters
 
 </sample-output>
 
-Huomaa, miten `for`-lause käy läpi henkilöt yksitellen, eli toiston lohko-osassa muuttuja  `henkilo` saa yksi kerrallaan arvokseen kutakin henkilöä esittävän listan.
+The `for` loop goes through the items in the outer list one by one. That is, each list containing information about a single person is assigned to the variable `person` in turn.
 
-Lista ei ole välttämättä paras Pythonin tietorakenne henkilön tietojen esittämiseen. Tutustumme pian _sanakirjaan_, joka on usein luontevampi tapa hoitaa vastaava tilanne.
+Lists arent always the best way to present data, such as information about a person. We will soon come across Python _dictionaries_, which are often better suited to such situations.
 
-## Matriisit
+## Matrices
 
-Sisäkkäisten listojen avulla voidaan myös esittää _matriisi_ eli kaksiulotteinen taulukko.
+A two-dimensional table, or a _matrix_, is also a natural application of a list within a list.
 
-Esimerkiksi matriisi
+For example, the following matrix
 
 <img src="5_1_0.png">
 
-voitaisiin mallintaa kaksiulotteisena listana näin:
+could be presented as a two-dimensional list in Python like so:
 
 ```python
-matriisi = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]
+my_matrix = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]
 ```
 
-Koska matriisi on lista listoja, matriisin alkioihin viitataan käyttämällä peräkkäisiä hakasulkuja. Ensimmäinen indeksi viittaa riviin ja toinen sarakkeeseen. Niinpä esimerkiksi `m[0][1]` tarkoittaa ensimmäisen rivin toista alkiota (kun muistetaan, että indeksointi alkaa nollasta).
+Since a matrix is a list containing lists, the individual elements within the matrix can be accessed using consecutive square brackets. The first index refers to the row, and the second to the column. Indexing starts from zero, so for example `my_matrix[0][1]` refers to the second item on the first row.
 
 ```python
-matriisi = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]
+my_matrix = [[1, 2, 3], [3, 2, 1], [4, 5, 6]]
 
-print(matriisi[0][1])
-matriisi[1][0] = 10
-print(matriisi)
+print(my_matrix[0][1])
+my_matrix[1][0] = 10
+print(my_matrix)
 ```
 
 <sample-output>
@@ -335,13 +333,13 @@ print(matriisi)
 
 </sample-output>
 
-Voimme käydä läpi matriisin rivit `for`-silmukalla. Esimerkiksi seuraava koodi tulostaa matriisin rivit allekkain:
+Like any other list, the rows of the matrix can be traversed wth a `for` loop. The following code prints out each row of the matrix on a separate line:
 
 ```python
-matriisi = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+my_matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-for rivi in matriisi:
-    print(rivi)
+for row in my_matrix:
+    print(row)
 ```
 
 <sample-output>
@@ -352,45 +350,45 @@ for rivi in matriisi:
 
 </sample-output>
 
-Seuraava koodi puolestaan tulostaa matriisin alkiot yksitellen kahden `for`-silmukan avulla:
+Likewise, nested loops can be used to access the individual elements. The following code prints out each element in the matrix on a separate line with the help of two `for` loops:
 
 ```python
-matriisi = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+my_matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-for rivi in matriisi:
-    print("uusi rivi")
-    for alkio in rivi:
-        print(alkio)
+for row in my_matrix:
+    print("a new row")
+    for element in row:
+        print(element)
 ```
 
 <sample-output>
 
-uusi rivi
+a new row
 1
 2
 3
-uusi rivi
+a new row
 4
 5
 6
-uusi rivi
+a new row
 7
 8
 9
 
 </sample-output>
 
-## Sisäkkäisiä listoja käyttävän koodin visualisointi
+## Visualising code containing lists within lists
 
-Jos sisäkkäisiä listoja käsittelevät ohjelmat tuntuvat hankalalta ymmärtää, kannattaa ehdottomasti havainnollistaa niitä Python Tutorin [visualisaattorilla](http://www.pythontutor.com/visualize.html). Seuraavassa kuva edellisen esimerkin visualisoinnista:
+Programs containing lists within lists can feel hard to grasp at first. The [visualisation tool](http://www.pythontutor.com/visualize.html) from Python Tutor is a great help in understanding how they work. The following is a visualisation of the example above:
 
 <img src="5_1_0a.png">
 
-Kuten kuva paljastaa, 3x3-matriisi koostuu teknisesti ottaen neljästä listasta. Ensimmäinen lista edustaa koko matriisia ja sen alkioina on erillisiä rivejä edustavat listat.
+The image above reveals that a 3 by 3 matrix technically consists of four lists. The first list represents the entire matrix. The three remaining lists are items in the first list, and represent the rows.
 
-Kuva havainnollistaa jo sitä seikkaa, josta puhumme tarkemmin [seuraavassa osassa](/osa-5/2-viittaukset): moniulotteisessa listassa listat eivät ole todellisuudessa sisäkkäin, vaan matriisia edustava lista "viittaa" jokaista riviä edustavaan listaan.
+As multidimensional lists can be traversed with nested loops, it would be natural to think of the lists themselves as nested, but the image above shows us this isn't actually so. Instead, the list representing the whole matrix "points" to each individual list representing a row in the matrix. This is called a _reference_, and in the [following section](/part-5/2-references) the idea will be explored more thoroughly.
 
-Kuvassa tulostus on edennyt matriisin toiselle riville, johon muuttuja `rivi` parhaillaan viittaa. Muuttuja `alkio` kertoo sen alkion, jonka kohdalla tulostus on menossa. Muuttujan arvo on nyt keskimmäisen rivin keskimmäinen eli 5.
+In the image above the execution has progressed to the second row of the matrix, and this list is what the variable `row` currently refers to. The variable `element` contains the element the execution is currently at. The value stored in `element` is the middle item in the list, i.e. 5.
 
 ## Lisää matriisin käsittelyä
 
@@ -480,11 +478,9 @@ print(m)
 Ulompi silmukka käy `range`-funktion avulla läpi arvot nollasta matriisin pituuteen (eli matriisin rivien määrään) ja sisempi silmukka jokaisen rivin alkiot nollasta rivin pituuteen.
 
 
-<programming-exercise name='Alkioiden määrä' tmcname='osa05-01_alkoiden_maara'>
+<programming-exercise name='Number of elements' tmcname='part05-02_number_of_elements'>
 
-**HUOM:** tämä ja edellinen tehtävä ovat väärässä järjestyksessä VS Coden sivupalkissa
-
-Tee funktio `laske_alkiot(matriisi: list, alkio: int)`, joka saa parametrikseen kaksiulotteisen kokonaislukutaulukon. Funktio laskee, kuinka monta annetun alkion mukaista arvoa taulukosta löytyy.
+Please write a function named `laske_alkiot(matriisi: list, alkio: int)`, joka saa parametrikseen kaksiulotteisen kokonaislukutaulukon. Funktio laskee, kuinka monta annetun alkion mukaista arvoa taulukosta löytyy.
 
 Esimerkiksi
 
@@ -558,7 +554,7 @@ Tulostus näyttää seuraavalta:
 
 Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaharava, laivan upotus, mastermind, ...) matriisina. Pelistä riippuu, mikä on sopiva tapa "koodata" pelin tilanne matriisiin.
 
-<programming-exercise name='Go' tmcname='osa05-02_go'>
+<programming-exercise name='Go' tmcname='part05-03_go'>
 
 Go-pelissä lisätään vuorotellen mustia ja valkoisia kiviä pelilaudalle. Pelin voittaa se pelaaja, joka saa omilla kivillään rajattua enemmän aluetta pelilaudalta.
 
@@ -574,9 +570,9 @@ Funktio palauttaa arvon 1, jos pelaaja 1 on voittanut pelin, ja arvon 2, jos pel
 
 </programming-exercise>
 
-<programming-exercise name='Sudoku: rivit oikein' tmcname='osa05-03_sudoku_osa1'>
+<programming-exercise name='Sudoku: check row' tmcname='part05-04_sudoku_row'>
 
-Tee funktio `rivi_oikein(sudoku: list, rivi_nro: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja rivin numeron kertovan kokonaisluvun (rivit on numeroitu nollasta alkaen). Metodi palauttaa tiedon, onko rivi oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
+Please write a function named `rivi_oikein(sudoku: list, rivi_nro: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja rivin numeron kertovan kokonaisluvun (rivit on numeroitu nollasta alkaen). Metodi palauttaa tiedon, onko rivi oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
 
 ```python
 sudoku = [
@@ -604,9 +600,9 @@ False
 
 </programming-exercise>
 
-<programming-exercise name='Sudoku: sarakkeet oikein' tmcname='osa05-04_sudoku_osa2'>
+<programming-exercise name='Sudoku: check column' tmcname='part05-05_sudoku_column'>
 
-Tee funktio `sarake_oikein(sudoku: list, sarake_nro: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja sarakkeen (eli pystyrivin) numeron kertovan kokonaisluvun. Metodi palauttaa tiedon, onko sarake oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
+Please write a function named `sarake_oikein(sudoku: list, sarake_nro: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja sarakkeen (eli pystyrivin) numeron kertovan kokonaisluvun. Metodi palauttaa tiedon, onko sarake oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
 
 ```python
 sudoku = [
@@ -634,9 +630,9 @@ True
 
 </programming-exercise>
 
-<programming-exercise name='Sudoku: neliöt oikein' tmcname='osa05-05_sudoku_osa3'>
+<programming-exercise name='Sudoku: check square' tmcname='part05-06_sudoku_square'>
 
-Tee funktio `nelio_oikein(sudoku: list, rivi_nro: int, sarake_nro: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon sekä yhden ruudun paikan kertovat rivi- ja sarakenumerot.
+Please write a function named `nelio_oikein(sudoku: list, rivi_nro: int, sarake_nro: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon sekä yhden ruudun paikan kertovat rivi- ja sarakenumerot.
 
 Funktio kertoo onko parametrina saadusta rivi/sarakenumerosta alkava 3x3-kokoinen neliö oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
 
@@ -686,9 +682,9 @@ Tämä neliö on siis sellainen, jota oikeassa sudokussa ei tarkasteltaisi.
 
 </programming-exercise>
 
-<programming-exercise name='Sudoku: ruudukko oikein' tmcname='osa05-06_sudoku_osa4'>
+<programming-exercise name='Sudoku: check grid' tmcname='part05-07_sudoku_grid'>
 
-Tee funktio `sudoku_oikein(sudoku: list)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kolmen tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon), onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, jokainen sarake sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1–9.
+Please write a function named `sudoku_oikein(sudoku: list)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kolmen tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon), onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, jokainen sarake sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1–9.
 
 Huom: ylempänä olevaan sudokuruudukkoa esittävään kuvaan on merkitty ne 3x3-neliöt, joita sudokua ratkaistessa tulee tarkastella.
 Nämä ovat siis kohdista (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) ja (6, 6) alkavat yhdeksän neliöä.
