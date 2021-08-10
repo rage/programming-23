@@ -119,7 +119,7 @@ class Pankkikortti:
         self.__saldo = saldo
 
     def lisaa_rahaa(self, maara: float):
-        if rahasumma > 0:
+        if maara > 0:
             self.__saldo += maara
 
     def kayta_rahaa(self, maara: float):
@@ -144,6 +144,7 @@ print(kortti.hae_saldo())
 
 <sample-output>
 
+5000
 5100
 4600
 4600
