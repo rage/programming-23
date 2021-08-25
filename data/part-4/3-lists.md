@@ -641,7 +641,7 @@ The length is 4
 
 </programming-exercise>
 
-<programming-exercise name='Arithmetic mean' tmcname='part04-18_mean>
+<programming-exercise name='Arithmetic mean' tmcname='part04-18_mean'>
 
 Please write a function named `mean`, which takes a list of integers as an argument. The function returns the arithmetic mean of the values in the list.
 
