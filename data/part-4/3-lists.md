@@ -648,7 +648,7 @@ Please write a function named `mean`, which takes a list of integers as an argum
 ```python
 my_list = [1, 2, 3, 4, 5]
 result = mean(my_list))
-print("result", result)
+print("mean value is", result)
 ```
 
 <sample-output>
