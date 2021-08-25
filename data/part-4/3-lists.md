@@ -618,7 +618,7 @@ print("Heights:")
 heughts = input_numbers()
 ```
 
-<programming-exercise name='The length os a list' tmcname='part04-17_length_of_list'>
+<programming-exercise name='The length of a list' tmcname='part04-17_length_of_list'>
 
 Please write a function named `length` which takes a list as its argument and returns the length of the list.
 
