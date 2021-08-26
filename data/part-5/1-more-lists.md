@@ -304,7 +304,7 @@ Lists arent always the best way to present data, such as information about a per
 
 ## Matrices
 
-A two-dimensional table, or a _matrix_, is also a natural application of a list within a list.
+A two-dimensional array, or a _matrix_, is also a natural application of a list within a list.
 
 For example, the following matrix
 
@@ -390,60 +390,60 @@ As multidimensional lists can be traversed with nested loops, it would be natura
 
 In the image above the execution has progressed to the second row of the matrix, and this list is what the variable `row` currently refers to. The variable `element` contains the element the execution is currently at. The value stored in `element` is the middle item in the list, i.e. 5.
 
-## Lisää matriisin käsittelyä
+## Accessing items in a matrix
 
-Matriisin yksittäisten rivien käsittely on helppoa, riittää että valitaan haluttu rivi. Esimerkiksi seuraava funktio laskee halutun rivin alkioiden summan:
+Accessing a single row within a matrix is simple - just choose the desired row. The following function calculates the sum of the elements on a chosen row:
 
 ```python
-def rivin_alkioiden_summa(matriisi, rivi_nro: int):
-    # tarkasteluun valitaan yksi rivi
-    rivi = matriisi[rivi_nro]
-    summa = 0
-    for alkio in rivi:
-        summa += alkio
+def sum_of_row(my_matrix, row_no: int):
+    # choose the desired row from within the matrix
+    row = my_matrix[row_no]
+    row_sum = 0
+    for item in row:
+        row_sum += item
 
-    return summa
+    return row_sum
 
 m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
 
-summa = rivin_alkioiden_summa(m, 1)
-print(summa) # tulostuu 33 (saadaan laskemalla 9 + 1 + 12 + 11)
+my_sum = sum_of_row(m, 1)
+print(my_sum) # prints out 33 (which equals 9 + 1 + 12 + 11)
 ```
 
-Jos taas haluttaisiin laskea tietyn sarakkeen eli "pystyrivin" alkioiden summa, tilanne olisi jo monimutkaisempi:
+Working with columns within a matrix is slightly more complicated, as the matrix is stored by rows: 
 
 ```python
-def sarakkeen_alkioiden_summa(matriisi, sarake_nro: int):
-    # summaan lisätään kaikkien rivien halutussa kohdassa oleva alkio
-    summa = 0
-    for rivi in matriisi:
-        summa += rivi[sarake_nro]
+def sum_of_column(my_matrix, column_no: int):
+    # go through each row and select the item at the chosen position
+    column_sum = 0
+    for row in my_matrix:
+        column_sum += rivi[column_no]
 
-    return summa
+    return column_sum
 
 m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
 
-summa = sarakkeen_alkioiden_summa(m, 2)
-print(summa) # tulostuu 39 (saadaan laskemalla 3 + 12 + 9 + 15)
+my_sum = sum_of_column(my_matrix, 2)
+print(my_sum) # prints out 39 (which equals 3 + 12 + 9 + 15)
 ```
 
-Tarkasteltava sarake siis koostuu _jokaisen rivin_ paikassa 2 olevasta alkiosta.
+That is, the column handled here consists of the elements at index 2 on _each row_.
 
-Näidenkin ohjelmien toiminta kannattaa ehdottomasti käydä läpi [visualisaattorilla](http://www.pythontutor.com/visualize.html)!
+[The visualisation tool](http://www.pythontutor.com/visualize.html) is definitely recommended for understanding how these functions work!
 
-Matriisissa olevan yksittäisen arvon vaihtaminen on helppoa. Riittää että valitaan matriisin sisältä oikea rivi ja sen sisältä sarake:
+Changing the value of a single element within the matrix is simple: choose a row within the matrix, and then a column within the row:
 
 ```python
-def vaihda_arvoon(matriisi, rivi_nro: int, sarake_nro: int, arvo: int):
-    # haetaan oikea rivi
-    rivi = matriisi[rivi_nro]
-    # ja sen sisältä oikea kohta
-    rivi[sarake_nro] = arvo
+def change_value(my_matrix, row_no: int, column_no: int, new_value: int):
+    # choose the desired row
+    row = my_matrix[row_no]
+    # select the correct item within the row
+    row[column_no] = new_value
 
 m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
 
 print(m)
-vaihda_arvoon(m, 2, 3, 1000)
+change_value(m, 2, 3, 1000)
 print(m)
 ```
 
@@ -454,10 +454,9 @@ print(m)
 
 </sample-output>
 
-Mikäli halutaan muuttaa matriisin sisältöä silmukan sisällä, ei ole mahdollista käyttää "normaalia" for-silmukkaa, sillä muutettaessa sisältöä on pakko tietää muutettavien alkioiden indeksit.
+Notice how above we used the indexes of the row and column to access a chosen element. If we want to change the contents of the matrix, we have to access the elements by their indexes. This means that we can't use a simple `for item in list` loop to traverse the matrix if we want to change the contents of the matrix.
 
-Tämä taas onnistuu `while`-silmukalla tai `for`-silmukalla hyödyntämällä `range`-funktiota iteroinnissa. Esimerkiksi seuraava koodi kasvattaa jokaista matriisin alkiota yhdellä:
-
+Instead, we will have to keep track of the indexes of the elements, for example with a `while` loop, or a `for` loop using the `range` function. The following code increases the value of each element in the matrix by one:
 
 ```python
 m = [[1,2,3], [4,5,6], [7,8,9]]
@@ -475,18 +474,17 @@ print(m)
 
 </sample-output>
 
-Ulompi silmukka käy `range`-funktion avulla läpi arvot nollasta matriisin pituuteen (eli matriisin rivien määrään) ja sisempi silmukka jokaisen rivin alkiot nollasta rivin pituuteen.
+The outer loop goes through indexes from zero to the length of the matrix, that is, the number of rows in the matrix. The inner loop goes through indexes from zero to the length of each row within the matrix.
 
+<programming-exercise name='Number of matching elements' tmcname='part05-02_number_of_elements'>
 
-<programming-exercise name='Number of elements' tmcname='part05-02_number_of_elements'>
+Please write a function named `count_matching_elements(my_matrix: list, element: int)` which takes a two-dimensional array of integers and a single integer value as its arguments. The function then counts how many elements within the matrix match the argument value.
 
-Please write a function named `laske_alkiot(matriisi: list, alkio: int)`, joka saa parametrikseen kaksiulotteisen kokonaislukutaulukon. Funktio laskee, kuinka monta annetun alkion mukaista arvoa taulukosta löytyy.
-
-Esimerkiksi
+An example of how the function should work:
 
 ```python
 m = [[1, 2, 1], [0, 3, 4], [1, 0, 0]]
-print(laske_alkiot(m, 1))
+print(count_matching_elements(m, 1))
 ```
 
 <sample-output>
@@ -497,13 +495,13 @@ print(laske_alkiot(m, 1))
 
 </programming-exercise>
 
-## Kaksiulotteinen taulukko pelin tietorakenteena
+## A two-dimensional array as a data structure in a game
 
-Matriisi sopii hyvin monien pelien tietorakenteeksi. Esim. sudokun ruudukko
+A matrix can be a very useful data structure in many different games. For example, the grid of a sudoku game in the image below
 
 <img src="5_1_1.png">
 
-voitaisiin esittää seuraavana matriisina:
+can be represented in matrix form like so:
 
 ```python
 sudoku = [
@@ -519,24 +517,24 @@ sudoku = [
 ]
 ```
 
-Arvolla nolla siis kuvataan tilanne, jossa ruutu on vielä tyhjä.
+Here the value zero represents an empty square, as zero is not an acceptable value in a finished sudoku puzzle.
 
-Seuraavassa vielä yksinkertainen versio sudokun tulostavasta metodista:
+Here is a simple function for printing out the above sudoku grid:
 
 ```python
-def tulosta(sudoku):
-    for rivi in sudoku:
-        for ruutu in rivi:
-            if ruutu > 0:
-                print(f" {ruutu}", end="")
+def print_grid(sudoku):
+    for row in sudoku:
+        for square in row:
+            if square > 0:
+                print(f" {square}", end="")
             else:
                 print(" _", end="")
         print()
 
-tulosta(sudoku)
+print_grid(sudoku)
 ```
 
-Tulostus näyttää seuraavalta:
+The printout should look like this::
 
 ```x
 
@@ -552,27 +550,29 @@ Tulostus näyttää seuraavalta:
 
 ```
 
-Vastaavalla tavalla on mahdollista kuvata moni tuttu peli (esim. shakki, miinaharava, laivan upotus, mastermind, ...) matriisina. Pelistä riippuu, mikä on sopiva tapa "koodata" pelin tilanne matriisiin.
+Any common game with a gameboard layout can be modelled in a similar fashion - for example, chess, Minesweeper, Battleship or Mastermind are all based on a two-dimensional grid. For sudoku it is natural to use numbers to represent the game state, but for other games, different methods may be better.
 
 <programming-exercise name='Go' tmcname='part05-03_go'>
 
-Go-pelissä lisätään vuorotellen mustia ja valkoisia kiviä pelilaudalle. Pelin voittaa se pelaaja, joka saa omilla kivillään rajattua enemmän aluetta pelilaudalta.
+In a game of Go two players take turns to place black and white stones on a game board. The winner is the player who manages to encircle a bigger area on the board with their own game pieces. 
 
-Kirjoita funktio `kumpi_voitti(pelilauta: list)`, joka saa parametrikseen kaksiulotteisen taulukon, joka kuvaa pelilautaa. Taulukko koostuu kokonaisluvuista seuraavasti:
+Please write a function named `who_won(game_board: list)` which takes a two-dimensional array as its argument. The array consists of integer values, which represent the following situations:
 
-* 0: tyhjä ruutu
-* 1: pelaajan 1 nappula
-* 2: pelaajan 2 nappula
+* 0: empty square
+* 1: player 1 game piece
+* 2: player 2 game piece
 
-Esimerkissä pelilaudan koko voi olla mikä tahansa.
+The scoring rules of Go can be quite complex, but in this exercise it is enough to compare the number of pieces each player has on the game board. Also, the size of the game board is not limited.
 
-Funktio palauttaa arvon 1, jos pelaaja 1 on voittanut pelin, ja arvon 2, jos pelaaja 2 on voittanut pelin. Jos molemmilla pelaajilla on yhtä paljon nappuloita laudalla, funktio palauttaa arvon 0.
+The function chould return the value 1 if player 1 won, and the value 2 if player 2 won. If both players have the same number of pieces on the board, the function should return the value 0.
 
 </programming-exercise>
 
 <programming-exercise name='Sudoku: check row' tmcname='part05-04_sudoku_row'>
 
-Please write a function named `rivi_oikein(sudoku: list, rivi_nro: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja rivin numeron kertovan kokonaisluvun (rivit on numeroitu nollasta alkaen). Metodi palauttaa tiedon, onko rivi oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
+Please write a function named `row_correct(sudoku: list, row_no: int)` which takes a two-dimensional array representing a sudoku grid and an integer referring to a single row as its arguments. Rows are indexed from zero here. 
+
+The function should return `True` or `False` depending on whether the row is filled in correctly, that is, whether it contains each of the numbers 1 to 9 at most once.
 
 ```python
 sudoku = [
@@ -587,8 +587,8 @@ sudoku = [
   [3, 0, 0, 0, 0, 0, 0, 0, 2]
 ]
 
-print(rivi_oikein(sudoku, 0))
-print(rivi_oikein(sudoku, 1))
+print(row_correct(sudoku, 0))
+print(row_correct(sudoku, 1))
 ```
 
 <sample-output>
@@ -602,7 +602,9 @@ False
 
 <programming-exercise name='Sudoku: check column' tmcname='part05-05_sudoku_column'>
 
-Please write a function named `sarake_oikein(sudoku: list, sarake_nro: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon ja sarakkeen (eli pystyrivin) numeron kertovan kokonaisluvun. Metodi palauttaa tiedon, onko sarake oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
+Please write a function named `column_correct(sudoku: list, column_no: int)`, which takes a two-dimensional array representing a sudoku grid and an integer referring to a single column as its arguments. Columns are indexed from zero here. 
+
+The function should return `True` or `False` depending on whether the column is filled in correctly, that is, whether it contains each of the numbers 1 to 9 at most once.
 
 ```python
 sudoku = [
@@ -617,8 +619,8 @@ sudoku = [
   [3, 0, 0, 0, 0, 0, 0, 0, 2]
 ]
 
-print(sarake_oikein(sudoku, 0))
-print(sarake_oikein(sudoku, 1))
+print(column_correct(sudoku, 0))
+print(column_correct(sudoku, 1))
 ```
 
 <sample-output>
@@ -630,13 +632,13 @@ True
 
 </programming-exercise>
 
-<programming-exercise name='Sudoku: check square' tmcname='part05-06_sudoku_square'>
+<programming-exercise name='Sudoku: check block' tmcname='part05-06_sudoku_block'>
 
-Please write a function named `nelio_oikein(sudoku: list, rivi_nro: int, sarake_nro: int)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon sekä yhden ruudun paikan kertovat rivi- ja sarakenumerot.
+Please write a function named `block_correct(sudoku: list, row_no: int, column_no: int)` which takes a two-dimensional array representing a sudoku grid and two integers referring to the row and column indexes of a single square as its arguments. Rows and columns are indexed from zero here. 
 
-Funktio kertoo onko parametrina saadusta rivi/sarakenumerosta alkava 3x3-kokoinen neliö oikein täytetty eli onko siinä kukin luvuista 1–9 korkeintaan kerran.
+The function should return `True` or `False` depending on whether the 3 by 3 block to the right and down from the given indexes is filled in correctly. That is, whether the block contains each of the numbers 1 to 9 at most once.
 
-Huomaa, että tässä tehtävässä toteutettava funktio on hieman yleiskäyttöisempi kuin sudokussa oikeasti tarvitaan. Todellisuudessahan oikeassa sudokussa tarkastellaan ainoastaan kohdista (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) ja (6, 6) alkavia neliöitä.
+Notice this function does not strictly follow the rules of sudoku. In a real game of sudoku there are only 9 blocks to check, and these are located at indexes (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) and (6, 6). Such restrictions on indexes should not be implemented here.
 
 ```python
 sudoku = [
@@ -651,8 +653,8 @@ sudoku = [
   [3, 0, 0, 0, 0, 0, 0, 0, 2]
 ]
 
-print(nelio_oikein(sudoku, 0, 0))
-print(nelio_oikein(sudoku, 1, 2))
+print(block_correct(sudoku, 0, 0))
+print(block_correct(sudoku, 1, 2))
 ```
 
 <sample-output>
@@ -662,7 +664,7 @@ True
 
 </sample-output>
 
-Ensimmäisen funktiokutsun tarkastelema kohdasta 0, 0 alkava neliö on
+The first function call should check the 3 by 3 block beginning with the square at indexes `0, 0`:
 
 <pre>
 9 0 0
@@ -670,7 +672,7 @@ Ensimmäisen funktiokutsun tarkastelema kohdasta 0, 0 alkava neliö on
 0 2 0
 </pre>
 
-Toisen funktiokutsun tarkastelema kohdasta riviltä 1 ja sarakkeesta 2 alkava neliö on
+The second function call should check the 3 by 3 block beginning with the square at row 1, column 2:
 
 <pre>
 0 2 5
@@ -678,16 +680,17 @@ Toisen funktiokutsun tarkastelema kohdasta riviltä 1 ja sarakkeesta 2 alkava ne
 4 0 0
 </pre>
 
-Tämä neliö on siis sellainen, jota oikeassa sudokussa ei tarkasteltaisi.
+This second block would not be checked in an actual game of sudoku.
 
 </programming-exercise>
 
 <programming-exercise name='Sudoku: check grid' tmcname='part05-07_sudoku_grid'>
 
-Please write a function named `sudoku_oikein(sudoku: list)`, joka saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen taulukon. Funktio kertoo käyttäen edellisen kolmen tehtävän funktioita (kopioi ne tämän tehtävän koodin joukkoon), onko parametrina saatu ruudukko täytetty oikein, eli sen jokainen rivi, jokainen sarake sekä kaikki erilliset 3x3-neliöt sisältävät korkeintaan kertaalleen jokaisen luvuista 1–9.
+Please write a function named `sudoku_grid_correct(sudoku: list)` which takes a two-dimensional array representing a sudoku grid as its argument. The function should use the functions from the three previous exercises to determine whether the complete sudoku grid is filled in correctly. Copy the functions from the exercises above into your Python code file for this exercise.
 
-Huom: ylempänä olevaan sudokuruudukkoa esittävään kuvaan on merkitty ne 3x3-neliöt, joita sudokua ratkaistessa tulee tarkastella.
-Nämä ovat siis kohdista (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) ja (6, 6) alkavat yhdeksän neliöä.
+The function should check each of the nine rows, columns and 3 by 3 blocks in the grid. If all contain each of the numbers 1 to 9 at most once, the function returns `True`. If a single one is filled in incorrectly, the function returns `False`. 
+
+The image of a sudoku grid above these exercises has the nine blocks within the grid indicated with thicker borders. These are the blocks the function should check, and they begin at the indexes (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) and (6, 6). 
 
 ```python
 sudoku1 = [
@@ -702,7 +705,7 @@ sudoku1 = [
   [3, 0, 0, 0, 0, 0, 0, 0, 2]
 ]
 
-print(sudoku_oikein(sudoku1))
+print(sudoku_grid_correct(sudoku1))
 
 sudoku2 = [
   [2, 6, 7, 8, 3, 9, 5, 0, 4],
@@ -716,7 +719,7 @@ sudoku2 = [
   [7, 4, 5, 0, 0, 3, 9, 0, 1]
 ]
 
-print(sudoku_oikein(sudoku2))
+print(sudoku_grid_correct(sudoku2))
 ```
 
 <sample-output>
