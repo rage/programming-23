@@ -42,7 +42,7 @@ Hi, Ghosty
 
 </sample-output>
 
-The values stored in a variable can also contain other variables: 
+The value stored in a variable can also be defined using other variables: 
 
 ```python
 given_name = "Paul"
@@ -63,9 +63,9 @@ Here the values stored in the three variables are not obtained from user input. 
 
 ## Changing the value of a variable
 
-The value stored in a variable can change, as the word _variable_ implies. In the previous section we noticed that the new value replaces the old one.
+As implied by the name _variable_, the value stored in a variable can change. In the previous section we noticed that the new value replaces the old one.
 
-In the following program the variable `word` has three different values:
+During the execution of the following program, the variable `word` will have three different values:
 
 ```python
 word = input("Please type in a word: ")
@@ -114,15 +114,15 @@ test!!!
   
 * There is no set limit to the length of a variable name in Python, but there are some other limitations. A variable name should begin with a letter, and it can only contains letters, numbers and underscores &#95;.
 
-* Lowercase and uppercase letters are different characters. The variables `name`, `Name` and `NAME` are all different variables.
+* Lowercase and uppercase letters are different characters. The variables `name`, `Name` and `NAME` are all different variables. While this rule has a few exceptions, we will ignore those for now.
 
-* It is a common programming practice in Python to use only lowercase characters in variable names. If the variable name consists of multiple words, use an underscore between the words.
+* It is a common programming practice in Python to use only lowercase characters in variable names. If the variable name consists of multiple words, use an underscore between the words. While this rule has a few exceptions, we will ignore those for now.
 
 </text-box>
 
 ## Integers
 
-Thus far we have only stored strings in variables, but there are also many other types of information we will want to store in variables. Let's have a look at integers first.
+Thus far, we have only stored strings in variables, but there are also many other types of information we will want to store in variables. Let's have a look at integers first. Integers are numbers that do not have a decimal or fractional part, such as `-15`, `0` and `1`. 
 
 The following program creates the variable `age`, which contains an integer value.
 
@@ -179,9 +179,20 @@ This prints out the following:
 
 For integer values the `+` operator means addition, but for string values it means concatenation.
 
+Not all operators are available for all types of variables. While numbers can be divided using the division operator `/`, attempting to divide a string by a number causes an error:
+
+```python
+number = "100"
+print(number / 2)
+```
+
+<sample-output>
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+</sample-output>
+
 ## Combining values when printing
 
-The following program will not work, because `"The result is "` and `result` are of two different types:
+Similarly, the following program will not work, because `"The result is "` and `result` are of two different types:
 
 ```python
 result = 10 * 25
@@ -212,7 +223,7 @@ The result is 250
 
 </sample-output>
 
-The `print` command also has built-in functionalities that support combining differnt types of values. The simplest way is to add a comma between the values. All the values will be printed out reagardless of their type:
+The `print` command also has built-in functionalities that support combining different types of values. The simplest way is to add a comma between the values. All the values will be printed out reagardless of their type:
 
 ```python
 result = 10 * 25
@@ -263,7 +274,7 @@ Hi Mark, you are 37 years old. You live in Palo Alto.
 
 </sample-output>
 
-It is impossible to create a printout exactly like this using the comma notation in the `print` command. For example, this program
+It is difficult to create a printout exactly like this using the comma notation in the `print` command. For example, this program
 
 ```python
 name = "Mark"
@@ -280,7 +291,7 @@ Hi Mark , you are 37 years old. You live in Palo Alto .
 
 </sample-output>
 
-Notice the automatically inserted whitespace between each comma-separated part of the printout. In a couple of places these spaces are problematic.
+Notice the automatically inserted whitespace between each comma-separated part of the printout. Preventing `print` from adding the extra spaces is technically possible, but not worth the trouble given that we can instead use f-strings. 
 
 In its simplicity the comma notation of the `print` command can often be useful, but it does sometimes cause more trouble than it's worth. F-strings are usually a more reliable option. In part 4 you will learn more about the handy features of f-strings when it comes to formatting printouts.
 
@@ -339,7 +350,7 @@ Do remember to be extra careful when formatting printouts also in the future on 
 
 ## Floating point numbers
 
-`FLoating point number` or _float_ is a term you will come across often in programming. It refers to numbers with a decimal point. They can be used much in the same way as integer values. 
+`Floating point number` or _float_ is a term you will come across often in programming. It refers to numbers with a decimal point. They can be used much in the same way as integer values. 
 
 This program calculates the mean of three floating point numbers:
 
