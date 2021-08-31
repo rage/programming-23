@@ -88,7 +88,7 @@ Paul Python is quite a nice name.
 
 </sample-output>
 
-Let's have a closer look at the way the `print` command is used above. Within the brackets of the command there is text in quotation marks, but there are also variable names which refer to input from the user. These have been combined with a `+` operator, which _concatenates_ two strings into a single string.
+Let's have a closer look at the way the `print` command is used above. Within the brackets of the command there is both text in quotation marks as well as variable names which refer to input from the user. These have been combined with a `+` operator, which _concatenates_ two strings into a single string.
 
 String and variables can be combined quite freely:
 
@@ -181,7 +181,7 @@ address = input("Please type in a new address: ")
 print("Your address is now " + address)
 ```
 
-Esimerkkisuoritus:
+An example of how the program's output might look like:
 
 <sample-output>
 
