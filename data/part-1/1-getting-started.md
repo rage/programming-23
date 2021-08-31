@@ -14,7 +14,7 @@ After this section
 
 </text-box>
 
-Computer programs consist of _commands_, which are quite simply instructions. A computer executes these commands one by one. Among other things, commands can be used to perform calculations, compare things in the computer's memory, cause changes in how the program functions, relay messages or ask for information from the program's user.
+Computer programs consist of _commands_, each command instructing the computer to take some action. A computer executes these commands one by one. Among other things, commands can be used to perform calculations, compare things in the computer's memory, cause changes in how the program functions, relay messages or ask for information from the program's user.
 
 Let's begin programming by getting familiar with the `print` command, which _prints_ text. In this context, printing essentially means that the program will show text on the screen.
 
@@ -51,7 +51,7 @@ SyntaxError: invalid syntax
 
 </sample-output>
 
-In summary, if you want to print text, it must all be encased in quotation marks or Python will not interpret it correctly.
+In summary, if you want to print text, the text must all be encased in quotation marks or Python will not interpret it correctly.
 
 <in-browser-programming-exercise name="Emoticon" tmcname="part01-01_emoticon" height="300px">
 
@@ -59,7 +59,7 @@ Please write a program which prints out an emoticon: :-)
 
 </in-browser-programming-exercise>
 
-## A program progresses
+## A program of multiple commands
 
 Multiple commands written in succession will be executed in order from first to last.
 For example this program
@@ -156,7 +156,7 @@ So, strings are printed out just as they are written, without any reference to t
 
 ## Commenting
 
-Any line beginning with a hashtag `#` is a comment. This means that any text on that line will not in any way affect how the program functions - Python will simply ignore it.
+Any line beginning with the pound sign, also known as a hash or a number sign, `#` is a comment. This means that any text on that line following the `#` symbol will not in any way affect how the program functions - Python will simply ignore it.
 
 Comments are used for explaining how a program works, to both the programmer themselves, and others reading the program code. In this program a comment explains the calculation performed in the code: 
 
@@ -190,7 +190,7 @@ Please write a program which prints out the number of minutes in a year. Use Pyt
 
 <in-browser-programming-exercise name="Print some code" tmcname="part01-05_print_code">
 
-Thus far you have probably used double quotation marks `"` to print out strings, but Python also accepts single quotation marks `'`.
+Thus far, you have probably used double quotation marks `"` to print out strings. In addition to the double quotation marks, Python also accepts single quotation marks `'`.
 
 This comes in handy if you ever want to print out the actual quotation marks themselves:
 
