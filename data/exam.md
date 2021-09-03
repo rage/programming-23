@@ -1,6 +1,6 @@
 ---
-path: "/verkkotentti"
-title: "Verkkotentti 5.6"
+path: "/exam"
+title: "Exam 26.10"
 information_page: true
 sidebar_priority: 3000
 ---
