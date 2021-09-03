@@ -5,18 +5,20 @@ hidden: false
 information_page: true
 sidebar_priority: 5000
 ---
-<notice>
-Kevään telegram-ohjaus on päättynyt. Kesän ohjausaikataulu päivitetään tälle sivulle lähiviikkoina.
-</notice>
 
-## Telegram
+Kurssilla järjestetään ohjausta **7.9. alkaen** discordissa.
 
-Telegram on viestintäsovellus, josta saat lisätietoa [täältä](https://telegram.org/). Löydät kurssin telegram-kanavan [täältä](https://t.me/python_hy).
+#### Discord
 
-Ohjaajatiimi tarjoaa apua tehtävien ratkomisessa kurssin telegram-kanavalla useana päivänä viikossa. Ohjausaikana ohjaajat päivystävät kurssikanavalla ja vastaavat myös yksityisviesteihin.
-Ole huomaavainen äläkä lähetä yksityisviestejä ohjausaikoijen ulkopuolella.
+Discord on viestintäsovellus, josta saat lisätietoa [täältä](https://discord.com/).
 
-Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
+Löydät kurssin kanavat [täältä](https://study.cs.helsinki.fi/discord/join/ohjelmointi21).
+
+#### Ohjauksesta
+
+Ohjaajatiimi tarjoaa apua tehtävien ratkomisessa useana päivänä viikossa. Ohjausaikana ohjaajat päivystävät discordissa ja vastaavat myös yksityisviesteinä lähetettyihin kysymyksiin. Ole huomaavainen äläkä lähetä yksityisviestejä ohjausaikojen ulkopuolella.
+
+Alla olevassa aikataulussa `T`-merkinnät tarkoittavat ohjausta tekstikanavilla `ohjelmointi21_general` ja `ohjelmointi21_english`. `Ä`-merkinnät tarkoittavat ohjausta samanaikaisesti tekstikanavilla ja äänikanavalla `ohjelmointi21_voice`.
 
 <notice>Ohjausajat saattavat muuttua kurssin myötä.</notice>
 
@@ -29,100 +31,56 @@ Alla olevassa aikataulussa `X`-merkillä ruksatut kohdat merkkaavat ohjausaikaa.
       <td>KE</td>
       <td>TO</td>
       <td>PE</td>
-      <td>LA</td>
     </tr>
   </th>
   <tbody>
     <tr>
-      <td>10:00-11:00</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>11:00-12:00</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
       <td>12:00-13:00</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
     </tr>
     <tr>
       <td>13:00-14:00</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>T</td>
+      <td>T</td>
+      <td>Ä</td>
+      <td>T</td>
+      <td>T</td>
     </tr>
     <tr>
       <td>14:00-15:00</td>
+      <td>T</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Ä</td>
+      <td>Ä</td>
+      <td>T</td>
     </tr>
     <tr>
       <td>15:00-16:00</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Ä</td>
+      <td>T</td>
+      <td>T</td>
+      <td>Ä</td>
+      <td>T</td>
     </tr>
     <tr>
       <td>16:00-17:00</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Ä</td>
+      <td>Ä</td>
+      <td>Ä</td>
+      <td>Ä</td>
+      <td>Ä</td>
     </tr>
     <tr>
       <td>17:00-18:00</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>18:00-19:00</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>19:00-20:00</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Ä</td>
+      <td>Ä</td>
+      <td>Ä</td>
+      <td>Ä</td>
+      <td>Ä</td>
     </tr>
   </tbody>
 </table>
-
