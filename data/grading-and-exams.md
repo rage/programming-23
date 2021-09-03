@@ -6,7 +6,7 @@ information_page: true
 sidebar_priority: 6000
 ---
 
-To pass these courses you are expected to complete exercises and take part in an exam.
+To pass the Python Programming MOOC courses you are expected to both complete exercises and take part in an exam.
 
 ### Upcoming exams
 
@@ -19,17 +19,17 @@ To pass these courses you are expected to complete exercises and take part in an
 
 * TBD
 
-## Taking part in an exam
+## Taking the programming exam
 
-You may take part in any of the exams listed above once you have completed the required number of exercises. Specifically, you must have received at least 25% of the exercise points for each round on the course by 8 AM on the morning of the exam. If any of the rounds falls under this limit, your exam submission will not be graded.
+Once you have completed the required number of exercises, you may take the course exam at any of the times listed above. Specifically, you must have received at least 25% of the exercise points for each round on the course by 8 AM on the morning of the exam. If any of the rounds falls short of this limit, your exam submission will not be graded.
 
 Submissions are assessed separately for the Introduction to Programming course (parts 1-7) and the Advanced Course in Programming (parts 8-14).
 
-You may take part in any number of the exams listed above. The highest grade achieved will be registered.
+You may take part in any number of the exams listed above. The highest grade achieved will be your final grade.
 
 ## Exercise points
 
-Each programming exercise and quiz in each part is worth a number of exercise points. You can find a list of all the exercises in each part by clicking on the "List of exercises in this part" menu on the index page of each part. You can see your current exercise points by clicking on the blue blob in the bottom right corner of any page in the material. The percentage in the "Total points" section is the critical one for passing the course.
+Each programming exercise and quiz in each part is worth a number of exercise points. You can find a list of all the exercises in each part by clicking on the "List of exercises in this part" menu on the index page of each part. You can see your current exercise points by clicking on the blue blob in the bottom right corner of any page in the course material. The percentage in the "Total points" section is the critical one for passing the course.
 
 ## Grading guidelines
 

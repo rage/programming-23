@@ -5,69 +5,69 @@ information_page: true
 sidebar_priority: 3000
 ---
 
-## Ohjelmoinnin jatkokurssi
+## Introduction to Programming
 
-#### Tenttiin osallistuminen
+#### Taking the programming exam
 
-* Tenttiin ei tarvitse ilmoittautua etukäteen.
-* Kurssisuorituksen saaminen edellyttää tenttiin osallistumista.
+* You do not need to enrol for the exam
+* Taking the programming exam is a mandatory requirement for completing the course
 
-#### Tentin toteutus
+#### Exam arrangements
 
-* Tentti suoritetaan kurssitehtävien tapaan vscode-ympäristössä.
-* Kurssin tentin voi suorittaa 14.8.2021 **klo 10:00-22:00** välisenä aikana.
-* Tentti päättyy viimeistään klo 22:00. Jos haluat käyttää tenttiin maksimiajan, **aloita se viimeistään klo 18:00**.
-* Aikaa tentin tekemiseen on **neljä tuntia**. Jos sinulla on erikseen annettu tenttiin lisäaikaa, aikaa on viisi tuntia.
+* Your solutions to the programming tasks in the exam will be submitted in the vscode programming environment, in the same manner as the weekly exercises on the course.
+* The course exam can be taken on October 26th 2021 **between 10:00 AM and 10:00 PM**.
+* The exam ends at 10:00 PM at the latest. If you want to be able to spend the maximum time allowed on the exam, you should **start at 6:00 PM at the latest**.
+* You will have **four hours** to complete the exam. If you have been granted extra time through special arrangements, you will have five hours to complete the exam, and should start at 5:00 PM at the latest.
 
-#### Tehtäväpohjien hakeminen
+#### Fetching the programming task templates
 
-**Voit hakea ja testata tehtäväpohjat jo ennen tenttipäivää.**
+**You will be able to fetch and test the programming task templates already on the day before the exam.**
 
-1. Avaa Visual Studio Code.
-2. Valitse TMC-valikosta `My courses`-näkymä.
-3. Paina `Add new course`-nappulaa.
-4. Valitse organisaatioksi `Helsingin yliopisto`.
-5. Valitse kurssiksi `OHJA Python, kesä 2021, Verkkotentti 3`.
-6. Lataa tehtäväpohjat.
-7. Testaa tehtävien lähettämistä.
-8. Jos saat lähetettyä tehtävät palvelimelle niin olet valmis tekemään tentin, muutoin ole yhteydessä ohjaajaan.
+1. Launch Visual Studio Code.
+2. Choose the `My courses` view in the TMC menu.
+3. Click the `Add new course` button.
+4. Choose the organization `Helsingin yliopisto`.
+5. Choose the course `[to be updated later]`.
+6. Fetch the programming task templates.
+7. Try submitting the programming tasks.
+8. If you are able to submit the tasks, you are ready to take the exam. If not, get in touch with course instructors.
 
-#### Tehtävänannot ja tentin aloittaminen
+#### Programming task instructions and starting the exam
 
-* Tenttikysymykset ilmestyvät <a href="https://exams.mooc.fi/fi">https://exams.mooc.fi/fi</a> sivulle tenttipäivänä klo 10:00.
-* Tentti-sivuille kirjaudutaan käyttäen normaaleja mooc.fi-tunnuksia.
-* Valitse kurssiksi `OHJA Python, kesä 2021, Verkkotentti 3`.
-* Jos olet oikeutettu lisäaikaan valitse `OHJA Python, kesä 2021, Verkkotentti 3 (LISÄAIKA)`.
-* Tenttiaika alkaa siitä hetkestä kun painat `Aloita tentti` -linkkiä.
+* The exam questions, in the form of programming task instructions, will become available at <a href="https://exams.mooc.fi/en">https://exams.mooc.fi/en</a> at 10:00 AM on the day of the exam.
+* You should use your usual mooc.fi login details to log in at the exam page.
+* Choose the course `[to be completed later]`.
+* If you have been granted extra time through special arrangements, choose the course `[to be completed later]`.
+* Your allocated exam time will begin when you click on the link `Begin exam`.
 
 <notice>
-Älä kysy kurssin-telegram kanavalla tehtävänantoihin liittyviä kysymyksiä ennen tentin päättymistä. Toteuta tehtävät oman parhaan tulkintasi mukaan.
+Please do not ask any questions on the public course support channels about specific programming tasks assigned to you, until the entire exam session is finished. Complete the programming tasks to the best of your understanding.
 </notice>
 
-#### Tehtävien palauttaminen
+#### Submitting the programming tasks
 
-* Tehtävät palautetaan samalla tavalla kuin kurssitehtävät.
-* Tenttitehtävissä **ei ole automaattisia testejä**.
-* Tenttiajan ulkopuolella tehdyt palautukset johtavat tenttisuorituksen hylkäämiseen.
+* The programming tasks in the exam are submitted in the same manner as the programming exercises on the course.
+* The programming tasks in the exam **will not have automated tests**.
+* Any attempt to submit tasks outside the exam time allocated to you will lead to an automatic fail.
 
-#### Tentin lopetus
+#### Finishing the exam
 
-* Ennen lopettamista palauta kaikki tehtävät vielä kertaalleen tenttiajan sisällä.
-* Voit sulkea tenttitehtävä-sivun kun olet valmis. Muita toimenpiteitä ei vaadita.
+* Please submit all your programming tasks one final time, within the exam time allocated to you, before finishing. 
+* When you are done, you can close all vscode tabs and windows, along with the exam question page. There is no need to do anything else. 
 
-#### Tentin tulokset
+#### Exam results
 
-* Tentin tulokset tulevat sähköpostitse kun arvostelu on valmis.
+* The results of the exam will be emailed to you when the course has been fully graded.
 
-#### Tentin tulokset (avoin yliopisto)
+#### Exam results (Open University)
 
-* Tulosviestin yhteydessä on ohjeet kurssisuorituksen rekisteröimiseen.
-* Rekisteröiminen edellyttää ilmoittautumista kurssille avoimen yliopiston kautta.
+* The email with your exam results will also contain instructions for registering your course credits.
+* If you want to receive credits for the course, you must enrol on the course through Open University.
 
-#### Muuta
+#### Other information
 
-* Tentissä **ei** saa tehdä yhteistyötä eikä kopioida valmiita vastauksia. **Normaaleja tiedonhakukeinoja (esim. Google ja kurssimateriaali) saa käyttää.**
-* Tenttivastaukset tarkistetaan plagoinnintunnistusohjelmalla. Huijaus johtaa aina vähintään tenttisuorituksen hylkäämiseen, mahdollisesti myös kurssilta poistamiseen.
-* Tenttikysymykset muistuttavat kurssimateriaalin tehtäviä - tenttiin valmistautumiseksi kannattaa siis kertailla materiaalia.
-* Kurssin tulokset tulevat kokeen jälkeen sähköpostitse opintopisteohjeiden kera.
-* Pulmatilanteiden varalta kurssin ohjaajat päivystävät kurssin [Telegram-kanavalla](https://t.me/python_hy).
+* You are **not** allowed to collaborate with other students or copy ready solutions from anywhere during the exam. **This is an open book exam, so the usual resources, such as the course materials and Google, are allowed.**
+* Your programming task submissions will be checked with a plagiarism detector. Any cheating detected leads to a failed exam at minimum, but may also lead to expulsion from the course. 
+* The programming tasks in the exam will be similar to the programming tasks in the course material. The best way to prepare for the exam is to revisit the course material.
+* Your course results will be emailed to you after the exam, along with instructions for registering your course credits.
+* In case there are issues during the exam, the course instructors will be on standy on the course support channels. Please see the [Support and assistance](/support-and-assistance) page.
