@@ -14,7 +14,7 @@ After this section
 
 </text-box>
 
-Thus far every program we have written has been executed line by line in order. Instead of executing every line of code every single time a program is run, it is often useful to create sections of the program which are are only executed in certain situations.
+Thus far, every program we have written has been executed line by line in order. Instead of executing every line of code every single time a program is run, it is often useful to create sections of the program which are are only executed in certain situations.
 
 For example, the following code checks whether the user is of age::
 
@@ -429,7 +429,7 @@ Please fix the program so that there is always either a 10 % or a 15 % bonus, bu
 
 Please write a program which asks for tomorrow's weather forecast and then suggests weather-appropriate clothing.
 
-The suggestion should change if the temperature is over 20, 10 or 5 degrees, and also if there is rain on the radar.
+The suggestion should change if the temperature (measured in degrees Celsius) is over 20, 10 or 5 degrees, and also if there is rain on the radar.
 
 Some examples of expected behaviour:
 
@@ -496,6 +496,8 @@ This should print out
 3.0
 
 </sample-output>
+    
+We will return to the concept of a _module_ and the `import` statement later. For now, it is sufficient to understand that the line `from math import sqrt` allows us to use the `sqrt` function in our program.
 
 Please write a program for solving a quadratic equation of the form ax²+bx+c. The program asks for values a, b and c. It should then use the quadratic formula to solve the equation. The quadratic formula expressed with the Python `sqrt` function is as follows:
 

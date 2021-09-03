@@ -21,8 +21,8 @@ In the previous sections you've seen examples with basic arithmetics. In the fol
 | `+`           | Addition      | `2 + 4`      |`6`    |
 | `-`           | Subtraction   | `10 - 2.5`   |`7.5`  |
 | `*`           | Multiplication | `-2 * 123`  |`-246` |
-| `/`           | Division (floating point numbers) | `9 / 2`     | `4.5` |
-| `//`          | Division (integers)              | `9 // 2`    | `4`   |
+| `/`           | Division (floating point result) | `9 / 2`     | `4.5` |
+| `//`          | Division (integer result)              | `9 // 2`    | `4`   |
 | `%`           | Modulo        | `9 % 2`      |`1`    |
 | `**`          | Exponentiation | `2 ** 3`    |`8`    |
 
@@ -81,22 +81,22 @@ Notice Python also has an integer division operator `//`. If the operands are in
 x = 3
 y = 2
 
-print(f"/-operator {x/y}")
-print(f"//-operator {x//y}")
+print(f"/ operator {x/y}")
+print(f"// operator {x//y}")
 ```
 
 prints out
 
 <sample-output>
 
-/-operator 1.5
-//-operator 1
+/ operator 1.5
+// operator 1
 
 </sample-output>
 
 ## Numbers as input
 
-We have already used the `input` command to read in strings from the user. The same function can be used to read in numbers, but the string produced by the function must then be converted to a number data type in the program code. In the previous section we casted integers as strings with the `str` function. The same basic principle applies here, but the name of the casting function will be different.
+We have already used the `input` command to read in strings from the user. The same function can be used to read in numbers, but the string produced by the function must then be converted to a numeric data type in the program code. In the previous section we cast integers as strings with the `str` function. The same basic principle applies here, but the name of the casting function will be different.
 
 A string can be converted into an integer with the function `int`. The following program asks the user for their year of birth and stores it in the variable `input_str`. The program then creates another variable `year`, which contains the year converted into an integer. After this the calculation `2021-year` is possible, using the user-supplied value.
 
@@ -219,9 +219,9 @@ Let's take a closer look at this command:
 sum = sum + number
 ```
 
-So, the value of the variable `sum` is _increased_ by the value of the variable `number`. For example, if before the command the value of `sum` is 3 and the value of `number` is 2, after the command is executed, the value of `sum` is 5.
+Here, the value of the variable `sum` is _increased_ by the value of the variable `number`. For example, if before the command the value of `sum` is 3 and the value of `number` is 2, after the command is executed, the value of `sum` is 5.
 
-Increasing the value of a variable is a very common operation. There is a commonly used shorthand notation which achieves the same result:
+Increasing the value of a variable is a very common operation. As such, there is a commonly used shorthand notation which achieves the same result:
 
 ```python
 sum += number
@@ -256,7 +256,7 @@ sum += int(input("Third number: "))
 print(f"The sum of the numbers: {sum}")
 ```
 
-Of course it will depend on the context how many variables are needed. If it is required to remember each value the user inputs, it will not be possible to "reuse" the same variable to read different values from the user. Consider the following:
+Of course, it will depend on the context how many variables are needed. If it is required to remember each value the user inputs, it will not be possible to "reuse" the same variable to read different values from the user. Consider the following:
 
 ```python
 number1 = int(input("First number: "))
