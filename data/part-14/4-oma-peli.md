@@ -1,5 +1,5 @@
 ---
-path: '/osa-14/4-oma-peli'
+path: '/part-14/4-oma-peli'
 title: 'Oma peli'
 hidden: false
 ---

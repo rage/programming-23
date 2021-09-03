@@ -1,5 +1,5 @@
 ---
-path: '/osa-9/3-kapselointi'
+path: '/part-9/3-kapselointi'
 title: 'Kapselointi'
 hidden: false
 ---

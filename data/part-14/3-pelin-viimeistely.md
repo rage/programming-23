@@ -1,5 +1,5 @@
 ---
-path: '/osa-14/3-pelin-viimeistely'
+path: '/part-14/3-pelin-viimeistely'
 title: 'Pelin viimeistely'
 hidden: false
 ---

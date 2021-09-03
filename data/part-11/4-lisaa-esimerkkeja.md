@@ -1,5 +1,5 @@
 ---
-path: '/osa-11/4-lisaa-esimerkkeja'
+path: '/part-11/4-lisaa-esimerkkeja'
 title: 'Lisää esimerkkejä'
 hidden: false
 ---

@@ -1,5 +1,5 @@
 ---
-path: '/osa-6/1-tiedostojen-lukeminen'
+path: '/part-6/1-tiedostojen-lukeminen'
 title: 'Tiedostojen lukeminen'
 hidden: false
 ---

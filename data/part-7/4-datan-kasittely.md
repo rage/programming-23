@@ -1,5 +1,5 @@
 ---
-path: '/osa-7/4-datan-kasittely'
+path: '/part-7/4-datan-kasittely'
 title: 'Datan käsittely'
 hidden: false
 ---

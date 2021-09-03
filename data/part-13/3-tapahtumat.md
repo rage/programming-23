@@ -1,5 +1,5 @@
 ---
-path: '/osa-13/3-tapahtumat'
+path: '/part-13/3-tapahtumat'
 title: 'Tapahtumat'
 hidden: false
 ---

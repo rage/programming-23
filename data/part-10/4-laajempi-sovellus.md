@@ -1,5 +1,5 @@
 ---
-path: '/osa-10/4-lisaa-esimerkkeja'
+path: '/part-10/4-lisaa-esimerkkeja'
 title: 'Laajemman sovelluksen kehittäminen'
 hidden: false
 ---

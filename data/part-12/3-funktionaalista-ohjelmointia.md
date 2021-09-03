@@ -1,5 +1,5 @@
 ---
-path: '/osa-12/3-funktionaalista-ohjelmointia'
+path: '/part-12/3-funktionaalista-ohjelmointia'
 title: 'Funktionaalista ohjelmointia'
 hidden: false
 ---

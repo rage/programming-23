@@ -1,5 +1,5 @@
 ---
-path: '/osa-6/2-tiedostojen-kirjoittaminen'
+path: '/part-6/2-tiedostojen-kirjoittaminen'
 title: 'Tiedostojen kirjoittaminen'
 hidden: false
 ---

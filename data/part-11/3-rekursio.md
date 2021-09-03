@@ -1,5 +1,5 @@
 ---
-path: '/osa-11/3-rekursio'
+path: '/part-11/3-rekursio'
 title: 'Rekursio'
 hidden: false
 ---

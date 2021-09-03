@@ -1,5 +1,5 @@
 ---
-path: '/osa-13/2-animaatio'
+path: '/part-13/2-animaatio'
 title: 'Animaatio'
 hidden: false
 ---

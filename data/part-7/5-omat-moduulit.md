@@ -1,5 +1,5 @@
 ---
-path: '/osa-7/5-omat-moduulit'
+path: '/part-7/5-omat-moduulit'
 title: 'Oman moduulin tekeminen'
 hidden: false
 ---

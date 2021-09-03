@@ -1,5 +1,5 @@
 ---
-path: '/osa-14/1-peliprojekti'
+path: '/part-14/1-peliprojekti'
 title: 'Peliprojekti'
 hidden: false
 ---

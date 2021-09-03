@@ -1,5 +1,5 @@
 ---
-path: '/osa-13/4-lisaa-tekniikoita'
+path: '/part-13/4-lisaa-tekniikoita'
 title: 'Lisää tekniikoita'
 hidden: false
 ---

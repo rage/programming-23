@@ -1,5 +1,5 @@
 ---
-path: '/osa-8/4-metodit-omissa-luokissa'
+path: '/part-8/4-metodit-omissa-luokissa'
 title: 'Metodit omissa luokissa'
 hidden: false
 ---

@@ -1,5 +1,5 @@
 ---
-path: '/osa-10/2-nakyvyysmaareet'
+path: '/part-10/2-nakyvyysmaareet'
 title: 'Näkyvyysmääreet'
 hidden: false
 ---

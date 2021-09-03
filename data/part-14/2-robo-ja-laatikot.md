@@ -1,5 +1,5 @@
 ---
-path: '/osa-14/2-robo-ja-laatikot'
+path: '/part-14/2-robo-ja-laatikot'
 title: 'Robotti ja laatikot'
 hidden: false
 ---

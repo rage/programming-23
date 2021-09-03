@@ -1,5 +1,5 @@
 ---
-path: '/osa-11/1-koosteet'
+path: '/part-11/1-koosteet'
 title: 'Koosteet'
 hidden: false
 ---

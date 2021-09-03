@@ -1,5 +1,5 @@
 ---
-path: '/osa-6/3-virheet'
+path: '/part-6/3-virheet'
 title: 'Virhetilanteisiin varautuminen'
 hidden: false
 ---

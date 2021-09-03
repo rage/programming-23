@@ -1,5 +1,5 @@
 ---
-path: '/osa-7/1-moduulit'
+path: '/part-7/1-moduulit'
 title: 'Moduulit'
 hidden: false
 ---

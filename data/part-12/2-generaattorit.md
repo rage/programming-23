@@ -1,5 +1,5 @@
 ---
-path: '/osa-12/2-generaattorit'
+path: '/part-12/2-generaattorit'
 title: 'Generaattorit'
 hidden: false
 ---

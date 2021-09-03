@@ -1,5 +1,5 @@
 ---
-path: '/osa-8/1-oliot-ja-metodit'
+path: '/part-8/1-oliot-ja-metodit'
 title: 'Oliot ja metodit'
 hidden: false
 ---

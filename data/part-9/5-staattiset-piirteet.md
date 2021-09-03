@@ -1,5 +1,5 @@
 ---
-path: '/osa-9/5-staattiset-piirteet'
+path: '/part-9/5-staattiset-piirteet'
 title: 'Staattiset piirteet'
 hidden: false
 ---

@@ -1,5 +1,5 @@
 ---
-path: '/osa-9/4-metodien-nakyvyys'
+path: '/part-9/4-metodien-nakyvyys'
 title: 'Metodien näkyvyys'
 hidden: false
 ---

@@ -1,5 +1,5 @@
 ---
-path: '/osa-12/4-saannolliset-lausekkeet'
+path: '/part-12/4-saannolliset-lausekkeet'
 title: 'Säännölliset lausekkeet'
 hidden: false
 ---

@@ -1,5 +1,5 @@
 ---
-path: '/osa-12/1-funktio-parametrina'
+path: '/part-12/1-funktio-parametrina'
 title: 'Funktio parametrina'
 hidden: false
 ---

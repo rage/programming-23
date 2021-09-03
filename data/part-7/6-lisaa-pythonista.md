@@ -1,5 +1,5 @@
 ---
-path: '/osa-7/6-lisaa-pythonista'
+path: '/part-7/6-lisaa-pythonista'
 title: 'Lisää Pythonista'
 hidden: false
 ---

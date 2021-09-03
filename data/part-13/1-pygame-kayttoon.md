@@ -1,5 +1,5 @@
 ---
-path: '/osa-13/1-pygame-kayttoon'
+path: '/part-13/1-pygame-kayttoon'
 title: 'Pygame käyttöön'
 hidden: false
 ---

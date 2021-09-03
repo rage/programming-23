@@ -1,5 +1,5 @@
 ---
-path: '/osa-7/3-aikojen-kasittely'
+path: '/part-7/3-aikojen-kasittely'
 title: 'Aikojen käsittely'
 hidden: false
 ---

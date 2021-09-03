@@ -1,5 +1,5 @@
 ---
-path: '/osa-9/2-oliot-attribuuttina'
+path: '/part-9/2-oliot-attribuuttina'
 title: 'Oliot attribuuttina'
 hidden: False
 ---

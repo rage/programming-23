@@ -1,5 +1,5 @@
 ---
-path: '/osa-10/3-olio-ohjelmoinnin-tekniikoita'
+path: '/part-10/3-olio-ohjelmoinnin-tekniikoita'
 title: 'Olio-ohjelmoinnin tekniikoita'
 hidden: false
 ---

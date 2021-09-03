@@ -1,5 +1,5 @@
 ---
-path: '/osa-8/3-omat-luokat'
+path: '/part-8/3-omat-luokat'
 title: 'Omat luokat'
 hidden: false
 ---

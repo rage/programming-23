@@ -1,5 +1,5 @@
 ---
-path: '/osa-6/4-paikalliset-muuttujat'
+path: '/part-6/4-paikalliset-muuttujat'
 title: 'Paikalliset ja globaalit muuttujat'
 hidden: false
 ---

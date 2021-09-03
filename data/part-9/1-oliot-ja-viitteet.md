@@ -1,5 +1,5 @@
 ---
-path: '/osa-9/1-oliot-ja-viittaukset'
+path: '/part-9/1-oliot-ja-viittaukset'
 title: 'Oliot ja viittaukset'
 hidden: false
 ---

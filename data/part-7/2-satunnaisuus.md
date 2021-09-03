@@ -1,5 +1,5 @@
 ---
-path: '/osa-7/2-satunnaisuus'
+path: '/part-7/2-satunnaisuus'
 title: 'Satunnaisuus'
 hidden: false
 ---

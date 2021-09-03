@@ -1,5 +1,5 @@
 ---
-path: '/osa-8/2-luokat-ja-oliot'
+path: '/part-8/2-luokat-ja-oliot'
 title: 'Luokat ja oliot'
 hidden: false
 ---

@@ -1,5 +1,5 @@
 ---
-path: '/osa-10/1-luokkahierarkiat'
+path: '/part-10/1-luokkahierarkiat'
 title: 'Luokkahierarkiat'
 hidden: false
 ---
