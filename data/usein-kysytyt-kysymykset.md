@@ -3,6 +3,7 @@ path: "/usein-kysytyt-kysymykset"
 title: "Usein kysytyt kysymykset"
 hidden: false
 information_page: true
+sidebar_priority: 4000
 ---
 
 <table-of-contents></table-of-contents>

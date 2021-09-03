@@ -3,6 +3,7 @@ path: "/tuki"
 title: "Tukea tehtäviin"
 hidden: false
 information_page: true
+sidebar_priority: 5000
 ---
 <notice>
 Kevään telegram-ohjaus on päättynyt. Kesän ohjausaikataulu päivitetään tälle sivulle lähiviikkoina.

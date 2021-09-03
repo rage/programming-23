@@ -2,6 +2,7 @@
 path: "/verkkotentti"
 title: "Verkkotentti 5.6"
 information_page: true
+sidebar_priority: 3000
 ---
 
 ### Tenttiin osallistuminen

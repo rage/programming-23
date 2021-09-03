@@ -4,7 +4,7 @@ title: "Tietoa kurssista"
 hidden: false
 information_page: true
 banner: true
-sidebar_priority: 5000
+sidebar_priority: 7000
 ---
 
 Nämä ovat Ohjelmoinnin perusteiden (TKT10002, 5 op) ja Ohjelmoinnin jatkokurssin (TKT10003, 5 op) kurssisivut.

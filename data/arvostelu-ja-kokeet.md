@@ -3,7 +3,7 @@ path: "/arvostelu-ja-kokeet"
 title: "Arvostelu ja kokeet"
 hidden: false
 information_page: true
-sidebar_priority: 4000
+sidebar_priority: 6000
 ---
 
 Kurssit suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen.
