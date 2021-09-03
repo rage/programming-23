@@ -1,6 +1,6 @@
 ---
-path: "/arvostelu-ja-kokeet"
-title: "Arvostelu ja kokeet"
+path: "/grading-and-exams"
+title: "Grading and exams"
 hidden: false
 information_page: true
 sidebar_priority: 6000
@@ -8,26 +8,16 @@ sidebar_priority: 6000
 
 Kurssit suoritetaan ratkomalla tehtäviä ja osallistumalla lopuksi kokeeseen.
 
-### Ohjelmoinnin perusteet koepäivät 2021
+### Upcoming exams
 
-* Lauantai 6.3.21
-* Lauantai 24.4.21
-* Lauantai 15.5.21
-* **Lauantai 5.6.21 (PERUTTU)**
-* Lauantai 3.7.21
-* Lauantai 7.8.21
-* Lauantai 2.10.21
-* Lauantai 27.11.21
+#### Introduction to Programming
 
+* Tuesday 26.10.21
+* TBD
 
-### Ohjelmoinnin jatkokurssi koepäivät 2021
+####  Advanced Course in Programming
 
-* Lauantai 8.5.21
-* **Lauantai 5.6.21 (UUSI)**
-* Lauantai 3.7.21
-* Lauantai 14.8.21
-* Lauantai 9.10.21
-* Lauantai 4.12.21
+* TBD
 
 ## Tenttiin osallistuminen
 
