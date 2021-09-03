@@ -12,10 +12,6 @@ sidebar_priority: 4000
 
 Voit ilmoittaa asiasta kurssikanavalla ohjaajalle tai sähköpostitse kurssin ylläpitäjille osoitteeseen ohjelmoinnin-mooc@helsinki.fi. Kiitos!
 
-### Kurssimateriaalin uuden osan pitäisi olla julki tänään, mutta en näe sitä
-
-Emme takaa, mihin kellonaikaan kurssimateriaalin uusi osa ilmestyy, mutta julkaisu tapahtuu aina viimeistään klo 23:59 ilmoitettuna päivänä.
-
 <notice>Alla olevat kysymykset koskevat enimmäkseen avoimen yliopiston opiskelijoita</notice>
 
 ### En voi aloittaa kurssia, koska en tiedä minne ilmoittautua
