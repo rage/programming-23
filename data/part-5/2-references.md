@@ -15,20 +15,20 @@ After this section
 
 </text-box>
 
-Olemme tähän asti ajatelleet, että muuttuja on eräänlainen "laatikko", joka sisältää muuttujan arvon. Teknisesti ottaen tämä ei pidä paikkaansa Pythonissa: muuttujat eivät sisällä arvoa vaan ne _viittaavat_ arvona olevaan _olioon_, kuten lukuun, merkkijonoon tai listaan.
+Thus far we have thought of a variable as a sort of "box" which contains the value of the variable. Technically this is not true in Python. What is stored in a variable is not the value per se, but a _reference_ to the _object_ which is the actual value of the variable. The object can be e.g. a number, a string or a list.
 
-Käytännössä tämä tarkoittaa, että muuttujaan _ei tallenneta_ arvoa, vaan tieto siitä paikasta, mistä muuttujan arvo löytyy.
+In practice this means that the value of the variable _is not stored_ in the variable itself. Instead there is information about the location in memory where the value can be found.
 
-Viittausta voidaan kuvata nuolena muuttujasta sen varsinaiseen arvoon:
+A reference is often depicted by an arrow from the variable to the actual value in memory:
 
 <img src="5_2_1.png">
 
-Viittaus siis kertoo, mistä varsinainen arvo löytyy. Funktio `id` kertoo, mihin muuttuja viittaa:
+In summary, a reference tells us where the value can be found. The function `id` can be used to find out the exact location the variable points to:
 
 ```python
 a = [1, 2, 3]
 print(id(a))
-b = "Tämäkin on viittaus"
+b = "This is a reference, too"
 print(id(b))
 ```
 
@@ -39,7 +39,7 @@ print(id(b))
 
 </sample-output>
 
-Viittaus eli muuttujan id on kokonaisluku, jonka voi ajatella olevan muuttujan arvon sijainnin osoite tietokoneen muistissa. Huomaa, että jos suoritat yllä olevan koodin omalla koneellasi, tulos on luultavasti erilainen, koska muuttujilla on eri viitteet.
+The reference, or the ID of the variable, is an integer, which can be thought of as the address in computer memory where the value of the variable is stored. If you execute the above code on your own computer, the result will likely be different, as your variables will point to different locations - the references will be different.
 
 Kuten jo [edellisen osan](/osa-5/1-lisaa-listoja#sisakkaisia-listoja-kayttavan-koodin-visualisointi) esimerkistä näimme, Python Tutorin visualisaattori näyttää viitteet "nuolina" varsinaiseen sisältöön. Visualisaattori kuitenkin "huijaa" merkkijonojen tapauksessa ja näyttää ne ikään kuin merkkijonon sisältö olisi tallennettu muuttujan sisälle:
 

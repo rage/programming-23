@@ -734,5 +734,3 @@ True
 A quiz to review the contents of this section:
 
 <quiz id="ccb6dcbf-1065-513f-9294-15f42a318300"></quiz>
-
-
