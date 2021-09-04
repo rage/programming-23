@@ -1,6 +1,6 @@
 ---
 path: "/exam"
-title: "Exam 26.10"
+title: "Exam 26.10."
 information_page: true
 sidebar_priority: 3000
 ---
@@ -41,7 +41,7 @@ sidebar_priority: 3000
 * Your allocated exam time will begin when you click on the link `Begin exam`.
 
 <notice>
-Please do not ask any questions on the public course support channels about specific programming tasks assigned to you, until the entire exam session is finished. Complete the programming tasks to the best of your understanding.
+Please do not ask any questions about specific programming tasks assigned to you on the public course support channels while the exam session is still ongoing. That is, you may only ask task-specific questions about the exam after 10 PM on the day of the exam. Complete the programming tasks to the best of your understanding, and please do indicate in your course feedback if the instructions were confusing.
 </notice>
 
 #### Submitting the programming tasks
@@ -66,8 +66,8 @@ Please do not ask any questions on the public course support channels about spec
 
 #### Other information
 
-* You are **not** allowed to collaborate with other students or copy ready solutions from anywhere during the exam. **This is an open book exam, so the usual resources, such as the course materials and Google, are allowed.**
+* You are **not** allowed to collaborate with other students or copy ready solutions from anywhere during the exam. **This is an open book exam, so the usual resources, such as course materials, Python Tutor visualisation tool and Google, are allowed.**
 * Your programming task submissions will be checked with a plagiarism detector. Any cheating detected leads to a failed exam at minimum, but may also lead to expulsion from the course. 
 * The programming tasks in the exam will be similar to the programming tasks in the course material. The best way to prepare for the exam is to revisit the course material.
 * Your course results will be emailed to you after the exam, along with instructions for registering your course credits.
-* In case there are issues during the exam, the course instructors will be on standy on the course support channels. Please see the [Support and assistance](/support-and-assistance) page.
+* In case there are issues during the exam, the course instructors will be on standby on the course support channels. Please see the [Support and assistance](/support-and-assistance) page.
