@@ -7,32 +7,25 @@ banner: true
 sidebar_priority: 7000
 ---
 
-Nämä ovat Ohjelmoinnin perusteiden (TKT10002, 5 op) ja Ohjelmoinnin jatkokurssin (TKT10003, 5 op) kurssisivut.
+This is the course material page for the Introduction to Programming (TKT10002, 5 cr) and the Advanced Course in Programming (TKT10003, 5 cr) from the Department of Computer Science at the University of Helsinki.
 
-Kurssit suoritetaan tekemällä tehtäviä ja molempien kurssien päätteeksi on pakollinen tentti.
-Tarkemmat arvosteluperusteet löytyvät [täältä](/arvostelu-ja-kokeet)
+To pass either of the two courses you are expected to both complete exercises and take part in an exam at the end. Please see the [Grading and exams](/grading-and-exams) page for more details.
 
-Osat 1-7 muodostavat Ohjelmoinnin perusteet ja osat 8-14 muodostavan Ohjelmoinnin jatkokurssin.
+The Introduction to Programming course consists of parts 1 through 7 in the material, and the Advanced Course in Programming consists of parts 8 through 14.
 
-**Huom!** Kurssin suorittamalla **ei** voi enää hakea suoraan sisäänpääsyä laitokselle (ns. MOOC-väylä) niin kuin aikaisempina vuosina. Lisätietoa laitoksen hakuväylistä löydät [opintopolku.fi-sivustolta](https://opintopolku.fi/app/#!/haku/tietojenk%C3%A4sittelytiede?page=1&facetFilters=teachingLangCode_ffm:FI&tab=los).
+**NB:** It is **not** possible to directly apply for a right to study at the University of Helsinki through this course any longer. If you are interested in studying at the Univeristy of Helsinki, please have a look at the [admissions website](https://www.helsinki.fi/en/admissions-and-education).
 
-## Tukiväylät
+## Support channels on the course
 
-Kurssilla on Telegram-kanava, jonne pääset [tästä](https://t.me/python_hy/).
-Kanavalla voit keskustella muiden kurssin opiskelijoiden ja ohjaajien kanssa.
-Ohjaajia on kanavalla tiettyinä aikoina viikossa.
-Tarkan ohjausaikataulun löydät [täältä](/tuki).
+The official course support channels are available through Discord. Course instructors will be on standby **from September 7th 2021 onwards**.
 
-Käytössä on myös off topic -kanava jossa voit keskustella aiheista jotka eivät liity suoraan kurssin sisältöön.
-Off topic -kanavalle pääset [tästä](https://t.me/ohjelmointi20_ot).
+Please see the [Support and assistance](/support-and-assistance) page for more details.
 
-Käytä ensisijaisesti viestintävälineenä Telegramia. Kurssin opettajiin voit olla suoraan yhteydessä sähköpostitse osoitteella ohjelmoinnin-mooc@helsinki.fi.
+## Timetable
 
+The course will be open until the end of the year 2021. The materials will be made available on a weekly basis. Part 1 will be available from September 7th onwards.
 
-## Aikataulu
-
-Kurssi on auki vuoden 2021 loppuun asti. Tehtäviä voi tehdä omaan tahtiin.
-
+<!---
 ## Luentotallenteet
 
 Kurssilla ei normaalisti ole tarjolla luentoja. Osiin 2-12 liittyvät luentotallenteet onkin tehty syksyn 2020 kurssille. Asiasisältö on tätä kurssia vastaava, mutta tallenteilta mahdollisesti löytyvät huomautukset esimerkiksi tenttipäivämääriin tms. liittyen _eivät välttämättä pidä paikkaansa_!
@@ -103,3 +96,4 @@ Kurssilla ei normaalisti ole tarjolla luentoja. Osiin 2-12 liittyvät luentotall
     </tr>
   </tbody>
 </table>
+-->
