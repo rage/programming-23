@@ -1,64 +1,73 @@
 ---
 path: "/error_messages"
-title: "Most common error messages"
+title: "Common error messages"
 hidden: false
 information_page: true
-banner: true
 sidebar_priority: 1000
 separator_after: "Introduction to Programming"
 ---
 
-Tällä sivulla kerrotaan yleisistä virheilmoituksista joihin saatat törmätä kurssin aikana.
+This page contains information about the most common error messages you may come across when completing the programming exercises on this course.
 
-### Tehtävä ei mene läpi vaikka tuloste on identtinen esimerkkitulosteen kanssa
+### My printout looks identical to the example in the instructions, but my submission still fails
 
-Tarkista että ohjelmasi ei tulosta ylimääräisiä välilyöntejä. Huomaa että print -funktion sisällä pilkku luo automaattisesti välilyönnin yhdistettävien merkkijonojen välille.
+Make sure your program doesn't print any extra whitespace, such as space characters. Notice that the default behaviour of the `print` function is to add a space between any strings separated with a comma.
 
-    print("Hello","World!")    # Tulostuu: Hello World!
+```python
+    print("Hello","World!")    # This prints out: Hello World!
+```
 
-### SyntaxError: bad input on line [rivinumero]
+### SyntaxError: bad input on line [line number]
 
-Tämä käsittää kaikki sellaiset kirjoitusvirheet koodissasi joita ei voida helposti luokitella. Esimerkiksi ehtolauseen päädystä saattaa puuttua kaksoipiste tai avainsana kuten 'while' on kirjoitettu väärin. Ainoa tapa ratkaista ongelma on tutkia virheilmoituksen antamaa riviä.
+This error message usually appears when there is a typo in your code which the Python interpreter finds hard to classify more specifically. For example, there may be a colon character missing from the end of an `if` statement, or a keyword, such as `while`, may have been misspelled. The only way to fix this problem is to inspect the line indicated in the error message.
 
-    luku1 = 1
-    luku1 = 2
-    if luku1 < luku2 # ':' puuttuu
-        print('luku1 on suurempi')
+```python
+    number1 = 1
+    number1 = 2
+    if number1 < number2    # ':' missing
+        print('number2 is greater')
+```
 
-Jos annettu rivi kuitenkin näyttää täysin oikealta on myös mahdollista että virhe on yhtä riviä alempana tai ylempänä. Tarkista siis myös nuo rivit.
+If the line indicated in the error message looks correct, the error may often be one line above or below the line indicated, so check around the issue, too.
 
-<notice>Selaimesa tehtävät ohjelmointitehtävät käyttävät Skulpt nimistä ohjelmistoa pythonin suorittamiseen. Skulpt sisältää huomattavasti vähemmän virheilmoituksia ja ominaisuuksia kuin tavallinen python-tulkki. `bad input on line` -virheilmoitus kattaa useamman ohjelmointivirheen ja siksi pelkästään sen perusteella on vaikea selvittää mikä on virheilmoituksen syy.</notice>
+**NB: The programming exercises in the early parts of this course use a framework called Skulpt to run Python code in the browser.** Skulpt is quite limited compared to a regular Python interpreter, and thus the error messages printed out are often less informative. For example, the `bad input on line` error message may refer to many different programming errors, and it is difficult to find out the true cause of the error just based on this message.
 
-### SyntaxError: unindent does not match any outer indentation level on line [rivinumero]
+### SyntaxError: unindent does not match any outer indentation level on line [line number]
 
-Koodisi on sisennetty hassusti virheilmoituksen antamalla rivillä. Sisennä rivi niin että se on linjassa muiden rivien kanssa.
-Esimerkiksi seuraavanlainen koodi aiheuttaisi tämän virheen.
+Your code is indented incorrectly at the line indicated in the error message. For example, all lines within an `if` block must be indented the same. To fix this error, indent all lines within a program block with the exact same amount of whitespace.
+The following code would cause this error:
 
+```python
     if True:
-        print('Oikein sisennetty')
-       print('Väärin sisennetty')
+        print('Indented correctly')
+       print('Indented incorrectly!')
+```
 
+### NameError: name [variable name] is not defined on line [line number]
 
-### NameError: name [muuttuja] is not defined on line [rivinumero]
+You are trying to refer to a variable or object which does not exist at that specific point in your program. It may be that the variable has not yet been assigned a value, or there may be a typo in the variable name. It may also be the case that you have defined a variable inside a function, and are trying to refer to that same variable outside the function. 
 
-Koodisi yrittää viitata muuttujaan tai olioon jota ei ole olemassa tai sitä ei 'näy'. Voi olla että muuttujalle on unohdettu antaa arvo tai muuttujaa ei löydy kirjoitusvirheen takia (kts. esimerkki). Voi myös olla muuttuja on alustettu funktion sisällä ja siihen on yritetty viitata funktion ulkopuolella.
+```python
+    person = input('Please type in your name:')
+    input('Please type in your age':)
 
-    henkilo = input('Kerro nimesi:')
-    input('Kerro ikäsi':)
+    print("Hi", pearson)                # error: person was typed pearson
+    print("You are", age, "years old")  # error: the variable age has not been defined
+```
 
-    print("Hei", henklo)             # virhe: henkilo kirjotettu henklo
-    print("Olet", ika, "vuotias")    # virhe: muuttujaa ika ei ole määritelty
+### TypeError: unsupported operand type(s) for Add: 'int' and 'str' on line [line number]
 
-### TypeError: unsupported operand type(s) for Add: 'int' and 'str' on line [rivinumero]
+Your may be trying to add an integer and a string together, without first converting the string into an integer value. Strings can be converted to integers with the `int()` function.
 
-Koodisi yrittää yhteenlaskea kokonaisluvun ja merkkijonon ilman että merkkijonoa on muunnettu kokonaisluvuksi. Muista siis muuntaa merkkijono `int()` metodilla. Voi myös olla että yritit yhdistää kokonaisluvun osaksi merkkijonoa. Tällöin sinun tulee muuntaa kokonaisluku merkkijonoksi `str()` metodilla.
+It may also be the case that you are trying to create a new string by combining a string and an integer. You should first convert the integer into a string with the `str()` function. 
 
+```python
+    my_age = input("Please type in your age: ")
+    my_name = input("Please type in your name: ")
 
-    ika = input("Anna ikä:")
-    nimi = input("Anna nimi:)
+    print(my_age//2)   # error: the variable my_age has not been converted into an integer
+```
 
-    printa(ika//2)   # virhe: muuttujaa ika ei ole muutettu kokonaisluvuksi
+### TypeError: cannot concatenate 'str' and 'int' objects on line [line number]
 
-### TypeError: cannot concatenate 'str' and 'int' objects on line [rivinumero]
-
-Katso ylempi kohta.
+See above.
