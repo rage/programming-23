@@ -9,11 +9,11 @@ sidebar_priority: 7000
 
 This is the course material page for the Introduction to Programming course (TKT10002, 5 cr) and the Advanced Course in Programming (TKT10003, 5 cr) from the Department of Computer Science at the University of Helsinki.
 
-To pass either of the two courses you are expected to both complete exercises and take part in an exam at the end. Please see the [Grading and exams](/grading-and-exams) page for more details.
+To pass either of the two courses you are expected to complete programming exercises and take part in an exam. Please see the [Grading and exams](/grading-and-exams) page for more details.
 
 The Introduction to Programming course consists of parts 1 through 7 in the material, and the Advanced Course in Programming consists of parts 8 through 14.
 
-**NB:** It is **no longer** possible to directly apply for a right to study at the University of Helsinki through this course. If you are interested in studying at the Univeristy of Helsinki, please have a look at the [admissions website](https://www.helsinki.fi/en/admissions-and-education).
+**NB:** It is **no longer possible** to directly apply for a right to study at the University of Helsinki through these courses. If you are interested in studying at the University of Helsinki, please have a look at the [admissions website](https://www.helsinki.fi/en/admissions-and-education).
 
 ## Support channels on the course
 

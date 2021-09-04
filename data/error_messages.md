@@ -34,7 +34,7 @@ If the line indicated in the error message looks correct, the error may often be
 
 ### SyntaxError: unindent does not match any outer indentation level on line [line number]
 
-Your code is indented incorrectly at the line indicated in the error message. For example, all lines within an `if` block must be indented the same. To fix this error, indent all lines within a program block with the exact same amount of whitespace.
+Your code is indented incorrectly at the line indicated in the error message. For example, all lines within an `if` block must be indented the same. To fix this error, indent all lines within a block of code with the exact same amount of whitespace.
 The following code would cause this error:
 
 ```python
@@ -45,11 +45,11 @@ The following code would cause this error:
 
 ### NameError: name [variable name] is not defined on line [line number]
 
-You are trying to refer to a variable or object which does not exist at that specific point in your program. It may be that the variable has not yet been assigned a value, or there may be a typo in the variable name. It may also be the case that you have defined a variable inside a function, and are trying to refer to that same variable outside the function. 
+You are trying to refer to a variable or object which does not exist at that specific point in your program. It may be that the variable has not yet been assigned a value, or there is a typo in the variable name. It may also be the case that you have defined a variable inside a function, and are trying to refer to that same variable outside the function. 
 
 ```python
-    person = input('Please type in your name:')
-    input('Please type in your age':)
+    person = input('Please type in your name: ')
+    input('Please type in your age: ')
 
     print("Hi", pearson)                # error: person was typed pearson
     print("You are", age, "years old")  # error: the variable age has not been defined
@@ -57,7 +57,7 @@ You are trying to refer to a variable or object which does not exist at that spe
 
 ### TypeError: unsupported operand type(s) for Add: 'int' and 'str' on line [line number]
 
-Your may be trying to add an integer and a string together, without first converting the string into an integer value. Strings can be converted to integers with the `int()` function.
+You may be trying to add an integer and a string together, without first converting the string into an integer value. Strings can be converted into integers with the `int()` function. A similar error message may appear if you try to perform other arithmetic operations, such as division or subtraction, on strings.
 
 It may also be the case that you are trying to create a new string by combining a string and an integer. You should first convert the integer into a string with the `str()` function. 
 
@@ -65,7 +65,7 @@ It may also be the case that you are trying to create a new string by combining 
     my_age = input("Please type in your age: ")
     my_name = input("Please type in your name: ")
 
-    print(my_age//2)   # error: the variable my_age has not been converted into an integer
+    print(my_age//2)   # error: the variable my_age has not been converted into an integer 
 ```
 
 ### TypeError: cannot concatenate 'str' and 'int' objects on line [line number]

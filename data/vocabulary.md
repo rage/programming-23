@@ -9,4 +9,6 @@ hide_in_sidebar: false
 sidebar_priority: 2000
 ---
 
+This page will be filled in as the course progresses.
+
 <vocabulary />
