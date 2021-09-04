@@ -403,7 +403,9 @@ Weekly: 38.5 euros
 
 <in-browser-programming-exercise name="Students in groups" tmcname="part01-20_students_in_groups">
 
-Please write a program which asks for the number of students on a course and the desired group size. The program will then print out how many groups are formed from the students on the course. If the division is not even, one of the groups may have fewer members than specified. 
+Please write a program which asks for the number of students on a course and the desired group size. The program will then print out how many groups are formed from the students on the course. If the division is not even, one of the groups may have fewer members than specified.
+
+If you can't get your code working as expected, it is absolutely okay to move on and come back to this exercise later. The topic of the next section is [conditional statements](/part-1/5-conditional-statements). This exercise can also be solved using a conditional construction.
 
 <sample-output>
 
@@ -422,8 +424,6 @@ Number of groups formed: 4
 </sample-output>
 
 Hint: the integer division operator `//` could come in handy here.
-
-Hint 2: if you can't get your code working as expected, don't panic. The topic of the [next section](/part-1/5-conditional-statements) is _conditional statements_. This exercise is much easier to solve with a conditional construction.
 
 </in-browser-programming-exercise>
 
