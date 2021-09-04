@@ -3,7 +3,7 @@ path: "/faq"
 title: "Frequently asked questions"
 hidden: false
 information_page: true
-sidebar_priority: 4000
+sidebar_priority: 3000
 ---
 
 <table-of-contents></table-of-contents>

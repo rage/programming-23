@@ -3,7 +3,7 @@ path: "/support-and-assistance"
 title: "Support and assistance"
 hidden: false
 information_page: true
-sidebar_priority: 5000
+sidebar_priority: 4000
 ---
 
 The official course support channels are available through Discord. Course instructors will be on standby **from September 7th 2021 onwards**.

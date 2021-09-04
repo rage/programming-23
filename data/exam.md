@@ -2,7 +2,7 @@
 path: "/exam"
 title: "Exam 26.10."
 information_page: true
-sidebar_priority: 3000
+sidebar_priority: 5000
 ---
 
 ## Introduction to Programming
