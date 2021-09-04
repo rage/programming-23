@@ -1,0 +1,67 @@
+---
+path: "/faq"
+title: "Frequently asked questions"
+hidden: false
+information_page: true
+sidebar_priority: 4000
+---
+
+<table-of-contents></table-of-contents>
+
+### I found a mistake in the course material or in a programming exercise
+
+We would be very grateful if you'd let us know through the course support channels or via email to course maintainers at ohjelmoinnin-mooc@helsinki.fi. Thank you!
+
+<notice>The questions below are relevant mainly to students participating in the course in Finland through Open University</notice>
+
+### I don't know how to enrol, can I still start the course?
+
+Yes you can! You do not need to enrol to start, or in fact even to complete the course. After the course is finished, you will be emailed instructions for receiving credits for the course through the University of Helsinki Open University.
+
+### Can I receive official study credits for this course?
+
+At the end of the course you will need to take part in the course exam. If you receive a passing grade, you will be able to get study credits through the University of Helsinki Open University. See the [Grading and exams](/grading-and-exams) page for more details.
+
+### Can my study credits be transferred to my home institution?
+
+If you obtain a passing grade for the course, you will receive study credits through the University of Helsinki Open University. A transcript of your studies will likely suffice for credit transfer at your home institution, but please check this from the study counsellors at your home institution.
+
+### Do I need to have a University of Helsinki user account?
+
+No, you do not need a University of Helsinki user account to study on this course.
+
+### How do I cancel my course enrolment?
+
+There is no need to enrol on this course, so you do not have to unenrol either. All you have to do is stop participating in the course.
+
+### Jobseekers' services in Finland wants a statement about this course
+
+Please guide them to this page:
+
+Ohjelmoinnin perusteet on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
+
+Ohjelmoinnin perusteet vastaa Helsingin yliopiston 5 opintopisteen kurssia. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssin suorittamisesta voi kuitenkin halutessaan saada opintopisteitä. Kurssille osallistuminen ei oikeuta opintotukeen.
+
+English translation:
+
+Introduction to Programming is a massive open online course, free of charge and open to all. Taking the course is comparable to borrowing a book from the library. A book may be relevant to some university studies, but not all who borrow it are studying at a university. Similarly, this open online course can be taken just for fun and self improvement, or it can be a part of a university degree.
+
+The Introduction to Programming course translates to a course worth 5 study credits at the University of Helsinki. However, course participants are not automatically University of Helsinki students, and it is possible to participate in the course in a way that will not result in study credits. If the participant so wishes, they may receive credits for this course. Participating in this course does not entitle the participant to a governmental study grant.
+
+### I'm currently receiving unemployment benefits in Finland. Can I still take this course? 
+
+Please take this up with your employment services office (TE-toimisto). Unfortunately, not all employment services offices treat this course in the same way. Some offices have withdrawn benefits for simply participating in the course, even if the participant is not aiming for a right to study or official study credits. On the other hand, some offices have recommended this course without withdrawing benefits.
+
+### Kela (Finland's Social Insurance Institution) requires a transcript of my studies
+
+Please guide them to this page:
+
+Ohjelmoinnin perusteet on kaikille avoin ja ilmainen verkkokurssi. Kurssin käymistä voi verrata kirjan lainaamiseen kirjastosta. Kirjastosta lainattava kirja saattaa liittyä johonkin yliopisto-opintoihin liittyvään kurssiin. Aivan samalla tavalla kuin kirjastosta lainattava kirja, verkkokurssimme on luettavissa huvin ja itsensä sivistämisen vuoksi tai yliopisto-opintojen edistämiseksi.
+
+Ohjelmoinnin perusteet vastaa Helsingin yliopiston 5 opintopisteen kurssia. Kurssin suorittajat eivät kuitenkaan automaattisesti ole Helsingin yliopiston opiskelijoita, emmekä pakota ketään suorittamaan kurssia opintopisteisiin johtavassa muodossa. Kurssin suorittamisesta voi kuitenkin halutessaan saada opintopisteitä. Kurssille osallistuminen ei oikeuta opintotukeen.
+
+English translation:
+
+Introduction to Programming is a massive open online course, free of charge and open to all. Taking the course is comparable to borrowing a book from the library. A book may be relevant to some university studies, but not all who borrow it are studying at a university. Similarly, this open online course can be taken just for fun and self improvement, or it can be a part of a university degree.
+
+The Introduction to Programming course translates to a course worth 5 study credits at the University of Helsinki. However, course participants are not automatically University of Helsinki students, and it is possible to participate in the course in a way that will not result in study credits. If the participant so wishes, they may receive credits for this course. Participating in this course does not entitle the participant to a governmental study grant.
