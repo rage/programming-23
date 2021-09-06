@@ -10,11 +10,11 @@ After this section
 
 - You will be able to use variables in various arithmetic operations
 - You will know how to deal with numbers in user input
-- You will know how to cast values into other fundamental data types 
+- You will know how to cast values into other fundamental data types
 
 </text-box>
 
-In the previous sections you've seen examples with basic arithmetics. In the following table you can see the most common arithmetic operators in Python, with examples: 
+In the previous sections you've seen examples with basic arithmetics. In the following table you can see the most common arithmetic operators in Python, with examples:
 
 | Operator      | Purpose       | Example      | Result |
 |:-------------:|---------------|--------------|-------|
@@ -26,7 +26,7 @@ In the previous sections you've seen examples with basic arithmetics. In the fol
 | `%`           | Modulo        | `9 % 2`      |`1`    |
 | `**`          | Exponentiation | `2 ** 3`    |`8`    |
 
-The order of operations is familiar from mathematics: first calculate the exponents, then multiplication and division, and finally addition and subtraction. The order can be changed with parentheses. 
+The order of operations is familiar from mathematics: first calculate the exponents, then multiplication and division, and finally addition and subtraction. The order can be changed with parentheses.
 
 For example this bit of code
 
@@ -119,7 +119,7 @@ year = int(input("Which year were you born? "))
 print(f"Your age at the end of the year 2021: {2021 - year}" )
 ```
 
-Similarly, a string can be converted into a floating point number with the function `float`. This programs asks the user for their height and weight, and uses these to calculate their BMI: 
+Similarly, a string can be converted into a floating point number with the function `float`. This programs asks the user for their height and weight, and uses these to calculate their BMI:
 
 ```python
 height = float(input("What is your height? "))
@@ -211,7 +211,7 @@ sum = sum + number
 print(f"The sum of the numbers: {sum}")
 ```
 
-Now all inputs from the user are read into the one and the same variable `number`. The value of the variable `sum` is _increased_ by the value of the variable `number` each time the user inputs a new number. 
+Now all inputs from the user are read into the one and the same variable `number`. The value of the variable `sum` is _increased_ by the value of the variable `number` each time the user inputs a new number.
 
 Let's take a closer look at this command:
 
@@ -244,7 +244,7 @@ sum += number
 print(f"The sum of the numbers: {sum}")
 ```
 
-In fact, we don't necessarily need the variable `number` at all. The inputs from the user can also be processed like this: 
+In fact, we don't necessarily need the variable `number` at all. The inputs from the user can also be processed like this:
 
 ```python
 sum = 0
@@ -427,6 +427,10 @@ Hint: the integer division operator `//` could come in handy here.
 
 </in-browser-programming-exercise>
 
+<!--
+
 A quiz to review the contents of this section:
 
 <quiz id="d781d54e-9792-5a79-a018-168940390580"></quiz>
+
+-->

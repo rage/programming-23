@@ -48,7 +48,7 @@ Next customer, please!
 
 </sample-output>
 
-These examples show us that the value given as input affects which parts of the program are executed. The program contains a _conditional statement_ and a block of code which is executed only if the statement is true. 
+These examples show us that the value given as input affects which parts of the program are executed. The program contains a _conditional statement_ and a block of code which is executed only if the statement is true.
 
 <img src="1_6.png">
 
@@ -397,8 +397,8 @@ Daily wages: 250.0 euros
 
 This program calculates the end of year bonus a customer receives on their loyalty card. The bonus is calculated with the following formula:
 
-* If there are less than a hundred points on the card, the bonus is 10 % 
-* In any other case the bonus is 15 % 
+* If there are less than a hundred points on the card, the bonus is 10 %
+* In any other case the bonus is 15 %
 
 The program should work like this:
 
@@ -496,7 +496,7 @@ This should print out
 3.0
 
 </sample-output>
-    
+
 We will return to the concept of a _module_ and the `import` statement later. For now, it is sufficient to understand that the line `from math import sqrt` allows us to use the `sqrt` function in our program.
 
 Please write a program for solving a quadratic equation of the form ax²+bx+c. The program asks for values a, b and c. It should then use the quadratic formula to solve the equation. The quadratic formula expressed with the Python `sqrt` function is as follows:
@@ -519,10 +519,14 @@ The roots are 2.0 and -4.0
 
 </in-browser-programming-exercise>
 
+<!--
+
 A quiz to review the contents of this section:
 
 <quiz id="bc7e500f-a91e-5709-8ae6-34637ff01737"></quiz>
 
+-->
+
 Please respond to a quick questionnaire on this week's materials. The questionnaire is worth one exercise point.
 
-<quiz id="1d2102eb-0c2f-5185-a240-9814db357c8a"></quiz>
+<quiz id="969d7d5f-2fc3-5f57-9d99-7cba0fa5ef21"></quiz>

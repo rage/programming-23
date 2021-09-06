@@ -9,7 +9,7 @@ hidden: false
 After this section
 
 - You will know how to write a program which uses input from the user
-- You will know how to use variables to store input and print it out 
+- You will know how to use variables to store input and print it out
 - You will be able to combine strings
 
 </text-box>
@@ -17,7 +17,7 @@ After this section
 _Input_ refers to any information a user gives to the program. Specifically, the Python command `input` reads in a line of input written by the user. It may also be used to display a message to the user, to prompt for specific input.
 
 The following program reads in the name of the user with the `input` command. It then prints it out with the `print` command:
- 
+
 ```python
 name = input("What is your name? ")
 print("Hi there, " + name)
@@ -244,6 +244,10 @@ The story should change according to the input given by the user.
 
 </in-browser-programming-exercise>
 
+<!--
+
 A quiz to review the contents of this section:
 
 <quiz id="10cb3510-d8a6-5e9b-b372-c85c4c7eb957"></quiz>
+
+-->
