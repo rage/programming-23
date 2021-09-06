@@ -12,20 +12,27 @@ sidebar_priority: 3000
 
 We would be very grateful if you'd let us know through the course support channels or via email to course maintainers at ohjelmoinnin-mooc@helsinki.fi. Thank you!
 
-## Participating in the course through Open University in Finland
-<notice>The questions below are relevant mainly to participants taking the course in Finland through Open University.</notice>
+<span class="h2">Participating from educational institutions in Finland</span>
+ 
+<notice>The questions below are relevant mainly to participants who are enrolled in a Finnish university or other educational institution.</notice>
 
 ### I don't know how to enrol, can I still start the course?
 
-Yes you can! You do not need to enrol to start, or in fact even to complete the course. After the course is finished, you will be emailed instructions for receiving credits for the course through the University of Helsinki Open University.
+Yes you can! You do not need to enrol to start, or, in fact, even to complete the course. After the course is finished, you will be emailed instructions for receiving credits for the course.
 
 ### Can I receive official study credits for this course?
 
-At the end of the course you will need to take part in the course exam. If you receive a passing grade, you will be able to get study credits through the University of Helsinki Open University. See the [Grading and exams](/grading-and-exams) page for more details.
+At the end of the course you will need to take part in the course exam. If you receive a passing grade, you will be able to get study credits. See the [Grading and exams](/grading-and-exams) page for more details about grading.
+
+At the moment study credits are available only to students who are either a) enrolled at the University of Helsinki, b) have a Finnish social security number c) have a Finnish bank account with active online banking codes. Any one of the three should suffice. 
+
+We are working on making credits available to a wider audience, but in the meantime, you will receive a certificate for succesfully completing the course.
 
 ### Can my study credits be transferred to my home institution?
 
-If you obtain a passing grade for the course, you will receive study credits through the University of Helsinki Open University. A transcript of your studies will likely suffice for credit transfer at your home institution, but please check this from the study counsellors at your home institution.
+If you obtain a passing grade for the course, you will receive study credits through the University of Helsinki. A transcript of your studies will likely suffice for credit transfer at your home institution, but please check this with the study counsellors at your home institution.
+
+If you are unable to receive study credits for the course (see the question above), you will still receive a certificate for completing the course. Please check with the study counsellors at your home institution if they have a process for awarding credits based on the certificate.
 
 ### Do I need to have a University of Helsinki user account?
 
@@ -35,7 +42,7 @@ No, you do not need a University of Helsinki user account to study on this cours
 
 There is no need to enrol on this course, so you do not have to unenrol either. All you have to do is stop participating in the course.
 
-## Questions to do with the Finnish social welfare authorities
+<span class="h2">Questions to do with the Finnish social welfare authorities</span>
 
 <notice>The questions below are relevant only to course participants dealing with the Finnish social welfare authorities.</notice>
 

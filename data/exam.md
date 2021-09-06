@@ -32,21 +32,21 @@ sidebar_priority: 5000
 7. Try submitting the programming tasks.
 8. If you are able to submit the tasks, you are ready to take the exam. If not, get in touch with course instructors. Don't panic, we will work it out.
 
-#### Programming task instructions and starting the exam
+#### Exam questions and starting the exam
 
 * The exam questions, in the form of programming task instructions, will become available at <a href="https://exams.mooc.fi/en">https://exams.mooc.fi/en</a> at 10:00 AM on the day of the exam.
 * You should use your usual mooc.fi login details to log in at the exam page.
-* Choose the course `[TBA]`.
-* If you have been granted extra time through special arrangements, choose the course `[TBA]`.
-* Your allocated exam time will begin when you click on the link `Begin exam`.
+* Choose course `[TBA]`.
+* If you have been granted extra time through special arrangements, choose course `[TBA]`.
+* Your allocated exam time will begin when you click on the link `Start exam`.
 
 <notice>
 Please do not ask any questions about specific programming tasks assigned to you on the public course support channels while the exam session is still ongoing. That is, you may only ask task-specific questions about the exam after 10 PM on the day of the exam. Complete the programming tasks to the best of your understanding, and please do indicate in your course feedback if the instructions were confusing.
 </notice>
 
-#### Submitting the programming tasks
+#### Submitting your solutions
 
-* The programming tasks in the exam are submitted in the same manner as the programming exercises on the course.
+* Your solutions to the programming tasks in the exam are submitted in the same manner as your solutions to the programming exercises on the course.
 * The programming tasks in the exam **will not have automated tests**.
 * Any attempt to submit tasks outside the exam time allocated to you will lead to an automatic fail.
 
@@ -58,15 +58,11 @@ Please do not ask any questions about specific programming tasks assigned to you
 #### Exam results
 
 * The results of the exam will be emailed to you when the course has been fully graded.
-
-#### Exam results (Open University)
-
-* The email with your exam results will also contain instructions for registering your course credits.
-* If you want to receive credits for the course, you must enrol on the course through Open University.
+* The email will also contain instructions for registering your course credits.
 
 #### Other information
 
-* You are **not** allowed to collaborate with other students or copy ready solutions from anywhere during the exam. **This is an open book exam, so the usual resources, such as course materials, Python Tutor visualisation tool and Google, are allowed.**
+* You are **not** allowed to collaborate with other students or copy ready solutions from anywhere during the exam. However, **this is an open book exam, so the usual resources, such as course materials, Python Tutor visualisation tool and Google, are allowed.**
 * Your programming task submissions will be checked with a plagiarism detector. Any cheating detected leads to a failed exam at minimum, but may also lead to expulsion from the course. 
 * The programming tasks in the exam will be similar to the programming tasks in the course material. The best way to prepare for the exam is to revisit the course material.
 * Your course results will be emailed to you after the exam, along with instructions for registering your course credits.

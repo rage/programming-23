@@ -72,10 +72,12 @@ The course is graded on the following scale:
     </tbody>
 </table>
 
-The final grade is calculated based on the number of exercise points received during the course (50% of final grade) and points received in the exam (50% of final grade). 
+The final grade is calculated based on the number of exercise points received during the course (50 % of final grade) and points received in the exam (50 % of final grade). Your exercise points percentage equals `([all received exercise points] / [number of exercise points available on course]) * 100`. We are working on including this percentage in the visualisation in the bottom right corner of each page.
 
-To pass the course you must have received at least 25% of the exercise points for each part on the course.
+For example, if your total points percentage for the exercises for the whole course is 42 %, and you receive 79 % of the points in the exam, your final points percentage will be (42 % + 79 %) / 2 = 60.5 %, which equals grade 2 (Satisfactory).
+
+To pass the course you must have received at least 25% of the exercise points for each part on the course, regardless of the above calculation.
 
 #### Exam points cutoff
 
-To pass the course you must receive at least 50% of the maximum points in the exam.
+To pass the course you must receive at least 50% of the total points available in the exam.
