@@ -25,6 +25,14 @@ Please see the [Support and assistance](/support-and-assistance) page for more d
 
 The course will be open until the end of the year 2021. The materials will be made available on a weekly basis. Part 1 will be available from September 7th onwards.
 
+## Lectures
+
+Opening lecture (and all other lectures) will take place in Zoom at Tuesday, September 7th at 12.15 Finnish time.
+
+[Zoom link to openingn lecture](https://helsinki.zoom.us/j/61102130977)
+
+Recordings of all lectures will be provided in this page afterwards.
+
 <!---
 ## Luentotallenteet
 
