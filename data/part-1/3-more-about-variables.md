@@ -16,11 +16,11 @@ After this section
 
 Please fill in this questionnaire before getting started with this section. You will get one exercise point for answering.
 
-<quiz id="e230c6dd-820f-5517-b51d-c3ca58c126ac"></quiz>
+<quiz id="e072b13f-3c8d-5b02-a9a1-ab84eebad620"></quiz>
 
 
 
-Variables are needed for various purposes in programming. You can use variables to store any information that will be needed later in the program's execution. 
+Variables are needed for various purposes in programming. You can use variables to store any information that will be needed later in the program's execution.
 
 In Python programming variables are created like so:
 
@@ -42,7 +42,7 @@ Hi, Ghosty
 
 </sample-output>
 
-The value stored in a variable can also be defined using other variables: 
+The value stored in a variable can also be defined using other variables:
 
 ```python
 given_name = "Paul"
@@ -110,8 +110,8 @@ test!!!
 
 <text-box variant="hint" name="Choosing a good name for a variable">
 
-* It is often useful to name variables according to what they are used for. For example, if the variable contains a word, the name `word` is a better choice than, say, `a`. 
-  
+* It is often useful to name variables according to what they are used for. For example, if the variable contains a word, the name `word` is a better choice than, say, `a`.
+
 * There is no set limit to the length of a variable name in Python, but there are some other limitations. A variable name should begin with a letter, and it can only contains letters, numbers and underscores &#95;.
 
 * Lowercase and uppercase letters are different characters. The variables `name`, `Name` and `NAME` are all different variables. While this rule has a few exceptions, we will ignore those for now.
@@ -122,7 +122,7 @@ test!!!
 
 ## Integers
 
-Thus far, we have only stored strings in variables, but there are also many other types of information we will want to store in variables. Let's have a look at integers first. Integers are numbers that do not have a decimal or fractional part, such as `-15`, `0` and `1`. 
+Thus far, we have only stored strings in variables, but there are also many other types of information we will want to store in variables. Let's have a look at integers first. Integers are numbers that do not have a decimal or fractional part, such as `-15`, `0` and `1`.
 
 The following program creates the variable `age`, which contains an integer value.
 
@@ -141,7 +141,7 @@ The program prints out just this:
 
 Notice the lack of quotation marks here. In fact, if we were to add quotation marks around the number, this would mean our variable would no longer be an integer, but a string instead - a string can contain numbers, but it is processed differently.
 
-So, why does it matter that variables have a type, when the following program still prints out the same thing twice? 
+So, why does it matter that variables have a type, when the following program still prints out the same thing twice?
 
 ```python
 number1 = 100
@@ -291,7 +291,7 @@ Hi Mark , you are 37 years old. You live in Palo Alto .
 
 </sample-output>
 
-Notice the automatically inserted whitespace between each comma-separated part of the printout. Preventing `print` from adding the extra spaces is technically possible, but not worth the trouble given that we can instead use f-strings. 
+Notice the automatically inserted whitespace between each comma-separated part of the printout. Preventing `print` from adding the extra spaces is technically possible, but not worth the trouble given that we can instead use f-strings.
 
 In its simplicity the comma notation of the `print` command can often be useful, but it does sometimes cause more trouble than it's worth. F-strings are usually a more reliable option. In part 4 you will learn more about the handy features of f-strings when it comes to formatting printouts.
 
@@ -340,7 +340,7 @@ The code works almost correctly, but not quite. This exercise has very strict te
 
 Please fix the code so that the printout looks right. Notice especially how the comma notation in the `print` command automatically inserts a space around the different comma-separated parts.
 
-The easiest way to transform the code so that it meets requirements is to use f-strings. 
+The easiest way to transform the code so that it meets requirements is to use f-strings.
 
 Hint: you can print an empty line by adding an empty `print` command, or by adding the newline character `\n` into your string.
 
@@ -350,7 +350,7 @@ Do remember to be extra careful when formatting printouts also in the future on 
 
 ## Floating point numbers
 
-`Floating point number` or _float_ is a term you will come across often in programming. It refers to numbers with a decimal point. They can be used much in the same way as integer values. 
+`Floating point number` or _float_ is a term you will come across often in programming. It refers to numbers with a decimal point. They can be used much in the same way as integer values.
 
 This program calculates the mean of three floating point numbers:
 
@@ -389,7 +389,7 @@ Please complete the program so that it also prints out the following:
 
 </sample-output>
 
-The program should work correctly even if the values of the variables are changed. That is, if the first two lines are 
+The program should work correctly even if the values of the variables are changed. That is, if the first two lines are
 
 ```python
 x = 4
@@ -426,7 +426,7 @@ Hi there!
 
 </sample-output>
 
-Please fix this program so that the entire calculation, with result, is printed out on a single line. Do not change the number of `print` commands used. 
+Please fix this program so that the entire calculation, with result, is printed out on a single line. Do not change the number of `print` commands used.
 
 ```python
 
@@ -441,6 +441,10 @@ print(5 + 8 - 4)
 
 </in-browser-programming-exercise>
 
+<!--
+
 A quiz to review the contents of this section:
 
 <quiz id="49bf296e-41d1-5982-89a9-c784b630eaee"></quiz>
+
+-->

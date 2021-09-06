@@ -9,7 +9,7 @@ hidden: false
 After this section
 
 - You will have written and executed your first Python program
-- You will know how to use the print command 
+- You will know how to use the print command
 - You will be able to use programming for arithmetic operations
 
 </text-box>
@@ -65,7 +65,7 @@ Multiple commands written in succession will be executed in order from first to 
 For example this program
 
 ```python
-print("Welcome to Introduction to Programming!") 
+print("Welcome to Introduction to Programming!")
 print("First we will practice using the print command.")
 print("This program prints three lines of text on the screen.")
 ```
@@ -81,7 +81,7 @@ This program prints three lines of text on the screen.
 
 <in-browser-programming-exercise name="Fix the code: Seven Brothers" tmcname="part01-02_seven_brothers">
 
-"Seitsemän veljestä" is one of the first novels ever written in Finnish. It is the story of seven orphaned brothers learning to make their way in the world ([read more on Wikipedia](https://en.wikipedia.org/wiki/Seitsem%C3%A4n_veljest%C3%A4)). 
+"Seitsemän veljestä" is one of the first novels ever written in Finnish. It is the story of seven orphaned brothers learning to make their way in the world ([read more on Wikipedia](https://en.wikipedia.org/wiki/Seitsem%C3%A4n_veljest%C3%A4)).
 
 This program is supposed to print out the names of the brothers in alphabetical order, but it's not working quite right yet. Please fix the program so that the names are printed in the correct order.
 
@@ -101,7 +101,7 @@ print("Timo")
 
 <in-browser-programming-exercise name="Row, Row, Row Your Boat" tmcname="part01-03_row_your_boat">
 
-Please write a program which prints out the following lines exactly as they are written here, punctuation and all: 
+Please write a program which prints out the following lines exactly as they are written here, punctuation and all:
 
 <sample-output>
 
@@ -134,7 +134,7 @@ prints out these lines:
 
 </sample-output>
 
-Notice the lack of quotation marks around the arithmetic operations above. Quotation marks are used to signify _strings_. In the context of programming, strings are sequences of characters. They can consist of letters, numbers and any other types of characters, such as punctuation. Strings aren't just words as we commonly understand them, but instead a single string can be as long as multiple complete sentences. 
+Notice the lack of quotation marks around the arithmetic operations above. Quotation marks are used to signify _strings_. In the context of programming, strings are sequences of characters. They can consist of letters, numbers and any other types of characters, such as punctuation. Strings aren't just words as we commonly understand them, but instead a single string can be as long as multiple complete sentences.
 Strings are usually printed out exactly as they are written. Thus, the following two commands produce two quite different results:
 
 ```python
@@ -151,14 +151,14 @@ This program prints out:
 
 </sample-output>
 
-With the second line of code, Python does not calculate the result of the operation, but instead prints out the operation itself, as a string. 
+With the second line of code, Python does not calculate the result of the operation, but instead prints out the operation itself, as a string.
 So, strings are printed out just as they are written, without any reference to their contents.
 
 ## Commenting
 
 Any line beginning with the pound sign, also known as a hash or a number sign, `#` is a comment. This means that any text on that line following the `#` symbol will not in any way affect how the program functions - Python will simply ignore it.
 
-Comments are used for explaining how a program works, to both the programmer themselves, and others reading the program code. In this program a comment explains the calculation performed in the code: 
+Comments are used for explaining how a program works, to both the programmer themselves, and others reading the program code. In this program a comment explains the calculation performed in the code:
 
 ```python
 print("Hours in a year:")
@@ -175,7 +175,7 @@ Hours in a year:
 
 </sample-output>
 
-Short comments can also be added to the end of a line: 
+Short comments can also be added to the end of a line:
 
 ```python
 print("Hours in a year:")
@@ -184,7 +184,7 @@ print(365*24) # 365 days, 24 hours in each day
 
 <in-browser-programming-exercise name="Minutes in a year" tmcname="part01-04_minutes_in_a_year">
 
-Please write a program which prints out the number of minutes in a year. Use Python code to perform the calculation, as in the previous code example. 
+Please write a program which prints out the number of minutes in a year. Use Python code to perform the calculation, as in the previous code example.
 
 </in-browser-programming-exercise>
 
@@ -219,8 +219,10 @@ print("Hello there!")
 </in-browser-programming-exercise>
 
 
-
+<!--
 
 A quiz to review the contents of this section:
 
 <quiz id="f1d6d205-dfd6-5c6f-b148-b332dfd64289"></quiz>
+
+-->
