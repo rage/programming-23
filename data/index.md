@@ -27,7 +27,7 @@ The course will be open until the end of the year 2021. The materials will be ma
 
 ## Lectures
 
-The opening lecture (and all other lectures) will take place in Zoom on Tuesday, September 7th at 12.15 PM Finnish time (EEST, UTC+3).
+The opening lecture (and all other lectures) will take place in Zoom on Tuesday, September 7th at 12.15 PM Finnish time (EEST, UTC+03:00).
 
 [Zoom link to opening lecture](https://helsinki.zoom.us/j/61102130977)
 
