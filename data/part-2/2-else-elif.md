@@ -121,8 +121,7 @@ You are of age!
 
 Often there are more than two options the program should account for. For example, the result of a football match could go three ways: home wins, away wins, or there is a tie.
 
-A conditional statement can be added to with an `elif` branch. It is short for the words "else if", which means the branch will contain an alternative to the original condition.
-Ehtolausetta voidaan laajentaa `elif`-haaralla. Se on lyhenne sanoista "else if", ja tarkoittaa nimensä mukaisesti vaihtoehtoa alkuperäiselle ehdolle.
+A conditional statement can be added to with an `elif` branch. It is short for the words "else if", which means the branch will contain an alternative to the original condition. Importantly, an `elif` statement is executed only if none of the preceding branches is executed.  
 
 <img src="2_2_2.png">
 
