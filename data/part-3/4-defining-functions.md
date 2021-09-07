@@ -129,7 +129,7 @@ Tuomas
 
 ## Function arguments
 
-Functions often take one or more _arguments_, which may affect what the function does. For example, the built-in Python functions `print` and `input` take the text that is displayed as an argument:
+Functions often take one or more _arguments_, which may affect what the function does. For example, the built-in Python functions `print` and `input` take as argument(s) the text that is displayed as an argument:
 
 ```python
 print("Hi!")                           # argument is the string "Hi!"
@@ -137,7 +137,7 @@ name = input("What is your name? ")    # argument is the string "What is your na
 print(name)                            # argument is the value of the variable name
 ```
 
-It was mentioned before that the terms _argument_ and _parameter_ are used to refer to the same thing. The distinction is that while _argument_ is used with the data passed to the function when the function is called, _inside_ the function the arguments are assigned to variables called _parameters_. So, approximately, when the function is called, we call the passed bits of data arguments, but when we are defining a function, we call them parameters. 
+It was mentioned before that the terms _argument_ and _parameter_ are used to refer to the same thing. The distinction is that while _argument_ is used with the data passed to the function when the function is called, _inside_ the function the arguments are assigned to variables called _parameters_. So, approximately, when the function is called, we call the passed bits of data arguments, but when we are defining the function, we call them parameters. 
 
 This may seem like a futile semantic distintion, and to make things even muddier, not all sources follow this definition. On this course we attempt to keep the distinction clear, however, as knowing the correct terminology will help you understand other sources besides this course material.
 
@@ -173,7 +173,7 @@ def hello(target):
 
 On the first line, in the function header, we defined that this function takes an argument, and assigns it to a parameter named `target`. In the body of the function the `print` command uses the value stored in `target`.
 
-When the function is called, the parameter is set to the value of the argument used in the function call. For example, the following function call
+When the function is called, the parameter has the value given as an argument in the function call. For example, the following function call
 
 ```python
 name = "Alan"
