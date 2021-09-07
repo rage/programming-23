@@ -63,7 +63,7 @@ Especially in programming, logical operators are often called _Boolean operators
 
 The condition `x >= a and x <= b` is a very common way of checking whether the number `x` falls within the range of `a` to `b`. An expression with this structure works the same way in most programming languages.
 
-Python also allows a simplified notation for combining conditions: `a <= x <= b` achieves the same result as the longer version using `and`. This shorter notation might be more familiar from mathematics, but it is not very widely used in Python programming, possibly because of the influence of other programming languages.
+Python also allows a simplified notation for combining conditions: `a <= x <= b` achieves the same result as the longer version using `and`. This shorter notation might be more familiar from mathematics, but it is not very widely used in Python programming, possibly because very few other programming languages have a similar shorthand.
 
 </text-box>
 
@@ -346,7 +346,7 @@ The letter in the middle is B
 
 <in-browser-programming-exercise name="Gift tax calculator" tmcname="part02-14_gift_tax_calculator"  height="500px">
 
-Some say paying taxes makes Finns happy, so let's see if the secret of happiness lies in one of the taxes set out in Finnish tax law. 
+Some say paying taxes makes Finns happy, so let's see if the secret of happiness lies in one of the taxes set out in Finnish tax code. 
 
 [According to the Finnish Tax Administration](https://www.vero.fi/en/individuals/property/gifts/), a gift is a transfer of property to another person against no compensation or payment. If the total value of the gifts you receive from the same donor in the course of 3 years is €5,000 or more, you must pay gift tax.
 
