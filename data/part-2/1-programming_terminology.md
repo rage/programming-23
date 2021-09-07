@@ -18,7 +18,7 @@ In the first part of this course we didn't pay much attention to terminology, so
 
 ## Statement
 
-A _statement_ is a part of the program which executes something. It usually refers to a single command.
+A _statement_ is a part of the program which executes something. It often, but not always, refers to a single command.
 
 For example, `print("Hi!")` is a statement which prints out a line of text. Likewise, `number = 2` is a statement which assigns a value to a variable. 
 
@@ -30,11 +30,11 @@ if name == "Anna":
     number = 2
 ```
 
-In the above case there are two statements within a conditional statement.
+In the above case there are two statements (a print statement and an assignment statement) within a conditional statement.
 
 ## Block
 
-A _Block_ is a group of consecutive statements that are at the same level in the structure of the program. For example, the block of a conditional statement contains those statements which are executed only if the condition is true.
+A _block_ is a group of consecutive statements that are at the same level in the structure of the program. For example, the block of a conditional statement contains those statements which are executed only if the condition is true.
 
 ```python
 if age > 17:
@@ -86,7 +86,7 @@ y = 3 * x + x**2
 
 ## Function
 
-A _function_ executes some functionality. Functions can also take one or more _arguments_, which are data that can be fed to and processed by the function. Arguments are sometimes also referred to as _parameters_, and the difference between the two terms is not always clear. For now it should suffice to remember that both terms refer to data passed to the function.
+A _function_ executes some functionality. Functions can also take one or more _arguments_, which are data that can be fed to and processed by the function. Arguments are sometimes also referred to as _parameters_. There is a technical distinction between an argument and a parameter, but the words are often used interchangably. For now it should suffice to remember that both terms refer to the idea of some data passed to the function.
 
 A function is executed when it is _called_. That is, when the function (and its arguments, if any) is mentioned in the code. The following code calls the `print` function with the argument `"this is an argument"`: 
 
@@ -127,7 +127,7 @@ print(type(100))
 
 ## Syntax
 
-Similarly to natural languages, the _syntax_ of a programming language determines how the code of a program should be written. Each programming language has their own specific syntax.
+Similarly to natural languages, the _syntax_ of a programming language determines how the code of a program should be written. Each programming language has its own specific syntax.
 
 The syntax of Python specifies, among other things, that the first line of an `if` statement should end in a colon character, and the block of the statement should be indented:
 
@@ -376,7 +376,7 @@ Have a nice day!
 
 The function `len` can be used to find out the length of a string, among other things. The function returns the number of characters in a string.
 
-Some examples of how this works::
+Some examples of how this works:
 
 ```python
 word = "abcd"
