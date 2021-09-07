@@ -100,7 +100,7 @@ The sum is 106
 
 </sample-output>
 
-In the first example the execution of the loop stops beacuse the user types in the number -1. In the second example it stops because the sum of the numbers exceeded 100.
+In the first example the execution of the loop stops because the user types in the number -1. In the second example it stops because the sum of the numbers exceeded 100.
 
 As always in programming, there are many ways to reach the same functionality. The following program is functionally identical to the above:
 
