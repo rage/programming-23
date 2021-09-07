@@ -14,7 +14,7 @@ After this section
 
 </text-box>
 
-We have now covered conditional structures in some detail. Another central technique in programming is repetition, or _iteration_. Together these form the fundamental control structures any programmer must master. They are called control structures because essentially they allow you to control which lines of code get executed when. While conditional structures allow you to _choose between_ sections of code, iteration structures allow you to _repeat_ sections of code. They are often called _loops_ because they loop through code for some number of repetitions. The process of executing one repetition of a loop is also referred to as an iteration of the loop.
+We have now covered conditional structures in some detail. Another central technique in programming is repetition, or _iteration_. Together these form the fundamental control structures any programmer must master. They are called control structures because essentially they allow you to control which lines of code get executed when. While conditional structures allow you to _choose between_ sections of code, iteration structures allow you to _repeat_ sections of code. They are often called _loops_ because they allow the program to "loop back" to some line that was already executed once. The process of executing one repetition of a loop is also referred to as an iteration of the loop.
 
 This section introduces a simple `while` loop. Its structure is similar to the conditional statements we already covered. In the next part we will delve into some more sophisticated examples.
 
@@ -49,7 +49,7 @@ Thanks and bye!
 
 As you can see above, the program asks for several numbers, thanks to the `while` statement in the program. When the user types in -1, the `break` command is executed, which exits the loop and execution continues from the first line after the `while` block.
 
-With loops it is crucial that there is always a way to exit the loop at some point in the code, otherwise the repetition could go on forever. To illustrate this, let's change the above example a little:
+With loops, it is crucial that there is always a way to exit the loop at some point in the code, otherwise the repetition could go on forever. To illustrate this, let's change the above example a little:
 
 ```python
 number = int(input("Please type in a number, -1 to quit: "))
@@ -202,7 +202,7 @@ However, the program doesn't quite work. Please fix it.
 
 <in-browser-programming-exercise name="Repeat password" tmcname="part02-18_repeat_password">
 
-Please write a program which asks the user for a password. The program should then ask the user to type in the password again. If the user types in something else, the program should keep on asking until the user types the first password again correctly.
+Please write a program which asks the user for a password. The program should then ask the user to type in the password again. If the user types in something else than the first password, the program should keep on asking until the user types the first password again correctly.
 
 Have a look at the expected behaviour below:
 
@@ -431,7 +431,7 @@ The next leap year after 2024 is 2028
 
 </in-browser-programming-exercise>
 
-## Concatenating string withe the + operator
+## Concatenating strings with the + operator
 
 The above example with PIN checking used a helper variable `attempts` to keep track of how many times the user had typed in a code:
 
@@ -580,7 +580,7 @@ The mean of the numbers is 8.5
 
 #### Part 4: Positives and negatives
 
-The program should also print out the how many of the numbers were positive and how many were negative.
+The program should also print out the how many of the numbers were positive and how many were negative. The zero at the end should not be included in the calculation.
 
 <sample-output>
 
