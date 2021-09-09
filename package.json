@@ -18,7 +18,7 @@
     "@monaco-editor/react": "^4.1.3",
     "@rstacruz/gatsby-remark-component": "^2.0.0",
     "apollo-boost": "^0.4.9",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "babel-plugin-styled-components": "^1.12.0",
     "clsx": "^1.1.1",
     "code-states-visualizer": "^0.2.0",
