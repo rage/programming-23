@@ -59,7 +59,7 @@ Paul Python
 
 </sample-output>
 
-Here the values stored in the three variables are not obtained from user input. They remain the same every time the program is executed.
+Here the values stored in the three variables are not obtained from user input. They remain the same every time the program is executed. This is called _hard-coding_ data into the program.
 
 ## Changing the value of a variable
 
@@ -112,17 +112,17 @@ test!!!
 
 * It is often useful to name variables according to what they are used for. For example, if the variable contains a word, the name `word` is a better choice than, say, `a`.
 
-* There is no set limit to the length of a variable name in Python, but there are some other limitations. A variable name should begin with a letter, and it can only contains letters, numbers and underscores &#95;.
+* There is no set limit to the length of a variable name in Python, but there are some other limitations. A variable name should begin with a letter, and it can only contain letters, numbers and underscores &#95;.
 
 * Lowercase and uppercase letters are different characters. The variables `name`, `Name` and `NAME` are all different variables. While this rule has a few exceptions, we will ignore those for now.
 
-* It is a common programming practice in Python to use only lowercase characters in variable names. If the variable name consists of multiple words, use an underscore between the words. While this rule has a few exceptions, we will ignore those for now.
+* It is a common programming practice in Python to use only lowercase characters in variable names. If the variable name consists of multiple words, use an underscore between the words. While this rule also has a few exceptions, we will ignore those for now.
 
 </text-box>
 
 ## Integers
 
-Thus far, we have only stored strings in variables, but there are also many other types of information we will want to store in variables. Let's have a look at integers first. Integers are numbers that do not have a decimal or fractional part, such as `-15`, `0` and `1`.
+Thus far, we have only stored strings in variables, but there are also many other types of information we will want to store and access later. Let's have a look at integers first. Integers are numbers that do not have a decimal or fractional part, such as `-15`, `0` and `1`.
 
 The following program creates the variable `age`, which contains an integer value.
 
@@ -139,7 +139,7 @@ The program prints out just this:
 
 </sample-output>
 
-Notice the lack of quotation marks here. In fact, if we were to add quotation marks around the number, this would mean our variable would no longer be an integer, but a string instead - a string can contain numbers, but it is processed differently.
+Notice the lack of quotation marks here. In fact, if we were to add quotation marks around the number, this would mean our variable would no longer be an integer, but a string instead. A string can contain numbers, but it is processed differently.
 
 So, why does it matter that variables have a type, when the following program still prints out the same thing twice?
 
@@ -177,7 +177,7 @@ This prints out the following:
 
 </sample-output>
 
-For integer values the `+` operator means addition, but for string values it means concatenation.
+For integer values the `+` operator means addition, but for string values it means concatenation, or "stringing together".
 
 Not all operators are available for all types of variables. While numbers can be divided using the division operator `/`, attempting to divide a string by a number causes an error:
 
@@ -208,9 +208,9 @@ TypeError: unsupported operand type(s) for +: 'str' and 'int'
 
 </sample-output>
 
-Here, Python tells us that combining two different types of values will not work. In this case, `"The result is "` is of type string, while the value stored in `result` is of type integer.
+Here, Python tells us that combining two different types of values will not work just like that. In this case, `"The result is "` is of type string, while the value stored in `result` is of type integer.
 
-If we do want to print out a string and an integer in a single command, the integer can be cast as a string with the `str` function, and the two strings can then be combined normally. For example this would work:
+If we do want to print out a string and an integer in a single command, the integer can be cast as a string with the `str` function, and the two strings can then be combined normally. For example, this would work:
 
 ```python
 result = 10 * 25
@@ -223,7 +223,7 @@ The result is 250
 
 </sample-output>
 
-The `print` command also has built-in functionalities that support combining different types of values. The simplest way is to add a comma between the values. All the values will be printed out reagardless of their type:
+The `print` command also has built-in functionalities that support combining different types of values. The simplest way is to add a comma between the values. All the values will be printed out regardless of their type:
 
 ```python
 result = 10 * 25
@@ -249,7 +249,7 @@ result = 10 * 25
 print(f"The result is {result}")
 ```
 
-Let's break this apart. In the very beginning of the string we are printing out there is the character _f_. This tells Python that what follows is an f-string. Within the string, enclosed in curly brackets, is the variable `result`. The value it contains becomes a part of the printed string. The printout is exactly the same as in the previous examples:
+Let's break this apart. In the very beginning of the string we are printing out there is the character _f_. This tells Python that what follows is an f-string. Within the string, enclosed in curly brackets, is the variable name `result`. The value it contains becomes a part of the printed string. The printout is exactly the same as in the previous examples:
 
 <sample-output>
 
@@ -294,6 +294,12 @@ Hi Mark , you are 37 years old. You live in Palo Alto .
 Notice the automatically inserted whitespace between each comma-separated part of the printout. Preventing `print` from adding the extra spaces is technically possible, but not worth the trouble given that we can instead use f-strings.
 
 In its simplicity the comma notation of the `print` command can often be useful, but it does sometimes cause more trouble than it's worth. F-strings are usually a more reliable option. In part 4 you will learn more about the handy features of f-strings when it comes to formatting printouts.
+
+<text-box variant="hint" name="F-strings and Python versions">
+
+If you are using an older version of Python, f-strings may not work. They were introduced in Python version 3.6. Later on during the course you will install Python on your own computer. Unfortunately, the more modern versions of Python are not always available for older operating systems. If that is the case with your computer, when there are exercises requiring the use of f-strings, you can always try them out in the in-browser exercise templates in these early parts of this course.
+
+</text-box>
 
 <in-browser-programming-exercise name="Extra space" tmcname="part01-10b_extra_space" height=400px>
 
@@ -344,7 +350,7 @@ The easiest way to transform the code so that it meets requirements is to use f-
 
 Hint: you can print an empty line by adding an empty `print` command, or by adding the newline character `\n` into your string.
 
-Do remember to be extra careful when formatting printouts also in the future on this course. Some of the exercises have tests that require your output to be exactly as specified in the examples given.
+Do remember to be extra careful when formatting printouts also in the future on this course. Some of the exercises have tests that require your output to be exactly as specified in the examples given. For example, please use actual whitespace characters in your code, instead of ASCII character codes for whitespace, or some such.
 
 </in-browser-programming-exercise>
 
@@ -389,14 +395,14 @@ Please complete the program so that it also prints out the following:
 
 </sample-output>
 
-The program should work correctly even if the values of the variables are changed. That is, if the first two lines are
+The program should work correctly even if the values of the variables are changed. That is, if the first two lines are replaced with this
 
 ```python
 x = 4
 y = 9
 ```
 
-instead, the program should print out this:
+the program should print out the following:
 
 <sample-output>
 
@@ -426,7 +432,7 @@ Hi there!
 
 </sample-output>
 
-Please fix this program so that the entire calculation, with result, is printed out on a single line. Do not change the number of `print` commands used.
+Please fix this program so that the entire calculation, complete with result, is printed out on a single line. Do not change the number of `print` commands used.
 
 ```python
 
