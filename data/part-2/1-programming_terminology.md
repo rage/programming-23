@@ -59,7 +59,7 @@ NB: the main block of a Python program must always be at the leftmost edge of th
 
 ## Expression
 
-An _expression_ is a bit code that results in a determined data type. When the program is executed, the expression is evaluated so that it has a value that can then be used in the program.
+An _expression_ is a bit of code that results in a determined data type. When the program is executed, the expression is evaluated so that it has a value that can then be used in the program.
 
 Here are a few examples of expressions:
 
@@ -86,15 +86,15 @@ y = 3 * x + x**2
 
 ## Function
 
-A _function_ executes some functionality. Functions can also take one or more _arguments_, which are data that can be fed to and processed by the function. Arguments are sometimes also referred to as _parameters_. There is a technical distinction between an argument and a parameter, but the words are often used interchangably. For now it should suffice to remember that both terms refer to the idea of some data passed to the function.
+A _function_ executes some functionality. Functions can also take one or more _arguments_, which are data that can be fed to and processed by the function. Arguments are sometimes also referred to as _parameters_. There is a technical distinction between an argument and a parameter, but the words are often used interchangeably. For now it should suffice to remember that both terms refer to the idea of some data passed to the function.
 
-A function is executed when it is _called_. That is, when the function (and its arguments, if any) is mentioned in the code. The following code calls the `print` function with the argument `"this is an argument"`:
+A function is executed when it is _called_. That is, when the function (and its arguments, if any) is mentioned in the code. The following statement calls the `print` function with the argument `"this is an argument"`:
 
 ```python
 print("this is an argument")
 ```
 
-Another function you've already used often is the `input` function which asks the user for input. The argument of this function is the message that is shown to the user:
+Another function you've already used often is the `input` function, which asks the user for input. The argument of this function is the message that is shown to the user:
 
 ```python
 name = input("Please type in your name: ")
@@ -183,7 +183,7 @@ The problem here is mathematical in nature: division by zero is not allowed, and
 
 Errors during execution are usually rather easy to fix, because the error message states the line of code causing the error. Of course the actual reason for the bug might be somewhere quite different than the line of code causing the error.
 
-Sometimes a bug in program is revealed because the result the code produces is wrong. Discovering and locating this type of bug can be challenging. In the programming exercises of this course the tests are usually intended to reveal bugs of this type. Before a bug can be fixed, its cause must first be located.
+Sometimes a bug in the program is revealed because the result the code produces is wrong. Discovering and locating this type of bug can be challenging. In the programming exercises on this course the tests are usually intended to reveal bugs of this type. Before a bug can be fixed, its cause must first be located.
 
 Programming jargon refers to discovering the causes of bugs as _debugging_. It is an extremely important skill in any programmer's toolbox. Professional programmers often spend more time debugging than writing fresh code.
 
@@ -205,14 +205,12 @@ print(f"Daily wages: {daily_wages} euros")
 
 The program doesn't work quite right. Executing the tests prints out the following:
 
-!!!Check this from actual tests!!!
-
 <sample-output>
 
 <pre>
-FAIL: PalkkaTest: test_sunnuntai_1
+FAIL: PythonEditorTest: test_sunday_1
 
-Syötteellä 23.0, 12, sunnuntai oikeaa palkkaa 552.0 ei löydy tulosteestasi Palkka 276.0 euroa
+With input 20.0,6,Sunday correct wage 240.0 is not found in output Daily wages: 120.0 euros
 </pre>
 
 </sample-output>
@@ -221,7 +219,7 @@ When debugging the exercises on this course, the first step is often checking ho
 
 <sample-output>
 
-Daily wages: 276.0 euros
+Daily wages: 120.0 euros
 
 </sample-output>
 
@@ -231,8 +229,8 @@ Debugging usually means running the program multiple times. It can come in handy
 # hourly_wage = float(input("Hourly wage: "))
 # hours = int(input("Hours worked: "))
 # day = input("Day of the week: ")
-hourly_wage = 23.0
-hours = 12
+hourly_wage = 20.0
+hours = 6
 day = "Sunday"
 
 daily_wages = hourly_wage * hours
@@ -256,7 +254,7 @@ if day == "sunday":
 print(f"Daily wages: {daily_wages} euros")
 ```
 
-Running the code now reveals nothing - the debugging print statements aren't printed at all. It seems that the contents of the `if` block aren't executed at all, so there must be a problem with the conditional statement. Let's try printing out the value of the Boolean expression:
+Running the code now reveals nothing - the debugging print statements aren't printed at all. It seems that the contents of the `if` block are never executed, so there must be a problem with the conditional statement. Let's try printing out the value of the Boolean expression:
 
 ```python
 # ...
@@ -276,11 +274,11 @@ Indeed, the value is `False`, so the contents of the if block are never executed
 <sample-output>
 
 condition:  False
-Daily wages: 276.0 euros
+Daily wages: 120.0 euros
 
 </sample-output>
 
-The issue must then lie within the condition of the `if` statement. As in so many situations in programming, the case of letters matters also in comparisons. Notice how the "sunday" in the Boolean expression has not been capitalized, but in the input it was. Let's fix this (in both the print command and the `if` statement):
+The issue must then lie within the condition of the `if` statement. As in so many situations in programming, the case of letters matters also in comparisons. Notice how the "sunday" in the Boolean expression has not been capitalized, but in the input it was. Let's fix this (in both the `print` command and the `if` statement):
 
 ```python
 # ...
@@ -300,13 +298,13 @@ Running this prints out the following:
 <sample-output>
 
 condition: True
-wages before: 276.0
-wages after doubling: 276.0
-Daily wages: 276.0 euros
+wages before: 120
+wages after doubling: 120
+Daily wages: 120.0 euros
 
 </sample-output>
 
-It seems the value stored in `daily_wages` is correct at first - `hourly_wage = 23.0` and `hours = 12`, and 23.0 * 12 = 276.0. The command which is supposed to double the figure doesn't do so, however, so there must be problem with the command. And indeed the command
+It seems the value stored in `daily_wages` is correct at first: `hourly_wage = 20.0` and `hours = 6`, and 20.0 * 6 = 120.0. The command which is supposed to double the figure doesn't do so, however, so there must be a problem with the command. And indeed the command
 
 ```python
 daily_wages * 2
@@ -322,16 +320,16 @@ Running the program again reveals that the printout at the end is now also corre
 
 <sample-output>
 
-condition:  True
-wages before: 276.0
-wages after doubling: 552.0
-Daily wages: 552.0 euros
+condition: True
+wages before: 120
+wages after doubling: 240
+Daily wages: 240.0 euros
 
 </sample-output>
 
 When the program has been fixed, remember to remove all debugging print statements and other code added for debugging purposes.
 
-This example was quite simple, and in such a short program one could probably figure out the bugs just by reading the code carefully. However, using debugging print statements is often a quick way to get a feeling for where the problem might lie. Print statements can be used to figure out which parts of the program seem to work correctly, so bug tracking efforts can be concentrated on the sections of code where the problems most likely lie.
+This example was quite simple, and in such a short program one could probably figure out the bugs just by reading the code carefully. However, using debugging print statements is often a quick way to get a feeling for where the problem might lie. Print statements can be used to figure out which parts of the program seem to work correctly, so bug tracking efforts can be concentrated on the sections of code which are the most likely culprits.
 
 Debugging print statements are only one tool for debugging programs. We will come back to this subject later on during this course. You should now get into the habit of using debugging print statements to look for mistakes in your code. Programming professionals cannot get by without using them, so it is a very useful tool for beginners as well.
 
@@ -402,7 +400,7 @@ print(length)
 
 </sample-output>
 
-Please write a program which asks the user for a word and then prints out the number of characters if there was more than one.
+Please write a program which asks the user for a word and then prints out the number of characters, if there was more than one typed in.
 
 Examples of expected behaviour:
 
