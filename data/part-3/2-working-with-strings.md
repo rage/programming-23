@@ -32,7 +32,7 @@ example
 
 </sample-output>
 
-The `*` operator can also be used with a strings, when the other operands is an integer. The string operand is then repeated the number of times specified by the integer. For example this would work:
+The `*` operator can also be used with a string, when the other operand is an integer. The string operand is then repeated the number of times specified by the integer. For example this would work:
 
 ```python
 word = "banana"

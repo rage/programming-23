@@ -129,7 +129,7 @@ Tuomas
 
 ## Function arguments
 
-Functions often take one or more _arguments_, which may affect what the function does. For example, the built-in Python functions `print` and `input` take as argument(s) the text that is displayed as an argument:
+Functions often take one or more _arguments_, which may affect what the function does. For example, the built-in Python functions `print` and `input` take as argument(s) the text that is to be displayed:
 
 ```python
 print("Hi!")                           # argument is the string "Hi!"
