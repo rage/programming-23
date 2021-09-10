@@ -14,7 +14,7 @@ After this section
 
 </text-box>
 
-We have now covered conditional structures in some detail. Another central technique in programming is repetition, or _iteration_. Together these form the fundamental control structures any programmer must master. They are called control structures because essentially they allow you to control which lines of code get executed when. While conditional structures allow you to _choose between_ sections of code, iteration structures allow you to _repeat_ sections of code. They are often called _loops_ because they allow the program to "loop back" to some line that was already executed once. The process of executing one repetition of a loop is also referred to as an iteration of the loop.
+We have now covered conditional structures in some detail. Another central technique in programming is repetition, or _iteration_. Together these form the fundamental control structures any programmer must master. They are called control structures because essentially they allow you to control which lines of code get executed when. While conditional structures allow you to _choose between_ sections of code, iteration structures allow you to _repeat_ sections of code. They are often called _loops_ because they allow the program to "loop back" to some line that was already executed before. The process of executing one repetition of a loop is also referred to as an iteration of the loop.
 
 This section introduces a simple `while` loop. Its structure is similar to the conditional statements we already covered. In the next part we will delve into some more sophisticated examples.
 
@@ -79,7 +79,7 @@ Please type in a number, -1 to quit: **2**
 
 </sample-output>
 
-The following program has a similar structure, but the user experience is quite different. This program allows the user to proceed only if they type in the correct PIN _1234_:
+The following program has a similar structure to the example above the infinite loop, but the user experience is quite different. This program allows the user to proceed only if they type in the correct PIN _1234_:
 
 ```python
 while True:
@@ -126,9 +126,11 @@ okay then
 
 Please write a program which asks the user for integer numbers.
 
-If the number is below zero, the program should print out the message "Invalid number" and ask for another number.
+If the number is below zero, the program should print out the message "Invalid number".
 
 If the number is above zero, the program should print out the square root of the number using the Python `sqrt` function.
+
+In either case, the program should then ask for another number.
 
 If the user inputs the number zero, the program should stop asking for numbers and exit the loop.
 
@@ -166,7 +168,7 @@ Exiting...
 
 </in-browser-programming-exercise>
 
-<in-browser-programming-exercise name="Countdown" tmcname="part02-17_countdown">
+<in-browser-programming-exercise name="Fix the code: Countdown" tmcname="part02-17_countdown">
 
 This program should print out a countdown. The code is as follows:
 
@@ -222,7 +224,7 @@ User account created!
 
 ## Loops and helper variables
 
-Let's make the PIN checking example a bit more realistic. This version lets the user attempt typing in a PIN only three times.
+Let's make the PIN checking example a bit more realistic. This version gives the user only three attempts at typing in a PIN.
 
 The program uses two helper variables. The variable `attempts` keeps track of how many times the user has typed in a PIN. The variable `success` is set to either `True` or `False` based on whether the user is successful in signing in.
 
@@ -270,7 +272,7 @@ Too many attempts...
 
 </sample-output>
 
-The loop is exited _either_ when the user types the correct PIN _or_ if there have been too many attempts. The `if` statement after the loop checks the value of the variable `correct` and prints out a message accordingly.
+The loop is exited _either_ when the user types the correct PIN _or_ if there have been too many attempts. The `if` statement after the loop checks the value of the variable `success` and prints out a message accordingly.
 
 ## Debugging print statements in loops
 
@@ -348,14 +350,14 @@ condition2: False
 Incorrect...try again
 beginning of the while block:
 Please type in your PIN: **4545**
-attempts: 1
+attempts: 2
 condition1: False
 code: 4545
 condition2: False
 Incorrect...try again
 beginning of the while block:
 Please type in your PIN: **1234**
-attempts: 1
+attempts: 3
 condition1: True
 Too many attempts...
 
@@ -433,7 +435,7 @@ The next leap year after 2024 is 2028
 
 ## Concatenating strings with the + operator
 
-The above example with PIN checking used a helper variable `attempts` to keep track of how many times the user had typed in a code:
+The above example with PIN checking used a helper variable `attempts` to keep track of how many times the user had tried to type in a code:
 
 ```python
 attempts = 0
@@ -473,7 +475,7 @@ With each iteration the string gets longer, as the code the user typed in is add
     codes += code + ", "
 ```
 
-If the user types in the codes _1111 2222 1234_, at the end of the program's exectuion the value of `codes` would be
+If the user types in the codes _1111 2222 1234_, at the end of the program's execution the value of `codes` would be
 
 <sample-output>
 
@@ -524,6 +526,8 @@ It was a dark and stormy night
 </in-browser-programming-exercise>
 
 <in-browser-programming-exercise name="Working with numbers" tmcname="part02-22_working_with_numbers">
+
+### Pre-task
 
 Please write a program which asks the user for integer numbers. The program should keep asking for numbers until the user types in zero.
 
@@ -580,7 +584,7 @@ The mean of the numbers is 8.5
 
 #### Part 4: Positives and negatives
 
-The program should also print out the how many of the numbers were positive and how many were negative. The zero at the end should not be included in the calculation.
+The program should also print out statistics on how many of the numbers were positive and how many were negative. The zero at the end should not be included in the calculation.
 
 <sample-output>
 
