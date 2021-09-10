@@ -16,7 +16,7 @@ After this section
 
 Thus far, every program we have written has been executed line by line in order. Instead of executing every line of code every single time a program is run, it is often useful to create sections of the program which are are only executed in certain situations.
 
-For example, the following code checks whether the user is of age::
+For example, the following code checks whether the user is of age:
 
 ```python
 age = int(input("How old are you? "))
@@ -48,13 +48,13 @@ Next customer, please!
 
 </sample-output>
 
-These examples show us that the value given as input affects which parts of the program are executed. The program contains a _conditional statement_ and a block of code which is executed only if the statement is true.
+These examples show us that the value given as input affects which parts of the program are executed. The program contains a _conditional statement_ with a block of code which is executed only if the condition in the statement is true.
 
 <img src="1_6.png">
 
-In a conditional statement the keyword `if` is followed by a _condition_, such as a comparison of two values. The code block following the statement is only executed if the statement is true.
+In a conditional statement the keyword `if` is followed by a _condition_, such as a comparison of two values. The code block following this header line is only executed if the condition is true.
 
-Notice the colon character following the conditional statement. In the following code there is no colon:
+Notice the colon character following the `if` header. In the following code there is no colon:
 
 ```python
 age = 10
@@ -88,7 +88,7 @@ Very typically conditions consist of comparing two values. Here is a table with 
 | `<`      | Less than      | `a < b`  |
 | `<=`     | Less than or equal to    | `a <= b` |
 
-Let's have a look at a program which prints out different things based on whether the number the user inputs is negative, positive or equal to zero:
+Let's have a look at a program which prints out different things based on whether the number the user inputs is negative, positive, or equal to zero:
 
 ```python
 number = int(input("Please type in a number: "))
@@ -128,7 +128,7 @@ The number is zero.
 
 ## Indentation
 
-Python recognises that a block of code is connected to a conditional statement if each line of code in the block is _indented_ the same. That is, there should be a bit of whitespace at the beginning of every line of code within the code block. Each line should have the same amount of whitespace.
+Python recognises that a block of code is part of a conditional statement if each line of code in the block is _indented_ the same. That is, there should be a bit of whitespace at the beginning of every line of code within the code block. Each line should have the same amount of whitespace.
 
 For example:
 
