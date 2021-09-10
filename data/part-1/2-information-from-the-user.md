@@ -14,7 +14,7 @@ After this section
 
 </text-box>
 
-_Input_ refers to any information a user gives to the program. Specifically, the Python command `input` reads in a line of input written by the user. It may also be used to display a message to the user, to prompt for specific input.
+_Input_ refers to any information a user gives to the program. Specifically, the Python command `input` reads in a line of input typed in by the user. It may also be used to display a message to the user, to prompt for specific input.
 
 The following program reads in the name of the user with the `input` command. It then prints it out with the `print` command:
 
@@ -90,7 +90,7 @@ Paul Python is quite a nice name.
 
 Let's have a closer look at the way the `print` command is used above. Within the brackets of the command there is both text in quotation marks as well as variable names which refer to input from the user. These have been combined with a `+` operator, which _concatenates_ two strings into a single string.
 
-String and variables can be combined quite freely:
+Strings and variables can be combined quite freely:
 
 ```python
 name = input("What is your name? ")
