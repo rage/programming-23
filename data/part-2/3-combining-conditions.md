@@ -132,7 +132,7 @@ That must be a mistake
 
 <in-browser-programming-exercise name="Nephews" tmcname="part02-09_nephews">
 
-Please write a program which asks for the user's name. If the name is Huey, Dewey or Louie, the program should recognise the user as one of Donald Duck's nephews. 
+Please write a program which asks for the user's name. If the name is Huey, Dewey or Louie, the program should recognise the user as one of Donald Duck's nephews.
 
 In a similar fashion, if the name is Morty or Ferdie, the program should recognise the user as one of Mickey Mouse's nephews.
 
@@ -203,7 +203,7 @@ Grade: impossible!
 
 <in-browser-programming-exercise name="FizzBuzz" tmcname="part02-11_fizzbuzz">
 
-Please write a program which asks asks the user for an integer number. If the number is divisible by three, the program should print out Fizz. If the number is divisible by five, the program should print out Buzz. If the number is divisible by both three and five, the program should print out FizzBuzz. 
+Please write a program which asks asks the user for an integer number. If the number is divisible by three, the program should print out Fizz. If the number is divisible by five, the program should print out Buzz. If the number is divisible by both three and five, the program should print out FizzBuzz.
 
 Some examples of expected behaviour:
 
@@ -346,7 +346,7 @@ The letter in the middle is B
 
 <in-browser-programming-exercise name="Gift tax calculator" tmcname="part02-14_gift_tax_calculator"  height="500px">
 
-Some say paying taxes makes Finns happy, so let's see if the secret of happiness lies in one of the taxes set out in Finnish tax law. 
+Some say paying taxes makes Finns happy, so let's see if the secret of happiness lies in one of the taxes set out in Finnish tax law.
 
 [According to the Finnish Tax Administration](https://www.vero.fi/en/individuals/property/gifts/), a gift is a transfer of property to another person against no compensation or payment. If the total value of the gifts you receive from the same donor in the course of 3 years is €5,000 or more, you must pay gift tax.
 
@@ -387,6 +387,10 @@ Amount of tax: 1950.0 euros
 
 </in-browser-programming-exercise>
 
+<!--
+
 A quiz to review the contents of this section:
 
 <quiz id="6bfd7e0d-2998-5697-80dc-418703fabbbf"></quiz>
+
+-->

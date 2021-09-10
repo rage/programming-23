@@ -274,7 +274,7 @@ Python comparison operators can also be used on strings. String a is smaller tha
 - the characters compared are of the same case, i.e. both UPPERCASE or both lowercase
 - only the standard English alphabet of a to z, or A to Z, is used.
 
-Please write a program which asks the user for two words. The program should then print out whichever of the two comes alphabetically last. 
+Please write a program which asks the user for two words. The program should then print out whichever of the two comes alphabetically last.
 
 You can assume all words will be typed in lowercase entirely.
 
@@ -306,6 +306,10 @@ You gave the same word twice.
 
 </in-browser-programming-exercise>
 
+<!--
+
 A quiz to review the contents of this section:
 
 <quiz id="82f644fe-5d89-5153-842a-11d5d11bc059"></quiz>
+
+-->

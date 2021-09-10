@@ -7,7 +7,7 @@ title: 'Programming terminology'
 
 After this section
 
-- You will be familiar with some essential terminology in programming 
+- You will be familiar with some essential terminology in programming
 - You will know the difference between a statement and an expression
 - You will be able to find out the data type of an evaluated expression
 - You will have learnt to use debugging methods to find mistakes in your code
@@ -20,7 +20,7 @@ In the first part of this course we didn't pay much attention to terminology, so
 
 A _statement_ is a part of the program which executes something. It usually refers to a single command.
 
-For example, `print("Hi!")` is a statement which prints out a line of text. Likewise, `number = 2` is a statement which assigns a value to a variable. 
+For example, `print("Hi!")` is a statement which prints out a line of text. Likewise, `number = 2` is a statement which assigns a value to a variable.
 
 A statement can also be more complicated. It can, for instance, contain other statements. The following statement spans three lines:
 
@@ -47,12 +47,12 @@ if age > 17:
 print("This here belongs to another block")
 ```
 
-In Python blocks are expressed by indenting all code in the block by the same amount of whitespace. 
+In Python blocks are expressed by indenting all code in the block by the same amount of whitespace.
 
 NB: the main block of a Python program must always be at the leftmost edge of the file, without indentation:
 
 ```python
-# this program will not work because it is not written at the leftmost egde of the file 
+# this program will not work because it is not written at the leftmost egde of the file
   print("hello world")
   print("this program is not very good...")
 ```
@@ -73,14 +73,14 @@ Here are a few examples of expressions:
 Because all expressions have a type, they can be assigned to variables:
 
 ```python
-# the variable x is assigned the value of the expression 1 + 2 
+# the variable x is assigned the value of the expression 1 + 2
 x = 1 + 2
 ```
 
 Simple expressions can be assembled together to form more complicated expressions, for example with arithmetic operations:
 
 ```python
-# the variable y is assigned the value of the expression '3 times x plus x squared' 
+# the variable y is assigned the value of the expression '3 times x plus x squared'
 y = 3 * x + x**2
 ```
 
@@ -88,7 +88,7 @@ y = 3 * x + x**2
 
 A _function_ executes some functionality. Functions can also take one or more _arguments_, which are data that can be fed to and processed by the function. Arguments are sometimes also referred to as _parameters_, and the difference between the two terms is not always clear. For now it should suffice to remember that both terms refer to data passed to the function.
 
-A function is executed when it is _called_. That is, when the function (and its arguments, if any) is mentioned in the code. The following code calls the `print` function with the argument `"this is an argument"`: 
+A function is executed when it is _called_. That is, when the function (and its arguments, if any) is mentioned in the code. The following code calls the `print` function with the argument `"this is an argument"`:
 
 ```python
 print("this is an argument")
@@ -187,7 +187,7 @@ Sometimes a bug in program is revealed because the result the code produces is w
 
 Programming jargon refers to discovering the causes of bugs as _debugging_. It is an extremely important skill in any programmer's toolbox. Professional programmers often spend more time debugging than writing fresh code.
 
-A simple yet effective way of debugging a program is adding debugging print statements to your code. Verifying the results of your code with `print` commands gives a quick confirmation the code does what you want it to do. 
+A simple yet effective way of debugging a program is adding debugging print statements to your code. Verifying the results of your code with `print` commands gives a quick confirmation the code does what you want it to do.
 
 The following is an attempt to solve one of the exercises from the [previous section](/part-1/5-conditional-statements):
 
@@ -337,7 +337,7 @@ Debugging print statements are only one tool for debugging programs. We will com
 
 <in-browser-programming-exercise name="Fix the syntax" tmcname="part02-01_fix_syntax" height="400px">
 
-The following program contains several _syntactic errors_. Please fix the program so that the syntax is in order and the program works as specified by the examples below. 
+The following program contains several _syntactic errors_. Please fix the program so that the syntax is in order and the program works as specified by the examples below.
 
 ```python
   number = input("Please type in a number: ")
@@ -453,7 +453,7 @@ The temperature is 5.15
 
 </sample-output>
 
-Notice the function always rounds down, and not according to the rounding rules in mathematics. This is an example of a _floor function_. 
+Notice the function always rounds down, and not according to the rounding rules in mathematics. This is an example of a _floor function_.
 
 <sample-output>
 
@@ -479,6 +479,11 @@ Decimal part: 0.34
 
 </in-browser-programming-exercise>
 
+<!--
+
 A quiz to review the contents of this section:
 
 <quiz id="eb4b41d3-b83b-5815-a1d5-ae9b377aa274"></quiz>
+
+
+-->
