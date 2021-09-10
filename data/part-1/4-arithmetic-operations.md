@@ -112,7 +112,7 @@ Your age at the end of the year 2021: 26
 
 </sample-output>
 
-Usually you do not need to create two separate variables (like `input_str` ja `year` above) to read a number value from the user. Instead, reading the input with the `input` function and converting it with the `int` function can be achieved in one go:
+Usually you do not need to create two separate variables (like `input_str` and `year` above) to read a number value from the user. Instead, reading the input with the `input` function and converting it with the `int` function can be achieved in one go:
 
 ```python
 year = int(input("Which year were you born? "))
