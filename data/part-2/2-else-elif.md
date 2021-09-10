@@ -14,7 +14,7 @@ After this section
 
 </text-box>
 
-Let's have a look at a program which asks the user to input a number, and then prints out different messages based on whether the number is negative, or positive or equal to zero:
+Let's have a look at a program which asks the user to input a number, and then prints out different messages based on whether the number is negative, positive, or equal to zero:
 
 ```python
 number = int(input("Please type in a number: "))
@@ -269,7 +269,7 @@ Bill and Jean are the same age
 
 <in-browser-programming-exercise name="Alphabetically last" tmcname="part02-07_alphabetically_last"  height="500px">
 
-Python comparison operators can also be used on strings. String a is smaller than string b if it comes alphabetically before b. Notice however that the comparison is only reliable if
+Python comparison operators can also be used on strings. String `a` is smaller than string `b` if it comes alphabetically before `b`. Notice however that the comparison is only reliable if
 - the characters compared are of the same case, i.e. both UPPERCASE or both lowercase
 - only the standard English alphabet of a to z, or A to Z, is used.
 
