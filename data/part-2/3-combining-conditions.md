@@ -15,9 +15,9 @@ After this section
 
 ## Logical operators
 
-You can combine conditions with the logical operators `and` and `or`. The operator `and` specifies that all conditions must be true at the same time. The operator `or` specifies that at least one of the conditions must be true.
+You can combine conditions with the logical operators `and` and `or`. The operator `and` specifies that all the given conditions must be true at the same time. The operator `or` specifies that at least one of the given conditions must be true.
 
-For example the condition `number >= 5 and number <= 8` determines that `number` must simultaneously be at least 5 and at most 8. That is, it must be between 5 and 8.
+For example, the condition `number >= 5 and number <= 8` determines that `number` must simultaneously be at least 5 and at most 8. That is, it must be between 5 and 8.
 
 ```python
 number = int(input("Please type in a number: "))
@@ -49,7 +49,7 @@ a     | not a
 True  | False
 False | True
 
-The above example with the range of 5 to 8 excluded could also be programmed like this:
+The above example with the range of 5 to 8 _excluded_ could also be programmed like this:
 
 ```python
 number = int(input("Please type in a number: "))
@@ -69,7 +69,7 @@ Python also allows a simplified notation for combining conditions: `a <= x <= b`
 
 ## Combining and chaining conditions
 
-The following program asks the user to type in four numbers. It then works out which of the four is the greatest with the help of some conditions:
+The following program asks the user to type in four numbers. It then works out which of the four is the greatest, with the help of some conditions:
 
 ```python
 n1 = int(input("Number 1: "))
@@ -269,7 +269,7 @@ The number is negative or zero
 
 With nested conditional statements it is crucial to get the indentations right. Indentations determine which branches are linked together. For example, an `if` branch and an `else` branch with the same amount of whitespace are determined to be branches of the same conditional statement.
 
-The same result can often be achieved using either nested conditional statements or conditions combined with logical operators. The example below is functionally no different from the example above in the sense that it will print out the exactly same things with the same inputs:
+The same result can often be achieved using either nested conditional statements or conditions combined with logical operators. The example below is functionally no different from the example above, in the sense that it will print out the exactly same things with the same inputs:
 
 ```python
 number = int(input("Please type in a number: "))
@@ -282,13 +282,13 @@ else:
     print("The number is negative or zero")
 ```
 
-Neither approach is intrinsically better than the other, but in different situations one or the other may seem more logical. In this particular example most people find the first version with nesting to be more intuitive.
+Neither approach is intrinsically better than the other, but in different situations one or the other may seem more logical. In this particular example most people tend to find the first version with nesting to be more intuitive.
 
 <in-browser-programming-exercise name="Leap year" tmcname="part02-12_leap_year">
 
 Generally, any year that is divisible by four is a leap year. However, if the year is additionally divisible by 100, it is a leap year only if it also divisible by 400.
 
-Please write a program which asks the user for a year, and then prints out whether the year is a leap year or not.
+Please write a program which asks the user for a year, and then prints out whether that year is a leap year or not.
 
 Some examples:
 
