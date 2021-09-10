@@ -219,26 +219,26 @@ Let's take a closer look at this command:
 sum = sum + number
 ```
 
-Here, the value of the variable `sum` is _increased_ by the value of the variable `number`. For example, if before the command the value of `sum` is 3 and the value of `number` is 2, after the command is executed, the value of `sum` is 5.
+Here, the value of the variable `sum` and the value of the variable `number` are added together, and the result is stored back in the variable `sum`. For example, if before the command the value of `sum` is 3 and the value of `number` is 2, after the command is executed, the value of `sum` is 5.
 
-Increasing the value of a variable is a very common operation. As such, there is a commonly used shorthand notation which achieves the same result:
+Increasing the value of a variable is a very common operation. As such, there is a commonly used shorthand notation which achieves the same result as the explicit summing up above:
 
 ```python
 sum += number
 ```
 
-This allows us to write the above program a little more concisely::
+This allows us to write the above program a little more concisely:
 
 ```python
 sum = 0
 
-luku = int(input("First number: "))
+number = int(input("First number: "))
 sum += number
 
-luku = int(input("Second number: "))
+number = int(input("Second number: "))
 sum += number
 
-luku = int(input("Third number: "))
+number = int(input("Third number: "))
 sum += number
 
 print(f"The sum of the numbers: {sum}")
@@ -324,9 +324,9 @@ Seconds in that many days: 604800
 
 <in-browser-programming-exercise name="Fix the code: Product" tmcname="part01-16_product">
 
-This program asks the user for three numbers. The program then prints out their product, that is, the numbers multiplied by each other. There is, however, something wrong with the program, it doesn't work quite right.Please fix it.
+This program asks the user for three numbers. The program then prints out their product, that is, the numbers multiplied by each other. There is, however, something wrong with the program - it doesn't work quite right, as you can see if you run it. Please fix it.
 
-An example exectution of the program:
+An example of the expected execution of the program:
 
 <sample-output>
 
@@ -403,7 +403,7 @@ Weekly: 38.5 euros
 
 <in-browser-programming-exercise name="Students in groups" tmcname="part01-20_students_in_groups">
 
-Please write a program which asks for the number of students on a course and the desired group size. The program will then print out how many groups are formed from the students on the course. If the division is not even, one of the groups may have fewer members than specified.
+Please write a program which asks for the number of students on a course and the desired group size. The program will then print out the number of groups formed from the students on the course. If the division is not even, one of the groups may have fewer members than specified.
 
 If you can't get your code working as expected, it is absolutely okay to move on and come back to this exercise later. The topic of the next section is [conditional statements](/part-1/5-conditional-statements). This exercise can also be solved using a conditional construction.
 
