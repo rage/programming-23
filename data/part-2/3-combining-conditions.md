@@ -132,7 +132,7 @@ That must be a mistake
 
 <in-browser-programming-exercise name="Nephews" tmcname="part02-09_nephews">
 
-Please write a program which asks for the user's name. If the name is Huey, Dewey or Louie, the program should recognise the user as one of Donald Duck's nephews. 
+Please write a program which asks for the user's name. If the name is Huey, Dewey or Louie, the program should recognise the user as one of Donald Duck's nephews.
 
 In a similar fashion, if the name is Morty or Ferdie, the program should recognise the user as one of Mickey Mouse's nephews.
 
@@ -203,7 +203,7 @@ Grade: impossible!
 
 <in-browser-programming-exercise name="FizzBuzz" tmcname="part02-11_fizzbuzz">
 
-Please write a program which asks asks the user for an integer number. If the number is divisible by three, the program should print out Fizz. If the number is divisible by five, the program should print out Buzz. If the number is divisible by both three and five, the program should print out FizzBuzz. 
+Please write a program which asks asks the user for an integer number. If the number is divisible by three, the program should print out Fizz. If the number is divisible by five, the program should print out Buzz. If the number is divisible by both three and five, the program should print out FizzBuzz.
 
 Some examples of expected behaviour:
 
@@ -387,6 +387,10 @@ Amount of tax: 1950.0 euros
 
 </in-browser-programming-exercise>
 
+<!--
+
 A quiz to review the contents of this section:
 
 <quiz id="6bfd7e0d-2998-5697-80dc-418703fabbbf"></quiz>
+
+-->

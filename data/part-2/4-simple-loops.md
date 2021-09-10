@@ -124,9 +124,9 @@ okay then
 
 <in-browser-programming-exercise name="Input validation" tmcname="part02-16_input_validation">
 
-Please write a program which asks the user for integer numbers. 
+Please write a program which asks the user for integer numbers.
 
-If the number is below zero, the program should print out the message "Invalid number" and ask for another number. 
+If the number is below zero, the program should print out the message "Invalid number" and ask for another number.
 
 If the number is above zero, the program should print out the square root of the number using the Python `sqrt` function.
 
@@ -595,10 +595,14 @@ Negative numbers 1
 
 </in-browser-programming-exercise>
 
+<!--
+
 A quiz to review the contents of this section:
 
 <quiz id="63a51999-e525-5f1d-a333-b26392a5585b"></quiz>
 
-Please respond to a quick questionnaire on this week's materials. 
+-->
 
-<quiz id="90b0d94a-54b0-5c0f-aa19-9832ae67e9b9"></quiz>
+Please respond to a quick questionnaire on this week's materials.
+
+<quiz id="cf6e69a1-1409-5229-b5a4-fadad74fbe89"></quiz>

@@ -27,81 +27,25 @@ The course will be open until the end of the year 2021. The materials will be ma
 
 ## Lectures
 
-The opening lecture (and all other lectures) will take place in Zoom on Tuesday, September 7th at 12.15 PM Finnish time (EEST, UTC+03:00).
+Lectures take place in Zoom Tuesdays at 12.15 PM Finnish time (EEST, UTC+03:00).
 
-[Zoom link to opening lecture](https://helsinki.zoom.us/j/61102130977)
+[Zoom link to lectures](https://helsinki.zoom.us/j/61102130977)
 
-Recordings of all lectures will be provided on this page afterwards.
+Recordings of all lectures will be provided on this page afterwards, usually by Wednesday morning.
 
-<!---
-## Luentotallenteet
-
-Kurssilla ei normaalisti ole tarjolla luentoja. Osiin 2-12 liittyvät luentotallenteet onkin tehty syksyn 2020 kurssille. Asiasisältö on tätä kurssia vastaava, mutta tallenteilta mahdollisesti löytyvät huomautukset esimerkiksi tenttipäivämääriin tms. liittyen _eivät välttämättä pidä paikkaansa_!
 
 <table>
   <thead>
     <tr>
-      <td>Osa</td>
-      <td>Luentotallenne</td>
+      <td>Part</td>
+      <td>Recording</td>
     </tr>
-  </th>
+  </thead>
   <tbody>
     <tr>
-      <td>Osa 1</td>
-      <td>Ei tallennetta</td>
-    </tr>
-    <tr>
-      <td>Osa 2</td>
-      <td><a href="https://youtu.be/gZcI0czbylg">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 3</td>
-      <td><a href="https://youtu.be/mJlJkj0NkiM">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 4</td>
-      <td><a href="https://youtu.be/M-XHMppJfEY">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 5</td>
-      <td><a href="https://youtu.be/5HWPcbuaf9s">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 6</td>
-      <td><a href="https://youtu.be/NHiwpaDfpxs">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 7</td>
-      <td><a href="https://youtu.be/fHyT49qAwkk">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 8</td>
-      <td><a href="https://youtu.be/r5q6TMIqp-E">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 9</td>
-      <td><a href="https://youtu.be/HviJ-J5IXEo">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 10</td>
-      <td><a href="https://youtu.be/6fS8G5J7Dy4">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 11</td>
-      <td><a href="https://youtu.be/Sw6WogqFjp8">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 12</td>
-      <td><a href="https://youtu.be/23QDGaZVk4M">Luentotallenne</a></td>
-    </tr>
-    <tr>
-      <td>Osa 13</td>
-      <td>Ei tallennetta</td>
-    </tr>
-    <tr>
-      <td>Osa 14</td>
-      <td>Ei tallennetta</td>
+      <td>Part 1</td>
+      <td><a href="https://youtu.be/xsQdUpc4tRQ">Recording</a></td>
     </tr>
   </tbody>
 </table>
--->
+
