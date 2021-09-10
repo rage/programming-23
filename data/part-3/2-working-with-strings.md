@@ -32,7 +32,7 @@ example
 
 </sample-output>
 
-The `*` operator can also be used with strings, when one of the operands is an integer. The string operand is then repeated the number of times specified by the integer. For example this would work:
+The `*` operator can also be used with a strings, when the other operands is an integer. The string operand is then repeated the number of times specified by the integer. For example this would work:
 
 ```python
 word = "banana"
@@ -257,7 +257,7 @@ IndexError: string index out of range
 
 </sample-output>
 
-Sometimes an indexing error error is caused by a bug in the code. For example, it is quite common to index too far when trying to access the last characters in a string:
+Sometimes an indexing error is caused by a bug in the code. For example, it is quite common to index too far when trying to access the last characters in a string:
 
 ```python
 input_string = input("Please type in a string: ")
@@ -276,7 +276,7 @@ else:
     print("The input string is empty. There is no first character")
 ```
 
-In the example above, if the programmer hadn't included a check for the length of the input string, a string of length zero would have caused an error. A string of length zero is also called and empty string, and here it would be achieved by just pressing Enter at the prompt.
+In the example above, if the programmer hadn't included a check for the length of the input string, a string of length zero would have caused an error. A string of length zero is also called an empty string, and here it would be achieved by just pressing Enter at the prompt.
 
 <in-browser-programming-exercise name="End to beginning" tmcname="part03-10_end_to_beginning">
 
@@ -452,7 +452,7 @@ Word: **python**
 
 ## Substrings and slices
 
-A _substring_ of a string is a sequence of characters that forms a part of the string. For example, the string `example` contains the substrings `exam`, `amp` and `ple`, among others. In Python programming, the process of selecting substrings is usually called _slicing_, and a substring is often referred to as a _slice_. The two terms can often be used interchangeably.
+A _substring_ of a string is a sequence of characters that forms a part of the string. For example, the string `example` contains the substrings `exam`, `amp` and `ple`, among others. In Python programming, the process of selecting substrings is usually called _slicing_, and a substring is often referred to as a _slice_ of the string. The two terms can often be used interchangeably.
 
 If you know the beginning and end indexes of the slice you wish to extract, you can do so with the notation `[a:b]`. This means the slice begins at the index `a` and ends at the last character before index `b` - that is, including the first, but excluding the last. You can think of the indexes as separator lines drawn on the left side of the indexed character, as illustrated in the image below:
 

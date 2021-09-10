@@ -19,7 +19,7 @@ After this section
 
 Becoming a proficient programmer requires a lot of practice, sometimes even quite mechanical practice. It also involves developing problem solving skills and applying intuition. This is why there are a lot of exercises of different kinds on this course. Some of them ask you to quite straightforwardly apply what you have learnt in the material, but some of them are intentionally more challenging and open-ended.
 
-Some of the exercises might at first seem overwhelming, but this is nothing to worry about. None of the exercises is strictly mandatory, and in fact _only 25 % of the points in each part is required to pass the course._ You can find more details about passing the course on the [page on grading](/grading-and-exams).
+Some of the exercises might at first seem overwhelming, but this is nothing to worry about. None of the exercises is strictly mandatory, and in fact _you need only 25 % of the points from each part to pass the course._ You can find more details about passing the course on the [page on grading](/grading-and-exams).
 
 **The exercises are not in any specific order of difficulty.** Each section usually introduces some new programming concepts, and these are then practised with both simpler and more complicated exercises. **If you come across an exercise that feels too difficult, move on to the next one.** You can always come back to the more difficult exercises if you have time later.
 
@@ -27,7 +27,7 @@ When the going inevitably gets tough, a word of consolation: a task that seems i
 
 </text-box>
 
-In the previous section we learnt to use the `while True` loop to repeat sections of code. In that construction the condition of the loop is `True`, so the condition is fulfilled every time and the loop must be exited from in some other way. For example:
+In the previous section we learnt to use the `while True` loop to repeat sections of code. In that construction the condition of the loop is `True`, so the condition is fulfilled every time and we needed to explicitly break out from the loop. For example:
 
 ```python
 # Print numbers until the variable a equals 5
@@ -48,14 +48,14 @@ while True:
 
 </sample-output>
 
-Of course the condition doesn't always have to be true, but instead any Boolean expression can be used as the condition. The general structure of the `while` statement is as follows:
+Of course, the condition doesn't always have to be `True`, but instead any Boolean expression can be used as the condition. The general structure of the `while` statement is as follows:
 
 ```python
 while <condition>:
     <block>
 ```
 
-The idea here is that the execution goes back and forth, checking if the condition is true and executing the code within the block, over and over again. If the condition at any point is false, execution of the program continues from the line after the `while` statement.
+The idea here is that the execution goes back and forth, checking if the condition is true and executing the code within the block, over and over again. If the condition at any point is false, execution of the program continues from the line after the `while` block.
 
 <img src="3_1_1.png">
 
@@ -148,7 +148,7 @@ etc...
 
 <in-browser-programming-exercise name="Countdown" tmcname="part03-02_countdown">
 
-The program below ahs some syntactic issues:
+The program below has some syntactic issues:
 
 ```python
 print("Are you ready?")
@@ -237,7 +237,7 @@ In any other case the loop gets executed endlessly, as there is no way the varia
 
 <in-browser-programming-exercise name="Numbers" tmcname="part03-03_numbers">
 
-Please write a program which asks the user for a number The program then prints out all numbers greater than zero but smaller than the input.
+Please write a program which asks the user for a number. The program then prints out all numbers greater than zero but smaller than the input.
 
 <sample-output>
 
@@ -291,11 +291,11 @@ while number == limit:
    # more code
 ```
 
-Print statement debugging was mentioned a few times in the [previous part](/part-2) of the course. The programs you are asked to write will become more and more challenging as the course advances. The amount of debugging you will have to do will likely increase accordingly. Common causes for bugs lie in the conditions that terminate loops; they may work correctly for some inputs and fail for others, and it is not always obvious why that is.
+Print statement debugging was mentioned a few times in the [previous part](/part-2) of the course. The programs you are asked to write will become more and more complex as the course advances. The amount of debugging you will have to do will likely increase accordingly. Common causes for bugs lie in the conditions that terminate loops; they may work correctly for some inputs and fail for others, and it is not always obvious why that is.
 
 That is why it is high time you included print statement debugging in your programming practices, if you haven't done so already. You can find debugging instructions in the [first](/part-2/1-programming terminology) and the [fourth](/part-2/4-simple_loops) section of the previous part.
 
-Besides print statements, there are many other tools that can be used for debugging. One of these is the [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) on the [Python Tutor](http://www.pythontutor.com/) website. The tool allows you to execute your code line by line, and also shows you the values stored in variables at each stage.
+Besides print statements, there are many other tools that can be used for debugging. One of these is the [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) on the [Python Tutor](http://www.pythontutor.com/) website. The tool allows you to execute your code line by line, and also shows you the values stored in variables at each step.
 
 The slightly broken code from the debugging example in the [previous section](/part-2/4-simple_loops) is visualised with Python Tutor in the following image:
 
@@ -351,7 +351,7 @@ Upper limit: **100**
 
 Please don't use the value `True` as the condition of your `while` loop in this exercise!
 
-**What are powers of two?** The first power of two is the number 1. The next one is 1 times 2, which is 2. The next is 2 times 2, which is 4. The next is 4 times 2, which is 8, and so forth. Each power is the sequence is multiplied by two to produce the next one.
+**What are powers of two?** The first power of two is the number 1. The next one is 1 times 2, which is 2. The next is 2 times 2, which is 4. The next is 4 times 2, which is 8, and so forth. Each power in the sequence is multiplied by two to produce the next one.
 
 </in-browser-programming-exercise>
 
@@ -390,7 +390,7 @@ Please don't use the value `True` as the condition of your `while` loop in this 
 
 <in-browser-programming-exercise name="The sum of consecutive numbers, version 1" tmcname="part03-06_consecutive_sum_v1">
 
-Please write a program which asks the user to type in a limit. The program then calculates the sum of consecutive numbers (1 + 2 +3 + ...) until the sum is at least equal to the limit set by the user. The program should function as follows:
+Please write a program which asks the user to type in a limit. The program then calculates the sum of consecutive numbers (1 + 2 + 3 + ...) until the sum is at least equal to the limit set by the user. The program should function as follows:
 
 <sample-output>
 
