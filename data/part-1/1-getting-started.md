@@ -16,7 +16,7 @@ After this section
 
 Computer programs consist of _commands_, each command instructing the computer to take some action. A computer executes these commands one by one. Among other things, commands can be used to perform calculations, compare things in the computer's memory, cause changes in how the program functions, relay messages or ask for information from the program's user.
 
-Let's begin programming by getting familiar with the `print` command, which _prints_ text. In this context, printing essentially means that the program will show text on the screen.
+Let's begin programming by getting familiar with the `print` command, which _prints_ text. In this context, printing essentially means that the program will show some text on the screen.
 
 The following program will print the line "Hi there!":
 
@@ -156,7 +156,7 @@ So, strings are printed out just as they are written, without any reference to t
 
 ## Commenting
 
-Any line beginning with the pound sign, also known as a hash or a number sign, `#` is a comment. This means that any text on that line following the `#` symbol will not in any way affect how the program functions - Python will simply ignore it.
+Any line beginning with the pound sign `#`, also known as a hash or a number sign, is a comment. This means that any text on that line following the `#` symbol will not in any way affect how the program functions. Python will simply ignore it.
 
 Comments are used for explaining how a program works, to both the programmer themselves, and others reading the program code. In this program a comment explains the calculation performed in the code:
 
@@ -166,7 +166,7 @@ print("Hours in a year:")
 print(365*24)
 ```
 
-When the program is run, any text in comments will not be visible to the user:
+When the program is run, the comment will not be visible to the user:
 
 <sample-output>
 
