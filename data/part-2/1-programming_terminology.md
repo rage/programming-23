@@ -394,8 +394,8 @@ print(length)
 <sample-output>
 
 4
-6
-12
+8
+10
 0
 
 </sample-output>
