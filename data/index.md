@@ -46,6 +46,10 @@ Recordings of all lectures will be provided on this page afterwards, usually by 
       <td>Part 1</td>
       <td><a href="https://youtu.be/xsQdUpc4tRQ">Recording</a></td>
     </tr>
+    <tr>
+      <td>Part 2</td>
+      <td><a href="https://youtu.be/W1ybi4ZGaLY">Recording</a></td>
+    </tr>
   </tbody>
 </table>
 
