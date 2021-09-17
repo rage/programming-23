@@ -94,7 +94,7 @@ hiyahiyahiyahiya
 
 The function `len` returns the number of characters in a string, which is always an integer value. For example, `len("hey")` returns 3, because there are three characters in the string `hey`.
 
-The following program asks the user for a string and then prints it "underlined" by multiplying the character `-` by the length of the input:
+The following program asks the user for a string and then prints it "underlined". The program prints a second line with as many `-` characters as is the length of the input:
 
 ```python
 input_string = input("Please type in a string: ")
@@ -113,7 +113,7 @@ Hi there!
 
 </sample-output>
 
-The length of a string counts in all the characters in the string, including whitespace. FOr example, the length of the string `bye bye` is 7.
+The length of a string includes all the characters in the string, including whitespace. For example, the length of the string `bye bye` is 7.
 
 <in-browser-programming-exercise name="The longer string" tmcname="part03-09_longer_string">
 
@@ -147,7 +147,7 @@ The strings are equally long
 
 </in-browser-programming-exercise>
 
-As strings are strings of characters, any single character in a string can also be retrieved. The operator `[]` finds the character with the _index_ specified within the brackets. 
+As strings are essentially sequences of characters, any single character in a string can also be retrieved. The operator `[]` finds the character with the _index_ specified within the brackets. 
 
 The index refers to a position in the string, counting up from zero. The first character in the string has index 0, the second character has index 1, and so forth.
 
@@ -257,7 +257,7 @@ IndexError: string index out of range
 
 </sample-output>
 
-Sometimes an indexing error is caused by a bug in the code. For example, it is quite common to index too far when trying to access the last characters in a string:
+Sometimes an indexing error is caused by a bug in the code. For example, it is quite common to index too far when trying to access the last character in a string:
 
 ```python
 input_string = input("Please type in a string: ")
@@ -273,10 +273,10 @@ input_string = input("Please type in a string: ")
 if len(input_string) > 0:
     print("First character: " + input_string[0])
 else:
-    print("The input string is empty. There is no first character")
+    print("The input string is empty. There is no first character.")
 ```
 
-In the example above, if the programmer hadn't included a check for the length of the input string, a string of length zero would have caused an error. A string of length zero is also called an empty string, and here it would be achieved by just pressing Enter at the prompt.
+In the example above, if the programmer hadn't included a check for the length of the input string, a string of length zero would have caused an error. A string of length zero is also called an empty string, and here it would be achieved by just pressing Enter at the input prompt.
 
 <in-browser-programming-exercise name="End to beginning" tmcname="part03-10_end_to_beginning">
 
@@ -662,7 +662,9 @@ Above we used the string _method_ `find`. Methods work quite similarly to the _f
 
 <in-browser-programming-exercise name="Find the first substring" tmcname="part03-20_find_first_substring">
 
-Please write a program which asks the user to type in a string and a single character. The program then prints the first three character slice which begins with the character specified by the user. You may assume the input string is at least three characters long. The program must print out three characters, or else nothing.
+Please write a program which asks the user to type in a string and a single character. The program then prints the first three character slice which begins with the character specified by the user. You may assume the input string is at least three characters long. The program must print out three characters, or else nothing. 
+
+Pay special attention to when there are less than two characters left in the string after the first occurrence of the character looked for. In that case nothing should be printed out, and there should not be any indexing errors when executing the program.
 
 <sample-output>
 
@@ -775,6 +777,8 @@ The substring does not occur twice in the string.
 
 </in-browser-programming-exercise>
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="6bfa7eab-80de-52e2-afe5-285af914099f"></quiz>
+-->
