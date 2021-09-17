@@ -77,7 +77,7 @@ while sum <= 100:
 print (f"The sum is {sum}")
 ```
 
-SOme examples of the program's execution:
+Some examples of the program's execution:
 
 <sample-output>
 
@@ -100,7 +100,7 @@ The sum is 106
 
 </sample-output>
 
-In the first example the execution of the loop stops because the user types in the number -1. In the second example it stops because the sum of the numbers exceeded 100.
+In the first example the execution of the loop stops because the user types in the number -1. In the second example it stops because the sum of the numbers exceeds 100.
 
 As always in programming, there are many ways to reach the same functionality. The following program is functionally identical to the above:
 
@@ -204,7 +204,7 @@ Here the latter `break` command only stops the innermost loop, which is used to 
 
 ## More helper variables with loops
 
-We've already used helper variables that increase or decrease with every iteration of a loop many times before, so the following program should look quite familiar in structure. The program prints out all even numbers above zero until a limit set by the user:
+We've already used helper variables, which increase or decrease with every iteration of a loop, many times before, so the following program should look quite familiar in structure. The program prints out all even numbers above zero until it reaches a limit set by the user:
 
 ```python
 limit = int(input("Please type in a number: "))
@@ -292,7 +292,7 @@ Please type in a number: 3
 
 <in-browser-programming-exercise name="First letters of words" tmcname="part03-24_first_letters_of_words">
 
-Please write a program which asks the user to type in a sentence. The program then prints out the first letter of each word in the sentence, each on a separate line.
+Please write a program which asks the user to type in a sentence. The program then prints out the first letter of each word in the sentence, each letter on a separate line.
 
 An example of expected behaviour:
 
@@ -342,7 +342,7 @@ Thanks and bye!
 
 <in-browser-programming-exercise name="Flip the pairs" tmcname="part03-26_flip_the_pairs">
 
-Please write a program which asks the user to type in a number. The program then prints out all the positive integer values from 1 up to the number. However, the order of the numbers is changed so that each pair or numbers is flipped - 2 before 1, 4 before 3 and so forth. See the examples below for details.
+Please write a program which asks the user to type in a number. The program then prints out all the positive integer values from 1 up to the number. However, the order of the numbers is changed so that each pair or numbers is flipped. That is, 2 comes before 1, 4 before 3 and so forth. See the examples below for details.
 
 <sample-output>
 
@@ -398,6 +398,8 @@ Please type in a number: **6**
 
 </in-browser-programming-exercise>
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="b1118ae8-8dd4-563a-b6a5-0c274136535c"></quiz>
+-->
