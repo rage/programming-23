@@ -14,7 +14,7 @@ After this section
 
 </text-box>
 
-We have already used functions such as `len`, `print` and `input` in our programs. These are functions built into Python, and so always ready at our disposal, no matter which environment we are programming in. However, it is also possible to define your own functions.
+We have already used functions such as `len`, `print` and `input` in our programs. These are functions built into Python, and so they are always ready at our disposal, no matter which environment we are programming in. However, it is also possible to define your own functions.
 
 ## The function definition
 
@@ -66,7 +66,7 @@ This is my very own function!
 
 <text-box variant='hint' name='Testing your own functions'>
 
-NB: from now on the majority of the exercises on this course will ask you to write your own function or functions.
+NB: from now on the majority of the exercises on this course will ask you to write your own function(s).
 
 When a program consists of only functions, executing it doesn't seem to have any effect. The following code doesn't print out anything, even though there is a print statement:
 
@@ -83,13 +83,14 @@ The "main" program below the function should contain appropriate function calls,
 def greet():
     print("Hi!")
 
-# All code not within function definitions is part of the main function of your program
+# All code not within function definitions is part of 
+# the main function of the program
 # Calling our function:
 
 greet()
 ```
 
-**Important**: on this course the automatic tests that are run on the exercise files require that no commands are left in the main function of your solution. That is, any code that you yourself use for testing must be contained in a specially defined `if` block:
+**Important**: on this course the automatic tests that are run on the exercise files require an empty main function. No commands should be left in the main function of your solution. That is, any code that you yourself use for testing must be contained in a specially defined `if` block:
 
 ```python
 def greet():
@@ -137,7 +138,7 @@ name = input("What is your name? ")    # argument is the string "What is your na
 print(name)                            # argument is the value of the variable name
 ```
 
-It was mentioned before that the terms _argument_ and _parameter_ are used to refer to the same thing. The distinction is that while _argument_ is used with the data passed to the function when the function is called, _inside_ the function the arguments are assigned to variables called _parameters_. So, approximately, when the function is called, we call the passed bits of data arguments, but when we are defining the function, we call them parameters. 
+It was mentioned before that the terms _argument_ and _parameter_ are often used to refer to the same thing. The distinction is that while _argument_ is used with the data passed to the function when the function is called, _inside_ the function the arguments are assigned to variables called _parameters_. So, approximately, when the function is called, we call the passed bits of data arguments, but when we are defining the function, we call them parameters.
 
 This may seem like a futile semantic distintion, and to make things even muddier, not all sources follow this definition. On this course we attempt to keep the distinction clear, however, as knowing the correct terminology will help you understand other sources besides this course material.
 
@@ -173,7 +174,7 @@ def hello(target):
 
 On the first line, in the function header, we defined that this function takes an argument, and assigns it to a parameter named `target`. In the body of the function the `print` command uses the value stored in `target`.
 
-When the function is called, the parameter has the value given as an argument in the function call. For example, the following function call
+When the function is called, the parameter `target` has the value given as an argument in the function call. For example, the following function call
 
 ```python
 name = "Alan"
@@ -182,7 +183,7 @@ hello(name)
 
 causes the parameter `target` to be set to the value `"Alan"`. 
 
-The names of functions and their parameters follow the same principles as the names of variables. They should be descriptive, and contain primarily lowercase letters and underscore characters.
+The names of functions and their parameters follow the same principles as the names of variables. They should be descriptive, and contain primarily lowercase letters and underscore characters. Again, there are some exceptions to these guidelines, but we will ignore those for now.
 
 <in-browser-programming-exercise name="The first character" tmcname="part03-29_first_character">
 
@@ -221,7 +222,7 @@ Whenever your function takes one or more arguments, it is recommended to test it
 
 Pay special heed to "special cases" specific to the type of argument you are using. How will your function behave if the argument is zero or a negative number, or a floating point number instead of an integer? What happens if the argument is an empty string?
 
-If the exercise assignment doesn't explicitly tell you to include function calls, you may freely include your own inside the main function, which the tests will ignore.
+If the exercise assignment doesn't explicitly tell you to include function calls, you may freely include your own within the main function `if` block as explained above. The tests will ignore everything within the if block.
 
 </text-box>
 
@@ -244,7 +245,7 @@ The square of the number 5 is 25
 
 </sample-output>
 
-In this function definition there is an `if` statement within the body of the function:
+Meanwhile, in this function definition there is an `if` statement within the body of the function:
 
 ```python
 def hello(name):
@@ -269,7 +270,7 @@ This function takes two arguments:
 ```python
 def sum(x, y):
     result = x + y
-    print(f"The sum of the arguments {x} and {y} is {result} ")
+    print(f"The sum of the arguments {x} and {y} is {result}")
 
 sum(1, 2)
 sum(5, 24)
@@ -282,7 +283,7 @@ The sum of the arguments 5 and 24 is 29
 
 </sample-output>
 
-The function also uses the helper variable `result`, which it uses to store the sum of its arguments.
+The function also includes the helper variable `result`, which it uses to store the sum of its arguments.
 
 Notice how the names of the parameters within the function definition have no relation to any variables outside it. We might just as well call the above function like this:
 
@@ -311,7 +312,7 @@ We will come back to function definitions in the beginning of the next part of t
 
 In the examples above we saw that it is possible to assign new variables within function definitions. The function can also see variables assigned outside it, in the main function. Such variables are called _global_ variables.
 
-Using global variables from within functions is usually a bad idea. Among other issues, doing that may cause bugs that are difficult to trace.
+Using global variables from within functions is usually a bad idea. Among other issues, doing so may cause bugs that are difficult to trace.
 
 Below is an example of a function that uses a global variable "by mistake":
 
@@ -469,9 +470,11 @@ uayba
 
 </in-browser-programming-exercise>
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="b04f1d8b-d207-5a8c-abbd-e42a3af7c12d"></quiz>
+-->
 
 Please respond to a quick questionnaire on this week's materials. 
 
