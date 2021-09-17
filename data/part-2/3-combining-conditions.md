@@ -276,7 +276,7 @@ number = int(input("Please type in a number: "))
 
 if number > 0 and number % 2 == 0:
     print("The number is even")
-elif luku > 0 and luku % 2 != 0:
+elif number > 0 and number % 2 != 0:
     print("The number is odd")
 else:
     print("The number is negative or zero")
