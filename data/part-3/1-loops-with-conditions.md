@@ -9,7 +9,7 @@ hidden: false
 After this section
 
 - You will know how to create a while loop with a condition
-- You will know what roles initialisation, condition and updating variables perform in a loop
+- You will know what roles initialisation, formulating a condition and updating variables perform in a loop
 - You will be able to create loops with different kinds of conditions
 
 </text-box>
@@ -27,7 +27,7 @@ When the going inevitably gets tough, a word of consolation: a task that seems i
 
 </text-box>
 
-In the previous section we learnt to use the `while True` loop to repeat sections of code. In that construction the condition of the loop is `True`, so the condition is fulfilled every time and we needed to explicitly break out from the loop. For example:
+In the previous section we learnt to use the `while True` loop to repeat sections of code. In that construction the condition of the loop is `True`, so the condition is fulfilled every time. We needed to explicitly break out from the loop each time to avoid an infinite loop. For example: 
 
 ```python
 # Print numbers until the variable a equals 5
@@ -86,7 +86,7 @@ Execution finished.
 
 </sample-output>
 
-The condition is checked always before the block within the loop is executed. It is thus possible the block doesn't ever get executed, like so:
+In this structure the condition is always checked before the block within the loop is executed. It may happen that the block never gets executed, like so:
 
 <sample-output>
 
@@ -101,11 +101,26 @@ Execution finished.
 
 To create a loop you'll often need to include three distinct steps: initialisation, condition, and updating the iteration variables.
 
-_Initialisation_ refers to setting the initial value(s) of the variable(s) used within the condition of the loop, which are often called the iteration or iterator variables. This is performed before the loop is first entered. The _condition_ defines how long the loop is to be executed. It is set out at the very beginning of the loop. Finally, within each repetition of the loop the variables involved in the condition are _updated_, so that each iteration brings the loop one step closer to its conclusion. The following image illustrates these steps:
+_Initialisation_ refers to setting the initial value(s) of the variable(s) used within the condition of the loop. These are often called the iteration or iterator variables. This is performed before the loop is first entered. The _condition_ defines for how long the loop is to be executed. It is set out at the very beginning of the loop. Finally, within each repetition of the loop the variables involved in the condition are _updated_, so that each iteration brings the loop one step closer to its conclusion. The following image illustrates these steps: 
 
+<!--- this is here in case the following image needs to be updated
+```python
+# Ask the user for a number
+number = int(input("Please type in a number: "))
+
+# Repeat while the number is less than 10
+while number < 10:
+
+    # Print out and increment
+    print(number)
+    number += 1
+
+print("Execution finished.")
+```
+-->
 <img src="3_1_2.png">
 
-If any one of these three components is missing the loop will likely not function correctly. A typical error is omitting the update step:
+If any one of these three components is missing, the loop will likely not function correctly. A typical error is omitting the update step:
 
 ```python
 number = 1
@@ -146,7 +161,7 @@ etc...
 </in-browser-programming-exercise>
 
 
-<in-browser-programming-exercise name="Countdown" tmcname="part03-02_countdown">
+<in-browser-programming-exercise name="Fix the code: Countdown" tmcname="part03-02_countdown">
 
 The program below has some syntactic issues:
 
@@ -237,7 +252,7 @@ In any other case the loop gets executed endlessly, as there is no way the varia
 
 <in-browser-programming-exercise name="Numbers" tmcname="part03-03_numbers">
 
-Please write a program which asks the user for a number. The program then prints out all numbers greater than zero but smaller than the input.
+Please write a program which asks the user for a number. The program then prints out all integer numbers greater than zero but smaller than the input.
 
 <sample-output>
 
@@ -270,18 +285,18 @@ It is likely the code will not work as desired on the first try. It might have t
 
 This bit of code always asks for input from the user, which makes testing it slow and cumbersome. Each time the program is tested, input must be typed in.
 
-One way around this in "hardcoding" the input while testing:
+One way around this is "hard-coding" the input while testing:
 
 ```python
-# let's hardcode the input value for testing
+# let's hard-code the input value for testing
 limit = 8 # int(input("Upper limit"))
 number = 1
 while number == limit:
    # more code 
 ```
-When the program works with the one hardcoded input, it is easy to test it with other hardcoded inputs as well. When it seems to work correctly all round, it can be tested with input from the user.
+When the program works with the one hard-coded input, it is easy to test it with other hard-coded inputs as well. When it seems to work correctly all round, it can be tested with input from the user.
 
-This trick works with many of the tests that the exercises on this course are graded with. If the test tells you that the program works incorrectly when the input is, say, 42, that input can be hardcoded into the program while you look for the source of the bug:
+This trick works with many of the tests that the exercises on this course are graded with. If the test tells you that the program works incorrectly when the input is, say, 42, that input can be hard-coded into the program while you look for the source of the bug:
 
 ```python
 # the test said the program works incorrectly when the input is 42
@@ -293,11 +308,11 @@ while number == limit:
 
 Print statement debugging was mentioned a few times in the [previous part](/part-2) of the course. The programs you are asked to write will become more and more complex as the course advances. The amount of debugging you will have to do will likely increase accordingly. Common causes for bugs lie in the conditions that terminate loops; they may work correctly for some inputs and fail for others, and it is not always obvious why that is.
 
-That is why it is high time you included print statement debugging in your programming practices, if you haven't done so already. You can find debugging instructions in the [first](/part-2/1-programming terminology) and the [fourth](/part-2/4-simple_loops) section of the previous part.
+That is why it is high time you included print statement debugging in your programming practices, if you haven't done so already. You can find debugging instructions in the [first](/part-2/1-programming-terminology) and the [fourth](/part-2/4-simple-loops) section of the previous part.
 
 Besides print statements, there are many other tools that can be used for debugging. One of these is the [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) on the [Python Tutor](http://www.pythontutor.com/) website. The tool allows you to execute your code line by line, and also shows you the values stored in variables at each step.
 
-The slightly broken code from the debugging example in the [previous section](/part-2/4-simple_loops) is visualised with Python Tutor in the following image:
+The slightly broken code from the debugging example in the [previous section](/part-2/4-simple-loops) is visualised with Python Tutor in the following image:
 
 <img src="3_1_0.png">
 
@@ -413,7 +428,7 @@ Limit: **18**
 
 </sample-output>
 
-You may assume the number typed in by the user is always equal to 2 or higher.
+If you have trouble understanding how the desired output is calculated, the sample outputs in the next exercise may help. You may assume the number typed in by the user is always equal to 2 or higher.
 
 </in-browser-programming-exercise>
 
@@ -448,7 +463,7 @@ print(words)
 This also applies to f-strings, which may come in handy if values stored in variables are needed as parts of the resulting string. For example this would work:
 
 ```python
-course = "Introduction to programming"
+course = "Introduction to Programming"
 grade = 4
 
 verdict = "You have received "
@@ -460,7 +475,7 @@ print(verdict)
 
 <sample-output>
 
-You have received the grade 4 from the course Introduction to programming
+You have received the grade 4 from the course Introduction to Programming
 
 </sample-output>
 
@@ -497,6 +512,8 @@ You may assume the number typed in by the user is always equal to 2 or higher.
 
 </in-browser-programming-exercise>
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="900c0293-b14c-5736-b1a3-68d4fa01ac43"></quiz>
+-->
