@@ -83,7 +83,7 @@ The "main" program below the function should contain appropriate function calls,
 def greet():
     print("Hi!")
 
-# All code not within function definitions is part of 
+# All code not within function definitions is part of
 # the main function of the program
 # Calling our function:
 
@@ -181,7 +181,7 @@ name = "Alan"
 hello(name)
 ```
 
-causes the parameter `target` to be set to the value `"Alan"`. 
+causes the parameter `target` to be set to the value `"Alan"`.
 
 The names of functions and their parameters follow the same principles as the names of variables. They should be descriptive, and contain primarily lowercase letters and underscore characters. Again, there are some exceptions to these guidelines, but we will ignore those for now.
 
@@ -294,7 +294,7 @@ sum(1, 2)
 sum(x + y, 10)
 ```
 
-This should print out 
+This should print out
 
 <sample-output>
 
@@ -476,6 +476,6 @@ A quiz to review the contents of this section:
 <quiz id="b04f1d8b-d207-5a8c-abbd-e42a3af7c12d"></quiz>
 -->
 
-Please respond to a quick questionnaire on this week's materials. 
+Please respond to a quick questionnaire on this week's materials.
 
-<quiz id="a2c48fe9-3201-57c7-9ff3-4ef2b9aecab5"></quiz>
+<quiz id="30685a17-2c5b-583a-abee-a2c6451ff7e6"></quiz>
