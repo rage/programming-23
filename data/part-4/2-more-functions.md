@@ -37,7 +37,7 @@ This message was brought to you by a function
 
 ## The parameters and arguments of a function
 
-A function can take one or more arguments. When the function is called, the arguments are assigned to variables defined in the function definition. These variables are called parameters, and they are listed inside the parentheses after the function name.
+A function can take one or more arguments. When the function is called, the arguments are assigned to variables, which are defined in the function definition. These variables are called parameters, and they are listed inside the parentheses after the function name.
 
 In the following code the function `greet` has one parameter defined, while the function `sum` has two.
 
@@ -67,9 +67,9 @@ The terminology around data passed to functions can feel confusing. To make matt
 
 What actually happens when the function call `greet("Emily")` is executed?
 
-In the function definition `greet(name)` the parameter `name` behaves for all intents and purposes just like a normal variable. We can and do use it within the function just like we use variables in the main function in our programs.
+In the function definition `greet(name)` the parameter `name` behaves for all intents and purposes just like a normal variable. We can use it within the function just like we have used variables in the many main functions in our programs thus far.
 
-In the function call `greet("Emily")` the argument `"Emily"` is just like any other string we have come across before. We can and will assign it to a variable. 
+In the function call `greet("Emily")` the argument `"Emily"` is just like any other string we have come across before. For example, we can assign it to a variable.
 
 So, when the function call is executed, the value of the argument, `"Emily"`, is assigned to the parameter variable `name`. For the duration of _this execution_ of the function, `name = "Emily"`. When the function is called with a different argument, the value of `name` will be different.
 
@@ -79,7 +79,7 @@ This terminology may all seem a bit superfluous, but computer science as a disci
 
 ## Error messages when running tests
 
-Most exercises on this course have automatic tests attached to them. If your program doesn't work as specified in the task, the tests will show an error message which may or may not be helpful. It is usually worth the trouble to read the error message carefully. 
+Most exercises on this course have automatic tests attached to them. If your program doesn't work as specified in the task, the tests will show an error message, which may or may not be helpful. It is usually worth the trouble to read the error message carefully. 
 
 In some situations the error message might not tell you very much at all. In the next exercise below you may come across this error message:
 
@@ -90,11 +90,11 @@ The message just states that you should be able to call the function `line` with
 line(5, "")
 ```
 
-The actual issue becomes clear when we try executing the function call specified in the error message. You can do this by copying the function call into your program and clicking on the green triangle:
+The actual issue becomes clear when we try executing the function call specified in the error message. You can do this by copying the function call into your program and clicking on the triangle:
 
 <img src="4_2_0b.png">
 
-The last lines produced by the execution, highlighted in the above image, tell us that line 4 of our code causes the error _IndexError: string index out of range_. In the [previous part](/part-3/2-working-with-strings) there was a similar example, where we tried to use an index that fell outside the scope of the string. This time the reason is that we are trying to use the first character from a string of length 0.
+The last lines produced by the execution, highlighted in the above image, tell us that line 4 of our code causes the error _IndexError: string index out of range_. In the [previous part](/part-3/2-working-with-strings) there was a similar example, where we tried to use an index that fell outside the scope of the string. This time the error appears because we are trying to access the first character of an empty string, that is, a string of length 0.
 
 <programming-exercise name='Line' tmcname='part04-02_line'>
 
@@ -122,7 +122,7 @@ LLLLLLLLLL
 
 ## Function calls within function calls
 
-You can call a function from within another function. In fact, we have done so many times before when we called the `print` function within our own functions in the previous part. Our own functions are functionally no different. In the following example the function `greet_many_times` calls the function `greet` as many times as specified by the argument `times`:
+You can call a function from within another function. In fact, we have done so many times before, when we called the `print` function within our own functions in the previous part. Our own functions are functionally no different. In the following example the function `greet_many_times` calls the function `greet` as many times as specified by the argument `times`:
 
 ```python
 def greet(name):
@@ -148,7 +148,7 @@ Hello there, Emily
 
 Please write a function named `box_of_hashes`, which prints out a rectangle of hash characters. The function takes one argument, which specifies the height of the rectangle. The rectangle should be ten characters wide.
 
-The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Please don't change anything in your `line` function.
 
 Some examples of how the function should work:
 
@@ -179,7 +179,7 @@ box_of_hashes(2)
 
 Please write a function named `square_of_hashes`, which draws a square of hash characters. The function takes one argument, which determines the length of the side of the square.
 
-The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Please don't change anything in the `line` function.
 
 Some examples:
 
@@ -211,7 +211,7 @@ square_of_hashes(3)
 
 Please write a function named `square`, which prints out a square of characters, and takes two arguments. The first parameter specifies the length of the side of the square. The second parameter specifies the character used to draw the square.
 
-The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Please don't change anything in the `line` function.
 
 Some examples:
 
@@ -243,7 +243,7 @@ ooo
 
 Please write a function named `triangle`, which draws a triangle of hashes, and takes one argument. The triangle should be as tall and as wide as the value of the argument.
 
-The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Please don't change anything in the `line` function.
 
 Some examples:
 
@@ -274,9 +274,9 @@ triangle(3)
 
 <programming-exercise name='A shape' tmcname='part04-07_shape'>
 
-Please write a function named `shape`, which takes four arguments. The first two arguments specify a triangle, as above. The first, third and fourth argument specify the dimensions and filler character of a rectangle. The function prints first the triangle and then the rectangle below it.
+Please write a function named `shape`, which takes four arguments. The first two parameters specify a triangle, as above, and the character used to draw it. The first parameter also specifies the width of a rectangle, while the third parameter specifies its height. The fourth parameter specifies the filler character of the rectangle. The function prints first the triangle, and then the rectangle below it.
 
-The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Don't change anything in the `line` function!
+The function should call the function `line` from the exercise above for the actual printing out. Copy your solution to that exercise above the code for this exercise. Please don't change anything in the `line` function.
 
 Some examples:
 
@@ -356,13 +356,13 @@ a spruce!
 
 </sample-output>
 
-**NB: to the left of the spruce there should be exactly the right amount of whitespace**. If the shape of the spruce looks correct, but the left edge of the tree is not touching the left edge of the screen, the tests will not accept the solution.
+**NB: to the left of the spruce there should be exactly the right amount of whitespace**. If the shape of the spruce looks correct, but the left edge of the tree is not touching the left edge of the text area in the terminal, the tests will not accept the solution.
 
 </programming-exercise>
 
 ## The return value of a function
 
-Functions can also return values. For instance, the built-in Python function `input` _returns_ an input string typed in by the user. The value a function returns can be stored in a variable:
+Functions can also return values. For instance, the built-in Python function `input` _returns_ an input string typed in by the user. The value returned by a function can be stored in a variable:
 
 ```python
 word = input("Please type in a word: ")
@@ -374,17 +374,17 @@ When you want an integer value from the user, the input from the user has to be 
 number = int(input("Please type in an integer: "))
 ```
 
-The function `int` takes the string returned by `input` as its argument, and returns an integer type value of the same.
+The function `int` takes the string returned by `input` as its argument, and returns an integer type value, if an integer can be parsed from the string.
 
 ## The return statement
 
-The functions you define yourself can also return values. To do this you need the `return` statement. For example, the following function `sum` returns the sum of its parameters:
+The functions you define yourself can also return values. To do this you need the `return` statement. For example, the following function `my_sum` returns the sum of its parameters:
 
 ```python
-def sum(a, b):
+def my_sum(a, b):
     return a + b
 
-result = sum(2, 3)
+result = my_sum(2, 3)
 
 print("Sum:", result)
 ```
@@ -395,7 +395,7 @@ Sum: 5
 
 </sample-output>
 
-Here's another example of a return value. This function asks for the user's name and returns that:
+Here's another example of a return value. This function asks for the user's name and returns the string the user types in:
 
 ```python
 def ask_for_name():
@@ -448,7 +448,7 @@ greet("")
 greet("Mark")
 ```
 
-If the argument (that gets stored in the variable `name`) is an empty string, the function prints out `???` and exits.
+If the argument (which gets stored in the variable `name`) is an empty string, the function prints out `???` and exits.
 
 <sample-output>
 
@@ -463,10 +463,10 @@ Hello there, Mark
 We already know that the return values of functions can be stored in variables:
 
 ```python
-def sum(a, b):
+def my_sum(a, b):
     return a + b
 
-result = sum(4, 6)
+result = my_sum(4, 6)
 print("The sum is", result)
 ```
 
@@ -479,19 +479,19 @@ The sum is 10
 The return value of a function is a value just like any other. It is not necessary to store it in a variable in order give it as an argument to the `print` command:
 
 ```python
-print("The sum is", sum(4, 6))
+print("The sum is", my_sum(4, 6))
 ```
 
 The return value of a function can become the argument of another function:
 
 ```python
-def sum(a, b):
+def my_sum(a, b):
     return a+b
 
 def difference(a, b):
     return a-b
 
-result = difference(sum(5, 2), sum(2, 3))
+result = difference(my_sum(5, 2), my_sum(2, 3))
 print("The result is", result)
 ```
 
@@ -501,7 +501,7 @@ The result is 2
 
 </sample-output>
 
-In this case the inner function calls `sum(5, 2)` and `sum(2, 3)` are executed first. The values they return (7 and 5) are used as the arguments of the outer function call.
+In this case the inner function calls `my_sum(5, 2)` and `my_sum(2, 3)` are executed first. The values they return (7 and 5) are used as the arguments of the outer function call.
 
 The outer function call `difference(7, 5)` returns the value 2, which is stored in the variable `result` and printed out.
 
@@ -509,7 +509,7 @@ In summary, values returned by functions work exactly like any other value in Py
 
 ## The difference between return and print
 
-Sometimes the difference between, on the one hand, a function returning a value, and, on the other, a print statement within a function can be confusing. Let's have a look at two different ways of implementing a function that works out which of its two arguments is greater in value:
+Sometimes the difference between a function _returning_ a value and a _print statement_ within a function can be confusing. Let's have a look at two different ways of implementing a function for working out which of two values is greater:
 
 ```python
 def max1(a, b):
@@ -543,14 +543,14 @@ Both versions seem to be working just fine, as the maximum values are printed co
 max1(3, 5)
 ```
 
-nothing seems to happen. The return value of the function has to be used in some way in the code which called the function. For instance, it can be store in a variable and printed out:
+nothing seems to happen. The return value of the function has to be _used_ in some way in the code which called the function. For instance, it can be store in a variable and printed out:
 
 ```python
 result = max1(3, 5)
 print(result)
 ```
 
-The second version, `max2`, uses the `print` command to print out the greater value. If we want to see the value, it is enough to call the function
+The second version, `max2`, uses the `print` command _within the function_ to print out the greater value. If we want to see the value, it is enough to call the function
 
 ```python
 max2(7, 5)
@@ -560,7 +560,7 @@ and the greater value is printed out. The downside of this handy function is tha
 
 <programming-exercise name='The greatest number' tmcname='part04-09_greatest_number'>
 
-Please write a function named  `greatest_number`, which takes three arguments. The function returns the greatest value of the three.
+Please write a function named  `greatest_number`, which takes three arguments. The function returns the greatest in value of the three.
 
 An example of how the function is used:
 
@@ -597,7 +597,7 @@ Please write three functions: `first_word`, `second_word` ja `last_word`. Each f
 
 As their names imply, the functions return either the first, the second or the last word in the sentence they receive as their string argument.
 
-In each case you may assume the argument string contains at least two separate words, and all words are separated by exactly one space character. There will be no spaces in the beginning or the end of the argument strings.
+In each case you may assume the argument string contains at least two separate words, and all words are separated by exactly one space character. There will be no spaces in the beginning or at the end of the argument strings.
 
 ```python
 sentence = "it was a dark and stormy python"
@@ -632,10 +632,10 @@ Type          | Python data type | Example
 :-------------|:----------------:|------
 integer       | `int`            | `23`
 floating point number | `float`  | `-0.45`
-string        | `str`            | `"Pekka Python"`
+string        | `str`            | `"Peter Python"`
 Boolean value | `bool`           | `True`
 
-When you call a function it will only work correctly if the arguments you give it are of the right type. Let's have a look at an example:
+When you call a function, it will only work correctly if the arguments you give it are of the right type. Let's have a look at an example:
 
 ```python
 def print_many_times(message, times):
@@ -672,7 +672,7 @@ TypeError: '>' not supported between instances of 'str' and 'int'
 
 </sample-output>
 
-The problem here is that in the function definition the second parameter `times` is compared to an integer, `0`. The argument given was `"Emily"`, which is a string, not an integer. Strings and integers can't be compared so simply, so an error ensues.
+The problem here is that the second parameter `times` is compared to an integer, `0`, on line 2 of the function definition. The argument given was `"Emily"`, which is a string, not an integer. Strings and integers cannot be compared so simply, so an error ensues.
 
 To avoid issues like this you can include _type hints_ in your function definitions. The type hint specifies the type of the argument intended for the function:
 
@@ -685,7 +685,7 @@ def print_many_times(message : str, times : int):
 
 This tells anyone using the function that the argument stored in `message` is supposed to be a string, and the argument stored in `times` is supposed to be an integer.
 
-Similarly the return value of a function can be hinted at in the function definition:
+Similarly, the return value of a function can be hinted at in the function definition:
 
 ```python
 def ask_for_name() -> str:
@@ -695,8 +695,10 @@ def ask_for_name() -> str:
 
 This tells the user of the function that the function is supposed to return a string.
 
-NB: Type hinting is literally just hinting about the type of the argument or the return value. It is not a guarantee of type, and definitely not a safeguard against type errors. If a function receives an argument or returns a value of the wrong type, the function is still executed, but it might work incorrectly.
+**NB:** Type hinting is literally just hinting about the type of the argument or the return value. It is not a guarantee of type, and definitely not a safeguard against type errors. If a function receives an argument or returns a value of the wrong type, the function is still executed, but it might not work correctly.
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="fb289a3b-288a-5a9f-b3d2-07ceae5866ea"></quiz>
+-->
