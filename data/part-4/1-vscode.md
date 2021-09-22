@@ -67,7 +67,7 @@ if "visual studio code" == mystring.lower():
 
 ## Executing code
 
-In Visual Studio Code, the easiest way to execute your code is clicking on the green triangle. Sometimes it happens that some program is left running in the background, maybe waiting for input from the user or stuck in an infinite loop, without you realising it. You might only notice this when trying to execute the next program, which simply will not run because the previous execution is still hogging up resources. A quick fix is pressing on the keys _Control_+_C_ at the same time, which stops the execution of any ongoing process. The next program should now run fine.
+In Visual Studio Code, the easiest way to execute your code is clicking on the triangle in the upper right hand corner. Sometimes it happens that some program is left running in the background, maybe waiting for input from the user or stuck in an infinite loop, without you realising it. You might only notice this when trying to execute the next program, which simply will not run because the previous execution is still hogging up resources. A quick fix is pressing on the keys _Control_+_C_ at the same time, which stops the execution of any ongoing process. The next program should now run fine.
 
 ## The interactive Python interpreter
 
@@ -77,7 +77,7 @@ Starting up the interpreter may depend on your platform. In a Linux or Mac syste
 
 <img src="4_1_1.png">
 
-It is also possible to start the interpreter inside Visual Studio Code. First you should execute a program by clicking on the green triangle. This should open a _Terminal_ section on your screen, where you can now type in `python3` (or `python`):
+It is also possible to start the interpreter inside Visual Studio Code. First you should execute a program by clicking on the triangle. This should open a _Terminal_ section on your screen, where you can now type in `python3` (or `python`):
 
 <img src="4_1_2.png">
 
