@@ -10,12 +10,12 @@ After this section
 
 - You will know what lists are in Python
 - You will be able access a specified item within a list
-- You will know how to add items to a list, and to remove them
+- You will know how to add items to a list, and how to remove them
 - You will be familiar with built-in list functions and methods
 
 </text-box>
 
-Thus far in our programs we have stored data with variables, each bit of data usually having their own named variable. This obviously has its limitations, as it can get cumbersome to define separate variables for everything when there is a lot of data to handle. 
+Thus far in our programs we have stored data with variables, each bit of data usually having its own named variable. This obviously has some limitations, as it can get cumbersome to define separate variables for everything when there is a lot of data to handle. 
 
 A Python _list_ is a collection of values which is accessed via a single variable name. The contents of the list are written within square brackets. The values contained in the list are called _items_, or sometimes _elements_.
 
@@ -33,11 +33,11 @@ my_list = [7, 2, 2, 5, 2]
 
 ## Accessing items in a list
 
-The items in a list are indexed in exactly the same way as characters in a string. Indexing starts from zero and the last index is the length of the list minus 1:
+The items in a list are indexed in exactly the same way as characters in a string. Indexing starts from zero, and the last index is the length of the list minus 1:
 
 <img src="4_2_1.png" alt="Lists are indexed starting from 0">
 
-A single list item can be accessed just like a single character in a string could, with square brackets:
+A single list item can be accessed just like a single character in a string is accessed, with square brackets:
 
 ```python
 my_list = [7, 2, 2, 5, 2]
@@ -58,7 +58,7 @@ The sum of the first two items: 9
 
 </sample-output>
 
-The entire contents of the list also can be printed:
+The entire contents of the list can also be printed out:
 
 ```python
 my_list = [7, 2, 2, 5, 2]
@@ -71,7 +71,7 @@ print(my_list)
 
 </sample-output>
 
-Unlike strings, lists are mutable, which means that their contents can change. You can assign a new value to an item, just like you an assign a new value to a variable:
+Unlike strings, lists are mutable, which means their contents can change. You can assign a new value to an item within a list, just like you can assign a new value to a variable:
 
 ```python
 my_list = [7, 2, 2, 5, 2]
@@ -103,7 +103,7 @@ print(len(my_list))
 
 <programming-exercise name='Change the value of an item' tmcname='part04-12_change_value_of_item'>
 
-Please write a program which initialises a list with the values `[1, 2, 3, 4, 5]`. Then the program should ask the user for an index and a new value, replace the value at the given index, and print the list again. This should be looped over until the user gives -1 for the index.
+Please write a program which initialises a list with the values `[1, 2, 3, 4, 5]`. Then the program should ask the user for an index and a new value, replace the value at the given index, and print the list again. This should be looped over until the user gives -1 for the index. You can assume all given index values will fall within your list.
 
 An example execution of the program:
 
@@ -126,7 +126,7 @@ Index: **-1**
 
 </programming-exercise>
 
-## Adding and removing items
+## Adding items to a list
 
 The `append` method adds items to the end of a list. It works like this:
 
@@ -197,6 +197,8 @@ Item 3: **34**
 
 </programming-exercise>
 
+## Adding to a specific location
+
 If you want to specify a location in the list where an item should be added, you can use the `insert` method. The method adds an item at the specified index. All the items already in the list with an index equal to or higher than the specified index are moved one index further, "to the right":
 
 <img src="4_2_2.png" alt = "Inserting an item to a list">
@@ -219,6 +221,8 @@ prints out this:
 [10, 1, 20, 2, 3, 4, 5, 6]
 
 </sample-output>
+
+## Removing items from a list
 
 There are two different approaches to removing an item from a list:
 
@@ -300,7 +304,7 @@ print(my_list)
 
 <programming-exercise name='Addition and removal' tmcname='part04-14_addition_and_removal'>
 
-Please write a program which asks the user to choose between addition and removal. Depending on the choice, the program adds an item to or removes an item from the end of a list. The item that is added must always be one greater than the last item in the list. The first item to be added must be 1.
+Please write a program which asks the user to choose between addition and removal. Depending on the choice, the program _adds an item to_ or _removes an item from_ the end of a list. The item that is added must always be one greater than the last item in the list. The first item to be added must be 1.
 
 The list is printed out in the beginning and after each operation. Have a look at the example execution below:
 
@@ -322,7 +326,7 @@ Bye!
 
 </sample-output>
 
-You may assume that if the list is empty, there will not be an attempt to remove items.
+You may assume that, if the list is empty, there will not be an attempt to remove items.
 
 **NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
@@ -412,7 +416,7 @@ print(in_order)
 
 <programming-exercise name='List twice' tmcname='part04-16_list_twice'>
 
-Please write a program which asks the user to type in values and adds them to a list. After each addition the list is printed out in two different ways:
+Please write a program which asks the user to type in values and adds them to a list. After each addition, the list is printed out in two different ways:
 - in the order the items were added
 - ordered from smallest to greatest
 
@@ -498,7 +502,8 @@ print("Smallest:", smallest)
 print("Greatest:", greatest)
 print("Length of the list:", length)
 
-# another function call; the list itself is an argument, the function returns a sorted copy
+# another function call 
+# the list itself is an argument, the function returns a sorted copy
 in_order = sorted(my_list))
 print(in_order)
 ```
@@ -555,7 +560,7 @@ def input_numbers():
     return numbers
 ```
 
-The function makes use of a helper variable `numbers`, which is a list. All the numbers typed in by the user are added to the list. When the loop is exited from, the function returns the list with the comand `return numbers`.
+The function makes use of a helper variable `numbers`, which is a list. All the numbers typed in by the user are added to the list. When the loop is exited from, the function returns the list with the statement `return numbers`.
 
 Calling the function like this
 
@@ -601,9 +606,9 @@ print("The greatest number is", max(numbers))
 print("The median of the numbers is", median)
 ```
 
-In this version following the programming logic is more difficult, as it is no longer clear which commands are a part of which functionality. The code fulfils the same purposes - reading in input, calculating the median value, and so on - but the structure is less clear.
+In this version, following the programming logic is more difficult, as it is no longer clear which commands are a part of which functionality. The code fulfils the same purposes - reading in input, calculating the median value, and so on - but the structure is less clear.
 
-Organising your code into separate functions will improve you program's readability, but also make it easier to handle logical wholes. This in turn helps you verify the program works as intended, as each function can be tested separately.
+Organising your code into separate functions will improve you program's readability, but also make it easier to handle logical wholes. This in turn helps you that verify the program works as intended, as each function can be tested separately.
 
 Another important use for functions is making code _reusable_. If you need to achieve some functionality twice is your program, it is a good idea to create your own function and name it appropriately:
 
@@ -615,7 +620,7 @@ print("Weights:")
 weights = input_numbers()
 
 print("Heights:")
-heughts = input_numbers()
+heights = input_numbers()
 ```
 
 <programming-exercise name='The length of a list' tmcname='part04-17_length_of_list'>
@@ -628,7 +633,7 @@ result = length(my_list))
 print("The length is", result)
 
 # the list given as an argument doesn't need to be stored in any variable
-result = pituus([1, 1, 1, 1])
+result = length([1, 1, 1, 1])
 print("The length is", result)
 ```
 
@@ -678,10 +683,11 @@ The range of the list is 4
 
 </programming-exercise>
 
-## More ways to use lists
 
 There are many more ways to use lists in Python. The Python [documentation](https://docs.python.org/3/tutorial/datastructures.html) is a good place to start if you want to know more.
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="4849cd69-1938-5f4f-8805-8445f0f5c015"></quiz>
+-->
