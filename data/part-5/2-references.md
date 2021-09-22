@@ -332,7 +332,7 @@ def kasvata_kaikkia(lista: list):
 
 <programming-exercise name='Items multiplied by two' tmcname='part05-08_items_multiplied_by_two'>
 
-Tee funktio `tuplaa_alkiot(luvut: list)`, joka saa parametrikseen lukuja sisältävän listan.
+Tee funktio `double_items(numbers: list)`, joka saa parametrikseen lukuja sisältävän listan.
 
 Funktio palauttaa uuden listan, jossa alkuperäisen listan alkiot on kerrottu kahdella. Funkto _ei_ saa muuttaa alkuperäistä listaa.
 
@@ -357,7 +357,7 @@ tuplattu: [4, 8, 10, 6, 22, -8]
 
 <programming-exercise name='Remove the smallest' tmcname='part05-09_remove_smallest'>
 
-Tee funktio `poista_pienin(luvut: list)`, joka saa parametrikseen lukuja sisältävän listan.
+Tee funktio `remove_smallest(numbers: list)`, joka saa parametrikseen lukuja sisältävän listan.
 
 Funktio etsii ja poistaa listasta pienimmän alkion. Voit olettaa, että pienin alkio esiintyy listassa vain kerran.
 
@@ -382,11 +382,11 @@ if __name__ == "__main__":
 
 <programming-exercise name='Sudoku: print out the grid and add a number' tmcname='part05-10_sudoku_print_and_add'>
 
-Tässä tehtävässä toteutetaan vielä kaksi funktiota sudokua varten: `tulosta` ja `lisays`.
+Tässä tehtävässä toteutetaan vielä kaksi funktiota sudokua varten: `print_sudoku` ja `add_number`.
 
-Funktio `tulosta` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen listan ja tulostaa sen alla olevan esimerkkitulostuksen mukaisessa muodossa.
+Funktio `print_sudoku` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen listan ja tulostaa sen alla olevan esimerkkitulostuksen mukaisessa muodossa.
 
-Funktio `lisays(sudoku: list, rivi_nro: int, sarake_nro: int, luku:int)` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen listan, rivi- ja sarakenumerot sekä luvun väliltä 1–9. Funktio lisää luvun parametrien ilmoittamaan kohtaan sudokuruudukkoa.
+Funktio `add_number(sudoku: list, row_no: int, column_no: int, number:int)` saa parametriksi sudokuruudukkoa esittävän kaksiulotteisen listan, rivi- ja sarakenumerot sekä luvun väliltä 1–9. Funktio lisää luvun parametrien ilmoittamaan kohtaan sudokuruudukkoa.
 
 ```python
 sudoku  = [
@@ -401,10 +401,10 @@ sudoku  = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
-tulosta(sudoku)
-lisays(sudoku, 0, 0, 2)
-lisays(sudoku, 1, 2, 7)
-lisays(sudoku, 5, 7, 3)
+print_sudoku(sudoku)
+add_number(sudoku, 0, 0, 2)
+add_number(sudoku, 1, 2, 7)
+add_number(sudoku, 5, 7, 3)
 print()
 print("Kolme numeroa lisätty:")
 print()
@@ -471,9 +471,9 @@ print()
 
 Viimeisessä sudokua käsittelevässä tehtävässä toteutetaan hieman erilainen versio funktiosta, jonka avulla sudokuruudukkoon lisätään uusia lukuja.
 
-Funktio `kopioi_ja_lisaa(sudoku: list, rivi_nro: int, sarake_nro: int, luku:int)` saa parametreikseen sudokuruudukkoa esittävän kaksiulotteisen listan, rivinumeron, sarakenumeron sekä luvun väliltä 1–9. Funktio _palauttaa_ parametrina saadusta sudokuruudukosta _kopion_, johon on lisätty parametrina saatu luku parametrina saatuun sijaintiin sijoitettuna. Funktio _ei saa muuttaa_ parametrina annettua sudokuruudukkoa.
+Funktio `copy_and_add(sudoku: list, row_no: int, column_no: int, number:int)` saa parametreikseen sudokuruudukkoa esittävän kaksiulotteisen listan, rivinumeron, sarakenumeron sekä luvun väliltä 1–9. Funktio _palauttaa_ parametrina saadusta sudokuruudukosta _kopion_, johon on lisätty parametrina saatu luku parametrina saatuun sijaintiin sijoitettuna. Funktio _ei saa muuttaa_ parametrina annettua sudokuruudukkoa.
 
-Seuraavassa on edellisen tehtävän funktiota `tulosta` hyödyntävä käyttöesimerkki:
+Seuraavassa on edellisen tehtävän funktiota `print_sudoku` hyödyntävä käyttöesimerkki:
 
 ```python
 sudoku  = [
@@ -488,12 +488,12 @@ sudoku  = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
-kopio = kopioi_ja_lisaa(sudoku, 0, 0, 2)
+kopio = copy_and_add(sudoku, 0, 0, 2)
 print("Alkuperäinen:")
-tulosta(sudoku)
+print_sudoku(sudoku)
 print()
 print("Kopio:")
-tulosta(kopio)
+print_sudoku(kopio)
 ```
 
 <sample-output>
@@ -537,7 +537,7 @@ _ _ _  _ _ _  _ _ _
 
 Ristinollaa pelataan 3 x 3 -kokoisella ruudukolla, johon pelaajat merkitsevät vuorotellen ristin tai nollan. Pelin voittaa se pelaaja, joka saa ensimmäisenä kolme merkkiä pystyyn, vaakaan tai kulmittain. Peli päättyy tasapeliin, jos kumpikaan pelaaja ei saa kolmen sarjaa.
 
-Kirjoita funktio `pelaa_siirto(lauta: list, x: int, y: int, nappula: str)`, jossa sijoitetaan annettu pelinappula annettuihin koordinaatteihin pelilaudalla. Koordinaattien arvot ovat väliltä 0..2.
+Kirjoita funktio `play_turn(game_board: list, x: int, y: int, piece: str)`, jossa sijoitetaan annettu pelinappula annettuihin koordinaatteihin pelilaudalla. Koordinaattien arvot ovat väliltä 0..2.
 
 **Huomaa** että tässä tehtävässä parametrit ovat eri päin kuin sudokussa, ensin annetaan saraketta kuvaava `x` ja sen jälkeen riviä kuvaava `y`.
 
@@ -553,7 +553,7 @@ Esimerkiksi:
 
 ```python
 lauta = [["", "", ""], ["", "", ""], ["", "", ""]]
-print(pelaa_siirto(lauta, 2, 0, "X"))
+print(play_turn(lauta, 2, 0, "X"))
 print(lauta)
 ```
 
@@ -568,7 +568,7 @@ True
 
 <programming-exercise name='Transpose a matrix' tmcname='part05-13_transpose_matrix'>
 
-Kirjoita funktio `transponoi(matriisi: list)`, joka saa parametrikseen kaksiulotteisen kokonaislukuja sisältävän taulukon eli matriisin. Funktio _transponoi_ matriisin eli muuntaa rivit sarakkeiksi ja päinvastoin.
+Kirjoita funktio `transpose(matrix: list)`, joka saa parametrikseen kaksiulotteisen kokonaislukuja sisältävän taulukon eli matriisin. Funktio _transponoi_ matriisin eli muuntaa rivit sarakkeiksi ja päinvastoin.
 
 Voit olettaa, että matriisissa on yhtä monta riviä kuin sarakettakin (eli matriisi on _neliömatriisi_).
 
@@ -599,13 +599,13 @@ Koska funktio saa parametrinaan viittauksen listaan, se voi muuttaa tätä lista
 Tarkastellaan esimerkkinä funktiota, jonka tarkoituksena on etsiä listan toiseksi pienin alkio:
 
 ```python
-def toiseksi_pienin(lista: list) -> int:
+def second_smallest(my_list: list) -> int:
     # järjestetyn listan toiseksi pienin alkio on kohdassa 1
     lista.sort()
     return lista[1]
 
 luvut = [1, 4, 2, 5, 3, 6, 4, 7]
-print(toiseksi_pienin(luvut))
+print(second_smallest(luvut))
 print(luvut)
 ```
 
@@ -619,12 +619,12 @@ Funktio kyllä etsii ja löytää toiseksi pienimmän alkion, mutta sen lisäksi
 Voimme toteuttaa funktion ilman sivuvaikutuksia näin:
 
 ```python
-def toiseksi_pienin(lista: list) -> int:
+def second_smallest(my_list: list) -> int:
     kopio = sorted(lista)
     return kopio[1]
 
 luvut = [1, 4, 2, 5, 3, 6, 4, 7]
-print(toiseksi_pienin(luvut))
+print(second_smallest(luvut))
 print(luvut)
 ```
 
