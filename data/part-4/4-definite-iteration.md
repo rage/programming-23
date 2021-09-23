@@ -52,7 +52,7 @@ for <variable> in <collection>:
 
 The `for` loop takes an item in the collection, assigns it to the variable, processes the block of code, and moves on to the next item. When all items in the collection have been processed, execution of the program continues from the line after the loop.
 
-<img src="4_3_1.png" alt="Iterating through a list">
+<img src="4_4_1.png" alt="Iterating through a list">
 
 The following program prints out all the items in a list using a `for` loop:
 

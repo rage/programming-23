@@ -35,7 +35,7 @@ my_list = [7, 2, 2, 5, 2]
 
 The items in a list are indexed in exactly the same way as characters in a string. Indexing starts from zero, and the last index is the length of the list minus 1:
 
-<img src="4_2_1.png" alt="Lists are indexed starting from 0">
+<img src="4_3_1.png" alt="Lists are indexed starting from 0">
 
 A single list item can be accessed just like a single character in a string is accessed, with square brackets:
 
@@ -201,7 +201,7 @@ Item 3: **34**
 
 If you want to specify a location in the list where an item should be added, you can use the `insert` method. The method adds an item at the specified index. All the items already in the list with an index equal to or higher than the specified index are moved one index further, "to the right":
 
-<img src="4_2_2.png" alt = "Inserting an item to a list">
+<img src="4_3_2.png" alt = "Inserting an item to a list">
 
 So, for instance this program
 

@@ -183,14 +183,14 @@ my_list = [1,2,3]
 my_list[0] = 10
 ```
 
-<img src="4_4_1.png">
+<img src="4_6_1.png">
 
 ```python
 my_string = "Hey"
 my_string = my_string + "!"
 ```
 
-<img src="4_4_2.png">
+<img src="4_6_2.png">
 
 The first example changes the contents of the referenced list. The second example replaces the reference to the original string with a reference to another string. The original string is still somewhere in computer memory, but there is no reference to it, and it cannot be used in the program any longer.
 
