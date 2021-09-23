@@ -29,7 +29,7 @@ When the going inevitably gets tough, a word of consolation: a task that seems i
 
 ## Lists with different types of data
 
-In the previous part we mainly handled lists with integer items, but in fact any types of values can be stored in lists. A list of strings could look like this:
+In the previous part we mainly handled lists with integer items, but any types of values can be stored in lists. A list of strings could look like this:
 
 ```python
 names = ["Marlyn", "Ruth", "Paul"]
@@ -120,7 +120,7 @@ Steve
 
 </sample-output>
 
-Even though the function calls both have the right kind of arguments, the function always prints out what is stored in the global variable `name_list`.
+Even though both function calls have the right kind of argument, the function always prints out what is stored in the global variable `name_list`.
 
 To make matters even more muddled, remember that all code for testing your functions should be placed within the `if __name__ == "__main__":` block for the automatic tests. The previous example should be modified:
 
@@ -231,7 +231,7 @@ Problems like this, and many others, can be located and fixed with the help of t
 
 <programming-exercise name='The longest string' tmcname='part05-01_longest_string'>
 
-Please write a function named `longest(strings: list)` which takes a list of strings as its argument. The function finds and returns the longest string in the list. You may assume there is always a single longest string in the list.
+Please write a function named `longest(strings: list)`, which takes a list of strings as its argument. The function finds and returns the longest string in the list. You may assume there is always a single longest string in the list.
 
 An example of expected behaviour:
 
@@ -274,10 +274,10 @@ Why would lists within lists be useful?
 Remember that lists can contain items of different types. You could store information about a person in a list. For instance, you could include their name as the first item, their age as the second item, and their height in meters as the third item:
 
 ```python
-["Anu", 10, 1.38]
+["Anne", 12, 1.45]
 ```
 
-A database of persons could then be a list whose items would be lists containing information about a single person:
+A database of persons could then be a list, whose items would be lists containing information about a single person:
 
 ```python
 persons = [["Betty", 10, 1.37], ["Peter", 7, 1.25], ["Emily", 32, 1.64], ["Alan", 39, 1.78]]
@@ -298,7 +298,7 @@ Alan: age 39 years, height 1.78 meters
 
 </sample-output>
 
-The `for` loop goes through the items in the outer list one by one. That is, each list containing information about a single person is assigned to the variable `person` in turn.
+The `for` loop goes through the items in the outer list one by one. That is, each list containing information about a single person is, in turn, assigned to the variable `person`.
 
 Lists arent always the best way to present data, such as information about a person. We will soon come across Python _dictionaries_, which are often better suited to such situations.
 
@@ -308,7 +308,7 @@ A two-dimensional array, or a _matrix_, is also a natural application of a list 
 
 For example, the following matrix
 
-<img src="5_1_0.png">
+<img src="5_1_1.png">
 
 could be presented as a two-dimensional list in Python like so:
 
@@ -382,7 +382,7 @@ a new row
 
 Programs containing lists within lists can feel hard to grasp at first. The [visualisation tool](http://www.pythontutor.com/visualize.html) from Python Tutor is a great help in understanding how they work. The following is a visualisation of the example above:
 
-<img src="5_1_0a.png">
+<img src="5_1_2.png">
 
 The image above reveals that a 3 by 3 matrix technically consists of four lists. The first list represents the entire matrix. The three remaining lists are items in the first list, and represent the rows.
 
@@ -417,7 +417,7 @@ def sum_of_column(my_matrix, column_no: int):
     # go through each row and select the item at the chosen position
     column_sum = 0
     for row in my_matrix:
-        column_sum += rivi[column_no]
+        column_sum += row[column_no]
 
     return column_sum
 
@@ -427,9 +427,9 @@ my_sum = sum_of_column(my_matrix, 2)
 print(my_sum) # prints out 39 (which equals 3 + 12 + 9 + 15)
 ```
 
-That is, the column handled here consists of the elements at index 2 on _each row_.
+The column handled here consists of the elements at index 2 on _each row_.
 
-[The visualisation tool](http://www.pythontutor.com/visualize.html) is definitely recommended for understanding how these functions work!
+[The visualisation tool](http://www.pythontutor.com/visualize.html) is definitely recommended for understanding how these functions work.
 
 Changing the value of a single element within the matrix is simple: choose a row within the matrix, and then a column within the row:
 
@@ -461,8 +461,8 @@ Instead, we will have to keep track of the indexes of the elements, for example 
 ```python
 m = [[1,2,3], [4,5,6], [7,8,9]]
 
-for i in range(len(m)):
-    for j in range(len(m[i])):
+for i in range(len(m)): # using the number of rows in the matrix
+    for j in range(len(m[i])): # using the number of items on each row 
         m[i][j] += 1
 
 print(m)
@@ -478,7 +478,7 @@ The outer loop goes through indexes from zero to the length of the matrix, that 
 
 <programming-exercise name='Number of matching elements' tmcname='part05-02_number_of_elements'>
 
-Please write a function named `count_matching_elements(my_matrix: list, element: int)` which takes a two-dimensional array of integers and a single integer value as its arguments. The function then counts how many elements within the matrix match the argument value.
+Please write a function named `count_matching_elements(my_matrix: list, element: int)`, which takes a two-dimensional array of integers and a single integer value as its arguments. The function then counts how many elements within the matrix match the argument value.
 
 An example of how the function should work:
 
@@ -499,7 +499,7 @@ print(count_matching_elements(m, 1))
 
 A matrix can be a very useful data structure in many different games. For example, the grid of a sudoku game in the image below
 
-<img src="5_1_1.png">
+<img src="5_1_3.png">
 
 can be represented in matrix form like so:
 
@@ -550,13 +550,13 @@ The printout should look like this::
 
 ```
 
-Any common game with a gameboard layout can be modelled in a similar fashion - for example, chess, Minesweeper, Battleship or Mastermind are all based on a two-dimensional grid. For sudoku it is natural to use numbers to represent the game state, but for other games, different methods may be better.
+Any common game with a gameboard layout can be modelled in a similar fashion. Among others, chess, Minesweeper, Battleship or Mastermind are all based on a two-dimensional grid. For sudoku, it is natural to use numbers to represent the game state, but for other games, different methods may be better.
 
 <programming-exercise name='Go' tmcname='part05-03_go'>
 
 In a game of Go two players take turns to place black and white stones on a game board. The winner is the player who manages to encircle a bigger area on the board with their own game pieces. 
 
-Please write a function named `who_won(game_board: list)` which takes a two-dimensional array as its argument. The array consists of integer values, which represent the following situations:
+Please write a function named `who_won(game_board: list)`, which takes a two-dimensional array as its argument. The array consists of integer values, which represent the following situations:
 
 * 0: empty square
 * 1: player 1 game piece
@@ -564,15 +564,15 @@ Please write a function named `who_won(game_board: list)` which takes a two-dime
 
 The scoring rules of Go can be quite complex, but in this exercise it is enough to compare the number of pieces each player has on the game board. Also, the size of the game board is not limited.
 
-The function chould return the value 1 if player 1 won, and the value 2 if player 2 won. If both players have the same number of pieces on the board, the function should return the value 0.
+The function should return the value 1 if player 1 won, and the value 2 if player 2 won. If both players have the same number of pieces on the board, the function should return the value 0.
 
 </programming-exercise>
 
 <programming-exercise name='Sudoku: check row' tmcname='part05-04_sudoku_row'>
 
-Please write a function named `row_correct(sudoku: list, row_no: int)` which takes a two-dimensional array representing a sudoku grid and an integer referring to a single row as its arguments. Rows are indexed from zero here. 
+Please write a function named `row_correct(sudoku: list, row_no: int)`, which takes a two-dimensional array representing a sudoku grid, and an integer referring to a single row, as its arguments. Rows are indexed from 0.
 
-The function should return `True` or `False` depending on whether the row is filled in correctly, that is, whether it contains each of the numbers 1 to 9 at most once.
+The function should return `True` or `False`, depending on whether the row is filled in correctly, that is, whether it contains each of the numbers 1 to 9 at most once.
 
 ```python
 sudoku = [
@@ -602,9 +602,9 @@ False
 
 <programming-exercise name='Sudoku: check column' tmcname='part05-05_sudoku_column'>
 
-Please write a function named `column_correct(sudoku: list, column_no: int)`, which takes a two-dimensional array representing a sudoku grid and an integer referring to a single column as its arguments. Columns are indexed from zero here. 
+Please write a function named `column_correct(sudoku: list, column_no: int)`, which takes a two-dimensional array representing a sudoku grid, and an integer referring to a single column, as its arguments. Columns are indexed from 0. 
 
-The function should return `True` or `False` depending on whether the column is filled in correctly, that is, whether it contains each of the numbers 1 to 9 at most once.
+The function should return `True` or `False`, depending on whether the column is filled in correctly, that is, whether it contains each of the numbers 1 to 9 at most once.
 
 ```python
 sudoku = [
@@ -634,11 +634,11 @@ True
 
 <programming-exercise name='Sudoku: check block' tmcname='part05-06_sudoku_block'>
 
-Please write a function named `block_correct(sudoku: list, row_no: int, column_no: int)` which takes a two-dimensional array representing a sudoku grid and two integers referring to the row and column indexes of a single square as its arguments. Rows and columns are indexed from zero here. 
+Please write a function named `block_correct(sudoku: list, row_no: int, column_no: int)`, which takes a two-dimensional array representing a sudoku grid, and two integers referring to the row and column indexes of a single square, as its arguments. Rows and columns are indexed from 0. 
 
 The function should return `True` or `False` depending on whether the 3 by 3 block to the right and down from the given indexes is filled in correctly. That is, whether the block contains each of the numbers 1 to 9 at most once.
 
-Notice this function does not strictly follow the rules of sudoku. In a real game of sudoku there are only 9 blocks to check, and these are located at indexes (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) and (6, 6). Such restrictions on indexes should not be implemented here.
+Notice that this function does not strictly follow the rules of sudoku. In a real game of sudoku there are only 9 blocks to check, and these are located at indexes (0, 0), (0, 3), (0, 6), (3, 0), (3, 3), (3, 6), (6, 0), (6, 3) and (6, 6). Such restrictions on indexes should not be implemented here.
 
 ```python
 sudoku = [
@@ -680,13 +680,13 @@ The second function call should check the 3 by 3 block beginning with the square
 4 0 0
 </pre>
 
-This second block would not be checked in an actual game of sudoku.
+This second block would not be checked in an actual game of sudoku, but your function should allow for it to be checked.
 
 </programming-exercise>
 
 <programming-exercise name='Sudoku: check grid' tmcname='part05-07_sudoku_grid'>
 
-Please write a function named `sudoku_grid_correct(sudoku: list)` which takes a two-dimensional array representing a sudoku grid as its argument. The function should use the functions from the three previous exercises to determine whether the complete sudoku grid is filled in correctly. Copy the functions from the exercises above into your Python code file for this exercise.
+Please write a function named `sudoku_grid_correct(sudoku: list)`, which takes a two-dimensional array representing a sudoku grid as its argument. The function should use the functions from the three previous exercises to determine whether the complete sudoku grid is filled in correctly. Copy the functions from the exercises above into your Python code file for this exercise.
 
 The function should check each of the nine rows, columns and 3 by 3 blocks in the grid. If all contain each of the numbers 1 to 9 at most once, the function returns `True`. If a single one is filled in incorrectly, the function returns `False`. 
 
@@ -731,6 +731,8 @@ True
 
 </programming-exercise>
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="ccb6dcbf-1065-513f-9294-15f42a318300"></quiz>
+-->

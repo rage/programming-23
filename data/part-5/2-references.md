@@ -1,5 +1,5 @@
 ---
-path: '/part-5/2-References'
+path: '/part-5/2-references'
 title: 'References'
 hidden: false
 ---

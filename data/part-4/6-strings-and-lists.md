@@ -110,7 +110,7 @@ Steve
 
 </sample-output>
 
-Even though the function calls both have the right kind of arguments, the function always prints out what is stored in the global variable `name_list`.
+Even though both function calls have the right kind of argument, the function always prints out what is stored in the global variable `name_list`.
 
 To make matters even more muddled, remember that all code for testing your functions should be placed within the `if __name__ == "__main__":` block for the automatic tests. The previous example should be modified:
 
