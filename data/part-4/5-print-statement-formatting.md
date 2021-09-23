@@ -23,7 +23,7 @@ age = 37
 print("Hi " + name + " your age is " + str(age) + " years" )
 ```
 
-This method will not work if any of the segments are not strings. In the example above, since the variable `age` is an integer, it has been converted into a string with the `str` function.
+This method will not work if any of the segments are not strings. In the example above, the variable `age` has been converted into a string with the `str` function, since it is an integer and cannot be concatenated as is.
 
 The second method is considering each segment of the argument as a separate argument, and splitting them up with commas:
 
@@ -48,7 +48,7 @@ HiMarkyour age is37years
 </sample-output>
 
 
-The argument `sep=""` is a _keyword argument_, and its name is short for _separator_. It specifies that the other arguments should now be separated by an empty string. You can set the separator to any string you like. For example, if you wanted each argument on a separate line, you could set the separator as `"\n"`, which is the newline character:
+The argument `sep=""` is a _keyword argument_, and its name is short for _separator_. It specifies that the other arguments should now be separated by an empty string. You can set the separator to any string you like. For example, if you wanted each argument on a separate line, you could set the separator to `"\n"`, which is the newline character:
 
 ```python
 print("Hi", name, "your age is", age, "years", sep="\n")
@@ -64,7 +64,7 @@ years
 
 </sample-output>
 
-By default the print command always ends in a newline character, but you can change this as well. The keyword argument `end` specifies what is put at the end of a line. Setting `end` to an empty string means that there is no newline character at the end of the printout:
+By default, the print command always ends in a newline character, but you can change this as well. The keyword argument `end` specifies what is put at the end of a line. Setting `end` to an empty string means that there is no newline character at the end of the printout:
 
 ```python
 print("Hi ", end="")
@@ -87,7 +87,7 @@ age = 39
 print(f"Hi {name} your age is {age} years")
 ```
 
-Thus far we have only used very simple f-strings, but they can be very versatile in formatting printed out content. One very common use case is setting the number of decimals that are printed out with a floating point number. By default the number is quite high:
+Thus far we have only used very simple f-strings, but they can be very versatile in formatting string type content. One very common use case is setting the number of decimals that are printed out with a floating point number. By default the number is quite high:
 
 ```python
 number = 1/3
@@ -113,7 +113,7 @@ The number is 0.33
 
 The format specifier `.2f` states that we want to display 2 decimals. The letter _f_ at the end means that we want the variable to be displayed as a `float`, i.e. a floating point number.
 
-Here's another example, where we specify the amount of whitespace reserved for the variable in the printout. Both times the variable `name` is included it has a space of 15 characters reserved. First the names are justified to the left, and then they are justified to the right:
+Here's another example, where we specify the amount of whitespace reserved for the variable in the printout. Both times the variable `name` is included in the resulting string, it has a space of 15 characters reserved. First the names are justified to the left, and then they are justified to the right:
 
 ```python
 names =  [ "Steve", "Jean", "Katherine", "Paul" ]
@@ -148,9 +148,9 @@ You can think of an f-string as a sort of function, which creates a normal strin
 
 <programming-exercise name='Integers to strings' tmcname='part04-32_integers_to_strings'>
 
-Please write a function named `formatted` which takes a list of floating point numbers as an argument. The function returns a new list which contains each element of the original list as a string, rounded to two decimal points. The order of the items in the list should remain unchanged.
+Please write a function named `formatted`, which takes a list of floating point numbers as its argument. The function returns a new list, which contains each element of the original list in string format, rounded to two decimal points. The order of the items in the list should remain unchanged.
 
-_Hint: use f-strings to format the floating point numbers as suitable strings._
+_Hint: use f-strings to format the floating point numbers into suitable strings._
 
 An example of expected beahviour:
 
@@ -168,6 +168,8 @@ print(new_list)
 
 </programming-exercise>
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="90d650f3-fde1-5132-ade9-73f3b4bf6189"></quiz>
+-->
