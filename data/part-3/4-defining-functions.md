@@ -312,9 +312,9 @@ We will come back to function definitions in the beginning of the next part of t
 
 In the examples above we saw that it is possible to assign new variables within function definitions. The function can also see variables assigned outside it, in the main function. Such variables are called _global_ variables.
 
-Using global variables from within functions is usually a bad idea. Among other issues, doing so may cause bugs that are difficult to trace.
+Using global variables from within functions is usually a bad idea. Among other issues, doing so may cause bugs which are difficult to trace.
 
-Below is an example of a function that uses a global variable "by mistake":
+Below is an example of a function which uses a global variable "by mistake":
 
 ```python
 # this is a global variable

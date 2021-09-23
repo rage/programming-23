@@ -42,7 +42,7 @@ print(my_list[3:7])
 
 ## More slices
 
-In fact the `[]` syntax works very similarly to the `range` function, which means we can also give it a step:
+In fact, the `[]` syntax works very similarly to the `range` function, which means we can also give it a step:
 
 ```python
 my_string = "exemplary"
@@ -58,7 +58,7 @@ eepa
 
 </sample-output>
 
-If we omit either of the indices, the operator defaults to including everything. Among other things, this allows us to write a very short program to reverse a string:
+If we omit either of the indexes, the operator defaults to including everything. Among other things, this allows us to write a very short program to reverse a string:
 
 ```python
 my_string = input("Please type in a string: ")
@@ -77,9 +77,9 @@ yralpmexe
 
 We know it is possible to assign new variables within function definitions, but the function can also see variables assigned outside it, in the main function. Such variables are called _global_ variables.
 
-Using global variables from within functions is usually a bad idea. Among other issues, doing that may cause bugs that are difficult to trace.
+Using global variables from within functions is usually a bad idea. Among other issues, doing so may cause bugs which are difficult to trace.
 
-Below is an example of a function that uses a global variable "by mistake":
+Below is an example of a function which uses a global variable "by mistake":
 
 ```python
 def print_reversed(names: list):
@@ -133,11 +133,11 @@ if __name__ == "__main__":
 
 Notice the global variable is assigned within the `if` block now.
 
-The automatic tests in the TMC system are executed without running any of the code in the `if` block. So, in this latter example the function couldn't even theoretically work at all, since it refers to the variable `name_list`, which doesn't exist at all when the tests are executed.
+The automatic tests in the TMC system are executed without running any of the code in the `if` block. So, in this latter example the function wouldn't even theoretically work, since it refers to the variable `name_list`, which doesn't exist at all when the tests are executed.
 
 <programming-exercise name='Everything reversed' tmcname='part04-33_everything_reversed'>
 
-Please write a function named `everything_reversed` which takes a list of strings as an argument. The function returns a new list with all of the items on the original list reversed. Also the order of items should be reversed on the new list.
+Please write a function named `everything_reversed`, which takes a list of strings as its argument. The function returns a new list with all of the items on the original list reversed. Also the order of items should be reversed on the new list.
 
 An example of how the function should work:
 
@@ -157,7 +157,7 @@ print(new_list)
 
 ## Strings are immutable
 
-Strings and lists have a lot in common, especially in the way they behave with different operators. The main difference is that strings are _immutable_, that is, they cannot be changed.
+Strings and lists have a lot in common, especially in the way they behave with different operators. The main difference is that strings are _immutable_. That means they cannot be changed.
 
 ```python
 my_string = "exemplary"
@@ -186,7 +186,7 @@ my_list[0] = 10
 <img src="4_4_1.png">
 
 ```python
-my_string = "Hi"
+my_string = "Hey"
 my_string = my_string + "!"
 ```
 
@@ -244,7 +244,7 @@ SHEila sells seaSHElls on the seashore
 
 </sample-output>
 
-A typical mistake when using the `replace` method is forgetting strings are immutable:
+When using the `replace` method, a typical mistake is forgetting that strings are immutable:
 
 ```python
 my_string = "Python is fun"
@@ -278,12 +278,12 @@ Java is fun
 
 <programming-exercise name='Most common character' tmcname='part04-34_most_common_character'>
 
-Please write a function named `most_common_character` which takes a string argument. The function returns the character which has the most occurrences within the string. If there are many characters with equally many occurrences, the one which appears first in the string should be returned.
+Please write a function named `most_common_character`, which takes a string argument. The function returns the character which has the most occurrences within the string. If there are many characters with equally many occurrences, the one which appears first in the string should be returned.
 
 An example of expected behaviour:
 
 ```python
-first_string = "abcbdbe"
+first_string = "abcdbde"
 print(most_common_character(first_string))
 
 second_string = "exemplaryelementary"
@@ -302,7 +302,7 @@ e
 
 <programming-exercise name='No vowels allowed' tmcname='part04-23_no_vowels'>
 
-Please write a function named `no_vowels` which takes a string argument, The function returns a new string which is the same as the original but with all vowels removed. 
+Please write a function named `no_vowels`, which takes a string argument. The function returns a new string, which should be the same as the original but with all vowels removed. 
 
 You can assume the string will contain only characters from the lowercase English alphabet a...z.
 
@@ -342,7 +342,7 @@ False
 
 </sample-output>
 
-Please use the `isupper` method to write a function named `no_shouting` which takes a list of strings as an argument. The function returns a new list containing only those items from the original which do not consist of solely uppercase characters.
+Please use the `isupper` method to write a function named `no_shouting`, which takes a list of strings as an argument. The function returns a new list, containing only those items from the original which do not consist of solely uppercase characters.
 
 An example of expected behaviour:
 
@@ -362,9 +362,9 @@ print(pruned_list)
 
 <programming-exercise name='Neighbours in a list' tmcname='part04-37_neighbours_in_list'>
 
-Let's decide that the items in a list are neighbours if their difference is 1. So, items 1 and 2 would be neighbours, and so would items 56 and 55.
+Given a list of integers, let's decide that two consecutive items in the list are neighbours if their difference is 1. So, items 1 and 2 would be neighbours, and so would items 56 and 55.
 
-Please write a function named `longest_series_of_neighbours` which looks for the longest series of neighbours within the list, and returns its length. 
+Please write a function named `longest_series_of_neighbours`, which looks for the longest series of neighbours within the list, and returns its length. 
 
 For example, in the list `[1, 2, 5, 4, 3, 4]` the longest list of neighbours would be  `[5, 4, 3, 4]`, with a length of 4.
 
@@ -389,7 +389,7 @@ This fourth part culminates in a slightly larger programming project, where you 
 
 Rule No. 1 in tackling any programming project is not trying to solve everything at once. The program should be built out of smaller sections, such as helper functions. You should verify the operation of each part before moving on to the next. If you try to handle too much at once, most likely only chaos ensues.
 
-To do this you will need a way of testing your functions outside the main function. You can achieve this by defining a main function excplicitly, and calling this function from outside any other function in the program. A single function call is then easy to comment out for testing. The first steps in building the following programming project could look like this:
+To do this you will need a way of testing your functions outside the main function. You can achieve this by defining a main function explicitly, and calling this function from outside any other function in the program. A single function call is then easy to comment out for testing. The first steps in building the following programming project could look like this:
 
 ```python
 def main():
@@ -472,11 +472,11 @@ There are altogether 5 numbers, the mean is 11.6, the smallest is -53 and the gr
 
 </sample-output>
 
-The idea here is that the main function "saves" all data processed by the program. In this case all that is needed is the inut from the user in the variable `inputs`.
+The idea here is that the main function "saves" all data processed by the program. In this case all that is needed is the input from the user in the variable `inputs`.
 
-If the input is needed in a function, it is passed as an argument. This happens with the functions `print_result` and `analyze`. If the function produces data that is needed elsewhere in the program, the function returns it with the `return` command. This happens with the functions `input_from_user` and `analyze`.
+If the input is needed in a function, it is passed as an argument. This happens with the functions `print_result` and `analyze`. If the function produces data that is needed elsewhere in the program, the function returns it with the `return` command, and it is stored in a variable in the main function. This happens with the functions `input_from_user` and `analyze`.
 
-You could use the global function `inputs` from the main function directly in the helper functions. We have already covered why that is a bad idea, but [here is another explanation](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil). If functions are able to change a global variable, unexpected things may start happening in the program, especially when the number of functions grows large.
+You could use the global variable `inputs` from the main function directly in the helper functions. We have already covered why that is a bad idea, but [here is another explanation](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil). If functions are able to change a global variable, unexpected things may start happening in the program, especially when the number of functions grows large.
 
 Passing data into and out of functions is best handled by arguments and return values.
 
@@ -497,13 +497,13 @@ main()
 
 <programming-exercise name='Grade statistics' tmcname='part04-38_grade_statistics'>
 
-In this exercise you will write a program for printing out grade statistics for a single student.
+In this exercise you will write a program for printing out grade statistics for a university course.
 
-The program asks the user for exam points and exercises completed from the courses the student has taken, and then prints out statistics based on the numbers.
+The program asks the user for results from different students on the course. These include exam points and numbers of exercises completed. The program then prints out statistics based on the results.
 
 Exam points are integers between 0 and 20. Exercise points are integers between 0 and 100.
 
-The program kees asking for input until the user types in an empty line. You may assume all lines contain valid input, that is, there are two integers on the line or the line is empty.
+The program kees asking for input until the user types in an empty line. You may assume all lines contain valid input, which means that there are two integers on each line, or the line is empty.
 
 And example of how the data is typed in:
 
@@ -518,9 +518,9 @@ Statistics:
 
 </sample-output>
 
-When the user types in an empty line the program prints out statistics. They are formulated as follows:
+When the user types in an empty line, the program prints out statistics. They are formulated as follows:
 
-The exercises completed are converted into _exercise points_, so that completing at least 10% of the exercises grant one point, 20% grants two points, and so forth. Completing all the 100 exercises grants 10 exercise points. Remember, the number of exercises completed is also an integer value.
+The exercises completed are converted into _exercise points_, so that completing at least 10% of the exercises grants one point, 20% grants two points, and so forth. Completing all 100 exercises grants 10 exercise points. Remember, the number of exercises completed is also an integer value.
 
 The grade for the course is determined based on the following table:
 
@@ -533,7 +533,7 @@ exam points + exercise points   | grade
 24–27 | 4
 28–30 | 5
 
-There is also an exam cutoff threshold. If the student received less than 10 points from the exam, they automatically fail the course regardless of total number of points.
+There is also an exam cutoff threshold. If a student received less than 10 points from the exam, they automatically fail the course, regardless of their total number of points.
 
 With the example input from above the program would print out the following statistics:
 
@@ -584,9 +584,11 @@ Ongelmaan pyritään saamaan parempi ratkaisu lähipäivinä. -->
 
 </programming-exercise>
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="925f1715-d762-5e44-a812-be13bff1aa44"></quiz>
+-->
 
 Please respond to a quick questionnaire on this week's materials. 
 

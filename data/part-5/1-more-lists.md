@@ -87,9 +87,9 @@ The mean is: 10.15
 
 We know it is possible to assign new variables within function definitions, but the function can also see variables assigned outside it, in the main function. Such variables are called _global_ variables.
 
-Using global variables from within functions is usually a bad idea. Among other issues, doing that may cause bugs that are difficult to trace.
+Using global variables from within functions is usually a bad idea. Among other issues, doing so may cause bugs which are difficult to trace.
 
-Below is an example of a function that uses a global variable "by mistake":
+Below is an example of a function which uses a global variable "by mistake":
 
 ```python
 def print_reversed(names: list):
@@ -143,7 +143,7 @@ if __name__ == "__main__":
 
 Notice the global variable is assigned within the `if` block now.
 
-The automatic tests in the TMC system are executed without running any of the code in the `if` block. So, in this latter example the function couldn't even theoretically work at all, since it refers to the variable `name_list`, which doesn't exist at all when the tests are executed.
+The automatic tests in the TMC system are executed without running any of the code in the `if` block. So, in this latter example the function wouldn't even theoretically work, since it refers to the variable `name_list`, which doesn't exist at all when the tests are executed.
 
 ## Warning: overwriting a parameter and returning too early
 
