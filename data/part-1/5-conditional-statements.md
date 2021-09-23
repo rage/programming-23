@@ -50,7 +50,7 @@ Next customer, please!
 
 These examples show us that the value given as input affects which parts of the program are executed. The program contains a _conditional statement_ with a block of code which is executed only if the condition in the statement is true.
 
-<img src="1_6.png">
+<img src="1_5_1.png">
 
 In a conditional statement the keyword `if` is followed by a _condition_, such as a comparison of two values. The code block following this header line is only executed if the condition is true.
 
@@ -145,11 +145,11 @@ print("The program has finished its execution. Thanks and bye!")
 
 You can use the Tab key, short for _tabulator_ key, to insert a set amount of whitespace.
 
-<img src="1_6_keyboard.png">
+<img src="1_5_keyboard.png">
 
 Many text editors will automatically indent the following line when the Enter key is pressed after a colon character. When you want to end an indented code block you can use the `Backspace` key to return to the beginning of the line.
 
-<img src="1_6_keyboard2.png">
+<img src="1_5_keyboard2.png">
 <small><center>
 The source of the keyboard pictures:
  <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=311803">Pixabay</a>

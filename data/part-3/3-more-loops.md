@@ -121,7 +121,7 @@ print (f"The sum is {sum}")
 
 Another way to change the way a loop is executed is the `continue` command. It causes the execution of the loop to jump straight to the beginning of the loop, where the condition of the loop is. Then the execution continues normally with checking the condition:
 
-<img src="3_3.png">
+<img src="3_3_1.png">
 
 For example, the following program sums up numbers from input, but it only includes the numbers which are smaller than 10. If the number is 10 or greater, the execution jumps to the beginning of the loop and the number is not added to the sum.
 

@@ -314,7 +314,7 @@ Besides print statements, there are many other tools that can be used for debugg
 
 The slightly broken code from the debugging example in the [previous section](/part-2/4-simple-loops) is visualised with Python Tutor in the following image:
 
-<img src="3_1_0.png">
+<img src="3_1_3.png">
 
 The red arrow points to where the execution of the program is at the moment. The tool displays what has been printed out so far, and also shows the value each variable has at each step. The execution moves forward line by line as you press _Next_.
 

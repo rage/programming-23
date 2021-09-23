@@ -48,7 +48,7 @@ prints out
 
 A calculation usually consists of *operands* and *operators*:
 
-<img src="1_5.png">
+<img src="1_4_1.png">
 
 The data type of an operand usually determines the data type of the result: if two integers are added together, the result will also be an integer. If a floating point number is subtracted from another floating point number, the result is a floating point number. In fact, if a single one of the operands in an expression is a floating point number, the result will also be a floating point number, regardless of the other operands.
 
