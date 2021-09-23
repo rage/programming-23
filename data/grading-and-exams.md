@@ -27,6 +27,17 @@ Submissions are assessed separately for the Introduction to Programming course (
 
 You may take part in any number of the exams listed above. The highest grade achieved will be your final grade.
 
+## Information about exam arrangements
+
+* You do not need to enrol for the exam.
+* The course exam can be taken on exam date **between 10:00 AM and 10:00 PM**.
+* The exam ends at 10:00 PM at the latest. If you want to be able to spend the maximum time allowed on the exam, you should **start at 6:00 PM at the latest**.
+* You will have **four hours** to complete the exam. If you have been granted extra time through special arrangements, you will have five hours to complete the exam, and should start at 5:00 PM at the latest.
+* The exam questions, in the form of programming task instructions, will become available at <a href="https://exams.mooc.fi/en">https://exams.mooc.fi/en</a> at 10:00 AM on the day of the exam.
+* Your solutions to the programming tasks in the exam are submitted in the same manner as your solutions to the programming exercises on the course.
+
+More detailed instructions will be published on these pages before the exam date.
+
 ## Exercise points
 
 Each programming exercise and quiz in each part is worth a number of exercise points. You can find a list of all the exercises in a specific part by clicking the "List of exercises in this part" menu on the index page of that part. You can see your current exercise points total by clicking the blue blob in the bottom right corner of any page in the course material. The percentage in the "Total points" section for each part is the critical one for passing the course.
