@@ -170,7 +170,7 @@ Pisteellä merkitään mitä tahansa yksittäistä merkkiä. Niinpä merkintä `
 
 <sample-output>
 
-Anna lauseke: ^[123]*$
+Anna lauseke: \^[123]*$
 Anna testijono: 4
 Ei osumaa.
 Anna testijono: 1221
