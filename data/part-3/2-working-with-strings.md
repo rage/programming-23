@@ -645,11 +645,11 @@ while True:
 <sample-output>
 
 What are you looking for? **perp**
-Found it at the index 7
+Found it at the index 0
 What are you looking for? **abc**
 Not found
 What are you looking for? **pen**
-Found it at the index 2
+Found it at the index 3
 ...
 
 </sample-output>
