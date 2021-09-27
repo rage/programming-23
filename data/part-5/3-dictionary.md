@@ -73,7 +73,7 @@ Sanaa ei löytynyt
 
 ## Mitä sanakirjassa voi olla?
 
-Vaikka tietorakenteen nimi on sanakirja, siinä ei ole usein sanakirjaa vaan jotain muuta tietoa. Esimerkiksi seuraavassa sanakirjassa avaimet ovat merkkijonoja ja arvot ovat kokonaislukuja:
+Vaikka tietorakenteen name on sanakirja, siinä ei ole usein sanakirjaa vaan jotain muuta tietoa. Esimerkiksi seuraavassa sanakirjassa avaimet ovat merkkijonoja ja arvot ovat kokonaislukuja:
 
 ```python
 tulokset = {}
@@ -131,14 +131,14 @@ Huomaa, että sanakirjassa olevaa avainta vastaavan arvon ei tarvitse olla muutt
 
 <programming-exercise name='Times ten' tmcname='part05-14_times_ten'>
 
-Tee funktio `kertaa_kymmenen(alku: int, loppu: int)`, joka muodostaa ja palauttaa uuden sanakirjan. Sanakirjassa on avaimina luvut väliltä `alku`..`loppu`.
+Please write a function named `times_ten(start_index: int, end_index: int)`, which creates and returns a new dictionary. The keys of the dictionary should be the numbers between `start_index` and `end_index` inclusive
 
-Jokaisen avaimen arvona on avain kerrottuna kymmenellä.
+The value mapped to each key should be the key times ten.
 
-Esimerkiksi:
+For example:
 
 ```python
-d = kertaa_kymmenen(3, 6)
+d = times_ten(3, 6)
 print(d)
 ```
 
@@ -152,14 +152,14 @@ print(d)
 
 <programming-exercise name='Factorials' tmcname='part05-15_factorials'>
 
-Tee funktio `kertomat(n: int)`, joka palauttaa lukujen 1..`n` kertomat sanakirjassa siten, että luku on avain ja luvun kertoma arvo, johon avain viittaa.
+Please write a function named `factorials(n: int)`, which returns the factorials of the numbers 1 to `n` in a dictionary so that the number is the key, and the factorial of that number is the value mapped to it.
 
-Muistutuksena: luvun `n` kertoma `n`! lasketaan kertomalla luku kaikilla itseään pienemmillä positiivisilla kokonaisluvuilla. Luvun 4 kertoma on siis 4 * 3 * 2 * 1 = 24.
+A reminder: the factorial of the number `n` is written `n`! and is calculated by multiplying the number by each integer smaller than itself. For example, the factorial of 4 is 4 * 3 * 2 * 1 = 24.
 
-Esimerkki käytöstä:
+An example of the function in action:
 
 ```python
-k = kertomat(5)
+k = factorials(5)
 print(k[1])
 print(k[3])
 print(k[5])
@@ -313,9 +313,9 @@ kirjaimella s alkavat sanat:
 
 <programming-exercise name='Histogram' tmcname='part05-16_histogram'>
 
-Tee funktio `histogrammi`, joka saa parametrina merkkijonon ja tulostaa merkkijonon eri kirjainten lukumäärää kuvaavan histogrammin, jossa kirjaimen jokaista esiintymää kohti tulostuu yksi tähti kirjaimen riville.
+Please write a function named `histogram`, which takes a string as its argument. The function should print out a histogram representing the number of times each letter occurs in the string. Each occurrence of a letter should be represented by a star on the specific line for that letter. 
 
-Esimerkiksi kutsuttaessa `histogrammi("abba")` tulostus on:
+For example, `histogram("abba")` would print out this:
 
 <sample-output>
 
@@ -326,17 +326,18 @@ b **
 
 </sample-output>
 
-Vastaavasti kutsuttaessa `histogrammi("saippuakauppias")` tulostus on:
+The function call `histogram("statistically")` should print out:
 
 <sample-output>
 
 <pre>
 s **
-a ****
+t ***
+a **
 i **
-p ****
-u **
-k *
+c *
+l **
+y *
 </pre>
 
 </sample-output>
@@ -345,73 +346,72 @@ k *
 
 <programming-exercise name='Phone book, version 1' tmcname='part05-17_phone_book_v1'>
 
-Tee puhelinluettelo, joka toimii seuraavasti:
+Please write a phone book application. It should work as follows:
 
 <sample-output>
 
-komento (1 hae, 2 lisää, 3 lopeta): **2**
-nimi: **pekka**
-numero: **040-5466745**
+command (1 search, 2 add, 3 quit): **2**
+name: **peter**
+number: **040-5466745**
 ok!
-komento (1 hae, 2 lisää, 3 lopeta): **2**
-nimi: **emilia**
-numero: **045-1212344**
+command (1 search, 2 add, 3 quit): **2**
+name: **emily**
+number: **045-1212344**
 ok!
-komento (1 hae, 2 lisää, 3 lopeta): **1**
-nimi: **pekka**
+command (1 search, 2 add, 3 quit): **1**
+name: **peter**
 040-5466745
-komento (1 hae, 2 lisää, 3 lopeta): **1**
-nimi: **maija**
-ei numeroa
-komento (1 hae, 2 lisää, 3 lopeta): **2**
-nimi: **pekka**
-numero: **09-22223333**
+command (1 search, 2 add, 3 quit): **1**
+name: **mary**
+no number in phone book
+command (1 search, 2 add, 3 quit): **2**
+name: **peter**
+number: **09-22223333**
 ok!
-komento (1 hae, 2 lisää, 3 lopeta): **1**
-nimi: **pekka**
+command (1 search, 2 add, 3 quit): **1**
+name: **peter**
 09-22223333
-komento (1 hae, 2 lisää, 3 lopeta): **3**
-lopetetaan...
+command (1 search, 2 add, 3 quit): **3**
+quitting...
 
 </sample-output>
 
-Huomaa, että jokaiseen nimeen voi liittyä vain yksi puhelinnumero. Jos samalle henkilölle lisätään uusi numero, se korvaa aiemmin lisätyn numeron.
+As you can see above, each name can be attached to a single number only. If a new entry with the same name is added, the number attached to the old entry is replaced with the new number.
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
 <programming-exercise name='Phone book, version 2' tmcname='part05-18_phone_book_v2'>
 
-Tee puhelinluettelosta paranneltu versio, missä jokaisella henkilöllä voi olla useampia puhelinnumeroita. Ohjelma toimii kuten edellisessä tehtävässä, mutta nyt se listaa jokaisen numeron:
+Please write an improved version of the phone book application. Each entry should now accommodate multiple phone numbers. The application should work otherwise exactly as above, but this time _all_ numbers attached to a name should be printed.
 
 <sample-output>
 
-komento (1 hae, 2 lisää, 3 lopeta): **2**
-nimi: **pekka**
-numero: **040-5466745**
+command (1 search, 2 add, 3 quit): **2**
+name: **peter**
+number: **040-5466745**
 ok!
-komento (1 hae, 2 lisää, 3 lopeta): **2**
-nimi: **emilia**
-numero: **045-1212344**
+command (1 search, 2 add, 3 quit): **2**
+name: **emily**
+number: **045-1212344**
 ok!
-komento (1 hae, 2 lisää, 3 lopeta): **1**
-nimi: **pekka**
+command (1 search, 2 add, 3 quit): **1**
+name: **peter**
 040-5466745
-komento (1 hae, 2 lisää, 3 lopeta): **1**
-nimi: **maija**
-ei numeroa
-komento (1 hae, 2 lisää, 3 lopeta): **2**
-nimi: **pekka**
-numero: **09-22223333**
+command (1 search, 2 add, 3 quit): **1**
+name: **mary**
+no number in phone book
+command (1 search, 2 add, 3 quit): **2**
+name: **peter**
+number: **09-22223333**
 ok!
-komento (1 hae, 2 lisää, 3 lopeta): **1**
-nimi: **pekka**
+command (1 search, 2 add, 3 quit): **1**
+name: **peter**
 040-5466745
 09-22223333
-komento (1 hae, 2 lisää, 3 lopeta): **3**
-lopetetaan...
+command (1 search, 2 add, 3 quit): **3**
+quitting...
 
 </programming-exercise>
 
@@ -521,52 +521,52 @@ henkilokunta.clear()
 
 <programming-exercise name='Invert a dictionary' tmcname='part05-19_invert_dictionary'>
 
-Kirjoita funktio `kaanna(sanakirja: dict)`, joka saa parametrikseen sanakirjan ja kääntää sen niin, että arvoista tulee avaimia ja päinvastoin.
+Please write a function named `invert(dictionary: dict)`, which takes a dictionary as its argument. The dictionary should be inverted in place so that values become keys and keys become values.
 
-Esimerkki funktion käytöstä:
+An example of its use:
 
 ```python
-s = {1: "eka", 2: "toka", 3: "kolmas", 4: "neljas"}
-kaanna(s)
+s = {1: "first", 2: "second", 3: "third", 4: "fourth"}
+invert(s)
 print(s)
 ```
 
 <sample-output>
 
-{"eka": 1, "toka": 2, "kolmas": 3, "neljas": 4}
+{"first": 1, "second": 2, "third": 3, "fourth": 4}
 
 </sample-output>
 
-**Huomaa**, että [tämä](/osa-5/2-viittaukset#parametrina-olevan-listan-muokkaaminen) pitää paikkansa myös parametrina oleville sanakirjoille!
+**NB:** the same principles covered [here](/part-5/2-references#using-lists-as-parameters-in-functions) regarding lists also hold for dictionaries passed as arguments.
 
-Jos kohtaat tehtävässä ongelmia, katso [visualisaattorilla](http://www.pythontutor.com/visualize.html#mode=edit) mitä koodisi tekee.
+If you have trouble completing this exercise, the [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) might help you understand what your code is or isn't doing.
 
 </programming-exercise>
 
 <programming-exercise name='Numbers spelled out' tmcname='part05-20_numbers_spelled_out'>
 
-Kirjoita funktio `lukukirja()`, joka palauttaa uuden sanakirjan. Palautettu rakenne sisältää avaimina luvut nollasta 99:ään. Sanakirjan arvoina ovat luvut kirjaimin kirjoitettuna. Katso esimerkkiä alla:
+Please write a function named `dict_of_numbers()`, which returns a new dictionary. The dictionary should have the numbers from 0 to 99 as its keys. The value attached to each key should be the number spelled out in words. Please have a look at the example below:
 
 ```python
-luvut = lukukirja()
-print(luvut[2])
-print(luvut[11])
-print(luvut[45])
-print(luvut[99])
-print(luvut[0])
+numbers = dict_of_numbers()
+print(numbers[2])
+print(numbers[11])
+print(numbers[45])
+print(numbers[99])
+print(numbers[0])
 ```
 
 <sample-output>
 
-kaksi
-yksitoista
-neljäkymmentäviisi
-yhdensänkymmentäyhdeksän
-nolla
+two
+eleven
+forty-five
+ninety-nine
+zero
 
 </sample-output>
 
-HUOM! Älä muodosta jokaista lukusanaa yksitellen, vaan mieti, miten voisit hyödyntää silmukoita ja sanakirjaa jotenkin ratkaisussasi!
+NB: Please don't formulate each spelled out number by hand. Figure out how you can use loops and dictionaries in your solution.
 
 </programming-exercise>
 
@@ -575,14 +575,14 @@ HUOM! Älä muodosta jokaista lukusanaa yksitellen, vaan mieti, miten voisit hy�
 Voimme käyttää sanakirjaa myös tiedon ryhmittelyssä. Esimerkiksi seuraava koodi luo sanakirjan, jossa on tietoa henkilöstä:
 
 ```python
-henkilo = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä:" 44}
+henkilo = {"name": "Pirjo Python", "pituus": 154, "paino": 61, "ikä:" 44}
 ```
 
-Tämä tarkoittaa, että henkilön nimi on Pirjo Python, pituus on 154, paino on 61 ja ikä on 44.
+Tämä tarkoittaa, että henkilön name on Pirjo Python, pituus on 154, paino on 61 ja ikä on 44.
 Huomaa, että olisimme voineet tallentaa tiedot myös näin muuttujiin:
 
 ```python
-nimi = "Pirjo Python"
+name = "Pirjo Python"
 pituus = 154
 paino = 61
 ika = 44
@@ -599,14 +599,14 @@ Listan huono puoli on kuitenkin, että ohjelmoijan on muistettava, mihin kohtaan
 Esimerkiksi voimme käsitellä henkilöitä näin:
 
 ```python
-henkilo1 = {"nimi": "Pirjo Python", "pituus": 154, "paino": 61, "ikä": 44}
-henkilo2 = {"nimi": "Pekka Pythonen", "pituus": 174, "paino": 103, "ikä": 31}
-henkilo3 = {"nimi": "Pedro Python", "pituus": 191, "paino": 71, "ikä": 14}
+henkilo1 = {"name": "Pirjo Python", "pituus": 154, "paino": 61, "ikä": 44}
+henkilo2 = {"name": "Victor Pythingen", "pituus": 174, "runtime": 103, "ikä": 31}
+henkilo3 = {"name": "Pedro Python", "pituus": 191, "paino": 71, "ikä": 14}
 
 henkilot = [henkilo1, henkilo2, henkilo3]
 
 for henkilo in henkilot:
-    print(henkilo["nimi"])
+    print(henkilo["name"])
 
 yhteispituus = 0
 for henkilo in henkilot:
@@ -618,37 +618,37 @@ print("Keskipituus on", yhteispituus / len(henkilot))
 <sample-output>
 
 Pirjo Python
-Pekka Pythonen
+Victor Pythingen
 Pedro Python
-Keskipituus on 173.0
+Keskipituus on 173.runtime
 
 </sample-output>
 
 <programming-exercise name='Movie database' tmcname='part05-21_movie_database'>
 
-Kirjoita funktio `lisaa_elokuva(rekisteri: list, nimi: str, ohjaaja: str, vuosi: int, pituus: int)`, joka lisää yhden elokuvaolion elokuvarekisteriin.
+Please write a function named `add_movie(database: list, name: str, director: str, year: int, runtime: int)`, which adds a new movie object into a movie database.
 
-Rekisteri on toteutettu listana, ja jokainen listan alkio on yksi sanakirja. Sanakirjassa on seuraavat avaimet:
+The database is a list, and each movie object on the list is a dictionary. The dictionary should contain the following keys.
 
-* nimi
-* ohjaaja
-* vuosi
-* pituus
+* name
+* director
+* year
+* runtime
 
-Arvot tulevat metodin parametreina.
+The values attached to these keys are given as arguments to the function.
 
-Esimerkki:
+An example of its use:
 
 ```python
-rekisteri = []
-lisaa_elokuva(rekisteri, "Pythonin viemää", "Pekka Python", 2017, 116)
-lisaa_elokuva(rekisteri, "Python lentokoneessa", "Renny Pytholin", 2001, 94)
-print(rekisteri)
+database = []
+add_movie(database, "Gone with the Python", "Victor Pything", 2017, 116)
+add_movie(database, "Pythons on a Plane", "Renny Pytholin", 2001, 94)
+print(database)
 ```
 
 <sample-output>
 
-[{"nimi": "Pythonin viemää", "ohjaaja": "Pekka Python", "vuosi": 2017, "pituus": 116}, {"nimi": "Python lentokoneessa", "ohjaaja": "Renny Pytholin", "vuosi": 2001, "pituus": 94}]
+[{"name": "Gone with the Python", "director": "Victor Pything", "year": 2017, "runtime": 116}, {"name": "Pythons on a Plane", "director": "Renny Pytholin", "year": 2001, "runtime": 94}]
 
 </sample-output>
 
@@ -656,27 +656,29 @@ print(rekisteri)
 
 <programming-exercise name='Find movies' tmcname='part05-22_find_movies'>
 
-Kirjoita funktio `etsi_elokuvat(rekisteri: list, hakusana: str)`, joka käsittelee edellisessä tehtävässä luotua elokuvarekisteriä. Funktio muodostaa uuden listan, jolle kopioidaan rekisteristä ne elokuvat, joiden nimestä löytyy hakusana. Pienet ja isot kirjaimet eivät merkitse haussa, joten hakusanalla `paj` pitää löytyä sekä elokuva `Tappajahai` että elokuva `Pajatoiminnan historia`.
+Please write a function named `find_movies(database: list, search_term: str)`, which processes the movie database created in the previous exercise. The function should formulate a new list, which contains only the movies whose title includes the word searched for. Capitalisation is irrelevant here. A search for `ana` should return a list containing both `Anaconda` and `Management`.
 
 Esimerkki:
 
 ```python
-rekisteri = [{"nimi": "Pythonin viemää", "ohjaaja": "Pekka Python", "vuosi": 2017, "pituus": 116},
-{"nimi": "Python lentokoneessa", "ohjaaja": "Renny Pythonen", "vuosi": 2001, "pituus": 94},
-{"nimi": "Koodaajien yö", "ohjaaja": "M. Night Python", "vuosi": 2011, "pituus": 101}]
+database = [{"name": "Gone with the Python", "director": "Victor Pything", "year": 2017, "runtime": 116},
+{"name": "Pythons on a Plane", "director": "Renny Pytholin", "year": 2001, "runtime": 94},
+{"name": "Dawn of the Dead Programmers", "director": "M. Night Python", "year": 2011, "runtime": 101}]
 
-lista = etsi_elokuvat(rekisteri, "python")
-print(lista)
+my_list = find_movies(database, "python")
+print(my_list)
 ```
 
 <sample-output>
 
-[{"nimi": "Pythonin viemää", "ohjaaja": "Pekka Python", "vuosi": 2017, "pituus": 116}, {"nimi": "Python lentokoneessa", "ohjaaja": "Renny Pythonen", "vuosi": 2001, "pituus": 94}]
+[{"name": "Gone with the Python", "director": "Victor Pything", "year": 2017, "runtime": 116}, {"name": "Pythons on a Plane", "director": "Renny Pytholin", "year": 2001, "runtime": 94}]
 
 </sample-output>
 
 </programming-exercise>
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="6361eeca-a2e2-5577-892c-749706d754f0"></quiz>
+-->
