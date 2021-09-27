@@ -101,9 +101,9 @@ Rivien yhteispituus: 63
 
 Huomaa, että rivien läpikäynnissä jokaisen rivin perässä on rivinvaihto `\n`. Yllä oleva koodi kuitenkin poistaa rivinvaihdot `replace`-funktiolla, joka korvaa rivinvaihdot tyhjillä merkkijonoilla. Tämän ansiosta tulostukseen ei tule ylimääräisiä rivivaihtoja ja ohjelma laskee oikein tiedoston rivien yhteispituuden.
 
-<programming-exercise name='Suurin luku' tmcname='osa06-01_suurin_luku'>
+<programming-exercise name='Biggest Number' tmcname='osa06-01_suurin_luku'>
 
-Tiedostoon `luvut.txt` on tallennettu lukuja, yksi luku per rivi seuraavan esimerkin mukaisesti:
+File `numbers.txt` contains numbers, one number per line. For example:
 
 ```sh
 2
@@ -112,14 +112,14 @@ Tiedostoon `luvut.txt` on tallennettu lukuja, yksi luku per rivi seuraavan esime
 3
 -10
 1100
-...jne...
+...etc...
 ```
 
-Kirjoita funktio `suurin`, joka lukee tiedoston ja palauttaa suurimman tiedostosta löytyvän luvun.
+Write a function `largest`, which reads the file and returns the largest number from the file.
 
-Huomaa, että tiedoston nimi on aina `luvut.txt` eikä funktiolle anneta parametria.
+Please notice, that the file is always named `numbers.txt` and the function does not receive any arguments.
 
-**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla seuraavaa heti tehtävän jälkeen olevaa ohjetta.
+**Note!** If VS Code can't find the file and you have checked that there are no spelling errors, take a look at the instructions following the exercise.etta.
 
 </programming-exercise>
 
@@ -213,24 +213,20 @@ Arvosanat: ['4', '5', '5', '4', '5', '5', '4', '5', '4', '4']
 
 </sample-output>
 
-<programming-exercise name='Hedelmäkauppa' tmcname='osa06-02_hedelmakauppa'>
+<programming-exercise name='Fruit Store' tmcname='osa06-02_hedelmakauppa'>
 
-Tiedostossa `hedelmat.csv` on hedelmiä hintoineen seuraavan esimerkin mukaisesti:
+File `fruits.csv` contains fruits and their prices according to following example:
 
 ```sh
-banaani;6.50
-omena;4.95
-appelsiini;8.0
-...jne...
+banana;6.50
+apple;4.95
+orange;8.0
+...etc...
 ```
 
-Kirjoita funktio `lue_hedelmat`, joka lukee hedelmätiedoston ja muodostaa siitä sanakirjan, jossa hedelmän nimi on avain ja hinta arvo. Hinnan tulee olla `float`-arvona sanakirjassa.
+Write function `read_fruits`, which reads the file and returns a dictionary based on the file. In the dictionary, name of the fruit is key and the price value. Price needs to be of type `float`.
 
-Huomaa, että tiedoston nimi on aina `hedelmat.csv` eikä funktiolle anneta parametria.
-
-Lopuksi funktio palauttaa tämän sanakirjan.
-
-**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) olevaa ohjetta.
+Please note, that the name of the file is always `fruits.csv` and the function does not receive any arguments.
 
 </programming-exercise>
 
