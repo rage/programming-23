@@ -152,7 +152,7 @@ print(d)
 
 <programming-exercise name='Factorials' tmcname='part05-15_factorials'>
 
-Please write a function named `factorials(n: int)`, which returns the factorials of the numbers 1 to `n` in a dictionary so that the number is the key, and the factorial of that number is the value mapped to it.
+Please write a function named `factorials(n: int)`, which returns the factorials of the numbers 1 to `n` in a dictionary. The number is the key, and the factorial of that number is the value mapped to it.
 
 A reminder: the factorial of the number `n` is written `n`! and is calculated by multiplying the number by each integer smaller than itself. For example, the factorial of 4 is 4 * 3 * 2 * 1 = 24.
 
@@ -315,7 +315,7 @@ kirjaimella s alkavat sanat:
 
 Please write a function named `histogram`, which takes a string as its argument. The function should print out a histogram representing the number of times each letter occurs in the string. Each occurrence of a letter should be represented by a star on the specific line for that letter. 
 
-For example, `histogram("abba")` would print out this:
+For example, the function call `histogram("abba")` should print out 
 
 <sample-output>
 
@@ -326,7 +326,7 @@ b **
 
 </sample-output>
 
-The function call `histogram("statistically")` should print out:
+while `histogram("statistically")` should print out
 
 <sample-output>
 
@@ -363,7 +363,7 @@ name: **peter**
 040-5466745
 command (1 search, 2 add, 3 quit): **1**
 name: **mary**
-no number in phone book
+no number
 command (1 search, 2 add, 3 quit): **2**
 name: **peter**
 number: **09-22223333**
@@ -401,7 +401,7 @@ name: **peter**
 040-5466745
 command (1 search, 2 add, 3 quit): **1**
 name: **mary**
-no number in phone book
+no number
 command (1 search, 2 add, 3 quit): **2**
 name: **peter**
 number: **09-22223333**
@@ -537,7 +537,7 @@ print(s)
 
 </sample-output>
 
-**NB:** the same principles covered [here](/part-5/2-references#using-lists-as-parameters-in-functions) regarding lists also hold for dictionaries passed as arguments.
+**NB:** the principles regarding lists covered [here](/part-5/2-references#using-lists-as-parameters-in-functions) also hold for dictionaries passed as arguments.
 
 If you have trouble completing this exercise, the [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) might help you understand what your code is or isn't doing.
 
@@ -628,7 +628,7 @@ Keskipituus on 173.runtime
 
 Please write a function named `add_movie(database: list, name: str, director: str, year: int, runtime: int)`, which adds a new movie object into a movie database.
 
-The database is a list, and each movie object on the list is a dictionary. The dictionary should contain the following keys.
+The database is a list, and each movie object in the list is a dictionary. The dictionary should contain the following keys.
 
 * name
 * director
@@ -658,15 +658,15 @@ print(database)
 
 Please write a function named `find_movies(database: list, search_term: str)`, which processes the movie database created in the previous exercise. The function should formulate a new list, which contains only the movies whose title includes the word searched for. Capitalisation is irrelevant here. A search for `ana` should return a list containing both `Anaconda` and `Management`.
 
-Esimerkki:
+An example of its use:
 
 ```python
 database = [{"name": "Gone with the Python", "director": "Victor Pything", "year": 2017, "runtime": 116},
 {"name": "Pythons on a Plane", "director": "Renny Pytholin", "year": 2001, "runtime": 94},
 {"name": "Dawn of the Dead Programmers", "director": "M. Night Python", "year": 2011, "runtime": 101}]
 
-my_list = find_movies(database, "python")
-print(my_list)
+my_movies = find_movies(database, "python")
+print(my_movies)
 ```
 
 <sample-output>
