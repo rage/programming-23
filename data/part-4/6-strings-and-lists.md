@@ -198,7 +198,7 @@ We will return to this subject in the next part, where references to lists are e
 
 ## More methods for lists and strings
 
-The method `count` counts the number of times the specified item or substring occurs in the target. The method works similarly with both strings and lists: 
+The method `count` counts the number of times the specified item or substring occurs in the target. The method works similarly with both strings and lists:
 
 ```python
 my_string = "How much wood would a woodchuck chuck if a woodchuck could chuck wood"
@@ -302,7 +302,7 @@ e
 
 <programming-exercise name='No vowels allowed' tmcname='part04-23_no_vowels'>
 
-Please write a function named `no_vowels`, which takes a string argument. The function returns a new string, which should be the same as the original but with all vowels removed. 
+Please write a function named `no_vowels`, which takes a string argument. The function returns a new string, which should be the same as the original but with all vowels removed.
 
 You can assume the string will contain only characters from the lowercase English alphabet a...z.
 
@@ -364,7 +364,7 @@ print(pruned_list)
 
 Given a list of integers, let's decide that two consecutive items in the list are neighbours if their difference is 1. So, items 1 and 2 would be neighbours, and so would items 56 and 55.
 
-Please write a function named `longest_series_of_neighbours`, which looks for the longest series of neighbours within the list, and returns its length. 
+Please write a function named `longest_series_of_neighbours`, which looks for the longest series of neighbours within the list, and returns its length.
 
 For example, in the list `[1, 2, 5, 4, 3, 4]` the longest list of neighbours would be  `[5, 4, 3, 4]`, with a length of 4.
 
@@ -462,7 +462,7 @@ Number 2: **34**
 Number 3: **-32**
 Number 4: **99**
 Number 5: **-53**
-The numbers are: 
+The numbers are:
 10
 34
 -32
@@ -590,6 +590,6 @@ A quiz to review the contents of this section:
 <quiz id="925f1715-d762-5e44-a812-be13bff1aa44"></quiz>
 -->
 
-Please respond to a quick questionnaire on this week's materials. 
+Please respond to a quick questionnaire on this week's materials.
 
-<quiz id="af22017f-32f0-551f-9756-297208f5de1a"></quiz>
+<quiz id="4c8d9990-6af5-57d2-b805-9b1558e71a8c"></quiz>
