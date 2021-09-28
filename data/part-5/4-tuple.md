@@ -56,18 +56,18 @@ TypeError: 'tuple' object does not support item assignment
 
 <programming-exercise name='Create a tuple' tmcname='part05-23_create_tuple'>
 
-Tee funktio `tee_tuple(x: int, y: int, z: int)`, joka muodostaa ja palauttaa parametrinaan saamistaan kokonaisluvuista tuplen seuraavien sääntöjen mukaaan:
+Please write a function named `create_tuple(x: int, y: int, z: int)`, which takes three integers as its arguments, and creates and returns a tuple based on the following criteria:
 
-1. Tuplen ensimmäinen alkio on parametreista pienin
-2. Tuplen toinen alkio on parametreista suurin
-3. Tuplen kolmas alkio on parametrien summa
+1. The first element in the tuple is the smallest of the arguments
+2. The second element in the tuple is the greatest of the arguments
+3. The third element in the tuple is the sum of the arguments
 
-Esimerkki funktion kutsumisesta:
+An example of its use:
 
 ```python
 
 if __name__ == "__main__":
-    print(tee_tuple(5, 3, -1))
+    print(create_tuple(5, 3, -1))
 
 ```
 
@@ -82,20 +82,18 @@ if __name__ == "__main__":
 
 <programming-exercise name='The oldest person' tmcname='part05-24_oldest_person'>
 
-Tee funktio `vanhin(henkilot: list)`, joka saa parametrikseen listan henkilöitä esittäviä tupleja. Funktio etsii ja palauttaa vanhimman henkilön nimen.
+Please write a function named `oldest_person(people: list)`, which takes a list of tuples as its argument. In each tuple, the first element is the name of a person, and the second element is their year of birth. The function should find the oldest person on the list and return their name.
 
-Henkilötuplessa on ensin henkilön nimi merkkijonona ja toisena alkiona henkilön _syntymävuosi_.
-
-Esimerkiksi:
+An example of the function in action:
 
 ```python
-h1 = ("Arto", 1977)
-h2 = ("Einari", 1985)
-h3 = ("Maija", 1953)
-h4 = ("Essi", 1997)
-hlista = [h1, h2, h3, h4]
+p1 = ("Adam", 1977)
+p2 = ("Ellen", 1985)
+p3 = ("Mary", 1953)
+p4 = ("Ernest", 1997)
+people = [p1, p2, p3, p4]
 
-print(vanhin(hlista))
+print(oldest_person(people))
 ```
 
 <sample-output>
@@ -106,28 +104,28 @@ Maija
 
 </programming-exercise>
 
-<programming-exercise name='Elder people' tmcname='part05-25_elder_people'>
+<programming-exercise name='Older people' tmcname='part05-25_older_people'>
 
-Oletetaan, että meillä on edelleen käytössä edellisessä tehtävässä esitellyt henkilö-tuplet.
+In this exercise we are handling tuples just like the ones described in the previous exercise.
 
-Kirjoita funktio `vanhemmat(henkilot: list, vuosi: int)`, joka palauttaa uuden listan, jolle on tallennettu kaikki _ennen_ annettua vuotta syntyneet henkilöiden nimet parametrina saadulta henkilöiden listalta.
+Please write a function named `older_people(people: list, year: int)`, which selects all those people on the list who were born _before_ the year given as an argument. The function should return the names of these people in a new list.
 
-Esimerkiksi:
+An example of its use:
 
 ```python
-h1 = ("Arto", 1977)
-h2 = ("Einari", 1985)
-h3 = ("Maija", 1953)
-h4 = ("Essi", 1997)
-hlista = [h1, h2, h3, h4]
+p1 = ("Adam", 1977)
+p2 = ("Ellen", 1985)
+p3 = ("Mary", 1953)
+p4 = ("Ernest", 1997)
+people = [p1, p2, p3, p4]
 
-vanhemmat_henkilot = vanhemmat(hlista, 1979)
-print(vanhemmat_henkilot)
+older = older_people(people, 1979)
+print(older)
 ```
 
 <sample-output>
 
-[ 'Arto', Maija' ]
+[ 'Adam', 'Mary' ]
 
 </sample-output>
 
@@ -254,113 +252,113 @@ luku2 = apu
 
 <programming-exercise name='Student database' tmcname='part05-26_student_database'>
 
-Tässä tehtäväsarjassa toteutetaan yksinkertainen opiskelijarekisteri. Ennen ohjelmoinnin aloittamista kannattanee hetki miettiä, minkälaisen tietorakenteen tarvitset ohjelman tallentamien tietojen organisointiin.
+In this series of exercises you will create a simple student database. Before diving in, please spend a moment reading through the instructions and thinking about what sort of data structures are necessary for organising the data stored by your program.
 
-#### opiskelijoiden lisäys
+#### adding students
 
-Toteuta ensin funktio `lisaa_opiskelija` uuden opiskelijan lisäämiseen sekä ensimmäinen versio funktiosta `tulosta`, joka tulostaa yhden opiskelijan tiedot.
+First write a function named `add_student`, which adds a new student to the database. Also write a preliminary version of the function `print_student`, which prints out the information of a single student.
 
-Funktioita käytetään seuraavasti:
+These function are used as follows:
 
 ```python
-opiskelijat = {}
-lisaa_opiskelija(opiskelijat, "Pekka")
-lisaa_opiskelija(opiskelijat, "Liisa")
-tulosta(opiskelijat, "Pekka")
-tulosta(opiskelijat, "Liisa")
-tulosta(opiskelijat, "Jukka")
+students = {}
+add_student(students, "Peter")
+add_student(students, "Eliza")
+print_student(students, "Peter")
+print_student(students, "Eliza")
+print_student(students, "Jack")
 ```
 
-Ohjelma tulostaa tässä vaiheessa
+Your program should now print out
 
 <sample-output>
 
 <pre>
-Pekka:
- ei suorituksia
-Liisa:
- ei suorituksia
-ei löytynyt ketään nimellä Jukka
+Peter:
+ no completed courses
+Eliza:
+ no completed courses
+Jack: no such person in the database
 </pre>
 
 </sample-output>
 
-#### suoritusten lisäys
+#### adding completed courses
 
-Tee funktio `lisaa_suoritus`, jonka avulla opiskelijalle voidaan lisätä kurssin suoritus. Suoritus on tuple, joka koostuu kurssin nimestä ja arvosanasta:
+Please write a function named `add_course`, which adds a completed course to the information of a specific student in the database. The course data is a tuple consisting of the name of the course and the grade:
 
 ```python
-opiskelijat = {}
-lisaa_opiskelija(opiskelijat, "Pekka")
-lisaa_suoritus(opiskelijat, "Pekka", ("Ohpe", 3))
-lisaa_suoritus(opiskelijat, "Pekka", ("Tira", 2))
-tulosta(opiskelijat, "Pekka")
+students = {}
+add_student(students, "Peter")
+add_course(students, "Peter", ("Introduction to Programming", 3))
+add_course(students, "Peter", ("Advanced Course in Programming", 2))
+print_student(students, "Peter")
 ```
 
-Opiskelijan tietojen tulostus muuttuu, kun suorituksia on lisätty:
+When some courses have been added, the information printed out changes:
 
 <sample-output>
 
 <pre>
-Pekka:
- suorituksia 2 kurssilta:
-  Ohpe 3
-  Tira 2
- keskiarvo 2.5
+Peter:
+ 2 completed courses:
+  Introduction to Programming 3
+  Advanced Course in Programming 2
+ average grade 2.5
 </pre>
 
 </sample-output>
 
-#### arvosanojen korotus
+#### repeating courses
 
-Suorituksen lisäämisen pitää toimia siten, että se jättää arvosanan 0 suoritukset huomiotta eikä alenna kurssilla ennestään olevaa arvosanaa:
+Courses with grade 0 should be ignored when adding course information. Additionally, if the course is already in the database in that specific student's information, the grade recorded in the database should never be lowered if the course is repeated.
 
 ```python
-opiskelijat = {}
-lisaa_opiskelija(opiskelijat, "Pekka")
-lisaa_suoritus(opiskelijat, "Pekka", ("Ohpe", 3))
-lisaa_suoritus(opiskelijat, "Pekka", ("Tira", 2))
-lisaa_suoritus(opiskelijat, "Pekka", ("Lama", 0))
-lisaa_suoritus(opiskelijat, "Pekka", ("Ohpe", 2))
-tulosta(opiskelijat, "Pekka")
+students = {}
+add_student(students, "Peter")
+add_course(students, "Peter", ("Introduction to Programming", 3))
+add_course(students, "Peter", ("Advanced Course in Programming", 2))
+add_course(students, "Peter", ("Data Structures and Algorithms", 0))
+add_course(students, "Peter", ("Introduction to Programming", 2))
+print_student(students, "Peter")
 ```
 
 <sample-output>
 
 <pre>
-Pekka:
- suorituksia 2 kurssilta:
-  Ohpe 3
-  Tira 2
- keskiarvo 2.5
+Peter:
+ 2 completed courses:
+  Introduction to Programming 3
+  Advanced Course in Programming 2
+ average grade 2.5
 </pre>
 
 </sample-output>
 
-#### kooste opiskelijoista
+#### summary of database
 
-Tee funktio `kooste`, joka tulostaa koosteen opiskelijoiden suorituksista. Esimerkki:
+Please write a function named `summary`, which prints out a summary based on all the information stored in the database.
 
 ```python
-opiskelijat = {}
-lisaa_opiskelija(opiskelijat, "Pekka")
-lisaa_opiskelija(opiskelijat, "Liisa")
-lisaa_suoritus(opiskelijat, "Pekka", ("Lama", 1))
-lisaa_suoritus(opiskelijat, "Pekka", ("Ohpe", 1))
-lisaa_suoritus(opiskelijat, "Pekka", ("Tira", 1))
-lisaa_suoritus(opiskelijat, "Liisa", ("Ohpe", 5))
-lisaa_suoritus(opiskelijat, "Liisa", ("Jtkt", 4))
-kooste(opiskelijat)
+students = {}
+add_student(students, "Peter")
+add_student(students, "Eliza")
+add_course(students, "Peter", ("Data Structures and Algorithms", 1))
+add_course(students, "Peter", ("Introduction to Programming", 1))
+add_course(students, "Peter", ("Advanced Course in Programming", 1))
+add_course(students, "Eliza", ("Introduction to Programming", 5))
+add_course(students, "Eliza", ("Introduction to Computer Science", 4))
+summary(students)
 ```
 
-tulostus näyttää seuraavalta
+This should print out
 
 <sample-output>
 
 <pre>
-opiskelijoita 2
-eniten suorituksia 3 Pekka
-paras keskiarvo 4.5 Liisa
+students 2
+most courses completed 3 Peter
+best average grade 4.5 Eliza
 </pre>
 
 </sample-output>
@@ -369,13 +367,13 @@ paras keskiarvo 4.5 Liisa
 
 <programming-exercise name="A square of letters" tmcname="part05-27_letter_square">
 
-Tämän osan huipentaa suhteellisen haastava ongelmanratkaisua vaativa tehtävä, jonka voi tarkaista monella eri tavalla. Vaikka tehtävä on tupleja käsittelevässä luvussa, tupleja tässä tuskin kannattaa käyttää.
+This final exercise in this part is a relatively demanding problem solving task. It can be solved in many different ways. Even though this current section in the material covers tuples, tuples are not necessarily the best way to go about solving this.
 
-Tee ohjelma, joka tulostaa kirjainruudukon oheisten esimerkkien mukaisesti. Voit olettaa, että kerroksia on enintään 26.
+Please write a program which prints out a square of letters as specified in the examples below. You may assume there will be at most 26 layers.
 
 <sample-output>
 
-Kerrokset: **3**
+Layers: **3**
 <pre>
 CCCCC
 CBBBC
@@ -388,7 +386,7 @@ CCCCC
 
 <sample-output>
 
-Kerrokset: **4**
+Layers: **4**
 <pre>
 DDDDDDD
 DCCCCCD
@@ -401,14 +399,15 @@ DDDDDDD
 
 </sample-output>
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
+<!---
 A quiz to review the contents of this section:
 
 <quiz id="69694e01-4c47-5b9d-8a00-b0d96a477dc7"></quiz>
+-->
 
 Please respond to a quick questionnaire on this week's materials. 
 
