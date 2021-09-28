@@ -98,7 +98,7 @@ print(oldest_person(people))
 
 <sample-output>
 
-Maija
+Mary
 
 </sample-output>
 
