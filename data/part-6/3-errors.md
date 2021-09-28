@@ -1,12 +1,12 @@
 ---
-path: '/part-6/3-virheet'
-title: 'Virhetilanteisiin varautuminen'
+path: '/part-6/3-errors'
+title: 'Handling errors'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, miten virheellisiä syötteitä voidaan käsitellä
 - Tiedät, mitä tarkoitetaan poikkeuksella ohjelmoinnissa
@@ -391,4 +391,8 @@ Kirjoita funktio `suodata_virheelliset()`, joka luo tiedoston `korjatut_numerot.
 
 </programming-exercise>
 
-<quiz id="9b3e7b12-ee82-53ab-8801-7b94e39684e2"></quiz>
+<!---
+A quiz to review the contents of this section:
+
+<quiz id="69694e01-4c47-5b9d-8a00-b0d96a477dc7"></quiz>
+-->

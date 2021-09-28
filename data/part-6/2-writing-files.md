@@ -1,12 +1,12 @@
 ---
-path: '/part-6/2-tiedostojen-kirjoittaminen'
-title: 'Tiedostojen kirjoittaminen'
+path: '/part-6/2-writing-files'
+title: 'Writing files'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Osaat luoda itse tiedoston Pythonilla
 - Osaat kirjoittaa tekstimuotoista tietoa tiedostoon
@@ -601,4 +601,8 @@ Huomaa, että paikallisten TMC-testien ajaminen voi tyhjentää sanakirja-tiedos
 
 </programming-exercise>
 
-<quiz id="55188fb7-3c0d-58a8-8419-20c2fabb7a70"></quiz>
+<!---
+A quiz to review the contents of this section:
+
+<quiz id="69694e01-4c47-5b9d-8a00-b0d96a477dc7"></quiz>
+-->

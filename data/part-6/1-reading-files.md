@@ -1,12 +1,12 @@
 ---
-path: '/part-6/1-tiedostojen-lukeminen'
-title: 'Tiedostojen lukeminen'
+path: '/part-6/1-reading-files'
+title: 'Reading files'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, miten tiedoston sisällön voi lukea Pythonissa
 - Tiedät, mitä ovat tekstitiedosto ja CSV-tiedosto
@@ -976,6 +976,8 @@ Laivasillankatu Hietalahdentori 1.478708873076181
 
 </programming-exercise>
 
+<!---
+A quiz to review the contents of this section:
 
-<quiz id="17b6b1dc-bfe4-5a4b-aed1-2a456fc53a3e"></quiz>
-
+<quiz id="69694e01-4c47-5b9d-8a00-b0d96a477dc7"></quiz>
+-->

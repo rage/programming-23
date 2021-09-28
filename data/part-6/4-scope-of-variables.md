@@ -1,12 +1,12 @@
 ---
-path: '/part-6/4-paikalliset-muuttujat'
-title: 'Paikalliset ja globaalit muuttujat'
+path: '/part-6/4-scope-of-variables'
+title: 'Local and global variables'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät mitä tarkoitetaan paikallisella muuttujalla
 - Tiedät, miten muuttujan näkyvyysalue vaikuttaa sen käyttöön
@@ -280,8 +280,12 @@ def main():
 main()
 ```
 
-<quiz id="8aed7673-7e0f-548b-b35b-939899b8facd"></quiz>
+<!---
+A quiz to review the contents of this section:
 
-Vastaa lopuksi osion loppukyselyyn:
+<quiz id="69694e01-4c47-5b9d-8a00-b0d96a477dc7"></quiz>
+-->
+
+Please respond to a quick questionnaire on this week's materials. 
 
 <quiz id="323f1cb2-bc26-5ede-9922-20ed17064882"></quiz>
