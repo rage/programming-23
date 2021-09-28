@@ -101,9 +101,9 @@ Rivien yhteispituus: 63
 
 Huomaa, että rivien läpikäynnissä jokaisen rivin perässä on rivinvaihto `\n`. Yllä oleva koodi kuitenkin poistaa rivinvaihdot `replace`-funktiolla, joka korvaa rivinvaihdot tyhjillä merkkijonoilla. Tämän ansiosta tulostukseen ei tule ylimääräisiä rivivaihtoja ja ohjelma laskee oikein tiedoston rivien yhteispituuden.
 
-<programming-exercise name='Biggest Number' tmcname='osa06-01_suurin_luku'>
+<programming-exercise name='Largest number' tmcname='part06-01_largest_number'>
 
-File `numbers.txt` contains numbers, one number per line. For example:
+The file `numbers.txt` contains integer numbers, one number per line. The contents could look like this:
 
 ```sh
 2
@@ -115,15 +115,15 @@ File `numbers.txt` contains numbers, one number per line. For example:
 ...etc...
 ```
 
-Write a function `largest`, which reads the file and returns the largest number from the file.
+Please write a function named `largest`, which reads the file and returns the largest number in the file.
 
-Please notice, that the file is always named `numbers.txt` and the function does not receive any arguments.
+Notice that the function does not take any arguments. The file you are working with is always named `numbers.txt`.
 
-**Note!** If VS Code can't find the file and you have checked that there are no spelling errors, take a look at the instructions following the exercise.etta.
+**NB:** If Visual Studio Code can't find the file and you have checked that there are no spelling errors, take a look at the instructions following this exercise.
 
 </programming-exercise>
 
-## Mitä jos VS code ei löydä tiedostoja koodia suoritettaessa?
+## What if Visual Studio Code cannot find my file?
 
 Jos VS Code ei löydä tiedostoa suorittaessasi koodia (vihreää nappia painamalla) vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla seuraavaa:
 
@@ -213,9 +213,9 @@ Arvosanat: ['4', '5', '5', '4', '5', '5', '4', '5', '4', '4']
 
 </sample-output>
 
-<programming-exercise name='Fruit Store' tmcname='osa06-02_hedelmakauppa'>
+<programming-exercise name='Fruit market' tmcname='part06-02_fruit_market'>
 
-File `fruits.csv` contains fruits and their prices according to following example:
+The file `fruits.csv` contains names of fruits, and their prices, in the format specified in this example:
 
 ```sh
 banana;6.50
@@ -224,36 +224,36 @@ orange;8.0
 ...etc...
 ```
 
-Write function `read_fruits`, which reads the file and returns a dictionary based on the file. In the dictionary, name of the fruit is key and the price value. Price needs to be of type `float`.
+Please write a function named `read_fruits`, which reads the file and returns a dictionary based on the contents. In the dictionary, the name of the fruit should be the key, and the value should be its price. Prices should be of type `float`.
 
-Please note, that the name of the file is always `fruits.csv` and the function does not receive any arguments.
+NB: the function does not take any arguments. The file you are working with is always named `fruits.csv`.
 
 </programming-exercise>
 
-<programming-exercise name='Matriisi' tmcname='osa06-03_matriisi'>
+<programming-exercise name='Matrix' tmcname='part06-03_matrix'>
 
-Tiedostossa `matriisi.txt` on seuraavan esimerkin kaltainen matriisi:
+The file `matrix.txt` contains a matrix in the format specified in the example below:
 
 ```sh
 1,0,2,8,2,1,3,2,5,2,2,2
 9,2,4,5,2,4,2,4,1,10,4,2
-...jne...
+...etc...
 ```
 
-Kirjoita funktiot `summa` ja `maksimi`, jotka lukevat ja palauttavat nimensä mukaisesti matriisin kaikkien alkioiden summan ja suurimman alkion.
+Please write two functions, named `matrix_sum` and `matrix_max`. Both go through the matrix in the file, and then return the sum of the elements or the element with the greatest value, as the names of the functions imply.
 
-Kirjoita lisäksi funktio `rivisummat`, joka palauttaa listassa kaikkien matriisin rivien summat. Esimerkiksi matriisille
+Please also write the function `row_sums`, which returns a list containing the sum of each row in the matrix. For example, calling `row_sums` when the matrix in the file is defined as
 
 ```sh
 1,2,3
 2,3,4
 ```
 
-funktio palauttaisi listan `[6, 9]`.
+the function should return the list `[6, 9]`.
 
-Vinkki: Voit kirjoittaa ohjelmaan myös muita funktioita – kannattaa siis miettiä, mitä kaikkia yhteisiä toimintoja kolmea funktiota varten vaaditaan. Huomaa, että tiedoston nimi on aina `matriisi.txt` eikä tehtävänannossa määritellyille funktioille anneta parametreja. Itse lisäämäsi funktiot voivat hyödyntää myös parametreja.
+Hint: you can also include other helper functions in your program. It is very worthwhile to spend a moment considering which functionalities are shared by the three functions you are asked to write. Notice that the three functions named above do not take any arguments, but any helper functions you write may take arguments. The file you are working with is always named `matrix.txt`.
 
-**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) olevaa ohjetta.
+**NB:** If Visual Studio Code can't find the file and you have checked that there are no spelling errors, take a look at the instructions before this exercise.
 
 </programming-exercise>
 
@@ -403,7 +403,7 @@ Kannattaa tutustua huolella esimerkkikoodiin. Se voi ensisilmäyksellä vaikutta
 Olemme tallentaneet Excelistä nimiä taulukon CSV-muodossa:
 
 ```sh
-etunimi; sukunimi
+givenname; familyname
 Pekka; Python
 Jaana; Java
 Heikki; Haskell
@@ -419,7 +419,7 @@ with open("henkilot.csv") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(";")
         # ohitetaan otsikkorivi
-        if osat[0] == "etunimi":
+        if osat[0] == "givenname":
             continue
         sukunimet.append(osat[1])
 
@@ -455,7 +455,7 @@ sukunimet = []
 with open("henkilot.csv") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(';')
-        if osat[0] == "etunimi":
+        if osat[0] == "givenname":
             continue # tämä oli otsikkorivi, ei huomioida!
         sukunimet.append(osat[1].strip())
 print(sukunimet)
@@ -566,189 +566,186 @@ Ohjelma huomioi myös tilanteen, jossa henkilön palkkatietoja ei ole olemassa.
 
 Huomaa, että koska ohjelma käyttää aputietorakenteena sanakirjaa, ei henkilöitä vastaavien rivien järjestyksellä ole merkitystä.
 
-<programming-exercise name='Kurssin tulokset, osa 1' tmcname='osa06-04_kurssin_tulokset_osa1'>
+<programming-exercise name='Course grading, part 1' tmcname='part06-04_course_grading_part_1'>
 
-Ohjelma käsittelee kahta CSV-muotoista tiedostoa. Toisessa on tieto opiskelijoista:
+This program works with two CSV files. One of them contains information about some students on a course:
 
 ```csv
-opnro;etunimi;sukunimi
-12345678;pekka;peloton
-12345687;jaana;javanainen
-12345699;liisa;virtanen
+stno;givenname;familyname
+12345678;peter;pythons
+12345687;jean;javanese
+12345699;alice;adder
 ```
 
-ja toisessa opiskelijoiden viikoittaisesta tehtävien lukumäärästä:
+The other contains the number of exercises each student has completed each week:
 
 ```csv
-opnro;v1;v2;v3;v4;v5;v6;v7
+stno;w1;w2;w3;w4;w5;w6;w7
 12345678;4;1;1;4;5;2;4
 12345687;3;5;3;1;5;4;6
 12345699;10;2;2;7;10;2;2
 ```
 
-Molempien CSV-tiedostojen ensimmäinen rivi on otsikkorivi, joka kertoo kunkin kentän sisällön.
+As you can see above, both CSV files also have a header row, which tells you what each column contains.
 
-Tee ohjelma, joka kysyy tiedostojen nimet ja tämän jälkeen tulostaa kunkin opiskelijan tehtävien yhteenlasketun määrän. Ohjelma toimii seuraavasti, kun tiedostojen sisältö on yllä oleva:
+Please write a program which asks the user for the names of these two files, reads the files, and then prints out the total number of exercises completed by each student. If the files have the contents in the examples above, the program should print out the following:
 
 <sample-output>
 
-Opiskelijatiedot: **opiskelijat1.csv**
-Tehtävätiedot: **tehtavat1.csv**
-pekka peloton 21
-jaana javanainen 27
-liisa virtanen 35
+Student information: **students1.csv**
+Exercises completed: **exercises1.csv**
+peter pythons 21
+jean javanese 27
+alice adder 35
 
 </sample-output>
 
-Vinkki: Ohjelman testaileminen on toivottoman hidasta, jos käyttäjä joutuu kirjoittamaan syötteen aina käsin. Testausvaiheessa syötteet kannattaakin antaa "kovakoodaamalla" ne esim. seuraavasti:
+Hint: while testing your program, you may quickly run out of patience if you always have to type in the file names at the prompt. You might want to hard-code the user input, like so:
 
 ```python
 if False:
-    # tänne ei tulla
-    opiskelijatiedot = input("Opiskelijatiedot: ")
-    tehtavatiedot = input("Tehtävätiedot: ")
+    # this is never executed
+    student_info = input("Student information: ")
+    exercise_data = input("Exercises completed: ")
 else:
-    # kovakoodatut syötteet
-    opiskelijatiedot = "opiskelijat1.csv"
-    tehtavatiedot = "tehtavat1.csv"
+    # hard-coded input
+    student_info = "students1.csv"
+    exercise_data = "exercises1.csv"
 ```
 
-Ohjelman varsinainen toiminnallisuus on nyt "piilotettu" ehdon `False`-haaraan, jota ei suoriteta koskaan.
+The actual functionality of the program is now "hidden" in the `False` branch of an `if` statement. It will never be executed.
 
-Jos taas halutaan nopeasti tarkastaa, toimiiko ohjelma myös käyttäjän kirjoittaessa syötteen, voidaan arvo `False` muuttaa arvoksi `True`:
+Now, if you want to quickly verify the program works correctly also with user input, you can just replace `False` with `True`:
 
 ```python
 
 if True:
-    opiskelijatiedot = input("Opiskelijatiedot: ")
-    tehtavatiedot = input("Tehtävätiedot: ")
+    student_info = input("Student information: ")
+    exercise_data = input("Exercises completed: ")
 else:
-    # tänne ei tulla!
-    opiskelijatiedot = "opiskelijat1.csv"
-    tehtavatiedot = "tehtavat1.csv"
+    # now this is the False branch, and is never executed
+    student_info = "students1.csv"
+    exercise_data = "exercises1.csv"
 ```
 
-Kun koodi on kunnossa, voi ehtorakenteen poistaa.
+When you have verified your program works correctly, you can remove the `if` structure, keeping the commands asking for input.
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
-**Toinen huomio** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
+**NB2:** If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at [these instructions](/part-6/1-reading-files#what-if-visual-studio-code-cannot-find-my-file).
 
 </programming-exercise>
 
-<programming-exercise name='Kurssin tulokset, osa 2' tmcname='osa06-05_kurssin_tulokset_osa2'>
+<programming-exercise name='Course grading, part 2' tmcname='part06-05_course_grading_part_2'>
 
-Edellinen tehtävä laajenee vielä siten, että myös opiskelijan koepisteet luetaan CSV-tiedostosta. Tiedoston sisältö näyttää seuraavalta:
+Let's expand the program created in the previous exercise. Now also the exam points awarded to each student are contained in a CSV file. The contents of the file follow this format:
 
 ```csv
-opnro;k1;k2;k3
+stno;e1;e2;e3
 12345678;4;1;4
 12345687;3;5;3
 12345699;10;2;2
 ```
 
-Esimerkiksi opiskelija jonka opiskelijanumero on 12345678 on saanut kokeesta 4+1+4 eli yhteensä 9 pistettä.
+In the above example the student whose student number is 12345678 was awarded 4+1+4 points in the exam, which equals a total of 9 points. 
 
-Ohjelma kysyy tiedostojen nimet ja tulostaa jokaisen opiskelijan arvosanan:
+The program should again ask the user for the names of the files. Then the program should process the files and print out a grade for each student.
 
 <sample-output>
 
-Opiskelijatiedot: **opiskelijat1.csv**
-Tehtävätiedot: **tehtavat1.csv**
-Koepisteet: **koepisteet1.csv**
-pekka peloton 0
-jaana javanainen 1
-liisa virtanen 3
+Student information: **students1.csv**
+Exercises completed: **exercises1.csv**
+Exam points: **exam_points1.csv**
+peter pythons 0
+jean javanese 1
+alice adder 3
 
 </sample-output>
 
-Tehtyjen harjoitustehtävien määrästä saa _pisteitä_ siten, että vähintään 10 % tehtävämäärästä tuo 1 pisteen, vähintään 20% tuo 2 pistettä jne., ja 100 % eli 40 harjoitustehtävää tuo 10 pistettä. Harjoitustehtävistä saatava pistemäärä on kokonaisluku.
+Each completed exercise is counted towards _exercise points_, so that completing at least 10 % of the total exercices awards 1 point, completing at least 20 % awards 2 points, etc. Completing all 40 exercises awards 10 points. The number of points awarded is always an integer number.
 
-Kurssin arvosana määräytyy kokeen ja harjoituspisteiden summan perusteella seuraavan taulukon mukaan:
+The final grade for the course is determined based on the sum of exam and exercise points according to the following table:
 
-kokeen pisteet + harjoitusten pisteet   | arvosana
+exam points + exercise points   | grade
 :--:|:----:
-0-14 | 0 (eli hylätty)
+0-14 | 0 (fail)
 15-17 | 1
 18-20 | 2
 21-23 | 3
 24-27 | 4
 28- | 5
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
-<programming-exercise name='Kurssin tulokset, osa 3' tmcname='osa06-06_kurssin_tulokset_osa3'>
+<programming-exercise name='Course grading, part 3' tmcname='part06-06_course_grading_part_3'>
 
-Tässä tehtävässä muotoillaan edellisen tehtävän tulostus parempaan muotoon:
+This exercise will continue from the previous one. Now we shall print out some statistics based on the CSV files.
 
 <sample-output>
 
-Opiskelijatiedot: **opiskelijat1.csv**
-Tehtävätiedot: **tehtavat1.csv**
-Koepisteet: **koepisteet1.csv**
+Student information: **students1.csv**
+Exercises completed: **exercises1.csv**
+Exam points: **exam_points1.csv**
 <pre>
-nimi                          teht_lkm  teht_pist koe_pist  yht_pist  arvosana
-pekka peloton                 21        5         9         14        0
-jaana javanainen              27        6         11        17        1
-liisa virtanen                35        8         14        22        3
+name                       exercises exer_p    exam_p    total_p   grade
+peter pythons              21        5         9         14        0
+jean javanese              27        6         11        17        1
+alice adder                35        8         14        22        3
 </pre>
 
 </sample-output>
 
-Jokaisella rivillä siis tulostetaan opiskelijan tehtävien lukumäärä, tehtävistä saatavat pisteet, kokeen pisteet, yhteispisteet (koe+harjoitukset) sekä arvosana "siististi" siten, että tulostus on jaoteltu sarakkeisiin. Nimisarakkeen leveys on 30 merkkiä ja muiden sarakkeiden leveys on tasan 10 merkkiä.
+Each row contains the information for a single student. The number of exercises completed, the number of exercise points awarded, the number of exam points awarded, the total number of points awarded, and the grade are all displayed in tidy columns. The width of the column for the name should be 30 characters, while the other columns should be 10 characters wide.
 
-Tehtävässä kannattaa käyttää [osassa 4](/osa-4/5-tulostuksen-muotoilu) käsiteltyjä f-merkkijonoja.
+You might find the f-strings covered in [part 4](/part-4/5-print-statement-formatting) useful here.
 
-Kannattaa huomata, että merkkijonojen ja lukujen tulostaminen noudattaa hieman erilaista logiikkaa f-merkkijonoissa:
+F-strings differentiate between strings and numbers when it comes to justifying columns:
 
 ```python
-sana = "python"
-print(f"{sana:10}jatkuu")
-print(f"{sana:>10}jatkuu")
+word = "python"
+print(f"{word:10}continues")
+print(f"{word:>10}continues")
 ```
 
 <sample-output>
 
 <pre>
-python    jatkuu
-    pythonjatkuu
+python    continues
+    pythoncontinues
 </pre>
 
 </sample-output>
 
-Oletusarvoisesti siis merkkijono sisentyy määritellyn levyisen alueen _vasempaan_ reunaan. Merkillä `>`voidaan ohjata tulostus sisentymään oikeaan reunaan.
+As you can see above, by default strings are justified to the _left_ edge of the area specified for them. The `>` symbol can be used to justify to the right edge.
 
-Lukuja tulostettaessa logiikka on päinvastainen
+With number values the logic is reversed:
 
 ```python
-luku = 42
-print(f"{luku:10}jatkuu")
-print(f"{luku:<10}jatkuu")
+number = 42
+print(f"{number:10}continues")
+print(f"{number:<10}continues")
 ```
 
 <sample-output>
 
 <pre>
-        42jatkuu
-42        jatkuu
+        42continues
+42        continues
 </pre>
 
 </sample-output>
 
-Oletusarvo lukujen yhteydessä on tulostuksen sisentyminen _oikeaan_ reunaan. Merkillä `<` voidaan ohjata luvun tulostus sisentymään vasempaan reunaan.
+With numbers the default behaviour is to justify to the _right_ edge. The symbol `<` can be used to justify to the left edge.
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
-<programming-exercise name='Spell checker' tmcname='osa06-07_spellchecker'>
+<programming-exercise name='Spell checker' tmcname='part06-07_spellchecker'>
 
-Tee ohjelma, joka pyytää käyttäjää kirjoittamaan rivin englanninkielistä tekstiä. Ohjelma suorittaa tekstille oikeinkirjoitustarkistuksen ja tulostaa saman tekstin siten, että kaikki väärin kirjoitetut sanat on ympäröity tähdillä. Seuraavassa kaksi käyttöesimerkkiä:
+Please write a program which asks the user to type in some text. Your program should then perform a spell check, and print out feedback to the user, so that all misspelled words have stars around them. Please see the two examples below:
 
 <sample-output>
 
@@ -768,19 +765,19 @@ This is *acually* good and *usefull* program
 
 </sample-output>
 
-Kirjainten koolla ei ole merkitystä ohjelman toiminnan kannalta.
+The case of the letters should be irrelevant to the functioning of your program.
 
-Ohjelma tunnistaa oikein kirjoitetut sanat käyttämällä tehtäväpohjassa olevaa tiedostoa `wordlist.txt`.
+The exercise template includes the file `wordlist.txt`, which contains all the words the spell checker should accept as correct.
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
-**Toinen huomio** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
+**NB2** If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at [these instructions](/part-6/1-reading-files#what-if-visual-studio-code-cannot-find-my-file).
 
 
 </programming-exercise>
 
-<programming-exercise name='Reseptihaku' tmcname='osa06-08_reseptihaku'>
+<programming-exercise name='Reseptihaku' tmcname='part06-08_reseptihaku'>
+
 
 Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, valmistusajan tai raaka-aineen nimen perusteella. Ohjelma lukee reseptit käyttäjän antamasta tiedostosta.
 
@@ -847,7 +844,7 @@ Pullataikina
 
 Huomaa, että hakusanojen kirjainten koolla ei ole merkitystä, eli hakusana _pulla_ löytää myös reseptin _Pullataikina_, joka alkaa isolla kirjaimella.
 
-**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
+**Huom!** If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at [these instructions](/part-6/1-reading-files#what-if-visual-studio-code-cannot-find-my-file).
 
 
 #### reseptien hakeminen valmistusajan perusteella
@@ -893,7 +890,7 @@ Pullataikina, valmistusaika 60 min
 
 </programming-exercise>
 
-<programming-exercise name='Kaupunkipyörät' tmcname='osa06-09_kaupunkipyorat'>
+<programming-exercise name='Kaupunkipyörät' tmcname='part06-09_kaupunkipyorat'>
 
 Tässä tehtävässä tehdään muutama funktio, joiden avulla voidaan tarkastella [kaupunkipyörien](https://kaupunkipyorat.hsl.fi/fi) asemien sijaintia sisältävää tiedostoa.
 
@@ -956,7 +953,7 @@ print(e)
 
 </sample-output>
 
-**Huom!** Jos VS Code ei löydä tiedostoa vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit [täällä](/osa-6/1-tiedostojen-lukeminen#mita-jos-vs-code-ei-loyda-tiedostoja-koodia-suoritettaessa) kokeilla olevaa ohjetta.
+**Huom!** If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at [these instructions](/part-6/1-reading-files#what-if-visual-studio-code-cannot-find-my-file).
 
 #### pisin välimatka
 
