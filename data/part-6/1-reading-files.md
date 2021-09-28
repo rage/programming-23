@@ -403,7 +403,7 @@ Kannattaa tutustua huolella esimerkkikoodiin. Se voi ensisilmäyksellä vaikutta
 Olemme tallentaneet Excelistä nimiä taulukon CSV-muodossa:
 
 ```sh
-givenname; familyname
+etunimi; sukunimi
 Pekka; Python
 Jaana; Java
 Heikki; Haskell
@@ -419,7 +419,7 @@ with open("henkilot.csv") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(";")
         # ohitetaan otsikkorivi
-        if osat[0] == "givenname":
+        if osat[0] == "etunimi":
             continue
         sukunimet.append(osat[1])
 
@@ -455,7 +455,7 @@ sukunimet = []
 with open("henkilot.csv") as tiedosto:
     for rivi in tiedosto:
         osat = rivi.split(';')
-        if osat[0] == "givenname":
+        if osat[0] == "etunimi":
             continue # tämä oli otsikkorivi, ei huomioida!
         sukunimet.append(osat[1].strip())
 print(sukunimet)
@@ -571,7 +571,7 @@ Huomaa, että koska ohjelma käyttää aputietorakenteena sanakirjaa, ei henkil�
 This program works with two CSV files. One of them contains information about some students on a course:
 
 ```csv
-stno;givenname;familyname
+opnro;etunimi;sukunimi
 12345678;peter;pythons
 12345687;jean;javanese
 12345699;alice;adder
@@ -580,13 +580,13 @@ stno;givenname;familyname
 The other contains the number of exercises each student has completed each week:
 
 ```csv
-stno;w1;w2;w3;w4;w5;w6;w7
+opnro;v1;v2;v3;v4;v5;v6;v7
 12345678;4;1;1;4;5;2;4
 12345687;3;5;3;1;5;4;6
 12345699;10;2;2;7;10;2;2
 ```
 
-As you can see above, both CSV files also have a header row, which tells you what each column contains.
+As you can see above, both CSV files also have a header row, which tells you what each column contains. NB: these header rows contain some residual Finnish. You don't need to process the contents of the header rows, they are there for information only.
 
 Please write a program which asks the user for the names of these two files, reads the files, and then prints out the total number of exercises completed by each student. If the files have the contents in the examples above, the program should print out the following:
 
@@ -641,7 +641,7 @@ When you have verified your program works correctly, you can remove the `if` str
 Let's expand the program created in the previous exercise. Now also the exam points awarded to each student are contained in a CSV file. The contents of the file follow this format:
 
 ```csv
-stno;e1;e2;e3
+opnro;k1;k2;k3
 12345678;4;1;4
 12345687;3;5;3
 12345699;10;2;2
@@ -776,125 +776,124 @@ The exercise template includes the file `wordlist.txt`, which contains all the w
 
 </programming-exercise>
 
-<programming-exercise name='Reseptihaku' tmcname='part06-08_reseptihaku'>
+<programming-exercise name='Recipe search' tmcname='part06-08_recipe_search'>
 
+This exercise is about creating a program which allows the user to search for recipes based on their names, preparation times, or ingredients used. The program should read the recipes from a file submitted by the user.
 
-Tässä tehtävässä tehdään ohjelma, joka tarjoaa käyttäjälle mahdollisuuden reseptien hakuun reseptin nimen, valmistusajan tai raaka-aineen nimen perusteella. Ohjelma lukee reseptit käyttäjän antamasta tiedostosta.
-
-Jokainen resepti koostuu kolmesta tai useammasta rivistä reseptitiedostossa. Ensimmäisellä rivillä on reseptin nimi, toisella rivillä reseptin valmistusaika (kokonaisluku), ja kolmas ja sitä seuraavat rivit kertovat reseptin raaka-aineet. Reseptin raaka-aineiden kuvaus päättyy tyhjään riviin, poislukien viimeinen resepti. Tiedostossa voi olla useampia reseptejä. Alla kuvattuna esimerkkitiedosto.
+Each recipe consists of three or more lines. The first line has the name of the recipe, the second line contains an integer number representing the preparation time in minutes, and the remaining line or lines contain the ingredients used, one on each line. The recipe ends with an empty line, with the exception of the final recipe in the file which just ends with the end of the file. So, there can be more than one recipe in a single file, like in the example below.
 
 ```sh
-Lettutaikina
+Pancakes
 15
-maito
-kananmuna
-jauho
-sokeri
-suola
-voi
+milk
+eggs
+flour
+sugar
+salt
+butter
 
-Lihapullat
+Meatballs
 45
-jauheliha
-kananmuna
-korppujauho
+mince
+eggs
+breadcrumbs
 
-Tofurullat
+Tofu rolls
 30
 tofu
-riisi
-vesi
-porkkana
-kurkku
-avokado
+rice
+water
+carrot
+cucumber
+avocado
 wasabi
 
-Pullataikina
+Cake pops
 60
-maito
-hiiva
-kananmuna
-suola
-sokeri
-kardemumma
-voi
+milk
+bicarbonate
+eggs
+salt
+sugar
+cardamom
+butter
 ```
 
-**Vihje** tässä tehtävässä lienee järkevintä lukea ensin tiedoston rivit listalle ja käsitellä sitten tätä listaa tehtävän edellyttämällä tavalla.
+**Hint:** it might be best to first read through all the lines in the file and pop them into a list, which is then easier to manipulate in the way described in the exercise.
 
-#### reseptien haku nimen perusteella
+#### Search for recipes based on the name of the recipe 
 
-Tee funktio `hae_nimi(tiedosto: str, sana: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden nimessä esiintyy toisena parametrina annettu merkkijono. Funktio palauttaa listan, jossa kutakin löydettyä reseptiä vastaa merkkijono, joka kertoo reseptin nimen.
+Please write a function named `search_by_name(filename: str, word: str)`, which takes a filename and a search string as its arguments. The function should go through the file and select all recipes whose _name_ contains the given search string. The names of these recipes are then returned in a list.
 
-Esimerkki funktion käytöstä:
+An example of the function in action:
 
 ```python
-loydetyt = hae_nimi("reseptit1.txt", "pulla")
+found_recipes = search_by_name("recipes1.txt", "cake")
 
-for resepti in loydetyt:
-    print(resepti)
+for recipe in found_recipes:
+    print(recipe)
 ```
 
 <sample-output>
 
-Lihapullat
-Pullataikina
+Pancakes
+Cake pops
 
 </sample-output>
 
-Huomaa, että hakusanojen kirjainten koolla ei ole merkitystä, eli hakusana _pulla_ löytää myös reseptin _Pullataikina_, joka alkaa isolla kirjaimella.
+As you can see in the example above, the case of the letters is irrelevant. The search term _cake_ returns both _Pancakes_ and _Cake pops_, even though the latter is capitalized.
 
-**Huom!** If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at [these instructions](/part-6/1-reading-files#what-if-visual-studio-code-cannot-find-my-file).
+**NB:** If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at [these instructions](/part-6/1-reading-files#what-if-visual-studio-code-cannot-find-my-file).
 
+#### Search for recipes based on the preparation time
 
-#### reseptien hakeminen valmistusajan perusteella
+Please write a function named `search_by_time(filename: str, prep_time: int)`, which takes a filename and an integer as its arguments. The function should go through the file and select all recipes whose preparation time is at most the number given.
 
-Tee funktio `hae_aika(tiedosto: str, aika: int)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, joiden valmistusaika on korkeintaan parametrina kerrottu minuuttimäärä.
-
-Kriteerin täyttävät reseptit palautetaan edellisen tehtävän tapaan listana, nyt kerrotaan myös reseptin valmistumisaika. Esimerkki funktion käytöstä:
+The names of these recipes are again returned in a list, but the preparation time should be appended to each name. Please have a look at the example below.
 
 ```python
-loydetyt = hae_aika("reseptit1.txt", 20)
+found_recipes = search_by_time("recipes1.txt", 20)
 
-for resepti in loydetyt:
-    print(resepti)
+for recipe in found_recipes:
+    print(recipe)
 ```
 
 <sample-output>
 
-Lettutaikina, valmistusaika 15 min
+Pancakes, preparation time 15 min
 
 </sample-output>
 
-#### reseptien hakeminen raaka-aineen perusteella
+#### Search for recipes based on the ingredients
 
-**Varoitus** tämä osa on edellisiä selvästi haastavampi. Jos tehtävä ei lähde heti aukenemaan, kannattanee tehdä ensin osan muut tehtävät ja palata lopuksi takaisin tähän. Huomaa, että voit lähettää moniosaisessa tehtävässä palvelimelle myös yksittäiset osat
+**A word of caution:** this third part of the exercise is considerably more demanding than the previous two. If you feel like you aren't making headway, it may be worth your while to move on, complete the other exercises in this part of the material, and then come back to this exercise if you have time later. Remember, you can submit and receive points for the first two parts of this exercise even if you haven't completed the third part.
 
-Tee funktio `hae_raakaaine(tiedosto: str, aine: str)` joka hakee parametrina annetun nimisestä tiedostosta reseptit, jotka sisältävät toisena parametrina annetun raaka-aineen.
+Please write a function named `search_by_ingredient(filename: str, ingredient: str)`, which takes a filename and a search string as its arguments. The function should go through the file and select all recipes whose _ingredients_ contain the given search string.
 
-Kriteerin täyttävät reseptit palautetaan edellisen tehtävän tapaan listana. Esimerkki funktion käytöstä:
+The names of these recipes are returned in a list just like in the second part, with the preparation time appended. Please have a look at the example below.
 
 ```python
-loydetyt = hae_raakaaine("reseptit1.txt", "maito")
+found_recipes = search_by_ingredient("recipes1.txt", "eggs")
 
-for resepti in loydetyt:
-    print(resepti)
+for recipe in found_recipes:
+    print(recipe)
 ```
 
 <sample-output>
 
-Lettutaikina, valmistusaika 15 min
-Pullataikina, valmistusaika 60 min
+Pancakes, preparation time 15 min
+Meatballs, preparation time 45 min
+Cake pops, preparation time 60 min
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Kaupunkipyörät' tmcname='part06-09_kaupunkipyorat'>
+<programming-exercise name='City bikes' tmcname='part06-09_city_bikes'>
 
-Tässä tehtävässä tehdään muutama funktio, joiden avulla voidaan tarkastella [kaupunkipyörien](https://kaupunkipyorat.hsl.fi/fi) asemien sijaintia sisältävää tiedostoa.
+In this exercise we will write some functions for working on a file containing location data from the stations for [city bikes in Helsinki](https://www.hsl.fi/en/citybikes).
 
-Tiedostot näyttävät seuraavilta:
+Each file will follow this format:
 
 ```csv
 Longitude;Latitude;FID;name;total_slot;operative;id
@@ -903,11 +902,11 @@ Longitude;Latitude;FID;name;total_slot;operative;id
 24.944927399779715;60.158189199971673;3;Kapteeninpuistikko;16;Yes;003
 ```
 
-Kutakin asemaa kohti tiedostossa on yksi rivi, joka kertoo aseman koordinaatit, aseman nimen ja muuta tunnistetietoa.
+Each station has a single line in the file. The line contains the coordinates, name, and other identifying information for the station.
 
-#### asemien välinen etäisyys
+#### Distance between stations
 
-Tee ensin funktio `hae_asematiedot(tiedosto: str)`, joka lukee asematiedot tiedostosta ja palauttaa ne sanakirjana, joka näyttää tältä:
+First, write a function named `get_station_data(filename: str)`. This function should read the names and locations of all the stations in the file, and return them in a dictionary with the following format:
 
 <sample-output>
 
@@ -921,28 +920,28 @@ Tee ensin funktio `hae_asematiedot(tiedosto: str)`, joka lukee asematiedot tiedo
 
 </sample-output>
 
-Eli sanakirjan avaimena on aseman nimi ja arvona tuple, joka koostuu aseman koordinaateista, ensimmäisenä _Longitude_ ja toisena _Latitude_.
+Dictionary keys are the names of the stations, and the value attached is a tuple containing the location coordinates of the station. The first element in the tuple is the _Longitude_ field, and the second is the _Latitude_ field.
 
-Tee seuraavaksi funktio `etaisyys(asemat: dict, asema1: str, asema2: str)`, joka palauttaa parametrina kerrottujen asemien välisen etäisyyden.
+Next, write a function named `distance(stations: dict, station1: str, station2: str)`, which returns the distance between the two stations given as arguments.
 
-Etäisyys lasketaan seuraavalla kaavalla (hyödyntäen Pythagoraan lausetta):
+The distance is calculated using the Pythagorean theorem. The multiplication factors below are approximate values for converting latitudes and longitudes to distances in kilometres in the Helsinki region.
 
 ```python
-# tämä rivi tarvitaan, jotta saadaan käyttöön metodi sqrt
+# we will need the function sqrt from the math module 
 import math
 
-x_kilometreina = (longitude1 - longitude2) * 55.26
-y_kilometreina = (latitude1 - latitude2) * 111.2
-etaisyys = math.sqrt(x_kilometreina**2 + y_kilometreina**2)
+x_km = (longitude1 - longitude2) * 55.26
+y_km = (latitude1 - latitude2) * 111.2
+distance_km = math.sqrt(x_km**2 + y_km**2)
 ```
 
-Esimerkkisuorituksia:
+Some examples of the function in action:
 
 ```python
-asemat = hae_asematiedot('stations1.csv')
-e = etaisyys(asemat, "Designmuseo", "Hietalahdentori")
+stations = get_station_data('stations1.csv')
+d = distance(stations, "Designmuseo", "Hietalahdentori")
 print(e)
-e = etaisyys(asemat, "Viiskulma", "Kaivopuisto")
+d = distance(stations, "Viiskulma", "Kaivopuisto")
 print(e)
 ```
 
@@ -953,16 +952,16 @@ print(e)
 
 </sample-output>
 
-**Huom!** If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at [these instructions](/part-6/1-reading-files#what-if-visual-studio-code-cannot-find-my-file).
+**NB:** If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at [these instructions](/part-6/1-reading-files#what-if-visual-studio-code-cannot-find-my-file).
 
-#### pisin välimatka
+#### The greatest distance
 
-Tee funktio `suurin_etaisyys(asemat: dict)`, joka selvittää, mitkä kaksi asemaa ovat kauimpana toisistaan. Funktio palauttaa tuplen, jonka ensimmäiset kaksi arvoa kertovat asemien nimet ja kolmas arvo niiden välisen etäisyyden.
+Please write a function named `greatest_distance(stations: dict)`, which works out the two stations on the list with the greatest distance from each other. The function should return a tuple, where the first two elements are the names of the two stations, and the third element is the distance between the two.
 
 ```python
-asemat = hae_asematiedot('stations1.csv')
-asema1, asema2, suurin = suurin_etaisyys(asemat)
-print(asema1, asema2, suurin)
+stations = get_station_data('stations1.csv')
+station1, station2, greatest = greatest_distance(stations)
+print(station1, station2, greatest)
 ```
 
 <sample-output>
