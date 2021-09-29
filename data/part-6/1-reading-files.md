@@ -571,7 +571,7 @@ Huomaa, että koska ohjelma käyttää aputietorakenteena sanakirjaa, ei henkil�
 This program works with two CSV files. One of them contains information about some students on a course:
 
 ```csv
-opnro;etunimi;sukunimi
+id;first;last
 12345678;peter;pythons
 12345687;jean;javanese
 12345699;alice;adder
@@ -580,7 +580,7 @@ opnro;etunimi;sukunimi
 The other contains the number of exercises each student has completed each week:
 
 ```csv
-opnro;v1;v2;v3;v4;v5;v6;v7
+id;e1;e2;e3;e4;e5;e6;e7
 12345678;4;1;1;4;5;2;4
 12345687;3;5;3;1;5;4;6
 12345699;10;2;2;7;10;2;2
