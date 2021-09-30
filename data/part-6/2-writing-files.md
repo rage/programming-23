@@ -274,7 +274,7 @@ Tämä ei kuitenkaan teknisten rajoitteiden takia toimi palvelimella suoritettav
 </text-box>
 
 
-<programming-exercise name='Aineiston suodatus' tmcname='part06-12_aineiston_suodatus'>
+<programming-exercise name='Filtering the contents of a file' tmcname='part06-12_filtering_file_contents'>
 
 The file `solutions.csv` contains some solutions to mathematics problems:
 
@@ -326,21 +326,23 @@ After the execution, the contents of the files `correct.csv` and `incorrect.csv`
 
 </programming-exercise>
 
-<programming-exercise name='Henkilöt talteen' tmcname='part06-13_henkilot_talteen'>
+<programming-exercise name='Store personal data' tmcname='part06-13_store_personal_data'>
 
-Please write a function named `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henkilöä kuvaavan tuplen. Tuplessa on seuraavat tiedot tässä järjestyksessä:
+Please write a function named `store_personal_data(person: tuple)`, which takes a tuple containing some identifying information as its argument.
 
-* Nimi (merkkijono)
-* Ikä (kokonaisluku)
-* Pituus (liukuluku)
+The tuple contains the following elements:
 
-Tallenna henkilön tiedot tiedostoon `henkilot.csv` olemassa olevien tietojen perään. Tiedot tulee tallentaa muodosssa
+* Name (string)
+* Age (integer)
+* Height (float)
 
-nimi;ikä;pituus
+This should be processed and written into the file `people.csv`. The file may already contain some data; the new entry goes to the end of the file. The data should be written in the format
 
-eli yhden henkilön tiedot tulevat yhdelle riville. Jos funktiota esim. kutsuttaisiin parametrien arvoilla `("Kimmo Kimmonen", 37, 175.5)`, ohjelma kirjoittaisi tiedoston loppuun rivin
+name;age;height
 
-`Kimmo Kimmonen;37;175.5`
+Each entry should be on a separate line. If we call the function with the argument `("Paul Paulson", 37, 175.5)`, the function should write this line to the end of the file:
+
+`Paul Paulson;37;175.5`
 
 </programming-exercise>
 
@@ -441,30 +443,30 @@ print(hae_arvosana("Paula", viikkopisteet))
 
 Jos ohjelmasta halutaan muuttaa tai korjata "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon. Jos sama logiikka, esimerkiksi arvosanan laskeminen, olisi kopioitu useaan paikkaan, kasvaisi riski, että muutoksia ei muistettaisi tehdä kaikkiin oikeisiin paikkoihin.
 
-<programming-exercise name='Kurssin tulokset, osa 4' tmcname='part06-14_kurssin_tulokset_osa4'>
+<programming-exercise name='Course grading, part 4' tmcname='part06-14_course_grading_part_4'>
 
-Laajennetaan vielä hieman aiemmin kurssien tulokset generoivaa sovellusta.
+Let's revisit the course grading project from the previous section. 
 
-Tällä hetkellä tiedostosta luetaan opiskelijoiden nimet, tehtäväpisteet sekä koepisteet. Laajennetaan ohjelmaa siten, että myös kurssin nimi ja laajuus luetaan tiedostosta, jonka muoto on seuraava (tiedosto on kirjoitettu ilman ääkkösiä, jotta se ei aiheuttaisi ongelmia Windowsissa):
+As we left if last time, the program read and processed files containing student information, completed exercises and exam results. We'll add a file containing information about the course. An example of the format of the file:
 
 <sample-data>
 
 <pre>
 
-nimi: Ohjelmoinnin perusteet
-laajuus opintopisteina: 5
+name: Introduction to Programming
+study credits: 5
 </pre>
 
 </sample-data>
 
-Ohjelma luo kaksi tiedostoa. Tiedoston `tulos.txt` muoto on seuraava:
+The program should then create two files. There should be a file called `results.txt` with the following contents:
 
 <sample-data>
 
 <pre>
-Ohjelmoinnin perusteet, 5 opintopistettä
-========================================
-nimi                          teht_lkm  teht_pist koe_pist  yht_pist  arvosana
+Introduction to Programming, 5 credits
+======================================
+name                          exercises exer_p    exam_p    total_p   grade
 pekka peloton                 21        5         9         14        0
 jaana javanainen              27        6         11        17        1
 liisa virtanen                35        8         14        22        3
@@ -472,9 +474,9 @@ liisa virtanen                35        8         14        22        3
 
 </sample-data>
 
-Tulokset kertova osa on siis samanlainen kuin tehtävän edellisen osan tulostus.
+The statistics section is identical to the results printed out in part 3 of the project. The only addition here is the header section. 
 
-Tämän lisäksi luodaan tiedosto `tulos.csv`, jonka muoto on seuraava:
+Additionally, there should be a file called `results.csv` with the following format:
 
 <sample-data>
 
@@ -486,19 +488,19 @@ Tämän lisäksi luodaan tiedosto `tulos.csv`, jonka muoto on seuraava:
 
 </sample-data>
 
-Ohjelman suoritus näyttää seuraavalta:
+When the program is executed, it should look like this:
 
 <sample-output>
 
-opiskelijatiedot: **opiskelijat1.csv**
-tehtävätiedot: **tehtavat1.csv**
-koepisteet: **koepisteet1.csv**
-kurssin tiedot: **kurssi1.txt**
-Tulokset talletettu tiedostoihin tulos.txt ja tulos.csv
+Student information: **students1.csv**
+Exercises completed: **exercises1.csv**
+Exam points: **exam_points1.csv**
+Course information: **course1.txt**
+Results written to files results.txt and results.csv
 
 </sample-output>
 
-Ohjelma siis ainoastaan kyselee tiedostojen nimet ja varsinaiset tulokset tallennetaan vain tiedostoihin.
+That is, the program only asks for the names of the input files. All output should be written to the files. The user will only see a message confirming this.
 
 **NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
@@ -506,32 +508,30 @@ Ohjelma siis ainoastaan kyselee tiedostojen nimet ja varsinaiset tulokset tallen
 
 
 
-<programming-exercise name='Sanahaku' tmcname='part06-15_sanahaku'>
+<programming-exercise name='Word search' tmcname='part06-15_word_search'>
 
-Tehtäväpohjasta löytyy tiedosto `sanat.txt`, joka sisältää englanninkielisiä sanoja.
+The exercise template includes the file `words.txt`, which contains words in English.
 
-Tehtäväsi on kirjoittaa funktio `hae_sanat(hakusana: str)`, joka palauttaa listana annetun hakusanan mukaiset sanat tiedostosta.
+Please write a function named `find_words(search_term: str)`. It should return a list containing all the words in the file which match the search term.
 
-Hakusanassa voi käyttää pienten kirjainten lisäksi seuraavia erikoismerkkejä:
+The search term may include lowercase letters and the following wildcard characters:
 
-* Piste `.` tarkoittaa, että mikä tahansa merkki käy (esim `ca.` vastaa vaikkapa sanoja cat ja car, `p.ng` sanoja ping ja pong ja `.a.e` sanoja sane, care tai late.
-* Asteriski `*` tarkoittaa, että sanan alku- tai loppuosaksi käy mikä tahansa jono, esim. `ca*` vastaa vaikkapa sanoja california, cat, caring tai catapult. Vastaavasti hakusana `*ane` vastaa vaikkapa sanoja crane, insane tai aeroplane. Voit olettaa, että asteriski on aina joko hakusanan alussa tai lopussa, ja että hakusanassa esiintyy korkeintaan yksi asteriski.
-* Jos hakusanassa ei ole erikoismerkkejä, haetaan vain täsmälleen hakusanaa vastaava sana.
+* A dot `.` means that any single character is acceptable in its place. For example, `ca.` would yield words like _cat_ and _car_, `p.ng` would yield words like _ping_ and _pong_, and `.a.e` would yield words like _sane_, _care_ and _late_.
+* An asterisk `*` at the _end_ of the search term means that any word which _begins_ with the search term is acceptable. An asterisk at the _beginning_ of the search term means that any word which _ends_ with the search term is acceptable. For example, `ca*` would yield words like _california_, _cat_, _caring_ and _catapult_, while `*ane` would yield words like _crane_, _insane_ and _aeroplane_. There can only ever be a single asterisk in the search term.
+* If there are no wildcard characters in the search term, only words which match the search term exactly are returned. 
 
-Sovitaan, että samassa hakusanassa ei voi käyttää molempia erikoismerkkejä.
+You may assume both wildcards are never used in the same search term.
 
-Sanat ovat tiedostossa kokonaan pienillä kirjaimilla kirjoitettuna. Voit myös olettaa, että funktion parametri on annettu kokonaan pienillä kirjaimilla.
+The words in the file are all written in lowercase. You may also assume the argument to the function will be in lowercase entirely.
 
-Jos yhtään tulosta ei löydy, funktio palauttaa tyhjän listan.
+If no matching words are found, the function should return an empty list.
 
-Vinkki: Pythonin merkkijonometodeista startswith() ja endswith() saattaa olla hyötyä tehtävässä, googlaa niiden toiminta tarvittaessa tarkemmin!
+Hint: the Pythons string methods `startswith()` and `endswith()` may be useful here. You can search for more information about them online.
 
-Esimerkki funktion kutsumisesta:
+An example of the function in action:
 
 ```python
-
-print(hae_sanat("*vokes"))
-
+print(find_words("*vokes"))
 ```
 
 <sample-output>
@@ -544,51 +544,51 @@ print(hae_sanat("*vokes"))
 
 <programming-exercise name='Muistava sanakirja' tmcname='part06-16_muistava_sanakirja'>
 
-Tee sanakirjaa mallintava ohjelma, johon voi syöttää uusia sanoja tai josta voi hakea syötettyjä sanoja.
+Please write a program which functions as a dictionary. The user can type in new entries or look for existing entries.
 
-Ohjelman tulee toimia näin:
+The program should work as follows:
 
 <sample-output>
 
-1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+1 - Add word, 2 - Search, 3 - Quit
 Function: **1**
-Anna sana suomeksi: **auto**
-Anna sana englanniksi: **car**
-Sanapari lisätty
-1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+The word in Finnish: **auto**
+The word in English: **car**
+Dictionary entry added
+1 - Add word, 2 - Search, 3 - Quit
 Function: **1**
-Anna sana suomeksi: **roska**
-Anna sana englanniksi: **garbage**
-Sanapari lisätty
-1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+The word in Finnish: **roska**
+The word in English: **garbage**
+Dictionary entry added
+1 - Add word, 2 - Search, 3 - Quit
 Function: **1**
-Anna sana suomeksi: **laukku**
-Anna sana englanniksi: **bag**
-Sanapari lisätty
-1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+The word in Finnish: **laukku**
+The word in English: **bag**
+Dictionary entry added
+1 - Add word, 2 - Search, 3 - Quit
 Function: **2**
-Anna sana: **bag**
+Search term: **bag**
 roska - garbage
 laukku - bag
-1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+1 - Add word, 2 - Search, 3 - Quit
 Function: **2**
-Anna sana: **car**
+Search term: **car**
 auto - car
-1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+1 - Add word, 2 - Search, 3 - Quit
 Function: **2**
-Anna sana: **laukku**
+Search term: **laukku**
 laukku - bag
-1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
+1 - Add word, 2 - Search, 3 - Quit
 Function: **3**
-Moi!
+Bye!
 
 </sample-output>
 
-Sanat tallennetaan tiedostoon `sanakirja.txt`. Ohjelma lukee tiedoston sisällön kun se käynnistetään. Uudet sanaparit lisätään tiedostoon aina tallennuksen yhteydessä.
+The dictionary entries should be written to a file called `dictionary.txt`. The program should first read the contents of the file. New entries are written to the end of the file whenever they are added to the dictionary.
 
-Voit itse päättää tiedostoon tallennettavan tiedon muodon.
+The format of the data stored in the dictionary is up to you.
 
-Huomaa, että paikallisten TMC-testien ajaminen voi tyhjentää sanakirja-tiedoston.
+NB: the automatic tests for this exercise may change the contents of the file. If you want to keep its contents, first make a copy of the file under a different name.
 
 **NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
