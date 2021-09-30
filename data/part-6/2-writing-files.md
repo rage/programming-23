@@ -276,7 +276,7 @@ Tämä ei kuitenkaan teknisten rajoitteiden takia toimi palvelimella suoritettav
 
 <programming-exercise name='Aineiston suodatus' tmcname='part06-12_aineiston_suodatus'>
 
-Tiedostossa laskut.csv on tehtävien ratkaisuja seuraavan esimerkin mukaisesti:
+The file `solutions.csv` contains some solutions to mathematics problems:
 
 ```csv
 Arto;2+5;7
@@ -287,15 +287,15 @@ Pekka;5+5;10
 ...jne...
 ```
 
-Jokaisella rivin muoto on siis `oppilaan_nimi;lasku;lopputulos`. Laskut ovat kaikki esimerkin mukaisesti joko yhteen- tai vähennyslaskuja, ja kaikissa on kaksi operandia.
+As you can see above, on each line the format is `name_of_student;problem;result`. All the operations are either addition or subtraction, and each has exactly two operands.
 
-Kirjoita funktio `suodata_laskut()`, joka
+Please write a function named `filter_solutions()` which
 
-* Lukee tiedoston `laskut.csv` sisällön ja
-* kirjoittaa tiedostoon `oikeat.csv` ne rivit, joilla laskutoimituksen lopputulos on oikein sekä
-* kirjoittaa tiedostoon `vaarat.csv` ne rivit, joilla laskutoimituksen lopputulos on väärin.
+* Reads the contents of the file `solutions.csv`
+* writes those lines which have a _correct_ result into the file `correct.csv`
+* writes those lines which have an _incorrect_ result into the file `incorrect.csv`
 
-Edellisestä esimerkistä tiedostoon `oikeat.csv` olisi siis kirjoitettu rivit
+Using the example above, the file `correct.csv` would contain the lines 
 
 ```sh
 Arto;2+5;7
@@ -303,32 +303,32 @@ Pekka;3-2;1
 Pekka;5+5;10
 ```
 
-Kaksi muuta riviä olisi kirjoitettu tiedostoon `vaarat.csv`.
+The other two would be in the file `incorrect.csv`.
 
-Kirjoita rivit samassa järjestyksessä kuin ne esiintyvät alkuperäisessä tiedostossa. Älä muuta alkuperäistä tiedostoa.
+Please write the lines in the same order as they appear in the original file. Do not change the original file.
 
-*Huomaa* että funktion tulee toimia oikein siinäkin tapauksessa että funktiota kutsutaan monta kertaa perkkäin. Eli riippumatta siitä suoritatko funktion vain kerran
-
-```python
-suodata_laskut()
-```
-
-tai useita kertoja peräkkän
+NB: the function should have the exact same result, no matter how many times it is called. That is, it shouldn't matter if the function is called once
 
 ```python
-suodata_laskut()
-suodata_laskut()
-suodata_laskut()
-suodata_laskut()
+filter_solutions()
 ```
 
-tiedostojen sisältöjen tulee lopulta olla samat.
+or multiple times in a row
+
+```python
+filter_solutions()
+filter_solutions()
+filter_solutions()
+filter_solutions()
+```
+
+After the execution, the contents of the files `correct.csv` and `incorrect.csv` should be exactly the same in either case.
 
 </programming-exercise>
 
 <programming-exercise name='Henkilöt talteen' tmcname='part06-13_henkilot_talteen'>
 
-Kirjoita funktio `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henkilöä kuvaavan tuplen. Tuplessa on seuraavat tiedot tässä järjestyksessä:
+Please write a function named `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henkilöä kuvaavan tuplen. Tuplessa on seuraavat tiedot tässä järjestyksessä:
 
 * Nimi (merkkijono)
 * Ikä (kokonaisluku)

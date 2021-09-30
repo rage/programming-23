@@ -586,7 +586,7 @@ id;e1;e2;e3;e4;e5;e6;e7
 12345699;10;2;2;7;10;2;2
 ```
 
-As you can see above, both CSV files also have a header row, which tells you what each column contains. NB: these header rows contain some residual Finnish. You don't need to process the contents of the header rows, they are there for information only.
+As you can see above, both CSV files also have a header row, which tells you what each column contains.
 
 Please write a program which asks the user for the names of these two files, reads the files, and then prints out the total number of exercises completed by each student. If the files have the contents in the examples above, the program should print out the following:
 
