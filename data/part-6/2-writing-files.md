@@ -588,9 +588,9 @@ The dictionary entries should be written to a file called `dictionary.txt`. The 
 
 The format of the data stored in the dictionary is up to you.
 
-NB: the automatic tests for this exercise may change the contents of the file. If you want to keep its contents, first make a copy of the file under a different name.
+**NB:** the automatic tests for this exercise may change the contents of the file. If you want to keep its contents, first make a copy of the file under a different name.
 
-**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
+**NB2:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 
 </programming-exercise>
