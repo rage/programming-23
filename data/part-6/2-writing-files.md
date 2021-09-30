@@ -542,7 +542,7 @@ print(find_words("*vokes"))
 
 </programming-exercise>
 
-<programming-exercise name='Muistava sanakirja' tmcname='part06-16_muistava_sanakirja'>
+<programming-exercise name='Dictionary stored in a file' tmcname='part06-16_dictionary_file'>
 
 Please write a program which functions as a dictionary. The user can type in new entries or look for existing entries.
 
