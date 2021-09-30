@@ -594,9 +594,9 @@ Please write a program which asks the user for the names of these two files, rea
 
 Student information: **students1.csv**
 Exercises completed: **exercises1.csv**
-peter pythons 21
-jean javanese 27
-alice adder 35
+pekka peloton 21
+jaana javanainen 27
+liisa virtanen 35
 
 </sample-output>
 
@@ -656,9 +656,9 @@ The program should again ask the user for the names of the files. Then the progr
 Student information: **students1.csv**
 Exercises completed: **exercises1.csv**
 Exam points: **exam_points1.csv**
-peter pythons 0
-jean javanese 1
-alice adder 3
+pekka peloton 0
+jaana javanainen 1
+liisa virtanen 3
 
 </sample-output>
 
@@ -689,10 +689,10 @@ Student information: **students1.csv**
 Exercises completed: **exercises1.csv**
 Exam points: **exam_points1.csv**
 <pre>
-name                       exercises exer_p    exam_p    total_p   grade
-peter pythons              21        5         9         14        0
-jean javanese              27        6         11        17        1
-alice adder                35        8         14        22        3
+name                          exercises exer_p    exam_p    total_p   grade
+pekka peloton                 21        5         9         14        0
+jaana javanainen              27        6         11        17        1
+liisa virtanen                35        8         14        22        3
 </pre>
 
 </sample-output>
