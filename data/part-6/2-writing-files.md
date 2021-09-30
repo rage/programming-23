@@ -80,28 +80,26 @@ Viimeinen rivi
 
 </sample-data>
 
-<programming-exercise name='Omistuskirjoitus' tmcname='osa06-10_omistuskirjoitus'>
+<programming-exercise name='Inscription' tmcname='part06-10_inscription'>
 
-Tee ohjelma, joka kysyy nimeä ja luo "omistuskirjoituksen" käyttäjän haluamaan tiedostoon. Seuraavassa ohjelman esimerkkisuoritus:
+Please write a program which asks for the name of the user and then creates an "inscription" in a file specified by the user. Please see the example below.
 
 <sample-output>
 
-Kenelle teos omistetaan: **Arto**
-Mihin kirjoitetaan: **omistettu.txt**
+Whom should I sign this to: **Ada**
+Where shall I save it: **inscribed.txt**
 
 </sample-output>
 
-Tiedoston `omistettu.txt` sisällöksi tulee
+The contents of the file `inscribed.txt` would be
 
 <sample-data>
 
-Hei Arto, toivomme viihtyisiä hetkiä python-kurssimateriaalin parissa! Terveisin mooc.fi-tiimi
+Hi Ada, we hope you enjoy learning Python with us! Best, Mooc.fi Team
 
 </sample-data>
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
-
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
@@ -135,59 +133,57 @@ Tiedon lisääminen tiedostoon on kuitenkin suhteellisen harvoin tarvittava oper
 
 Tiedostoon lisäämisen sijaan on usein yksinkertaisinta kirjoittaa tiedosto kokonaan uudelleen. Näin joudutaan useimmiten tekemään jos esimerkiksi tiedoston sisältö muuttuu keskeltä tiedostoa.
 
-<programming-exercise name='Päiväkirja' tmcname='osa06-11_paivakirja'>
+<programming-exercise name='Diary' tmcname='part06-11_diary'>
 
-Tee ohjelma, joka mallintaa yksinkertaista päiväkirjaa. Ohjelman tulee tallentaa päiväkirjamerkinnät tiedostoon `paivakirja.txt`. Kun ohjelma käynnistetään, se lukee merkinnät tiedostosta.
+Please write a program which works as a simply diary. The diary entries should be saved in the file `diary.txt`. When the program is executed, it should first read any entries already in the file.
 
-Huom! Paikalliset testit voivat muuttaa tiedoston sisältöä - kopioi siis tiedosto talteen ennen testien ajamista, jos haluat säilyttää sen sisällön.
+NB: the automatic tests for this exercise will change the contents of the file. If you want to keep its contents, first make a copy of the file under a different name.
 
-Ohjelman tulee toimia seuraavan esimerkin mukaisesti:
-
-<sample-output>
-
-1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
-Valinta: **1**
-Anna merkintä: **Tänään söin puuroa**
-Päiväkirja tallennettu
-
-1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
-Valinta: **2**
-Merkinnät:
-Tänään söin puuroa
-1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
-Valinta: **1**
-Anna merkintä: **Illalla kävin saunassa**
-Päiväkirja tallennettu
-
-1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
-Valinta: **2**
-Merkinnät:
-Tänään söin puuroa
-Illalla kävin saunassa
-1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
-Valinta: **0**
-Heippa!
-
-</sample-output>
-
-Uusi käynnistys:
+The program should work as follows:
 
 <sample-output>
 
-1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
-Valinta: **2**
-Merkinnät:
-Tänään söin puuroa
-Illalla kävin saunassa
-1 - lisää merkintä, 2 - lue merkinnät, 0 - lopeta
-Valinta: **0**
-Heippa!
+1 - add an entry, 2 - read entries, 0 - quit
+Function: **1**
+Diary entry: **Today I ate porridge**
+Diary saved
+
+1 - add an entry, 2 - read entries, 0 - quit
+Function: **2**
+Entries:
+Today I ate porridge
+1 - add an entry, 2 - read entries, 0 - quit
+Function: **1**
+Diary entry: **I went to the sauna in the evening**
+Diary saved
+
+1 - add an entry, 2 - read entries, 0 - quit
+Function: **2**
+Entries:
+Today I ate porridge
+I went to the sauna in the evening
+1 - add an entry, 2 - read entries, 0 - quit
+Function: **0**
+Bye now!
 
 </sample-output>
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+When the program is executed for the second time, this should happen:
 
+<sample-output>
+
+1 - add an entry, 2 - read entries, 0 - quit
+Function: **2**
+Entries:
+Today I ate porridge
+I went to the sauna in the evening
+1 - add an entry, 2 - read entries, 0 - quit
+Function: **0**
+Bye now!
+
+</sample-output>
+
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
@@ -278,7 +274,7 @@ Tämä ei kuitenkaan teknisten rajoitteiden takia toimi palvelimella suoritettav
 </text-box>
 
 
-<programming-exercise name='Aineiston suodatus' tmcname='osa06-12_aineiston_suodatus'>
+<programming-exercise name='Aineiston suodatus' tmcname='part06-12_aineiston_suodatus'>
 
 Tiedostossa laskut.csv on tehtävien ratkaisuja seuraavan esimerkin mukaisesti:
 
@@ -330,7 +326,7 @@ tiedostojen sisältöjen tulee lopulta olla samat.
 
 </programming-exercise>
 
-<programming-exercise name='Henkilöt talteen' tmcname='osa06-13_henkilot_talteen'>
+<programming-exercise name='Henkilöt talteen' tmcname='part06-13_henkilot_talteen'>
 
 Kirjoita funktio `tallenna_henkilo(henkilo: tuple)` joka saa parametrikseen henkilöä kuvaavan tuplen. Tuplessa on seuraavat tiedot tässä järjestyksessä:
 
@@ -445,7 +441,7 @@ print(hae_arvosana("Paula", viikkopisteet))
 
 Jos ohjelmasta halutaan muuttaa tai korjata "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon. Jos sama logiikka, esimerkiksi arvosanan laskeminen, olisi kopioitu useaan paikkaan, kasvaisi riski, että muutoksia ei muistettaisi tehdä kaikkiin oikeisiin paikkoihin.
 
-<programming-exercise name='Kurssin tulokset, osa 4' tmcname='osa06-14_kurssin_tulokset_osa4'>
+<programming-exercise name='Kurssin tulokset, osa 4' tmcname='part06-14_kurssin_tulokset_osa4'>
 
 Laajennetaan vielä hieman aiemmin kurssien tulokset generoivaa sovellusta.
 
@@ -504,14 +500,13 @@ Tulokset talletettu tiedostoihin tulos.txt ja tulos.csv
 
 Ohjelma siis ainoastaan kyselee tiedostojen nimet ja varsinaiset tulokset tallennetaan vain tiedostoihin.
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 </programming-exercise>
 
 
 
-<programming-exercise name='Sanahaku' tmcname='osa06-15_sanahaku'>
+<programming-exercise name='Sanahaku' tmcname='part06-15_sanahaku'>
 
 Tehtäväpohjasta löytyy tiedosto `sanat.txt`, joka sisältää englanninkielisiä sanoja.
 
@@ -547,7 +542,7 @@ print(hae_sanat("*vokes"))
 
 </programming-exercise>
 
-<programming-exercise name='Muistava sanakirja' tmcname='osa06-16_muistava_sanakirja'>
+<programming-exercise name='Muistava sanakirja' tmcname='part06-16_muistava_sanakirja'>
 
 Tee sanakirjaa mallintava ohjelma, johon voi syöttää uusia sanoja tai josta voi hakea syötettyjä sanoja.
 
@@ -556,35 +551,35 @@ Ohjelman tulee toimia näin:
 <sample-output>
 
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
-Valinta: **1**
+Function: **1**
 Anna sana suomeksi: **auto**
 Anna sana englanniksi: **car**
 Sanapari lisätty
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
-Valinta: **1**
+Function: **1**
 Anna sana suomeksi: **roska**
 Anna sana englanniksi: **garbage**
 Sanapari lisätty
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
-Valinta: **1**
+Function: **1**
 Anna sana suomeksi: **laukku**
 Anna sana englanniksi: **bag**
 Sanapari lisätty
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
-Valinta: **2**
+Function: **2**
 Anna sana: **bag**
 roska - garbage
 laukku - bag
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
-Valinta: **2**
+Function: **2**
 Anna sana: **car**
 auto - car
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
-Valinta: **2**
+Function: **2**
 Anna sana: **laukku**
 laukku - bag
 1 - Lisää sana, 2 - Hae sanaa, 3 - Poistu
-Valinta: **3**
+Function: **3**
 Moi!
 
 </sample-output>
@@ -595,8 +590,7 @@ Voit itse päättää tiedostoon tallennettavan tiedon muodon.
 
 Huomaa, että paikallisten TMC-testien ajaminen voi tyhjentää sanakirja-tiedoston.
 
-**Huom:** tässä tehtävässä (eikä missään muussakaan tehtävissä missä _ei_ erikseen pyydetä funktioiden toteuttamista) mitään koodia __ei tule sijoittaa__
-`if __name__ == "__main__"`-lohkoon!
+**NB:** this exercise doesn't ask you to write any functions, so you should __not__ place any code within an `if __name__ == "__main__"` block.
 
 
 </programming-exercise>
