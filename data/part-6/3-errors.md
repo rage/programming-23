@@ -101,10 +101,10 @@ Ohjelmassa voidaan siis `try`-lauseella ilmoittaa, että seuraavan lohkon sisäl
 
 Tässä tapauksessa virhetilanteessa muuttuja `ika` saa arvon -1, jolloin ohjelma tunnistaa oikein virheellisen iän, koska ehtona on, että ikä on vähintään 0.
 
-Seuraava funktio `lue_kokonaisluku` lukee käyttäjältä kokonaisluvun varautuen siihen, että käyttäjä antaa virheellisen syötteen. Funktio kysyy lukua uudestaan niin kauan, kunnes käyttäjä lopulta antaa kelvollisen luvun.
+Seuraava funktio `read_input_kokonaisluku` lukee käyttäjältä kokonaisluvun varautuen siihen, että käyttäjä antaa virheellisen syötteen. Funktio kysyy lukua uudestaan niin kauan, kunnes käyttäjä lopulta antaa kelvollisen luvun.
 
 ```python
-def lue_kokonaisluku():
+def read_input_kokonaisluku():
     while True:
         try:
             syote = input("Syötä kokonaisluku: ")
@@ -112,7 +112,7 @@ def lue_kokonaisluku():
         except ValueError:
             print("Virheellinen syöte")
 
-luku = lue_kokonaisluku()
+luku = read_input_kokonaisluku()
 print("Kiitos!")
 print(luku, "potenssiin kolme on", luku**3)
 ```
@@ -134,7 +134,7 @@ Joissain tilanteissa saattaa olla tarvetta varautua poikkeukseen, mutta poikkeuk
 Jos muuttaisimme edellistä esimerkkiä siten, että funktio hyväksyisi ainoastaan lukua 100 pienemmät kokonaisluvut, voisimme muuttaa toteutusta seuraavasti:
 
 ```python
-def lue_pieni_kokonaisluku():
+def read_input_pieni_kokonaisluku():
     while True:
         try:
             syote = input("Syötä kokonaisluku: ")
@@ -146,7 +146,7 @@ def lue_pieni_kokonaisluku():
 
         print("Virheellinen syöte")
 
-luku = lue_pieni_kokonaisluku()
+luku = read_input_pieni_kokonaisluku()
 print(luku, "potenssiin kolme on", luku**3)
 ```
 
@@ -164,25 +164,25 @@ Kiitos!
 
 Nyt siis poikkeuksen käsittelevässä lohkossa on ainoastaan komento `pass`, joka ei tee mitään. Komento tarvitaan, sillä Python ei salli tyhjiä lohkoja.
 
-<programming-exercise name='Syötteen luku' tmcname='osa06-17_syotteen_luku'>
+<programming-exercise name='Reading input' tmcname='part06-17_read_input'>
 
-Tee funktio `lue`, joka kysyy käyttäjältä syötettä, kunnes se on parametrien määrittelemällä välillä oleva kokonaisluku. Funktio palauttaa käyttäjän antaman syötteen.
+Please write a function named `read_input`, which asks the user for input until the user types in an integer which falls within the bounds given as arguments to the function. The function should return the final valid integer value typed in by the user.
 
-Funktio toimii seuraavasti:
+An example of the function in action:
 
 ```python
-luku = lue("syötä luku: ", 5, 10)
-print("syötit luvun:", luku)
+number = read_input("Please type in a number: ", 5, 10)
+print("You typed in:", number)
 ```
 
 <sample-output>
 
-syötä luku: **seitsemän**
-Syötteen on oltava kokonaisluku väliltä 5...10
-syötä luku: **-3**
-Syötteen on oltava kokonaisluku väliltä 5...10
-syötä luku: **8**
-syötit luvun: 8
+Please type in a number: **seven**
+You must type in an integer between 5 and 10
+Please type in a number: **-3**
+You must type in an integer between 5 and 10
+Please type in a number: **8**
+You typed in: 8
 
 </sample-output>
 
@@ -315,79 +315,79 @@ ValueError: Negatiivinen syöte: -1
 </sample-output>
 
 
-<programming-exercise name='Parametrien validointi ' tmcname='osa06-18_parametrien_validointi'>
+<programming-exercise name='Parameter validation' tmcname='part06-18_parameter_validation'>
 
-Kirjoita funktio `uusi_henkilo(nimi: str, ika: int)`, joka luo ja palauttaa uuden henkilö-tuplen. Tuplessa ensimmäinen alkio on nimi ja jälkimmäinen ikä.
+Please write a function named `new_person(name: str, age: int)`, which creates and returns a tuple containing the data in the arguments. The first element should be the name and the second the age.
 
-Jos funktion parametrit ovat virheelliset, sen tulee tuplen palauttamisen sijasta tuottaa `ValueError`-poikkeus.
+If the values stored in the parameter variables are not valid, the function should throw a `ValueError` exception.
 
-Virheellisiä parametreja tässä tapauksessa ovat:
+Invalid parameters in this case include:
 
-* nimi on tyhjä merkkijono
-* nimi ei koostu vähintään kahdesta sanasta
-* nimen pituus on yli 40 merkkiä
-* ikä on negatiivinen luku
-* ikä on suurempi kuin 150
+* name is an empty string
+* name contains less than two words
+* name is longer than 40 characters
+* age is a negative number
+* age is greater than 150
 
 </programming-exercise>
 
-<programming-exercise name='Virheelliset lottonumerot' tmcname='osa06-19_virheelliset_lottonumerot'>
+<programming-exercise name='Incorrect lottery numbers' tmcname='part06-19_incorrect_lottery_numbers'>
 
-Tiedostoon `lottonumerot.csv` on tallennettu lottonumeroita seuraavan esimerkin mukaisesti:
-
-<sample-data>
-
-viikko 1;5,7,11,13,23,24,30
-viikko 2;9,13,14,24,34,35,37
-...jne...
-
-</sample-data>
-
-Aluksi pitäisi olla siis otsikko `viikko x`, ja sen jälkeen seitsemän numeroa väliltä 1...39.
-
-Tiedosto on kuitenkin osittain korruptoitunut. Seuraavat rivit ovat esimerkkejä virheellisistä riveistä (huomaa, että tehtäväpohjassa olevassa tiedostossa ei ole juuri näitä virheitä):
-
-Viikkonumero pielessä:
+The file `lottery_numbers.csv` containts winning lottery numbers in the following format:
 
 <sample-data>
 
-viikko zzc;1,5,13,22,24,25,26
+week 1;5,7,11,13,23,24,30
+week 2;9,13,14,24,34,35,37
+...etc...
 
 </sample-data>
 
-Numero tai numeroita pielessä:
+Each line should contain a header `week x`, followed by seven integer numbers which are all between 1 and 39 inclusive.
+
+The file has been corrupted. Lines in the file may contain the following kinds of errors (these exact lines may not be present in the file, but errors in a similar format will be):
+
+The week number is incorrect:
 
 <sample-data>
 
-viikko 22;1,**,5,6,13,2b,34
+week zzc;1,5,13,22,24,25,26
 
 </sample-data>
 
-Liian vähän numeroita:
+One or more numbers are not correct:
 
 <sample-data>
 
-viikko 13;4,6,17,19,24,33
+week 22;1,**,5,6,13,2b,34
 
 </sample-data>
 
-Liian pieniä tai suuria numeroita:
+Too few numbers:
 
 <sample-data>
 
-viikko 39;5,9,15,35,39,41,105
+week 13;4,6,17,19,24,33
 
 </sample-data>
 
-Rivissä esiintyy sama numero kahdesti:
+The numbers are too small or large:
 
 <sample-data>
 
-viikko 41;5,12,3,35,12,14,36
+week 39;5,9,15,35,39,41,105
 
 </sample-data>
 
-Kirjoita funktio `suodata_virheelliset()`, joka luo tiedoston `korjatut_numerot.csv`. Tiedostoon on kopioitu kelvolliset rivit alkuperäisestä tiedostosta.
+The same number appears twice:
+
+<sample-data>
+
+week 41;5,12,3,35,12,14,36
+
+</sample-data>
+
+Please write a function named `filter_incorrect()`, which creates a file called `correct_numbers.csv`. The file contains only those lines from the original file which have lottery numbers in the correct format.
 
 </programming-exercise>
 
