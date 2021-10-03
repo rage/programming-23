@@ -505,7 +505,7 @@ Once upon a time there was a girl
 
 </sample-output>
 
-### Osa 2
+### Part 2
 
 Change the program so that the loop ends also if the user types in the same word twice.
 
