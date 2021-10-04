@@ -642,7 +642,7 @@ The function `sorted` returns a new, sorted copy of the list, so looking for the
 
 It is generally considered a good programming practice to avoid causing side effects with functions. Side effects can make it more difficult to verify that the program functions as intended in all situations.
 
-Functions free of side effects are also called _pure functions_. Especially when adhering to a functional programming style, this is a common ideal to follow. We will return to this topic further in the _Advanced Course in Programming_.
+Functions free of side effects are also called _pure functions_. Especially when adhering to a functional programming style, this is a common ideal to follow. We will explore this topic further in _Advanced Course in Programming_, which is the course following this one.
 
 <!---
 A quiz to review the contents of this section:

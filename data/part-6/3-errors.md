@@ -387,7 +387,7 @@ week 41;5,12,3,35,12,14,36
 
 </sample-data>
 
-Please write a function named `filter_incorrect()`, which creates a file called `correct_numbers.csv`. The file contains only those lines from the original file which have lottery numbers in the correct format.
+Please write a function named `filter_incorrect()`, which creates a file called `correct_numbers.csv`. The file should contain only those lines from the original file which are in the correct format.
 
 </programming-exercise>
 

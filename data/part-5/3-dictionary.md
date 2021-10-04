@@ -8,31 +8,31 @@ hidden: false
 
 After this section
 
-- Tiedät, millainen tietorakenne on sanakirja
-- Osaat käyttää sanakirjaa erityyppisten avainten ja arvojen kanssa
-- Osaat käydä läpi sanakirjan sisällön
-- Tunnet joitakin sanakirjan käyttötarkoituksia ohjelmoinnissa
+- You will be familiar with the dictionary data structure
+- You will be able to use a dictionary with different types of keys and values
+- You will know how to traverse through the contents of a dictionary
+- You will be able to name some typical use cases for dictionaries
 
 </text-box>
 
-Lista on kätevä tietorakenne, mutta sen rajoituksena on, että alkiot ovat indekseissä 0, 1, 2, jne. Tämä hankaloittaa alkioiden etsimistä listalta: jotta löydämme tietyn alkion, on pahimmassa tapauksessa käytävä läpi koko lista.
+Lists can be handy in many situations, but they are limited by the fact that the items are accessed through indexes; 0, 1, 2, and so forth. If you want to find some item in a list, you will either have to now its index, or, at worst, traverse through the entire list.
 
-Tutustumme seuraavaksi _sanakirjaan_, (englanniksi _dictionary_) joka on listan lisäksi toinen Pythonin perustietorakenne. Sanakirjassa jokainen alkio koostuu _avaimesta_ ja _arvosta_, ja voimme etsiä ja muuttaa tietoa avaimen perusteella.
+Another central data structure in Python is the _dictionary_. In a dictionary, the items are indexed by _keys_. Each key maps to a _value_. The values stored in the dictionary can be accessed and changed using the key.
 
-## Sanakirjan käyttäminen
+## Using a dictionary
 
-Seuraava ohjelma näyttää esimerkin sanakirjan käyttämisestä:
+The following example shows you how the dictionary data structure works. Here is a simple dictionary from Finnish to English:
 
 ```python
-sanakirja = {}
+my_dictionary = {}
 
-sanakirja["apina"] = "monkey"
-sanakirja["banaani"] = "banana"
-sanakirja["cembalo"] = "harpsichord"
+my_dictionary["apina"] = "monkey"
+my_dictionary["banaani"] = "banana"
+my_dictionary["cembalo"] = "harpsichord"
 
-print(len(sanakirja))
-print(sanakirja)
-print(sanakirja["apina"])
+print(len(my_dictionary))
+print(my_dictionary)
+print(my_dictionary["apina"])
 ```
 
 <sample-output>
@@ -43,62 +43,62 @@ monkey
 
 </sample-output>
 
-Merkintä `{}` luo tyhjän sanakirjan, minkä jälkeen voimme lisätä sanakirjaan sisältöä. Tässä tapauksessa lisäämme kolme avainta `"apina"`, `"banaani"` ja `"cembalo"`, joita vastaavat arvot `"monkey"`, `"banana"` ja `"harpsichord"`. Lopuksi tulostamme koko sanakirjan sisällön ja sitten avaimen `"apina"` arvon.
+The notation `{}` creates an empty dictionary, to which we can now add content. Three key-value pairs are added:`"apina"` maps to `"monkey"`, `"banaani"` maps to `"banana"`, and `"cembalo"` maps to `"harpsichord"`. Finally, the number of key-value pairs in the dictionary is printed, along with the entire dictionary, and the value mapped to the key `"apina"`.
 
-Voisimme käyttää tätä sanakirjaa vaikka seuraavasti:
+After defining the dictionary we could also use it with user input:
 
 ```python
-sana = input("Anna sana: ")
-if sana in sanakirja:
-    print("Käännös:", sanakirja[sana])
+word = input("Please type in a word: ")
+if word in my_dictionary:
+    print("Translation: ", my_dictionary[word])
 else:
-    print("Sanaa ei löytynyt")
+    print("Word not found")
 ```
 
-Tässä käytössä on `in`-operaattori, joka sanakirjan tapauksessa tarkastaa, onko siinä tiettyä avainta. Mahdollisia ohjelman tulostuksia:
+Notice the use of the `in` operator above. When used on a variable of type dictionary, it checks whether the first operand is among the keys stored in the dictionary. Given different inputs, this program might print out the following:
 
 <sample-output>
 
-Anna sana: **apina**
-Käännös: monkey
+Please type in a word: **apina**
+Translation: monkey
 
 </sample-output>
 
 <sample-output>
 
-Anna sana: **pöllö**
-Sanaa ei löytynyt
+Please type in a word: **pöllö**
+Word not found
 
 </sample-output>
 
-## Mitä sanakirjassa voi olla?
+## What can be stored in a dictionary?
 
-Vaikka tietorakenteen name on sanakirja, siinä ei ole usein sanakirjaa vaan jotain muuta tietoa. Esimerkiksi seuraavassa sanakirjassa avaimet ovat merkkijonoja ja arvot ovat kokonaislukuja:
+The data type is called dictionary, but it does not have to contain only strings. For example, in the following dictionary the keys are strings, but the values are integers:
 
 ```python
-tulokset = {}
-tulokset["Maija"] = 4
-tulokset["Liisa"] = 5
-tulokset["Kalle"] = 2
+results = {}
+results["Mary"] = 4
+results["Alice"] = 5
+results["Larry"] = 2
 ```
 
-Seuraavassa sanakirjassa puolestaan avaimet ovat kokonaislukuja ja arvot ovat listoja:
+Here the keys are integers and the values are lists:
 
 ```python
-listat = {}
-listat[5] = [1, 2, 3]
-listat[42] = [5, 4, 5, 4, 5]
-listat[100] = [5, 2, 3]
+lists = {}
+lists[5] = [1, 2, 3]
+lists[42] = [5, 4, 5, 4, 5]
+lists[100] = [5, 2, 3]
 ```
 
-## Avaimista ja arvoista
+## How keys and values work
 
-Tietty avain voi esiintyä sanakirjassa enintään kerran. Jos asetamme samalle avaimelle uuden arvon, korvaa uusi arvo vanhan arvon:
+Each key can appear only once in the dictionary. If you add an entry using a key that already exists in the dictionary, the original value mapped to that key is replaced with the new value:
 
 ```python
-sanakirja["suuri"] = "big"
-sanakirja["suuri"] = "large"
-print(sanakirja["suuri"])
+my_dictionary["suuri"] = "big"
+my_dictionary["suuri"] = "large"
+print(my_dictionary["suuri"])
 ```
 
 <sample-output>
@@ -107,10 +107,10 @@ large
 
 </sample-output>
 
-Sanakirjan avaimen vaatimuksena on, että sen tulee olla muuttumaton. Tämän vuoksi emme voi käyttää listaa avaimena, koska lista voi muuttua. Esimerkiksi seuraava koodi ei toimi:
+All keys in a dictionary must be _immutable_. So, a list cannot be used as a key, because it can be changed. For example, executing the following code causes an error:
 
 ```python
-sanakirja[[1, 2, 3]] = 5
+my_dictionary[[1, 2, 3]] = 5
 ```
 
 <sample-output>
@@ -119,15 +119,15 @@ TypeError: unhashable type: 'list'
 
 </sample-output>
 
-<text-box variant="hint" name="Hajautustaulu">
+<text-box variant="hint" name="Hash table">
 
-Python tallentaa sanakirjan sisällön sisäisesti tietorakenteena nimeltä _hajautustaulu_ (_hash table_). Ideana on laskea avaimelle _hajautusarvo_ (_hash value_), jonka avulla määräytyy avaimen paikka muistissa. Yllä oleva virheilmoitus ilmaisee, että listalle ei voida laskea hajautusarvoa, joten se ei kelpaa sanakirjan avaimeksi.
+Notice the word 'unhashable' in the error message above. This is a reference to the inner workings of the dictionary data type. Python stores the contents of a dictionary in a _hash table_. Each key is reduced to a _hash value_, which determines where the key is stored in computer memory. The error message above indicates that a list cannot be processed into a hash value, so it cannot be used as a key in a dictionary.
 
-Kurssilla _Tietorakenteet ja algoritmit_ tutustutaan tarkemmin hajautustauluihin, eli sanakirjojen pellin alla olevaan mekanismiin.
+The _Data Structures and Algorithms_ courses will further explore hash tables.
 
 </text-box>
 
-Huomaa, että sanakirjassa olevaa avainta vastaavan arvon ei tarvitse olla muuttumaton, vaan voimme tallentaa mitä tahansa tietoa arvoiksi. Sama arvo voi myös esiintyä samassa hakemistossa enemmän kuin yhden kerran.
+Unlike keys, the _values_ stored in a dictionary can change, so any type of data is acceptable as a value. A value can also be mapped to more than one key in the same dictionary.
 
 <programming-exercise name='Times ten' tmcname='part05-14_times_ten'>
 
@@ -175,139 +175,133 @@ print(k[5])
 
 </programming-exercise>
 
-## Sanakirjan läpikäynti
+## Traversing a dictionary
 
-Sanakirjan läpikäyntiin voidaan käyttää tuttuun tapaan `for`-silmukkaa. Rakenne `for avain in sanakirja` käy läpi kaikki sanakirjan avaimet yksi kerrallaan. Esimerkiksi seuraava koodi tulostaa kaikki sanakirjan avaimet ja niiden arvot:
+The familiar `for item in collection` loop can be used to traverse a dictionary, too. When used on the dictionary directly, the loop goes through the keys stored in the dictionary, one by one. In the following example, all keys and values stored in the dictionary are printed out:
 
 ```python
 sanakirja = {}
 
-sanakirja["apina"] = "monkey"
-sanakirja["banaani"] = "banana"
-sanakirja["cembalo"] = "harpsichord"
+my_dictionary["apina"] = "monkey"
+my_dictionary["banaani"] = "banana"
+my_dictionary["cembalo"] = "harpsichord"
 
-for avain in sanakirja:
-    print("avain:", avain)
-    print("arvo:", sanakirja[avain])
+for key in my_dictionary:
+    print("key:", key)
+    print("value:", my_dictionary[key])
 ```
 
 <sample-output>
 
-avain: apina
-arvo: monkey
-avain: banaani
-arvo: banana
-avain: cembalo
-arvo: harpsichord
+key: apina
+value: monkey
+key: banaani
+value: banana
+key: cembalo
+value: harpsichord
 
 </sample-output>
 
-Python tarjoaa myös mahdollisuuden käydä läpi samaan aikaan sekä avaimet että vastaavat arvot. Tämä onnistuu käyttämällä `items`-metodia, joka palauttaa kaikki avaimet ja arvot yksi kerrallaan:
+Sometimes you need to traverse the entire contents of a dictionary. The method `items` returns all the keys and values stored in the dictionary, one pair at a time:
 
 ```python
 
-for avain, arvo in sanakirja.items():
-    print("avain:", avain)
-    print("arvo:", arvo)
+for key, value in my_dictionary.items():
+    print("key:", key)
+    print("value:", value)
 ```
 
-Huomaa, että läpikäynnissä avaimet tulevat samassa järjestyksessä kuin ne on lisätty sanakirjaan. Sanakirjan avainten järjestyksellä ei kuitenkaan yleensä ole merkitystä sovelluksissa.
+In the examples above, you may have noticed that the keys are processed in the same order as they were added to the dictionary. As the keys are processed based on a hash value, the order should not usually matter in applications. In fact, in many older versions of Python the order is not guaranteed to follow the time of insertion.
 
-## Sanakirjan edistyneempi käyttö
+## Some more advanced ways to use dictionaries
 
-Tarkastellaan tilannetta, jossa listassa on joukko sanoja:
+Let's have a look at a list of words:
 
 ```python
-sanalista = [
-  "banaani", "maito", "olut", "juusto", "piimä", "mehu", "makkara",
-  "tomaatti", "kurkku", "voi", "margariini", "juusto", "makkara",
-  "olut", "piimä", "piimä", "voi", "olut", "suklaa"
+word_list = [
+  "banana", "milk", "beer", "cheese", "sourmilk", "juice", "sausage",
+  "tomato", "cucumber", "butter", "margarine", "cheese", "sausage",
+  "beer", "sourmilk", "sourmilk", "butter", "beer", "chocolate"
 ]
 ```
 
-Haluamme analysoida sanalistaa eri tavoin, kuten selvittää, montako kertaa kukin sana listalla esiintyy.
+We would like to analyze this list of words in different ways. For instance, we would like to know how many times each word appears in the list.
 
-Sanakirja sopii tähän tilanteeseen hyvin. Ideana on käydä listan sanat läpi yksi kerrallaan ja ylläpitää sanakirjassa tietoa sanojen esiintymiskerroista:
+A dictionary can be a useful tool in managing this kind of information. In the example below, we go through the items in the list one by one. Using the words in the list as keys in a new dictionary, the value mapped to each key is the number of times the word has appeared:
 
 ```python
-def lukumaarat(lista):
-    sanat = {}
-    for sana in lista:
-        # jos sana ei ole vielä tullut vastaan, alusta avaimen arvo
-        if sana not in sanat:
-            sanat[sana] = 0
-        # kasvata sanan esiintymislukumäärää
-        sanat[sana] += 1
-    return sanat
+def counts(my_list):
+    words = {}
+    for word in my_list:
+        # if the word is not yet in the dictionary, initialize the value to zero
+        if word not in words:
+            words[word] = 0
+        # increment the value
+        words[word] += 1
+    return words
 
-# kutsutaan funktiota
-print(lukumaarat(sanalista))
+# call the function
+print(counts(word_list))
 ```
 
-Ohjelman tulostus on seuraavassa:
+The program prints out the following:
 
 <sample-output>
 
-{'banaani': 1, 'maito': 1, 'olut': 3, 'juusto': 2, 'piimä': 3, 'mehu': 1, 'makkara': 2, 'tomaatti': 1, 'kurkku': 1, 'voi': 2, 'margariini': 1, 'suklaa': 1}
+{'banana': 1, 'milk': 1, 'beer': 3, 'cheese': 2, 'sourmilk': 3, 'juice': 1, 'sausage': 2, 'tomato': 1, 'cucumber': 1, 'butter': 2, 'margarine': 1, 'chocolate': 1}
 
 </sample-output>
 
-Tehdään vielä toinen sanalistaa käsittelevä metodi, joka jaottelee listalla olevat sanat niiden alkukirjaimen mukaan:
+What if we wanted to categorize the words based on the initial letter in each word? One way to accomplish this would be to use dictionaries:
 
 ```python
-def alkukirjaimen_mukaan(lista):
-    ryhmat = {}
-    for sana in lista:
-        alkukirjain = sana[0]
-        # alusta alkukirjaimeen liittyvä lista kun kirjain tulee vastaan 1. kerran
-        if alkukirjain not in ryhmat:
-            ryhmat[alkukirjain] = []
-        # lisää sana alkukirjainta vastaavalle listalle
-        ryhmat[alkukirjain].append(sana)
-    return ryhmat
+def categorize_by_initial(my_list):
+    groups = {}
+    for word in my_list:
+        initial = word[0]
+        # initialize a new list when the letter is first encountered
+        if initial not in groups:
+            groups[initial] = []
+        # add the word to the appropriate list
+        groups[initial].append(word)
+    return groups
 
-ryhmat = alkukirjaimen_mukaan(sanalista)
+groups = categorize_by_initial(word_list)
 
-for avain, arvo in ryhmat.items():
-    print(f"kirjaimella {avain} alkavat sanat: ")
-    for sana in arvo:
-        print(sana)
+for key, value in groups.items():
+    print(f"words beginning with {key}:")
+    for word in value:
+        print(word)
 ```
-
-Funktio toimii pitkälti saman periaatteen mukaan kuin edellisen esimerkin funktio. Tällä kertaa kuitenkin sanakirjassa avaimiin (eli alkukirjaimiin) liittyvät arvot ovat listoja.
-
-Ohjelman tulostus on seuraavassa:
+The structure of the function is very similar to the previous exercise but this time the values mapped to the keys are lists. The program prints out the following:
 
 <sample-output>
 
-kirjaimella b alkavat sanat:
-  banaani
-kirjaimella m alkavat sanat:
-  maito
-  mehu
-  makkara
-  margariini
-  makkara
-kirjaimella o alkavat sanat:
-  olut
-  olut
-  olut
-kirjaimella j alkavat sanat:
-  juusto
-  juusto
-kirjaimella p alkavat sanat:
-  piimä
-  piimä
-  piimä
-kirjaimella t alkavat sanat:
-  tomaatti
-kirjaimella k alkavat sanat:
-  kurkku
-kirjaimella v alkavat sanat:
-  voi
-  voi
-kirjaimella s alkavat sanat:
-  suklaa
+words beginning with b:
+banana
+beer
+butter
+beer
+butter
+beer
+words beginning with m:
+milk
+margarine
+words beginning with c:
+cheese
+cucumber
+cheese
+chocolate
+words beginning with s:
+sourmilk
+sausage
+sausage
+sourmilk
+sourmilk
+words beginning with j:
+juice
+words beginning with t:
+tomato
 
 </sample-output>
 
@@ -415,95 +409,95 @@ quitting...
 
 </programming-exercise>
 
-## Avaimien poistaminen sanakirjasta
+## Removing keys and values from a dictionary
 
-Sanakirjasta on mahdollista myös poistaa avain-arvo-pareja. Menetelmiä tähän on kaksi. Ensimmäinen näistä on komento `del`:
+It is naturally possible to also remove key-value paris from the dictionary. There are two ways to accomplish this. The first is the command `del`:
 
 ```python
-henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "Lehtori"}
-del henkilokunta["Arto"]
-print(henkilokunta)
+staff = {"Alan": "lecturer", "Emily": "professor", "David": "lecturer"}
+del staff["David"]
+print(staff)
 ```
 
 <sample-output>
 
-{'Antti': 'lehtori', 'Emilia': 'professori'}
+{'Alan': 'lecturer', 'Emily': 'professor'}
 
 </sample-output>
 
-Jos komentoa `del` kutsutaan avaimille, joita sanakirjassa ei ole, seurauksena on virhe:
+If you try to use the `del` command to delete a key which doesn't exist in the dictionary, there will be an error:
 
 ```python
-henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
-del henkilokunta["Jukka"]
+staff = {"Alan": "lecturer", "Emily": "professor", "David": "lecturer"}
+del staff["Paul"]
 ```
 
 <sample-output>
 
 <pre>
->>> del henkilokunta["Jukka"]
+>>> del staff["Paul"]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-KeyError: 'Jukka'
+KeyError: 'Paul'
 </pre>
 
 </sample-output>
 
-Ennen poistoa on siis syytä tarkistaa, että poistettava avain löytyy sanakirjasta:
+So, before deleting a key you should check if it is present in the dictionary:
 
 ```python
-henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
-if "Jukka" in henkilokunta:
-  del henkilokunta["Jukka"]
-  print("Poistettiin")
+staff = {"Alan": "lecturer", "Emily": "professor", "David": "lecturer"}
+if "Paul" in staff:
+  del staff["Paul"]
+  print("Deleted")
 else:
-  print("Poistettavaa henkilöä ei löytynyt henkilökunnasta")
+  print("This person is not a staff member")
 ```
 
-Toinen vaihtoehto alkion poistamiseen on metodi `pop`:
+The other way to delete entries in a dictionary is the method `pop`:
 
 ```python
-henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
-poistettu = henkilokunta.pop("Arto")
-print(henkilokunta)
-print("Poistettiin", poistettu)
+staff = {"Alan": "lecturer", "Emily": "professor", "David": "lecturer"}
+deleted = staff.pop("David")
+print(staff)
+print(deleted, "deleted")
 ```
 
 <sample-output>
 
-{'Antti': 'lehtori', 'Emilia': 'professori'}
-Poistettiin lehtori
+{'Alan': 'lecturer', 'Emily': 'professor'}
+lecturer deleted
 
 </sample-output>
 
-Metodi `pop` siis myös palauttaa poistettua avainta vastaavan arvon.
+As you can see above, `pop` also returns the value from the deleted entry.
 
-Oletusarvoisesti myös `pop` aiheuttaa virheen, jos sanakirjasta yritetään poistaa avain, jota siellä ei ole. Metodille on kuitenkin mahdollista antaa toisena parametrina _oletusarvoinen paluuarvo_, joka palautetaan siinä tilanteessa, kun poistettavaa ei löydy. Esimerkiksi arvo `None`, joka tarkoittaa "ei mitään", sopii hyvin tälläisiin tilanteisiin:
+By default, `pop` will also cause an error if you try to delete a key which is not present in the dictionary. It is possible to avoid this by giving the method a second argument, which contains a _default return value_. This value is returned in case the key is not found in the dictionary. The special Python value `None` will work here:
 
 ```python
-henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
-poistettu = henkilokunta.pop("Jukka", None)
-if poistettu == None:
-  print("Poistettavaa henkilöä ei löytynyt henkilökunnasta")
+staff = {"Alan": "lecturer", "Emily": "professor", "David": "lecturer"}
+deleted = staff.pop("Paul", None)
+if deleted == None:
+  print("This person is not a staff member")
 else:
-  print("Poistettiin", poistettu)
+  print(deleted, "deleted")
 ```
 
 <sample-output>
 
-Poistettavaa henkilöä ei löytynyt henkilökunnasta
+This person is not a staff member
 
 </sample-output>
 
-Kannattaa huomata, että jos on tarvetta poistaa koko sanakirjan sisältö:
+NB: if you need to delete the contents of the entire dictionary, and try to do it with a for loop, like so
 
 ```python
-henkilokunta = {"Antti": "lehtori", "Emilia": "professori", "Arto": "lehtori"}
-for avain in henkilokunta:
-  del henkilokunta[avain]
+staff = {"Alan": "lecturer", "Emily": "professor", "David": "lecturer"}
+for key in staff:
+  del staff[key]
 ```
 
-seurauksena on virheilmoitus
+you will receive an error message:
 
 <sample-output>
 
@@ -511,12 +505,12 @@ RuntimeError: dictionary changed size during iteration
 
 </sample-output>
 
-Syynä on se, että käytäessä läpi rakennetta `for`-lauseella, ei sen sisältöä saa muuttaa.
+When traversing a collection with a `for` loop, the contents may not change while the loop is in progress.
 
-Koko sanakirjan tyhjennys onnistuu komennolla:
+Luckily, there is a dictionary method for just this purpose:
 
 ```python
-henkilokunta.clear()
+staff.clear()
 ```
 
 <programming-exercise name='Invert a dictionary' tmcname='part05-19_invert_dictionary'>
@@ -570,57 +564,56 @@ NB: Please don't formulate each spelled out number by hand. Figure out how you c
 
 </programming-exercise>
 
-## Sanakirja tiedon ryhmittelyssä
+## Using dictionaries for structured data
 
-Voimme käyttää sanakirjaa myös tiedon ryhmittelyssä. Esimerkiksi seuraava koodi luo sanakirjan, jossa on tietoa henkilöstä:
+Dictionaries are very useful for structuring data. The following code will create a dictionary which contains some personal data:
 
 ```python
-henkilo = {"name": "Pirjo Python", "pituus": 154, "paino": 61, "ikä:" 44}
+person = {"name": "Pippa Python", "height": 154, "weight": 61, "age:" 44}
 ```
 
-Tämä tarkoittaa, että henkilön name on Pirjo Python, pituus on 154, paino on 61 ja ikä on 44.
-Huomaa, että olisimme voineet tallentaa tiedot myös näin muuttujiin:
+This means that we have here a person named Pippa Python, whose height is 154, weight 61, and age 44. The same information could just as well be stored in variables:
 
 ```python
-name = "Pirjo Python"
-pituus = 154
-paino = 61
-ika = 44
+name = "Pippa Python"
+height = 154
+weight = 61
+age = 44
 ```
 
-Sanakirjan etuna on kuitenkin, että se kokoaa kaikki samaan asiaan liittyvät tiedot yhteisen nimen alle, jonka kautta voimme viitata tietoihin. Periaatteessa lista tarjoaa saman edun:
+The advantage of a dictionary is that it is a collection. It collects related data under one variable, so it is easy to access the different components. This same advantage is offered by a list:
 
 ```python
-henkilo = ["Pirjo Python", 153, 61, 44]
+person = ["Pippa Python", 153, 61, 44]
 ```
 
-Listan huono puoli on kuitenkin, että ohjelmoijan on muistettava, mihin kohtaan listaa mikäkin arvo tallennetaan. Pitää siis muistaa esimerkiksi, että `henkilo[2]` tarkoittaa painoa ja `henkilo[3]` ikää. Sanakirjassa tätä ongelmaa ei ole, sillä kaikki sanakirjassa olevat erilliset tiedot on tallennettu selkeästi nimetyn avaimen taakse.
+With lists, the programmer will have to remember what is stored at each index in the list. There is nothing to indicate that `person[2]` contains the weight and `person[3]` the age of the person. When using a dictionary this problem is avoided, as each bit of data is accessed through a named key.
 
-Esimerkiksi voimme käsitellä henkilöitä näin:
+Assuming we have defined multiple people using the same format, we can access their data in the following manner:
 
 ```python
-henkilo1 = {"name": "Pirjo Python", "pituus": 154, "paino": 61, "ikä": 44}
-henkilo2 = {"name": "Victor Pythingen", "pituus": 174, "runtime": 103, "ikä": 31}
-henkilo3 = {"name": "Pedro Python", "pituus": 191, "paino": 71, "ikä": 14}
+person1 = {"name": "Pippa Python", "height": 154, "weight": 61, "age": 44}
+person2 = {"name": "Peter Pythons", "height": 174, "weight": 103, "age": 31}
+person3 = {"name": "Pedro Python", "height": 191, "weight": 71, "age": 14}
 
-henkilot = [henkilo1, henkilo2, henkilo3]
+people = [person1, person2, person3]
 
-for henkilo in henkilot:
-    print(henkilo["name"])
+for person in people:
+    print(person["name"])
 
-yhteispituus = 0
-for henkilo in henkilot:
-    yhteispituus += henkilo["pituus"]
+combined_height = 0
+for person in people:
+    combined_height += person["height"]
 
-print("Keskipituus on", yhteispituus / len(henkilot))
+print("The average height is", combined_height / len(people))
 ```
 
 <sample-output>
 
-Pirjo Python
-Victor Pythingen
+Pippa Python
+Peter Pythons
 Pedro Python
-Keskipituus on 173.runtime
+The average height is 173.0
 
 </sample-output>
 
