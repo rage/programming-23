@@ -8,44 +8,44 @@ hidden: false
 
 After this section
 
-- Tiedät, millainen tietorakenne on tuple
-- Osaat muodostaa tuplen erityyppisistä arvoista
-- Tiedät, mitä eroa on tuplella ja listalla
-- Tiedät esimerkkejä tyypillisistä tavoista käyttää tuplea
+- You will be familiar with the tuple data type
+- You will be able to create tuples from various types of values
+- You will know the difference between a tuple and a list
+- You will be able to name some typical use cases for tuples
 
 </text-box>
 
-Tuple eli monikko on listan tapainen tietorakenne. Sen olennaiset erot listaan ovat:
+Tuple is a data structure which is, in many ways, similar to a list. The most important differences between the two are:
 
-* Tuple merkitään kaarisuluilla `(` ja `)`, lista merkitään hakasuluilla `[` ja `]`
-* Tuple on _muuttumaton_, kun taas listan sisältö voi muuttua
+* Tuples are enclosed in parentheses `()`, while lists are enclosed in square brackets `[]`
+* Tuples are _immutable_, while the contents of a list may change
 
-Esimerkiksi seuraava koodi luo tuplen, jossa on pisteen koordinaatit:
+The following bit of code creates a tuple containing the coordinates of a point:
 
 ```python
-piste = (10, 20)
+point = (10, 20)
 ```
 
-Tuplen sisällä oleviin alkioihin viitataan samalla tavalla kuin listassa:
+The items stored in a tuple are accessed by index, just like the items stored in a list:
 
 ```python
-piste = (10, 20)
-print("x-koordinaatti:", piste[0])
-print("y-koordinaatti:", piste[1])
+point = (10, 20)
+print("x coordinate:", point[0])
+print("y coordinate:", point[1])
 ```
 
 <sample-output>
 
-x-koordinaatti: 10
-y-koordinaatti: 20
+x coordinate: 10
+y coordinate: 20
 
 </sample-output>
 
-Tuplen määrittelyn jälkeen sen arvoa ei kuitenkaan voi muuttaa, eli seuraava koodi _ei_ toimi:
+The values stored in a tuple cannot be changed after the tuple has been defined. The following will _not_ work:
 
 ```python
-piste = (10, 20)
-piste[0] = 15
+point = (10, 20)
+point[0] = 15
 ```
 
 <sample-output>
@@ -131,45 +131,44 @@ print(older)
 
 </programming-exercise>
 
-## Miksi tuple on olemassa?
+## What is the purpose of a tuple?
 
-Tuplen ideana on tallentaa jokin kiinteä kokoelma arvoja, jotka liittyvät toisiinsa. Esimerkiksi kun tallennamme pisteen, jossa on x- ja y-koordinaatti, tuple on luonteva valinta, koska pisteeseen kuuluu aina kaksi arvoa:
+Tuples are ideal for when there is a set collection of values which are in some way connected. For example, when there is a need to handle the x and y coordinates of a point, a tuple is a natural choice, because coordinates will always consist of two values:
 
 ```python
-piste = (10, 20)
+point = (10, 20)
 ```
 
-Voisimme sinänsä tallentaa pisteen myös listana:
+Technically it is of course possible to also use a list to store these:
 
 ```python
-piste = [10, 20]
+point = [10, 20]
 ```
 
-Tämä ei kuitenkaan tuntuisi yhtä hyvältä ratkaisulta, koska lista sisältää peräkkäisiä alkioita jossakin järjestyksessä ja sen koko voi muuttua. Kun tallennamme pisteen, haluamme tallentaa nimenomaan x- ja y-koordinaatin eikä listaa koordinaateista.
+A list is a collection of consecutive items in a certain order. The size of a list may also change. When we are storing the coordinates of a point, we want to store the x and y coordinates specifically, not an arbitrary list containing those values.
 
-Koska tuple on muuttumaton, sitä voidaan käyttää sanakirjan avaimena (toisin kuin listaa).
-Esimerkiksi seuraava ohjelma luo sanakirjan, jonka avaimet ovat pisteitä:
+Because tuples are immutable, unlike lists, they can be used as keys in a dictionary. The following bit of code creates a dictionary, where the keys are coordinate points:
 
 ```python
-pisteet = {}
-pisteet[(3, 5)] = "apina"
-pisteet[(5, 0)] = "banaani"
-pisteet[(1, 2)] = "cembalo"
-print(pisteet[(3, 5)])
+points = {}
+points[(3, 5)] = "monkey"
+points[(5, 0)] = "banana"
+points[(1, 2)] = "harpsichord"
+print(points[(3, 5)])
 ```
 
 <sample-output>
-apina
+monkey
 </sample-output>
 
-Vastaava koodi _ei_ toimisi, jos käyttäisimme listoja:
+Attempting a similar dictionary definition using lists would _not_ work:
 
 ```python
-pisteet = {}
-pisteet[[3, 5]] = "apina"
-pisteet[[5, 0]] = "banaani"
-pisteet[[1, 2]] = "cembalo"
-print(pisteet[[3, 5]])
+points = {}
+points[[3, 5]] = "monkey"
+points[[5, 0]] = "banana"
+points[[1, 2]] = "harpsichord"
+print(points[[3, 5]])
 ```
 
 <sample-output>
@@ -178,76 +177,76 @@ TypeError: unhashable type: 'list'
 
 </sample-output>
 
-## Tuple ilman sulkuja
+## Tuples without parentheses
 
-Tuplen määrittelyssä ei ole pakko antaa sulkuja. Esimerkiksi seuraavat koodit toimivat samalla tavalla:
+The parentheses are not strictly necessary when defining tuples. The following two variable assignments are identical in their results:
 
 ```python
-luvut = (1, 2, 3)
+numbers = (1, 2, 3)
 ```
 
 ```python
-luvut = 1, 2, 3
+numbers = 1, 2, 3
 ```
 
-Tämän ansiosta voimme tehdä luontevasti funktion, joka palauttaa useita arvoja tuplena. Tarkastellaan seuraavaa esimerkkiä:
+This means we can also easily return multiple values using tuples. Let's have alook at he following example:
 
 ```python
-def minmax(lista):
-  return min(lista), max(lista)
+def minmax(my_list):
+  return min(my_list), max(my_list)
 
-lista = [33, 5, 21, 7, 88, 312, 5]
+my_list = [33, 5, 21, 7, 88, 312, 5]
 
-pienin, suurin = minmax(lista)
-print(f"Pienin luku on {pienin} ja suurin on {suurin}")
+min_value, max_value = minmax(my_list)
+print(f"The smallest item is {min_value} and the greatest item is {max_value}")
 ```
 
 <sample-output>
 
-Pienin luku on 5 ja suurin on 312
+The smallest item is 5 and the greatest item is 312
 
 </sample-output>
 
-Tämä funktio palauttaa kaksi arvoa tuplena, ja funktion paluuarvo vastaanotetaan "yhtä aikaa" kahteen muuttujaan:
+This function returns two values in a tuple. The return value is assigned to two variables at once:
 
 ```python
-pienin, suurin = minmax(lista)
+min_value, max_value = minmax(my_list)
 ```
 
-Tässä tapauksessa sijoitusoperaation vasemmalla puolella on tuple, jonka sisällä oleviin muuttujiin asetetaan funktion palauttaman tuplen sisältämät arvot:
+Using parentheses may make the notation more clear. On the left hand side of the assignment statement we also have a tuple, which contains two variable names. The values contained within the tuple returned by the function are assigned to these two variables.
 
 ```python
-(pienin, suurin) = minmax(lista)
+(min_value, max_value) = minmax(my_list)
 ```
 
-Sanakirjojen yhteydessä esiteltiin `items`-metodiin perustuvaa tapaa käydä läpi sanakirjan kaikki avaimet ja arvot:
+You may remember the dictionary method `items` in the previous section. We used it to access all the keys and values stored in a dictionary:
 
 ```python
-sanakirja = {}
+my_dictionary = {}
 
-sanakirja["apina"] = "monkey"
-sanakirja["banaani"] = "banana"
-sanakirja["cembalo"] = "harpsichord"
+my_dictionary["apina"] = "monkey"
+my_dictionary["banaani"] = "banana"
+my_dictionary["cembalo"] = "harpsichord"
 
-for avain, arvo in sanakirja.items():
-    print("avain:", avain)
-    print("arvo:", arvo)
+for key, value in my_dictionary.items():
+    print("key:", key)
+    print("value:", value)
 ```
 
-Tässäkin Python käyttää taustalla tupleja: `sanakirja.items()` palauttaa yksi kerrallaan avain-arvo-parit tuplena, jonka ensimmäinen alkio on avain ja toinen arvo.
+Tuples are at work here, too. The method `my_dictionary.items()` returns each key-value pair as a tuple, where the first item is the key and the second item is the value.
 
-Vielä yksi tuplen käyttötarkoitus on kahden muuttujan arvon vaihtaminen keskenään:
+Another common use case for tuples is swapping the values of two variables:
 
 ```python
-luku1, luku2 = luku2, luku1
+number1, number2 = number2, number1
 ```
 
-Yllä oleva koodi vaihtaa keskenään muuttujien `luku1` ja `luku2` arvot, eli koodi toimii samoin kuin seuraava, apumuuttujaa käyttävä koodi:
+The assignment statement above swaps the values stored in the variables `number1` and `number2`. The result is identical to what is achieved with the following bit of code, using a helper variable:
 
 ```python
-apu = luku1
-luku1 = luku2
-luku2 = apu
+helper_var = number1
+number1 = number2
+number2 = helper_var
 ```
 
 <programming-exercise name='Student database' tmcname='part05-26_student_database'>
