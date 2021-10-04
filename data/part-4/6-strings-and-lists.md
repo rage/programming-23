@@ -300,7 +300,7 @@ e
 </programming-exercise>
 
 
-<programming-exercise name='No vowels allowed' tmcname='part04-23_no_vowels'>
+<programming-exercise name='No vowels allowed' tmcname='part04-35_no_vowels_allowed'>
 
 Please write a function named `no_vowels`, which takes a string argument. The function returns a new string, which should be the same as the original but with all vowels removed.
 
@@ -322,7 +322,7 @@ ths s n exmpl
 </programming-exercise>
 
 
-<programming-exercise name='No shouting allowed' tmcname='part04-36_no_shouting'>
+<programming-exercise name='No shouting allowed' tmcname='part04-36_no_shouting_allowed'>
 
 The Python string method `isupper()` returns `True` if a string consists of _only_ uppercase characters.
 
