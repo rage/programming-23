@@ -27,6 +27,10 @@ The course will be open until the end of the year 2021. The materials will be ma
 
 ## Lectures
 
+<strong>
+  There is NO lecture at Tuesday OCt 12th. The replacement will be held at Thursday, Oct. 14th at 10.30.
+</strong>
+
 Lectures take place in Zoom Tuesdays at 12.15 PM Finnish time (EEST, UTC+03:00).
 
 [Zoom link to lectures](https://helsinki.zoom.us/j/61102130977)
@@ -57,6 +61,10 @@ Recordings of all lectures will be provided on this page afterwards, usually by 
     <tr>
       <td>Part 4</td>
       <td><a href="https://youtu.be/McU_SSLp6c4">Recording</a></td>
+    </tr>
+    <tr>
+      <td>Part 5</td>
+      <td><a href="https://youtu.be/biaidSf1hKI">Recording</a></td>
     </tr>
   </tbody>
 </table>
