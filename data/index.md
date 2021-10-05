@@ -28,7 +28,7 @@ The course will be open until the end of the year 2021. The materials will be ma
 ## Lectures
 
 <strong>
-  There is NO lecture at Tuesday OCt 12th. The replacement will be held at Thursday, Oct. 14th at 10.30.
+  There is NO lecture at Tuesday Oct 12th. The replacement will be held at Thursday, Oct. 14th at 10.30.
 </strong>
 
 Lectures take place in Zoom Tuesdays at 12.15 PM Finnish time (EEST, UTC+03:00).
