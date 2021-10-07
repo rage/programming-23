@@ -148,7 +148,7 @@ number1 = 100
 number2 = "100"
 
 print(number1)
-print(numbers2)
+print(number2)
 ```
 
 <sample-output>
