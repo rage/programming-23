@@ -12,8 +12,12 @@ sidebar_priority: 3000
 
 We would be very grateful if you'd let us know through the course support channels or via email to course maintainers at ohjelmoinnin-mooc@helsinki.fi. Thank you!
 
+### Why doesn't TMC show all parts of the course? How can I download the next part's exercises?
+
+Next part's exercises can be downloaded once you've gained 25% or more of the previous part's exercise points.
+
 <span class="h2">Participating from educational institutions in Finland</span>
- 
+
 <notice>The questions below are relevant mainly to participants who are enrolled in a Finnish university or other educational institution.</notice>
 
 ### I don't know how to enrol, can I still start the course?
