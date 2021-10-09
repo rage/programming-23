@@ -1,12 +1,12 @@
 ---
-path: '/part-7/4-datan-kasittely'
-title: 'Datan käsittely'
+path: '/part-7/4-data-processing'
+title: 'Data processing'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen:
+After this section
 
 - Osaat käyttää moduulia CSV-tiedoston käsittelyyn
 - Osaat käyttää moduulia JSON-tiedoston käsittelyyn
@@ -382,6 +382,8 @@ Korjausehdotukset etsitään standardikirjaston moduulin [difflib](https://docs.
 
 *Huom*: jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria: virheellinen sana ja lista oikeista sanoista.
 
+<!---
 </programming-exercise>
+-->
 
 <quiz id="311e3116-a763-50b5-b79e-056fdccb3394"></quiz>

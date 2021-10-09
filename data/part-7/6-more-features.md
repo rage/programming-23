@@ -1,12 +1,12 @@
 ---
-path: '/part-7/6-lisaa-pythonista'
-title: 'Lisää Pythonista'
+path: '/part-7/6-more-features'
+title: 'More Python features'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät lisää Pythonin ominaisuuksia
 
@@ -276,7 +276,7 @@ print(tulos)
 
 </programming-exercise>
 
-Vastaa kurssin lopuksi loppukyselyyn. Kyselyn tuloksia käytetään kurssimateriaalin kehittämiseen.
+Please respond to the course feedback questionnaire. The questionnaire results help us improve the course.
 
 <quiz id="0f5ead5e-ad00-50fc-b4af-c029ff1dcb22"></quiz>
 

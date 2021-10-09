@@ -1,12 +1,12 @@
 ---
-path: '/part-7/2-satunnaisuus'
-title: 'Satunnaisuus'
+path: '/part-7/2-randomness'
+title: 'Randomness'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tunnet moduulin `random` funktioita
 - Osaat hyödyntää satunnaisuutta omissa ohjelmissasi
@@ -341,4 +341,6 @@ carbon
 
 </programming-exercise>
 
+<!---
 <quiz id="d53a6898-f390-55ef-b266-95694bcbe704"></quiz>
+-->

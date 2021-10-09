@@ -1,12 +1,12 @@
 ---
-path: '/part-7/3-aikojen-kasittely'
-title: 'Aikojen käsittely'
+path: '/part-7/3-times-and-dates'
+title: 'Times and dates'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät tavan käsitellä päivämääriä ja kellonaikoja Pythonissa
 - Osaat muodostaa ja käyttää `datetime`-olioita
@@ -297,5 +297,6 @@ Keskim. minuutteja: 156.0
 
 </programming-exercise>
 
+<!---
 <quiz id="6fff0633-2f18-5e2b-9eab-6c8950c8378b"></quiz>
-
+-->

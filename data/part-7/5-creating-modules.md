@@ -1,12 +1,12 @@
 ---
-path: '/part-7/5-omat-moduulit'
-title: 'Oman moduulin tekeminen'
+path: '/part-7/5-creating-modules'
+title: 'Creating your own modules'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Osaat luoda oman moduulin
 - Tiedät, mitä Pythonin muuttuja `__name__` ja sen arvo `__main__` merkitsevät
@@ -220,8 +220,10 @@ Tämä on testi katsotaan miten käy11
 
 </programming-exercise>
 
+<!---
 <quiz id="2203412c-628c-54a3-bd77-edebd5ce4f67"></quiz>
+-->
 
-Vastaa lopuksi osion loppukyselyyn:
+Please respond to a quick questionnaire on this week's materials. 
 
 <quiz id="5f783cb4-d322-536a-abe5-fdb6da6a8395"></quiz>

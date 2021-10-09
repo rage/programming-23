@@ -1,12 +1,12 @@
 ---
-path: '/part-7/1-moduulit'
-title: 'Moduulit'
+path: '/part-7/1-modules'
+title: 'Modules'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, mikä on moduuli
 - Osaat ottaa käyttöön moduulin `import`-lauseella
@@ -184,4 +184,6 @@ print(jaa_palasiksi(5))
 
 </programming-exercise>
 
+<!---
 <quiz id="94c034a1-3183-5682-acb0-7f126d26ba07"></quiz>
+-->
