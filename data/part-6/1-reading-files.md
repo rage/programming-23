@@ -8,9 +8,9 @@ hidden: false
 
 After this section
 
-- Tiedät, miten tiedoston sisällön voi lukea Pythonissa
-- Tiedät, mitä ovat tekstitiedosto ja CSV-tiedosto
-- Osaat purkaa ja käsitellä CSV-tiedoston sisällön ohjelmassa
+- You will know how to read the contents of files with Python
+- You will know what a text file and a CSV file are
+- You will be able to process the contents of a CSV file in your programs
 
 </text-box>
 
@@ -27,79 +27,79 @@ When the going inevitably gets tough, a word of consolation: a task that seems i
 
 </text-box>
 
-Yksi tavallinen ohjelmoinnin käyttötarkoitus on käsitellä tiedostoissa olevaa tietoa. Ohjelmat voivat lukea tietoa tiedostoista ja tallentaa tuloksia tiedostoihin. Tiedostojen avulla voimme käsitellä suuriakin aineistoja helposti automaattisesti.
+A very common use case for programming is handling data stored in files. Programs can read data from files and write the computed results to files. Even large amounts of data become easy to process automatically when files are used.
 
-Oletamme tällä kurssilla, että käsiteltävät tiedostot ovat _tekstitiedostoja_ eli ne muodostuvat riveistä, joilla on tekstiä. Esimerkiksi kurssilla käytetty Visual Studio Code -editori käsittelee tekstitiedostoja. Huomaa, että esimerkiksi Word-dokumentti ei ole tekstitiedosto, vaan siinä on tekstin lisäksi muotoilutietoja ja sen käsittely ohjelmallisesti olisi vaikeaa.
+On this course we only deal with _text files_. All the files used will consist of lines of text. As an example, the Visual Studio Code editor we use on this course works with text files. NB: even though word processors such as Microsoft Word are usually used with files that contain text, Word documents themselves aren't text files. They also contain formatting information, and are encoded in a way that makes handling them in a program more complicated.
 
-## Tiedostosta lukeminen
+## Reading data from a file
 
-Käytetään esimerkkinä tiedostoa `esimerkki.txt`, jonka sisältönä on:
+Let's first work with a file called `example.txt`, with the following contents:
 
 <sample-data>
 
-Moi kaikki!
-Esimerkkitiedostomme on kolmerivinen.
-Viimeinen rivi.
+Hello there!
+This example file contains three lines of text.
+This is the last line.
 
 </sample-data>
 
-Hyvä tapa käsitellä tiedostoja Pythonissa on käyttää `with`-lausetta, jonka alkurivi avaa tiedoston. Tämän jälkeen tulee lohko, jonka sisällä tiedostoa voi käsitellä. Lohkon jälkeen tiedosto sulkeutuu automaattisesti, eikä sitä voi enää käsitellä.
+A simple way to include files in a Python program is to use the `with` statement. The header line opens the file, and the block where the file can be accessed follows. After the block the file is automatically closed, and can no longer be accessed.
 
-Esimerkiksi seuraava koodi lukee ja tulostaa tiedoston sisällön:
+So, the following code opens the file, reads the contents, prints them out, and then closes the file:
 
 ```python
-with open("esimerkki.txt") as tiedosto:
-    sisalto = tiedosto.read()
-    print(sisalto)
+with open("example.txt") as new_file:
+    contents = new_file.read()
+    print(contents)
 ```
 
 <sample-output>
 
-Moi kaikki!
-Esimerkkitiedostomme on kolmerivinen.
-Viimeinen rivi.
+Hello there!
+This example file contains three lines of text.
+This is the last line.
 
 </sample-output>
 
-Koodissa muuttuja `tiedosto` on _tiedostokahva_, jonka kautta tiedostoa voi käsitellä avaamisen jälkeen. Tässä tapauksessa käytämme metodia `read`, joka palauttaa koko tiedoston sisällön yhtenä merkkijonona. Tässä tapauksessa palautettu merkkijono on seuraava:
+The variable `new_file` above is a _file handle_. Through it the file can accessed while it is still open. Here we used the method `read`, which returns the contents of the file as a single string. So, in this case the string returned by `read` would be
 
 ```
-"Moi kaikki!\nEsimerkkitiedostomme on kolmerivinen.\nViimeinen rivi."
+"Hello there!\nThis example file contains three lines of text.\nThis is the last line."
 ```
 
-## Tiedoston sisällön läpikäynti
+## Going through the contents of a file
 
-Metodi `read` on näppärä, jos halutaan esimerkiksi tulostaa tiedoston sisältö kokonaisuudessaan ruudulle. Usein haluamme kuitenkin käsitellä tiedostoa rivi kerrallaan.
+The `read` method is useful for printing out the contents of the entire file, but more often we will want to go through the file line by line.
 
-Voimme käyttää tiedoston sisällön lukemiseen `for`-silmukkaa, joka käy läpi tiedoston rivit yksi kerrallaan – siis samaan tapaan kuin esimerkiksi listan läpikäynnissä.
+Text files can be thought of as lists of strings, each string representing a single line in the file. We can go through the list with a `for` loop.
 
-Seuraava esimerkki lukee saman tiedoston nyt käyttäen `for`-silmukkaa, poistaa joka rivin perästä rivinvaihdon ja laskee rivien yhteispituuden:
+The following example reads our example file using a `for` loop, removes line breaks from the end of each line, counts the number of lines, and prints each line with its line number. It also keeps track of the length of the lines:
 
 ```python
-with open("esimerkki.txt") as tiedosto:
-    laskuri = 0
-    yhteispituus = 0
+with open("example.txt") as new_file:
+    count = 0
+    total_length = 0
 
-    for rivi in tiedosto:
-        rivi = rivi.replace("\n", "")
-        laskuri += 1
-        print("Rivi", laskuri, rivi)
-        pituus = len(rivi)
-        yhteispituus += pituus
+    for line in new_file:
+        line = line.replace("\n", "")
+        count += 1
+        print("Line", count, line)
+        length = len(line)
+        total_length += length
 
-print("Rivien yhteispituus:", yhteispituus)
+print("Total length of lines:", total_length)
 ```
 
 <sample-output>
 
-Rivi 1 Moi kaikki!
-Rivi 2 Esimerkkitiedostomme on kolmerivinen.
-Rivi 3 Viimeinen rivi.
-Rivien yhteispituus: 63
+Line 1 Hello there!
+Line 2 This example file contains three lines of text.
+Line 3 This is the last line.
+Total length of lines: 81
 
 </sample-output>
 
-Huomaa, että rivien läpikäynnissä jokaisen rivin perässä on rivinvaihto `\n`. Yllä oleva koodi kuitenkin poistaa rivinvaihdot `replace`-funktiolla, joka korvaa rivinvaihdot tyhjillä merkkijonoilla. Tämän ansiosta tulostukseen ei tule ylimääräisiä rivivaihtoja ja ohjelma laskee oikein tiedoston rivien yhteispituuden.
+There is a line break `\n` at the end of each line in the file, but the `print` function also adds a line break by default. There are no extra line breaks in the printout above, because the line breaks at the ends of the lines are removed with the `replace` method. It replaces each line break character with an empty string. This way the lengths of the lines are also calculated correctly.
 
 <programming-exercise name='Largest number' tmcname='part06-01_largest_number'>
 
@@ -125,91 +125,91 @@ Notice that the function does not take any arguments. The file you are working w
 
 ## What if Visual Studio Code cannot find my file?
 
-Jos VS Code ei löydä tiedostoa suorittaessasi koodia (vihreää nappia painamalla) vaikka olet tarkastanut tiedoston nimen kirjoitusasun, voit kokeilla seuraavaa:
+When you execute your code, Visual Studio Code might complain about not finding the file, even though you have checked and double-checked the file name was written correctly, and the file exists. Changing the following setting may fix the problem:
 
-* Mene asetuksiin valikosta _File_ -> _Preferences_ -> _Settings_
-* Etsi muutettava kohta hakusanalla "executeinfile"
-* Valitse välilehti _Workspace_
-* Laita raksi kohtaan _Python_ -> _Terminal_ -> _Execute In File Dir_
+* Open the settings from the menu bar: _File_ -> _Preferences_ -> _Settings_
+* Find the relevant setting with the search term "executeinfile"
+* Choose the tab _Workspace_
+* Select the option under _Python_ -> _Terminal_ -> _Execute In File Dir_
 
-Oikein tehtynä asetus näyttää suunilleen seuraavalta:
+Your settings window should now look somewhat like this:
 
 <img src="6_1_1.png">
 
-Jos edellinenkään ei toimi, voit kopioida kansiossa _src_ olevan testaukseen käytetyn tiedoston sisällön
+If this doesn't help, you can copy the file in the _src_ directory
 
 <img src="6_1_2.png">
 
-suoraan tehtäväkansion alle
+directly to the root of the exercise directory
 
 <img src="6_1_3.png">
 
-## Tiedostoja lukevan koodin debuggaus
+## Debugging code which handles files
 
-Jos yrität käyttää VS Coden [debuggeria](/osa-4/1-vscode#debuggeri) tiedostoja lukevan koodin suorittamiseen, törmäät ikävään virheilmoitukseen:
+Using the Visual Studio Code [debugger](/part-4/1-vscode#the-built-in-debugger) with programs which handle files will often result in a nasty looking error message:
 
 <img src="6_1_4.png">
 
-Syynä tälle on se, että debuggeri etsii tiedostoja tehtäväkansion juuresta eikä edes _Execute In File Dir_ -asetus ei asiaa muuta. Helpoin ratkaisu ongelmaan on edellisessä luvussa kuvattu testaukseen käytetyn tiedoston kopioiminen  tehtävähakemiston juureen.
+The reason is that the debugger will always look for files in the root of the exercise directory. The _Execute In File Dir_ setting mentioned above will have no effect on this. The easiest solution is to just copy the file to the root of the directory.
 
-Kun olet kopioinut tiedostot tehtävähakemiston juureen, joudut ehkä vielä käynnistämään visual studio coden uudelleen jotta kaikki toimisi.
+You may need to restart Visual Studio Code after copying all the necessary files.
 
-## CSV-tiedoston lukeminen
+## Reading CSV files
 
-CSV-tiedosto (_Comma Separated Values_) on tekstitiedosto, jonka jokaisella rivillä on tietyllä välimerkillä erotettua tietoa. Välimerkkinä on usein pilkku `,` tai puolipiste `;`, mutta mikä tahansa muukin merkki on periaatteessa mahdollinen.
+A CSV file, short for _comma-separated Values_, is a text file which contains data separated by a predetermined character. The most common characters used for this purpose are the comma `,` and the semicolon `;`, but any character is, in principle, possible.
 
-CSV-tiedostoja käytetään usein erilaisten aineistojen esittämiseen. Myös Excelin ja muiden vastaavien ohjelmien taulukot voidaan tallentaa CSV-muodossa, jolloin niitä on helppo käsitellä muilla ohjelmilla.
+CSV files are commonly used to store records of different kinds. Many database and spreadsheet programs, such as Excel, can import and export data in CSV format, which makes data exchange between different systems easy.
 
-Voimme lukea CSV-tiedoston rivit `for`-silmukalla, mutta miten erottaa rivillä olevat tiedot toisistaan? Helppo tapa on käyttää merkkijonojen `split`-metodia: metodille annetaan haluttu välimerkki, ja se palauttaa tiedot välimerkin mukaan eroteltuna listana merkkijonoja.
+We already learnt we can go through the lines in a file with a `for` loop, but how can we separate the different fields on a single line? Python has a string method `split` for just this purpose. The method takes the separator character(s) as a string argument, and returns the contents of the target string as a list of strings, separated at the separator.
 
-Esimerkki metodin käytöstä:
+An example of how the method works:
 
 ```python
-teksti = "apina,banaani,cembalo"
-sanat = teksti.split(",")
-for sana in sanat:
-    print(sana)
+text = "monkey,banana,harpsichord"
+words = text.split(",")
+for word in words:
+    print(word)
 ```
 
 <sample-output>
 
-apina
-banaani
-cembalo
+monkey
+banana
+harpsichord
 
 </sample-output>
 
-Tarkastellaan esimerkkinä tiedostoa `arvosanat.csv`, joka sisältää jokaisella rivillä aluksi opiskelijan nimen ja sen jälkeen tämän eri kursseista saamat arvosanat. Tiedot on erotettu toisistaan puolipisteillä.
+Let's assume we have a file `grades.csv`, which contains names of students and the grades they received on some courses. Each line has the data of a single student, and the data is separated by a semicolon.
 
 <sample-data>
 
-Pekka;5;4;5;3;4;5;5;4;2;4
-Paula;3;4;2;4;4;2;3;1;3;3
-Pirjo;4;5;5;4;5;5;4;5;4;4
+Paul;5;4;5;3;4;5;5;4;2;4
+Beth;3;4;2;4;4;2;3;1;3;3
+Ruth;4;5;5;4;5;5;4;5;4;4
 
 </sample-data>
 
-Seuraava ohjelma käy läpi tiedoston rivit, jakaa jokaisen rivin osiin ja näyttää opiskelijan nimen sekä arvosanat.
+The following program goes through the file line by line, splits each line into its separate parts, and prints out the name and grades of each student.
 
 ```python
-with open("arvosanat.csv") as tiedosto:
-    for rivi in tiedosto:
-        rivi = rivi.replace("\n", "")
-        osat = rivi.split(";")
-        nimi = osat[0]
-        arvosanat = osat[1:]
-        print("Nimi:", nimi)
-        print("Arvosanat:", arvosanat)
+with open("grades.csv") as new_file:
+    for line in new_file:
+        line = line.replace("\n", "")
+        parts = line.split(";")
+        name = parts[0]
+        grades = parts[1:]
+        print("Name:", name)
+        print("Grades:", grades)
 ```
 
 <sample-output>
 
-Nimi: Pekka
-Arvosanat: ['5', '4', '5', '3', '4', '5', '5', '4', '2', '4']
-Nimi: Paula
-Arvosanat: ['3', '4', '2', '4', '4', '2', '3', '1', '3', '3']
-Nimi: Pirjo
-Arvosanat: ['4', '5', '5', '4', '5', '5', '4', '5', '4', '4']
+Name: Paul
+Grades: ['5', '4', '5', '3', '4', '5', '5', '4', '2', '4']
+Name: Beth
+Grades: ['3', '4', '2', '4', '4', '2', '3', '1', '3', '3']
+Name: Ruth
+Grades: ['4', '5', '5', '4', '5', '5', '4', '5', '4', '4']
 
 </sample-output>
 
@@ -257,176 +257,176 @@ Hint: you can also include other helper functions in your program. It is very wo
 
 </programming-exercise>
 
-## Saman tiedoston lukeminen moneen kertaan
+## Reading the same file multiple times
 
-Joissain tilanteissa ohjelman on tarvetta lukea sama tiedosto useampaan kertaan. Tarkastellaan esimerkkinä seuraavaa ohjelmaa, joka käsittelee henkilötietoja sisältävää tiedostoa:
+Sometimes it is necessary to process the contents of a file more than once in a single program. Let's have a look at a program which works with some personal data stored in a CSV file:
 
 <sample-data>
-Pekka;40;Helsinki
-Emilia;34;Espoo
-Erkki;42;Turku
-Antti;100;Helsinki
-Liisa;58;Suonenjoki
+Peter;40;Helsinki
+Emily;34;Espoo
+Eric;42;London
+Adam;100;Amsterdam
+Alice;58;Paris
 </sample-data>
 
 ```python
-with open("henkilot.csv") as tiedosto:
-    # tulostetaan nimet
-    for rivi in tiedosto:
-        osat = rivi.split(";")
-        print("Nimi:", osat[0])
+with open("people.csv") as new_file:
+    # print out the names
+    for line in new_file:
+        parts = line.split(";")
+        print("Name:", parts[0])
 
-    # etsitään vanhin
-    vanhimman_ika = -1
-    for rivi in tiedosto:
-        osat = rivi.split(";")
-        nimi = osat[0]
-        ika = int(osat[1])
-        if ika > vanhimman_ika:
-            vanhimman_ika = ika
-            vanhin = nimi
-    print("vanhin on", vanhin)
+    # find the oldest
+    age_of_oldest = -1
+    for line in new_file:
+        parts = line.split(";")
+        name = parts[0]
+        age = int(parts[1])
+        if age > age_of_oldest:
+            age_of_oldest = age
+            oldest = name
+    print("the oldest is", oldest)
 ```
 
-Ohjelma aiheuttaa erikoisen virheilmoituksen:
+Running this will result in a somewhat cryptic error message:
 
 ```python
 Traceback (most recent call last):
-    print("vanhin on"; vanhin)
-UnboundLocalError: local variable 'vanhin' referenced before assignment
+    print("the oldest is"; oldest)
+UnboundLocalError: local variable 'oldest' referenced before assignment
 ```
 
-Syynä virheelle on se, että jälkimmäistä for-silmukkaa ei suoriteta ollenkaan, sillä tiedoston voi lukea vain kerran. Tämän jälkeen ollaan päästy "tiedoston loppuun", ja vaikka yritetään lukea tiedostosta lisää jälkimmäisessä silmukassa, tietoon ei päästä enää käsiksi.
+The reason this happens is that the latter `for` loop is not executed at all, beacuse the file can only be processed once. Once the last line is read, the file handle rests at the end of the file, and the data in the file can no longer be accessed.
 
-Tiedosto onkin avattava uudelleen komennolla `open` toista lukukertaa varten:
+If we want to access the contents in the second `for` loop, we will have to `open` the file a second time:
 
 ```python
-with open("henkilot.csv") as tiedosto:
-    # tulostetaan nimet
-    for rivi in tiedosto:
-        osat = rivi.split(";")
-        print("Nimi:", osat[0])
+with open("people.csv") as new_file:
+    # print out the names
+    for line in new_file:
+        parts = line.split(";")
+        print("Name:", parts[0])
 
-with open("henkilot.csv") as tiedosto:
-    # etsitään vanhin
-    vanhimman_ika = -1
-    for rivi in tiedosto:
-        osat = rivi.split(";")
-        nimi = osat[0]
-        ika = int(osat[1])
-        if ika > vanhimman_ika:
-            vanhimman_ika = ika
-            vanhin = nimi
-    print("vanhin on", vanhin)
+with open("people.csv") as new_file:
+    # find the oldest
+    age_of_oldest = -1
+    for line in new_file:
+        parts = line.split(";")
+        name = parts[0]
+        age = int(parts[1])
+        if age > age_of_oldest:
+            age_of_oldest = age
+            oldest = name
+    print("the oldest is", oldest)
 ```
 
-Yleensä aina on kuitenkin parasta lukea tiedosto vain kerran ja tallentaa se muotoon, jota ohjelman toiminnallisuudet pystyvät hyödyntämään:
+While the above code would work, it contains unnecessary repetition. It is usually best to read the file just once, and store its contents in an appropriate format for further processing:
 
 ```python
-henkilot = []
-# luetaan tiedostosta henkilöt listaan
-with open("henkilot.csv") as tiedosto:
-    for rivi in tiedosto:
-        osat = rivi.split(";")
-        henkilot.append((osat[0], int(osat[1]), osat[2]))
+people = []
+# read the contents of the file and store it in a list
+with open("people.csv") as new_file:
+    for line in new_file:
+        parts = line.split(";")
+        people.append((parts[0], int(parts[1]), parts[2]))
 
-# tulostetaan nimet
-for henkilo in henkilot:
-    print("Nimi:", henkilo[0])
+# print out the names
+for person in people:
+    print("Name:", person[0])
 
-# etsitään vanhin
-vanhimman_ika = -1
-for henkilo in henkilot:
-    nimi = henkilo[0]
-    ika = henkilo[1]
-    if ika > vanhimman_ika:
-        vanhimman_ika = ika
-        vanhin = nimi
-print("vanhin on", vanhin)
+# find the oldest
+age_of_oldest = -1
+for person in people:
+    name = person[0]
+    age = person[1]
+    if age > age_of_oldest:
+        age_of_oldest = age
+        oldest = name
+print("the oldest is", oldest)
 ```
 
-## Lisää CSV-tiedoston käsittelyä
+## More CSV file processing
 
-Jatketaan opiskelijoiden arvosanoja sisältävän tiedoston `arvosanat.csv` käsittelyä. Tiedosto näyttää siis seuraavalta:
+Let's continue with the file `grades.csv`, which has the following contents:
 
 <sample-data>
 
-Pekka;5;4;5;3;4;5;5;4;2;4
-Paula;3;4;2;4;4;2;3;1;3;3
-Pirjo;4;5;5;4;5;5;4;5;4;4
+Paul;5;4;5;3;4;5;5;4;2;4
+Beth;3;4;2;4;4;2;3;1;3;3
+Ruth;4;5;5;4;5;5;4;5;4;4
 
 </sample-data>
 
-Seuraava ohjelma luo tiedoston perusteella sanakirjan `arvosanat`, jossa jokainen avain on opiskelijan nimi ja vastaava arvo on lista arvosanoista. Ohjelma muuttaa arvosanat kokonaisluvuiksi, jotta niitä on mukavampaa käsitellä myöhemmin.
+This following program creates a dictionary `grades` based on the contents of the file. The keys are the names of the students, and the value attached to each key is the list of grades attained by the student. The program converts the grades to integer values, so they can be processed easier.
 
 ```python
-arvosanat = {}
-with open("arvosanat.csv") as tiedosto:
-    for rivi in tiedosto:
-        rivi = rivi.replace("\n", "")
-        osat = rivi.split(";")
-        nimi = osat[0]
-        arvosanat[nimi] = []
-        for arvosana in osat[1:]:
-            arvosanat[nimi].append(int(arvosana))
+grades = {}
+with open("grades.csv") as new_file:
+    for line in new_file:
+        line = line.replace("\n", "")
+        parts = line.split(";")
+        name = parts[0]
+        grades[name] = []
+        for grade in parts[1:]:
+            grades[name].append(int(grade))
 
-print(arvosanat)
+print(grades)
 ```
 
 <sample-output>
 
-{'Pekka': [5, 4, 5, 3, 4, 5, 5, 4, 2, 4], 'Paula': [3, 4, 2, 4, 4, 2, 3, 1, 3, 3], 'Pirjo': [4, 5, 5, 4, 5, 5, 4, 5, 4, 4]}
+{'Paul': [5, 4, 5, 3, 4, 5, 5, 4, 2, 4], 'Beth': [3, 4, 2, 4, 4, 2, 3, 1, 3, 3], 'Ruth': [4, 5, 5, 4, 5, 5, 4, 5, 4, 4]}
 
 </sample-output>
 
-Tämän jälkeen voimme vaikkapa tulostaa analyysin arvosanoista käymällä läpi sanakirjan `arvosanat` perusteella:
+Now we can print out some statistics on each student based on the contents of the dictionary `grades`:
 
 ```python
-for nimi, lista in arvosanat.items():
-    paras = max(lista)
-    keskiarvo = sum(lista) / len(lista)
-    print(f"{nimi}: paras arvosana {paras}, keskiarvo {keskiarvo:.2f}")
+for name, grade_list in grades.items():
+    best = max(grade_list)
+    average = sum(grade_list) / len(grade_list)
+    print(f"{name}: best grade {best}, average {average:.2f}")
 ```
 
 <sample-output>
 
-Pekka: paras arvosana 5, keskiarvo 4.10
-Paula: paras arvosana 4, keskiarvo 2.90
-Pirjo: paras arvosana 5, keskiarvo 4.50
+Paul: best grade 5, average 4.10
+Beth: best grade 4, average 2.90
+Ruth: best grade 5, average 4.50
 
 </sample-output>
 
-Kannattaa tutustua huolella esimerkkikoodiin. Se voi ensisilmäyksellä vaikuttaa monimutkaiselta, mutta ratkaisu on helposti sovellettavissa monenlaisiin datatiedostoihin.
+Please take a careful look at the program in the example above. It may seem a bit complicated at first, but the technique can be used on files containing many different types of data.
 
-## Eroon turhista riveistä, välilyönneistä ja rivinvaihdoista
+## Removing unnecessary lines, spaces and line breaks
 
-Olemme tallentaneet Excelistä nimiä taulukon CSV-muodossa:
+Let's assume we have a CSV file containing some names, which has been exported from Excel:
 
 ```sh
-etunimi; sukunimi
-Pekka; Python
-Jaana; Java
-Heikki; Haskell
+first; last
+Paul; Python
+Jean; Java
+Harry; Haskell
 ```
 
-Kuten tyypillistä, Excel on lisännyt sarakkeiden väliin erottimena toimivan puolipisteen lisäksi myös välilyönnin.
+Excel is notorious for adding extra whitespace. Here we have an extra space character between the items, after each semicolon.
 
-Haluamme tulostaa listalla olevat sukunimet. Koska ensimmäinen rivi kertoo sarakkeiden otsikot, ohitamme sen:
+We would like to print out the last names of each person on the list. The first line contains the headers for the data, and it can be safely ignored:
 
 ```python
-sukunimet = []
-with open("henkilot.csv") as tiedosto:
-    for rivi in tiedosto:
-        osat = rivi.split(";")
-        # ohitetaan otsikkorivi
-        if osat[0] == "etunimi":
+last_names = []
+with open("people.csv") as new_file:
+    for line in new_file:
+        parts = line.split(";")
+        # ignore the header line
+        if parts[0] == "first":
             continue
-        sukunimet.append(osat[1])
+        last_names.append(parts[1])
 
-print(sukunimet)
+print(last_names)
 ```
 
-Tulostus näyttää seuraavalta:
+Exectuing this would print out
 
 <sample-output>
 
@@ -434,34 +434,34 @@ Tulostus näyttää seuraavalta:
 
 </sample-output>
 
-Kaikkiin paitsi viimeiseen rivin sukunimeen on jäänyt mukaan rivinvaihtomerkki, ja jokaisen sukunimen alkuun on jäänyt ikävä välilyönti.
+The first two items have a line break character at the end, and all three have an extra leading space character.
 
-Pääsisimme näistä eroon aiempien esimerkkien tapaan käyttämällä metodia `replace`, mutta parempi vaihtoehto tässä tilanteessa on käyttää metodia `strip`, joka poistaa merkkijonon alusta ja lopusta ns. whitespace-merkit, eli välilyönnit, rivinvaihdot ja muut normaalina merkkinä tulostumattomat merkit.
+We have already used the `replace` method to remove extra whitespace, but a more efficient solution is to use the Python string method `strip`, which removes whitespace from the beginning and end of a string. It removes all spaces, line breaks, tabs and other characters whoch would not normally be printed out.
 
-Kokeillaan metodin toimintaa konsolissa:
+You can try it out in the Python console:
 
 ```python
->>> " koe ".strip()
-'koe'
->>> "\n\ntesti\n".strip()
-'testi'
+>>> " tryout ".strip()
+'tryout'
+>>> "\n\ntest\n".strip()
+'test'
 >>>
 ```
 
-Tarvittava muutos ohjelmaan on helppo:
+Stripping the string requires only a small change to the program:
 
 ```python
-sukunimet = []
-with open("henkilot.csv") as tiedosto:
-    for rivi in tiedosto:
-        osat = rivi.split(';')
-        if osat[0] == "etunimi":
-            continue # tämä oli otsikkorivi, ei huomioida!
-        sukunimet.append(osat[1].strip())
-print(sukunimet)
+last_names = []
+with open("people.csv") as new_file:
+    for line in new_file:
+        parts = line.split(';')
+        if parts[0] == "first":
+            continue # this was the header line, so it is ignored
+        last_names.append(parts[1].strip())
+print(last_names)
 ```
 
-Tämän jälkeen tulostus on halutunlainen:
+Now we have the desired tidy printout:
 
 <sample-output>
 
@@ -469,81 +469,81 @@ Tämän jälkeen tulostus on halutunlainen:
 
 </sample-output>
 
-Merkkijonoilla on myös metodit `lstrip` ja `rstrip`, jotka poistavat ainoastaan merkkijonon vasemmalla tai oikealla puolella olevia merkkejä.
+There are also the related string methods `lstrip` and `rstrip`. They remove only the leading or trailing unprintable characters, l for the left edge of the string and r for the right:
 
 ```python
->>> " testimerkkijono  ".rstrip()
-' testimerkkijono'
->>> " testimerkkijono  ".lstrip()
-'testimerkkijono  '
+>>> " teststring  ".rstrip()
+' teststring'
+>>> " teststring  ".lstrip()
+'teststring  '
 ```
 
-## Eri tiedostoissa olevien tietojen yhdistely
+## Combining data from different files
 
-On hyvin yleistä, että ohjelmassa tarvittava data on talletettu useaan erilliseen tiedostoon. Tarkastellaan esimerkkinä tilannetta, jossa yrityksen henkilöstön tiedot ovat omassa tiedostossaan `tyontekijat.csv`:
+It is very common for the data processed by a program to be scattered in multiple files. Lets have a look at a situation where the personal details of the personnel of a company are stored in a file called `employees.csv`:
 
 ```csv
-hetu;nimi;osoite;kaupunki
+pic;name;address;city
 080488-123X;Pekka Mikkola;Vilppulantie 7;00700 Helsinki
 290274-044S;Liisa Marttinen;Mannerheimintie 100 A 10;00100 Helsinki
 010479-007Z;Arto Vihavainen;Pihapolku 4;01010 Kerava
 010499-345K;Leevi Hellas;Tapiolantie 11 B;02000 Espoo
 ```
 
-Työntekijöiden palkat taas ovat talletettu omaan tiedostoonsa `palkat.csv`
+The salaries are stored in a separate file `salaries.csv`:
 
 ```csv
-hetu;palkka;bonus
+pic;salary;bonus
 080488-123X;3300;0
 290274-044S;4150;200
 010479-007Z;1300;1200
 ```
 
-Molempien tiedostojen riveillä on ensin _henkilötunnus_, joka kertoo kenen tiedoista on kyse. Käyttämällä henkilötunnusta yhdistävänä tekijänä, on helppo yhdistää henkilöiden nimet ja palkat toisiinsa, ja tehdä esimerkiksi ohjelma, joka tulostaa seuraavanlaisen näkymän henkilöiden ansioihin:
+Each data line in both files contains the _personal identity code_, which identifies whose data we are dealing with. Using the personal identity code as a common factor, it is easy to connect the names and salaries of each employee. We can, for example, print out the following list of monthly incomes:
 
 <sample-output>
 
 <pre>
-ansiot:
-Pekka Mikkola    3300 euroa
-Liisa Marttinen  4350 euroa
-Arto Vihavainen  2500 euroa
+incomes:
+Pekka Mikkola    3300 euros
+Liisa Marttinen  4350 euros
+Arto Vihavainen  2500 euros
 </pre>
 
 </sample-output>
 
-Ohjelma käyttää aputietorakenteena kahta saankirjaa `nimet` ja `palkat`, joissa molemmissa avaimena toimii henkilötunnus:
+This program uses two dictionaries as helper data structures: `names` and `salaries`. Both use the PIC as key:
 
 ```python
-nimet = {}
+names = {}
 
-with open("tyontekijat.csv") as tiedosto:
-    for rivi in tiedosto:
-        osat = rivi.split(';')
-        if osat[0] == "hetu":
+with open("employees.csv") as new_file:
+    for line in new_file:
+        parts = line.split(';')
+        if parts[0] == "pic":
             continue
-        nimet[osat[0]] = osat[1]
+        names[parts[0]] = parts[1]
 
-palkat = {}
+salaries = {}
 
-with open("palkat.csv") as tiedosto:
-    for rivi in tiedosto:
-        osat = rivi.split(';')
-        if osat[0] == "hetu":
+with open("salaries.csv") as new_file:
+    for line in new_file:
+        parts = line.split(';')
+        if parts[0] == "pic":
             continue
-        palkat[osat[0]] = int(osat[1]) +int(osat[2])
+        salaries[parts[0]] = int(parts[1]) +int(parts[2])
 
-print("ansiot:")
+print("incomes:")
 
-for hetu, nimi in nimet.items():
-    if hetu in palkat:
-        palkka = palkat[hetu]
-        print(f"{nimi:16} {palkka} euroa")
+for pic, name in names.items():
+    if pic in salaries:
+        salary = salaries[pic]
+        print(f"{name:16} {salary} euros")
     else:
-        print(f"{nimi:16} 0 euroa")
+        print(f"{name:16} 0 euros")
 ```
 
-Ohjelma siis muodostaa ensin sanakirjat `nimet` ja `palkat`, joiden sisältö näyttää seuraavilta:
+First the program produces the dictionaries `names` and `salaries`. They have the following contents:
 
 ```sh
 {
@@ -560,11 +560,11 @@ Ohjelma siis muodostaa ensin sanakirjat `nimet` ja `palkat`, joiden sisältö n�
 }
 ```
 
-Lopun for-silmukka yhdistää henkilöiden nimet ja niitä vastaavat palkat sanakirjojen avulla.
+The `for` loop at the end of the program combines the names of the employees with their respective salaries.
 
-Ohjelma huomioi myös tilanteen, jossa henkilön palkkatietoja ei ole olemassa.
+The program also takes care of situations where the employee's pic is not present in the salary file.
 
-Huomaa, että koska ohjelma käyttää aputietorakenteena sanakirjaa, ei henkilöitä vastaavien rivien järjestyksellä ole merkitystä.
+Remember, the order in which items are stored in a dictionary does not matter, as the keys are processed based on hash values.
 
 <programming-exercise name='Course grading, part 1' tmcname='part06-04_course_grading_part_1'>
 
