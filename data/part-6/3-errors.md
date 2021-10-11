@@ -8,161 +8,161 @@ hidden: false
 
 After this section
 
-- Tiedät, miten virheellisiä syötteitä voidaan käsitellä
-- Tiedät, mitä tarkoitetaan poikkeuksella ohjelmoinnissa
-- Tunnistat tyypillisiä poikkeuksia Pythonissa
-- Osaat käsitellä poikkeuksia omissa ohjelmissa
+- You will know how to handle invalid input
+- You will understand what are exceptions in programming
+- You will be familiar with the most common exception types in Python
+- You will be able to handle exceptions in your own programs
 
 </text-box>
 
-Ohjelmointiin liittyvät virheet voidaan jakaa kahteen ryhmään:
+The are two basic categories of errors that come up in programming contexts:
 
-1. Syntaksivirheet, jotka estävät ohjelman suorittamisen kokonaan
-2. Suorituksen aikaiset virheet, jotka keskeyttävät ohjelman suorituksen
+1. Syntax errors, which prevent the execution of the program
+2. Runtime errors, which halt the execution
 
-Ryhmän 1 virheet on yleensä helppoa korjata, koska Python-tulkki huomauttaa niistä, kun ohjelmaa yritetään suorittaa. Tällaisia virheitä ovat esimerkiksi puuttuva kaksoispiste silmukan alussa tai puuttuva lainausmerkki merkkijonon lopussa.
+Errors in category 1 are usually easy to fix, as the Python interpreter flags the error location when attempting to execute the program. Common syntax errors include a missing colon at the end of a header line, or a missing quotation mark at the end of a string.
 
-Ryhmän 2 virheet voivat olla hankalampia havaita, koska virhe voi tapahtua jossain vaiheessa ohjelman suorituksen aikana ja vain tietyissä tilanteissa. Ohjelma saattaa toimia yleensä hyvin mutta keskeytyä virheen takia jossain reunatapauksessa. Keskitymme seuraavaksi tällaisten virheiden käsittelyyn.
+Errors in category 2 can be harder to spot, as it may happen that they only occur at a certain point in the execution of a program, and only in certain circumstances. The program may work just fine in most situations, but halt due to an error in a specific marginal case. We will now concentrate on handling these types of errors.
 
-## Syötteiden tarkastaminen
+## Input validation
 
-Usein virhetilanteet ohjelmien suorituksen aikana liittyvät jotenkin virheelliseen syötteeseen. Esimerkkejä virheellisistä syötteistä ovat
+Many errors that come up during the execution of a program have to do with invalid input. Some examples include:
 
-* puuttuvat tai tyhjät arvot: esimerkiksi pituus nolla tai tyhjä merkkijono nimenä
-* negatiiviset arvot: esimerkiksi –15 reseptin aineosan painona
-* puuttuva tai väärän niminen tiedosto
-* liian pienet tai liian suuret arvot
-* väärä indeksi (esim. viittaaminen indeksiin 3 merkkijonossa "moi")
-* väärän tyyppiset arvot, esimerkiksi merkkijono luvun sijasta
+* missing or empty input values in mandatory fields, such as empty strings when the length of the string is critical
+* negative values where only positive values are accepted, such as -15 as the amount of an ingredient in a recipe
+* missing files or typos in filenames
+* values that are too small or too large, for example when working with dates and times
+* invalid indexes, such as trying to access index 3 in the string "hey"
+* values of a wrong type, such as strings when integers are expected
 
-Useimpiin virheistä voidaan onneksi varautua ohjelmallisesti. Tarkastellaan esimerkkinä ohjelmaa, joka lukee käyttäjältä syötteenä tämän iän ja testaa, että se on sallituissa rajoissa (vähintään 0 ja korkeintaan 150):
+Fortunately, we as programmers can prepare for most errors. Let's have a look at a program which asks the user for their age, and makes sure it is an acceptable number (between 0 and 150, in this case):
 
 ```python
-ika = int(input("Anna ikäsi: "))
-if ika >= 0 and ika <= 150:
-    print("Ikä kelpaa")
+age = int(input("Please type in your age: "))
+if age >= 0 and age <= 150:
+    print("That is a fine age")
 else:
-    print("Virheellinen ikä")
+    print("This is not a valid age")
 ```
 
 <sample-output>
 
-Anna ikäsi: **25**
-Ikä kelpaa
+Please type in your age: **25**
+That is a fine age
 
 </sample-output>
 
 <sample-output>
 
-Anna ikäsi: **-3**
-Virheellinen ikä
+Please type in your age: **-3**
+This is not a valid age
 
 </sample-output>
 
-Syötteen tarkastamisessa (eli _validoinnissa_) ilmenee kuitenkin puutteita, jos syötteeksi annetaan esimerkiksi merkkijono:
+As long as the user types in an integer value, our input validation seems to work fine. But what if they type in a string?
 
 <sample-output>
 
-Anna ikäsi: **kakskytkolme**
-ValueError: invalid literal for int() with base 10: 'kakskytkolme'
+Please type in your age: **twenty-three**
+ValueError: invalid literal for int() with base 10: 'twenty-three'
 
 </sample-output>
 
-Virhe johtuu siitä, että funktio `int` ei pysty muuttamaan merkkijonoa `kakskytkolme` kokonaisluvuksi. Tämän seurauksena ohjelman suoritus keskeytyy yllä olevaan virheilmoitukseen.
+The `int` function is unable to parse the input string `twenty-three` as a valid integer value. The execution halts and the above error message is printed.
 
-## Poikkeukset
+## Exceptions
 
-Ohjelman suorituksen aikaisia virheitä kutsutaan _poikkeuksiksi_ (exception). Ohjelman koodissa on mahdollista varautua poikkeuksiin ja käsitellä ne ilman, että ohjelman suoritus keskeytyy.
+Errors that occur while the program is already running are called _exceptions_. It is possible to prepare for exceptions, and handle them so that the execution continues despite them occurring.
 
-Pythonissa poikkeukset käsitellään `try`- ja `except`-lauseilla. Ideana on, että mikäli `try`-lohkossa tapahtuu jokin poikkeus, Python tarkistaa, onko tälle poikkeukselle määritelty `except`-lohkoa. Mikäli on, suoritetaan tämä lohko ja suoritus jatkuu sen jälkeen normaalisti.
+Exception handling in Python is accomplished with `try` and `except` statements. The idea is that if something within a `try` block causes an exception, Python checks if there is a corresponding `except` block. If such a block exists, it is executed and the program themn continues as if nothing happened.
 
-Muutetaan edellä esitettyä esimerkkiä siten, että ohjelma varautuu poikkeukseen `ValueError`:
+Let's change the above example so that the program is prepared for the `ValueError` exception:
 
 ```python
 try:
-    ika = int(input("Anna ikäsi: "))
+    age = int(input("Please type in your age: "))
 except ValueError:
-    ika = -1
+    age = -1
 
-if ika >= 0 and ika <= 150:
-    print("Ikä kelpaa")
+if age >= 0 and age <= 150:
+    print("That is a fine age")
 else:
-    print("Virheellinen ikä")
+    print("This is not a valid age")
 ```
 
 <sample-output>
 
-Anna ikäsi: **kakskytkolme**
-Virheellinen ikä
+Please type in your age: **twenty-three**
+This is not a valid age
 
 </sample-output>
 
-Ohjelmassa voidaan siis `try`-lauseella ilmoittaa, että seuraavan lohkon sisällä tapahtuva toiminta voi aiheuttaa virheen. Välittömästi `try`-lohkoa seuraavassa `except`-lauseessa ilmoitetaan, mihin virheeseen varaudutaan. Edellisessä esimerkissä varauduttiin ainoastaan virheeseen `ValueError` - jokin muu virhe olisi edelleen katkaissut ohjelman suorituksen.
+We can use the `try` block to flag that the code within the block may cause an error. In the `except` statement directly after the block the relevant error is mentioned. In the above example we covered only a `ValueError` exception. If the exception had some other cause, the execution would still have halted, despite the `try` and `except` blocks.
 
-Tässä tapauksessa virhetilanteessa muuttuja `ika` saa arvon -1, jolloin ohjelma tunnistaa oikein virheellisen iän, koska ehtona on, että ikä on vähintään 0.
+In the above example, if the error is caught, the value of `age` is set to -1. This is an invalid input value which we have already programmed behaviour for, as the program excpects the age of the user to be greater than 0.
 
-Seuraava funktio `read_input_kokonaisluku` lukee käyttäjältä kokonaisluvun varautuen siihen, että käyttäjä antaa virheellisen syötteen. Funktio kysyy lukua uudestaan niin kauan, kunnes käyttäjä lopulta antaa kelvollisen luvun.
+In the following example we have a function `read_integer`, which asks the user to type in an integer value, but the function is also prepared for invalid input. The function keeps asking for integers until the user types in a valid input value.
 
 ```python
-def read_input_kokonaisluku():
+def read_integer():
     while True:
         try:
-            syote = input("Syötä kokonaisluku: ")
-            return int(syote)
+            input_str = input("Please type in an integer: ")
+            return int(input_str)
         except ValueError:
-            print("Virheellinen syöte")
+            print("This input is invalid")
 
-luku = read_input_kokonaisluku()
-print("Kiitos!")
-print(luku, "potenssiin kolme on", luku**3)
+number = read_integer()
+print("Thank you!")
+print(number, "to the power of three is", number**3)
 ```
 
 <sample-output>
 
-Syötä kokonaisluku: **kolme**
-Virheellinen syöte
-Syötä kokonaisluku: **aybabtu**
-Virheellinen syöte
-Syötä kokonaisluku: **5**
-Kiitos!
-5 potenssiin kolme on 125
+Please type in an integer: **three**
+This input is invalid
+Please type in an integer: **aybabtu**
+This input is invalid
+Please type in an integer: **5**
+Thank you!
+5 to the power of three is 125
 
 </sample-output>
 
-Joissain tilanteissa saattaa olla tarvetta varautua poikkeukseen, mutta poikkeuksen tapahtuessa riittää "ignoorata" se, eli jättää koko asia huomiomatta `except`-lohkossa.
+Sometimes it is enough to catch exceptions with a try-except structure, without doing anything about them. That is, we can just ignore the situation in the `except` block.
 
-Jos muuttaisimme edellistä esimerkkiä siten, että funktio hyväksyisi ainoastaan lukua 100 pienemmät kokonaisluvut, voisimme muuttaa toteutusta seuraavasti:
+If we were to change the above example so that we only accepted integers smaller than 100, the results could look like this:
 
 ```python
-def read_input_pieni_kokonaisluku():
+def read_small_integer():
     while True:
         try:
-            syote = input("Syötä kokonaisluku: ")
-            luku = int(syote)
-            if luku < 100:
-                return luku
+            input_str = input("Please type in an integer: ")
+            number = int(input_str)
+            if number < 100:
+                return number
         except ValueError:
-            pass # tämä komento ei tee mitään
+            pass # this command doesn't actually do anything
 
-        print("Virheellinen syöte")
+        print("This input is invalid")
 
-luku = read_input_pieni_kokonaisluku()
-print(luku, "potenssiin kolme on", luku**3)
+number = read_small_integer()
+print(number, "to the power of three is", number**3)
 ```
 
 <sample-output>
 
-Syötä kokonaisluku: **kolme**
-Virheellinen syöte
-Syötä kokonaisluku: **1000**
-Virheellinen syöte
-Syötä kokonaisluku: **5**
-Kiitos!
-5 potenssiin kolme on 125
+Please type in an integer: **three**
+This input is invalid
+Please type in an integer: **1000**
+This input is invalid
+Please type in an integer: **5**
+Thank you!
+5 to the power of three is 125
 
 </sample-output>
 
-Nyt siis poikkeuksen käsittelevässä lohkossa on ainoastaan komento `pass`, joka ei tee mitään. Komento tarvitaan, sillä Python ei salli tyhjiä lohkoja.
+Now the `except` block only contains the command `pass`, which doesn't do anything. Python does not allow empty blocks, so the command is necessary.
 
 <programming-exercise name='Reading input' tmcname='part06-17_read_input'>
 
@@ -188,117 +188,117 @@ You typed in: 8
 
 </programming-exercise>
 
-## Tyypillisiä virheitä
+## Typical errors
 
-Seuraavassa on listattu joitakin yleisiä virheitä ja syitä niiden ilmenemiselle:
+Here is a selection of typical errors you will likely come across, along with some situations where they may occur.
 
 **ValueError**
 
-Tämä poikkeus voi johtua siitä, että funktion parametri on vääränlainen. Esimerkiksi kutsu `float("1,23")` tuottaa tämän poikkeuksen, koska Pythonissa desimaalierottimen tulee olla piste eikä pilkku.
+This error is often thrown when the argument passed to a function is somehow invalid. For example, the function call `float("1,23")`causes an error, because decimals are always separated by a point in Python, and here we have a comma. 
 
 **TypeError**
 
-Tämä poikkeus tapahtuu, kun arvo on väärän tyyppinen. Esimerkiksi kutsu `len(10)` saa aikaan tämän poikkeuksen, koska funktio `len` haluaa parametrin, jolle voidaan laskea pituus (kuten merkkijonon tai listan).
+This error occurs when a value is of the wrong type. For example, the function call `len(10)` causes a `TypeError`, because the function `len` requires a value whose length can be calculated, such as a string or a list.
 
 **IndexError**
 
-Tämä poikkeus tapahtuu, jos yritetään viitata indeksiin, jota ei ole olemassa. Esimerkiksi `"abc"[5]` aiheuttaa tämän poikkeuksen, koska merkkijonossa ei ole indeksiä 5.
+This common error occurs when trying to refer to an index which doesn't exist. For example, the expression `"abc"[5]` causes an `IndexError`, because the string in question has no index 5.
 
 **ZeroDivisionError**
 
-Tämä poikkeus tapahtuu, jos yritetään jakaa nollalla. Yksi esimerkki on tilanne, jossa yritetään laskea listan arvojen keskiarvo kaavalla `sum(lista) / len(lista)`, mutta listan pituus on nolla.
+As the name implies, this error is thrown when trying to divide by zero, which we know from mathematics to always be a bad idea. For example, if we try to determine the arithmetic mean of values in a list with the formula `sum(my_list) / len(my_list)`, but our list has length zero, this error will occur.
 
-**Tiedostojen poikkeukset**
+**Exceptions in file handling**
 
-Tiedostojen käsittelyssä voi tulla vastaan esimerkiksi poikkeukset **FileNotFoundError** (koetetaan lukea tiedostoa, jota ei ole olemassa), **io.UnsupportedOperation** (tiedosto on avattu tilassa, joka ei salli operaatiota) tai **PermissionError** (ohjelmalla ei ole oikeutta käsitellä tiedostoa).
+Some common errors when working with files are **FileNotFoundError** (when trying to access a file which doesn't exist), **io.UnsupportedOperation** (when trying to perform an operation on a file which is not supported by the mode in which the file is opened) or **PermissionError** (the program lacks necessary permissions to access the file).
 
-## Useamman poikkeuksen käsittely
+## Handling multiple exceptions at once
 
-Yhtä `try`-lohkoa kohti voi olla useampia `except`-lauseita. Esimerkiksi seuraavassa ohjelmassa varaudutaan sekä poikkeukseen `FileNotFoundException` että `PermissionError`:
+There may be more than one `except` block attached to each `try` block. For example, the following program can handle both a `FileNotFoundException` and a `PermissionError`:
 
 ```python
 try:
-    with open("esimerkki.txt") as tiedosto:
-        for rivi in tiedosto:
-            print(rivi)
+    with open("example.txt") as my_file:
+        for line in my_file:
+            print(line)
 except FileNotFoundError:
-    print("Tiedostoa esimerkki.txt ei löytynyt")
+    print("The file example.txt was not found")
 except PermissionError:
-    print("Ei oikeutta avata tiedostoa esimerkki.txt")
+    print("No permission to access the file example.txt")
 ```
 
-Aina ei ole tarpeen eritellä tapahtuneita virheitä. Esimerkiksi juuri tiedostoa avatessa saattaa riittää, että tiedetään virheen tapahtuneen, muttei ole niin tärkeää tietää, miksi virhe tapahtui. Kaikki mahdolliset virheet voi käsitellä käyttämällä `except`-lausetta määrittelemättä poikkeuksen tyyppiä:
+Sometimes it is not necessary to specify the error the program prepares for. Especially when dealing with files, it is often enough to know that an error has occurred, and safely exit the program. It is not always necessary to know _why_ the error occurred. If we need to cover for all possible exceptions, we can use the `except` block without specifying the error:
 
 ```python
 
 try:
-    with open("esimerkki.txt") as tiedosto:
-        for rivi in tiedosto:
-            print(rivi)
+    with open("example.txt") as my_file:
+        for line in my_file:
+            print(line)
 except:
-    print("Tapahtui virhe tiedoston lukemisessa")
+    print("There was an error when reading the file.")
 
 ```
 
-Huomaa, että tällaisessa tapauksessa `except`-lause käsittelee kaikki mahdolliset virheet, myös ohjelmoijan tekemät virheet lukuun ottamatta syntaksivirheitä, jotka estävät ohjelman suorittamisen.
+NB: the `except` statement here covers all possible errors, even those caused by the programming mistakes. Only syntax errors will not be caught by this, as they prevent the code from being executed in the first place.
 
-Esimerkiksi seuraava ohjelma heittää aina poikkeuksen, koska muuttujan `tiedosto` nimi on kirjoitettu toisessa kohdassa väärin `tiedotso`.
+For example, the following program will always throw an error, because the variable name `my_file` is written as `myfile` on the third line.
 
 ```python
 try:
-    with open("esimerkki.txt") as tiedosto:
-        for rivi in tiedotso:
-            print(rivi)
+    with open("example.txt") as my_file:
+        for line in myfile:
+            print(line)
 except:
-    print("Tapahtui virhe tiedoston lukemisessa.")
+    print("There was an error when reading the file.")
 ```
 
-Tästä näkee, että `except` voi peittää varsinaisen virheen: tässä tapauksessa virheen syynä ei ole tiedoston käsittely vaan väärin kirjoitettu muuttuja.
+An `except` block can hide the actual error: the problem here was not caused by file handling as such, but by the variable name which was misspelled. Without the `except` block the error thrown would be shown, and the cause could be found more easily. Therefore it is usually a good idea to use only `except` blocks specifically declared for certain error types.
 
-## Poikkeusten välittyminen
+## Passing exceptions
 
-Jos funktion sisällä tapahtuu poikkeus, jota ei käsitellä, poikkeus välitetään funktion kutsujalle. Tätä jatketaan, kunnes ollaan pääohjelman tasolla. Jos poikkeusta ei tässäkään käsitellä sopivalla `except`-lauseella, ohjelman suoritus katkeaa ja poikkeus yleensä tulostetaan ruudulle.
+If executing a function causes an exception, and this exception is not handled, it is passed on to the section of code which called the function, and so forth up the call chain, until it reaches the main function level. If it is not handled there, either, the execution of the program halts, and the exception is usually printed out for the user to see.
 
-Esimerkiksi seuraavassa ohjelmassa funktiossa `testi` tapahtuva poikkeus käsitellään vasta pääohjelmassa:
+In the following example we have the function `testing`. If it causes an exception, this is not handled within the function itself, but in the main function:
 
 ```python
-def testi(x):
+def testing(x):
     print(int(x) + 1)
 
 try:
-    luku = input("Anna luku: ")
-    testi(luku)
+    number = input("Please type in a number: ")
+    testing(number)
 except:
-    print("Jotain meni pieleen")
+    print("Something went wrong")
 ```
 
 <sample-output>
 
-Anna luku: **kolme**
-Jotain meni pieleen
+Please type in a number: **three**
+Something went wrong
 
 </sample-output>
 
-## Poikkeusten tuottaminen
+## Raising exceptions
 
-Voimme myös tarvittaessa tuottaa poikkeuksen itse komennolla `raise`. Vaikka virheiden tuottaminen varta vasten voi aluksi tuntua oudolta ajatukselta, mekanismi on itse asiassa hyvinkin hyödyllinen.
+You can also raise exceptions, with the command `raise`. It may seem like an odd idea to purposefully cause errors in your programs, but it can, in fact, be a very useful mechanism.
 
-Esimerkiksi jos teemme funktion, jolle annetaan virheellinen parametri, voimme ilmaista tämän poikkeuksen avulla. Tämä voi olla parempi tapa kuin esimerkiksi palauttaa jokin virhearvo tai tulostaa viesti ruudulle, koska funktion käyttäjä ei välttämättä huomaisi asiaa.
+For instance, it can sometimes be a good idea to raise an error when detecting invalid parameters. So far we have usually printed out messages when validating input, but if we are writing a function which is executed from elsewhere, just printing something out can go unnoticed when the function is called. Raising an error can make debugging easier.
 
-Seuraavassa esimerkissä funktio `kertoma` laskee parametrina annetun luvun kertoman (esimerkiksi luvun 5 kertoma on 1 * 2 * 3 * 4 * 5). Kuitenkin jos annettu luku on negatiivinen, funktio tuottaa poikkeuksen.
+In the following example we have a function which calculates factorials (for example, the factorial of the number 5 is 1 * 2 * 3 * 4 * 5). If the argument passed to the function is negative, the function raises an error:
 
 ```python
-def kertoma(n):
+def factorial(n):
     if n < 0:
-        raise ValueError("Negatiivinen syöte: " + str(n))
+        raise ValueError("The input was negative: " + str(n))
     k = 1
     for i in range(2, n + 1):
         k *= i
     return k
 
-print(kertoma(3))
-print(kertoma(6))
-print(kertoma(-1))
+print(factorial(3))
+print(factorial(6))
+print(factorial(-1))
 ```
 
 <sample-output>
@@ -306,11 +306,11 @@ print(kertoma(-1))
 6
 720
 Traceback (most recent call last):
-  File "testi.py", line 11, in <module>
-    print(kertoma(-1))
-  File "testi.py", line 3, in kertoma
-    raise ValueError("Negatiivinen syöte: " + str(n))
-ValueError: Negatiivinen syöte: -1
+  File "test.py", line 11, in <module>
+    print(factorial(-1))
+  File "test.py", line 3, in factorial
+    raise ValueError("The input was negative: " + str(n))
+ValueError: The input was negative: -1
 
 </sample-output>
 
