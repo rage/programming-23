@@ -90,18 +90,18 @@ print(log(5,2))
 
 Tämä tapa voi olla kätevä testailussa ja pienissä ohjelmissa, mutta siinä on omat ongelmansa, kuten näemme myöhemmin.
 
-<programming-exercise name='Hypotenuusa' tmcname='osa07-01_hypotenuusa'>
+<programming-exercise name='Hypotenuse' tmcname='part07-01_hypotenuse'>
 
-Tee funktio `hypotenuusa(kateetti1: float, kateetti2: float)`, joka saa parametrikseen suorakulmaisen kolmion kateettien pituudet. Funktio palauttaa kolmion hypotenuusan pituuden.
+Please write a function named `hypotenuse(leg1: float, leg2: float)`, which takes the lengths of the two sides adjacent to the right angle of an orthogonal triangle. The function should return the length of the hypotenuse, or the side opposite to the right angle.
 
-Ratkaisu lasketaan [Pythagoraan](https://fi.wikipedia.org/wiki/Pythagoraan_lause) lauseen avulla. Saat laskettua neliöjuuren `math`-moduulin funktion avulla.
+You can use the [Pythagorean theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem) to calculate the result. You will need the `sqrt` function from the `math` module.
 
-Esimerkkejä:
+Some examples:
 
 ```python
-print(hypotenuusa(3,4)) # 5.0
-print(hypotenuusa(5,12)) # 13.0
-print(hypotenuusa(1,1)) # 1.4142135623730951
+print(hypotenuse(3,4)) # 5.0
+print(hypotenuse(5,12)) # 13.0
+print(hypotenuse(1,1)) # 1.4142135623730951
 ```
 
 </programming-exercise>
@@ -128,48 +128,48 @@ Funktio antaa listan nimistä, jotka moduuli määrittelee:
 
 </sample-output>
 
-<programming-exercise name='Erikoismerkit' tmcname='osa07-02_erikoismerkit'>
+<programming-exercise name='Special characters' tmcname='part07-02_special_characters'>
 
-Moduulissa [string](https://docs.python.org/3/library/string.html) on merkkijonovakioita, jotka määrittelevät tiettyjä merkkiryhmiä (esim. pienet kirjaimet ja välimerkit). Tutustu näihin vakioihin ja kirjoita niitä käyttäen funktio `jaa_merkkeihin(merkkijono: str)`, joka saa parametrikseen merkkijonon. Funktio palauttaa tuplen, jossa parametrina saadun merkkijonon merkit on jaettu kolmeen eri merkkijonoon:
+The Python module [string](https://docs.python.org/3/library/string.html) contains some string constants, which define certain groups of characters. These include for example lowercase letters and punctuation characters. Please familiarize yourself with these constants, and then write a function named `separate_characters(my_string: str)`. The function takes a string as its argument, and it should separate the characters in the string into three other strings, and return these in a tuple:
 
-* Ensimmäisessä jonossa on kaikki pienet ja suuret englanninkieliset kirjaimet (vakio `ascii_letters`)
-* Toisessa jonossa on kaikki vakiossa `punctuation` määritellyt välimerkit
-* Kolmannessa jonossa on kaikki merkit (mukaan lukien esim. välilyönnit), jotka eivät kuulu kahteen edelliseen ryhmään
+* The first string should contain the lowercase and uppercase ASCII letters (string constant `ascii_letters`)
+* The second string should contain all punctuation characters defined by the string constant `punctuation`
+* The third string should contain all the other characters (including whitespace)
 
-Merkit tulee tallentaa palautettuihin merkkijonoihin siinä järjestyksessä kuin ne esiintyvät alkuperäisessä merkkijonossa.
+The characters should appear in the three strings in the same order as they appeared in the original string.
 
-Esimerkki:
+An example of the function in action:
 
 ```python
-osat = jaa_merkkeihin("Tämä on testi!!! Toimiiko, mitä?")
-print(osat[0])
-print(osat[1])
-print(osat[2])
+parts = separate_characters("Olé!!! Hey, are ümläüts wörking?")
+print(parts[0])
+print(parts[1])
+print(parts[2])
 ```
 
 <sample-output>
 
-TmontestiToimiikomit
+OlHeyaremltswrking
 !!!,?
-ää    ä
+é  üäü ö 
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Murtoluvuilla laskeminen' tmcname='osa07-03_murtoluvuilla_laskeminen'>
+<programming-exercise name='Fractions' tmcname='part07-03_fractions'>
 
-Tutustu Pythonin moduuliin `fractions` ja toteuta sen avulla funktio `jaa_palasiksi(maara: int)`, joka saa parametrikseen palasten määrän. Funktio jakaa luvun 1 parametrin mukaisesti yhtä suuriin murtolukupalasiin ja palauttaa nämä palaset listassa.
+Please familiarize yourself with the Python module `fractions`. Use it to write a function named `fractionate(amount: int)`, which takes the number of parts as its argument. The function should divide the number 1 into as many equal sized fractions as is specified by the argument, and return these in a list.
 
-Esimerkki:
+An example of the function in action:
 
 ```python
-for p in jaa_palasiksi(3):
+for p in fractionate(3):
     print(p)
 
 print()
 
-print(jaa_palasiksi(5))
+print(fractionate(5))
 ```
 
 <sample-output>
