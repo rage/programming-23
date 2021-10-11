@@ -199,7 +199,7 @@ Lisätietoa löydät esimerkiksi sivulta <a href="https://www.random.org/randomn
 
 </text-box>
 
-<programming-exercise name='Password generator, part 1' tmcname='part07-05_password_generator_1'>
+<programming-exercise name='Password generator, part 1' tmcname='part07-05_password_generator_part_1'>
 
 Please write a function which creates passwords of a desired length, consisting of lowercase characters a to z.
 
@@ -227,7 +227,7 @@ rjkoacib
 
 </programming-exercise>
 
-<programming-exercise name='Password generator, part 2' tmcname='part07-06_password_generator_2'>
+<programming-exercise name='Password generator, part 2' tmcname='part07-06_password_generator_part_2'>
 
 Please write an improved version of your password generator. The function now takes three arguments:
 
