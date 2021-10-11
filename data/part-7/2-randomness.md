@@ -148,17 +148,17 @@ rivi = sample(kaikki_luvut, 7)
 print(rivi)
 ```
 
-<programming-exercise name='Lottonumerot' tmcname='osa07-04_lottonumerot'>
+<programming-exercise name='Lottery numbers' tmcname='part07-04_lottery_numbers'>
 
-Tee funktio `lottonumerot(maara: int, alaraja: int, ylaraja: int)`, joka arpoo annetun määrän satunnaislukuja väliltä `alaraja`...`ylaraja`, tallentaa ne listaan ja palauttaa listan. Lukujen tulee olla palautetussa listassa suuruusjärjestyksessä.
+Please write a function named `lottery_numbers(amount: int, lower: int, upper: int)`, which generates as many random numbers as specified by the first argument. All numbers should fall within the bounds `lower` to `upper`. The numbers should be stored in a list and returned. The numbers should be in ascending order in the returned list.
 
-Koska kyseessä ovat lottonumerot, sama numero ei saa esiintyä listassa kahta kertaa.
+As these are lottery numbers, no number should appear twice in the list.
 
-Esimerkki:
+An example of how the function should work:
 
 ```python
-for numero in lottonumerot(7, 1, 40):
-    print(numero)
+for number in lottery_numbers(7, 1, 40):
+    print(number)
 ```
 
 <sample-output>
@@ -199,15 +199,15 @@ Lisätietoa löydät esimerkiksi sivulta <a href="https://www.random.org/randomn
 
 </text-box>
 
-<programming-exercise name='Salasanan arpoja, osa 1' tmcname='osa07-05_salasanan_arpoja_1'>
+<programming-exercise name='Password generator, part 1' tmcname='part07-05_password_generator_1'>
 
-Tee funktio, jonka avulla on mahdollista luoda halutun pituisia satunnaisista pienistä kirjaimista (väliltä a-z) muodostettuja salasanoja.
+Please write a function which creates passwords of a desired length, consisting of lowercase characters a to z.
 
-Esimerkki:
+An example of how the function should work:
 
 ```python
 for i in range(10):
-    print(luo_salasana(8))
+    print(generate_password(8))
 ```
 
 <sample-output>
@@ -227,20 +227,20 @@ rjkoacib
 
 </programming-exercise>
 
-<programming-exercise name='Salasanan arpoja, osa 2' tmcname='osa07-06_salasanan_arpoja_2'>
+<programming-exercise name='Password generator, part 2' tmcname='part07-06_password_generator_2'>
 
-Tee paranneltu versio edellisen tehtävän funktiosta. Funktio saa nyt kolme parametria:
+Please write an improved version of your password generator. The function now takes three arguments:
 
-* jos toinen parametri on `True`, salasanassa on myös (yksi tai useampi) numero
-* jos kolmas parametri on `True`, salasanassa on myös (yksi tai useampi) erikoismerkki joukosta `!?=+-()#`
+* If the second argument is `True`, the generated password should also contain one or more numbers.
+* If the third argument is `True`, the generated password should also contain one or more of these special characters: `!?=+-()#`.
 
-Salasanassa täytyy olla parametreista riippumatta aina vähintään yksi kirjain. Voit olettaa, että funktiota kutsutaan aina parametreilla, joilla on mahdollista tuottaa halutunlaisia salasanoja.
+Despite these two additional arguments, the password should always contain at least one lowercase alphabet. You may assume the function will only be called with combinations of arguments that are possible to formulate into passwords following these rules. That is, the arguments will not specify e.g. a password of length 2 which contains both a number and a special characters, for then there would not be space for the mandatory lowercase letter.
 
-Esimerkki:
+An example of how the function should work:
 
 ```python
 for i in range(10):
-    print(luo_hyva_salasana(8, True, True))
+    print(generate_strong_password(8, True, True))
 ```
 
 <sample-output>
@@ -260,31 +260,31 @@ n?b0a7ey
 
 </programming-exercise>
 
-<programming-exercise name='Noppasimulaatio' tmcname='osa07-07_noppasimulaatio'>
+<programming-exercise name='Dice roller' tmcname='part07-07_dice_roller'>
 
-Tehdään tässä tehtävässä muutamia funktioita, joita on mahdollista käyttää nopanheittoon liittyvissä peleissä.
+In this exercise you will write some functions which can be used in games that involve dice.
 
-Normaalin nopan sijaan tehtävässä käytetään ns. epätransitiivisia noppia, joista on lisää tietoa esim. [tässä artikkelissa](https://singingbanana.com/dice/article.htm) tai [tässä videossa](https://www.youtube.com/watch?v=LrIp6CKUlH8).
+Instead of normal dice this exercise specifies _non-transitive dice_. You can read up on these [here](https://singingbanana.com/dice/article.htm) or [watch this video](https://www.youtube.com/watch?v=LrIp6CKUlH8).
 
-Käytössä on kolme noppaa:
+You will use three dice:
 
-- Nopassa A on numerot 3, 3, 3, 3, 3, 6
-- Nopassa B on numerot 2, 2, 2, 5, 5, 5
-- Nopassa C on numerot 1, 4, 4, 4, 4, 4
+- Die A has the sides 3, 3, 3, 3, 3, 6
+- Die B has the sides 2, 2, 2, 5, 5, 5
+- Die C has the sides 1, 4, 4, 4, 4, 4
 
 </pre>
 
-Tee funktio `heita(noppa: str)`, joka heittää parametrinsa kertomaa noppaa. Esimerkki:
+Please write a function named `roll(die: str)`, which rolls the die specified by the argument. An example of how this should work:
 
 ```python
 for i in range(20):
-    print(heita("A"), " ", end="")
+    print(roll("A"), " ", end="")
 print()
 for i in range(20):
-    print(heita("B"), " ", end="")
+    print(roll("B"), " ", end="")
 print()
 for i in range(20):
-    print(heita("C"), " ", end="")
+    print(roll("C"), " ", end="")
 ```
 
 <sample-output>
@@ -295,13 +295,13 @@ for i in range(20):
 
 </sample-output>
 
-Tee vielä funktio `pelaa(noppa1: str, noppa2: str, kertaa: int)` joka heittää kokonaisluvun kertoman määrän parametreina olevia noppia. Funktio palauttaa tuplen, joka kertoo nopan 1 voittojen lukumäärän, nopan 2 voittojen lukumäärän ja tasapelien lukumäärän.
+Also write a function named  `play(die1: str, die2: str, times: int)`, which throws both dice as many times as specified by the third argument. The function should return a tuple. The first item should be the number of times die 1 won, the second the number of times die 2 won, and the third item should be the number of ties.
 
 ```python
-tulos = pelaa("A", "C", 1000)
-print(tulos)
-tulos = pelaa("B", "B", 1000)
-print(tulos)
+result = play("A", "C", 1000)
+print(result)
+result = play("B", "B", 1000)
+print(result)
 ```
 
 <sample-output>
@@ -313,22 +313,20 @@ print(tulos)
 
 </programming-exercise>
 
-<programming-exercise name='Satunnaiset sanat' tmcname='osa07-08_satunnaiset_sanat'>
+<programming-exercise name='Random words' tmcname='part07-08_random_words'>
 
-Tehtäväpohjassa on annettu tiedosto `sanat.txt`, joka sisältää englannin kielen sanoja, yksi sana joka rivillä.
+The exercise template contains the file `words.txt`, which contains some English language words, one on each line.
 
-Kirjoita funktio `sanat(n: int, alku: str)`, joka palauttaa listassa `n` kappaletta satunnaisia sanoja tiedostosta. Kaikkien palautettujen sanojen tulee alkaa annetulla merkkijonolla.
+Please write a function named `words(n: int, alku: str)`, which returns a list containing `n` random words from the `words.txt` file. All words should begin with the string specified by the second argument. 
 
-Jos funktiota esim. kutsuttaisiin parametreilla `sanat(3, "ca")`, se voisi palauttaa listassa esim. sanat "cat", "car" ja "carbon". Sama sana ei saa esiintyä listassa kahdesti.
+The same word should not appear twice in the list. If there are not enough words beginning with the specified string, the function should raise a `ValueError` exception.
 
-Jos annetulla merkkijonolla alkavia sanoja ei löydy tarpeeksi annetun kokoisen ryhmän muodostamiseen, funktio tuottaa poikkeuksen `ValueError`.
-
-Esimerkki:
+An example of the function in action:
 
 ```python
-lista = sanat(3, "ca")
-for sana in lista:
-    print(sana)
+word_list = words(3, "ca")
+for word in word_list:
+    print(word)
 ```
 
 <sample-output>
