@@ -54,16 +54,16 @@ Voimme hakea aikaoliosta ajan osia tähän tapaan:
 from datetime import datetime
 
 aika = datetime(1952, 12, 24)
-print("Päivä:", aika.day)
-print("Kuukausi:", aika.month)
-print("Vuosi:", aika.year)
+print("Day:", aika.day)
+print("Month:", aika.month)
+print("VuosiYearika.year)
 ```
 
 <sample-output>
 
-Päivä: 24
-Kuukausi: 12
-Vuosi: 1952
+Day: 24
+Month: 12
+Year: 1952
 
 </sample-output>
 
@@ -158,49 +158,51 @@ keskiyöhön on vielä 8188 sekuntia
 
 </sample-output>
 
-<programming-exercise name='Kuinka vanha' tmcname='osa07-09_kuinka_vanha'>
+<programming-exercise name='How old' tmcname='part07-09_how_old'>
 
-Tee ohjelma, joka kysyy käyttäjän syntymäajan (erikseen päivä, kuukausi ja vuosi) ja tulostaa, kuinka monta päivää vanha käyttäjä oli 31.12.1999 seuraavan esimerkin mukaisesti:
+Please write a program which asks the user for their date of birth, and then prints out how old the user was on the eve of the new millennium. The program should ask for the day, month and year separately, and print out the age in days. Please have a look at the examples below:
 
 <sample-output>
 
-Päivä: **10**
-Kuukausi: **9**
-Vuosi: **1979**
-Olit 7417 päivää vanha, kun vuosituhat vaihtui.
+Day: **10**
+Month: **9**
+Year: **1979**
+You were 7417 days old on the eve of the new millennium.
 
 </sample-output>
 
 <sample-output>
 
-Päivä: **28**
-Kuukausi: **3**
-Vuosi: **2005**
-Et ollut syntynyt, kun vuosituhat vaihtui.
+Day: **28**
+Month: **3**
+Year: **2005**
+You weren't born yet on the eve of the new millennium.
 
 </sample-output>
 
-Voit olettaa, että kaikki annetut päivä-kuukausi-vuosi-yhdistelmät ovat mahdollisia (eli käyttäjä ei siis anna esim. syötettä 31.2.1999).
+You may assume all day-month-year combinations given as an argument will be valid dates. That is, there will not be a date like February 31st. 
 
 </programming-exercise>
 
-<programming-exercise name='Henkilötunnus oikein?' tmcname='osa07-10_henkilotunnus_oikein'>
+<programming-exercise name='Valid PIC?' tmcname='part07-10_valid_pic'>
 
-Tee funktio `onko_validi(hetu: str)`, joka palauttaa `True` tai `False` sen mukaan, onko annettu henkilötunnus oikea. Henkilötunnus on muotoa `ppkkvvXyyyz`, jossa `ppkkvv` kertoo syntymäajan (päivä/kuukausi/vuosi), `X` on syntymävuosisadasta riippuva välimerkki, `yyy` henkilökohtainen yksilönumero ja `z` tarkistemerkki.
+In this exercise you will validate Finnish Personal Identity Codes (PIC). 
 
-Ohjelman tulee tarkastaa, että
+Please write a function named `is_it_valid(pic: str)`, which returns `True` or `False` based on whether the PIC given as an argument is valid or not. Finnish PICs follow the format `ddmmyyXyyyz`, where `ddmmyy` contains the date of birth, `X` is the marker for century, `yyy` is the personal identifier and `z` is a control character.
 
-* alkuosassa on ppkkvv-muodossa oleva päivämäärä, joka on olemassa oleva päivämäärä
-* välimerkki on `+` (1800-luku), `-` (1900-luku) tai `A` (2000-luku) ja
-* lopussa oleva tarkastusmerkki on oikein.
+The program should check the validity by these three criteria:
 
-Tarkastusmerkki lasketaan jakamalla syntymäajasta ja yksilönumerosta muodostuva numerosarja 31:llä ja ottamalla tästä jakojäännös. Merkki valitaan sitten jakojäännöksen mukaisesta indeksistä merkkijonosta `0123456789ABCDEFHJKLMNPRSTUVWXY`. Esimerkiksi jos jakojäännös on 12, valitaan indeksissä 12 oleva merkki `C`.
+* The first half of the code is a valid, existing date in the format `ddmmyy`.
+* The century marker is either `+` (1800s), `-` (1900s) or `A` (2000s).
+* The control character is valid.
 
-Lisätietoa laskemisesta löydät esimerkiksi [Digi- ja väestötietoviraston sivuilta](https://dvv.fi/henkilotunnus).
+The control character is calculated by taking the nine-digit number created by the date of birth and the personal identifier, dividing this by 31, and selecting the character at the index specified by the remainder from the string `0123456789ABCDEFHJKLMNPRSTUVWXY`. For example, if the remainder was 12, the control character would be `C`.
 
-**HUOM!** Pidä huolta, ettet jaa omaa henkilötunnustasi esimerkiksi testikoodin mukana, jos kysyt neuvoja tehtävään kurssin keskustelualueella tai muualla.
+More examples and explanations of the uses of the PIC are available at the [Digital and Population Data Services Agency](https://dvv.fi/en/personal-identity-code).
 
-Oikeamuotoisia henkilötunnuksia testaamiseen ovat esimerkiksi seuraavat:
+**NB!** Please make sure you do not share your own PIC, for example in the code you use for testing or through the course support channels.
+
+Here are some valid PICs you can use for testing:
 
 * 230827-906F
 * 120488+246L
@@ -257,36 +259,36 @@ Synnyit viime vuosituhannella
 
 </sample-output>
 
-<programming-exercise name='Ruutuaika' tmcname='osa07-11_ruutuaika'>
+<programming-exercise name='Screen time' tmcname='part07-11_screen_time'>
 
-Ohjelmassa kirjoitetaan käyttäjän määrittelemään tiedostoon "ruutuaikoja", eli käyttäjän television, tietokoneen ja mobiililaitteen ääressä tiettyinä päivinä viettämää aikaa.
+Please write a program for recording the amount of time the user has spent in front of a television, computer or mobile device screen over a specific period of time. 
 
-Ohjelma toimii seuraavasti:
+The program should work as follows:
 
 <sample-output>
 
-Tiedosto: **kesakuun_loppu.txt**
-Aloituspäivä: **24.6.2020**
-Montako päivää: **5**
-Anna ruutuajat kunakin päivänä minuutteina (TV tietokone mobiililaite):
-Ruutuaika 24.06.2020: **60 120 0**
-Ruutuaika 25.06.2020: **0 0 0**
-Ruutuaika 26.06.2020: **180 0 0**
-Ruutuaika 27.06.2020: **25 240 15**
-Ruutuaika 28.06.2020: **45 90 5**
-Tiedot tallennettu tiedostoon kesakuun_loppu.txt
+Filename: **late_june.txt**
+Starting date: **24.6.2020**
+How many days: **5**
+Please type in screen time in minutes on each day (TV computer mobile):
+Screen time 24.06.2020: **60 120 0**
+Screen time 25.06.2020: **0 0 0**
+Screen time 26.06.2020: **180 0 0**
+Screen time 27.06.2020: **25 240 15**
+Screen time 28.06.2020: **45 90 5**
+Data stored in file late_june.txt
 
 </sample-output>
 
-Kunkin päivän riville on siis annettu välilyönnillä eroteltuna kolme minuuttimäärää.
+The user will input each day on a separate line, and the entries will contain three numbers separated by spaces, representing minutes.
 
-Ohjelma tallentaa tilaston ruutuajoista tiedostoon `kesakuun_loppu.txt`, joka näyttää yllä olevalla syötteellä seuraavalta:
+With the above input, the program should store the data in a file named `late_june.txt`. The contents should look like this:
 
 <sample-data>
 
-Ajanjakso: 24.06.2020-28.06.2020
-Yht. minuutteja: 780
-Keskim. minuutteja: 156.0
+Time period: 24.06.2020-28.06.2020
+Total minutes: 780
+Average minutes: 156.0
 24.06.2020: 60/120/0
 25.06.2020: 0/0/0
 26.06.2020: 180/0/0
