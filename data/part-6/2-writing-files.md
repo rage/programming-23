@@ -8,75 +8,75 @@ hidden: false
 
 After this section
 
-- Osaat luoda itse tiedoston Pythonilla
-- Osaat kirjoittaa tekstimuotoista tietoa tiedostoon
-- Osaat kirjoittaa CSV-muotoisen tiedoston omasta datastasi
+- You will know how to create files with Python code
+- You will be able to write text based data to a file
+- You will know how to create a CSV file
 
 </text-box>
 
-Tiedoston lukemisen lisäksi voimme luonnollisesti myös kirjoittaa tiedostoon tietoa. Tyypillinen esimerkki on ohjelman tulosten tallentaminen tiedostoon, jotta niitä voidaan käyttää myös myöhemmin tai muokata edelleen jollain toisella ohjelmalla.
+So far we have read data from files, but it is naturally also possible to write data to files. Typically a program processes data and stores the results in a file, so they can be used later or processed further by some other program.
 
-Tiedoston kirjoittamisessa voimme joko luoda uuden tiedoston tai lisätä tietoa olemassa olevan tiedoston vanhan tiedon perään. Molemmissa tapauksissa käytetään edellisestä osasta tuttua `open`-funktiota, mutta kirjoittamista varten funktiolle annetaan toinen parametri.
+We can create a new file every time we want to write data to a file, but we can also append new data to the end of an existing file. In both cases we use the `open` function from the previous section. For writing files the function requires a second argument.
 
-## Uuden tiedoston luominen
+## Creating a new file
 
-Uusi tiedosto luodaan antamalla `open`-funktiolle tiedoston nimen lisäksi avaustilaksi `w` (tulee sanasta "write"). Esimerkiksi
-
-```python
-with open("uusi_tiedosto.txt", "w") as tiedosto:
-    # tiedostoon kirjoittaminen
-```
-
-Huomaa, että **mikäli tiedosto on jo olemassa, kaikki sen sisältö ylikirjoitetaan**. Ole siis erittäin huolellinen uusia tiedostoja luodessasi.
-
-Kun tiedosto on avattu, sinne voidaan kirjoittaa tietoa. Kirjoittaminen tapahtuu metodilla `write`, joka saa parametrikseen kirjoitettavan merkkijonon.
+If you want to create a new file, you would call the `open` function with the additional argument `w`, to signify that the file should be opened in write mode. So, the function call could look like this:
 
 ```python
-with open("uusi_tiedosto.txt", "w") as tiedosto:
-    tiedosto.write("Moi kaikki!")
+with open("new_file.txt", "w") as my_file:
+    # code to write something to the file
 ```
 
-Ohjelman suorittamisen jälkeen samaan hakemistoon ilmestyy tiedosto `uusi_tiedosto.txt`, jonka sisältö näyttää tältä:
+**NB: if the file already exists, all the contents will be overwritten**. It pays to be very careful when creating new files.
+
+With the file open you can write data to it. You can use the method `write`, which takes the string that is to be written as its argument.
+
+```python
+with open("new_file.txt", "w") as my_file:
+    my_file.write("Hello there!")
+```
+
+When you execute the program, a new file named `new_file.txt` appears in the directory. The contents would look like this:
 
 <sample-data>
 
-Moi kaikki!
+Hello there!
 
 </sample-data>
 
-Huomaa, että jos tiedostoon halutaan rivinvaihtoja, ne täytyy lisätä tekstiin itse. Esimerkiksi ohjelma
+If you want line breaks in the file, you will have to add them by hand - the `write` function doesn't work exactly like the more familiar `print` function, though they are similar. So, the following program
 
 ```python
-with open("uusi_tiedosto.txt", "w") as tiedosto:
-    tiedosto.write("Moi kaikki!")
-    tiedosto.write("Toinen rivi")
-    tiedosto.write("Viimeinen rivi")
+with open("new_file.txt", "w") as my_file:
+    my_file.write("Hello there!")
+    my_file.write("This is the second line")
+    my_file.write("This is the last line")
 ```
 
-tuottaa seuraavanlaisen tiedoston:
+would result in a file with these contents:
 
 <sample-data>
 
-Moi kaikki!Toinen riviViimeinen rivi
+Hello there!This is the second lineThis is the last line
 
 </sample-data>
 
-Tulostukset saadaan omille riveilleen lisäämällä rivien loppuun rivivaihtomerkki `\n`:
+Line breaks are achieved by adding new line characters `\n` to the argument strings:
 
 ```python
-with open("uusi_tiedosto.txt", "w") as tiedosto:
-    tiedosto.write("Moi kaikki!\n")
-    tiedosto.write("Toinen rivi\n")
-    tiedosto.write("Viimeinen rivi\n")
+with open("new_file.txt", "w") as my_file:
+    my_file.write("Hello there!\n")
+    my_file.write("This is the second line\n")
+    my_file.write("This is the last line\n")
 ```
 
-Nyt tiedosto `uusi_tiedosto.txt` näyttää tältä:
+Now the contents of `new_file.txt` would look like this:
 
 <sample-data>
 
-Moi kaikki!
-Toinen rivi
-Viimeinen rivi
+Hello there!
+This is the second line
+This is the last line
 
 </sample-data>
 
@@ -103,35 +103,35 @@ Hi Ada, we hope you enjoy learning Python with us! Best, Mooc.fi Team
 
 </programming-exercise>
 
-## Tiedon lisääminen olemassaolevaan tiedostoon
+## Appending data to an existing file
 
-Jos haluamme lisätä tietoa olemassa olevaan tiedostoon, voimme avata tiedoston tilassa `a` (lyhenne sanasta "append"). Tällöin tiedoston nykyistä sisältöä ei pyyhitä, vaan uusi tieto kirjoitetaan tiedoston loppuun.
+If you want to append data to the end of a file, instead of overwriting the entire file, you should open the file in append mode with the argument `a`.
 
-Jos tiedostoa ei ole olemassa, tila `a` toimii samalla tavalla kuin tila `w`.
+If the file doesn't yet exist, append mode works exatly like write mode.
 
-Seuraava ohjelma avaa edellisen esimerkin tuottaman tiedoston `uusi_tiedosto.txt` ja lisää sen perään pari riviä tekstiä:
+The following program opens the file `new_file.txt` and appends a couple of lines of text to the end:
 
 ```python
-with open("uusi_tiedosto.txt", "a") as tiedosto:
-    tiedosto.write("Rivi numero 4\n")
-    tiedosto.write("Ja taas yksi.\n")
+with open("new_file.txt", "a") as my_file:
+    my_file.write("This is the 4th line\n")
+    my_file.write("And yet another line.\n")
 ```
 
-Ohjelman suorituksen jälkeen tiedosto näyttää tältä:
+After this program is executed the contents of the file would look like this:
 
 <sample-output>
 
-Moi kaikki!
-Toinen rivi
-Viimeinen rivi
-Rivi numero 4
-Ja taas yksi.
+Hello there!
+This is the second line
+This is the last line
+This is the 4th line
+And yet another line.
 
 </sample-output>
 
-Tiedon lisääminen tiedostoon on kuitenkin suhteellisen harvoin tarvittava operaatio.
+In programming practice, appending data to files is not a very common task.
 
-Tiedostoon lisäämisen sijaan on usein yksinkertaisinta kirjoittaa tiedosto kokonaan uudelleen. Näin joudutaan useimmiten tekemään jos esimerkiksi tiedoston sisältö muuttuu keskeltä tiedostoa.
+More often a file is read, processed and overwritten in its entirety. For example, when the contents should change in the _middle_ of the file, it is usually easiest to overwrite the entire file.
 
 <programming-exercise name='Diary' tmcname='part06-11_diary'>
 
@@ -187,89 +187,89 @@ Bye now!
 
 </programming-exercise>
 
-## CSV-tiedoston kirjoittaminen
+## Writing CSV files
 
-CSV-tiedoston voi kirjoittaa rivi riviltä `write`-metodilla. Esimerkiksi seuraava esimerkki luo tiedoston `koodarit.csv`, jonka jokaisella rivillä on koodarin nimi, työympäristö, lempikieli ja kokemus vuosissa. Tiedot on erotettu puolipisteillä.
+CSV files can be written line by line with the `write` method just like any other file. The following example creates the file `coders.csv`, with each line containing the name, working environment, favourite language and years of experience of a single programmer. The fields are separated by a semicolon.
 
 ```python
-with open("koodarit.csv", "w") as tiedosto:
-    tiedosto.write("Erkki;Windows;Pascal;10\n")
-    tiedosto.write("Matti;Linux;PHP;2\n")
-    tiedosto.write("Antti;Linux;Java;17\n")
-    tiedosto.write("Emilia;Mac;Cobol;9\n")
+with open("coders.csv", "w") as my_file:
+    my_file.write("Eric;Windows;Pascal;10\n")
+    my_file.write("Matt;Linux;PHP;2\n")
+    my_file.write("Alan;Linux;Java;17\n")
+    my_file.write("Emily;Mac;Cobol;9\n")
 ```
 
-Tämän tuloksena on seuraava tiedosto:
+Executing this program would result in the following file:
 
 <sample-output>
 
-Erkki;Windows;Pascal;10
-Matti;Linux;PHP;2
-Antti;Linux;Java;17
-Emilia;Mac;Cobol;9
+Eric;Windows;Pascal;10
+Matt;Linux;PHP;2
+Alan;Linux;Java;17
+Emily;Mac;Cobol;9
 
 </sample-output>
 
-Tarkastellaan sitten tilannetta, jossa tiedostoon kirjoitettavat tiedot ovatkin muistissa listoina:
+What if the data to be written is stored in computer memory in a list?
 
 ```python
-koodarit = []
-koodarit.append(["Erkki", "Windows", "Pascal", 10])
-koodarit.append(["Matti", "Linux", "PHP", 2])
-koodarit.append(["Antti", "Linux", "Java", 17])
-koodarit.append(["Emilia", "Mac", "Cobol", 9])
+coders = []
+coders.append(["Eric", "Windows", "Pascal", 10])
+coders.append(["Matt", "Linux", "PHP", 2])
+coders.append(["Alan", "Linux", "Java", 17])
+coders.append(["Emily", "Mac", "Cobol", 9])
 ```
 
-Nyt voimme kirjoittaa koodarien tiedot CSV-tiedostoon näin:
+We can build the string we want to write as an f-string, and write the ready line to the file like so:
 
 ```python
-with open("koodarit.csv", "w") as tiedosto:
-    for koodari in koodarit:
-        rivi = f"{koodari[0]};{koodari[1]};{koodari[2]};{koodari[3]}"
-        tiedosto.write(rivi+"\n")
+with open("coders.csv", "w") as my_file:
+    for coder in coders:
+        line = f"{coder[0]};{coder[1]};{coder[2]};{coder[3]}"
+        my_file.write(line+"\n")
 ```
 
-Jos koodaria kuvaavissa listoissa olisi suuri määrä alkioita, olisi csv-tiedostoon kirjoitetavien rivien muodostaminen yllä olevalla tekniikalla työläähköä, ja rivit kannattaisikin koota silmukan avulla:
+If each list of coder data was very long, with many more items, building the string by hand would be quite cumbersome. We can use a `for` loop to build the string instead:
 
 ```python
-with open("koodarit.csv", "w") as tiedosto:
-    for koodari in koodarit:
-        rivi = ""
-        for arvo in koodari:
-            rivi += f"{arvo};"
-        rivi = rivi[:-1]
-        tiedosto.write(rivi+"\n")
+with open("coders.csv", "w") as my_file:
+    for coder in coders:
+        line = ""
+        for value in coder:
+            line += f"{value};"
+        line = line[:-1]
+        my_file.write(line+"\n")
 ```
 
-## Tiedoston tyhjentäminen ja poisto
+## Clearing file contents and deleting files
 
-Joissain tilanteissa ohjelmassa on tarvetta tyhjentää olemassaolevan tiedoston sisältö. Tämä onnistuu avaamalla tiedosto kirjoitustilassa "w" ja sulkemalla tiedosto välittömästi:
+Sometimes it is necessary to clear the contents of an existing file. Opening the file in write mode and closing the file immediately will achieve just this:
 
 ```python
-with open("tyhjennettava_tiedosto.txt", "w") as tiedosto:
+with open("file_to_be_cleared.txt", "w") as my_file:
     pass
 ```
 
-Nyt `with`-lohkossa on ainoastaan komento `pass`, joka ei tee mitään. Komento tarvitaan, sillä Python ei salli sellaisia lohkoja missä ei ole mitään komentoja.
+Now the `with` block only contains the command `pass`, which doesn't actually do anything. Python does not allow empty blocks, so the command is necessary here.
 
-Tiedoston tyhjennys on mahdollista tehdä myös ilman `with`-lohkokon käyttöä:
+It is possible to also bypass the `with` block by using the following oneliner:
 
 ```python
-open('tyhjennettava_tiedosto.txt', 'w').close()
+open('file_to_be_cleared.txt', 'w').close()
 ```
 
-<text-box variant='hint' name='Tiedoston poistaminen'>
+<text-box variant='hint' name='Deleting files'>
 
-Tiedosto voidaan myös poistaa kokonaan. Poisto tapahtuu seuraavasti:
+You can also delete a file entirely. We will have to ask for help from the operating system to achieve this:
 
 ```python
-# poisto-komento tuodaan koodin käyttöön import-lauseella
+# the command to delete files is in the os module
 import os
 
-os.remove("tarpeeton_tiedosto.csv")
+os.remove("unnecessary_file.csv")
 ```
 
-Tämä ei kuitenkaan teknisten rajoitteiden takia toimi palvelimella suoritettavissa testeissä, joten käytä ylläolevia tapoja jos joudut tehtävissä tyhjentämään tiedoston.
+NB: this will not work when running the automatic tests on the course servers due to technical limitations in the testing environment. If you are asked to clear the contents of a file, use the methods described above.
 
 </text-box>
 
@@ -346,92 +346,94 @@ Each entry should be on a separate line. If we call the function with the argume
 
 </programming-exercise>
 
-## Tiedon käsittely CSV:nä
+## Handling data in a CSV format
 
-Tehdään vielä lopuksi ohjelma, joka lukee CSV-tiedostosta opiskelijoiden viikoittaiset kurssipistemäärät ja laskee näiden avulla kurssin arvosanan. Lopuksi ohjelma luo CSV-tiedoston, josta selviää opiskelijan yhteispistemäärä sekä arvosana
+Let's write a program which assesses students' performance on a course. The program reads a CSV file, which contains weekly exercise points received by the students. The program then calculates the points total and determines the grade attained by each student. Finally, the program creates a CSV file containing the points total and grade for each student.
 
-Ohjelman lukema CSV-tiedosto näyttää seuraavalta:
+The CSV file given as input to the program looks like this:
 
 <sample-data>
 
-Pekka;4;2;3;5;4;0;0
+Peter;4;2;3;5;4;0;0
 Paula;7;2;8;3;5;4;5
-Pirjo;3;4;3;5;3;4;4
-Emilia;6;6;5;5;0;4;8
+Susan;3;4;3;5;3;4;4
+Emily;6;6;5;5;0;4;8
 
 </sample-data>
 
-Ohjelman logiikka on jaettu kolmeen funktioon. Tiedoston lukeminen tapahtuu samaan tapaan kuin edellisessä aliluvussa: tiedot talletetaan sanakirjaan, jossa avaimena on opiskelijan nimi ja arvona lista viikkopisteistä:
+The program logic is divided into three functions: reading the file and processing the contents into an accessible format, determining the grade, and writing the file. 
+
+The file is read following the principles covered in the previous section. The data is stored in a dictionary, where the key is the student's name, and the value is a list of the points received by the student, in integer format:
 
 ```python
-def lue_viikkopisteet(tiedostonimi):
-    viikkopisteet = {}
-    with open(tiedostonimi) as tiedosto:
-        for rivi in tiedosto:
-            osat = rivi.split(";")
-            lista = []
-            for pisteet in osat[1:]:
-                lista.append(int(pisteet))
-            viikkopisteet[osat[0]] = lista
+def read_weekly_points(filename):
+    weekly_points = {}
+    with open(filename) as my_file:
+        for line in my_file:
+            parts = line.split(";")
+            point_list = []
+            for points in parts[1:]:
+                point_list.append(int(points))
+            weekly_points[parts[0]] = point_list
 
-    return viikkopisteet
+    return weekly_points
 ```
 
-Arvosanojen laskemista varten on tehty oma funktionsa, jota tiedostoon kirjoittava funktio hyödyntää:
+The second function is for determining the grade based on the points received. This function is in turn used by the third function, which writes the results to the file.
 
 ```python
-def arvosana(pisteet):
-    if pisteet < 20:
+def grade(points):
+    if points < 20:
         return 0
-    elif pisteet < 25:
+    elif points < 25:
         return 1
-    elif pisteet < 30:
+    elif points < 30:
         return 2
-    elif pisteet < 35:
+    elif points < 35:
         return 3
-    elif pisteet < 40:
+    elif points < 40:
         return 4
     else:
         return 5
 
-def tallenna_tulokset(tiedostonimi, viikkopisteet):
-    with open(tiedostonimi, "w") as tiedosto:
-        for nimi, lista in viikkopisteet.items():
-            summa = sum(lista)
-            tiedosto.write(f"{nimi};{summa};{arvosana(summa)}\n")
+def save_results(filename, weekly_points):
+    with open(filename, "w") as my_file:
+        for name, point_list in weekly_points.items():
+            point_sum = sum(point_list)
+            my_file.write(f"{name};{point_sum};{grade(point_sum)}\n")
 ```
 
-Itse "pääohjelma" on nyt hyvin yksinkertainen. Huomaa, että luettavan ja kirjoitettavan tiedoston nimet annetaan funktioille parametrina:
+This structure lets us write a very simple main function. Notice how the filenames for the files whch are read and written are given as arguments in the main function:
 
 ```python
-viikkopisteet = lue_viikkopisteet("viikkopisteet.csv")
-tallenna_tulokset("tulokset.csv", viikkopisteet)
+weekly_points = read_weekly_points("weekly_points.csv")
+save_results("results.csv", weekly_points)
 ```
 
-Suorituksen tuloksena oleva CSV-tiedosto näyttää seuraavalta:
+When the main function is executed, the contents of the file `results.csv` created as a result looks like this:
 
 <sample-data>
 
-Pekka;18;0
+Peter;18;0
 Paula;34;3
-Pirjo;26;2
-Emilia;41;5
+Susan;26;2
+Emily;41;5
 
 </sample-data>
 
-Huomaa, miten ohjelma on koostettu suhteellisen yksinkertaisista, vain yhteen asiaan keskittyvistä funktioista. Tämä on yleisesti ottaen suositeltava tapa ohjelmoinnissa, se helpottaa ohjelman toiminnallisuuden varmistamista sekä myöhemmin ohjelmaan tehtävien muutosten sekä laajennusten tekemistä.
+Notice how each function defined above is relatively simple, and they all have a single responsibility. This is a common and advisable approach when programming larger wholes. The single reponsibility principle makes verifying functionality easier. It also makes it easier to make changes to the program later, and to add new features.
 
-Jos esimerkiksi haluaisimme ohjelmaan toiminnallisuuden, joka tulostaa yhden opiskelijan arvosanan, olisi toiminnallisuus helppo koostaa käyttäen apuna jo valmiina olevaa arvosanan laskevaa funktiota:
+Say we wanted to add a function for printing out the grade for a single student. We already have a function which determines the student's grade, so we can use this in our new function:
 
 ```python
-def hae_arvosana(haettava, viikkopisteet):
-    for nimi, lista in viikkopisteet.items():
-        if nimi == haettava:
-            return arvosana(sum(lista))
+def get_grade(student_name, weekly_points):
+    for name, point_list in weekly_points.items():
+        if name == student_name:
+            return grade(sum(point_list))
 
 
-viikkopisteet = lue_viikkopisteet("viikkopisteet.csv")
-print(hae_arvosana("Paula", viikkopisteet))
+weekly_points = read_weekly_points("weekly_points.csv")
+print(get_grade("Paula", weekly_points))
 
 ```
 
@@ -441,7 +443,7 @@ print(hae_arvosana("Paula", viikkopisteet))
 
 </sample-data>
 
-Jos ohjelmasta halutaan muuttaa tai korjata "yhtä asiaa", esimerkiksi arvosanojen pisterajoja, kohdistuu muokkaus hyvin rakennetussa ohjelmassa ainoastaan yhteen tai muutamaan funktioon. Jos sama logiikka, esimerkiksi arvosanan laskeminen, olisi kopioitu useaan paikkaan, kasvaisi riski, että muutoksia ei muistettaisi tehdä kaikkiin oikeisiin paikkoihin.
+If we determine a certain functionality in the program needs fixing, in a well designed program the change will affect only some select sections of code, and it will be easier to determine where the changes should be made. For example, if we wanted to change the grade boundaries, we'd only need to implement the change in the function for determining the grade, and it would work also in all the other functions utilizing this function. If the code for this single functionality was implemented in multiple places, there would be a definite risk that we would not remember to change all the instances when changing the functionality.
 
 <programming-exercise name='Course grading, part 4' tmcname='part06-14_course_grading_part_4'>
 
