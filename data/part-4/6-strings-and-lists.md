@@ -421,6 +421,7 @@ print(result)
 
 ## Passing data from one function to another
 
+<!--- see also section 6-4, some significant overlap-->
 When a program contains multiple functions, the question arises: how do you pass data from one function to another?
 
 The following example asks the user for some integer values. The program then prints out these values and performs an "analysis" on them. The program is divided into three separate functions:
@@ -520,7 +521,7 @@ Statistics:
 
 When the user types in an empty line, the program prints out statistics. They are formulated as follows:
 
-The exercises completed are converted into _exercise points_, so that completing at least 10% of the exercises grants one point, 20% grants two points, and so forth. Completing all 100 exercises grants 10 exercise points. Remember, the number of exercises completed is also an integer value.
+The exercises completed are converted into _exercise points_, so that completing at least 10% of the exercises grants one point, 20% grants two points, and so forth. Completing all 100 exercises grants 10 exercise points. The number of exercise points granted is an integer value, rounded down.
 
 The grade for the course is determined based on the following table:
 
