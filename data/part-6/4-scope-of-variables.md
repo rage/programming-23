@@ -8,27 +8,27 @@ hidden: false
 
 After this section
 
-- Tiedät mitä tarkoitetaan paikallisella muuttujalla
-- Tiedät, miten muuttujan näkyvyysalue vaikuttaa sen käyttöön
-- Tiedät, mitä Pythonissa tekee avainsana `global`
-- Osaat käyttää paikallisia ja globaaleja muuttujia oikein
+- You will know what is meant by a local variable
+- You will know how the scope of a variable affects how it is used
+- You will know what the Python keyword `global`means
+- You will be able to use local and global variables in the correct contexts
 
 </text-box>
 
-Muuttujan _näkyvyysalue_ (_scope_) tarkoittaa, missä ohjelman osissa muuttujaa voi käyttää. _Paikallinen_ muuttuja on muuttuja, joka on näkyvissä vain tietyn rajatun alueen sisällä ohjelmassa. _Globaali_ muuttuja on puolestaan käytettävissä missä tahansa ohjelman osassa.
+The _scope_ of a variable refers to the sections of a program where a variable is accessible. A _local_ variable is only accessible in a defined section of the program, while a _global_ variable is available for use in any section of the program.
 
-## Paikalliset muuttujat
+## Local variables
 
-Pythonissa funktion sisällä määritellyt muuttujat ovat funktion paikallisia muuttujia. Tämä koskee sekä parametreja että funktion lohkon sisällä esiteltyjä muuttujia. Paikallisuus tarkoittaa, että muuttuja _ei ole olemassa funktion ulkopuolella_.
+Variables defined within a Python function are local variables, only available within the function. This applies to both function parameters, and other variables defined within the function definition. A variable which is local to a function _does not exist outside the function_.
 
-Esimerkiksi seuraavassa ohjelmassa yritys viitata muuttujaan `x` pääohjelmassa antaa virheen:
+In the following example we are trying to access the variable `x` in the main function, but this causes an error:
 
 ```python
-def testi():
+def testing():
     x = 5
     print(x)
 
-testi()
+testing()
 print(x)
 ```
 
@@ -39,18 +39,18 @@ NameError: name 'x' is not defined
 
 </sample-output>
 
-Ohjelmassa muuttuja `x` on siis olemassa vain funktion `testi` suorituksen ajan eikä siihen pääse käsiksi muista funktioista tai pääohjelmasta.
+The variable `x` only exists while the function `testing` is being executed. Other functions or the main function cannot access the variable.
 
-## Globaalit muuttujat
+## Global variables
 
-Pääohjelmassa eli kaikkien funktioiden ulkopuolella määritellyt muuttujat ovat globaaleja muuttujia. Globaalin muuttujan arvo voidaan lukea funktiossa. Esimerkiksi seuraava toimii:
+Variables defined within the main function are global variables. We previously defined the main function as those sections of code in a Python program which do not fall within any other function. The value stored in a global variable can be accessed from any other function in the program, so the following does not cause any errors:
 
 ```python
-def testi():
+def testing():
     print(x)
 
 x = 3
-testi()
+testing()
 ```
 
 <sample-output>
@@ -59,15 +59,15 @@ testi()
 
 </sample-output>
 
-Kuitenkaan globaalia muuttujaa ei voi muuttaa suoraan. Esimerkiksi seuraava funktio _ei vaikuta_ globaaliin muuttujaan:
+A global variable cannot be changed directly from within another function. The following function _has no effect_ on the value stored in the global variable:
 
 ```python
-def testi():
+def testing():
     x = 5
     print(x)
 
 x = 3
-testi()
+testing()
 print(x)
 ```
 
@@ -78,17 +78,17 @@ print(x)
 
 </sample-output>
 
-Tässä tapauksessa funktio `testi` luo paikallisen muuttujan `x`, joka saa arvon 5. Tämä on kuitenkin eri muuttuja kuin pääohjelmassa oleva muuttuja `x`.
+Here the function `testing` creates a _new, local_ variable `x`, which "masks" the global variable while the function is being executed. This variable has the value 5, but it is a different variable than the global `x` which is defined in the main function.
 
-Entä miten toimii seuraava koodi?
+But what would the following code do?
 
 ```python
-def testi():
+def testing():
     print(x)
     x = 5
 
 x = 3
-testi()
+testing()
 print(x)
 ```
 
@@ -98,18 +98,19 @@ UnboundLocalError: local variable 'x' referenced before assignment
 
 </sample-output>
 
-Funktiossa `testi` annetaan arvo muuttujalle `x`, jolloin Python päättelee, että `x` on funktion paikallinen muuttuja (eikä globaali muuttuja). Koska muuttujaan yritetään viitata ennen arvon asettamista, tapahtuu virhe.
 
-Jos kuitenkin haluamme muuttaa funktiossa globaalia muuttujaa, tämä onnistuu avainsanan `global` avulla:
+The function `testing` assigns a value to the variable `x`, so Python interprets `x` to be a local variable instead of the global variable of the same name. The function attemts to access the variable before it is defined, so there is an error.
+
+If we wish to specify that we mean to change the global variable within a function, we will need the Python keyword `global`:
 
 ```python
-def testi():
+def testing():
     global x
     x = 3
     print(x)
 
 x = 5
-testi()
+testing()
 print(x)
 ```
 
@@ -120,53 +121,53 @@ print(x)
 
 </sample-output>
 
-Nyt funktiossa tehty muutos `x = 3` vaikuttaa myös pääohjelmaan, eli kaikissa ohjelman kohdissa `x` viittaa samaan muuttujaan.
+Now the assignment `x = 3` within the function also affects the main function. All sections of the program are using the same global variable `x`.
 
-## Milloin käyttää globaalia muuttujaa?
+## When should you use global variables?
 
-Globaalien muuttujien tarkoituksena ei ole korvata funktion parametreja tai paluuarvoa. Esimerkiksi on sinänsä mahdollista tehdä seuraava funktio, joka tallentaa laskun tuloksen globaaliin muuttujaan:
+Global variables are not a way to bypass function parameters or return values, and they should not be used as such. That is, it is _possible_ to write a function which stores its results directly in a global variable:
 
 ```python
-def laske_summa(a, b):
-    global tulos
-    tulos = a + b
+def calculate_sum(a, b):
+    global result
+    result = a + b
 
-laske_summa(2, 3)
-print(tulos)
+calculate_sum(2, 3)
+print(result)
 ```
 
-Parempi tapa on kuitenkin toteuttaa funktio kuten ennenkin:
+It is better to write a function with a return value, as we are used to do by now:
 
 ```python
-def laske_summa(a, b):
+def calculate_sum(a, b):
     return a + b
 
-tulos = laske_summa(2, 3)
-print(tulos)
+result = calculate_sum(2, 3)
+print(result)
 ```
 
-Jälkimmäisen tavan etuna on, että funktio on _itsenäinen_ kokonaisuus, jolle annetaan tietyt parametrit ja joka palauttaa tietyn tuloksen. Funktiolla ei ole sivuvaikutuksia, minkä ansiosta sitä voi testata muusta koodista riippumattomasti.
+The advantage of the latter approach is that the function is an _independent_ whole. It has certain, defined parameters, and it returns a result. It has no side effects, so it can be tested and changed independently of the other sections of the program.
 
-Kuitenkin globaali muuttuja voi olla hyödyllinen, jos halutaan pitää yllä jotain funktioille yhteistä "ylemmän tason" tietoa. Tässä on yksi esimerkki asiasta:
+Global variables are useful in situations where we need to have some common, "higher level" information available to all functions in the program. The following is an example of just such a situation:
 
 ```python
-def laske_summa(a, b):
-    global laskuri
-    laskuri += 1
+def calculate_sum(a, b):
+    global count
+    count += 1
     return a + b
 
-def laske_erotus(a, b):
-    global laskuri
-    laskuri += 1
+def calculate_difference(a, b):
+    global count
+    count += 1
     return a - b
 
 
-laskuri = 0
-print(laske_summa(2, 3))
-print(laske_summa(5, 5))
-print(laske_erotus(5, 2))
-print(laske_summa(1, 0))
-print("Funktioita kutsuttiin", laskuri, "kertaa")
+count = 0
+print(calculate_sum(2, 3))
+print(calculate_sum(5, 5))
+print(calculate_difference(5, 2))
+print(calculate_sum(1, 0))
+print("There were", count, "function calls")
 ```
 
 <sample-output>
@@ -174,109 +175,86 @@ print("Funktioita kutsuttiin", laskuri, "kertaa")
 10
 3
 1
-Funktioita kutsuttiin 4 kertaa
+There were 4 function calls
 
 </sample-output>
 
-Tässä haluamme pitää ohjelman suorituksen aikana kirjaa siitä, montako kertaa funktioita on kutsuttu ohjelman eri kohdista. Nyt globaali muuttuja `laskuri` on kätevä, koska voimme kasvattaa sen arvoa jokaisella funktion kutsukerralla ja katsoa globaalista muuttujasta, montako kertaa funktiota on kutsuttu.
+In this case we want to keep track of how many times either of the functions were called during the execution of the program. The global variable `count` is useful here, because we can increment it from the functions themselves as they are executed, but still access the final value in the main function.
 
-## Tiedon välittäminen funktiosta toiseen revisited
+## Passing data from one function to another, revisited
 
-Jos ohjelma koostuu useista funktioista, nousee esiin kysymys miten tieoa siirretään funktiosta toiseen.
+<!--- see also section 4-6, some significant overlap-->
+If a program consists of multiple functions, the question of passing data from one function to another often comes up.
 
-Seuraavassa on jo pari osaa sitten nähty esimerkki ohjelmasta, joka lukee käyttäjältä joukon kokonaislukuarvoja. Sen jälkeen ohjelma tulostaa arvot ja tekee niille vielä "analyysin". Ohjelma on jaettu kolmeen erilliseen funktioon:
+When we touched upon this topic [previously](http://localhost:8000/part-4/6-strings-and-lists#passing-data-from-one-function-to-another), we had a program which asks the user for some integer values, prints them out, and performs some statistical analysis on the numbers. The program was divided into three separate functions:
 
 ```python
-def lue_kayttajalta(maara: int):
-    print(f"syötä {maara} lukua:")
-    luvut = []
+def input_from_user(how_many: int):
+    print(f"Please type in {how_many} numbers:")
+    numbers = []
 
-    i = maara
-    while i>0:
-        luku = int(input("anna luku: "))
-        luvut.append(luku)
-        i -= 1
+    for i in range(how_many):
+        number = int(input(f"Number {i+1}: "))
+        numbers.append(number)
 
-    return luvut
+    return numbers
 
-def tulosta(luvut: list):
-    print("luvut ovat: ")
-    for luku in luvut:
-        print(luku)
+def print_result(numbers: list):
+    print("The numbers are: ")
+    for number in numbers:
+        print(number)
 
-def analysoi(luvut: list):
-    ka = sum(luvut) / len(luvut)
-    return f"lukuja yhtensä {len(luvut)}, kesikarvo {ka}, pienin {min(luvut)} ja suurin {max(luvut)}"
+def analyze(numbers: list):
+    mean = sum(numbers) / len(numbers)
+    return f"There are altogether {len(numbers)} numbers, the mean is {mean}, the smallest is {min(numbers)} and the greatest is {max(numbers)}"
 
-# funktioita käyttävä  "pääohjelma"
-syoteet = lue_kayttajalta(5)
-tulosta(syotteet)
-analyysin_tulos = analysoi(syotteet)
-print(analyysin_tulos)
+# the main function using these functions
+inputs = input_from_user(5)
+print_result(inputs)
+analysis_result = analyze(inputs)
+print(analysis_result)
 ```
 
-Esimerkkisuoritus
+An example of the program's execution:
 
 <sample-output>
 
-syötä 5 lukua:
-anna luku: **10**
-anna luku: **34**
-anna luku: **-32**
-anna luku: **99**
-anna luku: **-53**
-luvut ovat:
+Please type in 5 numbers:
+Number 1: 10
+Number 2: 34
+Number 3: -32
+Number 4: 99
+Number 5: -53
+The numbers are:
 10
 34
 -32
 99
 -53
-lukuja yhtensä 5, kesikarvo 11.6, pienin- 53 ja suurin 99
+There are altogether 5 numbers, the mean is 11.6, the smallest is -53 and the greatest is 99
 
 </sample-output>
 
-Perusperiaatteena ohjelmassa on se, että pääohjelma "tallettaa" ohjelman käsittelemän tiedon, eli tässä tapauksessa käyttäjän syöttämät luvut muuttujassa `syoteet`.
+The basic principle here is that the main function "stores" the data processed by the program. Here, this means the numbers typed in by the user, which are stored in the variable `inputs`.
 
-Jos lukuja on tarve käsitellä jossain funktiossa, ne välitetään sinne parametrina. Näin tapahtuu funktioissa `tulosta` ja `analysoi`.
-Jos taas funktio tuottaa tietoa, jota muut ohjelman osat tarvitsevat, palautta funktio datan returnilla. Näin tekevät käyttäjän syötteen lukeva funktio `lue_kayttajalta` sekä analyysin tekevä funktio `analysoi`.
+If the numbers are needed in some function, the variable is passed as an argument, as seen above when the functions `print_result` and `analyze` are called. If the function produces a result that is relevant elsewhere in the program, the function returns this with a `return` statement, as seen with the functions `input_from_user` and `analyse` above.
 
-Olisi periaatteessa mahdollista, että funktiot käyttäisivät avainsanaa `global` hyväksikäyttäen suoraan "pääohjelman" globaalia muuttujaa `syoteet`. Se [ei kuitenkaan ole ollenkaan järkevää](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil), sillä jos usea funktio pääsee sorkkimaan globaalia muuttujaa, voi ohjelmassa alkaa tapahtua jotain hallitsematonta, varsinkin kun funktioiden määrä kasvaa.
+As always in programming, there are many ways to arrive at the same functionality. It would be possible to use the keyword `global` and have the functions directly access the `inputs` variable defined in the main function. There are good reasons why [this is not a smart move](https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil), however. If many different functions can access and potentially change a variable directly, it quickly becomes impossible to reliably track the state of the program, and the program risks becoming unpredictable. This is especially the case as the number of function involved grows large, as it is wont to do in large software projects.
 
-Tiedon välitys funktioihin ja niistä ulos on siis järkevintä hoitaa parametrien ja paluuarvojen avulla.
+In conclusion, passing data into and out of functions is best handled by arguments and return values.
 
-Jos haluaisimme tehdä edellisen esimerkin ohjelman siten, että sen "pääohjelma" eriytettäisiin omaan funktioon `main`, siirrettäisiin ohjelman käsittelmä data pääohjelmaa edustavan funktion sisäiseksi muuttujaksi:
+You could also separate the implicit main function in the example above into its own, explicit `main` function. Then the variable `inputs` would no longer be a global variable, but instead a local variable within the `main` function:
 
 ```python
-def lue_kayttajalta(maara: int):
-    print(f"syötä {maara} lukua:")
-    luvut = []
-
-    i = maara
-    while i>0:
-        luku = int(input("anna luku: "))
-        luvut.append(luku)
-        i -= 1
-
-    return luvut
-
-def tulosta(luvut: list):
-    print("luvut ovat: ")
-    for luku in luvut:
-        print(luku)
-
-def analysoi(luvut: list):
-    ka = sum(luvut) / len(luvut)
-    return f"lukuja yhtensä {len(luvut)} kesikarvo {ka} pienin{min(luvut)} ja suurin {max(luvut)}"
-
-# pääohjelmaa edustava funktio
+# your main function goes here
 def main():
-    syoteet = lue_kayttajalta(5)
-    tulosta(syotteet)
-    analyysin_tulos = analysoi(syotteet)
+    inputs = input_from_user(5)
+    print_result(inputs)
+    analysis_result = analyze(inputs)
 
-    print(analyysin_tulos)
+    print(analysis_result)
 
-# ohjelman käynnistys
+# run the main function
 main()
 ```
 
