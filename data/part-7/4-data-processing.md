@@ -123,42 +123,43 @@ Tietokantasovellus
 
 </sample-output>
 
-<programming-exercise name='JSON-tiedoston käsittely' tmcname='osa07-12_jsontiedostot'>
 
-Tarkastellaan JSON-tiedostoa, jossa on tietoa opiskelijoista seuraavassa muodossa:
+<programming-exercise name='Handling JSON files' tmcname='part07-12_json_files_'>
+
+Let's have a look at a JSON file, which contains some information about students in the following format:
 
 ```json
 [
     {
-        "nimi": "Pekka Pythonisti",
-        "ika": 27,
-        "harrastukset": [
-            "koodaus",
-            "kutominen"
+        "name": "Peter Pythons",
+        "age": 27,
+        "hobbies": [
+            "coding",
+            "knitting"
         ]
     },
     {
-        "nimi": "Jaana Javanainen",
-        "ika": 24,
-        "harrastukset": [
-            "koodaus",
-            "kalliokiipeily",
-            "lukeminen"
+        "name": "Jean Javanese",
+        "age": 24,
+        "hobbies": [
+            "coding",
+            "rock climbing",
+            "reading"
         ]
     }
 ]
 ```
 
-Toteuta funktio `tulosta_henkilot(tiedosto: str)`, joka lukee esimerkin tavalla muodostetun JSON-tiedoston (jonka sisältönä voi olla mielivaltainen määrä henkilöitä) ja tulostaa ne seuraavassa muodossa:
+Please write a function named `print_persons(filename: str)`, which reads a JSON file in the above format, and prints the contents as shown below. The file may contain any number of entries.
 
 <sample-output>
 
-Pekka Pythonisti 27 vuotta (koodaus, kutominen)
-Jaana Javanainen 24 vuotta (koodaus, kalliokiipeily, lukeminen)
+Peter Pythons 27 years (coding, knitting)
+Jean Javanese 24 years (coding, rock climbing, reading)
 
 </sample-output>
 
-Harrastukset tulee luetella samassa järjestyksessä kuin ne on annettu JSON-tiedostossa.
+The hobbies should be listed in the same order as they appear in the JSON file.
 
 </programming-exercise>
 
@@ -178,13 +179,13 @@ print(pyynto.read())
 
 Ihmisille tarkoitetut sivut tosin eivät tulostu kovin selkeinä, mutta internetissä on myös runsaasti koneluettavaa dataa, joka on usein JSON-muodossa.
 
-<programming-exercise name='Kurssien tilastot' tmcname='osa07-13_kurssistatistiikka'>
+<programming-exercise name='Course statistics' tmcname='part07-13_course_statistics'>
 
-#### tieto kursseista
+#### Retrieving the list of active courses
 
-Osoitteesta <https://studies.cs.helsinki.fi/stats-mock/api/courses> löytyy JSON-muodossa muutaman laitoksen verkkokurssin perustiedot.
+At the address <https://studies.cs.helsinki.fi/stats-mock/api/courses> you will find basic information about some of the courses offered by the University of Helsinki Department of Computer Science, in JSON format.
 
-Tee funktio `hae_kaikki()` joka hakee ja palauttaa kaikkien menossa olevien kurssien (kentän `enabled` arvona `True`) tiedot listana tupleja. Paluuarvon muoto on seuraava:
+Please write a function named `retrieve_all()`, which retrieves the data of all the courses which are currently active (the field `enabled` has the value `true`). These should be returned as a list of tuples, in the following format:
 
 <sample-output>
 
@@ -199,19 +200,19 @@ Tee funktio `hae_kaikki()` joka hakee ja palauttaa kaikkien menossa olevien kurs
 
 </sample-output>
 
-Jokainen tuple siis sisältää seuraavat arvot:
+Each tuple contains the following fields from the original data:
 
-- kurssin koko nimi (`fullName`)
-- nimi (`name`)
-- vuosi (`year`)
-- harjoitusten (`exercises`) yhteenlaskettu määrä
+- the name of the course: `fullName`
+- `name`
+- `year`
+- the sum of the values listed in `exercises`
 
 
-*Huom*: Tämän tehtävän testien toimivuuden osalta on oleellista, että haet tiedot funktiolla `urllib.request.urlopen`.
+**NB**: It is essential that you retrieve the data with the function `urllib.request.urlopen`, or the automated tests may not work correctly.
 
-*Huom2:* Testeissä käytetään myös ovelaa kikkaa, joka hieman muuttaa internetistä tulevaa dataa ja tämän avulla varmistaa, että et huijaa tehtävässäsi palauttamalla "kovakoodattua" dataa.
+**NB2:** The tests are designed so that they slightly modify the data retrieved from the internet, to make sure you do not hard-code your return values.
 
-*Huom3:* Jotkut Mac-käyttäjät ovat törmänneet tehtävässä seuraavaan ongelmaan:
+**NB3:** Some Mac users have come across the following issue:
 
 ```sh
 File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1353, in do_open
@@ -219,87 +220,87 @@ File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/req
 urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1124)>
 ```
 
-Ongelman ratkaisutapa riippuu siitä miten python on asennettu koneellesi. Joissain tapauksissa toimii seuraava:
+The solution depends on how Python is installed on your machine. In some cases executing the following in a terminal helps:
 
 ```sh
 cd "/Applications/Python 3.8/"
 sudo "./Install Certificates.command
 ```
 
-Huomaa, että cd-komennon polku riippuu käyttämästäsi Pythonin versiosta. Se voi olla myös "/Applications/Python 3.8/".
+The path used in the `cd` command above depends on the version of Python you have installed. The path may also be, for example, `"/Applications/Python 3.9/"`.
 
-[Täällä](https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error) on ehdotettu useita erilaisia ratkaisuja ongelmaan.
+[Various solutions](https://stackoverflow.com/questions/27835619/urllib-and-ssl-certificate-verify-failed-error) to the problem have been suggested.
 
-Eräs kikka jota voit kokeilla, on seuraava:
+One trick some have found useful:
 
 ```python
 import urllib.request
 import json
-import ssl # lisää tämä kirjasto importeihin
+import ssl # add this library to your import section
 
-def hae_kaikki():
-    # ja tämä rivi funktioiden alkuun
+def retrieve_all():
+    # add the following line to the beginning of all your functions
     context = ssl._create_unverified_context()
-    # muu koodi
+    # the rest of your function
 ```
 
-Toinen tapa kiertää ongelma on seuraava:
+Another potential workaround:
 
  ```python
 import urllib.request
-import certifi # lisää tämä kirjasto importeihin
+import certifi # add this library to your import section
 import json
 
-def hae_kaikki():
-    osoite = "https://studies.cs.helsinki.fi/stats-mock/api/courses"
-    # lisätään kutsuun toinen parametri
-    pyynto = urllib.request.urlopen(osoite, cafile=certifi.where())
-    # muu koodi
+def retrieve_all():
+    address = "https://studies.cs.helsinki.fi/stats-mock/api/courses"
+    # add a second argument to the function call
+    request = urllib.request.urlopen(address, cafile=certifi.where())
+    # the rest of your function
 ```
 
-#### yhden kurssin tiedot
+#### Retrieving the data for a single course
 
-Kunkin kurssin JSON-muotoinen tehtävästatistiikka löytyy omasta osoitteesta, joka saadaan vaihtamalla kurssin kenttä `name` seuraavassa tähtien paikalle <https://studies.cs.helsinki.fi/stats-mock/api/courses/****/stats>
+Each course also has its own URL, where more specific weekly data about the course is available. The URLs follow the format <https://studies.cs.helsinki.fi/stats-mock/api/courses/****/stats>, where you would replace the stars with the contents of the field `name` for the course you want to access.
 
-Esimerkiksi kurssin `docker2019` tiedot ovat osoitteessa <https://studies.cs.helsinki.fi/stats-mock/api/courses/docker2019/stats>
+For example, the data for the course `docker2019` is at the address <https://studies.cs.helsinki.fi/stats-mock/api/courses/docker2019/stats>.
 
-Tee ohjelmaasi funktio `hae_kurssi(kurssi: str)`, joka palauttaa kurssin tarkemman tehtävästatistiikan.
+Please write a function named `retrieve_course(course_name: str)`, which returns statistics for the specified course, in dictionary format.
 
-Kun kutsutaan `hae_kurssi("docker2019")`, funktio palauttaa sanakirjan, jonka sisältö on seuraava:
+For example, the function call `retrieve_course("docker2019")` would return a dictionary with the following contents:
 
 <sample-output>
 
 <pre>
 {
-    'viikkoja': 4,
-    'opiskelijoita': 220,
-    'tunteja': 5966,
-    'tunteja_keskimaarin': 27,
-    'tehtavia': 4988,
-    'tehtavia_keskimaarin': 22
+    'weeks': 4,
+    'students': 220,
+    'hours': 5966,
+    'hours_average': 27,
+    'exercises': 4988,
+    'exercises_average': 22
 }
 </pre>
 
 </sample-output>
 
-Sanakirjaan tallennetut arvot määrittyvät seuraavasti:
+The values in the dictionary are determined as follows:
 
-- `viikkoja`: kurssia vastaavan JSON-olioiden määrä
-- `opiskelijoita` viikkojen opiskelijamäärien maksimi
-- `tunteja`: kakkien viikkojen tuntimäärien (`hour_total`) summa
-- `tunteja_keskimaarin`: edellinen jaettuna opiskelijamäärällä (kokonaislukuna pyöristettynä alaspäin)
-- `tehtavia`: kakkien viikkojen tehtävämäärien (`exercise_total`) summa
-- `tehtavia_keskimaarin`: edellinen jaettuna opiskelijamäärällä (kokonaislukuna pyöristettynä alaspäin)
+- `weeks`: the number of JSON object literals retrieved
+- `students`: the maximum number of students in all the weeks
+- `hours`: the sum of all `hour_total` values in the different weeks
+- `hours_average`: the `hours` value divided by the `students` value (rounded down to the closest integer value)
+- `exercises`: the sum of all `exercise_total` values in the different weeks
+- `exercises_average`: the `exercises` value divided by the `students` value (rounded down to the closest integer value)
 
-*Huom*: Samat huomiot pätevät tähän osaan kuin edelliseen!
+**NB**: See the notices in Part 1 of the exercise, as they apply here, too.
 
-*Huom2*: löydät [math](https://docs.python.org/3/library/math.html) -moduulista funktion, jonka avulla kokonaisluvun alaspäin pyöristäminen on helppoa
+**NB2**: The Python [math](https://docs.python.org/3/library/math.html) module has a useful function for rounding down integers.
 
 </programming-exercise>
 
-<programming-exercise name='Kuka huijasi' tmcname='osa07-14_kuka_huijasi'>
+<programming-exercise name='Who cheated' tmcname='part07-14_who_cheated'>
 
-Tiedostossa `tentin_aloitus.csv` on tenttien aloitusaikoja muodossa `tunnus;hh:mm`. Esimerkiksi:
+The file `start_times.csv` contains individual start times for a programming exam, in the format `name;hh:mm`. An example:
 
 ```csv
 jarmo;09:00
@@ -307,7 +308,7 @@ timo;18:42
 kalle;13:23
 ```
 
-Lisäksi tiedostossa `palautus.csv` on tehtävien palautusaikoja muodossa `tunnus;tehtävä;pisteet;hh:mm`. Esimerkiksi:
+Additionally, the file `submissions.csv` contains points and handin times for individual exercises. The format here is `name;task;points;hh:mm`. An example:
 
 ```csv
 jarmo;1;8;16:05
@@ -316,51 +317,51 @@ jarmo;2;10;19:15
 jne...
 ```
 
-Tehtäväsi on etsiä ne opiskelijat, jotka ovat käyttäneet tenttiin yli 3 tuntia aikaa, eli opiskelijat, joiden _jonkin_ tehtävän palautus on tehty yli 3 tuntia tentin aloitusajasta. Palautuksia voi siis olla useampi. Voit olettaa, että kaikki ajat ovat saman vuorokauden puolella.
+Your task is to find the students who spent over 3 hours on the exam tasks. That is, any student whose _any_ task was handed in over 3 hours later than their exam start time is labelled a cheater. There may be more than one submission for the same task for each student. You may assume all times are within the same day.
 
-Kirjoita funktio `huijarit()`, joka palauttaa listan huijanneiden opiskelijoiden käyttäjätunnuksista.
-
-</programming-exercise>
-
-<programming-exercise name='Kuka huijasi, versio 2' tmcname='osa07-15_kuka_huijasi_2'>
-
-Käytössäsi on edellisessä tehtävässä määritellyt datatiedostot. Kirjoita funktio `viralliset_pisteet()`, joka palauttaa sanakirjassa (dict) opiskelijoiden koepisteet seuraavien sääntöjen mukaan:
-
-* Jos samaan tehtävänumeroon on tehty useita palautuksia, korkeimman pistemäärän palautus otetaan huomioon
-* Jos tehtäväpalautus on tehty yli 3 tuntia tentin aloittamisen jälkeen, palautusta ei huomioida ollenkaan
-
-Tehtävät on numeroitu 1–8 ja jokaisesta tehtävästä voi saada 0–6 pistettä.
-
-Palautetussa sanakirjassa tunnus on avain ja tehtävien yhteispistemäärä arvo.
-
-Vinkki: sisäkkäiset sanakirjat (dict) ovat mainio työkalua tallennettaessa eri opiskelijoiden pisteitä ja aikoja.
+Please write a function named `cheaters()`, which returns a list containing the names of the students who cheated
 
 </programming-exercise>
 
-## Moduulien etsiminen
+<programming-exercise name='Who cheated, version 2' tmcname='part07-15_who_cheated_2'>
 
-Pythonin dokumentaatiosta löytyy tietoa kaikista standardikirjaston moduuleista:
+You have the CSV files from the previous exercise at your disposal again. Please write a function named `final_points()`, which returns the final exam points received by the students, in a dictionary format, following these criteria:
+
+* If there are multiple submissions for the same task, the submission with the highest number of points is taken into account.
+* If the submission was made over 3 hours after the start time, the submission is ignored.
+
+The tasks are numbered 1 to 8, and each submission is graded with 0 to 6 points.
+
+In the dicionary returned the key should be the name of the student, and the value the total points received by the student.
+
+Hint: nested dictionaries might be a good approach when processing the tasks and submission times of each student.
+
+</programming-exercise>
+
+## Looking for modules
+
+The official Python documentation contains information on all modules available in the standard library:
 
 * https://docs.python.org/3/library/
 
-Standardikirjaston lisäksi verkosta löytyy lukuisia vapaasti käytettäviä kirjastoja eri tarpeisiin. Joitakin yleisesti käytettyjä moduuleja on täällä:
+In addition to the standard library, the internet is full of freely available Python modules for different purposes. Some commonly used modules are listed here:
 
 * https://wiki.python.org/moin/UsefulModules
 
-<programming-exercise name='Spellchecker, versio 2' tmcname='osa07-16_spellchecker_versio2'>
+<programming-exercise name='Spell checker, version 2' tmcname='part07-16_spellchecker_2'>
 
-Teemme tässä tehtävässä hieman parannellun version edellisen osan tehtävästä Spellchecker.
+In this exercise you will write an improved version of the Spell checker from the [previous part](/part-6/1-reading-files).
 
-Edellisen osan version tapaan ohjelma pyytää käyttäjää kirjoittamaan rivin englanninkielistä tekstiä. Ohjelma suorittaa tekstille oikeinkirjoitustarkistuksen ja tulostaa saman tekstin siten, että kaikki väärin kirjoitetut sanat on ympäröity tähdillä. _Tämän lisäksi ohjelma antaa listan korjausehdotuksia väärin kirjotettuihin sanoihin._
+Just like in the previous version, the program should ask the user to type in a line of text. Your program should then perform a spell check, and print out feedback to the user, so that all misspelled words have stars around them. Additionally, _the program should print out a list of suggestions for the misspelled words_.
 
-Seuraavassa kaksi käyttöesimerkkiä:
+Please have a look at the following two examples.
 
 <sample-output>
 
 write text: **We use ptython to make a spell checker**
 <pre>
 We use *ptython* to make a spell checker
-korjausehdotukset:
+suggestions:
 ptython: python, pythons, typhon
 </pre>
 
@@ -371,19 +372,19 @@ ptython: python, pythons, typhon
 write text: **this is acually a good and usefull program**
 <pre>
 this is *acually* a good and *usefull* program
-korjausehdotukset:
+suggestions:
 acually: actually, tactually, factually
 usefull: usefully, useful, museful
 </pre>
 
 </sample-output>
 
-Korjausehdotukset etsitään standardikirjaston moduulin [difflib](https://docs.python.org/3/library/difflib.html) tarjoaman funktion [get\_close\_matches](https://docs.python.org/3/library/difflib.html#difflib.get_close_matches) avulla.
+The suggestions should be determined with the function [get\_close\_matches](https://docs.python.org/3/library/difflib.html#difflib.get_close_matches) from the Python standard library module [difflib](https://docs.python.org/3/library/difflib.html).
 
-*Huom*: jotta testit toimisivat, käytä funktiota "oletusasetuksilla", eli antamalla sille kaksi parametria: virheellinen sana ja lista oikeista sanoista.
+**NB**: For the automatic tests to work correctly, please use the function with the "default settings". That is, please pass only two arguments to the function: the misspelled word, and the word list.
+
+</programming-exercise>
 
 <!---
-</programming-exercise>
--->
-
 <quiz id="311e3116-a763-50b5-b79e-056fdccb3394"></quiz>
+-->
