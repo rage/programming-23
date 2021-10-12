@@ -16,16 +16,16 @@ After this section
 Omien moduulien tekeminen on helppoa Pythonissa, koska mikä tahansa Python-koodia sisältävä tiedosto voi toimia moduulina. Tarkastellaan esimerkkinä seuraavaa tiedostoa `sanat.py`:
 
 ```python
-def eka_sana(mjono: str):
-    osat = mjono.split(" ")
+def eka_sana(my_string: str):
+    osat = my_string.split(" ")
     return osat[0]
 
-def vika_sana(mjono: str):
-    osat = mjono.split(" ")
+def vika_sana(my_string: str):
+    osat = my_string.split(" ")
     return osat[-1]
 
-def sanojen_maara(mjono: str):
-    osat = mjono.split(" ")
+def sanojen_maara(my_string: str):
+    osat = my_string.split(" ")
     return len(osat)
 ```
 
@@ -34,11 +34,11 @@ Voimme käyttää tässä tiedostossa olevia funktioita toisessa tiedostossa seu
 ```python
 import sanat
 
-mjono = "Vesihiisi sihisi hississä"
+my_string = "Vesihiisi sihisi hississä"
 
-print(sanat.eka_sana(mjono))
-print(sanat.vika_sana(mjono))
-print(sanat.sanojen_maara(mjono))
+print(sanat.eka_sana(my_string))
+print(sanat.vika_sana(my_string))
+print(sanat.sanojen_maara(my_string))
 ```
 
 <sample-output>
@@ -85,16 +85,16 @@ Jos moduulissa on päätason koodia, joka ei ole funktion sisällä, koodi suori
 Oletetaan, että `sanat.py`-tiedostoon on kirjoitettu muutama testitapaus:
 
 ```python
-def eka_sana(mjono: str):
-    osat = mjono.split(" ")
+def eka_sana(my_string: str):
+    osat = my_string.split(" ")
     return osat[0]
 
-def vika_sana(mjono: str):
-    osat = mjono.split(" ")
+def vika_sana(my_string: str):
+    osat = my_string.split(" ")
     return osat[-1]
 
-def sanojen_maara(mjono: str):
-    osat = mjono.split(" ")
+def sanojen_maara(my_string: str):
+    osat = my_string.split(" ")
     return len(osat)
 
 print(eka_sana("Tämä on testi"))
@@ -107,11 +107,11 @@ Kun moduuli otetaan nyt käyttöön `import`-lauseella, suoritetaan automaattise
 ```python
 import sanat
 
-mjono = "Vesihiisi sihisi hississä"
+my_string = "Vesihiisi sihisi hississä"
 
-print(sanat.eka_sana(mjono))
-print(sanat.vika_sana(mjono))
-print(sanat.sanojen_maara(mjono))
+print(sanat.eka_sana(my_string))
+print(sanat.vika_sana(my_string))
+print(sanat.sanojen_maara(my_string))
 ```
 
 <sample-output>
@@ -132,16 +132,16 @@ Pythonista löytyy onneksi ratkaisu pulmaan. Ohjelmassa on mahdollista testata, 
 Moduuliin voidaan siis lisätä edellistä tietoa hyödyntäen ehtolause, jonka avulla testikoodi suoritetaan ainoastaan silloin, kun ohjelma ajetaan omana itsenään eikä toisen ohjelman osaksi tuotuna:
 
 ```python
-def eka_sana(mjono: str) -> str:
-    osat = mjono.split(" ")
+def eka_sana(my_string: str) -> str:
+    osat = my_string.split(" ")
     return osat[0]
 
-def vika_sana(mjono: str) -> str:
-    osat = mjono.split(" ")
+def vika_sana(my_string: str) -> str:
+    osat = my_string.split(" ")
     return osat[-1]
 
-def sanojen_maara(mjono: str) -> int:
-    osat = mjono.split(" ")
+def sanojen_maara(my_string: str) -> int:
+    osat = my_string.split(" ")
     return len(osat)
 
 if __name__ == "__main__":
@@ -166,11 +166,11 @@ Kun moduuli sen sijaan tuodaan osaksi jotain muuta ohjelmaa, testejä ei suorite
 ```python
 import sanat
 
-mjono = "Vesihiisi sihisi hississä"
+my_string = "Vesihiisi sihisi hississä"
 
-print(sanat.eka_sana(mjono))
-print(sanat.vika_sana(mjono))
-print(sanat.sanojen_maara(mjono))
+print(sanat.eka_sana(my_string))
+print(sanat.vika_sana(my_string))
+print(sanat.sanojen_maara(my_string))
 ```
 
 <sample-output>
@@ -181,40 +181,40 @@ hississä
 
 </sample-output>
 
-<programming-exercise name='Merkkiapuri' tmcname='osa07-17_merkkiapuri'>
+<programming-exercise name='String helper' tmcname='part07-17_string_helper'>
 
-Tee moduuli `merkkiapuri`, joka sisältää seuraavat funktiot:
+Please write a module named `string_helper`, which contains the following functions:
 
-Funktio `vaihda_koko(merkkijono: str)` saa parametrikseen merkkijonon. Funktio luo ja palauttaa uuden merkkijonon, jossa alkuperäisen merkkijonon pienet kirjaimet on muutettu isoiksi kirjaimiksi ja päinvastoin.
+The function `change_case(orig_string: str)` creates and returns a new version of the parameter string. The lowercase letters in the original should be uppercase, and uppercase letters should be lowercase.
 
-Funktio `puolita(merkkijono: str)` palauttaa tuplessa parametrinaan saamansa merkkijonon ensimmäisen ja toisen puolikkaan. Jos merkkijonossa on pariton määrä kirjaimia, ensimmäinen puolikas on lyhyempi.
+The function `split_in_half(orig_string: str` splits the parameter string in half, and returns the results in a tuple. If the original has an odd number of characters, the first half should be shorter.
 
-Funktio `poista_erikoismerkit(merkkijono: str)` palauttaa merkkijonon, josta on poistettu kaikki muut merkit paitsi aakkoset [a...ö, A...Ö], numerot ja välilyönnit.
+The function `remove_special_characters(orig_string: str)` returns a new version of the parameter string, with all special characters removed. Only lowercase and uppercase letters, numbers and spaces are allowed in the returned string.
 
-Esimerkkejä moduulin toiminnasta:
+Some examples of how the module would be used:
 
 ```python
-import merkkiapuri
+import string_helper
 
-mjono = "Moi kaikki!"
+my_string = "Well hello there!"
 
-print(merkkiapuri.vaihda_koko(mjono))
+print(string_helper.change_case(my_string))
 
-p1, p2 = merkkiapuri.puolita(mjono)
+p1, p2 = string_helper.split_in_half(my_string)
 
 print(p1)
 print(p2)
 
-m2 = merkkiapuri.poista_erikoismerkit("Tämä on testi, katsotaan miten käy!!!11!")
+m2 = string_helper.remove_special_characters("This is a test, lets see how it goes!!!11!")
 print(m2)
 ```
 
 <sample-output>
 
-mOI KAIKKI!
-Moi k
-aikki!
-Tämä on testi katsotaan miten käy11
+wELL HELLO THERE!
+Well hel
+lo there!
+This is a test lets see how it goes11
 
 </sample-output>
 
