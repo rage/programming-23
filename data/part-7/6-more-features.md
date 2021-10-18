@@ -8,30 +8,30 @@ hidden: false
 
 After this section
 
-- Tiedät lisää Pythonin ominaisuuksia
+- You will be familiar with some more Python features
 
 </text-box>
 
-Tähän lukuun on koottu vielä joukko erinäisiä hyödyllisiä Pythoniin liittyviä ominaisuuksia.
+To finish off this course, here you will find various useful Python features.
 
-## Yhden rivin ehto
+## Single line conditionals
 
-Seuraavat koodit toimivat samalla tavalla:
+The following two statements produce the exact same results:
 
 ```python
 if x%2 == 0:
-    print("parillinen")
+    print("even")
 else:
-    print("pariton")
+    print("odd")
 ```
 
 ```python
-print("parillinen" if x%2 == 0 else "pariton")
+print("even" if x%2 == 0 else "odd")
 ```
 
-Jälkimmäisessä koodissa on yhden rivin ehto muotoa `a if [ehto] else b`. Tällaisen lausekkeen arvo on `a`, jos ehto pätee, ja muuten `b`.
+In the latter example we have a conditional expression on a single line: `a if [condition] else b`. The value of this expression evaluates to `a` if the condition is true, and `b` if it is false. This structure is sometimes referred to as a _ternary operator_.
 
-Sama rakenne on joskus hyödyllinen kun tehdään ehdollinen sijoituslause. Esimerkiksi jos haluaisimme joko kasvattaa muuttujaa `y` tai nollata sen riippuen muuttujan `x` arvon parillisuudesta, sen sijaan että kirjoittaisimme
+Conditional expressions can be very useful when you need to assign something _conditionally_. For example, if you had the variables `x` and `y`, and you wanted to either increment or set the value of `y` depending on the parity of `x`, you could write it in a normal `if else` statement, like so:
 
 ```python
 if x%2 == 0:
@@ -40,98 +40,102 @@ else:
     y = 0
 ```
 
-sama voitaisiin tehdä yhden rivin ehdolla seuraavasti
+The same could be achieved with a nifty one-liner:
 
 ```python
 y = y + 1 if x%2 == 0 else 0
 ```
 
-## Tyhjä komento
+## An "empty" block
 
-Komento `pass` ei tee mitään. Voimme tehdä sen avulla esimerkiksi funktion `testi`, joka ei tee mitään:
+You may remember from the [previous part](/part-6/3-errors) that you are not allowed to have an empty block. If you need to have a block of code which does nothing, for example when testing some other functionality, the `pass` command will let you do this. You could, for instance, write a function which does nothing:
 
 ```python
-def testi():
+def testing():
     pass
 ```
 
-Huomaa, että lohko ei voi olla tyhjä eli seuraava koodi ei toimisi:
+This function would simply return immediately. Leaving the `pass` command out, i.e. having a completely empty block, would produce an error.
 
 ```python
-def testi():
+def testing():  #causes an error!
 ```
 
-## Silmukan else-osa
+## Loops with else blocks
 
-Kiinnostava Pythonin ominaisuus on, että ehtolauseen lisäksi myös silmukassa voi olla else-osa. Tämä osa suoritetaan, jos silmukka pääsee loppuun.
+In Python, loops can have `else` blocks, too. This section of code is executed if the loop finishes normally.
 
-Esimerkiksi seuraava koodi etsii listalta parillista lukua. Jos sellainen löytyy, koodi tulostaa luvun ja silmukka päättyy. Kuitenkin jos lukua ei löytynyt, tästä tulee ilmoitus lopuksi.
+For example, in the following example we are looking through a list of numbers. If there is an even number on the list, the program prints out a message and the loop is broken. If there are no even numbers, the loop finishes normally, but a different message is then printed out.
 
 ```python
-lista = [3,5,2,8,1]
-for x in lista:
+my_list = [3,5,2,8,1]
+for x in my_list:
     if x%2 == 0:
-        print("löytyi parillinen", x)
+        print("found an even number", x)
         break
 else:
-    print("ei löytynyt parillista")
+    print("there were no even numbers")
 ```
 
-Perinteinen tapa tehdä tällainen silmukka olisi käyttää apumuuttujaa, joka muistaa, löytyikö haluttua asiaa silmukan aikana:
+A more traditional way to achieve this would be to use a helper variable to remember whether the desired item was found:
 
 ```python
-lista = [3,5,2,8,1]
-loytyi = False
-for x in lista:
+my_list = [3,5,2,8,1]
+found = False
+for x in my_list:
     if x%2 == 0:
-        print("löytyi parillinen", x)
-        loytyi = True
+        print("found an even number", x)
+        found = True
         break
-if not loytyi:
-    print("ei löytynyt parillista")
+if not found:
+    print("there were no even numbers")
 ```
 
-Kuitenkin silmukan else-osan avulla vältymme muuttujan tekemiseltä.
+Using a `for else` statement saves us the trouble of writing a separate variable.
 
-## Funktion oletusparametri
+## Default parameter value
 
-Funktion parametrilla voi olla oletusarvo, joka tulee käyttöön silloin, jos parametria ei anneta. Näin on esimerkiksi seuraavassa funktiossa:
+A Python function can have a default parameter value. It is used whenever no argument is passed to the function. See the following example:
 
 ```python
-def tervehdi(nimi="Emilia"):
-    print("Moikka,", nimi)
+def say_hello(name="Emily"):
+    print("Hi there,", name)
 
-tervehdi()
-tervehdi("Erkki")
-tervehdi("Matti")
+say_hello()
+say_hello("Eric")
+say_hello("Matthew")
+say_hello("")
 ```
 
 <sample-output>
 
-Moikka, Emilia
-Moikka, Erkki
-Moikka, Matti
+Hi there, Emily
+Hi there, Eric
+Hi there, Matthew
+Hi there, 
 
 </sample-output>
 
-## Muuttuva määrä parametreja
+NB: an empty string is still a string, so the default parameter is not used if an empty string is passed to the function.
 
-Funktiolla voi olla myös muuttuva määrä parametreja, mikä merkitään laittamalla tähti parametrin eteen. Tällöin kaikki loput parametrit kasautuvat listaksi tähän parametriin.
+## A variable number of parameters
 
-Esimerkiksi seuraava funktio kertoo parametrien määrän ja summan:
+You can also define a function with a variable number of parameters, by adding a star before the parameter name. All the remaining arguments passed to the function are contained in a tuple, and can be accessed through the named parameter.
+
+The following function counts the number and sum of its arguments:
 
 ```python
-def testi(*lista):
-    print("Annoit", len(lista), "parametria")
-    print("Niiden summa on", sum(lista))
+def testing(*my_args):
+    print("You passed", len(my_args), "arguments")
+    print("The sum of the arguments is", sum(my_args))
 
-testi(1, 2, 3, 4, 5)
+testing(1, 2, 3, 4, 5)
 ```
 
 <sample-output>
 
-Annoit 5 parametria
-Niiden summa on 15
+You passed 5 arguments
+The sum of the arguments is 15
 
 </sample-output>
 
