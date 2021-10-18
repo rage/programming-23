@@ -8,178 +8,180 @@ hidden: false
 
 After this section
 
-- Osaat luoda oman moduulin
-- Tiedät, mitä Pythonin muuttuja `__name__` ja sen arvo `__main__` merkitsevät
+- You will be able to write your own modules
+- You will know what the Python variable `__name__` and the value `__main__` signify
 
 </text-box>
 
-Omien moduulien tekeminen on helppoa Pythonissa, koska mikä tahansa Python-koodia sisältävä tiedosto voi toimia moduulina. Tarkastellaan esimerkkinä seuraavaa tiedostoa `sanat.py`:
+Writing your own Python modules is easy. Any file containing valid Python code can be imported as a module. Let's assume we have a file named `words.py` with the following contents:
 
 ```python
-def eka_sana(my_string: str):
-    osat = my_string.split(" ")
-    return osat[0]
+def first_word(my_string: str):
+    parts = my_string.split(" ")
+    return parts[0]
 
-def vika_sana(my_string: str):
-    osat = my_string.split(" ")
-    return osat[-1]
+def last_word(my_string: str):
+    parts = my_string.split(" ")
+    return parts[-1]
 
-def sanojen_maara(my_string: str):
-    osat = my_string.split(" ")
-    return len(osat)
+def number_of_words(my_string: str):
+    parts = my_string.split(" ")
+    return len(parts)
 ```
 
-Voimme käyttää tässä tiedostossa olevia funktioita toisessa tiedostossa seuraavasti:
+The functions defined in the file can be accessed by importing the file:
 
 ```python
-import sanat
+import words
 
-my_string = "Vesihiisi sihisi hississä"
+my_string = "Sheila sells seashells by the seashore"
 
-print(sanat.eka_sana(my_string))
-print(sanat.vika_sana(my_string))
-print(sanat.sanojen_maara(my_string))
-```
-
-<sample-output>
-
-Vesihiisi
-hississä
-3
-
-</sample-output>
-
-Huomaa, että moduulin kooditiedoston pitää sijaita joko samassa hakemistossa ohjelman kanssa tai jossakin Pythonin oletushakemistossa, jotta sen voi ottaa käyttöön `import`-komennolla.
-
-Voimme käyttää omaa moduulia samalla periaatteella kuin standardikirjaston moduuleja. Esimerkiksi näin:
-
-```python
-from sanat import eka_sana, vika_sana
-
-lause = input("Anna lause: ")
-
-print("Eka sana oli: " + eka_sana(lause))
-print("Viimeinen sana oli: " + vika_sana(lause))
+print(words.first_word(my_string))
+print(words.last_word(my_string))
+print(words.number_of_words(my_string))
 ```
 
 <sample-output>
 
-Anna lause: **Python on metka ohjelmointikieli**
-Eka sana oli: Python
-Viimeinen sana oli: ohjelmointikieli
+Sheila
+seashore
+6
 
 </sample-output>
 
-## Hyötyä tyyppivihjeistä
+NB: the file containing the Python module must be located either in the same directory with the program importing it, or in one of the default Python directories, or else the Python interpreter will not find it when the `import` statement is executed.
 
-Moduulissa on hyödyllistä, että funktioissa käytetään tyyppivihjeitä. Kun joku muu käyttää moduulia editorilla, joka ymmärtää tyyppivihjeitä, ne helpottavat moduulin käyttämistä.
+We can use our own modules just as we have learnt to use the modules from the Python standard library:
 
-Esimerkiksi Visual Studio Code näyttää funktion tyypit näin koodia kirjoittaessa:
+```python
+from words import first_word, last_word
+
+sentence = input("Please type in a sentence: ")
+
+print("The first word was: " + first_word(sentence))
+print("The last word was: " + last_word(sentence))
+```
+
+<sample-output>
+
+Please type in a sentence: **Python is a swell programming language**
+The first word was: Python
+The last word was: language
+
+</sample-output>
+
+## Putting type hints to use
+
+When using modules, type hinting becomes especially useful. If you are using an editor which has built-in support for type hinting, using different modules becomes much easier. 
+
+For example, Visual Studio Code will display the type hints when you are writing code:
 
 <img src="7_vihje.png">
 
-## Moduulin päätason koodi
+## Main function code in a module
 
-Jos moduulissa on päätason koodia, joka ei ole funktion sisällä, koodi suoritetaan automaattisesti, kun moduuli otetaan mukaan `import`-komennolla toisessa tiedostossa.
+If a module contains any code which is not contained within a function definition (that is, if the module contains code in the main function of the module), this code is executed automatically whenever the module is imported.
 
-Oletetaan, että `sanat.py`-tiedostoon on kirjoitettu muutama testitapaus:
+Let's assume our `words.py` file also contained some test cases:
 
 ```python
-def eka_sana(my_string: str):
-    osat = my_string.split(" ")
-    return osat[0]
+def first_word(my_string: str):
+    parts = my_string.split(" ")
+    return parts[0]
 
-def vika_sana(my_string: str):
-    osat = my_string.split(" ")
-    return osat[-1]
+def last_word(my_string: str):
+    parts = my_string.split(" ")
+    return parts[-1]
 
-def sanojen_maara(my_string: str):
-    osat = my_string.split(" ")
-    return len(osat)
+def number_of_words(my_string: str):
+    parts = my_string.split(" ")
+    return len(parts)
 
-print(eka_sana("Tämä on testi"))
-print(vika_sana("Tämä on testeistä toinen"))
-print(sanojen_maara("Yks kaks kolme neljä viisi"))
+print(first_word("This is a test"))
+print(last_word("Here we are still testing"))
+print(number_of_words("One two three four five"))
 ```
 
-Kun moduuli otetaan nyt käyttöön `import`-lauseella, suoritetaan automaattisesti myös moduulissa funktioiden ulkopuolella oleva koodi:
+Now, if we import the module with an `import` statement, all the code in the module which is outside the defined functions is automatically executed:
 
 ```python
-import sanat
+import words
 
-my_string = "Vesihiisi sihisi hississä"
+my_string = "Sheila sells seashells by the seashore"
 
-print(sanat.eka_sana(my_string))
-print(sanat.vika_sana(my_string))
-print(sanat.sanojen_maara(my_string))
+print(words.first_word(my_string))
+print(words.last_word(my_string))
+print(words.number_of_words(my_string))
 ```
 
 <sample-output>
 
-Tämä
-toinen
+This
+testing
 5
-Vesihiisi
-hississä
-3
+Sheila
+seashore
+6
 
 </sample-output>
 
-Tämä ei ole hyvä, koska moduulin käyttäjän ohjelmaa sotkee moduulissa oleva testitulostus.
+As you can see above, this is not a good outcome, because the program we are tryng to write is messed with by the test cases from the module itself.
 
-Pythonista löytyy onneksi ratkaisu pulmaan. Ohjelmassa on mahdollista testata, suoritetaanko ohjelmaa itseään vai onko ohjelma otettu käyttöön moduulina `import`-lauseella. Tämä onnistuu muuttujan `__name__` avulla. Python tallentaa muuttujaan tiedon suoritettavasta ohjelmasta: jos ohjelmaa suoritetaan sellaisenaan, muuttujan arvo on merkkijono `__main__`. Jos ohjelma on tuotu osaksi jotain toista ohjelmaa, muuttujan arvona on suoritettavan ohjelman nimi (eli tässä tapauksessa `sanat`).
+Luckily, there is a solution, and it is one which you have used many times before in the exercises on this course. We just need to test if the program is being executed on its own, or if the code has been imported with an `import` statement. Python has a built-in variable `__name__`, which contains the name of the program being executed. If the program is being executed on its own, the value of the variable is `__main__`. If the program has been imported, the value of the variable is the name of the imported module (in this case, `words`).
 
-Moduuliin voidaan siis lisätä edellistä tietoa hyödyntäen ehtolause, jonka avulla testikoodi suoritetaan ainoastaan silloin, kun ohjelma ajetaan omana itsenään eikä toisen ohjelman osaksi tuotuna:
+Knowing this, we can add a conditional statement, which lets us only execute the text cases if the program is executed on its own. As you can see below, the structure looks familiar:
 
 ```python
-def eka_sana(my_string: str) -> str:
-    osat = my_string.split(" ")
-    return osat[0]
+def first_word(my_string: str) -> str:
+    parts = my_string.split(" ")
+    return parts[0]
 
-def vika_sana(my_string: str) -> str:
-    osat = my_string.split(" ")
-    return osat[-1]
+def last_word(my_string: str) -> str:
+    parts = my_string.split(" ")
+    return parts[-1]
 
-def sanojen_maara(my_string: str) -> int:
-    osat = my_string.split(" ")
-    return len(osat)
+def number_of_words(my_string: str) -> int:
+    parts = my_string.split(" ")
+    return len(parts)
 
 if __name__ == "__main__":
-    # Testataan funktioiden toimintaa
-    print(eka_sana("Tämä on testi"))
-    print(vika_sana("Tämä on testeistä toinen"))
-    print(sanojen_lkm("Yks kaks kolme neljä viisi"))
+    # testing functionality
+    print(first_word("This is a test"))
+    print(last_word("Here we are still testing"))
+    print(number_of_words("One two three four five"))
 ```
 
-Nyt moduulin itsensä suorittaminen suorittaa testikutsut:
+If you execute the module on its own, the test cases are printed out:
 
 <sample-output>
 
-Tämä
-toinen
+This
+testing
 5
 
 </sample-output>
 
-Kun moduuli sen sijaan tuodaan osaksi jotain muuta ohjelmaa, testejä ei suoriteta:
+When the module is imported into another program, the test cases are not executed:
 
 ```python
-import sanat
+import words
 
-my_string = "Vesihiisi sihisi hississä"
+my_string = "Sheila sells seashells by the seashore"
 
-print(sanat.eka_sana(my_string))
-print(sanat.vika_sana(my_string))
-print(sanat.sanojen_maara(my_string))
+print(words.first_word(my_string))
+print(words.last_word(my_string))
+print(words.number_of_words(my_string))
 ```
 
 <sample-output>
 
-Vesihiisi
-hississä
-3
+Sheila
+seashore
+6
 
 </sample-output>
+
+In the exercises on this course, whenever you were asked to write functions, you were usually also expected to wrap test cases in an `if __name__ == "__main__"` block exactly like the one above. Now you know why.
 
 <programming-exercise name='String helper' tmcname='part07-17_string_helper'>
 

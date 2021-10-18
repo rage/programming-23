@@ -48,7 +48,7 @@ y = y + 1 if x%2 == 0 else 0
 
 ## An "empty" block
 
-You may remember from the [previous part](/part-6/3-errors) that you are not allowed to have an empty block. If you need to have a block of code which does nothing, for example when testing some other functionality, the `pass` command will let you do this. You could, for instance, write a function which does nothing:
+You may remember from the previous part that you are not allowed to have an empty block in a Python program. If you need to have a block of code which does nothing, for example when testing some other functionality, the `pass` command will let you do this. You could, for instance, write a function which does nothing:
 
 ```python
 def testing():
@@ -58,7 +58,7 @@ def testing():
 This function would simply return immediately. Leaving the `pass` command out, i.e. having a completely empty block, would produce an error.
 
 ```python
-def testing():  #causes an error!
+def testing():  # this causes an error!
 ```
 
 ## Loops with else blocks
