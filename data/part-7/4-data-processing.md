@@ -8,25 +8,25 @@ hidden: false
 
 After this section
 
-- Osaat käyttää moduulia CSV-tiedoston käsittelyyn
-- Osaat käyttää moduulia JSON-tiedoston käsittelyyn
-- Osaat hakea netissä olevan tiedoston sisällön
+- You will know how to use a module to process CSV files
+- You will know how to use a module to process JSON files
+- You will be able to retrieve and read files from the internet
 
 </text-box>
 
-## CSV-tiedoston lukeminen
+## Reading CSV files
 
-Olemme tähän mennessä käsitelleet CSV-tiedostoja omalla koodilla, mutta tähän on myös valmis moduuli [csv](https://docs.python.org/3/library/csv.html), jota voi käyttää näin:
+CSV is such a simple format that so far we have accessed the with hand-written code. There is, however, a ready-made module in the Python standard library for working with CSV files: [csv](https://docs.python.org/3/library/csv.html). It works like this:
 
 ```python
 import csv
 
-with open("testi.csv") as tiedosto:
-    for rivi in csv.reader(tiedosto, delimiter=";"):
-        print(rivi)
+with open("test.csv") as my_file:
+    for line in csv.reader(my_file, delimiter=";"):
+        print(line)
 ```
 
-Yllä oleva koodi lukee rivit CSV-tiedostosta `testi.csv`, jossa erotinmerkki on `;`. Esimerkiksi jos tiedoston sisältö on
+The above code reads all lines in the CSV file `test.csv`, separates the contents of each line into a list using the delimiter `;`, and prints each list. So, assuming the contents of the line are as follows:
 
 ```x
 012121212;5
@@ -34,7 +34,7 @@ Yllä oleva koodi lukee rivit CSV-tiedostosta `testi.csv`, jossa erotinmerkki on
 015151515;4
 ```
 
-niin koodi antaa seuraavan tuloksen:
+The code would print out this:
 
 <sample-output>
 
@@ -44,13 +44,13 @@ niin koodi antaa seuraavan tuloksen:
 
 </sample-output>
 
-Mitä hyötyä on käyttää moduulia sen sijaan, että toteuttaa lukemisen itse `split`-funktiolla? Yksi hyöty on, että moduulin toteutus toimii myös silloin, kun arvona on merkkijono, jonka sisällä on erotinmerkki. Esimerkiksi jos tiedoston sisältö on
+Since the CSV format is so simple, what's the use of having a separate module when we can just as well use the `split` function? Well, for one, the way the module is built, it will also work correctly if the values in the file are strings, which may also contain the delimiter character. If some line in the file looked like this
 
 ```x
 "aaa;bbb";"ccc;ddd"
 ```
 
-niin koodin tulos on:
+the above code would produce this:
 
 <sample-output>
 
@@ -58,68 +58,68 @@ niin koodin tulos on:
 
 </sample-output>
 
-Jos vain jakaisimme rivin osiin `;`-merkkien kohdista, lukeminen ei toimisi oikein, koska myös merkkijonot jakaantuisivat.
+Using the `split` function would also split within the strings, which would likely break the data, and our program in the process.
 
-## JSON-tiedoston lukeminen
+## Reading JSON files
 
-CSV-muodon lisäksi on olemassa muitakin koneluettavia tiedostomuotoja. Eräs näistä on erityisesti tietojen siirrossa yleisesti käytetty [JSON](https://www.json.org/json-en.html).
+CSV is just one of many machine-readable data formats. [JSON](https://www.json.org/json-en.html) is another, and it is used often when data has to be transferred between applications.
 
-JSON-tiedostot ovat tekstitiedostoja, joilla on tietty tarkka muoto. Seuraavassa esimerkkinä JSON-tiedosto `kurssit.json`, jossa on tietoa kursseista:
+JSON files are text files with a strict format, which is perhaps a little less accessible to the human eye than the CSV format. The following example uses the file `courses.json`, which contains information about some courses:
 
 ```x
 [
     {
-        "nimi": "Ohjelmoinnin perusteet",
-        "tunnus": "Ohpe",
-        "periodit": [1, 3]
+        "name": "Introduction to Programming",
+        "abbreviation": "ItP",
+        "periods": [1, 3]
     },
     {
-        "nimi": "Ohjelmoinnin jatkokurssi",
-        "tunnus": "Ohja",
-        "periodit": [2, 4]
+        "name": "Advanced Course in Programming",
+        "abbreviation": "ACiP",
+        "periods": [2, 4]
     },
     {
-        "nimi": "Tietokantasovellus",
-        "tunnus": "Tsoha",
-        "periodit": [1, 2, 3, 4]
+        "name": "Database Application",
+        "abbreviation": "DbApp",
+        "periods": [1, 2, 3, 4]
     }
 ]
 ```
 
+The structure of a JSON file might look quite familiar to you by know. The JSON file above looks exactly like a Python list, which contains three Python dictionaries.
 
-JSON-tiedostot näyttävät kohtuullisen tutulta Pythonin käyttäjille. Itse asiassa tiedoston sisältö vastaa Pythonin listaa, jonka sisällä on kolme sanakirjaa.
-
-Standardikirjastossa on JSON-tiedostojen käsittelyyn moduuli [json](https://docs.python.org/3/library/json.html). Siinä oleva funktio `loads` muuttaa merkkijonona annetun JSON-datan Pythonin tietorakenteiksi. Esimerkiksi koodin
+The standard library has a module for working with JSON files: [json](https://docs.python.org/3/library/json.html). The function `loads` takes any argument passed in a JSON format and transforms it into a Python data structure. So, processing the `courses.json` file with the code below
 
 ```python
 import json
 
-with open("kurssit.json") as tiedosto:
-    data = tiedosto.read()
-kurssit = json.loads(data)
-print(kurssit)
+with open("courses.json") as my_file:
+    data = my_file.read()
+
+courses = json.loads(data)
+print(courses)
 ```
 
-tulos on seuraava:
+would print out the following:
 
 <sample-output>
 
-[{'nimi': 'Ohjelmoinnin perusteet', 'tunnus': 'Ohpe', 'periodit': [1, 3]}, {'nimi': 'Ohjelmoinnin jatkokurssi', 'tunnus': 'Ohja', 'periodit': [2, 4]}, {'nimi': 'Tietokantasovellus', 'tunnus': 'Tsoha', 'periodit': [1, 2, 3, 4]}]
+[{'name': 'Introduction to Programming', 'abbreviation': 'ItP', 'periods': [1, 3]}, {'name': 'Advanced Course in Programming', 'abbreviation': 'ACiP', 'periods': [2, 4]}, {'name': 'Database Application', 'abbreviation': 'DbApp', 'periods': [1, 2, 3, 4]}]
 
 </sample-output>
 
-Koodia voisi jatkaa vaikka seuraavasti, jolloin koodi tulostaa jokaisen kurssin nimen:
+If we also wanted to print out the name of each course, we could expand our program with a `for` loop:
 
 ```python
-for kurssi in kurssit:
-    print(kurssi["nimi"])
+for course in courses:
+    print(course["name"])
 ```
 
 <sample-output>
 
-Ohjelmoinnin perusteet
-Ohjelmoinnin jatkokurssi
-Tietokantasovellus
+Introduction to Programming
+Advanced Course in Programming
+Database Application
 
 </sample-output>
 
@@ -163,21 +163,21 @@ The hobbies should be listed in the same order as they appear in the JSON file.
 
 </programming-exercise>
 
-## Netissä olevan tiedoston hakeminen
+## Retrieving a file from the internet
 
-Pythonin standardikirjaston funktion [urllib.request.urlopen](
-https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen) avulla on helppo hakea internetistä sisältöä ohjelmista käsin.
+The Python standard library also contains modules for dealing with online content, and one useful function is [urllib.request.urlopen](
+https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen). You are encouraged to have a look at the entire module, but the following example should be enough for you to get to grips with the function. It can be used to retrieve content from the internet, so it can be processed in your programs.
 
-Esim. seuraava koodi tulostaa Helsingin yliopiston etusivun sisällön:
+The following code would print out the contents of the University of Helsinki front page:
 
 ```python
 import urllib.request
 
-pyynto = urllib.request.urlopen("https://helsinki.fi")
-print(pyynto.read())
+my_request = urllib.request.urlopen("https://helsinki.fi")
+print(my_request.read())
 ```
 
-Ihmisille tarkoitetut sivut tosin eivät tulostu kovin selkeinä, mutta internetissä on myös runsaasti koneluettavaa dataa, joka on usein JSON-muodossa.
+Pages intended for human eyes do not usually look very pretty when their code is printed out. In the following examples, however, we will work with machine-readable _data_ from an online source. Much of the machine-readable data available online is in JSON format.
 
 <programming-exercise name='Course statistics' tmcname='part07-13_course_statistics'>
 
