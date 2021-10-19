@@ -8,21 +8,21 @@ hidden: false
 
 After this section
 
-- Tiedät tavan käsitellä päivämääriä ja kellonaikoja Pythonissa
-- Osaat muodostaa ja käyttää `datetime`-olioita
-- Osaat vertailla päivämääriä ja kellonaikoja toisiinsa ja laskea niiden erotuksia
+- You will know how to handle dates and times in Python code
+- You will be able to create and use `datetime` objects
+- You will know how to compare and calculate differences between two dates or times
 
 </text-box>
 
-## Aikaolio
+## The datetime object
 
-Moduulin [datetime](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime) funktio [now](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime.now) antaa aikaolion, jossa on nykyinen päivämäärä ja kellonaika. Voimme esimerkiksi tulostaa nykyhetken päivämäärän ja kellonajan näin:
+The Python [datetime](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime) module contans the function [now](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime.now), which returns a datetime object containing the current date and time. The default printout of a datetime object looks like this:
 
 ```python
 from datetime import datetime
 
-aika = datetime.now()
-print(aika)
+my_time = datetime.now()
+print(my_time)
 ```
 
 <sample-output>
@@ -31,13 +31,13 @@ print(aika)
 
 </sample-output>
 
-Toinen tapa muodostaa aikaolio on määrittää ajanhetki itse:
+You can also define the object yourself:
 
 ```python
 from datetime import datetime
 
-aika = datetime(1952, 12, 24)
-print(aika)
+my_time = datetime(1952, 12, 24)
+print(my_time)
 ```
 
 <sample-output>
@@ -46,17 +46,17 @@ print(aika)
 
 </sample-output>
 
-Kun emme antaneet kellonaikaa, oletuksena on, että kyseessä on keskiyö.
+By default, the time is set to midnight, as we did not give a time of day in the example above.
 
-Voimme hakea aikaoliosta ajan osia tähän tapaan:
+Different elements of the datetime object can be accessed in the following manner:
 
 ```python
 from datetime import datetime
 
-aika = datetime(1952, 12, 24)
-print("Day:", aika.day)
-print("Month:", aika.month)
-print("VuosiYearika.year)
+my_time = datetime(1952, 12, 24)
+print("Day:", my_time.day)
+print("Month:", my_time.month)
+print("Year:", my_time.year)
 ```
 
 <sample-output>
@@ -67,94 +67,94 @@ Year: 1952
 
 </sample-output>
 
-Aikaoliolle voidaan antaa myös kellonaika halutulla tarkkuudella. Esimerkiksi:
+A time of day can also be specified. The precision can vary, as you can see below:
 
 ```python
 from datetime import datetime
 
-pv1 = datetime(2020, 6, 30, 13, 00) # 30.6.2020 klo 13.00
-pv2 = datetime(2020, 6, 30, 18, 45) # 30.6.2020 klo 18.45
+pv1 = datetime(2020, 6, 30, 13)     # 30.6.2020 at 1PM
+pv2 = datetime(2020, 6, 30, 18, 45) # 30.6.2020 at 6.45PM
 ```
 
-## Aikojen vertailu ja ero
+## Compare times and calculate differences between them
 
-Voimme vertailla aikoja samaan tapaan kuin lukuja käyttämällä tuttuja vertailuoperaattoreita:
-
-```python
-from datetime import datetime
-
-nyt = datetime.now()
-juhannus = datetime(2020, 6, 20)
-
-if nyt < juhannus:
-    print("Ei ole vielä juhannus")
-elif nyt == juhannus:
-    print("Hyvää juhannusta!")
-elif nyt > juhannus:
-    print("Juhannus on mennyt")
-```
-
-<sample-output>
-
-Juhannus on mennyt
-
-</sample-output>
-
-Voimme myös laskea kahden ajankohdan eron vähennyslaskuna:
+The familiar comparison operators work also on datetime objects:
 
 ```python
 from datetime import datetime
 
-nyt = datetime.now()
-juhannus = datetime(2020, 6, 20)
+time_now = datetime.now()
+midsummer = datetime(2020, 6, 20)
 
-ero = juhannus - nyt
-print("Juhannukseen on vielä", ero.days, "päivää")
+if time_now < midsummer:
+    print("It is not yet Midsummer")
+elif time_now == midsummer:
+    print("Happy Midsummer!")
+elif time_now > midsummer:
+    print("It is past Midsummer")
 ```
 
 <sample-output>
 
-Juhannukseen on vielä 37 päivää
+It is past Midsummer
 
 </sample-output>
 
-Huomaa, että vähennyslaskun tuloksena on [timedelta](https://docs.python.org/3/library/datetime.html?highlight=datetime#timedelta-objects)-olio, jolta voi kysyä vain rajoitetusti ajan yksikköjä. Voimme kysyä päivien määrän, mutta emme voi kysyä esimerkiksi vuosien määrää, koska vuoden pituus vaihtelee.
+The difference between two datetime objects can be calculated simply with the subtraction operator:
 
-Timedelta-olion avulla on myös mahdollista selvittää, mikä ajanhetki saadaan kun tietty aika (viikkoina ja päivinä) lisätään johonkin ajanhetkeen:
+```python
+from datetime import datetime
+
+time_now = datetime.now()
+midsummer = datetime(2020, 6, 20)
+
+difference = midsummer - time_now
+print("Midsummer is", difference.days, "days away")
+```
+
+<sample-output>
+
+Midsummer is 37 days away
+
+</sample-output>
+
+NB: the result of the datetime subtraction is a [timedelta](https://docs.python.org/3/library/datetime.html?highlight=datetime#timedelta-objects) object. It is less versatile than the `datetime` object. For instance, you can access the number of days in a `timedelta` object, but not the number of years, as the length of a year varies. A `timedelta` object contains the attributes `days`, `seconds` and `microseconds`. Other measures can be passed as arguments, but they will be converted internally.
+
+Similarly, addition is available between `datetime` and `timedelta` objects. The result will be the `datetime` produced when the specified number of days (or weeks, seconds, etc) is added to a `datetime` object:
 
 ```python
 from datetime import datetime, timedelta
-juhannus = datetime(2020, 6, 20)
+midsummer = datetime(2020, 6, 20)
 
-viikko = timedelta(days=7)
-viikon_paasta = juhannus + viikko
+one_week = timedelta(days=7)
+week_from_date = midsummer + one_week
 
-print("Kun viikko juhannuksesta kuluu on", viikon_paasta)
+print("A week after Midsummer it will be", week_from_date)
 
-pitka_aika = timedelta(weeks=32, days=15)
+long_time = timedelta(weeks=32, days=15)
 
-print("Kun juhannuksesta kuluu 32 viikkoa ja 15 päivää on", juhannus + pitka_aika)
+print("32 weeks and 15 days after Midsummer it will be", midsummer + long_time)
 ```
 
 <sample-output>
 
-Kun viikko juhannuksesta kuluu on 2020-06-27 00:00:00
-Kun juhannuksesta kuluu 32 viikkoa ja 15 päivää on 2021-02-14 00:00:00
+A week after Midsummer it will be 2020-06-27 00:00:00
+32 weeks and 15 days after Midsummer it will be 2021-02-14 00:00:00
 
 </sample-output>
 
-Timedelta-olio toimii viikkojen ja päivien lisäksi tarkemmallakin tasolla:
+Let's see how a higher precision works:
 
 ```python
-nyt = datetime.now()
-keskiyo = datetime(2020, 6, 30)
-erotus = keskiyo-nyt
-print(f"keskiyöhön on vielä {erotus.seconds} sekuntia")
+time_now = datetime.now()
+midnight = datetime(2020, 6, 30)
+difference = midnight - time_now
+print(f"Midnight is still {difference.seconds} seconds away")
 ```
 
 <sample-output>
 
-keskiyöhön on vielä 8188 sekuntia
+Midnight is still 8188 seconds away
 
 </sample-output>
 
@@ -210,52 +210,56 @@ Here are some valid PICs you can use for testing:
 
 </programming-exercise>
 
-## Aikojen muotoilu
+## Formatting times and dates
 
-Voimme muotoilla ajanhetken haluamallamme tavalla [strftime](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.date.strftime)-metodin avulla. Esimerkiksi seuraava koodi tulostaa nykyisen päivämäärän muodossa `pp.kk.vvvv`:
+The `datetime` module contains a handy method [strftime](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.date.strftime) for formatting the string representation of a datetime object. For example, the following code will print the current date in the format `dd.mm.yyyy`, and then the date and time in a different format:
 
 ```python
 from datetime import datetime
 
-aika = datetime.now()
-print(aika.strftime("%d.%m.%Y"))
+my_time = datetime.now()
+print(my_time.strftime("%d.%m.%Y"))
+print(my_time.strftime("%d/%m/%Y %H:%M"))
 ```
 
 <sample-output>
 
 04.02.2020
+04/02/2020 09:31
 
 </sample-output>
 
-Ajan muotoilussa käytetään tiettyjä kirjainlyhenteitä. Seuraavassa listassa on joitakin mahdollisia lyhenteitä (täydellinen lista on Pythonin [dokumentaatiossa](https://docs.python.org/3/library/time.html#time.strftime)):
+Time formatting uses specific characters to signify specific formats. The following is a list of a few of them (please see the Python [documentation](https://docs.python.org/3/library/time.html#time.strftime) for a complete list):
 
-Lyhenne | Merkitys
-:-------|:--------
-`%d` | päivä (01–31)
-`%m` | kuukausi (01–12)
-`%Y` | vuosi nelinumeroisena
-`%H` | tunnit 24 tunnin formaatissa
-`%M` | minuutit (00–59)
-`%S` | sekunnit (00–59)
+Notation | Significance
+:--------|:--------
+`%d` | day (01–31)
+`%m` | month (01–12)
+`%Y` | year in 4 digit format
+`%H` | hours in 24 hour format
+`%M` | minutes (00–59)
+`%S` | seconds (00–59)
 
-Voimme myös tehdä muotoilun toiseen suuntaan, jos esimerkiksi haluamme muuttaa käyttäjän antaman ajanhetken aikaolioksi. Tämä onnistuu metodilla [strptime](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime.strptime):
+You can also specify the delimiter between the different elements, as seen in the examples above.
+
+Datetime formatting works in the reverse direction as well, in case you need to parse a datetime object from a string given by the user. The method [strptime](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime.strptime) will do just that:
 
 ```python
 from datetime import datetime
 
-syote = input("Anna syntymäpäiväsi muodossa pv.kk.vvvv: ")
-aika = datetime.strptime(syote, "%d.%m.%Y")
+birthday = input("Please type in your birthday in the format dd.mm.yyyy: ")
+my_time = datetime.strptime(birthday, "%d.%m.%Y")
 
-if aika < datetime(2000, 1, 1):
-    print("Synnyit viime vuosituhannella")
+if my_time < datetime(2000, 1, 1):
+    print("You were born in the previous millennium")
 else:
-    print("Synnyit tällä vuosituhannella")
+    print("You were born during this millennium")
 ```
 
 <sample-output>
 
-Anna syntymäpäiväsi muodossa pv.kk.vvvv: **5.11.1986**
-Synnyit viime vuosituhannella
+Please type in your birthday in the format dd.mm.yyyy: **5.11.1986**
+You were born in the previous millennium
 
 </sample-output>
 
