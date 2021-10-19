@@ -8,99 +8,99 @@ hidden: false
 
 After this section
 
-- Tunnet moduulin `random` funktioita
-- Osaat hyödyntää satunnaisuutta omissa ohjelmissasi
+- You will be familiar with some of the functions in the module `random` 
+- You will be able to make use of random numbers in your programs
 
 </text-box>
 
-Tässä luvussa tutustutaan standardikirjaston moduuliin [random](https://docs.python.org/3/library/random.html?highlight=random#module-random), joka tarjoaa välineistöä satunnaislukujen generointiin ja muuhun satunnaiseen toiminnallisuuteen.
+This section concentrates on the module [random](https://docs.python.org/3/library/random.html?highlight=random#module-random) from the Python standard library. It contains tools for generating random numbers and other randomized functionality.
 
-Tässä ja seuraavissa luvuissa esiteltävien funktioiden yhteyteen on lisäilty linkkejä standardikirjaston [dokumentaatioon](https://docs.python.org/3/library/). Linkkejä kannattaa klikkailla ja pikkuhiljaa totutella siihen, miltä dokumentaatio näyttää.
+The sections in this part of the material contain many links to the [documentation](https://docs.python.org/3/library/) of the Python standard library. We recommend following the links to familiarize yourself with how the documentation works.
 
-## Luvun arpominen
+## Generating a random number
 
-Funktio [randint(a, b)](https://docs.python.org/3/library/random.html?highlight=random#random.randint) antaa satunnaisen kokonaisluvun väliltä `a`...`b`. Esimerkiksi seuraava ohjelma simuloi nopan heittämistä:
+The function [randint(a, b)](https://docs.python.org/3/library/random.html?highlight=random#random.randint) returns a random integer value between `a` and `b`, inclusive. For example, the following program works like a generic die:
 
 ```python
 from random import randint
 
-print("Noppa antaa:", randint(1, 6))
+print("The result of the throw:", randint(1, 6))
 ```
 
-Ohjelman tulos voisi olla vaikkapa:
+Executing this could print out:
 
 <sample-output>
 
-Noppa antaa: 4
+The result of the throw: 4
 
 </sample-output>
 
-Seuraava ohjelma puolestaan heittää noppaa kymmenen kertaa:
+The following program throws the die ten times:
 
 ```python
 from random import randint
 
 for i in range(10):
-    print("Noppa antaa:", randint(1, 6))
+    print("The result of the throw:", randint(1, 6))
 ```
 
-Ohjelman tulos voisi olla seuraava:
+Running the above could print out
 
 <sample-output>
 
-Noppa antaa: 5
-Noppa antaa: 4
-Noppa antaa: 3
-Noppa antaa: 2
-Noppa antaa: 3
-Noppa antaa: 4
-Noppa antaa: 6
-Noppa antaa: 4
-Noppa antaa: 4
-Noppa antaa: 3
+The result of the throw: 5
+The result of the throw: 4
+The result of the throw: 3
+The result of the throw: 2
+The result of the throw: 3
+The result of the throw: 4
+The result of the throw: 6
+The result of the throw: 4
+The result of the throw: 4
+The result of the throw: 3
 
 </sample-output>
 
-Huomaa, että funktio `randint` toimii eri logiikalla kuin aiemmin käyttämämme funktio `range`, joka luo lukuvälin. Kun kutsumme funktiota `randint(1, 6)`, lukuväli on 1...6, mutta kun kutsumme funktiota `range(1, 6)`, lukuväli on 1...5.
+NB: it is worth remembering that the function `randint` works a bit differently when compared to, for example, slices, or the function `range`, which we've come across previously. The function call `randint(1, 6)` results in a number between 1 and 6 inclusive, but the function call `range(1, 6)` results in a range of numbers from 1 to 5.
 
-## Lisää funktioita
+## More randomizing functions
 
-Funktio [shuffle](https://docs.python.org/3/library/random.html?highlight=random#random.shuffle) sekoittaa sille annetun tietorakenteen. Esimerkiksi seuraava ohjelma sekoittaa listalla olevat sanat:
+The function [shuffle](https://docs.python.org/3/library/random.html?highlight=random#random.shuffle) will shuffle any data structure passed as an argument, in place. For example, the following program shuffles a list of words:
 
 ```python
 from random import shuffle
 
-sanat = ["apina", "banaani", "cembalo"]
-shuffle(sanat)
-print(sanat)
+words = ["atlas", "banana", "carrot"]
+shuffle(words)
+print(words)
 ```
 
 <sample-output>
 
-['banaani', 'apina', 'cembalo']
+['banana', 'atlas', 'carrot']
 
 </sample-output>
 
-Funktio `choice` puolestaan valitsee satunnaisen alkion tietorakenteesta:
+The function `choice` returns a randomly picked item from a data structure:
 
 ```python
 from random import choice
 
-sanat = ["apina", "banaani", "cembalo"]
-print(choice(sanat))
+words = ["atlas", "banana", "carrot"]
+print(choice(words))
 ```
 
 <sample-output>
 
-'cembalo'
+'carrot'
 
 </sample-output>
 
-## Lottorivin arvonta
+## Lottery numbers
 
-Tarkastellaan esimerkkinä tilannetta, jossa haluamme arpoa lottorivin. Lotossa on yhteensä 40 numeroa, joista arvotaan 7 numeroa riviin.
+A common example for studying randomness is the case of lottery numbers. Let's try and draw some lottery numbers. In Finland the national lottery consists of a pool of 40 numbers, 7 of which are chose for each week's draw.
 
-Yksinkertainen tapa koettaa arpoa lottorivi on seuraava:
+A first attempt at drawing a set of numbers could look like this:
 
 ```python
 from random import randint
@@ -109,43 +109,43 @@ for i in range(7):
     print(randint(1, 40))
 ```
 
-Tämä ei ole kuitenkaan toimiva tapa, koska sama numero saattaa tulla useita kertoja riviin. Tarvitsemme jonkin menetelmän, joka varmistaa, että jokainen numero on eri numero.
+This would not work in the long run, however, as the same number may appear twice in a single weekly draw of seven numbers. We need a way to make sure the numbers drawn are all unique.
 
-Yksi mahdollisuus on tallentaa arvotut numerot listaan ja lisätä uusi numero listaan vain, jos sitä ei vielä ole siellä. Voimme jatkaa tätä, kunnes listassa on 7 numeroa:
+One possibility is to store the drawn numbers in a list, and only add a number if it is not already on the list. This can be repeated until the length of the list is seven:
 
 ```python
 from random import randint
 
-rivi = []
-while len(rivi) < 7:
-    uusi = randint(1, 40)
-    if uusi not in rivi:
-        rivi.append(uusi)
+weekly_draw = []
+while len(weekly_draw) < 7:
+    new_rnd = randint(1, 40)
+    if new_rnd not in weekly_draw:
+        weekly_draw.append(new_rnd)
 
-print(rivi)
+print(weekly_draw)
 ```
 
-Voimme kuitenkin toteuttaa arvonnan myös lyhyemmin funktion `shuffle` avulla:
+A more compact approach would be to use the `shuffle` function:
 
 ```python
 from random import shuffle
 
-kaikki = list(range(1, 41))
-shuffle(kaikki)
-rivi = kaikki[0:7]
-print(rivi)
+number_pool = list(range(1, 41))
+shuffle(number_pool)
+weekly_draw = number_pool[0:7]
+print(weekly_draw)
 ```
 
-Tässä ideana on, että luomme ensin listan, jossa on kaikki numerot väliltä 1–40. Tämän jälkeen sekoitamme listan ja valitsemme sitten 7 ensimmäistä numeroa riviin. Tämän ansiosta meidän ei tarvitse tehdä silmukkaa.
+Here the idea is that we first create a list containing the available numbers 1 to 40, rather like the balls in a lottery machine. The pool of numbers is then shuffled, and the first seven numbers chosen for the weekly draw. This saves us the trouble of writing a loop.
 
-Itse asiassa voimme toteuttaa arvonnan vielä helpommin, koska Pythonin standardikirjastossa on myös funktio [sample](https://docs.python.org/3/library/random.html?highlight=random#random.sample), joka valitsee annetusta tietorakenteesta halutun määrän alkioita:
+In fact, the `random` module contains an even easier way to select lottery numers: the [sample](https://docs.python.org/3/library/random.html?highlight=random#random.sample) function. It returns a random selection of a specified size from a given data structure:
 
 ```python
 from random import sample
 
-kaikki_luvut = list(range(1, 41))
-rivi = sample(kaikki_luvut, 7)
-print(rivi)
+number_pool = list(range(1, 41))
+weekly_draw = sample(number_pool, 7)
+print(weekly_draw)
 ```
 
 <programming-exercise name='Lottery numbers' tmcname='part07-04_lottery_numbers'>
@@ -175,27 +175,27 @@ for number in lottery_numbers(7, 1, 40):
 
 </programming-exercise>
 
-## Mistä satunnaisluvut tulevat?
+## Where do these random numbers come from?
 
-Moduulin [random](https://docs.python.org/3/library/random.html) toiminta perustuu algoritmiin, joka tuottaa satunnaislukuja tietyn lähtöarvon ja matemaattisten operaatioiden avulla. Lähtöarvoa kutsutaan myös nimellä _siemenarvo_ (engl. _seed value_).
+The features of the module [random](https://docs.python.org/3/library/random.html) are based on an algorithm which produces random numbers based on a specific initialization value and some arithmetic operations. The initialization value is often called a _seed value_.
 
-Voimme halutessamme antaa siemenarvon itse funktiolla [seed](https://docs.python.org/3/library/random.html?highlight=random#random.seed):
+The seed value can be supplied by the user with the [seed](https://docs.python.org/3/library/random.html?highlight=random#random.seed) function:
 
 ```python
 from random import randint, seed
 
 seed(1337)
-# tästä tulee aina sama satunnaisluku
+# this will always produce the same "random" number
 print(randint(1, 100))
 ```
 
-Kun annamme siemenarvon itse, satunnaisuutta käyttävät funktiot antavat samat tulokset ohjelman jokaisella suorituskerralla. Tulokset voivat kuitenkin riippua käytetystä Pythonin versiosta.
+If we have functions which rely on randomization, and we set seed value, the function will produce the same result each time it is executed. The result may be different with different Python versions, but in essence randomness is lost by setting a seed value. This can be a useful feature when testing a program, for example.
 
-<text-box variant="info" name="Aito satunnaisuus">
+<text-box variant="info" name="True randomness">
 
-Jos tarkkoja ollaan, moduulin `random` muodostamat luvut eivät ole aitoja satunnaislukuja, vaan _pseudosatunnaislukuja_. Tietokoneen avulla on vaikea arpoa täysin satunnaisia lukuja, koska sen toiminta on kaikilta osin ennustettavissa. Monissa käyttötarkoituksissa luvut ovat kuitenkin tarpeeksi satunnaisia. Aitoja satunnaislukuja muodostettaessa lähteenä käytetään yleensä jotain tietokoneen ulkopuolista satunnaista ilmiötä, esimerkiksi radioaktiivista taustasäteilyä tai äänentasoa.
+To be specific, the numbers provided by the `random` module are not truly random. Instead, they are _pseudorandom_. Computers are, in essence, deterministic machines. In an ideal situation, it should be possible to foretell the way they function down to the last bit. Therefore it is very difficult to create truly random numbers with a computer. For many applications, however, pseudorandom numbers are good enough. When true random numbers are required, the seed value is usually generated by some source outside the computer, for example background radiation, noise levels, or [lava lamps](https://blog.cloudflare.com/randomness-101-lavarand-in-production/).
 
-Lisätietoa löydät esimerkiksi sivulta <a href="https://www.random.org/randomness/">random.org</a>.
+For more information about randomness, please see <a href="https://www.random.org/randomness/">random.org</a>.
 
 </text-box>
 
