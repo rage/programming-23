@@ -209,7 +209,7 @@ In the image below the loop in the code has already been repeated a few times:
 
 <img src="4_1_8.png">
 
-The debugger has a _Debug console_ tab, which lets you evaluate expressions with the current values stored in the variables. For example, you can check the value of the Boolean epxression in the condition of the loop:
+The debugger has a _Debug console_ tab, which lets you evaluate expressions with the current values stored in the variables. For example, you can check the value of the Boolean expression in the condition of the loop:
 
 <img src="4_1_9.png">
 
