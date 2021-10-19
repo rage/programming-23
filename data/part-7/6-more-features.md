@@ -112,7 +112,7 @@ say_hello("")
 Hi there, Emily
 Hi there, Eric
 Hi there, Matthew
-Hi there, 
+Hi there,
 
 </sample-output>
 
@@ -155,7 +155,7 @@ The programs will consist of rows, and each row will be in one of the following 
 * `IF [condition] JUMP [location]`: if the condition is true, jump to the location specified
 * `END`: finish execution
 
-The square brackets above are just a notation to signify operands; see below for usage examples. 
+The square brackets above are just a notation to signify operands; see below for usage examples.
 
 The program is executed line by line from the first line onwards. The execution ends when the executor comes across the command `END`, or when there are no more lines to execute.
 
@@ -284,5 +284,5 @@ print(result)
 
 Please respond to the course feedback questionnaire. The questionnaire results help us improve the course.
 
-<quiz id="0f5ead5e-ad00-50fc-b4af-c029ff1dcb22"></quiz>
+<quiz id="05de7054-3103-57c0-be84-1ec109dca2f5"></quiz>
 

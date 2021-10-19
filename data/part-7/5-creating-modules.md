@@ -72,7 +72,7 @@ The last word was: language
 
 ## Putting type hints to use
 
-When using modules, type hinting becomes especially useful. If you are using an editor which has built-in support for type hinting, using different modules becomes much easier. 
+When using modules, type hinting becomes especially useful. If you are using an editor which has built-in support for type hinting, using different modules becomes much easier.
 
 For example, Visual Studio Code will display the type hints when you are writing code:
 
@@ -226,6 +226,6 @@ This is a test lets see how it goes11
 <quiz id="2203412c-628c-54a3-bd77-edebd5ce4f67"></quiz>
 -->
 
-Please respond to a quick questionnaire on this week's materials. 
+Please respond to a quick questionnaire on this week's materials.
 
-<quiz id="5f783cb4-d322-536a-abe5-fdb6da6a8395"></quiz>
+<quiz id="d1833583-5ee5-5e95-8284-d56603cb1d68"></quiz>
