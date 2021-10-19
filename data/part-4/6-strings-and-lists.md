@@ -315,7 +315,7 @@ print(no_vowels(my_string))
 
 <sample-output>
 
-ths s n exmpl
+ths s n xmpl
 
 </sample-output>
 
