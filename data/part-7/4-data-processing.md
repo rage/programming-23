@@ -124,7 +124,7 @@ Database Application
 </sample-output>
 
 
-<programming-exercise name='Handling JSON files' tmcname='part07-12_json_files_'>
+<programming-exercise name='Handling JSON files' tmcname='part07-12_json_files'>
 
 Let's have a look at a JSON file, which contains some information about students in the following format:
 
