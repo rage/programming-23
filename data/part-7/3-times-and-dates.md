@@ -16,7 +16,7 @@ After this section
 
 ## The datetime object
 
-The Python [datetime](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime) module contans the function [now](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime.now), which returns a datetime object containing the current date and time. The default printout of a datetime object looks like this:
+The Python [datetime](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime) module includes the function [now](https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime.now), which returns a datetime object containing the current date and time. The default printout of a datetime object looks like this:
 
 ```python
 from datetime import datetime
@@ -27,7 +27,7 @@ print(my_time)
 
 <sample-output>
 
-2020-10-13 12:46:49.311393
+2021-10-19 08:46:49.311393
 
 </sample-output>
 
@@ -72,8 +72,8 @@ A time of day can also be specified. The precision can vary, as you can see belo
 ```python
 from datetime import datetime
 
-pv1 = datetime(2020, 6, 30, 13)     # 30.6.2020 at 1PM
-pv2 = datetime(2020, 6, 30, 18, 45) # 30.6.2020 at 6.45PM
+pv1 = datetime(2021, 6, 30, 13)     # 30.6.2021 at 1PM
+pv2 = datetime(2021, 6, 30, 18, 45) # 30.6.2021 at 6.45PM
 ```
 
 ## Compare times and calculate differences between them
@@ -84,7 +84,7 @@ The familiar comparison operators work also on datetime objects:
 from datetime import datetime
 
 time_now = datetime.now()
-midsummer = datetime(2020, 6, 20)
+midsummer = datetime(2021, 6, 26)
 
 if time_now < midsummer:
     print("It is not yet Midsummer")
@@ -106,7 +106,7 @@ The difference between two datetime objects can be calculated simply with the su
 from datetime import datetime
 
 time_now = datetime.now()
-midsummer = datetime(2020, 6, 20)
+midsummer = datetime(2021, 6, 26)
 
 difference = midsummer - time_now
 print("Midsummer is", difference.days, "days away")
@@ -114,7 +114,7 @@ print("Midsummer is", difference.days, "days away")
 
 <sample-output>
 
-Midsummer is 37 days away
+Midsummer is -116 days away
 
 </sample-output>
 
@@ -124,7 +124,7 @@ Similarly, addition is available between `datetime` and `timedelta` objects. The
 
 ```python
 from datetime import datetime, timedelta
-midsummer = datetime(2020, 6, 20)
+midsummer = datetime(2021, 6, 26)
 
 one_week = timedelta(days=7)
 week_from_date = midsummer + one_week
@@ -138,8 +138,8 @@ print("32 weeks and 15 days after Midsummer it will be", midsummer + long_time)
 
 <sample-output>
 
-A week after Midsummer it will be 2020-06-27 00:00:00
-32 weeks and 15 days after Midsummer it will be 2021-02-14 00:00:00
+A week after Midsummer it will be 2021-07-03 00:00:00
+32 weeks and 15 days after Midsummer it will be 2021-02-20 00:00:00
 
 </sample-output>
 
@@ -147,7 +147,7 @@ Let's see how a higher precision works:
 
 ```python
 time_now = datetime.now()
-midnight = datetime(2020, 6, 30)
+midnight = datetime(2021, 6, 30)
 difference = midnight - time_now
 print(f"Midnight is still {difference.seconds} seconds away")
 ```
@@ -224,8 +224,8 @@ print(my_time.strftime("%d/%m/%Y %H:%M"))
 
 <sample-output>
 
-04.02.2020
-04/02/2020 09:31
+19.10.2021
+19/10/2021 09:31
 
 </sample-output>
 
