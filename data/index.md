@@ -70,6 +70,10 @@ Recordings of all lectures will be provided on this page afterwards, usually by 
       <td>Part 6</td>
       <td><a href="https://youtu.be/ePghbQDhOKU">Recording</a></td>
     </tr>
+    <tr>
+      <td>Part 7</td>
+      <td><a href="https://youtu.be/yftLKzcNhh4">Recording</a></td>
+    </tr>
   </tbody>
 </table>
 
