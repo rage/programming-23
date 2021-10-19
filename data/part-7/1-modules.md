@@ -8,52 +8,53 @@ hidden: false
 
 After this section
 
-- Tiedät, mikä on moduuli
-- Osaat ottaa käyttöön moduulin `import`-lauseella
-- Tiedät, miten moduulin sisällöstä voi etsiä tietoa
+- You will know what a Python module is
+- You will be able to include a module in your program with the `import` statement
+- You will know how to look for more information on the contents of modules
 
 </text-box>
 
 ## Debugging revisited
 
-Kurssilla on jo moneen otteeseen puhuttu erilaisista debuggausmenetelmistä. [Visualisaattori](http://www.pythontutor.com/visualize.html#mode=edit) on jo monille tuttu ja vanha kunnon [debuggaustulostus](osa-2/1-ohjelmoinnin-termeja#debuggaaminen) toimii aina. Visual Studio Coden [debuggeriakin](/osa-4/1-vscode#debuggeri) monet ovat jo kokeilleet. Debuggerilla voi olla vaikeuksia selvitä tiedostoja käsittelevästä koodista, mutta siihenkin on olemassa [lääke](/osa-6/1-tiedostojen-lukeminen#tiedostoja-lukevan-koodin-debuggaus).
+We have already come across quite a few debugging methods on this course. The [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) should now be familiar to you, and [debugging print outs](/part-2/1-programming-terminology#debugging) are a good old staple by now. You have possibly also tried the Visual Studio Code [built-in debugger](/part-4/1-vscode#the-built-in-debugger). If you come across problems with the debugger not finding your files, there were some tips for handling these situations in the [previous part](/part-6/1-reading-files#debugging-code-which-handles-files).
 
-Pythonin versio 3.7 tarjoaa vielä yhden erittäin helppokäyttöisen tavan debuggaukseen, komennon [breakpoint()](https://docs.python.org/3/library/functions.html?highlight=breakpoint#breakpoint).
+In Python version 3.7 brought yet another easy and useful tool for debugging programs: the [breakpoint()](https://docs.python.org/3/library/functions.html?highlight=breakpoint#breakpoint) command.
 
-Voit lisätä komennon mihin kohtaan tahansa ohjelmaasi, ja kun suoritat ohjelman, pysähtyy suoritus komennon kohdalle. Seuraavassa esimerkki viime viikon tehtävän debuggaamisesta:
+You can add this command to any point in your code (within normal syntactic rules, of course). When the program is run, the execution halts at the point where you inserted the `breakpoint` command. Here is an example of debugging efforts hwen completing one of the exercises from the previous part (please ignore the Finnish variable names in the images, and concentrate on the functionality):
 
 <img src="7_1_1.png">
 
-Kun koodi pysähtyy breakpoint()-komentoon, avautuu samalla konsolinäkymä, johon on mahdollista kirjoittaa mitä tahansa koodia ja kokeilla miten se toimisi ohjelman kyseisessä kohdassa.
+When the execution halts at the `breakpoint` command, an interactive console window is opened. Here you can write any code just as you would in a normal Python console, and see how the code works at exactly that point in the program.
 
-Komento on erityisen kätevä jos ohjelmasi jokin rivi aiheuttaa virheen, etkä ole ihan varma mistä virhe johtuu. Näissä tilanteissa kannattaa laittaa breakpoint-kutsu juuri ennen virheellistä riviä. Sen jälkeen on debuggerin konsolissa helppo kokeilla, mikä olisi oikea komento juuri siinä kohtaa suoritettavaksi.
+The `breakpoint` command is especially useful when you know that some line of code causes an error, but you are not quite sure why that is. Add a breakpoint just before the problematic line of code and run your program. Now you can try out different options in the interactive console window, and figure out the correct commands to include in your program.
 
-Koodin suoritusta on myös mahdollista jatkaa pysähtymisen jälkeen. Esimerkiksi konsoliin annettu komento _continue_ tai sen lyhennetty versio _c_ jatkaa suoritusta seuraavaan breakpointiin asti. Seuraavassa esimerkki siitä, kun silmukkaa käydään läpi muutamaan kertaan:
+It is also possible to continue execution from where it halted. The command `continue`, or the shorthand `c`, typed into the debugging console will resume execution until the next breakpoint is reached. The following picture depicts a situation where the loop has already been executed a few times:
 
 <img src="7_1_2.png">
 
-Muut debuggerikonsolin komennot selviävät [täältä](https://docs.python.org/3/library/pdb.html#debugger-commands) tai antamalla debuggerkonsolissa komento _help_:
+There are also some other commands available in the debugging console. You may find them [here](https://docs.python.org/3/library/pdb.html#debugger-commands), or else you can type in _help_ in the debugging console:
 
 <img src="7_1_3.png">
 
-Komento _exit_ siis lopettaa ohjelman suorituksen.
+The command _exit_ finishes the execution of the program.
 
-Kun lopetat debuggaamisen, muista poistaa koodista komento `breakpoint()`!
+When you are done debugging, remember to remove the `breakpoint` commands from your code!
 
-## Moduulin käyttäminen
+## Using modules
 
-Python-kieli sisältää itsessään joukon valmiita funktioita, esimerkiksi merkkijonojen ja listojen pituuden kertovan funktion `len` sekä alkioiden summan laskevan funktion `sum`. Python-kielen _standardikirjasto_ on kokoelma monenlaisia hyödyllisiä funktioita ja olioita joiden avulla kielen "ilmaisuvoimaa" on helppo laajentaa. Olemme jo käyttäneet muutamassa tehtävässä standardikirjastosta eräitä matemaattisia operaatioita tarjoavia funktioita esim. neliöjuurten laskemisessa.
+The Python language definition already contains some useful functions, such as the `len` function which returns the length of a string or a list, or the `sum` function which returns the sum of items in a data structure, but they will only get a programmer so far. The Python _standard library_ is a collection of standardised functions and objects, which can be used to expand the expressive powere of Python in many ways. We have already used some functions defined in the standard library in previous exercises, for example when calculating square roots.
 
-Standardikirjasto muodostuu _moduuleista_, joihin on ryhmitelty eri aiheisiin liittyviä funktioita ja luokkia. Tutustumme tässä osassa joihinkin hyödyllisiin moduuleihin ja opimme myös tekemään moduulin itse.
+The standard library is comprised of _modules_, which contain functions and classes grouped around different themes and functionalities. In this part of the course we will familiarize ourselves with some useful Python modules. We will also learn to write our own modules.
 
-Komento `import` ottaa käyttöön halutun moduulin. Tarkastellaan esimerkkinä moduulia `math`, jossa on matemaattisia funktioita. Seuraava koodi laskee luvun neliöjuuren funktiolla `sqrt` ja logaritmin funktiolla `log`
+The command `import` makes the contents of the given module accessible in the current program. Let's have a closer look at working with the `math` module. It contains the definitions of some mathematical functions, such as `sqrt` for square root and `log` for logarithm.
+
 
 ```python
 import math
 
-# luvun 5 neliöjuuri
+# The square root of the number 5
 print(math.sqrt(5))
-# luvun 8 logaritmi (2-kantainen)
+# the base 2 logarithm of the number 8
 print(math.log(8, 2))
 ```
 
@@ -64,11 +65,11 @@ print(math.log(8, 2))
 
 </sample-output>
 
-Koska funktiot ovat moduulissa `math`, niihin viitataan koodissa nimillä `math.sqrt` ja `math.log`.
+The functions are defined in the `math` module, so they must be referred to as `math.sqrt` and `math.log` in the program code.
 
-## Moduulin osien valinta
+## Selecting distinct sections from a module 
 
-Toinen tapa käyttää moduulia on valita sieltä mukaan `from`-komennolla tiettyjä osia, joita haluamme käyttää. Esimerkiksi seuraava koodi ottaa käyttöön funktiot `sqrt` ja `log` moduulista `math`:
+Another way to use modules is to select a distinct entity from the module with the `from` command. In case we want to use just the functions `sqrt` and `log` from the module `math`, we can do the following:
 
 ```python
 from math import sqrt, log
@@ -77,9 +78,9 @@ print(sqrt(5))
 print(log(5,2))
 ```
 
-Tämän tavan etuna on, että voimme käyttää funktioita suoraan ilman `math`-etuliitettä.
+As you can see above, we do not need the `math` prefix when using the functions imported in this manner.
 
-Voimme myös ottaa suoraan käytettäväksi _kaiken_ moduulin sisällön tähden avulla:
+Sometimes a handy shortcut is to import _all_ the contents of a module with the star notation:
 
 ```python
 from math import *
@@ -88,7 +89,7 @@ print(sqrt(5))
 print(log(5,2))
 ```
 
-Tämä tapa voi olla kätevä testailussa ja pienissä ohjelmissa, mutta siinä on omat ongelmansa, kuten näemme myöhemmin.
+Importing modules with the star notation can be useful when testing and in some smaller projects, but it can pose some new problems, too. We will come across these later.
 
 <programming-exercise name='Hypotenuse' tmcname='part07-01_hypotenuse'>
 
@@ -106,13 +107,13 @@ print(hypotenuse(1,1)) # 1.4142135623730951
 
 </programming-exercise>
 
-## Moduulin sisältö
+## The contents of a module
 
-Pythonin dokumentaatio kertoo jokaisesta standardikirjaston moduulista, mitä moduuli sisältää ja kuinka sitä käytetään. Esimerkiksi moduulin `math` dokumentaatio on tässä:
+The Python documentation has extensive resources on each module in the Python standard library. The documentation contains information on the functions and methods defined in the module, and how the module can be used. For example, here is the link to the documentation for the `math` module:
 
 * https://docs.python.org/3/library/math.html
 
-Voimme myös tutkia funktion `dir` avulla moduulin sisältöä:
+We can also have a look at the contents of the module with the function `dir`:
 
 ```python
 import math
@@ -120,7 +121,7 @@ import math
 print(dir(math))
 ```
 
-Funktio antaa listan nimistä, jotka moduuli määrittelee:
+The function returns a list of names defined by the module. These may be, for example, names of classes, constant values or functions:
 
 <sample-output>
 
