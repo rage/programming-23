@@ -1,12 +1,12 @@
 ---
-path: '/part-8/3-omat-luokat'
-title: 'Omat luokat'
+path: '/part-8/3-defining-classes'
+title: 'Defining classes'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, miten omia luokkia määritellään
 - Osaat muodostaa itse määritellystä luokasta olion

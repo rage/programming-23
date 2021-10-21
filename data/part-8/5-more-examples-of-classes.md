@@ -1,12 +1,12 @@
 ---
-path: '/part-8/5-lisaa-esimerkkeja'
-title: 'Lisää esimerkkejä'
+path: '/part-8/5-more-examples-of-classes'
+title: 'More examples of classes'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Osaat luoda aiempaa monipuolisempia luokkia
 - Osaat määritellä luokkaan metodin `__str__`

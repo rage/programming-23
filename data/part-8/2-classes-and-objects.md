@@ -1,12 +1,12 @@
 ---
-path: '/part-8/2-luokat-ja-oliot'
-title: 'Luokat ja oliot'
+path: '/part-8/2-classes-and-objects'
+title: 'Classes and objects'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, mitä tarkoitetaan luokalla
 - Ymmärrät luokan ja olion yhteyden

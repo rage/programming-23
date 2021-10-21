@@ -1,12 +1,12 @@
 ---
-path: '/part-8/4-metodit-omissa-luokissa'
-title: 'Metodit omissa luokissa'
+path: '/part-8/4-defining-methods'
+title: 'Defining methods'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen:
+After this section
 
 - Tiedät, miten metodit toimivat luokissa
 - Osaat kirjoittaa metodeita omiin luokkiin
