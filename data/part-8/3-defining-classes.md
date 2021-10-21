@@ -221,49 +221,49 @@ for numero in kierros1.numerot:
 Attribuutit voivat olla siis minkä tahansa tyyppisiä – esimerkiksi edellisessä esimerkissä jokaiseen olioon tallennetaan lista ja päivämäärä.
 
 
-<programming-exercise name='Kirja' tmcname='osa08-06_kirja'>
+<programming-exercise name='Book' tmcname='part08-05_book'>
 
-Tee luokka `Kirja`, jolla on attribuutteina muuttujat `nimi`, `kirjoittaja`, `genre` ja `kirjoitusvuosi` sekä konstruktori, joka alustaa muuttujat.
+Please write a class named `Book` with the attributes `name`, `author`, `genre` and `year`, along with a constructor which assigns initial values to these attributes.
 
-Luokkaa käytetään seuraavasti:
+Your class should work like this:
 
 ```python
-python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
-everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
+python = Book("Fluent Python", "Luciano Ramalho", "programming", 2015)
+everest = Book("High Adventure", "Edmund Hillary", "autobiography", 1956)
 
-print(f"{python.kirjoittaja}: {python.nimi} ({python.kirjoitusvuosi})")
-print(f"Kirjan {everest.nimi} genre on {everest.genre}")
+print(f"{python.author}: {python.name} ({python.year})")
+print(f"The genre of the book {everest.name} is {everest.genre}")
 ```
 
 <sample-output>
 
 Luciano Ramalho: Fluent Python (2015)
-Kirjan Huipulta huipulle genre on elämänkerta
+The genre of the book High Adventure is autobiography
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Kirjoita luokat' tmcname='osa08-07_kirjoita_luokat'>
+<programming-exercise name='Three classes' tmcname='part08-06_three_classes'>
 
-Kirjoita alla pyydetyt luokat. Jokaisen luokan alle on kuvattu attribuuttien nimet ja tyypit.
+Please write the three classes specified below. Each class should have exactly the same names and types of attributes as listed.
 
-Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siinä järjestyksessä kuin ne on kuvauksessa annettu.
+Please also include a constructor in each class. The constructor should take the initial values of the attributes as its arguments, in the order listed below.
 
-1. Luokka Muistilista
-- attribuutti otsikko (merkkijono)
-- attribuutti merkinnat (lista)
+1. Class Checklist
+- attribute header (string)
+- attribute entries (list)
 
-2. Luokka Asiakas
-- attribuutti tunniste (merkkijono)
-- attribuutti saldo (desimaaliluku)
-- attribuutti alennusprosentti (kokonaisluku)
+2. Class Customer
+- attribute id (string)
+- attribute balance (float)
+- attribute discount (integer)
 
-3. Luokka Kaapeli
-- attribuutti malli (merkkijono)
-- attribuutti pituus (desimaaliluku)
-- attribuutti maksiminopeus (kokonaisluku)
-- attribuutti kaksisuuntainen (totuusarvo)
+3. Class Cable
+- attribute model (string)
+- attribute length (float)
+- attribute max_speed (integer)
+- attribute bidirectional (Boolean)
 
 </programming-exercise>
 
@@ -296,80 +296,76 @@ print(pekan_tili.saldo)
 
 </sample-output>
 
-<programming-exercise name='Muodosta lemmikki' tmcname='osa08-07b_muodosta_lemmikki'>
+<programming-exercise name='Define class: Pet' tmcname='part08-07_pet'>
 
-Määrittele luokka `Lemmikki`. Luokalla on konstruktori, jossa annetaan arvot attribuuteille `nimi`, `laji` ja `syntymavuosi` tässä järjestyksessä.
+Please define the class `Pet`. The class should include a constructor, which takes the initial values of the attributes `name`, `species` and `year_of_birth` as its arguments, in that specific order.
 
-Kirjoita sitten luokan ulkopuolelle funktio `uusi_lemmikki(nimi: str, laji: str, syntymavuosi: int)`, joka luo ja palauttaa uuden `Lemmikki`-tyyppisen (eli `Lemmikki`-luokkaa vastaavan) olion.
+Please also write a function named `new_pet(name: str, species: str, year_of_birth: int)` _outside the class definition_. The function should create and return a new object of type `Pet`, as defined in the class `Pet`.
 
-Esimerkki funktion kutsumisesta:
+An example of how the function is used:
 
 ```python
-musti = uusi_lemmikki("Musti", "koira", 2017)
-print(musti.nimi)
-print(musti.laji)
-print(musti.syntymavuosi)
+fluffy = new_pet("Fluffy", "dog", 2017)
+print(fluffy.name)
+print(fluffy.species)
+print(fluffy.year_of_birth)
 ```
 
 <sample-output>
 
-Musti
-koira
+Fluffy
+dog
 2017
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Vanhempi kirja' tmcname='osa08-08_vanhempi_kirja'>
+<programming-exercise name='The older book' tmcname='part08-08_older_book'>
 
-Tee funktio `vanhempi_kirja(kirja1: Kirja, kirja2: Kirja)`, joka saa parametriksi kaksi `Kirja`-oliota. Funktio kertoo, kumpi kirjoista on vanhempi.
-
-Funktiota käytetään seuraavasti:
+Please write a function named `older_book(book1: Book, book2: Book)` which takes two objects of type `Book` as its arguments. The function should print out a message with the details of whichever is the older. It should print out a different message if the two books were written in the same year. Please see the examples below.
 
 ```python
-python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
-everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
-norma = Kirja("Norma", "Sofi Oksanen", "rikos", 2015)
+python = Book("Fluent Python", "Luciano Ramalho", "programming", 2015)
+everest = Book("High Adventure", "Edmund Hillary", "autobiography", 1956)
+norma = Book("Norma", "Sofi Oksanen", "crime", 2015)
 
-vanhempi_kirja(python, everest)
-vanhempi_kirja(python, norma)
+older_book(python, everest)
+older_book(python, norma)
 ```
 
 <sample-output>
 
-Huipulta huipulle on vanhempi, se kirjoitettiin 2010
-Fluent Python ja Norma kirjoitettiin 2015
+High Adventure is older, it was published in 1956
+Fluent Python and Norma were published in 2015
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Genren kirjat' tmcname='osa08-09_genren_kirjat'>
+<programming-exercise name='Books of a genre' tmcname='part08-09_books_of_genre'>
 
-Tee funktio `genren_kirjat(kirjat: list, genre: str)`, joka saa parametriksi listan `Kirja`-olioa sekä genren kertovan merkkijonon.
+Please write a function named `books_of_genre(books: list, genre: str)` which takes a list of objects of type `Book` and a string representing a genre as its arguments.
 
-Funktio _palauttaa_ uuden listan, jolle se laittaa parametrina olevista kirjoista ne, joilla on haluttu genre.
-
-Funktiota käytetään seuraavasti:
+The function should return a _new_ list, which contains the books with the desired genre from the original list. Please see the examples below.
 
 ```python
-python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
-everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
-norma = Kirja("Norma", "Sofi Oksanen", "rikos", 2015)
+python = Book("Fluent Python", "Luciano Ramalho", "programming", 2015)
+everest = Book("High Adventure", "Edmund Hillary", "autobiography", 1956)
+norma = Book("Norma", "Sofi Oksanen", "crime", 2015)
 
-kirjat = [python, everest, norma, Kirja("Lumiukko", "Jo Nesbø", "rikos", 2007)]
+books = [python, everest, norma, Book("The Snowman", "Jo Nesbø", "crime", 2007)]
 
-print("rikoskirjoja ovat")
-for kirja in genren_kirjat(kirjat, "rikos"):
-    print(f"{kirja.kirjoittaja}: {kirja.nimi}")
+print("Books in the crime genre:")
+for book in books_of_genre(books, "crime"):
+    print(f"{book.author}: {book.name}")
 ```
 
 <sample-output>
 
-rikoskirjoja ovat
+Books in the crime genre:
 Sofi Oksanen: Norma
-Jo Nesbø: Lumiukko
+Jo Nesbø: The Snowman
 
 </sample-output>
 
