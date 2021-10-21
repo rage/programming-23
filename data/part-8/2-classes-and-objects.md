@@ -211,19 +211,19 @@ TypeError: 'int' object is not callable
 
 </sample-output>
 
-<programming-exercise name='Vuodet listaan' tmcname='osa08-03_vuodet_listaan'>
+<programming-exercise name='List of years' tmcname='part08-03_list_years'>
 
-Tee funktio `vuodet_listaan(paivamaarat: list)`, joka saa parametrikseen listan, joka sisältää `date`-tyyppisiä olioita. Funktio palauttaa uuden listan, jossa on päivämäärien _vuodet suuruusjärjestyksessä pienimmästä suurimpaan_.
+Please write a function named `list_years(dates: list)` which takes a list of `date` type objects as its argument. The function should return a new list, which contains the _years in the original list in chronological order_, from earliest to latest.
 
-Esimerkki funktion kutsumisesta:
+An example of the function in action:
 
 ```python
-paiva1 = date(2019, 2, 3)
-paiva2 = date(2006, 10, 10)
-paiva3 = date(1993, 5, 9)
+date1 = date(2019, 2, 3)
+date2 = date(2006, 10, 10)
+date3 = date(1993, 5, 9)
 
-vuodet = vuodet_listaan([paiva1, paiva2, paiva3])
-print(vuodet)
+years = list_years([date1, date2, date3])
+print(years)
 ```
 
 <sample-output>
@@ -235,64 +235,64 @@ print(vuodet)
 </programming-exercise>
 
 
-<programming-exercise name='Kauppalista' tmcname='osa08-04_kauppalista'>
+<programming-exercise name='Shopping list' tmcname='part08-04_shopping_list'>
 
-Tehtäväpohjassa on määritelty valmiiksi `Kauppalista`-luokka, jolla voidaan mallintaa yhtä kauppalistaa.
+The exercise template contains a pre-defined `ShoppingList` class, which can be used to model a shopping list. Your task is to add a method to the class definition. You do not need to change any methods already defined.
 
-Jos kauppalistaolio on tallennettu esimerkiksi muuttujaan `kauppalista`, sitä voidaan käsitellä seuraavan esimerkin mukaisesti:
+Assuming we have a `ShoppingList` object referenced in a variable named `shopping_list`, the object can be handled with the following methods:
 
 ```python
 
-print(kauppalista.tuotteita())
-print(kauppalista.tuote(1))
-print(kauppalista.maara(1))
-print(kauppalista.tuote(2))
-print(kauppalista.maara(2))
+print(shopping_list.number_of_items())
+print(shopping_list.item(1))
+print(shopping_list.amount(1))
+print(shopping_list.item(2))
+print(shopping_list.amount(2))
 
 ```
 
 <sample-output>
 
 2
-Banaanit
+Bananas
 4
-Maito
+Milk
 1
 
 </sample-output>
 
-Myös seuraava onnistuu:
+We can also do this:
 
 ```python
-# kauppalistalla tuotteet on indeksöity ykkösestä alkaen
-for i in range(1, kauppalista.tuotteita()+1):
-    tuote = kauppalista.tuote(i)
-    maara = kauppalista.maara(i)
-    print(f"{tuote}: {maara} kpl")
+# the items on the shopping list are indexed from 1
+for i in range(1, shopping_list.number_of_items()+1):
+    item = shopping_list.item(i)
+    amount = shopping_list.amount(i)
+    print(f"{item}: {amount} units")
 ```
 
 
 <sample-output>
 
-banaanit 4 kpl
-maito 1 kpl
+Bananas 4 units
+Milk 1 units
 
 </sample-output>
 
-Kauppalistat siis käyttäytyvät hieman listojen tavoin, mutta niitä käsitellään kuitenkin kauppalistan tarjoamien metodien kautta. Toisin kuin listoissa, kauppalistan tuotteet on numeroitu ykkösestä alkaen.
+As you can see, a `ShoppingList` works a bit like a normal list, but it is accessed via the methods provided by the ShoppingList class. Unlike normal Python lists, indexing starts from 1, not 0.
 
-Tee esimerkkejä hyödyntäen funktio `tuotteita_yhteensa(lista: Kauppalista)`, joka saa parametrikseen `Kauppalista`-tyyppisen olion. Funktio laskee listalla yhteensä olevien tuotteiden määrän ja palauttaa sen.
+Please write a function named `total_units(my_list: ShoppingList)`, which takes a `ShoppingList` type object as its argument. The function should calculate the total number of units listed, and return the value.
 
-Huomaa, että kauppalistalla tuotteet indeksoidaan ykkösestä alkaen, ei nollasta. Voit testata ohjelmaasi esim. tällä esimerkkikoodilla:
+You can use the following code to test your function:
 
 ```python
 if __name__ == "__main__":
-    lista = Kauppalista()
-    lista.lisaa("banaanit", 10)
-    lista.lisaa("omenat", 5)
-    lista.lisaa("ananas", 1)
+    my_list = ShoppingList()
+    my_list.add_item("bananas", 10)
+    my_list.add_item("apples", 5)
+    my_list.add_item("pineapple", 1)
 
-    print(tuotteita_yhteensa(lista))
+    print(total_units(my_list))
 ```
 
 <sample-output>
@@ -301,6 +301,6 @@ if __name__ == "__main__":
 
 </sample-output>
 
-**Huom** koska luokan `Kauppalista` koodi on tehtäväpohjassa valmiina, ei koodissa tarvitse käyttää `import`-lausetta kuten edellisissä esimerkeissä, tehtävissä, jotka käyttävät Pythonin valmiita luokkia `Fraction` ja `date`.
+**NB:** the definition of the `ShoppingList` class is already included in the exercise template. You do not need to use an `import` statement to import it, unlike in the examples above with the Python standard library classes `Fraction` and `date`.
 
 </programming-exercise>
