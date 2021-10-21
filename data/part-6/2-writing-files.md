@@ -468,7 +468,7 @@ The program should then create two files. There should be a file called `results
 <pre>
 Introduction to Programming, 5 credits
 ======================================
-name                          exercises exer_p    exam_p    total_p   grade
+name                          exec_nbr  exec_pts. exm_pts.  tot_pts.  grade
 pekka peloton                 21        5         9         14        0
 jaana javanainen              27        6         11        17        1
 liisa virtanen                35        8         14        22        3
