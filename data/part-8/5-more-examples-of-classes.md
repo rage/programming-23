@@ -135,24 +135,24 @@ suorakulmio (1, 1) ... (4, 3)
 
 Metodin `__str__` lisäksi olioon voidaan määritellä samantapainen metodi `__repr__`, joka antaa teknisen kuvauksen olion tilasta. Tutustumme tähän metodiin tarkemmin myöhemmin.
 
-<programming-exercise name='Sekuntikello' tmcname='osa08-11a_sekuntikello'>
+<programming-exercise name='Stopwatch' tmcname='part08-13_stopwatch'>
 
-Tehtäväpohjassa on mukana luokan `Sekuntikello` runko:
+The exercise template contains the following skeleton for the `Stopwatch` class:
 
 ```python
-class Sekuntikello:
+class Stopwatch:
     def __init__(self):
-        self.sekunnit = 0
-        self.minuutit = 0
+        self.seconds = 0
+        self.minutes = 0
 ```
 
-Laajenna luokkaa siten, että se toimii seuraavasti:
+Please add to the class definition so that it works as follows:
 
 ```python
-kello = Sekuntikello()
+watch = Stopwatch()
 for i in range(3600):
-    print(kello)
-    kello.tick()
+    print(watch)
+    watch.tick()
 ```
 
 <sample-output>
@@ -160,11 +160,11 @@ for i in range(3600):
 00:00
 00:01
 00:02
-... tässä välissä monta riviä
+... many more lines printed out
 00:59
 01:00
 01:01
-... tässä välissä erittäin monta riviä
+... many, many more lines printed out
 59:58
 59:59
 00:00
@@ -172,14 +172,15 @@ for i in range(3600):
 
 </sample-output>
 
-Metodi `tick` vie siis kelloa sekunnin eteenpäin, ja sekä sekuntien että minuuttien arvo on suuruudeltaan korkeintaan 59. Lisäksi oliossa tulee olla metodi `__str__`, joka näyttää kellonajan yllä olevassa muodossa.
+So, the method `tick` adds one second to the stopwatch. The maximum value for both seconds and minutes is 59. Your class definition should also contain a `__str__` method, which returns a string representation of the state of the stopwatch, as shown in the example above.
 
-**Vihje:** metodin `tick` testailua voi helpottaa asettamalla tilapäisesti konstruktorissa sekunneille ja minuuteille valmiiksi jonkin suuremman arvon kuin 0.
+**Hint:** it migth make it easier to test the `tick` method if you temporarily set the initial values of the seconds and minutes to some value closer to 59 in the constructor. If you do change the initial values, remember to change them back before submitting.
 
 </programming-exercise>
 
-<programming-exercise name='Kello' tmcname='osa08-12_kello'>
+<programming-exercise name='Clock' tmcname='part08-14_clock'>
 
+Fol
 Toteuta edellistä tehtävää laajentava luokka `Kello`, joka toimii seuraavaan tapaan:
 
 ```python
@@ -217,7 +218,7 @@ Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. 
 
 </programming-exercise>
 
-<programming-exercise name='Maksukortti' tmcname='osa08-13_maksukortti'>
+<programming-exercise name='Maksukortti' tmcname='part08-13_maksukortti'>
 
 Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia.
 
@@ -453,7 +454,7 @@ opiskelu
 
 </sample-output>
 
-<programming-exercise name='Sarja' tmcname='osa08-14_sarja'>
+<programming-exercise name='Sarja' tmcname='part08-14_sarja'>
 
 ### Luokka Sarja
 

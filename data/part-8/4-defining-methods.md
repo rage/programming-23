@@ -170,111 +170,111 @@ print("Saldo nyt:", pekan_tili.saldo)
 
 Ongelma voidaan ainakin osittain ratkaista piilottamalla attribuutit asiakkaalta. Käytännön toteutukseen palataan tarkemmin ensi viikolla.
 
-<programming-exercise name='Vähenevä laskuri' tmcname='osa08-10_vaheneva_laskuri'>
+<programming-exercise name='Decreasing counter' tmcname='part08-10_decreasing_counter'>
 
-Tässä tehtävässä on useampi osa. Jokainen osa vastaa yhtä tehtäväpistettä.
+This exercise has multiple parts. You can submit the parts separately. Each part is worth one exercise point.
 
-Tehtäväpohjan mukana tulee osittain valmiiksi toteutettu luokka `VahenevaLaskuri`:
+The exercise template contains a partially completed class `DecreasingCounter`:
 
 ```python
-class VahenevaLaskuri:
-    def __init__(self, arvo_alussa: int):
-        self.arvo = arvo_alussa
+class DecreasingCounter:
+    def __init__(self, initial_value: int):
+        self.value = initial_value
 
-    def tulosta_arvo(self):
-        print("arvo:", self.arvo)
+    def print_value(self):
+        print("value:", self.value)
 
-    def vahenna(self):
+    def decrease_value(self):
         pass
 
-    # ja tänne muut metodit
+    # define the rest of your methods here
 ```
 
-Luokkaa käytetään seuraavasti
+The class can now be used as shown below, and should produce the following printout after completing the first part of the exercise:
 
 ```python
-laskuri = VahenevaLaskuri(10)
-laskuri.tulosta_arvo()
-laskuri.vahenna()
-laskuri.tulosta_arvo()
-laskuri.vahenna()
-laskuri.tulosta_arvo()
+counter = DecreasingCounter(10)
+counter.print_value()
+counter.decrease_value()
+counter.print_value()
+counter.decrease_value()
+counter.print_value()
 ```
 
 <sample-output>
 
-arvo: 10
-arvo: 9
-arvo: 8
+value: 10
+value: 9
+value: 8
 
 </sample-output>
 
 
-### Laskurin vähentäminen
+### Decreasing the value of the counter
 
-Täydennä luokan runkoon metodin `vahenna` toteutus sellaiseksi, että se vähentää kutsuttavan olion oliomuuttujan arvoa yhdellä. Kun olet toteuttanut metodin `vahenna`, äskeisen pääohjelman tulee toimia esimerkkitulosteen mukaan.
+Please complete the method `decrease_value` defined in the template, so that it decreases the value stored in the counter by one. See the example above for expected behaviour.
 
-### Laskurin arvo ei saa olla negatiivinen
+### The counter must not have a negative value
 
-Täydennä metodin `vahenna` toteutus sellaiseksi, ettei laskurin arvo mene koskaan negatiiviseksi: jos laskurin arvo on jo 0, sitä ei enää vähennetä.
+Please add functionality to your `decrease_value` method, so that the value of the counter will never reach negative values. If the value of the counter is 0, it will not be further decreased.
 
 ```python
-laskuri = VahenevaLaskuri(2)
-laskuri.tulosta_arvo()
-laskuri.vahenna()
-laskuri.tulosta_arvo()
-laskuri.vahenna()
-laskuri.tulosta_arvo()
-laskuri.vahenna()
-laskuri.tulosta_arvo()
+counter = DecreasingCounter(2)
+counter.print_value()
+counter.decrease_value()
+counter.print_value()
+counter.decrease_value()
+counter.print_value()
+counter.decrease_value()
+counter.print_value()
 ```
 
 <sample-output>
 
-arvo: 2
-arvo: 1
-arvo: 0
-arvo: 0
+value: 2
+value: 1
+value: 0
+value: 0
 
 </sample-output>
 
-### Laskurin arvon nollaus
+### Setting the value to zero
 
-Tee laskurille metodi `nollaa`, joka nollaa laskurin arvon:
+Please add a method `set_to_zero` which sets the value of the counter to 0:
 
 ```python
-laskuri = VahenevaLaskuri(100)
-laskuri.tulosta_arvo()
-laskuri.nollaa()
-laskuri.tulosta_arvo()
+counter = DecreasingCounter(100)
+counter.print_value()
+counter.set_to_zero()
+counter.print_value()
 ```
 
 <sample-output>
 
-arvo: 100
-arvo: 0
+value: 100
+value: 0
 
 </sample-output>
 
-### Alkuperäisen arvon palautus
+### Resetting the counter
 
-Tee laskurille metodi `palauta_alkuperainen_arvo()` joka palauttaa laskurille sen alkuperäisen arvon:
+Please add a method `reset_original_value()` which resets the counter to its initial state:
 
 ```python
-laskuri = VahenevaLaskuri(55)
-laskuri.vahenna()
-laskuri.vahenna()
-laskuri.vahenna()
-laskuri.vahenna()
-laskuri.tulosta_arvo()
-laskuri.palauta_alkuperainen_arvo()
-laskuri.tulosta_arvo()
+counter = DecreasingCounter(55)
+counter.decrease_value()
+counter.decrease_value()
+counter.decrease_value()
+counter.decrease_value()
+counter.print_value()
+counter.reset_original_value()
+counter.print_value()
 ```
 
 <sample-output>
 
-arvo: 51
-arvo: 55
+value: 51
+value: 55
 
 </sample-output>
 
@@ -374,154 +374,154 @@ class Bonuskortti:
         return f"Bonuskortti(nimi={self.nimi}, saldo={self.saldo})"
 ```
 
-<programming-exercise name="Etu- ja sukunimi" tmcname='osa08-10b_etu_ja_sukunimi'>
+<programming-exercise name="First and last name" tmcname='part08-11_first_and_last_name'>
 
-Kirjoita luokka `Henkilo`, jolla on _ainoastaan yksi attribuutti_ `nimi`, joka asetetaan konstruktorissa.
+Please write a class named `Person` with a _single attribute_ `name`, which is set with an argument given to the constructor.
 
-Lisäksi luokalle tule kirjoitaa kaksi metodia:
+Please also add two methods:
 
-Metodi `anna_etunimi` palauttaa henkilön etunimen ja metodi `anna_sukunimi` vastaavasti henkilön sukunimen.
+The method `return_first_name` should return the first name of the person, while the method `return_last_name` should return the last name of the person.
 
-Voit olettaa metodeissa, että konstruktroissa annetussa nimessä on etu- ja sukunimi välilyönnillä erotettuna eikä muita nimiä.
+You may assume that the name passed to the constructor will contain exactly two name elements separated with a space character.
 
-Esimerkki luokan käytöstä:
+An example use case:
 
 ```python
 if __name__ == "__main__":
-    pekka = Henkilo("Pekka Python")
-    print(pekka.anna_etunimi())
-    print(pekka.anna_sukunimi())
+    pekka = Person("Peter Pythons")
+    print(pekka.return_first_name())
+    print(pekka.return_last_name())
 
-    pauli = Henkilo("Pauli Pythonen")
-    print(pauli.anna_etunimi())
-    print(pauli.anna_sukunimi())
+    pauli = Person("Paula Pythonnen")
+    print(pauli.return_first_name())
+    print(pauli.return_last_name())
 ```
 
 <sample-output>
 
-Pekka
-Python
-Pauli
-Pythonen
+Peter
+Pythons
+Paula
+Pythonnen
 
 </sample-output>
 
 
 </programming-exercise>
 
-<programming-exercise name='Lukutilasto' tmcname='osa08-11_lukutilasto'>
+<programming-exercise name='Statistics on numbers' tmcname='part08-12_number_stats'>
 
-Tässä tehtävässä toteutetaan olio-ohjelmointia hyödyntäen samantapainen käyttäjän syöttämiä lukuja käsittelevä ohjelma kuin Ohjelmoinnin perusteiden [osan 2 lopussa](/osa-2/4-yksinkertainen-silmukka#programming-exercise-lukujen-kasittelya).
+In this exercise you are asked to create a program for working with numbers, similarly to the exercise completed at the [end of part 2](/part-2/4-simple-loops#programming-exercise-working-with-numbers) in the Introduction to Programming course. This time you will define a class for the purpose.
 
-### Lukujen määrä
+### Count the numbers
 
-Tee luokka `Lukutilasto`, joka tuntee seuraavat toiminnot:
+Please write a class named `NumberStats` with the following methods:
 
-- metodi `lisaa_luku` lisää uuden luvun tilastoon
-- metodi `lukujen_maara` kertoo lisättyjen lukujen määrän
+- the method `add_number` adds a new number to the statistical record
+- the method `count_numbers` returns the count of how many numbers have been added
 
-Luokan ei tarvitse tallentaa mihinkään lisättyjä lukuja vaan riittää, että se muistaa niiden määrän. Metodin `lisaa_luku` ei tässä vaiheessa tarvitse edes ottaa huomioon, mikä luku lisätään tilastoon, koska ainoa tallennettava asia on lukujen määrä.
+At this point there is no need to store the numbers themselves in any data structure. It is enough to simply remember how many have been added. The `add_number` method does take an argument, but there is no need to process the actual value in any way just yet.
 
-Luokan runko on seuraava:
+The exercise template contains the following skeleton for the class definition:
 
 ```python
-class  Lukutilasto:
+class  NumberStats:
     def __init__(self):
-        self.lukuja = 0
+        self.numbers = 0
 
-    def lisaa_luku(self, luku:int):
+    def add_number(self, number:int):
         pass
 
-    def lukujen_maara(self):
+    def count_numbers(self):
         pass
 ```
 
 ```python
-tilasto = Lukutilasto()
-tilasto.lisaa_luku(3)
-tilasto.lisaa_luku(5)
-tilasto.lisaa_luku(1)
-tilasto.lisaa_luku(2)
-print("Lukujen määrä:", tilasto.lukujen_maara())
+stats = NumberStats()
+stats.add_number(3)
+stats.add_number(5)
+stats.add_number(1)
+stats.add_number(2)
+print("Numbers added:", stats.count_numbers())
 ```
 
 <sample-output>
 
-Lukujen määrä: 4
+Numbers added: 4
 
 </sample-output>
 
-### Summa ja keskiarvo
+### The sum and the mean
 
-Laajenna luokkaa seuraavilla toiminnoilla:
+Please add the following methods to your class definition:
 
-- metodi `summa` kertoo lisättyjen lukujen summan (tyhjän lukutilaston summa on 0)
-- metodi `keskiarvo` kertoo lisättyjen lukujen keskiarvon (tyhjän lukutilaston keskiarvo on 0)
+- the method `sum` should return the sum of the numbers added (if no numbers have been added, the method should return 0)
+- the method `mean` should return the mean of the numbers added (if no numbers have been added, the method should return 0)
 
 ```python
-tilasto = Lukutilasto()
-tilasto.lisaa_luku(3)
-tilasto.lisaa_luku(5)
-tilasto.lisaa_luku(1)
-tilasto.lisaa_luku(2)
-print("Lukujen määrä:", tilasto.lukujen_maara())
-print("Summa:", tilasto.summa())
-print("Keskiarvo:", tilasto.keskiarvo())
+stats = NumberStats()
+stats.add_number(3)
+stats.add_number(5)
+stats.add_number(1)
+stats.add_number(2)
+print("Numbers added:", stats.count_numbers())
+print("Sum of numbers:", stats.sum())
+print("Mean of numbers:", stats.mean())
 ```
 
 <sample-output>
 
-Määrä: 4
-Summa: 11
-Keskiarvo: 2.75
+Numbers added: 4
+Sum of numbers: 11
+Mean of numbers: 2.75
 
 </sample-output>
 
-### Summa käyttäjältä
+### User input
 
-Tee ohjelma, joka kysyy lukuja käyttäjältä, kunnes käyttäjä antaa luvun -1. Sitten ohjelma ilmoittaa lukujen summan.
+Please write a main program which keeps asking the user for integer numbers until the user types in -1. The program should then print out the sum and the mean of the numbers typed in.
 
-Ohjelmassa tulee käyttää `Lukutilasto`-oliota summan laskemiseen.
+Your program should use a `NumberStats` object to keep a record of the numbers added.
 
-HUOM: Älä muuta tässä osassa luokkaa `Lukutilasto`, vaan toteuta sitä hyödyntäen summan laskemiseen käytetty ohjelma.
+NB: you do not need to change the `NumberStats` class in this part of the exercise, provided it passed the tests for the previous part of the exercise. Use an instance of the class to complete this part.
 
-HUOM2: Älä kirjoita pääohjelmaa `if __name__ == "__main__"`-lohkon sisään, jotta testit toimivat!
+NB2: your main program should not be contained in a `if __name__ == "__main__"` block, or the tests will not work.
 
 <sample-output>
 
-Anna lukuja:
+Please type in integer numbers:
 **4**
 **2**
 **5**
 **2**
 **-1**
-Summa: 13
-Keskiarvo: 4.5
+Sum of numbers: 13
+Mean of numbers: 4.5
 
 </sample-output>
 
-### Monta summaa
+### Multiple sums
 
-Muuta edellistä ohjelmaa niin, että ohjelma laskee myös parillisten ja parittomien lukujen summaa.
+Please add to your main program so that it also counts separately the sum of the even and the odd numbers added.
 
-HUOM: Älä edelleenkään muuta luokkaa `Lukutilasto`, vaan määrittele ohjelmassa kolme `Lukutilasto`-oliota. Laske ensimmäisen avulla kaikkien lukujen summa ja keskiarvo, toisen avulla parillisten lukujen summa ja kolmannen avulla parittomien lukujen summa.
+NB: do not change your `NumberStats` class definition in this part of exercise, either. Instead, define three `NumberStats` objects. One of them should keep track of all the numbers, another should track the even numbers, and the third should track the odd numbers typed in.
 
-HUOM2: Älä kirjoita pääohjelmaa `if __name__ == "__main__"`-lohkon sisään, jotta testit toimivat!
+NB2: your main program should not be contained in a `if __name__ == "__main__"` block, or the tests will not work.
 
-Ohjelman tulee toimia seuraavasti:
+Please have look at this example of how your main function should work:
 
 <sample-output>
 
-Anna lukuja:
+Please type in integer numbers:
 **4**
 **2**
 **5**
 **2**
 **-1**
-Summa: 13
-Keskiarvo: 3.25
-Parillisten summa: 8
-Parittomien summa: 5
+Sum of numbers: 13
+Mean of numbers: 3.25
+Sum of even numbers: 8
+Sum of odd numbers: 5
 
 </sample-output>
 
