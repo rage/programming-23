@@ -174,33 +174,32 @@ for i in range(3600):
 
 So, the method `tick` adds one second to the stopwatch. The maximum value for both seconds and minutes is 59. Your class definition should also contain a `__str__` method, which returns a string representation of the state of the stopwatch, as shown in the example above.
 
-**Hint:** it migth make it easier to test the `tick` method if you temporarily set the initial values of the seconds and minutes to some value closer to 59 in the constructor. If you do change the initial values, remember to change them back before submitting.
+**Hint:** it might make it easier to test the `tick` method if you temporarily set the initial values of the seconds and minutes to some value closer to 59 in the constructor. If you do change the initial values, remember to change them back before submitting.
 
 </programming-exercise>
 
 <programming-exercise name='Clock' tmcname='part08-14_clock'>
 
-Fol
-Toteuta edellistä tehtävää laajentava luokka `Kello`, joka toimii seuraavaan tapaan:
+Please define a new class named `Clock` which expands on the capabilities of your `Stopwatch` class. It should work as follows:
 
 ```python
-kello = Kello(23, 59, 55)
-print(kello)
-kello.tick()
-print(kello)
-kello.tick()
-print(kello)
-kello.tick()
-print(kello)
-kello.tick()
-print(kello)
-kello.tick()
-print(kello)
-kello.tick()
-print(kello)
+clock = Clock(23, 59, 55)
+print(clock)
+clock.tick()
+print(clock)
+clock.tick()
+print(clock)
+clock.tick()
+print(clock)
+clock.tick()
+print(clock)
+clock.tick()
+print(clock)
+clock.tick()
+print(clock)
 
-kello.aseta(12, 5)
-print(kello)
+clock.set(12, 5)
+print(clock)
 ```
 
 <sample-output>
@@ -214,7 +213,7 @@ print(kello)
 12:05:00
 </sample-output>
 
-Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. Metodi `tick` vie kelloa sekunnin eteenpäin ja metodilla `aseta` voi asettaa kellon tunneille ja minuuteille uuden arvon ja _nollata sekunnit_.
+As you can see above, the constructor should take initial values for the hours, minutes and seconds as arguments, and set these appropriately. The `tick` method adds one second to the clock. The `set` method sets new values for the hours and the minutes, and _sets the seconds to zero_.
 
 </programming-exercise>
 
