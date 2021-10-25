@@ -217,175 +217,177 @@ As you can see above, the constructor should take initial values for the hours, 
 
 </programming-exercise>
 
-<programming-exercise name='Maksukortti' tmcname='part08-13_maksukortti'>
+<programming-exercise name='LunchCard' tmcname='part08-15_lunchcard'>
 
-Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia.
+At Unicafe, the student cafeteria at the University of Helsinki, students can pay for their lunch with a special debit card.
 
-Tässä tehtäväsarjassa tehdään luokka `Maksukortti`, jonka tarkoituksena on jäljitellä Unicafeissa tapahtuvaa maksutoimintaa.
+In this exercise you will write a class called `LunchCard`, with the purpose of emulating the functions provided by the cafeteria's debit card.
 
-### Luokan runko
+### The structure of the new class
 
-Tee ohjelmaan uusi luokka nimeltä `Maksukortti`.
+Please create a new class named `LunchCard`.
 
-Tee ensin luokalle konstruktori, jolle annetaan kortin alkusaldo ja joka tallentaa sen olion sisäiseen muuttujaan. Tee sitten `__str__`-metodi, joka palauttaa kortin saldon muodossa "Kortilla on rahaa X euroa". Rahamäärä tulee tulostaa yhden desimaalin tarkkuudella.
+First write the constructor for the class. It should take the initial balance available on the card as an argument, and save it as an attribute. This is provided for you in the skeleton below.
 
-Seuraavassa on luokan Maksukortti runko:
+Next, write a `__str__` method, which returns a string containing the balance: "The balance is X euros". The available balance should be printed out with one decimal place precision. Please see the example below for usage.
+
+Here is a skeleton implementation for the class:
 
 ```python
-class Maksukortti:
-    def __init__(self, alkusaldo: float):
-        self.saldo = alkusaldo
+class LunchCard:
+    def __init__(self, balance: float):
+        self.balance = balance
 
     def __str__(self):
         pass
 ```
 
-Käyttöesimerkki
+A usage example:
 
 ```python
-kortti = Maksukortti(50)
-print(kortti)
+card = LunchCard(50)
+print(card)
 ```
 
-Ohjelman tulisi tuottaa seuraava tulostus:
+Executing the above should produce the following printout:
 
 <sample-output>
 
-Kortilla on rahaa 50.0 euroa
+The balance is 50.0 euros
 
 </sample-output>
 
-### Kortilla maksaminen
+### Paying for lunch
 
-Täydennä Maksukortti-luokkaa seuraavilla metodeilla:
+Please implement the following methods in your LunchCard class:
 
-- `syo_edullisesti` joka vähentää kortin saldoa 2.60 eurolla
-- `syo_maukkaasti` joka vähentää kortin saldoa 4.60 eurolla
+- `eat_lunch` subtracts 2.60 euros from the balance on the card
+- `eat_special` subtracts 4.60 euros from the balance on the card
 
-Seuraava pääohjelma testaa luokkaa
+You can use the following main function to test your class:
 
 ```python
-kortti = Maksukortti(50)
-print(kortti)
+card = LunchCard(50)
+print(card)
 
-kortti.syo_edullisesti()
-print(kortti)
+card.eat_lunch()
+print(card)
 
-kortti.syo_maukkaasti()
-kortti.syo_edullisesti()
-print(kortti)
+card.eat_special()
+card.eat_lunch()
+print(card)
 ```
 
-Ohjelman tulisi tuottaa seuraava tulostus:
+This should produce the following printout:
 
 <sample-output>
 
-Kortilla on rahaa 50.0 euroa
-Kortilla on rahaa 47.4 euroa
-Kortilla on rahaa 40.2 euroa
+The balance is 50.0 euros
+The balance is 47.4 euros
+The balance is 40.2 euros
 
 </sample-output>
 
-Huomaa, että kortin saldo ei saa mennä negatiiviseksi:
+Make sure the balance is never allowed to reach numbers below zero:
 
 ```python
-kortti = Maksukortti(4)
-print(kortti)
+card = LunchCard(4)
+print(card)
 
-kortti.syo_edullisesti()
-print(kortti)
+card.eat_lunch()
+print(card)
 
-kortti.syo_edullisesti()
-print(kortti)
-```
-
-<sample-output>
-
-Kortilla on rahaa 4.0 euroa
-Kortilla on rahaa 1.4 euroa
-Kortilla on rahaa 1.4 euroa
-
-</sample-output>
-
-Eli kortin saldo ei enää vähene jos maksettaessa saldo ei ole riittävä.
-
-### Kortin lataaminen
-
-Lisää `Maksukortti`-luokkaan metodi `lataa_rahaa`.
-
-Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä.
-
-```python
-kortti = Maksukortti(10)
-print(kortti)
-kortti.lataa_rahaa(15)
-print(kortti)
-kortti.lataa_rahaa(10)
-print(kortti)
-kortti.lataa_rahaa(200)
-print(kortti)
+card.eat_lunch()
+print(card)
 ```
 
 <sample-output>
 
-Kortilla on rahaa 10.0 euroa
-Kortilla on rahaa 25.0 euroa
-Kortilla on rahaa 35.0 euroa
-Kortilla on rahaa 150.0 euroa
+The balance is 4.0 euros
+The balance is 1.4 euros
+The balance is 1.4 euros
 
 </sample-output>
 
-Jos kortille yritetään ladata negatiivinen summa, tulee metodin [tuottaa poikkeus](/osa-6/3-virheet#poikkeusten-tuottaminen) `ValueError`:
+If there is not enough balance on the card to pay for lunch, the price of the lunch is not subtracted from the balance.
+
+### Depositing money on the card
+
+Implement the `deposit_money` method in your `LunchCard` class.
+
+The method increases the balance on the card by the amount given as an argument.
 
 ```python
-kortti = Maksukortti(10)
-kortti.lataa_rahaa(-10)
+card = LunchCard(10)
+print(card)
+card.deposit_money(15)
+print(card)
+card.deposit_money(10)
+print(card)
+card.deposit_money(200)
+print(card)
 ```
 
 <sample-output>
 
-File "testi.py", line 3, in maksukortti
-ValueError: Kortille ei saa ladata negatiivista summaa
+The balance is 10.0 euros
+The balance is 25.0 euros
+The balance is 35.0 euros
+The balance is 235.0 euros
 
 </sample-output>
 
-**Huomaa** että metodin tulee _tuottaa_ poikkeus, katso [osan 6](/osa-6/3-virheet#poikkeusten-tuottaminen) materiaalista miten poikkeus tuotetaan. Metodi ei missään tilanteessa itse tulosta mitään!
+The method should account for arguments below zero by [raising an exception](/part-6/3-errors#raising-exceptions) of type `ValueError`:
 
-### Monta korttia
+```python
+card = LunchCard(10)
+card.deposit_money(-10)
+```
 
-Tee pääohjelma, joka sisältää seuraavan tapahtumasarjan:
+<sample-output>
 
-- Luo Pekan kortti. Kortin alkusaldo on 20 euroa
-- Luo Matin kortti. Kortin alkusaldo on 30 euroa
-- Pekka syö maukkaasti
-- Matti syö edullisesti
-- _Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)_
-- Pekka lataa rahaa 20 euroa
-- Matti syö maukkaasti
-- _Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)_
-- Pekka syö edullisesti
-- Pekka syö edullisesti
-- Matti lataa rahaa 50 euroa
-- _Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)_
+File "testi.py", line 3, in lunchcard
+ValueError: You cannot deposit an amount of money less than zero
+
+</sample-output>
+
+**NB:** this method should _raise_ an exception. Please see the instructions for raising exceptions in [part 6](/part-6/3-errors#raising-exceptions). Under no circumstances should the method itself print out anything - the example above is a printout from the Python interpreter coming across the exception.
+
+### Multiple cards
+
+Please write a main function which contains the following sequence of events:
+
+- Create a lunch card for Peter. The initial balance on the card is 20 euros.
+- Create a lunch card for Grace. The initial balance on the card is 30 euros.
+- Peter eats a regular lunch
+- Grace eats the special
+- _Print out the balance on each card (on separate lines, with the name of the owner at the beginning of the line)_
+- Peter deposits 20 euros
+- Grace eats the special
+- _Print out the balance on each card (on separate lines, with the name of the owner at the beginning of the line)_
+- Peter eats a regular lunch
+- Peter eats a regular lunch
+- Grace deposits 50 euros
+- _Print out the balance on each card (on separate lines, with the name of the owner at the beginning of the line)_
 
 Pääohjelman runko
 
 ```python
-pekan_kortti = Maksukortti(20)
-matin_kortti = Maksukortti(30)
-# tee koodi tänne
+peters_card = LunchCard(20)
+graces_card = LunchCard(30)
+# the rest of your main function
 ```
 
-Tulostuksen tulee olla seuraava
+Your main function should print out exactly the following:
 
 <sample-output>
 
-Pekka: Kortilla on rahaa 15.4 euroa
-Matti: Kortilla on rahaa 27.4 euroa
-Pekka: Kortilla on rahaa 35.4 euroa
-Matti: Kortilla on rahaa 22.8 euroa
-Pekka: Kortilla on rahaa 30.2 euroa
-Matti: Kortilla on rahaa 72.8 euroa
+Peter: The balance is 15.4 euros
+Grace: The balance is 27.4 euros
+Peter: The balance is 35.4 euros
+Grace: The balance is 22.8 euros
+Peter: The balance is 30.2 euros
+Grace: The balance is 72.8 euros
 
 </sample-output>
 
@@ -453,33 +455,33 @@ opiskelu
 
 </sample-output>
 
-<programming-exercise name='Sarja' tmcname='part08-14_sarja'>
+<programming-exercise name='Series' tmcname='part08-16_series'>
 
-### Luokka Sarja
+### A class named Series
 
-Tee luokka `Sarja`, joka toimii seuraavasti
+Please write a class named `Series` with the following functionality:
 
 ```python
-dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
+dexter = Series("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
 print(dexter)
 ```
 
 <sample-output>
 
-Dexter (8 esityskautta)
-genret: Crime, Drama, Mystery, Thriller
-ei arvosteluja
+Dexter (8 seasons)
+genres: Crime, Drama, Mystery, Thriller
+no reviews
 
 </sample-output>
 
-Konstruktorissa siis asetetaan sarjan nimi, sen esityskausien lukumäärä sekä lista, joka kertoo mitä genrejä sarja edustaa.
+The constructor should take the name, the number of seasons and a list of genres for the series as its arguments.
 
-**Vihje:** merkkijonotaulukko saadaan muutettua haluttuja välimerkkejä sisältäväksi merkkijonoksi metodin `join` avulla seuraavasti:
+**Hint:** whenever you need to produce a string from a list containing strings, with a separating character of your choice in between the entries, you can use the `join` method as follows:
 
 ```python
-lista = ["Crime", "Drama", "Mystery", "Thriller"]
-merkkijono = ", ".join(lista)
-print(merkkijono)
+genre_list = ["Crime", "Drama", "Mystery", "Thriller"]
+genre_string = ", ".join(genre_list)
+print(genre_string)
 ```
 
 <sample-output>
@@ -488,58 +490,58 @@ Crime, Drama, Mystery, Thriller
 
 </sample-output>
 
-### Arvostelujen lisääminen
+### Adding reviews
 
-Tee luokalle metodi `arvostele(arvosana: int)`, jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0–5. Myös metodia `__str__` tulee muuttaa niin, että se antaa arvostelujen määrän ja keskiarvon pyöristettynä yhden desimaalin tarkkuudelle (jos arvosteluja on annettu).
+Please implement the method `rate(rating: int)` which lets you add a rating between 0 and 5 to any series object. You will also need to adjust the `__str__` method so that in case there are ratings, the method prints out the number of ratings added, and their average rounded to one decimal point.
 
 ```python
-dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
-dexter.arvostele(4)
-dexter.arvostele(5)
-dexter.arvostele(5)
-dexter.arvostele(3)
-dexter.arvostele(0)
+dexter = Series("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
+dexter.rate(4)
+dexter.rate(5)
+dexter.rate(5)
+dexter.rate(3)
+dexter.rate(0)
 print(dexter)
 ```
 
 <sample-output>
 
-Dexter (8 esityskautta)
-genret: Crime, Drama, Mystery, Thriller
-arvosteluja 5, keskiarvo 3.4 pistettä
+Dexter (8 seasons)
+genres: Crime, Drama, Mystery, Thriller
+5 ratings, average 3.4 points
 
 </sample-output>
 
-### Sarjojen haku
+### Searching for series
 
-Tee kaksi funktiota `arvosana_vahintaan(arvosana: float, sarjat: list)` ja `sisaltaa_genren(genre: str, sarjat: list)`, joiden avulla on mahdollista etsiä listalla olevia sarjoja.
+Please implement these two functions which allow you to search through a list of series: `minimum_rating(rating: float, series_list: list)` and `includes_genre(genre: str, series_list: list)`.
 
-Metodit toimivat seuraavasti:
+Here is an example of how the new methods are used:
 
 ```python
-s1 = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
-s1.arvostele(5)
+s1 = Series("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
+s1.rate(5)
 
-s2 = Sarja("South Park", 24, ["Animation", "Comedy"])
-s2.arvostele(3)
+s2 = Series("South Park", 24, ["Animation", "Comedy"])
+s2.rate(3)
 
-s3 = Sarja("Friends", 10, ["Romance", "Comedy"])
-s3.arvostele(2)
+s3 = Series("Friends", 10, ["Romance", "Comedy"])
+s3.rate(2)
 
-sarjat = [s1, s2, s3]
+series_list = [s1, s2, s3]
 
-print("arvosana vähintään 4.5:")
-for sarja in arvosana_vahintaan(4.5, sarjat):
-    print(sarja.nimi)
+print("a minimum rating of 4.5:")
+for series in minimum_rating(4.5, series_list):
+    print(series.name)
 
 print("genre Comedy:")
-for sarja in sisaltaa_genren("Comedy", sarjat):
-    print(sarja.nimi)
+for series in includes_genre("Comedy", series_list):
+    print(series.name)
 ```
 
 <sample-output>
 
-arvosana vähintään 4.5:
+a minimum rating of 4.5:
 Dexter
 
 genre Comedy:
@@ -548,7 +550,7 @@ Friends
 
 </sample-output>
 
-Huomaa, että yllä oleva koodi ja testit olettavat, että luokassa on attribuutti `nimi`. Jos olet käyttänyt muuta nimeä, sinun kannattaa vaihtaa se nyt.
+The code above and the automatic tests for this exercise assume your class contains an attribute `name`. If you used some other attribute name to refer to the name of the series, please change it before submitting.
 
 </programming-exercise>
 
