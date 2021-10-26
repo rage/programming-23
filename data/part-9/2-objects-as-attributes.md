@@ -1,12 +1,12 @@
 ---
-path: '/part-9/2-oliot-attribuuttina'
-title: 'Oliot attribuuttina'
+path: '/part-9/2-objects-as-attributes'
+title: 'Objects as attributes'
 hidden: False
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Osaat tallentaa olioita toisten olioiden sisään
 - Tiedät, mitä tarkoittaa `None`

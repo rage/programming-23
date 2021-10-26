@@ -1,12 +1,12 @@
 ---
-path: '/part-9/3-kapselointi'
-title: 'Kapselointi'
+path: '/part-9/3-encapsulation'
+title: 'Encapsulation'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, mitä tarkoitetaan kapseloinnilla
 - Osaat muodostaa piilotetun attribuutin

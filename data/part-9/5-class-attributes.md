@@ -1,12 +1,12 @@
 ---
-path: '/part-9/5-staattiset-piirteet'
-title: 'Staattiset piirteet'
+path: '/part-9/5-class-attributes'
+title: 'Class attributes'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen:
+After this section
 
 - Ymmärrät käsitteet luokkamuuttuja ja luokkametodi
 - Tiedät miten staattiset piirteet eroavat olioiden piirteistä
@@ -329,4 +329,4 @@ print(ListaApuri.tuplia(luvut))
 
 </sample-output>
 
-</progarmming-exercise>
+</programming-exercise>

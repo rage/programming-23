@@ -1,12 +1,12 @@
 ---
-path: '/part-9/4-metodien-nakyvyys'
-title: 'Metodien näkyvyys'
+path: '/part-9/4-scope-of-methods'
+title: 'Scope of methods'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, miten metodin näkyvyys määritellään Pythonissa
 - Osaat kirjoittaa piilotettuja metodeita

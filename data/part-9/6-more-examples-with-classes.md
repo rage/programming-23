@@ -1,12 +1,12 @@
 ---
-path: '/part-9/6-lisaa-esimerkkeja'
-title: 'Lisää esimerkkejä'
+path: '/part-9/6-more-examples-with-classes'
+title: 'More examples with classes'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tunnet lisää esimerkkejä luokista ja olioista
 - Osaat käyttää parametrien oletusarvoja metodeissa
@@ -528,7 +528,7 @@ Tiiliskivi (4 kg)
 
 </programming-exercise>
 
-Vastaa lopuksi osion loppukyselyyn:
+Please respond to a quick questionnaire on this week's materials.
 
 <quiz id="c5152550-712f-52c2-9188-adacb8f455ed"></quiz>
 

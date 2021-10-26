@@ -1,12 +1,12 @@
 ---
-path: '/part-9/1-oliot-ja-viittaukset'
-title: 'Oliot ja viittaukset'
+path: '/part-9/1-objects-and-references'
+title: 'Objects and references'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, miten olioita voi tallentaa tietorakenteisiin
 - Tiedät, miten olioiden välitys parametrina toimii
