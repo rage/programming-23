@@ -59,25 +59,25 @@ Opintopisteitä yhteensä: 20
 
 </sample-output>
 
-<programming-exercise name='Nopein auto' tmcname='osa09-01_nopein_auto'>
+<programming-exercise name='The fastest car' tmcname='part09-01_fastest_car'>
 
-Tehtäväpohjassa oleva luokka `Auto` mallintaa autoa kahden attribuutin avulla: `merkki (str)` ja `huippunopeus (int)`.
+The exercise template contains a class named `Car` which represents the features of a car through two attributes: `make (str)` and `top_speed (int)`.
 
-Kirjoita funktio `nopein_auto(autot: list)`, joka saa parametrikseen listan `Auto`-luokan olioita.
+Please write a function named `fastest_car(cars: list)` which takes a list of `Car` objects as its argument.
 
-Funktio palauttaa listassa olevista autoista nopeimman auton merkin. Voit olettaa, että nopein auto on yksikäsitteinen. Älä muuta alkuperäistä listaa tai luokkaa `Auto`.
+The function should return the make of the fastest car. You may assume there will always be a single car with the highest top speed. Do not change the list given as an argument, or make any changes to the `Car` class definition.
 
-Esimerkki funktion testauksesta:
+You may use the following code to test your function:
 
 ```python
 if __name__ == "__main__":
-    auto1 = Auto("Mersu", 195)
-    auto2 = Auto("Lada", 110)
-    auto3 = Auto("Ferrari", 280)
-    auto4 = Auto("Trabant", 85)
+    car1 = Car("Saab", 195)
+    car2 = Car("Lada", 110)
+    car3 = Car("Ferrari", 280)
+    car4 = Car("Trabant", 85)
 
-    autot = [auto1, auto2, auto3, auto4]
-    print(nopein_auto(autot))
+    cars = [car1, car2, car3, car4]
+    print(fastest_car(cars))
 ```
 
 <sample-output>
@@ -88,34 +88,34 @@ Ferrari
 
 </programming-exercise>
 
-<programming-exercise name='Hyväksytyt suoritukset' tmcname='osa09-02_hyvaksytyt_suoritukset'>
+<programming-exercise name='Passing submissions' tmcname='part09-02_passing_submissions'>
 
-Tehtäväpohjasta löytyy luokka `Koesuoritus`, joka mallintaa nimensä mukaisesti koesuoritusta. Sillä on kaksi attribuuttia, `suorittaja (str)` ja `pisteet (int)`.
+The exercise template contains a class named `ExamSubmission` which, as the name implies, models an examinee's submission in an exam. The class has two attributes defined: `examinee (str)` and `points (int)`.
 
-Kirjoita funktio `hyvaksytyt(suoritukset: list, pisteraja: int)`, joka saa parametrikseen listan koesuorituksia ja alimman hyväksytyn pistemäärän kokonaislukuna.
+Please write a function named `passed(submissions: list, lowest_passing: int)` which takes a list of exam submissions and an integer number representing the lowest passing grade as its arguments.
 
-Funktio muodostaa ja palauttaa uuden listan, johon on tallennettu ainoastaan hyväksytyt suoritukset listalta. Älä muuta alkuperäistä listaa tai luokkaa `Koesuoritus`.
+The function should create and return a new list, which contains only the passed submissions from the original list. Please do not change the list given as an argument, or make any changes to the `ExamSubmission` class definition.
 
-Esimerkki funktion käytöstä:
+You may use the following code to test your function:
 
 ```python
 if __name__ == "__main__":
-    s1 = Koesuoritus("Pekka", 12)
-    s2 = Koesuoritus("Pirjo", 19)
-    s3 = Koesuoritus("Pauli", 15)
-    s4 = Koesuoritus("Pirkko", 9)
-    s5 = Koesuoritus("Petriina", 17)
+    s1 = ExamSubmission("Peter", 12)
+    s2 = ExamSubmission("Pippa", 19)
+    s3 = ExamSubmission("Paul", 15)
+    s4 = ExamSubmission("Phoebe", 9)
+    s5 = ExamSubmission("Persephone", 17)
 
-    hyv = hyvaksytyt([s1, s2, s3, s4, s5], 15)
-    for hyvaksytty in hyv:
-        print(hyvaksytty)
+    passes = passed([s1, s2, s3, s4, s5], 15)
+    for passing in passes:
+        print(passing)
 ```
 
 <sample-output>
 
-Koesuoritus (suorittaja: Pirjo, pisteet: 19)
-Koesuoritus (suorittaja: Pauli, pisteet: 15)
-Koesuoritus (suorittaja: Petriina, pisteet: 17)
+ExamSubmission (examinee: Pippa, points: 19)
+ExamSubmission (examinee: Paul, points: 15)
+ExamSubmission (examinee: Persephone, points: 17)
 
 </programming-exercise>
 
@@ -511,316 +511,320 @@ Hurjakuru (1 kävijää)
 
 </sample-output>
 
-<programming-exercise name='Kasvatuslaitos' tmcname='osa09-03_kasvatuslaitos'>
+<programming-exercise name='Baby Centre' tmcname='part09-03_baby_centre'>
 
-Tehtäväpohjassasi on valmiina jo luokka `Henkilo` sekä runko luokalle `Kasvatuslaitos`. Kasvatuslaitosoliot käsittelevät ihmisiä eri tavalla, esim. punnitsevat ja syöttävät ihmisiä. Rakennamme tässä tehtävässä kasvatuslaitoksen. Luokan `Henkilo` koodiin ei tehtävässä ole tarkoitus koskea!
+The exercise template contains a class named `Person` and a skeleton implementation for the class `BabyCentre`. A `BabyCentre` object performs various actions on a `Person` object. It may, for example, weigh or feed the person. In this exercise you will implement the rest of the `BabyCentre` class. Please do not change the class definition of `Person` in any way.
 
-## Henkilöiden punnitseminen
+## Weighing persons
 
-Kasvatuslaitoksen luokkarungossa on valmiina runko metodille punnitse:
+The `BabyCentre` class definition contains an outline for the function `weigh`:
 
 ```python
-class Kasvatuslaitos:
-    def punnitse(self, henkilo: Henkilo):
-        # palautetaan parametrina annetun henkilön paino
+class BabyCentre:
+    def weigh(self, person: Person):
+        # return the weight of the person passed as an argument
         return -1
 ```
 
-Metodi saa parametrina henkilön ja metodin on tarkoitus palauttaa kutsujalleen parametrina olevan henkilön paino. Paino selviää pyytämällä parametrina olevalta henkilöltä `henkilo` sopiva attribuutti. Sinun tulee täydentää `punnitse`-metodin koodia.
+The method takes a `Person` object as its argument. It should return the weight of the person. You can access the weight of a person through the appropriate attribute defined in the `Person` class. Please fill in the rest of the implementation of the method `weigh`.
 
-Seuraavassa on pääohjelma jossa kasvatuslaitos punnitsee kaksi henkilöä:
+Below is an example of a main function where a `BabyCentre` weighs two separate `Person` objects:
 
 ```python
-haagan_neuvola = Kasvatuslaitos()
+baby_centre = BabyCentre()
 
-eero = Henkilo("Eero", 1, 110, 7)
-pekka = Henkilo("Pekka", 33, 176, 85)
+eric = Person("Eric", 1, 110, 7)
+peter = Person("Peter", 33, 176, 85)
 
-print(f"{eero.nimi} painaa {haagan_neuvola.punnitse(eero)} kg")
-print(f"{pekka.nimi} painaa {haagan_neuvola.punnitse(pekka)} kg")
+print(f"{eric.name} weighs {baby_centre.weigh(eric)} kg")
+print(f"{peter.name} weighs {baby_centre.weigh(peter)} kg")
 ```
 
 <sample-output>
 
-Eero painaa 7 kg
-Pekka painaa 85 kg
+Eric weighs 7 kg
+Peter weighs 85 kg
 
 </sample-output>
 
-## Syöttäminen
+## Feeding
 
-Parametrina olevan olion tilaa on mahdollista muuttaa. Tee kasvatuslaitokselle metodi `syota(henkilo: Henkilo)` joka kasvattaa parametrina olevan henkilön painoa yhdellä.
+It is possible to change the state of an object passed as an argument. Please implement the method `feed(person: Person)` which increases by one the weight of the person passed as an argument.
 
-Seuraavassa on esimerkki, jossa henkilöt ensin punnitaan ja tämän jälkeen neuvolassa syötetään Eeroa kolme kertaa. Tämän jälkeen henkilöt taas punnitaan:
+In the following example two persons are weighed, and then one of them is fed three times. Then the persons are weighed again:
 
 ```python
-haagan_neuvola = Kasvatuslaitos()
+baby_centre = BabyCentre()
 
-eero = Henkilo("Eero", 1, 110, 7)
-pekka = Henkilo("Pekka", 33, 176, 85)
+eric = Person("Eric", 1, 110, 7)
+peter = Person("Peter", 33, 176, 85)
 
-print(f"{eero.nimi} painaa {haagan_neuvola.punnitse(eero)} kg")
-print(f"{pekka.nimi} painaa {haagan_neuvola.punnitse(pekka)} kg")
+print(f"{eric.name} weighs {baby_centre.weigh(eric)} kg")
+print(f"{peter.name} weighs {baby_centre.weigh(peter)} kg")
 print() 
 
-haagan_neuvola.syota(eero)
-haagan_neuvola.syota(eero)
-haagan_neuvola.syota(eero)
+baby_centre.feed(eric)
+baby_centre.feed(eric)
+baby_centre.feed(eric)
 
-print(f"{eero.nimi} painaa {haagan_neuvola.punnitse(eero)} kg")
-print(f"{pekka.nimi} painaa {haagan_neuvola.punnitse(pekka)} kg")
+print(f"{eric.name} weighs {baby_centre.weigh(eric)} kg")
+print(f"{peter.name} weighs {baby_centre.weigh(peter)} kg")
 ```
 
-Tulostuksen pitäisi paljastaa, että Eeron paino on noussut kolmella:
+The printout should reveal that Eric's weight has increased by three:
 
 <sample-output>
 
-Eero painaa 7 kg
-Pekka painaa 85 kg
+Eric weighs 7 kg
+Peter weighs 85 kg
 
-Eero painaa 10 kg
-Pekka painaa 85 kg
+Eric weighs 10 kg
+Peter weighs 85 kg
 
 </sample-output>
 
-## Punnitusten laskeminen
+## Counting weigh-ins
 
-Tee kasvatuslaitokselle metodi `punnitukset()` joka kertoo, kuinka monta punnitusta kasvatuslaitos on ylipäätään tehnyt. Huom! Tarvitset uuden oliomuuttujan punnitusten lukumäärän laskemiseen. Testipääohjelma:
+Please implement the method `weigh_ins()` which returns the total number of weigh-ins a `BabyCentre` object has performed. NB: you will need a new attribute for keeping track of the number of weigh-ins. You can use the following code to test your method:
 
 ```python
-haagan_neuvola = Kasvatuslaitos()
+baby_centre = BabyCentre()
 
-eero = Henkilo("Eero", 1, 110, 7)
-pekka = Henkilo("Pekka", 33, 176, 85)
+eric = Person("Eric", 1, 110, 7)
+peter = Person("Peter", 33, 176, 85)
 
-print(f"Punnituksia tehty {haagan_neuvola.punnitukset()}")
+print(f"Total number of weigh-ins is {baby_centre.weigh_ins()}")
 
-haagan_neuvola.punnitse(eero)
-haagan_neuvola.punnitse(eero)
+baby_centre.weigh(eric)
+baby_centre.weigh(eric)
 
-print(f"Punnituksia tehty {haagan_neuvola.punnitukset()}")
+print(f"Total number of weigh-ins is {baby_centre.weigh_ins()}")
 
-haagan_neuvola.punnitse(eero)
-haagan_neuvola.punnitse(eero)
-haagan_neuvola.punnitse(eero)
-haagan_neuvola.punnitse(eero)
+baby_centre.weigh(eric)
+baby_centre.weigh(eric)
+baby_centre.weigh(eric)
+baby_centre.weigh(eric)
 
-print(f"Punnituksia tehty {haagan_neuvola.punnitukset()}")
+print(f"Total number of weigh-ins is {baby_centre.weigh_ins()}")
 ```
 
 <sample-output>
 
-Punnituksia tehty 0
-Punnituksia tehty 2
-Punnituksia tehty 6
+Total number of weigh-ins is 0
+Total number of weigh-ins is 2
+Total number of weigh-ins is 6
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Maksukortti ja kassapääte' tmcname='osa09-04_maksukortti_ja_kassapaate'>
+<programming-exercise name='LunchCard and PaymentTerminal' tmcname='part09-04_lunchcard_and_paymentterminal'>
 
-Teimme edellisessä osan [tehtävässä](/osa-8/5-lisaa-esimerkkeja#programming-exercise-maksukortti) luokan `Maksukortti`. Kortilla oli metodit edullisesti ja maukkaasti syömistä sekä rahan lataamista varten.
+In the previous part there was an [exercise](/part-8/5-more-examples-of-classes#programming-exercise-lunchcard) where you implemented the class `LunchCard`. The card had separate methods for eating a regular and a special lunch, along with a method for depositing money on the card.
 
-Edellisen osan tyylillä tehdyssä `Maksukortti`-luokassa oli kuitenkin ongelma. Kortti tiesi lounaiden hinnan ja osasi sen ansiosta vähentää saldoa oikean määrän. Entä kun hinnat nousevat? Tai jos myyntivalikoimaan tulee uusia tuotteita? Hintojen muuttaminen tarkoittaisi, että kaikki jo käytössä olevat kortit pitäisi korvata uudet hinnat tuntevilla korteilla.
+The `LunchCard` class, as you were asked to implement it, has some problmes, however. The card itself had knowledge of the prices of the different lunch options, and knew to subtract the right amount of money from the balance based on these. But imagine the prices changed, or there were new items introduced to the system, but several cards were already registered in the system. This would mean all existing cards would need to be replaced by versions with knowledge of the new prices.
 
-Parempi ratkaisu on tehdä kortit "tyhmiksi", hinnoista ja myytävistä tuotteista tietämättömiksi pelkän saldon säilyttäjiksi. Kaikki äly kannattaakin laittaa erillisiin olioihin, kassapäätteisiin.
+A better solution would be to make the cards "stupid", ignorant of the prices of different products. The purpose of the card would be to simply keep track of the available balance. All more complicated features should be contained within another class: the payment terminal.
 
-## "Tyhmä" maksukortti
+## A simpler LunchCard
 
-Toteutetaan ensin `Maksukortti`-luokasta "tyhmä" versio. Kortilla on ainoastaan metodit saldon kysymiseen, rahan lataamiseen ja rahan ottamiseen. Täydennä alla ja tehtäväpohjassa olevaan luokkaan metodin `ota_rahaa(maara)` ohjeen mukaan:
+Let's first implement a simpler version of the `LunchCard` class. The card should contain functionality only for finding out the current balance, depositing money on the card, and subtracting from the balance. Please fill in the `subtract_from_balance(amount)` method in the exercise template according to the instructions in the comments:
 
 ```python
-class Maksukortti:
-    def __init__(self, saldo: float):
-        self.saldo = saldo
+class LunchCard:
+    def __init__(self, balance: float):
+        self.balance = balance
 
-    def lataa_rahaa(self, lisays: float):
-        self.saldo += lisays
+    def deposit_money(self, amount: float):
+        self.balance += amount
 
-    def ota_rahaa(self, maara: float):
+    def subtract_from_balance(self, amount: float):
         pass
-        # Toteuta metodi siten, että se ottaa kortilta rahaa vain, jos saldoa riittää
-        # Onnistuessaan metodi palauttaa True ja muuten False
+        # The amount should be subtracted from the balance only if there is enough money on the card
+        # If the payment is successful, the method returns True, and otherwise it returns False
 ```
 
-Testipääohjelma:
+You may use the following code to test your function:
 
 ```python
 if __name__ == "__main__":
-    kortti = Maksukortti(10)
-    print("Rahaa", kortti.saldo)
-    tulos = kortti.ota_rahaa(8)
-    print("Onnistuiko otto:", tulos)
-    print("Rahaa", kortti.saldo)
-    tulos = kortti.ota_rahaa(4)
-    print("Onnistuiko otto:", tulos)
-    print("Rahaa", kortti.saldo)
+    card = LunchCard(10)
+    print("Balance", card.balance)
+    result = card.subtract_from_balance(8)
+    print("Payment successful:", result)
+    print("Balance", card.balance)
+    result = card.subtract_from_balance(4)
+    print("Payment successful:", result)
+    print("Balance", card.balance)
 ```
 
 <sample-output>
 
-Rahaa 10
-Onnistuiko otto: True
-Rahaa 2
-Onnistuiko otto: False
-Rahaa 2
+Balance 10
+Payment successful: True
+Balance 2
+Payment successful: False
+Balance 2
 
 </sample-output>
 
-## Kassapääte ja käteiskauppa
+## The payment terminal and dealing with cash payments
 
-Unicafessa asioidessa asiakas maksaa joko käteisellä tai maksukortilla. Myyjä käyttää kassapäätettä kortin veloittamiseen ja käteismaksujen hoitamiseen. Tehdään ensin kassapäätteestä käteismaksuihin sopiva versio.
+In the student cafeteria it is possible to pay with either cash or a LunchCard. A payment terminal is used to handle both cash and card transactions. Let's start with the cash transactions.
 
-Kassapäätteen runko on seuraavanlainen. Metodien kommentit kertovat halutun toiminnallisuuden.
+Here we have a skeleton implementation for a `PaymentTerminal` class. Please implement the methods as described in the comments:
 
 ```python
-class Kassapaate:
+class PaymentTerminal:
     def __init__(self):
-        # Kassassa on aluksi 1000 euroa rahaa
-        self.rahaa = 1000
-        self.edulliset = 0
-        self.maukkaat = 0
+        # Initially there is 1000 euros in cash available at the terminal
+        self.funds = 1000
+        self.lunches = 0
+        self.specials = 0
 
-    def syo_edullisesti(self, maksu: float):
-        # Edullinen lounas maksaa 2.50 euroa.
-        # Kasvatetaan kassan rahamäärää edullisen lounaan hinnalla ja palautetaan vaihtorahat
-        # Jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
+    def eat_lunch(self, payment: float):
+        # A regular lunch costs 2.50 euros.
+        # Increase the value of the funds at the terminal by the price of the lunch,
+        # increase the number of lunches sold, and return the appropriate change.
+        # If the payment passed as an argument is not large enough to cover the price,
+        # the lunch is not sold, and the entire sum is returned.
 
-    def syo_maukkaasti(self, maksu: float):
-        # Maukas lounas maksaa 4.30 euroa.
-        # Kasvatetaan kassan rahamäärää maukkaan lounaan hinnalla ja palautetaan vaihtorahat
-        # Jos parametrina annettu maksu ei ole riittävän suuri, ei lounasta myydä ja metodi palauttaa koko summan
+    def eat_special(self, payment: float):
+        # A special lunch costs 4.30 euros.
+        # Increase the value of the funds at the terminal by the price of the lunch,
+        # increase the number of specials sold, and return the appropriate change.
+        # If the payment passed as an argument is not large enough to cover the price,
+        # the lunch is not sold, and the entire sum is returned.
 ```
 
-Käyttöesimerkki
+You may use the following code to test your class:
 
 ```python
-exactum = Kassapaate()
+exactum = PaymentTerminal()
 
-vaihtorahaa = exactum.syo_edullisesti(10)
-print("Vaihtorahaa jäi", vaihtorahaa)
+change = exactum.eat_lunch(10)
+print("The change returned was", change)
 
-vaihtorahaa = exactum.syo_edullisesti(5)
-print("Vaihtorahaa jäi", vaihtorahaa)
+change = exactum.eat_lunch(5)
+print("The change returned was", change)
 
-vaihtorahaa = exactum.syo_maukkaasti(4.3)
-print("Vaihtorahaa jäi", vaihtorahaa)
+change = exactum.eat_special(4.3)
+print("The change returned was", change)
 
-print("Kassassa rahaa", exactum.rahaa)
-print("Edullisia lounaita myyty", exactum.edulliset)
-print("Maukkaita lounaita myyty", exactum.maukkaat)
+print("Funds available at the terminal:", exactum.funds)
+print("Regular lunches sold:", exactum.lunches)
+print("Special lunches sold:", exactum.specials)
 ```
 
 <sample-output>
 
-Vaihtorahaa jäi 7.5
-Vaihtorahaa jäi 2.5
-Vaihtorahaa jäi 0.0
-Kassassa rahaa 1009.3
-Edullisia lounaita myyty 2
-Maukkaita lounaita myyty 1
+The change returned was 7.5
+The change returned was 2.5
+The change returned was 0.0
+Funds available at the terminal: 1009.3
+Regular lunches sold: 2
+Special lunches sold: 1
 
 </sample-output>
 
-## Kortilla maksaminen
+## Dealing with card transactions
 
-Laajennetaan kassapäätettä siten, että myös kortilla voi maksaa. Teemme kassapäätteelle siis metodit, joiden parametrina kassapääte saa maksukortin, jolta se vähentää valitun lounaan hinnan. Seuraavassa ovat uusien metodien rungot ja ohje niiden toteuttamiseksi:
+Now let's implement card transactions. We will need methods which take a `LunchCard` as an argument, and reduce the balance on the card by the price of the lunch. Below you will find the outlines of these functions. Please fill in the methods as described in the comments:
 
 ```python
-class Kassapaate:
+class PaymentTerminal:
     # ...
 
-    def syo_edullisesti_kortilla(self, kortti: Maksukortti):
-        # Edullinen lounas maksaa 2.50 euroa
-        # Jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan True
-        # Muuten palautetaan False
+    def eat_lunch_lunchcard(self, card: LunchCard):
+        # A regular lunch costs 2.50 euros.
+        # If there is enough money on the card, subtract the price of the lunch from the balance
+        # and return True. If not, return False.
 
 
-    def syo_maukkaasti_kortilla(self, kortti: Maksukortti):
-        # Maukas lounas maksaa 4.30 euroa.
-        # Jos kortilla on tarpeeksi rahaa, vähennetään hinta kortilta ja palautetaan True
-        # Muuten palautetaan False
+    def eat_special_lunchcard(self, card: LunchCard):
+        # A special lunch costs 4.30 euros.
+        # If there is enough money on the card, subtract the price of the lunch from the balance
+        # and return True. If not, return False.
 ```
 
-**Huom:** kortilla maksaminen ei lisää kassapäätteessä olevan käteisen määrää.
+**NB:** when paying with a LunchCard the funds available at the terminal do not change. However, the lunches are still sold whenever there is the required balance available, so remember to increase the number of lunches sold appropriately.
 
-Seuraavassa on testipääohjelma ja haluttu tulostus:
+You may use the following code to test your class:
 
 ```python
-exactum = Kassapaate()
+exactum = PaymentTerminal()
 
-vaihtorahaa = exactum.syo_edullisesti(10)
-print("Vaihtorahaa jäi", vaihtorahaa)
+change = exactum.eat_lunch(10)
+print("The change returned was", change)
 
-kortti = Maksukortti(7)
+card = LunchCard(7)
 
-tulos = exactum.syo_maukkaasti_kortilla(kortti)
-print("Riittikö raha:", tulos)
-tulos = exactum.syo_maukkaasti_kortilla(kortti)
-print("Riittikö raha:", tulos)
-tulos = exactum.syo_edullisesti_kortilla(kortti)
-print("Riittikö raha:", tulos)
+result = exactum.eat_special_lunchcard(card)
+print("Payment successful:", result)
+result = exactum.eat_special_lunchcard(card)
+print("Payment successful:", result)
+result = exactum.eat_lunch_lunchcard(card)
+print("Payment successful:", result)
 
-print("Kassassa rahaa", exactum.rahaa)
-print("Edullisia lounaita myyty", exactum.edulliset)
-print("Maukkaita lounaita myyty", exactum.maukkaat)
+print("Funds available at the terminal:", exactum.funds)
+print("Regular lunches sold:", exactum.lunches)
+print("Special lunches sold:", exactum.specials)
 ```
 
 <sample-output>
 
-Vaihtorahaa jäi 7.5
-Riittikö raha: True
-Riittikö raha: False
-Riittikö raha: True
-Kassassa rahaa 1002.5
-Edullisia lounaita myyty 2
-Maukkaita lounaita myyty 1
+The change returned was 7.5
+Payment successful: True
+Payment successful: False
+Payment successful: True
+Funds available at the terminal: 1002.5
+Regular lunches sold: 2
+Special lunches sold: 1
 
 </sample-output>
 
-## Rahan lataaminen
+## Depositing money on the card
 
-Lisätään vielä kassapäätteelle metodi jonka avulla kortille voidaan ladata lisää rahaa. Muista, että rahan lataamisen yhteydessä ladattava summa viedään kassapäätteeseen. Metodin runko:
+Finally, let's add a method which lets you deposit money on the card. The card owner pays this by cash, so the deposited sum is added to the funds available at the terminal. Here is an outline for the method:
 
 ```python
-def lataa_rahaa_kortille(self, kortti: Maksukortti, summa: float):
+def deposit_money_on_card(self, card: LunchCard, amount: float):
     pass
 ```
 
-Testipääohjelma ja esimerkkisyöte:
+You may use the following code to test your method:
 
 ```python
-exactum = Kassapaate()
+exactum = PaymentTerminal()
 
-antin_kortti = Maksukortti(2)
-print(f"Kortilla rahaa {antin_kortti.saldo} euroa")
+card = LunchCard(2)
+print(f"Card balance is {card.balance} euros")
 
-tulos = exactum.syo_maukkaasti_kortilla(antin_kortti)
-print("Riittikö raha:", tulos)
+result = exactum.eat_special_lunchcard(card)
+print("Payment successful:", result)
 
-exactum.lataa_rahaa_kortille(antin_kortti, 100)
-print(f"Kortilla rahaa {antin_kortti.saldo} euroa")
+exactum.deposit_money_on_card(card, 100)
+print(f"Card balance is {card.balance} euros")
 
-tulos = exactum.syo_maukkaasti_kortilla(antin_kortti)
-print("Riittikö raha:", tulos)
-print(f"Kortilla rahaa {antin_kortti.saldo} euroa")
+result = exactum.eat_special_lunchcard(card)
+print("Payment successful:", result)
+print(f"Card balance is {card.balance} euros")
 
-print("Kassassa rahaa", exactum.rahaa)
-print("Edullisia lounaita myyty", exactum.edulliset)
-print("Maukkaita lounaita myyty", exactum.maukkaat)
+print("Funds available at the terminal:", exactum.funds)
+print("Regular lunches sold:", exactum.lunches)
+print("Special lunches sold:", exactum.specials)
 ```
 
 <sample-output>
 
-Kortilla rahaa 2.0 euroa
-Riittikö raha: False
-Kortilla rahaa 102.0 euroa
-Riittikö raha: True
-Kortilla rahaa 97.7 euroa
-Kassassa rahaa 1100
-Edullisia lounaita myyty 0
-Maukkaita lounaita myyty 1
+Card balance is 2.0 euros
+Payment successful: False
+Card balance is 102.0 euros
+Payment successful: True
+Card balance is 97.7 euros
+Funds available at the terminal: 1100
+Regular lunches sold: 0
+Special lunches sold: 1
 
 </sample-output>
 
@@ -932,33 +936,33 @@ class Henkilo:
         return self.syntynyt < toinen.syntynyt:
 ```
 
-<programming-exercise name='Asuntovertailu' tmcname='osa09-05_asuntovertailu'>
+<programming-exercise name='Comparing properties' tmcname='part09-05_comparing_properties'>
 
-Asuntovälitystoimiston tietojärjestelmässä kuvataan myynnissä olevaa asuntoa seuraavasta luokasta tehdyillä olioilla:
+The database of a real estate agency keeps records of available properties with objects defined by the following class:
 
 ```python
-class Asunto:
-    def __init__(self, huoneita: int, nelioita: int, neliohinta: int):
-        self.huoneita = huoneita
-        self.nelioita = nelioita
-        self.neliohinta = neliohinta
+class Property:
+    def __init__(self, rooms: int, square_meters: int, price_per_sqm: int):
+        self.rooms = rooms
+        self.square_meters = square_meters
+        self.price_per_sqm = price_per_sqm
 ```
 
-Tehtävänä on toteuttaa metodeita, joiden avulla myynnissä olevia asuntoja voidaan vertailla.
+Your task is to implement methods which allow for comparison between available properties.
 
-## Onko suurempi
+## Is it bigger?
 
-Tee metodi `suurempi(self, verrattava)`, joka palauttaa `True`, jos asunto-olio itse on pinta-alaltaan suurempi kuin verrattava asunto-olio.
+Please write a method named `bigger(self, compared_to)` which returns `True` if the `Property` object itself is bigger than the one it is compared to.
 
-Esimerkki metodin toiminnasta:
+An example of how the function should work:
 
 ```python
-eira_yksio = Asunto(1, 16, 5500)
-kallio_kaksio = Asunto(2, 38, 4200)
-jakomaki_kolmio = Asunto(3, 78, 2500)
+central_studio = Property(1, 16, 5500)
+downtown_two_bedroom = Property(2, 38, 4200)
+suburbs_three_bedroom = Property(3, 78, 2500)
 
-print(eira_yksio.suurempi(kallio_kaksio))
-print(jakomaki_kolmio.suurempi(kallio_kaksio))
+print(central_studio.bigger(downtown_two_bedroom))
+print(suburbs_three_bedroom.bigger(downtown_two_bedroom))
 ```
 
 <sample-output>
@@ -968,19 +972,19 @@ True
 
 </sample-output>
 
-## Hintaero
+## Price difference
 
-Tee metodi `hintaero(self, verrattava)`, joka palauttaa asunto-olion ja verrattavan asunto-olion hintaeron. Hintaero on asuntojen hintojen erotuksen (hinta lasketaan kertomalla neliöhinta neliöillä) itseisarvo.
+Please write a method named `price_difference(self, compared_to)` which returns the difference in price between the `Property` object itself and the one it is compared to. The price difference is the absolute value of the difference between the total prices of the two properties. The total price of a property is its price per square meter multiplied by the amount of square meters in the property.
 
-Esimerkki metodin toiminnasta:
+An example of how the function should work:
 
 ```python
-eira_yksio = Asunto(1, 16, 5500)
-kallio_kaksio = Asunto(2, 38, 4200)
-jakomaki_kolmio = Asunto(3, 78, 2500)
+central_studio = Property(1, 16, 5500)
+downtown_two_bedroom = Property(2, 38, 4200)
+suburbs_three_bedroom = Property(3, 78, 2500)
 
-print(eira_yksio.hintaero(kallio_kaksio))
-print(jakomaki_kolmio.hintaero(kallio_kaksio))
+print(central_studio.price_difference(downtown_two_bedroom))
+print(suburbs_three_bedroom.price_difference(downtown_two_bedroom))
 ```
 
 <sample-output>
@@ -990,19 +994,19 @@ print(jakomaki_kolmio.hintaero(kallio_kaksio))
 
 </sample-output>
 
-## Onko kalliimpi?
+## Is it more expensive?
 
-Tee metodi `kalliimpi(self, verrattava)` joka palauttaa `True`, jos asunto-olio on kalliimpi kuin verrattavana oleva asunto-olio.
+Please write a method named `more_expensive(self, compared_to)` which returns `True` if the `Property` object itself is more expensive that the one it is compared to.
 
-Esimerkki metodin toiminnasta:
+An example of how the function should work:
 
 ```python
-eira_yksio = Asunto(1, 16, 5500)
-kallio_kaksio = Asunto(2, 38, 4200)
-jakomaki_kolmio = Asunto(3, 78, 2500)
+central_studio = Property(1, 16, 5500)
+downtown_two_bedroom = Property(2, 38, 4200)
+suburbs_three_bedroom = Property(3, 78, 2500)
 
-print(eira_yksio.kalliimpi(kallio_kaksio))
-print(jakomaki_kolmio.kalliimpi(kallio_kaksio))
+print(central_studio.more_expensive(downtown_two_bedroom))
+print(suburbs_three_bedroom.more_expensive(downtown_two_bedroom))
 ```
 
 <sample-output>

@@ -309,7 +309,7 @@ The balance is 1.4 euros
 
 </sample-output>
 
-If there is not enough balance on the card to pay for lunch, the price of the lunch is not subtracted from the balance.
+If there is not enough money on the card to pay for the lunch, the price of the lunch should not be subtracted from the balance.
 
 ### Depositing money on the card
 
