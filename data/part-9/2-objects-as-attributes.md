@@ -129,26 +129,26 @@ from henkilo import Henkilo
 
 ratkaisusi on todennäköisesti väärä! Lisää importin käytöstä [osan 7](/osa-7/1-moduulit/) materiaalissa.
 
-<programming-exercise name='Lemmikit' tmcname='osa09-06_lemmikki'>
+<programming-exercise name='Pets' tmcname='part09-06_pets'>
 
-Tehtäväpohjassa tulee kaksi luokkaa, `Henkilo` ja `Lemmikki`. Jokaisella henkilöllä on yksi lemmikki. Täydennä luokan `Henkilo` metodia `__str__` siten, että metodi palauttaa merkkijonon, joka kertoo henkilön nimen lisäksi lemmikin nimen ja rodun alta löytyvät esimerkkitulosteen mukaisesti.
+The exercise template contains the outlines of two classes: `Person` and `Pet`. Each person has one pet. Please change the `__str__` method in the class `Person` so that it also prints out information about the person's pet as shown in the example below.
 
-Huomaa, että metodin palauttaman merkkijonon pitää olla _täsmälleen samanlainen kuin esimerkkitulosteessa esitetty_!
+The string returned by the method _must follow the format specified below exactly_.
 
 ```python
-hulda = Lemmikki("Hulda", "sekarotuinen koira")
-leevi = Henkilo("Leevi", hulda)
+hulda = Pet("Hulda", "mixed-breed dog")
+levi = Person("Levi", hulda)
 
-print(leevi)
+print(levi)
 ```
 
 <sample-output>
 
-Leevi, kaverina Hulda, joka on sekarotuinen koira
+Levi, whose pal is Hulda, a mixed-breed dog
 
 </sample-output>
 
-**Huom:** koska kaikki koodi tulee samaan tiedostoon, etä tarvitse tehtävässä `import`:ia ollenkaan!
+**NB:** all class definitions are in the same text file. You should not need to `import` anything.
 
 </programming-exercise>
 
@@ -202,51 +202,51 @@ Pelaajien maalimäärät [10, 22, 1]
 
 </sample-output>
 
-<programming-exercise name='Lahjapakkaus' tmcname='osa09-07_lahjapakkaus'>
+<programming-exercise name='A box of presents' tmcname='part09-07_box_of_presents'>
 
-Tässä tehtävässä harjoitellaan lahjojen pakkaamista. Tehdään luokat `Lahja` ja `Pakkaus`. Lahjalla on nimi ja paino, ja pakkaus sisältää lahjoja.
+In this exercise you will practice wrapping presents. You will write two classes: `Present` and `Box`. A present has a name and a weight, and a box contains presents.
 
-## Lahja-luokka
+## The Present class
 
-Tee luokka `Lahja`, josta muodostetut oliot kuvaavat erilaisia lahjoja. Tallennettavat tiedot ovat tavaran nimi ja paino (kg). Luokan olioiden tulee toimia seuraavasti:
+Please define the class `Present` which can be used to represent different kinds of presents. The class definition should contain attributes for the name and the weight (in kg) of the present. Instances of the class should work as follows:
 
 ```python
-kirja = Lahja("Aapiskukko", 2)
+book = Present("ABC Book", 2)
 
-print("Lahjan nimi:", kirja.nimi)
-print("Lahjan paino:" ,kirja.paino)
-print("Lahja:", kirja)
+print("The name of the present:", book.name)
+print("The weight of the present:", book.weight)
+print("Present:", book)
 ```
 
-Ohjelman tulostuksen tulisi olla seuraava:
+This should print out
 
 <sample-output>
 
-Lahjan nimi: Aapiskukko
-Lahjan paino: 2
-Lahja: Aapiskukko (2 kg)
+The name of the present: ABC Book
+The weight of the present: 2
+Present: ABC Book (2 kg)
 
 </sample-output>
 
-## Pakkaus-luokka
+## The Box class
 
-Tee luokka `Pakkaus`, johon voi lisätä lahjoja ja joka pitää kirjaa pakkauksessa olevien lahjojen yhteispainosta. Luokassa tulee olla seuraavat metodit
+Please define the class `Box`. You should be able to add presents to the box, and the box should keep track of the combined weight of the presents within. The class definition should contain these methods:
 
-- `lisaa_lahja(self, lahja: Lahja)`, joka lisää parametrina annettavan lahjan pakkaukseen. Metodi ei palauta mitään arvoa.
-- `yhteispaino(self)`, joka palauttaa pakkauksessa olevien lahjojen yhteispainon.
+- `add_present(self, present: Present)` which adds the present given as an argument to the box. The method has no return value.
+- `total_weight(self)` which returns the combined weight of the presents in the box.
 
-Seuraavassa on luokan käyttöesimerkki:
+You may use the following code to test your class:
 
 ```python
-kirja = Lahja("Aapiskukko", 2)
+book = Present("ABC Book", 2)
 
-pakkaus = Pakkaus()
-pakkaus.lisaa_lahja(kirja)
-print(pakkaus.yhteispaino())
+box = Box()
+box.add_present(book)
+print(box.total_weight())
 
-cd_levy = Lahja("Pink Floyd: Dark side of the moon", 1)
-pakkaus.lisaa_lahja(cd_levy)
-print(pakkaus.yhteispaino())
+cd = Present("Pink Floyd: Dark side of the moon", 1)
+box.add_present(cd)
+print(box.total_weight())
 ```
 
 <sample-output>
@@ -348,138 +348,138 @@ Jukkis ei pelaa Kumpulan pallossa :(
 
 </sample-output>
 
-<programming-exercise name='Huoneen lyhin' tmcname='osa09-08_huoneen_lyhin'>
+<programming-exercise name='The shortest person in the room' tmcname='part09-08_shortest_in_room'>
 
-Tehtäväpohjassa on valmiina luokka `Henkilo`. Henkilöllä on nimi ja pituus. Toteutetaan tässä tehtävässä luokka `Huone`, jonne voi lisätä henkilöitä ja josta voi hakea ja poistaa lyhimmän henkilön.
+The exercise template contains the class `Person`. A person has a name and a height. In this exercise you will implement the class `Room`. You may add any number of persons to a room, and you may also search for and remove the shortest person from the room.
 
-## Huone
+## Room
 
-Luo luokka `Huone`, jonka sisällä on lista henkilöitä ja jolla on seuraavat metodit:
+Please define the class `Room`. It should have a list of persons as an attribute, and also contain the following methods:
 
-- `lisaa(henkilo: Henkilo)` lisää huoneeseen parametrina annetun henkilön.
-- `on_tyhja()` - palauttaa arvon `True` tai `False`, joka kertoo, onko huone tyhjä.
-- `tulosta_tiedot()` tulostaa huoneessa olevat henkilöt
+- `add(person: Person)` adds the person given as an argument to the room.
+- `is_empty()` returns `True` or `False` depending on whether the room is empty.
+- `print_contents()` prints out the contents of the list of persons in the room.
 
-Seuraavassa käyttöesimerkki:
+Please have a look at the following usage example:
 
 ```python
-huone = Huone()
-print("Huone tyhjä?", huone.on_tyhja())
-huone.lisaa(Henkilo("Lea", 183))
-huone.lisaa(Henkilo("Kenya", 182))
-huone.lisaa(Henkilo("Auli", 186))
-huone.lisaa(Henkilo("Nina", 172))
-huone.lisaa(Henkilo("Terhi", 185))
-print("Huone tyhjä?", huone.on_tyhja())
-huone.tulosta_tiedot()
+room = Room()
+print("Is the room empty?", room.is_empty())
+room.add(Person("Lea", 183))
+room.add(Person("Kenya", 182))
+room.add(Person("Ally", 186))
+room.add(Person("Nina", 172))
+room.add(Person("Dorothy", 185))
+print("Is the room empty?", room.is_empty())
+room.print_contents()
 ```
 
 <sample-output>
 
-Huone tyhjä? True
-Huone tyhjä? False
-Huoneessa 5 henkilöä, yhteispituus 908 cm
+Is the room empty? True
+Is the room empty? False
+There are 5 persons in the room, and their combined height is 908 cm
 Lea (183 cm)
 Kenya (182 cm)
-Auli (186 cm)
+Ally (186 cm)
 Nina (172 cm)
-Terhi (185 cm)
+Dorothy (185 cm)
 
 </sample-output>
 
-## Lyhin henkilö
+## The shortest person
 
-Lisää luokalle `Huone` metodi `lyhin()`, joka palauttaa huoneeseen lisätyistä henkilöistä lyhimmän. Mikäli huone on tyhjä, metodi palauttaa `None`-viitteen. Metodin ei tule poistaa henkilöä huoneesta.
+Please define the method `shortest()` within the `Room` class definition. The method should return the shortest person in the room it is called on. If the room is empty, the method should return `None`. The method should _not_ remove the person fron the room.
 
 ```python
-huone = Huone()
+room = Room()
 
-print("Huone tyhjä?", huone.on_tyhja())
-print("Lyhin:", huone.lyhin())
+print("Is the room empty?", room.is_empty())
+print("Shortest:", room.shortest())
 
-huone.lisaa(Henkilo("Lea", 183))
-huone.lisaa(Henkilo("Kenya", 182))
-huone.lisaa(Henkilo("Nina", 172))
-huone.lisaa(Henkilo("Auli", 186))
-
-print()
-
-print("Huone tyhjä?", huone.on_tyhja())
-print("Lyhin:", huone.lyhin())
+room.add(Person("Lea", 183))
+room.add(Person("Kenya", 182))
+room.add(Person("Nina", 172))
+room.add(Person("Ally", 186))
 
 print()
 
-huone.tulosta_tiedot()
+print("Is the room empty?", room.is_empty())
+print("Shortest:", room.shortest())
+
+print()
+
+room.print_contents()
 ```
 
 <sample-output>
 
-Huone tyhjä? True
-Lyhin: None
+Is the room empty? True
+Shortest: None
 
-Huone tyhjä? False
-Lyhin: Nina
+Is the room empty? False
+Shortest: Nina
 
-Huoneessa 4 henkilöä, yhteispituus 723 cm
+There are 4 persons in the room, and their combined height is 723 cm
 Lea (183 cm)
 Kenya (182 cm)
 Nina (172 cm)
-Auli (186 cm)
+Ally (186 cm)
 
 </sample-output>
 
-## Huoneesta ottaminen
+## Removing a person from the room
 
-Lisää luokalle `Huone` metodi `poista_lyhin()`, joka poistaa ja palauttaa huoneesta lyhimmän henkilön. Mikäli huone on tyhjä, metodi palauttaa `None`-viitteen.
+Please define the method `remove_shortest()` within the `Room` class definition. The method should remove the shortest `Person` object from the room and return the reference to the object. If the rom is empty, the method should return `None`.
 
 ```python
-huone = Huone()
+room = Room()
 
-huone.lisaa(Henkilo("Lea", 183))
-huone.lisaa(Henkilo("Kenya", 182))
-huone.lisaa(Henkilo("Nina", 172))
-huone.lisaa(Henkilo("Auli", 186))
-huone.tulosta_tiedot()
-
-print()
-
-poistettu = huone.poista_lyhin()
-print(f"Otettiin huoneesta {poistettu.nimi}")
+room.add(Person("Lea", 183))
+room.add(Person("Kenya", 182))
+room.add(Person("Nina", 172))
+room.add(Person("Ally", 186))
+room.print_contents()
 
 print()
 
-huone.tulosta_tiedot()
+removed = room.remove_shortest()
+print(f"Removed from room: {removed.name}")
+
+print()
+
+room.print_contents()
 ```
 
 <sample-output>
 
-Huoneessa 4 henkilöä, yhteispituus 723 cm
+There are 4 persons in the room, and their combined height is 723 cm
 Lea (183 cm)
 Kenya (182 cm)
 Nina (172 cm)
-Auli (186 cm)
+Ally (186 cm)
 
-Otettiin huoneesta Nina
+Removed from room: Nina
 
-Huoneessa 3 henkilöä, yhteispituus 551 cm
+There are 3 persons in the room, and their combined height is 551 cm
 Lea (183 cm)
 Kenya (182 cm)
-Auli (186 cm)
+Ally (186 cm)
 
 </sample-output>
 
-**Vihje**: [osassa 4](/osa-4/3-listat#alkioiden-lisaaminen-ja-poistaminen) kerrottiin, miten alkion poistaminen listalta onnistuu.
+**Hint**: in [part 4](/part-4/3-lists#removing-items-from-a-list) you will find instructions for removing items from a list.
 
-**Vihje2**: muista, että metodissa on mahdollista kutsua saman olion toista metodia. Eli seuraava koodi toimii:
+**Hint2**: it is always possible to call another method of the same class from within a method. The following should work just fine:
 
 ```python
-class Huone:
+class Room:
     # ...
-    def lyhin(self):
-        # koodi
+    def shortest(self):
+        # your code goes here
 
-    def poista_lyhin(self):
-        lyhin_henkilo = self.lyhin()
+    def remove_shortest(self):
+        shortest_person = self.shortest()
         # ...
 ```
 
