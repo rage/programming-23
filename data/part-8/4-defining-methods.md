@@ -455,7 +455,7 @@ Numbers added: 4
 
 Please add the following methods to your class definition:
 
-- the method `sum` should return the sum of the numbers added (if no numbers have been added, the method should return 0)
+- the method `get_sum` should return the sum of the numbers added (if no numbers have been added, the method should return 0)
 - the method `mean` should return the mean of the numbers added (if no numbers have been added, the method should return 0)
 
 ```python
@@ -465,7 +465,7 @@ stats.add_number(5)
 stats.add_number(1)
 stats.add_number(2)
 print("Numbers added:", stats.count_numbers())
-print("Sum of numbers:", stats.sum())
+print("Sum of numbers:", stats.get_sum())
 print("Mean of numbers:", stats.mean())
 ```
 
