@@ -941,7 +941,7 @@ class Henkilo:
 The database of a real estate agency keeps records of available properties with objects defined by the following class:
 
 ```python
-class Property:
+class RealProperty:
     def __init__(self, rooms: int, square_meters: int, price_per_sqm: int):
         self.rooms = rooms
         self.square_meters = square_meters
@@ -952,14 +952,14 @@ Your task is to implement methods which allow for comparison between available p
 
 ## Is it bigger?
 
-Please write a method named `bigger(self, compared_to)` which returns `True` if the `Property` object itself is bigger than the one it is compared to.
+Please write a method named `bigger(self, compared_to)` which returns `True` if the `RealProperty` object itself is bigger than the one it is compared to.
 
 An example of how the function should work:
 
 ```python
-central_studio = Property(1, 16, 5500)
-downtown_two_bedroom = Property(2, 38, 4200)
-suburbs_three_bedroom = Property(3, 78, 2500)
+central_studio = RealProperty(1, 16, 5500)
+downtown_two_bedroom = RealProperty(2, 38, 4200)
+suburbs_three_bedroom = RealProperty(3, 78, 2500)
 
 print(central_studio.bigger(downtown_two_bedroom))
 print(suburbs_three_bedroom.bigger(downtown_two_bedroom))
@@ -974,14 +974,14 @@ True
 
 ## Price difference
 
-Please write a method named `price_difference(self, compared_to)` which returns the difference in price between the `Property` object itself and the one it is compared to. The price difference is the absolute value of the difference between the total prices of the two properties. The total price of a property is its price per square meter multiplied by the amount of square meters in the property.
+Please write a method named `price_difference(self, compared_to)` which returns the difference in price between the `RealProperty` object itself and the one it is compared to. The price difference is the absolute value of the difference between the total prices of the two properties. The total price of a property is its price per square meter multiplied by the amount of square meters in the property.
 
 An example of how the function should work:
 
 ```python
-central_studio = Property(1, 16, 5500)
-downtown_two_bedroom = Property(2, 38, 4200)
-suburbs_three_bedroom = Property(3, 78, 2500)
+central_studio = RealProperty(1, 16, 5500)
+downtown_two_bedroom = RealProperty(2, 38, 4200)
+suburbs_three_bedroom = RealProperty(3, 78, 2500)
 
 print(central_studio.price_difference(downtown_two_bedroom))
 print(suburbs_three_bedroom.price_difference(downtown_two_bedroom))
@@ -996,14 +996,14 @@ print(suburbs_three_bedroom.price_difference(downtown_two_bedroom))
 
 ## Is it more expensive?
 
-Please write a method named `more_expensive(self, compared_to)` which returns `True` if the `Property` object itself is more expensive that the one it is compared to.
+Please write a method named `more_expensive(self, compared_to)` which returns `True` if the `RealProperty` object itself is more expensive that the one it is compared to.
 
 An example of how the function should work:
 
 ```python
-central_studio = Property(1, 16, 5500)
-downtown_two_bedroom = Property(2, 38, 4200)
-suburbs_three_bedroom = Property(3, 78, 2500)
+central_studio = RealProperty(1, 16, 5500)
+downtown_two_bedroom = RealProperty(2, 38, 4200)
+suburbs_three_bedroom = RealProperty(3, 78, 2500)
 
 print(central_studio.more_expensive(downtown_two_bedroom))
 print(suburbs_three_bedroom.more_expensive(downtown_two_bedroom))
