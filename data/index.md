@@ -27,13 +27,11 @@ The course will be open until the end of the year 2021. The materials will be ma
 
 ## Lectures
 
-<strong>
-  There is NO lecture at Tuesday Oct 12th. The replacement will be held at Thursday, Oct. 14th at 10.30.
-</strong>
+Advanced Course lectures at <strong>Thursdays at 10.15</strong>, starting at Nov. 4th.
 
-Lectures take place in Zoom Tuesdays at 12.15 PM Finnish time (EEST, UTC+03:00).
+[Zoom link to lectures](https://helsinki.zoom.us/j/66337739018?pwd=SGhjS0Z1MlAyWWQ4TEtYUXFiaUhjZz09)
 
-[Zoom link to lectures](https://helsinki.zoom.us/j/61102130977)
+Passcode (if required) is 12345.
 
 Recordings of all lectures will be provided on this page afterwards, usually by Wednesday morning.
 
