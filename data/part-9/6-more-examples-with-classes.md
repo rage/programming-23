@@ -280,249 +280,248 @@ print(opiskelija2.tehdyt_kurssit)
 
 Vaikka seuraava tehtävä on tässä luvussa, et tarvitse tehtävän ratkaisemiseen mitään muuta kun luvussa [Oliot attribuuttina](/osa-9/2-oliot-attribuuttina) esiteltyjä tekniikoita. Tehtävä on käytännössä hyvin samanlainen kuin tuon luvun  tehtävät [lahjapakkaus](/osa-9/2-oliot-attribuuttina#programming-exercise-lahjapakkaus) ja [huoneen lyhin](/osa-9/2-oliot-attribuuttina#programming-exercise-huoneen-lyhin).
 
-<programming-exercise name='Tavara, Matkalaukku ja Lastiruuma' tmcname='osa09-15_tavara_matkalaukku_lastiruuma'>
+<programming-exercise name='Item, Suitcase and Cargo hold' tmcname='part09-15_item_suitcase_hold'>
 
-Tässä tehtäväsarjassa tehdään luokat `Tavara`, `Matkalaukku` ja `Lastiruuma`, joiden avulla harjoitellaan lisää olioita, jotka sisältävät toisia olioita.
+In this series of exercises you will create the classes `Item`, `Suitcase` and `Cargo Hold`, which will let you further practice working on objects which contain references to other objects.
 
-## Tavara-luokka
+## Item
 
-Tee luokka `Tavara`, josta muodostetut oliot vastaavat erilaisia tavaroita. Tallennettavat tiedot ovat tavaran nimi ja paino (kg).
+Please create a class named `Item` which is used to create items of different kinds. Each item has a name and a weight (in kilograms).
 
-Luokan tulee toimia seuraavasti
+You can use the following code to test your class:
 
 ```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
+book = Item("ABC Book", 2)
+phone = Item("Nokia 3210", 1)
 
-print("Kirjan nimi:", kirja.nimi())
-print("Kirjan paino:", kirja.paino())
+print("Name of the book:", book.name())
+print("Weight of the book:", book.weight())
 
-print("Kirja:", kirja)
-print("Puhelin:", puhelin)
+print("Book:", book)
+print("Phone:", phone)
 ```
 
-Ohjelman tulostuksen tulisi olla seuraava:
+Your program should print out this:
 
 <sample-output>
 
-Kirjan nimi: Aapiskukko
-Kirjan paino: 2
-Kirja: Aapiskukko (2 kg)
-Puhelin: Nokia 3210 (1 kg)
+Name of the book: ABC Book
+Weight of the book: 2
+Book: ABC Book (2 kg)
+Phone: Nokia 3210 (1 kg)
 
 </sample-output>
 
-Tavaralla on siis metodit `paino` ja `nimi` jotka palauttavat tavaran tiedot.
+An `Item` should provide the methods `weight` and `name`, which return the values stored in those attributes.
 
-Luokan tulee tallentaa tieto nimestä ja painosta kapseloituna, eli seuraava ei saa onnistua:
-
-```python
-kirja = Tavara("Aapiskukko", 2)
-kirja.paino = 10
-```
-
-## Matkalaukku-luokka
-
-Tee luokka `Matkalaukku`. Matkalaukkuun liittyy tavaroita ja maksimipaino, joka määrittelee tavaroiden suurimman mahdollisen yhteispainon.
-
-Lisää luokkaan seuraavat:
-
-- konstruktori, jolle annetaan maksimipaino
-- metodi `lisaa_tavara`, joka lisää parametrina annettavan tavaran matkalaukkuun. Metodi ei palauta mitään arvoa.
-- metodi `__str__`, joka palauttaa merkkijonon muotoa "x tavaraa (y kg)"
-
-Luokan tulee valvoa, että sen sisältämien tavaroiden yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi lisättävän tavaran vuoksi, metodi `lisaa_tavara` ei saa lisätä uutta tavaraa laukkuun.
-
-Seuraavassa on luokan käyttöesimerkki:
+The name and weight should be encapsulated within the class. The following code should not work:
 
 ```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("Tiiliskivi", 4)
-
-matkalaukku = Matkalaukku(5)
-print(matkalaukku)
-
-matkalaukku.lisaa_tavara(kirja)
-print(matkalaukku)
-
-matkalaukku.lisaa_tavara(puhelin)
-print(matkalaukku)
-
-matkalaukku.lisaa_tavara(tiiliskivi)
-print(matkalaukku)
+book = Item("ABC Book", 2)
+book.weight = 10
 ```
 
-Ohjelman tulostuksen tulisi olla seuraava:
+## Suitcase
+
+Please write a class named `Suitcase`. You should be able to pack items into a suitcase. A suitcase also has a maximum combined weight for the items stored within.
+
+Your class should contains the following members:
+
+- a constructor which takes the maximum weight as an argument
+- a method named `add_item` which adds the item given as an argument to the suitcase. The method has no return value.
+- a `__str__` method which returns a string in the format "x items (y kg)"
+
+The class should make sure that the combined weight of the items stored within any `Suitcase` does not exceed the maximum weight set for that instance. If the maximum weight would be exceeded when the `add_item` method is called, the new item should not be added to the suitcase.
+
+Your class should work as follows:
+
+```python
+book = Item("ABC Book", 2)
+phone = Item("Nokia 3210", 1)
+brick = Item("Brick", 4)
+
+suitcase = Suitcase(5)
+print(suitcase)
+
+suitcase.add_item(book)
+print(suitcase)
+
+suitcase.add_item(phone)
+print(suitcase)
+
+suitcase.add_item(brick)
+print(suitcase)
+```
+
+Executing the above should print out
 
 <sample-output>
 
-0 tavaraa (0 kg)
-1 tavaraa (2 kg)
-2 tavaraa (3 kg)
-2 tavaraa (3 kg)
+0 items (0 kg)
+1 items (2 kg)
+2 items (3 kg)
+2 items (3 kg)
 
 </sample-output>
 
-## Kielenhuoltoa
+## Mind your language
 
-Ilmoitus "1 tavaraa" ei ole kovin hyvää suomea, vaan olisi parempi sanoa "1 tavara". Tee tämä muutos luokassa sijaitsevaan `__str__`-metodiin.
+The notification "1 items" is not very grammatical. Instead, it should say "1 item". Please make the required changes to your `__str__` method.
 
-Nyt edellisen ohjelman tulostuksen tulisi olla seuraava:
+The previous example should now print out
 
 <sample-output>
 
-0 tavaraa (0 kg)
-1 tavara (2 kg)
-2 tavaraa (3 kg)
-2 tavaraa (3 kg)
+0 items (0 kg)
+1 item (2 kg)
+2 items (3 kg)
+2 items (3 kg)
 
 </sample-output>
 
-## Kaikki tavarat
+## All the items
 
-Lisää luokkaan seuraavat metodit:
+Please add the following methods to your `Suitcase` class definition:
 
-- `tulosta_tavarat`, joka tulostaa kaikki matkalaukussa olevat tavarat
-- `paino`, joka palauttaa matkalaukun yhteispainoa kuvaavan kokonaisluvun, joka on sen sisältävien tavaroiden painojen summa
+- `print_items` prints out all the items stored in the suitcase
+- `weight` returns an integer number representing the combined weight of all the items stored in the suitcase
 
-Seuraavassa on luokan käyttöesimerkki:
+Your class should now work with the following program:
 
 ```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("Tiiliskivi", 4)
+book = Item("ABC Book", 2)
+phone = Item("Nokia 3210", 1)
+brick = Item("Brick", 4)
 
-matkalaukku = Matkalaukku(10)
-matkalaukku.lisaa_tavara(kirja)
-matkalaukku.lisaa_tavara(puhelin)
-matkalaukku.lisaa_tavara(tiiliskivi)
+suitcase = Suitcase(10)
+suitcase.add_item(book)
+suitcase.add_item(phone)
+suitcase.add_item(brick)
 
-print("Matkalaukussa on seuraavat tavarat:")
-matkalaukku.tulosta_tavarat()
-paino_yht = matkalaukku.paino()
-print(f"Yhteispaino: {paino_yht} kg")
+print("The suitcase contains the following items:")
+suitcase.print_items()
+combined_weight = suitcase.weight()
+print(f"Combined weight: {combined_weight} kg")
 ```
 
-Ohjelman tulostuksen tulisi olla seuraava:
+Executing the above program should print out this:
 
 <sample-output>
 
-Matkalaukussa on seuraavat tavarat:
-Aapiskukko (2 kg)
+The suitcase contains the following items:
+ABC Book (2 kg)
 Nokia 3210 (1 kg)
-Tiiliskivi (4 kg)
-Yhteispaino: 7 kg
+Brick (4 kg)
+Combined weight: 7 kg
 
 </sample-output>
 
-Muokkaa myös luokkaasi siten, että käytät vain kahta oliomuuttujaa. Toinen sisältää maksimipainon, toinen on lista laukussa olevista tavaroista.
+If you have implemented your `Suitcase` class with more than two instance variables, please make the required changes so that each instance has only two data attributes: the maximum weight and a list of items within.
 
-## Raskain tavara
+## The heaviest item
 
-Lisää vielä luokkaan metodi `raskain_tavara`, joka palauttaa painoltaan suurimman tavaran. Jos yhtä raskaita tavaroita on useita, metodi voi palauttaa minkä tahansa niistä. Metodin tulee palauttaa olioviite. Jos laukku on tyhjä, palauta arvo `None`.
+Please add a new method to your `Suitcase` class: `heaviest_item` should return the `Item` which is the heaviest. If there are two or more items with the same, heaviest weight, the method may return any one of these. The method should return a reference to an object. If the suitcase is empty, the method should return `None`.
 
-Seuraavassa on luokan käyttöesimerkki:
+Your class should now work with the following program:
 
 ```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("Tiiliskivi", 4)
+book = Item("ABC Book", 2)
+phone = Item("Nokia 3210", 1)
+brick = Item("Brick", 4)
 
-matkalaukku = Matkalaukku(10)
-matkalaukku.lisaa_tavara(kirja)
-matkalaukku.lisaa_tavara(puhelin)
-matkalaukku.lisaa_tavara(tiiliskivi)
+suitcase = Suitcase(10)
+suitcase.add_item(book)
+suitcase.add_item(phone)
+suitcase.add_item(brick)
 
-raskain = matkalaukku.raskain_tavara()
-print(f"Raskain tavara: {raskain}")
+heaviest = suitcase.heaviest_item()
+print(f"The heaviest item: {heaviest}")
 ```
 
-Ohjelman tulostuksen tulisi olla seuraava:
+Executing the above program should print out this:
 
 <sample-output>
 
-Raskain tavara: Tiiliskivi (4 kg)
+The heaviest item: Brick (4 kg)
 
 </sample-output>
 
-## Lastiruuma-luokka
+## Cargo hold
 
-Tee luokka `Lastiruuma`, johon liittyvät seuraavat metodit:
+Please write a class named `CargoHold` with the following methods:
 
-- konstruktori, jolle annetaan maksimipaino
-- metodi `lisaa_matkalaukku`, joka lisää parametrina annetun matkalaukun lastiruumaan
-- metodi `__str__`, joka palauttaa merkkijonon muotoa "x matkalaukkua, tilaa y kg"
+- a constructor which takes the maximum weight as an argument
+- a method named `add_suitcase` which adds the suitcase given as an argument to the cargo hold
+- a `__str__` method which returns a string in the format "x suitcases, space for y kg"
 
-Luokan tulee valvoa, että sen matkalaukkujen yhteispaino ei ylitä maksimipainoa. Jos maksimipaino ylittyisi uuden matkalaukun vuoksi, metodi `lisaa_matkalaukku` ei saa lisätä uutta matkalaukkua.
+The class should make sure that the combined weight of the items stored within any `CargoHold` does not exceed the maximum weight set for that instance. If the maximum weight would be exceeded when the `add_suitcase` method is called, the new item should not be added to the cargo hold.
 
-Seuraavassa on luokan käyttöesimerkki:
+Your class should now work with the following program:
 
 ```python
-lastiruuma = Lastiruuma(1000)
-print(lastiruuma)
+cargo_hold = CargoHold(1000)
+print(cargo_hold)
 
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("Tiiliskivi", 4)
+book = Item("ABC Book", 2)
+phone = Item("Nokia 3210", 1)
+brick = Item("Brick", 4)
 
-adan_laukku = Matkalaukku(10)
-adan_laukku.lisaa_tavara(kirja)
-adan_laukku.lisaa_tavara(puhelin)
+adas_suitcase = Suitcase(10)
+adas_suitcase.add_item(book)
+adas_suitcase.add_item(phone)
 
-pekan_laukku = Matkalaukku(10)
-pekan_laukku.lisaa_tavara(tiiliskivi)
+peters_suitcase = Suitcase(10)
+peters_suitcase.add_item(brick)
 
-lastiruuma.lisaa_matkalaukku(adan_laukku)
-print(lastiruuma)
+cargo_hold.add_suitcase(adas_suitcase)
+print(cargo_hold)
 
-lastiruuma.lisaa_matkalaukku(pekan_laukku)
-print(lastiruuma)
+cargo_hold.add_suitcase(peters_suitcase)
+print(cargo_hold)
 ```
 
 <sample-output>
 
-0 matkalaukkua, tilaa 1000 kg
-1 matkalaukku, tilaa 997 kg
-2 matkalaukkua, tilaa 993 kg
+0 suitcases, space for 1000 kg
+1 suitcase, space for 997 kg
+2 suitcases, space for 993 kg
 
 </sample-output>
 
-## Lastiruuman sisältö
+## The contents of the cargo hold
 
-Lisää luokkaan metodi `tulosta_tavarat`, joka tulostaa kaikki lastiruuman matkalaukuissa olevat tavarat.
+Please add a method named `print_items` to your `CargoHold` class. It should print out all the items in all the suitcases within the cargo hold.
 
-Seuraavassa on luokan käyttöesimerkki:
+Your class should now work with the following program:
 
 ```python
-kirja = Tavara("Aapiskukko", 2)
-puhelin = Tavara("Nokia 3210", 1)
-tiiliskivi = Tavara("Tiiliskivi", 4)
+book = Item("ABC Book", 2)
+phone = Item("Nokia 3210", 1)
+brick = Item("Brick", 4)
 
-adan_laukku = Matkalaukku(10)
-adan_laukku.lisaa_tavara(kirja)
-adan_laukku.lisaa_tavara(puhelin)
+adas_suitcase = Suitcase(10)
+adas_suitcase.add_item(book)
+adas_suitcase.add_item(phone)
 
-pekan_laukku = Matkalaukku(10)
-pekan_laukku.lisaa_tavara(tiiliskivi)
+peters_suitcase = Suitcase(10)
+peters_suitcase.add_item(brick)
 
-lastiruuma = Lastiruuma(1000)
-lastiruuma.lisaa_matkalaukku(adan_laukku)
-lastiruuma.lisaa_matkalaukku(pekan_laukku)
+cargo_hold = CargoHold(1000)
+cargo_hold.add_suitcase(adas_suitcase)
+cargo_hold.add_suitcase(peters_suitcase)
 
-print("Ruuman matkalaukuissa on seuraavat tavarat:")
-lastiruuma.tulosta_tavarat()
+print("The suitcases in the cargo hold contain the following items:")
+cargo_hold.print_items()
 ```
 
-Ohjelman tulostuksen tulisi olla seuraava:
-
+Executing the above program should print out this:
 
 <sample-output>
 
-Ruuman matkalaukuissa on seuraavat tavarat:
-Aapiskukko (2 kg)
+The suitcases in the cargo hold contain the following items:
+ABC Book (2 kg)
 Nokia 3210 (1 kg)
-Tiiliskivi (4 kg)
+Brick (4 kg)
 
 </sample-output>
 
