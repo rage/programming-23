@@ -105,7 +105,7 @@ Ernest Pythons
 
 </sample-output>
 
-Similarly, string methods target the string object which they are called on. Some examples of string methods include `count` ja `find`:
+Similarly, string methods target the string object which they are called on. Some examples of string methods include `count` and `find`:
 
 ```python
 name = "Imaginary Irene"
