@@ -191,7 +191,7 @@ class DecreasingCounter:
     def print_value(self):
         print("value:", self.value)
 
-    def decrease_value(self):
+    def decrease(self):
         pass
 
     # define the rest of your methods here
@@ -202,9 +202,9 @@ The class can now be used as shown below, and should produce the following print
 ```python
 counter = DecreasingCounter(10)
 counter.print_value()
-counter.decrease_value()
+counter.decrease()
 counter.print_value()
-counter.decrease_value()
+counter.decrease()
 counter.print_value()
 ```
 
@@ -219,20 +219,20 @@ value: 8
 
 ### Decreasing the value of the counter
 
-Please complete the method `decrease_value` defined in the template, so that it decreases the value stored in the counter by one. See the example above for expected behaviour.
+Please complete the method `decrease` defined in the template, so that it decreases the value stored in the counter by one. See the example above for expected behaviour.
 
 ### The counter must not have a negative value
 
-Please add functionality to your `decrease_value` method, so that the value of the counter will never reach negative values. If the value of the counter is 0, it will not be further decreased.
+Please add functionality to your `decrease` method, so that the value of the counter will never reach negative values. If the value of the counter is 0, it will not be further decreased.
 
 ```python
 counter = DecreasingCounter(2)
 counter.print_value()
-counter.decrease_value()
+counter.decrease()
 counter.print_value()
-counter.decrease_value()
+counter.decrease()
 counter.print_value()
-counter.decrease_value()
+counter.decrease()
 counter.print_value()
 ```
 
@@ -269,10 +269,10 @@ Please add a method `reset_original_value()` which resets the counter to its ini
 
 ```python
 counter = DecreasingCounter(55)
-counter.decrease_value()
-counter.decrease_value()
-counter.decrease_value()
-counter.decrease_value()
+counter.decrease()
+counter.decrease()
+counter.decrease()
+counter.decrease()
 counter.print_value()
 counter.reset_original_value()
 counter.print_value()
