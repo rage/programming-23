@@ -121,29 +121,29 @@ Ohjelma tulostaa esimerkiksi
 
 Piilotettuja metodeja tarvitaan yleensä harvemmin kuin piilotettuja attribuutteja. Metodi kannattaa piilottaa, jos asiakas ei tarvitse siihen suoraa pääsyä, ja varsinkin silloin, jos on todennäköistä, että asiakas voisi sotkea olion sisäisen eheyden metodia kutsumalla.
 
-<programming-exercise name='Palvelumaksu' tmcname='osa09-12_palvelumaksu'>
+<programming-exercise name='Service charge' tmcname='part09-12_service_charge'>
 
-Kirjoita luokka `Pankkitili`, joka mallintaa pankkitiliä. Luokalla tulee olla
+Please create a class named `BankAccount` which models a bank account. The class should contain 
 
-* konstruktori, joka saa parametrikseen tilinomistajan (str), tilinumeron (str) ja saldon (float)
-* metodi `talleta(summa: float)`, jolla tilille voidaan tallettaa rahaa
-* metodi `nosta(summa: float)`, joka nostaa tililtä rahasumman
-* havainnointimetodi `saldo`, joka palauttaa tilin saldon
+* a constructor which takes the name of the owner (str), account number (str) and balance (float) as arguments
+* a method `deposit(amount: float)` for depositing money to the account
+* a method `withdraw(amount: float)` for withdrawing money from the account
+* a getter method `balance` which returns the balance of the account
 
-Lisäksi luokalla on yksityinen metodi
+The class should also contain the private method
 
-* `__palvelumaksu()`, joka vähentää tililtä yhden prosentin rahaa. Luokassa kutsutaan tätä metodia aina, kun asiakas kutsuu jompaa kumpaa metodeista `talleta` tai `nosta`. Prosentti vähennetään aina varsinaisen operaation jälkeen (eli. esimerkiksi vasta sitten, kun rahat on talletettu).
+* `__service_charge()`, which decrease the balance of the account by one percent. Whenever either of the methods `deposit` or `withdraw` is called, this method should also be called. The service charge is calculated and subtracted only after the actual operation is completed (that is, after the amount specified has been added to or subtracted from the balance).
 
-Kaikki luokan attribuutit ovat yksityisiä.
+All data attributes within the class definition should be private.
 
-Esimerkki luokan käytöstä:
+You may use the following code for testing your class:
 
 ```python
-tili = Pankkitili("Raimo Rahakas", "12345-6789", 1000)
-tili.nosta(100)
-print(tili.saldo)
-tili.talleta(100)
-print(tili.saldo)
+account = BankAccount("Randy Riches", "12345-6789", 1000)
+account.withdraw(100)
+print(account.balance)
+account.deposit(100)
+print(account.balance)
 
 ```
 
