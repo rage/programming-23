@@ -8,59 +8,59 @@ hidden: false
 
 After this section
 
-- Tiedät, miten metodit toimivat luokissa
-- Osaat kirjoittaa metodeita omiin luokkiin
-- Ymmärrät, mitä tarkoitetaan kapseloinnilla ja asiakkaalla olio-ohjelmoinnissa
+- You will know how class methods work
+- You will be able to write new methods in your own classes
+- You will understand the concepts of encapsulation and client in object oriented programming
 
 </text-box>
 
-Vain attribuutteja sisältävät luokat eivät käytännössä eroa juurikaan sanakirjoista. Seuraavassa esimerkissä on esitetty pankkitiliä mallintava rakenne sekä oman luokan että sanakirjan avulla toteutettuna:
+Classes which contain only data attributes are not very different from dictionaries. Below you will find two ways to model a bank account, first with a class definition, and then using a dictionary.
 
 ```python
-# Esimerkki omaa luokkaa käyttäen
-class Pankkitili:
+# Example 1: bank account with class definition
+class BankAccount:
 
-    def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
-        self.tilinumero = tilinumero
-        self.omistaja = omistaja
-        self.saldo = saldo
-        self.vuosikorko = vuosikorko
+    def __init__(self, account_number: str, owner: str, balance: float, annual_interest: float):
+        self.account_number = account_number
+        self.owner = owner
+        self.balance = balance
+        self.annual_interest = annual_interest
 
-pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500.0, 0.015)
+peters_account = BankAccount("12345-678", "Peter Python", 1500.0, 0.015)
 ```
 
 ```python
-# Esimerkki sanakirjaa käyttäen
-pekan_tili = {"tilinumero": "12345-678", "omistaja": "Pekka Python", "saldo": 1500.0, "vuosikorko": 0.0}
+# Example 2: bank account with dictionary
+peters_account = {"account_number": "12345-678", "owner": "Peter Python", "balance": 1500.0, "annual_interest": 0.0}
 ```
 
-Sanakirjaa käyttäen rakenteen toteutus on huomattavasti suoraviivaisempi ja koodi on lyhyempi. Luokan hyötynä tässä tapauksessa on, että se määrittelee rakenteen "tiukemmin", jolloin kaikki luokasta muodostetut oliot ovat rakenteeltaan samanlaisia. Luokka on lisäksi nimetty: oliota muodostaessa viitataan `Pankkitili`-luokkaan ja olion tyyppi on `Pankkitili` eikä sanakirja.
+With a dictionary the implementation is much shorter and more straightforward. With a class, however, the structure is more "tightly bound", so that we can expect all `BankAccount` objects to be structurally alike. A class is also named. The `BankAccount` class is referenced when creating a new bank account, and the type of the object is `BankAccount`, not `dict`.
 
-Luokilla on lisäksi etuna, että niihin voidaan lisätä attribuuttien lisäksi myös toiminnallisuutta. Yksi olio-ohjelmoinnin periaatteista onkin, että olioon on yhdistetty sekä tallennettavat tiedot että operaatiot, joilla tietoa voidaan käsitellä.
+Another significant advantage of classes is that in addition to data, they can contain functionality. One of the guiding principles of object oriented programming is that an object is uswd to access both the data attached to an object and the functionality to process that data.
 
-## Metodit luokissa
+## Methods in classes
 
-Metodi tarkoittaa luokkaan sidottua aliohjelmaa. Yleensä metodin toiminta kohdistuu vain yhteen olioon. Metodi kirjoitetaan luokan sisälle, ja se voi käsitellä attribuutteja kuten mitä tahansa muuttujia.
+A method is a subprogram or function that is bound to a specific class. Usually a method only affects a single object. A method is defined within the class definition, and it can access the data attributes of the class just like any other variable.
 
-Katsotaan esimerkkinä `Pankkitili`-luokan metodia, joka lisää koron pankkitilille:
+Let's continue with the `BankAccount` class introduced above. Below we have a new method which adds interest to the account:
 
 ```python
-class Pankkitili:
+class BankAccount:
 
-    def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
-        self.tilinumero = tilinumero
-        self.omistaja = omistaja
-        self.saldo = saldo
-        self.vuosikorko = vuosikorko
+    def __init__(self, account_number: str, owner: str, balance: float, annual_interest: float):
+        self.account_number = account_number
+        self.owner = owner
+        self.balance = balance
+        self.annual_interest = annual_interest
 
-    # Metodi lisää koron tilin saldoon
-    def lisaa_korko(self):
-        self.saldo += self.saldo * self.vuosikorko
+    # This method adds the annual interest to the balance of the account
+    def add_interest(self):
+        self.balance += self.balance * self.annual_interest
 
 
-pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500.0, 0.015)
-pekan_tili.lisaa_korko()
-print(pekan_tili.saldo)
+peters_account = BankAccount("12345-678", "Peter Python", 1500.0, 0.015)
+peters_account.add_interest()
+print(peters_account.balance)
 ```
 
 <sample-output>
@@ -69,25 +69,25 @@ print(pekan_tili.saldo)
 
 </sample-output>
 
-Metodi `lisaa_korko` kertoo olion saldon vuosikorkoprosentilla ja lisää tuloksen nykyiseen saldoon. Metodin toiminta kohdistuu siihen olioon, jonka kautta sitä kutsutaan.
+The `add_interest` method multiplies the balance of the account by the annual interest percentage, and then adds the result to the current balance. The method acts only on the object which it is called on.
 
-Katsotaan vielä toinen esimerkki, jossa luokasta on muodostettu useampi olio:
+Let's see ow this works when we have created multiple instances of the class:
 
 ```python
-# Luokka Pankkitili on määritelty edellisessä esimerkissä
+# The class BankAccount is defined in the previous example
 
-pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500.0, 0.015)
-pirjon_tili = Pankkitili("99999-999", "Pirjo Pythonen", 1500.0, 0.05)
-paulin_tili = Pankkitili("1111-222", "Pauli Paulinen", 1500.0, 0.001)
+peters_account = BankAccount("12345-678", "Peter Python", 1500.0, 0.015)
+paulas_account = BankAccount("99999-999", "Paula Pythonen", 1500.0, 0.05)
+pippas_account = BankAccount("1111-222", "Pippa Programmer", 1500.0, 0.001)
 
-# Lisätään korko Pekalle ja Pirjolle, mutta ei Paulille
-pekan_tili.lisaa_korko()
-pirjon_tili.lisaa_korko()
+# Add interest on Peter's and Paula's accounts, but not on Pippa's
+peters_account.add_interest()
+paulas_account.add_interest()
 
-# Tulostetaan kaikki
-print(pekan_tili.saldo)
-print(pirjon_tili.saldo)
-print(paulin_tili.saldo)
+# Print all account balances
+print(peters_account.balance)
+print(paulas_account.balance)
+print(pippas_account.balance)
 ```
 
 <sample-output>
@@ -98,77 +98,84 @@ print(paulin_tili.saldo)
 
 </sample-output>
 
-Korko lisätään vain siihen tiliin, jonka kautta metodia kutsutaan. Esimerkistä huomataan, että Pekalle ja Pirjolle lisätään eri korkoprosentit ja Paulin tilin saldo ei muutu ollenkaan, koska olion `paulin_tili` kautta ei kutsuta metodia `lisaa_korko`.
+As you can see above, the annual interest is added only to those accounts which the method is called on. As the annual interest rates are different for Peter's and Paula's accounts, the results are different for these two accounts. The balance on Pippa's account does not change, because the `add_interest` method is not called on the object `pippas_account`.
 
-## Kapselointi
+## Encapsulation
 
-Olio-ohjelmoinnin yhteydessä puhutaan usein olioiden _asiakkaista_. Asiakkaalla (client) tarkoitetaan koodin osaa, joka muodostaa olion ja käyttää sen palveluita kutsumalla metodeita. Kun olion tietosisältöä käsitellään vain olion tarjoamien metodien avulla, voidaan varmistua siitä, että olion _sisäinen eheys_ säilyy. Käytännössä tämä tarkoittaa esimerkiksi sitä, että `Pankkitili`-luokassa tarjotaan metodi, jolla tililtä nostetaan rahaa, sen sijaan, että asiakas käsittelisi suoraan attribuuttia `saldo`. Tässä metodissa voidaan sitten esimerkiksi varmistaa, ettei tililtä nosteta enempää katetta enempää rahaa.
+In object oriented programming the word _client_ comes up from time to time. This is used to refer to a section of code which creates an object and uses the service provided by its methods. When the data contained in an object is used only through the methods it provides, the _internal integrity_ of the object is guaranteed. In practice this means that, for example, a `BankAccount` class offers methods to handle the `balance` attribute, so the balance is never accessed directly by the client. These methods can then verify that the balance is not allowed to go below zero, for instance.
 
-Esimerkiksi:
+An example of how this would work:
 
 ```python
-class Pankkitili:
+class BankAccount:
 
-    def __init__(self, tilinumero: str, omistaja: str, saldo: float, vuosikorko: float):
-        self.tilinumero = tilinumero
-        self.omistaja = omistaja
-        self.saldo = saldo
-        self.vuosikorko = vuosikorko
+    def __init__(self, account_number: str, owner: str, balance: float, annual_interest: float):
+        self.account_number = account_number
+        self.owner = owner
+        self.balance = balance
+        self.annual_interest = annual_interest
 
-    # Metodi lisää koron tilin saldoon
-    def lisaa_korko(self):
-        self.saldo += self.saldo * self.vuosikorko
+    # This method adds the annual interest to the balance of the account
+    def add_interest(self):
+        self.balance += self.balance * self.annual_interest
 
-    # Metodilla "nostetaan" tililtä rahaa
-    # Metodi palauttaa true, jos nosto onnistuu, muuten False
-    def nosto(self, nostosumma: float):
-        if nostosumma <= self.saldo:
-            self.saldo -= nostosumma
+    # This method "withdraws" money from the account
+    # If the withdrawal is successful the method returns True, and False otherwise
+    def withdraw(self, amount: float):
+        if amount <= self.balance:
+            self.balance -= amount
             return True
 
         return False
 
-pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500.0, 0.015)
+peters_account = BankAccount("12345-678", "Peter Python", 1500.0, 0.015)
 
-if pekan_tili.nosto(1000):
-    print("Nosto onnistui, tilin saldo on nyt", pekan_tili.saldo)
+if peters_account.withdraw(1000):
+    print("The withdrawal was successful, the balance is now", peters_account.balance)
 else:
-    print("Nosto ei onnistunut, rahaa ei ole tarpeeksi.")
+    print("The withdrawal was unsuccessful, the balance is insufficient")
 
 # Yritetään uudestaan
-if pekan_tili.nosto(1000):
-    print("Nosto onnistui, tilin saldo on nyt", pekan_tili.saldo)
+if peters_account.withdraw(1000):
+    print("The withdrawal was successful, the balance is now", peters_account.balance)
 else:
-    print("Nosto ei onnistunut, rahaa ei ole tarpeeksi.")
+    print("The withdrawal was unsuccessful, the balance is insufficient")
 ```
 
 <sample-output>
 
-Nosto onnistui, tilin saldo on nyt 500.0
-Nosto ei onnistunut, rahaa ei ole tarpeeksi.
+The withdrawal was successful, the balance is now 500.0
+The withdrawal was unsuccessful, the balance is insufficient
 
 </sample-output>
 
-Olion sisäisen eheyden säilyttämistä ja sopivien metodien tarjoamista asiakkaalle kutsutaan _kapseloinniksi_. Tämä tarkoittaa, että olion toteutus piilotetaan asiakkaalta ja olio tarjoaa ulkopuolelle metodit, joiden avulla tietoja voi käsitellä.
+Maintaining the internal integrity of the object and offering suitable methods to ensure this is called _encapsulation_. The idea is that the inner workings of the object are hidden from the client, but the object offers methods which can be used to access the data stored in the object.
 
-Pelkkä metodin lisäys ei kuitenkaan piilota attribuuttia: vaikka luokkaan `Pankkitili` onkin lisätty metodi `nosto` rahan nostamiseksi, asiakas voi edelleen muokata `saldo`-attribuutin arvoa suoraan:
+Adding a method does not automatically hide the attribute. Even though the `BankAccount` class definition contains the `withdraw` method for withdrawing money, the client code can still access and change the `balance` attribute directly:
 
 ```python
-pekan_tili = Pankkitili("12345-678", "Pekka Python", 1500.0, 0.015)
+peters_account = BankAccount("12345-678", "Peter Python", 1500.0, 0.015)
 
-# Yritetään nostaa 2000
-if pekan_tili.nosto(2000):
-    print("Nosto onnistui, tilin saldo on nyt", pekan_tili.saldo)
+# Attempt to withdraw 2000
+if peters_account.withdraw(2000):
+    print("The withdrawal was successful, the balance is now", peters_account.balance)
 else:
-    print("Nosto ei onnistunut, rahaa ei ole tarpeeksi.")
+    print("The withdrawal was unsuccessful, the balance is insufficient")
 
-    # Nostetaan "väkisin" 2000
-    pekan_tili.saldo -= 2000
+    # "Force" the withdrawal of 2000
+    peters_account.balance -= 2000
 
-print("Saldo nyt:", pekan_tili.saldo)
+print("The balance is now:", peters_account.balance)
 ```
 
-Ongelma voidaan ainakin osittain ratkaista piilottamalla attribuutit asiakkaalta. Käytännön toteutukseen palataan tarkemmin ensi viikolla.
+<sample-output>
+
+The withdrawal was unsuccessful, the balance is insufficient
+The balance is now: -500.0
+
+</sample-output>
+
+It is possible to hide the data attributes from the client code, which can help in solving this problem. We will return to this topic in the next part.
 
 <programming-exercise name='Decreasing counter' tmcname='part08-10_decreasing_counter'>
 
@@ -280,98 +287,98 @@ value: 55
 
 </programming-exercise>
 
-Tarkastellaan vielä esimerkkiä luokasta, joka mallintaa pelaajan ennätystulosta. Luokkaan on kirjoitettu erilliset metodit, joilla voidaan tarkastaa, ovatko annetut parametrit sopivia. Metodeja kutsutaan heti konstruktorissa. Näin varmistetaan luotavan olion sisäinen eheys.
+To finish off this section, lets have a look at a class which models the personal best of a player. The class definition contains separate validator methods which ascertain that the arguments passed are valid. The methods are called already within the constructor. This ensures the object created is internally sound.
 
 ```python
 from datetime import date
 
-class Ennatystulos:
+class PersonalBest:
 
-    def __init__(self, pelaaja: str, paiva: int, kuukausi: int, vuosi: int, pisteet: int):
-        # Oletusarvot
-        self.pelaaja = ""
-        self.paivamaara = date(1900, 1, 1)
-        self.pisteet = 0
+    def __init__(self, player: str, day: int, month: int, year: int, points: int):
+        # Default values
+        self.player = ""
+        self.date_of_pb = date(1900, 1, 1)
+        self.points = 0
 
-        if self.nimi_ok(pelaaja):
-            self.pelaaja = pelaaja
+        if self.name_ok(player):
+            self.player = player
 
-        if self.pvm_ok(paiva, kuukausi, vuosi):
-            self.paivamaara = date(vuosi, kuukausi, paiva)
+        if self.date_ok(day, month, year):
+            self.date_of_pb = date(year, month, day)
 
-        if self.pisteet_ok(pisteet):
-            self.pisteet = pisteet
+        if self.points_ok(points):
+            self.points = points
 
-    # Apumetodit, joilla tarkistetaan ovatko syötteet ok
-    def nimi_ok(self, nimi: str):
-        return len(nimi) >= 2 # Nimessä vähintään kaksi merkkiä
+    # Helper methods to check the arguments are valid
+    def name_ok(self, name: str):
+        return len(name) >= 2 # Name should be at least two characters long
 
-    def pvm_ok(self, paiva, kuukausi, vuosi):
+    def date_ok(self, day, month, year):
         try:
-            date(vuosi, kuukausi, paiva)
+            date(year, month, day)
             return True
         except:
-            # Poikkeus, jos yritetään muodostaa epäkelpo päivämäärä
+            # an exception is raised if the arguments are not
             return False
 
-    def pisteet_ok(self, pisteet):
-        return pisteet >= 0
+    def points_ok(self, points):
+        return points >= 0
 
 if __name__ == "__main__":
-    tulos1 = Ennatystulos("Pekka", 1, 11, 2020, 235)
-    print(tulos1.pisteet)
-    print(tulos1.pelaaja)
-    print(tulos1.paivamaara)
+    result1 = PersonalBest("Peter", 1, 11, 2020, 235)
+    print(result1.points)
+    print(result1.player)
+    print(result1.date_of_pb)
 
-    # Epäkelpo arvo päivämäärälle
-    tulos2 = Ennatystulos("Piia", 4, 13, 2019, 4555)
-    print(tulos2.pisteet)
-    print(tulos2.pelaaja)
-    print(tulos2.paivamaara) # Tulostaa oletusarvon 1900-01-01
+    # The date was not valid
+    result2 = PersonalBest("Paula", 4, 13, 2019, 4555)
+    print(result2.points)
+    print(result2.player)
+    print(result2.date_of_pb) # Tulostaa oletusarvon 1900-01-01
 ```
 
 <sample-output>
 
 235
-Pekka
+Peter
 2020-11-01
 4555
-Piia
+Paula
 1900-01-01
 
 </sample-output>
 
-Esimerkistä huomataan, että myös olion omiin metodeihin pitää viitata `self`-määreen avulla, kun niitä kutsutaan konstruktorista. Luokkiin voidaan kirjoitaa myös _staattisia metodeita_ eli metodeita, joita voidaan kutsua ilman, että luokasta muodostetaan oliota. Tähän palataan kuitenkin tarkemmin ensi viikolla.
+In the example above also the helper methods were called via the `self` keyword when they were used in the constructor. It is possible to also include _static_ method definitions in class definitions. These are methods which can be called without ever creating an instance of the class. We will return to this subject in the next part.
 
-Määrettä `self` käytetään kuitenkin vain silloin, kun viitataan _olion piirteisiin_ (eli metodeihin tai olion attribuutteihin). Olion metodeissa voidaan käyttää myös paikallisia muuttujia. Tämä on suositeltavaa, jos muuttujaan ei ole tarvetta viitata metodin ulkopuolella.
+The `self` keyword is only used when referring to the _traits of the object_. These include both the data attributes and the methods attached to an object. To make the terminology more confusing, these are sometimes also referred to simply as the _attributes_ of the object, which is why in this material we have often specified _data attributes_ when we mean the variables defined.
 
-Paikallinen muuttuja määritellään ilman `self`-määrettä - eli samoin kuin esimerkiksi kaikki muuttujat kurssin ensimmäisellä puoliskolla.
+Within the method definitions you can use local variables without the `self` keyword. You should do so if there is no need to access the variables outside the method. Local variables within methods have no special keywords; they are used just like any normal variables you have come across thus far.
 
-Esimerkiksi
+So, for example this would work:
 
 ```python
-class Bonuskortti:
-    def __init__(self, nimi: str, saldo: float):
-        self.nimi = nimi
-        self.saldo = saldo
+class BonusCard:
+    def __init__(self, name: str, balance: float):
+        self.name = name
+        self.balance = balance
 
-    def lisaa_bonus(self):
-        # Nyt muuttuja bonus on paikallinen muuttuja,
-        # eikä olion attribuutti - siihen siis ei voi
-        # viitata olion kautta
-        bonus = self.saldo * 0.25
-        self.saldo += bonus
+    def add_bonus(self):
+        # The variable bonus below is a local variable.
+        # It is not a data attribute of the object.
+        # It can not be accessed directly through the object.
+        bonus = self.balance * 0.25
+        self.balance += bonus
 
-    def lisaa_superbonus(self):
-        # Myös muuttuja superbonus on paikallinen muuttuja
-        # Yleensä apumuuttujina käytetään paikallisia
-        # muuttujia, koska niihin ei ole tarvetta
-        # viitatata muissa metodeissa tai olion kautta
-        superbonus = self.saldo * 0.5
-        self.saldo += superbonus
+    def add_superbonus(self):
+        # The superbonus variable is also a local variable.
+        # Usually helper variables are local variables because
+        # there is no need to access them from the other
+        # methods in the class or directly through an object.
+        superbonus = self.balance * 0.5
+        self.balance += superbonus
 
     def __str__(self):
-        return f"Bonuskortti(nimi={self.nimi}, saldo={self.saldo})"
+        return f"BonusCard(name={self.name}, balance={self.balance})"
 ```
 
 <programming-exercise name="First and last name" tmcname='part08-11_first_and_last_name'>
@@ -388,13 +395,13 @@ An example use case:
 
 ```python
 if __name__ == "__main__":
-    pekka = Person("Peter Pythons")
-    print(pekka.return_first_name())
-    print(pekka.return_last_name())
+    peter = Person("Peter Pythons")
+    print(peter.return_first_name())
+    print(peter.return_last_name())
 
-    pauli = Person("Paula Pythonnen")
-    print(pauli.return_first_name())
-    print(pauli.return_last_name())
+    paula = Person("Paula Pythonnen")
+    print(paula.return_first_name())
+    print(paula.return_last_name())
 ```
 
 <sample-output>
