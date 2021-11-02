@@ -153,46 +153,46 @@ print(kortti.hae_saldo())
 
 Saldoa ei voi suoraan muuttaa, koska attribuutti on piilotettu, mutta sitä voi muuttaa metodeilla `lisaa_rahaa` ja `kayta_rahaa` ja sen voi hakea metodilla `hae_saldo`. Metodeihin voidaan sijoittaa sopivia tarkastuksia, joilla varmistetaan, että olion sisäinen eheys säilyy: esimerkiksi rahaa ei voi käyttää enempää kuin kortilla on saldoa jäljellä.
 
-<programming-exercise name='Auto' tmcname='osa09-09_auto'>
+<programming-exercise name='Car' tmcname='part09-09_car'>
 
-Toteuta luokka `Auto`, jossa on _kapseloituina attribuutteina_ tieto bensatankin sisällöstä (0-60 litraa) sekä ajetuista kilometreista. Auto kuluttaa litran bensaa kilometrillä.
+Please implement a class named `Car` which has two private, _encapsulated_ variables: the amount of petrol in the tank (0 to 60 litres) and odometer reading (in kilometres). The car consumes one litre of petrol per kilometre.
 
-Luokalla on seuraavat metodit:
+The class should also contain the following methods:
 
-- `tankkaa()`, joka täyttää bensatankin
-- `aja(km:int)`, joka ajaa parametrina olevan kilometrimäärän tai niin pitkälle kuin bensaa riittää
-- `__str__`, joka näyttää esimerkin mukaisen kuvauksen autosta
+- `fill_up()` which fills up the tank
+- `drive(km:int)` which drives the car for the distance indicated, or for however long the petrol in the tank allows
+- `__str__` which returns a string representation of the car as per the examples below
 
-Esimerkki luokan käyttämisestä:
+An example of how the class is used:
 
 ```python
-auto = Auto()
-print(auto)
-auto.tankkaa()
-print(auto)
-auto.aja(20)
-print(auto)
-auto.aja(50)
-print(auto)
-auto.aja(10)
-print(auto)
-auto.tankkaa()
-auto.tankkaa()
-print(auto)
+car = Car()
+print(car)
+car.fill_up()
+print(car)
+car.drive(20)
+print(car)
+car.drive(50)
+print(car)
+car.drive(10)
+print(car)
+car.fill_up()
+car.fill_up()
+print(car)
 ```
 
 <sample-output>
 
-Auto: ajettu 0 km, bensaa 0 litraa
-Auto: ajettu 0 km, bensaa 60 litraa
-Auto: ajettu 20 km, bensaa 40 litraa
-Auto: ajettu 60 km, bensaa 0 litraa
-Auto: ajettu 60 km, bensaa 0 litraa
-Auto: ajettu 60 km, bensaa 60 litraa
+Car: odometer reading 0 km, petrol remaining 0 litres
+Car: odometer reading 0 km, petrol remaining 60 litres
+Car: odometer reading 20 km, petrol remaining 40 litres
+Car: odometer reading 60 km, petrol remaining 0 litres
+Car: odometer reading 60 km, petrol remaining 0 litres
+Car: odometer reading 60 km, petrol remaining 60 litres
 
 </sample-output>
 
-**Huomaa**, että bensan ja ajettujen kilometrien määrä on kapseloitava, niihin ei tule pystyä vaikuttamaan muuten kuin auton metodeja kutsumalla.
+**NB:** you are asked to encapsulate the amount of petrol left and the odometer reading. It should not be possible to access them directly from outside the class's own methods.
 
 </programming-exercise>
 
@@ -286,23 +286,23 @@ ValueError: Rahasumma ei saa olla negatiivinen
 
 Huomaa, että havainnointimetodi eli `@property`-dekoraattori pitää esitellä luokassa ennen asetusmetodia, muuten seuraa virhe. Tämä johtuu siitä, että `@property`-dekoraattori määrittelee käytettävän "asetusattribuutin" nimen (edellisessä esimerkiksi `rahaa`), ja asetusmetodi `.setter` liittää siihen uuden toiminnallisuuden.
 
-<programming-exercise name='Äänite' tmcname='osa09-10_aanite'>
+<programming-exercise name='Recording' tmcname='part09-10_recording'>
 
-Kirjoita luokka `Aanite`, joka mallintaa yksittäistä äänitettä. Luokalla on yksi piilotettu attribuutti, kokonaislukutyyppinen `__pituus`.
+Please create a class named `Recording` which models a single recording. The class should have one private variable: `__length` of type integer.
 
-Kirjoita luokalle
+Please implement the following:
 
-* konstruktori, joka saa parametrikseen pituuden
-* havainnointimetodi `pituus`, joka palauttaa pituuden
-* asetusmetodi, joka asettaa pituuden arvon
+* a constructor which takes the length as an argument
+* a getter method `length` which returns the length of the recording
+* a setter method which sets the length of the recording
 
-Luokkaa siis käytetään seuraavasti:
+It should be possible to make use of the class as follows:
 
 ```python
-the_wall = Aanite(43)
-print(the_wall.pituus)
-the_wall.pituus = 44
-print(the_wall.pituus)
+the_wall = Recording(43)
+print(the_wall.length)
+the_wall.length = 44
+print(the_wall.length)
 ```
 
 <sample-output>
@@ -312,10 +312,10 @@ print(the_wall.pituus)
 
 </sample-output>
 
-Jos pituudeksi yritetään asettaa nollaa pienempää arvoa joko konstruktorissa tai asetusmetodissa, tulee tuottaa virhe `ValueError`.
 
-Jos et muista miten poikkeus tuotetaan, kertaa
-[osan 6](/osa-6/3-virheet#poikkeusten-tuottaminen) materiaalista.
+If the argument for either the constructor or the setter method is below zero, this should raise a `ValueError`.
+
+If you need a refresher on raising exceptions, please see [part 6](/part-6/3-errors#raising-exceptions) of the course materials.
 
 </programming-exercise>
 
@@ -415,39 +415,39 @@ Yhteensä 3 merkintää
 
 </sample-output>
 
-<programming-exercise name='Säähavaintoasema' tmcname='osa09-11_havaintoasema'>
+<programming-exercise name='Weather station' tmcname='part09-11_weather_station'>
 
-Kirjoita luokka `Havaintoasema`, johon voidaan tallentaa säähavaintoja. Luokalla on seuraavat julkiset piirteet:
+Please create a class named `WeatherStation` which is used to store observations about the weather. The class should have the following public attributes:
 
-* konstruktori, joka saa parametriksen aseman nimen
-* metodi `lisaa_havainto(havainto: str)`, joka lisää havainnon listan peräään
-* metodi `viimeisin_havainto()`, joka palauttaa viimeksi lisätyn havainnon. Jos havaintoja ei ole tehty, metodi palauttaa _tyhjän merkkijonon_.
-* metodi `havaintojen_maara()`, joka palauttaa havaintojen yhteismäärän
-* metodi `__str__`, joka palauttaa aseman nimen ja havaintojen yhteismäärän alla olevan esimerkin mukaisessa muodossa.
+* a constructor shich takes the name of the station as its argument
+* a method named `add_observation(observation: str)` which adds an observation as the last entry in a list
+* a method named `latest_observation()` which returns the latest observation added to the list. If there are no observations yet, the method should return an _empty string_.
+* a method named `number_of_observations()` which returns the total number of observations added
+* a `__str__` method which returns the name of the station and the total number of observations added as per the example below.
 
-Luokan kaikkien attribuuttien pitää olla asiakkaalta piilossa. Saat itse päättää luokan sisäisen toteutuksen.
+All variables used to handle data should be encapsulated so they can't be directly accessed. It is up to you how you implement the class, as long as the interface is as described above.
 
-Esimerkki luokan käytöstä:
+An example of how the class is used:
 
 ```python
-asema = Havaintoasema("Kumpula")
-asema.lisaa_havainto("Sadetta 10mm")
-asema.lisaa_havainto("Aurinkoista")
-print(asema.viimeisin_havainto())
+station = WeatherStation("Houston")
+station.add_observation("Rain 10mm")
+station.add_observation("Sunny")
+print(station.latest_observation())
 
-asema.lisaa_havainto("Ukkosta")
-print(asema.viimeisin_havainto())
+station.add_observation("Thunderstorm")
+print(station.latest_observation())
 
-print(asema.havaintojen_maara())
-print(asema)
+print(station.number_of_observations())
+print(station)
 ```
 
 <sample-output>
 
-Aurinkoista
-Ukkosta
+Sunny
+Thunderstorm
 3
-Kumpula, 3 havaintoa
+Houston, 3 observations
 
 </sample-output>
 
