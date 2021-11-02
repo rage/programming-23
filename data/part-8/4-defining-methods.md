@@ -350,9 +350,9 @@ Paula
 
 In the example above also the helper methods were called via the `self` keyword when they were used in the constructor. It is possible to also include _static_ method definitions in class definitions. These are methods which can be called without ever creating an instance of the class. We will return to this subject in the next part.
 
-The `self` keyword is only used when referring to the _traits of the object_. These include both the data attributes and the methods attached to an object. To make the terminology more confusing, these are sometimes also referred to simply as the _attributes_ of the object, which is why in this material we have often specified _data attributes_ when we mean the variables defined.
+The `self` keyword is only used when referring to the features of the _object as an instance of the class_. These include both the data attributes and the methods attached to an object. To make the terminology more confusing, these features are sometimes also referred to simply as the _attributes_ of the object, which is why in this material we have often specified _data attributes_ when we mean the variables defined within the class.
 
-Within the method definitions you can use local variables without the `self` keyword. You should do so if there is no need to access the variables outside the method. Local variables within methods have no special keywords; they are used just like any normal variables you have come across thus far.
+Within method definitions you can also create local variables without the `self` keyword. You should do so if there is no need to access the variables outside the method. Local variables within methods have no special keywords; they are used just like any normal variables you have come across thus far.
 
 So, for example this would work:
 

@@ -95,9 +95,9 @@ print(peters_account.balance)
 print(paulas_account.balance) # THIS CAUSES AN ERROR
 ```
 
-So, instead of decalring data attributes after each instance of the class is created, it is usually a better idea to initialize the values of the data attributes as the class constructor is called.
+So, instead of declaring data attributes after each instance of the class is created, it is usually a better idea to initialize the values of the data attributes as the class constructor is called. As the `BankAccount` class definition is currently just a skeleton, the constructor method is implicitly assumed by the Python interpreter, but it is possible to define your own constructor methods, and that is exactly what we will do now.
 
-A constructor method is a method declaration in a special format, usually included at the very beginning of a class definition.
+A constructor method is a method declaration with the special name `__init__`, usually included at the very beginning of a class definition.
 
 Lets have a look at a `BankAccount` class with a constructor method added in:
 
