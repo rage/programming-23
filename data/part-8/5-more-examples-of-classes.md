@@ -8,57 +8,57 @@ hidden: false
 
 After this section
 
-- Osaat luoda aiempaa monipuolisempia luokkia
-- Osaat määritellä luokkaan metodin `__str__`
+- You will be able to create more versatile classes
+- You will know how to add a `__str__` method to your class definitions
 
 </text-box>
 
 
-## Esimerkki 1: Luokka Suorakulmio
+## Example 1: the Rectangle class
 
-Tarkastellaan seuraavaksi luokkaa, joka mallintaa suorakulmiota kaksiulotteisessa koordinaatistossa:
+Let's have a look at a class which models a rectangle in two-dimensional space:
 
 ```python
-class Suorakulmio:
-    def __init__(self, vasen_ylakulma: tuple, oikea_alakulma: tuple):
-        self.vasen_ylakulma = vasen_ylakulma
-        self.oikea_alakulma = oikea_alakulma
-        self.leveys = oikea_alakulma[0]-vasen_ylakulma[0]
-        self.korkeus = oikea_alakulma[1]-vasen_ylakulma[1]
+class Rectangle:
+    def __init__(self, left_upper: tuple, right_lower: tuple):
+        self.left_upper = left_upper
+        self.right_lower = right_lower
+        self.width = right_lower[0]-left_upper[0]
+        self.height = right_lower[1]-left_upper[1]
 
-    def pinta_ala(self):
-        return self.leveys * self.korkeus
+    def area(self):
+        return self.width * self.height
 
-    def piiri(self):
-        return self.leveys * 2 + self.korkeus * 2
+    def perimeter(self):
+        return self.width * 2 + self.height * 2
 
-    def siirra(self, x_muutos: int, y_muutos: int):
-        kulma = self.vasen_ylakulma
-        self.vasen_ylakulma = (kulma[0]+x_muutos, kulma[1]+y_muutos)
-        kulma = self.oikea_alakulma
-        self.oikea_alakulma = (kulma[0]+x_muutos, kulma[1]+y_muutos)
+    def move(self, x_change: int, y_change: int):
+        corner = self.left_upper
+        self.left_upper = (corner[0]+x_change, corner[1]+y_change)
+        corner = self.right_lower
+        self.right_lower = (corner[0]+x_change, corner[1]+y_change)
 ```
 
-Kun suorakulmio luodaan, konstruktorille annetaan kaksi tuplea: vasemman yläkulman ja oikean alakulman sijainti (x- ja y-koordinaatit). Konstruktori laskee tämän perusteella suorakulmion leveyden ja korkeuden.
+A new `Rectangle` is created with two tuples as arguments. These tuples contain the x and y coordinates of the upper left corner and the lower right corner. The constructor calculates the height and width of the rectangle based on these values.
 
-Metodit `pinta_ala` ja `piiri` laskevat suorakulmion pinta-alan ja piirin korkeuden ja leveyden perusteella. Metodi `siirra` puolestaan siirtää suorakulmiota koordinaatistossa annetun verran x- ja y-suunnissa.
+The methods `area` and `perimeter` calculate the area and perimeter of the rectangle based on the height and width. The method `move` moves the rectangle by the x and y values given as arguments.
 
-Huomaa, että suorakulmio esitetään koordinaatistossa, jossa x-koordinaatit kasvavat vasemmalta oikealle ja y-koordinaatit kasvavat ylhäältä alaspäin. Tämä on usein käytetty koordinaatisto ohjelmoinnissa, koska on luontevaa esittää tietokoneen näyttö niin, että vasemman yläkulman x- ja y-koordinaatti on 0.
+The rectanlge is represented in a coordinate system where the x coordinates increase from left to right, and the y coordinates increase from top to bottom. This is a common way of handling coordinates in programming because it is often easier and more natural to consider the top left corner of the computer screen as the point where x and y equal zero.
 
-Seuraava koodi testaa luokkaa:
+The following program tests the `Rectangle` class:
 
 ```python
-suorakulmio = Suorakulmio((1, 1), (4, 3))
-print(suorakulmio.vasen_ylakulma)
-print(suorakulmio.oikea_alakulma)
-print(suorakulmio.leveys)
-print(suorakulmio.korkeus)
-print(suorakulmio.piiri())
-print(suorakulmio.pinta_ala())
+rectangle = Rectangle((1, 1), (4, 3))
+print(rectangle.left_upper)
+print(rectangle.right_lower)
+print(rectangle.width)
+print(rectangle.height)
+print(rectangle.perimeter())
+print(rectangle.area())
 
-suorakulmio.siirra(3, 3)
-print(suorakulmio.vasen_ylakulma)
-print(suorakulmio.oikea_alakulma)
+rectangle.move(3, 3)
+print(rectangle.left_upper)
+print(rectangle.right_lower)
 ```
 
 <sample-output>
@@ -74,66 +74,65 @@ print(suorakulmio.oikea_alakulma)
 
 </sample-output>
 
-## Olion tulostaminen
+## Printing an object
 
-Kun omasta luokasta luotu olio tulostetaan sellaisenaan `print`-komennolla, lopputulos ei ole kovin selkeä:
+When you have an object created from a class defined by yourself, the default reaction to calling the `print` command with that object as its argument is not very informative:
 
 ```python
-suorakulmio = Suorakulmio((1, 1), (4, 3))
-print(suorakulmio)
+rectangle = Rectangle((1, 1), (4, 3))
+print(rectangle)
 ```
 
-Ohjelma tulostaa jotain seuraavankaltaista:
+The printout should look a bit like this:
 
 <sample-output>
 
-<__main__.Suorakulmio object at 0x000002D7BF148A90>
+<__main__.Rectangle object at 0x000002D7BF148A90>
 
 </sample-output>
 
-Järkevämpi tulostus saadaan lisäämällä luokkaan metodi `__str__`, joka palauttaa ymmärrettävän kuvauksen olion tilasta merkkijonona. Kun tämä metodi on määritelty, metodin palauttama kuvaus oliosta tulee näkyviin `print`-komennossa.
+Obviously, we want more control over what is printed out. The easiest way to do this is to add a special `__str__` method to the class definition. Its purpose is to return a snapshot of the state of the object in string format. If the class definition contains a `__str__` method, the value returned by the method is the one printed out when the `print` command is executed.
 
-Lisätään luokkaan `Suorakulmio` metodi `__str__`:
+So, let's add a `__str__` method definition to our `Rectangle` class:
 
 ```python
-class Suorakulmio:
+class Rectangle:
 
-    # Luokan muu sisältö tähän kuten ennenkin...
+    # ...the rest of the class goes here the same as above...
 
-    # Metodi palauttaa olion tilan merkkijonona
+    # This method returns the state of the object in string format
     def __str__(self):
-        return f"suorakulmio {self.vasen_ylakulma} ... {self.oikea_alakulma}"
+        return f"rectangle {self.left_upper} ... {self.right_lower}"
 ```
 
-Nyt `print`-komento tuottaa luettavan lopputuloksen:
+Now the `print` command produces something more user-friendly:
 
 ```python
-suorakulmio = Suorakulmio((1, 1), (4, 3))
-print(suorakulmio)
+rectangle = Rectangle((1, 1), (4, 3))
+print(rectangle)
 ```
 
 <sample-output>
 
-suorakulmio (1, 1) ... (4, 3)
+rectangle (1, 1) ... (4, 3)
 
 </sample-output>
 
-Metodia `__str__` kutsutaan yleisemmin silloin, kun oliosta muodostetaan merkkijonokuvaus `str`-funktiolla. Seuraava koodi esittelee asiaa:
+The `__str__` method is perhaps more often used for formulating a string representation of the object with the `str` function, as seen in the following program:
 
 ```python
-suorakulmio = Suorakulmio((1, 1), (4, 3))
-kuvaus = str(suorakulmio)
-print(kuvaus)
+rectangle = Rectangle((1, 1), (4, 3))
+str_rep = str(rectangle)
+print(str_rep)
 ```
 
 <sample-output>
 
-suorakulmio (1, 1) ... (4, 3)
+rectangle (1, 1) ... (4, 3)
 
 </sample-output>
 
-
-Metodin `__str__` lisäksi olioon voidaan määritellä samantapainen metodi `__repr__`, joka antaa teknisen kuvauksen olion tilasta. Tutustumme tähän metodiin tarkemmin myöhemmin.
+There are many more special underscored methods which can be defined for classes. One rather similar to the `__str__` method is the `__repr__` method. Its purpose is to provide a technical representation of the state of the object. We will come across this method later.
 
 <programming-exercise name='Stopwatch' tmcname='part08-13_stopwatch'>
 
@@ -393,63 +392,63 @@ Grace: The balance is 72.8 euros
 
 </programming-exercise>
 
-## Esimerkki 2: Tehtävälista
+## Example 2: Task list
 
-Seuraava luokka `Tehtavalista` toteuttaa tehtävälistan:
+The following class `TaskList` models a list of tasks:
 
 ```python
-class Tehtavalista:
+class TaskList:
     def __init__(self):
-        self.tehtavat = []
+        self.tasks = []
 
-    def lisaa(self, nimi: str, prioriteetti: int):
-        self.tehtavat.append((prioriteetti, nimi))
+    def add_task(self, name: str, priority: int):
+        self.tasks.append((priority, name))
 
-    def hae_seuraava(self):
-        self.tehtavat.sort()
-        # Metodi pop poistaa ja palauttaa listan viimeisen alkion
-        tehtava = self.tehtavat.pop()
-        # Palautetaan tuplen jälkimmäinen osa eli tehtävän nimi
-        return tehtava[1]
+    def get_next(self):
+        self.tasks.sort()
+        # The list method pop removes and returns the last item in a list
+        task = self.tasks.pop()
+        # Return the name of the task (the second item in the tuple)
+        return task[1]
 
-    def yhteensa(self):
-        return len(self.tehtavat)
+    def number_of_tasks(self):
+        return len(self.tasks)
 
-    def tyhjenna(self):
-        self.tehtavat = []
+    def clear_tasks(self):
+        self.tasks = []
 ```
 
-Metodi `lisaa` lisää listalle uuden tehtävän tietyllä prioriteetilla ja metodi `hae_seuraava` poistaa ja palauttaa listan suurimman prioriteetin tehtävän. Lisäksi metodi `yhteensa` antaa listan tehtävien yhteismäärän ja metodi `tyhjenna` tyhjentää listan.
+The method `add_task` adds a new task to the list. Each task also has a priority attached, which is used for sorting the tasks. The method `get_next` removes and returns the task with the highest priority on the list. There is also the `number_of_tasks` method, which returns the number of tasks on the list, and finally the method `clear_tasks`, which clears the task list.
 
-Tehtäviä säilytetään sisäisesti listassa, jossa on tuplena kunkin tehtävän prioriteetti ja nimi. Prioriteetti tallennetaan ensin, jolloin tärkein tehtävä on listan lopussa listan järjestämisen jälkeen. Tämän ansiosta tehtävän saa haettua ja poistettua listalta kätevästi `pop`-metodilla.
+Within the object, the tasks are stored in a list. Each task is of a tuple containing the priority of the task and its name. The priority value is stored first, so that when the list is sorted, the task with the highest priority is the last item on the list. This is why we can then simply use the `pop` method to retrieve and remove the highest priority item.
 
-Seuraava koodi esittelee luokan käyttämistä:
+Please have a look at the following program with the task list in action:
 
 ```python
-lista = Tehtavalista()
-lista.lisaa("opiskelu", 50)
-lista.lisaa("ulkoilu", 60)
-lista.lisaa("siivous", 10)
-print(lista.yhteensa())
-print(lista.hae_seuraava())
-print(lista.yhteensa())
-lista.lisaa("treffit", 100)
-print(lista.yhteensa())
-print(lista.hae_seuraava())
-print(lista.hae_seuraava())
-print(lista.yhteensa())
-lista.tyhjenna()
-print(lista.yhteensa())
+tasks = TaskList()
+tasks.add_task("studying", 50)
+tasks.add_task("exercise", 60)
+tasks.add_task("cleaning", 10)
+print(tasks.number_of_tasks())
+print(tasks.get_next())
+print(tasks.number_of_tasks())
+tasks.add_task("date", 100)
+print(tasks.number_of_tasks())
+print(tasks.get_next())
+print(tasks.get_next())
+print(tasks.number_of_tasks())
+tasks.clear_tasks()
+print(tasks.number_of_tasks())
 ```
 
 <sample-output>
 
 3
-ulkoilu
+exercise
 2
 3
-treffit
-opiskelu
+date
+studying
 1
 0
 

@@ -71,7 +71,7 @@ print(peters_account.balance)
 
 The `add_interest` method multiplies the balance of the account by the annual interest percentage, and then adds the result to the current balance. The method acts only on the object which it is called on.
 
-Let's see ow this works when we have created multiple instances of the class:
+Let's see how this works when we have created multiple instances of the class:
 
 ```python
 # The class BankAccount is defined in the previous example
