@@ -8,137 +8,137 @@ hidden: false
 
 After this section
 
-- Tiedät, miten omia luokkia määritellään
-- Osaat muodostaa itse määritellystä luokasta olion
-- Osaat kirjoittaa konstruktorin
-- Tiedät, mitä tarkoittaa avainsana `self`
-- Tiedät, mitä ovat attribuutit ja miten niitä käytetään
+- You will know how to define your own classes
+- You will be able to create objects based on classes you've defined yourself
+- You will know how to write a constructor
+- You are familiar with the keyword `self`
+- You will know what attributes are and how they are used
 
 </text-box>
 
-Luokka määritellään avainsanan `class` avulla. Syntaksi on
+A class is defined withe the keyword `class`. The syntax is as follows:
 
 ```python
-class LuokanNimi:
-    # Luokan toteutus
+class NameOfClass:
+    # class defition goes here
 ```
 
-Luokat nimetään yleensä _camel case_ -käytännöllä niin, että sanat kirjoitetaan yhteen ja jokainen sana alkaa isolla alkukirjaimella. Esimerkiksi seuraavat ovat tämän käytännön mukaisia luokkien nimiä:
+Classes are usually named in _camel case_. This means that all the words in the class name are written together, without spaces, and each word is capitalised. The following class names follow this convention:
 
-* `Pankkitili`
-* `OhjelmaApuri`
-* `KirjastoTietokanta`
-* `PythonKurssinArvosanat`
+* `Weekday`
+* `BankAccount`
+* `LibraryDatabase`
+* `PythonCourseGrades`
 
-Yhdellä luokalla pyritään mallintamaan jokin sellainen yksittäinen kokonaisuus, jonka sisältämät tiedot liittyvät kiinteästi yhteen. Monimutkaisemmissa ratkaisuissa luokka voi sisältää toisia luokkia (esimerkiksi luokka `Kurssi` voisi sisältää luokan `Osasuoritus` mukaisia olioita).
+A single class definition should represent a single whole, the contents of which should be atomically linked together in some way. In more complicated programs classes can contain members of other classes. For example, the class `Course` could contain objects of class `Lecture`, `ExerciseSession` etc.
 
-Tarkastellaan esimerkkinä yksinkertaista luokkamäärittelyä, josta sisältö vielä puuttuu:
+Lets have a look at a skeleton of a class definition. The functionalities are still missing at this point.
 
 ```python
-class Pankkitili:
+class BankAccount:
     pass
 ```
 
-Koodissa määritellään luokka, jonka nimi on `Pankkitili`. Luokalle ei ole määritelty varsinaista sisältöä, mutta tästä huolimatta luokasta voidaan muodostaa olio.
+The above piece of code tells Python that here we are defining a class named `BankAccount`. The class does not contain any functionality yet, but we can still cerate an object based on the class.
 
-Tarkastellaan ohjelmaa, jossa luokasta muodostetun olion sisälle on määritelty kaksi muuttujaa, `saldo` ja `omistaja`. Olion muuttujia kutsutaan _attribuuteiksi_. Attribuutista käytetään myös nimitystä _oliomuuttuja_.
+Lets have a look at a program where two variables are added to a `BankAccount` object: `balance` and `owner`. Any variables attached to an object are called its _data attributes_, or sometimes _instance variables_. 
 
-Kun luokasta luodaan olio, voidaan attribuuttien arvoja käsitellä olion kautta:
+The data attributes attached to an object can be accessed through the object:
 
 ```python
-class Pankkitili:
+class BankAccount:
     pass
 
-pekan_tili = Pankkitili()
-pekan_tili.omistaja = "Pekka Python"
-pekan_tili.saldo = 5.0
+peters_account = BankAccount()
+peters_account.owner = "Peter Python"
+peters_account.balance = 5.0
 
-print(pekan_tili.omistaja)
-print(pekan_tili.saldo)
+print(peters_account.owner)
+print(peters_account.balance)
 ```
 
 <sample-output>
 
-Pekka Python
+Peter Python
 5.0
 
 </sample-output>
 
-Attribuutit ovat käytettävissä ainoastaan sen olion kautta, jossa ne on määritelty. Pankkitili-luokasta muodostetuilla olioilla on jokaisella omat arvonsa attribuuteille. Attribuuttien arvot haetaan olioiden kautta, esimerkiksi näin:
+The data attributes are available only through the object they are attached to. Each `BankAccount` object created based on the `BankAccount` class has its own values attached to the data attributes. Those values can be accessed by referring to the object in question:
 
 ```python
-tili = Pankkitili()
-tili.saldo = 155.50
+account = BankAccount()
+account.balance = 155.50
 
-print(tili.saldo) # Viittaa tilin attribuuttiin saldo
-print(saldo) # TÄSTÄ TULEE VIRHE, koska oliomuuttuja ei ole mukana!
+print(account.balance) # This refers to the data attribute balance attached to the account
+print(balance) # THIS CAUSES AN ERROR, as there is no such independent variable available, and the object reference is missing
 ```
 
-## Konstruktorin lisääminen
+## Adding a constructor
 
-Kuten edellisestä esimerkistä huomataan, luokasta voi luoda uuden olion kutsumalla konstruktoria, joka on muotoa `LuokanNimi()`. Yleensä olisi kuitenkin kätevä antaa attribuuteille arvot heti kun olio luodaan – nyt esimerkiksi Pankkitilin omistaja ja saldo asetetaan vasta, kun pankkitiliolio on luotu.
+In the above example we saw that a new instance of a class can be created by calling the constructor method of the class like so: `NameOfClass()`. Above we then attached data attributes to the object separately, but it is often more convenient to pass these initial values of attributes directly as the object is created. In the above example we first had a `BankAccount` object without these attributes, and the attributes only existed after they were explicitly declared.
 
-Attribuuttien asettamisessa ilman konstruktoria on myös se ongelma, että samasta luokasta luoduilla olioilla voi olla eri attribuutit. Seuraava ohjelmakoodi esimerkiksi antaa virheen, koska oliolle `pirjon_tili` ei ole määritelty attribuuttia `saldo`:
+Declaring data attributes outside the constructor results in a situation where different instances of the same class can have different attributes. The following code produces an error because we now have another `BankAccount` object, `paulas_account`, which does not contain the same data attributes:
 
 ```python
-class Pankkitili:
+class BankAccount:
     pass
 
-pekan_tili = Pankkitili()
-pekan_tili.omistaja = "Pekka"
-pekan_tili.saldo = 1400
+peters_account = BankAccount()
+peters_account.owner = "Peter"
+peters_account.balance = 1400
 
-pirjon_tili = Pankkitili()
-pirjon_tili.omistaja = "Pirjo"
+paulas_account = BankAccount()
+paulas_account.owner = "Paula"
 
-print(pekan_tili.saldo)
-print(pirjon_tili.saldo) # TÄSTÄ TULEE VIRHE
+print(peters_account.balance)
+print(paulas_account.balance) # THIS CAUSES AN ERROR
 ```
 
-Sen sijaan että attribuuttien arvot alustettaisiin luokan luomisen jälkeen, on huomattavasti parempi ajatus alustaa arvot samalla, kun luokasta luodaan olio.
+So, instead of decalring data attributes after each instance of the class is created, it is usually a better idea to initialize the values of the data attributes as the class constructor is called.
 
-Konstruktori kirjoitetaan luokan sisään metodina `__init__` yleensä heti luokan alkuun.
+A constructor method is a method declaration in a special format, usually included at the very beginning of a class definition.
 
-Tarkastellaan `Pankkitili`-luokkaa, johon on lisätty konstruktori:
+Lets have a look at a `BankAccount` class with a constructor method added in:
 
 ```python
-class Pankkitili:
+class BankAccount:
 
-    # Konstruktori
-    def __init__(self, saldo: float, omistaja: str):
-        self.saldo = saldo
-        self.omistaja = omistaja
+    # The constructor
+    def __init__(self, balance: float, owner: str):
+        self.balance = balance
+        self.owner = owner
 ```
 
-Konstruktorin nimi on aina `__init__`. Huomaa, että nimessä sanan `init` molemmilla puolilla on _kaksi alaviivaa_.
+The name of the constructor method is always `__init__`. Notice the _two undescores on both sides_ of the word `init`.
 
-Konstruktorin ensimmäinen parametri on nimeltään `self`. Tämä viittaa olioon, jota käsitellään. Asetuslause
+The first parameter in a constructor definition is always named `self`. This refers to the object itself, and is necessary for declaring any data attributes attached to the object. The assignment
 
-`self.saldo = saldo`
+`self.balance = balance`
 
-asettaa parametrina annetun saldon luotavan olion saldoksi. On tärkeä huomata, että tässä yhteydessä muuttuja `self.saldo` on eri muuttuja kuin muuttuja `saldo`:
+assigns the balance received as an argument as the balance attribute of the object. It is a common convention to use the same variable names for the parameters and the data attributes defined in a constructor, but the variables `self.balance` and `balance` above are _two different variables_:
 
-* Muuttuja `self.saldo` viittaa olion attribuuttiin. Jokaisella Pankkitili-luokan oliolla on oma saldonsa.
+* The variable `self.balance` is a data attribute of the object. Each `BankAccount` object has its own balance.
 
-* Muuttuja `saldo` on konstruktorimetodin `__init__` parametri, jolle annetaan arvo, kun metodia kutsutaan (eli kun halutaan luoda uusi olio luokasta).
+* The variable `balance` is a parameter in the constructor method `__init__`. Its value is set to the value passed as an argument to the method as the constructor is called (that is, when a new insctance of the class is created).
 
-Nyt kun konstruktorille on määritelty parametrit, voidaan attribuuttien arvot antaa oliota luotaessa:
+Now that we have defined the parameters of the constructor method, we can pass the desired initial values of the data attributes as arguments as a new object is created:
 
 ```python
-class Pankkitili:
+class BankAccount:
 
-    # Konstruktori
-    def __init__(self, saldo: float, omistaja: str):
-        self.saldo = saldo
-        self.omistaja = omistaja
+    # The constructor
+    def __init__(self, balance: float, owner: str):
+        self.balance = balance
+        self.owner = owner
 
-# Parametrille self ei anneta arvoa, vaan Python antaa sen
-# automaattisesti
-pekan_tili = Pankkitili(100, "Pekka Python")
-pirjon_tili = Pankkitili(20000, "Pirjo Pythonen")
+# As the method is called, no argument should be given for the self parameter
+# Python assigns the value for self automatically
+peters_account = BankAccount(100, "Peter Python")
+paulas_account = BankAccount(20000, "Paula Pythons")
 
-print(pekan_tili.saldo)
-print(pirjon_tili.saldo)
+print(peters_account.balance)
+print(paulas_account.balance)
 ```
 
 <sample-output>
@@ -148,28 +148,28 @@ print(pirjon_tili.saldo)
 
 </sample-output>
 
-Esimerkistä huomataan, että olioiden luominen helpottuu, kun arvot voidaan antaa heti oliota muodostaessa. Samalla tämä varmistaa, että arvojen antaminen ei unohdu, ja ohjaa käyttäjää antamaan arvot attribuuteille.
+It is now much easier to work with the `BankAccount` objects, as the values can be passed at object creation, and the resulting two separate instances can be handled more predictably and uniformly. Declaring data attributes in the constructor also ensures the attributes are actually declared, and the desired initial values are always given by the programmer using the class.
 
-Attribuuttien arvoja voi edelleen muuttaa myöhemmin ohjelmassa, vaikka alkuarvo olisikin annettu konstruktorissa:
+It is still possible to change the initial values of the data attributes later in the program:
 
 ```python
-class Pankkitili:
+class BankAccount:
 
-    # Konstruktori
-    def __init__(self, saldo: float, omistaja: str):
-        self.saldo = saldo
-        self.omistaja = omistaja
+    # The constructor
+    def __init__(self, balance: float, owner: str):
+        self.balance = balance
+        self.owner = owner
 
-pekan_tili = Pankkitili(100, "Pekka Python")
-print(pekan_tili.saldo)
+peters_account = BankAccount(100, "Peter Python")
+print(peters_account.balance)
 
-# Saldoksi 1500
-pekan_tili.saldo = 1500
-print(pekan_tili.saldo)
+# Change the balance to 1500
+peters_account.balance = 1500
+print(peters_account.balance)
 
-# Lisätään saldoon 2000
-pekan_tili.saldo += 2000
-print(pekan_tili.saldo)
+# Add 2000 to the balance
+peters_account.balance += 2000
+print(peters_account.balance)
 ```
 
 <sample-output>
@@ -180,28 +180,28 @@ print(pekan_tili.saldo)
 
 </sample-output>
 
-Tarkastellaan vielä toista esimerkkiä luokasta ja olioista. Kirjoitetaan luokka, joka mallintaa yhtä lottokierrosta:
+Let's have a look at another example of classes and objects. We'll write a class which mmodels a single draw of lottery numbers:
 
 ```python
 from datetime import date
 
-class LottoKierros:
+class LotteryDraw:
 
-    def __init__(self, viikko: int, pvm: date, numerot: list):
-        self.viikko = viikko
-        self.pvm = pvm
-        self.numerot = numerot
+    def __init__(self, round_week: int, round_date: date, numbers: list):
+        self.round_week = round_week
+        self.round_date = round_date
+        self.numbers = numbers
 
 
-# Luodaan uusi lottokierros
-kierros1 = LottoKierros(1, date(2021, 1, 2), [1,4,8,12,13,14,33])
+# Create a new LotteryDraw object
+round1 = LotteryDraw(1, date(2021, 1, 2), [1,4,8,12,13,14,33])
 
 # Tulostetaan tiedot
-print(kierros1.viikko)
-print(kierros1.pvm)
+print(round1.round_week)
+print(round1.round_date)
 
-for numero in kierros1.numerot:
-    print(numero)
+for number in round1.numbers:
+    print(number)
 ```
 
 <sample-output>
@@ -218,8 +218,7 @@ for numero in kierros1.numerot:
 
 </sample-output>
 
-Attribuutit voivat olla siis minkä tahansa tyyppisiä – esimerkiksi edellisessä esimerkissä jokaiseen olioon tallennetaan lista ja päivämäärä.
-
+As you can see above, the data attributes can be of any type. Here, each LotteryDraw object has data attributes of type `list` and `date`.
 
 <programming-exercise name='Book' tmcname='part08-05_book'>
 
@@ -267,26 +266,26 @@ Please also include a constructor in each class. The constructor should take the
 
 </programming-exercise>
 
-## Omien luokkien olioiden käyttö
+## Using objecs formed from your own classes
 
-Omasta luokasta muodostetut oliot käyttäytyvät esimerkiksi funktioiden parametrina ja paluuarvona samalla tavalla kuin muutkin oliot. Voisimme esimerkiksi tehdä pari apufunktiota tilien käsittelyyn:
+Objects formed from your own class definitions are no different from any other Python objects. They can be passed as arguments and return values just like any other object. We could, for example, write some helper functions for working with bank accounts:
 
 ```python
-# funktio luo uuden tiliolion ja palauttaa sen
-def avaa_tili(nimi: str):
-    uusi_tili =  Pankkitili(0, nimi)
-    return uusi_tili
+# this function creates a new bank account object and returns it
+def open_account(name: str):
+    new_account =  BankAccount(0, name)
+    return new_account
 
-# funktio asettaa parametrina saamansa rahasumman parametrina olevalle tilille
-def laita_rahaa_tilille(tili: Pankkitili, summa: int):
-    tili.saldo += summa
+# this function adds the amount passed as an argument to the balance of the bank account also passed as an argument
+def deposit_money_on_account(account: BankAccount, amount: int):
+    account.balance += amount
 
-pekan_tili = avaa_tili("Pekka Python")
-print(pekan_tili.saldo)
+peters_account = open_account("Peter Python")
+print(peters_account.balance)
 
-laita_rahaa_tilille(pekan_tili, 500)
+deposit_money_on_account(peters_account, 500)
 
-print(pekan_tili.saldo)
+print(peters_account.balance)
 ```
 
 <sample-output>
