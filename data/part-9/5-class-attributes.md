@@ -221,21 +221,21 @@ if __name__ == "__main__":
 
 </sample-output>
 
-<programming-exercise name='Postinumerot' tmcname='osa09-13_postinumerot'>
+<programming-exercise name='Postcodes' tmcname='part09-13_postcodes'>
 
-Tehtäväpohjassa on määritelty luokka `Kaupunki`, joka mallintaa yksittäistä kaupunkia.
+The exercise template contains the class definition `City` which is a model for a single city.
 
-Lisää luokkaan luokkamuuttuja postinumerot, joka viittaa sanakirjaan. Sanakirjassa jokainen avain on kaupungin nimi ja arvo postinumero. Molemmat ovat merkkijonoja.
+Please add a class variable named `postcodes` which refers to a dictionary. The keys of the dictionary are names of cities, and the values attached are the postcodes for those cities. Both are strings.
 
-Sanakirjasta tulee löytyä seuraavat postinumerot:
+The dictionary should contain (at least) the following postcodes:
 
 * Helsinki 00100
 * Turku 20100
 * Tampere 33100
-* Jyväskylä 40100
+* Rovaniemi 96100
 * Oulu 90100
 
-Muuta toiminnallisuutta ei tarvitse toteuttaa.
+You do not need to implement any other functionality.
 
 </programming-exercise>
 
@@ -307,19 +307,19 @@ Tämä on validi tunnus!
 
 Rekisteriotteen oikeellisuuden voi tarkistaa kutsumalla metodia (esimerkiksi `Rekisteriote.rekisteritunnus_kelpaa("xyz-789"))`) ilman, että muodostaa luokasta oliota. Samaa metodia kutsutaan myös uutta oliota muodostaessa luokan konstruktorista. Huomaa kuitenkin, että myös tässä kutsussa viitataan metodiin luokan nimen avulla eikä `self`-tunnisteella!
 
-<programming-exercise name='Lista-apuri' tmcname='osa09-14_lista_apuri'>
+<programming-exercise name='List helper' tmcname='part09-14_list_helper'>
 
-Kirjoita luokka `ListaApuri`, jossa on seuraavat kaksi luokkametodia:
+Please create a class named `ListHelper` which contains the following two class methods.
 
-* Metodi `suurin_frekvenssi(lista: list)` palauttaa alkion, jota esiintyy annetussa listassa eniten
-* Metodi `tuplia(lista: list)` palauttaa sellaisten alkioden lukumäärän, jotka esiintyvät listassa vähintään kahdesti
+* `greatest_frequency(my_list: list)` returns the most common item on the list
+* `doubles(my_list: list)` returns the number of unique items which appear at least twice on the list
 
-Metodeja tulee voida käyttää ilman, että luokasta luodaan oliota. Esimerkki luokan käytöstä:
+It should be possible to use these methods without creating an instance of the class. An example of how the methods could be used:
 
 ```python
-luvut = [1, 1, 2, 1, 3, 3, 4, 5, 5, 5, 6, 5, 5, 5]
-print(ListaApuri.suurin_frekvenssi(luvut))
-print(ListaApuri.tuplia(luvut))
+numbers = [1, 1, 2, 1, 3, 3, 4, 5, 5, 5, 6, 5, 5, 5]
+print(ListHelper.greatest_frequency(numbers))
+print(ListHelper.doubles(numbers))
 ```
 
 <sample-output>
