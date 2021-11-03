@@ -513,7 +513,7 @@ genres: Crime, Drama, Mystery, Thriller
 
 ### Searching for series
 
-Please implement these two functions which allow you to search through a list of series: `minimum_rating(rating: float, series_list: list)` and `includes_genre(genre: str, series_list: list)`.
+Please implement these two functions which allow you to search through a list of series: `minimum_grade(rating: float, series_list: list)` and `includes_genre(genre: str, series_list: list)`.
 
 Here is an example of how the new methods are used:
 
@@ -529,8 +529,8 @@ s3.rate(2)
 
 series_list = [s1, s2, s3]
 
-print("a minimum rating of 4.5:")
-for series in minimum_rating(4.5, series_list):
+print("a minimum grade of 4.5:")
+for series in minimum_grade(4.5, series_list):
     print(series.name)
 
 print("genre Comedy:")
