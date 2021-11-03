@@ -358,8 +358,8 @@ Please write a main function which contains the following sequence of events:
 
 - Create a lunch card for Peter. The initial balance on the card is 20 euros.
 - Create a lunch card for Grace. The initial balance on the card is 30 euros.
-- Peter eats a regular lunch
-- Grace eats the special
+- Peter eats a special
+- Grace eats a regular lunch
 - _Print out the balance on each card (on separate lines, with the name of the owner at the beginning of the line)_
 - Peter deposits 20 euros
 - Grace eats the special
