@@ -473,7 +473,7 @@ no reviews
 
 </sample-output>
 
-The constructor should take the name, the number of seasons and a list of genres for the series as its arguments.
+The constructor should take the title, the number of seasons and a list of genres for the series as its arguments.
 
 **Hint:** whenever you need to produce a string from a list containing strings, with a separating character of your choice in between the entries, you can use the `join` method as follows:
 
@@ -549,7 +549,7 @@ Friends
 
 </sample-output>
 
-The code above and the automatic tests for this exercise assume your class contains an attribute `name`. If you used some other attribute name to refer to the name of the series, please change it before submitting.
+The code above and the automatic tests for this exercise assume your class contains an attribute `title`. If you used some other attribute name to refer to the name of the series, please change it before submitting.
 
 </programming-exercise>
 
