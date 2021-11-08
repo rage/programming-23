@@ -117,7 +117,7 @@ print(midsummer.month)
 
 </sample-output>
 
-The `date` class definitions contains declarations of the `year`, `month` and `day` variables. When a new `date` object d created based on the class, these variables are assigned values. Each object has its own unique values assigned to these variables.
+The `date` class definition contains declarations of the `year`, `month` and `day` variables. When a new `date` object is created based on the class, these variables are assigned values. Each object has its own unique values assigned to these variables.
 
 ## Functions which work with objects
 

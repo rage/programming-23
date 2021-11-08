@@ -39,11 +39,11 @@ class BankAccount:
     pass
 ```
 
-The above piece of code tells Python that here we are defining a class named `BankAccount`. The class does not contain any functionality yet, but we can still cerate an object based on the class.
+The above piece of code tells Python that here we are defining a class named `BankAccount`. The class does not contain any functionality yet, but we can still create an object based on the class.
 
-Lets have a look at a program where two variables are added to a `BankAccount` object: `balance` and `owner`. Any variables attached to an object are called its _data attributes_, or sometimes _instance variables_. 
+Lets have a look at a program where two variables are added to a `BankAccount` object: `balance` and `owner`. Any variables attached to an object are called its _attributes_, or more specifically, _data attributes_, or sometimes _instance variables_. 
 
-The data attributes attached to an object can be accessed through the object:
+The attributes attached to an object can be accessed through the object:
 
 ```python
 class BankAccount:
@@ -78,7 +78,7 @@ print(balance) # THIS CAUSES AN ERROR, as there is no such independent variable 
 
 In the above example we saw that a new instance of a class can be created by calling the constructor method of the class like so: `NameOfClass()`. Above we then attached data attributes to the object separately, but it is often more convenient to pass these initial values of attributes directly as the object is created. In the above example we first had a `BankAccount` object without these attributes, and the attributes only existed after they were explicitly declared.
 
-Declaring data attributes outside the constructor results in a situation where different instances of the same class can have different attributes. The following code produces an error because we now have another `BankAccount` object, `paulas_account`, which does not contain the same data attributes:
+Declaring attributes outside the constructor results in a situation where different instances of the same class can have different attributes. The following code produces an error because we now have another `BankAccount` object, `paulas_account`, which does not contain the same attributes:
 
 ```python
 class BankAccount:
@@ -95,7 +95,7 @@ print(peters_account.balance)
 print(paulas_account.balance) # THIS CAUSES AN ERROR
 ```
 
-So, instead of declaring data attributes after each instance of the class is created, it is usually a better idea to initialize the values of the data attributes as the class constructor is called. As the `BankAccount` class definition is currently just a skeleton, the constructor method is implicitly assumed by the Python interpreter, but it is possible to define your own constructor methods, and that is exactly what we will do now.
+So, instead of declaring attributes after each instance of the class is created, it is usually a better idea to initialize the values of the attributes as the class constructor is called. As the `BankAccount` class definition is currently just a skeleton, the constructor method is implicitly assumed by the Python interpreter, but it is possible to define your own constructor methods, and that is exactly what we will do now.
 
 A constructor method is a method declaration with the special name `__init__`, usually included at the very beginning of a class definition.
 
@@ -112,13 +112,13 @@ class BankAccount:
 
 The name of the constructor method is always `__init__`. Notice the _two undescores on both sides_ of the word `init`.
 
-The first parameter in a constructor definition is always named `self`. This refers to the object itself, and is necessary for declaring any data attributes attached to the object. The assignment
+The first parameter in a constructor definition is always named `self`. This refers to the object itself, and is necessary for declaring any attributes attached to the object. The assignment
 
 `self.balance = balance`
 
-assigns the balance received as an argument as the balance attribute of the object. It is a common convention to use the same variable names for the parameters and the data attributes defined in a constructor, but the variables `self.balance` and `balance` above are _two different variables_:
+assigns the balance received as an argument as the balance attribute of the object. It is a common convention to use the same variable names for the parameters and the data attributes defined in a constructor, but the variable names `self.balance` and `balance` above refer to _two different variables_:
 
-* The variable `self.balance` is a data attribute of the object. Each `BankAccount` object has its own balance.
+* The variable `self.balance` is an attribute of the object. Each `BankAccount` object has its own balance.
 
 * The variable `balance` is a parameter in the constructor method `__init__`. Its value is set to the value passed as an argument to the method as the constructor is called (that is, when a new insctance of the class is created).
 
@@ -180,7 +180,7 @@ print(peters_account.balance)
 
 </sample-output>
 
-Let's have a look at another example of classes and objects. We'll write a class which mmodels a single draw of lottery numbers:
+Let's have a look at another example of classes and objects. We'll write a class which models a single draw of lottery numbers:
 
 ```python
 from datetime import date
@@ -218,7 +218,7 @@ for number in round1.numbers:
 
 </sample-output>
 
-As you can see above, the data attributes can be of any type. Here, each LotteryDraw object has data attributes of type `list` and `date`.
+As you can see above, the attributes can be of any type. Here, each LotteryDraw object has attributes of type `list` and `date`.
 
 <programming-exercise name='Book' tmcname='part08-05_book'>
 

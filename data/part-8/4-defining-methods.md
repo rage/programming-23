@@ -350,7 +350,7 @@ Paula
 
 In the example above also the helper methods were called via the `self` keyword when they were used in the constructor. It is possible to also include _static_ method definitions in class definitions. These are methods which can be called without ever creating an instance of the class. We will return to this subject in the next part.
 
-The `self` keyword is only used when referring to the features of the _object as an instance of the class_. These include both the data attributes and the methods attached to an object. To make the terminology more confusing, these features are sometimes also referred to simply as the _attributes_ of the object, which is why in this material we have often specified _data attributes_ when we mean the variables defined within the class.
+The `self` keyword is only used when referring to the features of the _object as an instance of the class_. These include both the data attributes and the methods attached to an object. To make the terminology more confusing, the data attributes and methods are together sometimes referred to simply as the _attributes_ of the object, which is why in this material we have often specified _data attributes_ when we mean the variables defined within the class. This is where the terminology of some Python programmers slightly differs from the terminology used in object oriented programming more widely, where _attributes_ usually refers to just the data attributes of an object.
 
 Within method definitions you can also create local variables without the `self` keyword. You should do so if there is no need to access the variables outside the method. Local variables within methods have no special keywords; they are used just like any normal variables you have come across thus far.
 
