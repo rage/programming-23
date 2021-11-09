@@ -8,54 +8,54 @@ hidden: false
 
 After this section
 
-- Tiedät, miten olioita voi tallentaa tietorakenteisiin
-- Tiedät, miten olioiden välitys parametrina toimii
+- You will be able to use different data structures for handling objects
+- You will know how objects can be passed as arguments
 
 </text-box>
 
-Pythonissa kaikki arvot ovat olioita ja myös omista luokista luotuja olioita voi käsitellä kuin mitä tahansa muitakin olioita. Esimerkiksi olioita voidaan tallentaa listaan:
+Every value in Python is an object. Any object you create based on a class you've defined yourself works exactly the same as any other object. For example, objects can be stored in a list:
 
 ```python
 from datetime import date
 
-class Kurssisuoritus:
+class CompletedCourse:
 
-    def __init__(self, kurssi: str, opintopisteet: int, suorituspvm: date):
-        self.kurssi = kurssi
-        self.opintopisteet = opintopisteet
-        self.suorituspvm = suorituspvm
+    def __init__(self, course_name: str, credits: int, completion_date: date):
+        self.name = course_name
+        self.credits = credits
+        self.completion_date = completion_date
 
 
 if __name__ == "__main__":
-    # Luodaan pari kurssisuoritusta ja lisätään listaan
-    suoritukset = []
+    # Here we create some completed courses and add these to a list 
+    completed = []
 
-    mat1 = Kurssisuoritus("Matematiikka 1", 5, date(2020, 3, 11))
-    ohj1 = Kurssisuoritus("Ohjelmointi 1", 6, date(2019, 12, 17))
+    maths1 = CompletedCourse("Mathematics 1", 5, date(2020, 3, 11))
+    prog1 = CompletedCourse("Programming 1", 6, date(2019, 12, 17))
 
-    suoritukset.append(mat1)
-    suoritukset.append(ohj1)
+    completed.append(maths1)
+    completed.append(prog1)
 
-    # Lisätään suoraan listaan muutama
-    suoritukset.append(Kurssisuoritus("Fysiikka 2", 4, date(2019, 11, 10)))
-    suoritukset.append(Kurssisuoritus("Ohjelmointi 2", 5, date(2020, 5, 19)))
+    # Let's add a couple more straight to the list
+    completed.append(CompletedCourse("Physics 2", 4, date(2019, 11, 10)))
+    completed.append(CompletedCourse("Programming 2", 5, date(2020, 5, 19)))
 
-    # Käydään läpi kaikki suoritukset, tulostetaan nimet ja lasketaan opintopisteet yhteen
-    opintopisteet = 0
-    for suoritus in suoritukset:
-        print(suoritus.kurssi)
-        opintopisteet += suoritus.opintopisteet
+    # Go through all the completed courses, print out their names and add the credits received together
+    credits = 0
+    for course in completed:
+        print(course.name)
+        credits += course.credits
 
-    print("Opintopisteitä yhteensä:", opintopisteet)
+    print("Total credits received:", credits)
 ```
 
 <sample-output>
 
-Matematiikka 1
-Ohjelmointi 1
-Fysiikka 2
-Ohjelmointi 2
-Opintopisteitä yhteensä: 20
+Mathematics 1
+Programming 1
+Physics 2
+Programming 2
+Total credits received: 20
 
 </sample-output>
 
@@ -119,93 +119,92 @@ ExamSubmission (examinee: Persephone, points: 17)
 
 </programming-exercise>
 
-Listaan ei tarkkaan ottaen tallenneta olioita vaan _viittauksia olioihin_. Niinpä sama olio voi esiintyä listassa useaan kertaan ja samaan olioon voidaan viitata useaan kertaan listassa ja sen ulkopuolella. Esimerkiksi näin:
+Lists do not contain any objects themselves, but _references to objects_. The exact same object can appear multiple times in a single list, and it can be referred to multiple times within the list or outside it. Let's have a look at an example:
 
 ```python
-class Tuote:
-    def __init__(self, nimi: int, yksikko: str):
-        self.nimi = nimi
-        self.yksikko = yksikko
+class Product:
+    def __init__(self, name: int, unit: str):
+        self.name = name
+        self.unit = unit
 
 
 if __name__ == "__main__":
-    kauppalista = []
-    maito = Tuote("Maito", "litra")
+    shopping_list = []
+    milk = Product("Milk", "litre")
 
-    kauppalista.append(maito)
-    kauppalista.append(maito)
-    kauppalista.append(Tuote("Kurkku", "kpl"))
+    shopping_list.append(milk)
+    shopping_list.append(milk)
+    shopping_list.append(Product("Cucumber", "piece"))
 ```
 
 <img src="9_1_1.png">
 
-Jos samaan olioon on useampi kuin yksi viittaus, on lopputuloksen kannalta yhdentekevää, mitä viittauksista käytetään:
+If there is more than one reference to the same object, it makes no difference which one of the references is used:
 
 ```python
-class Koira:
-    def __init__(self, nimi):
-        self.nimi = nimi
+class Dog:
+    def __init__(self, name):
+        self.name = name
 
     def __str__(self):
-        return self.nimi
+        return self.name
 
-koirat = []
-musti = Koira("Musti")
-koirat.append(musti)
-koirat.append(musti)
-koirat.append(Koira("Musti"))
+dogs = []
+fluffy = Dog("Fluffy")
+dogs.append(fluffy)
+dogs.append(fluffy)
+dogs.append(Dog("Fluffy"))
 
-print("Koirat alussa:")
-for koira in koirat:
-    print(koira)
+print("Dogs initially:")
+for dog in dogs:
+    print(dog)
 
-print("Kohdan 0 koira saa uuden nimen:")
-koirat[0].nimi = "Rekku"
-for koira in koirat:
-    print(koira)
+print("The dog at index 0 is renamed:")
+dogs[0].name = "Pooch"
+for dog in dogs:
+    print(dog)
 
-print("Kohdan 2 koira saa uuden nimen:")
-koirat[2].nimi = "Fifi"
-for koira in koirat:
-    print(koira)
+print("The dog at index 2 is renamed:")
+dogs[2].name = "Fifi"
+for dog in dogs:
+    print(dog)
 ```
 
 <sample-output>
 
-Koirat alussa:
-Musti
-Musti
-Musti
-Kohdan 0 koira saa uuden nimen:
-Rekku
-Rekku
-Musti
-Kohdan 2 koira saa uuden nimen:
-Rekku
-Rekku
+Dogs initially:
+Fluffy
+Fluffy
+Fluffy
+The dog at index 0 is renamed:
+Pooch
+Pooch
+Fluffy
+The dog at index 2 is renamed:
+Pooch
+Pooch
 Fifi
 
 </sample-output>
 
-Listan kohdissa 0 ja 1 on viittaus samaan olioon,  joten olion sisältöä voidaan muuttaa kumman tahansa viittauksen kautta. Listan kohdassa 2 on kuitenkin viittaus toiseen olioon, minkä vuoksi tämän olion muuttaminen ei muuta muita.
+The references at indexes 0 and 1 in the list refer to the same object. Either one of the references can be used to access the object. The reference at index 2 refers to a different object, albeit with seemingly the same contents. Changing the contents of this latter object does not affect the other one.
 
-Operaattorilla `is` voidaan tutkia, onko kyseessä täysin sama olio, ja operaattorilla `==` voidaan tutkia, onko kyseessä saman sisältöinen olio. Seuraava koodi havainnollistaa asiaa:
-
+The operator `is` is used for checking if the two references refer to the exact same object, while the operator `==` will tell you if the contents are the same. The following example hopefully makes the difference clear:
 
 ```python
-lista1 = [1, 2, 3]
-lista2 = [1, 2, 3]
-lista3 = lista1
+list1 = [1, 2, 3]
+list2 = [1, 2, 3]
+list3 = list1
 
-print(lista1 is lista2)
-print(lista1 is lista3)
-print(lista2 is lista3)
+print(list1 is list2)
+print(list1 is list3)
+print(list2 is list3)
 
 print()
 
-print(lista1 == lista2)
-print(lista1 == lista3)
-print(lista2 == lista3)
+print(list1 == list2)
+print(list1 == list3)
+print(list2 == list3)
 ```
 
 <sample-output>
@@ -220,294 +219,298 @@ True
 
 </sample-output>
 
-Omista luokista muodostettuja olioita voidaan myös tallentaa esimerkiksi sanakirjaan ja muihin tietorakenteisiin:
+Any Python object can also be stored in a dictionary or any other data structure. This also applies to objects created based on a class you've defined yourself.
 
 ```python
-class Opiskelija:
-    def __init__(self, nimi: str, op: int):
-        self.nimi = nimi
-        self.op = op
+class Student:
+    def __init__(self, name: str, cr: int):
+        self.name = name
+        self.cr = cr
 
 if __name__ == "__main__":
-    # Käytetään avaimena opiskelijanumeroa ja arvona Opiskelija-oliota
-    opiskelijat = {}
-    opiskelijat["12345"] = Opiskelija("Olli Opiskelija", 10)
-    opiskelijat["54321"] = Opiskelija("Outi Opiskelija", 67)
+    # The key in this dictionary is the student number, 
+    # and the value is an object of type Student
+    students = {}
+    students["12345"] = Student("Saul Student", 10)
+    students["54321"] = Student("Sally Student", 67)
 ```
 
-[Visualisaattori](http://www.pythontutor.com/visualize.html#mode=edit) osaa havainnollistaa nämäkin asiat hienosti:
+The [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) can help in making sense of the above example:
 
 <img src="9_1_2.png">
 
 
-## Selfillä vai ilman?
+## Self or no self?
 
-Tässä vaiheessa kurssia `self`-määre saattaa vaikuttaa vielä hämärältä. Käytetään siis hetki sen pohtimiseen, milloin selfiä tulee käyttää, ja milloin sitä kannattaa olla käyttämättä.
+Thus far we've only touched upon the surface of the keyword `self`. Let's have a closer look at when it should or should not be used.
 
-Tarkastellaan esimerkkinä yksinkertaista luokkaa, jonka avulla joukosta sanoja on mahdollista muodostaa sanasto:
+Below we have a simple class which lets us create a vocabulary object containing some words:
 
 ```python
-class Sanasto:
+class Vocabulary:
     def __init__(self):
-        self.sanat = []
+        self.words = []
 
-    def lisaa_sana(self, sana: str):
-        if not sana in self.sanat:
-            self.sanat.append(sana)
+    def add_word(self, word: str):
+        if not word in self.words:
+            self.words.append(word)
 
-    def tulosta(self):
-        for sana in sorted(self.sanat):
-            print(sana)
+    def print_vocabulary(self):
+        for word in sorted(self.words):
+            print(word)
 
-sanasto = Sanasto()
-sanasto.lisaa_sana("python")
-sanasto.lisaa_sana("olio")
-sanasto.lisaa_sana("olio-ohjelmointi")
-sanasto.lisaa_sana("olio")
-sanasto.lisaa_sana("nörtti")
+vocab = Vocabulary()
+vocab.add_word("python")
+vocab.add_word("object")
+vocab.add_word("object-oriented programming")
+vocab.add_word("object")
+vocab.add_word("nerd")
 
-sanasto.tulosta()
+vocab.print_vocabulary()
 ```
 
 <sample-output>
 
-nörtti
-olio
-olio-ohjelmointi
+nerd
+object
+object-oriented programming
 python
 
 </sample-output>
 
-Luokka tallentaa sanalistan oliomuuttujaan `self.sanat`. Tässä tapauksessa `self` tarvitaan ehdottomasti sekä luokan konstruktorissa että luokan muissa metodeissa tähän muuttujaan viitatessa, koska muuten sama lista ei ole kaikkien olion metodien käytettävissä.
+The list of words is stored in an attribute named `self.words`. In this case the `self` keyword is mandatory in both the constructor method of the class and in any other method accessing that variable. If the `self` keyword is not used, the different methods will not access the same list of words.
 
-Lisätään luokalle metodi `pisin_sana(self)` joka selvittää nimensä mukaisesti sanaston pisimmän sanan (tai yhden niistä).
+Let's add a new method to our class definition: `longest_word(self)` returns (one of) the longest words in the vocabulary.
 
-Tehtävän voisi toteuttaa vaikkapa seuraavasti, mutta näemme kohta miksei se ole kovin hyvä idea:
+The following is one way of completing this task, but we will soon see it is not a very good way:
 
 ```python
-class Sanasto:
+class Vocabulary:
     def __init__(self):
-        self.sanat = []
+        self.words = []
 
     # ...
 
-    def pisin_sana(self):
-        # määritellään kaksi apumuuttujaa
-        self.pisin = ""
-        self.pisimman_pituus = 0
+    def longest_word(self):
+        # define two helper variables
+        self.longest = ""
+        self.length_of_longest = 0
 
-        for sana in self.sanat:
-            if len(sana) > self.pisimman_pituus:
-                self.pisimman_pituus = len(sana)
-                self.pisin = sana
+        for word in self.words:
+            if len(word) > self.length_of_longest:
+                self.length_of_longest = len(word)
+                self.longest = word
 
-        return self.pisin
+        return self.longest
 ```
 
-Metodi siis käyttää kahta apumuuttujaa, jotka on määritelty käyttäen `self`-määrettä. Jos vielä halutaan hämmentää ohjelmakoodia lukevaa, apumuuttujat voisi lisäksi nimetä kryptisemmin, esim. `apu` ja `apu2`:
+This method uses two helper variables which are declared with the `self` keyword. Remenber, the names of variables do not matter in the functional sense, so these variables could also be named more confusingly as `helper` and `helper2`. The code begins to look a bit cryptic:
 
 ```python
-class Sanasto:
+class Vocabulary:
     def __init__(self):
-        self.sanat = []
+        self.words = []
 
     # ...
 
-    def pisin_sana(self):
-        # määritellään kaksi apumuuttujaa
-        self.apu = ""
-        self.apu2 = 0
+    def longest_word(self):
+        # define two helper variables
+        self.helper = ""
+        self.helper2 = 0
 
-        for sana in self.sanat:
-            if len(sana) > self.apu2:
-                self.apu2 = len(sana)
-                self.apu = sana
+        for word in self.words:
+            if len(word) > self.helper2:
+                self.helper2 = len(word)
+                self.helper = word
 
-        return self.apu
+        return self.helper
 ```
 
-Kun muuttujan määrittely tehdään `self`-määreen avulla, liitetään muuttuja olion attribuutiksi, eli muuttuja tulee olemaan edelleen olemassa myös metodin suorituksen päätyttyä. Tämä on aivan tarpeetonta, koska kyseisiä apumuuttujia on tarkoitus käyttää vain metodissa `pisin_sana(self)`. Apumuuttujien määrittely `self`-määreen avulla on siis varsin huono idea.
+When a variable is declared with the `self` keyword, it becomes an attribute of the object. This means that the variable will exist also after the method declaring it has finished its execution. In the example above this is quite unnecessary, as the helper variables are meant to be used only within the method `longest_word(self)`. So, declaring helper variables with the `self` keyword is not a very good idea.
 
-Paitsi turhaa, apumuuttujien liittäminen `self`-määreella olion attribuuteiksi on myös riskialtista, varsinkin epämääräisesti nimettyjen apumuuttujien tapauksessa. Jos samaa apumuuttujaa `self.apu` käytetään monessa eri metodissa mutta täysin eri tarkoituksiin, voivat seuraukset olla arvaamattomat ja koodissa voi ilmetä hankalasti löydettäviä bugeja. 
+Besides causing variables to exist beyond their "expiration date", using the `self` keyword to create new attributes where they aren't necessary can cause difficult bugs in your code. Especially generically named attributes such as `self.helper`, which are then used in various different methods, can cause unexpected behaviour which is hard to trace.
 
-Ongelma voi tulla esiin erityisesti silloin jos apumuuttujan alkuarvo annetaan jossain muualla, esimerkiksi konstruktorissa:
+For example, if a helper variable is assigned an initial value in the constructor, but the variable is then used in an unrelated context in a method, the results can be problematic:
 
 ```python
-class Sanasto:
+class Vocabulary:
     def __init__(self):
-        self.sanat = []
-        # määritellään apumuuttujia
-        self.apu = ""
-        self.apu2 = ""
-        self.apu3 = ""
-        self.apu4 = ""
+        self.words = []
+        # define helper variables
+        self.helper = ""
+        self.helper2 = ""
+        self.helper3 = ""
+        self.helper4 = ""
 
     # ...
 
-    def pisin_sana(self):
-        for sana in self.sanat:
-            # tämä ei toimi sillä apu2:n tyyppi on väärä
-            if len(sana) > self.apu2:
-                self.apu2 = len(sana)
-                self.apu = sana
+    def longest_word(self):
+        for word in self.words:
+            # above the helper variables were all assigned string values
+            # the following will not work because the type of helper2 is wrong
+            if len(word) > self.helper2:
+                self.helper2 = len(word)
+                self.helper = word
 
-        return self.apu
+        return self.helper
 ```
 
-Toisaalta uusien olion attribuuttien määrittely _muualla_ kuin konstruktorissa on sikäli vaarallista, että tällöin olion attribuutit riippuvat siitä, mitä metodeja on suoritettu. Kaikilla saman luokan avulla luoduilla olioilla ei välttämättä ole samoja attribuutteja, mistä seuraa helposti bugeja.
+You might think this would be solved by just declaring attributes where they are used, _outside_ the constructor, but this results in a situation where the attributes accessible through an object are dependent on _which methods have been executed_. In the previous part we saw that the advantage of declaring attributes in the constructor is that all instances of the class will then have the exact same attributes. If this is not the case, using different instances of the class can easily lead to errors.
 
-Siispä oikea tapa määritellä yhdessä metodissa käytettävät apumuuttujat on tehdä se _ilman_ `self`-määrettä:
+In conclusion, if you need helper variables for use within a single method, the correct way to do it is _without_ the `self`  keyword:
 
 ```python
-class Sanasto:
+class Vocabulary:
     def __init__(self):
-        self.sanat = []
+        self.words = []
 
     # ...
 
-    def pisin_sana(self):
-        # tämä on oikea tapa määritellä yhden metodin sisäiset apumuuttujat
-        pisin = ""
-        pisimman_pituus = 0
+    def longest_word(self):
+        # the correct way of defining helper variables for use within a single method
+        longest = ""
+        length_of_longest = 0
 
-        for sana in self.sanat:
-            if len(sana) > pisimman_pituus:
-                pisimman_pituus = len(sana)
-                pisin = sana
+        for word in self.words:
+            if len(word) > length_of_longest:
+                length_of_longest = len(word)
+                longest = word
 
-        return pisin
+        return longest
 ```
 
-Tällaisessa toteutuksessa apumuuttujat ovat olemassa ainoastaan metodin suorituksen aikana, ja niissä olevat arvot eivät pääse aiheuttamaan komplikaatioita muussa koodissa.
+In the above implementation the helper variables are only accessible while the method is being executed. The values stored within cannot cause complications in other parts of the program.
 
-## Oliot funktioiden parametrina
+## Objects as arguments to functions
 
-Omista luokista luodut oliot ovat yleensä muuttuvia eli mutatoituvia, joten niiden toiminta parametrina välitettäessä muistuttaa esimerkiksi listoista tuttua tapaa: funktio, jolle olio välitetään parametrina, voi muuttaa kyseistä oliota.
+The objects created based on our own classes are usually mutable. You may remember that, for instance, Python lists are mutable: when passed as arguments to functions, their contents can change as a result of the execution.
 
-Tarkastellaan yksinkertaista esimerkkiä, jossa funktiolle välitetään `Opiskelija`-luokasta luotu olio. Funktion sisällä muutetaan opiskelijan nimi, ja muutos näkyy myös pääohjelmassa, koska molemmissa tilanteissa viitataan samaan olioon.
+Let's have a look at a simple example where a function receives a reference to an object of type `Student` as its argument. The function then changes the name of the student. Both the function and the main function calling it access the same object, so the change is apparent in the main function as well.
 
 ```python
-class Opiskelija:
-    def __init__(self, nimi: str, opiskelijanumero: str):
-        self.nimi = nimi
-        self.opiskelijanumero = opiskelijanumero
+class Student:
+    def __init__(self, name: str, student_number: str):
+        self.name = name
+        self.student_number = student_number
 
     def __str__(self):
-        return f"{self.nimi} ({self.opiskelijanumero})"
+        return f"{self.name} ({self.student_number})"
 
-# Huomaa, että tyyppivihjeenä käytetään nyt oman luokan nimeä
-def muuta_nimi(opiskelija: Opiskelija):
-    opiskelija.nimi = "Olli Opiskelija"
+# the type hint here uses the name of the class defined above
+def change_name(student: Student):
+    student.name = "Saul Student"
 
-# Luodaan opiskelijaolio
-olli = Opiskelija("Olli Oppilas", "12345")
+# create a Student object
+steve = Student("Steve Student", "12345")
 
-print(olli)
-muuta_nimi(olli)
-print(olli)
+print(steve)
+change_name(steve)
+print(steve)
 ```
 
 <sample-output>
 
-Olli Oppilas (12345)
-Olli Opiskelija (12345)
+Steve Student (12345)
+Saul Student (12345)
 
 </sample-output>
 
-Olion voi myös luoda funktion sisällä. Mikäli funktio palauttaa viittauksen olioon, on muodostettu olio käytettävissä myös pääohjelmassa:
+It is also possible to create objects within functions. If a function returns a reference to the newly created object, it is also accessible within the main function:
 
 ```python
 from random import randint, choice
 
-class Opiskelija:
-    def __init__(self, nimi: str, opiskelijanumero: str):
-        self.nimi = nimi
-        self.opiskelijanumero = opiskelijanumero
+class Student:
+    def __init__(self, name: str, student_number: str):
+        self.name = name
+        self.student_number = student_number
 
     def __str__(self):
-        return f"{self.nimi} ({self.opiskelijanumero})"
+        return f"{self.name} ({self.student_number})"
 
 
-# Funktio luo ja palauttaa Opiskelija-olion, jolla on satunnainen nimi ja opiskelijanumero
-def uusi_opiskelija():
-    etunimet = ["Arto","Pekka","Minna","Mari"]
-    sukunimet = ["Virtanen", "Lahtinen", "Leinonen", "Pythonen"]
+# This function creates and returns a new Student object.
+# It randomly selects values for the name and the student number.
+def new_student():
+    first_names = ["Mark","Mindy","Mary","Mike"]
+    last_names = ["Javanese", "Rusty", "Scriptor", "Pythons"]
 
-    # arvo nimi
-    nimi = choice(etunimet) + " " + choice(sukunimet)
+    # randomly determine the name
+    name = choice(first_names) + " " + choice(last_names)
 
-    # Arvo opiskelijanumero
-    opiskelijanumero = str(randint(10000,99999))
+    # randomly determine the student number
+    student_number = str(randint(10000,99999))
 
-    # Luo ja palauta opiskelijaolio
-    return Opiskelija(nimi, opiskelijanumero)
+    # Create and return a Student object
+    return Student(name, student_number)
 
 if __name__ == "__main__":
-    # Kutsutaan metodia viidesti, tallennetaan tulokset listaan
-    opiskelijat = []
+    # Call the function five times and store the results in a list
+    students = []
     for i in range(5):
-        opiskelijat.append(uusi_opiskelija())
+        students.append(new_student())
 
-    # Tulostetaan
-    for opiskelija in opiskelijat:
-        print(opiskelija)
+    # Print out the results
+    for student in students :
+        print(student)
 ```
+
+Executing the above could result in the following printout (NB: as randomness is involved, every execution produces different results).
 
 <sample-output>
 
-Mari Lahtinen (36213)
-Arto Virtanen (11859)
-Mari Pythonen (77330)
-Arto Pythonen (86451)
-Minna Pythonen (86211)
+Mary Rusty (78218)
+Mindy Rusty (80068)
+Mike Pythons (70396)
+Mark Javanese (83307)
+Mary Pythons (45149)
 
 </sample-output>
 
-## Oliot metodien parametrina
+## Objects as arguments to methods
 
-Oliot toimivat normaaliin tapaan myös _metodien_ parametrina. Tarkastellaan seuraavaa esimerkkiä:
+Similarly, objects can act as arguments to methods. Let's have a look at an example from an amusement park:
 
 ```python
-class Henkilo:
-    def __init__(self, nimi: str, pituus: int):
-        self.nimi = nimi
-        self.pituus = pituus
+class Person:
+    def __init__(self, name: str, height: int):
+        self.name = name
+        self.height = height
 
-class Huvipuistolaite:
-    def __init__(self, nimi: str, pituusraja: int):
-        self.kavijoita = 0
-        self.nimi = nimi
-        self.pituusraja = pituusraja
+class Attraction:
+    def __init__(self, name: str, min_height: int):
+        self.visitors = 0
+        self.name = name
+        self.min_height = min_height
 
-    def ota_kyytiin(self, henkilo: Henkilo):
-        if henkilo.pituus >= self.pituusraja:
-            self.kavijoita += 1
-            print(f"{henkilo.nimi} pääsi kyytiin")
+    def admit_visitor(self, person: Person):
+        if person.height >= self.min_height:
+            self.visitors += 1
+            print(f"{person.name} got on board")
         else:
-            print(f"{henkilo.nimi} liian lyhyt :(")
+            print(f"{person.name} was too short :(")
 
     def __str__(self):
-        return f"{self.nimi} ({self.kavijoita} kävijää)"
+        return f"{self.name} ({self.visitors} visitors)"
 ```
-
-Huvipuistolaitteen metodi `ota_kyytiin` saa nyt parametrina luokan `Henkilo` olion. Jos kävijä on riittävän pitkä, metodi päästää hänet laitteeseen ja lisää kävijöiden määrää. Seuraavassa esimerkkisuoritus:
+The Attraction contains a method `admit_visitor`, which takes an object of type `Person` as an argument. If the visitor is tall enough, they are admitted on board and the number of visitors is increased. The classes can be tested as follows:
 
 ```python
-hurjakuru = Huvipuistolaite("Hurjakuru", 120)
-jarkko = Henkilo("Jarkko", 172)
-venla = Henkilo("Venla", 105)
+rollercoaster = Attraction("Rollercoaster", 120)
+jared = Person("Jared", 172)
+alice = Person("Alice", 105)
 
-hurjakuru.ota_kyytiin(jarkko)
-hurjakuru.ota_kyytiin(venla)
+rollercoaster.admit_visitor(jared)
+rollercoaster.admit_visitor(alice)
 
-print(hurjakuru)
+print(rollercoaster)
 ```
 
 <sample-output>
 
-Jarkko pääsi kyytiin
-Venla liian lyhyt :(
-Hurjakuru (1 kävijää)
+Jared got on board
+Alice was too short :(
+Rollercoaster (1 visitors)
 
 </sample-output>
 
@@ -830,110 +833,110 @@ Special lunches sold: 1
 
 </programming-exercise>
 
-## Saman luokan oliot metodien parametrina
+## An instance of the same class as an argument to a method
 
-Tarkastellaan jälleen kerran yhtä versiota luokasta `Henkilo`:
+Below we have yet another version of the class `Person`:
 
 ```python
-class Henkilo:
-    def __init__(self, nimi: str, syntynyt: int):
-        self.nimi = nimi
-        self.syntynyt = syntynyt
+class Person:
+    def __init__(self, name: str, year_of_birth: int):
+        self.name = name
+        self.year_of_birth = year_of_birth
 ```
 
-Oletetaan että olemme tekemässä ohjelmaa, joka vertailee henkilöiden ikiä. Voisimme tehdä tarkoitusta varten erillisen funktion:
+Let's assume we want to write a program which compares the ages of objects of type Person. We could write a separate function for this purpose:
 
 ```python
-def vanhempi_kuin(henkilo1: Henkilo, henkilo2: Henkilo):
-    if henkilo1.syntynyt < henkilo2.syntynyt:
+def older_than(person1: Person, person2: Person):
+    if person1.year_of_birth < person2.year_of_birth:
         return True
     else:
         return False
 
-muhammad = Henkilo("Muhammad ibn Musa al-Khwarizmi", 780)
-pascal = Henkilo("Blaise Pascal", 1623)
-grace = Henkilo("Grace Hopper", 1906)
+muhammad = Person("Muhammad ibn Musa al-Khwarizmi", 780)
+pascal = Person("Blaise Pascal", 1623)
+grace = Person("Grace Hopper", 1906)
 
-if vanhempi_kuin(muhammad, pascal):
-    print(f"{muhammad} on vanhempi kuin {pascal}")
+if older_than(muhammad, pascal):
+    print(f"{muhammad} is older than {pascal}")
 else:
-    print(f"{muhammad} ei ole vanhempi kuin {pascal}")
+    print(f"{muhammad} is not older than {pascal}")
 
-if vanhempi_kuin(grace, pascal):
-    print(f"{grace} on vanhempi kuin {pascal}")
+if older_than(grace, pascal):
+    print(f"{grace} is older than {pascal}")
 else:
-    print(f"{grace} ei ole vanhempi kuin {pascal}")
+    print(f"{grace} is not older than {pascal}")
 ```
 
 <sample-output>
 
-Muhammad ibn Musa al-Khwarizmi on vanhempi kuin Blaise Pascal
-Grace Hopper ei ole vanhempi kuin  Blaise Pascal
+Muhammad ibn Musa al-Khwarizmi is older than Blaise Pascal
+Grace Hopper is not older than Blaise Pascal
 
 </sample-output>
 
-Olio-ohjelmoinnin henkeen kuuluu kuitenkin sijoittaa oliota käsittelevät "funktiot" luokan metodeiksi. Voisimmekin tehdä henkilölle metodin, jonka avulla henkilön ikää voidaan verrata _toiseen_ henkilöön:
+One of the principles of object oriented programming is to include any functionality which handles objects of a certain type in the class definition, as methods. So instead we could write a method which allows us to compare the age of a Person object to _another_ Person object:
 
 ```python
-class Henkilo:
-    def __init__(self, nimi: str, syntynyt: int):
-        self.nimi = nimi
-        self.syntynyt = syntynyt
+class Person:
+    def __init__(self, name: str, year_of_birth: int):
+        self.name = name
+        self.year_of_birth = year_of_birth
 
-    # huomaa, että tyyppivihje pitää antaa hipsuissa jos parametri on saman luokan olio!
-    def vanhempi_kuin(self, toinen: "Henkilo"):
-        if self.syntynyt < toinen.syntynyt:
+    # NB: type hints must be enclosed in quotation marks if the parameter is of the same type as the class itself!
+    def older_than(self, another: "Person"):
+        if self.year_of_birth < another.year_of_birth:
             return True
         else:
             return False
 ```
 
-Nyt siis olio itse on `self` ja `toinen` on henkilöolio, joka toimii vertailukohtana.
+Here the object which the method is called on is referred to as `self`, while the other Person object is `another`.
 
-Huomaa, miten metodin kutsuminen eroaa funktion kutsumisesta:
+Remember, calling a method differs from calling a function. A method is always tied to an object with the dot notation:
 
 ```python
-muhammad = Henkilo("Muhammad ibn Musa al-Khwarizmi", 780)
-pascal = Henkilo("Blaise Pascal", 1623)
-grace = Henkilo("Grace Hopper", 1906)
+muhammad = Person("Muhammad ibn Musa al-Khwarizmi", 780)
+pascal = Person("Blaise Pascal", 1623)
+grace = Person("Grace Hopper", 1906)
 
-if muhammad.vanhempi_kuin(pascal):
-    print(f"{muhammad.nimi} on vanhempi kuin {pascal.nimi}")
+if muhammad.older_than(pascal):
+    print(f"{muhammad.name} is older than {pascal.name}")
 else:
-    print(f"{muhammad.nimi} ei ole vanhempi kuin {pascal.nimi}")
+    print(f"{muhammad.name} is not older than {pascal.name}")
 
-if grace.vanhempi_kuin(pascal):
-    print(f"{grace.nimi} on vanhempi kuin {pascal.nimi}")
+if grace.older_than(pascal):
+    print(f"{grace.name} is older than {pascal.name}")
 else:
-    print(f"{grace.nimi} ei ole vanhempi kuin {pascal.nimi}")
+    print(f"{grace.name} is not older than {pascal.name}")
 ```
 
-Pisteen vasemmalla puolella on siis verrattava henkilö, eli olio, johon metodin suorituksessa viittaa muuttuja `self`. Metodin parametrina taas on vertailukohta, eli metodin suorituksessa muuttujan `toinen` viittaama olio.
+To the left of the dot is the object itself, which is referred to as `self` within the method definition. In parentheses is the argument to the method, which is the object referred to as `another`.
 
-Ohjelman tulostus on sama kuin edellisessä funktiota käyttäneessä esimerkissä.
+The printout from the program is examctly the same as with the function implementation above.
 
-Huomaa, että if-else-rakenne metodissa `vanhempi_kuin` on oikeastaan turha, sillä vertailun arvona on suoraan haluamamme totuusarvo. Voimme siis yksinkertaistaa metodia seuraavasti:
+A rather cosmetic point to finish off: the `if...else` structure in the method `older_than` is by and large unneccessary. The value of the Boolean expression in the condition is already the exact same truth value which is returned. The method can thus be simplified:
 
 ```python
-class Henkilo:
-    def __init__(self, nimi: str, syntynyt: int):
-        self.nimi = nimi
-        self.syntynyt = syntynyt
+class Person:
+    def __init__(self, name: str, year_of_birth: int):
+        self.name = name
+        self.year_of_birth = year_of_birth
 
-    # huomaa, että tyyppivihje pitää antaa hipsuissa jos parametri on saman luokan olio!
-    def vanhempi_kuin(self, toinen: "Henkilo"):
-        return self.syntynyt < toinen.syntynyt:
+    # NB: type hints must be enclosed in quotation marks if the parameter is of the same type as the class itself!
+    def older_than(self, another: "Person"):
+        return self.year_of_birth < another.year_of_birth:
 ```
 
-Edellisestä esimerkistä kannattaa huomata se, että kun metodi saa parametrikseen toisen saman luokan olion, tulee tyyppivihje antaa hipsuissa, eli seuraava koodi aiheuttaisi virheen:
+As stated in the comments in the examples above, if the parameter in a method definition is of the same type as the class itself, the type hint must be enclosed in quotation marks. Leaving the quotation marks out causes an error, which you will see if you try the following:
 
 ```python
-class Henkilo:
+class Person:
     # ...
 
-    # tämä ei toimi, Henkilo pitaa olla hipsuissa
-    def vanhempi_kuin(self, toinen: Henkilo):
-        return self.syntynyt < toinen.syntynyt:
+    # this would cause an error, as Person must be enclosed in quotation marks
+    def older_than(self, another: Person):
+        return self.year_of_birth < another.year_of_birth:
 ```
 
 <programming-exercise name='Comparing properties' tmcname='part09-05_comparing_properties'>
