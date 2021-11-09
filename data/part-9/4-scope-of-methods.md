@@ -8,118 +8,118 @@ hidden: false
 
 After this section
 
-- Tiedät, miten metodin näkyvyys määritellään Pythonissa
-- Osaat kirjoittaa piilotettuja metodeita
+- You will know how you can limit the visibility of a method in Python
+- You will be able to write private methods
 
 </text-box>
 
-Luokassa olevien metodien näkyvyyteen voidaan vaikuttaa samalla tavalla kuin attribuuttien näkyvyyteen. Jos metodin nimi alkaa kahdella alaviivalla `__`, metodi ei ole näkyvissä asiakkaille.
+The methods defined within a class can be hidden in exactly the same way the attributes were in the previous section. If the method begins with two underscores `__`, it is not directly accessible by the client.
 
-Käytännössä mekanismia käytetään hiukan eri tavalla: piilotettujen attribuuttien käyttöä varten kirjoitetaan usein julkiset havainnointi- ja asetusmetodit. Piilotettu metodi on kuitenkin yleensä tarkoitettu vain luokan sisäiseen käyttöön, apumetodiksi asiakkaalta piilotettujen operaatioiden toteuttamiseksi.
+So, the technique is the same for both methods and attributes, but the use cases are usually a little different. Private attributes often come paired with getter and setter methods for controlling access to them. Private methods, on the other hand, are usually intended for internal use only, as helper methods for processes which the client does not need to know about.
 
-Piilotettua metodia voidaan kutsua luokan sisällä normaalisti, mutta kutsuttaessa pitää muistaa `self`-aluke. Tarkastellaan esimerkkinä sähköpostin vastaanottajaa mallintavaa luokkaa `Vastaanottaja`, jossa yksityistä apumetodia käytetään tarkistamaan sähköpostiosoitteen oikeellisuus:
+A private method can be used within the class just like any other method, of course remembering to include the `self` prefix. The following is a simple class representing the recipient of email letters. It includes a private helper method for checking the email address is in a valid format:
 
 ```python
-class Vastaanottaja:
-    def __init__(self, nimi: str, sposti: str):
-        self.__nimi = nimi
-        if self.__tarkasta_sposti(sposti):
-            self.__sposti = sposti
+class Recipient:
+    def __init__(self, name: str, email_address: str):
+        self.__name = name
+        if self.__check_email_address(email_address):
+            self.__email_address = email_address
         else:
-            raise ValueError("Sähköposti ei kelpaa")
+            raise ValueError("The email address is not valid")
 
-    def __tarkasta_sposti(self, sposti: str):
-        # Yksinkertainen tarkastus: osoitteessa on yli 5 merkkiä ja piste ja @-merkki
-        return len(sposti) > 5 and "." in sposti and "@" in sposti
+    def __check_email_address(self, email_address: str):
+        # A simple check: the address must be over 5 characters long and contain a dot and an @ character
+        return len(email_address) > 5 and "." in email_address and "@" in email_address
 ```
 
-Jos asiakas yrittää kutsua metodia, seuraa virhe:
+Attemtping to call the private method directly causes an error:
 
 ```python
-pertti = Vastaanottaja("Pertti Keinonen", "pertti@example.com")
-pertti.__tarkasta_sposti("jokumuu@example.com")
+peter = Recipient("Peter Emailer", "peter@example.com")
+peter.__check_email_address("someone@example.com")
 ```
 
 <sample-output>
 
-AttributeError: 'Vastaanottaja' object has no attribute '__tarkasta_sposti'
+AttributeError: 'Recipient' object has no attribute '__check_email_address'
 
 </sample-output>
 
-Samaa apumetodia kannattaa kutsua myös sähköpostia asettaessa - lisätään siis luokkaan esimerkin vuoksi havainnointi- ja asetusmetodit sähköpostille:
+Within the class the method can be accessed normally, and it makes sense to use it also for setting a new value for the address. Let's add getter and setter methods for the email address:
 
 ```python
-class Vastaanottaja:
-    def __init__(self, nimi: str, sposti: str):
-        self.__nimi = nimi
-        if self.__tarkasta_sposti(sposti):
-            self.__sposti = sposti
+class Recipient:
+    def __init__(self, name: str, email_address: str):
+        self.__name = name
+        if self.__check_email_address(email_address):
+            self.__email_address = email_address
         else:
-            raise ValueError("Sähköposti ei kelpaa")
+            raise ValueError("The email address is not valid")
 
-    def __tarkasta_sposti(self, sposti: str):
-        # Yksinkertainen tarkastus: osoitteessa on yli 5 merkkiä ja piste ja @-merkki
-        return len(sposti) > 5 and "." in sposti and "@" in sposti
+    def __check_email_address(self, email_address: str):
+        # A simple check: the address must be over 5 characters long and contain a dot and an @ character
+        return len(email_address) > 5 and "." in email_address and "@" in email_address
 
     @property
-    def sposti(self):
-        return self.__sposti
+    def email_address(self):
+        return self.__email_address
 
-    @sposti.setter
-    def sposti(self, sposti: str):
-        if self.__tarkasta_sposti(sposti):
-            self.__sposti = sposti
+    @email_address.setter
+    def email_address(self, email_address: str):
+        if self.__check_email_address(email_address):
+            self.__email_address = email_address
         else:
-            raise ValueError("Sähköposti ei kelpaa")
+            raise ValueError("The email address is not valid")
 ```
 
-Tarkastellaan sitten toista esimerkkiä. Luokka `Korttipakka` mallintaa nimensä mukaisesti 52 kortin korttipakkaa. Apumetodi `__alusta_pakka` luo uuden sekoitetun pakan oliota luotaessa. Vastaava alustus voitaisiin toki tehdä myös metodissa `__init__`, mutta erillisen apumetodin käyttö tekee koodista siistimpää ja mahdollistaa alustusmetodin kutsumisen myös muualta luokasta tarvittaessa.
+In the following example the class `DeckOfCards` is a model for a deck of 52 cards. It contains the helper method `__reset_deck`, which creates a new shuffled deck of cards. The private method is at the moment only called in the constructor method, so the implementation could arguably be placed directly in the constructor. However, using a separate method makes the code easier to read and also makes it possible to access the functionality later in other methods if necessary.
 
 ```python
 from random import shuffle
 
-class Korttipakka:
+class DeckOfCards:
     def __init__(self):
-        self.__alusta_pakka()
+        self.__reset_deck()
 
-    def __alusta_pakka(self):
-        self.__pakka = []
-        # Laitetaan kaikki kortit pakkaan
-        maat = ["pata", "hertta", "risti", "ruutu"]
-        for maa in maat:
-            for numero in range(1, 14):
-                self.__pakka.append((maa, numero))
-        # Sekoitetaan pakka
-        shuffle(self.__pakka)
+    def __reset_deck(self):
+        self.__deck = []
+        # Add all 52 cards to the deck
+        suits = ["spades", "hearts", "clubs", "diamonds"]
+        for suit in suits:
+            for number in range(1, 14):
+                self.__deck.append((suit, number))
+        # Shuffle the deck
+        shuffle(self.__deck)
 
-    def jaa(self, korttien_maara: int):
-        kasi = []
-        # Siirretään pakasta ylimmät kortit käteen
-        for i in range(korttien_maara):
-            kasi.append(self.__pakka.pop())
-        return kasi
+    def deal(self, number_of_cards: int):
+        hand = []
+        # Move the top cards in the deck to the hand
+        for i in range(number_of_cards):
+            hand.append(self.__deck.pop())
+        return hand
 ```
 
-Seuraava koodi testaa luokkaa:
+Let's test the class:
 
 ```python
-korttipakka = Korttipakka()
-kasi1 = korttipakka.jaa(5)
-print(kasi1)
-kasi2 = korttipakka.jaa(5)
-print(kasi2)
+deck = DeckOfCards()
+hand1 = deck.deal(5)
+print(hand1)
+hand2 = deck.deal(5)
+print(hand2)
 ```
 
-Ohjelma tulostaa esimerkiksi
+As the hands are randomly generated, the following is only an example of what could be printed out:
 
 <sample-output>
 
-[('pata', 7), ('pata', 11), ('hertta', 7), ('ruutu', 3), ('pata', 4)]
-[('risti', 8), ('pata', 12), ('ruutu', 13), ('risti', 11), ('pata', 10)]
+[('spades', 7), ('spades', 11), ('hearts', 7), ('diamonds', 3), ('spades', 4)]
+[('clubs', 8), ('spades', 12), ('diamonds', 13), ('clubs', 11), ('spades', 10)]
 
 </sample-output>
 
-Piilotettuja metodeja tarvitaan yleensä harvemmin kuin piilotettuja attribuutteja. Metodi kannattaa piilottaa, jos asiakas ei tarvitse siihen suoraa pääsyä, ja varsinkin silloin, jos on todennäköistä, että asiakas voisi sotkea olion sisäisen eheyden metodia kutsumalla.
+Private methods are generally less common than private attributes. As a rule of thumb, a method should be hidden whenever the client has no need to directly access it. This is especially the case when it is possible that the client could adversely affect the integrity of the object by calling the method.
 
 <programming-exercise name='Service charge' tmcname='part09-12_service_charge'>
 

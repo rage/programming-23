@@ -67,7 +67,7 @@ Study credits: -100
 
 ## Encapsulation
 
-A common feature in object oriented programming languages is that classes can usually hide their attributes from any prospective clients. In Python this is achieved by adding two underscores `__` to the beginning of the attribute name:
+A common feature in object oriented programming languages is that classes can usually hide their attributes from any prospective clients. Hidden attributes are usually called _private_. In Python this privacy is achieved by adding two underscores `__` to the beginning of the attribute name:
 
 ```python
 class CreditCard:
@@ -77,10 +77,10 @@ class CreditCard:
         self.name = name
 ```
 
-A private attribute is not directly visible to the client. Trying to refer to it causes an error. In the above example the name can be easily accessed _and_ changed:
+A private attribute is not directly visible to the client. Trying to refer to it causes an error. In the above example the `name` attribute can be easily accessed and changed:
 
 ```python
-card = CreditCard("123456","Richard Riches")
+card = CreditCard("123456","Randy Riches")
 print(card.name)
 card.name = "Charlie Churchmouse"
 print(card.name)
@@ -88,7 +88,7 @@ print(card.name)
 
 <sample-output>
 
-Richard Riches
+Randy Riches
 Charlie Churchmouse
 
 </sample-output>
@@ -96,7 +96,7 @@ Charlie Churchmouse
 Trying to print out the card number, however, causes and error:
 
 ```python
-card = CreditCard("123456","Richard Riches")
+card = CreditCard("123456","Randy Riches")
 print(card.__number)
 ```
 
@@ -130,7 +130,7 @@ class CreditCard:
 ```
 
 ```python
-card = CreditCard("123456", "Richard Riches", 5000)
+card = CreditCard("123456", "Randy Riches", 5000)
 print(card.retrieve_balance())
 card.deposit_money(100)
 print(card.retrieve_balance())
