@@ -180,85 +180,85 @@ Jalkapalloilija - nimi:Petri Pythonen, lempinimi: Pyttis, pelipaikka: hyökkää
 </sample-output>
 
 
-<programming-exercise name='Superryhmä' tmcname='osa10-05_superryhma'>
+<programming-exercise name='Supergroup' tmcname='part10-05_supergroup'>
 
-Tehtäväpohjassa on valmiina luokka `SuperSankari`.
+The exercise template contains a class definition for a `SuperHero`.
 
-Kirjoita luokka `SuperRyhma`, joka mallintaa supersankareista koostuvaa ryhmää. Luokalla pitää olla seuraava piirteet:
+Please define a class named `SuperGroup` which represents a group of superheroes. The class should contain the following members:
 
-* **Suojatut** attribuutit nimi (merkkijono), kotipaikka (merkkijono) ja jasenet (lista)
-* Konstruktori, joka saa parametrikseen tässä järjestyksessä nimen ja kotipaikan
-* Havainnointimetodit nimelle ja kotipaikalle
-* Metodi `lisaa_jasen(sankari: SuperSankari)`, joka lisää uuden jäsenen ryhmään
-* Metodi `tulosta_ryhma`, joka tulostaa ryhmän ja sen jäsenten tiedot alla olevan esimerkin mukaisesti
+* **Protected** attributes name (str), location (str) and members (list)
+* A constructor which takes the name and location of the group as arguments, in that order
+* Getter methods for the name and location attributes
+* A method named `add_member(hero: SuperHero)` which adds a new member to the group
+* A method named `print_group` which prints out information about the group and its members, following the format specified below
 
-Esimerkki luokan käytöstä:
+An example of the class in action:
 
 ```python
-supermiekkonen = SuperSankari("Supermiekkonen", "Supernopeus, supervoimakkuus")
-nakymaton = SuperSankari("Näkymätön Makkonen", "Näkymättömyys")
-ryhma_z = SuperRyhma("Ryhmä Z", "Kälviä")
+superperson = SuperHero("SuperPerson", "Superspeed, superstrength")
+invisible = SuperHero("Invisible Inca", "Invisibility")
+revengers = SuperGroup("Revengers", "Emerald City")
 
-ryhma_z.lisaa_jasen(supermiekkonen)
-ryhma_z.lisaa_jasen(nakymaton)
-ryhma_z.tulosta_ryhma()
+revengers.add_member(superperson)
+revengers.add_member(invisible)
+revengers.print_group()
 ```
 
 <sample-output>
 
-Ryhmä Z, Kälviä
-Jäsenet:
-Supermiekkonen, superkyvyt: Supernopeus, supervoimakkuus
-Näkymätön Makkonen, superkyvyt: Näkymättömyys
+Revengers, Emerald City
+Members:
+SuperPerson, superskills: Superspeed, superstrength
+Invisible Inca, superskills: Invisibility
 
 </sample-output>
 
-[Tämän](/osa-9/3-kapselointi#asetus--ja-havainnointimetodit) luvun kertaaminen voi olla hyödyksi.
+If you need a refresher on getter and setter methods, please have a look at [this section in the previous part](/part-9/3-encapsulation#getters-and-setters) of the material.
 
 </programming-exercise>
 
-<programming-exercise name='Salainen taikajuoma' tmcname='osa10-06_salainen_taikajuoma'>
+<programming-exercise name='Secret magic potion' tmcname='part10-06_secret_magic_potion'>
 
-Tehtäväpohjassa on luokka `Taikajuoma`, johon käyttäjä voi tallentaa reseptin. Luokasta löytyy konstruktorin lisäksi metodit
+The exercise template contains a class definition for a `MagicPotion` which allows you to save a recipe for a magic potion. The class definition contains a constructor along with the methods
 
-* `lisaa_aines(ainesosa: str, maara: float)` ja
-* `tulosta_resepti()`
+* `add_ingredient(ingredient: str, amount: float)` and
+* `print_recipe()`
 
-Kirjoita `Taikajuoma`-luokan perivä luokka `SalainenTaikajuoma`, jolla resepti voidaan suojata salasanalla.
+Please define a class named `SecretMagicPotion` which inherits the `MagicPotion` class and allows you to also protect the recipe with a password.
 
-Uusi luokka saa konstruktorissa taikajuoman nimen lisäksi salasanan.
+The new class should have a constructor which also takes the password string as an argument.
 
-Lisäksi luokalla on metodit
+The class should also contain the following methods:
 
-* `lisaa_aines(ainesosa: str, maara: float, salasana: str)` ja
-* `tulosta_resepti(salasana: str)`
+* `add_ingredient(ingredient: str, amount: float, password: str)`
+* `print_recipe(password: str)`
 
-Jos metodeja kutsutaan väärällä salasanalla, ne antavat `ValueError`-poikkeuksen.
+If the password argument to these methods is wrong, the methods should raise a `ValueError` exception.
 
-Uudet metodit kutsuvat perityn luokan metodeja, jos salasana on oikein! Älä siis leikkaa ja liimaa toteutuksia luokasta Taikajuoma.
+If the password is correct, each method should call the relevant method in the parent class. Do not copy and paste anything from the MagicPotion class.
 
-Esimerkki luokan käytöstä:
+An example of how this would work:
 
 ```python
-kutistus = SalainenTaikajuoma("Kutistus maksimus", "hokkuspokkus")
-kutistus.lisaa_aines("Kärpässieni", 1.5, "hokkuspokkus")
-kutistus.lisaa_aines("Taikahiekka", 3.0, "hokkuspokkus")
-kutistus.lisaa_aines("Sammakonkutu", 4.0, "hokkuspokkus")
-kutistus.tulosta_resepti("hokkuspokkus")
+diminuendo = SecretMagicPotion("Diminuendo maximus", "hocuspocus")
+diminuendo.add_ingredient("Toadstool", 1.5, "hocuspocus")
+diminuendo.add_ingredient("Magic sand", 3.0, "hocuspocus")
+diminuendo.add_ingredient("Frogspawn", 4.0, "hocuspocus")
+diminuendo.print_recipe("hocuspocus")
 
-kutistus.tulosta_resepti("pokkushokkus") # VÄÄRÄ SALASANA!
+diminuendo.print_recipe("pocushocus") # WRONG password!
 ```
 
 <sample-output>
 
-Kutistus maksimus:
-Kärpässieni 1.5 grammaa
-Taikahiekka 3.0 grammaa
-Sammakonkutu 4.0 grammaa
+Diminuendo maximus:
+Toadstool 1.5 grams
+Magic sand 3.0 grams
+Frogspawn 4.0 grams
 Traceback (most recent call last):
-  File "salaiset_taikajuomat.py", line 98, in <module>
-    raise ValueError("Väärä salasana!")
-ValueError: Väärä salasana!
+  File "secret_magic_potion.py", line 98, in <module>
+    raise ValueError("Wrong password!")
+ValueError: Wrong password!
 
 </sample-output>
 
