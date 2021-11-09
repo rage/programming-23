@@ -13,7 +13,7 @@ After this section
 
 </text-box>
 
-We have already seen examples of classes which have lists as attributes. As there is thus nothing stopping us adding mutable objects as attributes in our classes, we might as well use objects created based on our own classes as attributes in other classes of our own. In the following examples we will define the classes `Course`, `Student` and `CompletedCourse`. A completed course makes use of the first two classes. The class definitions are very short and simple in order to better concentrate on the technique of using instances of our own classes as attributes.
+We have already seen examples of classes which have lists as attributes. As there is thus nothing stopping us from including mutable objects as attributes in our classes, we might as well use instances of our own classes as attributes in other classes we've defined ourselves. In the following examples we will define the classes `Course`, `Student` and `CompletedCourse`. A completed course makes use of the first two classes. The class definitions are very short and simple in order to better concentrate on the technique of using instances of our own classes as attributes.
 
 We will assume each class is defined in a separate file.
 
@@ -37,7 +37,7 @@ class Student:
         self.credits = credits
 ```
 
-Finally, the class `CompletedCourse` is defined in a file named `completedcourse.py` and makes use of the classes `Course` and `Student`. The two classes must be imported before they can be used:
+Finally, the class `CompletedCourse` is defined in a file named `completedcourse.py`. As it uses the other two classes, they have to be imported before they can be used:
 
 ```python
 from course import Course
@@ -50,7 +50,7 @@ class CompletedCourse:
         self.grade = grade
 ```
 
-Here is an example with some completed courses added to a list:
+Here is an example of a main function which adds some completed courses to a list:
 
 ```python
 from completedcourse import CompletedCourse
@@ -113,16 +113,16 @@ x = 10
 print(f"the square root of {x} is {math.sqrt(x)}")
 ```
 
-In the example above we assumed the three classes were each defined in a separate file, and the main function was run from somewhere else. This is why the `import` statements were necessary.
+In the example above we assumed the three classes were each defined in a separate file, and the main function was run from yet another file. This is why the `import` statements were necessary.
 
-If all program code is contained in the same file, as most of the exercises on this course advise you to do, **you will not need** `import` statements to use the classes you have defined.
+If all program code is written in the same file, as most of the exercises on this course advise you to do, **you will not need** `import` statements to use the classes you have defined.
 
 If you find yourself writing something along the lines of 
 
 ```python
 from person import Person
 
-# koodi
+# more code goes here
 ```
 
 it is likely you have gotten something wrong. If you need a refresher, the `import` statement was first introduced in [part 7](/part-7/1-modules) of this course material.
@@ -152,7 +152,7 @@ Levi, whose pal is Hulda, a mixed-breed dog
 
 ## A list of objects as an attribute of an object
 
-In the examples above we used single instances of other classes as attributes; a Person has a single Pet as an attribute, and a CompletedCourse has one Student and one Course as its attributes.
+In the examples above we used single instances of other classes as attributes: a Person has a single Pet as an attribute, and a CompletedCourse has one Student and one Course as its attributes.
 
 In object oriented programming it is often the case that we want to have a _collection_ of objects as an attribute. For example, the relationship between a sports team and its players follows this pattern:
 
@@ -242,7 +242,7 @@ box = Box()
 box.add_present(book)
 print(box.total_weight())
 
-cd = Present("Pink Floyd: Dark side of the moon", 1)
+cd = Present("Pink Floyd: Dark Side of the Moon", 1)
 box.add_present(cd)
 print(box.total_weight())
 ```
@@ -258,9 +258,9 @@ print(box.total_weight())
 
 ## None: a reference to nothing
 
-In Python programming all initialised variables refer to an object. There are, however, inevitably situations where we need to refer to something which does not exist, without causing errors. The keyword `None` represents exactly such a non-entity.
+In Python programming all initialised variables refer to an object. There are, however, inevitably situations where we need to refer to something which does not exist, without causing errors. The keyword `None` represents exactly such an "empty" object.
 
-Continuing from the Team and Player example above, let's assume we want to add a method for searching for players on the team according to some criteria. If no such player is found, it might make sense to return `None`:
+Continuing from the Team and Player example above, let's assume we want to add a method for searching for players on the team by the name of the player. If no such player is found, it might make sense to return `None`:
 
 ```python
 class Player:
@@ -348,7 +348,7 @@ Charlie doesn't play in Campus Allstars :(
 
 <programming-exercise name='The shortest person in the room' tmcname='part09-08_shortest_in_room'>
 
-The exercise template contains the class `Person`. A person has a name and a height. In this exercise you will implement the class `Room`. You may add any number of persons to a room, and you may also search for and remove the shortest person from the room.
+The exercise template contains the class `Person`. A person has a name and a height. In this exercise you will implement the class `Room`. You may add any number of persons to a room, and you may also search for and remove the shortest person in the room.
 
 ## Room
 
@@ -364,10 +364,10 @@ Please have a look at the following usage example:
 room = Room()
 print("Is the room empty?", room.is_empty())
 room.add(Person("Lea", 183))
-room.add(Person("Kenya", 182))
-room.add(Person("Ally", 186))
-room.add(Person("Nina", 172))
-room.add(Person("Dorothy", 185))
+room.add(Person("Kenya", 172))
+room.add(Person("Ally", 166))
+room.add(Person("Nina", 162))
+room.add(Person("Dorothy", 155))
 print("Is the room empty?", room.is_empty())
 room.print_contents()
 ```
@@ -376,12 +376,12 @@ room.print_contents()
 
 Is the room empty? True
 Is the room empty? False
-There are 5 persons in the room, and their combined height is 908 cm
+There are 5 persons in the room, and their combined height is 838 cm
 Lea (183 cm)
-Kenya (182 cm)
-Ally (186 cm)
-Nina (172 cm)
-Dorothy (185 cm)
+Kenya (172 cm)
+Ally (166 cm)
+Nina (162 cm)
+Dorothy (155 cm)
 
 </sample-output>
 
@@ -396,9 +396,9 @@ print("Is the room empty?", room.is_empty())
 print("Shortest:", room.shortest())
 
 room.add(Person("Lea", 183))
-room.add(Person("Kenya", 182))
-room.add(Person("Nina", 172))
-room.add(Person("Ally", 186))
+room.add(Person("Kenya", 172))
+room.add(Person("Nina", 162))
+room.add(Person("Ally", 166))
 
 print()
 
@@ -418,25 +418,25 @@ Shortest: None
 Is the room empty? False
 Shortest: Nina
 
-There are 4 persons in the room, and their combined height is 723 cm
+There are 4 persons in the room, and their combined height is 683 cm
 Lea (183 cm)
-Kenya (182 cm)
-Nina (172 cm)
-Ally (186 cm)
+Kenya (172 cm)
+Nina (162 cm)
+Ally (166 cm)
 
 </sample-output>
 
 ## Removing a person from the room
 
-Please define the method `remove_shortest()` within the `Room` class definition. The method should remove the shortest `Person` object from the room and return the reference to the object. If the rom is empty, the method should return `None`.
+Please define the method `remove_shortest()` within the `Room` class definition. The method should remove the shortest `Person` object from the room and return the reference to the object. If the room is empty, the method should return `None`.
 
 ```python
 room = Room()
 
 room.add(Person("Lea", 183))
-room.add(Person("Kenya", 182))
-room.add(Person("Nina", 172))
-room.add(Person("Ally", 186))
+room.add(Person("Kenya", 172))
+room.add(Person("Nina", 162))
+room.add(Person("Ally", 166))
 room.print_contents()
 
 print()
@@ -451,18 +451,18 @@ room.print_contents()
 
 <sample-output>
 
-There are 4 persons in the room, and their combined height is 723 cm
+There are 4 persons in the room, and their combined height is 683 cm
 Lea (183 cm)
-Kenya (182 cm)
-Nina (172 cm)
-Ally (186 cm)
+Kenya (172 cm)
+Nina (162 cm)
+Ally (166 cm)
 
 Removed from room: Nina
 
-There are 3 persons in the room, and their combined height is 551 cm
+There are 3 persons in the room, and their combined height is 521 cm
 Lea (183 cm)
-Kenya (182 cm)
-Ally (186 cm)
+Kenya (172 cm)
+Ally (166 cm)
 
 </sample-output>
 
