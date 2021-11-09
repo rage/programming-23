@@ -242,7 +242,7 @@ The [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) ca
 
 ## Self or no self?
 
-Thus far we've only touched upon the surface of the keyword `self`. Let's have a closer look at when it should or should not be used.
+Thus far we've only touched upon the surface of the convention of the `self` parameter name. Let's have a closer look at when it should or should not be used.
 
 Below we have a simple class which lets us create a vocabulary object containing some words:
 
@@ -278,7 +278,7 @@ python
 
 </sample-output>
 
-The list of words is stored in an attribute named `self.words`. In this case the `self` keyword is mandatory in both the constructor method of the class and in any other method accessing that variable. If the `self` keyword is not used, the different methods will not access the same list of words.
+The list of words is stored in an attribute named `self.words`. In this case the `self` parameter name is mandatory in both the constructor method of the class and in any other method accessing that variable. If `self` is left out, the different methods will not access the same list of words.
 
 Let's add a new method to our class definition: `longest_word(self)` returns (one of) the longest words in the vocabulary.
 
@@ -304,7 +304,7 @@ class Vocabulary:
         return self.longest
 ```
 
-This method uses two helper variables which are declared with the `self` keyword. Remenber, the names of variables do not matter in the functional sense, so these variables could also be named more confusingly as `helper` and `helper2`. The code begins to look a bit cryptic:
+This method uses two helper variables which are declared with the `self` parameter name. Remember, the names of variables do not matter in the functional sense, so these variables could also be named more confusingly as `helper` and `helper2`. The code begins to look a bit cryptic:
 
 ```python
 class Vocabulary:
@@ -326,9 +326,9 @@ class Vocabulary:
         return self.helper
 ```
 
-When a variable is declared with the `self` keyword, it becomes an attribute of the object. This means that the variable will exist also after the method declaring it has finished its execution. In the example above this is quite unnecessary, as the helper variables are meant to be used only within the method `longest_word(self)`. So, declaring helper variables with the `self` keyword is not a very good idea.
+When a variable is declared with the `self` parameter name, it becomes an attribute of the object. This means that the variable will exist also after the method declaring it has finished its execution. In the example above this is quite unnecessary, as the helper variables are meant to be used only within the method `longest_word(self)`. So, declaring helper variables with the `self` parameter name is not a very good idea.
 
-Besides causing variables to exist beyond their "expiration date", using the `self` keyword to create new attributes where they aren't necessary can cause difficult bugs in your code. Especially generically named attributes such as `self.helper`, which are then used in various different methods, can cause unexpected behaviour which is hard to trace.
+Besides causing variables to exist beyond their "expiration date", using `self` to create new attributes where they aren't necessary can cause difficult bugs in your code. Especially generically named attributes such as `self.helper`, which are then used in various different methods, can cause unexpected behaviour which is hard to trace.
 
 For example, if a helper variable is assigned an initial value in the constructor, but the variable is then used in an unrelated context in a method, the results can be problematic:
 
@@ -357,7 +357,7 @@ class Vocabulary:
 
 You might think this would be solved by just declaring attributes where they are used, _outside_ the constructor, but this results in a situation where the attributes accessible through an object are dependent on _which methods have been executed_. In the previous part we saw that the advantage of declaring attributes in the constructor is that all instances of the class will then have the exact same attributes. If this is not the case, using different instances of the class can easily lead to errors.
 
-In conclusion, if you need helper variables for use within a single method, the correct way to do it is _without_ the `self`  keyword:
+In conclusion, if you need helper variables for use within a single method, the correct way to do it is _without_ `self`:
 
 ```python
 class Vocabulary:

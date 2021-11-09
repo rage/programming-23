@@ -11,12 +11,12 @@ After this section
 - You will know how to define your own classes
 - You will be able to create objects based on classes you've defined yourself
 - You will know how to write a constructor
-- You are familiar with the keyword `self`
+- You are familiar with the parameter name `self`
 - You will know what attributes are and how they are used
 
 </text-box>
 
-A class is defined withe the keyword `class`. The syntax is as follows:
+A class is defined with the keyword `class`. The syntax is as follows:
 
 ```python
 class NameOfClass:
@@ -116,7 +116,7 @@ The first parameter in a constructor definition is always named `self`. This ref
 
 `self.balance = balance`
 
-assigns the balance received as an argument as the balance attribute of the object. It is a common convention to use the same variable names for the parameters and the data attributes defined in a constructor, but the variable names `self.balance` and `balance` above refer to _two different variables_:
+assigns the balance received as an argument to the balance attribute of the object. It is a common convention to use the same variable names for the parameters and the data attributes defined in a constructor, but the variable names `self.balance` and `balance` above refer to _two different variables_:
 
 * The variable `self.balance` is an attribute of the object. Each `BankAccount` object has its own balance.
 
