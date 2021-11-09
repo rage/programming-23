@@ -8,138 +8,137 @@ hidden: false
 
 After this section
 
-- Tiedät, mitä tarkoitetaan kapseloinnilla
-- Osaat muodostaa piilotetun attribuutin
-- Osaat kirjoittaa attribuutille asetus- ja havainnointimetodit
+- You will know what encapsulation means
+- You will be able to create private attributes
+- You will know how to include getters and setters for your attributes
 
 </text-box>
 
-Olio-ohjelmoinnissa asiakkaalla tarkoitetaan luokkaa tai siitä muodostettuja olioita käyttävää ohjelmaa. Luokka tarjoaa asiakkaalle _palveluja_, joiden avulla asiakas voi käyttää olioita. Päämääränä on, että
+In object oriented programming the term _client_ refers to a program which uses a class, or instances of a class. A class offers the client _services_ through which the client can access the objects created based on the class. The goals here are that
 
-1) asiakkaan kannalta luokan ja olioiden käyttö on mahdollisimman yksinkertaista ja
-2) olion _sisäinen eheys_ säilyy joka tilanteessa.
+1) the use of a class and/or objects is as simple as possible from the client's point of view
+2) the _integrity_ of any object is preserved at all times
 
-Sisäisellä eheydellä tarkoitetaan, että olion _tila_ (eli käytännössä olion attribuuttien arvot) pysyy koko ajan hyväksyttävänä. Virheellinen tila olisi esimerkiksi sellainen, jossa päivämäärää esittävälle oliolle kuukauden numero on 13 tai opiskelijaa esittävällä oliolla opintopistemäärä on negatiivinen luku.
+The integrity of an object means that the _state_ of an object always remains acceptable. In practice this means that the values of the object's attributes are always acceptable. For example, an object representing a date should never have 13 as the value of the month, an object modelling a student should never have a negative number as the value of study credits attained, and so forth.
 
-Tarkastellaan esimerkkinä luokkaa Opiskelija:
+Let's take a look at a class named Student:
 
 ```python
-class Opiskelija:
-    def __init__(self, nimi: str, opiskelijanumero: str):
-        self.nimi = nimi
-        self.opiskelijanumero = opiskelijanumero
-        self.opintopisteet = 0
+class Student:
+    def __init__(self, name: str, student_number: str):
+        self.name = name
+        self.student_number = student_number
+        self.study_credits = 0
 
-    def lisaa_suoritus(self, opintopisteet):
-        if opintopisteet > 0:
-            self.opintopisteet += opintopisteet
+    def add_credits(self, study_credits):
+        if study_credits > 0:
+            self.study_credits += study_credits
 ```
 
-`Opiskelija`-olio tarjoaa asiakkaalle metodin `lisaa_suoritus`, jolla opintopisteitä voidaan lisätä. Metodi varmistaa, että lisättävä opintopisteiden määrä on positiivinen. Esimerkiksi seuraava koodi lisää kolme suoritusta:
+The `Student` object offers its clients the method `add_credits`, which allows the client to add a specified number of credits to the student's total. The method ensures the value passed as an argument is above zero. The following code adds study credits on three occasions:
 
 ```python
-oskari = Opiskelija("Oskari Opiskelija", "12345")
-oskari.lisaa_suoritus(5)
-oskari.lisaa_suoritus(5)
-oskari.lisaa_suoritus(10)
-print("Opintopisteet:", oskari.opintopisteet)
-```
-
-<sample-output>
-
-Opintopisteet: 20
-
-</sample-output>
-
-
-Asiakas pystyy kuitenkin muuttamaan opintopistemäärää myös suoraan viittaamalla attribuuttiin `opintopisteet`. Näin olio voi päätyä virheelliseen tilaan, jossa se ei ole enää sisäisesti eheä:
-
-```python
-oskari = Opiskelija("Oskari Opiskelija", "12345")
-oskari.opintopisteet = -100
-print("Opintopisteet:", oskari.opintopisteet)
+sally = Student("Sally Student", "12345")
+sally.add_credits(5)
+sally.add_credits(5)
+sally.add_credits(10)
+print("Study credits:", sally.study_credits)
 ```
 
 <sample-output>
 
-Opintopisteet: -100
+Study credits: 20
 
 </sample-output>
 
-## Kapselointi
-
-Luokka voi piilottaa attribuutit asiakkailta. Pythonissa tämä tapahtuu lisäämällä attribuuttimuuttujan nimen alkuun kaksi alaviivaa `__`:
+Despite the method definition it is still possible to access the `study_credits` attribute directly. This could result in an erroneous state where the integrity of the object is lost:
 
 ```python
-class Pankkikortti:
-    # Attribuutti numero on piilotettu, nimi on näkyvissä
-    def __init__(self, numero: str, nimi: str):
-        self.__numero = numero
-        self.nimi = nimi
-```
-
-Piilotettu attribuutti ei näy asiakkaalle, vaan siihen viittaaminen aiheutta virheilmoituksen. Niinpä nimen voi tulostaa ja sitä voi muuttaa:
-
-```python
-kortti = Pankkikortti("123456","Reijo Rahakas")
-print(kortti.nimi)
-kortti.nimi = "Reijo Rutiköyhä"
-print(kortti.nimi)
+sally = Student("Sally Student", "12345")
+sally.study_credits = -100
+print("Study credits:", sally.study_credits)
 ```
 
 <sample-output>
 
-Reijo Rahakas
-Reijo Rutiköyhä
+Study credits: -100
 
 </sample-output>
 
-Mutta jos kortin numeroa yritetään tulostaa, seuraa virheilmoitus:
+## Encapsulation
+
+A common feature in object oriented programming languages is that classes can usually hide their attributes from any prospective clients. In Python this is achieved by adding two underscores `__` to the beginning of the attribute name:
 
 ```python
-kortti = Pankkikortti("123456","Reijo Rahakas")
-print(kortti.__numero)
+class CreditCard:
+    # the attribute number is private, while the name is accessible
+    def __init__(self, number: str, name: str):
+        self.__number = number
+        self.name = name
+```
+
+A private attribute is not directly visible to the client. Trying to refer to it causes an error. In the above example the name can be easily accessed _and_ changed:
+
+```python
+card = CreditCard("123456","Richard Riches")
+print(card.name)
+card.name = "Charlie Churchmouse"
+print(card.name)
 ```
 
 <sample-output>
 
-AttributeError: 'Pankkikortti' object has no attribute '__numero'
+Richard Riches
+Charlie Churchmouse
 
 </sample-output>
 
-Tietojen piilottamista asiakkaalta kutsutaan _kapseloinniksi_. Nimensä mukaisesti attribuutti siis "suljetaan kapseliin" ja asiakkalle tarjotaan sopiva rajapinta, jonka kautta tietoa voi käsitellä.
-
-Laajennetaan pankkikorttiesimerkkiä niin, että kortilla on piilotettu attribuutti saldo ja tämän käsittelyyn tarkoitetut julkiset metodit, joiden avulla asiakas voi hallita saldoa:
+Trying to print out the card number, however, causes and error:
 
 ```python
-class Pankkikortti:
-    def __init__(self, numero: str, nimi: str, saldo: float):
-        self.__numero = numero
-        self.nimi = nimi
-        self.__saldo = saldo
+card = CreditCard("123456","Richard Riches")
+print(card.__number)
+```
 
-    def lisaa_rahaa(self, maara: float):
-        if maara > 0:
-            self.__saldo += maara
+<sample-output>
 
-    def kayta_rahaa(self, maara: float):
-        if maara > 0 and maara <= self.__saldo:
-            self.__saldo -= maara
+AttributeError: 'CreditCard' object has no attribute '__number'
 
-    def hae_saldo(self):
-        return self.__saldo
+</sample-output>
+
+Hiding attributes from clients is called _encapsulation_. As the name implies, the attribute is "enclosed in a capsule". The client is offered a suitable interface for accessing and processing the data stored in the object.
+
+Let's add another encapsulated attribute: the balance. This time we'll also add publicly visible methods which allow the client to access and change the balance:
+
+```python
+class CreditCard:
+    def __init__(self, number: str, name: str, balance: float):
+        self.__number = number
+        self.name = name
+        self.__balance = balance
+
+    def deposit_money(self, amount: float):
+        if amount > 0:
+            self.__balance += amount
+
+    def withdraw_money(self, amount: float):
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+
+    def retrieve_balance(self):
+        return self.__balance
 ```
 
 ```python
-kortti = Pankkikortti("123456", "Reijo Rahakas", 5000)
-print(kortti.hae_saldo())
-kortti.lisaa_rahaa(100)
-print(kortti.hae_saldo())
-kortti.kayta_rahaa(500)
-print(kortti.hae_saldo())
-# Tämä ei onnistu, koska saldo ei riitä
-kortti.kayta_rahaa(10000)
-print(kortti.hae_saldo())
+card = CreditCard("123456", "Richard Riches", 5000)
+print(card.retrieve_balance())
+card.deposit_money(100)
+print(card.retrieve_balance())
+card.withdraw_money(500)
+print(card.retrieve_balance())
+# The following will not work because the balance is not sufficient
+card.withdraw_money(10000)
+print(card.retrieve_balance())
 ```
 
 <sample-output>
@@ -151,7 +150,7 @@ print(kortti.hae_saldo())
 
 </sample-output>
 
-Saldoa ei voi suoraan muuttaa, koska attribuutti on piilotettu, mutta sitä voi muuttaa metodeilla `lisaa_rahaa` ja `kayta_rahaa` ja sen voi hakea metodilla `hae_saldo`. Metodeihin voidaan sijoittaa sopivia tarkastuksia, joilla varmistetaan, että olion sisäinen eheys säilyy: esimerkiksi rahaa ei voi käyttää enempää kuin kortilla on saldoa jäljellä.
+The balance cannot be changed directly because the attribute is private, but we've included the methods `deposit_money` and `withdraw_money` for changing the value. The method `retrieve_balance` returns the value stored in balance. The methods include some rudimentary checks for retaining the integrity of the object: for instance, the card cannot be overdrawn.
 
 <programming-exercise name='Car' tmcname='part09-09_car'>
 
@@ -196,48 +195,50 @@ Car: odometer reading 60 km, petrol remaining 60 litres
 
 </programming-exercise>
 
-## Asetus- ja havainnointimetodit
+## Getters and setters
 
-Python tarjoaa myös suoraviivaisemman syntaksin attribuuttien havainnoimiselle ja asettamiselle. Tarkastellaan ensin esimerkkinä yksinkertaista luokkaa `Lompakko`, jossa ainoa attribuutti `rahaa` on suojattu asiakkailta:
+In object oriented programming, methods which are dedicated to accessing and changing attributes are usually called _getters_ and _setters_. Not all Python programmers use the terms "getter" and "setter", but the consept of _properties_ outlined below is very similar, which is why we will use the generally accepted object oriented programming terminology here. 
+
+So, above we created some methods for accessing private attributes, but there is a more straightforward, "pythonic" way of accessing attributes. Let's have a look at a simple class named `Wallet` with a single, private attribute `money`:
 
 ```python
-class Lompakko:
+class Wallet:
     def __init__(self):
-        self.__rahaa = 0
+        self.__money = 0
 ```
 
-Luokkaan voidaan lisätä havainnointi- ja asetusmetodit, joilla asiakas voi hallita rahamäärää:
+We can add getter and setter methods for accessing the private attribute using the `@property` decorator:
 
 ```python
-class Lompakko:
+class Wallet:
     def __init__(self):
-        self.__rahaa = 0
+        self.__money = 0
 
-    # Havainnointimetodi
+    # A getter method
     @property
-    def rahaa(self):
-        return self.__rahaa
+    def money(self):
+        return self.__money
 
-    # Asetusmetodi
-    @rahaa.setter
-    def rahaa(self, rahaa):
-        if rahaa >= 0:
-            self.__rahaa = rahaa
+    # A setter method
+    @money.setter
+    def money(self, money):
+        if money >= 0:
+            self.__money = money
 ```
 
-Luokalle siis määritellään ensin havainnointimetodi, joka palauttaa rahamäärän, ja sitten asetusmetodi, joka asettaa rahamäärän ja varmistaa, että uusi rahamäärä ei ole negatiivinen.
+First, we define a getter method, which returns the amount of money currently in the wallet. Then we define a setter method, which sets a new value for the money attribute while making sure the new value is not negative.
 
-Kutsuminen tapahtuu esimerkiksi näin:
+The new methods can be used like so:
 
 ```python
-lompsa = Lompakko()
-print(lompsa.rahaa)
+wallet = Wallet()
+print(wallet.money)
 
-lompsa.rahaa = 50
-print(lompsa.rahaa)
+wallet.money = 50
+print(wallet.money)
 
-lompsa.rahaa = -30
-print(lompsa.rahaa)
+wallet.money = -30
+print(wallet.money)
 ```
 
 <sample-output>
@@ -248,43 +249,43 @@ print(lompsa.rahaa)
 
 </sample-output>
 
-Asiakkaan kannalta metodien kutsuminen muistuttaa attribuuttien kutsumista, koska kutsussa ei käytetä sulkuja vaan voi kirjoittaa esimerkiksi`lompsa.rahaa = 50`. Tarkoituksena onkin piilottaa (eli kapseloida) sisäinen toteutus ja tarjota asiakkaalle vaivaton tapa muokata olion tietoja.
+As far as the client is concerned, using these new methods is no different from directly accessing an attribute. Parentheses are not necessary; instead it is perfectly acceptable to state `wallet.money = 50`. Indeed, the purpose was to hide (i.e. encapsulate) the internal implementation of the attribute while offering an easy way of accessing and modifying the data stored in the object.
 
-Edellisessä esimerkissä on kuitenkin yksi pieni vika: asiakas ei saa mitään viestiä siitä, että negatiivisen rahasumman asettaminen ei toimi. Kun arvo on selvästi virheellinen, hyvä tapa viestiä tästä on heittää poikkeus. Tässä tapauksessa oikea poikkeus voisi olla `ValueError`, joka kertoo että arvo on väärä.
+The previous example has a slight fault: the client is not notified of the failure to set a negative value for the money attribute. When a value supplied is clearly wrong, it is usually a good idea to raise an exception and thus let the client know. In this case the exception should probably be of type `ValueError` to signify that the value supplied was unacceptable.
 
-Korjattu versio luokasta ja testikoodi:
+Here we have an improved version of the class, along with some code for testing it:
 
 ```python
-class Lompakko:
+class Wallet:
     def __init__(self):
-        self.__rahaa = 0
+        self.__money = 0
 
-    # Havainnointimetodi
+    # A getter method
     @property
-    def rahaa(self):
-        return self.__rahaa
+    def money(self):
+        return self.__money
 
-    # Asetusmetodi
-    @rahaa.setter
-    def rahaa(self, rahaa):
-        if rahaa >= 0:
-            self.__rahaa = rahaa
+    # A setter method
+    @money.setter
+    def money(self, money):
+        if money >= 0:
+            self.__money = money
         else:
-            raise ValueError("Rahasumma ei saa olla negatiivinen")
+            raise ValueError("The amount must not be below zero")
 ```
 
 ```python
-lompsa.rahaa = -30
-print(lompsa.rahaa)
+wallet.money = -30
+print(wallet.money)
 ```
 
 <sample-output>
 
-ValueError: Rahasumma ei saa olla negatiivinen
+ValueError: The amount must not be below zero
 
 </sample-output>
 
-Huomaa, että havainnointimetodi eli `@property`-dekoraattori pitää esitellä luokassa ennen asetusmetodia, muuten seuraa virhe. Tämä johtuu siitä, että `@property`-dekoraattori määrittelee käytettävän "asetusattribuutin" nimen (edellisessä esimerkiksi `rahaa`), ja asetusmetodi `.setter` liittää siihen uuden toiminnallisuuden.
+NB: the getter method, i.e. the `@property` decorator, must be introduced before the setter method, or there will be an error when the class is executed. This is because the `@property` decorator defines the name of the "attribute" offerred to the client. The setter method, added with `.setter`, simply adds a new functionality to it.
 
 <programming-exercise name='Recording' tmcname='part09-10_recording'>
 
@@ -319,99 +320,101 @@ If you need a refresher on raising exceptions, please see [part 6](/part-6/3-err
 
 </programming-exercise>
 
-Katsotaan vielä esimerkki luokasta, jolla on kaksi suojattua attribuuttia ja molemmille havainnointi- ja asetusmetodit:
+Let's now have a look at a class with two private attributes and getters and setters for both:
 
 ```python
-class Pelaaja:
-    def __init__(self, nimi: str, pelinumero: int):
-        self.__nimi = nimi
-        self.__pelinumero = pelinumero
+class Player:
+    def __init__(self, name: str, player_number: int):
+        self.__name = name
+        self.__player_number = player_number
 
     @property
-    def nimi(self):
-        return self.__nimi
+    def name(self):
+        return self.__name
 
-    @nimi.setter
-    def nimi(self, nimi: str):
-        if nimi != "":
-            self.__nimi = nimi
+    @name.setter
+    def name(self, name: str):
+        if name != "":
+            self.__name = name
         else:
-            raise ValueError("Nimi ei voi olla tyhjä")
+            raise ValueError("The name may not be an empty string")
 
     @property
-    def pelinumero(self):
-        return self.__pelinumero
+    def player_number(self):
+        return self.__player_number
 
-    @pelinumero.setter
-    def pelinumero(self, pelinumero: int):
-        if pelinumero > 0:
-            self.__pelinumero = pelinumero
+    @player_number.setter
+    def player_number(self, player_number: int):
+        if player_number > 0:
+            self.__player_number = player_number
         else:
-            raise ValueError("Pelinumeron täytyy olla positiviinen kokonaisluku")
+            raise ValueError("The player number must be a positive integer")
 ```
 
 ```python
-pelaaja = Pelaaja("Pekka Palloilija", 10)
-print(pelaaja.nimi)
-print(pelaaja.pelinumero)
+player = Player("Betty Ballmer", 10)
+print(player.name)
+print(player.player_number)
 
-pelaaja.nimi = "Paula Palloilija"
-pelaaja.pelinumero = 11
-print(pelaaja.nimi)
-print(pelaaja.pelinumero)
+player.name = "Buster Ballmer"
+player.player_number = 11
+print(player.name)
+print(player.player_number)
 ```
 
 <sample-output>
 
-Pekka Palloilija
+Betty Ballmer
 10
-Paula Palloilija
+Buster Ballmer
 11
 
 </sample-output>
 
-Kolmantena esimerkkinä tarkastellaan luokkaa, joka mallintaa päiväkirjaa. Huomaa, että omistajalla on asetus- ja havainnointimetodit, mutta merkintöjen lisäys on toteutettu "perinteisillä" metodeilla. Tämä siksi, että asiakkalle ei ole haluttu tarjota suoraan pääsyä tietorakenteeseen, johon merkinnät tallennetaan. Kapseloinnista on tässä sekin hyöty, että sisäistä toteutusta voidaan myöhemmin muuttaa (esim. vaihtamalla lista vaikka sanakirjaksi) ilman, että asiakkaan täytyy muuttaa omaa koodiaan.
+To finish off this section, let's take a look at a class which models a simple diary. All attributes are private, but they are handled through different interfaces: the owner of the diary has getter and setter methods, but the diary entries are processed with "traditional" methods. In this case, it was deemed necessary to deny the client access to the internal data structure of the diary. Only the public methods defined are directly visible to the client. 
+
+Encapsulation also ensures that the internal implementation of the class can be changed at will, provided that the public interface stays intact. The client does not have to know or care whether the internal data structure is based on lists, dictionaries, or something completely different.
 
 ```python
-class Paivakirja:
-    def __init__(self, omistaja: str):
-        self.__omistaja = omistaja
-        self.__merkinnat = []
+class Diary:
+    def __init__(self, owner: str):
+        self.__owner = owner
+        self.__entries = []
 
     @property
-    def omistaja(self):
-        return self.__omistaja
+    def owner(self):
+        return self.__owner
 
-    @omistaja.setter
-    def omistaja(self, omistaja):
-        if omistaja != "":
-            self.__omistaja = omistaja
+    @owner.setter
+    def owner(self, owner):
+        if owner != "":
+            self.__owner = owner
         else:
-            raise ValueError("Omistaja ei voi olla tyhjä")
+            raise ValueError("The owner may not be an empty string")
 
-    def lisaa_merkinta(self, merkinta: str):
-        self.__merkinnat.append(merkinta)
+    def add_entry(self, entry: str):
+        self.__entries.append(entry)
 
-    def tulosta(self):
-        print("Yhteensä", len(self.__merkinnat), "merkintää")
-        for merkinta in self.__merkinnat:
-            print("- " + merkinta)
+    def print_entries(self):
+        print("A total of", len(self.__entries), "entries")
+        for entry in self.__entries:
+            print("- " + entry)
 ```
 
 ```python
-paivakirja = Paivakirja("Pekka")
-paivakirja.lisaa_merkinta("Tänään söin puuroa")
-paivakirja.lisaa_merkinta("Tänään opettelin olio-ohjelmointia")
-paivakirja.lisaa_merkinta("Tänään menin ajoissa nukkumaan")
-paivakirja.tulosta()
+diary = Diary("Peter")
+diary.add_entry("Today I ate porridge")
+diary.add_entry("Today I learned object oriented programming")
+diary.add_entry("Today I went to bed early")
+diary.print_entries()
 ```
 
 <sample-output>
 
-Yhteensä 3 merkintää
-- Tänään söin puuroa
-- Tänään opettelin olio-ohjelmointia
-- Tänään menin ajoissa nukkumaan
+A total of 3 entries
+- Today I ate porridge
+- Today I learned object oriented programming
+- Today I went to bed early
 
 </sample-output>
 
