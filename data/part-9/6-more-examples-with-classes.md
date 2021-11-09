@@ -27,7 +27,7 @@ class Point:
         self.y = y
 
     # This class method returns a new Point at origo (0, 0)
-    # It is indeed possible to return a new instance of the class from with the class
+    # It is possible to return a new instance of the class from within the class
     @classmethod
     def origo(cls):
         return Point(0, 0)
@@ -49,6 +49,7 @@ class Point:
     def __str__(self):
         return f"({self.x}, {self.y})"
 
+
 class Line:
     """ The class represents a line segment in two-dimensional space """
 
@@ -62,7 +63,7 @@ class Line:
         sum_of_squares = (self.end.x - self.beginning.x) ** 2 + (self.end.y - self.beginning.y) ** 2
         return math.sqrt(sum_of_squares)
 
-    # This method return the Point in the middle of the line segment
+    # This method returns the Point in the middle of the line segment
     def centre_point(self):
         centre_x = (self.beginning.x + self.end.x) / 2
         centre_y = (self.beginning.y + self.end.y) / 2
@@ -101,11 +102,11 @@ print(line)
 
 ## Default values of parameters
 
-In Pyhton programing you can generally set a default value for any parameter. Default values can be used in both functions and methods.
+In Python programming you can generally set a default value for any parameter. Default values can be used in both functions and methods.
 
-If a parameter has a default value you do not have to include one as an argument when calling the function. If an argument is given, the default value is ignored. If not, the default value is used.
+If a parameter has a default value, you do not have to include a value as an argument when calling the function. If an argument is given, the default value is ignored. If not, the default value is used.
 
-Default values are often used in constructors. If it can be expected that not all information is available when an object is creates, it is better to include a default value in the definition of the constructor method than to force the client to take care of the issue. This makes using the class easier from the client's point of view, but it also enforces the integrity of the object. For instance, with a set default value we can be sure that an "empty" value is always the same. If a default value is not set, it is up to the client to provide an "empty" value, which could be for example an empty string `""`, the non-entity `None` or the string `"not set"`.
+Default values are often used in constructors. If it can be expected that not all information is available when an object is created, it is better to include a default value in the definition of the constructor method than to force the client to take care of the issue. This makes using the class easier from the client's point of view, but it also ensures the integrity of the object. For instance, with a set default value we can be sure that an "empty" value is always the same, unless the client specifically wants to supply something different. If a default value is not set, it is up to the client to provide an "empty" value. This could be, for example, an empty string `""`, the special empty object `None`, or the string `"not set"`.
 
 Let's have a look at yet another class representing a student. When creating a new Student object the client must provide a name and a student number. The student number is private and should not be changed later. Additionally, a Student object has attributes for study credits and notes, which have default values set in the constructor. New values can be passed as arguments to the constructor, but they can also be left out so that the default values are used instead. Please have a look at the comments in the code to better understand what each method does.
 
@@ -136,7 +137,7 @@ class Student:
         if name != "":
             self.__name = name
         else:
-            raise ValueError("The name can not be an empty string")
+            raise ValueError("The name cannot be an empty string")
 
     @property
     def student_number(self):
@@ -151,7 +152,7 @@ class Student:
         if op >= 0:
             self.__credits = op
         else:
-            raise ValueError("The number of study credits can not be below zero")
+            raise ValueError("The number of study credits cannot be below zero")
 
     @property
     def notes(self):
@@ -205,7 +206,7 @@ Student Sandy Student (98765):
 
 NB: there is no setter method for the attribute `student_number` as the student number is not supposed to change.
 
-There is one rather significant snag in using default values for parameters. The following example modelling yet another kind of student will shed more light on this:
+There is one rather significant snag when using default values for parameters. The following example modelling yet another kind of student will shed more light on this:
 
 ```python
 class Student:
@@ -243,7 +244,7 @@ student1 = Student("Sally Student", courses)
 student2 = Student("Sassy Student", courses)
 ```
 
-The default values of parameters should never be instances of more complicated, mutable data structures such as lists. The problem can be circumvented by making the following changes to the constructor of the `Student` class:
+The default values of parameters should never be instances of more complicated, mutable data structures, such as lists. The problem can be circumvented by making the following changes to the constructor of the `Student` class:
 
 ```python
 class Student:
@@ -278,7 +279,7 @@ print(student2.completed_courses)
 
 ## The Grand Finale
 
-Even though the following exercise finishes off this part of the material, the techniques required to solve it were all covered already in the section [Objects as attributes](/part-9/2-objects-as-attributes). This exercise is very similar to the exercises [A box of presents](/part-9/2-objects-as-attributes#programming-exercise-a-box-of-presents) and [The shortest person in the room](/part-9/2-objects-as-attributes#programming-exercise-the-shortest-person-in-the-room).
+Even though the following exercise finishes off this part of the material, the techniques required to solve it were all covered already in the section named [objects as attributes](/part-9/2-objects-as-attributes). Specifically, you are not required to use the `@property` decorator or default values for parameters in this exercise. This exercise is very similar to the exercises [a box of presents](/part-9/2-objects-as-attributes#programming-exercise-a-box-of-presents) and [the shortest person in the room](/part-9/2-objects-as-attributes#programming-exercise-the-shortest-person-in-the-room).
 
 <programming-exercise name='Item, Suitcase and Cargo hold' tmcname='part09-15_item_suitcase_hold'>
 
@@ -454,7 +455,7 @@ Please write a class named `CargoHold` with the following methods:
 - a method named `add_suitcase` which adds the suitcase given as an argument to the cargo hold
 - a `__str__` method which returns a string in the format "x suitcases, space for y kg"
 
-The class should make sure that the combined weight of the items stored within any `CargoHold` does not exceed the maximum weight set for that instance. If the maximum weight would be exceeded when the `add_suitcase` method is called, the new item should not be added to the cargo hold.
+The class should make sure that the combined weight of the items stored within any `CargoHold` does not exceed the maximum weight set for that instance. If the maximum weight would be exceeded when the `add_suitcase` method is called, the new suitcase should not be added to the cargo hold.
 
 Your class should now work with the following program:
 
