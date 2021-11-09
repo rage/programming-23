@@ -304,17 +304,17 @@ print(henkilot)
 
 </sample-output>
 
-<programming-exercise name='Raha' tmcname='osa10-07_raha'>
+<programming-exercise name='Money' tmcname='part10-07_money'>
 
-Tehtäväpohjasta löytyy luokan `Raha` runko. Tässä tehtävässä laajennetaan runkoa muutamilla operaattoreilla, ja korjataan pari rungossa olevaa pientä ongelmaa
+The exercise template contains an outline for a class named `Money`. This exercise asks you to implement some additional methods and to fix some small problems in the template.
 
-## Korjaa merkkijonoesitys
+## Fix the string representation
 
-Rahan merkkijonoesityksen muodostava metodi ei ole nyt ihan kunnossa. Seuraavassa esimerkissä muodostetaan kaksi raha-olioa, joista jälkimmäinen ei tulostu oikein:
+The `__str__` method in the class definition doesn't work quite right. Given the following two Money objects, the latter is printed out wrong:
 
 ```python
-e1 = Raha(4, 10)
-e2 = Raha(2, 5)  # kaksi euroa ja viisi senttiä
+e1 = Money(4, 10)
+e2 = Money(2, 5)  # two euros and five cents
 
 print(e1)
 print(e2)
@@ -327,7 +327,7 @@ print(e2)
 
 </sample-output>
 
-Korjaa luokan metodi `__str__(self)` siten, että tulostus on seuraava:
+Please fix the method so that it prints out 
 
 <sample-output>
 
@@ -336,14 +336,14 @@ Korjaa luokan metodi `__str__(self)` siten, että tulostus on seuraava:
 
 </sample-output>
 
-## Yhtäsuuruus
+## Equal amounts
 
-Määrittele raha-oliolle metodi  `__eq__(self, toinen)`, jonka avulla rahan yhtäsuuruusvertailu saadaan toimimaan:
+Please define a new method named `__eq__(self, another)` which allows you to use comparison operators on Money objects. You can test your implementation with the following code:
 
 ```python
-e1 = Raha(4, 10)
-e2 = Raha(2, 5)
-e3 = Raha(4, 10)
+e1 = Money(4, 10)
+e2 = Money(2, 5)
+e3 = Money(4, 10)
 
 print(e1)
 print(e2)
@@ -362,13 +362,13 @@ True
 
 </sample-output>
 
-## Muut vertailut
+## Other comparison operators
 
-Toteuta rahalle myös seuraavat vertailuoperaattorit `<`, `>`, `!=`.
+Please implement the appropriate methods for the comparison operators `<`, `>` and `!=`.
 
 ```python
-e1 = Raha(4, 10)
-e2 = Raha(2, 5)
+e1 = Money(4, 10)
+e2 = Money(2, 5)
 
 print(e1 != e2)
 print(e1 < e2)
@@ -383,15 +383,15 @@ True
 
 </sample-output>
 
-## Plus ja miinus
+## Addition and subtractions
 
-Toteuta rahalle yhteen- ja vähennyslaskuoperaatiot. Molempien operaatioiden tulee palauttaa uusi rahaolio, ja ne eivät saa muuttaa olioa itseään tai parametrina olevaa olioa!
+Please implement the addition and subtraction operators `+` and `-` for Money objects. Both should return a new object of type Money. Neither the object itself or the object passed as an argument should be changed as a result.
 
-Huomaa, että rahan arvo ei voi olla negatiivinen. Negatiiviseen tulokseen päätyvän vähennyslaskuyrityksen tulee aiheuttaa ValueError-tyyppinen poikkeus.
+NB: the value of a Money object cannot be negative. If an attempt to subtract would result in a negative result, the method should raise a `ValueError` exception.
 
 ```python
-e1 = Raha(4, 5)
-e2 = Raha(2, 95)
+e1 = Money(4, 5)
+e2 = Money(2, 95)
 
 e3 = e1 + e2
 e4 = e1 - e2
@@ -407,21 +407,21 @@ e5 = e2-e1
 7.00 eur
 1.10 eur
 Traceback (most recent call last):
-  File "tiedosto.py", line 416, in <module>
+  File "money.py", line 416, in <module>
     e5 = e2-e1
-  File "tiedosto.py", line 404, in __sub__
-    raise ValueError(f"negatiivinen tulos ei sallittu")
-ValueError: negatiivinen tulos ei sallittu
+  File "money.py", line 404, in __sub__
+    raise ValueError(f"a negative result is not allowed")
+ValueError: a negative result is not allowed
 
 </sample-output>
 
-## Arvoa ei voi muuttaa
+## The value should not be dircetly accessible
 
-Luokassa on tällä hetkellä vielä pieni ongelma, koska käyttäjä voi "huijaamalla" muuttaa rahan arvoa:
+The class still has a small integrity issue. The user can "cheat" by accessing the attributes directly and changing the value stored in the Money object:
 
 ```python
 print(e1)
-e1.eurot = 1000
+e1.euros = 1000
 print(e1)
 ```
 
@@ -432,32 +432,32 @@ print(e1)
 
 </sample-output>
 
-Muuta luokan toteutus [kapseloiduksi](/osa-9/3-kapselointi#kapselointi) siten, että yllä oleva huijaus ei onnistu. Luokalla ei siis saa olla kapseloimattomia attribuutteja eikä asetus- tai havainnointimetodeita euroille tai senteille!
+Please [encapsulate](/part-9/3-encapsulation#encapsulation) the implementation of the attributes defined in the class so that the cheat used above is not possible. The class should have no public attributes, and no getter or setter methods for the euros or the cents.
 
 </programming-exercise>
 
-<programming-exercise name='Päiväys' tmcname='osa10-08_paivays'>
+<programming-exercise name='Simple date' tmcname='part10-08_simple_date'>
 
-Tässä tehtävässä toteutetaan luokka `Paivays`, jonka avulla on mahdollista käsitellä päivämääriä. Oletetaan tässä tehtävässä yksinkertaisuuden vuoksi, että _jokaisessa kuussa on 30 päivää_.
+In this exercise you are asked to implement the class `SimpleDate` which allows you to handle dates. For simplicity's sake we assume here that _each month has 30 days_.
 
-Huom! Edellisestä johtuen tehtävässä ei poikkeuksellisesti kannata käyttää Pythonin `datetime`-moduulia, vaan toteutetaan luokka itse.
+Because of this simplification you should not use the `datetime` module from the Python standard library. You will implement similar functionality yourself instead.
 
-## Vertailut
+## Comparisons
 
-Toteuta luokan runko ja sille vertailuoperaattorit <, >, == ja !=. Käyttöesimerkki:
+Please implement the outline of the class, along with methods allowing for comparisons with the operators <, >, == and !=. You can use the following code to test your implementation:
 
 ```python
-p1 = Paivays(4, 10, 2020)
-p2 = Paivays(28, 12, 1985)
-p3 = Paivays(28, 12, 1985)
+d1 = SimpleDate(4, 10, 2020)
+d2 = SimpleDate(28, 12, 1985)
+d3 = SimpleDate(28, 12, 1985)
 
-print(p1)
-print(p2)
-print(p1 == p2)
-print(p1 != p2)
-print(p1 == p3)
-print(p1 < p2)
-print(p1 > p2)
+print(d1)
+print(d2)
+print(d1 == d2)
+print(d1 != d2)
+print(d1 == d3)
+print(d1 < d2)
+print(d1 > d2)
 ```
 
 <sample-output>
@@ -472,21 +472,21 @@ True
 
 </sample-output>
 
-## Kasvatus
+## Increment
 
-Toteuta päiväykselle operaattori +. Operaattori luo uuden päivämäärän joka on lisättävän lukeman päiviä verran suurempi kuin alkuperäinen päivämäärä. Alkuperäinen päivä ei saa muuttua.
+Please implement the addition operator + which allows you to add a given number of days to a SimpleDate object. The operator should return a new SimpleDate object. The original object should not change.
 
 ```python
-p1 = Paivays(4, 10, 2020)
-p2 = Paivays(28, 12, 1985)
+d1 = SimpleDate(4, 10, 2020)
+d2 = SimpleDate(28, 12, 1985)
 
-p3 = p1 + 3
-p4 = p2 + 400
+d3 = d1 + 3
+d4 = d2 + 400
 
-print(p1)
-print(p2)
-print(p3)
-print(p4)
+print(d1)
+print(d2)
+print(d3)
+print(d4)
 ```
 
 <sample-output>
@@ -498,20 +498,20 @@ print(p4)
 
 </sample-output>
 
-## Erotus
+## Difference
 
-Toteuta päiväykselle operaattori -, joka palauttaa päivämäärien eron päivissä laskettuna. Huomaa, että koska oletamme jokaisessa kuukaudessa olevan 30 päivää, tässä tehtävässä vuosien päivien lukumäärä on 12*30 eli 360.
+Please implement the subtraction operator - which allows you to find out the difference in days between two SimpleDate objects. As we assumed each month to have 30 days, a year within the confines of this exercise is 12*30 = 360 days long.
 
-Operaattori toimii seuraavasti
+You can use the following code to test your program:
 
 ```python
-p1 = Paivays(4, 10, 2020)
-p2 = Paivays(2, 11, 2020)
-p3 = Paivays(28, 12, 1985)
+d1 = SimpleDate(4, 10, 2020)
+d2 = SimpleDate(2, 11, 2020)
+d3 = SimpleDate(28, 12, 1985)
 
-print(p2-p1)
-print(p1-p2)
-print(p1-p3)
+print(d2-d1)
+print(d1-d2)
+print(d1-d3)
 ```
 
 <sample-output>
@@ -616,28 +616,28 @@ C-itsemän veljestä
 </sample-output>
 
 
-<programming-exercise name='Iteroitava kauppalista' tmcname='osa10-09_iteroitava_kauppalista'>
+<programming-exercise name='An iterable shopping list' tmcname='part10-09_iterable_shopping_list'>
 
-Tehtäväpohjassa on [osan 8 tehtävästä ](/osa-8/2-luokat-ja-oliot#programming-exercise-kauppalista) tuttu luokka `Kauppalista`. Tee luokasta iteroitava, siten että sitä voi käyttää seuraavasti:
+The exercise template contains the `ShoppingList` class from the [exercise in part 8](/part-8/2-classes-and-objects#programming-exercise-shopping-list). Please adjust the class so that it is iterable and can thus be used as follows:
 
 ```python
-lista = Kauppalista()
-lista.lisaa("banaanit", 10)
-lista.lisaa("omenat", 5)
-lista.lisaa("ananas", 1)
+shopping_list = ShoppingList()
+shopping_list.add("bananas", 10)
+shopping_list.add("apples", 5)
+shopping_list.add("pineapple", 1)
 
-for tuote in lista:
-    print(f"{tuote[0]}: {tuote[1]} kpl")
+for product in shopping_list:
+    print(f"{product[0]}: {product[1]} units")
 ```
 
 <sample-output>
 
-banaanit: 10 kpl
-omenat: 5 kpl
-ananas: 1 kpl
+bananas: 10 units
+apples: 5 units
+pineapple: 1 units
 
 </sample-output>
 
-Iteraattorin metodin `__next__` tulee palauttaa tupleja, joiden ensimmäinen alkio on tuotteen nimi ja toisen listalla olevan tuotteen lukumäärä.
+The `__next__` method of your iterator should return tuples, where the first item is the name of the product and the second item is the amount,
 
 </programming-exercise>
