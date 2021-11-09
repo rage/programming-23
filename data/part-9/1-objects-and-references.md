@@ -13,7 +13,7 @@ After this section
 
 </text-box>
 
-Every value in Python is an object. Any object you create based on a class you've defined yourself works exactly the same as any other object. For example, objects can be stored in a list:
+Every value in Python is an object. Any object you create based on a class you've defined yourself works exactly the same as any "regular" Python object. For example, objects can be stored in a list:
 
 ```python
 from datetime import date
@@ -40,7 +40,8 @@ if __name__ == "__main__":
     completed.append(CompletedCourse("Physics 2", 4, date(2019, 11, 10)))
     completed.append(CompletedCourse("Programming 2", 5, date(2020, 5, 19)))
 
-    # Go through all the completed courses, print out their names and add the credits received together
+    # Go through all the completed courses, print out their names 
+    # and sum up the credits received
     credits = 0
     for course in completed:
         print(course.name)
@@ -119,7 +120,7 @@ ExamSubmission (examinee: Persephone, points: 17)
 
 </programming-exercise>
 
-Lists do not contain any objects themselves, but _references to objects_. The exact same object can appear multiple times in a single list, and it can be referred to multiple times within the list or outside it. Let's have a look at an example:
+You may remember that lists do not contain any objects themselves. They contain _references to objects_. The exact same object can appear multiple times in a single list, and it can be referred to multiple times within the list or outside it. Let's have a look at an example:
 
 ```python
 class Product:
@@ -189,7 +190,7 @@ Fifi
 
 The references at indexes 0 and 1 in the list refer to the same object. Either one of the references can be used to access the object. The reference at index 2 refers to a different object, albeit with seemingly the same contents. Changing the contents of this latter object does not affect the other one.
 
-The operator `is` is used for checking if the two references refer to the exact same object, while the operator `==` will tell you if the contents are the same. The following example hopefully makes the difference clear:
+The operator `is` is used for checking if the two references refer to the exact same object, while the operator `==` will tell you if the contents of the objects are the same. The following example hopefully makes the difference clear:
 
 ```python
 list1 = [1, 2, 3]
@@ -242,7 +243,7 @@ The [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) ca
 
 ## Self or no self?
 
-Thus far we've only touched upon the surface of the convention of the `self` parameter name. Let's have a closer look at when it should or should not be used.
+Thus far we've only touched upon the surface of using the `self` parameter name. Let's have a closer look at when it should or should not be used.
 
 Below we have a simple class which lets us create a vocabulary object containing some words:
 
@@ -280,7 +281,7 @@ python
 
 The list of words is stored in an attribute named `self.words`. In this case the `self` parameter name is mandatory in both the constructor method of the class and in any other method accessing that variable. If `self` is left out, the different methods will not access the same list of words.
 
-Let's add a new method to our class definition: `longest_word(self)` returns (one of) the longest words in the vocabulary.
+Let's add a new method to our class definition. The method `longest_word(self)` returns (one of) the longest words in the vocabulary.
 
 The following is one way of completing this task, but we will soon see it is not a very good way:
 
@@ -304,7 +305,7 @@ class Vocabulary:
         return self.longest
 ```
 
-This method uses two helper variables which are declared with the `self` parameter name. Remember, the names of variables do not matter in the functional sense, so these variables could also be named more confusingly as `helper` and `helper2`. The code begins to look a bit cryptic:
+This method uses two helper variables which are declared with the `self` parameter name. Remember, the names of variables do not matter in the functional sense, so these variables could also be named more confusingly as, for example, `helper` and `helper2`. The code begins to look a bit cryptic:
 
 ```python
 class Vocabulary:
@@ -326,11 +327,11 @@ class Vocabulary:
         return self.helper
 ```
 
-When a variable is declared with the `self` parameter name, it becomes an attribute of the object. This means that the variable will exist also after the method declaring it has finished its execution. In the example above this is quite unnecessary, as the helper variables are meant to be used only within the method `longest_word(self)`. So, declaring helper variables with the `self` parameter name is not a very good idea.
+When a variable is declared with the `self` parameter name, it becomes an attribute of the object. This means that the variable will exist for as long as the object exists. Specifically, the variable will continue existing also after the method declaring it has finished its execution. In the example above this is quite unnecessary, as the helper variables are meant to be used only within the method `longest_word(self)`. So, declaring helper variables with the `self` parameter name is not a very good idea here.
 
 Besides causing variables to exist beyond their "expiration date", using `self` to create new attributes where they aren't necessary can cause difficult bugs in your code. Especially generically named attributes such as `self.helper`, which are then used in various different methods, can cause unexpected behaviour which is hard to trace.
 
-For example, if a helper variable is assigned an initial value in the constructor, but the variable is then used in an unrelated context in a method, the results can be problematic:
+For example, if a helper variable is declared as an attribute and assigned an initial value in the constructor, but the variable is then used in an unrelated context in another method, the results are often unpredictable:
 
 ```python
 class Vocabulary:
@@ -357,7 +358,7 @@ class Vocabulary:
 
 You might think this would be solved by just declaring attributes where they are used, _outside_ the constructor, but this results in a situation where the attributes accessible through an object are dependent on _which methods have been executed_. In the previous part we saw that the advantage of declaring attributes in the constructor is that all instances of the class will then have the exact same attributes. If this is not the case, using different instances of the class can easily lead to errors.
 
-In conclusion, if you need helper variables for use within a single method, the correct way to do it is _without_ `self`:
+In conclusion, if you need helper variables for use within a single method, the correct way to do it is _without_ `self`. To make your code easier to understand, also use informative variable names:
 
 ```python
 class Vocabulary:
@@ -367,7 +368,8 @@ class Vocabulary:
     # ...
 
     def longest_word(self):
-        # the correct way of defining helper variables for use within a single method
+        # the correct way of declaring helper variables 
+        # for use within a single method
         longest = ""
         length_of_longest = 0
 
@@ -428,7 +430,6 @@ class Student:
     def __str__(self):
         return f"{self.name} ({self.student_number})"
 
-
 # This function creates and returns a new Student object.
 # It randomly selects values for the name and the student number.
 def new_student():
@@ -455,7 +456,7 @@ if __name__ == "__main__":
         print(student)
 ```
 
-Executing the above could result in the following printout (NB: as randomness is involved, every execution produces different results).
+Executing the above could result in the following printout (NB: as randomness is involved, if you try the code yourself, the results will likely be different).
 
 <sample-output>
 
@@ -529,7 +530,7 @@ class BabyCentre:
         return -1
 ```
 
-The method takes a `Person` object as its argument. It should return the weight of the person. You can access the weight of a person through the appropriate attribute defined in the `Person` class. Please fill in the rest of the implementation of the method `weigh`.
+The method takes a `Person` object as its argument. It should return the weight of the person. You can access the weight of a person through the appropriate attribute defined in the `Person` class. Please fill in the rest of the implementation for the method `weigh`.
 
 Below is an example of a main function where a `BabyCentre` weighs two separate `Person` objects:
 
@@ -643,8 +644,10 @@ class LunchCard:
 
     def subtract_from_balance(self, amount: float):
         pass
-        # The amount should be subtracted from the balance only if there is enough money on the card
-        # If the payment is successful, the method returns True, and otherwise it returns False
+        # The amount should be subtracted from the balance only if
+        # there is enough money on the card.
+        # If the payment is successful, the method returns True. 
+        # Otherwise it returns False.
 ```
 
 You may use the following code to test your function:
@@ -687,17 +690,19 @@ class PaymentTerminal:
 
     def eat_lunch(self, payment: float):
         # A regular lunch costs 2.50 euros.
-        # Increase the value of the funds at the terminal by the price of the lunch,
-        # increase the number of lunches sold, and return the appropriate change.
-        # If the payment passed as an argument is not large enough to cover the price,
-        # the lunch is not sold, and the entire sum is returned.
+        # Increase the value of the funds at the terminal by the 
+        # price of the lunch, increase the number of lunches sold, 
+        # and return the appropriate change.
+        # If the payment passed as an argument is not large enough to cover
+        # the price, the lunch is not sold, and the entire sum is returned.
 
     def eat_special(self, payment: float):
         # A special lunch costs 4.30 euros.
-        # Increase the value of the funds at the terminal by the price of the lunch,
-        # increase the number of specials sold, and return the appropriate change.
-        # If the payment passed as an argument is not large enough to cover the price,
-        # the lunch is not sold, and the entire sum is returned.
+        # Increase the value of the funds at the terminal by the 
+        # price of the lunch, increase the number of lunches sold, 
+        # and return the appropriate change.
+        # If the payment passed as an argument is not large enough to cover
+        # the price, the lunch is not sold, and the entire sum is returned.
 ```
 
 You may use the following code to test your class:
@@ -740,17 +745,19 @@ class PaymentTerminal:
 
     def eat_lunch_lunchcard(self, card: LunchCard):
         # A regular lunch costs 2.50 euros.
-        # If there is enough money on the card, subtract the price of the lunch from the balance
+        # If there is enough money on the card, 
+        # subtract the price of the lunch from the balance
         # and return True. If not, return False.
 
 
     def eat_special_lunchcard(self, card: LunchCard):
         # A special lunch costs 4.30 euros.
-        # If there is enough money on the card, subtract the price of the lunch from the balance
+        # If there is enough money on the card, 
+        # subtract the price of the lunch from the balance
         # and return True. If not, return False.
 ```
 
-**NB:** when paying with a LunchCard the funds available at the terminal do not change. However, the lunches are still sold whenever there is the required balance available, so remember to increase the number of lunches sold appropriately.
+**NB:** when paying with a LunchCard the cash funds available at the terminal do not change. However, the lunches are still sold whenever there is the required balance available, so remember to increase the number of lunches sold appropriately.
 
 You may use the following code to test your class:
 
@@ -875,7 +882,7 @@ Grace Hopper is not older than Blaise Pascal
 
 </sample-output>
 
-One of the principles of object oriented programming is to include any functionality which handles objects of a certain type in the class definition, as methods. So instead we could write a method which allows us to compare the age of a Person object to _another_ Person object:
+One of the principles of object oriented programming is to include any functionality which handles objects of a certain type in the class definition, as methods. So instead of a function we could write a _method_ which allows us to compare the age of a Person object to _another_ Person object:
 
 ```python
 class Person:
@@ -883,7 +890,8 @@ class Person:
         self.name = name
         self.year_of_birth = year_of_birth
 
-    # NB: type hints must be enclosed in quotation marks if the parameter is of the same type as the class itself!
+    # NB: type hints must be enclosed in quotation marks if the parameter
+    # is of the same type as the class itself!
     def older_than(self, another: "Person"):
         if self.year_of_birth < another.year_of_birth:
             return True
@@ -893,7 +901,7 @@ class Person:
 
 Here the object which the method is called on is referred to as `self`, while the other Person object is `another`.
 
-Remember, calling a method differs from calling a function. A method is always tied to an object with the dot notation:
+Remember, calling a method differs from calling a function. A method is attached to an object with the dot notation:
 
 ```python
 muhammad = Person("Muhammad ibn Musa al-Khwarizmi", 780)
@@ -913,7 +921,7 @@ else:
 
 To the left of the dot is the object itself, which is referred to as `self` within the method definition. In parentheses is the argument to the method, which is the object referred to as `another`.
 
-The printout from the program is examctly the same as with the function implementation above.
+The printout from the program is exactly the same as with the function implementation above.
 
 A rather cosmetic point to finish off: the `if...else` structure in the method `older_than` is by and large unneccessary. The value of the Boolean expression in the condition is already the exact same truth value which is returned. The method can thus be simplified:
 
@@ -923,7 +931,8 @@ class Person:
         self.name = name
         self.year_of_birth = year_of_birth
 
-    # NB: type hints must be enclosed in quotation marks if the parameter is of the same type as the class itself!
+    # NB: type hints must be enclosed in quotation marks if the parameter 
+    # is of the same type as the class itself!
     def older_than(self, another: "Person"):
         return self.year_of_birth < another.year_of_birth:
 ```
@@ -945,9 +954,9 @@ The database of a real estate agency keeps records of available properties with 
 
 ```python
 class RealProperty:
-    def __init__(self, rooms: int, square_meters: int, price_per_sqm: int):
+    def __init__(self, rooms: int, square_metres: int, price_per_sqm: int):
         self.rooms = rooms
-        self.square_meters = square_meters
+        self.square_metres = square_metres
         self.price_per_sqm = price_per_sqm
 ```
 
@@ -977,7 +986,7 @@ True
 
 ## Price difference
 
-Please write a method named `price_difference(self, compared_to)` which returns the difference in price between the `RealProperty` object itself and the one it is compared to. The price difference is the absolute value of the difference between the total prices of the two properties. The total price of a property is its price per square meter multiplied by the amount of square meters in the property.
+Please write a method named `price_difference(self, compared_to)` which returns the difference in price between the `RealProperty` object itself and the one it is compared to. The price difference is the absolute value of the difference between the total prices of the two properties. The total price of a property is its price per square metre multiplied by the amount of square metres in the property.
 
 An example of how the function should work:
 
