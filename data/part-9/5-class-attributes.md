@@ -16,7 +16,7 @@ After this section
 
 The _traits_ of objects are a central concept in object oriented programming. The term encompasses the methods and variables defined in the class definition. Again, not all Python programmers use the term "traits", some preferring _attributes_, _features_ or _members_. Traits is quite accepted in the wider object oriented programming world, so that is the term we use here.
 
-Thus far we have dealt with the _traits of objects_. These include the methods and attributes accessible in any instance of a class. Classes themselves can also have traits, which are sometimes called _static traits_, or more specifically _class variables_ and _class methods_.
+Thus far we have dealt mostly with _traits of objects_. These include the methods and attributes accessible in any instance of a class. In fact, classes _themselves_ can also have traits, which are sometimes called _static traits_, or more specifically _class variables_ and _class methods_.
 
 ## Class variables
 
@@ -34,7 +34,8 @@ class SavingsAccount:
         self.__interest_rate = interest_rate
 
     def add_interest(self):
-        # The total interest rate is the general rate + the interest rate of the account
+        # The total interest rate equals 
+        # the general rate + the interest rate of the account
         total_interest = SavingsAccount.general_rate + self.__interest_rate
         self.__balance += self.__balance * total_interest
 
@@ -66,7 +67,7 @@ The general interest rate is 0.03
 
 So, the class variables are accessed through the name of the class, for instance with `SavingsAccount.general_rate`, while instance variables are accessed through the name of the object variable, such as `account.balance`. An instance variable naturally only exists when an instance of the class has been created, but a class variable is available everywhere and at any point in time where the class itself is available.
 
-Class variables are useful when there is need for values which are shared by all instances of the class. In the example above we assumed the total interest rate of all savings accounts is formed from two components: the general rate of interest is shared by all accounts, but each account also has it's own interest rate in an instance variable. The general rate may also change, but te change will then affect all instances of the class equally.
+Class variables are useful when there is need for values which are shared by all instances of the class. In the example above we assumed the total interest rate of all savings accounts is formed from two components: the general rate of interest is shared by all accounts, but each account also has it's own interest rate in an instance variable. The general rate may also change, but the change will then affect all instances of the class equally.
 
 ```python
 class SavingsAccount:
@@ -78,7 +79,8 @@ class SavingsAccount:
         self.__interest_rate = interest_rate
 
     def add_interest(self):
-        # The total interest rate is the general rate + the interest rate of the account
+        # The total interest rate equals 
+        # the general rate + the interest rate of the account
         total_interest = SavingsAccount.general_rate + self.__interest_rate
         self.__balance += self.__balance * total_interest
 
@@ -118,9 +120,9 @@ General interest rate: 0.1
 
 </sample-output>
 
-When the general rate of interest changes, the total interest rate for all instances of the class changes. See how it is possible to add a getter method with the `@property` decorator even though there isn't an attribute of the same name in the class. This methos returns the sum of the general rate of interest and the account specific interest rate.
+When the general rate of interest changes, the total interest rate for all instances of the class changes. As you can see above, it is possible to add a getter method with the `@property` decorator even though there isn't an attribute of the same name in the class. This method returns the sum of the general rate of interest and the account specific interest rate.
 
-Let's have a look at another example. The class `PhoneNumber` contains some phone number country codes in a dictionary. This dictionary is a class variable, and as such is shared by all the instances of the class, because the country code for a phone number from a country is always the same.
+Let's have a look at another example. The class `PhoneNumber` is used to define a single phone number, but it also contains some country codes in a dictionary. This dictionary is a class variable, and as such is shared by all the instances of the class, because the country code for phone numbers from a single country is always the same.
 
 ```python
 class PhoneNumber:
@@ -133,7 +135,8 @@ class PhoneNumber:
 
     @property
     def phone_number(self):
-        # When the country code prefix is added the initial zero is removed from the phonen number
+        # When the country code prefix is added 
+        # the initial zero is removed from the phone number
         return PhoneNumber.country_codes[self.__country] + " " + self.__phone_number[1:]
 ```
 
@@ -163,10 +166,11 @@ class PhoneNumber:
         # This is a call to the country.setter method
         self.country = country
 
-    # the getter method for phone_number combines the country code and the attribute
+    # the getter method for phone_number combines the country code 
+    # and the attribute phone_number
     @property
     def phone_number(self):
-        # the initial zero is removed as th country code is prefixed
+        # the initial zero is removed as the country code is prefixed
         return PhoneNumber.country_codes[self.__country] + " " + self.__phone_number[1:]
 
     @phone_number.setter
@@ -177,7 +181,7 @@ class PhoneNumber:
                 raise ValueError("A phone number can only contain numbers and spaces")
         self.__phone_number = number
 
-    # a getter for only the number itself wuthout the country code
+    # a getter for only the number itself without the country code
     @property
     def local_number(self):
         return self.__phone_number
@@ -207,10 +211,10 @@ class PhoneNumber:
 
 ```python
 if __name__ == "__main__":
-    pnro = PhoneNumber("Peter Pythons", "040 111 1111", "Sweden")
-    print(pnro)
-    print(pnro.phone_number)
-    print(pnro.local_number)
+    pn = PhoneNumber("Peter Pythons", "040 111 1111", "Sweden")
+    print(pn)
+    print(pn.phone_number)
+    print(pn.local_number)
 ```
 
 <sample-output>
@@ -241,9 +245,9 @@ You do not need to implement any other functionality.
 
 ## Class methods
 
-A class method, also called a static method, is a method which is not attached to any single instance of the class. A class method can be called without creating a single instance of the class. 
+A class method, also called a static method, is a method which is not attached to any single instance of the class. A class method can be called without creating any instances of the class. 
 
-Class methods are usually tools which have something to do with the purpose of the class, but which are detached in the sense that it should not be necessary to create instances of the class in order to be able to call them. Class methods are usually public, so that they can be called both from outside the class and from within the class, including instances thereof.
+Class methods are usually tools which have something to do with the purpose of the class, but which are detached in the sense that it should not be necessary to create instances of the class in order to be able to call them. Class methods are usually public, so that they can be called both from outside the class and from within the class, including from within instances of the class.
 
 A class method is defined with the `@classmethod` annotation. The first parameter is always `cls`. The variable name `cls` is similar to the `self` parameter. The difference is that `cls` points to the class while `self` point to an instance of the class. Neither parameter is included in the argument list when the function is called; Python fills in the appropriate value automatically.
 
