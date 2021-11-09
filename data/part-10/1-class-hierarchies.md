@@ -161,7 +161,7 @@ class Kirjahylly(Kirjalaatikko):
 
 if __name__ == "__main__":
     # Luodaan pari kirjaa testiksi
-    k1 = Kirja("7 veljestä", "Aleksis Kivi")
+    k1 = Kirja("7 veljestä", "Aleksis rock")
     k2 = Kirja("Sinuhe", "Mika Waltari")
     k3 = Kirja("Tuntematon sotilas", "Väinö Linna")
 
@@ -192,14 +192,14 @@ if __name__ == "__main__":
  <sample-output>
 
 Laatikossa:
-7 veljestä (Aleksis Kivi)
+7 veljestä (Aleksis rock)
 Sinuhe (Mika Waltari)
 Tuntematon sotilas (Väinö Linna)
 
 Hyllyssä:
 Tuntematon sotilas (Väinö Linna)
 Sinuhe (Mika Waltari)
-7 veljestä (Aleksis Kivi)
+7 veljestä (Aleksis rock)
 
  </sample-output>
 
@@ -337,48 +337,46 @@ if __name__ == "__main__":
 
 </sample-output>
 
-<programming-exercise name='Kannettava tietokone' tmcname='osa10-01_kannettava_tietokone'>
+<programming-exercise name='Laptop computer' tmcname='part10-01_laptop_computer'>
 
-Tehtäväpohjassa on määritelty luokka `Tietokone`, jolla on attribuutit `malli` ja `nopeus`.
+The exercise template contains a class definition for a `Computer`, which has the attributes `model` and `speed`.
 
-Kirjoita luokka `KannettavaTietokone`, joka _perii luokan Tietokone_. Luokka saa konstruktorissa luokan Tietokone attribuuttien lisäksi kolmannen kokonaislukutyyppisen attribuutin `paino`.
+Please define a class named `LaptopComputer` which _inherits the class Computer_. The constructor of the new class should take a third argument: `weight` of type integer.
 
-Kirjoita luokkaan lisäksi metodi `__str__`, jonka avulla voi tulostaa esimerkkisuorituksen mukaisen tulosteen olion tilasta.
-
-Esimerkki:
+Please also include a `__str__` method. See the example below for the expected format of the default printout.
 
 ```python
-ipm = KannettavaTietokone("IPM MikroMauri", 1500, 2)
-print(ipm)
+laptop = LaptopComputer("NoteBook Pro15", 1500, 2)
+print(laptop)
 ```
 
 <sample-output>
 
-IPM MikroMauri, 1500 MHz, 2 kg
+NoteBook Pro15, 1500 MHz, 2 kg
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Pelimuseo' tmcname='osa10-02_pelimuseo'>
+<programming-exercise name='Game Museum' tmcname='part10-02_game_museum'>
 
-Tehtäväpohjassa on määritelty luokat `Tietokonepeli` ja `Pelivarasto`. Pelivarastoon voidaan säilöä tietokonepelejä.
+The exercise template contains class definitions for a `ComputerGame` and a `GameWarehouse`. A GamesWarehouse object is used to store ComputerGame objects.
 
-Tutustu luokkien ohjelmakoodiin ja kirjoita sitten uusi luokka `Pelimuseo`, joka perii luokan `Pelivarasto`.
+Please familiarize yourself with these classes. Then define a new class named `GameMuseum` which inherits the `GameWarehouse` class.
 
-Pelimuseo-luokassa _uudelleentoteutetaan_ metodi `anna_pelit()` niin, että se palauttaa listassa ainoastaan ne pelit, jotka on tehty ennen vuotta 1990.
+The GameMuseum class should _override_ the `list_games()` method so that it returns a list of only those games which were made before the year 1990.
 
-Lisäksi luokassa tulee olla konstruktori, josta _kutsutaan yliluokan Pelivarasto konstruktoria_. Konstruktorilla ei ole parametreja.
+The new class should also have a constructor which _calls the constructor from the parent class GameWarehouse_. The constructor takes no arguments.
 
-Esimerkiksi:
+You may use the following code to test your implementation:
 
 ```python
-museo = Pelimuseo()
-museo.lisaa_peli(Tietokonepeli("Pacman", "Namco", 1980))
-museo.lisaa_peli(Tietokonepeli("GTA 2", "Rockstar", 1999))
-museo.lisaa_peli(Tietokonepeli("Bubble Bobble", "Taito", 1986))
-for peli in museo.anna_pelit():
-    print(peli.nimi)
+museum = GameMuseum()
+museum.add_game(ComputerGame("Pacman", "Namco", 1980))
+museum.add_game(ComputerGame("GTA 2", "Rockstar", 1999))
+museum.add_game(ComputerGame("Bubble Bobble", "Taito", 1986))
+for game in museum.list_games():
+    print(game.name)
 ```
 
 <sample-output>
@@ -390,200 +388,198 @@ Bubble Bobble
 
 </programming-exercise>
 
-<programming-exercise name='Pinta-alat' tmcname='osa10-03_pinta_alat'>
+<programming-exercise name='Areas' tmcname='part10-03_areas'>
 
-Tehtäväpohjan mukana tulee luokka `Suorakulmio` joka nimensä mukaisesti mallintaa [suorakulmiota](https://fi.wikipedia.org/wiki/Suorakulmio). Luokkaa käytetään seuraavasti:
+The exercise template contains a class definition for a `Rectangle`. It represents a [rectangle shape](https://en.wikipedia.org/wiki/Rectangle). A Rectangle works like this:
 
 ```python
-suorakulmio = Suorakulmio(2, 3)
-print(suorakulmio)
-print("pinta-ala:", suorakulmio.pinta_ala())
+rectangle = Rectangle(2, 3)
+print(rectangle)
+print("area:", rectangle.area())
 ```
 
 <sample-output>
 
-suorakulmio 2x3
-pinta-ala: 6
+rectangle 2x3
+area: 6
 
 </sample-output>
 
-## Neliö
+## Square
 
-Toteuta luokka `Nelio` joka perii luokan `Suorakulmio`. Suorakulmiosta poiketen [neliön](https://fi.wikipedia.org/wiki/Neli%C3%B6_(geometria)) kaikki sivut ovat saman pituisia, eli neliö on eräänlainen yksinkertaisempi erikoistapaus suorakulmiosta. Luokka ei saa määritellä uusia attribuutteja!
+Please define a class named `Square` which inherits the `Rectangle` class. The sides of a [square](https://en.wikipedia.org/wiki/Square) are all of equal length, which makes the square a special case of the rectangle. The new class should not contain any new attributes.
 
-Luokkaa käytetään seuraavasti:
+A Square object is used as follows:
 
 ```python
-nelio = Nelio(4)
-print(nelio)
-print("pinta-ala:", nelio.pinta_ala())
+square = Square(4)
+print(square)
+print("area:", square.area())
 ```
 
 <sample-output>
 
-neliö 4x4
-pinta-ala: 16
+square 4x4
+area: 16
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Sanapeli' tmcname='osa10-04_sanapeli'>
+<programming-exercise name='Word game' tmcname='part10-04_word_game'>
 
-Tehtäväpohja sisältää valmiin luokan `Sanapeli`, joka tarjoaa perustoiminnallisuuden erilaisten sanapelien pelaamiseen:
+The exercise template contains a class definition for a `WordGame`. It provides some basic functions for playing different word-based games:
 
 ```python
 import random
 
-class Sanapeli():
-    def __init__(self, kierrokset: int):
-        self.voitot1 = 0
-        self.voitot2 = 0
-        self.kierrokset = kierrokset
+class WordGame():
+    def __init__(self, rounds: int):
+        self.wins1 = 0
+        self.wins2 = 0
+        self.rounds = rounds
 
-    def kierroksen_voittaja(self, pelaaja1_sana: str, pelaaja2_sana: str):
-        # arvotaan voittaja
+    def round_winner(self, player1_word: str, player2_word: str):
+        # determine a random winner
         return random.randint(1, 2)
 
-    def pelaa(self):
-        print("Sanapeli:")
-        for i in range(1, self.kierrokset+1):
-            print(f"kierros {i}")
-            vastaus1 = input("pelaaja1: ")
-            vastaus2 = input("pelaaja2: ")
+    def play(self):
+        print("Word game:")
+        for i in range(1, self.rounds+1):
+            print(f"round {i}")
+            answer1 = input("player1: ")
+            answer2 = input("player2: ")
 
-            if self.kierroksen_voittaja(vastaus1, vastaus2) == 1:
-                self.voitot1 += 1
-                print("pelaaja 1 voitti")
-            elif self.kierroksen_voittaja(vastaus1, vastaus2) == 2:
-                self.voitot2 += 1
-                print("pelaaja 2 voitti")
+            if self.round_winner(answer1, answer2) == 1:
+                self.wins1 += 1
+                print("player 1 won")
+            elif self.round_winner(answer1, answer2) == 2:
+                self.wins2 += 1
+                print("player 2 won")
             else:
-                pass # tasapeli
+                pass # it's a tie
 
-        print("peli päättyi, voitot:")
-        print(f"pelaaja 1: {self.voitot1}")
-        print(f"pelaaja 2: {self.voitot2}")
+        print("game over, wins:")
+        print(f"player 1: {self.wins1}")
+        print(f"player 2: {self.wins2}")
 ```
 
-Peliä käytetään seuraavasti:
+The game is played as follows:
 
 ```python
-p = Sanapeli(3)
-p.pelaa()
+p = WordGame(3)
+p.play()
 ```
-
-Esimerkkitulostus
 
 <sample-output>
 
-Sanapeli:
-kierros 1
-pelaaja1: **pitkäsana**
-pelaaja2: **??**
-pelaaja 2 voitti
-kierros 2
-pelaaja1: **olen paras**
-pelaaja2: **mitä?**
-pelaaja 1 voitti
-kierros 3
-pelaaja1: **kuka voittaa**
-pelaaja2: **minä**
-pelaaja 1 voitti
-peli päättyi voitot:
-pelaaja 1: 2
-pelaaja 2: 1
+Word game:
+round 1
+player1: **longword**
+player2: **??**
+player 2 won
+round 2
+player1: **i'm the best**
+player2: **wut?**
+player 1 won
+round 3
+player1: **who's gonna win**
+player2: **me**
+player 1 won
+game over, wins:
+player 1: 2
+player 2: 1
 
 </sample-output>
 
-Tässä pelin "perusversiossa" voittaja ratkaistaan arpomalla, pelaajien antamilla syötteillä ei ole tulokseen vaikutusta.
+In this "basic" version of the game the winner is determined randomly. The input from the players has no effect on the result.
 
-## Pisin sana voittaa
+## Longest word wins
 
-Tee nyt luokka `PisinSana` eli pelin versio, missä kunkin kierroksen voittaja on sen kierroksen aikana pidemmän sanan syöttänyt käyttäjä.
+Please define a class named `LongestWord`. It is a version of the game where whoever types in the longest word on each round wins.
 
-Uusi versio toteuteaan _perimällä_ luokka `Sanapeli` ja ylikirjoittamalla sen metodi `kierroksen_voittaja` sopivalla tavalla. Uuden luokan runko on siis seuraavanlainen
+The new version of the game is implemented by _inheriting_ the `WordGame` class. The `round_winner` method should also be suitably overridden. The outline of the new class is as follows:
 
 ```python
-class PisinSana(Sanapeli):
-    def __init__(self, kierrokset: int):
-        super().__init__(kierrokset)
+class LongestWord(WordGame):
+    def __init__(self, rounds: int):
+        super().__init__(rounds)
 
-    def kierroksen_voittaja(self, pelaaja1_sana: str, pelaaja2_sana: str):
-        # tänne voittajan ratkaiseva koodi
+    def round_winner(self, player1_word: str, player2_word: str):
+        # your code for determining the winner goes here
 ```
 
-Esimerkki toiminnasta:
+An example of how the new game is played:
 
 ```python
-p = PisinSana(3)
-p.pelaa()
+p = LongestWord(3)
+p.play()
 ```
 
 <sample-output>
 
-Sanapeli:
-kierros 1
-pelaaja1: lyhyt
-pelaaja2: pitkäsana
-pelaaja 2 voitti
-kierros 2
-pelaaja1: sana
-pelaaja2: vat?
-kierros 3
-pelaaja1: olen paras
-pelaaja2: minäpäs
-pelaaja 1 voitti
-peli päättyi, voitot:
-pelaaja 1: 1
-pelaaja 2: 1
+Word game:
+round 1
+player1: **short**
+player2: **longword**
+player 2 won
+round 2
+player1: **sana**
+player2: **wut?**
+round 3
+player1: **i'm the best**
+player2: **no, me**
+player 1 won
+game over, wins:
+player 1: 1
+player 2: 1
 
 </sample-output>
 
-## Eniten vokaaleja voittaa
+## Most vowels wins
 
-Tee nyt luokka `EnitenVokaaleja` eli pelin versio, missä kunkin kierroksen voittaja on se pelaaja, jonka sanassa oli enemmän vokaaleja.
+Please define another WordGame class named `MostVowels`. In this version of the game whoever has squeezed more vowels into their word wins the round.
 
-## Kivi, paperi, sakset
+## Rock paper scissors
 
-Tee nyt luokka `KiviPaperiSakset` joka mallintaa nimensä mukaisesti [kivi, paperi ja sakset](https://fi.wikipedia.org/wiki/Kivi,_paperi_ja_sakset) -peliä.
+Finally, please define a class named `RockPaperScissors` which allows you to play a game of [rock paper scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors).
 
-Pelin sännöt ovat seuraavat:
+The rules of the game are as follows:
 
-- kivi voittaa sakset (kivellä voi rikkoa sakset eikä saksilla voi leikata kiveä)
-- paperi voittaa kiven (kiven voi peittää paperilla)
-- sakset voittaa paperin (saksilla voi leikata paperia)
+- rock beats scissors (the rock can break the scissors but the scissors can't cut the rock)
+- paper beats rock (the paper can cover the rock)
+- scissors beats paper (the scissors can cut the paper)
 
-Jos pelaajan syöte on epäkelpo, eli se ei ole mikään sanoista _kivi, paperi, sakset_ pelaaja häviää kierroksen, ellei molempien syöte ole epäkelpo.
+If the input from either player is invalid, they lose the round. If both players type in something else than _rock_, _paper_ or _scissors_, the result is a tie.
 
-Esimerkki toiminnasta:
+An example of how the game is played:
 
 ```python
-p = KiviPaperiSakset(4)
-p.pelaa()
+p = RockPaperScissors(4)
+p.play()
 ```
 
 <sample-output>
 
-Sanapeli:
-kierros 1
-pelaaja1: kivi
-pelaaja2: kivi
-kierros 2
-pelaaja1: kivi
-pelaaja2: paperi
-pelaaja 2 voitti
-kierros 3
-pelaaja1: sakset
-pelaaja2: paperi
-pelaaja 1 voitti
-kierros 3
-pelaaja1: paperi
-pelaaja2: dynamiitti
-pelaaja 1 voitti
-peli päättyi, voitot:
-pelaaja 1: 2
-pelaaja 2: 1
+Word game:
+round 1
+player1: **rock**
+player2: **rock**
+round 2
+player1: **rock**
+player2: **paper**
+player 2 won
+round 3
+player1: **scissors**
+player2: **paper**
+player 1 won
+round 3
+player1: **paper**
+player2: **dynamite**
+player 1 won
+game over, wins:
+player 1: 2
+player 2: 1
 
 </sample-output>
 
