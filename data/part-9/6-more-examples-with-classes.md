@@ -33,7 +33,7 @@ class Point:
         return Point(0, 0)
 
     # This class method creates a new Point based on an existing Point
-    # The original Point can be mirrored on either or both of the x and y axes 
+    # The original Point can be mirrored on either or both of the x and y axes
     # For example, the Point (1, 3) mirrored on the x-axis is (1, -3)
     @classmethod
     def mirrored(cls, point: "Point", mirror_x: bool, mirror_y: bool):
@@ -529,5 +529,5 @@ Brick (4 kg)
 
 Please respond to a quick questionnaire on this week's materials.
 
-<quiz id="c5152550-712f-52c2-9188-adacb8f455ed"></quiz>
+<quiz id="675fac6b-1ec7-5c09-b1ec-44fbdebd9b6e"></quiz>
 
