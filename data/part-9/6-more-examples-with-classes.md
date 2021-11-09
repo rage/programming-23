@@ -8,12 +8,14 @@ hidden: false
 
 After this section
 
-- Tunnet lisää esimerkkejä luokista ja olioista
-- Osaat käyttää parametrien oletusarvoja metodeissa
+- You will be familiar with some more examples of classes and objects
+- You will be able to use default values for parameters in your methods
 
 </text-box>
 
-Tarkastellaan seuraavaksi esimerkkiä, joka muodostuu kahdesta luokasta. Luokka `Piste` mallintaa yhtä pistettä kaksiulotteisessa koordinaatistossa ja luokka `Jana` kahden pisteen välistä janaa. Luokkien toiminta on kommentoitu koodiin.
+**This translation will be finished on Tuesday 9.11., apologies for tardiness!**
+
+The following example consists of two classes. The class `Point` is a model for a point in a two-dimensional space. The class `Line` is model for a line segment between two points. The code below is commented; please read the comments in order to understand how the classes work.
 
 ```python
 import math
