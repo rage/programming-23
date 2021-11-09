@@ -8,126 +8,124 @@ hidden: False
 
 After this section
 
-- Osaat tallentaa olioita toisten olioiden sisään
-- Tiedät, mitä tarkoittaa `None`
+- You will know how to use objects as attributes in other objects
+- You will be familiar with the keyword `None`
 
 </text-box>
 
-Aikaisemmin nähtiin esimerkkejä luokista, joissa attribuutteina oli käytetty esimerkiksi listoja. Samalla tavalla myös omista luokista luotuja olioita voi käyttää toisten olioiden attribuutteina. Seuraavissa esimerkeissä on määritelty luokat `Kurssi`, `Opiskelija` ja `Opintosuoritus`. Opintosuorituksessa hyödynnetään kahta ensimmäistä luokkaa. Luokkien sisäinen toteutus on lyhyt, jotta esimerkki toisi esille oleellisen.
+We have already seen examples of classes which have lists as attributes. As there is thus nothing stopping us adding mutable objects as attributes in our classes, we might as well use objects created based on our own classes as attributes in other classes of our own. In the following examples we will define the classes `Course`, `Student` and `CompletedCourse`. A completed course makes use of the first two classes. The class definitions are very short and simple in order to better concentrate on the technique of using instances of our own classes as attributes.
 
-Esimerkissä jokainen luokka on kirjoitettu omaan tiedostoonsa.
+We will assume each class is defined in a separate file.
 
-Esitellään aluksi luokka `Kurssi`, joka on määritelty tiedostossa `kurssi.py`:
+First we define the class `Course` in a file named `course.py`:
 
 ```python
-class Kurssi:
-    def __init__(self, nimi: str, koodi: str, opintopisteet: int):
-        self.nimi = nimi
-        self.koodi = koodi
-        self.opintopisteet = opintopisteet
+class Course:
+    def __init__(self, name: str, code: str, credits: int):
+        self.name = name
+        self.code = code
+        self.credits = credits
 ```
 
-Luokka `Opiskelija` mallintaa yhtä opiskelijaa. Luokka on määritelty tiedostossa `opiskelija.py`:
+Next, the class `Student` in a file named `student.py`:
 
 ```python
-class Opiskelija:
-    def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet: int):
-        self.nimi = nimi
-        self.opiskelijanumero = opiskelijanumero
-        self.opintopisteet = opintopisteet
+class Student:
+    def __init__(self, name: str, student_number: str, credits: int):
+        self.name = name
+        self.student_number = student_number
+        self.credits = credits
 ```
 
-Luokka `Opintosuoritus` hyödyntää luokkia `Kurssi` ja `Opiskelija` suorituksen tallentamiseen. Huomaa, että luokat tuodaan mukaan `import`-lauseella:
+Finally, the class `CompletedCourse` is defined in a file named `completedcourse.py` and makes use of the classes `Course` and `Student`. The two classes must be imported before they can be used:
 
 ```python
-from kurssi import Kurssi
-from opiskelija import Opiskelija
+from course import Course
+from student import Student
 
-class Opintosuoritus:
-    def __init__(self, opiskelija: Opiskelija, kurssi: Kurssi, arvosana: int):
-        self.opiskelija = opiskelija
-        self.kurssi = kurssi
-        self.arvosana = arvosana
+class CompletedCourse:
+    def __init__(self, student: Student, course: Course, grade: int):
+        self.student = student
+        self.course = course
+        self.grade = grade
 ```
 
-Esimerkki opintosuoritusten lisäämisestä listaan:
+Here is an example with some completed courses added to a list:
 
 ```python
-from opintosuoritus import Opintosuoritus
-from kurssi import Kurssi
-from opiskelija import Opiskelija
+from completedcourse import CompletedCourse
+from course import Course
+from student import Student
 
-# Luodaan lista opiskelijoista
-opiskelijat = []
-opiskelijat.append(Opiskelija("Olli", "1234", 10))
-opiskelijat.append(Opiskelija("Pekka", "3210", 23))
-opiskelijat.append(Opiskelija("Leena", "9999", 43))
-opiskelijat.append(Opiskelija("Tiina", "3333", 8))
+# Create a list of students
+students = []
+students.append(Student("Ollie", "1234", 10))
+students.append(Student("Peter", "3210", 23))
+students.append(Student("Lena", "9999", 43))
+students.append(Student("Tina", "3333", 8))
 
-# Kurssi Ohjelmoinnin perusteet
-ohpe = Kurssi("Ohjelmoinnin perusteet", "ohpe1", 5)
+# Create a course named Introduction to Programming
+itp = Course("Introduction to Programming", "itp1", 5)
 
-# Annetaan suoritukset kaikille opiskelijoille, kaikille arvosanaksi 3
-suoritukset = []
-for opiskelija in opiskelijat:
-    suoritukset.append(Opintosuoritus(opiskelija, ohpe, 3))
+# Add completed courses for each student, with grade 3 for all
+completed = []
+for student in students:
+    completed.append(CompletedCourse(student, itp, 3))
 
-# Tulostetaan kaikista suorituksista opiskelijan nimi
-for suoritus in suoritukset:
-    print(suoritus.opiskelija.nimi)
+# Print out the name of the student for each completed course
+for course in completed:
+    print(course.student.name)
 ```
 
 <sample-output>
 
-Olli
-Pekka
-Leena
-Tiina
+Ollie
+Peter
+Lena
+Tina
 
 </sample-output>
 
-Tarkastellaan lähemmin riviä `print(suoritus.opiskelija.nimi)`:
+What exactly is happening with all the dots on the line `print(course.student.name)`?
 
-* `suoritus` on luokan `Opintosuoritus` mukainen olio
-* Niinpä muuttuja `opiskelija` viittaa suoritukseen tallennettuun `Opiskelija`-olioon
-* `Opiskelija`-luokan muuttuja `nimi` sisältää opiskelijan nimen
+* `course` is an instance of the class `CompletedCourse`
+* `student` refers to an attribute of the `CompletedCourse` object, which is an object of type `Student`
+* the attribute `name` in the `Student` object contains the name of the student
 
-## Milloin import tarvitaan?
+## When is an import necessary?
 
-Edellisessä esimerkissä käytetään muutamassa kohdassa `import`:ia:
+In the examples above an `import` statement appeared quite a few times:
 
 ```python
-from opintosuoritus import Opintosuoritus
-from kurssi import Kurssi
-from opiskelija import Opiskelija
+from completedcourse import CompletedCourse
+from course import Course
+from student import Student
 
-# koodi
+# rest of the main function
 ```
 
-Importia tarvitaan vain jos tiedostossa käytetään jossain muualla  määriteltyä koodia. Näin on esimerkiksi kun käytetään jotain Pythonin valmista kalustoa, esim. matemaattisia operaatiota tarjoavaa moduulia `math`:
+An `import` statement is only necessary when using code which is defined somewhere outside the current file (or Python interpreter session). This includes situations where we want to use something defined in the Python standard library. For example, the `math` module contains some mathematical operations:
 
 ```python
 import math
 
 x = 10
-print(f"luvun {x} {neliöjuuri math.sqrt(x)}")
+print(f"the square root of {x} is {math.sqrt(x)}")
 ```
 
-Edellisessä tehtävässä oletettiin, että luokat on määritelty omissa tiedostoissaan. Esimerkki toteaa mm.
- _Esitellään aluksi luokka Kurssi, joka on määritelty tiedostossa kurssi.py_
-ja importin tarve siis johtuu tästä.
+In the example above we assumed the three classes were each defined in a separate file, and the main function was run from somewhere else. This is why the `import` statements were necessary.
 
-Jos kaikki koodi sijoitetaan samaan tiedostoon, kuten kaikissa kurssin ohjelmointitehtävissä ohjeistetaan, **et tarvitse** `import`:ia luomiesi luokkien käytöön.
+If all program code is contained in the same file, as most of the exercises on this course advise you to do, **you will not need** `import` statements to use the classes you have defined.
 
-Jos siis päädyt kirjottamaan kurssilla seuraavanlaista koodia
+If you find yourself writing something along the lines of 
 
 ```python
-from henkilo import Henkilo
+from person import Person
 
 # koodi
 ```
 
-ratkaisusi on todennäköisesti väärä! Lisää importin käytöstä [osan 7](/osa-7/1-moduulit/) materiaalissa.
+it is likely you have gotten something wrong. If you need a refresher, the `import` statement was first introduced in [part 7](/part-7/1-modules/) of this course material.
 
 <programming-exercise name='Pets' tmcname='part09-06_pets'>
 
@@ -152,53 +150,53 @@ Levi, whose pal is Hulda, a mixed-breed dog
 
 </programming-exercise>
 
-## Olion attribuuttina lista olioita
+## A list of objects as an attribute of an object
 
-Äskeisissä esimerkeissä oliolla oli attribuuttina yksittäinen toisen luokan olio, esim. henkilöllä attribuuttina lemmikki ja opintosuorituksella attribuuttina kurssi.
+In the examples above we used single instances of other classes as attributes; a Person has a single Pet as an attribute, and a CompletedCourse has one Student and one Course as its attributes.
 
-Olio-ohjelmoinnissa törmätään kutenkin usein tilanteeseen, jossa oliolla on attribuuttina _joukko_ toisen luokan oliota. Eräs tälläinen tilanne kuvaa joukkueen ja sen pelaajien välistä yhteyttä:
+In object oriented programming it is often the case that we want to have a _collection_ of objects as an attribute. For example, the relationship between a sports team and its players follows this pattern:
 
 ```python
-class Pelaaja:
-    def __init__(self, nimi: str, maalit: int):
-        self.nimi = nimi
-        self.maalit = maalit
+class Player:
+    def __init__(self, name: str, goals: int):
+        self.name = name
+        self.goals = goals
 
     def __str__(self):
-        return f"{self.nimi} (maaleja {self.maalit})"
+        return f"{self.name} ({self.goals} goals)"
 
-class Joukkue:
-    def __init__(self, nimi: str):
-        self.nimi = nimi
-        self.pelaajat = []
+class Team:
+    def __init__(self, name: str):
+        self.name = name
+        self.players = []
 
-    def lisaa_pelaaja(self, pelaaja: Pelaaja):
-        self.pelaajat.append(pelaaja)
+    def add_player(self, player: Player):
+        self.players.append(player)
 
-    def yhteenveto(self):
-        maalit = []
-        for pelaaja in self.pelaajat:
-            maalit.append(pelaaja.maalit)
-        print("Joukkue", self.nimi)
-        print("Pelaajia", len(self.pelaajat))
-        print("Pelaajien maalimäärät", maalit)
+    def summary(self):
+        goals = []
+        for player in self.players:
+            goals.append(player.goals)
+        print("Team:", self.name)
+        print("Players:", len(self.players))
+        print("Goals scored by each player:", goals)
 ```
 
-Käyttöesimerkki:
+An example of our class in action:
 
 ```python
-kupa = Joukkue("Kumpulan pallo")
-kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
-kupa.lisaa_pelaaja(Pelaaja("Emilia", 22))
-kupa.lisaa_pelaaja(Pelaaja("Antti", 1))
-kupa.yhteenveto()
+ca = Team("Campus Allstars")
+ca.add_player(Player("Eric", 10))
+ca.add_player(Player("Emily", 22))
+ca.add_player(Player("Andy", 1))
+ca.summary()
 ```
 
 <sample-output>
 
-Joukkue Kumpulan pallo
-Pelaajia 3
-Pelaajien maalimäärät [10, 22, 1]
+Team: Campus Allstars
+Players: 3
+Goals scored by each player: [10, 22, 1]
 
 </sample-output>
 
@@ -258,93 +256,93 @@ print(box.total_weight())
 
 </programming-exercise>
 
-## None eli viite ei mihinkään
+## None: a reference to nothing
 
-Pythonissa muuttujat viittaavat aina johonkin olioon. On kuitenkin tilanteita, joissa haluaisimme määrittää arvon, joka ei viittaa mihinkään. Arvoa `None` käytetään esittämään tyhjää viittausta.
+In Python programming all initialised variables refer to an object. There are, however, inevitably situations where we need to refer to something which does not exist, without causing errors. The keyword `None` represents exactly such a non-entity.
 
-Jos esimerkiksi luokkaan joukkue lisättäisiin metodi, joka etsii joukkueen pelaajan, saattaisi olla luontevaa esittää paluuarvolla `None` tilanne, jossa pelaajaa ei löydy:
+Continuing from the Team and Player example above, let's assume we want to add a method for searching for players on the team according to some criteria. If no such player is found, it might make sense to return `None`:
 
 ```python
-class Pelaaja:
-    def __init__(self, nimi: str, maalit: int):
-        self.nimi = nimi
-        self.maalit = maalit
+class Player:
+    def __init__(self, name: str, goals: int):
+        self.name = name
+        self.goals = goals
 
     def __str__(self):
-        return f"{self.nimi} (maaleja {self.maalit})"
+        return f"{self.name} ({self.goals} goals)"
 
-class Joukkue:
-    def __init__(self, nimi: str):
-        self.nimi = nimi
-        self.pelaajat = []
+class Team:
+    def __init__(self, name: str):
+        self.name = name
+        self.players = []
 
-    def lisaa_pelaaja(self, pelaaja: Pelaaja):
-        self.pelaajat.append(pelaaja)
+    def add_player(self, player: Player):
+        self.players.append(player)
 
-    def etsi(self, nimi: str):
-        for pelaaja in self.pelaajat:
-            if pelaaja.nimi == nimi:
-                return pelaaja
+    def find_player(self, name: str):
+        for player in self.players:
+            if player.name == name:
+                return player
         return None
 ```
 
-Käyttöesimerkki:
+Let's test our function:
 
 ```python
-kupa = Joukkue("Kumpulan pallo")
-kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
-kupa.lisaa_pelaaja(Pelaaja("Emilia", 22))
-kupa.lisaa_pelaaja(Pelaaja("Antti", 1))
+ca = Team("Campus Allstars")
+ca.add_player(Player("Eric", 10))
+ca.add_player(Player("Amily", 22))
+ca.add_player(Player("Andy", 1))
 
-pelaaja1 = kupa.etsi("Antti")
-print(pelaaja1)
-pelaaja2 = kupa.etsi("Jukkis")
-print(pelaaja2)
+player1 = ca.find_player("Andy")
+print(player1)
+player2 = ca.find_player("Charlie")
+print(player2)
 ```
 
 <sample-output>
 
-Antti (maaleja 1)
+Andy (1 goals)
 None
 
 </sample-output>
 
-`None`-arvojen kanssa pitää olla tarkkana. On hyvin tyypillistä, että ohjelmassa kutsutaan jotain metodia oliolle (tai pyydetään attribuutin arvoa oliolta), joka onkin `None`:
+Be careful with `None`, though. It can sometimes cause more trouble than it solves. It is a common programming error to try to access a method or an attribute through a reference which evaluates to `None`:
 
 ```python
-kupa = Joukkue("Kumpulan pallo")
-kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
+ca = Team("Campus Allstars")
+ca.add_player(Player("Eric", 10))
 
-pelaaja = kupa.etsi("Jukkis")
-print(f"Jukkiksen maalimäärä {pelaaja.maalit}")
+player = ca.find_player("Charlie")
+print(f"Goals by Charlie: {player.goals}")
 ```
 
-Jos näin tehdään, ohjelma päättyy virheeseen:
+Executing the above would cause an error:
 
 <sample-output>
 
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-AttributeError: 'NoneType' object has no attribute 'maalit'
+AttributeError: 'NoneType' object has no attribute 'goals'
 
 </sample-output>
 
-`None`-arvojen varalta onkin syytä tehdä tarkistus, ennen kuin riskialtista koodia kutsutaan:
+It is a good idea to check for `None` before trying to access any attributes or methods of return values:
 
 ```python
-kupa = Joukkue("Kumpulan pallo")
-kupa.lisaa_pelaaja(Pelaaja("Erkki", 10))
+ca = Team("Campus Allstars")
+ca.add_player(Player("Eric", 10))
 
-pelaaja = kupa.etsi("Jukkis")
-if pelaaja is not None:
-    print(f"Jukkiksen maalimäärä {p.maalit}")
+player = ca.find_player("Charlie")
+if player is not None:
+    print(f"Goals by Charlie: {player.goals}")
 else:
-    print(f"Jukkis ei pelaa Kumpulan pallossa :(")
+    print(f"Charlie doesn't play in Campus Allstars :(")
 ```
 
 <sample-output>
 
-Jukkis ei pelaa Kumpulan pallossa :(
+Charlie doesn't play in Campus Allstars :(
 
 </sample-output>
 
