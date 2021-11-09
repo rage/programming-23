@@ -10,7 +10,7 @@ After this section
 
 - You will know what encapsulation means
 - You will be able to create private attributes
-- You will know how to include getters and setters for your attributes
+- You will know how to create getters and setters for your attributes
 
 </text-box>
 
@@ -35,7 +35,7 @@ class Student:
             self.study_credits += study_credits
 ```
 
-The `Student` object offers its clients the method `add_credits`, which allows the client to add a specified number of credits to the student's total. The method ensures the value passed as an argument is above zero. The following code adds study credits on three occasions:
+The `Student` object offers its clients the method `add_credits`, which allows the client to add a specified number of credits to the student's total. The method ensures the value passed as the argument is above zero. The following code adds study credits on three occasions:
 
 ```python
 sally = Student("Sally Student", "12345")
@@ -71,7 +71,7 @@ A common feature in object oriented programming languages is that classes can us
 
 ```python
 class CreditCard:
-    # the attribute number is private, while the name is accessible
+    # the attribute number is private, while the attribute name is accessible
     def __init__(self, number: str, name: str):
         self.__number = number
         self.name = name
@@ -106,9 +106,9 @@ AttributeError: 'CreditCard' object has no attribute '__number'
 
 </sample-output>
 
-Hiding attributes from clients is called _encapsulation_. As the name implies, the attribute is "enclosed in a capsule". The client is offered a suitable interface for accessing and processing the data stored in the object.
+Hiding attributes from clients is called _encapsulation_. As the name implies, the attribute is "enclosed in a capsule". The client is then offered a suitable interface for accessing and processing the data stored in the object.
 
-Let's add another encapsulated attribute: the balance. This time we'll also add publicly visible methods which allow the client to access and change the balance:
+Let's add another encapsulated attribute: the balance on the credit card. This time we'll also add publicly visible methods which allow the client to access and change the balance:
 
 ```python
 class CreditCard:
@@ -195,11 +195,15 @@ Car: odometer reading 60 km, petrol remaining 60 litres
 
 </programming-exercise>
 
+## A brief note on private attributes, Python and object oriented programming
+
+There are ways around the underscore `__` notation for hiding attributes, which you may come across if you search for resources online. No Python attribute is truly private, and this is intentional on the part of the creators of Python. On the other hand, a Python programmer is generally expected to respect the visibility guidelines set in classes, and it takes a special effort to get around these. In other object oriented programming languages, such as Java, private variables are often truly hidden, and it is best if you think of private Python variables as such as well.
+
 ## Getters and setters
 
 In object oriented programming, methods which are dedicated to accessing and changing attributes are usually called _getters_ and _setters_. Not all Python programmers use the terms "getter" and "setter", but the concept of _properties_ outlined below is very similar, which is why we will use the generally accepted object oriented programming terminology here. 
 
-So, above we created some methods for accessing private attributes, but there is a more straightforward, "pythonic" way of accessing attributes. Let's have a look at a simple class named `Wallet` with a single, private attribute `money`:
+So, above we created some public methods for accessing private attributes, but there is a more straightforward, "pythonic" way of accessing attributes. Let's have a look at a simple class named `Wallet` with a single, private attribute `money`:
 
 ```python
 class Wallet:
@@ -249,9 +253,9 @@ print(wallet.money)
 
 </sample-output>
 
-As far as the client is concerned, using these new methods is no different from directly accessing an attribute. Parentheses are not necessary; instead it is perfectly acceptable to state `wallet.money = 50`. Indeed, the purpose was to hide (i.e. encapsulate) the internal implementation of the attribute while offering an easy way of accessing and modifying the data stored in the object.
+As far as the client is concerned, using these new methods is no different from directly accessing an attribute. Parentheses are not necessary; instead it is perfectly acceptable to state `wallet.money = 50`, as if we were simply assigning a value to a variable. Indeed, the purpose was to hide (i.e. encapsulate) the internal implementation of the attribute while offering an easy way of accessing and modifying the data stored in the object.
 
-The previous example has a slight fault: the client is not notified of the failure to set a negative value for the money attribute. When a value supplied is clearly wrong, it is usually a good idea to raise an exception and thus let the client know. In this case the exception should probably be of type `ValueError` to signify that the value supplied was unacceptable.
+The previous example has a small problem: the client is not notified of the failure to set a negative value for the money attribute. When a value supplied is clearly wrong, it is usually a good idea to raise an exception and thus let the client know. In this case the exception should probably be of type `ValueError` to signify that the value supplied was unacceptable.
 
 Here we have an improved version of the class, along with some code for testing it:
 
@@ -285,7 +289,7 @@ ValueError: The amount must not be below zero
 
 </sample-output>
 
-NB: the getter method, i.e. the `@property` decorator, must be introduced before the setter method, or there will be an error when the class is executed. This is because the `@property` decorator defines the name of the "attribute" offerred to the client. The setter method, added with `.setter`, simply adds a new functionality to it.
+**NB:** the getter method, i.e. the `@property` decorator, must be introduced before the setter method, or there will be an error when the class is executed. This is because the `@property` decorator defines the name of the "attribute" offerred to the client. The setter method, added with `.setter`, simply adds a new functionality to it.
 
 <programming-exercise name='Recording' tmcname='part09-10_recording'>
 
@@ -320,7 +324,7 @@ If you need a refresher on raising exceptions, please see [part 6](/part-6/3-err
 
 </programming-exercise>
 
-Let's now have a look at a class with two private attributes and getters and setters for both:
+The following example has a class with two private attributes, along with getters and setters for both. Please try the program out with different values passed as arguments:
 
 ```python
 class Player:
@@ -371,7 +375,7 @@ Buster Ballmer
 
 </sample-output>
 
-To finish off this section, let's take a look at a class which models a simple diary. All attributes are private, but they are handled through different interfaces: the owner of the diary has getter and setter methods, but the diary entries are processed with "traditional" methods. In this case, it was deemed necessary to deny the client access to the internal data structure of the diary. Only the public methods defined are directly visible to the client. 
+To finish off this section, let's take a look at a class which models a simple diary. All attributes are private, but they are handled through differing interfaces: the owner of the diary has getter and setter methods, but the diary entries are processed with "traditional" methods. In this case it makes sense to deny the client all access to the internal data structure of the diary. Only the public methods are directly visible to the client. 
 
 Encapsulation also ensures that the internal implementation of the class can be changed at will, provided that the public interface stays intact. The client does not have to know or care whether the internal data structure is based on lists, dictionaries, or something completely different.
 
@@ -422,13 +426,13 @@ A total of 3 entries
 
 Please create a class named `WeatherStation` which is used to store observations about the weather. The class should have the following public attributes:
 
-* a constructor shich takes the name of the station as its argument
+* a constructor which takes the name of the station as its argument
 * a method named `add_observation(observation: str)` which adds an observation as the last entry in a list
 * a method named `latest_observation()` which returns the latest observation added to the list. If there are no observations yet, the method should return an _empty string_.
 * a method named `number_of_observations()` which returns the total number of observations added
 * a `__str__` method which returns the name of the station and the total number of observations added as per the example below.
 
-All variables used to handle data should be encapsulated so they can't be directly accessed. It is up to you how you implement the class, as long as the interface is as described above.
+All attributes should be encapsulated, so they can't be directly accessed. It is up to you how you implement the class, as long as the public interface is exactly as described above.
 
 An example of how the class is used:
 
