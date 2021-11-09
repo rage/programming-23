@@ -1,12 +1,12 @@
 ---
-path: '/part-10/4-lisaa-esimerkkeja'
-title: 'Laajemman sovelluksen kehittäminen'
+path: '/part-10/4-application-development'
+title: 'Developing a larger application'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tässä osiossa
+After this section
 
 - Käydään läpi hieman laajemman sovelluksen tekemiseen liittyviä seikkoja
 - Erityinen fokus on sovelluksen eri osa-alueiden (käyttöliittymä, sovelluslogiikka ja tiedostojen käsittely) eriyttämisessä

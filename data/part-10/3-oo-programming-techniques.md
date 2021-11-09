@@ -1,12 +1,12 @@
 ---
-path: '/part-10/3-olio-ohjelmoinnin-tekniikoita'
-title: 'Olio-ohjelmoinnin tekniikoita'
+path: '/part-10/3-oo-programming-techniques'
+title: 'Object oriented programming techniques'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tunnet muuttujan self eri käyttötarkoituksia
 - Osaat ylikuormittaa operaattoreita omissa luokissa

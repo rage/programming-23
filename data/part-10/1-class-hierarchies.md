@@ -1,12 +1,12 @@
 ---
-path: '/part-10/1-luokkahierarkiat'
-title: 'Luokkahierarkiat'
+path: '/part-10/1-class-hierarchies'
+title: 'Class hierarchies'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät mitä tarkoitetaan perinnällä
 - Osaat kirjoittaa luokkia jotka perivät jonkin toisen luokan

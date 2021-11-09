@@ -1,12 +1,12 @@
 ---
-path: '/part-10/2-nakyvyysmaareet'
-title: 'Näkyvyysmääreet'
+path: '/part-10/2-access-modifiers'
+title: 'Access modifiers'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät mitä eroa on näkyvyysmääreillä yksityinen ja suojattu
 - Tiedät, miten piirteiden näkyvyys määritetään Pythonissa
