@@ -13,7 +13,7 @@ After this section
 
 </text-box>
 
-The methods defined within a class can be hidden in exactly the same way the attributes were in the previous section. If the method begins with two underscores `__`, it is not directly accessible by the client.
+The methods defined within a class can be hidden in exactly the same way as the attributes were in the previous section. If the method begins with two underscores `__`, it is not directly accessible by the client.
 
 So, the technique is the same for both methods and attributes, but the use cases are usually a little different. Private attributes often come paired with getter and setter methods for controlling access to them. Private methods, on the other hand, are usually intended for internal use only, as helper methods for processes which the client does not need to know about.
 
@@ -21,28 +21,29 @@ A private method can be used within the class just like any other method, of cou
 
 ```python
 class Recipient:
-    def __init__(self, name: str, email_address: str):
+    def __init__(self, name: str, email: str):
         self.__name = name
-        if self.__check_email_address(email_address):
-            self.__email_address = email_address
+        if self.__check_email(email):
+            self.__email = email
         else:
             raise ValueError("The email address is not valid")
 
-    def __check_email_address(self, email_address: str):
-        # A simple check: the address must be over 5 characters long and contain a dot and an @ character
-        return len(email_address) > 5 and "." in email_address and "@" in email_address
+    def __check_email(self, email: str):
+        # A simple check: the address must be over 5 characters long 
+        # and contain a dot and an @ character
+        return len(email) > 5 and "." in email and "@" in email
 ```
 
-Attemtping to call the private method directly causes an error:
+Attempting to call the private method directly causes an error:
 
 ```python
 peter = Recipient("Peter Emailer", "peter@example.com")
-peter.__check_email_address("someone@example.com")
+peter.__check_email("someone@example.com")
 ```
 
 <sample-output>
 
-AttributeError: 'Recipient' object has no attribute '__check_email_address'
+AttributeError: 'Recipient' object has no attribute '__check_email'
 
 </sample-output>
 
@@ -50,28 +51,43 @@ Within the class the method can be accessed normally, and it makes sense to use 
 
 ```python
 class Recipient:
-    def __init__(self, name: str, email_address: str):
+    def __init__(self, name: str, email: str):
         self.__name = name
-        if self.__check_email_address(email_address):
-            self.__email_address = email_address
+        if self.__check_email(email):
+            self.__email = email
         else:
             raise ValueError("The email address is not valid")
 
-    def __check_email_address(self, email_address: str):
-        # A simple check: the address must be over 5 characters long and contain a dot and an @ character
-        return len(email_address) > 5 and "." in email_address and "@" in email_address
+    def __check_email(self, email: str):
+        # A simple check: the address must be over 5 characters long 
+        # and contain a dot and an @ character
+        return len(email) > 5 and "." in email and "@" in email
 
     @property
-    def email_address(self):
-        return self.__email_address
+    def email(self):
+        return self.__email
 
-    @email_address.setter
-    def email_address(self, email_address: str):
-        if self.__check_email_address(email_address):
-            self.__email_address = email_address
+    @email.setter
+    def email(self, email: str):
+        if self.__check_email(email):
+            self.__email = email
         else:
             raise ValueError("The email address is not valid")
 ```
+
+<text-box variant="info" name="Python scope and namespace">
+
+We already came across the term _scope_ in [part 6](/part-6/4-scope-of-variables) of this material, and defined it as the sections of a program where a (variable) name is visible. Looking at the term from another direction, it also refers to what is visible from a specific point in program code. Another related term is _namespace_, which refers to the names specifically available within a defined Python unit, such as a class or a function definition.
+
+The scope within a method is different from the scope within a class, which is again different from the scope at the client code which creates an instance of the class. A method has access to its local variables, but also to the attributes and other methods in the class it is a part of, even if they are private. The class also has access to these, its own members, but it cannot directly access the local variables within its methods. The client code has access to only the public methods and attributes defined in the class, but of course also some other names in the environment in which it exists.
+
+It may seem counter-intuitive that a class would not have access to all its contents, but it is essential for ensuring integrity. For example, it might make sense to use the same local variable name in various different methods within the same class, if they perform somehow similar functionalities. If the class had direct access to all of the local variables within the methods, they would have to be named differently, or else it would not be clear which version of the variable was meant where. We have already seen with attributes declared with `self` that helper variables should not be made accessible outside a method, so adding the variables as attributes or global variables should not be an option. There has to be a way to keep names in different parts of the program separate, and this is what namespaces are for.
+
+The idea of a namespace helps with understanding how the same name can happily coexist in different functions, classes or modules at the same time. If a name is specific to a namespace, such as a method definition, it is not directly accessible outside it, and so there is no reason why another namespace could not use the same name. Mastering namespaces and scopes is essential in becoming a proficient programmer, and you will get much practice on this course.
+
+</text-box>
+
+## Do I need a private method?
 
 In the following example the class `DeckOfCards` is a model for a deck of 52 cards. It contains the helper method `__reset_deck`, which creates a new shuffled deck of cards. The private method is at the moment only called in the constructor method, so the implementation could arguably be placed directly in the constructor. However, using a separate method makes the code easier to read and also makes it possible to access the functionality later in other methods if necessary.
 
@@ -132,7 +148,7 @@ Please create a class named `BankAccount` which models a bank account. The class
 
 The class should also contain the private method
 
-* `__service_charge()`, which decrease the balance of the account by one percent. Whenever either of the methods `deposit` or `withdraw` is called, this method should also be called. The service charge is calculated and subtracted only after the actual operation is completed (that is, after the amount specified has been added to or subtracted from the balance).
+* `__service_charge()`, which decreases the balance on the account by one percent. Whenever either of the methods `deposit` or `withdraw` is called, this method should also be called. The service charge is calculated and subtracted only after the actual operation is completed (that is, after the amount specified has been added to or subtracted from the balance).
 
 All data attributes within the class definition should be private.
 
