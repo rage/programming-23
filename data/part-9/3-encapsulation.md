@@ -197,7 +197,7 @@ Car: odometer reading 60 km, petrol remaining 60 litres
 
 ## Getters and setters
 
-In object oriented programming, methods which are dedicated to accessing and changing attributes are usually called _getters_ and _setters_. Not all Python programmers use the terms "getter" and "setter", but the consept of _properties_ outlined below is very similar, which is why we will use the generally accepted object oriented programming terminology here. 
+In object oriented programming, methods which are dedicated to accessing and changing attributes are usually called _getters_ and _setters_. Not all Python programmers use the terms "getter" and "setter", but the concept of _properties_ outlined below is very similar, which is why we will use the generally accepted object oriented programming terminology here. 
 
 So, above we created some methods for accessing private attributes, but there is a more straightforward, "pythonic" way of accessing attributes. Let's have a look at a simple class named `Wallet` with a single, private attribute `money`:
 
