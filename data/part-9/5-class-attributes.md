@@ -301,7 +301,7 @@ if Registration.license_plate_valid("xyz-789"):
 
 <sample-output>
 
-Tämä on validi plate!
+This is a valid license plate!
 
 </sample-output>
 

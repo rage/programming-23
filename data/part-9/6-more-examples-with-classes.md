@@ -13,81 +13,79 @@ After this section
 
 </text-box>
 
-**This translation will be finished on Tuesday 9.11., apologies for tardiness!**
-
-The following example consists of two classes. The class `Point` is a model for a point in a two-dimensional space. The class `Line` is model for a line segment between two points. The code below is commented; please read the comments in order to understand how the classes work.
+The following example consists of two classes. The class `Point` is a model for a point in two-dimensional space. The class `Line` is a model for a line segment between two points. The code below is commented; please read the comments in order to understand how the classes work.
 
 ```python
 import math
 
-class Piste:
-    """ Luokka mallintaa pistettä kaksiulotteisessa koordinaatistossa """
+class Point:
+    """ The class represents a point in two-dimensional space """
 
     def __init__(self, x: float, y: float):
-        # Attribuutit ovat julkisia, koska mitkä tahansa arvot käyvät x:n ja y:n arvoiksi
+        # These attributes are public because any value is acceptable for x and y
         self.x = x
         self.y = y
 
-    # Luokkametodi palauttaa uuden pisteen paikassa (0, 0)
-    # Huomaa, että luokan sisältä voi palauttaa olion luokasta
+    # This class method returns a new Point at origo (0, 0)
+    # It is indeed possible to return a new instance of the class from with the class
     @classmethod
     def origo(cls):
-        return Piste(0, 0)
+        return Point(0, 0)
 
-    # Luokkametodi muodostaa uuden pisteen annetun pisteen perusteella
-    # Uusi piste on peilikuva annetusta pisteestä jommankumman tai molempien akselien suhteen
-    # Esimerkiksi pisteen (1, 3) peilikuva x-akselin suhteen on (1, -3)
+    # This class method creates a new Point based on an existing Point
+    # The original Point can be mirrored on either or both of the x and y axes 
+    # For example, the Point (1, 3) mirrored on the x-axis is (1, -3)
     @classmethod
-    def peilikuva(cls, piste, peilaa_x: bool, peilaa_y: bool):
-        x = piste.x
-        y = piste.y
-        if peilaa_x:
+    def mirrored(cls, point: "Point", mirror_x: bool, mirror_y: bool):
+        x = point.x
+        y = point.y
+        if mirror_x:
             y = -y
-        if peilaa_y:
+        if mirror_y:
             x = -x
 
-        return Piste(x, y)
+        return Point(x, y)
 
     def __str__(self):
         return f"({self.x}, {self.y})"
 
-class Jana:
-    """ Luokka mallintaa janaa kaksiulotteisessa koordinaatistossa """
+class Line:
+    """ The class represents a line segment in two-dimensional space """
 
-    def __init__(self, alku: Piste, loppu: Piste):
-        # Attribuutit ovat julkisia, koska mitkä tahansa pisteet kelpaavat
-        self.alku = alku
-        self.loppu = loppu
+    def __init__(self, beginning: Point, end: Point):
+        # These attributes are public because any two Points are acceptable
+        self.beginning = beginning
+        self.end = end
 
-    # Metodi laskee janan pituuden Pythagoraan lauseella
-    def pituus(self):
-        summa = (self.loppu.x - self.alku.x) ** 2 + (self.loppu.y - self.alku.y) ** 2
-        return math.sqrt(summa)
+    # This method uses the Pythagorean theorem to calculate the length of the line segment
+    def length(self):
+        sum_of_squares = (self.end.x - self.beginning.x) ** 2 + (self.end.y - self.beginning.y) ** 2
+        return math.sqrt(sum_of_squares)
 
-    # Metodi palauttaa janan keskipisteen
-    def keskipiste(self):
-        keskix = (self.alku.x + self.loppu.x) / 2
-        keskiy = (self.alku.y + self.loppu.y) / 2
-        return Piste(keskix, keskiy)
+    # This method return the Point in the middle of the line segment
+    def centre_point(self):
+        centre_x = (self.beginning.x + self.end.x) / 2
+        centre_y = (self.beginning.y + self.end.y) / 2
+        return Point(centre_x, centre_y)
 
     def __str__(self):
-        return f"{self.alku} ... {self.loppu}"
+        return f"{self.beginning} ... {self.end}"
 ```
 
 ```python
-piste = Piste(1,3)
-print(piste)
+point = Point(1,3)
+print(point)
 
-origo = Piste.origo()
+origo = Point.origo()
 print(origo)
 
-piste2 = Piste.peilikuva(piste, True, True)
-print(piste2)
+point2 = Point.mirrored(point, True, True)
+print(point2)
 
-jana = Jana(piste, piste2)
-print(jana.pituus())
-print(jana.keskipiste())
-print(jana)
+line = Line(point, point2)
+print(line.length())
+print(line.centre_point())
+print(line)
 ```
 
 <sample-output>
@@ -101,186 +99,186 @@ print(jana)
 
 </sample-output>
 
-## Parametrien oletusarvot
+## Default values of parameters
 
-Pythonissa mille tahansa parametrille voidaan asettaa oletusarvo. Oletusarvoja voidaan käyttää sekä funktioiden että metodien parametreissa.
+In Pyhton programing you can generally set a default value for any parameter. Default values can be used in both functions and methods.
 
-Jos parametrille on annettu oletusarvo, sille ei ole pakko antaa arvoa kutsuttaessa. Jos arvo annetaan, se syrjäyttää oletusarvon, ja jos arvoa ei anneta, käytetään oletusarvoa.
+If a parameter has a default value you do not have to include one as an argument when calling the function. If an argument is given, the default value is ignored. If not, the default value is used.
 
-Oletusarvot ovat usein hyödyllisiä konstruktoreissa: jos on oletettavaa, ettei tiettyä tietoa ole aina olemassa oliota luodessa, on parempi antaa sille vakioarvo konstruktorissa kuin antaa tämä asiakkaan huoleksi. Tämä on asiakkaalle helpompaa ja myös ylläpitää olion sisäistä eheyttä, kun voidaan esimerkiksi olla varmoja, että "tyhjä" arvo on aina samanlainen (muuten se voisi olla esimerkiksi merkkijono `""`, arvo `None` tai merkkijono `"ei asetettu"`).
+Default values are often used in constructors. If it can be expected that not all information is available when an object is creates, it is better to include a default value in the definition of the constructor method than to force the client to take care of the issue. This makes using the class easier from the client's point of view, but it also enforces the integrity of the object. For instance, with a set default value we can be sure that an "empty" value is always the same. If a default value is not set, it is up to the client to provide an "empty" value, which could be for example an empty string `""`, the non-entity `None` or the string `"not set"`.
 
-Tarkastellaan esimerkkinä luokkaa, joka mallintaa opiskelijaa. Pakollisia kenttiä luodessa ovat opiskelijanumero ja nimi ja näistä opiskelijanumeroa ei pysty myöhemmin muuttamaan. Opintopisteet ja muistiinpanot voi halutessaan antaa oliota luodessa, mutta niille on myös asetettu oletusarvot. Luokan toiminta on kommentoitu suoraan ohjelmakoodin yhteyteen.
+Let's have a look at yet another class representing a student. When creating a new Student object the client must provide a name and a student number. The student number is private and should not be changed later. Additionally, a Student object has attributes for study credits and notes, which have default values set in the constructor. New values can be passed as arguments to the constructor, but they can also be left out so that the default values are used instead. Please have a look at the comments in the code to better understand what each method does.
 
 ```python
-class Opiskelija:
-    """ Mallintaa yhtä opiskelijaa """
+class Student:
+    """ This class models a student """
 
-    def __init__(self, nimi: str, opiskelijanumero: str, opintopisteet:int = 0, muistiinpanot:str = ""):
-        # kutsuu asetusmetodia
-        self.nimi = nimi
+    def __init__(self, name: str, student_number: str, credits: int = 0, notes: str = ""):
+        # calling the setter method for the name attribute
+        self.name = name
 
-        if len(opiskelijanumero) < 5:
-            raise ValueError("Opiskelijanumerossa tulee olla vähintään 5 merkkiä")
+        if len(student_number) < 5:
+            raise ValueError("A student number should have at least five characters")
 
-        self.__opiskelijanumero = opiskelijanumero
+        self.__student_number = student_number
 
-        # Kutsuu asetusmetodia
-        self.opintopisteet = opintopisteet
+        # calling the setter method for the credits attribute
+        self.credits = credits
 
-        self.__muistiinpanot = muistiinpanot
+        self.__notes = notes
 
     @property
-    def nimi(self):
-        return self.__nimi
+    def name(self):
+        return self.__name
 
-    @nimi.setter
-    def nimi(self, nimi):
-        if nimi != "":
-            self.__nimi = nimi
+    @name.setter
+    def name(self, name):
+        if name != "":
+            self.__name = name
         else:
-            raise ValueError("Nimi ei voi olla tyhjä")
+            raise ValueError("The name can not be an empty string")
 
     @property
-    def opiskelijanumero(self):
-        return self.__opiskelijanumero
+    def student_number(self):
+        return self.__student_number
 
     @property
-    def opintopisteet(self):
-        return self.__opintopisteet
+    def credits(self):
+        return self.__credits
 
-    @opintopisteet.setter
-    def opintopisteet(self, op):
+    @credits.setter
+    def credits(self, op):
         if op >= 0:
-            self.__opintopisteet = op
+            self.__credits = op
         else:
-            raise ValueError("Opintopisteet ei voi olla negatiivinen luku")
+            raise ValueError("The number of study credits can not be below zero")
 
     @property
-    def muistiinpanot(self):
-        return self.__muistiinpanot
+    def notes(self):
+        return self.__notes
 
-    @muistiinpanot.setter
-    def muistiinpanot(self, muistiinpanot):
-        self.muistiinpanot = muistiinpanot
+    @notes.setter
+    def notes(self, notes):
+        self.notes = notes
 
-    def yhteenveto(self):
-        print(f"Opiskelija {self.__nimi} ({self.opiskelijanumero}):")
-        print(f"- opintopisteitä {self.__opintopisteet}")
-        print(f"- muistiinpanot: {self.muistiinpanot}")
+    def summary(self):
+        print(f"Student {self.__name} ({self.student_number}):")
+        print(f"- credits: {self.__credits}")
+        print(f"- notes: {self.notes}")
 ```
 
 ```python
-# Annetaan pelkkä nimi ja op.nro
-opiskelija1 = Opiskelija("Olli Opiskelija", "12345")
-opiskelija1.yhteenveto()
+# Passing only the name and the student number as arguments to the constructor
+student1 = Student("Sally Student", "12345")
+student1.summary()
 
-# Annetaan nimi, op.nro ja opintopisteet
-opiskelija2 = Opiskelija("Outi Opiskelija", "54321", 25)
-opiskelija2.yhteenveto()
+# Passing the name, the student number and the number of study credits
+student2 = Student("Sassy Student", "54321", 25)
+student2.summary()
 
-# Annetaan kaikki tiedot
-opiskelija3 = Opiskelija("Olavi Opiskelija", "99999", 140, "lisäaika tentissä")
-opiskelija3.yhteenveto()
+# Passing values for all the parameters
+student3 = Student("Saul Student", "99999", 140, "extra time in exam")
+student3.summary()
 
-# Ei anneta opintopisteitä, mutta annetaan muistiinpanot
-# Huomaa, että parametri pitää nyt nimetä, kun järjestys eroaa tavallisesta
-opiskelija4 = Opiskelija("Onerva Opiskelija", "98765", muistiinpanot="poissaoleva lukuvuonna 20-21")
-opiskelija4.yhteenveto()
-```
-
-<sample-output>
-
-Opiskelija Olli Opiskelija (12345):
-- opintopisteitä 0
-- muistiinpanot:
-Opiskelija Outi Opiskelija (54321):
-- opintopisteitä 25
-- muistiinpanot:
-Opiskelija Olavi Opiskelija (99999):
-- opintopisteitä 140
-- muistiinpanot: lisäaika tentissä
-Opiskelija Onerva Opiskelija (98765):
-- opintopisteitä 0
-- muistiinpanot: poissaoleva lukuvuonna 20-21
-
-</sample-output>
-
-Huomaa, että attribuutille opiskelijanumero ei ole määritelty asetusmetodia, koska ideana on, että opiskelijanumero ei voi muuttua.
-
-Parametrien oletusarvojen käyttöön liittyy kuitenkin eräs huomattavan iso "mutta" joka ilmenee seuraavasti esimerkistä:
-
-```python
-class Opiskelija:
-    def __init__(self, nimi, tehdyt_kurssit=[]):
-        self.nimi = nimi
-        self.tehdyt_kurssit = tehdyt_kurssit
-
-    def lisaa_suoritus(self, kurssi):
-        self.tehdyt_kurssit.append(kurssi)
-```
-
-```python
-opiskelija1 = Opiskelija("Olli Opiskelija")
-opiskelija2 = Opiskelija("Outi Opiskelija")
-
-opiskelija1.lisaa_suoritus("Ohpe")
-opiskelija1.lisaa_suoritus("Tira")
-
-print(opiskelija1.tehdyt_kurssit)
-print(opiskelija2.tehdyt_kurssit)
+# Passing a value for notes, but not for study credits
+# NB: the parameter must be named now that the arguments are not in order
+student4 = Student("Sandy Student", "98765", notes="absent in academic year 20-21")
+student4.summary()
 ```
 
 <sample-output>
 
-['Ohpe', 'Tira']
-['Ohpe', 'Tira']
+Student Sally Student (12345):
+- credits: 0
+- notes:
+Student Sassy Student (54321):
+- credits: 25
+- notes:
+Student Saul Student (99999):
+- credits: 140
+- notes: extra time in exam
+Student Sandy Student (98765):
+- credits: 0
+- notes: absent in academic year 20-21
 
 </sample-output>
 
-Huomataan siis, että kurssisuorituksen lisääminen Ollille muuttaa myös Outin kurssisuorituksia. Ilmiö johtuu siitä, että Python uudelleenkäyttää oletusarvoa. Yllä oleva tapa luoda opiskelijat vastaa siis seuraavaa koodia:
+NB: there is no setter method for the attribute `student_number` as the student number is not supposed to change.
+
+There is one rather significant snag in using default values for parameters. The following example modelling yet another kind of student will shed more light on this:
 
 ```python
-kurssit = []
-opiskelija1 = Opiskelija("Olli Opiskelija", kurssit)
-opiskelija2 = Opiskelija("Outi Opiskelija", kurssit)
+class Student:
+    def __init__(self, name, completed_courses=[]):
+        self.name = name
+        self.completed_courses = completed_courses
+
+    def add_course(self, course):
+        self.completed_courses.append(course)
 ```
 
-Tästä johtuen parametrin oletusarvona ei koskaan tulisi käyttää monimutkaisempia tietorakenteita kuten listoja. Korjattu versio luokan `Opiskelija` konstruktorista on seuraava:
+```python
+student1 = Student("Sally Student")
+student2 = Student("Sassy Student")
+
+student1.add_course("ItP")
+student1.add_course("ACiP")
+
+print(student1.completed_courses)
+print(student2.completed_courses)
+```
+
+<sample-output>
+
+['ItP', 'ACiP']
+['ItP', 'ACiP']
+
+</sample-output>
+
+Adding completed courses to Sally's list also adds those courses to Sassy's list. In fact, these two are the exact same list, as Python reuses the reference stored in the default value. Creating the two new Student objects in the above example is equivalent to the following:
 
 ```python
-class Opiskelija:
-    def __init__(self, nimi, tehdyt_kurssit=None):
-        self.nimi = nimi
-        if tehdyt_kurssit is None:
-            self.tehdyt_kurssit = []
+courses = []
+student1 = Student("Sally Student", courses)
+student2 = Student("Sassy Student", courses)
+```
+
+The default values of parameters should never be instances of more complicated, mutable data structures such as lists. The problem can be circumvented by making the following changes to the constructor of the `Student` class:
+
+```python
+class Student:
+    def __init__(self, name, completed_courses=None):
+        self.name = name
+        if completed_courses is None:
+            self.completed_courses = []
         else:
-            self.tehdyt_kurssit = tehdyt_kurssit
+            self.completed_courses = completed_courses
 
-    def lisaa_suoritus(self, kurssi):
-        self.tehdyt_kurssit.append(kurssi)
+    def add_course(self, course):
+        self.completed_courses.append(course)
 ```
 
 ```python
-opiskelija1 = Opiskelija("Olli Opiskelija")
-opiskelija2 = Opiskelija("Outi Opiskelija")
+student1 = Student("Sally Student")
+student2 = Student("Sassy Student")
 
-opiskelija1.lisaa_suoritus("Ohpe")
-opiskelija1.lisaa_suoritus("Tira")
+student1.add_course("ItP")
+student1.add_course("ACiP")
 
-print(opiskelija1.tehdyt_kurssit)
-print(opiskelija2.tehdyt_kurssit)
+print(student1.completed_courses)
+print(student2.completed_courses)
 ```
 
 <sample-output>
 
-['Ohpe', 'Tira']
+['ItP', 'ACiP']
 []
 
 </sample-output>
 
-## Loppuhuipennus
+## The Grand Finale
 
-Vaikka seuraava tehtävä on tässä luvussa, et tarvitse tehtävän ratkaisemiseen mitään muuta kun luvussa [Oliot attribuuttina](/osa-9/2-oliot-attribuuttina) esiteltyjä tekniikoita. Tehtävä on käytännössä hyvin samanlainen kuin tuon luvun  tehtävät [lahjapakkaus](/osa-9/2-oliot-attribuuttina#programming-exercise-lahjapakkaus) ja [huoneen lyhin](/osa-9/2-oliot-attribuuttina#programming-exercise-huoneen-lyhin).
+Even though the following exercise finishes off this part of the material, the techniques required to solve it were all covered already in the section [Objects as attributes](/part-9/2-objects-as-attributes). This exercise is very similar to the exercises [A box of presents](/part-9/2-objects-as-attributes#programming-exercise-a-box-of-presents) and [The shortest person in the room](/part-9/2-objects-as-attributes#programming-exercise-the-shortest-person-in-the-room).
 
 <programming-exercise name='Item, Suitcase and Cargo hold' tmcname='part09-15_item_suitcase_hold'>
 

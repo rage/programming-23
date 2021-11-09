@@ -125,7 +125,7 @@ from person import Person
 # koodi
 ```
 
-it is likely you have gotten something wrong. If you need a refresher, the `import` statement was first introduced in [part 7](/part-7/1-modules/) of this course material.
+it is likely you have gotten something wrong. If you need a refresher, the `import` statement was first introduced in [part 7](/part-7/1-modules) of this course material.
 
 <programming-exercise name='Pets' tmcname='part09-06_pets'>
 
