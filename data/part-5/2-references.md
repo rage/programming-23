@@ -410,7 +410,7 @@ add_number(sudoku, 5, 7, 3)
 print()
 print("Three numbers added:")
 print()
-tulosta(sudoku)
+print_sudoku(sudoku)
 ```
 
 <sample-output>
