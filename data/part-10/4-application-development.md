@@ -8,106 +8,106 @@ hidden: false
 
 After this section
 
-- Käydään läpi hieman laajemman sovelluksen tekemiseen liittyviä seikkoja
-- Erityinen fokus on sovelluksen eri osa-alueiden (käyttöliittymä, sovelluslogiikka ja tiedostojen käsittely) eriyttämisessä
-- Harjoitellaan laajemman sovelluksen toteuttamista itse
+- You will be familiar with some basic principles of application development
+- You will be comfortable differentiating between the different parts of an application (user interface, program logic and file handling)
+- You will have practiced writing your own somewhat larger application
 
 </text-box>
 
-Ohjelmoinnin perusteiden ja jatkokurssin aikana on esitelty suuri määrä Pythonin tarjoamia ominaisuuksia.
+Thus far in this course material we have covered a large number of Python features.
 
-Ohjelmoinnin perusteissa tutustuttiin kielen kontrollirakenteisiin (while ja for), funktioihin sekä perustietorakenteisiin eli listaan ja sanakirjaan. Näytti jo hetken siltä että muuta ei tarvitakaan. Periaatteessa näin onkin: ohjelmoinnin perusteiden kalustolla pystyy ilmaisemaan kaiken mikä Pythonilla on ylipäätään ilmaistavissa.
+The Introduction to Programming course introduced control structures, such as while and for, functions, and basic data structures, such as lists, tuples and dictionaries. In principle, those tools are all that is needed to express anything a programmer may wish to express with Python. 
 
-Jatkokurssin alussa, eli kurssin osassa 8 pakkaa ruvettiin kuitenkin hämmentämään tuomalla mukaan luokat ja oliot. Milloin ja ylipäätään _miksi_ olioita tulisi käyttää jos kurssin osien 1-7 kalusto on jo ilmaisuvoimaltaan riittävä?
+On this Advanced Course in Programming, beginning in part 8 of the material, you have become familiar with classes and objects. Let's take a moment to consider when and _why_ they are necessary, if those basic tools from parts 1 to 7 should be enough.
 
-## Monimutkaisuuden hallintaa
+## Managing complexity
 
-Monissa tilanteissa voi ja varmasti kannattaakin olla käyttämättä oliota. Esimerkiksi jos koodataan pieni "kertakäyttöinen" apuohjelma, ei ehkä ole mitään tarvetta olioille. Tilanne alkaa muuttua, kun siirrytään hieman suuremman kokoluokan ohjelmiin.
+Objects and classes are by no means necessary in every programming context. For example, if you are programming a smallish script for one-time use, objects are usually surplus to requirement. However, when you are programming something larger and more complicated, objects become very useful.
 
-Kun ohjelma laajenee, alkaa sen sisältämien yksityiskohtien määrä nousta hallitsemattomaksi, ellei ohjelmaa jäsennellä jollain järkevällä tavalla. Itse asiassa jo ohjelmoinnin perusteiden tehtävissä oli havaittavissa varsin monimutkaisia ratkaisuja, joiden ymmärtämisessä jopa alan ammattilaisilla on vaikeuksia.
+When programs grow in complexity, the amount of details quickly becomes unmanageable, unless the program is organised in some systematic way. Even some of the more complicated exercises on this course so far would have benefited from the examples set in this section.
 
-Käsite [Separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) on ollut jo vuosikymmeniä eräs ohjelmoinnin ja koko tietojenkäsittelyn keskeisiä teemoja. Wikipedian mukaan käsitteellä tarkoitetaan seuraavaa
+Fo decades the concept of [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) has been one of the central principles in programming and the larger field of computer science. Quoting from Wikipedia:
 
 _Separation of concerns is a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program_
 
-Kyse on ohjelman suunnittelua ohjaavasta periaatteesta, jonka mukaan ohjelmakoodi jäsennellään pienempiin osiin, joista kukin huolehtii vain omasta "tontistaan". Kuhunkin osaan tehdyt muutokset vaikuttavat - periaatteen mukaisesti - vain rajattuun alueeseen ohjelmassa, joten ohjelmien väistämätöntä monimutkaisuutta on helpompi hallita.
+Separating the program into sections, so that each has its own concern to handle, helps in managing the inevitable complexity of a computer program.
 
-Funktiot ovat yksi mekanismi tämän tavoitteen saavuttamiseen. Sen sijaan että ohjelma kirjoitetaan yhtenä isona kokonaisuutena, koostetaan se pienistä funktioista, joista kukin ratkaisee pienen osan ongelmasta.
+Functions are one way of organising a program into distinct, manageable wholes. Instead of writing a single script, the idea is to formulate small, separately verifiable functions which each solve some part of the larger problem.
 
-Olio-ohjelmointi tarjoaa funktioita jossain määrin ilmaisuvoimaisemman ja joidenkin mielestä "paremman" tavan saavuttaa sama tavoite. Kuten olemme nähneet, olioiden avulla on mahdollista koota samaan asiaan liittyvä data ja sitä käsittelevä koodi, eli olion metodit, samaan paikkaan. Oliot tarjoavat myös mekanismin käsittelemänsä datan kapselointiin, joka taas tavallaan on keino piilottaa "turhia" yksityiskohtia olion ulkopuoliselta osalta ohjelmaa.
+Another common approach to managing larger programs is objects, through object oriented programming principles. There are benefits and drawbacks to both approaches, and each programmer has their own favourite. As we have seen so far, objects and classes allow us to collect all the data _and_ the code processing that data within a single unit, in the attributes and methods of an object. Furthermore, objects provide a way of encapsulating the data they control, so that other parts of the program do not have to worry about the internal details of an object.
 
-## Esimerkki: puhelinluettelo
+## A worked example: phone book
 
-Miten ohjelma sitten tulisi jakaa luokkiin ja olioihin? Kysymys ei ole helppo, ja asiaa on helpompi pohdiskella konkreettisen esimerkin kautta. Toteutetaan esimerkkinä olio-ohjelmointia hyödyntäen hieman samantyylinen puhelinluettelo, joka oli aiheena ohjelmoinnin perusteiden viidennen osan [tehtävässä](osa-5/3-dictionary#programming-exercise-puhelinluettelo-versio-2).
+How should a program be divided into classes and objects? This is by no means an easy question with a single acceptable answer, so we will proceed with an example. In part five you completed [a phone book application](/part-5/3-dictionary#programming-exercise-phone-book-version-2), and now we will implement something similar using object oriented programming principles.
 
-Separation of concerns -periaatetta noudatellen koodi tulee jakaa osiin, joista kukin käsittelee omaa asiaansa. Olio-ohjelmoinnin piirissä tätä periaatetta ilmentää niin sanottu [yhden vastuun (single responsibility)](https://en.wikipedia.org/wiki/Single-responsibility_principle) -periaate. Ei mennä sen tarkemmin periaatteen yksityiskohtiin, mutta maalaisjärjellä ajatellen periaatteen nimi jo kertoo mistä on kyse: _yksittäisen luokan olioiden tulisi olla vastuussa yhdestä asiasta_.
+Following the separation of concerns principle, a program should be divided into sections which each have their own cause to take care of. In object oriented programming this translates to the [single-responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle). Without going into the finer details, its fundamental purpose is clear from the name: _a single class and objects created based on it should have a single responsibility in the program_.
 
-Olioita käytettäessä ohjelmointiongelman "reaalimaailman asioita" vastaa yleensä oma luokkansa. Puhelinluettelon tapauksessa tälläisiä reaalimaailman asioita olisivat esimerkiksi:
-- henkilö
-- nimi
-- puhelinnumero
+Object oriented programming is often used as a way of modelling real world objects and phenomena. A single object in the real world is modelled with a single class in program code. In the case of a phone book such objects might be
+- a person
+- a name
+- a phone number
 
-Näistä nimi ja puhelinnumero ovat kenties liian vähäpätöisiä ollakseen omia luokkiaan, mutta _henkilö_ voisi hyvinkin olla oma luokkansa, jonka vastuulla on sitoa yhteen tietty nimi ja siihen liittyvät puhelinnumerot.
+A name and a phone number may be thought of as just bits of data which do not merit their own classes, but a _person_ is a distinct physical entity in the real world, and in the programming world it could work as a class. A person class would be responsible for tying together a name and the phone numbers attached to it.
 
-Myös _puhelinluettelo_ itsessään on potentiaalinen luokka, sen vastuulla on hallinnoida eri henkilöiden tietoja.
+A _phone book_ itself could be a good candidate for a class. Its responsibility would be to manage different person objects and the data they contain.
 
-Nämä kaksi luokkaa eli _puhelinluettelo_ ja _henkilö_ muodostavat sovelluksen ytimen, eli niin sanotun _sovelluslogiikan_. Näiden lisäksi ohjelma tarvitsee muutaman muunkin luokan.
+Now we have outlined the core of our application: _phone book_ and _person_ constitute the programming logic of our application, or _application logic_ in short. Our application would need some other classes, too.
 
-Käyttäjän kanssa tapahtuvasta interaktiosta huolehtivaa luokkaa ei kannata sotkea sovelluslogiikan kanssa samaan luokkaan - sehän on kokonaan oma vastuunsa. Eli sovelluslogiikan luokkien lisäksi ohjelmalle tulee myös luokka, joka huolehtii ohjelman käyttöliittymästä.
+It is usually a good idea to keep any interaction with a user separate from the application logic. It is, after all, a responsibility all on its own. In a addition to the core application logic, our program should have a class which handles the user interface.
 
-Talletamme puhelinluettelon tiedot tiedostoon. Myös tiedoston käsittely on selkeästi oma vastuunsa, joten tulemme sisällyttämään siihen käytettävän koodin omaan luokkaansa.
+Furthermore, our phone book should have some means of persistent storage between executions. File handling is, again, a clearly separate responsibility, so it deserves a class of its own.
 
-Kun ohjelman luokkarakenne alkaa pikkuhiljaa hahmottua, nousee kysymykseksi se, mistä ohjelmointi kannattaa aloittaa. Usein paras tapa aloittaa on pienellä palalla sovelluslogiikka.
+Now that we have an outline of the basic components of our program, the question arises: where should we begin programming? It is often a good idea to start with some part of the application logic.
 
-## Vaihe 1: sovelluslogiikan runko
+## Step 1: an outline for the application logic
 
-Aloitetaan luokasta _Puhelinluettelo_. Runko voisi näyttää seuraavalta:
+Let's start with the class _PhoneBook_. A skeleton implementation could look like this:
 
 ```python
-class Puhelinluettelo:
+class PhoneBook:
     def __init__(self):
-        self.__henkilot = []
+        self.__persons = []
 
-    def lisaa_numero(self, nimi: str, numero: str):
+    def add_number(self, name: str, number: str):
         pass
 
-    def hae_numerot(self, nimi: str):
+    def get_numbers(self, name: str):
         pass
 
 ```
 
-Luokka pitää siis sisällään listan henkilöitä ja tarjoaa metodit tietojen lisäämiseen ja hakemiseen.
+This class consists of a list of persons and methods for both adding and fetching data.
 
-Jokaiseen henkilöön voi liittyä useita numeroita, joten toteutetaan luettelon sisäinen tila sanakirjan avulla, koska sanakirjasta on helppo hakea nimen perusteella. Sanakirjaan on helppo tallettaa suoraan myös nimeen liittyvät numerot, joten ainakaan tässä vaiheessa ei tarvita erillistä luokkaa yksittäisen henkilön tietojen tallettamiseen.
+Each person may be connected with multiple numbers, so let's implement the internal structure of persons with a dictionary. A dictionary allows us to search for keys by name, and the value attached to a dictionary key can be a list. At this point at least it looks like we don't really need a separate class to represent a person - an entry in a dictionary will do.
 
-Luokka laajenee seuraavasti. Mukana on myös pieni toiminnan varmistava koodinpätkä:
+Let's implement the methods listed above, and test our phone book:
 
 ```python
-class Puhelinluettelo:
+class PhoneBook:
     def __init__(self):
-        self.__henkilot = {}
+        self.__persons = {}
 
-    def lisaa_numero(self, nimi: str, numero: str):
-        if not nimi in self.__henkilot:
-            # henkilöön liittyy lista puhelinnumeroja
-            self.__henkilot[nimi] = []
+    def add_number(self, name: str, number: str):
+        if not name in self.__persons:
+            # add a new dictionary entry with an empty list for the numbers
+            self.__persons[name] = []
 
-        self.__henkilot[nimi].append(numero)
+        self.__persons[name].append(number)
 
-    def hae_numerot(self, nimi: str):
-        if not nimi in self.__henkilot:
+    def get_numbers(self, name: str):
+        if not name in self.__persons:
             return None
 
-        return self.__henkilot[nimi]
+        return self.__persons[name]
 
-# testikoodi
-luettelo = Puhelinluettelo()
-luettelo.lisaa_numero("Erkki", "02-123456")
-print(luettelo.hae_numerot("Erkki"))
-print(luettelo.hae_numerot("Emilia"))
+# code for testing
+phonebook = PhoneBook()
+phonebook.add_number("Eric", "02-123456")
+print(phonebook.get_numbers("Eric"))
+print(phonebook.get_numbers("Emily"))
 ```
 
-Testikoodin tulostus on seuraava:
+This should print out the following:
 
 <sample-output>
 
@@ -116,221 +116,219 @@ None
 
 </sample-output>
 
-Metodi `hae_numerot` siis palauttaa arvon `None`, jos henkilö ei löydy luettelosta, jos henkilö löytyy, palautetaan lista joka sisältää henkilön puhelinnumerot.
+The method `get_numbers` returns `None` if a name is not included in the phone book. If the names is found, it returns the list of numbers attached to the name.
 
-Ohjelmoidessa mitä tahansa ohjelmaa kannattaa _aina_ kokeilla, että koodi toimii kuten sen olettaa toimivan, ennen kun etenee muuhun koodiin.
-Usein tämä testikoodi on poisheitettävää koodia, ja sikäli voisi ajatella testaamisesta olevan ylimääräistä vaivaa. Lähes 100% tapauksissa ei näin kuitenkaan ole.
+Whenever you make changes to a program it is _always_ worth testing that the code works as expected, before moving on to any other changes. The code used for testing is usually something that is deleted soon after, and as such you might think it's not worth the trouble to write any tests in the first place. In most cases this is not true. Testing is essential to good programming results.
 
-Koodiin tullut bugi kannattaa saada kiinni ja korjata niin pian kuin mahdollista. Jos koodin toimivuuden varmistaa lähes jokaisen uuden koodirivin jälkeen, on debuggaus ja korjaaminen yleensä vaivatonta ja nopeaa, koska tällöin voi olla melko varma siitä, että ongelma johtuu hetki sitten lisätyistä koodiriveistä. Jos taas koodia testataan vasta sen jälkeen kun siihen on lisätty kymmeniä koodirivejä, on virhelähteitä moninkertaisesti.
+A bug in the program should be caught and fixed as soon as possible. If you get into the practice of verifying the functionality of practically every new line of code, you will find that the bugs are usually easy to locate and fix, as you can be quite certain that the bug was caused by the most recent change. If you only test the program after adding dozens of lines of code, the potential sources for bugs also grow by dozens of times.
 
-## Vaihe 2: käyttöliittymän runko
+## Step 2: an outline for the user interface
 
-Kun sovelluslogiikan ydintoiminnallisuus on kunnossa, voidaan edetä sovelluksen tekstikäyttöliittymään. Tehdään sitä varten oma luokka `PuhelinluetteloSovellus`, jonka runko on seuraava:
+With the core application logic out of the way, it is time to implement a text-based user interface. We will nee a new class, `PhoneBookApplication`, with the following initial functionality:
 
 ```python
-class PuhelinluetteloSovellus:
+class PhoneBookApplication:
     def __init__(self):
-        self.__luettelo = Puhelinluettelo()
+        self.__phonebook = PhoneBook()
 
-    def ohje(self):
-        print("komennot: ")
-        print("0 lopetus")
+    def help(self):
+        print("commands: ")
+        print("0 exit")
 
-    def suorita(self):
-        self.ohje()
+    def execute(self):
+        self.help()
         while True:
             print("")
-            komento = input("komento: ")
-            if komento == "0":
+            command = input("command: ")
+            if command == "0":
                 break
 
-sovellus = PuhelinluetteloSovellus()
-sovellus.suorita()
+application = PhoneBookApplication()
+application.execute()
 ```
 
-Luokka saattaa vaikuttaa vielä hämmentävältä, mutta tässä luodaan tosiaan vasta runko toiminnalle. Konstruktori luo puhelinluettelon, jonka olio pitää sisällään. Metodi `suorita(self)` käynnistää sovelluksen tekstikäyttöliittymän, jonka ytimen muodostaa `while`-silmukka, joka kyselee käyttäjältä mikä komento halutaan suorittaa. Ennen toistolauseeseen menemistä ohjelma tulostaa käyttöohjeet, kutsumalla metodia `ohje(self)`. Varsinaiset toiminnot toteutetaan seuraavaksi.
+This program doesn't do very much yet, but let's go through the contents. The constructor method creates a new PhoneBook, which is stored in a private attribute. The method `execute(self)` starts the programs text-based user interface, the core of which is the `while` while loop, which keeps asking the user for commands until they type in the command for exiting. There is also a method for intructions, `help(self)`, which is called before entering the loop, so that the instructions are printed out. 
 
-Laajennetaan käyttöliittymää siten, että luetteloon voidaan lisätä uusia tietoja:
+Now, let's add some actual functionality. First, we implement adding new data to the phone book:
 
 ```python
-class PuhelinluetteloSovellus:
+class PhoneBookApplication:
     def __init__(self):
-        self.__luettelo = Puhelinluettelo()
+        self.__phonebook = PhoneBook()
 
-    def ohje(self):
-        print("komennot: ")
-        print("0 lopetus")
-        print("1 lisäys")
+    def help(self):
+        print("commands: ")
+        print("0 exit")
+        print("1 add entry")
 
-    def suorita(self):
-        self.ohje()
+    def execute(self):
+        self.help()
         while True:
             print("")
-            komento = input("komento: ")
-            if komento == "0":
+            command = input("command: ")
+            if command == "0":
                 break
-            elif komento == "1":
-                nimi = input("nimi: ")
-                numero = input("numero: ")
-                self.__luettelo.lisaa_numero(nimi, numero)
+            elif command == "1":
+                name = input("name: ")
+                number = input("number: ")
+                self.__phonebook.add_number(name, number)
 
-sovellus = PuhelinluetteloSovellus()
-sovellus.suorita()
+application = PhoneBookApplication()
+application.execute()
 ```
 
-Jos valittu komento on tietojen lisäys (eli komento on _1_), kysyy käyttöliittymä nimen ja numeron käyttäjältä, ja lisää tiedot puhelinluetteloon kutsumalla sopivaa luettelon metodia.
+If the user types in _1_ for adding a new number, the user interface asks for the name and number, and adds these to the PhoneBook using the appropriate method defined in the class.
 
-Käyttöliittymä on siis vastuussa ainoastaan siitä, että se kommunikoi käyttäjän kanssa. Puhelinnumeron säilöminen nimen yhteyteen on jätetty kokonaisuudessan _Puhelinluettelo_-olion vastuulle.
+The only responsibility of the user interface is to communicate with the user. Any other functionality, such as storing a new name-number pair, is the responsibility of the PhoneBook object.
 
-Käyttöliittymän rakennetta on mahdollista vielä parannella siten, että tietojen lisäys eriytetään omaan metodiinsa _lisays(self)_:
+There is room for improvement in the structure of our user interface class. Let's create a method `add_entry(self)` which handles the command for adding a new entry:
 
 ```python
-class PuhelinluetteloSovellus:
+class PhoneBookApplication:
     def __init__(self):
-        self.__luettelo = Puhelinluettelo()
+        self.__phonebook = PhoneBook()
 
-    def ohje(self):
-        print("komennot: ")
-        print("0 lopetus")
-        print("1 lisäys")
+    def help(self):
+        print("commands: ")
+        print("0 exit")
+        print("1 add entry")
 
-    # eriytetään uusien tietojen lisääminen omaksi metodiksi
-    def lisays(self):
-        nimi = input("nimi: ")
-        numero = input("numero: ")
-        self.__luettelo.lisaa_numero(nimi, numero)
+    # separation of concerns in action: a new method for adding an entry
+    def add_entry(self):
+        name = input("name: ")
+        number = input("number: ")
+        self.__phonebook.add_number(name, number)
 
-    def suorita(self):
-        self.ohje()
+    def execute(self):
+        self.help()
         while True:
             print("")
-            komento = input("komento: ")
-            if komento == "0":
+            command = input("command: ")
+            if command == "0":
                 break
-            elif komento == "1":
-                self.lisays()
+            elif command == "1":
+                self.add_entry()
 
-sovellus = PuhelinluetteloSovellus()
-sovellus.suorita()
+application = PhoneBookApplication()
+application.execute()
 ```
 
-Erillisen metodin käyttämisen taustallakin on sama _separation of concerns_ -periaate. Sen sijaan että koko käyttöliittymän toiminnallisuus sijoitettaisiin ison `while`-silmukan sisälle, tehdään jokaisesta yksittäisestä toiminnosta oma metodinsa. Tämä helpottaa kokonaisuuden hallintaa. Jos halutaan muokata tietojen lisäämisen toiminnallisuutta, tiedetään heti missä päin relevantti koodi sijaitsee.
+The _separation of concerns_ principle extends to the level of methods, too. We could have the entire functionality of the user interface in a single complicated `while` loop, but it is better to separate each functionality to its own method. The responsibility of the `execute()` method is just delegating the commands typed in by the user to the relevant methods. This helps with managing the growing complexity of our program. For example, if we want to later change the way adding entries works, it is immediately clear that we must then focus our efforts on the `add_entry()` method.
 
-Lisätään käyttöliittymään toiminnallisuus numeroiden hakemista varten. Sijoitetaan sen hoitava koodi heti omaan metodiinsa:
+Let's include functionality for searching for entries in our user interface. This should have its own method, too:
 
 ```python
-
-class PuhelinluetteloSovellus:
+class PhoneBookApplication:
     def __init__(self):
-        self.__luettelo = Puhelinluettelo()
+        self.__phonebook = PhoneBook()
 
-    def ohje(self):
-        print("komennot: ")
-        print("0 lopetus")
-        print("1 lisäys")
-        print("2 haku")
+    def help(self):
+        print("commands: ")
+        print("0 exit")
+        print("1 add entry")
+        print("2 search")
 
-    def lisays(self):
-        nimi = input("nimi: ")
-        numero = input("numero: ")
-        self.__luettelo.lisaa_numero(nimi, numero)
+    def add_entry(self):
+        name = input("name: ")
+        number = input("number: ")
+        self.__phonebook.add_number(name, number)
 
-    def haku(self):
-        nimi = input("nimi: ")
-        numerot = self.__luettelo.hae_numerot(nimi)
-        if numerot == None:
-            print("numero ei tiedossa")
+    def search(self):
+        name = input("name: ")
+        numbers = self.__phonebook.get_numbers(name)
+        if numbers == None:
+            print("number unknown")
             return
-        for numero in numerot:
-            print(numero)
+        for number in numbers:
+            print(number)
 
-    def suorita(self):
-        self.ohje()
+    def execute(self):
+        self.help()
         while True:
             print("")
-            komento = input("komento: ")
-            if komento == "0":
+            command = input("command: ")
+            if command == "0":
                 break
-            elif komento == "1":
-                self.lisays()
-            elif komento == "2":
-                self.haku()
+            elif command == "1":
+                self.add_entry()
+            elif command == "2":
+                self.search()
             else:
-                self.ohje()
+                self.help()
 
-sovellus = PuhelinluetteloSovellus()
-sovellus.suorita()
+application = PhoneBookApplication()
+application.execute()
 ```
 
-Sovelluksen perusversio toimii nyt. Seuraavassa esimerkki sovelluksen käytöstä:
+We now have a simple working phone book application ready for testing. The following is an example run:
 
 <sample-output>
 
-komennot:
-0 lopetus
-1 lisäys
-2 haku
+commands:
+0 exit
+1 add entry
+2 search
 
-komento: **1**
-nimi: **Erkki**
-numero: **02-123456**
+command: **1**
+name: **Eric**
+number: **02-123456**
 
-komento: **1**
-nimi: **Erkki**
-numero: **045-4356713**
+command: **1**
+name: **Eric**
+number: **045-4356713**
 
-komento: **2**
-nimi: **Erkki**
+command: **2**
+name: **Eric**
 02-123456
 045-4356713
 
-komento: **2**
-nimi: Emilia
-numero ei tiedossa
+command: **2**
+name: Emily
+number unknown
 
-komento: **0**
+command: **0**
 
 </sample-output>
 
-Koodia on aika paljon, todennäköisesti enemmän kuin jos kaikki olisi ohjelmoitu yhteen pötköön. Koodin rakenne on kuitenkin siistihkö, ja koodin laajentamisenkaan ei pitäisi olla kovin hankalaa.
+For such a simple application we have written quite a lot of code. If we'd written it all within the one `while` loop we could probably have gotten away with a lot less code. It is, however, quite easy to read the code, the structure is clear, and we should have no trouble adding functionality.
 
-## Vaihe 3: tietojen haku tiedostosta
+## Step 3: importing data from a file
 
-Laajennetaan ohjelmaa siten, että se lataa käynnistäessään puhelinluettelon tiedostosta, joka on seuraavaa muotoa:
+Let's assume we already have some phone numbers stored in a file, and we want to read this as the program starts up. The data file is in the followind CSV format:
 
 ```csv
-Erkki;02-1234567;045-4356713
-Emilia;040-324344
+Eric;02-1234567;045-4356713
+Emily;040-324344
 ```
 
-Tiedoston käsittely on selkeästi oma vastuualueensa, eli toteutetaan sitä varten oma luokka:
+Handling files is clearly its own are of responsibility, so it merits a class of its own:
 
 ```python
-class Tiedostonkasittelija():
-    def __init__(self, tiedosto):
-        self.__tiedosto = tiedosto
+class FileHandler():
+    def __init__(self, filename):
+        self.__filename = filename
 
-    def lataa(self):
-        nimet = {}
-        with open(self.__tiedosto) as f:
-            for rivi in f:
-                osat = rivi.strip().split(';')
-                nimi, *numerot = osat
-                nimet[nimi] = numerot
+    def load_file(self):
+        names = {}
+        with open(self.__filename) as f:
+            for line in f:
+                parts = line.strip().split(';')
+                name, *numbers = parts
+                names[name] = numbers
 
-        return nimet
+        return names
 ```
 
-Konstruktorin parametrina annetaan tiedoston nimi. Metodi `lataa(self)` lukee tiedoston, ja pilkkoo sen rivit sanakirjaksi, missä avain on nimi ja arvona ovat nimeen liittyvät numerot.
+The constructor method takes the name of the file as its argument. The method `load_file(self)` reads the contents of the file. It splits each line into two parts: a name and a list of numbers. It then adds these to a dictionary, using the name as the key and the list as the value.
 
-Metodi käyttää erästä Pythonin kätevää ominaisuutta: listasta on mahdollista ottaa ensin yksittäisiä alkioita erikseen nimettyinä muuttujina, sekä loput alkiot uutena listana, kuten seuraavasta esimerkistä käy ilmi. [Luvusta 6](osa-6/1-tiedostojen-lukeminen#csv-tiedoston-lukeminen) muistamme että merkkijonojen metodi `split` tuottaa nimenomaan listan.
+The method uses a nifty Python feature: it is possible to first select some items from a list separately, and then take the rest of the items in a new list. You can see an example of this below. You may remember from [part 6](/part-6/1-reading-files#reading-csv-files) that the string method `split` returns a list.
 
 ```python
-lista = [1, 2, 3, 4, 5]
-eka, toka, *loput = lista
-print(eka)
-print(toka)
-print(loput)
+my_list = [1, 2, 3, 4, 5]
+first, second, *rest = my_list
+print(first)
+print(second)
+print(rest)
 ```
 
 <sample-output>
@@ -341,253 +339,252 @@ print(loput)
 
 </sample-output>
 
-Sijoituslauseen viimeisen muuttujan nimen edessä on *, ja se tarkoittaa, että viimeiseen muuttujaan kerätään taulukosta loput, eli kolmas ja sitä seuraavat alkiot.
+The * in front of the variable name `rest` in the assignment statement means that this last variable should contain all the remaining items in the list, from the third one onwards.
 
-Tiedostonkäsittelijääkin kannattaa ehdottomasti testata, ennen kuin se pultataan muuhun koodiin:
+We should absolutely test the file handler separately before including it in our application:
 
 ```python
-t = Tiedostonkasittelija("luettelo.txt")
-print(t.lataa())
+t = FileHandler("phonebook.txt")
+print(t.load_file())
 ```
 
 <sample-output>
 
-{'Erkki': ['02-1234567', '045-4356713'], 'Emilia': ['040-324344']}
+{'Eric': ['02-1234567', '045-4356713'], 'Emily': ['040-324344']}
 
 </sample-output>
 
-Kun tiedostosta lukemisen todetaan toimivan, liitetään koodi muuhun ohjelmaan. Looginen paikka tiedoston lukemiseen on se hetki kun sovellus käynnistyy, eli luokan _PuhelinluetteloSovellus_ konstruktori:
+As the file handler seems to work fine, we can add it to our application. Let's assume we want to read the file first thing every time the program is run. The logical place for reading the file would be the constructor of the `PhoneBookApplication` class:
 
 ```python
-class PuhelinluetteloSovellus:
+class PhoneBookApplication:
     def __init__(self):
-        self.__luettelo = Puhelinluettelo()
-        self.__tiedosto = Tiedostonkasittelija("luettelo.txt")
+        self.__phonebook = PhoneBook()
+        self.__filename = FileHandler("phonebook.txt")
 
-        # listään tiedostossa olevat nimet luetteloon
-        for nimi, numerot in self.__tiedosto.lataa().items():
-            for numero in numerot:
-                self.__luettelo.lisaa_numero(nimi, numero)
+        # add the names and numbers from the file to the phone book
+        for name, numbers in self.__filename.load_file().items():
+            for number in numbers:
+                self.__phonebook.add_number(name, number)
 
-    # muu koodi
+    # the rest of the program code
 ```
 
-Tiedoston lukua osana PuhelinLuetteloSovellusta kannattaa myös testata. Kun on varmistettu, että tiedoston sisältö saadaan ladattua luetteloon, voidaan edetä viimeiseen vaiheeseen.
+This functionality should also be tested. Once we've made certain the contents of the file are accessible through the user interface of our application, we can move on to the next stage.
 
-## Vaihe 4: tietojen talletus tiedostoon
+## Step 4: export data to the file
 
-Viimeistellään ohjelman alustava versio vielä siten, että se tallentaa lopetettaessa puhelinluettelon takaisin tiedostoon.
+The final feature in our basic version of the application is saving the contents of the phone book back in the same file the data was read from.
 
-Tätä varten luokkaa _Puhelinluettelo_ tulee laajentaa siten, että sieltä saadaan tallennusta varten kaikki tiedot ulos:
+This involves a change to the `PhoneBook` class. We need to be able to export the contents of the phone book:
 
 ```python
-class Puhelinluettelo:
+class PhoneBook:
     def __init__(self):
-        self.__henkilot = {}
+        self.__persons = {}
 
     # ...
 
-    # palautetaan tiedostoon tallentamista varten kaikki tiedot
-    def kaikki_tiedot(self):
-        return self.__henkilot
+    # return all entries (in dictionary format)
+    def all_entries(self):
+        return self.__persons
 ```
 
-Tallennus on luonnollisesti luokan _Tiedostonkasittelija_ vastuulla, eli laajennetaan sitä metodilla _talleta_, joka saa parametriksi puhelinluetteloa edustavan sanakirjan:
+The actual saving to the file should be handled by the `FileHandler` class. Let's add the method `save_file` which takes a dictionary representation of the phone book as its argument:
 
 ```python
-class Tiedostonkasittelija():
-    def __init__(self, tiedosto):
-        self.__tiedosto = tiedosto
+class FileHandler():
+    def __init__(self, filename):
+        self.__filename = filename
 
-    def lataa(self):
+    def load_file(self):
         # ...
 
-    def talleta(self, luettelo: dict):
-        with open(self.__tiedosto, "w") as f:
-            for nimi, numerot in luettelo.items():
-                rivi = [nimi] + numerot
-                f.write(";".join(rivi) + "\n")
+    def save_file(self, phonebook: dict):
+        with open(self.__filename, "w") as f:
+            for name, numbers in phonebook.items():
+                line = [name] + numbers
+                f.write(";".join(line) + "\n")
 ```
 
-Tallennus tapahtuu samalla kun sovelluksen käyttö lopetetaan. Tehdään tätäkin tarkoitusta varten oma metodinsa ja kutsutaan sitä sopivassa kohdassa:
+The saving should happen as the program exits. Let's add a method for this purpose to the user interface, and call it before breaking out of the `while` loop:
 
 ```python
 
-class PuhelinluetteloSovellus:
-    # muu koodi
+class PhoneBookApplication:
+    # the rest of the code for the user interface
 
-    # metodi, joka suoritetaan lopetettaessa sovelluksen käyttö
-    def lopetus(self):
-        self.__tiedosto.talleta(self.__luettelo.kaikki_tiedot())
+    # a method which gets executed as the program exits
+    def exit(self):
+        self.__filename.save_file(self.__phonebook.all_entries())
 
-    def suorita(self):
-        self.ohje()
+    def execute(self):
+        self.help()
         while True:
             print("")
-            komento = input("komento: ")
-            if komento == "0":
+            command = input("command: ")
+            if command == "0":
 
-                self.lopetus()
+                self.exit()
                 break
-            elif komento == "1":
-                self.lisays()
-            elif komento == "2":
-                self.haku()
+            elif command == "1":
+                self.add_entry()
+            elif command == "2":
+                self.search()
             else:
-                self.ohje()
+                self.help()
 ```
 
-<programming-exercise name='Puhelinluettelon laajennus, osa 1' tmcname='osa10-10_puhelinluettelo_osa1'>
+<programming-exercise name='Phone book expansion, version 1' tmcname='part10-10_phone_book_v1'>
 
-Tässä tehtävässä tehdään pieni laajennus puhelinluettelosovellukseen. Yllä kehitetty koodi löytyy tehtäväpohjasta. Laajenna ratkaisuasi komennolla, joka mahdollistaa nimen etsimisen numeron perusteella. Laajennuksen jälkeen sovelluksen pitäisi toimia seuraavasti:
+In this exercise you will create a small expansion to the phone book application. The code from the above example is in the exercise template. Please add a command which lets the user search the phone book by number. After the addition the application should work as follows:
 
 <sample-output>
 
-komennot:
-0 lopetus
-1 lisäys
-2 haku
-3 haku numeron perusteella
+commands:
+0 exit
+1 add entry
+2 search
+3 search by number
 
-komento: **1**
-nimi: **Erkki**
-numero: **02-123456**
+command: **1**
+name: **Eric**
+number: **02-123456**
 
-komento: **1**
-nimi: **Erkki**
-numero: **045-4356713**
+command: **1**
+name: **Eric**
+number: **045-4356713**
 
-komento: **3**
-numero: **02-123456**
-Erkki
+command: **3**
+number: **02-123456**
+Eric
 
-komento: **3**
-numero: **0100100**
-tuntematon numero
+command: **3**
+number: **0100100**
+unknown number
 
-komento: **0**
+command: **0**
 
 </sample-output>
 
-Tee laajennus sitten, että kunnioitat ohjelman rakennetta. Eli lisää luokkaan `PuhelinluetteloSovellus` uutta ominaisuutta varten sopiva apumetodi sekä oma haara while-silmukkaan. Lisää myös sovelluslogiikkaan eli luokkaan `Puhelinluettelo` metodi, joka mahdollistaa nimen hakemisen numeron perusteella.
+Please implement this addition with respect to the current structure of the program. This means that in the `PhoneBookApplication` class you should add an appropriate helper method to allow for the new functionality, and also add a new branch to the `while` loop. In the `PhoneBook` class you should add a method which allows for searching with a number.
 
 </programming-exercise>
 
-## Olioita sanakirjassa
+## Objects in a dictionary
 
-Seuraavassa tehtävässä on tarkoitus muuttaa puhelinluetteloa siten, että sanakirjan arvoksi talletetaan tavallisten listojen sijaan _olioita_.
+In the next exercise you are asked to change your phone book so that the values in the dictionary are _objects_, not lists.
 
-Periaatteessa asiassa ei ole mitään ihmeellistä, mutta kurssilla ei vielä ole näin tehty, joten tutkitaan ennen tehtävää hieman samantapaista, mutta yksinkertaisempaa esimerkkiä.
+There is nothing intrinsically strange about this, but this is the first time on this course that something like this is suggested, so let's go through a simpler example before diving into the exercise:
 
-Tehdään sovellus, jonka avulla voidaan pitää kirjaa siitä, kuinka monta tehtävää opiskelijat ovat tehneet kurssin aikana. Kunkin opiskelijan tehtävämäärä lasketaan yksinkertaisen olion avulla:
+Here we have a application which keeps track of how many exercises students have completed on a course. Each student's exercise count is stored in a simple object:
 
 ```python
-class Tehtavalaskuri:
+class ExerciseCounter:
     def __init__(self):
-        self.__tehtavia = 0
+        self.__exercises = 0
 
-    def merkkaa(self):
-        self.__tehtavia += 1
+    def done(self):
+        self.__exercises += 1
 
-    def tehtyja(self):
-        return self.__tehtavia
+    def how_many(self):
+        return self.__exercises
 ```
 
-Luokkaa käyttävä pääohjelma on seuraavassa:
+The following main function uses the above class:
 
 ```python
-opiskelijat = {}
+students = {}
 
-print("merkataan tehtäviä")
+print("let's do some exercises")
 while True:
-    nimi = input("opiskelija: ")
-    if len(nimi) == 0:
+    name = input("student: ")
+    if len(name) == 0:
         break
 
-    # luodaan tarvittaessa olio tehtävämäärän laskemista varten
-    if not nimi in opiskelijat:
-        opiskelijat[nimi] = Tehtavalaskuri()
+    # create a new object if it doesn't exist yet
+    if not name in students:
+        students[name] = ExerciseCounter()
 
-    # merkataan tehdyksi nimeä vastaavaan olioon
-    opiskelijat[nimi].merkkaa()
+    # add a new done exercise to the counter
+    students[name].done()
 
 print()
-print("tehdyt tehtävät:")
+print("exercises completed:")
 
-for opiskelija, tehtavat in opiskelijat.items():
-    print(f"{opiskelija} tehtäviä {tehtavat.tehtyja()} kpl")
+for student, exercises in students.items():
+    print(f"{student}'s exercises: {exercises.how_many()}")
 ```
 
-Käyttöesimerkki
+Running the above could look like this:
 
 <sample-output>
 
-merkataan tehtäviä
-opiskelija: **pekka**
-opiskelija: **sara**
-opiskelija: **antti**
-opiskelija: **sara**
-opiskelija: **juuso**
-opiskelija: **juuso**
-opiskelija: **antti**
-opiskelija: **sara**
-opiskelija:
+let's do some exercises
+student: **peter**
+student: **sarah**
+student: **andy**
+student: **sarah**
+student: **charlotte**
+student: **charlotte**
+student: **andy**
+student: **sarah**
+student:
 
-tehdyt tehtävät:
-pekka tehtäviä 1 kpl
-antti tehtäviä 2 kpl
-sara tehtäviä 3 kpl
-juuso tehtäviä 2 kpl
+exercises completed:
+peter's exercises: 1
+andy's exercises: 2
+sarah's exercises: 3
+charlotte's exercises: 2
 
 </sample-output>
 
-Esimerkissä on parikin huomionarvoista seikkaa. Kun opiskelijan nimi syötetään, tarkastetaan aina ensin onko opiskelijaa vastaava olio jo sanakirjassa. Jos olioa ei ole, luodaan se:
+There are a couple of things to consider in the above example. When the user inputs a name, the program first checks if the name is already a key in the dictionary. If the name is not present, a new object is created and added as an entry in the dictionary:
 
 ```python
-if not nimi in opiskelijat:
-    opiskelijat[nimi] = Tehtavalaskuri()
+if not name in students:
+    students[name] = ExerciseCounter()
 ```
 
-Tämän jälkeen _tiedetään_ että olio on olemassa. Se on joko luotu juuri äsken tai jo aiemmalla silmukan kierroksella. Haetaan olio sanakirjasta, ja kutsutaan sen metodia `merkkaa`:
+After this we can be _sure_ the object exists, attached to the name of the student which is used as the key. Either it was just created, or it already existed from a previous iteration of the loop. Either way, we can now retrieve the object with the key, and call the method `done`:
 
 ```python
-opiskelijat[nimi].merkkaa()
+students[name].done()
 ```
 
-Rivillä tapahtuu oikeastaan kaksi asiaa, ja sama voitaisiin kirjoittaa siten, että sanakirjasta haettu olio sijoitettaisiin apumuuttujaan:
+The above line actually contains two separate events. We could just as well use a helper variable and write it on two separate lines of code:
 
 ```python
-opiskelijan_laskuri = opiskelijat[nimi]
-opiskelijan_laskuri.merkkaa()
+students_counter = students[name]
+students_counter.done()
 ```
 
-Huomaa, että vaikka olio sijoitettaisiin apumuuttujaan, se _ei tarkoita_ että olio poistuisi sanakirjasta tai oliosta syntyisi kopio. Apumuuttuja on ainoastaan _viite_ sanakirjassa olevaan olioon.
+NB: Even though the object is here assigned to a helper variable, the object still exists in the dictionary just as before.  The helper variable contains a _reference_ to the object in the dictionary.
 
-Esimerkin koodia kannattaa **ehdottomasti** kokeilla [visualisaattorissa](http://www.pythontutor.com/visualize.html#mode=edit) jos ei ole aivan 100% varma siitä, miten koodi toimii.
+If you are not quite sure what actually happens in the code above, please do try it out with the [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit).
 
-<programming-exercise name='Puhelinluettelon laajennus, osa 2' tmcname='osa10-11_puhelinluettelo_osa2'>
+<programming-exercise name='Phone book expansion, version 2' tmcname='part10-11_phone_book_v2'>
 
-Tässä tehtävässä laajennetaan puhelinluettelosovellusta siten, että henkilöihin voi liittyä myös osoite. Yksinkertaisuuden vuoksi koodista on kuitenkin poistettu tiedostoon tallentaminen. Myös muutama metodi on uudelleennimetty vastaamaan paremmin laajennuksen jälkeistä tilannetta.
+In this exercise you will create another version of the `PhoneBookApplication`. You will add addresses to the data which can be attached to a name. For simplicity's sake the functionality for saving to file has been removed, and some other methods have been renamed to better accommodate the change.
 
-## Luokka henkilön tietojen esittämiseen
+## A separate class for a person's data
 
-Siirretään henkilön tietojen (eli puhelinnumerojen sekä osoitteen) esittäminen oman luokkansa `Henkilo` vastuulle. Toteuta luokka siten, että se toimii seuraavasti:
-
+Please change the way the data of a person is handled. Implement a class named `Person`, which takes care of the phone numbers and addresses of persons. The class should work as follows:
 
 ```python
-henkilo = Henkilo("Erkki")
-print(henkilo.nimi())
-print(henkilo.numerot())
-print(henkilo.osoite())
-henkilo.lisaa_numero("040-123456")
-henkilo.lisaa_osoite("Mannerheimintie 10 Helsinki")
-print(henkilo.numerot())
-print(henkilo.osoite())
+person = Person("Eric")
+print(person.name())
+print(person.numbers())
+print(person.address())
+person.add_number("040-123456")
+person.add_address("Mannerheimintie 10 Helsinki")
+print(person.numbers())
+print(person.address())
 ```
 
 <sample-output>
 
-Erkki
+Eric
 []
 None
 ['040-123456']
@@ -595,74 +592,76 @@ Mannerheimintie 10 Helsinki
 
 </sample-output>
 
-## Puhelinluettelo käyttämään luokkaa Henkilo
+## PhoneBook uses the class Person
 
-Muuta koodiasi siten, että se toimii käyttäjän näkökulmasta täysin samoin kuin aiemmin, mutta luokka `Puhelinluettelo` tallettaakin henkilöt sisäisesti käyttäen luokan `Henkilo` olioita. Käytännössä siis oliomuuttujana `__henkilot` tulee olla sanakirja, johon listojen sijaan talletetaan henkilö-olioita.
+Please change the internal implementation of your application so that your `PhoneBook` class uses objects of class `Person` to store the data in the phone book. That is, the attribute `__persons` should still contain a dictionary but the values should be Person-objects and not lists. The user of your application should notice no difference; the changes must not affect the user interface.
 
-**VAROITUS:** kun teet koodiin tämän tehtävän kaltaista rakenteellista muutosta, etene pienin askelin. Älä missään tapauksessa yritä tehdä kaikkea kerrallaan, se on **varma keino ajautua pahoihin ongelmiin**.
+**WARNING:** whenever you make structural changes to your code, as described in this exercise, always take baby steps and test at every possible stage. Do not try and make all the changes at once. That is a sure way of **running into serious problems with your code**.
 
-Sopiva pieni askel nyt voi olla se, että tarkastat ensin erikseen luokan `Puhelinluettelo` toimivuuden. Esimerkiksi seuraavan koodin tulee toimia kuten olettaa saattaa:
+A suitable first step might be to write some code for checking the functionality of the `PhoneBook` class directly. For example, the following should at least not cause any errors:
 
 ```python
-luettelo = Puhelinluettelo()
-luettelo.lisaa_numero("Erkki", "02-123456")
-print(luettelo.tiedot("Erkki"))
-print(luettelo.tiedot("Emilia"))
+phonebook = PhoneBook()
+phonebook.add_number("Eric", "02-123456")
+print(phonebook.get_entry("Eric"))
+print(phonebook.get_entry("Emily"))
 ```
 
-Tehtävässä ei tarkisteta, millainen tulostusasu `tiedot`-metodin palauttamalla tuloksella on, mutta varmista ettei koodi aiheuta virheitä, ja että tulos on järkevä. Kun olet 100% varma, että kaikki toimii luokan `Puhelinluettelo` osalta, voit edetä varmistamaan, että kaikki toimii edelleen entiseen tapaan käyttöliittymää käytettäessä.
+Notice the new name for the method for fetching an entry from the phone book. The automatic tests do not check what the printout from your `get_entry` method is, but make sure no errors are raised by the above code, and that the result makes sense within your implementation. 
 
-## Osoitteen lisääminen
+When you've made the necessary changes in your program and have absolutely verified the functionality within the `PhoneBook` class, you can move on to the user interface, and see if everything still works as expected.
 
-Laajenna nyt sovellusta siten, että puhelinluetteloon on mahdollista tallettaa myös henkilöiden osoitteet. Ohjelman tulisi toimia seuraavasti:
+## Adding an address
+
+Please implement the functionality for adding an address to an entry in your phone book. The program should work as follows:
 
 <sample-output>
 
-komennot:
-0 lopetus
-1 nimen lisäys
-2 haku
-3 osoitteen lisäys
+commands:
+0 exit
+1 add number
+2 search
+3 add address
 
-komento: **1**
-nimi: **Erkki**
-numero: **02-123456**
+command: **1**
+name: **Eric**
+number: **02-123456**
 
-komento: **3**
-nimi: **Emilia**
-osoite: **Viherlaaksontie 7, Espoo**
+command: **3**
+name: **Emily**
+address: **Viherlaaksontie 7, Espoo**
 
-komento: **2**
-nimi: **Erkki**
+command: **2**
+name: **Eric**
 02-123456
-osoite ei tiedossa
+address unknown
 
-komento: **2**
-nimi: **Emilia**
-numero ei tiedossa
+command: **2**
+name: **Emily**
+number unknown
 Viherlaaksontie 7, Espoo
 
-komento: **3**
-nimi: **Erkki**
-osoite: **Linnankatu 75, Turku**
+command: **3**
+name: **Eric**
+address: **Linnankatu 75, Turku**
 
-komento: 2
-nimi: **Erkki**
+command: 2
+name: **Eric**
 02-123456
 Linnankatu 75, Turku
 
-komento: **2**
-nimi: **Wilhelm**
-osoite ei tiedossa
-numero ei tiedossa
+command: **2**
+name: **Wilhelm**
+address unknown
+number unknown
 
-komento: **0**
+command: **0**
 
 </sample-output>
 
-**VAROITUS ja vihje:** kuten tehtävän edellisessä osassa sanottiin, älä missään tapauksessa yritä tehdä kaikkea kerrallaan, se on **varma keino ajautua pahoihin ongelmiin**.
+**WARNING and hint:** as stated above in the previous exercise, do not try and make all the changes at once. That is a sure way of **running into serious problems with your code**.
 
-Varmista ensin että voit lisätä osoitteita luokkaan `Puhelinluettelo` ja kun olet 100% varma, että se toimii, voit laajentaa sovelluksen käyttöliittymää uuden toiminnallisuuden osalta.
+First make sure your can reliably add addresses in the `PhoneBook` class directly. Once you have verified this, your can move on to the necessary changes in the user interface.
 
 </programming-exercise>
 
@@ -682,159 +681,160 @@ Hyvän olio-ohjelmoinnin periaatteiden mukaisen koodin kirjoittamisella on myös
 
 Harjoitellaan vielä isomman ohjelmakokonaisuuden toteuttamista yhden ohjelmointitehtävän verran.
 
-<programming-exercise name='Opintorekisteri' tmcname='osa10-12_opintorekisteri'>
+<programming-exercise name='CourseRecords' tmcname='part10-12_course_records'>
 
-Tee interaktiivinen ohjelma, jonka avulla voit pitää kirjaa opintomenestyksestäsi. Sovelluksen rakenteen saat päättää itse, mutta nyt on hyvä tilaisuus harjoitella Puehlinluettelo-esimerkin kaltaisen oliorakenteen muodostamista.
+Please write an interactive application for keeping track of your studies. The internal structure is up to you, but this would be a good moment to practice creating a similar structure as in the PhoneBook example above.
 
-Ohjelman tulee toimia seuraavasti:
+Your program should work as follows:
 
 <sample-output>
 
-1 lisää suoritus
-2 hae suoritus
-3 tilastot
-0 lopetus
+1 add course
+2 get course data
+3 statistics
+0 exit
 
-komento: **1**
-kurssi: **Ohpe**
-arvosana: **3**
-opintopisteet: **5**
+command: **1**
+course: **ItP**
+grade: **3**
+credits: **5**
 
-komento: **2**
-kurssi: **Ohpe**
-Ohpe (5 op) arvosana 3
+command: **2**
+course: **ItP**
+ItP (5 cr) grade 3
 
-komento: **1**
-kurssi: **Ohpe**
-arvosana: **5**
-opintopisteet: **5**
+command: **1**
+course: **ItP**
+grade: **5**
+credits: **5**
 
-komento: **2**
-kurssi: **Ohpe**
-Ohpe (5 op) arvosana 5
+command: **2**
+course: **ItP**
+ItP (5 cr) grade 5
 
-komento: **1**
-kurssi: **Ohpe**
-arvosana: **1**
-opintopisteet: **5**
+command: **1**
+course: **ItP**
+grade: **1**
+credits: **5**
 
-komento: **2**
-kurssi: **Ohpe**
-Ohpe (5 op) arvosana 5
+command: **2**
+course: **ItP**
+ItP (5 cr) grade 5
 
-komento: **2**
-kurssi: **Java-ohjelmointi**
-ei suoritusta
+command: **2**
+course: **Introduction to Java**
+no entry for this course
 
-komento: **1**
-kurssi: **Tira**
-arvosana: **1**
-opintopisteet: **10**
+command: **1**
+course: **ACiP**
+grade: **1**
+credits: **10**
 
-komento: **1**
-kurssi: **Tilpe**
-arvosana: **2**
-opintopisteet: **5**
+command: **1**
+course: **ItAI**
+grade: **2**
+credits: **5**
 
-komento: **1**
-kurssi: **Lapio**
-arvosana: **4**
-opintopisteet: **1**
+command: **1**
+course: **Algo101**
+grade: **4**
+credits: **1**
 
-komento: **1**
-kurssi: **Lama**
-arvosana: **5**
-opintopisteet: **8**
+command: **1**
+course: **CompModels**
+grade: **5**
+credits: **8**
 
-komento: **3**
-suorituksia 5 kurssilta, yhteensä 29 opintopistettä
-keskiarvo 3.4
-arvosanajakauma
+command: **3**
+5 completed courses, a total of 29 credits
+mean 3.4
+grade distribution
 5: xx
 4: x
 3:
 2: x
 1: x
 
-komento: **0**
+command: **0**
 
 </sample-output>
 
-Muutama huomio: kultakin kurssilta tallentuu ainoastaan yksi arvosana. Arvosanaa voi korottaa, mutta se ei voi laskea.
+Each course name should result in a single entry in the records. A grade may be raised by re-entering the course details, but the grade should never be lowered. 
 
-Tehtävästä on tarjolla kaksi tehtäväpistettä. Ensimmäisen pisteen saa jos toiminnot 1 ja 2 sekä lopetus toimivat. Toisen pisteen saa jos myös toiminto 3 on toteutettu.
+This exercise is worth two exercise points. The first is granted after the commands 1, 2 and 0 work correctly in your program. The second is granted if command 3 also works as expected.
 
 </programming-exercise>
 
-## Epilogi
+## Epilogue
 
-Palataan vielä hetkeksi tarkastelemaan puhelinluetteloesimerkkiä, ja sen käyttöliittymän toteuttavaa luokkaa:
+To finish off this part of the material let's return to the user interface of the phone book example for a moment. 
 
 ```python
-class PuhelinluetteloSovellus:
+class PhoneBookApplication:
     def __init__(self):
-        self.__luettelo = Puhelinluettelo()
-        self.__tiedosto = Tiedostonkasittelija("luettelo.txt")
+        self.__phonebook = PhoneBook()
+        self.__filename = FileHandler("phonebook.txt")
 
     # muu koodi
 
-sovellus = PuhelinluetteloSovellus()
-sovellus.suorita()
+application = PhoneBookApplication()
+application.execute()
 ```
 
-`PuhelinluetteloSovellus`-olio pitää siis sisällään sekä `Puhelinluettelo`-olion että `Tiedostonkasittelija`-olion. Jos olisimme ammattikoodareita, tekisimme sovellukseen pienen muutoksen. Nyt nimittäin se, että sovellus käyttää nimenomaan tiedostoa _luettelo.txt_ tallentamaan luettelon tiedot, on sovelluksen _käyttöliittymän_ kannalta täysin turha deltaji. Jos tiedosto haluttaisiin vaihtaa, edellyttäisi se muutosta luokan `PuhelinluetteloSovellus` koodiin. Tämä taas ei ole hyvä _separation of concerns_ -periaatetta ajatellen, sillä puhelinluettelon tallentaminen ei kuulu ollenkaan käyttöliittymästä huolehtivan luokan vastuisiin.
+A `PhoneBookApplication` object contains both a `PhoneBook` object and a `FileHandler` object. The name of the file passed to the FileHandler is, at the moment, hard-coded into the `PhoneBookApplication` class. This is a completely irrelevant detail when it comes to the _user interface_ of the application. In fact, it breaks the _separation of concerns_ principle: where a `PhoneBook` object saves it's contents should be of no concern to `PhoneBookApplication`, yet if we wanted to change the location, we'd have to change the code of `PhoneBookApplication`.
 
-Parempi vaihtoehto olisikin luoda tiedostokäsittelijä muualla ja antaa se `PuhelinluetteloSovellus`-oliolle, esimerkiksi konstruktorin parametrina:
+It would be a better idea to create a FileHandler object somewhere _outside_ the `PhoneBookApplication` class, and pass it as an argument to the application:
 
 ```python
-class PuhelinluetteloSovellus:
-    def __init__(self, tiedosto):
-        self.__luettelo = Puhelinluettelo()
-        self.__tiedosto = tiedosto
+class PhoneBookApplication:
+    def __init__(self, storage_service):
+        self.__phonebook = PhoneBook()
+        self.__storage_service = storage_service
 
-    # muu koodi
+    # the rest of the user interface
 
-# luodaan tallennuksen hoitava olio
-tallennuspalvelu = Tiedostonkasittelija("luettelo.txt")
-# ja annetaan se PuhelinluetteloSovellus-oliolle konsturuktorin parametrina
-sovellus = PuhelinluetteloSovellus(tallennuspalvelu)
-sovellus.suorita()
+# create a FileHandler
+storage_service = FileHandler("phonebook.txt")
+# pass it as an argument to PhoneBookApplication's constructor
+application = PhoneBookApplication(storage_service)
+application.execute()
 ```
 
-Näin on saatu poistettua luokalta `PuhelinluetteloSovellus` _turha riippuvuus_ käsiteltävän tiedoston nimeen. Jos tiedoston nimi muuttuu, ei luokan koodiin tarvitse koskea ollenkaan. Riittää ainoastaan, että oliolle annetaan hieman erilainen konstruktoriparametri:
-
+This removes an _unnecessary dependency_ from the `PhoneBookApplication` class. If the name of the file changes, the user interface no longer needs to be changed. We just need to pass a different argument to the constructor:
 
 ```python
-class PuhelinluetteloSovellus:
-    def __init__(self, tiedosto):
-        self.__luettelo = Puhelinluettelo()
-        self.__tiedosto = tiedosto
+class PhoneBookApplication:
+    def __init__(self, filename):
+        self.__phonebook = PhoneBook()
+        self.__filename = filename
 
-    # muu koodi
+    # the rest of the user interface
 
-# vaihdetaan tiedostoa
-tallennuspalvelu = Tiedostonkasittelija("uusi_luettelotiedosto.txt")
-sovellus = PuhelinluetteloSovellus(tallennuspalvelu)
-sovellus.suorita()
+# use a different filename
+storage_service = FileHandler("new_phonebook.txt")
+application = PhoneBookApplication(storage_service)
+application.execute()
 ```
 
-Tämä sama tekniikka mahdollistaa sen, että siirrytäänkin tallentamaan puhelinluettelo tiedoston sijaan esimerkiksi internetissä olevaan pilvipalveluun. On vain kirjoitettava pilvipalvelua käyttävä luokka, joka tarjoaa puhelinluettelosovellukselle samanlaiset metodit kuin `Tiedostonkasittelija`. Tämän luokan olio voidaan antaa sovellukselle, ilman että sovelluksen koodista tulee muuttaa riviäkään:
+This change also allows us to consider more exotic storage locations, for instance a cloud service on the internet. We just need to implement a class which uses the cloud service, and offers `PhoneBookApplication` the exact same methods as `FileHandler`. 
+
+An instance of this new "cloud handler" class can be passed as an argument to the constructor, and not a single line of code has to be changed in the interface:
 
 ```python
-class InternetTallennin:
-    # koodi joka tallentaa luettelon tiedot internetissä olevaan pilvipalveluun
+class CloudHandler:
+    # code for saving the contents of the phone book 
+    # in a cloud service on the internet
 
-tallennuspalvelu = InternetTallennin("amazon-cloud", "mluukkai", "passwrd")
-sovellus = PuhelinluetteloSovellus(tallennuspalvelu)
-sovellus.suorita()
+storage_service = CloudHandler("amazon-cloud", "username", "passwrd")
+application = PhoneBookApplication(storage_service)
+application.execute()
 ```
 
-Kuten aiemmin todettiin, on tämän kaltaisten tekniikoiden käytöllä oma hintansa: koodia tulee enemmän, ja ohjelmoijan tulee harkita milloin se hinta kannattaa maksaa.
+As you have seen before, using techniques like this carries a price tag, as there is more code to write, so a programmer needs to consider whether that is an acceptable tradeoff.
 
-Tässä esitelty tekniikka (joka kulkee ammattijargonissa nimellä _dependency injection_), missä oliolle annetaan ulkopuolelta käsin sen tarvitsema _riippuvuus_ (eli käytännössä jokin muu olio) on erittäin tyypillinen kikka ammattimaisessa koodauksessa, muun muassa siksi, että se helpottaa ohjelmistojen laajentamista sekä niiden automatisoitua testaamista. Jatkamme teeman käsittelyä kursseilla [Ohjelmistotekniikka](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024742-2020-08-01) ja [Ohjelmistotuotanto](https://studies.helsinki.fi/opintotarjonta/cu/hy-CU-118024909-2020-08-01).
+The technique outlined above is called _dependency injection_. As the name implies, the idea is to provide any dependency required by an object from _outside_ the object. It is a very useful tool in a programmer's toolbox, as it makes it easier to implement new features in programs and facilitates automatic testing. This theme will be further explored on the courses [Software Development Methods](https://studies.helsinki.fi/courses/cu/hy-CU-118024742-2020-08-01) and [Software Engineering](https://studies.helsinki.fi/courses/cu/hy-CU-118024909-2020-08-01).
 
-
-Vastaa lopuksi osion loppukyselyyn:
+Please respond to a quick questionnaire on this part of the course.
 
 <quiz id="7f06c003-5526-550b-9d51-58905a80ec15"></quiz>
 
