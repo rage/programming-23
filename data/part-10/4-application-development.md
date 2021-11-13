@@ -16,7 +16,7 @@ After this section
 
 Thus far in this course material we have covered a large number of Python features.
 
-The Introduction to Programming course introduced control structures, such as while and for, functions, and basic data structures, such as lists, tuples and dictionaries. In principle, those tools are all that is needed to express anything a programmer may wish to express with Python. 
+The Introduction to Programming course introduced control structures, such as while and for, functions, and basic data structures, such as lists, tuples and dictionaries. In principle, those tools are all that is needed to express anything a programmer may wish to express with Python.
 
 On this Advanced Course in Programming, beginning in part 8 of the material, you have become familiar with classes and objects. Let's take a moment to consider when and _why_ they are necessary, if those basic tools from parts 1 to 7 should be enough.
 
@@ -147,7 +147,7 @@ application = PhoneBookApplication()
 application.execute()
 ```
 
-This program doesn't do very much yet, but let's go through the contents. The constructor method creates a new PhoneBook, which is stored in a private attribute. The method `execute(self)` starts the programs text-based user interface, the core of which is the `while` while loop, which keeps asking the user for commands until they type in the command for exiting. There is also a method for intructions, `help(self)`, which is called before entering the loop, so that the instructions are printed out. 
+This program doesn't do very much yet, but let's go through the contents. The constructor method creates a new PhoneBook, which is stored in a private attribute. The method `execute(self)` starts the programs text-based user interface, the core of which is the `while` while loop, which keeps asking the user for commands until they type in the command for exiting. There is also a method for intructions, `help(self)`, which is called before entering the loop, so that the instructions are printed out.
 
 Now, let's add some actual functionality. First, we implement adding new data to the phone book:
 
@@ -607,7 +607,7 @@ print(phonebook.get_entry("Eric"))
 print(phonebook.get_entry("Emily"))
 ```
 
-Notice the new name for the method for fetching an entry from the phone book. The automatic tests do not check what the printout from your `get_entry` method is, but make sure no errors are raised by the above code, and that the result makes sense within your implementation. 
+Notice the new name for the method for fetching an entry from the phone book. The automatic tests do not check what the printout from your `get_entry` method is, but make sure no errors are raised by the above code, and that the result makes sense within your implementation.
 
 When you've made the necessary changes in your program and have absolutely verified the functionality within the `PhoneBook` class, you can move on to the user interface, and see if everything still works as expected.
 
@@ -759,7 +759,7 @@ command: **0**
 
 </sample-output>
 
-Each course name should result in a single entry in the records. A grade may be raised by re-entering the course details, but the grade should never be lowered. 
+Each course name should result in a single entry in the records. A grade may be raised by re-entering the course details, but the grade should never be lowered.
 
 This exercise is worth two exercise points. The first is granted after the commands 1, 2 and 0 work correctly in your program. The second is granted if command 3 also works as expected.
 
@@ -767,7 +767,7 @@ This exercise is worth two exercise points. The first is granted after the comma
 
 ## Epilogue
 
-To finish off this part of the material let's return to the user interface of the phone book example for a moment. 
+To finish off this part of the material let's return to the user interface of the phone book example for a moment.
 
 ```python
 class PhoneBookApplication:
@@ -816,13 +816,13 @@ application = PhoneBookApplication(storage_service)
 application.execute()
 ```
 
-This change also allows us to consider more exotic storage locations, for instance a cloud service on the internet. We just need to implement a class which uses the cloud service, and offers `PhoneBookApplication` the exact same methods as `FileHandler`. 
+This change also allows us to consider more exotic storage locations, for instance a cloud service on the internet. We just need to implement a class which uses the cloud service, and offers `PhoneBookApplication` the exact same methods as `FileHandler`.
 
 An instance of this new "cloud handler" class can be passed as an argument to the constructor, and not a single line of code has to be changed in the interface:
 
 ```python
 class CloudHandler:
-    # code for saving the contents of the phone book 
+    # code for saving the contents of the phone book
     # in a cloud service on the internet
 
 storage_service = CloudHandler("amazon-cloud", "username", "passwrd")
@@ -836,5 +836,5 @@ The technique outlined above is called _dependency injection_. As the name impli
 
 Please respond to a quick questionnaire on this part of the course.
 
-<quiz id="7f06c003-5526-550b-9d51-58905a80ec15"></quiz>
+<quiz id="37fbe65c-244e-5580-a461-0771a0d43d98"></quiz>
 
