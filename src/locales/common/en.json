@@ -27,7 +27,7 @@
     "moodleExercise": "Moodle exercise:",
     "sqlTrainerExercise": "SQL trainer exercise:",
     "points":"Points",
-    "submitNB":"NB: Some exercises have multiple parts, and you can receive points for the different parts separately. You can submit a partially completed exercise by choosing 'Submit Solution' from the menu next to the button for executing tests.",
+    "submitNB":"NB: Some exercises have multiple parts, and you can receive points for the different parts separately. You can submit a partially completed exercise by choosing 'Submit Solution' from the menu next to the button for executing tests",
     "installationGuideLink":"",
     "submitHowTo":"",
     "loginForExercise":"Log in to view the exercise",

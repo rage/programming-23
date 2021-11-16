@@ -8,13 +8,13 @@ hidden: false
 
 After this section
 
-- You will be familiar with some of the different uses for the variable name self
+- You will be familiar with some of the different uses for the variable name `self`
 - You will know how to overload operators in your own classes
 - You will be able to create an iterable class
 
 </text-box>
 
-A class can contain a method which returns an object of the very same class. For example, below we have the class `Product`, whose method `product_on_sale` returns a new Product object with the same name as the original but with a price which is 25% lower:
+A class can contain a method which returns an object of the very same class. For example, below we have the class `Product`, whose method `product_on_sale` returns a new Product object with the same name as the original but with a price which is 25 % lower:
 
 ```python
 class Product:
@@ -44,7 +44,7 @@ Apple (price 2.2425)
 
 </sample-output>
 
-Let's go through the purpose of the variable `self`: within a class definition it refers to the object itself. Typically it is used to refer to the objects own traits, its attributes and methods. The variable can be used to refer to the entire object, for example if the object itself needs to be returned to the client code. In the example below we've added the method `cheaper` to the class definition. It takes another Product as its argument and returns the cheaper of the two:
+Let's review the purpose of the variable `self`: within a class definition it refers to the object itself. Typically it is used to refer to the object's own traits, its attributes and methods. The variable can be used to refer to the entire object as well, for example if the object itself needs to be returned to the client code. In the example below we've added the method `cheaper` to the class definition. It takes another Product as its argument and returns the cheaper of the two:
 
 ```python
 class Product:
@@ -86,9 +86,9 @@ While this works just fine, it is a very specialised case of comparing two objec
 
 ## Overloading operators
 
-Python contains some specially named built-in methods for working with the standard arithmetic and comparison operators. The technique is called _operator overloading_. If you want to be able to use a certain operator on instances of self-defined classes, you can write a special method which returns the result of the operator. We have already used this technique with the `__str__` method: Python knows to look for a method named like this when a string representation of an object is called for.
+Python contains some specially named built-in methods for working with the standard arithmetic and comparison operators. The technique is called _operator overloading_. If you want to be able to use a certain operator on instances of self-defined classes, you can write a special method which returns the correct result of the operator. We have already used this technique with the `__str__` method: Python knows to look for a method named like this when a string representation of an object is called for.
 
-Let's start with the operator `>` which tells us if the first operand is greater than the second. The `Product` class definition below contains the method `__gt__`, which is short for *g*reater *t*han. This specially named method should return the correct result of the comparison. Specifically, it should return `True` if and only if the current object is greater than the object passed as an argument (by some criteria determined by the programmer). By _current object_ we mean the object on which the method is called with the dot `.` notation.
+Let's start with the operator `>` which tells us if the first operand is greater than the second. The `Product` class definition below contains the method `__gt__`, which is short for *g*reater *t*han. This specially named method should return the correct result of the comparison. Specifically, it should return `True` if and only if the current object is greater than the object passed as an argument. The criteria used can be determined by the programmer. By _current object_ we mean the object on which the method is called with the dot `.` notation.
 
 ```python
 class Product:
@@ -127,7 +127,7 @@ Apple is greater
 
 </sample-output>
 
-As stated above, it is up to the programmer to determine the criteria by which it is decided which is greater and which is lesser. We could, for instance, decide that the order should be alphabetical by name instead. This would mean that orange would now be "greater than" apple, as "orange" comes alphabetically last.
+As stated above, it is up to the programmer to determine the criteria by which it is decided which is greater and which is lesser. We could, for instance, decide that the order should not be based on price, but be alphabetical by name instead. This would mean that `orange` would now be "greater than" `apple`, as "orange" comes alphabetically last.
 
 ```python
 class Product:
@@ -168,7 +168,7 @@ Orange is greater
 
 ## More operators
 
-Here we have a table containing the standard comparison operators and the methods which need to be implemented in order to make them available for use on our objects:
+Here we have a table containing the standard comparison operators, along with the methods which need to be implemented if we want to make them available for use on our objects:
 
 Operator | Traditional meaning | Name of method
 :--:|:--:|:--:
@@ -193,7 +193,7 @@ More operators and method names are easily found online. Remember also the `dir`
 
 It is very rarely necessary to implement all the arithmetic and comparison operators in your own classes. For example, division is an operation which rarely makes sense outside numerical objects. What would be the result of dividing a Student object by three, or by another Student object? Nevertheless, some of these operators are often very useful with also your own classes. The selection of methods to implement depends on what makes sense, knowing the properties of your objects.
 
-Let's have a look at a class which models a single note. If we implement the `__add__` method in the class definition, the addition operator `+` becomes available on our Note objects:
+Let's have a look at a class which models a single note. If we implement the `__add__` method within our class definition, the addition operator `+` becomes available on our Note objects:
 
 ```python
 from datetime import datetime
@@ -215,23 +215,23 @@ class Note:
         
 ```python
 entry1 = Note(datetime(2016, 12, 17), "Remember to buy presents")
-entry2 = Note(datetime(2016, 12, 23), "Remember to get tree")
+entry2 = Note(datetime(2016, 12, 23), "Remember to get a tree")
 
 # These notes can be added together with the + operator
-# This calls the  __add__ method in the class Note
+# This calls the  __add__ method in the Note class
 both = entry1 + entry2
 print(both)
 ```
 
 <sample-output>
 
-2020-09-09 14:13:02.163170: Remember to buy presents and Remember to get tree
+2020-09-09 14:13:02.163170: Remember to buy presents and Remember to get a tree
 
 </sample-output>
 
 ## A string representation of an object
 
-You have already implemented quite a few `__str__` methods in your classes. The method returns a string representation of the object. Anothe quite similar method is `__repr__` which returns a _technical_ representation of the object. The method `__repr__` is often implemented so that it returns the program code which can be executed to return an object with _identical contents_ to the current object.
+You have already implemented quite a few `__str__` methods in your classes. As you know, the method returns a string representation of the object. Another quite similar method is `__repr__` which returns a _technical_ representation of the object. The method `__repr__` is often implemented so that it returns the program code which can be executed to return an object with _identical contents_ to the current object.
 
 The function `repr` returns this technical string representation of the object. The technical representation is used also whenever the `__str__` method has not been defined for the object. The example below will make this clearer:
 
@@ -339,7 +339,7 @@ Please fix the method so that it prints out
 
 ## Equal amounts
 
-Please define a new method named `__eq__(self, another)` which allows you to use comparison operators on Money objects. You can test your implementation with the following code:
+Please define a new method named `__eq__(self, another)` which allows you to use the `==` comparison operator on Money objects. You can test your implementation with the following code:
 
 ```python
 e1 = Money(4, 10)
@@ -384,9 +384,9 @@ True
 
 </sample-output>
 
-## Addition and subtractions
+## Addition and subtraction
 
-Please implement the addition and subtraction operators `+` and `-` for Money objects. Both should return a new object of type Money. Neither the object itself or the object passed as an argument should be changed as a result.
+Please implement the addition and subtraction operators `+` and `-` for Money objects. Both should return a new object of type Money. Neither the object itself nor the object passed as an argument should be changed as a result.
 
 NB: the value of a Money object cannot be negative. If an attempt to subtract would result in a negative result, the method should raise a `ValueError` exception.
 
@@ -416,7 +416,7 @@ ValueError: a negative result is not allowed
 
 </sample-output>
 
-## The value should not be dircetly accessible
+## The value must not be directly accessible
 
 The class still has a small integrity issue. The user can "cheat" by accessing the attributes directly and changing the value stored in the Money object:
 
@@ -441,11 +441,11 @@ Please [encapsulate](/part-9/3-encapsulation#encapsulation) the implementation o
 
 In this exercise you are asked to implement the class `SimpleDate` which allows you to handle dates. For simplicity's sake we assume here that _each month has 30 days_.
 
-Because of this simplification you should not use the `datetime` module from the Python standard library. You will implement similar functionality yourself instead.
+Because of this simplification you should not use the `datetime` module from the Python standard library. You will implement similar functionality by yourself instead.
 
 ## Comparisons
 
-Please implement the outline of the class, along with methods allowing for comparisons with the operators <, >, == and !=. You can use the following code to test your implementation:
+Please implement the outline of the class, along with methods allowing for comparisons with the operators `<`, `>`, `==` and `!=`. You can use the following code to test your implementation:
 
 ```python
 d1 = SimpleDate(4, 10, 2020)
@@ -475,7 +475,7 @@ True
 
 ## Increment
 
-Please implement the addition operator + which allows you to add a given number of days to a SimpleDate object. The operator should return a new SimpleDate object. The original object should not change.
+Please implement the addition operator `+` which allows you to add a given number of days to a SimpleDate object. The operator should return a new SimpleDate object. The original object should not be changed.
 
 ```python
 d1 = SimpleDate(4, 10, 2020)
@@ -501,7 +501,7 @@ print(d4)
 
 ## Difference
 
-Please implement the subtraction operator - which allows you to find out the difference in days between two SimpleDate objects. As we assumed each month to have 30 days, a year within the confines of this exercise is 12*30 = 360 days long.
+Please implement the subtraction operator `-` which allows you to find out the difference in days between two SimpleDate objects. As we assumed each month to have 30 days, a year within the confines of this exercise is 12*30 = 360 days long.
 
 You can use the following code to test your program:
 
@@ -542,7 +542,7 @@ def count_positives(my_list: list):
 
 The function goes through the items in the list one by one, and keeps track of how many of the items were positive.
 
-It is possible to make your own classes iterable, too. This is useful when the core purpose of the class involves storing a collection of items. Our Bookshelf class from a previous section would be a good candidate, as it would make sense to use a `for` loop to go through the books on the shelf. The same applies to a student register. Being able to iterate through the collection of students could be useful.
+It is possible to make your own classes iterable, too. This is useful when the core purpose of the class involves storing a collection of items. The Bookshelf class from a previous example would be a good candidate, as it would make sense to use a `for` loop to go through the books on the shelf. The same applies to, say, a student register. Being able to iterate through the collection of students could be useful.
 
 To make a class iterable you must implement the iterator methods `__iter__` and  `__next__`. We will return to the specifics of these methods after the following example:
 
@@ -560,15 +560,15 @@ class Bookshelf:
     def add_book(self, book: Book):
         self._books.append(book)
 
-    # The iterator initialization method
+    # This is the iterator initialization method
     # The iteration variable(s) should be initialized here
     def __iter__(self):
         self.n = 0
-        # the method returns a reference to the object as 
-        # the iterator is implemented within the class definition
+        # the method returns a reference to the object itself as 
+        # the iterator is implemented within the same class definition
         return self
 
-    # The method returns the next item within the object
+    # This method returns the next item within the object
     # If all items have been traversed, the StopIteration event is raised
     def __next__(self):
         if self.n < len(self._books):
@@ -583,11 +583,11 @@ class Bookshelf:
             raise StopIteration
 ```
 
-The method `__iter__` initializes the iteration variable or variables. In this case it suffices to have a simple counter containing the index of the current item in the list. We also need the method `__next__` which returns the next item in the iterator. In the example above the method returns the item at index `n` from the list within the Bookshelf object, and the iterator variable is also incremented. 
+The method `__iter__` initializes the iteration variable or variables. In this case it suffices to have a simple counter containing the index of the current item in the list. We also need the method `__next__`, which returns the next item in the iterator. In the example above the method returns the item at index `n` from the list within the Bookshelf object, and the iterator variable is also incremented. 
 
 When all objects have been traversed, the `__next__` method raises the `StopIteration` exception. The process is no different from raising any other exceptions, but this exception is automatically handled by Python and its purpose is to signal to the code calling the iterator (e.g. a `for` loop) that the iteration is now over.
 
-Out Bookshelf is now ready for iteration, for example with a `for` loop:
+Our Bookshelf is now ready for iteration, for example with a `for` loop:
 
 ```python
 if __name__ == "__main__":
