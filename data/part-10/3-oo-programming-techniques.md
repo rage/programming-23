@@ -8,299 +8,300 @@ hidden: false
 
 After this section
 
-- Tunnet muuttujan self eri käyttötarkoituksia
-- Osaat ylikuormittaa operaattoreita omissa luokissa
-- Tiedät miten muodostaa iteroitavan luokan
+- You will be familiar with some of the different uses for the variable name self
+- You will know how to overload operators in your own classes
+- You will be able to create an iterable class
 
 </text-box>
 
-Luokka voi palauttaa metodista myös sen itsensä tyyppisen olion. Luokan `Tuote` metodi `alennustuote` palauttaa uuden tuotteen, jolla on sama nimi kuin nykyisellä tuotteella, mutta 25% halvempi hinta:
+A class can contain a method which returns an object of the very same class. For example, below we have the class `Product`, whose method `product_on_sale` returns a new Product object with the same name as the original but with a price which is 25% lower:
 
 ```python
-class Tuote:
-    def __init__(self, nimi: str, hinta: float):
-        self.__nimi = nimi
-        self.__hinta = hinta
+class Product:
+    def __init__(self, name: str, price: float):
+        self.__name = name
+        self.__price = price
 
     def __str__(self):
-        return f"{self.__nimi} (hinta {self.__hinta})"
+        return f"{self.__name} (price {self.__price})"
 
-    def alennustuote(self):
-        alennettu = Tuote(self.__nimi, self.__hinta * 0.75)
-        return alennettu
+    def product_on_sale(self):
+        on_sale = Product(self.__name, self.__price * 0.75)
+        return on_sale
 ```
 
 ```python
-omena1 = Tuote("Omena", 2.99)
-omena2 = omena1.alennustuote()
-print(omena1)
-print(omena2)
+apple1 = Product("Apple", 2.99)
+apple2 = apple1.product_on_sale()
+print(apple1)
+print(apple2)
 ```
 
 <sample-output>
 
-Omena (hinta 2.99)
-Omena (hinta 2.2425)
+Apple (price 2.99)
+Apple (price 2.2425)
 
 </sample-output>
 
-Kerrataan vielä muuttujan `self` merkitys: luokan sisällä se viittaa nykyiseen olioon. Tyypillinen tapa käyttää muuttujaa onkin viitata olion omiin piirteisiin, esimerkiksi attribuuttien arvoihin. Muuttujaa voidaan käyttää myös palauttamaan koko olio (vaikka tälle onkin selvästi harvemmin tarvetta). Esimerkkiluokan `Tuote` metodi `halvempi` osaa palauttaa halvemman tuotteen, kun sille annetaan parametriksi toinen `Tuote`-luokan olio:
+Let's go through the purpose of the variable `self`: within a class definition it refers to the object itself. Typically it is used to refer to the objects own traits, its attributes and methods. The variable can be used to refer to the entire object, for example if the object itself needs to be returned to the client code. In the example below we've added the method `cheaper` to the class definition. It takes another Product as its argument and returns the cheaper of the two:
 
 ```python
-class Tuote:
-    def __init__(self, nimi: str, hinta: float):
-        self.__nimi = nimi
-        self.__hinta = hinta
+class Product:
+    def __init__(self, name: str, price: float):
+        self.__name = name
+        self.__price = price
 
     def __str__(self):
-        return f"{self.__nimi} (hinta {self.__hinta})"
+        return f"{self.__name} (price {self.__price})"
 
     @property
-    def hinta(self):
-        return self.__hinta
+    def price(self):
+        return self.__price
 
-    def halvempi(self, tuote):
-        if self.__hinta < tuote.hinta:
+    def cheaper(self, Product):
+        if self.__price < Product.price:
             return self
         else:
-            return tuote
+            return Product
 ```
 
 ```python
-omena = Tuote("Omena", 2.99)
-appelsiini = Tuote("Appelsiini", 3.95)
-banaani = Tuote("Banaani", 5.25)
+apple = Product("Apple", 2.99)
+orange = Product("Orange", 3.95)
+banana = Product("Banana", 5.25)
 
-print(appelsiini.halvempi(omena))
-print(appelsiini.halvempi(banaani))
+print(orange.cheaper(apple))
+print(orange.cheaper(banana))
 ```
 
 <sample-output>
 
-Omena (2.99)
-Appelsiini (3.95)
+Apple (2.99)
+Orange (3.95)
 
 </sample-output>
 
-Esimerkin vertailun toteutus vaikuttaa kuitenkin melko kömpelöltä - paljon parempi olisi, jos voisimme vertailla `Tuote`-olioita suoraan Pythonin vertailuoperaattoreilla.
+While this works just fine, it is a very specialised case of comparing two objects. It would be better if we could use the Python comparison operators directly on these `Product` objects.
 
-## Operaattorien ylikuormitus
+## Overloading operators
 
-Pythonin lasku- ja vertailuoperaattorien käyttö omien olioiden kanssa on onneksi mahdollista. Tähän käytetään tekniikkaa, jonka nimi on _operaattorien ylikuormitus_. Kun halutaan, että tietty operaattori toimii myös omasta luokasta muodostettujen olioiden kanssa, luokkaan kirjoitetaan vastaava metodi joka palauttaa oikean lopputuloksen. Periaate on vastaava kuin metodin `__str__` kanssa: Python osaa käyttää tietyllä tapaa nimettyjä metodeja tietyissä operaatioissa.
+Python contains some specially named built-in methods for working with the standard arithmetic and comparison operators. The technique is called _operator overloading_. If you want to be able to use a certain operator on instances of self-defined classes, you can write a special method which returns the result of the operator. We have already used this technique with the `__str__` method: Python knows to look for a method named like this when a string representation of an object is called for.
 
-Tarkastellaan ensin esimerkkiä, jossa `Tuote`-luokkaan on toteutettu metodi `__gt__` (lyhenne sanoista *g*reater *t*han) joka toteuttaa suurempi kuin -operaattorin. Tarkemmin sanottuna metodi palauttaa arvon `True`, jos nykyinen olio on suurempi kuin parametrina annettu olio.
+Let's start with the operator `>` which tells us if the first operand is greater than the second. The `Product` class definition below contains the method `__gt__`, which is short for *g*reater *t*han. This specially named method should return the correct result of the comparison. Specifically, it should return `True` if and only if the current object is greater than the object passed as an argument (by some criteria determined by the programmer). By _current object_ we mean the object on which the method is called with the dot `.` notation.
 
 ```python
-class Tuote:
-    def __init__(self, nimi: str, hinta: float):
-        self.__nimi = nimi
-        self.__hinta = hinta
+class Product:
+    def __init__(self, name: str, price: float):
+        self.__name = name
+        self.__price = price
 
     def __str__(self):
-        return f"{self.__nimi} (hinta {self.__hinta})"
+        return f"{self.__name} (price {self.__price})"
 
     @property
-    def hinta(self):
-        return self.__hinta
+    def price(self):
+        return self.__price
 
-    def __gt__(self, toinen_tuote):
-        return self.hinta > toinen_tuote.hinta
+    def __gt__(self, another_product):
+        return self.price > another_product.price
 ```
 
-Metodi `__gt__` palauttaa arvon `True`, jos nykyisen tuotteen hinta on suurempi kuin parametrina annetun tuotteen, ja muuten arvon `False`.
+In the implementation above, the method `__gt__` returns `True` if the price of the current product is greater than the price of the product passed as an argument. Otherwise the method returns `False`.
 
-Nyt luokan olioita voidaan vertailla käyttäen `>`-operaattoria samalla tavalla kuin vaikkapa kokonaislukuja:
+Now the comparison operator `>` is available for use with objects of type Product:
 
 ```python
-appelsiini = Tuote("Appelsiini", 4.90)
-omena = Tuote("Omena", 3.95)
+orange = Product("Orange", 2.90)
+apple = Product("Apple", 3.95)
 
-if appelsiini > omena:
-    print("Appelsiini on suurempi")
+if orange > apple:
+    print("Orange is greater")
 else:
-    print("Omena on suurempi")
+    print("Apple is greater")
 ```
 
 <sample-output>
 
-Appelsiini on suurempi
+Apple is greater
 
 </sample-output>
 
-Olioiden suuruusluokan vertailua toteuttaessa täytyy päättää, millä perusteella suuruusjärjestys määritetään. Voisimme myös haluta, että tuotteet järjestetään hinnan sijasta nimen mukaiseen aakkosjärjestykseen. Tällöin omena olisikin appelsiinia "suurempi":
+As stated above, it is up to the programmer to determine the criteria by which it is decided which is greater and which is lesser. We could, for instance, decide that the order should be alphabetical by name instead. This would mean that orange would now be "greater than" apple, as "orange" comes alphabetically last.
 
 ```python
-class Tuote:
-    def __init__(self, nimi: str, hinta: float):
-        self.__nimi = nimi
-        self.__hinta = hinta
+class Product:
+    def __init__(self, name: str, price: float):
+        self.__name = name
+        self.__price = price
 
     def __str__(self):
-        return f"{self.__nimi} (hinta {self.__hinta})"
+        return f"{self.__name} (price {self.__price})"
 
     @property
-    def hinta(self):
-        return self.__hinta
+    def price(self):
+        return self.__price
 
     @property
-    def nimi(self):
-        return self.__nimi
+    def name(self):
+        return self.__name
 
-    def __gt__(self, toinen_tuote):
-        return self.nimi > toinen_tuote.nimi
+    def __gt__(self, another_product):
+        return self.name > another_product.name
 ```
 
 ```python
-appelsiini = Tuote("Appelsiini", 4.90)
-omena = Tuote("Omena", 3.95)
+Orange = Product("Orange", 4.90)
+Apple = Product("Apple", 3.95)
 
-if appelsiini > omena:
-    print("Appelsiini on suurempi")
+if Orange > Apple:
+    print("Orange is greater")
 else:
-    print("Omena on suurempi")
+    print("Apple is greater")
 ```
 
 <sample-output>
 
-Omena on suurempi
+Orange is greater
 
 </sample-output>
 
-## Lisää operaattoreita
+## More operators
 
-Tavalliset vertailuoperaattorit ja näitä vastaavat metodit on esitetty seuraavassa taulukossa:
+Here we have a table containing the standard comparison operators and the methods which need to be implemented in order to make them available for use on our objects:
 
-Operaattori | Merkitys perinteisesti | Metodin nimi
+Operator | Traditional meaning | Name of method
 :--:|:--:|:--:
-`<` | Pienempi kuin | `__lt__(self, toinen)`
-`>` | Suurempi kuin | `__gt__(self, toinen)`
-`==` | Yhtä suuri kuin | `__eq__(self, toinen)`
-`!=` | Eri suuri kuin | `__ne__(self, toinen)`
-`<=` | Pienempi tai yhtäsuuri kuin | `__le__(self, toinen)`
-`>=` | Suurempi tai yhtäsuuri kuin | `__ge__(self, toinen)`
+`<` | Less than | `__lt__(self, another)`
+`>` | Greater than | `__gt__(self, another)`
+`==` | Equal to | `__eq__(self, another)`
+`!=` | Not equal to | `__ne__(self, another)`
+`<=` | Less than or equal to | `__le__(self, another)`
+`>=` | Greter than or equal to | `__ge__(self, another)`
 
-Lisäksi luokissa voidaan toteuttaa tiettyjä muita operaattoreita, esimerkiksi:
+You can also implement some other operators, including the following arithmetic operators:
 
-Operaattori | Merkitys perinteisesti | Metodin nimi
+Operator | Traditional meaning | Name of method
 :--:|:--:|:--:
-`+` | Yhdistäminen | `__add__(self, toinen)`
-`-` | Vähentäminen | `__sub__(self, toinen)`
-`*` | Monistaminen | `__mul__(self, toinen)`
-`/` | Jakaminen | `__truediv__(self, toinen)`
-`//` | Kokonaisjakaminen | `__floordiv__(self, toinen)`
+`+` | Addition | `__add__(self, another)`
+`-` | Subtraction | `__sub__(self, another)`
+`*` | Multiplication | `__mul__(self, another)`
+`/` | Division (floating point result) | `__truediv__(self, another)`
+`//` | Division (integer result) | `__floordiv__(self, another)`
 
-Lisää operaattoreita ja metodien nimien vastineita löydät helposti Googlella.
+More operators and method names are easily found online. Remember also the `dir` command for listing the methods available for use on a given object.
 
-Huomaa, että vain hyvin harvoin on tarvetta toteuttaa kaikkia operaatioita omassa luokassa. Esimerkiksi jakaminen on operaatio, jolle on hankalaa keksiä luontevaa käyttöä useimmissa luokissa (mitä tulee, kun jaetaan opiskelija kolmella saati toisella opiskelijalla?). Tiettyjen operaattoreiden toteuttamisesta voi kuitenkin olla hyötyä, mikäli vastaavat operaatiot ovat loogisia luokalle.
+It is very rarely necessary to implement all the arithmetic and comparison operators in your own classes. For example, division is an operation which rarely makes sense outside numerical objects. What would be the result of dividing a Student object by three, or by another Student object? Nevertheless, some of these operators are often very useful with also your own classes. The selection of methods to implement depends on what makes sense, knowing the properties of your objects.
 
-Tarkastellaan esimerkkinä luokkaa joka mallintaa yhtä muistiinpanoa. Kahden muistiinpanon yhdistäminen `+`-operaattorilla tuottaa uuden, yhdistetyn muistiinpanon, kun on toteutettu metodi `__add__`:
+Let's have a look at a class which models a single note. If we implement the `__add__` method in the class definition, the addition operator `+` becomes available on our Note objects:
 
 ```python
 from datetime import datetime
 
-class Muistiinpano:
-    def __init__(self, pvm: datetime, merkinta: str):
-        self.pvm = pvm
-        self.merkinta = merkinta
+class Note:
+    def __init__(self, entry_date: datetime, entry: str):
+        self.entry_date = entry_date
+        self.entry = entry
 
     def __str__(self):
-        return f"{self.pvm}: {self.merkinta}"
+        return f"{self.entry_date}: {self.entry}"
 
-    def __add__(self, toinen):
-        # Uuden muistiinpanon ajaksi nykyinen aika
-        uusi_muistiinpano = Muistiinpano(datetime.now(), "")
-        uusi_muistiinpano.merkinta = self.merkinta + " ja " + toinen.merkinta
-        return uusi_muistiinpano
+    def __add__(self, another):
+        # The date of the new note is the current time
+        new_note = Note(datetime.now(), "")
+        new_note.entry = self.entry + " and " + another.entry
+        return new_note
 ```
         
 ```python
-merkinta1 = Muistiinpano(datetime(2016, 12, 17), "Muista ostaa lahjoja")
-merkinta2 = Muistiinpano(datetime(2016, 12, 23), "Muista hakea kuusi")
+entry1 = Note(datetime(2016, 12, 17), "Remember to buy presents")
+entry2 = Note(datetime(2016, 12, 23), "Remember to get tree")
 
-# Nyt voidaan yhdistää plussalla - tämä kutsuu metodia __add__ luokassa Muistiipano
-molemmat = merkinta1 + merkinta2
-print(molemmat)
+# These notes can be added together with the + operator
+# This calls the  __add__ method in the class Note
+both = entry1 + entry2
+print(both)
 ```
 
 <sample-output>
 
-2020-09-09 14:13:02.163170: Muista ostaa lahjoja ja Muista hakea kuusi
+2020-09-09 14:13:02.163170: Remember to buy presents and Remember to get tree
 
 </sample-output>
 
-## Olion esitys merkkijonona
+## A string representation of an object
 
-Olemme toteuttaneet luokkiin usein metodin `__str__`, joka antaa merkkijonoesityksen olion sisällöstä. Toinen melko samanlainen metodi on `__repr__`, joka antaa _teknisen_  esityksen olion sisällöstä. Usein metodi `__repr__` toteutetaan niin, että se antaa koodin, joka muodostaa olion.
+You have already implemented quite a few `__str__` methods in your classes. The method returns a string representation of the object. Anothe quite similar method is `__repr__` which returns a _technical_ representation of the object. The method `__repr__` is often implemented so that it returns the program code which can be executed to return an object with _identical contents_ to the current object.
 
-Funktio `repr` antaa olion teknisen merkkijonoesityksen, ja lisäksi tätä esitystä käytetään, jos oliossa ei ole määritelty `__str__`-metodia. Seuraava luokka esittelee asiaa:
+The function `repr` returns this technical string representation of the object. The technical representation is used also whenever the `__str__` method has not been defined for the object. The example below will make this clearer:
 
 ```python
-class Henkilo:
-    def __init__(self, nimi: str, ika: int):
-        self.nimi = nimi
-        self.ika = ika
+class Person:
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
         
     def __repr__(self):
-        return f"Henkilo({repr(self.nimi)}, {self.ika})"
+        return f"Person({repr(self.name)}, {self.age})"
 ```
 
 ```python3
-henkilo1 = Henkilo("Anna", 25)
-henkilo2 = Henkilo("Pekka", 99)
-print(henkilo1)
-print(henkilo2)
+person1 = Person("Anna", 25)
+person2 = Person("Peter", 99)
+print(person1)
+print(person2)
 ```
 
 <sample-output>
 
-Henkilo('Anna', 25)
-Henkilo('Pekka', 99)
+Person('Anna', 25)
+Person('Peter', 99)
 
 </sample-output>
 
-Huomaa, että metodissa `__repr__` haetaan nimen tekninen esitys metodilla `repr`, jolloin tässä tapauksessa nimen ympärille tulee `'`-merkit.
+Notice how the `__repr__`  method itself uses the `repr` function to retrieve the technical representation of the string. This is necessary to include the `'` characters in the result.
 
-Seuraavassa luokassa on toteutettu sekä metodi `__repr__` että `__str__`:
+The following class has definitions for both `__repr__` and `__str__`:
 
 ```python
-class Henkilo:
-    def __init__(self, nimi: str, ika: int):
-        self.nimi = nimi
-        self.ika = ika
+class Person:
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
         
     def __repr__(self):
-        return f"Henkilo({repr(self.nimi)}, {self.ika})"
+        return f"Person({repr(self.name)}, {self.age})"
 
     def __str__(self):
-        return f"{self.nimi} ({self.ika} vuotta)"
+        return f"{self.name} ({self.age} years)"
 ```
 
 ```python3
-henkilo = Henkilo("Anna", 25)
-print(henkilo)
-print(repr(henkilo))
+Person = Person("Anna", 25)
+print(Person)
+print(repr(Person))
 ```
 
 <sample-output>
 
-Anna (25 vuotta)
-Henkilo('Anna', 25)
+Anna (25 years)
+Person('Anna', 25)
 
 </sample-output>
 
-Kun tietorakenteessa (kuten listassa) on olioita, Python käyttää vähän epäloogisesti metodia `__repr__` olioiden merkkijonoesityksen muodostamiseen, kun lista tulostetaan:
+It is worth mentioning that with data structures, such as lists, Python always uses the `__repr__` method for the string representation of the contents. This can sometimes look a bit baffling:
 
 ```python3
-henkilot = []
-henkilot.append(Henkilo("Anna", 25))
-henkilot.append(Henkilo("Pekka", 99))
-henkilot.append(Henkilo("Maija", 55))
-print(henkilot)
+persons = []
+persons.append(Person("Anna", 25))
+persons.append(Person("Peter", 99))
+persons.append(Person("Mary", 55))
+print(persons)
 ```
 
 <sample-output>
 
-[Henkilo('Anna', 25), Henkilo('Pekka', 99), Henkilo('Maija', 55)]
+[Person('Anna', 25), Person('Peter', 99), Person('Mary', 55)]
 
 </sample-output>
 
@@ -524,94 +525,91 @@ print(d1-d3)
 
 </programming-exercise>
 
-## Iteraattorit
+## Iterators
 
-Olemme aikaisemmin käyttäneet for-lausetta erilaisten tietorakenteiden ja tiedostojen _iterointiin_ eli läpikäyntiin. Tyypillinen tapaus olisi vaikkapa seuraavanlainen funktio:
+We know that the `for` statement can be used to _iterate_ through many different data structures, files and collections of items. A typical use case would be the following function:
 
 ```python
 
-def laske_positiiviset(lista: list):
+def count_positives(my_list: list):
     n = 0
-    for alkio in lista:
-        if alkio > 0:
+    for item in my_list:
+        if item > 0:
             n += 1
     return n
 
 ```
 
-Funktio käy läpi listan alkio kerrallaan ja laskee positiivisten alkioiden määärän.
+The function goes through the items in the list one by one, and keeps track of how many of the items were positive.
 
-Iterointi on mahdollista toteuttaa myös omiin luokkiin. Hyödyllistä tämä on silloin, kun luokasta muodostetut oliot tallentavat kokoelman alkioita. Esimerkiksi aikaisemmin kirjoitettiin luokka, joka mallintaa kirjahyllyä – olisi näppärä, jos kaikki kirjahyllyn kirjat voisi käydä läpi yhdessä silmukassa. Samalla tavalla opiskelijarekisterin kaikkien opiskelijoiden läpikäynti for-lauseella olisi kätevää.
+It is possible to make your own classes iterable, too. This is useful when the core purpose of the class involves storing a collection of items. Our Bookshelf class from a previous section would be a good candidate, as it would make sense to use a `for` loop to go through the books on the shelf. The same applies to a student register. Being able to iterate through the collection of students could be useful.
 
-Iterointi mahdollistuu toteuttamalla luokkaan iteraattorimetodit `__iter__` ja  `__next__`. Käsitellään metodien toimintaa tarkemmin, kun on ensin tarkasteltu esimerkkinä kirjahyllyluokkaa, joka mahdollistaa kirjojen läpikäynnin:
+To make a class iterable you must implement the iterator methods `__iter__` and  `__next__`. We will return to the specifics of these methods after the following example:
 
 ```python
+class Book:
+    def __init__(self, name: str, author: str, page_count: int):
+        self.name = name
+        self.author = author
+        self.page_count = page_count
 
-class Kirja:
-    def __init__(self, nimi: str, kirjailija: str, sivuja: int):
-        self.nimi = nimi
-        self.kirjailija = kirjailija
-        self.sivuja = sivuja
-
-class Kirjahylly:
+class Bookshelf:
     def __init__(self):
-        self._kirjat = []
+        self._books = []
 
-    def lisaa_kirja(self, kirja: Kirja):
-        self._kirjat.append(kirja)
+    def add_book(self, book: Book):
+        self._books.append(book)
 
-    # Iteraattorin alustusmetodi
-    # Tässä tulee alustaa iteroinnissa käytettävä(t) muuttuja(t)
+    # The iterator initialization method
+    # The iteration variable(s) should be initialized here
     def __iter__(self):
         self.n = 0
-        # Metodi palauttaa viittauksen olioon itseensä, koska
-        # iteraattori on toteutettu samassa luokassa
+        # the method returns a reference to the object as 
+        # the iterator is implemented within the class definition
         return self
 
-    # Metodi palauttaa seuraavan alkion
-    # Jos ei ole enempää alkioita, heitetään tapahtuma
-    # StopIteration
+    # The method returns the next item within the object
+    # If all items have been traversed, the StopIteration event is raised
     def __next__(self):
-        if self.n < len(self._kirjat):
-            # Poimitaan listasta nykyinen
-            kirja = self._kirjat[self.n]
-            # Kasvatetaan laskuria yhdellä
+        if self.n < len(self._books):
+            # Select the current item from the list within the object
+            book = self._books[self.n]
+            # increase the counter (i.e. iteration variable) by one
             self.n += 1
-            # ...ja palautetaan
-            return kirja
+            # return the current item
+            return book
         else:
-            # Ei enempää kirjoja
+            # All books have been traversed
             raise StopIteration
-
 ```
 
-Metodissa `__iter__` siis alustetaan iteroinnissa tarvittava muuttuja tai muuttujat - tässä tapauksessa riittää, että meillä on laskuri joka osoittaa listan nykyiseen alkioon. Lisäksi tarvitaan metodi `__next__`, joka palauttaa seuraavan alkion. Esimerkkitapauksessa palautetaan listasta alkio muuttujan `n` kohdalta ja kasvatetaan muuttujan arvoa yhdellä. Jos listassa ei ole enempää alkiota, "nostetaan" poikkeus `StopIteration`, joka kertoo iteroijalle (esim. for-silmukalle), että kaikki alkiot on käyty läpi.
+The method `__iter__` initializes the iteration variable or variables. In this case it suffices to have a simple counter containing the index of the current item in the list. We also need the method `__next__` which returns the next item in the iterator. In the example above the method returns the item at index `n` from the list within the Bookshelf object, and the iterator variable is also incremented. 
 
-Nyt voidaan käydä kirjahyllyn kirjat läpi esimerkiksi for-silmukassa näppärästi:
+When all objects have been traversed, the `__next__` method raises the `StopIteration` exception. The process is no different from raising any other exceptions, but this exception is automatically handled by Python and its purpose is to signal to the code calling the iterator (e.g. a `for` loop) that the iteration is now over.
+
+Out Bookshelf is now ready for iteration, for example with a `for` loop:
 
 ```python
-
 if __name__ == "__main__":
-    k1 = Kirja("Elämäni Pythoniassa", "Pekka Python", 123)
-    k2 = Kirja("Vanhus ja Java", "Ernest Hemingjava", 204)
-    k3 = Kirja("C-itsemän veljestä", "Keijo Koodari", 997)
+    b1 = Book("The Life of Python", "Montague Python", 123)
+    b2 = Book("The Old Man and the C", "Ernest Hemingjavay", 204)
+    b3 = Book("A Good Cup of Java", "Caffee Coder", 997)
 
-    hylly = Kirjahylly()
-    hylly.lisaa_kirja(k1)
-    hylly.lisaa_kirja(k2)
-    hylly.lisaa_kirja(k3)
+    shelf = Bookshelf()
+    shelf.add_book(b1)
+    shelf.add_book(b2)
+    shelf.add_book(b3)
 
-    # Tulostetaan kaikkien kirjojen nimet
-    for kirja in hylly:
-        print(kirja.nimi)
-
+    # Print the names of all the books
+    for book in shelf:
+        print(book.name)
 ```
 
 <sample-output>
 
-Elämäni Pythoniassa
-Vanhus ja Java
-C-itsemän veljestä
+The Life of Python
+The Old Man and the C
+A Good Cup of Java
 
 </sample-output>
 
