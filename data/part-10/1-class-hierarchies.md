@@ -8,323 +8,317 @@ hidden: false
 
 After this section
 
-- Tiedät mitä tarkoitetaan perinnällä
-- Osaat kirjoittaa luokkia jotka perivät jonkin toisen luokan
-- Tiedät miten eri piirteet periytyvät
+- You will know what inheritance means in a programming context
+- You will be able to write classes which inherit other classes
+- You will know how inheritance affects traits of classes
 
 </text-box>
 
-## Luokkien erikoistaminen
+## Special classes for special purposes
 
-Joskus tulee vastaan tilanne, jossa luokan toimintaa olisi hyvä pyrkiä erikoistamaan, mutta vain osalle olioista. Tarkastellaan esimerkkinä tilannetta, jossa meillä on kaksi luokkaa - Opiskelija ja Opettaja. Yksinkertaistuksen vuoksi luokista on jätetty pois kaikki asetus- ja havainnointimetodit.
+Sometimes you come across a situation where you have already defined a class, but then realize you need special traits in some, but not all, instances of the class. Then again, sometimes you realize you've defined two very similar classes with only minor differences. As programmers we aim to always repeat ourselves as little as possible, while maintaining clarity and readability. So how can we accommodate for different implementations of intrinsically similar objects?
 
-```python
-
-class Opiskelija:
-
-    def __init__(self, nimi: str, opnro: str, sposti: str, opintopisteet: str):
-        self.nimi = nimi
-        self.opnro = opnro
-        self.sposti = sposti
-        self.opintopisteet = opintopisteet
-
-class Opettaja:
-
-    def __init__(self, nimi: str, sposti: str, huone: str, opetusvuosia: int):
-        self.nimi = nimi
-        self.sposti = sposti
-        self.huone = huone
-        self.opetusvuosia = opetusvuosia
-
-```
-
-Yksinkertaistetustakin esimerkistä huomataan, että luokilla on yhteisiä piirteitä - tässä tapauksessa nimi ja sähköpostiosoite. Monessa tilanteessa olisi hyvä, jos yhteisiä piirteitä voitaisin käsitellä yhdellä operaatiolla: oletetaan tilanne, jossa koulun sähköpostitunnus muuttuu. Toki voitaisiin kirjoittaa kaksi käsittelyfunktiota...
+Let's have a look at two class definitions: `Student` and `Teacher`. Getter and setter methods have been left out for now in order to keep the example short.
 
 ```python
 
-def korjaa_email(o: Opiskelija):
-    o.sposti = o.sposti.replace(".com", ".edu")
+class Student:
 
-def korjaa_email2(o: Opettaja):
-    o.sposti = o.sposti.replace(".com", ".edu")
+    def __init__(self, name: str, id: str, email: str, credits: str):
+        self.name = name
+        self.id = id
+        self.email = email
+        self.credits = credits
+
+class Teacher:
+
+    def __init__(self, name: str, email: str, room: str, teaching_years: int):
+        self.name = name
+        self.email = email
+        self.room = room
+        self.teaching_years = teaching_years
 
 ```
 
-...mutta saman koodin toistaminen kahteen kertaan tuntuu turhalta työltä, ja lisää virheiden mahdollisuutta. Olisi siis hyvä, jos molempien luokkien mukaisia olioita voitaisiin käsitellä samalla metodilla.
+Even in a stripped down example like the above we have quite a bit of repetition: both classes contain attributes `name` and `email`. It would be a good idea to have a single attribute definition, so that a single function would suffice for editing both attributes. 
 
-Luokat kuitenkin sisältävät myös piirteitä, joita toisella luokalla ei ole. Sen takia luokkien yhdistäminen ei tunnu järkevältä.
+For example, imagine the school's email address changed. All addresses would have to be updated. We could write two separate versions of essentially the same function:
 
- ## Perintä
+```python
 
- Ratkaisu löytyy olio-ohjelmoinnin tekniikasta nimeltä _perintä_. Perinnällä tarkoitetaan sitä, että luokka _perii_ piirteet joltain toiselta luokalta. Näiden perittyjen piirteiden rinnalle luokka voi sitten toteuttaa uusia piirteitä.
+def update_email(o: Student):
+    o.email = o.email.replace(".com", ".edu")
 
- Opettaja- ja Opiskelija-luokilla voisi olla yhteinen _yliluokka_ `Henkilo`:
+def update_email2(o: Teacher):
+    o.email = o.email.replace(".com", ".edu")
+
+```
+
+Writing practically the same thing twice is unnecessary repetition, not to mention it doubles the possibilities for errors. It would be a definite improvement if we could use a single method to work with instances of both classes.
+
+Both classes also have attributes that are unique to them. Simply combining all attributes in a single class would mean all instances of the class would then have unnecessary attributes. That doesn't seem like an ideal situation, either.
+
+ ## Inheritance
+
+Object oriented programming languages usually feature a technique called _inheritance_. A class can _inherit_ the traits of another class. In addition to these inherited traits a class can also contain traits which are unique to it.
+
+Knowing this, it would make sense for the `Teacher` and `Student` classes to have a common base class `Person`:
 
  ```python
 
-class Henkilo:
+class Person:
 
-    def __init__(self, nimi: str, sposti: str):
-        self.nimi = nimi
-        self.sposti = sposti
+    def __init__(self, name: str, email: str):
+        self.name = name
+        self.email = email
 
  ```
 
- Luokassa on toteutettu siis henkilöön liittyvät piirteet. Nyt luokat Opiskelija ja Opettaja voivat _periä_ luokan ja lisätä perittyjen ominaisuuksien rinnalle uusia piirteitä:
+The new class contains those traits which are shared by the other two classes. Now `Student` and `Teacher` can _inherit_ these traits and add their own besides.
 
- Perintä tapahtuu kirjoittamalla luokan nimen perään perittävän luokan nimi sulkuihin:
+The syntax for inheritance simply involves adding the base class name in parentheses on the header line:
 
  ```python
+class Person:
 
-class Henkilo:
+    def __init__(self, name: str, email: str):
+        self.name = name
+        self.email = email
 
-    def __init__(self, nimi: str, sposti: str):
-        self.nimi = nimi
-        self.sposti = sposti
+    def update_email_domain(self, new_domain: str):
+        old_domain = self.email.split("@")[1]
+        self.email = self.email.replace(old_domain, new_domain)
 
-    def vaihda_spostitunniste(self, uusi_tunniste: str):
-        vanha = self.sposti.split("@")[1]
-        self.sposti = self.sposti.replace(vanha, uusi_tunniste)
+class Student(Person):
 
-class Opiskelija(Henkilo):
+    def __init__(self, name: str, id: str, email: str, credits: str):
+        self.name = name
+        self.id = id
+        self.email = email
+        self.credits = credits
 
-    def __init__(self, nimi: str, opnro: str, sposti: str, opintopisteet: str):
-        self.nimi = nimi
-        self.opnro = opnro
-        self.sposti = sposti
-        self.opintopisteet = opintopisteet
+class Teacher(Person):
 
-class Opettaja(Henkilo):
+    def __init__(self, name: str, email: str, room: str, teaching_years: int):
+        self.name = name
+        self.email = email
+        self.room = room
+        self.teaching_years = teaching_years
 
-    def __init__(self, nimi: str, sposti: str, huone: str, opetusvuosia: int):
-        self.nimi = nimi
-        self.sposti = sposti
-        self.huone = huone
-        self.opetusvuosia = opetusvuosia
-
-# Testi
+# Let's test our classes
 if __name__ == "__main__":
-    olli = Opiskelija("Olli Opiskelija", "1234", "olli@example.com", 0)
-    olli.vaihda_spostitunniste("example.edu")
-    print(olli.sposti)
+    saul = Student("Saul Student", "1234", "saul@example.com", 0)
+    saul.update_email_domain("example.edu")
+    print(saul.email)
 
-    outi = Opettaja("Outi Ope", "outi@example.fi", "A123", 2)
-    outi.vaihda_spostitunniste("example.ex")
-    print(outi.sposti)
+    tara = Teacher("Tara Teacher", "tara@example.fi", "A123", 2)
+    tara.update_email_domain("example.ex")
+    print(tara.email)
 
  ```
 
- Koska sekä Opiskelija että Opettaja perivät luokan Henkilo, molemmilla on käytössään Henkilo-luokassa määritellyt piirteet, mukaanlukien metodi `vaihda_spostitunniste`.
+Both `Student` and `Teacher` inherit the `Person` class, so both have the traits defined in the `Person` class, including the method `update_email_domain`.
 
- Tarkastellaan vielä toista esimerkkiä, jossa luokka Kirjahylly perii luokan Laatikko:
+Let's have a look at another example. We have a `Bookshelf` which inherits the class `BookContainer`:
 
  ```python
-class Kirja:
-    """ Luokka mallintaa yksinkertaista kirjaa """
-    def __init__(self, nimi: str, kirjailija: str):
-        self.nimi = nimi
-        self.kirjailija = kirjailija
+class Book:
+    """ This class models a simple book """
+    def __init__(self, name: str, author: str):
+        self.name = name
+        self.author = author
 
 
-class Kirjalaatikko:
-    """ Luokka mallintaa laatikkoa, johon voidaan tallentaa kirjoja """
+class BookContainer:
+    """ This class models a container for books """
 
     def __init__(self):
-        self.kirjat = []
+        self.books = []
 
-    def lisaa_kirja(self, kirja: Kirja):
-        self.kirjat.append(kirja)
+    def add_book(self, book: Book):
+        self.books.append(book)
 
-    def listaa_kirjat(self):
-        for kirja in self.kirjat:
-            print(f"{kirja.nimi} ({kirja.kirjailija})")
+    def list_books(self):
+        for book in self.books:
+            print(f"{book.name} ({book.author})")
 
-class Kirjahylly(Kirjalaatikko):
-    """ Luokka mallintaa yksinkertaista kirjahyllyä """
+class Bookshelf(BookContainer):
+    """ This class models a shelf for books """
 
     def __init__(self):
         super().__init__()
 
-    def lisaa_kirja(self, kirja: Kirja, paikka: int):
-        self.kirjat.insert(paikka, kirja)
-
+    def add_book(self, book: Book, location: int):
+        self.books.insert(location, book)
 
  ```
 
- Luokassa Kirjahylly on määritelty metodi `lisaa_kirja`. Samanniminen metodi on määritelty myös yliluokassa `Kirjalaatikko`. Tällaisessa tapauksessa puhutaan metodin _uudelleenmäärittelystä_ tai ylikirjoituksesta (overwriting): aliluokan samanniminen metodi korvaa yliluokan vastaavan metodin.
+The class `Bookshelf` contains the method `add_book`. A method with the same name is defined in the base class  `BookContainer`. This is called _overriding_: if a derived class has a method with the same name as the base class, the derived version overrides the original in instances of the derived class.
 
- Esimerkissämme idea on, että kirjalaatikossa kirja asetetaan aina laatikossa päällimäiseksi, mutta kirjahyllyssä voidaan määritellä asetuspaikka. Sen sijaan metodin `listaa_kirjat` uudelleenmäärittelyä ei ole nähty tarpeelliseksi - sama kirjojen listaus toimii niin laatikossa kuin hyllyssäkin (ainakin esimerkissämme).
+The idea in the example above is that a new book added to a BookContainer always goes to the top, but with a Bookshelf you can define the location yourself. The method `list_books` works the same for both classes, as there is no overriding method in the derived class.
 
- Tarkastellaan esimerkkiä luokkien käyttämisestä:
+Let's try out these classes:
 
  ```python
 
 if __name__ == "__main__":
-    # Luodaan pari kirjaa testiksi
-    k1 = Kirja("7 veljestä", "Aleksis rock")
-    k2 = Kirja("Sinuhe", "Mika Waltari")
-    k3 = Kirja("Tuntematon sotilas", "Väinö Linna")
+    # Create some books for testing
+    b1 = Book("Old Man and the Sea", "Ernest Hemingway")
+    b2 = Book("Silent Spring", "Rachel Carson")
+    b3 = Book("Pride and Prejudice", "Jane Austen")
 
-    # Luodaan kirjalaatikko ja lisätään kirjat sinne
-    laatikko = Kirjalaatikko()
-    laatikko.lisaa_kirja(k1)
-    laatikko.lisaa_kirja(k2)
-    laatikko.lisaa_kirja(k3)
+    # Create a BookContainer and add the books
+    container = BookContainer()
+    container.add_book(b1)
+    container.add_book(b2)
+    container.add_book(b3)
 
-    # Luodaan kirjahylly ja lisätään kirjat sinne (aina hyllyn alkupäähän)
-    hylly = Kirjahylly()
-    hylly.lisaa_kirja(k1, 0)
-    hylly.lisaa_kirja(k2, 0)
-    hylly.lisaa_kirja(k3, 0)
+    # Create a Bookshelf and add the books (always to the beginning)
+    shelf = Bookshelf()
+    shelf.add_book(b1, 0)
+    shelf.add_book(b2, 0)
+    shelf.add_book(b3, 0)
 
 
     # Tulostetaan
-    print("Laatikossa:")
-    laatikko.listaa_kirjat()
+    print("Container:")
+    container.list_books()
 
     print()
 
-    print("Hyllyssä:")
-    hylly.listaa_kirjat()
+    print("Shelf:")
+    shelf.list_books()
 
  ```
 
  <sample-output>
 
-Laatikossa:
-7 veljestä (Aleksis rock)
-Sinuhe (Mika Waltari)
-Tuntematon sotilas (Väinö Linna)
+Container:
+Old Man and the Sea (Ernest Hemingway)
+Silent Spring (Rachel Carson)
+Pride and Prejudice (Jane Austen)
 
-Hyllyssä:
-Tuntematon sotilas (Väinö Linna)
-Sinuhe (Mika Waltari)
-7 veljestä (Aleksis rock)
+Shelf:
+Pride and Prejudice (Jane Austen)
+Silent Spring (Rachel Carson)
+Old Man and the Sea (Ernest Hemingway)
 
  </sample-output>
 
- Myös Kirjahylly-luokasta muodostettujen olioiden kautta voidaan käyttää metodia `listaa_kirjat`, koska perinnän ansiosta se on olemassa myös luokan `Kirjahylly` aliluokissa.
+So, the Bookshelf class also has access to the `list_books` method, as through inheritance the method is a member of all the classes derived from the `BookCntainer` class.
 
- ## Piirteiden periytyminen
+ ## Inheritance and scope of traits
 
- Aliluokka perii yliluokalta kaikki piirteet. Aliluokasta voidaan viitata suoraan yliluokan piirteisiin, paitsi jos yliluokassa on määritelty piirteet yksityisiksi (käyttämällä kahta alaviivaa muuttujan nimen edessä).
+A derived class inherits all traits from its base class. Those traits are directly accessible in the derived class unless they have been defined as private in the base class (with two underscores before the name of the trait).
 
- Niinpä esimerkiksi Kirjahylly-luokasta voitaisiin viitata yliluokan konstruktoriin sen sijaan että kirjoitettaisiin toiminnallisuus uudestaan:
+As the attributes of a Bookshelf are identical to a BookContainer, there was no need to rewrite the constructor of Bookshelf. We simply called the constructor of the base class:
 
  ```python
-
- class Kirjahylly(Kirjalaatikko):
+class Bookshelf(BookContainer):
 
     def __init__(self):
         super().__init__()
 
 ```
 
-Yliluokan konstuktoriin (tai yliluokkaan muutenkin) viitataan funktion `super()` avulla. Huomaa, että tässäkin tapauksessa parametri `self` lisätään automaattisesti.
+Any trait in the base class can be accessed from the derived class with the function `super()`. The `self` argument is left out from the method call, as Python adds it automatically.
 
-Tarkastellaan toisena esimerkkinä luokkaa Gradu, joka perii luokan Kirja. Aliluokasta kutsutaan yliluokan konstruktoria:
+But what if the attributes are not identical, can we still use the base class constructor in some way? Let's have a look at a class named `Thesis` which inherits the `Book` class. The derived class can still call the constructor from the base class:
 
 ```python
 
-class Kirja:
-    """ Luokka mallintaa yksinkertaista kirjaa """
+class Book:
+    """ This class models a simple book """
 
-    def __init__(self, nimi: str, kirjailija: str):
-        self.nimi = nimi
-        self.kirjailija = kirjailija
+    def __init__(self, name: str, author: str):
+        self.name = name
+        self.author = author
 
 
-class Gradu(Kirja):
-    """ Luokka mallintaa gradua eli ylemmän korkeakoulututkinnon lopputyötä """
+class Thesis(Book):
+    """ This class models a graduate thesis """
 
-    def __init__(self, nimi: str, kirjailija: str, arvosana: int):
-        super().__init__(nimi, kirjailija)
-        self.arvosana = arvosana
+    def __init__(self, name: str, author: str, grade: int):
+        super().__init__(name, author)
+        self.grade = grade
 
 ```
 
-Nyt Gradu-luokan konstruktorista kutsutaan yliluokan (eli luokan Kirja) konstruktoria, jossa asetetaan attribuuttien `nimi` ja `kirjailija` arvot. Sen jälkeen aliluokan konstruktorissa asetetaan attribuutin `arvosana` arvo - tätä luonnollisesti ei voida tehdä yliluokan konstruktorissa, koska yliluokalla ei tällaista attribuuttia ole.
+The constructor in the `Thesis` class calls the constructor in the base class `Book` with the arguments for `name` and `author`. Additionally, the constructor in the derived class sets the value for the attribute `grade`. This naturally cannot be a part of the base class constructor, as the base class has no such attribute.
 
-Luokkaa voidaan käyttää esimerkiksi näin:
-
+The above class can be used like this:
 
 ```python
-
-# Testataan
 if __name__ == "__main__":
-    gradu = Gradu("Python ja maailmankaikkeus", "Pekka Python", 3)
+    thesis = Thesis("Python and the Universe", "Peter Pythons", 3)
 
-    # Tulostetaan kenttien arvot
-    print(gradu.nimi)
-    print(gradu.kirjailija)
-    print(gradu.arvosana)
+    # Print out the values of the attributes
+    print(thesis.name)
+    print(thesis.author)
+    print(thesis.grade)
 
 ```
 
 <sample-output>
 
-Python ja maailmankaikkeus
-Pekka Python
+Python and the Universe
+Peter Pythons
 3
 
 </sample-output>
 
-Koska aliluokka `Gradu` perii kaikki yliluokan piirteet, se perii myös attribuutit `nimi` ja `kirjailija`. Arvot osalle attribuuteista annetaan yliluokan sisältä löytyvässä konstruktorissa.
-
-Aliluokka voi myös viitata yliluokan metodiin, vaikka metodi olisikin määritelty uudestaan aliluokassa. Seuraavassa esimerkissä luokasta `Platinakortti` kutsutaan uudelleenmääritellyssä metodissa `bonuspisteet` yliluokan vastaavaa metodia.
+Even if a derived class overrides a method in its base class, the derived class can still call the overridden method in the base class. In the following example we have a basic `BonusCard` and a special `PlatinumCard` for especially loyal customers. The `calculate_bonus` method is overridden in the derived class, but the overriding method calls the base method:
 
 ```python
 
-class Tuote:
+class Product:
 
-    def __init__(self, nimi: str, hinta: float):
-        self.nimi = nimi
-        self.hinta = hinta
+    def __init__(self, name: str, price: float):
+        self.name = name
+        self.price = price
 
-class Bonuskortti:
+class BonusCard:
 
     def __init__(self):
-        self.ostetut_tuotteet = []
+        self.products_bought = []
 
-    def lisaa_tuote(self, tuote: Tuote):
-        self.ostetut_tuotteet.append(tuote)
+    def add_product(self, product: Product):
+        self.products_bought.append(product)
 
-    def laske_bonus(self):
+    def calculate_bonus(self):
         bonus = 0
-        for tuote in self.ostetut_tuotteet:
-            bonus += tuote.hinta * 0.05
+        for product in self.products_bought:
+            bonus += product.price * 0.05
 
         return bonus
 
-class Platinakortti(Bonuskortti):
+class PlatinumCard(BonusCard):
 
     def __init__(self):
         super().__init__()
 
-    def laske_bonus(self):
-        # Kutsutaan yliluokan metodia...
-        bonus = super().laske_bonus()
+    def calculate_bonus(self):
+        # Call the method in the base class
+        bonus = super().calculate_bonus()
 
-        # ...ja lisätään vielä viisi prosenttia päälle
+        # ...and add five percent to the total
         bonus = bonus * 1.05
         return bonus
-
-
 ```
 
-Nyt platinakortin bonus lasketaan hyödyntämällä aluksi yliluokan vastaavaa metodia ja lisäämällä sitten ylimääräiset 5 prosenttia tähän bonukseen. Esimerkki luokkien käytöstä:
+So, the bonus for a PlatinumCard is calculated by calling the overriden method in the base class, and then adding an extra 5 percent to the base result. An example of how these classes are used:
 
 ```python
 if __name__ == "__main__":
-    kortti = Bonuskortti()
-    kortti.lisaa_tuote(Tuote("Banaanit", 6.50))
-    kortti.lisaa_tuote(Tuote("Mandariinit", 7.95))
-    bonus = kortti.laske_bonus()
+    card = BonusCard()
+    card.add_product(Product("Bananas", 6.50))
+    card.add_product(Product("Satsumas", 7.95))
+    bonus = card.calculate_bonus()
 
-    kortti2 = Platinakortti()
-    kortti2.lisaa_tuote(Tuote("Banaanit", 6.50))
-    kortti2.lisaa_tuote(Tuote("Mandariinit", 7.95))
-    bonus2 = kortti2.laske_bonus()
+    card2 = PlatinumCard()
+    card2.add_product(Product("Bananas", 6.50))
+    card2.add_product(Product("Satsumas", 7.95))
+    bonus2 = card2.calculate_bonus()
 
     print(bonus)
     print(bonus2)
