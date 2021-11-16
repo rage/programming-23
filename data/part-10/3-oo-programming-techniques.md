@@ -636,6 +636,6 @@ pineapple: 1 units
 
 </sample-output>
 
-The `__next__` method of your iterator should return tuples, where the first item is the name of the product and the second item is the amount,
+The `__next__` method of your iterator should return tuples, where the first item is the name of the product and the second item is the amount.
 
 </programming-exercise>
