@@ -13,7 +13,7 @@ After this section
 
 </text-box>
 
-In the previous section it was briefly mentioned that traits which are defined as private in the base class are not directly accessible in derived classes. Let's take a look at an example. In the `Notebook` class the notes are stored in a list, and the list attribute is private:
+If a trait is defined as private in the base class, it is not directly accessible in any derived classes, as was briefly mentioned in the previous section. Let's take a look at an example. In the `Notebook` class below the notes are stored in a list, and the list attribute is private:
 
 ```python
 
@@ -35,7 +35,7 @@ class Notebook:
 
 ```
 
-If the integrity of the class is key, making the list attribute `notes` private makes sense. The class provides the client with suitable methods for adding and browsing notes. This approach becomes problematic, however, if we define a class `NotebookPro` which inherits the `Notebook` class. The private attribute is not accessible to the client, but neither is it accessible to the derived classes. If we try to access it, as in the `find_notes` method below, we get an error:
+If the integrity of the class is key, making the list attribute `notes` private makes sense. The class provides the client with suitable methods for adding and browsing notes, after all. This approach becomes problematic if we define a new class `NotebookPro`, which inherits the `Notebook` class. The private list attribute is not accessible to the client, but neither is it accessible to the derived classes. If we try to access it, as in the `find_notes` method below, we get an error:
 
 ```python
 class NotebookPro(Notebook):
@@ -48,7 +48,7 @@ class NotebookPro(Notebook):
     def find_notes(self, search_term):
         found = []
         # the attribute __notes is private
-        # the derived class can't access it
+        # the derived class can't access it directly
         for note in self.__notes:
             if search_term in note:
                 found.append(note)
@@ -64,24 +64,20 @@ AttributeError: 'NotebookPro' object has no attribute '_NotebookPro__notes'
 
 ## Protected traits
 
-Many object oriented programming languages have a feature, usually a special keyword, for _protecting_ traits. This means that a trait should be hidden from the clients of a class, but kept accessible to its subclasses. Python in general abhors keywords, so no such feature is directly available in Python. Instead, there is a _convention_ of marking protected traits in a certain way. 
+Many object oriented programming languages have a feature, usually a special keyword, for _protecting_ traits. This means that a trait should be hidden from the clients of the class, but kept accessible to its subclasses. Python in general abhors keywords, so no such feature is directly available in Python. Instead, there is a _convention_ of marking protected traits in a certain way. 
 
 Remember, a trait can be hidden by prefixing its name with two underscores:
 
 ```python
-
 def __init__(self):
     self.__notes = []
-
 ```
 
 The agreed convention to _protect_ a trait is to prefix the name with a _single_ underscore. Now, this is _just_ a convention. Nothing prevents a programmer from breaking the convention, but it is considered a bad programming practice.
 
 ```python
-
 def __init__(self):
     self._notes = []
-
 ```
 
 Below we have the entire Notebook example, with protected `_notes` instead of private `__notes`:
@@ -109,7 +105,7 @@ class NotebookPro(Notebook):
         # This is OK, the constructor is public despite the underscores
         super().__init__()
 
-    # This works, as the protected attribute is accessible to the derived class
+    # This works, the protected attribute is accessible to the derived class
     def find_notes(self, search_term):
         found = []
         for note in self._notes:
@@ -174,7 +170,7 @@ Footballer - name: Peter Pythons, nickname: Pyper, position: forward
 
 <programming-exercise name='Supergroup' tmcname='part10-05_supergroup'>
 
-The exercise template contains a class definition for a `SuperHero`.
+The exercise template contains the class definition for a `SuperHero`.
 
 Please define a class named `SuperGroup` which represents a group of superheroes. The class should contain the following members:
 
@@ -211,7 +207,7 @@ If you need a refresher on getter and setter methods, please have a look at [thi
 
 <programming-exercise name='Secret magic potion' tmcname='part10-06_secret_magic_potion'>
 
-The exercise template contains a class definition for a `MagicPotion` which allows you to save a recipe for a magic potion. The class definition contains a constructor along with the methods
+The exercise template contains the class definition for a `MagicPotion` which allows you to save a recipe for a magic potion. The class definition contains a constructor along with the methods
 
 * `add_ingredient(ingredient: str, amount: float)` and
 * `print_recipe()`
@@ -225,7 +221,7 @@ The class should also contain the following methods:
 * `add_ingredient(ingredient: str, amount: float, password: str)`
 * `print_recipe(password: str)`
 
-If the password argument to these methods is wrong, the methods should raise a `ValueError` exception.
+If the password argument given to either of these methods is wrong, the methods should raise a `ValueError` exception.
 
 If the password is correct, each method should call the relevant method in the parent class. Do not copy and paste anything from the MagicPotion class.
 
