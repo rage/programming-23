@@ -8,174 +8,166 @@ hidden: false
 
 After this section
 
-- Tiedät mitä eroa on näkyvyysmääreillä yksityinen ja suojattu
-- Tiedät, miten piirteiden näkyvyys määritetään Pythonissa
+- You will understand the access modifiers private and protected
+- You will know how the visibility of traits is determined in Python
 
 </text-box>
 
-Aikaisemmin mainittiin, että yliluokassa yksityiseksi määritettyihin piirteiisin ei pääse käsiksi aliluokassa. Tarkastellaan esimerkkinä luokkaa `Muistikirja`, jossa muistiinpanojen säilyttämiseen käytettävä lista-attribuutti on piilotettu asiakkailta:
+In the previous section it was briefly mentioned that traits which are defined as private in the base class are not directly accessible in derived classes. Let's take a look at an example. In the `Notebook` class the notes are stored in a list, and the list attribute is private:
 
 ```python
 
-class Muistikirja:
-    """ Muistikirjaan voidaan tallentaa muistiinpanoja merkkijonoina """
+class Notebook:
+    """ A Notebook stores notes in string format """
 
     def __init__(self):
-        # yksityinen attribuutti
-        self.__muistiinpanot = []
+        # private attribute
+        self.__notes = []
 
-    def lisaa_muistiinpano(self, muistiinpano):
-        self.__muistiinpanot.append(muistiinpano)
+    def add_note(self, note):
+        self.__notes.append(note)
 
-    def palauta_muistiinpano(self, indeksi):
-        return self.__muistiinpanot[indeksi]
+    def retrieve_note(self, index):
+        return self.__notes[index]
 
-    def kaikki_muistiinpanot(self):
-        return ",".join(self.__muistiinpanot)
+    def all_notes(self):
+        return ",".join(self.__notes)
 
 ```
 
-Luokan sisäisen eheyden kannalta tietorakenteena toimivan listan piilottaminen asiakkaalta on sinänsä järkevää, koska luokka tarjoaa itse sopivat operaatiot muistiinpanojen lisäämiseksi ja selaamiseksi. Ongelmalliseksi tilanne muodostuu, jos yritetään kirjoittaa `Muistikirja`-luokan perivät luokka `ProMuistikirja`, johon halutaan lisätä muistiinpanojen etsiminen ja järjestäminen. Piilotettu attribuutti ei ole käytettävissä myöskään aliluokissa; metodi `etsi_muistiinpanot` antaa kutsuttaessa virheen:
+If the integrity of the class is key, making the list attribute `notes` private makes sense. The class provides the client with suitable methods for adding and browsing notes. This approach becomes problematic, however, if we define a class `NotebookPro` which inherits the `Notebook` class. The private attribute is not accessible to the client, but neither is it accessible to the derived classes. If we try to access it, as in the `find_notes` method below, we get an error:
 
 ```python
-class MuistikirjaPro(Muistikirja):
-    """ Parempi muistikirja haku- ja järjestystoiminnoilla """
+class NotebookPro(Notebook):
+    """ A better Notebook with search functionality """
     def __init__(self):
-        # Tämä on ok, koska luokan Muistikirja konstruktori
-        # on julkinen
+        # This is OK, the constructor is public despite the underscores
         super().__init__()
 
-    # Tämä antaa virheen
-    def etsi_muistiinpanot(self, hakusana):
-        loydetty = []
-        # Attribuutti __muistiinpanot on yksityinen, eikä näy
-        # aliluokalle
-        for muistiinpano in self.__muistiinpanot:
-            if hakusana in muistiinpano:
-                loydetty.append(muistiinpano)
+    # This causes an error
+    def find_notes(self, search_term):
+        found = []
+        # the attribute __notes is private
+        # the derived class can't access it
+        for note in self.__notes:
+            if search_term in note:
+                found.append(note)
 
-        return loydetty
-
+        return found
 ```
 
 <sample-output>
     
-AttributeError: 'MuistikirjaPro' object has no attribute '_MuistikirjaPro__muistiinpanot'
+AttributeError: 'NotebookPro' object has no attribute '_NotebookPro__notes'
 
 </sample-output>
 
+## Protected traits
 
+Many object oriented programming languages have a feature, usually a special keyword, for _protecting_ traits. This means that a trait should be hidden from the clients of a class, but kept accessible to its subclasses. Python in general abhors keywords, so no such feature is directly available in Python. Instead, there is a _convention_ of marking protected traits in a certain way. 
 
-## Suojatut piirteet
-
-Toisin kuin joistain muista ohjelmointikielistä, Pythonista ei suoraan löydy ominaisuutta joka piilottaa piirteet asiakkailta mutta samaan aikaan avaa ne mahdollisille aliluokille. Ratkaisuksi Python-yhteisö onkin päätynyt _konventioon_ eli yleisesti ymmärrettyyn merkintätapaan _suojatuille_ (eli _protected_)  piirteille.
-
-Koska piirre voidaan piilottaa kirjoittamalla sen tunnisteen (eli nimen) eteen kaksi alaviivaa
+Remember, a trait can be hidden by prefixing its name with two underscores:
 
 ```python
 
 def __init__(self):
-    self.__muistiinpanot = []
+    self.__notes = []
 
 ```
 
-on yleisesti sovittu että yhdellä alaviivalla alkavat piirteet ovat tarkoitettu ainoastaan luokan ja sen aliluokkien käyttöön, eikä niitä tulisi käyttää suoraan sen ulkopuolelta.
+The agreed convention to _protect_ a trait is to prefix the name with a _single_ underscore. Now, this is _just_ a convention. Nothing prevents a programmer from breaking the convention, but it is considered a bad programming practice.
 
 ```python
 
 def __init__(self):
-    self._muistiinpanot = []
+    self._notes = []
 
 ```
 
-Alla on esitetty koko muistikirjaesimerkki uudestaan niin, että muistiinpanot on merkitty suojatuiksi yliluokassa yksityisen sijasta:
+Below we have the entire Notebook example, with protected `_notes` instead of private `__notes`:
 
 ```python
-
-class Muistikirja:
-    """ Muistikirjaan voidaan tallentaa muistiinpanoja merkkijonoina """
+class Notebook:
+    """ A Notebook stores notes in string format """
 
     def __init__(self):
-        # suojattu attribuutti
-        self._muistiinpanot = []
+        # protected attribute
+        self._notes = []
 
-    def lisaa_muistiinpano(self, muistiinpano):
-        self._muistiinpanot.append(muistiinpano)
+    def add_note(self, note):
+        self._notes.append(note)
 
-    def palauta_muistiinpano(self, indeksi):
-        return self._muistiinpanot[indeksi]
+    def retrieve_note(self, index):
+        return self._notes[index]
 
-    def kaikki_muistiinpanot(self):
-        return ",".join(self._muistiinpanot)
+    def all_notes(self):
+        return ",".join(self._notes)
 
-class MuistikirjaPro(Muistikirja):
-    """ Parempi muistikirja haku- ja järjestystoiminnoilla """
+class NotebookPro(Notebook):
+    """ A better Notebook with search functionality """
     def __init__(self):
-        # Tämä on ok, koska luokan Muistikirja konstruktori
-        # on julkinen
+        # This is OK, the constructor is public despite the underscores
         super().__init__()
 
-    # Nyt metodi toimii, koska suojattu attribuutti näkyy
-    # aliluokalle
-    def etsi_muistiinpanot(self, hakusana):
-        loydetty = []
-        for muistiinpano in self._muistiinpanot:
-            if hakusana in muistiinpano:
-                loydetty.append(muistiinpano)
+    # This works, as the protected attribute is accessible to the derived class
+    def find_notes(self, search_term):
+        found = []
+        for note in self._notes:
+            if search_term in note:
+                found.append(note)
 
-        return loydetty
+        return found
 
 ```
 
-Seuraavassa taulukossa on vielä esitetty piirteiden näkyvyys kaikkien eri suojausmääreiden tapauksessa:
+Below we have a handy table for the visibility of attributes with different access modifiers:
 
-Näkyvyysmääre	| Esimerkki | Näkyy asiakkaalle | Näkyy aliluokalle
-:--:|:----:|:----:|:----:
-Julkinen | `self.nimi` | kyllä | kyllä
-Suojattu | `self._nimi` | ei | kyllä
-Yksityinen | `self.__nimi` | ei | ei
+Access modifier	| Example | Visible to client | Visible to derived class
+:--------:|:-------------:|:---:|:----:
+Public    | `self.name`   | yes | yes
+Protected | `self._name`  | no  | yes
+Private   | `self.__name` | no  | no
 
-Näkyvyysmääreet toimivat vastaavasti kaikkien piirteiden kanssa. Luokassa Henkilo oleva metodi `isot_alkukirjaimet` on suojattu, joten sitä voi käyttää myös aliluokassa Jalkapalloilija:
+Access modifiers work the same with all traits. For example, in the `Person` class below we have the protected method `capitalize_initials`. It can be used from the derived class `Footballer`:
 
 ```python
+class Person:
+    def __init__(self, name: str):
+        self._name = self._capitalize_initials(name)
 
-class Henkilo:
-    def __init__(self, nimi: str):
-        self._nimi = self._isot_alkukirjaimet(nimi)
+    def _capitalize_initials(self, name):
+        name_capitalized = []
+        for n in name.split(" "):
+            name_capitalized.append(n.capitalize())
 
-    def _isot_alkukirjaimet(self, nimi):
-        nimi_isoilla = []
-        for n in nimi.split(" "):
-            nimi_isoilla.append(n.capitalize())
-
-        return " ".join(nimi_isoilla)
-
-    def __repr__(self):
-        return self.__nimi
-
-class Jalkapalloilija(Henkilo):
-
-    def __init__(self, nimi: str, lempinimi: str, pelipaikka: str):
-        super().__init__(nimi)
-        # metodia voi kutsua, koska se on suojattu yliluokassa
-        self.__lempinimi = self._isot_alkukirjaimet(lempinimi)
-        self.__pelipaikka = pelipaikka
+        return " ".join(name_capitalized)
 
     def __repr__(self):
-        r =  f"Jalkapalloilija - nimi:{self._nimi}, lempinimi: {self.__lempinimi}"
-        r += f", pelipaikka: {self.__pelipaikka}"
+        return self.__name
+
+class Footballer(Person):
+
+    def __init__(self, name: str, nickname: str, position: str):
+        super().__init__(name)
+        # the method is available as it is protected in the base class
+        self.__nickname = self._capitalize_initials(nickname)
+        self.__position = position
+
+    def __repr__(self):
+        r =  f"Footballer - name: {self._name}, nickname: {self.__nickname}"
+        r += f", position: {self.__position}"
         return r
 
-# Testataan
+# Test the classes
 if __name__ == "__main__":
-    jp = Jalkapalloilija("petri pythonen", "pyttis", "hyökkääjä")
+    jp = Footballer("peter pythons", "pyper", "forward")
     print(jp)
 
 ```
 
 <sample-output>
 
-Jalkapalloilija - nimi:Petri Pythonen, lempinimi: Pyttis, pelipaikka: hyökkääjä
+Footballer - name: Peter Pythons, nickname: Pyper, position: forward
 
 </sample-output>
 
