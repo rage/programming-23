@@ -469,6 +469,8 @@ command: **0**
 
 Please implement this addition with respect to the current structure of the program. This means that in the `PhoneBookApplication` class you should add an appropriate helper method to allow for the new functionality, and also add a new branch to the `while` loop. In the `PhoneBook` class you should add a method which allows for searching with a number.
 
+**NB:** if you test your program a lot and end up with lots of different numbers stored in the `phonebook.txt` file, there is a chance the local tests will not be passed, as conflicting data is read from the file as the app starts. You can try emptying the contents of any `phonebook.txt` files you find in the directory for the exercise before running the local tests. Which one of the files is used by your program may depend on your Visual Studio Code settings. Please have a look at the explanation in [part 6](/part-6/1-reading-files#what-if-visual-studio-code-cannot-find-my-file). The tests on the server should still pass normally, if your solution is correct.
+
 </programming-exercise>
 
 ## Objects in a dictionary
