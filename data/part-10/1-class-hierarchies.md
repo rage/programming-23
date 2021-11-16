@@ -10,7 +10,7 @@ After this section
 
 - You will know what inheritance means in a programming context
 - You will be able to write classes which inherit other classes
-- You will know how inheritance affects traits of classes
+- You will know how inheritance affects the traits in classes
 
 </text-box>
 
@@ -18,7 +18,7 @@ After this section
 
 Sometimes you come across a situation where you have already defined a class, but then realize you need special traits in some, but not all, instances of the class. Then again, sometimes you realize you've defined two very similar classes with only minor differences. As programmers we aim to always repeat ourselves as little as possible, while maintaining clarity and readability. So how can we accommodate for different implementations of intrinsically similar objects?
 
-Let's have a look at two class definitions: `Student` and `Teacher`. Getter and setter methods have been left out for now in order to keep the example short.
+Let's have a look at two class definitions: `Student` and `Teacher`. Getter and setter methods have been left out for now, in order to keep the example short.
 
 ```python
 
@@ -40,9 +40,9 @@ class Teacher:
 
 ```
 
-Even in a stripped down example like the above we have quite a bit of repetition: both classes contain attributes `name` and `email`. It would be a good idea to have a single attribute definition, so that a single function would suffice for editing both attributes. 
+Even in a stripped down example, like the above, we already have quite a bit of repetition: both classes contain attributes `name` and `email`. It would be a good idea to have a single attribute definition, so that a single function would suffice for editing both attributes. 
 
-For example, imagine the school's email address changed. All addresses would have to be updated. We could write two separate versions of essentially the same function:
+For example, imagine the school's email address changed. All addresses would have to be updated. We _could_ write two separate versions of essentially the same function:
 
 ```python
 
@@ -54,15 +54,15 @@ def update_email2(o: Teacher):
 
 ```
 
-Writing practically the same thing twice is unnecessary repetition, not to mention it doubles the possibilities for errors. It would be a definite improvement if we could use a single method to work with instances of both classes.
+Writing practically the same thing twice is unnecessary repetition, not to mention it doubles the possibilities for errors. It would be a definite improvement if we could use a single function to work with instances of both classes.
 
-Both classes also have attributes that are unique to them. Simply combining all attributes in a single class would mean all instances of the class would then have unnecessary attributes. That doesn't seem like an ideal situation, either.
+Both classes also have attributes which are unique to them. Simply combining _all_ attributes in a single class would mean _all_ instances of the class would then have unnecessary attributes, just different ones for different instances. That doesn't seem like an ideal situation, either.
 
  ## Inheritance
 
 Object oriented programming languages usually feature a technique called _inheritance_. A class can _inherit_ the traits of another class. In addition to these inherited traits a class can also contain traits which are unique to it.
 
-Knowing this, it would make sense for the `Teacher` and `Student` classes to have a common base class `Person`:
+Knowing this, it would make sense for the `Teacher` and `Student` classes to have a common base or parent class `Person`:
 
  ```python
 
@@ -89,6 +89,7 @@ class Person:
         old_domain = self.email.split("@")[1]
         self.email = self.email.replace(old_domain, new_domain)
 
+
 class Student(Person):
 
     def __init__(self, name: str, id: str, email: str, credits: str):
@@ -96,6 +97,7 @@ class Student(Person):
         self.id = id
         self.email = email
         self.credits = credits
+
 
 class Teacher(Person):
 
@@ -117,7 +119,7 @@ if __name__ == "__main__":
 
  ```
 
-Both `Student` and `Teacher` inherit the `Person` class, so both have the traits defined in the `Person` class, including the method `update_email_domain`.
+Both `Student` and `Teacher` inherit the `Person` class, so both have the traits defined in the `Person` class, including the method `update_email_domain`. The same method works for instances of both the derived classes.
 
 Let's have a look at another example. We have a `Bookshelf` which inherits the class `BookContainer`:
 
@@ -142,6 +144,7 @@ class BookContainer:
         for book in self.books:
             print(f"{book.name} ({book.author})")
 
+
 class Bookshelf(BookContainer):
     """ This class models a shelf for books """
 
@@ -155,12 +158,11 @@ class Bookshelf(BookContainer):
 
 The class `Bookshelf` contains the method `add_book`. A method with the same name is defined in the base class  `BookContainer`. This is called _overriding_: if a derived class has a method with the same name as the base class, the derived version overrides the original in instances of the derived class.
 
-The idea in the example above is that a new book added to a BookContainer always goes to the top, but with a Bookshelf you can define the location yourself. The method `list_books` works the same for both classes, as there is no overriding method in the derived class.
+The idea in the example above is that a new book added to a BookContainer always goes to the top, but with a Bookshelf you can specify the location yourself. The method `list_books` works the same for both classes, as there is no overriding method in the derived class.
 
 Let's try out these classes:
 
  ```python
-
 if __name__ == "__main__":
     # Create some books for testing
     b1 = Book("Old Man and the Sea", "Ernest Hemingway")
@@ -188,7 +190,6 @@ if __name__ == "__main__":
 
     print("Shelf:")
     shelf.list_books()
-
  ```
 
  <sample-output>
@@ -205,11 +206,11 @@ Old Man and the Sea (Ernest Hemingway)
 
  </sample-output>
 
-So, the Bookshelf class also has access to the `list_books` method, as through inheritance the method is a member of all the classes derived from the `BookCntainer` class.
+So, the Bookshelf class also has access to the `list_books` method. Through inheritance the method is a member of all the classes derived from the `BookContainer` class.
 
  ## Inheritance and scope of traits
 
-A derived class inherits all traits from its base class. Those traits are directly accessible in the derived class unless they have been defined as private in the base class (with two underscores before the name of the trait).
+A derived class inherits all traits from its base class. Those traits are directly accessible in the derived class, unless they have been defined as private in the base class (with two underscores before the name of the trait).
 
 As the attributes of a Bookshelf are identical to a BookContainer, there was no need to rewrite the constructor of Bookshelf. We simply called the constructor of the base class:
 
@@ -223,7 +224,7 @@ class Bookshelf(BookContainer):
 
 Any trait in the base class can be accessed from the derived class with the function `super()`. The `self` argument is left out from the method call, as Python adds it automatically.
 
-But what if the attributes are not identical, can we still use the base class constructor in some way? Let's have a look at a class named `Thesis` which inherits the `Book` class. The derived class can still call the constructor from the base class:
+But what if the attributes are not identical; can we still use the base class constructor in some way? Let's have a look at a class named `Thesis` which inherits the `Book` class. The derived class _can_ still call the constructor from the base class:
 
 ```python
 
@@ -267,7 +268,7 @@ Peter Pythons
 
 </sample-output>
 
-Even if a derived class overrides a method in its base class, the derived class can still call the overridden method in the base class. In the following example we have a basic `BonusCard` and a special `PlatinumCard` for especially loyal customers. The `calculate_bonus` method is overridden in the derived class, but the overriding method calls the base method:
+Even if a derived class _overrides_ a method in its base class, the derived class can _still_ call the overridden method in the base class. In the following example we have a basic `BonusCard` and a special `PlatinumCard` for especially loyal customers. The `calculate_bonus` method is overridden in the derived class, but the overriding method calls the base method:
 
 ```python
 
@@ -335,9 +336,9 @@ if __name__ == "__main__":
 
 The exercise template contains a class definition for a `Computer`, which has the attributes `model` and `speed`.
 
-Please define a class named `LaptopComputer` which _inherits the class Computer_. The constructor of the new class should take a third argument: `weight` of type integer.
+Please define a class named `LaptopComputer` which _inherits_ the class `Computer`. The constructor of the new class should take a third argument: `weight`, of type integer.
 
-Please also include a `__str__` method. See the example below for the expected format of the default printout.
+Please also include a `__str__` method in your class definition. See the example below for the expected format of the string representation printed out.
 
 ```python
 laptop = LaptopComputer("NoteBook Pro15", 1500, 2)
@@ -354,13 +355,13 @@ NoteBook Pro15, 1500 MHz, 2 kg
 
 <programming-exercise name='Game Museum' tmcname='part10-02_game_museum'>
 
-The exercise template contains class definitions for a `ComputerGame` and a `GameWarehouse`. A GamesWarehouse object is used to store ComputerGame objects.
+The exercise template contains class definitions for a `ComputerGame` and a `GameWarehouse`. A GameWarehouse object is used to store ComputerGame objects.
 
 Please familiarize yourself with these classes. Then define a new class named `GameMuseum` which inherits the `GameWarehouse` class.
 
-The GameMuseum class should _override_ the `list_games()` method so that it returns a list of only those games which were made before the year 1990.
+The GameMuseum class should _override_ the `list_games()` method, so that it returns a list of only those games which were made before the year 1990.
 
-The new class should also have a constructor which _calls the constructor from the parent class GameWarehouse_. The constructor takes no arguments.
+The new class should also have a constructor which _calls the constructor from the parent class `GameWarehouse`_. The constructor takes no arguments.
 
 You may use the following code to test your implementation:
 
@@ -422,7 +423,7 @@ area: 16
 
 <programming-exercise name='Word game' tmcname='part10-04_word_game'>
 
-The exercise template contains a class definition for a `WordGame`. It provides some basic functions for playing different word-based games:
+The exercise template contains the class definition for a `WordGame`. It provides some basic functionality for playing different word-based games:
 
 ```python
 import random
@@ -518,7 +519,7 @@ player1: **short**
 player2: **longword**
 player 2 won
 round 2
-player1: **sana**
+player1: **word**
 player2: **wut?**
 round 3
 player1: **i'm the best**
