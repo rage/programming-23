@@ -118,16 +118,16 @@ def kertomat(luvut: list):
     return [kertoma(luku) for luku in luvut]
 ```
 
-<programming-exercise name='Neliojuuret' tmcname='osa11-01_neliojuuret'>
+<programming-exercise name='Square roots' tmcname='part11-01_square_roots'>
 
-Tee funktio `neliojuuret(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan parametrina olevien lukujen neliöjuurista. Neliöjuuren laskemiseen löytyy sopiva funktio moduulista [math](https://docs.python.org/3/library/math.html)
+Tee funktio `square_roots(numbers: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan parametrina olevien lukujen neliöjuurista. Neliöjuuren laskemiseen löytyy sopiva funktio moduulista [math](https://docs.python.org/3/library/math.html)
 
 Funktion tulee käyttää listakoostetta. Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Funktio toimii seuraavasti:
 
 ```python
-rivit = neliojuuret([1,2,3,4])
+rivit = square_roots([1,2,3,4])
 for rivi in rivit:
     print(rivi)
 ```
@@ -143,9 +143,9 @@ for rivi in rivit:
 
 </programming-exercise>
 
-<programming-exercise name='Tähtirivit' tmcname='osa11-02_tahtirivit'>
+<programming-exercise name='Star rows' tmcname='part11-02_star_rows'>
 
-Tee funktio `tahtirivit(luvut: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan, joka koostuu tähtiriveistä, joiden pituus vastaa parametrina olevan listan lukuja. Funktion tulee käyttää listakoostetta.
+Tee funktio `star_rows(numbers: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan, joka koostuu tähtiriveistä, joiden pituus vastaa parametrina olevan listan lukuja. Funktion tulee käyttää listakoostetta.
 
 Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
@@ -182,16 +182,16 @@ for rivi in rivit:
 
 </programming-exercise>
 
-<programming-exercise name='Paras koetulos' tmcname='osa11-03_paras_koetulos'>
+<programming-exercise name='Best exam result' tmcname='part11-03_best_exam_result'>
 
-Tehtäväpohjassa on valmiina luokka `Koesuoritus`, jolla on seuraavat julkiset attribuutit:
+Tehtäväpohjassa on valmiina luokka `ExamResult`, jolla on seuraavat julkiset attribuutit:
 
-* nimi
-* arvosana1
-* arvosana2
-* arvosana3
+* name
+* grade1
+* grade2
+* grade3
 
-Kirjoita funktio `parhaat_tulokset(suoritukset: list)`. Funktio saa parametrikseen listan koesuoritusolioita.
+Kirjoita funktio `best_results(results: list)`. Funktio saa parametrikseen listan koesuoritusolioita.
 
 Funktio palauttaa listakoostetta käyttäen uuden listan, johon on tallennettu jokaisen suorituksen paras arvosana.
 
@@ -215,9 +215,9 @@ print(parhaat_tulokset(suoritukset))
 
 </programming-exercise>
 
-<programming-exercise name='Pituudet' tmcname='osa11-04_pituudet'>
+<programming-exercise name='Lengths' tmcname='part11-04_lengths'>
 
-Tee funktio `pituudet(listat: list)` joka saa parametriksi listan, joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
+Tee funktio `lengths(listat: list)` joka saa parametriksi listan, joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
 
 Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
@@ -325,9 +325,9 @@ if __name__ == "__main__":
 
 Esimerkissä lauseke on siis `(luku, kertoma(luku))`, joka muodostaa tuplen, jossa ensimmäinen alkio on alkio alkuperäisestä listasta ja toinen alkio kertoma-funktion palauttama arvo. Ehtolauseke on `luku > 0 and luku % 2 == 0`, jossa valikoidaan mukaan vain alkiot, jotka ovat sekä positiivisia että jaollisia kahdella.
 
-<programming-exercise name='Poista pienemmät' tmcname='osa11-05_poista_pienemmat'>
+<programming-exercise name='Remove smaller than' tmcname='part11-05_remove_smaller_than'>
 
-Kirjoita funktio `poista_pienemmat(luvut: list, raja: int)`, joka saa parametrikseen listan kokonaislukuja sekä raja-arvon, joka on myös kokonaisluku.
+Kirjoita funktio `remove_smaller_than(numbers: list, limit: int)`, joka saa parametrikseen listan kokonaislukuja sekä raja-arvon, joka on myös kokonaisluku.
 
 Funktio muodostaa listakoostetta käyttäen uuden listan, josta on jätetty pois raja-arvoa pienemmät luvut.
 
@@ -351,11 +351,11 @@ print(poista_pienemmat([-4, 7, 8, -100], 0))
 
 </programming-exercise>
 
-<programming-exercise name='Vokaalilla alkavat' tmcname='osa11-06_vokaalilla_alkavat'>
+<programming-exercise name='Begin with vowel' tmcname='part11-06_begin_with_vowel'>
 
-Kirjoita funktio `vokaalilla_alkavat(sanat: list)`, joka saa parametrikseen listan merkkijonoja.
+Kirjoita funktio `begin_with_vowel(words: list)`, joka saa parametrikseen listan merkkijonoja.
 
-Tehtävänäsi on listakoostetta hyödyntäen muodostaa ja palauttaa uusi lista, joka sisältää vain alkuperäisen listan ne sanat, jotka alkavat vokaalilla (a, e, i, o, u, y, ä, ö). Sekä pienien että suurten kirjaimien pitää kelvata.
+Tehtävänäsi on listakoostetta hyödyntäen muodostaa ja palauttaa uusi lista, joka sisältää vain alkuperäisen listan ne sanat, jotka alkavat vokaalilla (a, e, i, o, u). Sekä pienien että suurten kirjaimien pitää kelvata.
 
 Funktion maksimipituus on (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
