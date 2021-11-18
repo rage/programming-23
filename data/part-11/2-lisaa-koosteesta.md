@@ -134,9 +134,9 @@ print(lause_ilman_alkuja)
 
 ```
 
-<programming-exercise name='Suodata kielletyt' tmcname='osa11-08_suodata_kielletyt'>
+<programming-exercise name='Filter forbidden' tmcname='part11-08_filter_forbidden'>
 
-Tee funktio `suodata_kielletyt(merkkijono: str, kielletyt: str)` joka palauttaa sen parametrina olevasta merkkijonosta version, joka ei sisällä yhtään merkkiä sen toisena parametrina olevasta "kiellettyjen merkkien" merkkijonosta.
+Tee funktio `filter_forbidden(string: str, forbidden: str)` joka palauttaa sen parametrina olevasta merkkijonosta version, joka ei sisällä yhtään merkkiä sen toisena parametrina olevasta "kiellettyjen merkkien" merkkijonosta.
 
 Funktion tulee käyttää listakoostetta. Funktio saa sisältää `def`-rivi mukaanlukien maksimissaan 3 riviä.
 
@@ -144,7 +144,7 @@ Esimerkki funktion käytöstä
 
 ```python
 lause = "Suo! kuokka, ja python: hieno yhdistelmä!??!?!"
-suodatettu = suodata_kielletyt(lause, "!?:,.")
+suodatettu = filter_forbidden(lause, "!?:,.")
 print(suodatettu)
 ```
 
@@ -304,11 +304,11 @@ if __name__ == "__main__":
 
 ```
 
-<programming-exercise name='Kauppalistan tuotteet' tmcname='osa11-09_kauppalistan_tuotteet'>
+<programming-exercise name='Products in shopping list' tmcname='part11-09_products_in_shopping_list'>
 
 Osan 10 tehtävässä teimme [Kauppalista-luokasta iteroitavan](/osa-10/3-olio-ohjelmoinnin-tekniikoita#programming-exercise-iteroitava-kauppalista). Iteroitavan luokan oliota voidaan käyttää listakoosteiden yhteydessä. Tehtäväpohjassa on mukana luokasta typistetty versio, jonka toiminnallisuus riittää tähän tehtävään.
 
-Tee nyt funktio `kauppalistan_tuotteet(kauppalista, maara: int)` joka saa parametriksi kauppalista-olion. Funktio palauttaa kauppalistan ostoksista niiden tuotteiden nimet, joita on listalla vähintään parametrin `maara` verran.
+Tee nyt funktio `products(shopping_list, amount: int)` joka saa parametriksi kauppalista-olion. Funktio palauttaa kauppalistan ostoksista niiden tuotteiden nimet, joita on listalla vähintään parametrin `maara` verran.
 
 Funktio tulee toteuttaa listakoosteen avulla, ja sen pituus saa olla `def`-määrittelyriveineen yhteensä korkeintaan kaksi riviä. Luokan Kauppalista koodia ei saa muuttaa!
 

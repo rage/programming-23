@@ -217,15 +217,15 @@ print(parhaat_tulokset(suoritukset))
 
 <programming-exercise name='Lengths' tmcname='part11-04_lengths'>
 
-Tee funktio `lengths(listat: list)` joka saa parametriksi listan, joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
+Tee funktio `lengths(lists: list)` joka saa parametriksi listan, joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
 
 Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
 
 Funktio toimii seuraavasti
 
 ```python
-listat = [[1,2,3,4,5], [324, -1, 31, 7],[]]
-print(pituudet(listat))
+lists = [[1,2,3,4,5], [324, -1, 31, 7],[]]
+print(pituudet(lists))
 ```
 
 <sample-output>
@@ -440,13 +440,13 @@ if __name__ == "__main__":
 </sample-output>
 
 
-<programming-exercise name='Lottorivi' tmcname='osa11-07_lottorivi'>
+<programming-exercise name='Lottery numbers' tmcname='part11-07_lottery_numbers'>
 
 ## Lottorivi, osa 1
 
-Kirjoita luokka `Lottorivi`, joka saa konstruktorissaan parametrikseen kierroksen numeron (kokonaisluku) sekä seitsemänalkioisen kokonaislukulistan. Lista kuvaa kierroksen oikeita numeroita (eli oikeaa _riviä_). Kirjoita lisäksi luokalle metodi
+Kirjoita luokka `LotteryNumbers`, joka saa konstruktorissaan parametrikseen kierroksen numeron (kokonaisluku) sekä seitsemänalkioisen kokonaislukulistan. Lista kuvaa kierroksen oikeita numeroita (eli oikeaa _riviä_). Kirjoita lisäksi luokalle metodi
 
-`osumien_maara(pelattu_rivi: list)`
+`number_of_hits(numbers: list)`
 
 ...joka palauttaa kokonaislukuna tiedon siitä, kuinka monta osumaa rivissä oli. Metodin tulee käyttää listakoostetta! Metodin pituus kokonaisuudessaan (def-rivi mukaanlukien) saa olla korkeintaan 2 riviä.
 
@@ -467,7 +467,7 @@ print(oikea.osumien_maara(oma_rivi))
 
 ## Lottorivi, osa 2
 
-Kirjoita luokkaan metodi `osumat_paikoillaan(pelattu_rivi)`, joka palauttaa uuden listan. Uudessa listassa on vanhoilla paikoillaan oikeat numerot (eli ne, jotka löytyvät myös oikeasta rivistä), muiden paikalla on -1.
+Kirjoita luokkaan metodi `hits_in_place(numbers)`, joka palauttaa uuden listan. Uudessa listassa on vanhoilla paikoillaan oikeat numerot (eli ne, jotka löytyvät myös oikeasta rivistä), muiden paikalla on -1.
 
 Metodin tulee käyttää listakoostetta. Metodin pituus kokonaisuudessaan (def-rivi mukaanlukien) saa olla korkeintaan 2 riviä.
 
