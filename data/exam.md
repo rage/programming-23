@@ -40,7 +40,7 @@ Tässä ohje miten sivun saa toimimaan.
 </text-box-->
 
 * In case of technical problems, the course instructor will be on standby **from 10:00 AM to 12:00 AM** on the [Discord](https://study.cs.helsinki.fi/discord/join/ohjelmointi21) at channel `ohjelmointi21_english`.
-* On the exam date **from 11:00 AM to 22:00 PM** discussion in the course's support channels is forbidden. The course's Discord is locked and messages cannot be sent to channels.
+* On the exam date **from 12:00 AM to 22:00 PM** discussion in the course's support channels is forbidden. The course's Discord is locked and messages cannot be sent to channels.
 
 #### Fetching the programming task templates
 
