@@ -1,6 +1,6 @@
 ---
 path: "/exam"
-title: "Exam 26.10."
+title: "Exam 27.11."
 information_page: true
 sidebar_priority: 5000
 ---
@@ -15,7 +15,7 @@ sidebar_priority: 5000
 #### Exam arrangements
 
 * Your solutions to the programming tasks in the exam will be submitted in the Visual Studio Code programming environment, in the same manner as the weekly exercises on the course.
-* The course exam can be taken on October 26th 2021 **between 10:00 AM and 10:00 PM**.
+* The course exam can be taken on November 27th 2021 **between 10:00 AM and 10:00 PM**.
 * The exam ends at 10:00 PM at the latest. If you want to be able to spend the maximum time allowed on the exam, you should **start at 6:00 PM at the latest**.
 * You will have **four hours** to complete the exam. If you have been granted extra time through special arrangements, you will have five hours to complete the exam, and should start at 5:00 PM at the latest.
 
@@ -39,7 +39,7 @@ Tässä ohje miten sivun saa toimimaan.
 
 </text-box-->
 
-* In case of technical problems, the course instructor will be on standby **from 09:00 AM to 11:00 AM** on the [Discord](https://study.cs.helsinki.fi/discord/join/ohjelmointi21) at channel `ohjelmointi21_english`.
+* In case of technical problems, the course instructor will be on standby **from 10:00 AM to 12:00 AM** on the [Discord](https://study.cs.helsinki.fi/discord/join/ohjelmointi21) at channel `ohjelmointi21_english`.
 * On the exam date **from 11:00 AM to 22:00 PM** discussion in the course's support channels is forbidden. The course's Discord is locked and messages cannot be sent to channels.
 
 #### Fetching the programming task templates
@@ -50,7 +50,7 @@ Tässä ohje miten sivun saa toimimaan.
 2. Select the `My courses` view in the TMC menu.
 3. Click the `Add new course` button.
 4. Select the organization `Helsingin yliopisto`.
-5. Select the course `Introduction to Programming exam 26.10.2021`.
+5. Select the course `Introduction to Programming exam 27.11.2021`.
 6. Fetch the programming task templates.
 7. Try submitting the programming tasks.
 8. If you are able to submit the tasks, you are ready to take the exam. If not, get in touch with course instructors. Don't panic, we will work it out.
@@ -62,8 +62,8 @@ Please do not ask any questions about specific programming tasks assigned to you
 
 * The exam questions, in the form of programming task instructions, will become available at <a href="https://exams.mooc.fi/en">https://exams.mooc.fi/en</a> at 10:00 AM on the day of the exam.
 * You should use your usual mooc.fi login details to log in at the exam page.
-* Choose course `Introduction to Programming exam 26.10.2021`.
-* If you have been granted extra time through special arrangements, choose course `Introduction to Programming exam 26.10.2021 (EXTRA TIME)`.
+* Choose course `Introduction to Programming exam 27.11.2021`.
+* If you have been granted extra time through special arrangements, choose course `Introduction to Programming exam 27.11.2021 (EXTRA TIME)`.
 * Your allocated exam time will begin when you click on the link `Start exam`.
 
 #### Submitting your solutions
@@ -75,7 +75,7 @@ Please do not ask any questions about specific programming tasks assigned to you
 #### Finishing the exam
 
 * Please submit all your programming tasks one final time, within the exam time allocated to you, before finishing.
-* You can check the arrival of the exercises you have submitted to the server by logging in to the page [https://tmc.mooc.fi/org/hy/courses/924](https://tmc.mooc.fi/login?return_to=%2Forg%2Fhy%2Fcourses%2F924)
+* You can check the arrival of the exercises you have submitted to the server by logging in to the page [https://tmc.mooc.fi/org/hy/courses/938](https://tmc.mooc.fi/login?return_to=%2Forg%2Fhy%2Fcourses%2F938)
 * When you are done, you can close all Visual Studio Code tabs and windows, along with the exam question page. There is no need to do anything else.
 
 #### Exam results
