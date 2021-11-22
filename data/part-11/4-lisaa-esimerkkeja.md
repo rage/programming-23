@@ -4,9 +4,9 @@ title: 'Lisää esimerkkejä'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tässä osiossa
+After this section
 
 - Käydään läpi muutamia binääripuuhun liittyviä rekursiivisia esimerkkialgoritmeja
 
@@ -33,10 +33,10 @@ Binääripuuta voidaan mallintaa helposti kirjoittamalla luokka, joka mallintaa 
 
 class Alkio:
     """ Luokka mallintaa yhtä alkiota binääripuussa """
-    def __init__(self, arvo, vasen_lapsi:'Alkio' = None, oikea_lapsi:'Alkio' = None):
+    def __init__(self, arvo, left_child:'Alkio' = None, right_child:'Alkio' = None):
         self.arvo = arvo
-        self.vasen_lapsi = vasen_lapsi
-        self.oikea_lapsi = oikea_lapsi
+        self.left_child = left_child
+        self.right_child = right_child
 ```
 
 Nyt jos halutaan mallintaa esimerkiksi oheisen kaltainen puu:
@@ -49,12 +49,12 @@ Nyt jos halutaan mallintaa esimerkiksi oheisen kaltainen puu:
 if __name__ == "__main__":
     puu = Alkio(2)
 
-    puu.vasen_lapsi = Alkio(3)
-    puu.vasen_lapsi.vasen_lapsi = Alkio(5)
-    puu.vasen_lapsi.oikea_lapsi = Alkio(8)
+    tree.left_child = Alkio(3)
+    tree.left_child.left_child = Alkio(5)
+    tree.left_child.right_child = Alkio(8)
 
-    puu.oikea_lapsi = Alkio(4)
-    puu.oikea_lapsi.oikea_lapsi = Alkio(11)
+    tree.right_child = Alkio(4)
+    tree.right_child.right_child = Alkio(11)
 
 ```
 
@@ -69,11 +69,11 @@ Funktio saa parametrikseen juurialkion (eli kaikkein ylimmäisenä olevan alkion
 def tulosta_alkiot(juuri: Alkio):
     print(juuri.arvo)
 
-    if juuri.vasen_lapsi is not None:
-        tulosta_alkiot(juuri.vasen_lapsi)
+    if juuri.left_child is not None:
+        tulosta_alkiot(juuri.left_child)
 
-    if juuri.oikea_lapsi is not None:
-        tulosta_alkiot(juuri.oikea_lapsi)
+    if juuri.right_child is not None:
+        tulosta_alkiot(juuri.right_child)
 
 ```
 
@@ -96,14 +96,14 @@ Vastaavalla tavalla voidaan kirjoittaa algoritmi, joka laskee kaikkien puun alki
 
 ```python
 
-def alkioiden_summa(juuri: Alkio):
+def sum_of_nodes(juuri: Alkio):
     summa = juuri.arvo
 
-    if juuri.vasen_lapsi is not None:
-        summa += alkioiden_summa(juuri.vasen_lapsi)
+    if juuri.left_child is not None:
+        summa += sum_of_nodes(juuri.left_child)
 
-    if juuri.oikea_lapsi is not None:
-        summa += alkioiden_summa(juuri.oikea_lapsi)
+    if juuri.right_child is not None:
+        summa += sum_of_nodes(juuri.right_child)
 
     return summa
 
@@ -111,29 +111,29 @@ def alkioiden_summa(juuri: Alkio):
 
 Muuttuja `summa` alustetaan nykyisen alkion arvolla. Tämän jälkeen siihen lisätään rekursiivisesti vasemman ja oikean alipuun summat (tarkastaen taas ensin, että ne ovat olemassa). Lopuksi summa palautetaan.
 
-<programming-exercise name='Suurin alkio' tmcname='osa11-16_suurin_alkio'>
+<programming-exercise name='Greatest node' tmcname='part11-16_greatest_node'>
 
-Kirjoita funktio `suurin_alkio(juuri: Alkio)`, joka saa parametrikseen binääripuun juurialkion.
+Please write a function named `greatest_node(root: Node)` which takes the root node of a binary tree as its argument.
 
-Funktion palauttaa puun suurimman alkion. Puun arvot tulee käydä läpi rekursiivisesti.
+The function should return the node with the greatest value within the tree. The tree should be traversed recursively.
 
-Vinkki: voit hyödyntää ratkaisussasi ylempänä esitettyä `alkoiden_summa` -funktiota.
+Hint: the function `sum_of_nodes` in the example above may come in handy.
 
-Esimerkki funktion kutsumisesta:
+An example of how the function should work:
 
 ```python
 
 if __name__ == "__main__":
-    puu = Alkio(2)
+    tree = Node(2)
 
-    puu.vasen_lapsi = Alkio(3)
-    puu.vasen_lapsi.vasen_lapsi = Alkio(5)
-    puu.vasen_lapsi.oikea_lapsi = Alkio(8)
+    tree.left_child = Node(3)
+    tree.left_child.left_child = Node(5)
+    tree.left_child.right_child = Node(8)
 
-    puu.oikea_lapsi = Alkio(4)
-    puu.oikea_lapsi.oikea_lapsi = Alkio(11)
+    tree.right_child = Node(4)
+    tree.right_child.right_child = Node(11)
 
-    print(suurin_alkio(puu))
+    print(greatest_node(tree))
 
 ```
 
@@ -165,46 +165,46 @@ def etsi_alkio(juuri: Alkio, arvo):
         return True
 
     if arvo > juuri.arvo:
-        return etsi_alkio(juuri.oikea_lapsi, arvo)
+        return etsi_alkio(juuri.right_child, arvo)
 
-    return etsi_alkio(juuri.vasen_lapsi, arvo)
+    return etsi_alkio(juuri.left_child, arvo)
 
 ```
 
-<programming-exercise name='Pomot ja alaiset' tmcname='osa11-17_pomot_ja_alaiset'>
+<programming-exercise name='Bosses and subordinates' tmcname='part11-17_bosses_and_subordinates'>
 
-Luokka `Tyontekija` mallintaa yrityksen työntekijää:
+The class `Employee` models an employee of a company:
 
 ```python
-class Tyontekija:
-    def __init__(self, nimi: str):
-        self.nimi = nimi
-        self.alaiset = []
+class Employee:
+    def __init__(self, name: str):
+        self.name = name
+        self.subordinates = []
 
-    def lisaa_alainen(self, tyontekija: 'Tyontekija'):
-        self.alaiset.append(tyontekija)
+    def add_subordinate(self, employee: 'Employee'):
+        self.subordinates.append(employee)
 ```
 
-Tee funktio `laske_alaiset(tyontekija: Tyontekija)`, joka laskee rekursiivisesti annetun työntekijän alaisten määrän.
+Please write a function named `count_subordinates(employee: Employee)` which recursively counts the number of subordinates each employee has.
 
-Esimerkki funktion käyttämisestä:
+An example of the function in action:
 
 ```python
 if __name__ == "__main__":
-    t1 = Tyontekija("Sasu")
-    t2 = Tyontekija("Erkki")
-    t3 = Tyontekija("Matti")
-    t4 = Tyontekija("Emilia")
-    t5 = Tyontekija("Antti")
-    t6 = Tyontekija("Kjell")
-    t1.lisaa_alainen(t4)
-    t1.lisaa_alainen(t6)
-    t4.lisaa_alainen(t2)
-    t4.lisaa_alainen(t3)
-    t4.lisaa_alainen(t5)
-    print(laske_alaiset(t1))
-    print(laske_alaiset(t4))
-    print(laske_alaiset(t5))
+    t1 = Employee("Sally")
+    t2 = Employee("Eric")
+    t3 = Employee("Matthew")
+    t4 = Employee("Emily")
+    t5 = Employee("Andy")
+    t6 = Employee("Claire")
+    t1.add_subordinate(t4)
+    t1.add_subordinate(t6)
+    t4.add_subordinate(t2)
+    t4.add_subordinate(t3)
+    t4.add_subordinate(t5)
+    print(count_subordinates(t1))
+    print(count_subordinates(t4))
+    print(count_subordinates(t5))
 ```
 
 <sample-output>
@@ -217,104 +217,103 @@ if __name__ == "__main__":
 
 </programming-exercise>
 
-## Paluu aikaan ennen rekursiota
+## Revisiting the times before recursion
 
-Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tässä tehtäväsarjassa ei rekursiota tarvitse eikä edes kannata käyttää. Listakoosteita sen sijaan pääsee hyödyntämään!
+Let's finish off this part of the material with a slightly larger exercise concentrating on object oriented programming principles. We do not recommend using recursion in this series of tasks, but list comprehension techniques will come in useful.
 
-<programming-exercise name='Tilauskirja' tmcname='osa11-18_tilauskirja'>
+<programming-exercise name='OrderBook' tmcname='part11-18_order_book'>
 
-Teemme tässä tehtävässä kaksi luokkaa, joitka toimivat rakennuspalikoina seuraavassa tehtävässä aiheena olevassa sovelluksessa.
+In this exercise you will write two different classes, which will in turn form the backbone of the _following_ exercise, where you will write an interactive application.
 
-## Tehtava
+## Task
 
-Toteuta luokka `Tehtava`, joka mallintaa ohjelmistoyritykselle annettavia työtehtäviä. Tehtävillä on
-- kuvaus
-- arvio sen viemästä työmäärästä
-- tieto koodarista, joka toteuttaa tehtävän
-- tieto siitä, onko tehtävä valmis vai ei
-- yksikäsitteinen tunniste eli id
+Please write the class `Task` which models a single task in a software company's likst of tasks. Tasks have
+- a description
+- an estimate of the hours required for completing the task
+- the name of the programmer assigned to the task
+- a field for keeping track of whether the task is finished
+- a unique identifier
 
-Luokka toimii seuraavasti:
+The class is used as follows:
 
 ```python
-t1 = Tehtava("koodaa hello world", "Erkki", 3)
-print(t1.id, t1.kuvaus, t1.koodari, t1.tyomaara)
+t1 = Task("program hello world", "Eric", 3)
+print(t1.id, t1.description, t1.programmer, t1.workload)
 print(t1)
-print(t1.on_valmis())
-t1.merkkaa_valmiiksi()
+print(t1.is_finished())
+t1.mark_finished()
 print(t1)
-print(t1.on_valmis())
-t2 = Tehtava("koodaa webbikauppa", "Antti", 10)
-t3 = Tehtava("tee mobiilisovellus työaikakirjanpitoon", "Erkki", 25)
+print(t1.is_finished())
+t2 = Task("program webstore", "Andy", 10)
+t3 = Task("program mobile app for workload accounting", "Eric", 25)
 print(t2)
 print(t3)
 ```
 
 <sample-output>
 
-1 koodaa hello world Erkki 3
-1: koodaa hello world (3 tuntia), koodari Erkki EI VALMIS
+1 program hello world Eric 3
+1: program hello world (3 hours), programmer Eric NOT FINISHED
 False
-1: koodaa hello world (3 tuntia), koodari Erkki VALMIS
+1: program hello world (3 hours), programmer Eric FINISHED
 True
-2: koodaa webbikauppa (10 tuntia), koodari Antti EI VALMIS
-3: tee mobiilisovellus työaikakirjanpitoon (25 tuntia), koodari Erkki EI VALMIS
+2: program webstore (10 hours), programmer Andy NOT FINISHED
+3: program mobile app for workload accounting (25 hours), programmer Eric NOT FINISHED
 
 </sample-output>
 
-Täsmennyksiä:
-- tehtävän tilan (valmis vai ei vielä valmis) voi tarkistaa funktiolla `on_valmis(self)` joka palauttaa totuusarvon
-- tehtävä ei ole siinä vaiheessa valmis kun se luodaan
-- tehtävä merkataan valmiiksi kutsumalla metodia `merkkaa_valmiiksi(self)`
-- tehtävien id on juokseva numero, joka alkaa arvosta 1 (ensimmäisenä luotava tehtävä saa id:n 1, seuraava id:n 2 jne.)
+Some clarifications:
+- the state of the task (finished or not yet finished) can be checked with the function `is_finished(self)` which returns a Boolean value
+- a task is not finished when it is created
+- a task is marked as finished by calling the method `mark_finished(self)`
+- the id of a task is a running number which starts with 1. The id of the first task is 1, the id of the second is 2, and so forth.
 
-**Vihje**: id kannattaa toteuttaa [luokkamuuttujana](/osa-9/5-staattiset-piirteet#luokkamuuttujat).
+**Hint**: id can be implemented as a [class variable](/part-9/5-class-attributes#class-variables).
 
-## Tilauskirja
+## OrderBook
 
-Tehdään nyt luokka `Tilauskirja`, joka kokoaa kaikki ohjelmistoyritykseltä tilatut työtehtävät, joita siis mallinnetaan luokan `Tehtava` olioilla.
+Please write a class named `OrderBook` which collects all the tasks ordered from the software company. Thetasks should be modelled with the class `Task` you just wrote.
 
-
-Tilauskirjan perusversiota käytetään seuraavasti:
+The basic version of an OrderBook is used as follows:
 
 ```python
-tilaukset = Tilauskirja()
-tilaukset.lisaa_tilaus("koodaa webbikauppa", "Antti", 10)
-tilaukset.lisaa_tilaus("tee mobiilisovellus työaikakirjanpitoon", "Erkki", 25)
-tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
+orders = OrderBook()
+orders.add_order("program webstore", "Andy", 10)
+orders.add_order("program mobile app for workload accounting", "Eric", 25)
+orders.add_order("program app for practicing mathematics", "Andy", 100)
 
-for tilaus in tilaukset.kaikki_tilaukset():
-    print(tilaus)
+for order in orders.all_orders():
+    print(order)
 
 print()
 
-for koodari in tilaukset.koodarit():
-    print(koodari)
+for programmer in orders.programmers():
+    print(programmer)
 ```
 
 <sample-output>
 
-1: koodaa webbikauppa (10 tuntia), koodari Antti EI VALMIS
-2: tee mobiilisovellus työaikakirjanpitoon (25 tuntia), koodari Erkki EI VALMIS
-3: tee ohjelma matematiikan harjoitteluun (100 tuntia), koodari Antti EI VALMIS
+1: program webstore (10 hours), programmer Andy NOT FINISHED
+2: program mobile app for workload accounting (25 hours), programmer Eric NOT FINISHED
+3: program app for practicing mathematics (100 hours), programmer Andy NOT FINISHED
 
-Antti
-Erkki
+Andy
+Eric
 
 </sample-output>
 
-Tässä vaiheessa `Tilauskirja` tarjoaa kolme metodia:
-- `lisaa_tilaus(self, kuvaus, koodari, tyomaara)` lisää uuden tilauksen tilauskirjaan. Tilauskirja tallettaa tilaukset sisäisesti `Tehtava`-olioina. Huomaa, että metodilla täytyy olla juuri nämä parametrit, muuten testit eivät hyväksy metodia!
-- `kaikki_tilaukset(self)` palauttaa listana kaikki tilauskirjalla olevat tehtävät
-- `koodarit(self)` palauttaa listana kaikki koodarit, joille on tehtävä tilauskirjassa, metodin palauttama lista ei saa sisältää yhtä koodia useampaan kertaan
+At this stage your `OrderBook` should provide three methods:
+- `add_order(self, description, programmer, workload)` which adds a new order to the OrderBook. An OrderBook stores the orders internally as `Task` objects. NB: the method should take exactly the attributes mentioned, or else the automated tests will not work correctly.
+- `all_orders(self)` returns a list of all the tasks stored in the OrderBook
+- `programmers(self)` returns a list of the names of all the programmers with tasks stored in the OrderBook. The list should contain each programmer only once
 
-**Vihje** Listalta on helppo poistaa duplikaatit siten että muutetaan ensin lista [set](https://docs.python.org/3.8/library/stdtypes.html#set)-tyyppiseksi. Set siis tarkoittaa joukkoa, ja joukossa kutakin alkiota voi olla vain yksi kappale. Tämän jälkeen `set` voidaan muuttaa takaisin listaksi, ja duplikaatit ovat kadonneet:
+**Hint:** an easy method for removing duplicates is handling the list initially as a [set](https://docs.python.org/3.8/library/stdtypes.html#set). A set is a collection of items where each unique item appears only once. A `set` can be then converted back into a list, and we can be sure each item is then unique:
 
 ```python
-lista = [1,1,3,6,4,1,3]
-lista2 = list(set(lista))
-print(lista)
-print(lista2)
+my_list = [1,1,3,6,4,1,3]
+my_list2 = list(set(my_list))
+print(my_list)
+print(my_list2)
 ```
 
 <sample-output>
@@ -324,52 +323,52 @@ print(lista2)
 
 </sample-output>
 
-## Tilauskirjan viimeistely
+## Some more features for OrderBook
 
-Tehdään luokalle `Tilauskirja` vielä kolme uutta metodia.
+Please write three more methods in your `OrderBook` class.
 
-Metodi `merkkaa_valmiiksi(self, id: int)` saa parametriksi tehtävän id:n ja merkkaa kyseisen tehtävän valmiiksi:
+The method `mark_finished(self, id: int)` takes the id of the task as its argument and marks the relevant task as finished:
 
 ```python
-tilaukset = Tilauskirja()
-tilaukset.lisaa_tilaus("koodaa webbikauppa", "Antti", 10)
-tilaukset.lisaa_tilaus("tee mobiilisovellus työaikakirjanpitoon", "Erkki", 25)
-tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
+orders = OrderBook()
+orders.add_order("program webstore", "Andy", 10)
+orders.add_order("program mobile app for workload accounting", "Eric", 25)
+orders.add_order("program app for practicing mathematics", "Andy", 100)
 
-tilaukset.merkkaa_valmiiksi(1)
-tilaukset.merkkaa_valmiiksi(2)
+orders.mark_finished(1)
+orders.mark_finished(2)
 
-for tilaus in tilaukset.kaikki_tilaukset():
-    print(tilaus)
+for order in orders.all_orders():
+    print(order)
 ```
 
 <sample-output>
 
-1: koodaa webbikauppa (10 tuntia), koodari Antti VALMIS
-2: tee mobiilisovellus työaikakirjanpitoon (25 tuntia), koodari Erkki VALMIS
-3: tee ohjelma matematiikan harjoitteluun (100 tuntia), koodari Antti EI VALMIS
+1: program webstore (10 hours), programmer Andy FINISHED
+2: program mobile app for workload accounting (25 hours), programmer Eric FINISHED
+3: program app for practicing mathematics (100 hours), programmer Andy NOT FINISHED
 
 </sample-output>
 
-Jos parametria vastaavaa tilausta ei löydy, tuottaa metodi poikkeuksen `ValueError`. Kertaa tarvittaessa [täältä](/osa-6/3-virheet#poikkeusten-tuottaminen), miten poikkeus tuotetaan.
+If there is no task with the given id, the method should raise a `ValueError` exception. If you need a refresher on raising exceptions, please have a look at [part 6](/part-6/3-errors#raising-exceptions).
 
-Metodit `valmiit_tilaukset(self)` ja `ei_valmiit_tilaukset(self)` toimivat kuten olettaa saattaa, ne palauttavat nimensä mukaisen osajoukon tilauskirjan tehtävistä listana.
+The methods `finished_orders(self)` and `unfinished_orders(self)` work as expected: both return a list containing the relevant tasks from the OrderBook.
 
-## Tilauskirjan loppusilaus
+## Finishing touches to OrderBook
 
-Tehdään luokalle `Tilauskirja` vielä metodi `koodarin_status(self, koodari: str)`, joka palauttaa _tuplen_, joka kertoo koodarin valmistuneiden ja vielä valmistumattomien töiden määrän sekä näihin kuluneiden työtuntien summan.
+Please write one last method in your `OrderBook` class: `status_of_programmer(self, programmer: str)` which returns a _tuple_. The tuple should contain the number of finished and unfinished tasks the programmer has, along with the hours spent on each task.
 
 ```python
-tilaukset = Tilauskirja()
-tilaukset.lisaa_tilaus("koodaa webbikauppa", "Antti", 10)
-tilaukset.lisaa_tilaus("tee mobiilisovellus työaikakirjanpitoon", "Antti", 25)
-tilaukset.lisaa_tilaus("tee ohjelma matematiikan harjoitteluun", "Antti", 100)
-tilaukset.lisaa_tilaus("tee uusi facebook", "Erkki", 1000)
+orders = OrderBook()
+orders.add_order("program webstore", "Andy", 10)
+orders.add_order("program mobile app for workload accounting", "Andy", 25)
+orders.add_order("program app for practicing mathematics", "Andy", 100)
+orders.add_order("program the next facebook", "Eric", 1000)
 
-tilaukset.merkkaa_valmiiksi(1)
-tilaukset.merkkaa_valmiiksi(2)
+orders.mark_finished(1)
+orders.mark_finished(2)
 
-status = tilaukset.koodarin_status("Antti")
+status = orders.status_of_programmer("Andy")
 print(status)
 ```
 
@@ -379,123 +378,122 @@ print(status)
 
 </sample-output>
 
-Tuplen ensimmäinen alkio siis kertoo valmiiden töiden määrän ja toinen valmistumattomien töiden määrän. Kolmas alkio on valmiiden töiden työaika-arvioiden summa ja neljäs alkio vielä valmistumattomien töiden työmääräarvioiden summan.
+The first item in the tuple is the number of _finished_ tasks, while the second item is the number of _unfinished_ tasks. The third and fourth items are the sums of workload estimates for the finished and unfinished tasks, respectively.
 
-Jos parametria vastaavaa koodaria ei löydy, tuottaa metodi poikkeuksen `ValueError`.
-
-
-</programming-exercise>
-
-<programming-exercise name='Tilauskirjasovellus' tmcname='osa11-19_tilauskirjasovellus'>
-
-Tässä tehtävässä tehdään interaktiivinen sovellus softafirmalta tilattujen tehtävien hallintaan. Tyyli on täysin vapaa, mutta voit hyödyntää sovelluksessa edellisen tehtävän aikana koodattuja rakennuspalikoita. Myös [edellisen osan viimeisen luvun](/osa-10/4-lisaa-esimerkkeja) materiaalin kertaaminen saattaa olla hyödyksi.
-
-## Ei virheiden käsittelyä
-
-Sovelluksen tulee toimia _täsmälleen_ seuraavasti:
-
-<sample-output>
-
-komennot:
-0 lopetus
-1 lisää tilaus
-2 listaa valmiit
-3 listaa ei valmiit
-4 merkitse tehtävä valmiiksi
-5 koodarit
-6 koodarin status
-
-komento: **1**
-kuvaus: **koodaa uusi facebook**
-koodari ja työmääräarvio: **joona 1000**
-lisätty!
-
-komento: **1**
-kuvaus: **tee sovellus ajanhallintaan**
-koodari ja työmääräarvio: **erkki 25**
-lisätty!
-
-komento: **1**
-kuvaus: **ohjelma musiikin teorian harjoitteluun**
-koodari ja työmääräarvio: **niina 12**
-lisätty!
-
-komento: **1**
-kuvaus: **koodaa uusi twitter**
-koodari ja työmääräarvio: **joona 55**
-lisätty!
-
-komento: **2**
-ei valmiita
-
-komento: **3**
-1: koodaa uusi facebook (1000 tuntia), koodari joona EI VALMIS
-2: tee sovellus ajanhallintaan (25 tuntia), koodari erkki EI VALMIS
-3: ohjelma musiikin teorian  harjoitteluun (12 tuntia), koodari niina EI VALMIS
-4: koodaa uusi twitter (55 tuntia), koodari joona EI VALMIS
-
-komento: **4**
-tunniste: **2**
-merkitty valmiiksi
-
-komento: **4**
-tunniste: **4**
-merkitty valmiiksi
-
-komento: **2**
-2: tee sovellus ajanhallintaan (25 tuntia), koodari erkki VALMIS
-4: koodaa uusi twitter (55 tuntia), koodari joona VALMIS
-
-komento: **3**
-1: koodaa uusi facebook (1000 tuntia), koodari joona EI VALMIS
-3: ohjelma musiikin teorian harjoitteluun (12 tuntia), koodari niina EI VALMIS
-
-komento: **5**
-joona
-erkki
-niina
-
-komento: **6**
-koodari: **joona**
-työt: valmiina 2 ei valmiina 1, tunteja: tehty 55 tekemättä 1000
-
-</sample-output>
-
-Ensimmäiseen tehtäväpisteeseen riittää, että sovellus toimii jos kaikki syötteet ovat virheettömiä.
-
-## Virheiden käsittely
-
-Toiseen tehtäväpisteeseen edellytetään, että sovellus toipuu käyttäjän syötteessä olevista virheistä. Virheiden käsittelyn tulee toimia siten, että missä tahansa syötteessa annettu virheellinen syöte aiheuttaa virheilmoituksen _virheellinen syöte_, ja johtaa siihen, että komentoa pyydetään uudelleen:
-
-<sample-output>
-
-komento: **1**
-kuvaus: **tee sovellus ajanhallintaan**
-koodari ja työmääräarvio: **erkki xxx**
-virheellinen syöte
-
-komento: **1**
-kuvaus: **tee sovellus ajanhallintaan**
-koodari ja työmääräarvio: **erkki**
-virheellinen syöte
-
-komento: **4**
-tunniste: **1000000**
-virheellinen syöte
-
-komento: **4**
-tunniste: **XXXX**
-virheellinen syöte
-
-komento: **6**
-koodari: **tuntematonkoodari**
-virheellinen syöte
-
-</sample-output>
+If there is no task with the given id, the method should raise a `ValueError` exception.
 
 </programming-exercise>
 
-Vastaa lopuksi osion loppukyselyyn:
+<programming-exercise name='Order book application' tmcname='part11-19_order_book_application'>
+
+In this exercise you will create a digital application for administering the tasks ordered from a software company. The implementation is completely up to you, but you may use the building blocks from the previous exercise in your application. The examples in the [last section of part 10](/part-10/4-application-development) can also prove useful.
+
+## Without error handling
+
+The application should work _exactly_ as follows:
+
+<sample-output>
+
+commands:
+0 exit
+1 add order
+2 list finished tasks
+3 list unfinished tasks
+4 mark task as finished
+5 programmers
+6 status of programmer
+
+command: **1**
+description: **program the next facebook**
+programmer and workload estimate: **jonah 1000**
+added!
+
+command: **1**
+description: **program mobile app for workload accounting**
+programmer and workload estimate: **eric 25**
+added!
+
+command: **1**
+description: **program an app for music theory revision**
+programmer and workload estimate: **nina 12**
+added!
+
+command: **1**
+description: **program the next twitter**
+programmer and workload estimate: **jonah 55**
+added!
+
+command: **2**
+no finished tasks
+
+command: **3**
+1: program the next facebook (1000 hours), programmer jonah NOT FINISHED
+2: program mobile app for workload accounting (25 hours), programmer eric NOT FINISHED
+3: program an app for music theory revision (12 hours), programmer nina NOT FINISHED
+4: program the next twitter (55 hours), programmer jonah NOT FINISHED
+
+command: **4**
+id: **2**
+marked as finished
+
+command: **4**
+id: **4**
+marked as finished
+
+command: **2**
+2: program mobile app for workload accounting (25 hours), programmer eric FINISHED
+4: program the next twitter (55 hours), programmer jonah FINISHED
+
+command: **3**
+1: program the next facebook (1000 hours), programmer jonah NOT FINISHED
+3: program an app for music theory revision (12 hours), programmer nina NOT FINISHED
+
+command: **5**
+jonah
+eric
+nina
+
+command: **6**
+programmer: **jonah**
+tasks: finished 2 not finished 1, hours: done 55 scheduled 1000
+
+</sample-output>
+
+The first exercise point is granted for a working application when all user input is flawless.
+
+## Handling error in user input
+
+To gain the second exercise point for this exercise your application is expected to recover from erroneus user input. Any input which does not follow the specified format should produce an error message _erroneous input_, and result in yet another repeat of the loop asking for a new command:
+
+<sample-output>
+
+command: **1**
+description: **program mobile app for workload accounting**
+programmer and workload estimate: **eric xxx**
+erroneous input
+
+command: **1**
+description: **program mobile app for workload accounting**
+programmer and workload estimate: **eric**
+erroneous input
+
+command: **4**
+id: **1000000**
+erroneous input
+
+command: **4**
+id: **XXXX**
+erroneous input
+
+command: **6**
+programmer: **unknownprogrammer**
+erroneous input
+
+</sample-output>
+
+</programming-exercise>
+
+Please respond to a quick questionnaire on this part of the course.
 
 <quiz id="2496aa8e-2b2d-532b-83ab-64547a036f86"></quiz>
 
