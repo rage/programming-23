@@ -1,6 +1,6 @@
 ---
-path: '/part-11/1-comprehensions'
-title: 'Comprehensions'
+path: '/part-11/1-list-comprehensions'
+title: 'List comprehensions'
 hidden: false
 ---
 
@@ -8,26 +8,26 @@ hidden: false
 
 After this section
 
-- Tiedät mitä tarkoitetaan koosteella (comprehension)
-- Osaat hyödyntää koosteita uusien listojen muodostamiseen
+- You will know what list comprehensions are
+- You will be able to use list comprehensions to create new lists
 
 </text-box>
 
-Ohjelmointiin liittyy usein erilaisten sekvenssien (eli sarjojen) käsittely. Aikaisemmissa osissa on käytetty runsaasti aikaa merkkijonojen, listojen ja sanakirjojen käsittelyyn eri tavoilla.
+One of the situations where programming is at its most useful is processing different sequences of items and events. Computers are good at repeating things. For example, in the previous parts of this material we have been iterating over strings, lists and dictionaries in various ways.
 
-Oletetaan tilanne, jossa meillä on lista kokonaislukuja. Tämän listan perusteella meidän pitäisi luoda vastaava merkkijonolista.
-
-Perinteinen tapa toteuttaa operaatio näyttäisi esimerkiksi tältä:
+Let's assume we have a list of integers, and we would need the same list of items in string format. A traditional way of completing the task could look like this:
 
 ```python
-luvut = [1, 2, 3, 6, 5, 4, 7]
+numbers = [1, 2, 3, 6, 5, 4, 7]
 
-merkkijonot = []
-for luku in luvut:
-    merkkijonot.append(str(luku))
+strings = []
+for number in numbers:
+    strings.append(str(number))
 ```
 
-## Listakooste
+## List comprehensions
+
+There is also a more "pythonic" way of generating lists from existing lists. These are called _list comprehensions_
 
 Python tarjoaa kuitenin "pythonmaisemman" tavan uuden listan muodostamiseksi vanhan perusteella. Menetelmää voidaan kutsua "listakoosteeksi", mutta huomattavasti yleisempää on käyttää englanninkielistä nimeä _list comprehension_.
 
@@ -37,7 +37,7 @@ Esimerkiksi yllä esitetty ohjelma, joka luo merkkijonolistan kokonaislukulistan
 
 ```python
 luvut = [1, 2, 3, 6, 5, 4, 7]
-merkkijonot = [str(luku) for luku in luvut]
+strings = [str(luku) for luku in luvut]
 ```
 
 Koosteessa näyttää siis olevan jotakuinkin samat elementit kuin perinteisessäkin toteutuksessa, mutta syntaksi on uudenlainen. Yleisemmin listakoosteen syntaksi voitaisiin esittää esimerkiksi näin:
