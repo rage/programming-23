@@ -136,21 +136,21 @@ print(lause_ilman_alkuja)
 
 <programming-exercise name='Filter forbidden' tmcname='part11-08_filter_forbidden'>
 
-Tee funktio `filter_forbidden(string: str, forbidden: str)` joka palauttaa sen parametrina olevasta merkkijonosta version, joka ei sisällä yhtään merkkiä sen toisena parametrina olevasta "kiellettyjen merkkien" merkkijonosta.
+Please write a function named `filter_forbidden(string: str, forbidden: str)` which takes two strings as its arguments. The function should return a new version of the first string. It should not contain any characters from the second string.
 
-Funktion tulee käyttää listakoostetta. Funktio saa sisältää `def`-rivi mukaanlukien maksimissaan 3 riviä.
+The function should be implemented using list comprehensions. The maximum length of the function, measured in lines of code, should be 3, including the header line beginning with the `def` keyword.
 
-Esimerkki funktion käytöstä
+Please have a look at the example below.
 
 ```python
-lause = "Suo! kuokka, ja python: hieno yhdistelmä!??!?!"
-suodatettu = filter_forbidden(lause, "!?:,.")
-print(suodatettu)
+sentence = "Once! upon, a time: there was a python!??!?!"
+filtered = filter_forbidden(sentence, "!?:,.")
+print(filtered)
 ```
 
 <sample-output>
 
-Suo kuokka ja python hieno yhdistelmä
+Once upon a time there was a python
 
 </sample-output>
 
@@ -306,31 +306,31 @@ if __name__ == "__main__":
 
 <programming-exercise name='Products in shopping list' tmcname='part11-09_products_in_shopping_list'>
 
-Osan 10 tehtävässä teimme [Kauppalista-luokasta iteroitavan](/osa-10/3-olio-ohjelmoinnin-tekniikoita#programming-exercise-iteroitava-kauppalista). Iteroitavan luokan oliota voidaan käyttää listakoosteiden yhteydessä. Tehtäväpohjassa on mukana luokasta typistetty versio, jonka toiminnallisuus riittää tähän tehtävään.
+In part 10 you created an [iterable shopping list](/part-10/3-oo-programming-techniques#programming-exercise-an-iterable-shopping-list). An object created from an iterable class can be used with list comprehensions. The exercise template contains a stripped down version of the `ShoppingList` with just enough functionality to fulfil the requirements of this exercise.
 
-Tee nyt funktio `products(shopping_list, amount: int)` joka saa parametriksi kauppalista-olion. Funktio palauttaa kauppalistan ostoksista niiden tuotteiden nimet, joita on listalla vähintään parametrin `maara` verran.
+Please write a function named `products(shopping_list, amount: int)` which takes a ShoppingList object and an integer value as its arguments. The function returns a list of product names which includes only the products with at least the number of items specified bu the `amount` parameter.
 
-Funktio tulee toteuttaa listakoosteen avulla, ja sen pituus saa olla `def`-määrittelyriveineen yhteensä korkeintaan kaksi riviä. Luokan Kauppalista koodia ei saa muuttaa!
+The function should be implemented using list comprehensions. The maximum length of the function, measured in lines of code, should be 2, including the header line beginning with the `def` keyword. The `ShoppingList` class definition should not be modified.
 
-Funktio toimii seuraavasti
+The function should work as follows:
 
 ```python
-lista = Kauppalista()
-lista.lisaa("banaanit", 10)
-lista.lisaa("omenat", 5)
-lista.lisaa("alkoholiton olut", 24)
-lista.lisaa("ananas", 1)
+my_list = ShoppingList()
+my_list.lisaa("bananas", 10)
+my_list.lisaa("apples", 5)
+my_list.lisaa("alcohol free beer", 24)
+my_list.lisaa("pineapple", 1)
 
-print("kauppalistalla vähintään 8 seuraavia tuotteita:")
-for tuote in kauppalistan_tuotteet(lista, 8):
+print("the shopping list contains at least 8 of the following items:")
+for tuote in products(lista, 8):
     print(tuote)
 ```
 
 <sample-output>
 
-kauppalistalla vähintään 8 seuraavia tuotteita:
-banaanit
-alkoholiton olut
+the shopping list contains at least 8 of the following items:
+bananas
+alcohol free beer
 
 </sample-output>
 
