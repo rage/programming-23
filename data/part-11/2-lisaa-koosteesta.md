@@ -4,9 +4,9 @@ title: 'Lisää koosteesta'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, miten koosteita voidaan hyödyntää merkkijonojen kanssa
 - Osaat käyttää omia olioita koosteissa
@@ -121,13 +121,13 @@ Sama esimerkki perinteisemmällä tavalla näyttäisi esimerkiksi tältä:
 
 lause = "Vesihiisi se kuulkaa vaan sihisi hississä"
 
-sanalista = []
+word_list = []
 sanat = lause.split()
 for sana in sanat:
     sana_ilman_alkua = sana[1:]
-    sanalista.append(sana_ilman_alkua)
+    word_list.append(sana_ilman_alkua)
 
-lause_ilman_alkuja = " ".join(sanalista)
+lause_ilman_alkuja = " ".join(word_list)
 
 
 print(lause_ilman_alkuja)
@@ -225,8 +225,8 @@ class Juoksumatka:
         return f"{self.matka} m. ({self.nimi})"
 
 if __name__ == "__main__":
-    pituudet = [100, 200, 1500, 3000, 42195]
-    matkat = [Juoksumatka(pituus) for pituus in pituudet]
+    lengths = [100, 200, 1500, 3000, 42195]
+    matkat = [Juoksumatka(pituus) for pituus in lengths]
 
     # tulostetaan kaikki
     print(matkat)
@@ -336,40 +336,40 @@ alkoholiton olut
 
 </programming-exercise>
 
-<programming-exercise name='Halvempien hintaero' tmcname='osa11-10_halvempien_hintaero'>
+<programming-exercise name='Price difference of cheaper properties' tmcname='part11-10_cheaper_properties'>
 
-Osan 9 tehtävässä teimme luokan [Asunto](/osa-9/1-oliot-ja-viittaukset#programming-exercise-asuntovertailu). Tässä tehtävässä on käytössä hieman laajennettu versio luokasta.
+This exercise is a slightly modified version of the exercise [Comparing properties](/part-9/1-objects-and-references#programming-exercise-comparing-properties) from part 9.
 
-Tee funktio `halvemmat(asunnot: list, verrattava: Asunto)`, joka saa parametriksi listan asuntoja sekä yksittäisen vertailtavan asunnon. Funktio palauttaa listan, jolla on asunnoista ne, jotka ovat hinnaltaan halvempia kuin vertailtava asunto, sekä näiden hintaeron. Palautettavan listan alkiot ovat tupleja, joiden ensimmäinen jäsen on asunto ja toisena sen hintaero vertailtavaan.
+Please write a function named `cheaper_properties(properties: list, reference: RealProperty)` which takes a list of properties and a single RealProperty object as its arguments. The function should return a list containing only those properties in the original list which are cheaper, along with the price difference when compared to the reference property. The items in the returned list should be tuples, where the first item is the property itself and the second is the difference in price.
 
-Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus `def`-määrittelyrivi mukaanluettuna on 2 riviä.
+The function should be implemented using list comprehensions. The length of the function, measured in lines of code, should be 2, including the header line beginning with the `def` keyword.
 
-Luokan `Asunto` koodia ei saa muuttaa!
+The code for the `RealProperty` class is included in the exercise template and should not be changed.
 
-Funktio toimii seuraavasti
+An example of the function in action:
 
 ```python
-a1 = Asunto(1, 16, 5500, "Eira yksiö")
-a2 = Asunto(2, 38, 4200, "Kallio kaksio")
-a3 = Asunto(3, 78, 2500, "Jakomäki kolmio")
-a4 = Asunto(6, 215, 500, "Suomussalmi omakotitalo")
-a5 = Asunto(4, 105, 1700, "Kerava 4h ja keittiö")
-a6 = Asunto(25, 1200, 2500, "Haikon kartano")
+a1 = RealProperty(1, 16, 5500, "Central studio")
+a2 = RealProperty(2, 38, 4200, "Two bedrooms downtown")
+a3 = RealProperty(3, 78, 2500, "Three bedrooms in the suburbs")
+a4 = RealProperty(6, 215, 500, "Farm in the middle of nowhere")
+a5 = RealProperty(4, 105, 1700, "Loft in a small town")
+a6 = RealProperty(25, 1200, 2500, "Countryside mansion")
 
-asunnot = [a1, a2, a3, a4, a5, a6]
+properties = [a1, a2, a3, a4, a5, a6]
 
-print(f"asuntoa {a3.kuvaus} halvemmat vaihtoehdot:")
-for alkio in halvemmat(asunnot, a3):
-    print(f"{alkio[0].kuvaus:30} hintaero {alkio[1]} euroa")
+print(f"cheaper options when compared to {a3.description}:")
+for item in cheaper_properties(properties, a3):
+    print(f"{item[0].description:30} price difference {item[1]} euros")
 ```
 
 <sample-output>
 
-asuntoa Jakomäki kolmio halvemmat vaihtoehdot:
-Eira yksiö                     hintaero 107000 euroa
-Kallio kaksio                  hintaero 35400 euroa
-Suomussalmi omakotitalo        hintaero 87500 euroa
-Kerava 4h ja keittiö           hintaero 16500 euroa
+cheaper options when compared to Three bedrooms in the suburbs:
+Central studio                price difference 107000 euros
+Two bedrooms downtown         price difference 35400 euros
+Farm in the middle of nowhere price difference 87500 euros
+Loft in a small town          price difference 16500 euros
 
 </sample-output>
 
@@ -427,35 +427,35 @@ if __name__ == "__main__":
 
 </sample-output>
 
-<programming-exercise name='Merkkijonojen pituudet' tmcname='osa11-11_merkkijonojen_pituudet'>
+<programming-exercise name='Lengths of strings' tmcname='part11-11_lengths_of_strings'>
 
-Tee funktio `pituudet(merkkijonot: list)`, joka saa parametriksi listan merkkijonoja. Funktio palauttaa _sanakirjan_, jossa avaimina on listan merkkijonot ja arvoina merkkijonojen pituudet.
+Please write a function named `lengths(strings: list)` which takes a list of strings as its argument. The function should return a _dictionary_ with the strings in the list as the keys and their lengths as the values attached to each key.
 
-Funktio tulee toteuttaa sanakirjakoosteen avulla. Funktion maksimipituus def-määrittelyrivi mukaanlukien on kaksi riviä.
+The function should be implemented with dictionary comprehension techniques. The length of the function, including the header line beginning with the `def` keyword, should be 2.
 
-Funktio toimii seuraavasti
+The function should work as follows:
 
 ```python
-sanalista = ["suo", "kuokka" , "python", "ja", "koodari"]
+word_list = ["once", "upon" , "a", "time", "in"]
 
-sanojen_pituudet = pituudet(sanalista)
-print(sanojen_pituudet)
+word_lengths = lengths(word_list)
+print(word_lengths)
 ```
 
 <sample-output>
 
-{'suo': 3, 'kuokka': 6, 'python': 6, 'ja': 2, 'koodari': 7}
+{'once': 4, 'upon': 4, 'a': 1, 'time': 4, 'in': 2}
 
 </sample-output>
 
 
 </programming-exercise>
 
-<programming-exercise name='Yleisimmät sanat' tmcname='osa11-12_yleisimmat_sanat'>
+<programming-exercise name='Most common words' tmcname='part11-12_most_common_words'>
 
-Tee funktio `yleisimmat_sanat(tiedoston_nimi: str, raja: int)`, joka saa parametrikseen tiedoston nimen. Funktio palauttaa sanakirjan, joka sisältää tiedostossa olevien sanojen esiintymislukumäärän niiden sanojen osalta, joilla on vähintään toisen parametrin `raja` verran esiintymiä.
+Please write a function named `most_common_words(filename: str, lower_limit: int)` which takes a filename and an integer value for a lower limit as its arguments. The function should return a dictionary containing the occurrences of the words which appear at least the number of times specified in the `lower_limit` parameter.
 
-Esim. jos funktiolla tarkasteltaisiin tiedostoa _comprehensions.txt_ jonka sisältö on seuraava
+For example, say the function was used to process the contents of the file named _comprehensions.txt_ with the following contents:
 
 ```txt
 List comprehension is an elegant way to define and create lists based on existing lists.
@@ -464,7 +464,7 @@ However, we should avoid writing very long list comprehensions in one line to en
 Remember, every list comprehension can be rewritten in for loop, but every for loop can’t be rewritten in the form of list comprehension.
 ```
 
-Kutsuttaessa `yleisimmat_sanat("comprehensions.txt", 3)` funktion palauttama sanakirja näyttäisi seuraavalta:
+When the function is called with the arguments `most_common_words("comprehensions.txt", 3)` it should return
 
 <sample-output>
 
@@ -472,8 +472,8 @@ Kutsuttaessa `yleisimmat_sanat("comprehensions.txt", 3)` funktion palauttama san
 
 </sample-output>
 
-Huomaa, että kirjainkoko vaikuttaa ja vain kokonaiset sanat lasketaan - sanat 'List' ja 'lists' eivät siis saa kasvattaa sanan 'list' lukumäärää. Lisäksi kaikki sanoissa olevat välimerkit tulee poistaa.
+NB: the case of letters affects the results, and all inflected forms are unique words in this exercise. That is, the words `List`, `lists` and `list` are each separate words here, and only `list` has enough occurrences to make it to the returned list. All punctutation should be removed before counting up the occurrences.
 
-Funktion toteutustapa on vapaa, helpoimmalla pääset hyödyntämällä lista- ja sanakirjakoosteita.
+It is up to you to decide how to implement this. The easiest way would likely be to make use of list and dictionary comprehensions.
 
 </programming-exercise>
