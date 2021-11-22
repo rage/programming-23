@@ -4,9 +4,9 @@ title: 'Rekursio'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät mitä tarkoitetaan rekursiolla
 - Osaat kirjoittaa itse yksinkertaisen rekursiivisen funktion
@@ -32,7 +32,7 @@ def tervehdi(nimi : str):
     tervehdi(nimi)
 ```
 
-Tällöin funktion kutsuminen millä tahansa merkkijonolla antaa virheilmoituksen:
+Tällöin funktion kutsuminen millä tahansa my_stringlla antaa virheilmoituksen:
 
 <sample-output>
 
@@ -47,12 +47,12 @@ Virheilmoituksessakin mainitulla _rekursiolla_ tarkoitetaan sitä, että funktio
 Tarkastellaan aluksi yksinkertaista funktiota, joka lisää listan loppuun 0-alkioita niin kauan kuin listan pituus on alle 10. Silmukan sijasta funktio kutsuukin itseään uudestaan, jos ehto ei täyty:
 
 ```python
-def tayta_lista(luvut: list):
+def tayta_lista(numbers: list):
     """ Lisää listaan alkoita jos sen pituus on alle 10 """
-    if len(luvut) < 10:
-        luvut.append(0)
+    if len(numbers) < 10:
+        numbers.append(0)
         # Kutsutaan uudestaaan
-        tayta_lista(luvut)
+        tayta_lista(numbers)
 
 
 if __name__ == "__main__":
@@ -71,10 +71,10 @@ Perinteisellä silmukalla ohjelma näyttäisi esimerkiksi tältä:
 
 ```python
 
-def tayta_lista(luvut: list):
+def tayta_lista(numbers: list):
     """ Lisää listaan alkoita jos sen pituus on alle 10 """
-    while len(luvut) < 10:
-        luvut.append(0)
+    while len(numbers) < 10:
+        numbers.append(0)
 
 if __name__ == "__main__":
     testi = [1,2,3,4]
@@ -93,18 +93,16 @@ Mikä tahansa algoritmi on periaatteessa mahdollista toteuttaa sekä iteratiivis
 
 </text-box>
 
-<programming-exercise name='Suurempia lukuja' tmcname='osa11-13_listaan_lukuja'>
+<programming-exercise name='Add numbers to a list' tmcname='part11-13_add_numbers_to_list'>
 
-Kirjoita _rekursiivinen funktio_ `listaan_lukuja(luvut: list)`, joka lisää listaan lukuja niin kauan, kunnes listan pituus on viidellä jaollinen. Jokainen listaan lisättävä luku on aina yhden suurempi kuin listan viimeinen luku.
+Please write a _recursive function_ named `add_numbers_to_list(numbers: list)`. The function takes a list of numbers as its argument, and adds new numbers to the list until the length of the list is divisible by five. Each number added to the list should be one greater than the last number in the list.
 
-Funktion pitää kutsua itseään rekursiivisesti.
-
-Esimerkki funktion kutsusta:
+The function must call itself recursively. Please see the example below.
 
 ```python
-luvut = [1,3,4,5,10,11]
-listaan_lukuja(luvut)
-print(luvut)
+numbers = [1,3,4,5,10,11]
+add_numbers_to_list(numbers)
+print(numbers)
 ```
 
 <sample-output>
@@ -170,7 +168,7 @@ kertoma(5)
 
 Kokeile, miten [visualisaattori](http://www.pythontutor.com/visualize.html#code=def%20kertoma%28n%3A%20int%29%3A%0A%20%20%20%20if%20n%20%3C%202%3A%0A%20%20%20%20%20%20%20%20return%201%0A%0A%20%20%20%20edellisen_luvun_kertoma%20%3D%20kertoma%28n%20-%201%29%0A%20%20%20%20luvun_n_kertoma%20%3D%20n%20*%20edellisen_luvun_kertoma%0A%20%20%20%20return%20luvun_n_kertoma%0A%20%20%20%20%0Akertoma%285%29&cumulative=false&curInstr=5&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false) demonstroi rekursion etenemisen.
 
-Hieman normaalista poiketen visualisaattorissa kutsupino "kasvaa" alaspäin. Suorituksessa oleva funktiokutsu on kutsupinon alimpana oleva sinisellä merkitty "lohko", jolla on omat muuttujansa. Hetken kuluttua palautettava tulos on laskettu muuttujaan `luvun_n_kertoma`.
+Hieman normaalista poiketen visualisaattorissa kutsupino "kasvaa" alaspäin. Suorituksessa oleva funktiokutsu on kutsupinon alimpana oleva sinisellä merkitty "lohko", jolla on omat muuttujansa. Hetken kuluttua palautettava result on laskettu muuttujaan `luvun_n_kertoma`.
 
 <img src="11_1_1.png">
 
@@ -224,27 +222,27 @@ jne.
 
 Rekursiivinen algoritmimme siis toimii, koska voimme todistaa jokaisen luvun kohdalla ohjelman toimivuuden aikaisempien lukujen perusteella.
 
-<programming-exercise name='Rekursiivinen summa' tmcname='osa11-14_rekursiivinen_summa'>
+<programming-exercise name='Rekursiivinen summa' tmcname='part11-14_recursive_sum'>
 
-Tee rekursiivinen funktio `summa(luku: int)` summan `1 + 2 + ... + luku` laskemiseen. Funktion runko on seuraava:
+Please write a recursive function named `recursive_sum(number: int)` which calculates the sum `1 + 2 + ... + number`. The exercise template contains the following outline:
 
 ```python
-def summa(luku: int):
-    # kun luku on 1, ei ole muita summattavia...
-    if luku <= 1:
-        return luku
+def recursive_sum(number: int):
+    # if the number is 1, there is nothing else to add
+    if number <= 1:
+        return number
 
-    # täydennä koodi...
+    # fill in the rest of the function
 ```
 
-Muutama käyttöesimerkki:
+Some examples:
 
 ```python
-tulos = summa(3)
-print(tulos)
+result = recursive_sum(3)
+print(result)
 
-print(summa(5))
-print(summa(10))
+print(recursive_sum(5))
+print(recursive_sum(10))
 ```
 
 <sample-output>
@@ -257,33 +255,33 @@ print(summa(10))
 
 </programming-exercise>
 
-<programming-exercise name='Sulut tasapainossa' tmcname='osa11-15_sulut_tasapainossa'>
+<programming-exercise name='Balance all the brackets' tmcname='part11-15_balanced_brackets'>
 
-Tehtäväpohjassa on valmiina funktio `sulut_tasapainossa`, joka tarkastaa, onko sen parametrina olevassa merkkijonossa sulut tasapainossa, eli onko jokaista "aukeavaa" sulkumerkkiä ( kohti on oma "sulkeutuva" sulkumerkki ), ja että sulut eivät mene ristiin.
+The exercise template contains the function `balanced_brackets` which takes a string as its argument. It checks if the _round_ brackets, or parentheses, within the string are balanced. That is, for each opening bracket `(` there should be a closing bracket `)`, and all pairs of brackets should be matched in order, i.e. the bracket pairs must not be crossed.
 
 ```python
-def sulut_tasapainossa(merkkijono: str):
-    if len(merkkijono) == 0:
+def balanced_brackets(my_string: str):
+    if len(my_string) == 0:
         return True
-    if not (merkkijono[0] == '(' and merkkijono[-1] == ')'):
+    if not (my_string[0] == '(' and my_string[-1] == ')'):
         return False
 
-    # poistetaan ensimmäinen ja viimeinen merkki
-    return sulut_tasapainossa(merkkijono[1:-1])
+    # remove first and last character
+    return balanced_brackets(my_string[1:-1])
 
-ok = sulut_tasapainossa("(((())))")
+ok = balanced_brackets("(((())))")
 print(ok)
 
-# ei kelpaa sillä yksi loppusulku liikaa
-ok = sulut_tasapainossa("()())")
+# there is one closing bracket too many, so this produces False
+ok = balanced_brackets("()())")
 print(ok)
 
-# ei kelpaa sillä alussa virheellinen loppusulku
-ok = sulut_tasapainossa(")()")
+# this one starts with a closing bracket, False again
+ok = balanced_brackets(")()")
 print(ok)
 
-# ei kelpaa, sillä funktio ei osaa käsitellä kuin sisäkkäisiä sulkuja
-ok = sulut_tasapainossa("()(())")
+# this produces False because the function only handles entirely nested brackets
+ok = balanced_brackets("()(())")
 print(ok)
 ```
 
@@ -296,28 +294,28 @@ False
 
 </sample-output>
 
-Laajenna funktiota siten, että se jättää huomiotta kaikki muut kuin sulkumerkit, ja että se osaa kaarisulkujen lisäksi myös hakasulut. Haka- ja kaarisulut eivät saa mennä ristiin!
+Please expand the function so that it also works with square brackets `[]`. The function should also ignore all characters which are not brackets `()` or `[]`. The different types of brackets must be matched correctly in order.
 
-Seuraavassa muutama käyttöesimerkki:
+Please have a look at the examples below::
 
 ```python
-ok = sulut_tasapainossa("([([])])")
+ok = balanced_brackets("([([])])")
 print(ok)
 
-ok = sulut_tasapainossa("(python versio [3.7]) käytä tätä!")
+ok = balanced_brackets("(python version [3.7]) please use this one!")
 print(ok)
 
-# ei kelpaa sillä virheellinen loppusulku
-ok = sulut_tasapainossa("(()]")
+# this is no good, the closing bracket doesn't match
+ok = balanced_brackets("(()]")
 print(ok)
 
 
-# ei kelpaa sillä erityyppiset sulut menevät ristiin
-ok = sulut_tasapainossa("([huono)]")
+# different types of brackets are mismatched
+ok = balanced_brackets("([bad egg)]")
 print(ok)
 ```
 
-Huomaa, että funktion ei tarvitse osata kuin yksi sisäkkäinen sulutus - sen ei siis tarvitse ymmärtää esimerkiksi jonoa (x + 1)(y + 1).
+NB: the function only has to handle entirely nested brackets. The string `(x + 1)(y + 1)` produes `False` as the brackets are not nested.
 
 <sample-output>
 
@@ -325,6 +323,7 @@ True
 True
 False
 False
+
 
 </sample-output>
 
@@ -332,7 +331,7 @@ False
 
 ## Binäärihaku
 
-Binäärihaussa yritetään löytää järjestyksessä olevasta listasta annettu alkio. Järjestys tarkoittaa tässä yhteydessä esimerkiksi lukujen järjestystä pienimmästä suurimpaan tai merkkijonoja aakkosjärjestyksessä.
+Binäärihaussa yritetään löytää järjestyksessä olevasta listasta annettu alkio. Järjestys tarkoittaa tässä yhteydessä esimerkiksi lukujen järjestystä pienimmästä suurimpaan tai my_stringja aakkosjärjestyksessä.
 
 Binäärihaun ideana on, että tarkastellaan aina listan keskimmäistä alkiota. Jos
 - keskimmäinen alkio on etsitty alkio, palautetaan tieto siitä, että alkio löytyi
