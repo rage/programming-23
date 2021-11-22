@@ -138,7 +138,7 @@ print(lause_ilman_alkuja)
 
 Please write a function named `filter_forbidden(string: str, forbidden: str)` which takes two strings as its arguments. The function should return a new version of the first string. It should not contain any characters from the second string.
 
-The function should be implemented using list comprehensions. The maximum length of the function, measured in lines of code, should be 3, including the header line beginning with the `def` keyword.
+The function should be implemented using list comprehensions. The maximum length of the function is three lines of code, including the header line beginning with the `def` keyword.
 
 Please have a look at the example below.
 
@@ -310,7 +310,7 @@ In part 10 you created an [iterable shopping list](/part-10/3-oo-programming-tec
 
 Please write a function named `products(shopping_list, amount: int)` which takes a ShoppingList object and an integer value as its arguments. The function returns a list of product names which includes only the products with at least the number of items specified bu the `amount` parameter.
 
-The function should be implemented using list comprehensions. The maximum length of the function, measured in lines of code, should be 2, including the header line beginning with the `def` keyword. The `ShoppingList` class definition should not be modified.
+The function should be implemented using list comprehensions. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword. The `ShoppingList` class definition should _not_ be modified.
 
 The function should work as follows:
 

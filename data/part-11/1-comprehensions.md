@@ -120,16 +120,16 @@ def kertomat(luvut: list):
 
 <programming-exercise name='Square roots' tmcname='part11-01_square_roots'>
 
-Tee funktio `square_roots(numbers: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan parametrina olevien lukujen neliöjuurista. Neliöjuuren laskemiseen löytyy sopiva funktio moduulista [math](https://docs.python.org/3/library/math.html)
+Please write a function named `square_roots(numbers: list)` which takes a list of integers as its argument. The function should return a new list containing the square roots of the original integers. The [math](https://docs.python.org/3/library/math.html) module from the Python standard library contains a suitable function for calculating the square root.
 
-Funktion tulee käyttää listakoostetta. Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+The function should use a list comprehension technique. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
-Funktio toimii seuraavasti:
+The function should work as follows:
 
 ```python
-rivit = square_roots([1,2,3,4])
-for rivi in rivit:
-    print(rivi)
+lines = square_roots([1,2,3,4])
+for line in lines:
+    print(line)
 ```
 
 <sample-output>
@@ -143,24 +143,24 @@ for rivi in rivit:
 
 </programming-exercise>
 
-<programming-exercise name='Star rows' tmcname='part11-02_star_rows'>
+<programming-exercise name='Star rows' tmcname='part11-02_rows_of_stars'>
 
-Tee funktio `star_rows(numbers: list)`, joka saa parametriksi listan kokonaislukuja. Funktio palauttaa listan, joka koostuu tähtiriveistä, joiden pituus vastaa parametrina olevan listan lukuja. Funktion tulee käyttää listakoostetta.
+Please write a function named `rows_of_stars(numbers: list)` which takes a list of integers as its argument. The function should return a new list containing rows of stars. The length of each row should correspond to the integer at the same index in the original list. The function should use a list comprehension technique to achieve this.
 
-Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
-Funktio toimii seuraavasti:
+The function should work as follows:
 
 ```python
-rivit = tahtirivit([1,2,3,4])
-for rivi in rivit:
-    print(rivi)
+rows = rows_of_stars([1,2,3,4])
+for row in rows:
+    print(row)
 
 print()
 
-rivit = tahtirivit([4, 3, 2, 1, 10])
-for rivi in rivit:
-    print(rivi)
+rows = rows_of_stars([4, 3, 2, 1, 10])
+for row in rows:
+    print(row)
 ```
 
 <sample-output>
@@ -184,27 +184,27 @@ for rivi in rivit:
 
 <programming-exercise name='Best exam result' tmcname='part11-03_best_exam_result'>
 
-Tehtäväpohjassa on valmiina luokka `ExamResult`, jolla on seuraavat julkiset attribuutit:
+The exercise template contains the class definition `ExamResult`. The class has the following public attributes:
 
 * name
 * grade1
 * grade2
 * grade3
 
-Kirjoita funktio `best_results(results: list)`. Funktio saa parametrikseen listan koesuoritusolioita.
+Please write a function named `best_results(results: list)` which takes a list of ExamResult objects as its argument.
 
-Funktio palauttaa listakoostetta käyttäen uuden listan, johon on tallennettu jokaisen suorituksen paras arvosana.
+The function should return a new list containing only the best result from each ExamResult object. The function should use a list comprehension technique to achieve this.
 
-Funktion maksimipituus on siis (mukaanlukien def-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
-Esimerkki suorituksesta:
+The function should work as follows:
 
 ```python
-suoritus1 = Koesuoritus("Pekka",5,3,4)
-suoritus2 = Koesuoritus("Pirjo",3,4,1)
-suoritus3 = Koesuoritus("Paavo",2,1,3)
-suoritukset = [suoritus1, suoritus2, suoritus3]
-print(parhaat_tulokset(suoritukset))
+result1 = ExamResult("Peter",5,3,4)
+result2 = ExamResult("Pippa",3,4,1)
+result3 = ExamResult("Paul",2,1,3)
+results = [result1, result2, result3]
+print(best_results(results))
 ```
 
 <sample-output>
@@ -217,15 +217,15 @@ print(parhaat_tulokset(suoritukset))
 
 <programming-exercise name='Lengths' tmcname='part11-04_lengths'>
 
-Tee funktio `lengths(lists: list)` joka saa parametriksi listan, joka sisältää listoja, jotka sisältävät kokonaislukuja. Funktio palauttaa listan, joka sisältää parametrina olevien listojen pituudet.
+Please write a function named `lengths(lists: list)` which takes a list containing lists of integers as its argument. The function should return a new list containing the lengths of the lists within the arguent list.
 
-Funktio tulee toteuttaa listakoosteen avulla. Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+The function should use a list comprehension technique to achieve this. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
-Funktio toimii seuraavasti
+The function should work as follows:
 
 ```python
 lists = [[1,2,3,4,5], [324, -1, 31, 7],[]]
-print(pituudet(lists))
+print(lengths(lists))
 ```
 
 <sample-output>
@@ -327,19 +327,19 @@ Esimerkissä lauseke on siis `(luku, kertoma(luku))`, joka muodostaa tuplen, jos
 
 <programming-exercise name='Remove smaller than' tmcname='part11-05_remove_smaller_than'>
 
-Kirjoita funktio `remove_smaller_than(numbers: list, limit: int)`, joka saa parametrikseen listan kokonaislukuja sekä raja-arvon, joka on myös kokonaisluku.
+Please write a function named `remove_smaller_than(numbers: list, limit: int)` which takes a list of integers and a limit value (also in integer format) as its arguments.
 
-Funktio muodostaa listakoostetta käyttäen uuden listan, josta on jätetty pois raja-arvoa pienemmät luvut.
+The function should use a list comprehension technique to produce a new list without the values which are smaller than the limit value.
 
-Funktion maksimipituus on siis (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
-Esimerkki funktion käytöstä:
+An example of the function in use:
 
 ```python
-lukuja = [1,65, 32, -6, 9, 11]
-print(poista_pienemmat(lukuja, 10))
+numbers = [1,65, 32, -6, 9, 11]
+print(remove_smaller_than(numbers, 10))
 
-print(poista_pienemmat([-4, 7, 8, -100], 0))
+print(remove_smaller_than([-4, 7, 8, -100], 0))
 ```
 
 <sample-output>
@@ -351,28 +351,28 @@ print(poista_pienemmat([-4, 7, 8, -100], 0))
 
 </programming-exercise>
 
-<programming-exercise name='Begin with vowel' tmcname='part11-06_begin_with_vowel'>
+<programming-exercise name='Begin with a vowel' tmcname='part11-06_begin_with_vowel'>
 
-Kirjoita funktio `begin_with_vowel(words: list)`, joka saa parametrikseen listan merkkijonoja.
+Please write a function named `begin_with_vowel(words: list)` which takeas a list of strings as its argument.
 
-Tehtävänäsi on listakoostetta hyödyntäen muodostaa ja palauttaa uusi lista, joka sisältää vain alkuperäisen listan ne sanat, jotka alkavat vokaalilla (a, e, i, o, u). Sekä pienien että suurten kirjaimien pitää kelvata.
+The function should use a list comprehension technique to create and return a new list, containing only those words from the original list which begin with a vowel (a, e, i, o, u). Both lowercase and uppercase letters should be fine.
 
-Funktion maksimipituus on (mukaanlukien `def`-sanalla alkava otsikkorivi) kokonaisuudessaan kaksi riviä!
+The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
-Esimerkki funktion käytöstä:
+An example of the function in use:
 
 ```python
-klista = ["auto","mopo","Etana","kissa","Koira","OMENA","appelsiini"]
-for vok in vokaalilla_alkavat(klista):
-    print(vok)
+word_list = ["automobile","motorbike","Animal","cat","Dog","APPLE","orange"]
+for vowelled in begin_with_vowel(word_list):
+    print(vowelled)
 ```
 
 <sample-output>
 
-auto
-Etana
-OMENA
-appelsiini
+automobile
+Animal
+APPLE
+orange
 
 </sample-output>
 
@@ -442,21 +442,21 @@ if __name__ == "__main__":
 
 <programming-exercise name='Lottery numbers' tmcname='part11-07_lottery_numbers'>
 
-## Lottorivi, osa 1
+## LotteryNumbers matched
 
-Kirjoita luokka `LotteryNumbers`, joka saa konstruktorissaan parametrikseen kierroksen numeron (kokonaisluku) sekä seitsemänalkioisen kokonaislukulistan. Lista kuvaa kierroksen oikeita numeroita (eli oikeaa _riviä_). Kirjoita lisäksi luokalle metodi
+Please write a class named `LotteryNumbers` which takes the week number (an integer value) and a list of seven integers as its constructor arguments. The list should contain the correct lottery numbers for the given week. 
 
-`number_of_hits(numbers: list)`
+Please also write a method named `number_of_hits(numbers: list)` which takes a list of integers as its argument. The method returns the number of correct entries in the parameter list.
 
-...joka palauttaa kokonaislukuna tiedon siitä, kuinka monta osumaa rivissä oli. Metodin tulee käyttää listakoostetta! Metodin pituus kokonaisuudessaan (def-rivi mukaanlukien) saa olla korkeintaan 2 riviä.
+The method should use a list comprehension technique to achieve this. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
-Esimerkki luokan käytöstä:
+An example of how the class is used:
 
 ```python
-oikea = Lottorivi(5, [1,2,3,4,5,6,7])
-oma_rivi = [1,4,7,11,13,19,24]
+week5 = LotteryNumbers(5, [1,2,3,4,5,6,7])
+my_numbers = [1,4,7,11,13,19,24]
 
-print(oikea.osumien_maara(oma_rivi))
+print(week5.number_of_hits(my_numbers))
 ```
 
 <sample-output>
@@ -465,19 +465,19 @@ print(oikea.osumien_maara(oma_rivi))
 
 </sample-output>
 
-## Lottorivi, osa 2
+## LotteryNumbers matched in place
 
-Kirjoita luokkaan metodi `hits_in_place(numbers)`, joka palauttaa uuden listan. Uudessa listassa on vanhoilla paikoillaan oikeat numerot (eli ne, jotka löytyvät myös oikeasta rivistä), muiden paikalla on -1.
+Please write a method named `hits_in_place(numbers)` which takes a list of weven integers as its argument and returns a new list of seven integers. The new list contains only those items from the parameter list which match the week's correct numbers. These must remain at the same indexes as they were in the parameter list. The rest of the indexes should be filled with values `-1`.
 
-Metodin tulee käyttää listakoostetta. Metodin pituus kokonaisuudessaan (def-rivi mukaanlukien) saa olla korkeintaan 2 riviä.
+The method should use a list comprehension technique to achieve this. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
-Esimerkki metodin käytöstä:
+Please take a look at the example below:
 
 ```python
-oikea = Lottorivi(8, [1,2,3,10,20,30,33])
-oma_rivi = [1,4,7,10,11,20,30]
+week8 = LotteryNumbers(8, [1,2,3,10,20,30,33])
+my_numbers = [1,4,7,10,11,20,30]
 
-print(oikea.osumat_paikoillaan(oma_rivi))
+print(week8.hits_in_place(my_numbers))
 ```
 
 <sample-output>
