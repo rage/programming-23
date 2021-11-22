@@ -1,6 +1,6 @@
 ---
-path: '/part-11/2-lisaa-koosteesta'
-title: 'Lisää koosteesta'
+path: '/part-11/2-more-comprehensions'
+title: 'More comprehensions'
 hidden: false
 ---
 

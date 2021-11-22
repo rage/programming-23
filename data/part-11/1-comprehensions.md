@@ -1,12 +1,12 @@
 ---
-path: '/part-11/1-koosteet'
-title: 'Koosteet'
+path: '/part-11/1-comprehensions'
+title: 'Comprehensions'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät mitä tarkoitetaan koosteella (comprehension)
 - Osaat hyödyntää koosteita uusien listojen muodostamiseen

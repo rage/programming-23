@@ -1,6 +1,6 @@
 ---
-path: '/part-11/4-lisaa-esimerkkeja'
-title: 'Lisää esimerkkejä'
+path: '/part-11/4-more-recursion-examples'
+title: 'More recursion examples'
 hidden: false
 ---
 

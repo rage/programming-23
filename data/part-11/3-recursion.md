@@ -1,6 +1,6 @@
 ---
-path: '/part-11/3-rekursio'
-title: 'Rekursio'
+path: '/part-11/3-recursion'
+title: 'Recursion'
 hidden: false
 ---
 
