@@ -8,78 +8,79 @@ hidden: false
 
 After this section
 
-- Käydään läpi muutamia binääripuuhun liittyviä rekursiivisia esimerkkialgoritmeja
+- You will be familiar iwth binary trees and some recursive algorithms used to process them
 
 </text-box>
 
-
-Rekursion todellinen hyöty tulee esiin tilanteissa, joissa iteratiivinen ratkaisu on hankala kirjoittaa. Tarkastellaan esimerkkinä _binääripuuta_. Binääripuulla tarkoitetaan puurakennetta, jossa jokaisella alkiolla on korkeintaan kaksi "lasta". Binääripuu voisi siis näyttää esim. tältä (huomaa, että vaikka tietojenkäsittelijöitä pidetään joissain yhteyksissä luonnontieteilijöinä, käsityksemme puiden kasvusuunnasta on nurinkurinen):
+The real advantages of recursion become evident when we come across problems where iterative solutions are difficult to write. Let's take a look at _binary trees_, for instance. A binary tree is a branched structure where we have nodes, and at each node the structure branches, at most, into two child branches with nodes of their own. A binary tree could then look like this (computer science is often considered a branch of the natural sciences, but our understanding of trees is a little backwards, as you'll notice):
 
 <img src="11_4_1.png">
 
-Binääripuiden (ja puiden yleensäkin) käsittely rekursiivisesti on ainakin teoriassa helppoa: jos halutaan tehdä jokin operaatio binääripuun kaikille alkioille - esim. etsiä jokin tietty alkio puusta, voidaan kirjoittaa rekursiivinen algoritmi, joka
+Binary trees should at least theoretically be easy to handle recursively: if we want to perform some operation on every node in the tree, our algorithm simply needs to
 
-1. Käsittelee nykyisen alkion
-2. Kutsuu itseään vasemmasta lapsesta alkavalle "alipuulle"
-3. Kutsuu itseään oikeasta lapsesta alkavalle "alipuulle"
+1. Process the current node
+2. Call itself on the child node on the left 
+3. Call itself on the child node on the right
 
 <img src="11_4_2.png">
 
-Kun koko rekursiivinen algoritmi on käsitelty, on vierailtu kerran puun jokaisessa solussa. Iteratiivinen versio algoritmista on yleensä hankalampi kirjoittaa, koska kirjanpito vieralluista alkioista menee äkkiä monimutkaiseksi.
+As you can see from the image above, both the left and right "subtrees" are fully fledged binary trees themselves, and the only node left outside the recursive calls is the parent node, which is processed in step 1 above before calling the function recursively. So, we can be sure that when the exectuion of the function finishes, each node has been visited exactly once. 
 
-Binääripuuta voidaan mallintaa helposti kirjoittamalla luokka, joka mallintaa yhtä alkiota puussa. Alkiolla on arvon lisäksi tieto vasemmasta ja oikeasta lapsestaan:
+An iterative version of a binary tree traversal would be much more complicated as we would have to somehow keep track of all the nodes we have already visited. The same principles are true for all computational tree structures, not just binary ones.
+
+A binary tree is easily modelled in Python code as well. We only need to write a class definition for a single node. It has a value attribute and also attributes for the left and right child nodes:
 
 ```python
 
-class Alkio:
-    """ Luokka mallintaa yhtä alkiota binääripuussa """
-    def __init__(self, arvo, left_child:'Alkio' = None, right_child:'Alkio' = None):
-        self.arvo = arvo
+class Node:
+    """ The class represents a single node in a binary tree """
+    def __init__(self, value, left_child:'Node' = None, right_child:'Node' = None):
+        self.value = value
         self.left_child = left_child
         self.right_child = right_child
 ```
 
-Nyt jos halutaan mallintaa esimerkiksi oheisen kaltainen puu:
+Now let's assume we want to model the following tree:
 
 <img src="11_4_3.png">
 
-...se voidaan muodostaa seuraavalla ohjelmalla:
+We could achieve this with the following code:
 
 ```python
 if __name__ == "__main__":
-    puu = Alkio(2)
+    tree = Node(2)
 
-    tree.left_child = Alkio(3)
-    tree.left_child.left_child = Alkio(5)
-    tree.left_child.right_child = Alkio(8)
+    tree.left_child = Node(3)
+    tree.left_child.left_child = Node(5)
+    tree.left_child.right_child = Node8)
 
-    tree.right_child = Alkio(4)
-    tree.right_child.right_child = Alkio(11)
+    tree.right_child = Node(4)
+    tree.right_child.right_child = Node11)
 
 ```
 
-## Rekursiiviset binääripuualgoritmit
+## Recursive binary tree algorithms
 
-Tarkastellaan ensin algoritmia, joka tulostaa kaikki binääripuun alkiot allekkain. Käytetään esimerkkinä tässä ja tulevissa tehtävissä yllä muodostettua puuta.
+First, let's take a look at an algorithm which prints out all the nodes in a binary tree one by one. In these following examples we will be working with the binary tree defined above.
 
-Funktio saa parametrikseen juurialkion (eli kaikkein ylimmäisenä olevan alkion, jonka _jälkeläisiä_ kaikki muut alkiot ovat):
+The argument to the printing function is the root node of the binary tree. This is the node at the very top in our illustration above. All other nodes are _children_ to this node:
 
 ```python
 
-def tulosta_alkiot(juuri: Alkio):
-    print(juuri.arvo)
+def print_nodes(root: Node):
+    print(root.value)
 
-    if juuri.left_child is not None:
-        tulosta_alkiot(juuri.left_child)
+    if root.left_child is not None:
+        print_nodes(root.left_child)
 
-    if juuri.right_child is not None:
-        tulosta_alkiot(juuri.right_child)
+    if root.right_child is not None:
+        print_nodes(root.right_child)
 
 ```
 
-Funktio tulostaa annetun alkion arvon, ja sen jälkeen kutsuu itseään uudestaan vasemmalle ja oikealla alipuulle (edellyttäen, että vasen ja/tai oikea alkio on määritelty). Algoritmi on melko yksinkertainen, mutta käy tehokkaasti läpi kaikki puun alkiot riippumatta puun koosta. Algoritmi ei myöskään vieraile missään puun alkiossa kahta kertaa.
+The function prints the value of the node passed as an argument, and then calls itself on the left and right child nodes, assuming the nodes are defined. This is a very simple algorithm, but it efficiently and reliably traverses all nodes in the tree, no matter the size of the tree. Crucially, no node is visited twice. Each value is printed only once.
 
-Kun funktiolle annetaan parametriksi aikaisemmin luodun binääripuun juurialkio `puu`, se tulostaa
+If we pass the root node `tree` of the binary tree illustrated above as an argument to the function, it prints out
 
 <sample-output>
 
@@ -92,24 +93,26 @@ Kun funktiolle annetaan parametriksi aikaisemmin luodun binääripuun juurialkio
 
 </sample-output>
 
-Vastaavalla tavalla voidaan kirjoittaa algoritmi, joka laskee kaikkien puun alkioiden summan:
+As you can see from the order the nodes are printed out, the algorithm first moves down the "left leg" of the tree to the very bottom, and from there traverses the other nodes in order, rather like a systematical labyrinth solver who always turns left in order to cover the entire labyrinth, until they find the exit.
+
+Similarly, we can write an algorithm for calculating the sum of all the values stored in the nodes of the tree:
 
 ```python
 
-def sum_of_nodes(juuri: Alkio):
-    summa = juuri.arvo
+def sum_of_nodes(root: Node):
+    node_sum = root.value
 
-    if juuri.left_child is not None:
-        summa += sum_of_nodes(juuri.left_child)
+    if root.left_child is not None:
+        node_sum += sum_of_nodes(root.left_child)
 
-    if juuri.right_child is not None:
-        summa += sum_of_nodes(juuri.right_child)
+    if root.right_child is not None:
+        node_sum += sum_of_nodes(root.right_child)
 
-    return summa
+    return node_sum
 
 ```
 
-Muuttuja `summa` alustetaan nykyisen alkion arvolla. Tämän jälkeen siihen lisätään rekursiivisesti vasemman ja oikean alipuun summat (tarkastaen taas ensin, että ne ovat olemassa). Lopuksi summa palautetaan.
+The variable `node_sum` is initialised to equal the value of the current node. The value in the variable is then augmented by recursive calls to the node sums of the left and right child trees (first making sure they exist, of course). This result is then returned
 
 <programming-exercise name='Greatest node' tmcname='part11-16_greatest_node'>
 
@@ -145,30 +148,28 @@ if __name__ == "__main__":
 
 </programming-exercise>
 
-## Järjestetty binääripuu
+## A sorted binary tree
 
-Binääripuusta on erityisesti hyötyä silloin, kun alkiot on järjestetty tietyllä tavalla. Alkion löytäminen järjestetystä puusta on nopeaa.
+A binary tree is especially useful when the nodes are sorted in a certain way. This makes finding nodes in the tree fast and efficient.
 
-Tarkastellaan esimerkkinä puuta, jossa alkiot on järjestetty seuraavasti: jokaisen alkion vasen lapsi on pienempi kuin alkio itse, ja vastaavasti oikea alkio on suurempi kuin alkio itse.
+Let's take a look a tree which is sorted as follows: the left child of each node is smaller than the node itself, and the right child is correspondingly greater.
 
 <img src="11_4_1.png">
 
-Nyt alkion etsimiseen voidaan kirjoittaa rekursiivinen algoritmi, joka toimii hyvin samankaltaisesti kuin aiemmin tarkastelemamme binäärihaku: jos juurialkio on tarkasteltava alkio, palautetaan arvo `True`. Muuten jatketaan rekursiivisesti hakua joko vasemmasta tai oikeasta alipuusta. Jos alkio on tyhjä, palautetaan `False`.
+Now we can write a recursive algorithm for searching for nodes. The idea is very similar to the binary search from the previous section: if the current node is the node we are looking for, return `True`. Else, continue recursively in either the left or the right child tree. If the node is not defined, return `False`.
 
 ```python
-
-def etsi_alkio(juuri: Alkio, arvo):
-    if juuri is None:
+def find_node(root: Node, value):
+    if root is None:
         return False
 
-    if arvo == juuri.arvo:
+    if value == root.value:
         return True
 
-    if arvo > juuri.arvo:
-        return etsi_alkio(juuri.right_child, arvo)
+    if value > root.value:
+        return find_node(root.right_child, value)
 
-    return etsi_alkio(juuri.left_child, arvo)
-
+    return find_node(root.left_child, value)
 ```
 
 <programming-exercise name='Bosses and subordinates' tmcname='part11-17_bosses_and_subordinates'>

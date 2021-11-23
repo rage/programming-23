@@ -42,7 +42,9 @@ The second line above contains many of the same elements as the more traditional
 
 `[<expression> for <item> in <series>]`
 
-The square brackets around the list comprehension statement signal to Python that the result should be a new list. One by one, each item in the original list is processed and the result is stored in the new list, just like in the iterative approach above. As a result we have a new list with exactly as many items as were in the original, and all items have been processed in an identical fashion.
+The square brackets around the list comprehension statement signal to Python that the result should be a new list. One by one, each item in the original list is processed, and the result is stored in the new list, just like in the iterative approach above. As a result we have a new list with exactly as many items as were in the original, and all items have been processed in an identical fashion.
+
+(NB: the originals for the images in this part are temporarily missing, which is why there is some Finnish vocabulary in the illustrations in this part. We are working on fixing this.)
 
 <img src="11_1_2.png">
 
