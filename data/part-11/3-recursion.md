@@ -168,11 +168,13 @@ factorial(5)
 
 Take a look at how the [visualisation tool](http://www.pythontutor.com/visualize.html#code=def%20factorial%28n%3A%20int%29%3A%0A%20%20%20%20if%20n%20%3C%202%3A%0A%20%20%20%20%20%20%20%20return%201%0A%0A%20%20%20%20factorial_one_level_down%20%3D%20factorial%28n%20-%201%29%0A%20%20%20%20factorial_now%20%3D%20n%20*%20factorial_one_level_down%0A%20%20%20%20return%20factorial_now%0A%20%20%20%20%0Afactorial%285%29&cumulative=false&curInstr=5&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false) demonstrates the progress of the recursion.
 
-The visualisation tool has a small quirk in the way it handles the call stack, as it seems to "grow" downwards. Usually call stacks are depicted as just that: stacks, and new calls are placed on top. In the visualisation tool, the currently active function call is the shaded block at the bottom, which has its own copy of the parameter variable. The call stack is built (downwards) until the limit posed by `n < 2` is reached. Then the return value of each function call is calculated in turn, and stored in the variable `factorial_now`. Please go through the visualisation carefully until you understand what happens at each step.
+The visualisation tool has a small quirk in the way it handles the call stack, as it seems to "grow" downwards. Usually call stacks are depicted as just that: stacks, where the new calls are placed on top. In the visualisation tool, the currently active function call is the shaded block at the bottom, which has its own copies of the variables visible. 
 
-<!---
+When the recursive factorial function is called, the call stack is built until the limit posed by `n < 2` is reached. Then the final function call in the stack returns with a value - it is `1`, as `n` is now less than 2. This return value is passed to the previous function call in the stack, where it is used to calculate that function call's return value, and so forth back out of the stack.
+
+The return value of each function call is stored in the helper variable `factorial_now`. Please go through the visualisation carefully until you understand what happens at each step, and pay special attention to the value returned at each step.
+
 <img src="11_1_1.png">
--->
 
 Let's have a look at another common recursive example: the Fibonacci number. In a Fibonacci sequence each number is the sum of the two preceding numbers. The first two numbers are here defined as 1 and 1, and the sequence then begins like this: 1, 1, 2, 3, 5, 8, 13, 21, 34.
 
@@ -208,13 +210,13 @@ The 10. number in the Fibonacci sequence is 55
 
 </sample-output>
 
-This time the stop condition is that the number asked for is less or equal to 2, because the entire sequence is defined from the first two numbers onwards, and we defined the first two numbers to be equal to 1.
+This time the stop condition is that the number asked for is less than or equal to 2, because the entire sequence is defined from the first two numbers onwards, and we defined the first two numbers to be equal to 1.
 
 So, how does this function work in practice?
 
 If the function is called with 1 or 2 as its argument, it returns 1, as dictated by the condition `n <= 2`.
 
-If the argument is 3 or greater, the function returns the value of `fibonacci(n - 1) + fibonacci(n - 2)`. In the case of 3 as the argument, this value is equal to `fibonacci(2) + fibonacci(1)`, and we already know the result of both of those from the previous step. `1 + 1` equals 2, which is indeed the third number in the Fibonacci sequence.
+If the argument is 3 or greater, the function returns the value of `fibonacci(n - 1) + fibonacci(n - 2)`. If the argument is 3 exactly, this value is equal to `fibonacci(2) + fibonacci(1)`, and we already know the result of both of those from the previous step. `1 + 1` equals 2, which is indeed the third number in the Fibonacci sequence.
 
 If the argument is 4, the return value is `fibonacci(3) + fibonacci(2)`, which we now know to be `2 + 1`, which equals 3.
 
@@ -222,7 +224,7 @@ If the argument is 5, the return value is `fibonacci(4) + fibonacci(3)`, which w
 
 And so forth, and so forth.
 
-We can verify at every step that the function produces the correct results, which is often enough in basic programming tasks. More than that, though, our function definition is mathematically identical to the definition of the Fibonacci sequence, and so we can be sure that it produces correct results.
+We can verify at every step that the function produces the correct results, which is often enough in basic programming tasks. The formal verifiability of algorithms is a topic for more advanced courses, such as [Data Structures and Algorithms](https://studies.helsinki.fi/courses/cur/hy-opt-cur-2122-808d3413-3db0-4ab9-89d9-e816e94bf51d).
 
 <programming-exercise name='Recursive sum' tmcname='part11-14_recursive_sum'>
 
