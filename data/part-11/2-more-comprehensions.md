@@ -376,7 +376,7 @@ The principle of the comprehension statement is exactly the same, but instead of
 
 `{<key expression> : <value expression> for <item> in <series>}`
 
-To finish off, lets take a look at factorials again. This time we store the results in a dictionary. The number itsef is the key, while the value is the calculated factorial:
+To finish off, lets take a look at factorials again. This time we store the results in a dictionary. The number itself is the key, while the value is the result of the factorial from our function:
 
 ```python
 def factorial(n: int):
