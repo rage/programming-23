@@ -40,7 +40,7 @@ strings = [str(number) for number in numbers]
 
 The second line above contains many of the same elements as the more traditional iterative apporach, but the syntax is different. One way of generalising a list comprehension statement would be
 
-`[<expression> for <item> in <sequence>]`
+`[<expression> for <item> in <series>]`
 
 The square brackets around the list comprehension statement signal to Python that the result should be a new list. One by one, each item in the original list is processed and the result is stored in the new list, just like in the iterative approach above. As a result we have a new list with exactly as many items as were in the original, and all items have been processed in an identical fashion.
 
@@ -236,7 +236,7 @@ print(lengths(lists))
 
 In the examples above all of our lists remained the same length before and after a list comprehension operation. All the items in the original were used as the basis of the new. Sometimes we only need some of the original items, however. A list comprehension statement also allows for a condition, so that we can check the items against the condition and select only those which match. The general syntax is as follows:
 
-`[<expression> for <item> in <sequence> if <Boolean expression>]`
+`[<expression> for <item> in <series> if <Boolean expression>]`
 
 The statement above is otherwise identical to the general form introduced in the beginning of this section, but now there is an if statement at the end. Only those items from the original list for which the Boolean expression is true are used as the basis of the new list.
 
@@ -393,7 +393,7 @@ print (number1 if number1 > number2 else number2)
 
 Combining the ternary operator syntax with a list comprehension statement yields the following general structure:
 
-`[<expression 1> if <condition> else <expression 2> for <item> in <sequence>]`
+`[<expression 1> if <condition> else <expression 2> for <item> in <series>]`
 
 Including an else operator means that we will again process every item from the original list. Depending on whether the condition is true or false, either expression 1 or expression 2 is performed on each item on the list.
 

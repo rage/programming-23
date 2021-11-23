@@ -8,130 +8,112 @@ hidden: false
 
 After this section
 
-- Tiedät, miten koosteita voidaan hyödyntää merkkijonojen kanssa
-- Osaat käyttää omia olioita koosteissa
-- Osaat muodostaa myös sanakirjakoosteita
+- You will be able to use comprehensions with strings
+- You will know how to combine your own classes and comprehensions
+- You will be able to create dictionary comprehensions
 
 </text-box>
 
-
-Koska koosteen lähteenä voi olla mikä tahansa sarja, voidaan sitä soveltaa myös merkkijonojen käsittelyyn. Merkkijonon läpikäynnissä poimitaan merkit yksitellen jonosta, suoritetaan nille annettu lauseke ja tallennetaan lopputulos uuden listan alkioksi.
-
-Esimerkiksi
+Lists are perhaps the most common target for comprehensions, but comprehensions work on any series of items, including strings. Just like in the list examples in the previous section, in a string comprehension the items (i.e. characters) in the string are plucked one by one, processed according to the expression given, and the result stored in a list.
 
 ```python
+name = "Peter Python"
 
-nimi = "Pekka Python"
-
-isot_kirjaimet = [merkki.upper() for merkki in nimi]
-print(isot_kirjaimet)
-
+upper_case = [character.upper() for character in name]
+print(upper_case)
 ```
 
 <sample-output>
 
-['P', 'E', 'K', 'K', 'A', ' ', 'P', 'Y', 'T', 'H', 'O', 'N']
+['P', 'E', 'T', 'E', 'R', ' ', 'P', 'Y', 'T', 'H', 'O', 'N']
 
 </sample-output>
 
-Huomaa, että lopputuloksena on lista. Jos halutaan muodostaa merkkijonon perusteella uusi merkkijono, voidaan hyödyntää aikaisemmin esiteltyä `join`-metodia. Metodin avulla voidaan yhdistää listan alkiot merkkijonoksi. Metodi kohdistuu välimerkkiin, jolla alkiot yhdistetään.
-
-Metodi toimii siis esimerkiksi näin:
+The result is indeed a list, as dictated by the bracket notation around the comprehension statement. If we wanted a string instead, we could use the `join` string method to parse the list into a string. The method is called on the string we want to use as the "glue" between the characters. Let's take a look at some examples:
 
 ```python
+name = "Peter"
+my_list = list(name)
+print(my_list)
 
-nimi = "Pekka"
-lista = list(nimi)
-print(lista)
-
-print("".join(lista))
-print(" ".join(lista))
-print(",".join(lista))
-print(" ja ".join(lista))
-
+print("".join(my_list))
+print(" ".join(my_list))
+print(",".join(my_list))
+print(" and ".join(my_list))
 ```
 
 <sample-output>
 
-['P', 'e', 'k', 'k', 'a']
-Pekka
-P e k k a
-P,e,k,k,a
-P ja e ja k ja k ja a
+['P', 'e', 't', 'e', 'r']
+Peter
+P e t e r
+P,e,t,e,r
+P and e and t and e and r
 
 </sample-output>
 
-Kun yhdistetään `join`-metodin koosteeseen, voidaan muodostaa merkkijonosta uusi merkkijono helposti. Tarkastellaan esimerkkiä `join`-metodin ja koosteen yhdistelmästä, joka muodostaa alkuperäisen merkkijonon pohjalta uuden merkkijonon, jossa on ainoastaan vokaalit:
+List comprehensions and the `join` method make it easy to create new strings based on other strings. We could, for example, make a string which contains only the vowels from another string:
 
 ```python
+test_string = "Hello there, this is a test!"
 
-testijono = "Heippa vaan kaikki, tämä on testi"
+vowels = [character for character in test_string if character in "aeiou"]
+new_string = "".join(vowels)
 
-vokaalit = [merkki for merkki in testijono if merkki in "aeiouyåäö"]
-uusijono = "".join(vokaalit)
-
-print(uusijono)
-
+print(new_string)
 ```
 
 <sample-output>
 
-eiaaaaiiääoei
+eoeeiiae
 
 </sample-output>
 
-Esimerkissä on selkeyden vuoksi jaettu kooste ja `join`-metodin kutsu omille riveilleen, mutta toki ne voi kirjoittaa myös yhdeksi lausekkeeksi:
+In the example above the list comprehension and the `join` method are on separate lines, but they could be combined into a single expression:
 
 ```python
+test_string = "Hello there, this is a test!"
 
-testijono = "Heippa vaan kaikki, tämä on testi"
+vowel_string = "".join([character for character in test_string if character in "aeiou"])
 
-vokaalijono = "".join([merkki for merkki in testijono if merkki in "aeiouyåäö"])
-
-print(vokaalijono)
-
+print(vowel_string)
 ```
 
-Hyödyntämällä samassa yhteydessä vielä `split`-metodia, voidaan käsitellä esimerkiksi kokonaisia lauseita tehokkaasti yhdellä lausekkeella. Esimerkissä poistetaan lauseen jokaisesta sanasta ensimmäinen kirjain:
+Many Python programmers swear by these oneliners, so it is well worth your while to learn to read them. We could even add the `split` method to the mix, so that we can process entire sentences efficiently with a single statement. In the example below the first character from each word in a sentence is removed:
 
 ```python
+sentence = "Sheila keeps on selling seashells on the seashore"
 
-lause = "Vesihiisi se kuulkaa vaan sihisi hississä"
-
-lause_ilman_alkuja = " ".join([sana[1:] for sana in lause.split()])
-print(lause_ilman_alkuja)
-
+sentence_no_initials = " ".join([word[1:] for word in sentence.split()])
+print(sentence_no_initials)
 ```
 
 <sample-output>
 
-esihiisi e uulkaa aan ihisi ississä
+heila eeps n elling eashells n he eashore
 
 </sample-output>
 
-Käydään läpi tarkemmin mitä koko lausekkeessa tapahtuu:
+Let's go through this step by step:
 
-`sana[1:]` ottaa osajonon sanasta alkaen toisesta merkistä (eli indeksistä 1)
-`lause.split()` purkaa merkkijonon listaksi annetun välimerkin kohdalta. Kun välimerkkiä ei ole määritelty, käytetään oletuksena tyhjiä välejä
-`" ".join()` yhdistää listan palaset uudeksi jonoksi käyttäen välilyöntiä palojen välissä.
+`word[1:]` extracts a substring from the second character (at index 1) onwards 
+`sentence.split()` splits the sentence into sections at the given character. In this case there is no argument given to the method, so the sentence is split at the space characters by default
+`" ".join()` combines the items in the list into a new string using a space character between the items
 
-Sama esimerkki perinteisemmällä tavalla näyttäisi esimerkiksi tältä:
+A more traditional iterative approach could look like this
 
 ```python
-
-lause = "Vesihiisi se kuulkaa vaan sihisi hississä"
+sentence = "Sheila keeps on selling seashells on the seashore"
 
 word_list = []
-sanat = lause.split()
-for sana in sanat:
-    sana_ilman_alkua = sana[1:]
-    word_list.append(sana_ilman_alkua)
+words = sentence.split()
+for word in words:
+    word_no_initials = word[1:]
+    word_list.append(word_no_initials)
 
-lause_ilman_alkuja = " ".join(word_list)
+sentence_no_initials = " ".join(word_list)
 
-
-print(lause_ilman_alkuja)
-
+print(sentence_no_initials)
 ```
 
 <programming-exercise name='Filter forbidden' tmcname='part11-08_filter_forbidden'>
@@ -156,151 +138,145 @@ Once upon a time there was a python
 
 </programming-exercise>
 
-## Omat oliot koosteissa
+## Own classes and comprehensions
 
-Joskus omia olioita on näppärä käsitellä tai muodostaa koosteiden avulla. Tarkastellaan seuraavaksi muutamaa esimerkkiä tähän liittyen.
+Comprehensions can be a useful tool for processing or formulating instances of your own classes, as we'll see in the following examples.
 
-Ensimmäisessä esimerkissä luokka Maa mallintaa yhtää maata asukaslukuineen. Koosteessa poimitaan listalta kaikkien sellaisten maiden nimet, joiden asukasluku on suurempi kuin 5 miljoonaa.
+First, let's ave a look at the class `Country` which is a simple model for a single country, with attributes for the name and the population. In the main function below we first create some Country objects, and then use a list comprehension to select only those whose population is greater than five million.
 
 ```python
-
-class Maa:
-    """ Luokka mallintaa yhtä maata asukaslukuineen """
-    def __init__(self, nimi: str, asukasluku: int):
-        self.nimi = nimi
-        self.asukasluku = asukasluku
+class Country:
+    """ This class models a single country with population """
+    def __init__(self, name: str, population: int):
+        self.name = name
+        self.population = population
 
 if __name__ == "__main__":
-    suomi = Maa("Suomi", 6000000)
-    malta = Maa("Malta", 500000)
-    ruotsi = Maa("Ruotsi", 10000000)
-    islanti = Maa("Islanti", 350000)
+    finland = Country("Finland", 6000000)
+    malta = Country("Malta", 500000)
+    sweden = Country("Sweden", 10000000)
+    iceland = Country("Iceland", 350000)
 
-    maat = [suomi, malta, ruotsi, islanti]
+    countries = [finland, malta, sweden, iceland]
 
-    isommat_maat = [maa.nimi for maa in maat if maa.asukasluku > 5000000]
-    for maa in isommat_maat:
-        print(maa)
-
+    bigger_countries = [country.name for country in countries if country.population > 5000000]
+    for country in bigger_countries:
+        print(country)
 
 ```
 
 <sample-output>
 
-Suomi
-Ruotsi
+Finland
+Sweden
 
 </sample-output>
 
-Toinen vaihtoehto olisi luoda lista maa-olioista ja tulostaa sen jälkeen nimet. Tämä vaihtoehto olisi järkevämpi, jos maita tarvittaisiin vielä myöhemminkin (tai mikäli haluttaisiin esimerkiksi tarkemmin tarkastella maiden asukaslukuja silmukassa):
+In the list comprehension above we selected only the name attribute from the Country objects, so the contents of the list could be printed directly. We could also create a new list of the countries themselves and access the name attribute in the `for` loop. This would be useful if the same list of countries would be used also later in the program, or if we needed the population attribute in the `for` loop as well:
 
 ```python
 
 if __name__ == "__main__":
-    suomi = Maa("Suomi", 6000000)
-    malta = Maa("Malta", 500000)
-    ruotsi = Maa("Ruotsi", 10000000)
-    islanti = Maa("Islanti", 350000)
+    finland = Country("Finland", 6000000)
+    malta = Country("Malta", 500000)
+    sweden = Country("Sweden", 10000000)
+    iceland = Country("Iceland", 350000)
 
-    maat = [suomi, malta, ruotsi, islanti]
+    countries = [finland, malta, sweden, iceland]
 
-    isommat_maat = [maa for maa in maat if maa.asukasluku > 5000000]
-    for maa in isommat_maat:
-        print(maa.nimi)
+    bigger_countries = [country for country in countries if country.population > 5000000]
+    for country in bigger_countries:
+        print(country.name, country.population)
 ```
 
-Toisessa esimerkissä luokka `Juoksumatka` mallintaa yhtä juoksumatkaa nimineen ja pituuksineen. Nyt koosteen avulla luodaan lista `Juoksumatka`-olioita annettujen pituuksien mukaaan.
+In the next example we have a class `RunningEvent` which models a single foot race event with attributes for the length and the name of the race. We will use list comprehensions to create `RunningEvent` objects based on a list of race lengths.
 
-Huomaa, että `Juoksumatka`-luokan konstruktorissa parametrilla `nimi` on oletusarvo, eikä sitä olioita luodessa esimerkissä erikseen annetakaan:
+The parameter `name` has a default value in the constructor of the `RunningEvent` class, whuch is why we do not need to pass the name as an argument.
 
 ```python
-
-class Juoksumatka:
-    """ Luokka mallintaa yhtä n metrin pituista juoksumatkaa """
-    def __init__(self, matka:int, nimi:str = "ei nimeä"):
-        self.matka = matka
-        self.nimi = nimi
+class RunningEvent:
+    """ The class models a foot race event of a length of n metres  """
+    def __init__(self, length:int, name:str = "no name"):
+        self.length = length
+        self.name = name
 
     def __repr__(self):
-        return f"{self.matka} m. ({self.nimi})"
+        return f"{self.length} m. ({self.name})"
 
 if __name__ == "__main__":
     lengths = [100, 200, 1500, 3000, 42195]
-    matkat = [Juoksumatka(pituus) for pituus in lengths]
+    events = [RunningEvent(length) for length in lengths]
 
-    # tulostetaan kaikki
-    print(matkat)
+    # Print out all events
+    print(events)
 
-    # Poimitaan yksi listasta ja nimetään se
-    maraton = matkat[-1] # viimeisenä listassa
-    maraton.nimi = "Maraton"
+    # Pick one from the list and give it a name
+    marathon = events[-1] # the last item in the list
+    marathon.name = "Marathon"
 
-    # Tulostetaan vielä uudella nimellä
-    print(matkat)
-
+    # Print out everything again, including the new name
+    print(events)
 ```
 
 <sample-output>
 
-[100 m. (ei nimeä), 200 m. (ei nimeä), 1500 m. (ei nimeä), 3000 m. (ei nimeä), 42195 m. (ei nimeä)]
-[100 m. (ei nimeä), 200 m. (ei nimeä), 1500 m. (ei nimeä), 3000 m. (ei nimeä), 42195 m. (Maraton)]
+[100 m. (no name), 200 m. (no name), 1500 m. (no name), 3000 m. (no name), 42195 m. (no name)]
+[100 m. (no name), 200 m. (no name), 1500 m. (no name), 3000 m. (no name), 42195 m. (Marathon)]
 
 </sample-output>
 
-Jos oma luokka on viime kerran esimerkin mukaisesti iteroitava, voidaan sitä käyttää lähteenä listakoosteessa:
+Finally, let's find out what makes a series of items "comprehendible". In the previous part we learnt how to make our own classes iterable. It is exactly this same feature which also alows for list comprehensions. If your own class is iterable, it can be used as the basis of a list comprehension statement. The following class definitions are copied directly from [part 10](/part-10/3-oo-programming-techniques#iterators):
 
 ```python
+class Book:
+    def __init__(self, name: str, author: str, page_count: int):
+        self.name = name
+        self.author = author
+        self.page_count = page_count
 
-class Kirja:
-    def __init__(self, nimi: str, kirjailija: str, sivuja: int):
-        self.nimi = nimi
-        self.kirjailija = kirjailija
-        self.sivuja = sivuja
-
-class Kirjahylly:
+class Bookshelf:
     def __init__(self):
-        self._kirjat = []
+        self._books = []
 
-    def lisaa_kirja(self, kirja: Kirja):
-        self._kirjat.append(kirja)
+    def add_book(self, book: Book):
+        self._books.append(book)
 
-    # Iteraattorin alustusmetodi
-    # Tässä tulee alustaa iteroinnissa käytettävä(t) muuttuja(t)
+    # This is the iterator initialization method
+    # The iteration variable(s) should be initialized here
     def __iter__(self):
         self.n = 0
-        # Metodi palauttaa viittauksen olioon itseensä, koska
-        # iteraattori on toteutettu samassa luokassa
+        # the method returns a reference to the object itself as 
+        # the iterator is implemented within the same class definition
         return self
 
-    # Metodi palauttaa seuraavan alkion
-    # Jos ei ole enempää alkioita, heitetään tapahtuma
-    # StopIteration
+    # This method returns the next item within the object
+    # If all items have been traversed, the StopIteration event is raised
     def __next__(self):
-        if self.n < len(self._kirjat):
-            # Poimitaan listasta nykyinen
-            kirja = self._kirjat[self.n]
-            # Kasvatetaan laskuria yhdellä
+        if self.n < len(self._books):
+            # Select the current item from the list within the object
+            book = self._books[self.n]
+            # increase the counter (i.e. iteration variable) by one
             self.n += 1
-            # ...ja palautetaan
-            return kirja
+            # return the current item
+            return book
         else:
-            # Ei enempää kirjoja
+            # All books have been traversed
             raise StopIteration
 
-# Testataan
+# Test your classes
 if __name__ == "__main__":
-    k1 = Kirja("Elämäni Pythoniassa", "Pekka Python", 123)
-    k2 = Kirja("Vanhus ja Java", "Ernest Hemingjava", 204)
-    k3 = Kirja("C-itsemän veljestä", "Keijo Koodari", 997)
+    b1 = Book("The Life of Python", "Montague Python", 123)
+    b2 = Book("The Old Man and the C", "Ernest Hemingjavay", 204)
+    b3 = Book("A Good Cup of Java", "Caffee Coder", 997)
 
-    hylly = Kirjahylly()
-    hylly.lisaa_kirja(k1)
-    hylly.lisaa_kirja(k2)
-    hylly.lisaa_kirja(k3)
+    shelf = Bookshelf()
+    shelf.add_book(b1)
+    shelf.add_book(b2)
+    shelf.add_book(b3)
 
-    # Luodaan lista, jossa kaikkien kirjojen nimet
-    kirjojen_nimet = [kirja.nimi for kirja in hylly]
-    print(kirjojen_nimet)
+    # Create a list containing the names of all books
+    book_names = [book.name for book in shelf]
+    print(book_names)
 
 ```
 
@@ -322,8 +298,8 @@ my_list.lisaa("alcohol free beer", 24)
 my_list.lisaa("pineapple", 1)
 
 print("the shopping list contains at least 8 of the following items:")
-for tuote in products(lista, 8):
-    print(tuote)
+for product in products(my_list, 8):
+    print(product)
 ```
 
 <sample-output>
@@ -375,39 +351,36 @@ Loft in a small town          price difference 16500 euros
 
 </programming-exercise>
 
-## Koosteet sanakirjan kanssa
+## Comprehensions and dictionaries
 
-Koosteet toimivat samalla tavalla myös sanakirjan kanssa: jos vaihdetaan hakasulkeet aaltosulkeiksi, syntyy koosteen seurauksena listan sijasta sanakirja. Koska sanakirjan alkio muodostuu kahdesta komponentista - arvosta ja alkiosta, tule molemmat komponentit antaa myös koostetta luodessa.
+There is nothing intrinsically "listey" about comprehensions. The result is a list because the comprehension statement is encased in square brackets, which indicate a Python list. Comprehensions work just as well with Python dictionaries if your use curly brackets instead. Remember, though, that dictionaries require key-value pairs. Both must be specified when a dictionary is created, also with comprehensions.
 
-Lähteenä voidaan edelleen käyttää mitä tahansa sarjaa, eli esimerkiksi listaa, merkkijonoa, tuplea, sanakirjaa tai omaa iteroinnin toteuttavaa luokkaa.
+The basis of a comprehension can be any iterable series, be it a list, a string, a tuple, a dictionary, any of your own iterable classes, and so forth.
 
-Esimerkki, joka luo merkkijonon pohjalta sanakirjan, joka sisältää kaikki merkkijonon kirjaimet ja niiden esiintymämäärät:
+In the following example we use a string as the basis of a dictionary. The dictionary contains all the unique characters in the string, along with the number of times they occurred:
 
 ```python
+sentence = "hello there"
 
-lause = "Hei kaikki"
-
-merkkimäärät = {kirjain : lause.count(kirjain) for kirjain in lause}
-print(merkkimäärät)
-
+char_counts = {character : sentence.count(character) for character in sentence}
+print(char_counts)
 ```
 
 <sample-output>
 
-{'H': 1, 'e': 1, 'i': 3, ' ': 1, 'k': 3, 'a': 1}
+{'h': 2, 'e': 3, 'l': 2, 'o': 1, ' ': 1, 't': 1, 'r': 1}
 
 </sample-output>
 
-Periaate on siis täsmälleen sama, mutta yksittäisen arvon sijasta annetaan erikseen avain ja arvo. Yleisesti merkittynä siis:
+The principle of the comprehension statement is exactly the same, but instead of a single value the expression consists of a key and a value. The general syntax looks like this:
 
-`{<avainlauseke> : <arvolauseke> for <alkio> in <sarja>}`
+`{<key expression> : <value expression> for <item> in <series>}`
 
-Tarkastellaan vielä toisena esimerkkinä ohjelmaa, joka laskee kaikkien listalla olevien positiivisten lukujen kertomat, mutta tällä kertaa sanakirjaan. Luku toimii avaimena ja kertoma arvona:
+To finish off, lets take a look at factorials again. This time we store the results in a dictionary. The number itsef is the key, while the value is the calculated factorial:
 
 ```python
-
-def kertoma(n: int):
-    """ Funktio laskee positiivisen luvun n kertoman n! """
+def factorial(n: int):
+    """ The function calculates the factorial n! for integers above zero """
     k = 1
     while n >= 2:
         k *= n
@@ -415,10 +388,9 @@ def kertoma(n: int):
     return k
 
 if __name__ == "__main__":
-    lista = [-2, 3, 2, 1, 4, -10, 5, 1, 6]
-    kertomat = {luku : kertoma(luku) for luku in lista if luku > 0}
-    print(kertomat)
-
+    numbers = [-2, 3, 2, 1, 4, -10, 5, 1, 6]
+    factorials = {number : factorial(number) for number in numbers if number > 0}
+    print(factorials)
 ```
 
 <sample-output>
