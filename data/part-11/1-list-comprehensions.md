@@ -13,7 +13,7 @@ After this section
 
 </text-box>
 
-One of the situations where programming is at its most useful is processing different sequences of items and events. Computers are good at repeating things. For example, in the previous parts of this material we have been iterating over strings, lists and dictionaries in various ways.
+One of the situations where programming is at its most powerful is processing sequences of items and events. Computers are good at repeating things. For example, in the previous parts of this material we have been iterating over strings, lists and dictionaries in various ways.
 
 Let's assume we have a list of integers, and we would need the same list of items in string format. A traditional way of completing the task could look like this:
 
@@ -27,35 +27,33 @@ for number in numbers:
 
 ## List comprehensions
 
-There is also a more "pythonic" way of generating lists from existing lists. These are called _list comprehensions_
+There is also a more "pythonic" way of generating lists from existing lists. These are called _list comprehensions_.
 
-Python tarjoaa kuitenin "pythonmaisemman" tavan uuden listan muodostamiseksi vanhan perusteella. Menetelmää voidaan kutsua "listakoosteeksi", mutta huomattavasti yleisempää on käyttää englanninkielistä nimeä _list comprehension_.
+The idea is to fit on a single line a description of what should be done to each item on the list, and the assignment of the result to a new list.
 
-Menetelmässä ideana on kuvata yhden rivin lausekkeella, mikä operaatio listan kaikille alkioille tehdään, ennen kuin ne tallennetaan uuteen listaan.
-
-Esimerkiksi yllä esitetty ohjelma, joka luo merkkijonolistan kokonaislukulistan perusteella, näyttäisi listakoostetta hyödyntäen tältä:
+In the above example, the operation performed on each item on the list was very simple: each integer was converted into a string. Let's see what this would look like through a list comprehension:
 
 ```python
-luvut = [1, 2, 3, 6, 5, 4, 7]
-strings = [str(luku) for luku in luvut]
+numbers = [1, 2, 3, 6, 5, 4, 7]
+strings = [str(number) for number in numbers]
 ```
 
-Koosteessa näyttää siis olevan jotakuinkin samat elementit kuin perinteisessäkin toteutuksessa, mutta syntaksi on uudenlainen. Yleisemmin listakoosteen syntaksi voitaisiin esittää esimerkiksi näin:
+The second line above contains many of the same elements as the more traditional iterative apporach, but the syntax is different. One way of generalising a list comprehension statement would be
 
-`[<lauseke> for <alkio> in <sarja>]`
+`[<expression> for <item> in <sequence>]`
 
-Koosteen ympärillä olevat hakasulkeet kertovat, että lopputuloksena on uusi lista. Koosteessa poimitaan yksi kerrallaan alkio alkuperäisestä sarjasta (esimerkkimme tapauksessa listasta) ja tallennetaan siihen liittyvän lausekkeen arvo uuteen listaan. Lopputuloksena on lista, jossa on yhtä paljon alkioita kuin alkuperäisessä listassa ja kaikki alkiot on käsitelty samalla tavalla.
+The square brackets around the list comprehension statement signal to Python that the result should be a new list. One by one, each item in the original list is processed and the result is stored in the new list, just like in the iterative approach above. As a result we have a new list with exactly as many items as were in the original, and all items have been processed in an identical fashion.
 
 <img src="11_1_2.png">
 
-Toisessa esimerkissä jokainen alkuperäisen listan alkio kerrotaan kymmenellä ja tallennetaan uuteen listaan:
+List comprehensions can handle much more complicated operations as well. We can perform calculations, such as multiplying the original items by ten:
 
 ```python
-luvut = list(range(1,10))
-print(luvut)
+numbers = list(range(1,10))
+print(numbers)
 
-luvut_kerrottuna = [luku * 10 for luku in luvut]
-print(luvut_kerrottuna)
+numbers_multiplied = [number * 10 for number in numbers]
+print(numbers_multiplied)
 ```
 
 <sample-output>
@@ -65,11 +63,11 @@ print(luvut_kerrottuna)
 
 </sample-output>
 
-Lauseke voi olla mikä tahansa Pythonin lauseke. Esimerkiksi koosteessa voidaan kutsua itse määriteltyä funktiota:
+In fact, the expression within the list comprehension statement can be any Python expression. You can even call functions you've defined yourself:
 
 ```python
-def kertoma(n: int):
-    """ Funktio laskee positiivisen luvun n kertoman n! """
+def factorial(n: int):
+    """ The function calculates the factorial n! for integers above zero """
     k = 1
     while n >= 2:
         k *= n
@@ -77,9 +75,9 @@ def kertoma(n: int):
     return k
 
 if __name__ == "__main__":
-    lista = [5, 2, 4, 3, 0]
-    kertomat = [kertoma(luku) for luku in lista]
-    print(kertomat)
+    my_list = [5, 2, 4, 3, 0]
+    factorials = [factorial(number) for number in my_list]
+    print(factorials)
 ```
 
 <sample-output>
@@ -88,12 +86,11 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Sama ohjelma esitettynä perinteisellä silmukalla näyttäisi tältä:
+With the more familiar `for` loop the same process could be expressed like this:
 
 ```python
-
-def kertoma(n: int):
-    """ Funktio laskee positiivisen luvun n kertoman n! """
+def factorial(n: int):
+    """ The function calculates the factorial n! for integers above zero """
     k = 1
     while n >= 2:
         k *= n
@@ -101,21 +98,20 @@ def kertoma(n: int):
     return k
 
 if __name__ == "__main__":
-    lista = [5, 2, 4, 3, 0]
-    kertomat = []
-    for luku in lista:
-        kertomat.append(kertoma(luku))
-    print(kertomat)
-
+    my_list = [5, 2, 4, 3, 0]
+    factorials = []
+    for number in my_list:
+        factorials.append(factorial(number))
+    print(factorials)
 ```
 
-Koosteen avulla on siis mahdollista ilmaista sama toiminnallisuus tiiviimmin ja silti yhä helposti luettavassa muodossa.
+List comprehensions allow us to express the same functionality more consisely, usually without losing any of the readability.
 
-Palauttamalla funktiosta suoraan kooste saadaan aikaiseksi hyvin tiivistä koodia:
+We can also return a list comprehension statement from a function directly. The result is very concise:
 
 ```python
-def kertomat(luvut: list):
-    return [kertoma(luku) for luku in luvut]
+def factorials(numbers: list):
+    return [factorial(number) for number in numbers]
 ```
 
 <programming-exercise name='Square roots' tmcname='part11-01_square_roots'>
@@ -236,22 +232,21 @@ print(lengths(lists))
 
 </programming-exercise>
 
+## Filtering items
 
-## Alkoiden suodatus
+In the examples above all of our lists remained the same length before and after a list comprehension operation. All the items in the original were used as the basis of the new. Sometimes we only need some of the original items, however. A list comprehension statement also allows for a condition, so that we can check the items against the condition and select only those which match. The general syntax is as follows:
 
-Edellisissä esimerkeissä uusi lista muodostettiin kaikista alkuperäisen listan alkioista. Joskus on kuitenkin näppärää, jos voitaisiin valita alkuperäiseltä listalta vain tietyt alkiot. Koosteessa tämä onnistuu yhdistämällä siihen ehto-osa. Yleinen syntaksi on seuraava:
+`[<expression> for <item> in <sequence> if <Boolean expression>]`
 
-`[<lauseke> for <alkio> in <sarja> if <ehtolauseke>]`
+The statement above is otherwise identical to the general form introduced in the beginning of this section, but now there is an if statement at the end. Only those items from the original list for which the Boolean expression is true are used as the basis of the new list.
 
-Erotuksena aiempaan koosteen loppuun kirjoitetaan siis ehtolause. Ainoastaan ne alkiot poimitaan mukaan tuloslistaan, joiden kohdalla ehtolauseke on tosi.
-
-Esimerkissä poimitaan kaikki parilliset alkiot uuteen listaan. Huomaa, että lausekkeena on esimerkissä ainoastaan listan alkio eli poimittavia alkioita ei käsitellä minkään operaation avulla ennen sijoittamista uuteen listaan:
+In the example below we select all the even items from the original list as the basis of the new list. In fact, these items are not further processed in any way; they are assigned to the new list as is:
 
 ```python
-lista = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
+my_list = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
 
-parilliset = [alkio for alkio in lista if alkio % 2 == 0]
-print(parilliset)
+even_items = [item for item in my_list if item % 2 == 0]
+print(even_items)
 ```
 
 <sample-output>
@@ -260,13 +255,13 @@ print(parilliset)
 
 </sample-output>
 
-Jos lausekkeeksi on määritelty jotain muuta kuin pelkkä alkio, mukaan otetuille alkoille toteutetaan tämä operaatio kuten ennenkin. Muokataan edellistä esimerkkiä niin, että uudessa listassa on kaikki alkuperäisen listan parilliset alkiot kerrotuna kymmenellä:
+The expression in the list comprehension statement above is just a simple `item`, which means that no operations are to be performed on the items in the list, but the expression could be any Python expression, just like in the previous examples. For example, the following list comprehension statement takes all the even items in a list, multiplies each by ten, and stores the result in a new list:
 
 ```python
-lista = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
+my_list = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
 
-parilliset = [alkio * 10 for alkio in lista if alkio % 2 == 0]
-print(parilliset)
+even_items = [item * 10 for item in my_list if item % 2 == 0]
+print(even_items)
 ```
 
 <sample-output>
@@ -275,11 +270,13 @@ print(parilliset)
 
 </sample-output>
 
-Seuraavassa esimerkissä lasketaan ainoastaan positiivisten alkioiden kertoma:
+As you come across more and more complicated list comprehensions, you may find it useful to try reading the condition first. After all, the items are processed only if they pass the test, so it often makes sense to first figure out which items pass the filtering stage. Sometimes the expression in a list comprehension statement would not even be possible for all the items in the original list.
+
+For example, the factorial operation is only defined for non-negative integers. If we can't be sure a list only contains values of zero or above, the contents have to be filtered before passing them on to the factorial function we made before:
 
 ```python
-def kertoma(n: int):
-    """ Funktio laskee positiivisen luvun n kertoman n! """
+def factorial(n: int):
+    """ The function calculates the factorial n! for integers above zero """
     k = 1
     while n >= 2:
         k *= n
@@ -287,9 +284,9 @@ def kertoma(n: int):
     return k
 
 if __name__ == "__main__":
-    lista = [-2, 3, -1, 4, -10, 5, 1]
-    kertomat = [kertoma(luku) for luku in lista if luku > 0]
-    print(kertomat)
+    my_list = [-2, 3, -1, 4, -10, 5, 1]
+    factorials = [factorial(number) for number in my_list if number >= 0]
+    print(factorials)
 ```
 
 <sample-output>
@@ -298,12 +295,11 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Tarkastellaan vielä edellisestä jatkettua esimerkkiä, jossa kertoma lasketaan vain parillisista positiivista luvuista. Lisäksi listaan tallennetaan tuplessa sekä alkuperäinen alkio että kertoma:
+As we saw in our very first list comprehension example, where integers were converted into strings, the items in the new list do not have to be of the same type as the items in the original list. Continuing from the factorial example above, we can create a tuple from each original item and its processed counterpart, and store these in a list, combining everything we've learned so far in a single list comprehension statement:
 
 ```python
-
-def kertoma(n: int):
-    """ Funktio laskee positiivisen luvun n kertoman n! """
+def factorial(n: int):
+    """ The function calculates the factorial n! for integers above zero """
     k = 1
     while n >= 2:
         k *= n
@@ -311,10 +307,9 @@ def kertoma(n: int):
     return k
 
 if __name__ == "__main__":
-    lista = [-2, 3, 2, 1, 4, -10, 5, 1, 6]
-    kertomat = [(luku, kertoma(luku)) for luku in lista if luku > 0 and luku % 2 == 0]
-    print(kertomat)
-
+    my_list = [-2, 3, 2, 1, 4, -10, 5, 1, 6]
+    factorials = [(number, factorial(number)) for number in my_list if number > 0 and number % 2 == 0]
+    print(factorials)
 ```
 
 <sample-output>
@@ -323,7 +318,9 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Esimerkissä lauseke on siis `(luku, kertoma(luku))`, joka muodostaa tuplen, jossa ensimmäinen alkio on alkio alkuperäisestä listasta ja toinen alkio kertoma-funktion palauttama arvo. Ehtolauseke on `luku > 0 and luku % 2 == 0`, jossa valikoidaan mukaan vain alkiot, jotka ovat sekä positiivisia että jaollisia kahdella.
+Picking the above example apart, we have the Boolean expression `number > 0 and number % 2 == 0`. This means that only items which are both positive and divisible by two are accepted for further processing from the original list. 
+
+These positive, even numbers are then each in turn processed into the format `(number, factorial(number))`. This is a tuple, where the first item is the number itself, and the second item is the result returned by the factorial function.
 
 <programming-exercise name='Remove smaller than' tmcname='part11-05_remove_smaller_than'>
 
@@ -378,36 +375,34 @@ orange
 
 </programming-exercise>
 
-## Vaihtoehtoinen haara suodatuksessa
+## Alternative execution with list comprehensions
 
-Koosteessa voi käyttää ehtolauseen ohella myös vaihtoehtoista haaraa. Tämä onnistuu käyttämällä jo aiemmin mainittua _ehtolauseketta_:
+Often when we have a conditional statement, we also include an `else` branch. As we can use conditions in list comprehensions, the else branch is also available with list comprehensions. The general syntax of the conditional used with list comprehensions looks like this:
 
-`<lauseke 1> if <ehto> else <lauseke 2>`
+`<expression 1> if <condition> else <expression 2>`
 
-...joka saa arvokseen joko lausekkeen 1 tai 2 arvon riippuen siitä, onko ehto tosi vai epätosi.
+We came across these single line conditionals, or ternary operators, already in [part 7](/part-7/6-more-features). The expression above evaluates to either `expression 1` or `expression 2`, depending on whether the condition is true or false.
 
-Niinpä esim. ohjelma, joka tulostaa kahdesta luvusta suuremman yhdellä print-lauseella voisi näyttää tältä:
+As a refresher on the subject, if we needed to print out the larger of two numbers, and we wanted to use just a single print statement, we could fit it all on a single line:
 
 ```python
-luku1 = int(input("Anna luku 1:"))
-luku2 = int(input("Anna luku 2:"))
-print (luku1 if luku1 > luku2 else luku2)
+number1 = int(input("Type in number 1:"))
+number2 = int(input("Type in number 2:"))
+print (number1 if number1 > number2 else number2)
 ```
 
-Kun yhdistetään syntaksi listakoosteeseen, saadaan seuraavankaltainen rakenne:
+Combining the ternary operator syntax with a list comprehension statement yields the following general structure:
 
-`[<lauseke 1> if <ehto> else <lauseke 2> for <alkio> in <sarja>]`
+`[<expression 1> if <condition> else <expression 2> for <item> in <sequence>]`
 
-Lopputuloksena syntyvässä listassa on yksi alkio jokaista alkuperäisen sarjan alkiota kohti. Jokaiselle alkiolle suoritetaan joko lauseke 1 tai lauseke 2 riippuen siitä onko ehtolauseke tosi vai ei.
+Including an else operator means that we will again process every item from the original list. Depending on whether the condition is true or false, either expression 1 or expression 2 is performed on each item on the list.
 
-Seuraava esimerkki muodostaa uuden listan, jossa alkuperäisen listan negatiiviset alkiot on käännetty vastaluvuikseen - positiiviset alkiot kelpuutetaan sellaisenaan. Käytännössä koostelause siis muodostaa listan alkuperäisen listan itseisarvoista.
+The following example checks if the items on a list are zero or above. Any item that is zero or above is accepted as is, but all negative items are negated, so that the sign is changed from negative to positive. The result is a list containing the absolute values of the items in the original list.
 
 ```python
-
-luvut = [1, -3, 45, -110, 2, 9, -11]
-itseisarvot = [luku if luku >= 0 else -luku for luku in luvut]
-print(itseisarvot)
-
+numbers = [1, -3, 45, -110, 2, 9, -11]
+abs_vals = [number if number >= 0 else -number for number in numbers]
+print(abs_vals)
 ```
 
 <sample-output>
@@ -416,26 +411,24 @@ print(itseisarvot)
 
 </sample-output>
 
-Suoritettava lauseke on siis `luku` (eli alkio sellaisenaan), jos ehto `luku >= 0` on tosi, muuten suoritetaan lauseke `-luku`.
+If the condition `number >= 0` is true, the item undergoes expression `number`, and the result is the item itself. If the condition is false, the item undergoes expression `-number`, so that it becomes positive in value.
 
-Seuraavassa esimerkissä funktio `merkkijonojen_pituudet` saa parametrikseen sekalaisia alkioita sisältävän listan. Funktio laskee merkkijonoista tuloslistaan pituuden, muun tyyppisten alkioiden kohdalle asetetaan -1.
+In the following example we have the function `string_lengths` which takes a list as its argument, and returns another list with the lengths of any strings in the original list. This function is okay with list items of any type, however. If the item is a string, it calculates its length. If the item is antyhing else, it inserts -1 in the list it returns.
 
 ```python
-
-def merkkijonojen_pituudet(lista: list):
-    """ Funktio palauttaa uudessa listassa merkkijonojen pituudet """
-    return [len(alkio) if type(alkio) == str else -1 for alkio in lista]
+def string_lengths(my_list: list):
+    """ The function returns the lengths of strings in a new list """
+    return [len(item) if type(item) == str else -1 for item in my_list]
 
 if __name__ == "__main__":
-    testilista = ["moi", 3, True, "kaikki", -123.344, "heipparallaa", 2, False]
-    pituudet = merkkijonojen_pituudet(testilista)
-    print(pituudet)
-
+    test_list = ["hi", 3, True, "there", -123.344, "toodlepip", 2, False]
+    lengths = string_lengths(test_list)
+    print(lengths)
 ```
 
 <sample-output>
 
-[3, -1, -1, 6, -1, 12, -1, -1]
+[2, -1, -1, 5, -1, 9, -1, -1]
 
 </sample-output>
 
