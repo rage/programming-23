@@ -9,18 +9,18 @@ hidden: false
 After this section
 
 - You will be able to use comprehensions with strings
-- You will know how to combine your own classes and comprehensions
+- You will know how to use comprehensions with your own classes
 - You will be able to create dictionary comprehensions
 
 </text-box>
 
-Lists are perhaps the most common target for comprehensions, but comprehensions work on any series of items, including strings. Just like in the list examples in the previous section, in a string comprehension the items (i.e. characters) in the string are plucked one by one, processed according to the expression given, and the result stored in a list.
+Lists are perhaps the most common target for comprehensions, but comprehensions work on any series of items, including strings. Just like in the list examples in the previous section, if a list comprehension is performed on a string, the items (i.e. the characters) in the string are plucked one by one, processed according to the expression given, and stored in a list.
 
 ```python
 name = "Peter Python"
 
-upper_case = [character.upper() for character in name]
-print(upper_case)
+uppercased = [character.upper() for character in name]
+print(uppercased)
 ```
 
 <sample-output>
@@ -29,17 +29,17 @@ print(upper_case)
 
 </sample-output>
 
-The result is indeed a list, as dictated by the bracket notation around the comprehension statement. If we wanted a string instead, we could use the `join` string method to parse the list into a string. The method is called on the string we want to use as the "glue" between the characters. Let's take a look at some examples:
+The result is indeed a list, as dictated by the bracket notation around the comprehension statement. If we wanted a string instead, we could use the string method `join` to parse the list into a string. Remember, the method is called on the string we want to use as the "glue" between the characters. Let's take a look at some examples:
 
 ```python
 name = "Peter"
-my_list = list(name)
-print(my_list)
+char_list = list(name)
+print(char_list)
 
-print("".join(my_list))
-print(" ".join(my_list))
-print(",".join(my_list))
-print(" and ".join(my_list))
+print("".join(char_list))
+print(" ".join(char_list))
+print(",".join(char_list))
+print(" and ".join(char_list))
 ```
 
 <sample-output>
@@ -96,9 +96,9 @@ heila eeps n elling eashells n he eashore
 
 Let's go through this step by step:
 
-`word[1:]` extracts a substring from the second character (at index 1) onwards 
-`sentence.split()` splits the sentence into sections at the given character. In this case there is no argument given to the method, so the sentence is split at the space characters by default
-`" ".join()` combines the items in the list into a new string using a space character between the items
+- `word[1:]` extracts a substring from the second character (at index 1) onwards 
+- `sentence.split()` splits the sentence into sections at the given character. In this case there is no argument given to the method, so the sentence is split at space characters by default
+- `" ".join()` combines the items in the list into a new string using a space character between the items
 
 A more traditional iterative approach could look like this
 
@@ -142,7 +142,7 @@ Once upon a time there was a python
 
 Comprehensions can be a useful tool for processing or formulating instances of your own classes, as we'll see in the following examples.
 
-First, let's ave a look at the class `Country` which is a simple model for a single country, with attributes for the name and the population. In the main function below we first create some Country objects, and then use a list comprehension to select only those whose population is greater than five million.
+First, let's have a look at the class `Country` which is a simple model for a single country, with attributes for the name and the population. In the main function below we first create some Country objects, and then use a list comprehension to select only those whose population is greater than five million.
 
 ```python
 class Country:
@@ -172,10 +172,9 @@ Sweden
 
 </sample-output>
 
-In the list comprehension above we selected only the name attribute from the Country objects, so the contents of the list could be printed directly. We could also create a new list of the countries themselves and access the name attribute in the `for` loop. This would be useful if the same list of countries would be used also later in the program, or if we needed the population attribute in the `for` loop as well:
+In the list comprehension above we selected only the name attribute from the Country objects, so the contents of the list could be printed directly. We could also create a new list of the countries themselves and access the name attribute in the `for` loop. This would be useful if the same list of countries was used also later in the program, or if we needed the population attribute in the `for` loop as well:
 
 ```python
-
 if __name__ == "__main__":
     finland = Country("Finland", 6000000)
     malta = Country("Malta", 500000)
@@ -189,14 +188,14 @@ if __name__ == "__main__":
         print(country.name, country.population)
 ```
 
-In the next example we have a class `RunningEvent` which models a single foot race event with attributes for the length and the name of the race. We will use list comprehensions to create `RunningEvent` objects based on a list of race lengths.
+In the next example we have a class named `RunningEvent` which models a single foot race event with attributes for the length and the name of the race. We will use list comprehensions to create `RunningEvent` objects based on a list of race lengths.
 
-The parameter `name` has a default value in the constructor of the `RunningEvent` class, whuch is why we do not need to pass the name as an argument.
+The parameter `name` has a default value in the constructor of the `RunningEvent` class, whIch is why we do not need to pass the name as an argument.
 
 ```python
 class RunningEvent:
     """ The class models a foot race event of a length of n metres  """
-    def __init__(self, length:int, name:str = "no name"):
+    def __init__(self, length: int, name: str = "no name"):
         self.length = length
         self.name = name
 
@@ -225,7 +224,7 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Finally, let's find out what makes a series of items "comprehendible". In the previous part we learnt how to make our own classes iterable. It is exactly this same feature which also alows for list comprehensions. If your own class is iterable, it can be used as the basis of a list comprehension statement. The following class definitions are copied directly from [part 10](/part-10/3-oo-programming-techniques#iterators):
+Now, let's find out what makes a series of items "comprehendible". In the previous part we learnt how to make our own classes iterable. It is exactly this same feature which also allows for list comprehensions. If your own class is iterable, it can be used as the basis of a list comprehension statement. The following class definitions are copied directly from [part 10](/part-10/3-oo-programming-techniques#iterators):
 
 ```python
 class Book:
@@ -282,9 +281,9 @@ if __name__ == "__main__":
 
 <programming-exercise name='Products in shopping list' tmcname='part11-09_products_in_shopping_list'>
 
-In part 10 you created an [iterable shopping list](/part-10/3-oo-programming-techniques#programming-exercise-an-iterable-shopping-list). An object created from an iterable class can be used with list comprehensions. The exercise template contains a stripped down version of the `ShoppingList` with just enough functionality to fulfil the requirements of this exercise.
+In part 10 you created an [iterable shopping list](/part-10/3-oo-programming-techniques#programming-exercise-an-iterable-shopping-list), and we just learnt that an object created from an iterable class can be used with list comprehensions. The exercise template contains a stripped down version of the `ShoppingList` with just enough functionality to fulfil the requirements of this exercise.
 
-Please write a function named `products(shopping_list, amount: int)` which takes a ShoppingList object and an integer value as its arguments. The function returns a list of product names which includes only the products with at least the number of items specified bu the `amount` parameter.
+Please write a function named `products(shopping_list, amount: int)` which takes a ShoppingList object and an integer value as its arguments. The function returns a list of product names. The list should include only the products with at least the number of items specified by the `amount` parameter.
 
 The function should be implemented using list comprehensions. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword. The `ShoppingList` class definition should _not_ be modified.
 
@@ -292,10 +291,10 @@ The function should work as follows:
 
 ```python
 my_list = ShoppingList()
-my_list.lisaa("bananas", 10)
-my_list.lisaa("apples", 5)
-my_list.lisaa("alcohol free beer", 24)
-my_list.lisaa("pineapple", 1)
+my_list.add("bananas", 10)
+my_list.add("apples", 5)
+my_list.add("alcohol free beer", 24)
+my_list.add("pineapple", 1)
 
 print("the shopping list contains at least 8 of the following items:")
 for product in products(my_list, 8):
@@ -316,9 +315,9 @@ alcohol free beer
 
 This exercise is a slightly modified version of the exercise [Comparing properties](/part-9/1-objects-and-references#programming-exercise-comparing-properties) from part 9.
 
-Please write a function named `cheaper_properties(properties: list, reference: RealProperty)` which takes a list of properties and a single RealProperty object as its arguments. The function should return a list containing only those properties in the original list which are cheaper, along with the price difference when compared to the reference property. The items in the returned list should be tuples, where the first item is the property itself and the second is the difference in price.
+Please write a function named `cheaper_properties(properties: list, reference: RealProperty)` which takes a list of properties and a single RealProperty object as its arguments. The function should return a list containing only those properties in the original list which are cheaper than the reference property, along with the price difference. The items in the returned list should be tuples, where the first item is the property itself and the second is the difference in price.
 
-The function should be implemented using list comprehensions. The length of the function, measured in lines of code, should be 2, including the header line beginning with the `def` keyword.
+The function should be implemented using list comprehensions. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
 The code for the `RealProperty` class is included in the exercise template and should not be changed.
 
@@ -336,16 +335,16 @@ properties = [a1, a2, a3, a4, a5, a6]
 
 print(f"cheaper options when compared to {a3.description}:")
 for item in cheaper_properties(properties, a3):
-    print(f"{item[0].description:30} price difference {item[1]} euros")
+    print(f"{item[0].description:35} price difference {item[1]} euros")
 ```
 
 <sample-output>
 
 cheaper options when compared to Three bedrooms in the suburbs:
-Central studio                price difference 107000 euros
-Two bedrooms downtown         price difference 35400 euros
-Farm in the middle of nowhere price difference 87500 euros
-Loft in a small town          price difference 16500 euros
+Central studio                                    price difference 107000 euros
+Two bedrooms downtown               price difference 35400 euros
+Farm in the middle of nowhere       price difference 87500 euros
+Loft in a small town                           price difference 16500 euros
 
 </sample-output>
 
@@ -353,7 +352,7 @@ Loft in a small town          price difference 16500 euros
 
 ## Comprehensions and dictionaries
 
-There is nothing intrinsically "listey" about comprehensions. The result is a list because the comprehension statement is encased in square brackets, which indicate a Python list. Comprehensions work just as well with Python dictionaries if your use curly brackets instead. Remember, though, that dictionaries require key-value pairs. Both must be specified when a dictionary is created, also with comprehensions.
+There is nothing intrinsically "listey" about comprehensions. The result is a list because the comprehension statement is encased in square brackets, which indicate a Python list. Comprehensions work just as well with Python dictionaries if you use curly brackets instead. Remember, though, that dictionaries require key-value pairs. Both must be specified when a dictionary is created, also with comprehensions.
 
 The basis of a comprehension can be any iterable series, be it a list, a string, a tuple, a dictionary, any of your own iterable classes, and so forth.
 
@@ -372,11 +371,11 @@ print(char_counts)
 
 </sample-output>
 
-The principle of the comprehension statement is exactly the same, but instead of a single value the expression consists of a key and a value. The general syntax looks like this:
+The principle of the comprehension statement is exactly the same as with lists, but instead of a single value, the expression now consists of a key and a value. The general syntax looks like this:
 
 `{<key expression> : <value expression> for <item> in <series>}`
 
-To finish off, lets take a look at factorials again. This time we store the results in a dictionary. The number itself is the key, while the value is the result of the factorial from our function:
+To finish off this section, lets take a look at factorials again. This time we store the results in a dictionary. The number itself is the key, while the value is the result of the factorial from our function:
 
 ```python
 def factorial(n: int):
@@ -401,9 +400,9 @@ if __name__ == "__main__":
 
 <programming-exercise name='Lengths of strings' tmcname='part11-11_lengths_of_strings'>
 
-Please write a function named `lengths(strings: list)` which takes a list of strings as its argument. The function should return a _dictionary_ with the strings in the list as the keys and their lengths as the values attached to each key.
+Please write a function named `lengths(strings: list)` which takes a list of strings as its argument. The function should return a _dictionary_ with the strings in the list as the keys and their lengths as the values.
 
-The function should be implemented with dictionary comprehension techniques. The length of the function, including the header line beginning with the `def` keyword, should be 2.
+The function should be implemented with a dictionary comprehension. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
 The function should work as follows:
 
@@ -427,7 +426,7 @@ print(word_lengths)
 
 Please write a function named `most_common_words(filename: str, lower_limit: int)` which takes a filename and an integer value for a lower limit as its arguments. The function should return a dictionary containing the occurrences of the words which appear at least the number of times specified in the `lower_limit` parameter.
 
-For example, say the function was used to process the contents of the file named _comprehensions.txt_ with the following contents:
+For example, say the function was used to process a file named _comprehensions.txt_ with the following contents:
 
 ```txt
 List comprehension is an elegant way to define and create lists based on existing lists.

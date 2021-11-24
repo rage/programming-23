@@ -29,9 +29,9 @@ for number in numbers:
 
 There is also a more "pythonic" way of generating lists from existing lists. These are called _list comprehensions_.
 
-The idea is to fit on a single line a description of what should be done to each item on the list, and the assignment of the result to a new list.
+The idea is to fit on a single line both the description of what should be done to each item on the list, and the assignment of the result to a new list.
 
-In the above example, the operation performed on each item on the list was very simple: each integer was converted into a string. Let's see what this would look like through a list comprehension:
+In the above example, the operation performed on each item on the list was very simple: each integer was converted into a string. Let's see what this would look like implemented with a list comprehension:
 
 ```python
 numbers = [1, 2, 3, 6, 5, 4, 7]
@@ -77,8 +77,8 @@ def factorial(n: int):
     return k
 
 if __name__ == "__main__":
-    my_list = [5, 2, 4, 3, 0]
-    factorials = [factorial(number) for number in my_list]
+    numbers = [5, 2, 4, 3, 0]
+    factorials = [factorial(number) for number in numbers]
     print(factorials)
 ```
 
@@ -100,16 +100,16 @@ def factorial(n: int):
     return k
 
 if __name__ == "__main__":
-    my_list = [5, 2, 4, 3, 0]
+    numbers = [5, 2, 4, 3, 0]
     factorials = []
-    for number in my_list:
+    for number in numbers:
         factorials.append(factorial(number))
     print(factorials)
 ```
 
 List comprehensions allow us to express the same functionality more consisely, usually without losing any of the readability.
 
-We can also return a list comprehension statement from a function directly. The result is very concise:
+We can also return a list comprehension statement from a function directly. If we needed a function for producing factorials for lists of numbers, we could achieve it very concisely:
 
 ```python
 def factorials(numbers: list):
@@ -118,9 +118,11 @@ def factorials(numbers: list):
 
 <programming-exercise name='Square roots' tmcname='part11-01_square_roots'>
 
-Please write a function named `square_roots(numbers: list)` which takes a list of integers as its argument. The function should return a new list containing the square roots of the original integers. The [math](https://docs.python.org/3/library/math.html) module from the Python standard library contains a suitable function for calculating the square root.
+Please write a function named `square_roots(numbers: list)` which takes a list of integers as its argument. The function should return a new list containing the square roots of the original integers. 
 
-The function should use a list comprehension technique. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
+The [math](https://docs.python.org/3/library/math.html) module from the Python standard library contains a suitable function for calculating the square root.
+
+The function should use a list comprehension. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
 The function should work as follows:
 
@@ -141,9 +143,9 @@ for line in lines:
 
 </programming-exercise>
 
-<programming-exercise name='Star rows' tmcname='part11-02_rows_of_stars'>
+<programming-exercise name='Rows of stars' tmcname='part11-02_rows_of_stars'>
 
-Please write a function named `rows_of_stars(numbers: list)` which takes a list of integers as its argument. The function should return a new list containing rows of stars. The length of each row should correspond to the integer at the same index in the original list. The function should use a list comprehension technique to achieve this.
+Please write a function named `rows_of_stars(numbers: list)` which takes a list of integers as its argument. The function should return a new list containing rows of stars. The length of each row should correspond to the integer at the same index in the original list. The function should use a list comprehension to achieve this.
 
 The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
@@ -191,7 +193,7 @@ The exercise template contains the class definition `ExamResult`. The class has 
 
 Please write a function named `best_results(results: list)` which takes a list of ExamResult objects as its argument.
 
-The function should return a new list containing only the best result from each ExamResult object. The function should use a list comprehension technique to achieve this.
+The function should return a new list containing only the best result from each ExamResult object. The function should use a list comprehension to achieve this.
 
 The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
@@ -215,9 +217,9 @@ print(best_results(results))
 
 <programming-exercise name='Lengths' tmcname='part11-04_lengths'>
 
-Please write a function named `lengths(lists: list)` which takes a list containing lists of integers as its argument. The function should return a new list containing the lengths of the lists within the arguent list.
+Please write a function named `lengths(lists: list)` which takes a list containing lists of integers as its argument. The function should return a new list, containing the lengths of the lists within the argument list.
 
-The function should use a list comprehension technique to achieve this. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
+The function should use a list comprehension to achieve this. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
 The function should work as follows:
 
@@ -236,7 +238,9 @@ print(lengths(lists))
 
 ## Filtering items
 
-In the examples above all of our lists remained the same length before and after a list comprehension operation. All the items in the original were used as the basis of the new. Sometimes we only need some of the original items, however. A list comprehension statement also allows for a condition, so that we can check the items against the condition and select only those which match. The general syntax is as follows:
+In the examples above all of our lists remained the same length before and after a list comprehension operation. In each case, all the items in the original list were used as the basis of the new list. But sometimes we only need _some_ of the original items. How can this be achieved?
+
+A list comprehension statement also allows for a condition, so that we can check the items against the condition and select only those which match. The general syntax is as follows:
 
 `[<expression> for <item> in <series> if <Boolean expression>]`
 
@@ -245,9 +249,9 @@ The statement above is otherwise identical to the general form introduced in the
 In the example below we select all the even items from the original list as the basis of the new list. In fact, these items are not further processed in any way; they are assigned to the new list as is:
 
 ```python
-my_list = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
+numbers = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
 
-even_items = [item for item in my_list if item % 2 == 0]
+even_items = [item for item in numbers if item % 2 == 0]
 print(even_items)
 ```
 
@@ -257,12 +261,12 @@ print(even_items)
 
 </sample-output>
 
-The expression in the list comprehension statement above is just a simple `item`, which means that no operations are to be performed on the items in the list, but the expression could be any Python expression, just like in the previous examples. For example, the following list comprehension statement takes all the even items in a list, multiplies each by ten, and stores the result in a new list:
+The expression in the list comprehension statement above is just a simple `item`, which means that no operations are to be performed on the items in the list. The expression could be any Python expression, just like in the previous examples. For example, the following list comprehension statement takes all the even items in a list, multiplies each by ten, and stores the result in a new list:
 
 ```python
-my_list = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
+numbers = [1, 1, 2, 3, 4, 6, 4, 5, 7, 10, 12, 3]
 
-even_items = [item * 10 for item in my_list if item % 2 == 0]
+even_items = [item * 10 for item in numbers if item % 2 == 0]
 print(even_items)
 ```
 
@@ -286,8 +290,8 @@ def factorial(n: int):
     return k
 
 if __name__ == "__main__":
-    my_list = [-2, 3, -1, 4, -10, 5, 1]
-    factorials = [factorial(number) for number in my_list if number >= 0]
+    numbers = [-2, 3, -1, 4, -10, 5, 1]
+    factorials = [factorial(number) for number in numbers if number >= 0]
     print(factorials)
 ```
 
@@ -309,8 +313,9 @@ def factorial(n: int):
     return k
 
 if __name__ == "__main__":
-    my_list = [-2, 3, 2, 1, 4, -10, 5, 1, 6]
-    factorials = [(number, factorial(number)) for number in my_list if number > 0 and number % 2 == 0]
+    numbers = [-2, 3, 2, 1, 4, -10, 5, 1, 6]
+    # the variable name abbreviated here so that this would be easier to read
+    factorials = [(n, factorial(n)) for n in numbers if n > 0 and n % 2 == 0]
     print(factorials)
 ```
 
@@ -320,15 +325,15 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Picking the above example apart, we have the Boolean expression `number > 0 and number % 2 == 0`. This means that only items which are both positive and divisible by two are accepted for further processing from the original list. 
+Picking the above example apart, we have the Boolean expression `n > 0 and n % 2 == 0`. This means that only items which are both positive and divisible by two are accepted for further processing from the original list. 
 
-These positive, even numbers are then each in turn processed into the format `(number, factorial(number))`. This is a tuple, where the first item is the number itself, and the second item is the result returned by the factorial function.
+These positive, even numbers are then each in turn processed into the format `(n, factorial(n))`. This is a tuple, where the first item is the number itself, and the second item is the result returned by the factorial function.
 
 <programming-exercise name='Remove smaller than' tmcname='part11-05_remove_smaller_than'>
 
 Please write a function named `remove_smaller_than(numbers: list, limit: int)` which takes a list of integers and a limit value (also in integer format) as its arguments.
 
-The function should use a list comprehension technique to produce a new list without the values which are smaller than the limit value.
+The function should use a list comprehension to produce a new list without the values which are smaller than the limit value.
 
 The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
@@ -352,9 +357,9 @@ print(remove_smaller_than([-4, 7, 8, -100], 0))
 
 <programming-exercise name='Begin with a vowel' tmcname='part11-06_begin_with_vowel'>
 
-Please write a function named `begin_with_vowel(words: list)` which takeas a list of strings as its argument.
+Please write a function named `begin_with_vowel(words: list)` which takes a list of strings as its argument.
 
-The function should use a list comprehension technique to create and return a new list, containing only those words from the original list which begin with a vowel (a, e, i, o, u). Both lowercase and uppercase letters should be fine.
+The function should use a list comprehension technique to create and return a new list, containing only those words from the original list which begin with a vowel (a, e, i, o, u). Both lowercase and uppercase letters should be accepted.
 
 The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
@@ -397,9 +402,11 @@ Combining the ternary operator syntax with a list comprehension statement yields
 
 `[<expression 1> if <condition> else <expression 2> for <item> in <series>]`
 
-Including an else operator means that we will again process every item from the original list. Depending on whether the condition is true or false, either expression 1 or expression 2 is performed on each item on the list.
+This may look a little confusing, as the conditional structure now comes before the actual list comprehension part. This is just the way the syntax has been defined, at least at the moment. If there is also an `else` branch, the conditional comes first. If there is just an `if`, it goes to the end. You can try swapping them around and see what happens.
 
-The following example checks if the items on a list are zero or above. Any item that is zero or above is accepted as is, but all negative items are negated, so that the sign is changed from negative to positive. The result is a list containing the absolute values of the items in the original list.
+Including an else operator means that we will again process every item from the original list. Depending on whether the condition is true or false, either `expression 1` or `expression 2` is performed on each item on the list.
+
+The following example checks if the items on a list are zero or above. Any such item is accepted as is, but all negative items are negated, so that the sign is changed from negative to positive. The result is a list containing the absolute values of the items in the original list.
 
 ```python
 numbers = [1, -3, 45, -110, 2, 9, -11]
@@ -413,9 +420,9 @@ print(abs_vals)
 
 </sample-output>
 
-If the condition `number >= 0` is true, the item undergoes expression `number`, and the result is the item itself. If the condition is false, the item undergoes expression `-number`, so that it becomes positive in value.
+Reiterating what happens above: if the condition `number >= 0` is true, the item undergoes expression `number`, and the result is the item itself. If the condition is false, the item undergoes expression `-number`, so that it becomes positive in value.
 
-In the following example we have the function `string_lengths` which takes a list as its argument, and returns another list with the lengths of any strings in the original list. This function is okay with list items of any type, however. If the item is a string, it calculates its length. If the item is antyhing else, it inserts -1 in the list it returns.
+In the following example we have the function `string_lengths` which takes a list as its argument, and returns another list with the lengths of any strings in the original list. This function is okay with list items of any type, however. If the item is a string, it calculates its length. If the item is anything else, it inserts -1 in the list it returns.
 
 ```python
 def string_lengths(my_list: list):
@@ -443,9 +450,9 @@ Please write a class named `LotteryNumbers` which takes the week number (an inte
 
 Please also write a method named `number_of_hits(numbers: list)` which takes a list of integers as its argument. The method returns the number of correct entries in the parameter list.
 
-The method should use a list comprehension technique to achieve this. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
+The method should use a list comprehension to achieve this. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
-An example of how the class is used:
+An example of how the class and function are used:
 
 ```python
 week5 = LotteryNumbers(5, [1,2,3,4,5,6,7])
@@ -462,9 +469,9 @@ print(week5.number_of_hits(my_numbers))
 
 ## LotteryNumbers matched in place
 
-Please write a method named `hits_in_place(numbers)` which takes a list of weven integers as its argument and returns a new list of seven integers. The new list contains only those items from the parameter list which match the week's correct numbers. These must remain at the same indexes as they were in the parameter list. The rest of the indexes should be filled with values `-1`.
+Please write a method named `hits_in_place(numbers)` which takes a list of seven integers as its argument, and returns a new list of seven integers. The new list contains only those items from the original list which match the week's correct numbers. These must remain at the same indexes as they were in the original list. The rest of the indexes should be filled with values `-1`.
 
-The method should use a list comprehension technique to achieve this. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
+The method should use a list comprehension to achieve this. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword.
 
 Please take a look at the example below:
 

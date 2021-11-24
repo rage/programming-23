@@ -12,7 +12,7 @@ After this section
 
 </text-box>
 
-The real advantages of recursion become evident when we come across problems where iterative solutions are difficult to write. Let's take a look at _binary trees_, for instance. A binary tree is a branched structure where we have nodes, and at each node the structure branches, at most, into two child branches with nodes of their own. A binary tree could then look like this (computer science is often considered a branch of the natural sciences, but our understanding of trees is a little backwards, as you'll notice):
+The real advantages of recursion become evident when we come across problems where iterative solutions are difficult to write. Let's take a look at _binary trees_, for instance. A binary tree is a branched structure where we have nodes, and at each node the structure branches, at most, into two child branches with nodes of their own. A binary tree could then look like this (computer science is often considered a branch of the natural sciences, but our understanding of trees is a little topsy-turvy, as you'll notice):
 
 <img src="11_4_1.png">
 
@@ -24,11 +24,11 @@ Binary trees should at least theoretically be easy to handle recursively: if we 
 
 <img src="11_4_2.png">
 
-As you can see from the image above, both the left and right "subtrees" are fully fledged binary trees themselves, and the only node left outside the recursive calls is the parent node, which is processed in step 1 above before calling the function recursively. So, we can be sure that when the exectuion of the function finishes, each node has been visited exactly once. 
+As you can see from the image above, both the left and right "subtrees" are fully fledged binary trees themselves, and the only node left outside the recursive calls is the parent node, which is processed in step 1, before calling the function recursively. So, we can be sure that when the execution of the function finishes, each node has been visited exactly once. 
 
-An iterative version of a binary tree traversal would be much more complicated as we would have to somehow keep track of all the nodes we have already visited. The same principles are true for all computational tree structures, not just binary ones.
+An iterative version of a binary tree traversal would be much more complicated, as we would have to somehow keep track of all the nodes we have already visited. The same principles are true for all computational tree structures, not just binary ones.
 
-A binary tree is easily modelled in Python code as well. We only need to write a class definition for a single node. It has a value attribute and also attributes for the left and right child nodes:
+A binary tree is easily modelled in Python code as well. We only need to write a class definition for a single node. It has a value attribute and attributes for the left and right child nodes:
 
 ```python
 
@@ -52,11 +52,10 @@ if __name__ == "__main__":
 
     tree.left_child = Node(3)
     tree.left_child.left_child = Node(5)
-    tree.left_child.right_child = Node8)
+    tree.left_child.right_child = Node(8)
 
     tree.right_child = Node(4)
-    tree.right_child.right_child = Node11)
-
+    tree.right_child.right_child = Node(11)
 ```
 
 ## Recursive binary tree algorithms
@@ -93,12 +92,11 @@ If we pass the root node `tree` of the binary tree illustrated above as an argum
 
 </sample-output>
 
-As you can see from the order the nodes are printed out, the algorithm first moves down the "left leg" of the tree to the very bottom, and from there traverses the other nodes in order, rather like a systematical labyrinth solver who always turns left in order to cover the entire labyrinth, until they find the exit.
+As you can see from the order of the nodesin the printout, the algorithm first moves down the "left leg" of the tree down to the very bottom, and from there traverses the other nodes in order.
 
 Similarly, we can write an algorithm for calculating the sum of all the values stored in the nodes of the tree:
 
 ```python
-
 def sum_of_nodes(root: Node):
     node_sum = root.value
 
@@ -109,7 +107,6 @@ def sum_of_nodes(root: Node):
         node_sum += sum_of_nodes(root.right_child)
 
     return node_sum
-
 ```
 
 The variable `node_sum` is initialised to equal the value of the current node. The value in the variable is then augmented by recursive calls to the node sums of the left and right child trees (first making sure they exist, of course). This result is then returned
@@ -125,7 +122,6 @@ Hint: the function `sum_of_nodes` in the example above may come in handy.
 An example of how the function should work:
 
 ```python
-
 if __name__ == "__main__":
     tree = Node(2)
 
@@ -137,7 +133,6 @@ if __name__ == "__main__":
     tree.right_child.right_child = Node(11)
 
     print(greatest_node(tree))
-
 ```
 
 <sample-output>
@@ -156,7 +151,7 @@ Let's take a look a tree which is sorted as follows: the left child of each node
 
 <img src="11_4_1.png">
 
-Now we can write a recursive algorithm for searching for nodes. The idea is very similar to the binary search from the previous section: if the current node is the node we are looking for, return `True`. Else, continue recursively in either the left or the right child tree. If the node is not defined, return `False`.
+Now we can write a recursive algorithm for searching for nodes. The idea is very similar to the binary search from the previous section: if the current node is the node we are looking for, return `True`. Else, continue recursively with either the left or the right child tree. If the node is not defined, return `False`.
 
 ```python
 def find_node(root: Node, value):
@@ -196,7 +191,7 @@ if __name__ == "__main__":
     t2 = Employee("Eric")
     t3 = Employee("Matthew")
     t4 = Employee("Emily")
-    t5 = Employee("Andy")
+    t5 = Employee("Adele")
     t6 = Employee("Claire")
     t1.add_subordinate(t4)
     t1.add_subordinate(t6)
@@ -224,11 +219,11 @@ Let's finish off this part of the material with a slightly larger exercise conce
 
 <programming-exercise name='OrderBook' tmcname='part11-18_order_book'>
 
-In this exercise you will write two different classes, which will in turn form the backbone of the _following_ exercise, where you will write an interactive application.
+In this exercise you will write two different classes, which will in turn form the backbone of the programming exercise which follows this one, where you will write an interactive application.
 
 ## Task
 
-Please write the class `Task` which models a single task in a software company's likst of tasks. Tasks have
+Please write a class named `Task` which models a single task in a software company's list of tasks. Tasks have
 - a description
 - an estimate of the hours required for completing the task
 - the name of the programmer assigned to the task
@@ -245,7 +240,7 @@ print(t1.is_finished())
 t1.mark_finished()
 print(t1)
 print(t1.is_finished())
-t2 = Task("program webstore", "Andy", 10)
+t2 = Task("program webstore", "Adele", 10)
 t3 = Task("program mobile app for workload accounting", "Eric", 25)
 print(t2)
 print(t3)
@@ -258,7 +253,7 @@ print(t3)
 False
 1: program hello world (3 hours), programmer Eric FINISHED
 True
-2: program webstore (10 hours), programmer Andy NOT FINISHED
+2: program webstore (10 hours), programmer Adele NOT FINISHED
 3: program mobile app for workload accounting (25 hours), programmer Eric NOT FINISHED
 
 </sample-output>
@@ -269,19 +264,19 @@ Some clarifications:
 - a task is marked as finished by calling the method `mark_finished(self)`
 - the id of a task is a running number which starts with 1. The id of the first task is 1, the id of the second is 2, and so forth.
 
-**Hint**: id can be implemented as a [class variable](/part-9/5-class-attributes#class-variables).
+**Hint**: `id` can be implemented as a [class variable](/part-9/5-class-attributes#class-variables).
 
 ## OrderBook
 
-Please write a class named `OrderBook` which collects all the tasks ordered from the software company. Thetasks should be modelled with the class `Task` you just wrote.
+Please write a class named `OrderBook` which collects all the tasks ordered from the software company. The tasks should be modelled with the class `Task` you just wrote.
 
 The basic version of an OrderBook is used as follows:
 
 ```python
 orders = OrderBook()
-orders.add_order("program webstore", "Andy", 10)
+orders.add_order("program webstore", "Adele", 10)
 orders.add_order("program mobile app for workload accounting", "Eric", 25)
-orders.add_order("program app for practicing mathematics", "Andy", 100)
+orders.add_order("program app for practising mathematics", "Adele", 100)
 
 for order in orders.all_orders():
     print(order)
@@ -294,21 +289,21 @@ for programmer in orders.programmers():
 
 <sample-output>
 
-1: program webstore (10 hours), programmer Andy NOT FINISHED
+1: program webstore (10 hours), programmer Adele NOT FINISHED
 2: program mobile app for workload accounting (25 hours), programmer Eric NOT FINISHED
-3: program app for practicing mathematics (100 hours), programmer Andy NOT FINISHED
+3: program app for practising mathematics (100 hours), programmer Adele NOT FINISHED
 
-Andy
+Adele
 Eric
 
 </sample-output>
 
 At this stage your `OrderBook` should provide three methods:
-- `add_order(self, description, programmer, workload)` which adds a new order to the OrderBook. An OrderBook stores the orders internally as `Task` objects. NB: the method should take exactly the attributes mentioned, or else the automated tests will not work correctly.
+- `add_order(self, description, programmer, workload)` which adds a new order to the OrderBook. An OrderBook stores the orders internally as `Task` objects. NB: the method should take exactly the arguments mentioned, or else the automated tests will not work correctly.
 - `all_orders(self)` returns a list of all the tasks stored in the OrderBook
 - `programmers(self)` returns a list of the names of all the programmers with tasks stored in the OrderBook. The list should contain each programmer only once
 
-**Hint:** an easy method for removing duplicates is handling the list initially as a [set](https://docs.python.org/3.8/library/stdtypes.html#set). A set is a collection of items where each unique item appears only once. A `set` can be then converted back into a list, and we can be sure each item is then unique:
+**Hint:** an easy method for removing duplicates is handling the list initially as a [set](https://docs.python.org/3.8/library/stdtypes.html#set). A set is a collection of items where each unique item appears only once. A `set` can be then converted back into a list, and we can then be sure each item is now unique:
 
 ```python
 my_list = [1,1,3,6,4,1,3]
@@ -332,9 +327,9 @@ The method `mark_finished(self, id: int)` takes the id of the task as its argume
 
 ```python
 orders = OrderBook()
-orders.add_order("program webstore", "Andy", 10)
+orders.add_order("program webstore", "Adele", 10)
 orders.add_order("program mobile app for workload accounting", "Eric", 25)
-orders.add_order("program app for practicing mathematics", "Andy", 100)
+orders.add_order("program app for practising mathematics", "Adele", 100)
 
 orders.mark_finished(1)
 orders.mark_finished(2)
@@ -345,9 +340,9 @@ for order in orders.all_orders():
 
 <sample-output>
 
-1: program webstore (10 hours), programmer Andy FINISHED
+1: program webstore (10 hours), programmer Adele FINISHED
 2: program mobile app for workload accounting (25 hours), programmer Eric FINISHED
-3: program app for practicing mathematics (100 hours), programmer Andy NOT FINISHED
+3: program app for practising mathematics (100 hours), programmer Adele NOT FINISHED
 
 </sample-output>
 
@@ -357,19 +352,19 @@ The methods `finished_orders(self)` and `unfinished_orders(self)` work as expect
 
 ## Finishing touches to OrderBook
 
-Please write one last method in your `OrderBook` class: `status_of_programmer(self, programmer: str)` which returns a _tuple_. The tuple should contain the number of finished and unfinished tasks the programmer has, along with the hours spent on each task.
+Please write one last method in your `OrderBook` class: `status_of_programmer(self, programmer: str)` which returns a _tuple_. The tuple should contain the number of finished and unfinished tasks the programmer has assigned to them, along with the estimated hours in both categories.
 
 ```python
 orders = OrderBook()
-orders.add_order("program webstore", "Andy", 10)
-orders.add_order("program mobile app for workload accounting", "Andy", 25)
-orders.add_order("program app for practicing mathematics", "Andy", 100)
+orders.add_order("program webstore", "Adele", 10)
+orders.add_order("program mobile app for workload accounting", "Adele", 25)
+orders.add_order("program app for practising mathematics", "Adele", 100)
 orders.add_order("program the next facebook", "Eric", 1000)
 
 orders.mark_finished(1)
 orders.mark_finished(2)
 
-status = orders.status_of_programmer("Andy")
+status = orders.status_of_programmer("Adele")
 print(status)
 ```
 
@@ -387,7 +382,7 @@ If there is no task with the given id, the method should raise a `ValueError` ex
 
 <programming-exercise name='Order book application' tmcname='part11-19_order_book_application'>
 
-In this exercise you will create a digital application for administering the tasks ordered from a software company. The implementation is completely up to you, but you may use the building blocks from the previous exercise in your application. The examples in the [last section of part 10](/part-10/4-application-development) can also prove useful.
+In this exercise you will create aa interactive application for administering the tasks ordered from a software company. The implementation is completely up to you, but you may use the building blocks from the previous exercise in your application. The examples in the [last section of part 10](/part-10/4-application-development) can also prove useful.
 
 ## Without error handling
 
@@ -462,7 +457,7 @@ tasks: finished 2 not finished 1, hours: done 55 scheduled 1000
 
 The first exercise point is granted for a working application when all user input is flawless.
 
-## Handling error in user input
+## Handling errors in user input
 
 To gain the second exercise point for this exercise your application is expected to recover from erroneus user input. Any input which does not follow the specified format should produce an error message _erroneous input_, and result in yet another repeat of the loop asking for a new command:
 

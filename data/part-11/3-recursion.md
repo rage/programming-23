@@ -24,7 +24,7 @@ def hello_many_times(name : str, times : int):
         hello(name)
 ```
 
-A function can also call itself, but we as programmers have to be careful when we do that. If nothing changes between the nested function calls, so that each and every function call initiates another function call, we would end up in an infinite loop of function calls with no way out. So, trying to call the `hello` function if the function definitition is as follows
+A function can also call itself, but we as programmers have to be careful when we do that. It is easy to fall into an endless loop of function calls, just like we fell into an infinite loop of repetitions with `while` loops if we left out the appropriate break conditions. So, trying to call a `hello` function with the following definition
 
 ```python
 def hello(name : str):
@@ -42,7 +42,7 @@ RecursionError: maximum recursion depth exceeded
 
 ## What does recursion mean?
 
-The _recursion_ mentioned in the error above refers to _defining something in terms of itself_. In a programming context it refers to a function which calls itself. For this to work without causing any infinite loops the arguments passed to the function must change each time, so that the nested function calls will stop at some point. The basic principle here is the same as in `while` loops: there must always be a stop condition of some kind, and that condition must be triggered at some point in the execution.
+The _recursion_ mentioned in the error above refers to _defining something in terms of itself_. In a programming context it usually refers to a function which calls itself. For this to work without causing any infinite loops, the arguments passed to the function must change each time, so that the nested function calls will stop at some point. The basic principle here is the same as in `while` loops: there must always be a stop condition of some kind, and that condition must be triggered at some point in the execution.
 
 Let's have a look at a simple function which adds zeroes to a list as long as there are less than 10 items in the list. This time we are not using a loop, however. If the condition is not yet met, the function calls itself:
 
@@ -81,15 +81,13 @@ if __name__ == "__main__":
     print(test_list)
 ```
 
-The more traditional iterative approach produces a shorter program which is also arguably easier to understand. With the recursive version it is not as clear that throughout the appending process we are working on the very same list, but this is the case, and that is why the recursive function works just as well.
+The more traditional iterative approach produces a shorter program which is arguably also easier to understand. With the recursive version it is not as clear that throughout the process we are working on the very same list. That is, however, the case, and that is why the recursive function works just as well.
 
 <text-box variant="hint" name="Iterative or recursive?">
 
-Computer science theory often differentiates between _iterative_ and _recursive_ algorithms, so it is best to become familiar with these terms right from the start. Iterative solutions are ones that are based on sequential processing of items, often using loops. So far we have dealt with iterative methods quite exclusively.
+Computer science theory often differentiates between _iterative_ and _recursive_ algorithms, so it is best to become familiar with these terms right from the start. Iterative solutions are ones that are based on sequential processing of items, often using loops. So far we have dealt with iterative methods quite exclusively. Recursive, on the other hand, refers to a method where the function calls itself with changing parameter values.
 
-Recursive, on the other hand, refers to a method where the function calls itself with changing parameter values. This can be thought of as zooming in to a smaller and smaller portion of the whole, until we get to a level which is small enough to process on its own, then using this atomic result on the next level up, and so forth, accumulating a result while zooming out again.
-
-In principle it should be possible to solve any problem with either iterative or recursive methods. In practice, however, one or the other is usually clearly better suited to the problem. The ability to determine which is better comes largely with practice.
+In principle it should be possible to solve any problem with either iterative or recursive methods. In practice, however, one or the other is usually clearly better suited to each problem. The ability to determine which is better comes largely with practice.
 
 </text-box>
 
@@ -115,12 +113,12 @@ print(numbers)
 
 ## Recursion and return values
 
-Recursive functions can also have return values. In the last sections we worked with factorials, so let's write a recursive factorial function:
+Recursive functions can also have return values. In the last few sections we've worked with factorials, so let's write a recursive factorial function:
 
 ```python
 
 def factorial(n: int):
-    """ The function calculates the factorial n! for integers above zero """
+    """ The function calculates the factorial n! for n >= 0 """
     if n < 2:
         # The factorial for 0 and 1 is 1
         return 1
@@ -148,7 +146,7 @@ The factorial of 6 is 720
 
 If the parameter of the recursive factorial function is 0 or 1, the function returns 1, because this is how the factorial operation is defined. In any other case the function returns the value `n * factorial(n - 1)`, which is the value of its parameter `n` multiplied by the return value of the function call `factorial(n - 1)`.
 
-The crucial part here is that the function definition contains a stop condition. If this is met, the recursion ends. In this case that condition is `n < 2`. We know it will be reached eventually, beacuse the value passed as the argument to the function is decresed by one on each level of the recursion.
+The crucial part here is that the function definition contains a stop condition. If this is met, the recursion ends. In this case that condition is `n < 2`. We know it will be reached eventually, beacuse the value passed as the argument to the function is decreased by one on each level of the recursion.
 
 The [visualisation tool](http://www.pythontutor.com/visualize.html#mode=edit) can be a great help in making sense of recursive programs.
 
@@ -183,13 +181,13 @@ def fibonacci(n: int):
     """ The function returns the nth number in the Fibonacci sequence (1, 1, 2, 3, 5, 8 etc.); n > 0"""
 
     if n <= 2:
-        # the two first are ones
+        # the first two are ones
         return 1
 
     # All other numbers equal the sum of the two preceding numbers in the sequence
     return fibonacci(n - 1) + fibonacci(n - 2)
 
-# Test everything works
+# Test that everything works
 if __name__ == "__main__":
     for i in range(1, 11):
         print(f"The {i}. number in the Fibonacci sequence is {fibonacci(i)}")
@@ -210,7 +208,7 @@ The 10. number in the Fibonacci sequence is 55
 
 </sample-output>
 
-This time the stop condition is that the number asked for is less than or equal to 2, because the entire sequence is defined from the first two numbers onwards, and we defined the first two numbers to be equal to 1.
+This time the stop condition is that the parameter is less than or equal to 2, because the entire sequence is defined from the first two numbers onwards, and we defined the first two numbers to be equal to 1.
 
 So, how does this function work in practice?
 
@@ -313,13 +311,12 @@ print(ok)
 ok = balanced_brackets("(()]")
 print(ok)
 
-
 # different types of brackets are mismatched
 ok = balanced_brackets("([bad egg)]")
 print(ok)
 ```
 
-NB: the function only has to handle entirely nested brackets. The string `(x + 1)(y + 1)` produes `False` as the brackets are not nested.
+NB: the function only needs to handle entirely nested brackets. The string `(x + 1)(y + 1)` should produce `False` as the brackets are not nested within each other.
 
 <sample-output>
 
@@ -337,10 +334,10 @@ False
 
 In a binary search we have a sorted list of items and we are trying to find a certain item within. The order of the items could be, for example, numbers from smallest to greatest, or strings from alphabetically first to last. The method of sorting doesn't matter, as long as it is known and relevant to the item we are trying to find.
 
-The idea of a binary search is to always look at the item at the very centre of the list. If the item at the centre is 
-- the one we are looking for, we can return an indication that we found the item
-- smaller than the one we are looking for, we can re-do the search in the greater half of the list
-- greater than the one we are looking for, we can re-do the search in the smaller half of the list.
+The idea of a binary search is to always look at the item at the very centre of the list. We then have three possible scenarios. If the item at the centre is 
+- the one we are looking for: we can return an indication that we found the item
+- smaller than the one we are looking for: we can re-do the search in the greater half of the list
+- greater than the one we are looking for: we can re-do the search in the smaller half of the list.
 
 If the list is empty, we can determine that the item was not found, and return an indication of that.
 
@@ -348,19 +345,19 @@ In the following image we can see how a binary search progresses as it looks for
 
 <img src="11_3_1.png">
 
-Here is a recursive algorithm fo a binary search:
+Here is a recursive algorithm for a binary search:
 
 ```python
 def binary_search(target: list, item: int, left : int, right : int):
     """ The function returns True if the item is contained in the target list, False otherwise """
-    # If the search area is empty, item not found
+    # If the search area is empty, item was not found
     if left > right:
         return False
 
-    # Calculate the centre of the search area
+    # Calculate the centre of the search area, integer result
     centre = (left+right)//2
 
-    # If the item is found at the centre
+    # If the item is found at the centre, return
     if target[centre] == item:
         return True
 
@@ -390,8 +387,8 @@ False
 
 </sample-output>
 
-The `binary_search` function takes four arguments: the target list, the item being searched for, and the left and right edges of the search area. When the function is first called, the search area covers the entire target list. The left edge is at index 0 and the right edge is at index `len(target)-1`. The function calculates the central index and checks that position on the list. Either the item was found, or the search continues to the smaller or greater half of the target list.
+The `binary_search` function takes four arguments: the target list, the item being searched for, and the left and right edges of the search area. When the function is first called, the search area covers the entire target list. The left edge is at index `0` and the right edge is at index `len(target)-1`. The function calculates the central index and checks that position on the list. Either the item was found, or the search continues to the smaller or greater half of the target list.
 
 Let's compare this to a simple linear search. In a linear search, the search area is traversed from the beginning onwards, until either the item is found, or we run out of search area. The number of steps needed to cover the entire search area grows _linearly_ at the same pace as the size of the search area. Each search step covers only one search candidate from the beginning of the search area. Let's assume the item searched for is _not_ found. If the search area is a million items long, we would have to take a million search steps to make sure the item is not in the search area. 
 
-In a binary search, on the other hand, the number of steps needed grows _logarithmically_. The search area is cut in half with each step, as we know that the item is either smaller or greater than the current search candidate at the centre. 2 to the power of 20 (2^20) is already well over 1 million, so it will take at most 20 steps to cover the entire search area with a binary search. So, when we are dealing with sorted search areas, as we often are when dealing with computers and materials that are meant to be automatically processed, a binary search is much more efficient than a linear search. 
+In a binary search, on the other hand, the number of steps needed grows _logarithmically_. Let's assume again that the item searched for is _not_ found. The search area is cut in half with each step, as we know that the item is either smaller or greater than the current search candidate at the centre. 2 to the power of 20 (2^20) is already well over 1 million, so it will take at most 20 steps to cover the entire search area with a binary search. So, when we are dealing with sorted search areas, as we often are when dealing with computers and materials that are meant to be automatically processed, a binary search is much more efficient than a linear search. 
