@@ -116,7 +116,7 @@ if __name__ == "__main__":
 
 </sample-output>
 
-<programming-exercise name='Parilliset luvut' tmcname='osa12-08_parilliset'>
+<programming-exercise name='Parilliset luvut' tmcname='part12-08_parilliset'>
 
 Kirjoita generaattorifunktio `parilliset(alku: int, maksimi: int)`, joka saa parametrikseen alkuarvon ja maksimin. Funktio tuottaa alkuarvosta lähtien parillisia lukuja. Kun saavutetaan maksimi, generaattori pysähtyy.
 
@@ -156,7 +156,7 @@ for luku in luvut:
 
 </programming-exercise>
 
-<programming-exercise name='Alkuluvut' tmcname='osa12-09_alkuluvut'>
+<programming-exercise name='Alkuluvut' tmcname='part12-09_alkuluvut'>
 
 Alkuluvuksi sanotaan kokonaislukua, joka on vähintään 2 ja jaollinen ainoastaan 1:llä ja itsellään. Ensimmäiset alkuluvut ovat 2, 3, 5, 7, 11 ja 13.
 
@@ -240,7 +240,7 @@ jkl
 
 </sample-output>
 
-<programming-exercise name='Satunnaiset sanat' tmcname='osa12-10_satunnaiset_sanat'>
+<programming-exercise name='Satunnaiset sanat' tmcname='part12-10_satunnaiset_sanat'>
 
 Tee funktio `sanageneraattori(kirjaimet: str, pituus: int, maara: int)`, joka muodostaa ja palauttaa annettujen parametrien avulla satunnaisia sanoja tuottavan generaattorin.
 

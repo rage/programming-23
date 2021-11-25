@@ -8,204 +8,204 @@ hidden: false
 
 After this section
 
-- Osaat järjestää listoja eri kriteerien mukaan
-- Tiedät mitä tarkoitetaan lambda-lausekkeella
-- Osaat hyödyntää lambda-lauseketta myös muiden Pythonin funktioiden kanssa
-- Osaat välittää funktion parametrina funktiolle
+- You will be able to sort lists according to different criteria
+- You will know what a lambda expression is
+- You will be able to use lambda expression with other Python functions
+- You will know how a function is passed as an argument to another function
 
 </text-box>
 
-Olemme jo aikaisemmin käyttäneet metodia `sort` ja funktiota `sorted` järjestämään listoja luonnolliseen järjestykseen. Metodit toimivat sellaisenaan hyvin luvuista ja merkkijonoista koostuvien listojen kanssa, mutta jos lista sisältää monimutkaisempia alkioita, Python ei välttämättä järjestä listaa niin kuin ohjelmoija toivoisi.
+We are already familiar with the method `sort` and the function `sorted`, which are used to sort lists into their natural order. For numbers and strings this usually works just fine. For anything more complicated than that, however, what Python deems to be the natural order of items is not always what was intended by us as programmers.
 
-Esimerkiksi lista tupleja järjestetään oletuksena jokaisen tuplen ensimmäisen alkion perusteella:
+For example, a list of tuples is, by default, sorted based on the first item of each tuple:
 
 ```python
-tuotteet = [("banaani", 5.95), ("omena", 3.95), ("appelsiini", 4.50), ("vesimeloni", 4.95)]
+products = [("banana", 5.95), ("apple", 3.95), ("orange", 4.50), ("watermelon", 4.95)]
 
-tuotteet.sort()
+products.sort()
 
-for tuote in tuotteet:
-    print(tuote)
+for product in products:
+    print(product)
 ```
 
 <sample-output>
 
-('appelsiini', 4.5)
-('banaani', 5.95)
-('omena', 3.95)
-('vesimeloni', 4.95)
+('orange', 4.5)
+('banana', 5.95)
+('apple', 3.95)
+('watermelon', 4.95)
 
 </sample-output>
 
-Mitä jos haluaisimme järjestää tuotelistan hinnan perusteella?
+But what if we wanted to sort the list based on the price?
 
-## Funktiot parametrina
+## Functions as arguments
 
-Järjestysmetodille tai -funktiolle voidaan antaa toisena parametrina järjestyksen määräävä avain. Avaimeksi annetaan funktio, joka kertoo, miten yksittäisen alkion arvo määritetään. Python kutsuu tätä funktiota järjestämisen aikana alkioiden vertailemiseen.
+A sorting method or function usually accepts an optional second argument which allows you to bypass the default sorting criteria. This second argument is a function which defines how the value of each item on the list is determined. As the list is sorted, Python calls this function when it compares the items to each other.
 
-Esimerkiksi:
+Let's take a look at an example:
 
 ```python
-def hintajarjestys(alkio: tuple):
-    # Palautetaan tuplen toinen alkio eli hinta
-    return alkio[1]
+def order_by_price(item: tuple):
+    # Return the price, which is the second item within the tuple
+    return item[1]
 
 if __name__ == "__main__":
-    tuotteet = [("banaani", 5.95), ("omena", 3.95), ("appelsiini", 4.50), ("vesimeloni", 4.95)]
+    products = [("banana", 5.95), ("apple", 3.95), ("orange", 4.50), ("watermelon", 4.95)]
 
-    # Hyödynnetään funktiota hintajarjestys
-    tuotteet.sort(key=hintajarjestys)
+    # Use the function order_by_price for sorting
+    products.sort(key=order_by_price)
 
-    for tuote in tuotteet:
-        print(tuote)
+    for product in products:
+        print(product)
 ```
 
 <sample-output>
 
-('omena', 3.95)
-('appelsiini', 4.5)
-('vesimeloni', 4.95)
-('banaani', 5.95)
+('apple', 3.95)
+('orange', 4.5)
+('watermelon', 4.95)
+('banana', 5.95)
 
 </sample-output>
 
-Nyt ohjelma järjestää listan hinnan mukaiseen järjestykseen. Mutta mitä ohjelmassa oikeastaan tapahtuu?
+Now the list is sorted based on the prices of the items, but what actually happens in the program?
 
-Funktion `hintajarjestys` määrittely on melko yksinkertainen: se saa parametrikseen yhden alkion ja palauttaa alkiolle arvon - tässä tapauksessa tuplen toisen alkion (joka esimerkissämme esittää tuotteen hintaa). Tarkastellaan kuitenkin lähemmin järjestysmetodia kutsuvaa riviä:
+The function `order_by_price` is actually pretty simple. It takes one item as its argument and returns a value for that item. More specifically, it returns the second item in the tuple, which represents the price. But then we have this line of code, where the `sort` method is called:
 
-`tuotteet.sort(key=hintajarjestys)`
+`products.sort(key=order_by_price)`
 
-Rivillä annetaan metodille `sort` parametriksi funktio. Ei siis funktion paluuarvoa, vaan _viittaus funktioon_. Järjestysmetodi kutsuu tätä funktiota jokaiselle alkiolle.
+Here the `sort` method is called with a function as its argument. This is not a reference to the return value of the function, but a reference to _the function itself_. The `sort` method calls this function multiple times, using each item on the list as the argument in turn.
 
-Kutsut nähdään selkeästi lisäämällä vertailufunktioomme ylimääräinen tulostuslause:
+If we include an extra print statement in the function definition of `order_by_price`, we can verify that the function does indeed get called once per each item on the list:
 
 ```python
-def hintajarjestys(alkio: tuple):
-    # Tulostetaan alkio
-    print(f"Kutsuttiin hintajarjestys({alkio})")
+def order_by_price(item: tuple):
+    # Print the item
+    print(f"Function call: order_by_price({item})")
 
-    # Palautetaan tuplen toinen alkio eli hinta
-    return alkio[1]
+    # Return the price, which is the second item within the tuple
+    return item[1]
 
 
-tuotteet = [("banaani", 5.95), ("omena", 3.95), ("appelsiini", 4.50), ("vesimeloni", 4.95)]
+products = [("banana", 5.95), ("apple", 3.95), ("orange", 4.50), ("watermelon", 4.95)]
 
-# Hyödynnetään funktiota hintajarjestys
-tuotteet.sort(key=hintajarjestys)
+# Use the function order_by_price for sorting
+products.sort(key=order_by_price)
 
-for tuote in tuotteet:
-    print(tuote)
+for product in products:
+    print(product)
 ```
 
 <sample-output>
 
-Kutsuttiin hintajarjestys(('banaani', 5.95))
-Kutsuttiin hintajarjestys(('omena', 3.95))
-Kutsuttiin hintajarjestys(('appelsiini', 4.5))
-Kutsuttiin hintajarjestys(('vesimeloni', 4.95))
-('omena', 3.95)
-('appelsiini', 4.5)
-('vesimeloni', 4.95)
-('banaani', 5.95)
+Function call: order_by_price(('banana', 5.95))
+Function call: order_by_price(('apple', 3.95))
+Function call: order_by_price(('orange', 4.5))
+Function call: order_by_price(('watermelon', 4.95))
+('apple', 3.95)
+('orange', 4.5)
+('watermelon', 4.95)
+('banana', 5.95)
 
 </sample-output>
 
-Järjestys saadaan käännettyä _päinvastaiseksi_ hyödyntämällä sekä metodista `sort` että funktiosta `sorted` löytyvää toista parametria `reverse`:
+The order can be _reversed_ with another keyword argument; `reverse`, which is available with both the `sort` method and the `sorted` function:
 
 ```python
-tuotteet.sort(key=hintajarjestys, reverse=True)
+products.sort(key=order_by_price, reverse=True)
 
-t2 = sorted(tuotteet, key=hintajarjestys, reverse=True)
+t2 = sorted(products, key=order_by_price, reverse=True)
 ```
 
-## Funktion sisällä määritelty funktio
+## A function definition within a function definition
 
-Jos haluaisimme siirtää edellisessä esimerkissä tehdyn järjestämisen omaan funktioonsa `jarjesta_hinnan_mukaan`, voisimme toteuttaa sen seuraavasti:
+We could also include a named function for this new price-based sort functionality we created. Let's add a function named `sort_by_price`:
 
 ```python
-def hintajarjestys(alkio: tuple):
-    return alkio[1]
+def order_by_price(item: tuple):
+    return item[1]
 
-def jarjesta_hinnan_mukaan(alkiot: list):
-    # käytetään täällä funktiota hintajarjestys
-    return sorted(alkiot, key=hintajarjestys)
+def sort_by_price(items: list):
+    # use the order_by_price function here
+    return sorted(items, key=order_by_price)
 
-tuotteet = [("banaani", 5.95), ("omena", 3.95), ("appelsiini", 4.50), ("vesimeloni", 4.95)]
+products = [("banana", 5.95), ("apple", 3.95), ("orange", 4.50), ("watermelon", 4.95)]
 
-for tuote in jarjesta_hinnan_mukaan(tuotteet):
-    print(tuote)
+for product in sort_by_price(products):
+    print(product)
 ```
 
-Jos järjestämisen käyttämää apufunktiota `hintajarjestys` ei käytetä missään muussa kohtaa ohjelmaa kuin funktiossa `jarjesta_hinnan_mukaan`, sen määrittely voitaisiin siirtää funktion sisälle:
+If we know that the helper function `order_by_price` is not used anywhere outside the `sort_by_price` function, we can place the former function definition within the latter function definition:
 
 ```python
-def jarjesta_hinnan_mukaan(alkiot: list):
-    # määritellään apufunktio tällä kertaa funktion sisällä
-    def hintajarjestys(alkio: tuple):
-        return alkio[1]
+def sort_by_price(items: list):
+    # helper function defined within the function
+    def order_by_price(item: tuple):
+        return item[1]
 
-    return sorted(alkiot, key=hintajarjestys)
+    return sorted(items, key=order_by_price)
 ```
 
-<programming-exercise name='Järjestys varastosaldon mukaan' tmcname='osa12-01_varastosaldo'>
+<programming-exercise name='Sort by remaining stock' tmcname='part12-01_remaining_stock'>
 
-Tee funktio `jarjesta_varastosaldon_mukaan(alkiot: list)`. Funktio saa parametrina listan tupleja, joissa kolmantena alkiona on tuotteiden varastosaldo. Funktio järjestää parametrinaan saamat tuotteet varastosaldojen  mukaiseen kasvavaan järjestykseen.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
+Please write a function named `sort_by_remaining_stock(items: list)`. The function takes a list of tuples as its argument. The tuples consist of the name, price and remaining stock of a product. The function should return a new list where the items are sorted according to the stock remaining, lowest value first. The original list should not be changed.
 
-Funktio toimii seuraavasti:
-
-```python
-tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22)]
-
-for tuote in jarjesta_varastosaldon_mukaan(tuotteet):
-    print(f"{tuote[0]} {tuote[2]} kpl")
-```
-
-<sample-output>
-appelsiini 2 kpl
-omena 3 kpl
-banaani 12 kpl
-vesimeloni 22 kpl
-
-</sample-output>
-
-</programming-exercise>
-
-<programming-exercise name='Järjestys tuotantokausien mukaan' tmcname='osa12-02_tuotantokaudet'>
-
-Tee funktio `jarjesta_tuotantokausien_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne tuotantokausien lukumäärän mukaiseen kasvavaan järjestykseen. Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
-
-Funktio toimii seuraavasti:
+The function should work as follows:
 
 ```python
-sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
+products = [("banana", 5.95, 12), ("apple", 3.95, 3), ("orange", 4.50, 2), ("watermelon", 4.95, 22)]
 
-for sarja in jarjesta_tuotantokausien_mukaan(sarjat):
-    print(f"{sarja['nimi']}  {sarja['kausia']} tuotantokautta")
+for product in sort_by_remaining_stock(products):
+    print(f"{product[0]} {product[2]} pcs")
 ```
 
 <sample-output>
-Dexter 9 tuotantokautta
-Friends 10 tuotantokautta
-Simpsons 32 tuotantokautta
+orange 2 pcs
+apple 3 pcs
+banana 12 pcs
+watermelon 22 pcs
 
 </sample-output>
 
 </programming-exercise>
 
-<programming-exercise name='Järjestys pisteiden mukaan' tmcname='osa12-03_pisteiden_mukaan'>
+<programming-exercise name='Sort by number of seasons' tmcname='part12-02_seasons'>
 
-Tee funktio `jarjesta_pisteiden_mukaan(alkiot: list)`. Funktio saa parametrina listan sanakirjoja, jotka edustavat yksittäisiä TV-sarjoja, ja järjestää ne _pisteiden mukaiseen laskevaan järjestykseen_.  Funktio ei muuta parametrina olevaa listaa, vaan palauttaa uuden listan.
+Please write a function named `sort_by_seasons(items: list)` which takes a list of dictionaries as its argument. Each dictionary contains the information of a single TV show. The function should sort this list by the number of seasons each show has, in ascending order. The function should not change the original list, but return a new list instead.
+
+The function should work as follows:
 
 ```python
-sarjat = [{ "nimi": "Dexter", "pisteet" : 8.6, "kausia":9 }, { "nimi": "Friends", "pisteet" : 8.9, "kausia":10 },  { "nimi": "Simpsons", "pisteet" : 8.7, "kausia":32 }  ]
+shows = [{ "name": "Dexter", "rating" : 8.6, "seasons":9 }, { "name": "Friends", "rating" : 8.9, "seasons":10 },  { "name": "Simpsons", "rating" : 8.7, "seasons":32 }  ]
 
-print("IMDB:n mukainen pistemäärä")
-for sarja in jarjesta_pisteiden_mukaan(sarjat):
-    print(f"{sarja['nimi']}  {sarja['pisteet']}")
+for show in sort_by_seasons(shows):
+    print(f"{show['name']} {show['seasons']} seasons")
 ```
 
 <sample-output>
-IMDB:n mukainen pistemäärä
+Dexter 9 seasons
+Friends 10 seasons
+Simpsons 32 seasons
+
+</sample-output>
+
+</programming-exercise>
+
+<programming-exercise name='Sort by ratings' tmcname='part12-03_ratings'>
+
+Please write a function named `sort_by_ratings(items: list)` which takes a list of dictionaries as its argument. The structure of the dictionaries is identical to the previous exercise. This function should sort the dictionaries in _descending order based on the shows' ratings_. The function should not change the original list, but return a new list instead.
+
+```python
+shows = [{ "name": "Dexter", "rating" : 8.6, "seasons":9 }, { "name": "Friends", "rating" : 8.9, "seasons":10 },  { "name": "Simpsons", "rating" : 8.7, "seasons":32 }  ]
+
+print("Rating according to IMDB")
+for show in sort_by_ratings(shows):
+    print(f"{show['name']}  {show['rating']}")
+```
+
+<sample-output>
+Rating according to IMDB
 Friends 8.9
 Simpsons 8.7
 Dexter 8.6
@@ -214,27 +214,27 @@ Dexter 8.6
 
 </programming-exercise>
 
-## Omien olioiden alkioiden järjestäminen
+## Omien olioiden itemiden järjestäminen
 
 Kirjoitetaan samaa periaatetta hyödyntäen ohjelma, joka järjestää listan omasta `Opiskelija`-luokasta luotuja olioita kahden eri kriteerin avulla:
 
 ```python
 class Opiskelija:
     """ Luokka mallintaa yhtä opiskelijaa """
-    def __init__(self, nimi: str, tunnus: str, pisteet: int):
-        self.nimi = nimi
+    def __init__(self, name: str, tunnus: str, rating: int):
+        self.name = name
         self.tunnus = tunnus
-        self.pisteet = pisteet
+        self.rating = rating
 
     def __str__(self):
-        return f"{self.nimi} ({self.tunnus}), {self.pisteet} op."
+        return f"{self.name} ({self.tunnus}), {self.rating} op."
 
 
-def tunnuksen_mukaan(alkio: Opiskelija):
-    return alkio.tunnus
+def tunnuksen_mukaan(item: Opiskelija):
+    return item.tunnus
 
-def pisteiden_mukaan(alkio: Opiskelija):
-    return alkio.pisteet
+def pisteiden_mukaan(item: Opiskelija):
+    return item.rating
 
 
 if __name__ == "__main__":
@@ -270,7 +270,7 @@ Aapeli (a123), 220 op
 
 Järjestäminen toimii niinkuin pitää. Jos olioille arvon antavia funktioita `tunnuksen_mukaan` ja `pisteiden_mukaan` ei tarvita muuten, voimme kuitenkin vielä yksinkertaistaa ohjelmaa.
 
-<programming-exercise name='Kiipeilyreitti' tmcname='osa12-04_kiipeilyreitti'>
+<programming-exercise name='Kiipeilyreitti' tmcname='part12-04_kiipeilyreitti'>
 
 Tehtäväpohjan mukana tulee valmis luokka `Kiipeilyreitti`, jota käytetään seuraavasti:
 
@@ -282,7 +282,7 @@ reitti3 = Kiipeilyreitti("Syncro", 14, "8C+")
 
 print(reitti1)
 print(reitti2)
-print(reitti3.nimi, reitti3.pituus, reitti3.grade)
+print(reitti3.name, reitti3.pituus, reitti3.grade)
 ```
 
 <sample-output>
@@ -295,9 +295,9 @@ Syncro 14 8B+
 
 ## Pituuden mukainen järjestys
 
-Tee funktio `pituuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit pituuden mukaan käänteisessä järjestyksessä.
+Please write a function named `pituuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit pituuden mukaan käänteisessä järjestyksessä.
 
-Funktio toimii seuraavasti:
+The function should work as follows:
 
 ```python
 r1 = Kiipeilyreitti("Kantti", 38, "6A+")
@@ -322,9 +322,9 @@ Smooth operator, pituus 9 metriä, grade 7A
 
 ## Vaikeuden mukainen järjestys
 
-Tee funktio `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan laskevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
+Please write a function named `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan laskevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
 
-Funktio toimii seuraavasti:
+The function should work as follows:
 
 ```python
 r1 = Kiipeilyreitti("Kantti", 38, "6A+")
@@ -346,7 +346,7 @@ Pieniä askelia, pituus 12 metriä, grade 6A+
 
 </sample-output>
 
-*Vihje* jos järjestysperusteena on lista tai tuple, järjestetään ensisijaiseti ensimmäisen alkion mukaan, toissijaisesti toisen:
+*Vihje* jos järjestysperusteena on lista tai tuple, järjestetään ensisijaiseti ensimmäisen itemn mukaan, toissijaisesti toisen:
 
 ```python
 lista = [("a", 4),("a", 2),("b", 30), ("b", 0) ]
@@ -361,7 +361,7 @@ print(sorted(lista))
 
 </programming-exercise>
 
-<programming-exercise name='Kiipeilykalliot' tmcname='osa12-05_kiipeilykalliot/'>
+<programming-exercise name='Kiipeilykalliot' tmcname='part12-05_kiipeilykalliot/'>
 
 Tehtäväpohjasta löytyy luokan `Kiipeilyreitti` lisäksi luokka `Kiipeilykallio`.
 
@@ -381,7 +381,7 @@ k3.lisaa_reitti(Kiipeilyreitti("Possu ei pidä", 12 , "6B+"))
 k3.lisaa_reitti(Kiipeilyreitti("Hedelmätarha", 8, "6A"))
 
 print(k1)
-print(k3.nimi, k3.reitteja())
+print(k3.name, k3.reitteja())
 print(k3.vaikein_reitti())
 ```
 
@@ -395,7 +395,7 @@ Smooth operator, pituus 9 metriä, grade 7A
 
 ## Reittien määrän mukaan
 
-Tee funktio `reittien_maaran_mukaan`, joka järjestää kiipeilykalliot reittien määrän mukaiseen kasvavaan suuruusjärjestykseen.
+Please write a function named `reittien_maaran_mukaan`, joka järjestää kiipeilykalliot reittien määrän mukaiseen kasvavaan suuruusjärjestykseen.
 
 ```python
 # k1, k2 ja k3 määritelty kuten edellä
@@ -415,7 +415,7 @@ Nalkkilan slabi, 4 reittiä, vaikein 7A
 
 ## Vaikeimman reitin mukaan
 
-Tee funktio `vaikeimman_reitin_mukaan`, joka järjestää kiipeilykalliot kalliolta löytyvän vaikeimman reitin mukaiseen _laskevaan_ suuruusjärjestykseen.
+Please write a function named `vaikeimman_reitin_mukaan`, joka järjestää kiipeilykalliot kalliolta löytyvän vaikeimman reitin mukaiseen _laskevaan_ suuruusjärjestykseen.
 
 ```python
 # k1, k2 ja k3 määritelty kuten edellä
@@ -444,34 +444,34 @@ Lambda-lausekkeen avulla voidaan luoda anonyymi funktio eli funktio, joka muodos
 Esimerkiksi tuplelistan järjestys onnistuisi näin käyttämällä lambda-lauseketta:
 
 ```python
-tuotteet = [("banaani", 5.95), ("omena", 3.95), ("appelsiini", 4.50), ("vesimeloni", 4.95)]
+products = [("banana", 5.95), ("apple", 3.95), ("orange", 4.50), ("watermelon", 4.95)]
 
 # Funktio luodaan "lennosta" lambda-lausekkeella:
-tuotteet.sort(key=lambda alkio: alkio[1])
+products.sort(key=lambda item: item[1])
 
-for tuote in tuotteet:
-    print(tuote)
+for product in products:
+    print(product)
 ```
 
 <sample-output>
 
-('omena', 3.95)
-('appelsiini', 4.5)
-('vesimeloni', 4.95)
-('banaani', 5.95)
+('apple', 3.95)
+('orange', 4.5)
+('watermelon', 4.95)
+('banana', 5.95)
 
 </sample-output>
 
 Lauseke
 
-`lambda alkio: alkio[1]`
+`lambda item: item[1]`
 
 vastaa funktiomäärittelyä
 
 ```python
 
-def hinta(alkio):
-    return alkio[1]
+def hinta(item):
+    return item[1]
 ```
 
 paitsi että lambda-lauseketta käytettäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
@@ -514,7 +514,7 @@ Mikko
 
 </sample-output>
 
-Anonyymejä funktioita voi hyödyntää Pythonissa monien muidenkin valmiiden funktioiden yhteydessä. Esimerkiksi funktioille `min` ja `max` voidaan määritellä samalla tavalla parametri `key`, jonka perusteella minimi- tai maksimiarvo valitaan.
+Anonyymejä funktioita voi hyödyntää Pythonissa monien muidenkin valmiiden funktioiden yhteydessä. Esimerkiksi funktioille `min` ja `max` voidaan määritellä samalla tavalla parametri `key`, jonka perusteella miname- tai maksimiarvo valitaan.
 
 Esimerkissä poimitaan levyistä aluksi vanhin ja sitten pisin:
 
@@ -522,15 +522,15 @@ Esimerkissä poimitaan levyistä aluksi vanhin ja sitten pisin:
 
 class Levy:
     """Luokka mallintaa yhtä äänilevyä"""
-    def __init__(self, nimi: str, esittaja: str, vuosi: int, kesto: int):
-        self.nimi = nimi
+    def __init__(self, name: str, esittaja: str, vuosi: int, kesto: int):
+        self.name = name
         self.esittaja = esittaja
         self.vuosi = vuosi
         self.kesto = kesto
 
 
     def __str__(self):
-        return f"{self.nimi} ({self.esittaja}), {self.vuosi}. {self.kesto} min."
+        return f"{self.name} ({self.esittaja}), {self.vuosi}. {self.kesto} min."
 
 if __name__ == "__main__":
     l1 = Levy("Nevermind", "Nirvana", 1991, 43)
@@ -556,11 +556,11 @@ U2 (Joshua Tree), 1986. 50 min.
 
 </sample-output>
 
-<programming-exercise name='Palloilijat' tmcname='osa12-06_palloilijat'>
+<programming-exercise name='Palloilijat' tmcname='part12-06_palloilijat'>
 
 Tehtäväpohjasta löytyy luokka `Palloilija`, jolla on seuraavat julkiset piirteet:
 
-* nimi
+* name
 * pelinumero
 * tehtyjen maalien määrä `maalit`
 * annettujen syöttöjen määrä `syotot`
@@ -610,7 +610,7 @@ Tulostuksen tulisi olla:
 
 Kelju Kojootti
 ('Uka Naakka', 9)
-Palloilija(nimi=Hessu Hopo, pelinumero=4, maalit=3, syotot=9, minuutit=12)
+Palloilija(name=Hessu Hopo, pelinumero=4, maalit=3, syotot=9, minuutit=12)
 
 </sample-output>
 
@@ -653,8 +653,8 @@ Funktion `suorita_operaatio` lopputulos siis riippuu siitä, mikä funktio sille
 Vaikkei funktioiden välittäminen parametrina olekaan kaikkein yleisimmin tarvittava operaatio, on se joka tapauksessa hyödyllinen mekanismi. Esimerkiksi seuraava ohjelma kirjoittaa tiedostosta 1 halutut rivit tiedostoon 2. Rivien valintakriteeri annetaan funktiona, joka palauttaa `True`, jos rivi tulee kirjoittaa toiseen tiedostoon:
 
 ```python
-def kopioi_rivit(lahde_nimi: str, kohde_nimi: str, kriteeri= lambda x: True):
-    with open(lahde_nimi) as lahde, open(kohde_nimi, "w") as kohde:
+def kopioi_rivit(lahde_name: str, kohde_name: str, kriteeri= lambda x: True):
+    with open(lahde_name) as lahde, open(kohde_name, "w") as kohde:
         for rivi in lahde:
             # Poistetaan ensin tyhjät merkit alusta ja lopusta
             rivi = rivi.strip()
@@ -679,23 +679,23 @@ if __name__ == "__main__":
 
 Funktiossa parametrille `kriteeri` on määritelty oletusarvoksi lambda-lauseke `lambda x: True`, jonka tuottama anonyymi funktio palauttaa arvon `True` kaikille syötteille. Niinpä oletuksena kopioidaan kaikki rivit tiedostosta toiseen. Jos käyttäjä antaa kolmannelle parametrille arvon, tämä korvaa oletusarvon.
 
-<programming-exercise name='Tuotteiden haku' tmcname='osa12-07_tuotteiden_haku'>
+<programming-exercise name='Tuotteiden haku' tmcname='part12-07_tuotteiden_haku'>
 
-Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `tuotteet` seuraavasti:
+Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `products` seuraavasti:
 
 ```python
-tuotteet = [("banaani", 5.95, 12), ("omena", 3.95, 3), ("appelsiini", 4.50, 2), ("vesimeloni", 4.95, 22), ("Kaali", 0.99, 1)]
+products = [("banana", 5.95, 12), ("apple", 3.95, 3), ("orange", 4.50, 2), ("watermelon", 4.95, 22), ("Kaali", 0.99, 1)]
 ```
 
-Jokaisessa tuplessa ensimmäinen alkio siis edustaa nimeä, seuraava hintaa ja kolmas määrää.
+Jokaisessa tuplessa ensimmäinen item siis edustaa nimeä, seuraava hintaa ja kolmas määrää.
 
-Toteuta funktio `hae(tuotteet: list, kriteeri: callable)`, missä toisena parametrina on funktio, joka saa parametriksi yhden tuotetta edustavan tuplen ja palauttaa totuusarvon. Funktio palauttaa listassa parametrina annetuista tuotteista ne, jotka toteuttavat kriteerin.
+Toteuta funktio `hae(products: list, kriteeri: callable)`, missä toisena parametrina on funktio, joka saa parametriksi yhden producttta edustavan tuplen ja palauttaa totuusarvon. Funktio palauttaa listassa parametrina annetuista tuotteista ne, jotka toteuttavat kriteerin.
 
 Sopiva kriteeri voisi olla esimerkiksi seuraavanlainen
 
 ```python
-def hinta_alle_4_euroa(tuote):
-    return tuote[1] < 4
+def hinta_alle_4_euroa(product):
+    return product[1] < 4
 ```
 
 Funktio siis palauttaa _True_ jos tuotteen hinta on alle 4 euroa.
@@ -703,28 +703,28 @@ Funktio siis palauttaa _True_ jos tuotteen hinta on alle 4 euroa.
 Funktio `haku` toimii seuraavasti:
 
 ```python
-for tuote in hae(tuotteet, hinta_alle_4_euroa):
-    print(tuote)
+for product in hae(products, hinta_alle_4_euroa):
+    print(product)
 ```
 
 <sample-output>
 
-('omena', 3.95, 3)
+('apple', 3.95, 3)
 ('kaali', 0.99, 1)
 
 </sample-output>
 
-Kriteerifunktion voi myös määritellä lambda-funktiona. Seuraava käyttää funktiota `haku` etsimään tuotteet, joita on vähintään 11 kappaletta:
+Kriteerifunktion voi myös määritellä lambda-funktiona. Seuraava käyttää funktiota `haku` etsimään products, joita on vähintään 11 kappaletta:
 
 ```python
-for tuote in hae(tuotteet, lambda t: t[2]>10):
-    print(tuote)
+for product in hae(products, lambda t: t[2]>10):
+    print(product)
 ```
 
 <sample-output>
 
-('banaani', 5.95, 12)
-('vesimeloni', 4.95, 22)
+('banana', 5.95, 12)
+('watermelon', 4.95, 22)
 
 </sample-output>
 

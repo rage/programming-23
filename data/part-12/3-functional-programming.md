@@ -224,7 +224,7 @@ Tämän jälkeen haetaan samalla tyylillä jokaisen pankkitilin saldo. Lambda-fu
 saldot = map(lambda t: t.hae_saldo(), tilit)
 ```
 
-<programming-exercise name='Suoritukset' tmcname='osa12-11_suoritukset'>
+<programming-exercise name='Suoritukset' tmcname='part12-11_suoritukset'>
 
 Tehtäväpohjassa on mukana kurssisuoritusta kuvaava luokkaa `Suoritus`, jota toimii seuraavasti:
 
@@ -419,7 +419,7 @@ kalat = [k1, k2, k3, k4, k5]
 ylikiloiset = list(filter(lambda kala : kala.paino >= 1000, kalat))
 ```
 
-<programming-exercise name='Rajatut suoritukset' tmcname='osa12-12_rajatut_suoritukset'>
+<programming-exercise name='Rajatut suoritukset' tmcname='part12-12_rajatut_suoritukset'>
 
 Tässä tehtävässä jatketaan luokan `Suoritus` käyttämistä
 
@@ -663,7 +663,7 @@ sillä `reduce`-funktion parametri `yht_saldo` saisi ensimmäisellä kerralla ar
 
 </text-box>
 
-<programming-exercise name='Opintopisteet' tmcname='osa12-13_opintopisteet'>
+<programming-exercise name='Opintopisteet' tmcname='part12-13_opintopisteet'>
 
 Tarkastellaan tässä tehtävässä hieman erilaista versiota luokasta `Suoritus`. Tällä kertaa se kuvastaa ainoastaan yksittäisen opiskelijan kurssisuorituksia. Luokka toimii seuraavasti:
 

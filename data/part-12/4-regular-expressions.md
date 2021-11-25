@@ -214,7 +214,7 @@ Ei osumaa.
 
 </sample-output>
 
-<programming-exercise name='Säännölliset lausekkeet' tmcname='osa12-14_saannolliset_lausekkeet'>
+<programming-exercise name='Säännölliset lausekkeet' tmcname='part12-14_saannolliset_lausekkeet'>
 
 Harjoitellaan hieman säännöllisten lausekkeiden käyttöä.
 
@@ -286,7 +286,7 @@ Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita h
 
 Sovelluksen rakenteelle voi ottaa inspiraatiota osan 10 [viimeisestä luvusta](/osa-10/4-lisaa-esimerkkeja).
 
-<programming-exercise name='Tilastot ojennukseen' tmcname='osa12-15_tilastot_ojennukseen'>
+<programming-exercise name='Tilastot ojennukseen' tmcname='part12-15_tilastot_ojennukseen'>
 
 Tässä tehtävässä tehdään sovellus, jonka avulla on mahdollista tarkastella NHL-jääkiekkoliigan tilastoja muutamassa hieman erilaisessa muodossa.
 
