@@ -1,12 +1,12 @@
 ---
-path: '/part-12/2-generaattorit'
-title: 'Generaattorit'
+path: '/part-12/2-generators'
+title: 'Generators'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, mitä tarkoitetaan generaattorilla Pythonissa
 - Tiedät, mitä avainsana yield tekee

@@ -1,12 +1,12 @@
 ---
-path: '/part-12/4-saannolliset-lausekkeet'
-title: 'Säännölliset lausekkeet'
+path: '/part-12/4-regular-expressions'
+title: 'Regular expressions'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät mitä tarkoitetan säännöllisellä lausekkeella
 - Osaat hyödyntää säännöllisiä lausekkeita omissa ohjelmissasi
@@ -483,7 +483,7 @@ komento: **0**
 
 </programming-exercise>
 
-Vastaa lopuksi osion loppukyselyyn:
+Please respond to a quick questionnaire on this part of the course.
 
 <quiz id="06c5ee2a-a3ed-5151-8452-36425d591350"></quiz>
 

@@ -1,12 +1,12 @@
 ---
-path: '/part-12/1-funktio-parametrina'
-title: 'Funktio parametrina'
+path: '/part-12/1-functions-as-arguments'
+title: 'Functions as arguments'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Osaat järjestää listoja eri kriteerien mukaan
 - Tiedät mitä tarkoitetaan lambda-lausekkeella

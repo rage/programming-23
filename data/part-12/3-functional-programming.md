@@ -1,12 +1,12 @@
 ---
-path: '/part-12/3-funktionaalista-ohjelmointia'
-title: 'Funktionaalista ohjelmointia'
+path: '/part-12/3-functional-programming'
+title: 'Functional programming'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät mitä tarkoitetaan funktonaalisella ohjelmoinilla
 - Osaat hyödyntää operaatioita map, reduce ja filter omissa ohjelmissasi
