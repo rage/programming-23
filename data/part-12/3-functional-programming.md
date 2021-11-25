@@ -224,76 +224,76 @@ Tämän jälkeen haetaan samalla tyylillä jokaisen pankkitilin saldo. Lambda-fu
 saldot = map(lambda t: t.hae_saldo(), tilit)
 ```
 
-<programming-exercise name='Suoritukset' tmcname='part12-11_suoritukset'>
+<programming-exercise name='Attempted courses' tmcname='part12-11_attempted_courses'>
 
-Tehtäväpohjassa on mukana kurssisuoritusta kuvaava luokkaa `Suoritus`, jota toimii seuraavasti:
+The exercise template contains the class definition for a `CourseAttempt`. It works like this:
 
 ```python
-suoritus = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 5)
-print(suoritus.opiskelijan_nimi)
-print(suoritus.kurssi)
-print(suoritus.arvosana)
-print(suoritus)
+attempt = CourseAttempt("Peter Python", "Introduction to Programming", 5)
+print(attempt.student_name)
+print(attempt.course_name
+print(attempt.grade)
+print(attempt)
 ```
 
 <sample-output>
 
-Pekka Python
-Ohjelmoinnin perusteet
+Peter Python
+Introduction to Programming
 5
-Pekka Python, arvosana kurssilta Ohjelmoinnin perusteet 5
+Peter Python, grade for the course Introduction to Programming 5
 
 </sample-output>
 
-## Suorittajat
+## Names of students
 
-Tee funktio `suorittajien_nimet(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktio palauttaa listan, jolta löytyy suorittajien nimet.
+Please write a function named `names_of_students(attempts: list)` which takes a list of CourseAttempt objects as its argument. The function returns a list with the names of the students who have attempted the course.
 
 ```python
-s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
-s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
-s3 = Suoritus("Pekka Python", "Ohjelmoinnin jatkokurssi", 2)
+s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
+s2 = CourseAttempt("Olivia C. Objective", "Introduction to Programming", 5)
+s3 = CourseAttempt("Peter Python", "Advanced Course in Programming", 2)
 
-for nimi in suorittajien_nimet([s1, s2, s3]):
-    print(nimi)
+for name in names_of_students([s1, s2, s3]):
+    print(name)
 ```
 
 <sample-output>
 
-Pekka Python
-Olivia Ohjelmoija
-Pekka Python
+Peter Python
+Olivia C. Objective
+Peter Python
 
 </sample-output>
 
-Toteuta funktio käyttäen `map`-funktiota!
+Please implement the function using the `map` function.
 
-## Kurssit
+## Courses
 
-Tee funktio `kurssien_nimet(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktto palauttaa listan, jolla on suorituksessa olevien kurssien nimet aakkosjärjestyksessä. Kukin kurssi esiintyy listalla vain kerran.
+Please write a function named `course_names(attempts: list)` which takes a list of CourseAttempt objects as its argument. The function should return a list containing the names of the courses on the list in alphabetical order. Each course name should appear only once on the list.
 
 ```python
-s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
-s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
-s3 = Suoritus("Pekka Python", "Ohjelmoinnin jatkokurssi", 2)
+s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
+s2 = CourseAttempt("Olivia C. Objective", "Introduction to Programming", 5)
+s3 = CourseAttempt("Peter Python", "Advanced Course in Programming", 2)
 
-for nimi in kurssien_nimet([s1, s2, s3]):
-    print(nimi)
+for name in course_names([s1, s2, s3]):
+    print(name)
 ```
 <sample-output>
 
-Ohjelmoinnin jatkokurssi
-Ohjelmoinnin perusteet
+Advanced Course in Programming
+Introduction to Programming
 
 </sample-output>
 
-Hyödynnä funkton toteutuksessa `map`-funktiota. Se ei tosin yksistään riitä, joten tarvitset muutakin...
+Please implement the function using the `map` function. That alone will not be enough, however. You will need something else, too.
 
 </programming-exercise>
 
 ## filter
 
-Funktio `filter` muistuttaa funktiota `map`, mutta nimensä mukaisesti se ei poimi kaikkia alkioita lähteestä, vaan ainoastaan ne, joille annettu funktio palauttaa arvon True.
+The built in Python function `filter` is similar to the `map` function, but as the name implies, it doesn't take all the items from the source. Instead, it filters them with a criterion function passed as an argument. If the criterion returns `True`, the item is selected.
 
 Tarkastellaan taas ensin esimerkkiä funktion käytöstä:
 
@@ -419,78 +419,78 @@ kalat = [k1, k2, k3, k4, k5]
 ylikiloiset = list(filter(lambda kala : kala.paino >= 1000, kalat))
 ```
 
-<programming-exercise name='Rajatut suoritukset' tmcname='part12-12_rajatut_suoritukset'>
+<programming-exercise name='Filtering attempts' tmcname='part12-12_filtering_attempts'>
 
-Tässä tehtävässä jatketaan luokan `Suoritus` käyttämistä
+In this exercise we will continue with the `CourseAttempt` class.
 
-## Hyväksytyt suoritukset
+## Accepted attempts
 
-Tee funktio `hyvaksytyt(suoritukset: list)` joka saa parametriksi listan suoritus-oliota. Funktio palauttaa listan, jolta löytyy suorituksista ne, joiden arvosana on vähintään 1.
+Please write a function named `accepted(attempts: list)` which takes a list of CourseAttempt objects as its argument. The functions should return a new list of CourseAttempt object, including only those items from the original list whose grade is at least 1.
 
 ```python
-s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
-s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
-s3 = Suoritus("Pekka Python", "Ohjelmoinnin jatkokurssi", 0)
+s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
+s2 = CourseAttempt("Olivia C. Objective", "Introduction to Programming", 5)
+s3 = CourseAttempt("Peter Python", "Advanced Course in Programming", 0)
 
-for suoritus in hyvaksytyt([s1, s2, s3]):
-    print(suoritus)
+for attempt in accepted([s1, s2, s3]):
+    print(attempt)
 ```
 
 <sample-output>
 
-Pekka Python, arvosana kurssilta Ohjelmoinnin perusteet 3
-Olivia Ohjelmoija arvosana kurssilta Ohjelmoinnin perusteet 5
+Peter Python, grade for the course Introduction to Programming 3
+Olivia C. Objective grade for the course Introduction to Programming 5
 
 </sample-output>
 
-Toteuta funktio käyttäen `filter`-funktiota!
+Please implement the function using the `filter` function.
 
-## Arvosanan suoritukset
+## Attempts with grade
 
-Tee funktio `suoritus_arvosanalla(suoritukset: list, arvosana: int)` joka saa parametriksi listan suoritus-oliota sekä kokonaisluvun. Funktio palauttaa listan, jolta löytyy suorituksista ne, joiden arvosana on sama kuin toisen parametrin arvo.
+Please write a function named `attempts_with_grade(attempts: list, grade: int)` which takes a list of CourseAttempt objects and an integer as its arguments. The function should return a new list containing only those CourseAttempt obkects from the original list whose grade matches the second argument.
 
 ```python
-s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
-s2 = Suoritus("Olivia Ohjelmoija", "Ohjelmoinnin perusteet", 5)
-s3 = Suoritus("Pekka Python", "Tietoliikenteen perusteet", 3)
-s4 = Suoritus("Olivia Ohjelmoija", "Johdatus yliopistomatematiikkaan", 3)
+s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
+s2 = CourseAttempt("Olivia C. Objective", "Introduction to Programming", 5)
+s3 = CourseAttempt("Peter Python", "Introduction to AI", 3)
+s4 = CourseAttempt("Olivia C. Objective", "Data Structures and Algorithms", 3)
 
-for suoritus in suoritus_arvosanalla([s1, s2, s3, s4], 3):
-    print(suoritus)
+for attempt in attempts_with_grade([s1, s2, s3, s4], 3):
+    print(attempt)
 ```
 
 <sample-output>
 
-Pekka Python, arvosana kurssilta Ohjelmoinnin perusteet 3
-Pekka Python, arvosana kurssilta Tietoliikenteen perusteet 3
-Olivia Ohjelmoija, arvosana kurssilta Johdatus yliopistomatematiikkaan 3
+Peter Python, grade for the course Introduction to Programming 3
+Peter Python, grade for the course Introduction to AI 3
+Olivia C. Objective, grade for the course Data Structures and Algorithms 3
 
 </sample-output>
 
-Toteuta funktio käyttäen `filter`-funktiota!
+Please implement the function using the `filter` function.
 
-## Kurssin suorittajat
+## Students who passed the course
 
-Tee funktio `kurssin_suorittajat(suoritukset: list, kurssi: str)` joka saa parametriksi listan suoritus-oliota sekä kurssin nimen. Funktio palauttaa _aakkosjärjestyksessä_ niiden opiskelijoiden nimet, jotka ovat suorittaneet parametrina olevan kurssin arvosanalla joka on suurempi kuin nolla.
+Please write a function named `passed_students(attempts: list, course: str)` which takes a list of CourseAttempt objects and a course name as its arguments. The function should return an _alphabetically ordered_ list of names of those students who passed the given course, i.e. their grade was higher than 0.
 
 ```python
-s1 = Suoritus("Pekka Python", "Ohjelmoinnin perusteet", 3)
-s2 = Suoritus("Olivia Ohjelmoija", "Tietoliikenteen perusteet", 5)
-s3 = Suoritus("Pekka Python", "Tietoliikenteen perusteet", 0)
-s4 = Suoritus("Niilo Nörtti", "Tietoliikenteen perusteet", 3)
+s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
+s2 = CourseAttempt("Olivia C. Objective", "Introduction to AI", 5)
+s3 = CourseAttempt("Peter Python", "Introduction to AI", 0)
+s4 = CourseAttempt("Jack Java", "Introduction to AI", 3)
 
-for suoritus in kurssin_suorittajat([s1, s2, s3, s4], "Tietoliikenteen perusteet"):
-    print(suoritus)
+for attempt in passed_students([s1, s2, s3, s4], "Introduction to AI"):
+    print(attempt)
 ```
 
 <sample-output>
 
-Niilo Nörtti
-Olivia Ohjelmoija
+Jack Java
+Olivia C. Objective
 
 </sample-output>
 
-Toteuta funktio käyttäen funktioita `filter` ja `map`.
+Please implement the function using the `filter` and `map` functions.
 
 </programming-exercise>
 
@@ -663,23 +663,23 @@ sillä `reduce`-funktion parametri `yht_saldo` saisi ensimmäisellä kerralla ar
 
 </text-box>
 
-<programming-exercise name='Opintopisteet' tmcname='part12-13_opintopisteet'>
+<programming-exercise name='Study credits' tmcname='part12-13_credits'>
 
-Tarkastellaan tässä tehtävässä hieman erilaista versiota luokasta `Suoritus`. Tällä kertaa se kuvastaa ainoastaan yksittäisen opiskelijan kurssisuorituksia. Luokka toimii seuraavasti:
+Tarkastellaan tässä tehtävässä hieman erilaista versiota luokasta `CourseAttempt`. Tällä kertaa se kuvastaa ainoastaan yksittäisen opiskelijan kurssisuorituksia. Luokka toimii seuraavasti:
 
 
 ```python
-suoritus = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
-print(suoritus)
-print(suoritus.kurssi)
-print(suoritus.opintopisteet)
-print(suoritus.arvosana)
+attempt = CourseAttempt("Data Structures and Algorithms", 3, 10)
+print(attempt)
+print(attempt.kurssi)
+print(attempt.opintopisteet)
+print(attempt.grade)
 ```
 
 <sample-output>
 
-Tietorakenteet ja algoritmit (10 op) arvosana 3
-Tietorakenteet ja algoritmit
+Data Structures and Algorithms (10 cr) grade 3
+Data Structures and Algorithms
 10
 3
 
@@ -687,14 +687,14 @@ Tietorakenteet ja algoritmit
 
 ## Opintopistemäärä
 
-Toteuta funktio `kaikkien_opintopisteiden_summa`, joka saa parametriksi listan suorituksia ja laskee suoritusten yhteenlasketun opintopistemäärän. Funktio toimii seuraavasti
+Toteuta funktio `sum_of_all_credits`, joka saa parametriksi listan suorituksia ja laskee suoritusten yhteenlasketun opintopistemäärän. Funktio toimii seuraavasti
 
 ```python
-s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
-s2 = Suoritus("Ohjelmoinnin jatkokutssi", 4, 5)
-s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
-summa = kaikkien_opintopisteiden_summa([s1, s2, s3])
-print(summa)
+s1 = CourseAttempt("Introduction to Programming", 5, 5)
+s2 = CourseAttempt("Advanced Course in Programming", 4, 5)
+s3 = CourseAttempt("Data Structures and Algorithms", 3, 10)
+credit_sum = sum_of_all_credits([s1, s2, s3])
+print(credit_sum)
 ```
 
 <sample-output>
@@ -707,14 +707,14 @@ Toteuta funktio käyttäen `reduce`-funktiota!
 
 ## Hyväksyttyjen opintopistemäärä
 
-Toteuta funktio `hyvaksyttyjen_opintopisteiden_summa`, joka saa parametriksi listan suorituksia ja laskee arvosanan 1 tai parempien omaavien suoritusten yhteenlasketun opintopistemäärän. Funktio toimii seuraavasti
+Toteuta funktio `sum_of_passed_credits`, joka saa parametriksi listan suorituksia ja laskee graden 1 tai parempien omaavien attemptten yhteenlasketun opintopistemäärän. Funktio toimii seuraavasti
 
 ```python
-s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
-s2 = Suoritus("Ohjelmoinnin jatkokutssi", 0, 4)
-s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
-summa = hyvaksyttyjen_opintopisteiden_summa([s1, s2, s3])
-print(summa)
+s1 = CourseAttempt("Introduction to Programming", 5, 5)
+s2 = CourseAttempt("Advanced Course in Programming", 0, 4)
+s3 = CourseAttempt("Data Structures and Algorithms", 3, 10)
+credit_sum = sum_of_passed_credits([s1, s2, s3])
+print(credit_sum)
 ```
 
 <sample-output>
@@ -727,14 +727,14 @@ Toteuta funktio käyttäen `reduce`- ja `filter`-funktiota!
 
 ## Hyväksyttyjen suoritusten keskiarvo
 
-Toteuta funktio `keskiarvo`, joka saa parametriksi listan suorituksia ja laskee arvosanan 1 tai parempien omaavien suoritusten arvosanojen keskiarvon. Funktio toimii seuraavasti
+Toteuta funktio `average_grade`, joka saa parametriksi listan suorituksia ja laskee arvosanan 1 tai parempien omaavien suoritusten arvosanojen keskiarvon. Funktio toimii seuraavasti
 
 ```python
-s1 = Suoritus("Ohjelmoinnin perusteet", 5, 5)
-s2 = Suoritus("Ohjelmoinnin jatkokutssi", 0, 4)
-s3 = Suoritus("Tietorakenteet ja algoritmit", 3, 10)
-summa = keskiarvo([s1, s2, s3])
-print(summa)
+s1 = CourseAttempt("Introduction to Programming", 5, 5)
+s2 = CourseAttempt("Advanced Course in Programming", 0, 4)
+s3 = CourseAttempt("Data Structures and Algorithms", 3, 10)
+ag = average_grade([s1, s2, s3])
+print(ag)
 ```
 
 <sample-output>
