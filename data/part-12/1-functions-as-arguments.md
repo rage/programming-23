@@ -214,143 +214,144 @@ Dexter 8.6
 
 </programming-exercise>
 
-## Omien olioiden itemiden järjestäminen
+## Sorting collections of your own objects
 
-Kirjoitetaan samaa periaatetta hyödyntäen ohjelma, joka järjestää listan omasta `Opiskelija`-luokasta luotuja olioita kahden eri kriteerin avulla:
+Using the same principle, let's write a program which sorts a list of objects from our own `Student` class in two different ways:
 
 ```python
-class Opiskelija:
-    """ Luokka mallintaa yhtä opiskelijaa """
-    def __init__(self, name: str, tunnus: str, rating: int):
+class Student:
+    """ The class models a single student """
+    def __init__(self, name: str, id: str, credits: int):
         self.name = name
-        self.tunnus = tunnus
-        self.rating = rating
+        self.id = id
+        self.credits = credits
 
     def __str__(self):
-        return f"{self.name} ({self.tunnus}), {self.rating} op."
+        return f"{self.name} ({self.id}), {self.credits} cr."
 
 
-def tunnuksen_mukaan(item: Opiskelija):
-    return item.tunnus
+def by_id(item: Student):
+    return item.id
 
-def pisteiden_mukaan(item: Opiskelija):
-    return item.rating
+def by_credits(item: Student):
+    return item.credits
 
 
 if __name__ == "__main__":
-    o1 = Opiskelija("Aapeli", "a123", 220)
-    o2 = Opiskelija("Maija", "m321", 210)
-    o3 = Opiskelija("Anna", "a999", 131)
+    o1 = Student("Archie", "a123", 220)
+    o2 = Student("Marvin", "m321", 210)
+    o3 = Student("Anna", "a999", 131)
 
-    opiskelijat = [o1, o2, o3]
+    students = [o1, o2, o3]
 
-    print("Tunnuksen mukaan:")
-    for opiskelija in sorted(opiskelijat, key=tunnuksen_mukaan):
-        print(opiskelija)
+    print("Sort by id:")
+    for student in sorted(students, key=by_id):
+        print(student)
 
     print()
 
-    print("Pisteiden mukaan:")
-    for opiskelija in sorted(opiskelijat, key=pisteiden_mukaan):
-        print(opiskelija)
+    print("Sort by credits:")
+    for student in sorted(students, key=by_credits):
+        print(student)
 ```
 
 <sample-output>
 
-Aapeli (a123), 220 op.
+Sort by id:
+Archie (a123), 220 op.
 Anna (a999), 131 op.
-Maija (m321), 210 op.
+Marvin (m321), 210 op.
 
-Pisteiden mukaan:
+Sort by credits:
 Anna (a999), 131 op.
-Maija (m321), 210 op.
-Aapeli (a123), 220 op
+Marvin (m321), 210 op.
+Archie (a123), 220 op
 
 </sample-output>
 
-Järjestäminen toimii niinkuin pitää. Jos olioille arvon antavia funktioita `tunnuksen_mukaan` ja `pisteiden_mukaan` ei tarvita muuten, voimme kuitenkin vielä yksinkertaistaa ohjelmaa.
+As you can see above, sorting by different criteria works exactly as intended. If the functions `by_id` and `by_credits` are not needed elsewhere, there are ways of making the implementation simpler. We will return to this topic after these exercises.
 
-<programming-exercise name='Kiipeilyreitti' tmcname='part12-04_kiipeilyreitti'>
+<programming-exercise name='ClimbingRoute' tmcname='part12-04_climbing_route'>
 
-Tehtäväpohjan mukana tulee valmis luokka `Kiipeilyreitti`, jota käytetään seuraavasti:
+The exercise template contains the class definition for a `ClimbingRoute`. It works as follows:
 
 ```python
-reitti1 = Kiipeilyreitti("Kantti", 38, "6A+")
-reitti2 = Kiipeilyreitti("Smooth operator", 9, "7A")
-reitti3 = Kiipeilyreitti("Syncro", 14, "8C+")
+route1 = ClimbingRoute("Edge", 38, "6A+")
+route2 = ClimbingRoute("Smooth operator", 9, "7A")
+route3 = ClimbingRoute("Synchro", 14, "8C+")
 
 
-print(reitti1)
-print(reitti2)
-print(reitti3.name, reitti3.pituus, reitti3.grade)
+print(route1)
+print(route2)
+print(route3.name, route3.length, route3.grade)
 ```
 
 <sample-output>
 
-Kantti, pituus 38 metriä, grade 6A+
-Smooth operator, pituus 9 metriä, grade 7A
-Syncro 14 8B+
+Edge, length 38 metres, grade 6A+
+Smooth operator, length 9 metres, grade 7A
+Synchro 14 8B+
 
 </sample-output>
 
-## Pituuden mukainen järjestys
+## Sort by length
 
-Please write a function named `pituuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit pituuden mukaan käänteisessä järjestyksessä.
+Please write a function named `sort_by_length(routes: list)` which returns a new list of routes, sorted by length from longest to shortest.
 
 The function should work as follows:
 
 ```python
-r1 = Kiipeilyreitti("Kantti", 38, "6A+")
-r2 = Kiipeilyreitti("Smooth operator", 11, "7A")
-r3 = Kiipeilyreitti("Syncro", 14, "8C+")
-r4 = Kiipeilyreitti("Pieniä askelia", 12, "6A+")
+r1 = ClimbingRoute("Edge", 38, "6A+")
+r2 = ClimbingRoute("Smooth operator", 11, "7A")
+r3 = ClimbingRoute("Synchro", 14, "8C+")
+r4 = ClimbingRoute("Small steps", 12, "6A+")
 
-reitit = [r1, r2, r3, r4]
+routes = [r1, r2, r3, r4]
 
-for reitti in pituuden_mukaan(reitit):
-    print(reitti)
+for route in sort_by_length(routes):
+    print(route)
 ```
 
 <sample-output>
 
-Kantti, pituus 38 metriä, grade 6A+
-Syncro, pituus 14 metriä, grade 8C+
-Pieniä askelia, pituus 12 metriä, grade 6A+
-Smooth operator, pituus 9 metriä, grade 7A
+Edge, length 38 metres, grade 6A+
+Synchro, length 14 metres, grade 8C+
+Small steps, length 12 metres, grade 6A+
+Smooth operator, length 9 metres, grade 7A
 
 </sample-output>
 
-## Vaikeuden mukainen järjestys
+## Sort by difficulty
 
-Please write a function named `vaikeuden_mukaan(reitit: list)` joka palauttaa kiipeilyreitit vaikeuden (eli graden) mukaan laskevassa järjestyksessä. Jos reittien vaikeus on sama, ratkaisee pituus vaikeuden. Pidempi on vaikeampi. Kiipeilyreittien vaikeusasteikko on _4, 4+, 5, 5+, 6A, 6A+, ..._ eli käytännössä se seuraa aakkosjärjestystä.
+Please write a function named `sort_by_difficulty(routes: list)` which returns a new list of routes, sorted by difficulty, i.e. grade, from hardest to easiest. For routes with the same grade, the longer one is more difficult. The scale of climbing route grades is _4, 4+, 5, 5+, 6A, 6A+, ..._ which in practice is the same as an alphabetical order.
 
 The function should work as follows:
 
 ```python
-r1 = Kiipeilyreitti("Kantti", 38, "6A+")
-r2 = Kiipeilyreitti("Smooth operator", 11, "7A")
-r3 = Kiipeilyreitti("Syncro", 14, "8C+")
-r4 = Kiipeilyreitti("Pieniä askelia", 12, "6A+")
+r1 = ClimbingRoute("Edge", 38, "6A+")
+r2 = ClimbingRoute("Smooth operator", 11, "7A")
+r3 = ClimbingRoute("Synchro", 14, "8C+")
+r4 = ClimbingRoute("Small steps", 12, "6A+")
 
-reitit = [r1, r2, r3, r4]
-for reitti in vaikeuden_mukaan(reitit):
-    print(reitti)
+routes = [r1, r2, r3, r4]
+for route in sort_by_difficulty(routes):
+    print(route)
 ```
 
 <sample-output>
 
-Syncro, pituus 14 metriä, grade 8C+
-Smooth operator, pituus 11 metriä, grade 7A
-Kantti, pituus 38 metriä, grade 6A+
-Pieniä askelia, pituus 12 metriä, grade 6A+
+Synchro, length 14 metres, grade 8C+
+Smooth operator, length 11 metres, grade 7A
+Edge, length 38 metres, grade 6A+
+Small steps, length 12 metres, grade 6A+
 
 </sample-output>
 
-*Vihje* jos järjestysperusteena on lista tai tuple, järjestetään ensisijaiseti ensimmäisen itemn mukaan, toissijaisesti toisen:
+*Hint:* if the order is based on a list or a tuple, by default Python sorts the items first based on the first item, next based on the second item, and so forth:
 
 ```python
-lista = [("a", 4),("a", 2),("b", 30), ("b", 0) ]
-print(sorted(lista))
+my_list = [("a", 4),("a", 2),("b", 30), ("b", 0) ]
+print(sorted(my_list))
 ```
 
 <sample-output>
@@ -361,92 +362,93 @@ print(sorted(lista))
 
 </programming-exercise>
 
-<programming-exercise name='Kiipeilykalliot' tmcname='part12-05_kiipeilykalliot/'>
+<programming-exercise name='Climbing areas' tmcname='part12-05_climbing_areas'>
 
-Tehtäväpohjasta löytyy luokan `Kiipeilyreitti` lisäksi luokka `Kiipeilykallio`.
+In addition to the `ClimbingRoute` from the previous exercise, the exercise template contains the class definition for a `ClimbingArea`.
 
 ```python
-k1 = Kiipeilykallio("Olhava")
-k1.lisaa_reitti(Kiipeilyreitti("Kantti", 38, "6A+"))
-k1.lisaa_reitti(Kiipeilyreitti("Suuri leikkaus", 36, "6B"))
-k1.lisaa_reitti(Kiipeilyreitti("Ruotsalaisten reitti", 42, "5+"))
+ca1 = ClimbingArea("Olhava")
+ca1.add_route(ClimbingRoute("Edge", 38, "6A+"))
+ca1.add_route(ClimbingRoute("Great cut", 36, "6B"))
+ca1.add_route(ClimbingRoute("Swedish route", 42, "5+"))
 
-k2 = Kiipeilykallio("Nummi")
-k2.lisaa_reitti(Kiipeilyreitti("Syncro", 14, "8C+"))
+ca2 = ClimbingArea("Nummi")
+ca2.add_route(ClimbingRoute("Synchro", 14, "8C+"))
 
-k3 = Kiipeilykallio("Nalkkilan släbi")
-k3.lisaa_reitti(Kiipeilyreitti("Pieniä askelia", 12, "6A+"))
-k3.lisaa_reitti(Kiipeilyreitti("Smooth operator", 11, "7A"))
-k3.lisaa_reitti(Kiipeilyreitti("Possu ei pidä", 12 , "6B+"))
-k3.lisaa_reitti(Kiipeilyreitti("Hedelmätarha", 8, "6A"))
+ca3 = ClimbingArea("Nalkkila slab")
+ca3.add_route(ClimbingRoute("Small steps", 12, "6A+"))
+ca3.add_route(ClimbingRoute("Smooth operator", 11, "7A"))
+ca3.add_route(ClimbingRoute("Piggy not likey", 12 , "6B+"))
+ca3.add_route(ClimbingRoute("Orchard", 8, "6A"))
 
-print(k1)
-print(k3.name, k3.reitteja())
-print(k3.vaikein_reitti())
+print(ca1)
+print(ca3.name, ca3.routes())
+print(ca3.hardest_route())
 ```
 
 <sample-output>
 
-Olhava, 3 reittiä, vaikein 6B
-Nalkkilan slabi 4
-Smooth operator, pituus 9 metriä, grade 7A
+Olhava, 3 routes, hardest 6B
+Nalkkila slab 4
+Smooth operator, length 9 metres, grade 7A
 
 </sample-output>
 
-## Reittien määrän mukaan
+## Sort by number of routes
 
-Please write a function named `reittien_maaran_mukaan`, joka järjestää kiipeilykalliot reittien määrän mukaiseen kasvavaan suuruusjärjestykseen.
+Please write a function named `sort_by_number_of_routes` which sorts climbing areas in ascending order based on the numbers of routes they have.
 
 ```python
-# k1, k2 ja k3 määritelty kuten edellä
-kalliot = [k1, k2, k3]
-for kallio in reittien_maaran_mukaan(kalliot):
-    print(kallio)
+# ca1, ca2 and ca3 declared as above
+areas = [ca1, ca2, ca3]
+for area in sort_by_number_of_routes(areas):
+    print(area)
 
 ```
 
 <sample-output>
 
-Nummi, 1 reittiä, vaikein 8C+
-Olhava, 3 reittiä, vaikein 6B
-Nalkkilan slabi, 4 reittiä, vaikein 7A
+Nummi, 1 routes, hardest 8C+
+Olhava, 3 routes, hardest 6B
+Nalkkila slab, 4 routes, hardest 7A
 
 </sample-output>
 
-## Vaikeimman reitin mukaan
+## Sort by the most difficult route
 
-Please write a function named `vaikeimman_reitin_mukaan`, joka järjestää kiipeilykalliot kalliolta löytyvän vaikeimman reitin mukaiseen _laskevaan_ suuruusjärjestykseen.
+Please write a function named `sort_by_most_difficult` which sorts climbing areas in _descending_ order based on the most difficult route in each area.
 
 ```python
-# k1, k2 ja k3 määritelty kuten edellä
-kalliot = [k1, k2, k3]
-for kallio in vaikeimman_reitin_mukaan(kalliot):
-    print(kallio)
-
+# ca1, ca2 and ca3 declared as above
+areas = [ca1, ca2, ca3]
+for area in sort_by_most_difficult(areas):
+    print(area)
 ```
 
 <sample-output>
 
-Nummi, 1 reittiä, vaikein 8C+
-Nalkkilan slabi, 4 reittiä, vaikein 7A
-Olhava, 3 reittiä, vaikein 6B
+Nummi, 1 routes, hardest 8C+
+Nalkkila slab, 4 routes, hardest 7A
+Olhava, 3 routes, hardest 6B
 
 </sample-output>
 
 </programming-exercise>
 
-## Lambda-lauseke
+## Lambda expressions
 
-Lambda-lausekkeen avulla voidaan luoda anonyymi funktio eli funktio, joka muodostetaan sillä hetkellä, kun sitä tarvitaan. Lausekkeen yleinen syntaksi on seuraava:
+We have mostly worked with functions from the viewpoint of modularity. It is true that functions play an important role in managing the complexity of your programs and avoiding code repetition. Functions are usually written so that they can be used many times.
 
-`lambda <parametrit> : <lauseke>`
+But sometimes you need something resembling a function that you will use just once. Lambda expressions allow you to create small, anonymous functions which are created (and discarded) as they are needed. The general syntax is as follows:
 
-Esimerkiksi tuplelistan järjestys onnistuisi näin käyttämällä lambda-lauseketta:
+`lambda <parameters> : <expression>`
+
+Sorting a list of tuples by the second item in each tuple would look like this implemented with a lambda expression:
 
 ```python
 products = [("banana", 5.95), ("apple", 3.95), ("orange", 4.50), ("watermelon", 4.95)]
 
-# Funktio luodaan "lennosta" lambda-lausekkeella:
+# Function is created "on the fly" with a lambda expression:
 products.sort(key=lambda item: item[1])
 
 for product in products:
@@ -462,181 +464,178 @@ for product in products:
 
 </sample-output>
 
-Lauseke
+The expression
 
 `lambda item: item[1]`
 
-vastaa funktiomäärittelyä
+is equivalent to the function definition
 
 ```python
-
-def hinta(item):
+def price(item):
     return item[1]
 ```
 
-paitsi että lambda-lauseketta käytettäessä funktiolle ei anneta nimeä. Tämän takia muodostettavaa funktiota kutsutaan anonyymiksi funktioksi.
+except for the fact that a lambda function doesn't have a name. This is why lambda functions are called anonymous functions.
 
-Muuten lambdan avulla muodostettava funktio on kuin mikä tahansa muukin funktio. Esimerkiksi seuraava esimerkki järjestää merkkijonot niiden viimeisten merkkien mukaiseen aakkosjärjestykseen:
+In every other respect a lambda function is no different from any other function, and they can be used in all the same contexts as any equivalent named function. For example, the following program sorts a list of strings alphabetically by the _last_ character in each string:
 
 ```python
-mjonot = ["Mikko", "Makke", "Maija", "Markku", "Mikki"]
+strings = ["Mickey", "Mack", "Marvin", "Minnie", "Merl"]
 
-for jono in sorted(mjonot, key=lambda jono: jono[-1]):
-    print(jono)
+for word in sorted(strings, key=lambda word: word[-1]):
+    print(word)
 ```
 
 <sample-output>
 
-Maija
-Makke
-Mikki
-Mikko
-Markku
+Minnie
+Mack
+Merl
+Marvin
+Mickey
 
 </sample-output>
 
-Mennään vielä pidemmälle: yhdistämällä listakooste ja `join`-metodi lambda-lausekkeeseen voidaan esimerkiksi järjestää merkkijonot niistä löytyvien vokaalien mukaiseen järjestykseen välittämättä muista merkeistä:
+We can also combine list comprehensions, the `join` method and lambda expressions. For example, we could sort strings based on just the vowels in them, ignoring all other characters:
 
 ```python
-mjonot = ["Mikko", "Makke", "Maija", "Markku", "Mikki"]
+strings = ["Mickey", "Mack", "Marvin", "Minnie", "Merl"]
 
-for jono in sorted(mjonot, key=lambda jono: "".join([m for m in jono if m in "aeiouyäö"])):
-    print(jono)
+for word in sorted(strings, key=lambda word: "".join([c for c in word if c in "aeiou"])):
+    print(word)
 ```
 
 <sample-output>
 
-Makke
-Maija
-Markku
-Mikki
-Mikko
+Mack
+Marvin
+Merl
+Mickey
+Minnie
 
 </sample-output>
 
-Anonyymejä funktioita voi hyödyntää Pythonissa monien muidenkin valmiiden funktioiden yhteydessä. Esimerkiksi funktioille `min` ja `max` voidaan määritellä samalla tavalla parametri `key`, jonka perusteella miname- tai maksimiarvo valitaan.
+Anonymous functions can also be used with other built in Python functions besides those used for sorting. For example, the `min` and `max` functions also take a keyword argument `key`. It is used as the criteria for comparing the items for selecting the minimum or maximum value.
 
-Esimerkissä poimitaan levyistä aluksi vanhin ja sitten pisin:
+In the following example we are dealing with audio recordings. First we select the oldest recording, and then the longest:
 
 ```python
 
-class Levy:
-    """Luokka mallintaa yhtä äänilevyä"""
-    def __init__(self, name: str, esittaja: str, vuosi: int, kesto: int):
+class Recording:
+    """ The class models a single audio recording """
+    def __init__(self, name: str, performer: str, year: int, runtime: int):
         self.name = name
-        self.esittaja = esittaja
-        self.vuosi = vuosi
-        self.kesto = kesto
+        self.performer = performer
+        self.year = year
+        self.runtime = runtime
 
 
     def __str__(self):
-        return f"{self.name} ({self.esittaja}), {self.vuosi}. {self.kesto} min."
+        return f"{self.name} ({self.performer}), {self.year}. {self.runtime} min."
 
 if __name__ == "__main__":
-    l1 = Levy("Nevermind", "Nirvana", 1991, 43)
-    l2 = Levy("Let It Be", "Beatles", 1969, 35)
-    l3 = Levy("Joshua Tree", "U2", 1986, 50)
+    r1 = Recording("Nevermind", "Nirvana", 1991, 43)
+    r2 = Recording("Let It Be", "Beatles", 1969, 35)
+    r3 = Recording("Joshua Tree", "U2", 1986, 50)
 
-    levyt = [l1, l2, l3]
+    recordings = [r1, r2, r3]
 
 
-    print("Vanhin levy:")
-    print(min(levyt, key=lambda levy: levy.vuosi))
+    print("The oldest recording:")
+    print(min(recordings, key=lambda rec: rec.year))
 
-    print("Pisin levy: ")
-    print(max(levyt, key=lambda levy: levy.kesto))
+    print("The longest recording:")
+    print(max(recordings, key=lambda rec: rec.runtime))
 ```
 
 <sample-output>
 
-Vanhin levy:
+The oldest recording:
 Let It Be (Beatles), 1969. 35 min.
-Pisin levy:
+The longest recording:
 U2 (Joshua Tree), 1986. 50 min.
 
 </sample-output>
 
-<programming-exercise name='Palloilijat' tmcname='part12-06_palloilijat'>
+<programming-exercise name='BallPlayers' tmcname='part12-06_ballplayers'>
 
-Tehtäväpohjasta löytyy luokka `Palloilija`, jolla on seuraavat julkiset piirteet:
+The exercise template contains the definition for a class named `BallPlayer`. It has the following public attributes:
 
 * name
-* pelinumero
-* tehtyjen maalien määrä `maalit`
-* annettujen syöttöjen määrä `syotot`
-* peliminuuttien määärä `minuutit`
+* shirt number `number`
+* scored goals `goals`
+* assists completed `assists`
+* minutes played `minutes`
 
-Kirjoita seuraavien tehtävänantojen mukaiset funktiot. Huomaa, että jokaisessa funktiossa palautetaan erityyppiset tiedot.
+Please implement the following functions. NB: each function has a different type of return value.
 
-## Eniten maaleja
+## Most goals
 
-Kirjoita funktio `eniten_maaleja`, joka saa parametrikseen listan palloilijoita.
+Please write a function named `most_goals` which takes a list of ball players as its argument.
 
-Funktio palauttaa merkkijonona sen pelaajan nimen, joka on tehnyt eniten maaleja.
+The function should return the name of the player who scored the most goals in string format.
 
-## Eniten pisteitä
+## Most points
 
-Kirjoita funktio `eniten_pisteita`, joka saa parametrikseen listan palloilijoita.
+Please write a function named `most_points`, which takes a list of ball players as its argument.
 
-Funktio palauttaa tuplena sen pelaajan nimen ja pelinumeron, joka on tehnyt yhteensä eniten pisteitä. Pisteisiin lasketaan siis sekä maalit että syötöt.
+The function should return a tuple containing the name and shirt number of the player who has scored the most points. The total number of points is the number of goals and the number of assists combined.
 
-## Vähiten peliminuuttjea
+## Least minutes
 
-Kirjoita funktio `vahiten_minuutteja`, joka saa parametrikseen listan palloilijoita.
+Please write a function named `least_minutes`, which takes a list of ball players as its argument.
 
-Funktio palauttaa sen `Palloilija`-olion, jolla on vähiten peliminuutteja kaikista pelaajista.
+The function should return the `BallPlayer` object which has the smallest value of minutes played.
 
-## Testiohjelma
-
-Voit testata koodisi toimintaa seuraavalla ohjelmalla:
+You can test your functions with the following program:
 
 ```python
 if __name__ == "__main__":
-    pelaaja1 = Palloilija("Kelju Kojootti", 13, 5, 12, 46)
-    pelaaja2 = Palloilija("Maantiekiitäjä", 7, 2, 26, 55)
-    pelaaja3 = Palloilija("Uka Naakka", 9, 1, 32, 26)
-    pelaaja4 = Palloilija("Pelle Peloton", 12, 1, 11, 41)
-    pelaaja5 = Palloilija("Hessu Hopo", 4, 3, 9, 12)
+    player1 = BallPlayer("Archie Bonkers", 13, 5, 12, 46)
+    player2 = BallPlayer("Speedy Tickets", 7, 2, 26, 55)
+    player3 = BallPlayer("Cruella De Hill", 9, 1, 32, 26)
+    player4 = BallPlayer("Devilled Tasmanian", 12, 1, 11, 41)
+    player5 = BallPlayer("Donald Quack", 4, 3, 9, 12)
     
-    joukkue = [pelaaja1, pelaaja2, pelaaja3, pelaaja4, pelaaja5]
-    print(eniten_maaleja(joukkue))
-    print(eniten_pisteita(joukkue))
-    print(vahiten_minuutteja(joukkue))
+    team = [player1, player2, player3, player4, player5]
+    print(most_goals(team))
+    print(most_points(team))
+    print(least_minutes(team))
 ```
 
-Tulostuksen tulisi olla:
+This should print out:
 
 <sample-output>
 
-Kelju Kojootti
-('Uka Naakka', 9)
-Palloilija(name=Hessu Hopo, pelinumero=4, maalit=3, syotot=9, minuutit=12)
+Archie Bonkers
+('Cruella De Hill', 9)
+BallPlayer(name=Donald Quack, number=4, goals=3, assists=9, minutes=12)
 
 </sample-output>
 
 </programming-exercise>
 
-## Funktiot parametreina omissa funktioissa
+## Functions as arguments in your own functions
 
-Pythonissa on siis mahdollista välittää viittaus johonkin funktioon toiselle funktiolle. Tarkastellaan vielä esimerkkinä omaa funktiota, joka saa parametrikseen toisen funktion:
+We esatablished above that it is possible to pass a reference to a function to another function. To wrap this up, let's write our very own function which takes a function as its argument.
 
 ```python
-# tyyppivihje callable viittaa funktioon
-def suorita_operaatio(operaatio: callable):
-    # Kutsutaan välitettyä funktiota
-    return operaatio(10, 5)
+# the type hint callable refers to a function
+def perform_operation(operation: callable):
+    # Call the function with was passed as an argument
+    return operation(10, 5)
 
-def summa(a: int, b: int):
+def my_sum(a: int, b: int):
     return a + b
 
-def tulo(a: int, b: int):
+def my_product(a: int, b: int):
     return a * b
 
 
 if __name__ == "__main__":
-    print(suorita_operaatio(summa))
-    print(suorita_operaatio(tulo))
-    print(suorita_operaatio(lambda x,y: x - y))
+    print(perform_operation(my_sum))
+    print(perform_operation(my_product))
+    print(perform_operation(lambda x,y: x - y))
 
 ```
 
@@ -648,76 +647,76 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Funktion `suorita_operaatio` lopputulos siis riippuu siitä, mikä funktio sille on välitetty parametrina. Funktioksi kelpaa mikä tahansa funktio (niin `def`-lauseella määritelty kuin anonyymikin) jolla on kaksi parametria.
+The value returned by the function `perform_operation` depends on which function was passed as an argument. Any function which accepts two arguments would do, no matter wherther it is anonymous or named.
 
-Vaikkei funktioiden välittäminen parametrina olekaan kaikkein yleisimmin tarvittava operaatio, on se joka tapauksessa hyödyllinen mekanismi. Esimerkiksi seuraava ohjelma kirjoittaa tiedostosta 1 halutut rivit tiedostoon 2. Rivien valintakriteeri annetaan funktiona, joka palauttaa `True`, jos rivi tulee kirjoittaa toiseen tiedostoon:
+Passing references to functions as arguments to other functions might not be something you will end up doing on a daily basis in your programming career, but it can be a useful technique. This following program selects some lines from one file and writes them to another file. Th way the lines are selected is determined by a function which returns `True` only if the lines should be copied:
 
 ```python
-def kopioi_rivit(lahde_name: str, kohde_name: str, kriteeri= lambda x: True):
-    with open(lahde_name) as lahde, open(kohde_name, "w") as kohde:
-        for rivi in lahde:
+def copy_lines(source_file: str, target_file: str, criterion= lambda x: True):
+    with open(source_file) as source, open(target_file, "w") as traget:
+        for line in source:
             # Poistetaan ensin tyhjät merkit alusta ja lopusta
-            rivi = rivi.strip()
+            line = line.strip()
 
-            if kriteeri(rivi):
-                kohde.write(rivi + "\n")
+            if criterion(line):
+                traget.write(line + "\n")
 
-# Esimerkkejä
+# Some examples
 if __name__ == "__main__":
-    # Jos kolmatta parametria ei ole määritelty, kopioidaan kaikki
-    kopioi_rivit("eka.txt", "toka.txt")
+    # If the third parameter is not given, copy all lines
+    copy_lines("first.txt", "second.txt")
 
-    # Kopioidaan kaikki ei-tyhjät rivit
-    kopioi_rivit("eka.txt", "toka.txt", lambda rivi: len(rivi) > 0)
+    # Copy all non-empty lines
+    copy_lines("first.txt", "second.txt", lambda line: len(line) > 0)
 
-    # Kopioidaan kaikki rivit, joilla on sana "Python"
-    kopioi_rivit("eka.txt", "toka.txt", lambda rivi: "Python" in rivi)
+    # Copy all lines which contain the word "Python"
+    copy_lines("first.txt", "second.txt", lambda line: "Python" in line)
 
-    # Kopioidaan kaikki rivit, jotka eivät pääty pisteeseen
-    kopioi_rivit("eka.txt", "toka.txt", lambda rivi: rivi[-1] != ".")
+    # Copy all lines which do not end in a full stop
+    copy_lines("first.txt", "second.txt", lambda line: line[-1] != ".")
 ```
 
-Funktiossa parametrille `kriteeri` on määritelty oletusarvoksi lambda-lauseke `lambda x: True`, jonka tuottama anonyymi funktio palauttaa arvon `True` kaikille syötteille. Niinpä oletuksena kopioidaan kaikki rivit tiedostosta toiseen. Jos käyttäjä antaa kolmannelle parametrille arvon, tämä korvaa oletusarvon.
+The function definition contains a default value for the keyword parameter `criterion`: `lambda x: True`. This anonymous function always returns `True` regardless of the input. So, the default behaviour is to copy all lines. As usual, if a value is given for a parameter with a default value, the new value replaces the default value.
 
-<programming-exercise name='Tuotteiden haku' tmcname='part12-07_tuotteiden_haku'>
+<programming-exercise name='Product search' tmcname='part12-07_product_search'>
 
-Tässä tehtävässä käsitellään tupleina esitettäviä tuotteita, jotka on esimerkeissä alustettu muuttujaan `products` seuraavasti:
+This exercise deals with products which are stored in tuples. The examples all assume a variable `products` with the following assignation:
 
 ```python
-products = [("banana", 5.95, 12), ("apple", 3.95, 3), ("orange", 4.50, 2), ("watermelon", 4.95, 22), ("Kaali", 0.99, 1)]
+products = [("banana", 5.95, 12), ("apple", 3.95, 3), ("orange", 4.50, 2), ("watermelon", 4.95, 22), ("kale", 0.99, 1)]
 ```
 
-Jokaisessa tuplessa ensimmäinen item siis edustaa nimeä, seuraava hintaa ja kolmas määrää.
+Each tuple contains three items: name, price and amount.
 
-Toteuta funktio `hae(products: list, kriteeri: callable)`, missä toisena parametrina on funktio, joka saa parametriksi yhden producttta edustavan tuplen ja palauttaa totuusarvon. Funktio palauttaa listassa parametrina annetuista tuotteista ne, jotka toteuttavat kriteerin.
+Please write a function named `search(products: list, criterion: callable)`, where the second argument is a function which should be able to process a tuple as defined above, and return a Boolean value. The search function should return a new list containing those tuples from the original which fulfil the criterion.
 
-Sopiva kriteeri voisi olla esimerkiksi seuraavanlainen
+If we wanted to include only products whose price was under 4 euros, we could use the following criterion function:
 
 ```python
-def hinta_alle_4_euroa(product):
+def price_under_4_euros(product):
     return product[1] < 4
 ```
 
-Funktio siis palauttaa _True_ jos tuotteen hinta on alle 4 euroa.
+The function returns `True` if the second item in the tuple is less than four in value.
 
-Funktio `haku` toimii seuraavasti:
+An example of the `search` function in use:
 
 ```python
-for product in hae(products, hinta_alle_4_euroa):
+for product in search(products, price_under_4_euros):
     print(product)
 ```
 
 <sample-output>
 
 ('apple', 3.95, 3)
-('kaali', 0.99, 1)
+('kale', 0.99, 1)
 
 </sample-output>
 
-Kriteerifunktion voi myös määritellä lambda-funktiona. Seuraava käyttää funktiota `haku` etsimään products, joita on vähintään 11 kappaletta:
+The criterion function can also be a lambda function. If we wanted to search for only those products whose amount was at least 11, we could write the following:
 
 ```python
-for product in hae(products, lambda t: t[2]>10):
+for product in search(products, lambda t: t[2]>10):
     print(product)
 ```
 
@@ -729,4 +728,3 @@ for product in hae(products, lambda t: t[2]>10):
 </sample-output>
 
 </programming-exercise>
-
