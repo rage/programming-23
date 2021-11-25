@@ -593,7 +593,7 @@ print(same_chars("programmer", 0, 12)) # False
 
 <programming-exercise name='First, second and last words' tmcname='part04-11_first_second_last'>
 
-Please write three functions: `first_word`, `second_word` ja `last_word`. Each function takes a string argument.
+Please write three functions: `first_word`, `second_word` and `last_word`. Each function takes a string argument.
 
 As their names imply, the functions return either the first, the second or the last word in the sentence they receive as their string argument.
 
