@@ -653,13 +653,13 @@ Passing references to functions as arguments to other functions might not be som
 
 ```python
 def copy_lines(source_file: str, target_file: str, criterion= lambda x: True):
-    with open(source_file) as source, open(target_file, "w") as traget:
+    with open(source_file) as source, open(target_file, "w") as target:
         for line in source:
-            # Poistetaan ensin tyhjät merkit alusta ja lopusta
+            # Remove any whitespace from beginning and end of line
             line = line.strip()
 
             if criterion(line):
-                traget.write(line + "\n")
+                target.write(line + "\n")
 
 # Some examples
 if __name__ == "__main__":
