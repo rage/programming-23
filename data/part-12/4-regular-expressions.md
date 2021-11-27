@@ -214,20 +214,20 @@ Ei osumaa.
 
 </sample-output>
 
-<programming-exercise name='Säännölliset lausekkeet' tmcname='part12-14_saannolliset_lausekkeet'>
+<programming-exercise name='Regular expressions' tmcname='part12-14_regular_expressions'>
 
-Harjoitellaan hieman säännöllisten lausekkeiden käyttöä.
+Let's practice regular expressions a little.
 
-## Viikonpäivät
+## Days of the week
 
-Tee säännöllisen lausekkeen avulla funktio `on_viikonpaiva(merkkijono: str)` joka palauttaa `True`, jos sen parametrina saama merkkijono sisältää viikonpäivän lyhenteen (ma, ti, ke, to, pe, la tai su).
+Using a regular expression, please write a function named `is_dotw(my_string: str)`. The function should return `True` if the string passed as an argument contains an abbreviation for a day of the week (Mon, Tue, Wed, Thu, Fri, Sat, Sun).
 
-Esimerkki funktion kutsumisesta:
+Some examples of how the function should work:
 
 ```python
-print(on_viikonpaiva("ma"))
-print(on_viikonpaiva("pe"))
-print(on_viikonpaiva("tu"))
+print(is_dotw("Mon"))
+print(is_dotw("Fri"))
+print(is_dotw("Tui"))
 ```
 
 <sample-output>
@@ -238,15 +238,15 @@ False
 
 </sample-output>
 
-## Vokaalitarkistus
+## Check for vowels
 
-Tee funktio `kaikki_vokaaleja(merkkijono: str)`, joka tarkistaa säännöllisen lausekkeen avulla, ovatko parametrina annetun merkkijonon kaikki merkit vokaaleja.
+Please write a function named `all_vowels(my_string: str)` which uses a regular expression to check whether all characters in the given string are vowels.
 
-Esimerkki funktion kutsumisesta:
+Some examples of how the function should work:
 
 ```python
-print(kaikki_vokaaleja("eioueioieoieouyyyy"))
-print(kaikki_vokaaleja("autoooo"))
+print(all_vowels("eioueioieoieouyyyy"))
+print(all_vowels("autoooo"))
 ```
 
 <sample-output>
@@ -256,17 +256,17 @@ False
 
 </sample-output>
 
-## Kellonaika
+## Time of day
 
-Tee funktio `kellonaika(merkkijono: str)`, joka tarkistaa säännöllisen lausekkeen avulla, onko parametrina oleva merkkijono muotoa `tt:mm:ss` oleva kellonaika (tunnit, minuutit ja sekunnit kaksinumeroisina).
+Please write a function named `time_of_day(my_string: str)` which uses a regular expression to check whether a string in the format `XX:YY:ZZ` is a valid time in the 24-hour format, with two digits each for hours, minutes and seconds.
 
-Esimerkki funktion kutsumisesta:
+Some examples of how the function should work:
 
 ```python
-print(kellonaika("12:43:01"))
-print(kellonaika("AB:01:CD"))
-print(kellonaika("17:59:59"))
-print(kellonaika("33:66:77"))
+print(time_of_day("12:43:01"))
+print(time_of_day("AB:01:CD"))
+print(time_of_day("17:59:59"))
+print(time_of_day("33:66:77"))
 ```
 
 <sample-output>
@@ -280,19 +280,19 @@ False
 
 </programming-exercise>
 
-## Loppuhuipennus
+## Grand finale
 
-Harjoitellaan vielä osan lopussa hieman laajemman ohjelman tekemistä olioita hyödyntäen. Tämä tehtävä ei sijainnistaan huolimatta liity mitenkään säännöllisiin lausekkeisiin, mutta luvun [Funktio parametrina](/osa-12/1-funktio-parametrina) asia tulee olemaan tarpeen ja myös [listakoosteet](/osa-11/1-koosteet) voivat olla käyttökelpoisia.
+To finish off this part of the material let's work some more on objects by building a slightly more extensive program. This exercise does not necessarily involve regular expressions, but the sections on [functions as arguments](/part-12/1-functions-as-arguments) and [list comprehensions](/part-11/1-list-comprehensions) will likely be useful.
 
-Sovelluksen rakenteelle voi ottaa inspiraatiota osan 10 [viimeisestä luvusta](/osa-10/4-lisaa-esimerkkeja).
+You may also find the example set in [part 10](/part-10/4-application-development) helpful.
 
-<programming-exercise name='Tilastot ojennukseen' tmcname='part12-15_tilastot_ojennukseen'>
+<programming-exercise name='Hockey statistics' tmcname='part12-15_hockey_statistics'>
 
-Tässä tehtävässä tehdään sovellus, jonka avulla on mahdollista tarkastella NHL-jääkiekkoliigan tilastoja muutamassa hieman erilaisessa muodossa.
+In this exercise you will build an application for examining hockey league statistics from the NHL in a couple of different ways. 
 
-Tehtäväpohjan mukana tulee kaksi json-muodossa olevaa tiedostoa `osa.json` ja `kaikki.json`, näistä ensimmäinen on tarkoitettu lähinnä testailun avuksi. Jälkimmäinen sisältää kaikkien kaudella 2019-20 pelanneiden pelaajien statistiikat.
+The exercise template contains two JSON files: `partial.json` ja `all.json`. The first of these is mostly meant for testing. The latter contains a lot of data, as all the NHL player stats for the 2019-20 season are included in the file.
 
-Yksittäisen pelaajan tiedot ovat muodossa
+The entry for a single player is in the following format:
 
 ```json
 {
@@ -303,43 +303,45 @@ Yksittäisen pelaajan tiedot ovat muodossa
     "penalties": 22,
     "team": "WPG",
     "games": 68
-},
+}
 ```
 
-ja molemmat tiedostoista sisältävät yksittäisten pelaajien tiedot taulukossa.
+Both files contain a list of entries in the above format.
 
-Jos et muista, miten json-muotoinen tiedosto saadaan luettua Python-ohjelmaan, voit kerrata tämän [osan 7 materiaalista](/osa-7/4-datan-kasittely#json-tiedoston-lukeminen).
+If you need a refresher on handling JSON files, please take a look at [part 7 of this course material](/part-7/4-data-processing#reading-json-files).
 
-Tee nyt ohjelma, joka kysyy aluksi tiedoston nimeä ja tarjoaa sitten seuraavat toiminnot:
+## Search and list
 
-- yksittäisen pelaajan tietojen haku nimen perusteella
-- listaus joukkueiden nimien lyhenteistä (aakkosjärjestyksessä)
-- listaus maiden nimien lyhenteistä (aakkosjärjestyksessä)
+Please write an interactive application which first asks for the name of the file, and then offers the following functions:
 
-Näistä toiminnoista saa yhden pisteen. Ohjelman tulee toimia seuraavasti:
+- search by name for a single player's stats
+- list all the abbreviations for team names in alphabetical order
+- list all the abbreviations for countries in alphabetical order
+
+These functionalities grant you one exercise point. Your application should now work as follows:
 
 <sample-output>
 
-tiedosto: **osa.json**
-luettiin 14 pelaajan tiedot
+file name: **partial.json**
+read the data for 14 players
 
-komennot:
-0 lopeta
-1 hae pelaaja
-2 joukkueet
-3 maat
-4 joukkueen pelaajat
-5 maan pelaajat
-6 eniten pisteitä
-7 eniten maaleja
+commands:
+0 quit
+1 search for player
+2 teams
+3 countries
+4 players in team
+5 players from country
+6 most points
+7 most goals
 
-komento: **1**
-nimi: **Travis Zajac**
+command: **1**
+name: **Travis Zajac**
 <pre>
 Travis Zajac         NJD   9 + 16 =  25
 </pre>
 
-komento: **2**
+command: **2**
 BUF
 CGY
 DAL
@@ -350,18 +352,18 @@ PIT
 WPG
 WSH
 
-komento: **3**
+command: **3**
 CAN
 CHE
 CZE
 SWE
 USA
 
-komento: **0**
+command: **0**
 
 </sample-output>
 
-Huomaa, että pelaajien tulostusasun pitää olla täsmälleen seuraavanlainen:
+NB: the printout format for a player must be exactly as follows:
 
 <sample-output>
 
@@ -376,41 +378,43 @@ Markus Granlund      EDM   3 +  1 =   4
 
 </sample-output>
 
-Alimman rivin numerot on lisätty helpottamaan oikean merkkimäärän laskemista. Joukkueen nimen lyhenne siis tulostetaan alkaen rivin 22. merkistä. Plus on rivin 30. merkki ja = rivin 35. merkki. Kaikki luvut tulee tasata oikeaan reunaan omaa tulostusaluettaan. Tyhjät kohdat ovat välilyöntejä.
+The last line in the sample above is there to help you calculate the widths of the different fields in the output; you should not print the numbers line yourself in your final submission. The abbreviation for the team is printed from the 22nd character onwards. The `+` sign is the 30th character and the `=` sign is the 35th character. All the fields should be justified to the right edge. All whitespace is space characters.
 
-Tulostuksen muotoilu kannattaa hoitaa f-merkkijonoina samaan tapaan kuin [tässä](/osa-6/1-tiedostojen-lukeminen#programming-exercise-kurssin-tulokset-osa-3) osan 6 tehtävässä.
+F-strings are probably the easiest way to achieve the required printout. The process is similar to [this exercise](/part-6/1-reading-files#programming-exercise-course-grading-part-3) from part 6.
 
-Seuraavat toiminnot tuovat toisen pisteen:
+## List players by points
 
-- joukkueen pelaajien listaaminen pisteiden (joka saadaan laskemalla _goals_ + _assits_) mukaisessa järjestyksessä
-- tietyn maan pelaajien listaaminen pisteiden mukaisessa järjestyksessä
+These two functionalities will grant you a second exercise point:
 
-Toiminnallisuus on seuraava:
+- list players in a specific team in the order of points they've scored. Points equals _goals_ + _assists_
+- list players from a specific country in the order of points they've scored
+
+Your application should now work as follows:
 
 <sample-output>
 
-tiedosto: **osa.json**
-luettiin 14 pelaajan tiedot
+file name: **partial.json**
+read the data for 14 players
 
-komennot:
-0 lopeta
-1 hae pelaaja
-2 joukkueet
-3 maat
-4 joukkueen pelaajat
-5 maan pelaajat
-6 eniten pisteitä
-7 eniten maaleja
+commands:
+0 quit
+1 search for player
+2 teams
+3 countries
+4 players in team
+5 players from country
+6 most points
+7 most goals
 
-komento: **4**
-joukkue: **OTT**
+command: **4**
+team: **OTT**
 <pre>
 Drake Batherson      OTT   3 +  7 =  10
 Jonathan Davidsson   OTT   0 +  1 =   1
 </pre>
 
-komento: **5**
-maa: **CAN**
+command: **5**
+country: **CAN**
 <pre>
 Jared McCann         PIT  14 + 21 =  35
 Travis Zajac         NJD   9 + 16 =  25
@@ -419,43 +423,45 @@ Mark Jankowski       CGY   5 +  2 =   7
 Logan Shaw           WPG   3 +  2 =   5
 </pre>
 
-komento: **0**
+command: **0**
 
 </sample-output>
 
-Kolmannen pisteen saa seuraavilla toiminnoilla:
+## Most successful players
 
-- n eniten pistettä saanutta pelaajaa
-  - jos kahden pelaajan pistemäärä on sama, ratkaisee maalimäärä
-- n eniten maaleja (_goals_) tehnyttä pelaajaa
-  - jos kahden pelaajan maalimäärä on sama, järjestysksen ratkaisee se kummalla on vähemmän otteluja (_games_)
+These two functionalities will grant you the third exercise point:
 
-Toiminnallisuus on seuraava:
+- list of `n` players who've scored the most points
+  - if two players have the same score, whichever has scored the higher number of goals comes first
+- list of `n` players who've scored the most goals
+  - if two players have the same number of goals, whichever has played the lower number of games comes first
+
+Your application should now work as follows:
 
 <sample-output>
 
-tiedosto: **osa.json**
-luettiin 14 pelaajan tiedot
+file name: **partial.json**
+read the data for 14 players
 
-komennot:
-0 lopeta
-1 hae pelaaja
-2 joukkueet
-3 maat
-4 joukkueen pelaajat
-5 maan pelaajat
-6 eniten pisteitä
-7 eniten maaleja
+commands:
+0 quit
+1 search for player
+2 teams
+3 countries
+4 players in team
+5 players from country
+6 most points
+7 most goals
 
-komento: **6**
-kuinka monta: **2**
+command: **6**
+how many: **2**
 <pre>
 Jakub Vrana          WSH  25 + 27 =  52
 Jared McCann         PIT  14 + 21 =  35
 </pre>
 
-komento: **6**
-kuinka monta: **5**
+command: **6**
+how many: **5**
 
 <pre>
 Jakub Vrana          WSH  25 + 27 =  52
@@ -465,8 +471,8 @@ Travis Zajac         NJD   9 + 16 =  25
 Conor Sheary         BUF  10 + 13 =  23
 </pre>
 
-komento: **7**
-kuinka monta: **6**
+command: **7**
+how many: **6**
 
 <pre>
 Jakub Vrana          WSH  25 + 27 =  52
@@ -477,7 +483,7 @@ John Klingberg       DAL   6 + 26 =  32
 Mark Jankowski       CGY   5 +  2 =   7
 </pre>
 
-komento: **0**
+command: **0**
 
 </sample-output>
 
