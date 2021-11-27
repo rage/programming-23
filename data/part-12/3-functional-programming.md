@@ -375,7 +375,7 @@ Taas kerran sama voitaisiin toteuttaa listakoosteena:
 ylikiloiset = [kala for kala in kalat if kala.paino >= 1000]
 ```
 
-## filter palauttaa iteraattorin
+## The return value of filter is an iterator
 
 Funktion `map` tapaan, myös funktio `filter` palauttaa listan sijaan _iteraattorin_ ja on tilanteita joissa on syytä olla varuillaan sillä iteraattorin voi käydä läpi vain kerran. Eli seuraava yritys tulostaa suuret kalat kahteen kertaan ei onnistu:
 
@@ -665,14 +665,13 @@ sillä `reduce`-funktion parametri `yht_saldo` saisi ensimmäisellä kerralla ar
 
 <programming-exercise name='Study credits' tmcname='part12-13_credits'>
 
-Tarkastellaan tässä tehtävässä hieman erilaista versiota luokasta `CourseAttempt`. Tällä kertaa se kuvastaa ainoastaan yksittäisen opiskelijan kurssisuorituksia. Luokka toimii seuraavasti:
-
+In this exercise we will work with a slightly modified version of the `CourseAttempt` class. The name of the student is omitted, but the number of credits is included. The class works as follows: 
 
 ```python
 attempt = CourseAttempt("Data Structures and Algorithms", 3, 10)
 print(attempt)
-print(attempt.kurssi)
-print(attempt.opintopisteet)
+print(attempt.course_name)
+print(attempt.credits)
 print(attempt.grade)
 ```
 
@@ -685,9 +684,9 @@ Data Structures and Algorithms
 
 </sample-output>
 
-## Opintopistemäärä
+## The sum of all credits
 
-Toteuta funktio `sum_of_all_credits`, joka saa parametriksi listan suorituksia ja laskee suoritusten yhteenlasketun opintopistemäärän. Funktio toimii seuraavasti
+Please implement a function named `sum_of_all_credits` which takes a list of course attempts as its argument. The function sums up the total number of study credits covered by the courses. It should work like this:
 
 ```python
 s1 = CourseAttempt("Introduction to Programming", 5, 5)
@@ -703,11 +702,11 @@ print(credit_sum)
 
 </sample-output>
 
-Toteuta funktio käyttäen `reduce`-funktiota!
+Please implement the function using the `reduce` function.
 
-## Hyväksyttyjen opintopistemäärä
+## The sum of passed credits
 
-Toteuta funktio `sum_of_passed_credits`, joka saa parametriksi listan suorituksia ja laskee graden 1 tai parempien omaavien attemptten yhteenlasketun opintopistemäärän. Funktio toimii seuraavasti
+Please implement a function named `sum_of_passed_credits` which takes a list of course attempts as its argument. The function sums up the credits for the course attempts with grade 1 or above. It should work like this:
 
 ```python
 s1 = CourseAttempt("Introduction to Programming", 5, 5)
@@ -723,11 +722,11 @@ print(credit_sum)
 
 </sample-output>
 
-Toteuta funktio käyttäen `reduce`- ja `filter`-funktiota!
+Please implement the function using the `reduce` and `filter` functions.
 
-## Hyväksyttyjen suoritusten keskiarvo
+## Average grade for passed courses
 
-Toteuta funktio `average_grade`, joka saa parametriksi listan suorituksia ja laskee arvosanan 1 tai parempien omaavien suoritusten arvosanojen keskiarvon. Funktio toimii seuraavasti
+Please implement a function named `average_grade` which takes a list of course attempts as its argument. The function calculates the average grade for the course attempts with grade 1 or above. It should work like this:
 
 ```python
 s1 = CourseAttempt("Introduction to Programming", 5, 5)
@@ -743,8 +742,8 @@ print(ag)
 
 </sample-output>
 
-Hyödynnä funktion toteutuksessa `reduce`- ja `filter`-funktiota!
+Please implement the function using the `reduce` and `filter` functions. NB: the exercise asks for a simple mean value, not a weighted average.
 
-[Tämä](/osa-12/3-funktionaalista-ohjelmointia#filter-palauttaa-iteraattorin) lienee syytä pitää mielessä tätä tehtävää tehdessä-
+While working on this exercise, it is likely worth remembering that [the return value of filter is an iterator](/part-12/3-functional-programming#the-return-value-of-filter-is-an-iterator).
 
 </programming-exercise>
