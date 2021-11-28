@@ -288,7 +288,7 @@ You may also find the example set in [part 10](/part-10/4-application-developmen
 
 <programming-exercise name='Hockey statistics' tmcname='part12-15_hockey_statistics'>
 
-In this exercise you will build an application for examining hockey league statistics from the NHL in a couple of different ways. 
+In this exercise you will build an application for examining hockey league statistics from the NHL in a couple of different ways.
 
 The exercise template contains two JSON files: `partial.json` ja `all.json`. The first of these is mostly meant for testing. The latter contains a lot of data, as all the NHL player stats for the 2019-20 season are included in the file.
 
@@ -491,6 +491,6 @@ command: **0**
 
 Please respond to a quick questionnaire on this part of the course.
 
-<quiz id="06c5ee2a-a3ed-5151-8452-36425d591350"></quiz>
+<quiz id="87f4f3d5-0f10-56cd-a077-af862df37458"></quiz>
 
 
