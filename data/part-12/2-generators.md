@@ -8,60 +8,62 @@ hidden: false
 
 After this section
 
-- Tiedät, mitä tarkoitetaan generaattorilla Pythonissa
-- Tiedät, mitä avainsana yield tekee
-- Osaat kirjoittaa itse generaattorifunktioita
+- You will know what a Python generator is
+- You will be familiar with the keyword `yield`
+- You will be able to write your own generator functions
 
 </text-box>
 
-Eräissä tilanteissa olisi kätevää saada ohjelmassa seuraava alkio (tai useampi alkio) tietystä sarjasta ilman että muodostetaan koko sarjaa kerralla. Pythonissa tämä onnistuu näppärästi _generaattoreiden_ avulla. Generaattorifunktio muistuttaa normaalia arvon palauttavaa funktiota, mutta kun normaalifunktio palauttaa (tai ainakin sen pitäisi palauttaa) samalla syötteellä saman arvon, generaattorifunktio palauttaa seuraavan luvun sarjasta.
+We have already come across situations where we're dealing with a series of items, and we'd need the next item(s) in the series, but we wouldn't necessarily want to formulate the entire series up to that point each time a new item is required. Some recursive series, such as the Fibonacci number, are a good example of such a situation. If each function call recursively generates the entire series up to the desired point, we end up generating the beginning of the series many times over.
 
-Generaattorien toiminta voidaan toteuttaa ohjelmissa myös muilla keinoilla (itse asiassa sama pätee useimpiin ohjelmointitekniikoihin), mutta niiden käyttö selkeyttää ja mahdollisesti säästää muistia tai muita resursseja tietyntyylisissä ohjelmissa.
+Python _generators_ are a way of producing just the next item in a series, essentially running the generation process for the series just once (for a given execution of a program). They work mostly like normal functions with return values, but where a normal function, given the same arguments, should return the same value each time, a generator function should remember its current state and return the next item in the series.
 
-## Avainsana yield
+Just as there are many ways of solving most any programming problem, there are indeed many ways of achieving a functionality similar to generators. Generators can help make the program easier to understand, and can in certain situations save memory or other computational resources.
 
-Generaattorifunktion toiminta perustuu avainsanaan `yield`. Tarkastellaan esimerkkinä funktiota, joka palauttaa yksi kerrallaan kokonaislukuja nollasta alkaen kunnes maksimiarvo on saavutettu:
+## The keyword yield
+
+A generator function must contain the keyword `yield`. Let's take a look at a function which returns integer numbers, starting from zero and ending at a pre-determined maximum value:
 
 ```python
 
-def laskuri(maksimi: int):
-    luku = 0
-    while luku <= maksimi:
-        yield luku
-        luku += 1
+def counter(max_value: int):
+    number = 0
+    while number <= max_value:
+        yield number
+        number += 1
 
 ```
 
-Nyt laskurilta voi pyytää seuraavan arvon funktiolla `next()`:
+Now the `counter` function can be passed as an argument to the function `next()`:
 
 ```python
 if __name__ == "__main__":
-    luvut = laskuri(10)
-    print("Eka arvo:")
-    print(next(luvut))
-    print("Toka arvo:")
-    print(next(luvut))
+    numbers = counter(10)
+    print("First value:")
+    print(next(numbers))
+    print("Second value:")
+    print(next(numbers))
 ```
 
 <sample-output>
 
-Eka arvo:
+First value:
 0
-Toka arvo:
+Second value:
 1
 
 </sample-output>
 
-Niinkuin esimerkistä huomataan, `yield` muistuttaa `return`-komentoa siinä, että se palauttaa arvon funktiosta. Eroavaisuus on kuitenkin siinä, että yield palauttaa yksittäisen arvon, ja funktio "muistaa" mihin tilaan se jäi.
+As you can see from the example above, the keyword `yield` is similar to the keyword `return`: both are used to define a return value. The difference is that `yield` doesn't "close" the function in the same sense as `return`. A generator function with the `yield` keyword keeps track of its state, and the next time it is called, it will continue from the same state.
 
-Arvoja voi pyytää vain niin kauan kun niitä on generaattorissa jäljellä - tämän jälkeen generaattorifunktio antaa poikkeuksen `StopIteration`:
+Above we also defined a maximum value for the generator. When the generator runs out of values, it will raise a `StopIteration` exception:
 
 ```python
 if __name__ == "__main__":
-    luvut = laskuri(1)
-    print(next(luvut))
-    print(next(luvut))
-    print(next(luvut))
+    numbers = counter(1)
+    print(next(numbers))
+    print(next(numbers))
+    print(next(numbers))
 ```
 
 <sample-output>
@@ -69,40 +71,40 @@ if __name__ == "__main__":
 0
 1
 Traceback (most recent call last):
-  File "generaattoriesimerkki.py", line 11, in <module>
-    print(next(luvut))
+  File "generator_example.py", line 11, in <module>
+    print(next(numbers))
 StopIteration
 
 </sample-output>
 
-Poikkeuksen voi ottaa kiinni `try`-`except` lohkolla:
+The exception can be caught with a `try`-`except` block:
 
 ```python
 if __name__ == "__main__":
-    luvut = laskuri(1)
+    numbers = counter(1)
     try:
-        print(next(luvut))
-        print(next(luvut))
-        print(next(luvut))
+        print(next(numbers))
+        print(next(numbers))
+        print(next(numbers))
     except StopIteration:
-        print("Luvut loppuivat kesken")
+        print("ran out of numbers")
 ```
 
 <sample-output>
 
 0
 1
-Luvut loppuivat kesken
+ran out of numbers
 
 </sample-output>
 
-Jos halutaan palauttaa kaikki generaattorin tuottamat alkiot, helpointa on iteroida ne läpi `for`-lauseella:
+Traversing through all the items in a generator is easily done with a `for` loop:
 
 ```python
 if __name__ == "__main__":
-    luvut = laskuri(5)
-    for luku in luvut:
-        print(luku)
+    numbers = counter(5)
+    for number in numbers:
+        print(number)
 ```
 
 <sample-output>
@@ -188,20 +190,18 @@ Hint: you can use a loop to check if a number is a prime number. If we are check
 </programming-exercise>
 
 
-## Generaattorikoosteet
+## Generator comprehensions
 
-Generaattorin voi luoda myös listakoostetta (list comprehension) muistuttavalla syntaksilla. Erotuksena listakoosteeseen on, että lauseke ympäröidään kaarisulkeilla hakasulkeiden sijasta.
-
-Esimerkiksi
+You do not necessarily need a function definition to create a generator. You can use a structure similar to a list comprehension instead. This time we use round brackets to signify a generator instead of a list or a dictionary:
 
 ```python
-# Generaattori palauttaa 2:n potensseja
-neliot = (x ** 2 for x in range(1, 64))
+# This generator returns squares of integers
+squares = (x ** 2 for x in range(1, 64))
 
-print(neliot)
+print(squares) # the printout of a generator object isn't too informative
 
 for i in range(5):
-    print(next(neliot))
+    print(next(squares))
 ```
 
 <sample-output>
@@ -215,14 +215,14 @@ for i in range(5):
 
 </sample-output>
 
-Toinen esimerkki, jossa generaattori tuottaa kolmimerkkisiä alijonoja englanninkielisistä aakkosista. Esimerkissä tulostetaan generaattorin 10 ensimmäistä alkiota:
+In the following example we print out substrings of the English alphabet, each three characters long. This prints out the first 10 items in the generator:
 
 ```python
-alijonot = ("abcdefghijklmnopqrstuvwxyz"[i : i + 3] for i in range(24))
+substrings = ("abcdefghijklmnopqrstuvwxyz"[i : i + 3] for i in range(24))
 
-# tulostetaan ensimmäiset 10 alijonoa
+# print out first 10 substrings
 for i in range(10):
-    print(next(alijonot))
+    print(next(substrings))
 ```
 
 <sample-output>

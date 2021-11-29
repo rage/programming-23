@@ -8,7 +8,7 @@ hidden: false
 
 After this section
 
-- You will be familiar iwth binary trees and some recursive algorithms used to process them
+- You will be familiar with binary trees and some recursive algorithms used to process them
 
 </text-box>
 

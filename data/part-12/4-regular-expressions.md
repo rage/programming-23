@@ -282,7 +282,7 @@ False
 
 ## Grand finale
 
-To finish off this part of the material let's work some more on objects by building a slightly more extensive program. This exercise does not necessarily involve regular expressions, but the sections on [functions as arguments](/part-12/1-functions-as-arguments) and [list comprehensions](/part-11/1-list-comprehensions) will likely be useful.
+To finish off this part of the material, let's work some more on objects and classes by building a slightly more extensive program. This exercise does not necessarily involve regular expressions, but the sections on [functions as arguments](/part-12/1-functions-as-arguments) and [list comprehensions](/part-11/1-list-comprehensions) will likely be useful.
 
 You may also find the example set in [part 10](/part-10/4-application-development) helpful.
 
