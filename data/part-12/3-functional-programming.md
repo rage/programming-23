@@ -17,13 +17,13 @@ Functional programming refers to a _programming paradigm_ which avoids changes i
 
 Lambda expressions and different types of comprehensions are common techniques in the functional programming style, as they let you process data without storing it in variables, so that the state of the program does not change. For example, a lambda expression is for all intents and purposes a function, but we do not need to store a named reference to it anywhere.
 
-As mentioned above, functional programming is a programming paradigm, or a style of programming, and it is one of many. Some programming paradigms we've already come across include
+As mentioned above, functional programming is a programming paradigm, or a style of programming. There are many different programming paradigms, and we've already come across some of them:
 
-* imperative programming, where the program consists of a sequence commands which is executed in order
+* imperative programming, where the program consists of a sequence of commands which is executed in order
 * procedural programming, where the program is grouped into procedures or sub-programs
 * object-oriented programming, where the program and its state is stored in objects defined in classes.
 
-There are differing opinions on the divisions between the different paradigms; for example, some maintain that imperative and procedural programming mean the same thing, while others place imperative programming as an umbrella term which covers both procedural and object-oriented programming.
+There are differing opinions on the divisions between the different paradigms; for example, some maintain that imperative and procedural programming mean the same thing, while others place imperative programming as an umbrella term which covers both procedural and object-oriented programming. Th terminology and divisions are not that important, and neither is strictly sticking to one or the other paradigm, but it is important to understand that such different approaches exist, as they affect the choices programmers make,
 
 Many programming languages are designed with one or the other programming paradigm in mind, but Python is a rather versatile programming language, and allows for following several different programming paradigms, even within a single program. This lets us choose the most efficient and clear method for solving each problem.
 
@@ -33,7 +33,7 @@ Let's have a look at some functional programming tools provided by Python.
 
 The `map` function executes some operation on each item in an iterable series. This sounds a lot like the effect a comprehension has, but the syntax is different.
 
-Let's assume we have list of strings which we wanted to convert to a list of integers:
+Let's assume we have list of strings which we want to convert into a list of integers:
 
 ```python
 str_list = ["123","-10", "23", "98", "0", "-110"]
@@ -64,7 +64,7 @@ The general syntax for the `map` function is
 
 where `function` is the operation we want to execute on each item in the `series`.
 
-The function returns an object of type `map`, which is iterable, and can be converted into a list:
+The `map` function returns an object of type `map`, which is iterable, and can be converted into a list:
 
 ```python
 def capitalize(my_string: str):
@@ -86,7 +86,7 @@ print(capitalized_list)
 
 </sample-output>
 
-As you can see above, the `map` function accepts both an anonymous lambda function and a named function defined with the `def` keyword.
+As you can see from the examples above, the `map` function accepts both an anonymous lambda function and a named function defined with the `def` keyword.
 
 We could achieve the same result with a list comprehension:
 
@@ -102,7 +102,7 @@ capitalized_list = [capitalize(item) for item in test_list]
 print(capitalized_list)
 ```
 
-...or we could of course go through the original list with a `for` loop and save the processed items in a new list with the `append` method. Typically, in programming there are many different solutions to each problem. There are no absolutely right or wrong answers. Knowing many different approaches helps you choose the most appropriate one for each situation, or one that best suits your own tastes.
+...or we could go through the original list with a `for` loop and save the processed items in a new list with the `append` method. Typically, in programming there are many different solutions to each problem. There are rarely any absolutely right or wrong answers. Knowing many different approaches helps you choose the most appropriate one for each situation, or one that best suits your own tastes.
 
 It is worth pointing out that the `map` function does not return a list, but an _iterator_ object of type map. An iterator behaves in many ways like a list, but there are exceptions, as can be seen in the following example:
 
@@ -137,7 +137,7 @@ print the same again:
 
 </sample-output>
 
-Above we tried to print out the contents of the `map` iterator twice, but the second attempt yielded no printout. The reason is that `map` is an iterator; passing through it with a `for` loop "depletes" it, much like a generator is depleted once its maximum value is reached. Once the items in the iterator have been traversed with a `for` loop, there is nothing left to go through.
+Above we tried to print out the contents of the `map` iterator twice, but the second attempt produced no printout. The reason is that `map` is an iterator; passing through it with a `for` loop "depletes" it, much like a generator is depleted once its maximum value is reached. Once the items in the iterator have been traversed with a `for` loop, there is nothing left to go through.
 
 If you need to go through the contents of a `map` iterator more than once, you could, for example, convert the map into a list:
 
@@ -171,7 +171,7 @@ Fourth
 
 ## The map function and your own classes
 
-The `map` function is of course also available for processing instances of your own classes. There are no special gimmicks involved, as you can see in the example below:
+You can naturally also process instances of your own classes with the `map` function. There are no special gimmicks involved, as you can see in the example below:
 
 ```python
 class BankAccount:
@@ -248,7 +248,7 @@ Peter Python, grade for the course Introduction to Programming 5
 
 ## Names of students
 
-Please write a function named `names_of_students(attempts: list)` which takes a list of CourseAttempt objects as its argument. The function returns a list with the names of the students who have attempted the course.
+Please write a function named `names_of_students(attempts: list)` which takes a list of CourseAttempt objects as its argument. The function should return a new list with the names of the students who have attempted the course.
 
 ```python
 s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
@@ -271,7 +271,7 @@ Please implement the function using the `map` function.
 
 ## Courses
 
-Please write a function named `course_names(attempts: list)` which takes a list of CourseAttempt objects as its argument. The function should return a list containing the names of the courses on the list in alphabetical order. Each course name should appear only once on the list.
+Please write a function named `course_names(attempts: list)` which takes a list of CourseAttempt objects as its argument. The function should return a new list containing the names of the courses on the original list in alphabetical order. Each course name should appear only once on the list.
 
 ```python
 s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
@@ -288,15 +288,15 @@ Introduction to Programming
 
 </sample-output>
 
-Please implement the function using the `map` function. That alone will not be enough, however. You will need something else, too.
+Please implement the function using the `map` function. That alone will likely not be enough, however. You will need something else, too, to make sure the course names are unique.
 
 </programming-exercise>
 
 ## filter
 
-The built in Python function `filter` is similar to the `map` function, but, as the name implies, it doesn't take all the items from the source. Instead, it filters them with a criterion function passed as an argument. If the criterion returns `True`, the item is selected.
+The built-in Python function `filter` is similar to the `map` function, but, as the name implies, it doesn't take all the items from the source. Instead, it filters them with a criterion function, which is passed as an argument. If the criterion function returns `True`, the item is selected.
 
-Let's look at an example using the function:
+Let's look at an example using `filter`:
 
 ```python
 integers = [1, 2, 3, 5, 6, 4, 9, 10, 14, 15]
@@ -317,7 +317,7 @@ for number in even_numbers:
 
 </sample-output>
 
-We could define a named function for the purpose and use that instead:
+It might make the above example a bit clearer if we used a named function instead:
 
 ```python
 def is_it_even(number: int):
@@ -335,7 +335,7 @@ for number in even_numbers:
 
 These two programs are functionally completely identical. It is mostly a matter of opinion which you consider the better approach.
 
-Let's have a look at anothe filtering example. This program models fishes, and selects only those which weigh at least 1000 grams:
+Let's have a look at another filtering example. This program models fishes, and selects only those which weigh at least 1000 grams:
 
 ```python
 class Fish:
@@ -378,7 +378,7 @@ over_a_kilo = [fish for fish in fishes if fish.weight >= 1000]
 
 ## The return value of filter is an iterator
 
-The `filter` function resembles the `map` function in also that it returns an _iterator_, and that there are situations where you should be especially careful with it as iterators can only be traversed once. So, trying to print out the collection of large fishes twice will not work quite as straighforwardly as you might think:
+The `filter` function resembles the `map` function in also that it returns an _iterator_. There are situations where you should be especially careful with `filter` as iterators can only be traversed once. So, trying to print out the collection of large fishes twice will not work quite as straighforwardly as you might think:
 
 ```python
 f1 = Fish("Pike", 1870)
@@ -426,7 +426,7 @@ In this exercise we will continue with the `CourseAttempt` class.
 
 ## Accepted attempts
 
-Please write a function named `accepted(attempts: list)` which takes a list of CourseAttempt objects as its argument. The functions should return a new list of CourseAttempt object, including only those items from the original list whose grade is at least 1.
+Please write a function named `accepted(attempts: list)` which takes a list of CourseAttempt objects as its argument. The function should return a new list of CourseAttempt objects, including only those items from the original list whose grade is at least 1.
 
 ```python
 s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
@@ -448,7 +448,7 @@ Please implement the function using the `filter` function.
 
 ## Attempts with grade
 
-Please write a function named `attempts_with_grade(attempts: list, grade: int)` which takes a list of CourseAttempt objects and an integer as its arguments. The function should return a new list containing only those CourseAttempt obkects from the original list whose grade matches the second argument.
+Please write a function named `attempts_with_grade(attempts: list, grade: int)` which takes a list of CourseAttempt objects and an integer as its arguments. The function should return a new list containing only those CourseAttempt objects from the original list whose grade matches the second argument.
 
 ```python
 s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
@@ -472,7 +472,7 @@ Please implement the function using the `filter` function.
 
 ## Students who passed the course
 
-Please write a function named `passed_students(attempts: list, course: str)` which takes a list of CourseAttempt objects and a course name as its arguments. The function should return an _alphabetically ordered_ list of names of those students who passed the given course, i.e. their grade was higher than 0.
+Please write a function named `passed_students(attempts: list, course: str)` which takes a list of CourseAttempt objects and a course name as its arguments. The function should return an _alphabetically ordered_ list of names of those students who passed the course, i.e. their grade for the given course was higher than 0.
 
 ```python
 s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)
@@ -501,7 +501,7 @@ A third cornerstone function in this introduction to functional programming prin
 
 The `reduce` function starts with an operation and an initial value. It performs the given operation on each item in the series in turn, so that the value changes at each step. Once all items have been processed, the resulting value is returned.
 
-We have done summation of lists of integers in different ways before, but here we have an example with the help of the `reduce` function. Notice the `import` statement; in Python versions 3 and higher it is necessary. In older Python versions the `import` statement was not needed, so you may come across examples without it online.
+We have done summation of lists of integers in different ways before, but here we have an example with the help of the `reduce` function. Notice the `import` statement; in Python versions 3 and higher it is necessary to access the `reduce` function. In older Python versions the `import` statement was not needed, so you may come across examples without it online.
 
 ```python
 from functools import reduce
@@ -519,7 +519,7 @@ print(sum_of_numbers)
 
 </sample-output>
 
-Let's take a closer look at what is happening here. The `reduce` function takes three arguments: a function, a series of items, and an initial value. In this case, the series is a list of integers, and as we are calculating a sum, a suitable initial value is zero.
+Let's take a closer look at what's happening here. The `reduce` function takes three arguments: a function, a series of items, and an initial value. In this case, the series is a list of integers, and as we are calculating a sum, a suitable initial value is zero.
 
 The first argument is a function, which represents the operation we want to perform on each item. Here the function is an anonymous lambda function:
 
@@ -529,7 +529,7 @@ lambda reduced_sum, item: reduced_sum + item
 
 This function takes two arguments: the current reduced value and the item whose turn it is to be processed. These are used to calculate a new value for the reduced value. In this case the new value is the sum of the old value and the current item.
 
-It may be easier to comprehend what the `reduce` function actually does if we use a normal named function instead of a lambda function. That way we can even include helpful printouts:
+It may be easier to comprehend what the `reduce` function actually does if we use a normal named function instead of a lambda function. That way we can also include helpful printouts:
 
 ```python
 from functools import reduce
@@ -581,7 +581,7 @@ print(product_of_list)
 
 </sample-output>
 
-As we are dealing with multiplication the initial value is not zero. Indeed, what would happen if it were zero? Instead, we use 1.
+As we are dealing with multiplication the initial value is not zero. Instead, we use 1. What would happen if we used 0 as the initial value? 
 
 Above we have dealt largely with integers, but `map`, `filter` and `reduce` can all handle a collection of objects of any type.
 
@@ -614,7 +614,7 @@ def balance_sum_helper(balance_sum, account):
 
 balances_total = reduce(balance_sum_helper, accounts, 0)
 
-print("the total of the bank's balances:")
+print("The total of the bank's balances:")
 print(balances_total)
 ```
 
@@ -622,12 +622,12 @@ This program would print out:
 
 <sample-output>
 
-the total of the bank's balances:
+The total of the bank's balances:
 1005001
 
 </sample-output>
 
-The `balance_sum_helper` function "digs out" the balance of each bank account with the method dedicated for the purpose:
+The `balance_sum_helper` function grabs the balance of each bank account, with the method dedicated for the purpose in the `BankAccount` class definition:
 
 ```python
 def balance_sum_helper(balance_sum, account):
@@ -648,7 +648,9 @@ print(sum_of_numbers)
 
 If the initial value is left out, `reduce` takes the first item in the list as the initial value and starts reducing from the second item onwards. 
 
-NB: if the items in the series are of a different type than the intended reduced result, the thrd argument is mandatory. The example with the bank accounts would not work without the initial value. Instead, trying this
+</text-box>
+
+**NB:** if the items in the series are of a different type than the intended reduced result, the thrd argument is mandatory. The example with the bank accounts would not work without the initial value. That is, trying this
 
 ```python
 balances_total = reduce(balance_sum_helper, accounts)
@@ -660,9 +662,7 @@ would produce an error:
 TypeError: unsupported operand type(s) for +: 'BankAccount' and 'int'
 ```
 
-In the above case, when `reduce` tries to execute the `balance_sum_helper` function for the first time, the arguments it uses are the two first items in the list, which are both of type BankAccount. Specifically, the value assigned to the parameter `balance_sum` would be the first item in the list, and adding an integer directly to a BankAccount object is not a supported operation.
-
-</text-box>
+In the above case, when `reduce` tries to execute the `balance_sum_helper` function for the first time, the arguments it uses are the _two first items in the list_, which are both of type BankAccount. Specifically, the value assigned to the parameter `balance_sum` is the first item in the list.  The `balance_sum_helper` function tries to add an integer value to it, but adding an integer directly to a BankAccount object is not a supported operation.
 
 <programming-exercise name='Study credits' tmcname='part12-13_credits'>
 
