@@ -13,7 +13,7 @@ After this section
 
 </text-box>
 
-We have already established that Python is an excellent environment for processing text. One powerful tool for text processing is _regular expressions_, shortened as _regexp_. They are a way of selecting and searching for strings which follow a certain pattern. This section introduces you to the basics of regular expression, but you will find much more information online, including in the Python [tutorial](https://docs.python.org/3/howto/regex.html).
+We have already established that Python is an excellent environment for processing text. One additional powerful tool for text processing is _regular expressions_, often shortened as _regex_ or _regexp_. They are a way of selecting and searching for strings which follow a certain pattern. This section introduces you to the basics of regular expression, but you will find much more information online, including in the Python [tutorial](https://docs.python.org/3/howto/regex.html).
 
 ## What are regular expressions?
 
@@ -40,7 +40,7 @@ Pantheon found!
 
 </sample-output>
 
-We need to `import` the `re` module in order to use regular expression in Python. The `re` module contains many functions for working with regular expressions. In the example above, the `search` function takes two string arguments: the pattern string and the target string where the pattern is looked for.
+We need to `import` the `re` module in order to use regular expressions in Python. The `re` module contains many functions for working with regular expressions. In the example above, the `search` function takes two string arguments: the pattern string, and the target string where the pattern is looked for.
 
 This second example looks for any numbers in a string. The `findall` function returns a list of all the instances which match the pattern:
 
@@ -66,7 +66,7 @@ for number in numbers:
 
 ## The syntax of regular expressions
 
-Let's take a look at the syntax of regular expressions. Most of the following examples make use of the this testing program:
+Let's get familiar with the basic syntax of regular expressions. Most of the following examples make use of the this testing program:
 
 ```python
 import re
@@ -85,7 +85,7 @@ while True:
 
 ### Alternate substrings
 
-The vertical bar, also called the pipe character, allows you to match alternate substrings. Its significance is thus _or_. For example, the expression `911|112` matches strings which include either the substring `911` or the substring `112`.
+The vertical bar `|`, also called the pipe character, allows you to match alternate substrings. Its significance is thus _or_. For example, the expression `911|112` matches strings which include either the substring `911` or the substring `112`.
 
 An example with the testing program:
 
@@ -110,15 +110,15 @@ Not found.
 
 Square brackets are used to signify groups of accepted characters. For example, the expression `[aeio]` would match all strings which contain any of the characters a, e, i, or o. 
 
-A dash is also allowed for matching ranges of characters. For example, the expression `[0-68a-d]` would match all strings which contain a digit between 0 and 6 or an eight, or a character between a and d. In this notation all ranges are inclusive. 
+A dash is also allowed for matching ranges of characters. For example, the expression `[0-68a-d]` would match all strings which contain a digit between 0 and 6, or an eight, or a character between a and d. In this notation all ranges are _inclusive_.
 
-Combining two sets of brackets lets you match two consecutive characters. For example, the expression `[1-3][0-9]` would match any two digit number between 10 and 39 inclusive.
+Combining two sets of brackets lets you match two consecutive characters. For example, the expression `[1-3][0-9]` would match any two digit number between 10 and 39, inclusive.
 
 An example with the testing program:
 
 <sample-output>
 
-Please type in an expression: **[C-FRSÖ]**
+Please type in an expression: **[C-FRSO]**
 Please type in a string: **C**
 Found!
 Please type in a string: **E**
@@ -127,7 +127,7 @@ Please type in a string: **G**
 Not found.
 Please type in a string: **R**
 Found!
-Please type in a string: **Ö**
+Please type in a string: **O**
 Found!
 Please type in a string: **T**
 Not found.
@@ -167,9 +167,9 @@ Not found.
 
 ### Other special characters
 
-A dot is a wildcard character which can match any sigle character. For example, the expression `c...o` would match any five character substring beginning with a `c` and ending with an `o`, such as `c-3po` or `cello`. 
+A dot is a wildcard character which can match any single character. For example, the expression `c...o` would match any five character substring beginning with a `c` and ending with an `o`, such as `c-3po` or `cello`. 
 
-The `^` character specifies that the match must be at the beginning of the string, and the `$` specifies that the match must be at the end of the string. These can also be used to exclude any other characters from the matches:
+The `^` character specifies that the match must be at the beginning of the string, and `$` specifies that the match must be at the end of the string. These can also be used to exclude from the matches any other characters than those specified:
 
 <sample-output>
 
@@ -183,7 +183,7 @@ Found!
 
 </sample-output>
 
-Sometimes you need to match for these special characters reserved for regular expression syntax. The backslash `\` can be used to _escape_ special characters. So, the expression `1+` matches one or more numbers `1`, but the expression `1\+` matches the string `1+`.
+Sometimes you need to match for the special characters reserved for regular expression syntax. The backslash `\` can be used to _escape_ special characters. So, the expression `1+` matches one or more numbers `1`, but the expression `1\+` matches the string `1+`.
 
 <sample-output>
 
@@ -197,7 +197,7 @@ Found!
 
 </sample-output>
 
-Round brackets can be used to group together different parts of the expression. For example, the expression `(ab)+c` would match the substrings `abc`, `ababc` and `ababababababc`, but not the strings `ac` or `bc`, as the substring `ab` would have to appear at least once.
+Round brackets can be used to group together different parts of the expression. For example, the expression `(ab)+c` would match the substrings `abc`, `ababc` and `ababababababc`, but not the strings `ac` or `bc`, as the entire substring `ab` would have to appear at least once.
 
 <sample-output>
 
@@ -215,7 +215,7 @@ Not found.
 
 <programming-exercise name='Regular expressions' tmcname='part12-14_regular_expressions'>
 
-Let's practice regular expressions a little.
+Here are some exercises for familiarizing yourself with regular expression syntax.
 
 ## Days of the week
 
@@ -377,7 +377,9 @@ Markus Granlund      EDM   3 +  1 =   4
 
 </sample-output>
 
-The last line in the sample above is there to help you calculate the widths of the different fields in the output; you should not print the numbers line yourself in your final submission. The abbreviation for the team is printed from the 22nd character onwards. The `+` sign is the 30th character and the `=` sign is the 35th character. All the fields should be justified to the right edge. All whitespace is space characters.
+The last line in the sample above is there to help you calculate the widths of the different fields in the output; you should not print the numbers line yourself in your final submission. 
+
+The abbreviation for the team is printed from the 22nd character onwards. The `+` sign is the 30th character and the `=` sign is the 35th character. All the fields should be justified to the right edge. All whitespace is space characters.
 
 F-strings are probably the easiest way to achieve the required printout. The process is similar to [this exercise](/part-6/1-reading-files#programming-exercise-course-grading-part-3) from part 6.
 
@@ -385,8 +387,8 @@ F-strings are probably the easiest way to achieve the required printout. The pro
 
 These two functionalities will grant you a second exercise point:
 
-- list players in a specific team in the order of points they've scored. Points equals _goals_ + _assists_
-- list players from a specific country in the order of points they've scored
+- list players in a specific team in the order of points scored, from highest to lowest. Points equals _goals_ + _assists_
+- list players from a specific country in the order of points scored, from highest to lowest
 
 Your application should now work as follows:
 
@@ -428,12 +430,12 @@ command: **0**
 
 ## Most successful players
 
-These two functionalities will grant you the third exercise point:
+These two functionalities will grant you a third exercise point:
 
 - list of `n` players who've scored the most points
-  - if two players have the same score, whichever has scored the higher number of goals comes first
+  - if two players have the same score, whoever has scored the higher number of goals comes first
 - list of `n` players who've scored the most goals
-  - if two players have the same number of goals, whichever has played the lower number of games comes first
+  - if two players have the same number of goals, whoever has played the lower number of games comes first
 
 Your application should now work as follows:
 
