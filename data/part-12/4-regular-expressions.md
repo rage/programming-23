@@ -8,54 +8,51 @@ hidden: false
 
 After this section
 
-- Tiedät mitä tarkoitetan säännöllisellä lausekkeella
-- Osaat hyödyntää säännöllisiä lausekkeita omissa ohjelmissasi
+- You will know what regular expressions are
+- You will be able to use regular expressions in your own programs
 
 </text-box>
 
-Python on mainio työkalu tekstin käsittelemiseen. Yksi työkalu tekstin käsittelemisessä ovat
-_säännölliset lausekkeet_ (_regular expressions_), joiden avulla voi esimerkiksi poimia ja etsiä merkkijonoja, jotka ovat tietyn muotoisia. Tässä osiossa käydään läpi säännöllisten lausekkeiden perusteita, ja löydät lisää tietoa Pythonin omasta [tutoriaalista](https://docs.python.org/3/howto/regex.html).
+We have already established that Python is an excellent environment for processing text. One powerful tool for text processing is _regular expressions_, shortened as _regexp_. They are a way of selecting and searching for strings which follow a certain pattern. This section introduces you to the basics of regular expression, but you will find much more information online, including in the Python [tutorial](https://docs.python.org/3/howto/regex.html).
 
-## Mitä ovat säännölliset lausekkeet?
+## What are regular expressions?
 
-Säännölliset lausekkeet ovat tavallaan ohjelmointikieli ohjelmointikielen sisällä. Lausekkeilla on oma syntaksinsa, jonka mukaan ne määritellään. Ideana on, että säännöllisellä lausekkeella määritellään sellaisten merkkijonojen joukko, jotka ovat tiettyjen sääntöjen mukaisia.
+Regular expressions are not just a Python feature. They represent, in a way, a programming language within a programming language. They are, to an extent, compatible across many different programming languages. Regular expressions have their own specific syntax. The idea is to define a collection of strings which follow certain rules.
 
-Tarkistellaan yksinkertaista esimerkkiä lausekkeiden käytöstä ennen tarkempaa perehtymistä sääntöihin:
+Let's begin with a simple example, before diving deeper into the syntax:
 
 ```python
 import re
 
-sanat = ["Python", "Ponneton", "Ponttooni", "Pullero", "Pallon"]
+words = ["Python", "Pantone", "Pontoon", "Pollute", "Pantheon"]
 
-for sana in sanat:
-    # merkkijonon tulee alkaa "P" ja päättyä "on"
-    if re.search("^P.*on$", sana):
-        print(sana, "löytyy!")
+for word in words:
+    # the string should begin with "P" and end with "on"
+    if re.search("^P.*on$", word):
+        print(word, "found!")
 ```
 
 <sample-output>
 
-Python löytyy!
-Ponneton löytyy!
-Pallon löytyy!
+Python found!
+Pontoon found!
+Pantheon found!
 
 </sample-output>
 
-Pythonissa säännöllisiä lausekkeita voi käsitellä moduulin `re` avulla. Esimerkiksi yllä olevassa koodissa oleva metodi `search` etsii merkkijonosta osaa, joka täsmää annettuun säännölliseen lausekkeeseen.
+We need to `import` the `re` module in order to use regular expression in Python. The `re` module contains many functions for working with regular expressions. In the example above, the `search` function takes two string arguments: the pattern string and the target string where the pattern is looked for.
 
-Huomaa, että säännöllinen lauseke annetaan _merkkijonona_ funktion `search` parametriksi.
-
-Toinen esimerkki etsii merkkijonosta luvut. Metodi `findall` palauttaa kaikki säännölliseen lausekkeeseen täsmäävät osajonot listana:
+This second example looks for any numbers in a string. The `findall` function returns a list of all the instances which match the pattern:
 
 ```python
 import re
 
-lause = "Eka, 2 !#kolmas 44 viisi 678xyz962"
+sentence = "First, 2 !#third 44 five 678xyz962"
 
-luvut = re.findall("\d+", lause)
+numbers = re.findall("\d+", sentence)
 
-for luku in luvut:
-    print(luku)
+for number in numbers:
+    print(number)
 ```
 
 <sample-output>
@@ -67,150 +64,152 @@ for luku in luvut:
 
 </sample-output>
 
-## Säännöllisten lausekkeiden syntaksi
+## The syntax of regular expressions
 
-Tarkastellaan seuraavaksi syntaksia, jota säännöllisissä lausekkeissa käytetään. Useimmissa esimerkeissä käytetään samaa testiohjelmaa eri syötteillä.
+Let's take a look at the syntax of regular expressions. Most of the following examples make use of the this testing program:
 
 ```python
 import re
 
-lauseke = input("Anna lauseke: ")
+expression = input("Please type in an expression: ")
 
 while True:
-    mjono = input("Anna merkkijono: ")
-    if mjono == "":
+    input_string = input("Please type in a string: ")
+    if input_string == "":
         break
-    if re.search(lauseke, mjono):
-        print("Osuma!")
+    if re.search(expression, input_string):
+        print("Found!")
     else:
-        print("Ei osumaa.")
+        print("Not found.")
 ```
 
-### Vaihtoehtoiset alijonot
+### Alternate substrings
 
-Pystyviivalla voidaan erottaa vaihtoehtoisia osajonoja. Esimerkiksi lauseke `911|112` täsmää merkkijonoihin, joista löytyy joko osajono `911` tai osajono `112`.
+The vertical bar, also called the pipe character, allows you to match alternate substrings. Its significance is thus _or_. For example, the expression `911|112` matches strings which include either the substring `911` or the substring `112`.
 
-Esimerkiksi
+An example with the testing program:
 
 <sample-output>
 
-Anna lauseke: aa|ee|ii
-Anna testijono: saapas
-Osuma!
-Anna testijono: teema
-Osuma!
-Anna testijono: iilimato
-Osuma!
-Anna testijono: ooppera
-Ei osumaa.
-Anna testijono: uuttera
-Ei osumaa.
+Please type in an expression: **aa|ee|ii**
+Please type in a string: **aardvark**
+Found!
+Please type in a string: **feelings**
+Found!
+Please type in a string: **radii**
+Found!
+Please type in a string: **smooch**
+Not found.
+Please type in a string: **continuum**
+Not found.
 
 </sample-output>
 
 
-### Merkkijoukot
+### Groups of characters
 
-Hakasulkeiden väliin voidaan merkitä joukko hyväksyttyjä merkkejä. Esimerkiksi merkintä `[aeio]` täsmää jonoihin, joista löytyy jokin merkeistä a, e, i, tai o. Merkintätapa sallii myös väliviivan käytön. Merkintä `[0-68a-d]` hyväksyy jonot, joista löytyy numero nollasta kuuteen, kahdeksikko tai merkki väliltä a...d. Merkintä `[1-3][0-9]` hyväksyy kaksinumeroiset luvut väliltä 10...39.
+Square brackets are used to signify groups of accepted characters. For example, the expression `[aeio]` would match all strings which contain any of the characters a, e, i, or o. 
 
-Esimerkiksi:
+A dash is also allowed for matching ranges of characters. For example, the expression `[0-68a-d]` would match all strings which contain a digit between 0 and 6 or an eight, or a character between a and d. In this notation all ranges are inclusive. 
+
+Combining two sets of brackets lets you match two consecutive characters. For example, the expression `[1-3][0-9]` would match any two digit number between 10 and 39 inclusive.
+
+An example with the testing program:
 
 <sample-output>
 
-Anna lauseke: [C-FRSÖ]
-Anna testijono: C
-Osuma!
-Anna testijono: E
-Osuma!
-Anna testijono: G
-Ei osumaa.
-Anna testijono: R
-Osuma!
-Anna testijono: Ö
-Osuma!
-Anna testijono: T
-Ei osumaa.
+Please type in an expression: **[C-FRSÖ]**
+Please type in a string: **C**
+Found!
+Please type in a string: **E**
+Found!
+Please type in a string: **G**
+Not found.
+Please type in a string: **R**
+Found!
+Please type in a string: **Ö**
+Found!
+Please type in a string: **T**
+Not found.
 
 </sample-output>
 
-### Toistaminen
+### Repeated matches
 
-Lausekkeen osaa voidaan toistaa esimerkiksi seuraavien operaattorien avulla:
+Any part of an expression can be repeated with the following operators:
 
-* `*` toistaa osaa minkä tahansa määrän kertoja (myös nolla)
-* `+` toistaa osaa minkä tahansa määrän kertoja (ainakin yhden)
-* `{m}` toistaa osaa täsmälleen `m` kertaa
+* `*` repeats for any number of times, including zero
+* `+` repeats for any number of times, but at least once
+* `{m}` repeats for exactly `m` times
 
-Operaattorit viittaavat niitä edeltävään lausekkeen osaan. Esimerkiksi lauseke `ba+b` hyväksyy esimerkiksi osajonot `bab`, `baab` ja `baaaaaaaaaaab`. Lauseke `A[BCDE]*Z` puolestaan hyväksyy esimerkiksi osajonot `AZ`, `ADZ` tai `ABCDEBCDEBCDEZ`.
+These operators work on the part of the expression immediately preceding the operator. For example, the expression `ba+b` would match the substrings `bab`, `baab` and `baaaaaaaaaaab`, among others. The expression `A[BCDE]*Z` would match the substrings `AZ`, `ADZ` or `ABCDEBCDEBCDEZ`, among others.
 
-Esimerkiksi:
+An example with the testing program:
 
 <sample-output>
 
-Anna lauseke: 1[234]*5
-Anna testijono: 15
-Osuma!
-Anna testijono: 125
-Osuma!
-Anna testijono: 145
-Osuma!
-Anna testijono: 12342345
-Osuma!
-Anna testijono: 126
-Ei osumaa.
-Anna testijono: 165
-Ei osumaa.
+Please type in an expression: **1[234]*5**
+Please type in a string: **15**
+Found!
+Please type in a string: **125**
+Found!
+Please type in a string: **145**
+Found!
+Please type in a string: **12342345**
+Found!
+Please type in a string: **126**
+Not found.
+Please type in a string: **165**
+Not found.
 
 </sample-output>
 
 
-### Muita erikoismerkkejä
+### Other special characters
 
-Pisteellä merkitään mitä tahansa yksittäistä merkkiä. Niinpä merkintä `c...o` vastaa esimerkiksi merkkijonoja `c-3po` tai `combo`. Merkillä `^` voidaan määritellä, että osuman pitää löytyä merkkijonon alusta, ja vastaavasti merkillä `$`, että sen on oltava lopussa. Näillä voidaan näppärästi myös rajata sääntö koskemaan vain annettuja merkkejä:
+A dot is a wildcard character which can match any sigle character. For example, the expression `c...o` would match any five character substring beginning with a `c` and ending with an `o`, such as `c-3po` or `cello`. 
+
+The `^` character specifies that the match must be at the beginning of the string, and the `$` specifies that the match must be at the end of the string. These can also be used to exclude any other characters from the matches:
 
 <sample-output>
 
-Anna lauseke: \^[123]*$
-Anna testijono: 4
-Ei osumaa.
-Anna testijono: 1221
-Osuma!
-Anna testijono: 333333333
-Osuma!
+Please type in an expression: **\^[123]*$**
+Please type in a string: **4**
+Not found.
+Please type in a string: **1221**
+Found!
+Please type in a string: **333333333**
+Found!
 
 </sample-output>
 
-Kenoviivaa voidaan käyttää etsimään erikoismerkkejä. Merkintä `1+` tarkoitaa yhtä tai useampaa ykköstä, mutta merkintä `1\+` merkkijonoa `1+`.
-
-Esimerkiksi
+Sometimes you need to match for these special characters reserved for regular expression syntax. The backslash `\` can be used to _escape_ special characters. So, the expression `1+` matches one or more numbers `1`, but the expression `1\+` matches the string `1+`.
 
 <sample-output>
 
-Anna lauseke: ^\*
-Anna testijono: moi*
-Ei osumaa.
-Anna testijono: m*o*i
-Ei osumaa.
-Anna testijono: *moi
-Osuma!
+Please type in an expression: **^\\\***
+Please type in a string: **moi\***
+Not found.
+Please type in a string: **m\*o\*i**
+Not found.
+Please type in a string: **\*moi**
+Found!
 
 </sample-output>
 
-Kaarisulkeilla voidaan ryhmitellä lausekkeen osia. Esimerkiksi lauseke `(ab)+c` hyväksyy jonot `abc`, `ababc` ja `ababababababc`, mutta ei esimerkiksi jonoja `ac` tai `bc`.
-
-Esimerkiksi
+Round brackets can be used to group together different parts of the expression. For example, the expression `(ab)+c` would match the substrings `abc`, `ababc` and `ababababababc`, but not the strings `ac` or `bc`, as the substring `ab` would have to appear at least once.
 
 <sample-output>
 
-Anna lauseke: ^(jabba).*(hut)$
-Anna testijono: jabba the hut
-Osuma!
-Anna testijono: jabba a hut
-Osuma!
-Anna testijono: jarmo the hut
-Ei osumaa.
-Anna testijono: jabba the smut
-Ei osumaa.
+Please type in an expression: **^(jabba).\*(hut)$**
+Please type in a string: **jabba the hut**
+Found!
+Please type in a string: **jabba a hut**
+Found!
+Please type in a string: **jarjar the hut**
+Not found.
+Please type in a string: **jabba the smut**
+Not found.
 
 </sample-output>
 
