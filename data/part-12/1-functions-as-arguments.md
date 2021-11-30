@@ -30,9 +30,9 @@ for product in products:
 
 <sample-output>
 
-('orange', 4.5)
-('banana', 5.95)
 ('apple', 3.95)
+('banana', 5.95)
+('orange', 4.5)
 ('watermelon', 4.95)
 
 </sample-output>
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
 </sample-output>
 
-Now the list is sorted based on the prices of the items, but what actually happens in the program?
+Now the list is sorted based on the prices of the items, but what really happens in the program?
 
 The function `order_by_price` is actually pretty simple. It takes one item as its argument and returns a value for that item. More specifically, it returns the second item in the tuple, which represents the price. But then we have this line of code, where the `sort` method is called:
 
@@ -149,7 +149,7 @@ def sort_by_price(items: list):
 
 <programming-exercise name='Sort by remaining stock' tmcname='part12-01_remaining_stock'>
 
-Please write a function named `sort_by_remaining_stock(items: list)`. The function takes a list of tuples as its argument. The tuples consist of the name, price and remaining stock of a product. The function should return a new list where the items are sorted according to the stock remaining, lowest value first. The original list should not be changed.
+Please write a function named `sort_by_remaining_stock(items: list)`. The function takes a list of tuples as its argument. The tuples consist of the name, price and remaining stock of a product. The function should return a new list, where the items are sorted according to the stock remaining, lowest value first. The original list should not be changed.
 
 The function should work as follows:
 
@@ -205,6 +205,7 @@ for show in sort_by_ratings(shows):
 ```
 
 <sample-output>
+
 Rating according to IMDB
 Friends 8.9
 Simpsons 8.7
@@ -258,14 +259,14 @@ if __name__ == "__main__":
 <sample-output>
 
 Sort by id:
-Archie (a123), 220 op.
-Anna (a999), 131 op.
-Marvin (m321), 210 op.
+Archie (a123), 220 cr.
+Anna (a999), 131 cr.
+Marvin (m321), 210 cr.
 
 Sort by credits:
-Anna (a999), 131 op.
-Marvin (m321), 210 op.
-Archie (a123), 220 op
+Anna (a999), 131 cr.
+Marvin (m321), 210 cr.
+Archie (a123), 220 cr.
 
 </sample-output>
 
@@ -323,7 +324,7 @@ Smooth operator, length 9 metres, grade 7A
 
 ## Sort by difficulty
 
-Please write a function named `sort_by_difficulty(routes: list)` which returns a new list of routes, sorted by difficulty, i.e. grade, from hardest to easiest. For routes with the same grade, the longer one is more difficult. The scale of climbing route grades is _4, 4+, 5, 5+, 6A, 6A+, ..._ which in practice is the same as an alphabetical order.
+Please write a function named `sort_by_difficulty(routes: list)` which returns a new list of routes, sorted by difficulty, i.e. grade, from hardest to easiest. For routes with the same grade, the longer one is more difficult. The scale of climbing route grades is _4, 4+, 5, 5+, 6A, 6A+, ..._, which in practice works out as the alphabetical order for strings.
 
 The function should work as follows:
 
@@ -347,7 +348,7 @@ Small steps, length 12 metres, grade 6A+
 
 </sample-output>
 
-*Hint:* if the order is based on a list or a tuple, by default Python sorts the items first based on the first item, next based on the second item, and so forth:
+**Hint:** if the order is based on a list or a tuple, by default Python sorts the items first based on the first item, next based on the second item, and so forth:
 
 ```python
 my_list = [("a", 4),("a", 2),("b", 30), ("b", 0) ]
@@ -396,7 +397,7 @@ Smooth operator, length 9 metres, grade 7A
 
 ## Sort by number of routes
 
-Please write a function named `sort_by_number_of_routes` which sorts climbing areas in ascending order based on the numbers of routes they have.
+Please write a function named `sort_by_number_of_routes` which sorts climbing areas in ascending order based on the number of routes they each have.
 
 ```python
 # ca1, ca2 and ca3 declared as above
@@ -439,7 +440,7 @@ Olhava, 3 routes, hardest 6B
 
 We have mostly worked with functions from the viewpoint of modularity. It is true that functions play an important role in managing the complexity of your programs and avoiding code repetition. Functions are usually written so that they can be used many times.
 
-But sometimes you need something resembling a function that you will use just once. Lambda expressions allow you to create small, anonymous functions which are created (and discarded) as they are needed. The general syntax is as follows:
+But sometimes you need something resembling a function that you will use just once. Lambda expressions allow you to create small, anonymous functions which are created (and discarded) as they are needed in the code. The general syntax is as follows:
 
 `lambda <parameters> : <expression>`
 
@@ -515,7 +516,7 @@ Minnie
 
 </sample-output>
 
-Anonymous functions can also be used with other built in Python functions besides those used for sorting. For example, the `min` and `max` functions also take a keyword argument `key`. It is used as the criteria for comparing the items for selecting the minimum or maximum value.
+Anonymous functions can also be used with other built in Python functions, not just those used for sorting. For example, the `min` and `max` functions also take a keyword argument named `key`. It is used as the criteria for comparing the items when selecting the minimum or maximum value.
 
 In the following example we are dealing with audio recordings. First we select the oldest recording, and then the longest:
 
@@ -573,7 +574,7 @@ Please implement the following functions. NB: each function has a different type
 
 Please write a function named `most_goals` which takes a list of ball players as its argument.
 
-The function should return the name of the player who scored the most goals in string format.
+The function should return the name of the player who scored the most goals, in string format.
 
 ## Most points
 
@@ -615,14 +616,14 @@ BallPlayer(name=Donald Quack, number=4, goals=3, assists=9, minutes=12)
 
 </programming-exercise>
 
-## Functions as arguments in your own functions
+## Functions as arguments within your own functions
 
-We esatablished above that it is possible to pass a reference to a function to another function. To wrap this up, let's write our very own function which takes a function as its argument.
+We established above that it is possible to pass a reference to a function as an argument to another function. To wrap this section up, let's write our very own function which takes a function as its argument.
 
 ```python
-# the type hint callable refers to a function
+# the type hint "callable" refers to a function
 def perform_operation(operation: callable):
-    # Call the function with was passed as an argument
+    # Call the function which was passed as an argument
     return operation(10, 5)
 
 def my_sum(a: int, b: int):
@@ -647,9 +648,9 @@ if __name__ == "__main__":
 
 </sample-output>
 
-The value returned by the function `perform_operation` depends on which function was passed as an argument. Any function which accepts two arguments would do, no matter wherther it is anonymous or named.
+The value returned by the function `perform_operation` depends on which function was passed as an argument. Any function which accepts two arguments would do, no matter whether it is anonymous or named.
 
-Passing references to functions as arguments to other functions might not be something you will end up doing on a daily basis in your programming career, but it can be a useful technique. This following program selects some lines from one file and writes them to another file. Th way the lines are selected is determined by a function which returns `True` only if the lines should be copied:
+Passing references to functions as arguments to other functions might not be something you will end up doing on a daily basis in your programming career, but it can be a useful technique. This following program selects some lines from one file and writes them to another file. The way the lines are selected is determined by a function which returns `True` only if the lines should be copied:
 
 ```python
 def copy_lines(source_file: str, target_file: str, criterion= lambda x: True):
@@ -680,7 +681,7 @@ The function definition contains a default value for the keyword parameter `crit
 
 <programming-exercise name='Product search' tmcname='part12-07_product_search'>
 
-This exercise deals with products which are stored in tuples. The examples all assume a variable `products` with the following assignation:
+This exercise deals with products which are stored in tuples. The examples all assume a variable named `products`, which is assigned the following value:
 
 ```python
 products = [("banana", 5.95, 12), ("apple", 3.95, 3), ("orange", 4.50, 2), ("watermelon", 4.95, 22), ("kale", 0.99, 1)]
@@ -688,7 +689,7 @@ products = [("banana", 5.95, 12), ("apple", 3.95, 3), ("orange", 4.50, 2), ("wat
 
 Each tuple contains three items: name, price and amount.
 
-Please write a function named `search(products: list, criterion: callable)`, where the second argument is a function which should be able to process a tuple as defined above, and return a Boolean value. The search function should return a new list containing those tuples from the original which fulfil the criterion.
+Please write a function named `search(products: list, criterion: callable)`. The second argument to the function is a function itself, and it should be able to process a tuple as defined above, and return a Boolean value. The search function should return a new list containing those tuples from the original which fulfil the criterion.
 
 If we wanted to include only products whose price was under 4 euros, we could use the following criterion function:
 
