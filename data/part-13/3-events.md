@@ -1,6 +1,6 @@
 ---
-path: '/part-13/3-tapahtumat'
-title: 'Tapahtumat'
+path: '/part-13/3-events'
+title: 'Events'
 hidden: false
 ---
 
@@ -96,7 +96,7 @@ import pygame
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robo.png")
+robo = pygame.image.load("robot.png")
 x = 0
 y = 480-robo.get_height()
 
@@ -118,7 +118,7 @@ while True:
 
 Ohjelman suoritus voi näyttää seuraavalta:
 
-<img src="pygame_liikutus.gif">
+<img src="pygame_move_robot.gif">
 
 Tässä muuttujat `x` ja `y` sisältävät hahmon sijainnin. Käyttäjä pystyy muuttamaan muuttujaa `x`, ja muuttuja `y` on asetettu niin, että hahmo on ikkunan alalaidassa. Kun käyttäjä painaa vasemmalle tai oikealle nuolinäppäintä, hahmo liikkuu vastaavasti 10 pikseliä oikealle tai vasemmalle.
 
@@ -130,7 +130,7 @@ import pygame
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robo.png")
+robo = pygame.image.load("robot.png")
 x = 0
 y = 480-robo.get_height()
 
@@ -176,7 +176,7 @@ Hahmon liike on tahdistettu kellon avulla niin, että liikkumista tapahtuu 60 ke
 
 Tee ohjelma, jossa pelaaja pystyy ohjaamaan robottia neljään suuntaan nuolinäppäimillä. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_nelja_suuntaa.gif">
+<img src="pygame_four_directions.gif">
 
 </programming-exercise>
 
@@ -184,7 +184,7 @@ Tee ohjelma, jossa pelaaja pystyy ohjaamaan robottia neljään suuntaan nuolinä
 
 Paranna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulkopuolelle mistään reunasta. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_nelja_seinaa.gif">
+<img src="pygame_four_walls.gif">
 
 </programming-exercise>
 
@@ -192,7 +192,7 @@ Paranna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulko
 
 Tee ohjelma, jossa kaksi pelaajaa voi ohjata omia robottejaan. Toinen pelaaja käyttää nuolinäppäimiä ja toinen esimerkiksi w-s-a-d. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_kaksi_pelaajaa.gif">
+<img src="pygame_two_players.gif">
 
 </programming-exercise>
 
@@ -234,7 +234,7 @@ import pygame
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robo.png")
+robo = pygame.image.load("robot.png")
 
 while True:
     for tapahtuma in pygame.event.get():
@@ -252,7 +252,7 @@ while True:
 
 Ohjelman suoritus voi näyttää tältä:
 
-<img src="pygame_hiiri.gif">
+<img src="pygame_cursor.gif">
 
 Seuraava ohjelma puolestaan toteuttaa animaation, jossa robotti seuraa hiirtä. Robotin sijainti on muuttujissa `robo_x` ja `robo_y`, ja kun hiiri liikkuu, sen sijainti merkitään muuttujiin `kohde_x` ja `kohde_y`. Jos robotti ei ole hiiren kohdalla, se liikkuu sopivaan suuntaan.
 
@@ -262,7 +262,7 @@ import pygame
 pygame.init()
 naytto = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robo.png")
+robo = pygame.image.load("robot.png")
 
 robo_x = 0
 robo_y = 0
@@ -298,13 +298,13 @@ while True:
 
 Ohjelman suoritus voi näyttää tältä:
 
-<img src="pygame_hiiri2.gif">
+<img src="pygame_cursor2.gif">
 
 <programming-exercise name='Robotti ja hiiri' tmcname='osa13-14_robotti_ja_hiiri'>
 
 Tee ohjelma, jossa robotti seuraa hiirtä niin, että robotin keskikohta on aina hiiren kohdalla. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_robotti_hiiri.gif">
+<img src="pygame_robot_cursor.gif">
 
 </programming-exercise>
 
@@ -312,6 +312,6 @@ Tee ohjelma, jossa robotti seuraa hiirtä niin, että robotin keskikohta on aina
 
 Tee ohjelma, jossa robotti on satunnaisessa paikassa ikkunassa. Kun pelaaja painaa hiirellä robotista, se siirtyy aina uuteen paikkaan. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_robotti_paikka.gif">
+<img src="pygame_robot_location.gif">
 
 </programming-exercise>

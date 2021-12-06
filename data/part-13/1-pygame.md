@@ -1,6 +1,6 @@
 ---
-path: '/part-13/1-pygame-kayttoon'
-title: 'Pygame käyttöön'
+path: '/part-13/1-pygame'
+title: 'Pygame'
 hidden: false
 ---
 
@@ -8,79 +8,78 @@ hidden: false
 
 After this section
 
-- Olet asentanut Pygame-kirjaston koneellesi
-- Osaat luoda ikkunan ja sulkea ohjelman
-- Osaat piirtää ikkunaan tiedostossa olevan kuvan
+- You will have installed the Pygame library on your computer
+- You will know how to create a Pygame window and how to exit a program
+- You will be able to use a picture stored in a file in a Pygame window
 
 </text-box>
 
-Kurssin kahdella viimeisellä viikolla tutustumme Pygame-kirjastoon, joka on peliohjelmointiin tarkoitettu Python-kirjasto. Pygamen avulla pystyy piirtämään grafiikkaa, käsittelemään näppäimistön ja hiiren tapahtumia ja tekemään muuta peleissä tarvittavaa.
+In these last two parts of this course material we will get to grips with the Pygame library. It is a Python library for programming games. It helps you create graphical elements, handle events from the keyboard and the mouse, and implement other features necessary in games.
 
-## Pygamen asentaminen
+## Installing Pygame
 
 ### Linux
 
-Avaa komentorivi ja kirjoita `pip3 install pygame`.
+Open a command line, type in `pip3 install pygame` an press `enter`.
 
 <img src="pygame_linux.png">
 
+This should install the Pygame library on your computer.
+
 ### Windows
 
-Avaa Windowsin terminaali napauttamalla vasemman alakulman Windows-painiketta. Kirjoita aukeavaan ikkunaan `cmd` ja paina enter:
+Open the Windows terminal by opening the menu, typing in `cmd` and pressing `enter`:
 
 <img src="13_1_1.png">
 
-Kirjoita auenneeeseen komentokehoteikkunaan seuraava komentosarja ja paina `enter`:
+The command line interpreter window should open. Type in `pip3 install pygame` and press `enter`.
 
-`pip3 install pygame`
+This should install the Pygame library on your computer.
 
-Tämä asentaa Pygame-paketin koneellesi.
+Installation may require system administrator privileges. If the above doesn't work, you can try running the terminal application as an administrator: open the Windows menu, find the CMD application, right-click it and choose "Run as administrator".
 
-Asennus voi vaatia järjestelmänvalvojan oikeuksia. Jos ylläoleva ei toimi, voit yrittää ajaa terminaalin järjestelmänvalvojana (valitse Windows-valikko, paina hiiren kakkospainiketta CMD-valinnan päällä ja valitse "Run as administrator" tai "Aja järjestelmänvalvojana").
-
-Huomaa, että asennus vaatii että olet asennusvaiheessa ohjeiden mukaisesti valinnut kohdan "Add Python 3.XX to path", katso [ohjeet](https://www.mooc.fi/fi/installation/vscode#python3)
+Installing and accessing Pygame requires that your Python installation is added to path, as instructed [here](https://www.mooc.fi/en/installation/vscode/#python3).
 
 ### Mac
 
-Avaa _Terminaali_, esim. painamalla oikean yläkulman suurennuslasi-symbolia:
+Open the _Terminal_, for example through the magnifying glass symbol in the top right hand corner:
 
 <img src="13-1-2.png">
 
- Kirjoita aukeavaan teksikenttään `terminal` ja paina enter:
+The search tool should open. Type in `terminal` and press `enter`:
 
 <img src="13-1-3.png">
 
-Kirjoita auenneeeseen komentokehoteikkunaan seuraava komentosarja ja paina `enter`:
+Type in the following and press `enter`:
 
 `pip3 install pygame`
 
 <img src="13-1-4.png">
 
+This should install the Pygame library on your computer.
 
-Tämä asentaa Pygame-paketin koneellesi.
+## Your first program
 
-## Ensimmäinen ohjelma
-
-Tässä on yksinkertainen Pygamea käyttävä testiohjelma:
+Here is a simple program for checking your Pygame installation works correctly:
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
-naytto.fill((0,0,0))
+window.fill((0,0,0))
 pygame.display.flip()
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.QUIT:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
             exit()
 ```
 
-Kun ohjelma käynnistetään, se näyttää käyttäjälle seuraavanlaisen ikkunan:
+When this program is run, it should display a window:
 
-<img src="pygame_eka.gif">
+<img src="pygame_first.gif">
 
 Ohjelmassa ei ole kuitenkaan vielä muuta sisältöä kuin ikkunan näyttäminen. Ohjelman suoritus jatkuu niin kauan, kunnes käyttäjä sulkee ikkunan.
 
@@ -88,15 +87,15 @@ Katsotaan seuraavaksi tarkemmin, miten ohjelma on rakentunut. Ohjelman alussa ri
 
 ```python
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 ```
 
-Muuttujan `naytto` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640, 480)` tarkoittaa, että tässä ohjelmassa ikkunan leveys on 640 pikseliä ja korkeus on 480 pikseliä.
+Muuttujan `window` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640, 480)` tarkoittaa, että tässä ohjelmassa ikkunan leveys on 640 pikseliä ja korkeus on 480 pikseliä.
 
 Seuraavaksi ohjelmassa on kaksi komentoa:
 
 ```python
-naytto.fill((0, 0, 0))
+window.fill((0, 0, 0))
 pygame.display.flip()
 ```
 
@@ -106,16 +105,16 @@ Tämän jälkeen alkaa ohjelman _pääsilmukka_:
 
 ```python
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.QUIT:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
             exit()
 ```
 
-Pääsilmukka käsittelee tapahtumat, jotka käyttöjärjestelmä välittää ohjelmalle. Joka kierroksella funktio `pygame.event.get` antaa listan tapahtumista, jotka ovat syntyneet funktion edellisen kutsukerran jälkeen.
+Pääsilmukka käsittelee eventt, jotka käyttöjärjestelmä välittää ohjelmalle. Joka kierroksella funktio `pygame.event.get` antaa listan tapahtumista, jotka ovat syntyneet funktion edellisen kutsukerran jälkeen.
 
-Tässä tapauksessa ohjelma käsittelee vain tyyppiä `pygame.QUIT` olevat tapahtumat. Tällainen tapahtuma syntyy, kun käyttäjä sulkee ohjelman esimerkiksi painamalla ikkunan ylänurkassa olevaa raksia. Tämän tapahtuman seurauksena ohjelma sulkee itsensä kutsumalla `exit`-funktiota.
+Tässä tapauksessa ohjelma käsittelee vain tyyppiä `pygame.QUIT` olevat eventt. Tällainen event syntyy, kun käyttäjä sulkee ohjelman esimerkiksi painamalla ikkunan ylänurkassa olevaa raksia. Tämän eventn seurauksena ohjelma sulkee itsensä kutsumalla `exit`-funktiota.
 
-Voit kokeilla, mitä tapahtuu, jos ohjelma ei käsittele tapahtumaa `pygame.QUIT`. Tällöin raksin painamisen ei pitäisi vaikuttaa ohjelman toimintaan, mikä on hämmentävää käyttäjälle. Ohjelman voi kuitenkin tässäkin tapauksessa sulkea väkisin komentoriviltä painamalla Control+C.
+Voit kokeilla, mitä tapahtuu, jos ohjelma ei käsittele eventa `pygame.QUIT`. Tällöin raksin painamisen ei pitäisi vaikuttaa ohjelman toimintaan, mikä on hämmentävää käyttäjälle. Ohjelman voi kuitenkin tässäkin tapauksessa sulkea väkisin komentoriviltä painamalla Control+C.
 
 ## Kuva ohjelmaan
 
@@ -125,17 +124,17 @@ Laajennetaan seuraavaksi ohjelmaa niin, että se näyttää ikkunassa kuvan. Tä
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
 robo = pygame.image.load("robo.png")
 
-naytto.fill((0, 0, 0))
-naytto.blit(robo, (100, 50))
+window.fill((0, 0, 0))
+window.blit(robo, (100, 50))
 pygame.display.flip()
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.QUIT:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
             exit()
 ```
 
@@ -147,7 +146,7 @@ Tiedoston `robo.png` tulee olla samassa hakemistossa ohjelman lähdekoodin kanss
 
 Nyt ikkuna näyttää tältä:
 
-<img src="pygame_kuva.gif">
+<img src="pygame_pic.gif">
 
 Tässä funktio `pygame.image.load` lataa muuttujaan tiedostossa `robo.png` olevan kuvan. Tämän jälkeen metodi `blit` piirtää kuvan ikkunaan kohtaan `(100, 50)` ja sitten funktio `pygame.display.flip` päivittää ikkunan sisällön. Kohta `(100, 50)` tarkoittaa, että kuvan _vasen yläkulma_  on kyseisessä kohdassa.
 
@@ -156,26 +155,26 @@ Huomaa, että Pygamessa ja yleensä muutenkin ohjelmoinnissa koordinaatisto on r
 Kuvan voi piirtää moneenkin kohtaan ikkunassa. Esimerkiksi seuraava koodi piirtää kuvan kolmeen eri kohtaan:
 
 ```python
-naytto.blit(robo, (0, 0))
-naytto.blit(robo, (300, 0))
-naytto.blit(robo, (100, 200))
+window.blit(robo, (0, 0))
+window.blit(robo, (300, 0))
+window.blit(robo, (100, 200))
 ```
 
 Tällöin ikkuna näyttää seuraavalta:
 
-<img src="pygame_kuva2.gif">
+<img src="pygame_pic2.gif">
 
 Seuraava koodi puolestaan piirtää kuvan ikkunan keskelle:
 
 ```python
 leveys = robo.get_width()
 korkeus = robo.get_height()
-naytto.blit(robo, (320-leveys/2, 240-korkeus/2))
+window.blit(robo, (320-leveys/2, 240-korkeus/2))
 ```
 
 Nyt ikkuna näyttää tältä:
 
-<img src="pygame_kuva3.gif">
+<img src="pic3.gif">
 
 Tässä metodi `get_width` antaa kuvan leveyden ja vastaavasti metodi `get_height` antaa kuvan korkeuden. Ikkunan keskikohta on `(320, 240)`, joten tämän avulla saadaan laskettua sopiva kohta kuvan vasemmalle yläkulmalle niin, että kuva sijoittuu ikkunan keskelle.
 
@@ -190,7 +189,7 @@ Tämän osan tehtävissä ei ole automaattisia testejä, vaan testi antaa pistee
 
 Tee ohjelma, joka piirtää robotin jokaiseen ikkunan neljään nurkkaan. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_nelja.gif">
+<img src="pygame_four.gif">
 
 </programming-exercise>
 
@@ -198,7 +197,7 @@ Tee ohjelma, joka piirtää robotin jokaiseen ikkunan neljään nurkkaan. Ohjelm
 
 Tee ohjelma, joka piirtää kymmenen robottia riviin. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_rivi.gif">
+<img src="pygame_row.gif">
 
 </programming-exercise>
 
@@ -206,7 +205,8 @@ Tee ohjelma, joka piirtää kymmenen robottia riviin. Ohjelman suorituksen tulee
 
 Tee ohjelma, joka piirtää sata robottia: kymmenen riviä ja joka rivissä kymmenen robottia. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_sata.gif">
+<img src="pygame_hu
+ndred.gif">
 
 </programming-exercise>
 
@@ -214,6 +214,6 @@ Tee ohjelma, joka piirtää sata robottia: kymmenen riviä ja joka rivissä kymm
 
 Tee ohjelma, joka piirtää _tuhat_ robottia satunnaisiin paikkoihin. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_tuhat.gif">
+<img src="pygame_thousand.gif">
 
 </programming-exercise>

@@ -1,6 +1,6 @@
 ---
-path: '/part-13/2-animaatio'
-title: 'Animaatio'
+path: '/part-13/2-animation'
+title: 'Animation'
 hidden: false
 ---
 
@@ -47,7 +47,7 @@ while True:
 
 Ohjelman suoritus näyttää seuraavalta:
 
-<img src="pygame_animaatio.gif">
+<img src="pygame_animation.gif">
 
 Katsotaan taas tarkemmin, mitä ohjelmassa tapahtuu. Jotta kuva pystyy liikkumaan, ohjelmassa täytyy olla tieto sen paikasta. Tämä onnistuu ottamalla käyttöön kaksi muuttujaa, jotka sisältävät kuvan vasemman yläkulman koordinaatit:
 
@@ -127,7 +127,7 @@ while True:
 
 Ohjelman suoritus näyttää nyt tältä:
 
-<img src="pygame_animaatio2.gif">
+<img src="pygame_animation2.gif">
 
 Nyt ohjelmassa on uusi muuttuja `nopeus`, joka määrittää robotin liikkumistavan. Positiivinen nopeus tarkoittaa liikkumista oikealle ja negatiivinen nopeus tarkoittaa liikkumista vasemmalle. Tässä tapauksessa kun nopeus on 1, robotti liikkuu oikealle, ja kun nopeus on –1, robotti liikkuu vasemmalle.
 
@@ -178,7 +178,7 @@ while True:
 
 Ohjelman suoritus näyttää tältä:
 
-<img src="pygame_pyorinta.gif">
+<img src="pygame_round.gif">
 
 Pyörimisanimaatio saadaan toteutettua trigonometrian avulla: muuttujassa `kulma` on radiaaneina robotin sijainnin kulma suhteessa ikkunan keskipisteeseen. Tästä saadaan laskettua sini- ja kosinifunktioilla robotin sijainti:
 
@@ -195,7 +195,7 @@ Joka kierroksella muuttujan `kulma` arvo kasvaa 0.01:llä. Koska radiaaneissa t�
 
 Tee animaatio, jossa robotti liikkuu vuorotellen ylös ja alas. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_pysty.gif">
+<img src="pygame_vertical.gif">
 
 </programming-exercise>
 
@@ -203,7 +203,7 @@ Tee animaatio, jossa robotti liikkuu vuorotellen ylös ja alas. Ohjelman suoritu
 
 Tee animaatio, jossa robotti kiertää ympäri ikkunan reunaa. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_kierto.gif">
+<img src="pygame_perimeter.gif">
 
 </programming-exercise>
 
@@ -211,7 +211,7 @@ Tee animaatio, jossa robotti kiertää ympäri ikkunan reunaa. Ohjelman suorituk
 
 Tee animaatio, jossa kaksi robottia kulkee näytöllä vuorotellen oikealle ja vasemmalle. Alempi robotti kulkee tuplavauhtia. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_liike2.gif">
+<img src="pygame_move2.gif">
 
 </programming-exercise>
 
@@ -219,7 +219,7 @@ Tee animaatio, jossa kaksi robottia kulkee näytöllä vuorotellen oikealle ja v
 
 Tee animaatio, jossa on kymmenen robottia piirileikissä. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_piiri.gif">
+<img src="pygame_circle.gif">
 
 </programming-exercise>
 
@@ -227,7 +227,7 @@ Tee animaatio, jossa on kymmenen robottia piirileikissä. Ohjelman suorituksen t
 
 Tee animaatio, jossa pallo kimpoaa ikkunan reunoilta. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_pallo.gif">
+<img src="pygame_bounce.gif">
 
 Tehtäväpohjassa on palloa varten kuvatiedosto `pallo.png`.
 
@@ -237,6 +237,6 @@ Tehtäväpohjassa on palloa varten kuvatiedosto `pallo.png`.
 
 Tee animaatio, jossa taivaalta tippuu satunnaisesti robotteja. Kun robotti laskeutuu maahan, se lähtee joko vasemmalle tai oikealle ja katoaa lopuksi ruudulta. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_invaasio.gif">
+<img src="pygame_invasion.gif">
 
 </programming-exercise>

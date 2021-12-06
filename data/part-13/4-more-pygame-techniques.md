@@ -1,6 +1,6 @@
 ---
-path: '/part-13/4-lisaa-tekniikoita'
-title: 'Lisää tekniikoita'
+path: '/part-13/4-more-pygame-techniques'
+title: 'More Pygame techniques'
 hidden: false
 ---
 
@@ -47,7 +47,7 @@ while True:
 
 Ohjelman tulos näyttää tältä:
 
-<img src="pygame_kuviot.gif">
+<img src="pygame_shapes.gif">
 
 ## Tekstin piirtäminen
 
@@ -73,7 +73,7 @@ while True:
 
 Ohjelman suoritus näyttää seuraavalta:
 
-<img src="pygame_teksti.gif">
+<img src="pygame_text.gif">
 
 Tässä metodi `pygame.font.SysFont` luo fonttiolion, joka käyttää järjestelmän fonttia Arial kokona 24. Tämän jälkeen olion metodi `render` luo kuvan, jossa lukee teksti "Moikka!" punaisella värillä, ja tämä kuva piirretään ikkunaan.
 
@@ -87,7 +87,7 @@ Tässä on pari vaikeampaa tehtävää, joiden avulla voit harjoitella lisää t
 
 Tee ohjelma, joka näyttää graafisesti kellonajan. Ohjelman suorituksen tulee näyttää tältä:
 
-<img src="pygame_kello.gif">
+<img src="pygame_clock.gif">
 
 </programming-exercise>
 
@@ -95,9 +95,9 @@ Tee ohjelma, joka näyttää graafisesti kellonajan. Ohjelman suorituksen tulee 
 
 Tee peli, jossa pelaaja ohjaa robottia vasemmalle ja oikealle ja tavoitteena on kerätä taivaalta putoavia asteroideja. Pelaaja saa pisteen jokaisesta kerätystä asteroidista, ja pistemäärä näytetään ikkunan ylälaidassa. Peli päättyy, kun pelaaja ei saa kiinni asteroidia. Pelin tulisi näyttää tältä:
 
-<img src="pygame_asteroidit.gif">
+<img src="pygame_asteroids.gif">
 
-Tehtäväpohjassa on asteroidia varten kuvatiedosto `kivi.png`.
+Tehtäväpohjassa on asteroidia varten kuvatiedosto `rock.png`.
 
 </programming-exercise>
 
