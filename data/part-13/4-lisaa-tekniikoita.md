@@ -4,9 +4,9 @@ title: 'Lisää tekniikoita'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, miten ikkunan otsikkoa voi muuttaa
 - Osaat piirtää kuvioita Pygamessa
@@ -101,8 +101,7 @@ Tehtäväpohjassa on asteroidia varten kuvatiedosto `kivi.png`.
 
 </programming-exercise>
 
-
-Vastaa lopuksi osion loppukyselyyn:
+Please respond to a quick questionnaire on this part of the course.
 
 <quiz id="2e8af177-a920-55d2-89e5-6701d7384cc6"></quiz>
 

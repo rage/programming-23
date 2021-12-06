@@ -4,9 +4,9 @@ title: 'Tapahtumat'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Olet tutustunut Pygamen tapahtumiin
 - Osaat tehdä ohjelman, joka lukee näppäimistön painalluksia

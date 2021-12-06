@@ -4,9 +4,9 @@ title: 'Pygame käyttöön'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Olet asentanut Pygame-kirjaston koneellesi
 - Osaat luoda ikkunan ja sulkea ohjelman

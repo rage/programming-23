@@ -274,5 +274,3 @@ ccc
 NB: it is up to you how you implement this function. You may use a "traditional" generator or a generator comprehension equally well.
 
 </programming-exercise>
-
-

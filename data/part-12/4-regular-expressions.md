@@ -493,5 +493,3 @@ command: **0**
 Please respond to a quick questionnaire on this part of the course.
 
 <quiz id="87f4f3d5-0f10-56cd-a077-af862df37458"></quiz>
-
-

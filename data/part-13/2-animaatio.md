@@ -4,9 +4,9 @@ title: 'Animaatio'
 hidden: false
 ---
 
-<text-box variant='learningObjectives' name='Oppimistavoitteet'>
+<text-box variant='learningObjectives' name="Learning objectives">
 
-Tämän osion jälkeen
+After this section
 
 - Tiedät, miten voi toteuttaa animaation
 - Osaat tahdistaa ohjelman nopeuden kellon avulla
