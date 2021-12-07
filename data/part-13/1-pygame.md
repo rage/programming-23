@@ -10,7 +10,7 @@ After this section
 
 - You will have installed the Pygame library on your computer
 - You will know how to create a Pygame window and how to exit a program
-- You will be able to use a picture stored in a file in a Pygame window
+- You will be able to use an image stored in a file in a Pygame window
 
 </text-box>
 
@@ -42,7 +42,7 @@ Installing and accessing Pygame requires that your Python installation is added 
 
 ### Mac
 
-Open the _Terminal_, for example through the magnifying glass symbol in the top right hand corner:
+Open the _Terminal_, for example through the magnifying glass symbol in the top right corner:
 
 <img src="13-1-2.png">
 
@@ -81,27 +81,27 @@ When this program is run, it should display a window:
 
 <img src="pygame_first.gif">
 
-Ohjelmassa ei ole kuitenkaan vielä muuta sisältöä kuin ikkunan näyttäminen. Ohjelman suoritus jatkuu niin kauan, kunnes käyttäjä sulkee ikkunan.
+The program only consists of displaying a window, and it runs until the user closes the window.
 
-Katsotaan seuraavaksi tarkemmin, miten ohjelma on rakentunut. Ohjelman alussa rivi `import pygame` ottaa mukaan Pygame-kirjaston. Kirjaston käyttäminen alkaa kutsumalla funktiota `pygame.init`, minkä jälkeen ohjelma luo ikkunan funktiolla `pygame.display.set_mode`.
+Let's take a closer look at the steps required to achieve this. The first line takes the Pygame library into use: `import pygame`. The next command `pygame.init` initializes the Pygame modules, and the next one creates a window with the function `pygame.display.set_mode`.
 
 ```python
 pygame.init()
 window = pygame.display.set_mode((640, 480))
 ```
 
-Muuttujan `window` kautta ikkunaan voidaan viitata myöhemmin esimerkiksi grafiikan piirtämistä varten. Parametri `(640, 480)` tarkoittaa, että tässä ohjelmassa ikkunan leveys on 640 pikseliä ja korkeus on 480 pikseliä.
+The `set_mode` function takes the window dimensions as an argument. The tuple `(640, 480)` indicates that the window is 640 pixels wide and 480 pixels high. The variable name `window` can be used later to access the window, for example to draw something in it.
 
-Seuraavaksi ohjelmassa on kaksi komentoa:
+The following two commands do just that:
 
 ```python
 window.fill((0, 0, 0))
 pygame.display.flip()
 ```
 
-Metodi `fill` täyttää näytön annetulla värillä. Tässä tapauksessa värinä on `(0, 0, 0)`, mikä tarkoittaa mustaa. Sitten metodi `pygame.display.flip` päivittää näytön sisällön.
+The `fill` method fills the window with the colour passed as an argument. In this case the colour is black, passed as an RGB value in the tuple `(0, 0, 0)`. The `pygame.display.flip` updates the contents of the window.
 
-Tämän jälkeen alkaa ohjelman _pääsilmukka_:
+After these initialization commands the _main loop_ of the program begins:
 
 ```python
 while True:
@@ -110,15 +110,15 @@ while True:
             exit()
 ```
 
-Pääsilmukka käsittelee eventt, jotka käyttöjärjestelmä välittää ohjelmalle. Joka kierroksella funktio `pygame.event.get` antaa listan tapahtumista, jotka ovat syntyneet funktion edellisen kutsukerran jälkeen.
+The main loop handles all events the operating system passes to the program. With each iteration the function `pygame.event.get` returns a list of any events collected since the previous iteration.
 
-Tässä tapauksessa ohjelma käsittelee vain tyyppiä `pygame.QUIT` olevat eventt. Tällainen event syntyy, kun käyttäjä sulkee ohjelman esimerkiksi painamalla ikkunan ylänurkassa olevaa raksia. Tämän eventn seurauksena ohjelma sulkee itsensä kutsumalla `exit`-funktiota.
+In the example above the program only handles events of type `pygame.QUIT`. This event is raised by, for example, clicking on the exit button in the corner of the window. If the `pygame.QUIT` event is raised, the program exits through the `exit` function.
 
-Voit kokeilla, mitä tapahtuu, jos ohjelma ei käsittele eventa `pygame.QUIT`. Tällöin raksin painamisen ei pitäisi vaikuttaa ohjelman toimintaan, mikä on hämmentävää käyttäjälle. Ohjelman voi kuitenkin tässäkin tapauksessa sulkea väkisin komentoriviltä painamalla Control+C.
+You can try and see what happens if your program doesn't handle the `pygame.QUIT` event. This should mean that clicking on the exit button does nothing, which would be confusing for the user. As the program is run from the command line, you can still stop it from the command line with Control+C.
 
-## Kuva ohjelmaan
+## Add an image
 
-Laajennetaan seuraavaksi ohjelmaa niin, että se näyttää ikkunassa kuvan. Tämä onnistuu seuraavasti:
+Let's add an image to the window:
 
 ```python
 import pygame
@@ -126,10 +126,10 @@ import pygame
 pygame.init()
 window = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robo.png")
+robot = pygame.image.load("robot.png")
 
 window.fill((0, 0, 0))
-window.blit(robo, (100, 50))
+window.blit(robot, (100, 50))
 pygame.display.flip()
 
 while True:
@@ -138,81 +138,79 @@ while True:
             exit()
 ```
 
-Koodi käyttää kuvaa `robo.png`, jossa on robotin kuva:
+The program uses this image of a robot, which is stored in the file `robot.png`:
 
-<img src="robo.png">
+<img src="robot.png">
 
-Tiedoston `robo.png` tulee olla samassa hakemistossa ohjelman lähdekoodin kanssa, jotta ohjelma löytää kuvan. Tämän viikon tehtävissä robotin kuva on valmiina tehtäväpohjissa.
+The file `robot.png` has to be in the same directory with the source code of the your program, or the program won't be able to find it. In the exercise templates for this part the images are waiting in the exercise directory.
 
-Nyt ikkuna näyttää tältä:
+The window should no look like this:
 
 <img src="pygame_pic.gif">
 
-Tässä funktio `pygame.image.load` lataa muuttujaan tiedostossa `robo.png` olevan kuvan. Tämän jälkeen metodi `blit` piirtää kuvan ikkunaan kohtaan `(100, 50)` ja sitten funktio `pygame.display.flip` päivittää ikkunan sisällön. Kohta `(100, 50)` tarkoittaa, että kuvan _vasen yläkulma_  on kyseisessä kohdassa.
+The function `pygame.image.load` loads the image in the file `robot.png` and stores a reference to it in the variable named `robot`. The method `blit` draws the image at the location `(100, 50)`, and the function `pygame.display.flip` updates the window contents, as before. The location `(100, 50)` means that the _top left corner_ of the image is at that location within the window.
 
-Huomaa, että Pygamessa ja yleensä muutenkin ohjelmoinnissa koordinaatisto on rakennettu niin, että piirtoalueen vasen yläkulma on kohdassa `(0, 0)` ja koordinaatit kasvavat x-suunnassa oikealle ja y-suunnassa alaspäin. Tässä tapauksessa ikkunan oikean alakulman koordinaatit ovat `(640, 480)`.
+In Pygame the origo point `(0, 0)` is in the top left corner of the window. The x coordinates increase to the right, and the y coordinates increase downwards, so that the bottom right corner has the coordinates `(640, 480)`. This is contrary to how coordinates are usually handled in e.g. mathematics, but it is quite common in a programming context, and worth getting used to.
 
-Kuvan voi piirtää moneenkin kohtaan ikkunassa. Esimerkiksi seuraava koodi piirtää kuvan kolmeen eri kohtaan:
+Once you have loaded an image, you can use it many times within the same window. The following code draws the image of the robot at three different locations:
 
 ```python
-window.blit(robo, (0, 0))
-window.blit(robo, (300, 0))
-window.blit(robo, (100, 200))
+window.blit(robot, (0, 0))
+window.blit(robot, (300, 0))
+window.blit(robot, (100, 200))
 ```
 
-Tällöin ikkuna näyttää seuraavalta:
+The window should look like this as a result:
 
 <img src="pygame_pic2.gif">
 
-Seuraava koodi puolestaan piirtää kuvan ikkunan keskelle:
+Here we set the location of the image so that it lies at the centre of the window:
 
 ```python
-leveys = robo.get_width()
-korkeus = robo.get_height()
-window.blit(robo, (320-leveys/2, 240-korkeus/2))
+width = robot.get_width()
+height = robot.get_height()
+window.blit(robot, (320-width/2, 240-height/2))
 ```
 
-Nyt ikkuna näyttää tältä:
+The window should now look like this:
 
-<img src="pic3.gif">
+<img src="pygame_pic3.gif">
 
-Tässä metodi `get_width` antaa kuvan leveyden ja vastaavasti metodi `get_height` antaa kuvan korkeuden. Ikkunan keskikohta on `(320, 240)`, joten tämän avulla saadaan laskettua sopiva kohta kuvan vasemmalle yläkulmalle niin, että kuva sijoittuu ikkunan keskelle.
+The method `get_width` returns the width of the image, and the method `get_height` returns its height, both in pixels. The centre of the window is at half its width and height, so at `(320, 240)`, which we can use to calculate a suitable location for the top left corner of the image, so that it lies exactly at the centre.
 
-<text-box variant='hint' name='Pygame-tehtävät'>
+<text-box variant='hint' name='Pygame exercises'>
 
-Tämän osan tehtävissä ei ole automaattisia testejä, vaan testi antaa pisteet automaattisesti, kun lähetät ratkaisun palvelimelle. Lähetä ratkaisu vasta sitten, kun se on valmis ja vastaa tehtävänannon vaatimuksia. Vaikka tehtävissä ei ole testejä, kurssin henkilökunta näkee lähetetyt ratkaisut. Jos lähetät palvelimelle ratkaisun, joka selkeästi ei vastaa tehtävänantoa, voit menettää pisteet tämän osan tehtävistä.
+The exercises in this part of the course have no automated tests, as the results as visually verified. The tests grant points automatically as you submit your solution to the server, no matter what your implementation. Only submit your solution when you are ready, and your solution matches the exercise description. The exercises may not have automatic tests, but the course staff will still see your solution. If your solution clearly does not match the exercise description, you may lose the points granted for the exercises in this part.
 
 </text-box>
 
+<programming-exercise name='Four robots' tmcname='part13-01_four_robots'>
 
-<programming-exercise name='Neljä robottia' tmcname='osa13-01_nelja_robottia'>
-
-Tee ohjelma, joka piirtää robotin jokaiseen ikkunan neljään nurkkaan. Ohjelman suorituksen tulee näyttää tältä:
+Please write a program which draws a robot in each of the four corners of the window. The end result should look like this:
 
 <img src="pygame_four.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Robotit rivissä' tmcname='osa13-02_robotit_rivissa'>
+<programming-exercise name='Robots in a row' tmcname='part13-02_robots_row'>
 
-Tee ohjelma, joka piirtää kymmenen robottia riviin. Ohjelman suorituksen tulee näyttää tältä:
+Please write a program which draws ten robots in a row. The end result should look like this:
 
 <img src="pygame_row.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Sata robottia' tmcname='osa13-03_sata_robottia'>
+<programming-exercise name='A hundred robots' tmcname='part13-03_hundred_robots'>
 
-Tee ohjelma, joka piirtää sata robottia: kymmenen riviä ja joka rivissä kymmenen robottia. Ohjelman suorituksen tulee näyttää tältä:
+Please write a program which draws a hundred robots: ten rows with ten robots in each row. The end result should look like this:
 
-<img src="pygame_hu
-ndred.gif">
+<img src="pygame_hundred.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Satunnaiset robotit' tmcname='osa13-04_satunnaiset_robotit'>
+<programming-exercise name='Random robots' tmcname='part13-04_random_robots'>
 
-Tee ohjelma, joka piirtää _tuhat_ robottia satunnaisiin paikkoihin. Ohjelman suorituksen tulee näyttää tältä:
+Please write a program which draws _tuhat_ robottia satunnaisiin paikkoihin. The end result should look like this:
 
 <img src="pygame_thousand.gif">
 
