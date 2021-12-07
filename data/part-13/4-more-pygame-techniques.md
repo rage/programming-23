@@ -1,6 +1,6 @@
 ---
 path: '/part-13/4-more-pygame-techniques'
-title: 'More Pygame techniques'
+title: 'More pygame techniques'
 hidden: false
 ---
 
@@ -8,8 +8,8 @@ hidden: false
 
 After this section
 
-- You will know how the title of the Pygame window
-- You will be able to draw shapes with Pygame
+- You will know how the title of the pygame window
+- You will be able to draw shapes with pygame
 - You will know how to display text in your window
 
 </text-box>
@@ -51,7 +51,7 @@ Running the above code should look like this:
 
 ## Drawing text
 
-Text in Pygame is drawn in two steps: first we create an image containing the desired text, and then this image is drawn on the screen. It works like this:
+Text in pygame is drawn in two steps: first we create an image containing the desired text, and then this image is drawn on the screen. It works like this:
 
 ```python
 import pygame

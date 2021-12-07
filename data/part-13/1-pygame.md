@@ -8,15 +8,15 @@ hidden: false
 
 After this section
 
-- You will have installed the Pygame library on your computer
-- You will know how to create a Pygame window and how to exit a program
-- You will be able to use an image stored in a file in a Pygame window
+- You will have installed the pygame library on your computer
+- You will know how to create a pygame window and how to exit a program
+- You will be able to use an image stored in a file in a pygame window
 
 </text-box>
 
-In these last two parts of this course material we will get to grips with the Pygame library. It is a Python library for programming games. It helps you create graphical elements, handle events from the keyboard and the mouse, and implement other features necessary in games.
+In these last two parts of this course material we will get to grips with the pygame library. It is a Python library for programming games. It helps you create graphical elements, handle events from the keyboard and the mouse, and implement other features necessary in games.
 
-## Installing Pygame
+## Installing pygame
 
 ### Linux
 
@@ -24,7 +24,7 @@ Open a command line, type in `pip3 install pygame` an press `enter`.
 
 <img src="pygame_linux.png">
 
-This should install the Pygame library on your computer.
+This should install the pygame library on your computer.
 
 ### Windows
 
@@ -34,11 +34,11 @@ Open the Windows terminal by opening the menu, typing in `cmd` and pressing `ent
 
 The command line interpreter window should open. Type in `pip3 install pygame` and press `enter`.
 
-This should install the Pygame library on your computer.
+This should install the pygame library on your computer.
 
 Installation may require system administrator privileges. If the above doesn't work, you can try running the terminal application as an administrator: open the Windows menu, find the CMD application, right-click it and choose "Run as administrator".
 
-Installing and accessing Pygame requires that your Python installation is added to path, as instructed [here](https://www.mooc.fi/en/installation/vscode/#python3).
+Installing and accessing pygame requires that your Python installation is added to path, as instructed [here](https://www.mooc.fi/en/installation/vscode/#python3).
 
 ### Mac
 
@@ -56,11 +56,11 @@ Type in the following and press `enter`:
 
 <img src="13-1-4.png">
 
-This should install the Pygame library on your computer.
+This should install the pygame library on your computer.
 
 ## Your first program
 
-Here is a simple program for checking your Pygame installation works correctly:
+Here is a simple program for checking your pygame installation works correctly:
 
 ```python
 import pygame
@@ -83,7 +83,7 @@ When this program is run, it should display a window:
 
 The program only consists of displaying a window, and it runs until the user closes the window.
 
-Let's take a closer look at the steps required to achieve this. The first line takes the Pygame library into use: `import pygame`. The next command `pygame.init` initializes the Pygame modules, and the next one creates a window with the function `pygame.display.set_mode`.
+Let's take a closer look at the steps required to achieve this. The first line takes the pygame library into use: `import pygame`. The next command `pygame.init` initializes the pygame modules, and the next one creates a window with the function `pygame.display.set_mode`.
 
 ```python
 pygame.init()
@@ -150,7 +150,7 @@ The window should no look like this:
 
 The function `pygame.image.load` loads the image in the file `robot.png` and stores a reference to it in the variable named `robot`. The method `blit` draws the image at the location `(100, 50)`, and the function `pygame.display.flip` updates the window contents, as before. The location `(100, 50)` means that the _top left corner_ of the image is at that location within the window.
 
-In Pygame the origo point `(0, 0)` is in the top left corner of the window. The x coordinates increase to the right, and the y coordinates increase downwards, so that the bottom right corner has the coordinates `(640, 480)`. This is contrary to how coordinates are usually handled in e.g. mathematics, but it is quite common in a programming context, and worth getting used to.
+In pygame the origo point `(0, 0)` is in the top left corner of the window. The x coordinates increase to the right, and the y coordinates increase downwards, so that the bottom right corner has the coordinates `(640, 480)`. This is contrary to how coordinates are usually handled in e.g. mathematics, but it is quite common in a programming context, and worth getting used to.
 
 Once you have loaded an image, you can use it many times within the same window. The following code draws the image of the robot at three different locations:
 

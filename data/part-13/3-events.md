@@ -8,32 +8,32 @@ hidden: false
 
 After this section
 
-- You will be familiar with Pygame events
+- You will be familiar with pygame events
 - You will be able to write a program which reacts to key presses
 - You will be able to write a program which reacts to mouse events
 
 </text-box>
 
-Thus far our main loops have only executed predetermined animations and reacted to only `pygame.QUIT` type events, even though the loop gets a ist of all events from the operating system. Let's get to grips with some other types of events.
+Thus far our main loops have only executed predetermined animations and reacted to only `pygame.QUIT` type events, even though the loop gets a list of all events from the operating system. Let's get to grips with some other types of events, then.
 
 ## Handling events
 
-Seuraava koodi näyttää, mitä tapahtumia syntyy ohjelman suorituksen aikana:
+This program prints out information about all the events passed by the operating system to the pygame program, while it is running:
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
 while True:
-    for tapahtuma in pygame.event.get():
-        print(tapahtuma)
-        if tapahtuma.type == pygame.QUIT:
+    for event in pygame.event.get():
+        print(event)
+        if event.type == pygame.QUIT:
             exit()
 ```
 
-Kun ohjelmaa käytetään hetki, se voi tulostaa esimerkiksi seuraavanlaisia tapahtumia:
+Let's assume the program was left running for a while, and then the exit button was clicked. The program prints out the following info:
 
 ```x
 <Event(4-MouseMotion {'pos': (495, 274), 'rel': (495, 274), 'buttons': (0, 0, 0), 'window': None})>
@@ -51,126 +51,126 @@ Kun ohjelmaa käytetään hetki, se voi tulostaa esimerkiksi seuraavanlaisia tap
 <Event(12-Quit {})>
 ```
 
-Tässä ensimmäiset tapahtumat liittyvät hiiren käyttämiseen, seuraavat tapahtumat näppäimistön käyttämiseen ja viimeinen tapahtuma sulkee ohjelman. Jokaisella tapahtumalla on tyyppi ja mahdollisesti lisätietoa, josta voi päätellä esimerkiksi hiiren sijainnin tai painetun näppäimen.
+The first few events concern mouse usage, ten there are some events from the keyboard, and finally the last event closes the program. Each event has at least a type, but they may also offer some other identifying info, such as the location of the mouse cursor or the key that was pressed.
 
-Tapahtumia voi etsiä Pygamen dokumentaatiosta mutta usein tehokas tapa löytää sopiva tapahtuma on käyttää yllä olevaa koodia ja tutkia, millainen tapahtuma syntyy, kun ohjelmassa tapahtuu haluttu asia.
+You can look for event descriptions in the [pygame documentation](https://www.pygame.org/docs/ref/event.html), but it can sometimes be easier to print out events with the code above, and look for the event that occurs when something you want to react to happens.
 
-## Näppäimistön käsittely
+## Keyboard events
 
-Seuraava ohjelma tunnistaa tapahtumat, joissa käyttäjä painaa oikealle tai vasemmalle nuolinäppäintä. Ohjelma tulostaa testiksi tiedon näppäimen painamisesta.
+This program can process events where the user presses the arrow key either to the right or to the left on their keyboard. The program prints out which key was pressed.
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.KEYDOWN:
-            if tapahtuma.key == pygame.K_LEFT:
-                print("vasemmalle")
-            if tapahtuma.key == pygame.K_RIGHT:
-                print("oikealle")
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                print("left")
+            if event.key == pygame.K_RIGHT:
+                print("roght")
 
-        if tapahtuma.type == pygame.QUIT:
+        if event.type == pygame.QUIT:
             exit()
 ```
 
-Tässä vakiot `pygame.K_LEFT` ja `pygame.K_RIGHT` tarkoittavat nuolinäppäimiä vasemmalle ja oikealle. Näppäimistön eri näppäimiä vastaavat vakiot on listattu [Pygamen dokumentaatiossa](https://www.pygame.org/docs/ref/key.html#key-constants-label).
+The constants `pygame.K_LEFT` and `pygame.K_RIGHT` refer to the arrow keys to the left and right. The pgyame key constants for the different keys on a keyboard are listed in the [pygame documentation](https://www.pygame.org/docs/ref/key.html#key-constants-label).
 
-Esimerkiksi kun käyttäjä painaa ensin kahdesti oikealle, sitten kerran vasemmalle ja lopuksi kerran oikealle, ohjelman tulostus on seuraava:
+For example, if the user presses the arrow key to the right twice, then the left one once, and then the right one once more, the program prints out
 
 ```x
-oikealle
-oikealle
-vasemmalle
-oikealle
+to_right
+to_right
+to_left
+to_right
 ```
 
-Voimme nyt tehdä ohjelman, jossa käyttäjä pystyy liikuttamaan hahmoa oikealle ja vasemmalle nuolinäppäimillä. Tämä onnistuu seuraavasti:
+We now have all the tools needed to move a character, or _sprite_, on the screen to the right and left with the arrow keys. The following code will achieve this:
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robot.png")
+robot = pygame.image.load("robot.png")
 x = 0
-y = 480-robo.get_height()
+y = 480-robot.get_height()
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.KEYDOWN:
-            if tapahtuma.key == pygame.K_LEFT:
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
                 x -= 10
-            if tapahtuma.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT:
                 x += 10
 
-        if tapahtuma.type == pygame.QUIT:
+        if event.type == pygame.QUIT:
             exit()
 
-    naytto.fill((0, 0, 0))
-    naytto.blit(robo, (x, y))
+    window.fill((0, 0, 0))
+    window.blit(robot, (x, y))
     pygame.display.flip()
 ```
 
-Ohjelman suoritus voi näyttää seuraavalta:
+Depending on how you use your arrow keys, running the program could look like this:
 
 <img src="pygame_move_robot.gif">
 
-Tässä muuttujat `x` ja `y` sisältävät hahmon sijainnin. Käyttäjä pystyy muuttamaan muuttujaa `x`, ja muuttuja `y` on asetettu niin, että hahmo on ikkunan alalaidassa. Kun käyttäjä painaa vasemmalle tai oikealle nuolinäppäintä, hahmo liikkuu vastaavasti 10 pikseliä oikealle tai vasemmalle.
+In the code above we have the variables `x` and `y` which contain the coordinate location for the sprite. The variable `y` is set so that the sprite appears at the bottom of the window. The `y` value does not change throughout the execution of the program. The `x` value, however, increases by 10 whenever the user presses the arrow key to the right, and decreases by 10 whenever the left arrow key is pressed.
 
-Yllä oleva ohjelma toimii muuten hyvin, mutta pelikokemuksessa on puutteena, että näppäintä pitää painaa uudestaan aina, kun haluaa liikkua askeleen oikealle tai vasemmalle. Olisi parempi, että voi pitää näppäintä pohjassa ja hahmo liikkuu niin kauan, kuin näppäin on pohjassa. Seuraava koodi mahdollistaa tämän:
+Tne program works otherwise quite well, put the key needs to be pressed again each time we want to move again. It would be better if the movement was continuous as the key was held down. The following program offfers this functionality:
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robot.png")
+robot = pygame.image.load("robot.png")
 x = 0
-y = 480-robo.get_height()
+y = 480-robot.get_height()
 
-oikealle = False
-vasemmalle = False
+to_right = False
+to_left = False
 
-kello = pygame.time.Clock()
+clock = pygame.time.Clock()
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.KEYDOWN:
-            if tapahtuma.key == pygame.K_LEFT:
-                vasemmalle = True
-            if tapahtuma.key == pygame.K_RIGHT:
-                oikealle = True
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                to_left = True
+            if event.key == pygame.K_RIGHT:
+                to_right = True
 
-        if tapahtuma.type == pygame.KEYUP:
-            if tapahtuma.key == pygame.K_LEFT:
-                vasemmalle = False
-            if tapahtuma.key == pygame.K_RIGHT:
-                oikealle = False
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                to_left = False
+            if event.key == pygame.K_RIGHT:
+                to_right = False
 
-        if tapahtuma.type == pygame.QUIT:
+        if event.type == pygame.QUIT:
             exit()
 
-    if oikealle:
+    if to_right:
         x += 2
-    if vasemmalle:
+    if to_left:
         x -= 2
 
-    naytto.fill((0, 0, 0))
-    naytto.blit(robo, (x, y))
+    window.fill((0, 0, 0))
+    window.blit(robot, (x, y))
     pygame.display.flip()
 
-    kello.tick(60)
+    clock.tick(60)
 ```
 
-Koodissa on nyt muuttujat `oikealle` ja `vasemmalle`, joissa pidetään tietoa siitä, kuuluuko hahmon liikkua tällä hetkellä oikealle tai vasemmalle. Kun käyttäjä painaa alas nuolinäppäimen, vastaava muuttuja saa arvon `True`, ja kun käyttäjä nostaa alas nuolinäppäimen, vastaava muuttuja saa arvon `False`.
+The code now contains the variables `to_right` and `to_left`. These contain knowledge of whether the sprite should be moving to the right or to the left at any given moment. When the user presses down an arrow key, the value stored in the relevant variable become `True`. When the key is released, the value changes to `False`.
 
-Hahmon liike on tahdistettu kellon avulla niin, että liikkumista tapahtuu 60 kertaa sekunnissa. Jos nuolinäppäin on alhaalla, hahmo liikkuu 2 pikseliä oikealle tai vasemmalle. Tämän seurauksena hahmo liikkuu 120 pikseliä sekunnissa, jos nuolinäppäin on painettuna.
+The clock is used to time the movements of the sprite, so that they potentially happen 60 times each second. If an arrow key is pressed, the sprite moves two pixels to the right or to the left. This means the sprite moves 120 pixels per second if the key is kept pressed down.
 
 <programming-exercise name='Four directions' tmcname='part13-11_four_directions'>
 
@@ -196,107 +196,107 @@ Please write a program where two players each direct their own robot. One of the
 
 </programming-exercise>
 
-## Hiiren käsittely
+## Mouse events
 
-Seuraava koodi tunnistaa tapahtumat, jossa käyttäjä painaa hiiren nappia ikkunan alueella:
+The following code reacts to events where a mouse button is pressed down while the cursor is within the window area:
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.MOUSEBUTTONDOWN:
-            print("painoit nappia", tapahtuma.button, "kohdassa", tapahtuma.pos)
+    for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            print("you pressed the button number", event.button, "at location", event.pos)
 
-        if tapahtuma.type == pygame.QUIT:
+        if event.type == pygame.QUIT:
             exit()
 ```
 
-Ohjelman suoritus voi näyttää tältä:
+The execution of this program should look more or less like this:
 
 ```x
-painoit nappia 1 kohdassa (82, 135)
-painoit nappia 1 kohdassa (369, 135)
-painoit nappia 1 kohdassa (269, 297)
-painoit nappia 3 kohdassa (515, 324)
+you pressed the button number 1 at location (82, 135)
+you pressed the button number 1 at location (369, 135)
+you pressed the button number 1 at location (269, 297)
+you pressed the button number 3 at location (515, 324)
 ```
 
-Tässä nappi 1 tarkoittaa hiiren vasenta nappia ja nappi 3 tarkoittaa hiiren oikeaa nappia.
+Button number 1 refers to the left mouse button and button number 3 refers to the right mouse button. 
 
-Seuraava ohjelma yhdistää hiiren käsittelyn ja kuvan piirtämisen. Kun käyttäjä painaa hiirellä ikkunan alueella, robotti piirretään hiiren kohtaan.
+This next program combines mouse event handling and drawing an image on the screen. When the user presses a mouse button while the mouse cursor is within the bounds of the window, an image of a robot is drawn at that location. 
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robot.png")
+robot = pygame.image.load("robot.png")
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.MOUSEBUTTONDOWN:
-            x = tapahtuma.pos[0]-robo.get_width()/2
-            y = tapahtuma.pos[1]-robo.get_height()/2
+    for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            x = event.pos[0]-robot.get_width()/2
+            y = event.pos[1]-robot.get_height()/2
 
-            naytto.fill((0, 0, 0))
-            naytto.blit(robo, (x, y))
+            window.fill((0, 0, 0))
+            window.blit(robot, (x, y))
             pygame.display.flip()
 
-        if tapahtuma.type == pygame.QUIT:
+        if event.type == pygame.QUIT:
             exit()
 ```
 
-Ohjelman suoritus voi näyttää tältä:
+The execution of the program could look like this:
 
 <img src="pygame_cursor.gif">
 
-Seuraava ohjelma puolestaan toteuttaa animaation, jossa robotti seuraa hiirtä. Robotin sijainti on muuttujissa `robo_x` ja `robo_y`, ja kun hiiri liikkuu, sen sijainti merkitään muuttujiin `kohde_x` ja `kohde_y`. Jos robotti ei ole hiiren kohdalla, se liikkuu sopivaan suuntaan.
+The following program contains an animation where the robot sprite follows the mouse cursor.The location of the sprite is stored in the variables `robot_x` and `robot_y`. When the mouse moves, its location is stored in the variables `target_x` ja `target_y`. If the robot is not at this location, it moves to the approproate direction.
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robot.png")
+robot = pygame.image.load("robot.png")
 
-robo_x = 0
-robo_y = 0
-kohde_x = 0
-kohde_y = 0
+robot_x = 0
+robot_y = 0
+target_x = 0
+target_y = 0
 
-kello = pygame.time.Clock()
+clock = pygame.time.Clock()
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.MOUSEMOTION:
-            kohde_x = tapahtuma.pos[0]-robo.get_width()/2
-            kohde_y = tapahtuma.pos[1]-robo.get_height()/2
+    for event in pygame.event.get():
+        if event.type == pygame.MOUSEMOTION:
+            target_x = event.pos[0]-robot.get_width()/2
+            target_y = event.pos[1]-robot.get_height()/2
 
-        if tapahtuma.type == pygame.QUIT:
+        if event.type == pygame.QUIT:
             exit(0)
 
-    if robo_x > kohde_x:
-        robo_x -= 1
-    if robo_x < kohde_x:
-        robo_x += 1
-    if robo_y > kohde_y:
-        robo_y -= 1
-    if robo_y < kohde_y:
-        robo_y += 1
+    if robot_x > target_x:
+        robot_x -= 1
+    if robot_x < target_x:
+        robot_x += 1
+    if robot_y > target_y:
+        robot_y -= 1
+    if robot_y < target_y:
+        robot_y += 1
 
-    naytto.fill((0, 0, 0))
-    naytto.blit(robo, (robo_x, robo_y))
+    window.fill((0, 0, 0))
+    window.blit(robot, (robot_x, robot_y))
     pygame.display.flip()
 
-    kello.tick(60)
+    clock.tick(60)
 ```
 
-Ohjelman suoritus voi näyttää tältä:
+The program's execution should look more or less like this:
 
 <img src="pygame_cursor2.gif">
 

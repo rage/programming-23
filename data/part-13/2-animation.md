@@ -8,7 +8,7 @@ hidden: false
 
 After this section
 
-- You will know how to create an animation with Pygame
+- You will know how to create an animation with pygame
 - You will be able to use a clock to set the speed of your program
 - You will be able to use basic trigonometric functions in your animations
 
@@ -18,7 +18,7 @@ Many games have moving characters, so a logical next step is creating animations
 
 ## Creating an animation
 
-The following code creates an animation where a robot moves from left to right in a Pygame window:
+The following code creates an animation where a robot moves from left to right in a pygame window:
 
 ```python
 import pygame
