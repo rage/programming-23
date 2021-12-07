@@ -8,15 +8,15 @@ hidden: false
 
 After this section
 
-- Olet tutustunut Pygamen tapahtumiin
-- Osaat tehdä ohjelman, joka lukee näppäimistön painalluksia
-- Osaat tehdä ohjelman, joka lukee hiiren tapahtumia
+- You will be familiar with Pygame events
+- You will be able to write a program which reacts to key presses
+- You will be able to write a program which reacts to mouse events
 
 </text-box>
 
-Tähän asti olemme toteuttaneet Pygame-ohjelman pääsilmukan niin, että se käy läpi tapahtumat ja tunnistaa tapahtuman `pygame.QUIT`, mutta ei käsittele muita tapahtumia. Nyt on aika tutustua tarkemmin tapahtumien käsittelyyn.
+Thus far our main loops have only executed predetermined animations and reacted to only `pygame.QUIT` type events, even though the loop gets a ist of all events from the operating system. Let's get to grips with some other types of events.
 
-## Tapahtumien käsittely
+## Handling events
 
 Seuraava koodi näyttää, mitä tapahtumia syntyy ohjelman suorituksen aikana:
 
@@ -172,25 +172,25 @@ Koodissa on nyt muuttujat `oikealle` ja `vasemmalle`, joissa pidetään tietoa s
 
 Hahmon liike on tahdistettu kellon avulla niin, että liikkumista tapahtuu 60 kertaa sekunnissa. Jos nuolinäppäin on alhaalla, hahmo liikkuu 2 pikseliä oikealle tai vasemmalle. Tämän seurauksena hahmo liikkuu 120 pikseliä sekunnissa, jos nuolinäppäin on painettuna.
 
-<programming-exercise name='Neljä suuntaa' tmcname='osa13-11_nelja_suuntaa'>
+<programming-exercise name='Four directions' tmcname='part13-11_four_directions'>
 
-Tee ohjelma, jossa pelaaja pystyy ohjaamaan robottia neljään suuntaan nuolinäppäimillä. Ohjelman suorituksen tulee näyttää tältä:
+Please write a program where the player can move a robot in four directions with the arrow keys on the keyboard. The end result should look like this:
 
 <img src="pygame_four_directions.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Neljä seinää' tmcname='osa13-12_nelja_seinaa'>
+<programming-exercise name='Four walls' tmcname='part13-12_four_walls'>
 
-Paranna edellistä ohjelmaa niin, että robotti ei pysty menemään ikkunan ulkopuolelle mistään reunasta. Ohjelman suorituksen tulee näyttää tältä:
+Please improve the program in the previous exercise so that the robot cannot pass outside the window in any of the four directions. The end result should look like this:
 
 <img src="pygame_four_walls.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Kaksi pelaajaa' tmcname='osa13-13_kaksi_pelaajaa'>
+<programming-exercise name='Two players' tmcname='part13-13_two_players'>
 
-Tee ohjelma, jossa kaksi pelaajaa voi ohjata omia robottejaan. Toinen pelaaja käyttää nuolinäppäimiä ja toinen esimerkiksi w-s-a-d. Ohjelman suorituksen tulee näyttää tältä:
+Please write a program where two players each direct their own robot. One of the players should use the arrow keys while the other could use, for example, the w-s-a-d keys. The end result should look like this:
 
 <img src="pygame_two_players.gif">
 
@@ -300,17 +300,17 @@ Ohjelman suoritus voi näyttää tältä:
 
 <img src="pygame_cursor2.gif">
 
-<programming-exercise name='Robotti ja hiiri' tmcname='osa13-14_robotti_ja_hiiri'>
+<programming-exercise name='Robot and mouse' tmcname='part13-14_robot_and_mouse'>
 
-Tee ohjelma, jossa robotti seuraa hiirtä niin, että robotin keskikohta on aina hiiren kohdalla. Ohjelman suorituksen tulee näyttää tältä:
+Please write a program where the robot follows the mouse cursor so that the centre of the robot is always directly at the mouse cursor. The end result should look like this:
 
 <img src="pygame_robot_cursor.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Robotin paikka' tmcname='osa13-15_robotin_paikka'>
+<programming-exercise name='The location of the robot' tmcname='part13-15_robot_location'>
 
-Tee ohjelma, jossa robotti on satunnaisessa paikassa ikkunassa. Kun pelaaja painaa hiirellä robotista, se siirtyy aina uuteen paikkaan. Ohjelman suorituksen tulee näyttää tältä:
+Please write a program where the robot appears at a random location within the window. When the player clicks on the robot with the mouse, the robot moves to a new location. The end result should look like this:
 
 <img src="pygame_robot_location.gif">
 
