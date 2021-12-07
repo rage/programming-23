@@ -4,82 +4,82 @@ title: 'Your own game'
 hidden: false
 ---
 
-## Viikon tehtävä
+## The last programming exercise
 
-Tämän viikon tehtäväsi on tehdä oma pieni peli Pygamen avulla. Peliä varten tehtäväpohjassa on joukko kuvia, joita voit käyttää pelissä. Älä käytä muita kuvia, jotta muutkin pystyvät kokeilemaan peliä koodin perusteella.
+The final programming exercise on this course is creating a small game of your own with pygame. The exercise template contains some images for you to use. Please don't use any other images in your game, or others will not be able to test your game based on the source code alone.
 
-Saat päättää pelin aiheen itse, ja pelin tulisi olla suunnilleen saman laajuinen kuin tämän viikon esimerkki. Pelin tulisi noudattaa seuraavia vaatimuksia:
+The subject of the game is up to you, but it should be about as complicated as the Sokoban example in this part of the material. The game should contain the following features:
 
-* Pelissä on hahmo, jota pelaaja pystyy liikuttamaan
-* Pelissä on kerättäviä asioita ja/tai vihollisia
-* Pelaajalla on jokin selkeä tavoite
-* Pelissä on laskuri, joka näyttää, miten pelaaminen sujuu
-* Pelin koodi on jaettu sopivasti funktioihin tämän viikon esimerkin tyylisesti
+* The game has a sprite the player can move in some way
+* The game has some collectable items and/or enemies 
+* The player needs to be set a clear task in the game
+* The game contains a counter which tells the player how they are doing in the game
+* The source code for the game is divided into functions like in the Sokoban example
 
-Kun peli on valmis, lähetä se vertaisarviointiin alla olevan lomakkeen avulla. Tämän jälkeen tutustu vielä kahden muun kurssilaisen peliin ja anna niille mielestäsi sopiva arvosana ja kirjoita lyhyt arvio peleistä. Ota arvioinnissa huomioon sekä pelin kiinnostavuus ja pelattavuus että koodin selkeys.
+When the game is finished, submit it for peer revies with the following form. After this, familiarize yourself with the games of two of your coursemates, give the games a grade you deem appropriate,a dn write a short review of the game. Please take into account both how interesting and playable the game was, and how readable the program code is, when grading and reviewing the games.
 
-### Pelin lähettäminen
+### Submitting the game
 
-Pelin lähetys onnistuu lähettämällä oma ohjelmakoodi TMC Paste -ominaisuuden avulla palvelimelle ja liittämällä linkki palautuslomakkeeseen.
+You should submit the source code of your game through the TMC Paste feature, and include the link you receive in the form below. 
 
-Klikkaa ensin TMC-painiketta (silmän oikealla puolella oleva painike). Tämä avaa valikon, josta löydät oikean ominaisuuden kirjoittamalla hakukenttään sanan `send`:
+With your solution open in the editor, click the TMC menu button in Visual Studio Code (next to the eye symbol). This opens a menu where you can look for the TMC Paste feature by typing in `send`:
 
 <img src="tmc_paste_1.png">
 
-Kun klikkaat valintaa `Send Exercise to TMC Paste`, ruudun oikeaan alakulmaan putkahtaa tieto siitä, että ohjelmakoodi on lähetetty palvelimelle:
+Select the option `Send Exercise to TMC Paste`, and there should be a notification in the bottom right hand corner of the window telling you that the source code has been sent to the TMC server:
 
 <img src="tmc_paste_2.png">
 
-Saat linkin kopioitua leikepöydälle klikkaamalla painiketta `Open URL` ja valitsemalla aukeavasta ikkunasta valihtoehdon `Copy`.
+You can copy the link by clicking on the `Open URL` button in the notification. A popup should appear, and it should contain the option to `Copy`:
 
 <img src="tmc_paste_3.png">
 
-Tämä linkki sinun tulee liittää palautuslomakkeeseen.
+This is the link your should paste in the form below.
 
-## Osan 14 arvioinnista
+## How part 14 is graded
 
-Tämän viikon tavoitteena on saada aikaan toimiva peli. Koska osassa on vain yksi tehtävä, *myös yritys hyväksytään*. Voit siis palauttaa pelisi vaikka se ei toimisikaan haluamallasi tavalla.
+The goal of this part is to build a small, working game. As this part contains only a single task, *you get points for effort*. Please submit your game even if you can't get it to work quite the way you wanted to.
 
-Jos et saa peliä toimimaan, kirjoita ohjelmakoodin kommentteihin miten pelin (tai jonkin puuttuvan ominaisuuden) olisi tarkoitus toimia.
+If your game doesn't work the way you intended, please include comments in your code about how it _should_ work, or any features you think are missing but did not manage to implement.
 
-Kun arvioit (osittain tai kokonaan) toimimatonta peliä, pyri arviossasi mahdollisuuksien mukaan kertomaan mitä pelin valmiiksi saaminen olisi mielestäsi vaatinut.
+If a game you are reviewing is incomplete or doesn't work quite right, please include comments about what you think could have been done to make it work, if at all possible.
 
-## Peli-ideoita
+## Some game ideas
 
-Voit valita pelin aiheen vapaasti mutta tässä on joitakin ideoita. Pelin tekemisessä on hyötyä myös viikon 13 materiaalista.
+It is completely up to you what your game will be about, but here are some ideas to help you get started. Remember the material in part 13; those examples can help you work on your ideas, too.
 
-### Keräilypeli
+### A collecting game
 
-* Pelaaja liikuttaa robottia nuolinäppäimillä
-* Ruudulla on kolikko, joka robotin tulee kerätä. Kun robotti saa kolikon, se siirtyy uuteen paikkaan.
-* Ruudulla liikkuu myös hirviöitä, joita robotin tulee väistellä.
+* The player moves the robot with the arrow keys.
+* A coin appears in a random location on the screen. When the robot reaches it, the coin moves to a new location.
+* There are also monsters on the screen, and the robot must avoid them.
 
-### Rahasade
+### A rain of coins
 
-* Ruudun alareunassa on robotti, jota pelaaja voi liikuttaa vasemmalle tai oikealle
-* Taivaalta sataa rahaa, jota robotin tulee kerätä.
-* Taivaalta sataa myös hirviöitä, joita robotin tulee väistellä.
+* The player moves the robot to the left and right along the bottom of the screen.
+* Coins rain from the sky. The robot must collect these.
+* Also monsters rain from the sky. The robot must avoid these.
 
-## Vertaisarviointi
+## Peer review
 
-Arvioi peliä esimerkiksi seuraavien kriteerien mukaan:
+You should assess the game based on the following criteria:
 
-* Miltä peli näyttää?
-* Onko peli *pelattava*, ts. onko sen pelaaminen hauskaa ja sujuvaa?
-* Onko peli-idea kiinnostava?
-* Miten hyvin peliohjelma on kirjoitettu? Onko pelissä hyödynnetty tarvittavissa kohdin järkevästi funktioita ja luokkia?
+* What does the game look like?
+* Is the game *playable*? Is it fun to play and easy to use?
+* Is the game idea interresting?
+* How well is it programmed? Is the code readable, and does it make appropriate use of classes and functions?
 
-Hyvään arvioon kuuluu yleensä se, että löydät ohjelmasta sekä hyviä puolia että jotain kehitettävää.
+A good review usually points out both good features and some suggestions for improvements.
 
 <quiz id="df380014-a93c-5208-858a-a547cf9e8c60"></quiz>
 
-## Loppukysely
+## Questionnaires to finish off
 
-Vastaa ensin osion loppukyselyyn...
+First, please respond to a quick questionnaire on this part of the course.
 
 <quiz id="3a7a1818-83a5-56f3-b617-664f5f6ff4d7"></quiz>
 
-...ja sitten vielä koko kurssin loppukyselyyn:
+Please also respond to the course feedback questionnaire. The questionnaire results help us improve the course.
 
 <quiz id="7a5943ab-62be-504f-8642-fa33dc5f6722"></quiz>
 
