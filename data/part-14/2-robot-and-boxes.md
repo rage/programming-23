@@ -1,6 +1,6 @@
 ---
-path: '/part-14/2-robo-ja-laatikot'
-title: 'Robotti ja laatikot'
+path: '/part-14/2-robot-and-boxes'
+title: 'Robot and boxes'
 hidden: false
 ---
 

@@ -1,6 +1,6 @@
 ---
-path: '/part-14/4-oma-peli'
-title: 'Oma peli'
+path: '/part-14/4-your-own-game'
+title: 'Your own game'
 hidden: false
 ---
 

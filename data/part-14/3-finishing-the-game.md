@@ -1,6 +1,6 @@
 ---
-path: '/part-14/3-pelin-viimeistely'
-title: 'Pelin viimeistely'
+path: '/part-14/3-finishing-the-game'
+title: 'Finishing the game'
 hidden: false
 ---
 
