@@ -4,148 +4,150 @@ title: 'Robot and boxes'
 hidden: false
 ---
 
-Vaikein asia Sokoban-pelin toteutuksessa on saada robotti liikkumaan niin, että se pystyy työntämään laatikoita halutulla tavalla. Pelin pitää tunnistaa, milloin robotti pystyy siirtymään pelaajan haluamaan suuntiin, sekä käsitellä oikein tilanteet, joissa robotti työntää laatikkoa. Nyt on aika tarttua tähän haasteeseen.
+The most difficult thing to implement in a Sokoban style game tends to be moving the robot so that it can push boxes in the desired direction. The game should be able to tell when the robot can move in a direction specified, and be able to handle any situation where a box should move also. Let's tackle this challenge now.
 
-## Näppäimistön käsittely
+## Handling key events
 
-Pelaaja ohjaa robottia nuolinäppäimillä, joten tapahtumien käsittelyä täytyy laajentaa niin, että se tarkkailee myös näppäimistön tapahtumia:
+The player guides the robot with the four arrow keys, so our event handler should also be able to react to the appropriate key events:
 
 ```python
-    def tutki_tapahtumat(self):
-        for tapahtuma in pygame.event.get():
-            if tapahtuma.type == pygame.KEYDOWN:
-                if tapahtuma.key == pygame.K_LEFT:
-                    self.liiku(0, -1)
-                if tapahtuma.key == pygame.K_RIGHT:
-                    self.liiku(0, 1)
-                if tapahtuma.key == pygame.K_UP:
-                    self.liiku(-1, 0)
-                if tapahtuma.key == pygame.K_DOWN:
-                    self.liiku(1, 0)
+    def check_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    self.move(0, -1)
+                if event.key == pygame.K_RIGHT:
+                    self.move(0, 1)
+                if event.key == pygame.K_UP:
+                    self.move(-1, 0)
+                if event.key == pygame.K_DOWN:
+                    self.move(1, 0)
 
-            if tapahtuma.type == pygame.QUIT:
+            if event.type == pygame.QUIT:
                 exit()
 ```
 
-Nyt kun pelaaja painaa nuolinäppäintä, kutsutaan metodia `liiku` sopivilla parametreilla. Ensimmäinen parametri ilmaisee liikkeen määrän pystysuunnassa ja toinen parametri puolestaan ilmaisee liikkeen määrän vaakasuunnassa.
+Now whenever the player presses an arrow key, the method `move` is called with an appropriate pair of arguments. The first argument contains the movement in the vertical direction, while the second contains the movement in the horizontal direction.
 
-## Robotin etsiminen
+## Searching for the robot
 
-Pelin täytyy tietää robotin sijainti, jotta sitä pystyy siirtämään oikealla tavalla. Seuraava metodi `etsi_robo` selvittää robotin sijainnin:
+The game has to know the location of the robot in order to move it correctly. Let's add the method `find_robot` which figures out the location of the robot:
 
 ```python
-    def etsi_robo(self):
-        for y in range(self.korkeus):
-            for x in range(self.leveys):
-                if self.kartta[y][x] in [4, 6]:
+    def find_robot(self ):
+        for y in range(self.height):
+            for x in range(self.width):
+                if self.map[y][x] in [4, 6]:
                     return (y, x)
 ```
 
-Metodi käy läpi kaikki ruudukon ruudut ja palauttaa ruudun koordinaatit, jos ruudussa on luku 4 (robotti yksinään) tai luku 6 (robotti kohderuudun päällä).
+The method goes through all the squares in the game grid and returns the coordinates of the square which contains either the number 4 (the robot on its own) or the number 6 (the robot on a target square).
 
-Ideana on, että aina kun käyttäjä painaa nuolinäppäintä, selvitetään ensin robotin sijainti käymällä läpi ruudukon ruudut. Tämä voi tuntua vähän hitaalta, koska vaihtoehtoisesti voisi myös pitää yllä tietoa robotin sijainnista omissa muuttujissa. Tämän toteutuksen etuna on kuitenkin, että robotin sijainti ei ole tallessa kahdessa paikassa (ruudukossa ja erillisissä muuttujissa) vaan vain yhdessä paikassa, eli muistissa oleva pelin tila on yksinkertaisempi.
+The idea is that whenever the player presses an arrow key, first the location of the robot is established by going through the squares of the grid. This may seem a bit slow and superfluous, as we could just as well keep the location of the robot in a separate variable or two. The advantage of this search approach is that we are not storing the location of the robot in two different locations (in the game grid _and_ separate variables), but instead we just have to worry about the one location (the game grid), which means that the state of the game in computer memory is simpler to handle.
 
-## Muutokset ruudukossa
+## Changes to the game grid
 
-Metodi `liiku` saa parametreina suunnan, johon pelaaja haluaa robotin liikkuvan, ja metodi joko päivittää ruudukkoa sopivasti tai toteaa, että liikkuminen ei ole mahdollista eikä muuta ruudukon sisältöä.
+We already called the method `move` above, but we haven't actually defined it yet. Let's do that now.
+
+The `move` method takes the direction the player wants to move to as its arguments. It then updates the game grid accordingly, or determines the move is not allowed and leaves the grid unchanged.
 
 ```python
-    def liiku(self, liike_y, liike_x):
-        robon_vanha_y, robon_vanha_x = self.etsi_robo()
-        robon_uusi_y = robon_vanha_y + liike_y
-        robon_uusi_x = robon_vanha_x + liike_x
+    def move(self, move_y, move_x):
+        robot_old_y, robot_old_x = self.find_robot() 
+        robot_new_y = robot_old_y + move_y
+        robot_new_x = robot_old_x + move_x
 
-        if self.kartta[robon_uusi_y][robon_uusi_x] == 1:
+        if self.map[robot_new_y][robot_new_x] == 1:
             return
 
-        if self.kartta[robon_uusi_y][robon_uusi_x] in [3, 5]:
-            laatikon_uusi_y = robon_uusi_y + liike_y
-            laatikon_uusi_x = robon_uusi_x + liike_x
+        if self.map[robot_new_y][robot_new_x] in [3, 5]:
+            box_new_y = robot_new_y + move_y
+            box_new_x = robot_new_x + move_x
 
-            if self.kartta[laatikon_uusi_y][laatikon_uusi_x] in [1, 3, 5]:
+            if self.map[box_new_y][box_new_x] in [1, 3, 5]:
                 return
 
-            self.kartta[robon_uusi_y][robon_uusi_x] -= 3
-            self.kartta[laatikon_uusi_y][laatikon_uusi_x] += 3
+            self.map[robot_new_y][robot_new_x] -= 3
+            self.map[box_new_y][box_new_x] += 3
 
-        self.kartta[robon_vanha_y][robon_vanha_x] -= 4
-        self.kartta[robon_uusi_y][robon_uusi_x] += 4
+        self.map[robot_old_y][robot_old_x] -= 4
+        self.map[robot_new_y][robot_new_x] += 4
 ```
 
-Metodi on melko monimutkainen, joten katsotaan tarkemmin metodin osia:
+The method has quite a lot of different stages, so let's take a look at each one in turn:
 
-### Robotin vanha ja uusi sijainti
+### The old and new location of the robot
 
 ```python
-        robon_vanha_y, robon_vanha_x = self.etsi_robo()
-        robon_uusi_y = robon_vanha_y + liike_y
-        robon_uusi_x = robon_vanha_x + liike_x
+        robot_old_y, robot_old_x = self.find_robot() 
+        robot_new_y = robot_old_y + move_y
+        robot_new_x = robot_old_x + move_x
 ```
 
-Metodi kutsuu ensin metodia `etsi_robo`, joka selvittää robotin vanhan sijainnin ennen siirtoa. Tämä sijainti tallennetaan muuttujiin `robon_vanha_y` ja `robon_vanha_x`.
+First, the method calls the `find_robot` in order to find the current location of the robot, before the move. This is stored in the variables `robot_old_y` and `robot_old_x`.
 
-Tämän jälkeen muuttujiin `robon_uusi_y` ja `robon_uusi_x` lasketaan robotin haluttu uusi sijainti. Tämä saadaan laskettua kätevästi, kun tiedossa on vanha sijainti sekä haluttu sijainnin muutos pysty- ja vaakasuunnassa.
+Then the new location of the robot after the prospective move is stored in the variables `robot_new_y` and `robot_new_x`. The new coordinates can be easily calculated by adding the values passed as arguments to the old location of the robot, as both contained vertical and horizontal values.
 
-### Törmääkö robotti seinään?
+### Did the robot hit a wall?
 
 ```python
-        if self.kartta[robon_uusi_y][robon_uusi_x] == 1:
+        if self.map[robot_new_y][robot_new_x] == 1:
             return
 ```
 
-Seuraavaksi käsitellään tapaus, jossa pelaaja yrittää ohjata robottia seinään (luku 1 tarkoittaa seinää). Tämä ei ole sallittua, joten tässä tilanteessa ei tapahdu mitään ja metodin suoritus vain loppuu.
+The `if` statement above takes care of the situation where the robot would hit a wall as a result of the move. Remember, 1 was the position of a wall square in the list of images. This is not allowed, so the method simply returns without any further ado.
 
-### Laatikon siirtyminen
+### Moving a box
 
 ```python
-        if self.kartta[robon_uusi_y][robon_uusi_x] in [3, 5]:
-            laatikon_uusi_y = robon_uusi_y + liike_y
-            laatikon_uusi_x = robon_uusi_x + liike_x
+        if self.map[robot_new_y][robot_new_x] in [3, 5]:
+            box_new_y = robot_new_y + move_y
+            box_new_x = robot_new_x + move_x
 
-            if self.kartta[laatikon_uusi_y][laatikon_uusi_x] in [1, 3, 5]:
+            if self.map[box_new_y][box_new_x] in [1, 3, 5]:
                 return
 
-            self.kartta[robon_uusi_y][robon_uusi_x] -= 3
-            self.kartta[laatikon_uusi_y][laatikon_uusi_x] += 3
+            self.map[robot_new_y][robot_new_x] -= 3
+            self.map[box_new_y][box_new_x] += 3
 ```
 
-Jos robotin uudessa sijainnissa on luku 3 (laatikko) tai 5 (laatikko kohderuudussa), robotti työntää laatikkoa liikkuessaan. Tätä varten lasketaan muuttujiin `laatikon_uusi_y` ja `laatikon_uusi_x` laatikon uusi sijainti työntämisen jälkeen.
+If the new prospective location of the robot contains a number 3 (a box on its own) or a number 5 (a box in a target square), the robot attempts to move the box to the next square along. For this purpose we need two new variables: `box_new_y` and `box_new_x`, which contain the location of the box after the move.
 
-Laatikko ei voi siirtyä, jos uudessa kohdassa on luku 1 (seinäruutu), luku 3 (toinen laatikko) tai luku 5 (toinen laatikko kohderuudussa). Näissä tapauksissa metodi sulkee itsensä eikä tee mitään.
+Similarly to the robot, the box cannot be moved to a wall square, with the identifier 1. Neither can the box move onto another box, or a target square with a box on it. If this would happen as a result of the move, the method again simply returns without making any changes to the grid.
 
-Muissa tapauksissa kuitenkin laatikkoa pystyy siirtämään, jolloin laatikon nykyisen ruudun luvusta vähennetään 3 ja uuden ruudun lukuun lisätään 3. Tämä päivittää ruudukkoa oikealla tavalla sekä silloin, kun laatikko on tavallisessa lattiaruudussa tai kohderuudussa.
+In any other case the box can move. The value in the box's current grid location is decreased by 3, and the value in its new grid location is increased by 3. Because of the clever ordering of the items in the `images` list, this works out correctly both when the squares involved are floor squares and target squares.
 
-### Robotin siirtyminen
+### Moving the robot
 
 ```python
-        self.kartta[robon_vanha_y][robon_vanha_x] -= 4
-        self.kartta[robon_uusi_y][robon_uusi_x] += 4
+        self.map[robot_old_y][robot_old_x] -= 4
+        self.map[robot_new_y][robot_new_x] += 4
 ```
 
-Jos metodin suoritus etenee loppuun asti, myös robotin tulee vielä siirtyä. Tämä toteutetaan samalla tavalla kuin laatikon siirtyminen, paitsi että vähennettävä ja lisättävä arvo on 4. Tässäkin tapauksessa ruudukon sisältö muuttuu oikein tilanteissa, joissa robotti on tavallisessa lattiaruudussa tai kohderuudussa.
+If the execution of the method has reached this point without returning, it is time to move the robot as well. The procedure is similar to moving the box, but the value subtracted from and added to the appropriate locations in the grid is 4 this time around. This ensures, again through the clever ordering of the items in the `images` list, that the final result on the grid is correct both when floor and target squares are involved in the move.
 
-## Refaktorointia?
+## Refactoring?
 
-Tässä käytetty tapa tallentaa ruudukon tilanne on siinä mielessä kätevä, että yksi ruudukko kuvaa pelin koko tilanteen tiiviissä muodossa ja ruudukkoa on melko helppoa päivittää vähentämällä ja poistamalla sopivasti lukuja.
+Using only the grid to store the state of the game at all times is very handy in the sense that only one variable is permanently invlved in the whole process, and it is relatively easy to update the state of the grid through simple additions and subtractions.
 
-Toteutuksen huonona puolena on kuitenkin, että pelin koodin ymmärtäminen voi olla vaikeaa. Esimerkiksi jos ulkopuolinen koodari näkee seuraavan rivin, se näyttää luultavasti mystiseltä.
+The downside is that it can be a tad difficult to understand the program code of the game. If someone unfamiliar with the logic used saw this following line of code, they would likely be a bit perplexed:
 
 ```python
-            if self.kartta[laatikon_uusi_y][laatikon_uusi_x] in [1, 3, 5]:
+            if self.map[box_new_y][box_new_x] in [1, 3, 5]:
 ```
 
-Tässä on käytetty _taikalukuja_ (_magic numbers_) ruutujen esittämiseen, ja koodin lukijan täytyy tietää, että 1 tarkoittaa seinää, 3 tarkoittaa laatikkoa ja 5 tarkoittaa kohderuudussa olevaa laatikkoa.
+The code snippet above makes use of _magic numbers_ to represent the squares in the grid. ANyone reading the code would have to know that 1 means wall, 3 means a box and 5 means a box in a target square.
 
-Vielä mystisempiä ovat rivit tyyliin
+The lines involving the clever subtractions and additions would look even more baffling:
 
 ```python
-            self.kartta[robon_uusi_y][robon_uusi_x] -= 3
+            self.map[robot_new_y][robot_new_x] -= 3
 ```
 
-koska nyt laatikkoa tarkoittava luku 3 vähennetään ruudun luvusta. Tämä toimii, koska tämä muuttaa tavallisen laatikon lattiaksi ja kohderuudussa olevan laatikon kohderuuduksi, mutta asian ymmärtäminen vaatii huolellista perehtymistä ruutujen numerointiin.
+The number 3 meant a box just previously, but now it is subtracted from the value of a square on the grid. This works in the context of our numbering scheme, as it changes a box (3) into a normal floor square (0), or a target square with a box (5) into an empty target square (2), but understanding this requiares a primer in the numbering scheme used.
 
-Pelin koodin lukijan työtä voisi helpottaa _refaktoroimalla_ koodia eli muuttamalla koodin rakennetta paremmaksi ja selkeämmäksi. Tässä tapauksessa helppo muutos olisi käyttää lukujen 0–6 sijasta kuvaavampia ruutujen nimiä, mutta tämä ei selittäisi sitä, miksi lukuja voi vähentää ja lisätä ja ruudukko muuttuu oikealla tavalla.
+We could make it easier for anyone reading the code by _refactoring_ our implementation. That means improving the structure and readability of the code. One way to achieve this would be to use the names of the squares instead of the numbers 0 to 6, even though this would still not explain how and why numbers can be added and subtracted while maintaining the integrity of the grid. 
 
-Pelin koodin saaminen todella helposti luettavaksi vaatisikin luultavasti paljon suurempaa refaktorointia, kuten ruudukon pysyvän rakenteen tallentamista erillään ja robotin ja laatikoiden sijaintien tallentamista omissa tietorakenteissaan. Toisaalta tämän kääntöpuolena olisi, että koodia voisi tulla paljon lisää ja pelin sisäinen toiminta muuttuisi monimutkaisemmaksi.
+Making the program code truly accessible would likely require much more fundamentally transformative refactoring. For example, we could keep the structure of the game map in one location, and store the locations of the robot and the boxes in some separate data structure. The downside of _this_ would be that this would likely result in a lot more code, and the internal structure of the game would become much more complicated.
 
-Refaktorointiin ja koodin laatuun liittyviin asioihin tutustutaan lisää tulevilla kursseilla, kuten _Ohjelmistotekniikka_ ja _Ohjelmistotuotanto_.
+Refactoring and code quality is a subject for some subsequent courses, such as _Software Development Methods_ and _Software Engineering_.
