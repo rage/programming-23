@@ -8,234 +8,234 @@ hidden: false
 
 After this section
 
-- Tiedät, miten voi toteuttaa animaation
-- Osaat tahdistaa ohjelman nopeuden kellon avulla
-- Osaat käyttää trigonometriaa animaatiossa
+- You will know how to create an animation with Pygame
+- You will be able to use a clock to set the speed of your program
+- You will be able to use basic trigonometric functions in your animations
 
 </text-box>
 
-Monissa peleissä on tarvetta saada aikaan liikkuvia hahmoja, joten seuraava luonteva askel on opetella animaation tekeminen. Animaatio syntyy, kun kuva piirretään eri kohtiin näytöllä sopivasti ajastettuna.
+Many games have moving characters, so a logical next step is creating animations. We can create the illusion of movement by drawing the same image in different locations on the screen and timing the changes appropriately.
 
-## Animaation tekeminen
+## Creating an animation
 
-Seuraava koodi luo animaation, jossa robotti kulkee vasemmalta oikealle ikkunassa:
+The following code creates an animation where a robot moves from left to right in a Pygame window:
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robo.png")
+robot = pygame.image.load("robot.png")
 
 x = 0
 y = 0
-kello = pygame.time.Clock()
+clock = pygame.time.Clock()
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.QUIT:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
             exit()
 
-    naytto.fill((0, 0, 0))
-    naytto.blit(robo, (x, y))
+    window.fill((0, 0, 0))
+    window.blit(robot, (x, y))
     pygame.display.flip()
 
     x += 1
-    kello.tick(60)
+    clock.tick(60)
 ```
 
-Ohjelman suoritus näyttää seuraavalta:
+When this is executed, the result should look like this:
 
 <img src="pygame_animation.gif">
 
-Katsotaan taas tarkemmin, mitä ohjelmassa tapahtuu. Jotta kuva pystyy liikkumaan, ohjelmassa täytyy olla tieto sen paikasta. Tämä onnistuu ottamalla käyttöön kaksi muuttujaa, jotka sisältävät kuvan vasemman yläkulman koordinaatit:
+Let's take a closer look at the commands involved. If we want to trace the movement of the image on the screen, we need to know its location, which is why we have two variables for the coordinates of the top left corner of the image:
 
 ```python
 x = 0
 y = 0
 ```
 
-Tämän lisäksi määritellään kello, jonka avulla pystyy huolehtimaan siitä, että animaation nopeus on sopiva:
+We also have a clock, which we use to make sure the speed of the animation is just right:
 
 ```python
-kello = pygame.time.Clock()
+clock = pygame.time.Clock()
 ```
 
-Pääsilmukan sisällä on koodi, joka piirtää kuvan sen nykyiseen paikkaan:
+The main loop draws the image at its current location with each iteration:
 
 ```python
-    naytto.fill((0, 0, 0))
-    naytto.blit(robo, (x, y))
+    window.fill((0, 0, 0))
+    window.blit(robot, (x, y))
     pygame.display.flip()
 ```
 
-Ensin kutsutaan metodia `fill`, joka tyhjentää ikkunan mustalla värillä. Väri määritellään RGB-muodossa parametrilla `(0, 0, 0)`, mikä tarkoittaa, että värin punainen, vihreä ja sininen komponentti on 0 eli väri on musta. Jokainen komponentti voi olla välillä 0–255. Esimerkiksi `(255, 255, 255)` on valkoinen ja `(255, 0, 0)` on punainen. Verkossa on monia työkaluja, joiden avulla voi tutkia RGB-värejä, kuten [RGB Color Codes Chart](https://www.rapidtables.com/web/color/RGB_Color.html).
+First the method `fill` fills the window with black, as before. The colour is passed as a tuple containing the RGB values for the colour. In this case the argument is `(0, 0, 0)`, which means that all three components - red, green and blue - have value 0. Each component can have a value between 0 and 255. So, if we passed `(255, 255, 255)` as the argument, we'd get a white window, and with `(255, 0, 0)` we'd get a red window. RGB colour codes form the backbone of digital colouring, and there are many tools online for working with them, for example [RGB Color Codes Chart](https://www.rapidtables.com/web/color/RGB_Color.html).
 
-Tämän jälkeen kuva piirretään tuttuun tapaan metodilla `blit` ja lopuksi ikkunan sisältö päivitetään funktiolla `pygame.display.flip`.
+After the window is filled with colour the image is drawn at the given location with the `blit` method. Then the contents of the window are updated with the function `pygame.display.flip`.
 
-Silmukan päätteeksi muuttujan `x` arvo kasvaa, minkä ansiosta kuva liikkuu pikselin eteenpäin joka kierroksella:
+Finally, the value stored in `x` is incremented, which makes the image move one pixel to the right with each iteration:
 
 ```python
     x += 1
 ```
 
-Lisäksi silmukan lopussa suoritetaan kellon metodi `tick`:
+The clock method `tick` is called at the end:
 
 ```python
-    kello.tick(60)
+    clock.tick(60)
 ```
 
-Metodi `tick` huolehtii siitä, että animaation nopeus on sopiva: se tahdistaa silmukan niin, että silmukka pyritään suorittamaan 60 kertaa sekunnissa. Toisin sanoen kuva liikkuu sekunnissa 60 pikseliä oikealle. Tämä vastaa suunnilleen pelien yhteydessä käytettävää termiä _FPS_ (_frames per second_).
+The method `tick` takes care of the speed of the animation. The argument `60` dictates that the loop should be executed 60 times a second, which means that the image moves 60 pixels to the right each second. This approximately matches the _FPS_ or _frames per second_ value used with games.
 
-Metodi `tick` on hyödyllinen, koska sen avulla animaatio toimii periaatteessa yhtä nopeasti jokaisella koneella. Jos silmukassa ei olisi tällaista ajastusta, pelin nopeus riippuisi siitä, kuinka nopeasti pelaajan kone toimii.
+In principle, the `tick` method makes sure that the animation runs at the same speed on every computer. If there was no such timing involved, the spped of the animation would depend on the speed of the computer.
 
-## Seinään törmääminen
+## Bouncing off a wall
 
-Äskeinen animaatio on muuten hieno, mutta kun robotti etenee ikkunan ulkopuolelle, animaatio jatkuu ja robotti katoaa näkyvistä. Tehdään seuraavaksi ohjelmaan parannus, jonka avulla robotin suunta muuttuu, jos se törmää seinään.
+The previous animation was otherwise excellent, but as the robot reached a wall, it just kept going out of sight. Let's make the robot bounce off the wall.
 
 ```python
 import pygame
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robo.png")
+robot = pygame.image.load("robot.png")
 
 x = 0
 y = 0
-nopeus = 1
-kello = pygame.time.Clock()
+velocity = 1
+clock = pygame.time.Clock()
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.QUIT:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
             exit()
 
-    naytto.fill((0, 0, 0))
-    naytto.blit(robo, (x, y))
+    window.fill((0, 0, 0))
+    window.blit(robot, (x, y))
     pygame.display.flip()
     
-    x += nopeus
-    if nopeus > 0 and x+robo.get_width() >= 640:
-        nopeus = -nopeus
-    if nopeus < 0 and x <= 0:
-        nopeus = -nopeus
+    x += velocity
+    if velocity > 0 and x+robot.get_width() >= 640:
+        velocity = -velocity
+    if velocity < 0 and x <= 0:
+        velocity = -velocity
 
-    kello.tick(60)
+    clock.tick(60)
 ```
 
-Ohjelman suoritus näyttää nyt tältä:
+Running the above code should look like this:
 
 <img src="pygame_animation2.gif">
 
-Nyt ohjelmassa on uusi muuttuja `nopeus`, joka määrittää robotin liikkumistavan. Positiivinen nopeus tarkoittaa liikkumista oikealle ja negatiivinen nopeus tarkoittaa liikkumista vasemmalle. Tässä tapauksessa kun nopeus on 1, robotti liikkuu oikealle, ja kun nopeus on –1, robotti liikkuu vasemmalle.
+There is a new variable `velocity` which determines the direction of the movement. If the value is above zero, movement is to the right, and if it is below zero, movement is to the left. More precisely in this case, if the value is `1`, the robot moves to the right, and if it is `-1`, the robot moves to the left.
 
-Seuraavat rivit huolehtivat, että robotti osaa törmätä seinään:
+The following lines make the robot bounce off the side walls:
 
 ```python
-    if nopeus > 0 and x+robo.get_width() >= 640:
-        nopeus = -nopeus
-    if nopeus < 0 and x <= 0:
-        nopeus = -nopeus
+    if velocity > 0 and x+robot.get_width() >= 640:
+        velocity = -velocity
+    if velocity < 0 and x <= 0:
+        velocity = -velocity
 ```
 
-Jos nopeus on positiivinen eli robotti liikkuu oikealle ja sen oikea reuna menee ikkunan oikean reunan ulkopuolelle, robotin suunta muuttuu käänteiseksi eli se alkaa liikkua vasemmalle. Vastaavasti jos nopeus on negatiivinen ja robotin vasen reuna menee ikkunan vasemman reunan ulkopuolelle, suunta muuttuu taas käänteiseksi eli robotti alkaa liikkua oikealle.
+If the velocity is above zero so that the robot is moving to the right, and the right edge if the image goes beyong the right edge of the window, the direction is reversed and the robot starts moving to the left. Similarly, if the velocity is beow zero so that the robot is moving to the left, and the left edge of the image reaches the left edge of the window, the direction is again reversed and the robot starts moving to the right again.
 
-Tämän koodin ansiosta robotti jatkaa loputtomasti rataa, jossa se liikkuu ensin koko ikkunan verran oikealle, sitten takaisin vasemmalle, sitten taas oikealle, jne.
+This makes the robot move on a path from the left edge of the window to the right edge, and back to the left, and then to the right again, repeated ad infinitum.
 
-## Pyörivä animaatio
+## Rotation
 
-Tehdään vielä animaatio, jossa robotti _pyörii_  ikkunan keskipisteen ympärillä:
+Let's create one more animation. This time the robot should _rotate_ in a circle around the centre of the window:
 
 ```python
 import pygame
 import math
 
 pygame.init()
-naytto = pygame.display.set_mode((640, 480))
+window = pygame.display.set_mode((640, 480))
 
-robo = pygame.image.load("robo.png")
+robot = pygame.image.load("robot.png")
 
-kulma = 0
-kello = pygame.time.Clock()
+angle = 0
+clock = pygame.time.Clock()
 
 while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.QUIT:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
             exit()
 
-    x = 320+math.cos(kulma)*100-robo.get_width()/2
-    y = 240+math.sin(kulma)*100-robo.get_height()/2
+    x = 320+math.cos(angle)*100-robot.get_width()/2
+    y = 240+math.sin(angle)*100-robot.get_height()/2
 
-    naytto.fill((0, 0, 0))
-    naytto.blit(robo, (x, y))
+    window.fill((0, 0, 0))
+    window.blit(robot, (x, y))
     pygame.display.flip()
 
-    kulma += 0.01
-    kello.tick(60)
+    angle += 0.01
+    clock.tick(60)
 ```
 
-Ohjelman suoritus näyttää tältä:
+Running the above code should look like this:
 
-<img src="pygame_round.gif">
+<img src="pygame_rotation.gif">
 
-Pyörimisanimaatio saadaan toteutettua trigonometrian avulla: muuttujassa `kulma` on radiaaneina robotin sijainnin kulma suhteessa ikkunan keskipisteeseen. Tästä saadaan laskettua sini- ja kosinifunktioilla robotin sijainti:
+Rotation in a relatively precise circle is achieved with the help of some basic trigonometric functions. The varible `angle` contains the angle of the robots location in relation to the centre of the window and the horizontal line running through it. The sine and cosine functions from the Python math library are used to calculate the coordinates of the robot's location:
 
 ```python
-        x = 320+math.cos(kulma)*100-robo.get_width()/2
-        y = 240+math.sin(kulma)*100-robo.get_height()/2
+        x = 320+math.cos(angle)*100-robot.get_width()/2
+        y = 240+math.sin(angle)*100-robot.get_height()/2
 ```
 
-Tämä tarkoittaa, että robotin sijainti on ympyrällä, jonka säde on 100. Kosini antaa x-suuntaisen sijainnin ja sini puolestaan y-suuntaisen sijainnin. Jotta animaatio näyttää hyvältä, robotti lisäksi keskitetään niin, että sen keskipiste on ympyrällä.
+The robot rotates around a circle of radius 100 around the centre of the window. The hypotenuse in this scenario is the radius of the circle. The cosine function gives the length of the _adjacent_ side of a right triangle in relation to the hypotenuse, which means that it gives us the `x` coordinate of the location. The sine function gives the length of the _opposite_ side, i.e. the `y` coordinate. The location is then adjusted for the size of the image, so that the centre of the circle is at the centre of the window.
 
-Joka kierroksella muuttujan `kulma` arvo kasvaa 0.01:llä. Koska radiaaneissa täysi ympyrä on 2π eli noin 6.28, robotti pyörii suunnilleen kierroksen verran 10 sekunnissa.
+With each iteration the size of the `angle` is incremented by 0.01:llä. As we are using radians, a full circle is 2π, which equals about 6.28. It takes about 628 iterations for the robot to go a full circle, and at 60 iterations per second this takes just over 10 seconds.
 
-<programming-exercise name='Pystyliike' tmcname='osa13-05_pystyliike'>
+<programming-exercise name='Vertical movement' tmcname='part13-05_vertical_movement'>
 
-Tee animaatio, jossa robotti liikkuu vuorotellen ylös ja alas. Ohjelman suorituksen tulee näyttää tältä:
+Please create an animation where the robot moves up and down in an endless loop. The end result should look like this:
 
 <img src="pygame_vertical.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Reunan kierto' tmcname='osa13-06_reunan_kierto'>
+<programming-exercise name='Round the perimeter' tmcname='part13-06_round_the_perimeter'>
 
-Tee animaatio, jossa robotti kiertää ympäri ikkunan reunaa. Ohjelman suorituksen tulee näyttää tältä:
+Please create an animation where the robot traces the perimeter of the window. The end result should look like this:
 
 <img src="pygame_perimeter.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Kaksi robottia' tmcname='osa13-07_kaksi_robottia'>
+<programming-exercise name='Two robots' tmcname='part13-07_two_robots'>
 
-Tee animaatio, jossa kaksi robottia kulkee näytöllä vuorotellen oikealle ja vasemmalle. Alempi robotti kulkee tuplavauhtia. Ohjelman suorituksen tulee näyttää tältä:
+Please create an animation where two robots move back and forth to the left and right. The lower robot should move at double the speed of the upper one. The end result should look like this:
 
 <img src="pygame_move2.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Piirileikki' tmcname='osa13-08_piirileikki'>
+<programming-exercise name='Robots in a circle' tmcname='part13-08_robot_circle'>
 
-Tee animaatio, jossa on kymmenen robottia piirileikissä. Ohjelman suorituksen tulee näyttää tältä:
+Please create an animation where ten robots go round in a circle. The end result should look like this:
 
 <img src="pygame_circle.gif">
 
 </programming-exercise>
 
-<programming-exercise name='Pomppiva pallo' tmcname='osa13-09_pomppiva_pallo'>
+<programming-exercise name='Bouncing ball' tmcname='part13-09_bouncing_ball'>
 
-Tee animaatio, jossa pallo kimpoaa ikkunan reunoilta. Ohjelman suorituksen tulee näyttää tältä:
+Please create an animation where a ball bounces from the edges of the window. The end result should look like this:
 
 <img src="pygame_bounce.gif">
 
-Tehtäväpohjassa on palloa varten kuvatiedosto `pallo.png`.
+The exercise template contains the image `ball.png`.
 
 </programming-exercise>
 
-<programming-exercise name='Robotti-invaasio' tmcname='osa13-10_robotti_invaasio'>
+<programming-exercise name='Robot invasion' tmcname='part13-10_robot_invasion'>
 
-Tee animaatio, jossa taivaalta tippuu satunnaisesti robotteja. Kun robotti laskeutuu maahan, se lähtee joko vasemmalle tai oikealle ja katoaa lopuksi ruudulta. Ohjelman suorituksen tulee näyttää tältä:
+Please create an animation where robots fall from the sky randomly. When a robot reaches the ground, it starts moving to the left or to the right, and finaly disappears off the screen. The end result should look like this:
 
 <img src="pygame_invasion.gif">
 
