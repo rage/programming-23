@@ -124,7 +124,7 @@ It can be difficult to test the correct functioning of a situation like that, as
         return True
 ```
 
-Now the method alays returns `True`, which means that the game is "solved" to begin with. This makes it easy to check that the noification at the end looks good and the player can no longer move on the grid after solving. When this functionality is thoroughly tested, we can revoke the changes.
+Now the method always returns `True`, which means that the game is "solved" to begin with. This makes it easy to check that the noification at the end looks good and the player can no longer move on the grid after solving. When this functionality is thoroughly tested, we can revoke the changes.
 
 ## Your game on GitHub?
 
