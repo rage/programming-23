@@ -21,7 +21,7 @@ class EditPage extends React.Component {
 
   componentDidMount = () => {
     var urlpath = new URLSearchParams(this.props.location.search).get("path")
-    var editPath = CourseSettings.githubUrl.concat("/edit/master", urlpath)
+    var editPath = CourseSettings.githubUrl.concat("/edit/main", urlpath)
     this.setState({
       path: new URLSearchParams(this.props.location.search).get("path"),
       editPath: editPath,
