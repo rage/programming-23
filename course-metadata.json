@@ -1,7 +1,7 @@
 {
   "@context": "http://schema.org",
   "@type": "Course",
-  "name": "Ohjelmoinnin perusteet ja jatkokurssi 2021",
+  "name": "Programming MOOC 2022",
   "description": "",
   "provider": {
     "@type": "Organization",
@@ -16,14 +16,14 @@
   "hasCourseInstance": [
     {
       "@type": "CourseInstance",
-      "name": "Ohjelmoinnin perusteet ja jatkokurssi 2021",
+      "name": "Programming MOOC 2022",
       "courseMode": ["MOOC", "online"],
       "location": {
         "@type": "Place",
         "name": "Exactum, Kumpulan kampus",
         "address": "Gustaf Hällströmin katu 2b 00560 Helsinki, Finland"
       },
-      "startDate": "2021-01-11",
+      "startDate": "2022-01-10",
       "audience": {
         "@type": "EducationalAudience",
         "educationalRole": "student",
@@ -31,8 +31,8 @@
       },
       "inLanguage": {
         "@type": "Language",
-        "name": "Finnish",
-        "alternateName": "fi"
+        "name": "English",
+        "alternateName": "en"
       },
       "isAccessibleForFree": true
     }

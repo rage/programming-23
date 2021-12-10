@@ -9,7 +9,7 @@ hidden: false
 After this section
 
 - You will be equipped to use the Visual Studio Code editor to complete exercises on this course
-- You will be familiar with the interactive Python interpreter, and will be able to use it to run code 
+- You will be familiar with the interactive Python interpreter, and will be able to use it to run code
 
 </text-box>
 
@@ -17,7 +17,7 @@ Thus far all the exercises on this course have been completed directly on the co
 
 There are dozens of different editors that are suited to programming. On this course we will use the [Visual Studio Code](https://code.visualstudio.com/) editor, which has been gaining traction in recent years.
 
-Please install the Visual Studio Code editor on your own computer now. You may also need to install Python and the Visual Studio Code plugin for Python. You will also need the TMC plugin, which will take care of running the tests that go with the exercises. In the TMC plugin, select **MOOC** as the organization and **Python Programming 2021** as the course.
+Please install the Visual Studio Code editor on your own computer now. You may also need to install Python and the Visual Studio Code plugin for Python. You will also need the TMC plugin, which will take care of running the tests that go with the exercises. In the TMC plugin, select **MOOC** as the organization and **Python Programming 2022** as the course.
 
 [Here is a guide](https://www.mooc.fi/en/installation/vscode) to installing and running all of these. Read the instructions on working on and submitting exercises, and then complete the task below:
 
@@ -177,7 +177,7 @@ Let's try a few of them, `reverse` and `clear` seem promising:
 
 As you can see, these methods do pretty much what you would expect based on their names.
 
-Notice how the interpreter doesn't print out anything when you run the command `numbers.reverse()`. This is because the interpreter prints something out only if the line of code has a value. The `reverse()` method here doesn't return any value. 
+Notice how the interpreter doesn't print out anything when you run the command `numbers.reverse()`. This is because the interpreter prints something out only if the line of code has a value. The `reverse()` method here doesn't return any value.
 
 In the above example we printed out the value of the list `numbers` by typing in just the name of the variable. In fact, it is rarely necessary to explicitly type in `print` commands in the interpreter. You can include them if you want to, however.
 
