@@ -14,4 +14,4 @@ The official course support channels are available through Discord and at Kumpul
 
 Discord is a communication platform which allows both text-based and voice/video chats. You can find out more about the platform [on the Discord website](https://discord.com/).
 
-The course channels are available through [this link](https://study.cs.helsinki.fi/discord/join/ohjelmointi21). See especially the `ohjelmointi21_english` and the `ohjelmointi21_voice` channels for support in English.
+The course channels are available through [this link](https://study.cs.helsinki.fi/discord/join/ohjelmoinnin_mooc). See especially the `ohjelmoinnin_mooc_english` and the `ohjelmoinnin_mooc_voice` channels for support in English.
