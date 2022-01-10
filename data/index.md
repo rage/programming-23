@@ -17,13 +17,13 @@ The Introduction to Programming course consists of parts 1 through 7 in the mate
 
 ## Support channels on the course
 
-The official course support channels are available through Discord. Course instructors will be on standby **from September 7th 2021 onwards**.
+The official course support channels are available through Discord.
 
 Please see the [Support and assistance](/support-and-assistance) page for more details.
 
 ## Timetable
 
-The course will be open until the end of the year 2021. The materials will be made available on a weekly basis. Part 1 will be available from September 7th onwards.
+The course will be open until the end of the year 2022.
 
 ## Lectures
 

@@ -12,20 +12,15 @@ To pass the Python Programming MOOC courses you are expected to both complete ex
 
 #### Introduction to Programming
 
+* TBA
+
 ####  Advanced Course in Programming
 
+* TBA
 
 ## Taking a programming exam
 
 Once you have completed the required number of exercises for either of the courses, you may take the relevant course exam at any of the times listed above. Specifically, you must have received at least 25% of the exercise points for each of the seven parts on the course by 8 AM on the morning of the exam. If any of the seven points totals falls short of this limit, your exam submission will not be graded.
-
-<text-box variant="hint" name="Exam 16.12.2021">
-
-* Part 14 can be completed after exam.
-* For participating in the Advanced Course in Programming exam on 16.12, it is sufficient to have received at least 25 % of the exercise points for each part of the parts 8-13 by 8 AM on the morning of the exam.
-* **Own game exercise in part 14 must be returned by the end of the year 2021, otherwise your exam submission will not be graded.**
-
-</text-box>
 
 Submissions are assessed separately for the Introduction to Programming course (parts 1-7) and the Advanced Course in Programming (parts 8-14).
 
