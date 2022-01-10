@@ -503,7 +503,7 @@ Please type in integer numbers:
 **2**
 **-1**
 Sum of numbers: 13
-Mean of numbers: 4.5
+Mean of numbers: 3.25
 
 </sample-output>
 
