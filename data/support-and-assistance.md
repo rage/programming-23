@@ -6,6 +6,8 @@ information_page: true
 sidebar_priority: 4000
 ---
 
+<notice>The guidance on support channels will start on Tuesday, January 18, 2022.</notice>
+
 The official course support channels are available through Discord.
 
 #### Discord
