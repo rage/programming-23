@@ -28,6 +28,8 @@ exports.createPages = ({ actions, graphql }) => {
 
   const vocabularyTemplate = path.resolve(`src/templates/VocabularyTemplate.js`)
 
+  const courseInfoTemplate = path.resolve(`src/templates/CourseInfoTemplate.js`)
+
   const query = `
   {
     allMarkdownRemark(
@@ -49,6 +51,7 @@ exports.createPages = ({ actions, graphql }) => {
             hide_in_sidebar
             sidebar_priority
             vocabulary_page
+            course_info_page
           }
         }
       }
@@ -76,6 +79,9 @@ exports.createPages = ({ actions, graphql }) => {
       }
       if (node.frontmatter.vocabulary_page) {
         template = vocabularyTemplate
+      }
+      if (node.frontmatter.course_info_page) {
+        template = courseInfoTemplate
       }
       if (!node.frontmatter.path) {
         // To prevent a bug that happens in development from time to time
