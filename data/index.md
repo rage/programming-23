@@ -21,6 +21,8 @@ The official course support channels are available through Discord.
 
 Please see the [Support and assistance](/support-and-assistance) page for more details.
 
+Use Discord primarily for communication. You can be in contact with the course teachers by e-mail ohjelmoinnin-mooc@helsinki.fi.
+
 ## Timetable
 
 The course will be open until the end of the year 2022.
