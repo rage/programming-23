@@ -130,7 +130,9 @@ const Sidebar = (props) => {
       }),
     )
 
-  let coursePartEdges = edges.filter((o) => !o.information_page && !o.course_info_page && !o.upcoming)
+  let coursePartEdges = edges.filter(
+    (o) => !o.information_page && !o.course_info_page && !o.upcoming,
+  )
 
   let informationPageEdges = edges
     .filter((o) => o.information_page || o.course_info_page)

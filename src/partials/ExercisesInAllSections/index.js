@@ -16,9 +16,7 @@ class ExercisesInAllSections extends React.Component {
     if (!this.state.render) {
       return <div>Loading...</div>
     }
-    return (
-        <ExerciseList />
-    )
+    return <ExerciseList />
   }
 }
 

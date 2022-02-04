@@ -6,7 +6,10 @@ import { Link } from "gatsby"
 import withSimpleErrorBoundary from "../../util/withSimpleErrorBoundary"
 import ExerciseSummary from "../ExercisesInThisSection/ExerciseSummary"
 import { fetchQuizNames } from "../../services/quizzes"
-import { extractPartNumberFromPath, extractSubpartNumberFromPath } from "../../util/strings"
+import {
+  extractPartNumberFromPath,
+  extractSubpartNumberFromPath,
+} from "../../util/strings"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLink } from "@fortawesome/free-solid-svg-icons"
 
@@ -28,7 +31,7 @@ const Title = styled.div`
   line-height: 1.33;
   letter-spacing: 0em;
   a {
-    margin-left: .5em;
+    margin-left: 0.5em;
   }
 `
 
@@ -40,7 +43,7 @@ const Subtitle = styled.div`
   font-size: 1.1rem;
   letter-spacing: 0em;
   a {
-    margin-left: .5em;
+    margin-left: 0.5em;
   }
 `
 
@@ -65,8 +68,7 @@ class ExerciseList extends React.Component {
         return partA > partB ? 1 : partB > partA ? -1 : 0
       })
 
-    const exercisePages = value.all
-      .filter((o) => o.exercises?.length > 0)
+    const exercisePages = value.all.filter((o) => o.exercises?.length > 0)
 
     const quizIdToTitle = await fetchQuizNames()
     this.setState({ overviewPages, exercisePages, quizIdToTitle, render: true })
@@ -88,34 +90,33 @@ class ExerciseList extends React.Component {
               </Title>
 
               {this.state.exercisePages
-                  .filter((o) => o.path.startsWith(`${page.path}/`))
-                  .sort((a, b) => {
-                    let subA = extractSubpartNumberFromPath(a.path.toLowerCase())
-                    let subB = extractSubpartNumberFromPath(b.path.toLowerCase())
+                .filter((o) => o.path.startsWith(`${page.path}/`))
+                .sort((a, b) => {
+                  let subA = extractSubpartNumberFromPath(a.path.toLowerCase())
+                  let subB = extractSubpartNumberFromPath(b.path.toLowerCase())
 
-                    return subA > subB ? 1 : subB > subA ? -1 : 0
-                  })
-                  .map((page) => (
-                    <Page key={page.title}>
-                      <Subtitle>
-                        {page.title}
-                        <Link to={page.path}>
-                          <FontAwesomeIcon icon={faLink} size="sm" />
-                        </Link>
-                      </Subtitle>
-                      {page.exercises.map((exercise, i) => (
-                        <ExerciseSummary
-                          index={i}
-                          exercise={exercise}
-                          key={exercise.id}
-                          quizIdToTitle={this.state.quizIdToTitle}
-                        />
-                      ))}
-                    </Page>
-                  ))}
+                  return subA > subB ? 1 : subB > subA ? -1 : 0
+                })
+                .map((page) => (
+                  <Page key={page.title}>
+                    <Subtitle>
+                      {page.title}
+                      <Link to={page.path}>
+                        <FontAwesomeIcon icon={faLink} size="sm" />
+                      </Link>
+                    </Subtitle>
+                    {page.exercises.map((exercise, i) => (
+                      <ExerciseSummary
+                        index={i}
+                        exercise={exercise}
+                        key={exercise.id}
+                        quizIdToTitle={this.state.quizIdToTitle}
+                      />
+                    ))}
+                  </Page>
+                ))}
             </PartWrapper>
-          ))
-        }
+          ))}
       </div>
     )
   }
