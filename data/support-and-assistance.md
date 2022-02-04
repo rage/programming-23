@@ -6,9 +6,7 @@ information_page: true
 sidebar_priority: 4000
 ---
 
-<notice>The guidance on support channels will start on Tuesday, January 18, 2022.</notice>
-
-The official course support channels are available through Discord.
+The official course support channels are available through Discord and at Kumpula Campus.
 
 #### Discord
 
@@ -16,7 +14,23 @@ Discord is a communication platform which allows both text-based and voice/video
 
 The course channels are available through [this link](https://study.cs.helsinki.fi/discord/join/ohjelmoinnin_mooc). See especially the `ohjelmoinnin_mooc_english` and the `ohjelmoinnin_mooc_voice` channels for support in English.
 
-#### Support timetable
+#### Workshop timetable
+
+<notice>The times indicated below may change as the course progresses.</notice>
+
+<notice>All times are local time in Helsinki, Finland, UTC+02:00</notice>
+
+The workshop will be held **on Wednesdays from 12:00 to 16:00 in classroom BK107**
+
+You can visit the course workshop for a good environment to do programming exercises with other students as well as receive assistance regarding the course and its exercises! The workshop is located at the Exactum building on University of Helsinki's Kumpula campus. Everyone is welcome to the workshop!
+
+Disclaimer: While course assistants speak finnish don't be afraid to ask in english if you don't know finnish!
+
+The location of Exactum and directions to it can be found [here](https://www.google.com/maps?hl=en&q=Exactum,+Kumpula+Campus,+Pietari+Kalmin+katu+5,+00560+Helsinki).
+
+The workshop is held in classroom **BK107** right next to Exactum's UniCafe. You can consult the info screen at Exactum's lobby to view an exact location. You may also ask the building porter as well as campus staff and students.
+
+#### Discord support timetable
 
 A team of course instructors is available on multiple days every week to help you with your programming-related questions. Instructors will be on standby on the Discord channels at the times specified in the table below. They will also reply to queries sent via private messages at those times. Please be mindful of their time - do not send private messages outside the times listed below.
 
