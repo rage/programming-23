@@ -36,6 +36,7 @@ import FloatImageRight from "./FloatImageRight"
 import CodeStatesVisualizer from "./CodeStatesVisualizer"
 import PdfSlideshow from "./PdfSlideshow"
 import ExercisesInThisSection from "./ExercisesInThisSection"
+import ExercisesInAllSections from "./ExercisesInAllSections"
 import AbStudy from "./AbStudy"
 import MoodleExercise from "./MoodleExercise"
 import SqlTrainerExercise from "./SqlTrainerExercise"
@@ -84,6 +85,7 @@ const mapping = () => ({
   "code-states-visualizer": CodeStatesVisualizer,
   "pdf-slideshow": PdfSlideshow,
   "exercises-in-this-section": ExercisesInThisSection,
+  "exercises-in-all-sections": ExercisesInAllSections,
   "ab-study": AbStudy,
   "only-for-ab-group": OnlyForAbGroup,
   "only-for-course-variant": OnlyForCourseVariant,
