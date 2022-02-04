@@ -4,6 +4,7 @@ title: "Common error messages"
 hidden: false
 information_page: true
 sidebar_priority: 2000
+separator_after: "Introduction to Programming"
 ---
 
 This page contains information about the most common error messages you may come across when completing the programming exercises on this course.
