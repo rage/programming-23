@@ -42,7 +42,6 @@ You may take part in any number of the exams listed above. The highest grade ach
 * The course exam can be taken on exam date **between 10:00 AM and 10:00 PM**.
 * The exam ends at 10:00 PM at the latest. If you want to be able to spend the maximum time allowed on the exam, you should **start at 6:00 PM at the latest**.
 * You will have **four hours** to complete the exam. If you have been granted extra time through special arrangements, you will have five hours to complete the exam, and should start at 5:00 PM at the latest.
-* The exam questions, in the form of programming task instructions, will become available at <a href="https://exams.mooc.fi/en">https://exams.mooc.fi/en</a> at 10:00 AM on the day of the exam.
 * Your solutions to the programming tasks in the exam are submitted in the same manner as your solutions to the programming exercises on the course.
 
 More detailed instructions will be published on these pages before the exam date.
