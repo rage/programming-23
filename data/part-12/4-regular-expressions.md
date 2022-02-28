@@ -322,7 +322,7 @@ These functionalities grant you one exercise point. Your application should now 
 <sample-output>
 
 file name: **partial.json**
-read the data for 14 players
+read the data of 14 players
 
 commands:
 0 quit
@@ -395,7 +395,7 @@ Your application should now work as follows:
 <sample-output>
 
 file name: **partial.json**
-read the data for 14 players
+read the data of 14 players
 
 commands:
 0 quit
@@ -442,7 +442,7 @@ Your application should now work as follows:
 <sample-output>
 
 file name: **partial.json**
-read the data for 14 players
+read the data of 14 players
 
 commands:
 0 quit
