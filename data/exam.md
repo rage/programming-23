@@ -63,7 +63,7 @@ Please do not ask any questions about specific programming tasks assigned to you
 
 * Your solutions to the programming tasks in the exam are submitted in the same manner as your solutions to the programming exercises on the course.
 * The programming tasks in the exam **will not have automated tests**.
-* Any attempt to submit tasks outside the exam time allocated to you will lead to an automatic fail.
+* Any attempt to submit tasks after the exam time allocated to you have ended will lead to an automatic fail.
 
 #### Finishing the exam
 
