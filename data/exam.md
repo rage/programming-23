@@ -8,7 +8,7 @@ hidden: false
 
 # Introduction to Programming
 
-* The exam questions, in the form of programming task instructions, will become available at courses.mooc.fi at 10:00 AM on the day of the exam.
+* The exam questions, in the form of programming task instructions, will become available at courses.mooc.fi at 10:00 AM (UTC+2) on the day of the exam.
 * Links to the exam questions can be found from this page on section [Exam questions and starting the exam](#exam-questions-and-starting-the-exam)
 
 #### Taking the programming exam
@@ -19,9 +19,9 @@ hidden: false
 #### Exam arrangements
 
 * Your solutions to the programming tasks in the exam will be submitted in the Visual Studio Code programming environment, in the same manner as the weekly exercises on the course.
-* The course exam can be taken on March 5th 2022 **between 10:00 AM and 10:00 PM**.
-* The exam ends at 10:00 PM at the latest. If you want to be able to spend the maximum time allowed on the exam, you should **start at 6:00 PM at the latest**.
-* You will have **four hours** to complete the exam. If you have been granted extra time through special arrangements, you will have five hours to complete the exam, and should start at 5:00 PM at the latest.
+* The course exam can be taken on March 5th 2022 **between 10:00 (UTC+2) AM and 10:00 PM (UTC+2)**.
+* The exam ends at 10:00 PM (UTC+2) at the latest. If you want to be able to spend the maximum time allowed on the exam, you should **start at 6:00 PM (UTC+2) at the latest**.
+* You will have **four hours** to complete the exam. If you have been granted extra time through special arrangements, you will have five hours to complete the exam, and should start at 5:00 PM (UTC+2) at the latest.
 
 
 #### Before the exam date
@@ -32,8 +32,8 @@ hidden: false
 
 #### At the exam date
 
-* In case of technical problems, the course instructor will be on standby **from 10:00 AM to 02:00 PM** on the [Discord](https://study.cs.helsinki.fi/discord/join/ohjelmoinnin_mooc) at channel `ohjelmoinnin_mooc_english`.
-* On the exam date **from 02:00 PM to 10:00 PM** discussion in the course's support channels is forbidden. The course's Discord is locked and messages cannot be sent to channels.
+* In case of technical problems, the course instructor will be on standby **from 10:00 AM (UTC+2) to 02:00 PM (UTC+2)** on the [Discord](https://study.cs.helsinki.fi/discord/join/ohjelmoinnin_mooc) at channel `ohjelmoinnin_mooc_english`.
+* On the exam date **from 02:00 PM (UTC+2) to 10:00 PM (UTC+2)** discussion in the course's support channels is forbidden. The course's Discord is locked and messages cannot be sent to channels.
 
 #### Fetching the programming task templates
 
