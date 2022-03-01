@@ -283,7 +283,7 @@ if __name__ == "__main__":
 
 In part 10 you created an [iterable shopping list](/part-10/3-oo-programming-techniques#programming-exercise-an-iterable-shopping-list), and we just learnt that an object created from an iterable class can be used with list comprehensions. The exercise template contains a stripped down version of the `ShoppingList` with just enough functionality to fulfil the requirements of this exercise.
 
-Please write a function named `products(shopping_list, amount: int)` which takes a ShoppingList object and an integer value as its arguments. The function returns a list of product names. The list should include only the products with at least the number of items specified by the `amount` parameter.
+Please write a function named `products_in_shopping_list(shopping_list, amount: int)` which takes a ShoppingList object and an integer value as its arguments. The function returns a list of product names. The list should include only the products with at least the number of items specified by the `amount` parameter.
 
 The function should be implemented using list comprehensions. The maximum length of the function is two lines of code, including the header line beginning with the `def` keyword. The `ShoppingList` class definition should _not_ be modified.
 
@@ -297,7 +297,7 @@ my_list.add("alcohol free beer", 24)
 my_list.add("pineapple", 1)
 
 print("the shopping list contains at least 8 of the following items:")
-for product in products(my_list, 8):
+for product in products_in_shopping_list(my_list, 8):
     print(product)
 ```
 
