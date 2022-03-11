@@ -29,15 +29,6 @@ The course will be open until the end of the year 2022.
 
 ## Lectures
 
-Advanced Course lectures at <strong>Thursdays at 10.15</strong>, starting at Nov. 4th.
-
-[Zoom link to lectures](https://helsinki.zoom.us/j/66337739018?pwd=SGhjS0Z1MlAyWWQ4TEtYUXFiaUhjZz09)
-
-Passcode (if required) is 12345.
-
-Recordings of all lectures will be provided on this page afterwards, usually by Wednesday morning.
-
-
 <table>
   <thead>
     <tr>
@@ -90,6 +81,9 @@ Recordings of all lectures will be provided on this page afterwards, usually by 
       <td>Part 11</td>
       <td><a href="https://youtu.be/vp18ipCMSag">Recording</a></td>
     </tr>
+    <tr>
+      <td>Part 12</td>
+      <td><a href="https://youtu.be/eTAn4yu1xFQ">Recording</a></td>
+    </tr>
   </tbody>
 </table>
-
