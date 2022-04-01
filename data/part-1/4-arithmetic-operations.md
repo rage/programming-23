@@ -194,7 +194,7 @@ The sum of the numbers: 33
 
 </sample-output>
 
-The program uses fours different variables, but two would easily suffice in this case:
+The program uses four different variables, but two would easily suffice in this case:
 
 ```python
 sum = 0
