@@ -147,14 +147,14 @@ I think you might be one of Mickey Mouse's nephews.
 
 <sample-output>
 
-Anna nimesi: **Huey**
+Please type in your name: **Huey**
 I think you might be one of Donald Duck's nephews.
 
 </sample-output>
 
 <sample-output>
 
-Anna nimesi: **Ken**
+Please type in your name: **Ken**
 You're not a nephew of any character I know of.
 
 </sample-output>
