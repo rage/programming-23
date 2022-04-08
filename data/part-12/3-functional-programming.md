@@ -727,13 +727,13 @@ Please implement the function using the `reduce` and `filter` functions.
 
 ## Average grade for passed courses
 
-Please implement a function named `average_grade` which takes a list of course attempts as its argument. The function calculates the average grade for the course attempts with grade 1 or above. It should work like this:
+Please implement a function named `average` which takes a list of course attempts as its argument. The function calculates the average grade for the course attempts with grade 1 or above. It should work like this:
 
 ```python
 s1 = CourseAttempt("Introduction to Programming", 5, 5)
 s2 = CourseAttempt("Advanced Course in Programming", 0, 4)
 s3 = CourseAttempt("Data Structures and Algorithms", 3, 10)
-ag = average_grade([s1, s2, s3])
+ag = average([s1, s2, s3])
 print(ag)
 ```
 
