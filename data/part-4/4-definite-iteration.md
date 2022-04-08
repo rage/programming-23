@@ -448,7 +448,7 @@ print(result)
 
 <programming-exercise name='The shortest in the list' tmcname='part04-30_shortest_in_list'>
 
-Please write a function named `shortest`, which takes a list of strings as its argument. The function prints out whichever of the strings is the shortest. If more than one are equally short, the function can print out any of the shortest strings (there will be no such situation in the tests). You may assume there will be no empty strings in the list.
+Please write a function named `shortest`, which takes a list of strings as its argument. The function returns whichever of the strings is the shortest. If more than one are equally short, the function can return any of the shortest strings (there will be no such situation in the tests). You may assume there will be no empty strings in the list.
 
 
 ```python
