@@ -180,7 +180,7 @@ print(k[5])
 The familiar `for item in collection` loop can be used to traverse a dictionary, too. When used on the dictionary directly, the loop goes through the keys stored in the dictionary, one by one. In the following example, all keys and values stored in the dictionary are printed out:
 
 ```python
-sanakirja = {}
+my_dictionary = {}
 
 my_dictionary["apina"] = "monkey"
 my_dictionary["banaani"] = "banana"
