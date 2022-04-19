@@ -33,7 +33,7 @@ if number < 5 or number > 8:
     print("The number is not within the range of 5 to 8")
 ```
 
-Thw following truth table contains the behaviour of these operators in different situations:
+The following truth table contains the behaviour of these operators in different situations:
 
 a     | b     | a and b | a or b |
 :----:|:-----:|:-------:|:------:|
