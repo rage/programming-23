@@ -65,13 +65,13 @@ As you can see above, constructor method calls look a little different than the 
 
 ## A class is the blueprint of an object
 
-We have already used the term _class_ in the material many times. For instamce, in the example above we imported the `Fraction` class from the module `fractions`. New fraction objects were created by calling the _constructor_ method of the `Fraction` class.
+We have already used the term _class_ in the material many times. For instance, in the example above we imported the `Fraction` class from the module `fractions`. New fraction objects were created by calling the _constructor_ method of the `Fraction` class.
 
 A class definition contains the structure and functionalities of any object which represents it. That is why classes are sometimes referred to as the blueprints of objects. So, a class definition tells you what kind of data an object contains, and defines also the methods which can be used on the object. _Object oriented programmind_ refers to a programming paradigm where the functionality of the program is tied into the use of classes and objects created based on them.
 
 A single class definition can be used to create multiple objects. As mentioned before, objects are independent. Changes made to one object generally do not affect the other objects representing the same class. Each object has its own unique set of data attributes. It might be helpful to consider this simplification of the class-object relationship:
 
-* a class defines the variables 
+* a class defines the variables
 * when an object is created, those variables are assigned values
 
 So, we can use an object of type `Fraction` to access the numerator and denominator of a fractional number:
@@ -158,7 +158,7 @@ my_date = date(2020, 12, 24)
 # calling a method
 weekday = my_date.isoweekday()
 
-# accessing a variable 
+# accessing a variable
 my_month = my_date.month
 
 print("The day of the week:", weekday)
@@ -288,9 +288,9 @@ You can use the following code to test your function:
 ```python
 if __name__ == "__main__":
     my_list = ShoppingList()
-    my_list.add_item("bananas", 10)
-    my_list.add_item("apples", 5)
-    my_list.add_item("pineapple", 1)
+    my_list.add("bananas", 10)
+    my_list.add("apples", 5)
+    my_list.add("pineapple", 1)
 
     print(total_units(my_list))
 ```
