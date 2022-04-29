@@ -423,7 +423,7 @@ def sum_of_column(my_matrix, column_no: int):
 
 m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
 
-my_sum = sum_of_column(my_matrix, 2)
+my_sum = sum_of_column(m, 2)
 print(my_sum) # prints out 39 (which equals 3 + 12 + 9 + 15)
 ```
 
