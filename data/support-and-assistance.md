@@ -6,29 +6,15 @@ information_page: true
 sidebar_priority: 4000
 ---
 
-The official course support channels are available through Discord and at Kumpula Campus.
+<notice>The support timetable of summer will be updated on this page soon.</notice>
+
+The official course support channels are available through Discord.
 
 #### Discord
 
 Discord is a communication platform which allows both text-based and voice/video chats. You can find out more about the platform [on the Discord website](https://discord.com/).
 
 The course channels are available through [this link](https://study.cs.helsinki.fi/discord/join/ohjelmoinnin_mooc). See especially the `ohjelmoinnin_mooc_english` and the `ohjelmoinnin_mooc_voice` channels for support in English.
-
-#### Workshop timetable
-
-<notice>The times indicated below may change as the course progresses.</notice>
-
-<notice>All times are local time in Helsinki, Finland, UTC+03:00</notice>
-
-The workshop will be held **on Wednesdays from 12:00 to 16:00 in classroom BK107**
-
-You can visit the course workshop for a good environment to do programming exercises with other students as well as receive assistance regarding the course and its exercises! The workshop is located at the Exactum building on University of Helsinki's Kumpula campus. Everyone is welcome to the workshop!
-
-Disclaimer: While course assistants speak finnish don't be afraid to ask in english if you don't know finnish!
-
-The location of Exactum and directions to it can be found [here](https://www.google.com/maps?hl=en&q=Exactum,+Kumpula+Campus,+Pietari+Kalmin+katu+5,+00560+Helsinki).
-
-The workshop is held in classroom **BK107** right next to Exactum's UniCafe. You can consult the info screen at Exactum's lobby to view an exact location. You may also ask the building porter as well as campus staff and students.
 
 #### Discord support timetable
 
@@ -42,7 +28,7 @@ In the table below the symbol <svg class="svg-inline--fa fa-comment fa-w-14 fa-1
 
 <br />
 
-<notice>On Friday 15.4. and on Monday 18.4. there is no instructors on standby.</notice>
+<notice>Timetable below is valid until 13.5. The support timetable of summer will be updated on this page soon.</notice>
 
 <table>
   <thead>
