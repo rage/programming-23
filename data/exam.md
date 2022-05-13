@@ -3,7 +3,7 @@ path: "/exam"
 title: "Exam 7.5."
 information_page: true
 sidebar_priority: 5000
-hidden: false
+hidden: true
 ---
 
 # Advanced Course in Programming
