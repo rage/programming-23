@@ -17,7 +17,7 @@ The Introduction to Programming course consists of parts 1 through 7 in the mate
 
 ## Support channels on the course
 
-The official course support channels are available through Discord.
+The official course support channels are available through Zoom and Discord.
 
 Please see the [Support and assistance](/support-and-assistance) page for more details.
 
