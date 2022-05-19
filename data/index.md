@@ -17,7 +17,7 @@ The Introduction to Programming course consists of parts 1 through 7 in the mate
 
 ## Support channels on the course
 
-The official course support channels are available through Zoom and Discord.
+The official course support channels are available through Zoom and Discord. The course channels in Discord are available through [this link](https://study.cs.helsinki.fi/discord/join/ohjelmoinnin_mooc).
 
 Please see the [Support and assistance](/support-and-assistance) page for more details.
 
