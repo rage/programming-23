@@ -3,7 +3,7 @@ path: "/exam-intro"
 title: "Exam 14.5."
 information_page: true
 sidebar_priority: 4900
-hidden: false
+hidden: true
 ---
 
 # Introduction to Programming
