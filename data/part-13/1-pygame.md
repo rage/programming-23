@@ -210,7 +210,7 @@ Please write a program which draws a hundred robots: ten rows with ten robots in
 
 <programming-exercise name='Random robots' tmcname='part13-04_random_robots'>
 
-Please write a program which draws _tuhat_ robottia satunnaisiin paikkoihin. The end result should look like this:
+Please write a program which draws _a thousand_ robots in random places. The end result should look like this:
 
 <img src="pygame_thousand.gif">
 
