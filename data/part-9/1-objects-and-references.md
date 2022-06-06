@@ -827,9 +827,9 @@ print("Special lunches sold:", exactum.specials)
 
 <sample-output>
 
-Card balance is 2.0 euros
+Card balance is 2 euros
 Payment successful: False
-Card balance is 102.0 euros
+Card balance is 102 euros
 Payment successful: True
 Card balance is 97.7 euros
 Funds available at the terminal: 1100
