@@ -1,12 +1,22 @@
 ---
-path: "/exam"
-title: "Exam 4.6."
+path: "/exam-adv"
+title: "Advanced Course in Programming exam 2.7."
 information_page: true
-sidebar_priority: 5000
-hide_in_sidebar: true
+sidebar_priority: 4800
+hide_in_sidebar: false
 ---
 
-# Advanced Course in Programming
+<text-box variant="hint" name="NB">
+
+<notice>Note, that at 2.7. it is possible to take exam on both courses.</notice>
+
+[Instructions](/exam-intro) for Introduction to Programming exam are on another page
+
+<a href="/exam-intro">https://programming-22.mooc.fi/exam-intro</a>
+
+</text-box>
+
+<!--# Advanced Course in Programming-->
 
 * The exam questions, in the form of programming task instructions, will become available at courses.mooc.fi at 10:00 AM (UTC+3) on the day of the exam.
 * Links to the exam questions can be found from this page on section [Exam questions and starting the exam](#exam-questions-and-starting-the-exam)
@@ -19,7 +29,7 @@ hide_in_sidebar: true
 #### Exam arrangements
 
 * Your solutions to the programming tasks in the exam will be submitted in the Visual Studio Code programming environment, in the same manner as the weekly exercises on the course.
-* The course exam can be taken on June 4th 2022 **between 10:00 (UTC+3) AM and 10:00 PM (UTC+3)**.
+* The course exam can be taken on July 2nd 2022 **between 10:00 (UTC+3) AM and 10:00 PM (UTC+3)**.
 * The exam ends at 10:00 PM (UTC+3) at the latest. If you want to be able to spend the maximum time allowed on the exam, you should **start at 6:00 PM (UTC+3) at the latest**.
 * You will have **four hours** to complete the exam. If you have been granted extra time through special arrangements, you will have five hours to complete the exam, and should start at 5:00 PM (UTC+3) at the latest.
 
@@ -43,7 +53,7 @@ hide_in_sidebar: true
 2. Select the `My courses` view in the TMC menu.
 3. Click the `Add new course` button.
 4. Select the organization `Helsingin yliopisto`.
-5. Select the course `Advanced Course in Programming exam 4.6.2022`.
+5. Select the course `Advanced Course in Programming exam 2.7.2022`.
 6. Fetch the programming task templates.
 7. Try submitting the programming tasks.
 8. If you are able to submit the tasks, you are ready to take the exam. If not, get in touch with course instructors. Don't panic, we will work it out.
@@ -55,8 +65,8 @@ Please do not ask any questions about specific programming tasks assigned to you
 
 * The exam questions, in the form of programming task instructions, will become available at courses.mooc.fi at 10:00 AM on the day of the exam.
 * You should use your usual mooc.fi login details to log in at the exam page.
-* The exam questions can be found from here: <a href="https://courses.mooc.fi/org/uh-cs/exams/1ea25f48-6c6c-4201-b261-346c09b92803">https://courses.mooc.fi/org/uh-cs/exams/1ea25f48-6c6c-4201-b261-346c09b92803</a>
-* If you have been granted extra time through special arrangements, open the exam questions from this link: <a href="https://courses.mooc.fi/org/uh-cs/exams/b5c2ddb8-1642-4455-a7e7-0c293bdc8ad9">https://courses.mooc.fi/org/uh-cs/exams/b5c2ddb8-1642-4455-a7e7-0c293bdc8ad9</a>
+* The exam questions can be found from here: <a href="https://courses.mooc.fi/org/uh-cs/exams/390ef428-cde0-4cea-b802-cc9a130a776b">https://courses.mooc.fi/org/uh-cs/exams/390ef428-cde0-4cea-b802-cc9a130a776b</a>
+* If you have been granted extra time through special arrangements, open the exam questions from this link: <a href="https://courses.mooc.fi/org/uh-cs/exams/c12fa82f-4136-4919-8ef4-4ad9e9e24853">https://courses.mooc.fi/org/uh-cs/exams/c12fa82f-4136-4919-8ef4-4ad9e9e24853</a>
 * Your allocated exam time will begin when you click on the button `START THE EXAM!`.
 
 #### Submitting your solutions
@@ -68,7 +78,7 @@ Please do not ask any questions about specific programming tasks assigned to you
 #### Finishing the exam
 
 * Please submit all your programming tasks one final time, within the exam time allocated to you, before finishing.
-* You can check the arrival of the exercises you have submitted to the server by logging in to the page [https://tmc.mooc.fi/org/hy/courses/1042](https://tmc.mooc.fi/login?return_to=%2Forg%2Fhy%2Fcourses%2F1042)
+* You can check the arrival of the exercises you have submitted to the server by logging in to the page [https://tmc.mooc.fi/org/hy/courses/1051](https://tmc.mooc.fi/org/hy/courses/1051)
 * When you are done, you can close all Visual Studio Code tabs and windows, along with the exam question page. There is no need to do anything else.
 
 #### Exam results
