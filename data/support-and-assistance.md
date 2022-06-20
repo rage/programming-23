@@ -6,12 +6,13 @@ information_page: true
 sidebar_priority: 4000
 ---
 
+<notice>The times indicated below may change as the course progresses. All times are local time in Helsinki, Finland, UTC+03:00</notice>
+
+<notice>There is no guidance on weeks 29 and 30 (18.-31.7.)</notice>
 
 The official course support channels are available through Zoom and Discord.
 
-<notice>The times indicated below may change as the course progresses. All times are local time in Helsinki, Finland, UTC+03:00</notice>
-
-In the summer there will be guidance **from 31.5. onwards** in Zoom on Tuesdays from 14:00 to 16:00 and in Discord on Thursdays from 14:00 to 16:00.
+In the summer there will be guidance in Zoom on Tuesdays from 14:00 to 16:00 and in Discord on Thursdays from 14:00 to 16:00.
 
 #### Zoom
 
