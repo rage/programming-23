@@ -318,7 +318,7 @@ class PersonalBest:
             date(year, month, day)
             return True
         except:
-            # an exception is raised if the arguments are not
+            # an exception is raised if the arguments are not valid
             return False
 
     def points_ok(self, points):
