@@ -940,9 +940,9 @@ Some examples of the function in action:
 ```python
 stations = get_station_data('stations1.csv')
 d = distance(stations, "Designmuseo", "Hietalahdentori")
-print(e)
+print(d)
 d = distance(stations, "Viiskulma", "Kaivopuisto")
-print(e)
+print(d)
 ```
 
 <sample-output>
