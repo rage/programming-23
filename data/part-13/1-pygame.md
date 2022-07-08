@@ -180,7 +180,9 @@ The method `get_width` returns the width of the image, and the method `get_heigh
 
 <text-box variant='hint' name='Pygame exercises'>
 
-The exercises in this part of the course have no automated tests, as the results as visually verified. The tests grant points automatically as you submit your solution to the server, no matter what your implementation. Only submit your solution when you are ready, and your solution matches the exercise description. The exercises may not have automatic tests, but the course staff will still see your solution. If your solution clearly does not match the exercise description, you may lose the points granted for the exercises in this part.
+The exercises in this part of the course have no automated tests, as the results as visually verified. The tests grant points automatically as you submit your solution to the server, no matter what your implementation. Only submit your solution when you are ready, and your solution matches the exercise description. The exercises may not have automatic tests, but the course staff will still see your solution. Also submitting incomplete solution to TMC Paste grants points automatically, so it should not be used when asking for help with the exercises in this part. You can use [Pastebin.com](https://pastebin.com/) or some another internet pastebin service when asking for help in the course's support channels.
+
+If your solution clearly does not match the exercise description, you may lose the points granted for the exercises in this part.
 
 </text-box>
 
