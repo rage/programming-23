@@ -469,7 +469,7 @@ print(dexter)
 
 Dexter (8 seasons)
 genres: Crime, Drama, Mystery, Thriller
-no reviews
+no ratings
 
 </sample-output>
 
