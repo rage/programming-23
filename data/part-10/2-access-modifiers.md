@@ -196,8 +196,8 @@ revengers.print_group()
 
 Revengers, Emerald City
 Members:
-SuperPerson, superskills: Superspeed, superstrength
-Invisible Inca, superskills: Invisibility
+SuperPerson, superpowers: Superspeed, superstrength
+Invisible Inca, superpowers: Invisibility
 
 </sample-output>
 
