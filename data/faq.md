@@ -38,6 +38,10 @@ If you obtain a passing grade for the course, you will receive study credits thr
 
 If you are unable to receive study credits for the course (see the question above), you will still receive a certificate for completing the course. Please check with the study counsellors at your home institution if they have a process for awarding credits based on the certificate.
 
+### Where do I get the certificate?
+
+If you obtain a passing grade for the course, you can get a certificate from here: https://www.mooc.fi/en/profile/completions. Just log in with your MOOC account.
+
 ### Do I need to have a University of Helsinki user account?
 
 No, you do not need a University of Helsinki user account to study on this course.
