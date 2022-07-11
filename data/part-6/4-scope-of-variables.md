@@ -99,7 +99,7 @@ UnboundLocalError: local variable 'x' referenced before assignment
 </sample-output>
 
 
-The function `testing` assigns a value to the variable `x`, so Python interprets `x` to be a local variable instead of the global variable of the same name. The function attemts to access the variable before it is defined, so there is an error.
+The function `testing` assigns a value to the variable `x`, so Python interprets `x` to be a local variable instead of the global variable of the same name. The function attempts to access the variable before it is defined, so there is an error.
 
 If we wish to specify that we mean to change the global variable within a function, we will need the Python keyword `global`:
 
