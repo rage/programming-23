@@ -71,7 +71,7 @@ while True:
             if event.key == pygame.K_LEFT:
                 print("left")
             if event.key == pygame.K_RIGHT:
-                print("roght")
+                print("right")
 
         if event.type == pygame.QUIT:
             exit()
@@ -82,10 +82,10 @@ The constants `pygame.K_LEFT` and `pygame.K_RIGHT` refer to the arrow keys to th
 For example, if the user presses the arrow key to the right twice, then the left one once, and then the right one once more, the program prints out
 
 ```x
-to_right
-to_right
-to_left
-to_right
+right
+right
+left
+right
 ```
 
 We now have all the tools needed to move a character, or _sprite_, on the screen to the right and left with the arrow keys. The following code will achieve this:
@@ -122,7 +122,7 @@ Depending on how you use your arrow keys, running the program could look like th
 
 In the code above we have the variables `x` and `y` which contain the coordinate location for the sprite. The variable `y` is set so that the sprite appears at the bottom of the window. The `y` value does not change throughout the execution of the program. The `x` value, however, increases by 10 whenever the user presses the arrow key to the right, and decreases by 10 whenever the left arrow key is pressed.
 
-Tne program works otherwise quite well, put the key needs to be pressed again each time we want to move again. It would be better if the movement was continuous as the key was held down. The following program offfers this functionality:
+The program works otherwise quite well, but the key needs to be pressed again each time we want to move again. It would be better if the movement was continuous as the key was held down. The following program offfers this functionality:
 
 ```python
 import pygame
