@@ -531,18 +531,17 @@ series_list = [s1, s2, s3]
 
 print("a minimum grade of 4.5:")
 for series in minimum_grade(4.5, series_list):
-    print(series.name)
+    print(series.title)
 
 print("genre Comedy:")
 for series in includes_genre("Comedy", series_list):
-    print(series.name)
+    print(series.title)
 ```
 
 <sample-output>
 
 a minimum rating of 4.5:
 Dexter
-
 genre Comedy:
 South Park
 Friends
