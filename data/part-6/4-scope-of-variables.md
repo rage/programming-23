@@ -171,6 +171,7 @@ print("There were", count, "function calls")
 ```
 
 <sample-output>
+
 5
 10
 3
