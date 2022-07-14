@@ -20,7 +20,7 @@ We have already come across quite a few debugging methods on this course. The [v
 
 In Python version 3.7 brought yet another easy and useful tool for debugging programs: the [breakpoint()](https://docs.python.org/3/library/functions.html?highlight=breakpoint#breakpoint) command.
 
-You can add this command to any point in your code (within normal syntactic rules, of course). When the program is run, the execution halts at the point where you inserted the `breakpoint` command. Here is an example of debugging efforts hwen completing one of the exercises from the previous part (please ignore the Finnish variable names in the images, and concentrate on the functionality):
+You can add this command to any point in your code (within normal syntactic rules, of course). When the program is run, the execution halts at the point where you inserted the `breakpoint` command. Here is an example of debugging efforts when completing one of the exercises from the previous part (please ignore the Finnish variable names in the images, and concentrate on the functionality):
 
 <img src="7_1_1.png">
 
@@ -42,7 +42,7 @@ When you are done debugging, remember to remove the `breakpoint` commands from y
 
 ## Using modules
 
-The Python language definition already contains some useful functions, such as the `len` function which returns the length of a string or a list, or the `sum` function which returns the sum of items in a data structure, but they will only get a programmer so far. The Python _standard library_ is a collection of standardised functions and objects, which can be used to expand the expressive powere of Python in many ways. We have already used some functions defined in the standard library in previous exercises, for example when calculating square roots.
+The Python language definition already contains some useful functions, such as the `len` function which returns the length of a string or a list, or the `sum` function which returns the sum of items in a data structure, but they will only get a programmer so far. The Python _standard library_ is a collection of standardised functions and objects, which can be used to expand the expressive power of Python in many ways. We have already used some functions defined in the standard library in previous exercises, for example when calculating square roots.
 
 The standard library is comprised of _modules_, which contain functions and classes grouped around different themes and functionalities. In this part of the course we will familiarize ourselves with some useful Python modules. We will also learn to write our own modules.
 
