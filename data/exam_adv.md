@@ -3,7 +3,7 @@ path: "/exam-adv"
 title: "Advanced Course in Programming exam 2.7."
 information_page: true
 sidebar_priority: 4800
-hide_in_sidebar: false
+hide_in_sidebar: true
 ---
 
 <text-box variant="hint" name="NB">
@@ -78,7 +78,7 @@ Please do not ask any questions about specific programming tasks assigned to you
 #### Finishing the exam
 
 * Please submit all your programming tasks one final time, within the exam time allocated to you, before finishing.
-* You can check the arrival of the exercises you have submitted to the server by logging in to the page [https://tmc.mooc.fi/org/hy/courses/1051](https://tmc.mooc.fi/org/hy/courses/1051)
+* You can check the arrival of the exercises you have submitted to the server by logging in to the page [https://tmc.mooc.fi/org/hy/courses/1051](https://tmc.mooc.fi/org/hy/courses/1051). The programming task has arrived on the server if you can see the name of the task template and the time when you submitted the task.
 * When you are done, you can close all Visual Studio Code tabs and windows, along with the exam question page. There is no need to do anything else.
 
 #### Exam results
