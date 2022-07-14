@@ -187,7 +187,7 @@ In this case we want to keep track of how many times either of the functions wer
 <!--- see also section 4-6, some significant overlap-->
 If a program consists of multiple functions, the question of passing data from one function to another often comes up.
 
-When we touched upon this topic [previously](http://localhost:8000/part-4/6-strings-and-lists#passing-data-from-one-function-to-another), we had a program which asks the user for some integer values, prints them out, and performs some statistical analysis on the numbers. The program was divided into three separate functions:
+When we touched upon this topic [previously](/part-4/6-strings-and-lists#passing-data-from-one-function-to-another), we had a program which asks the user for some integer values, prints them out, and performs some statistical analysis on the numbers. The program was divided into three separate functions:
 
 ```python
 def input_from_user(how_many: int):
