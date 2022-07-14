@@ -436,7 +436,7 @@ Exectuing this would print out
 
 The first two items have a line break character at the end, and all three have an extra leading space character.
 
-We have already used the `replace` method to remove extra whitespace, but a more efficient solution is to use the Python string method `strip`, which removes whitespace from the beginning and end of a string. It removes all spaces, line breaks, tabs and other characters whoch would not normally be printed out.
+We have already used the `replace` method to remove extra whitespace, but a more efficient solution is to use the Python string method `strip`, which removes whitespace from the beginning and end of a string. It removes all spaces, line breaks, tabs and other characters which would not normally be printed out.
 
 You can try it out in the Python console:
 
