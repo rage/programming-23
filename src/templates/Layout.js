@@ -119,12 +119,12 @@ class Layout extends React.Component {
                     {
                       name: "description",
                       content:
-                        "Helsingin yliopiston kaikille avoin ja ilmainen ohjelmoinnin perusteet opettava verkkokurssi. Kurssilla perehdytään nykyaikaisen ohjelmoinnin perusideoihin sekä ohjelmoinnissa käytettävien työvälineiden lisäksi algoritmien laatimiseen. Kurssille osallistuminen ei vaadi ennakkotietoja ohjelmoinnista.",
+                        "Learn the basics of programming with the Python programming language. The focus of the course is on programming, and you will learn how to write programs and understand how they work. For example, the basics of algorithms, control structures, subprograms, object-oriented programming are covered. The course is suitable to anyone who wants to learn programming. No prior programming experience is required.",
                     },
                     {
                       name: "keywords",
                       content:
-                        "ohjelmointi, java, programming, CS1, MOOC, 2019, ohjelmointikurssi, avoin, ilmainen, helsingin yliopisto",
+                        "ohjelmointi, python, programming, CS1, MOOC, 2022, ohjelmointikurssi, open, free, university of helsinki",
                     },
                   ]}
                 />
