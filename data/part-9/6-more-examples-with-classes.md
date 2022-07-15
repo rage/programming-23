@@ -160,7 +160,7 @@ class Student:
 
     @notes.setter
     def notes(self, notes):
-        self.notes = notes
+        self.__notes = notes
 
     def summary(self):
         print(f"Student {self.__name} ({self.student_number}):")
