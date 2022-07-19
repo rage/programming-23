@@ -307,9 +307,9 @@ tomato
 
 <programming-exercise name='Histogram' tmcname='part05-16_histogram'>
 
-Please write a function named `histogram`, which takes a string as its argument. The function should print out a histogram representing the number of times each letter occurs in the string. Each occurrence of a letter should be represented by a star on the specific line for that letter. 
+Please write a function named `histogram`, which takes a string as its argument. The function should print out a histogram representing the number of times each letter occurs in the string. Each occurrence of a letter should be represented by a star on the specific line for that letter.
 
-For example, the function call `histogram("abba")` should print out 
+For example, the function call `histogram("abba")` should print out
 
 <sample-output>
 
@@ -669,6 +669,8 @@ print(my_movies)
 </sample-output>
 
 </programming-exercise>
+
+At this point in the course, you can choose to participate in a research study related to learning programming. Participation is voluntary and individual participants cannot be identified from the data gathered in the study. You can freely quit the experiment at any point. [Click here to begin the study!](https://runestone.academy/ns/books/published/p3pt/index.html)
 
 <!---
 A quiz to review the contents of this section:
