@@ -110,7 +110,7 @@ class BankAccount:
         self.owner = owner
 ```
 
-The name of the constructor method is always `__init__`. Notice the _two undescores on both sides_ of the word `init`.
+The name of the constructor method is always `__init__`. Notice the _two underscores on both sides_ of the word `init`.
 
 The first parameter in a constructor definition is always named `self`. This refers to the object itself, and is necessary for declaring any attributes attached to the object. The assignment
 
