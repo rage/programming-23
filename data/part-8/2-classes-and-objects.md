@@ -67,7 +67,7 @@ As you can see above, constructor method calls look a little different than the 
 
 We have already used the term _class_ in the material many times. For instance, in the example above we imported the `Fraction` class from the module `fractions`. New fraction objects were created by calling the _constructor_ method of the `Fraction` class.
 
-A class definition contains the structure and functionalities of any object which represents it. That is why classes are sometimes referred to as the blueprints of objects. So, a class definition tells you what kind of data an object contains, and defines also the methods which can be used on the object. _Object oriented programmind_ refers to a programming paradigm where the functionality of the program is tied into the use of classes and objects created based on them.
+A class definition contains the structure and functionalities of any object which represents it. That is why classes are sometimes referred to as the blueprints of objects. So, a class definition tells you what kind of data an object contains, and defines also the methods which can be used on the object. _Object oriented programming_ refers to a programming paradigm where the functionality of the program is tied into the use of classes and objects created based on them.
 
 A single class definition can be used to create multiple objects. As mentioned before, objects are independent. Changes made to one object generally do not affect the other objects representing the same class. Each object has its own unique set of data attributes. It might be helpful to consider this simplification of the class-object relationship:
 
