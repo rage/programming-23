@@ -84,7 +84,7 @@ Most other programming languages (at least those which support object-oriented p
 
 ## Objects and methods
 
-The data stored in an object can be accessed through _methods_. A method is a function which operates on the specific objct it is attached to. The way to distinguish methods from other functions is the way in which they are called: first you write the name of the object targeted, followed by a dot, and then the name of the method, with arguments if any. For example, the method `values` returns all the values stored in an object of type dictionary, or `dict`:
+The data stored in an object can be accessed through _methods_. A method is a function which operates on the specific object it is attached to. The way to distinguish methods from other functions is the way in which they are called: first you write the name of the object targeted, followed by a dot, and then the name of the method, with arguments if any. For example, the method `values` returns all the values stored in an object of type dictionary, or `dict`:
 
 ```python
 # this creates an object of type dictionary with the name book
