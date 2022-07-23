@@ -309,7 +309,7 @@ This is a valid license plate!
 
 </sample-output>
 
-The validity of a license plate can be checked even without creating a single instance of the class, for example with `Registration.license_plate_valid("xyz-789"))`. The same method is called within the constructor of the class. NB: even within the constructor this method is accessed through the name of the class, not `self`!
+The validity of a license plate can be checked even without creating a single instance of the class, for example with `Registration.license_plate_valid("xyz-789")`. The same method is called within the constructor of the class. NB: even within the constructor this method is accessed through the name of the class, not `self`!
 
 <programming-exercise name='List helper' tmcname='part09-14_list_helper'>
 
