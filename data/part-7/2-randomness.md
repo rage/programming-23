@@ -98,7 +98,7 @@ print(choice(words))
 
 ## Lottery numbers
 
-A common example for studying randomness is the case of lottery numbers. Let's try and draw some lottery numbers. In Finland the national lottery consists of a pool of 40 numbers, 7 of which are chose for each week's draw.
+A common example for studying randomness is the case of lottery numbers. Let's try and draw some lottery numbers. In Finland the national lottery consists of a pool of 40 numbers, 7 of which are chosen for each week's draw.
 
 A first attempt at drawing a set of numbers could look like this:
 
