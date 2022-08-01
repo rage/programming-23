@@ -232,7 +232,7 @@ The exercise template contains the class definition for a `CourseAttempt`. It wo
 ```python
 attempt = CourseAttempt("Peter Python", "Introduction to Programming", 5)
 print(attempt.student_name)
-print(attempt.course_name
+print(attempt.course_name)
 print(attempt.grade)
 print(attempt)
 ```
