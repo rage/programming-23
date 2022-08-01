@@ -376,7 +376,7 @@ print(status)
 
 The first item in the tuple is the number of _finished_ tasks, while the second item is the number of _unfinished_ tasks. The third and fourth items are the sums of workload estimates for the finished and unfinished tasks, respectively.
 
-If there is no task with the given id, the method should raise a `ValueError` exception.
+If there is no programmer with the given name, the method should raise a `ValueError` exception.
 
 </programming-exercise>
 
