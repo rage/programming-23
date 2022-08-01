@@ -568,7 +568,7 @@ round 3
 player1: **scissors**
 player2: **paper**
 player 1 won
-round 3
+round 4
 player1: **paper**
 player2: **dynamite**
 player 1 won
