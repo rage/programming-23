@@ -291,7 +291,7 @@ print(route3.name, route3.length, route3.grade)
 
 Edge, length 38 metres, grade 6A+
 Smooth operator, length 9 metres, grade 7A
-Synchro 14 8B+
+Synchro 14 8C+
 
 </sample-output>
 
