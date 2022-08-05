@@ -125,7 +125,7 @@ seashore
 
 </sample-output>
 
-As you can see above, this is not a good outcome, because the program we are tryng to write is messed with by the test cases from the module itself.
+As you can see above, this is not a good outcome, because the program we are trying to write is messed with by the test cases from the module itself.
 
 Luckily, there is a solution, and it is one which you have used many times before in the exercises on this course. We just need to test if the program is being executed on its own, or if the code has been imported with an `import` statement. Python has a built-in variable `__name__`, which contains the name of the program being executed. If the program is being executed on its own, the value of the variable is `__main__`. If the program has been imported, the value of the variable is the name of the imported module (in this case, `words`).
 
