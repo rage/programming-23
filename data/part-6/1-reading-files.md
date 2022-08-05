@@ -641,7 +641,7 @@ When you have verified your program works correctly, you can remove the `if` str
 Let's expand the program created in the previous exercise. Now also the exam points awarded to each student are contained in a CSV file. The contents of the file follow this format:
 
 ```csv
-opnro;k1;k2;k3
+id;e1;e2;e3
 12345678;4;1;4
 12345687;3;5;3
 12345699;10;2;2
