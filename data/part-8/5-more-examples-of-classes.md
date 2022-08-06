@@ -369,7 +369,7 @@ Please write a main function which contains the following sequence of events:
 - Grace deposits 50 euros
 - _Print out the balance on each card (on separate lines, with the name of the owner at the beginning of the line)_
 
-Pääohjelman runko
+Body of the main program
 
 ```python
 peters_card = LunchCard(20)
