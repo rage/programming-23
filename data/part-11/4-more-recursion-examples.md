@@ -382,7 +382,7 @@ If there is no programmer with the given name, the method should raise a `ValueE
 
 <programming-exercise name='Order book application' tmcname='part11-19_order_book_application'>
 
-In this exercise you will create aa interactive application for administering the tasks ordered from a software company. The implementation is completely up to you, but you may use the building blocks from the previous exercise in your application. The examples in the [last section of part 10](/part-10/4-application-development) can also prove useful.
+In this exercise you will create an interactive application for administering the tasks ordered from a software company. The implementation is completely up to you, but you may use the building blocks from the previous exercise in your application. The examples in the [last section of part 10](/part-10/4-application-development) can also prove useful.
 
 ## Without error handling
 
