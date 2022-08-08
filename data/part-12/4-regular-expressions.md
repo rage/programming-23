@@ -148,7 +148,7 @@ An example with the testing program:
 
 <sample-output>
 
-Please type in an expression: **1[234]*5**
+Please type in an expression: **1[234]\*5**
 Please type in a string: **15**
 Found!
 Please type in a string: **125**
@@ -167,13 +167,13 @@ Not found.
 
 ### Other special characters
 
-A dot is a wildcard character which can match any single character. For example, the expression `c...o` would match any five character substring beginning with a `c` and ending with an `o`, such as `c-3po` or `cello`. 
+A dot is a wildcard character which can match any single character. For example, the expression `c...o` would match any five character substring beginning with a `c` and ending with an `o`, such as `c-3po` or `cello`.
 
 The `^` character specifies that the match must be at the beginning of the string, and `$` specifies that the match must be at the end of the string. These can also be used to exclude from the matches any other characters than those specified:
 
 <sample-output>
 
-Please type in an expression: **\^[123]*$**
+Please type in an expression: **\^[123]\*$**
 Please type in a string: **4**
 Not found.
 Please type in a string: **1221**
