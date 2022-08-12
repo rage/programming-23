@@ -28,10 +28,6 @@ Yes you can! You do not need to enrol to start, or, in fact, even to complete th
 
 At the end of the course you will need to take part in the course exam. If you receive a passing grade, you will be able to get study credits. See the [Grading and exams](/grading-and-exams) page for more details about grading.
 
-At the moment study credits are available only to students who are either a) enrolled at the University of Helsinki, b) have a Finnish social security number c) have a Finnish bank account with active online banking codes. Any one of the three should suffice. 
-
-We are working on making credits available to a wider audience, but in the meantime, you will receive a certificate for succesfully completing the course.
-
 ### Can my study credits be transferred to my home institution?
 
 If you obtain a passing grade for the course, you will receive study credits through the University of Helsinki. A transcript of your studies will likely suffice for credit transfer at your home institution, but please check this with the study counsellors at your home institution.
