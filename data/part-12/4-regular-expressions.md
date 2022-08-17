@@ -289,7 +289,7 @@ You may also find the example set in [part 10](/part-10/4-application-developmen
 
 In this exercise you will build an application for examining hockey league statistics from the NHL in a couple of different ways.
 
-The exercise template contains two JSON files: `partial.json` ja `all.json`. The first of these is mostly meant for testing. The latter contains a lot of data, as all the NHL player stats for the 2019-20 season are included in the file.
+The exercise template contains two JSON files: `partial.json` and `all.json`. The first of these is mostly meant for testing. The latter contains a lot of data, as all the NHL player stats for the 2019-20 season are included in the file.
 
 The entry for a single player is in the following format:
 
