@@ -244,7 +244,7 @@ Please write a function named `all_vowels(my_string: str)` which uses a regular 
 Some examples of how the function should work:
 
 ```python
-print(all_vowels("eioueioieoieouyyyy"))
+print(all_vowels("eioueioieoieou"))
 print(all_vowels("autoooo"))
 ```
 
