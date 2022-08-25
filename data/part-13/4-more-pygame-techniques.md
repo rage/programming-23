@@ -24,7 +24,7 @@ pygame.display.set_caption("Great Adventure")
 
 ## Drawing shapes
 
-The following program draws a reactangle, a circle and a line on the screen:
+The following program draws a rectangle, a circle and a line on the screen:
 
 ```python
 import pygame
