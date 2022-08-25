@@ -88,7 +88,7 @@ The clock method `tick` is called at the end:
 
 The method `tick` takes care of the speed of the animation. The argument `60` dictates that the loop should be executed 60 times a second, which means that the image moves 60 pixels to the right each second. This approximately matches the _FPS_ or _frames per second_ value used with games.
 
-In principle, the `tick` method makes sure that the animation runs at the same speed on every computer. If there was no such timing involved, the spped of the animation would depend on the speed of the computer.
+In principle, the `tick` method makes sure that the animation runs at the same speed on every computer. If there was no such timing involved, the speed of the animation would depend on the speed of the computer.
 
 ## Bouncing off a wall
 
@@ -140,7 +140,7 @@ The following lines make the robot bounce off the side walls:
         velocity = -velocity
 ```
 
-If the velocity is above zero so that the robot is moving to the right, and the right edge if the image goes beyong the right edge of the window, the direction is reversed and the robot starts moving to the left. Similarly, if the velocity is beow zero so that the robot is moving to the left, and the left edge of the image reaches the left edge of the window, the direction is again reversed and the robot starts moving to the right again.
+If the velocity is above zero so that the robot is moving to the right, and the right edge if the image goes beyond the right edge of the window, the direction is reversed and the robot starts moving to the left. Similarly, if the velocity is below zero so that the robot is moving to the left, and the left edge of the image reaches the left edge of the window, the direction is again reversed and the robot starts moving to the right again.
 
 This makes the robot move on a path from the left edge of the window to the right edge, and back to the left, and then to the right again, repeated ad infinitum.
 
