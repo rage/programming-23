@@ -144,7 +144,7 @@ The program uses this image of a robot, which is stored in the file `robot.png`:
 
 The file `robot.png` has to be in the same directory with the source code of the your program, or the program won't be able to find it. In the exercise templates for this part the images are waiting in the exercise directory.
 
-The window should no look like this:
+The window should now look like this:
 
 <img src="pygame_pic.gif">
 
