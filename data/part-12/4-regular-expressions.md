@@ -66,7 +66,7 @@ for number in numbers:
 
 ## The syntax of regular expressions
 
-Let's get familiar with the basic syntax of regular expressions. Most of the following examples make use of the this testing program:
+Let's get familiar with the basic syntax of regular expressions. Most of the following examples make use of this testing program:
 
 ```python
 import re
