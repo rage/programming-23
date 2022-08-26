@@ -66,7 +66,7 @@ You should assess the game based on the following criteria:
 
 * What does the game look like?
 * Is the game *playable*? Is it fun to play and easy to use?
-* Is the game idea interresting?
+* Is the game idea interesting?
 * How well is it programmed? Is the code readable, and does it make appropriate use of classes and functions?
 
 A good review usually points out both good features and some suggestions for improvements.
