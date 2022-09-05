@@ -29,6 +29,14 @@ The course will be open until the end of the year 2022.
 
 ## Lectures
 
+Lectures for year 2022 can be followed in Zoom at 12.15 on Tuesdays, starting Sep 6th:
+
+https://helsinki.zoom.us/j/67430024401?pwd=bitueG0rekphZS9STi9qRjlyaG5kdz09
+
+If Zoom asks you to enter a password, it's <strong>intro</strong>.
+
+Captures of lectures are published later. The captures below are from year 2021.
+
 <table>
   <thead>
     <tr>
