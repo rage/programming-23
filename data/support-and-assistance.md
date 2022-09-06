@@ -6,7 +6,24 @@ information_page: true
 sidebar_priority: 4000
 ---
 
-**The summer guidance has ended. The support timetable of autumn will be updated on this page soon.**
+### Guidance during the autumn
+
+In the autumn of 2022 the course will have guidance in both Kumpula campus and on Discord. The sessions on campus are held in Exactum BK107. The guidance sessions are the following
+
+| Time / Date | MON | TUE | WED | THU | FRI |
+|-----|----|----|----|----|----|
+| 10-11 | - | - | Campus | - | - |
+| 11-12 | - | - | Campus | - | - |
+| 12-13 | Campus | - | - | Discord | Campus |
+| 13-14 | Campus | - | - | Discord | Campus |
+| 14-15 | - | Campus | Campus | - | - |
+| 15-16 | - | Campus | Campus | - | - |
+| 16-17 | - | - | - | Campus | - |
+| 17-18 | - | - | - | Campus | - |
+
+In the table **Campus** means that the guidance session will be on campus, **Discord** means its remotely on Discord. During the on-campus sessions there might be help available also on Discord if the assistants have time to follow the course Discord.
+
+*The schedule is subject to change.*
 
 #### Discord
 
