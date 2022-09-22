@@ -57,7 +57,7 @@ Captures of lectures are published later. The captures below are from year 2021.
     </tr>
     <tr>
       <td>Part 3 (Updated 2022)</td>
-      <td>Coming soon.../td>
+      <td>Coming soon...</td>
     </tr>
     <tr>
       <td>Part 4</td>
