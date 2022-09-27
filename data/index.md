@@ -48,7 +48,7 @@ Captures of lectures are published later. The captures below are from year 2021.
   </thead>
   <tbody>
     <tr>
-      <td>Part 1 (Updated 2022)</td>
+      <td>Part 1 (2022)</td>
       <td><a href="https://youtu.be/AWkZLibDfg4">Recording</a></td>
     </tr>
     <tr>
@@ -56,12 +56,12 @@ Captures of lectures are published later. The captures below are from year 2021.
       <td><a href="https://youtu.be/W1ybi4ZGaLY">Recording</a></td>
     </tr>
     <tr>
-      <td>Part 3 (Updated 2022)</td>
+      <td>Part 3 (2022)</td>
       <td><a href="https://youtu.be/Xqb_SnPETUY">Recording</a></td>
     </tr>
     <tr>
-      <td>Part 4</td>
-      <td><a href="https://youtu.be/McU_SSLp6c4">Recording</a></td>
+      <td>Part 4 (2022)</td>
+      <td><a href="https://youtu.be/qmOpBRKzgZc">Recording</a></td>
     </tr>
     <tr>
       <td>Part 5</td>
