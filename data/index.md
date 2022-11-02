@@ -35,7 +35,7 @@ Lectures for year 2022 can be followed in Zoom at 12.15 on Tuesdays, starting Se
 
 https://helsinki.zoom.us/j/66924683162?pwd=ajR1bHhWRWpzQXYvZTQ2cC9XN0RsQT09
 
-If Zoom asks you to enter a password, it's <strong>intro</strong>.
+If Zoom asks you to enter a password, it's <strong>adv</strong>.
 
 Captures of lectures are published later. The captures below are from year 2021.
 
