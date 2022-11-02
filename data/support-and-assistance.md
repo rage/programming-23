@@ -14,8 +14,8 @@ In the autumn of 2022 the course will have guidance in both Kumpula campus and o
 
 | Time / Date | MON | TUE | WED | THU | FRI |
 |-----|----|----|----|----|----|
-| 10-11 | - | - | Campus | - | - |
-| 11-12 | - | - | Campus | - | - |
+| 10-11 | Discord | - | Campus | - | - |
+| 11-12 | Discord | - | Campus | - | - |
 | 12-13 | Campus | - | - | Discord | Campus |
 | 13-14 | Campus | - | - | Discord | Campus |
 | 14-15 | - | Campus | Campus | - | - |
