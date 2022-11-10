@@ -31,7 +31,7 @@ The course will be open until the end of the year 2022.
 
 <strong>Note!</strong> There is no Zoom lecture at Tuesday Septemeber 13th. Recording is provided below. Next Zoom lecture at Sep 20th.
 
-Lectures for year 2022 can be followed in Zoom at 12.15 on Tuesdays, starting Sep 6th:
+Lectures for year 2022 can be followed in Zoom at 10.15 on Thursdays.
 
 https://helsinki.zoom.us/j/66924683162?pwd=ajR1bHhWRWpzQXYvZTQ2cC9XN0RsQT09
 
