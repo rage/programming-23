@@ -30,6 +30,7 @@ const Title = styled.div`
   font-weight: 800;
   line-height: 1.33;
   letter-spacing: 0em;
+
   a {
     margin-left: 0.5em;
   }
@@ -42,6 +43,7 @@ const Subtitle = styled.div`
   font-weight: 400;
   font-size: 1.1rem;
   letter-spacing: 0em;
+
   a {
     margin-left: 0.5em;
   }
