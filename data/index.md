@@ -25,19 +25,13 @@ Use Discord primarily for communication. You can be in contact with the course t
 
 ## Timetable
 
-The course will be open until the end of the year 2022.
+The course will be open until the end of the year 2023.
 
 ## Lectures
 
-<strong>Note!</strong> There is no Zoom lecture at Tuesday Septemeber 13th. Recording is provided below. Next Zoom lecture at Sep 20th.
+The lecture captures are from years 2021 and 2022. Live lectures are organized on Fall 2023.
 
-Lectures for year 2022 can be followed in Zoom at 10.15 on Thursdays.
-
-https://helsinki.zoom.us/j/66924683162?pwd=ajR1bHhWRWpzQXYvZTQ2cC9XN0RsQT09
-
-If Zoom asks you to enter a password, it's <strong>adv</strong>.
-
-Captures of lectures are published later. The captures below are from year 2021.
+Please note, that exam dates and similar information in the lectures may not concern this year's course.
 
 <table>
   <thead>
