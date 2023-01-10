@@ -7,6 +7,7 @@ banner: true
 sidebar_priority: 7000
 ---
 
+**The course start on January 16th 2023.**
 This is the course material page for the Introduction to Programming course (BSCS1001, 5 cr) and the Advanced Course in Programming (BSCS1002, 5 cr) from the Department of Computer Science at the University of Helsinki.
 
 To pass either of the two courses you are expected to complete programming exercises and take part in an exam. Please see the [Grading and exams](/grading-and-exams) page for more details.
