@@ -8,9 +8,9 @@ sidebar_priority: 4000
 
 ### Guidance during the autumn
 
-In the autumn of 2022 the course will have guidance in both Kumpula campus and on Discord. The sessions on campus are held in Exactum BK107. The guidance sessions are the following
+In the spring of 2023 the course will have guidance in both Kumpula campus and on Discord. The sessions on campus are held in Exactum BK107. The guidance sessions are the following
 
-<strong>Note!</strong> Guidance starts at September 8th.
+**This has not been updated for 2023 yet!**
 
 | Time / Date | MON | TUE | WED | THU | FRI |
 |-----|----|----|----|----|----|
