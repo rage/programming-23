@@ -839,5 +839,5 @@ The technique outlined above is called _dependency injection_. As the name impli
 
 Please respond to a quick questionnaire on this part of the course.
 
-<quiz id="a0196885-0fc5-505b-b103-f7ff71b722d1"></quiz>
+<quiz id="8529af06-c528-5044-93e4-23f05a1cd8ce"></quiz>
 

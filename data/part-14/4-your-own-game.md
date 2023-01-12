@@ -71,15 +71,15 @@ You should assess the game based on the following criteria:
 
 A good review usually points out both good features and some suggestions for improvements.
 
-<quiz id="46e34675-376f-5131-bea3-8f3143423976"></quiz>
+<quiz id="8435be7f-180e-5d13-b693-306ddaeb45cd"></quiz>
 
 ## Questionnaires to finish off
 
 First, please respond to a quick questionnaire on this part of the course.
 
-<quiz id="79846f06-18e3-5fd9-97ff-5a987dfdb6a4"></quiz>
+<quiz id="7ac28d6b-e62a-57ed-ad90-c58e01d8fff4"></quiz>
 
 Please also respond to the course feedback questionnaire. The questionnaire results help us improve the course.
 
-<quiz id="3c9a7474-5d4a-5ada-b3d0-8616271ac0ab"></quiz>
+<quiz id="6b11bbd5-f5f1-5ee9-afdb-012e52ee7ab0"></quiz>
 
