@@ -12,11 +12,11 @@ const courseSettings = {
   bannerPath: "banner.svg",
   showExerciseDescriptionWhenNotLoggedIn: true,
   courseVariants: [
-    // {
-    //   tmcOrganization: "hbc",
-    //   tmcCourse: "python-TVT21A",
-    //   // quizzesId: "5c89b9b6-b8a6-4079-8c4f-a4bbc80b66a4",
-    // },
+    {
+      tmcOrganization: "laurea",
+      tmcCourse: "python-laurea-english-2023",
+      // quizzesId: "5c89b9b6-b8a6-4079-8c4f-a4bbc80b66a4",
+    },
   ],
 }
 
