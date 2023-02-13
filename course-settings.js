@@ -7,7 +7,7 @@ const courseSettings = {
   slug: "programming-23",
   organizationName: "MOOC",
   tmcCourse: "programming-23",
-  quizzesId: "cc7ec951-c28b-4f16-86ff-0f9dc9196db4",
+  quizzesId: "5ffc21a8-5f0d-4c11-871d-ba5fa17b2bc0",
   tmcOrganization: "mooc",
   bannerPath: "banner.svg",
   showExerciseDescriptionWhenNotLoggedIn: true,
