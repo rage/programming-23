@@ -10,7 +10,6 @@ sidebar_priority: 4000
 
 In the spring of 2023 the course will have guidance in both Kumpula campus and on Discord. The sessions on campus are held in Exactum BK107. The guidance sessions are the following
 
-**This has not been updated for 2023 yet!**
 
 | Time / Date | MON | TUE | WED | THU | FRI |
 |-----|----|----|----|----|----|
