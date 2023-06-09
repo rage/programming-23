@@ -26,6 +26,10 @@ In the table **Campus** means that the guidance session will be on campus, **Dis
 
 *The schedule is subject to change.*
 
+**Note!** Exactum doors will be locked at 16:00 during the summer, so if you are coming to the campus sessions please arrive before that. You can stay in the room until the end of the session as long as you can get in.
+
+**The campus is closed 26.6. - 27.8. During this time there is only remote guidance on Discord.**
+
 #### Discord
 
 Discord is a communication platform which allows both text-based and voice/video chats. You can find out more about the platform [on the Discord website](https://discord.com/).
