@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import BackgroundImage from "../images/banner.svg"
 import { Card, CardContent } from "@material-ui/core"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { Link } from "gatsby"
 import { withTranslation } from "react-i18next"
 import withSimpleErrorBoundary from "../util/withSimpleErrorBoundary"
@@ -109,14 +108,14 @@ const Footer = ({ t }) => {
         <StyledCard>
           <StyledCardContent>
             <GithubContainer>
-              <OutboundLink
+              <a
                 href={CourseSettings.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <StyledIcon icon={faGithub} size="3x" title={t("footer-src")} />
                 <div>{t("footer-src")}</div>
-              </OutboundLink>
+              </a>
             </GithubContainer>
             <ButtonContainer>
               <Button to="/report-issue">{t("footer-report-issue")}</Button>
@@ -128,13 +127,13 @@ const Footer = ({ t }) => {
             </ButtonContainer>
             <ContentContainer>
               {t("makers")}{" "}
-              <OutboundLink
+              <a
                 href="https://www.helsinki.fi/en/researchgroups/data-driven-education"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {t("rage")}
-              </OutboundLink>
+              </a>
               .
             </ContentContainer>
 
@@ -142,46 +141,46 @@ const Footer = ({ t }) => {
               <Link to="/credits">{t("credits")}</Link>.
             </ContentContainer>
             <SocialContainer>
-              <OutboundLink
+              <a
                 href="https://twitter.com/moocfi"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("twitter-aria")}
               >
                 <StyledIcon icon={faTwitter} size="3x" />
-              </OutboundLink>
-              <OutboundLink
+              </a>
+              <a
                 href="https://www.facebook.com/Moocfi"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("facebook-aria")}
               >
                 <StyledIcon icon={faFacebook} size="3x" />
-              </OutboundLink>
-              <OutboundLink
+              </a>
+              <a
                 href="https://www.youtube.com/channel/UCkHoQ5p9skFdyjrV3_tnUrA"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("facebook-aria")}
               >
                 <StyledIcon icon={faYoutube} size="3x" />
-              </OutboundLink>
+              </a>
             </SocialContainer>
             <BrandsContainer>
-              <OutboundLink
+              <a
                 href="https://helsinki.fi"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img alt="Helsingin yliopisto" src={UHLogo} />
-              </OutboundLink>
-              <OutboundLink
+              </a>
+              <a
                 href="https://mooc.fi"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img alt="MOOC.fi" src={MoocfiLogo} />
-              </OutboundLink>
+              </a>
             </BrandsContainer>
           </StyledCardContent>
         </StyledCard>
