@@ -13,22 +13,23 @@ In the spring of 2023 the course will have guidance in both Kumpula campus and o
 
 | Time / Date | MON | TUE | WED | THU | FRI |
 |-----|----|----|----|----|----|
-| 10-11 | Campus / Discord | Campus | - | - | Discord |
-| 11-12 | Campus / Discord | Campus | - | - | Discord |
+| 10-11 |  Discord | Discord | - | - | Discord |
+| 11-12 |  Discord | Discord | - | - | Discord |
 | 12-13 | - | - | - | - | - |
 | 13-14 | - | - | - | - | - |
 | 14-15 | - | - | Discord | - | - |
-| 15-16 | - | - | Discord | Campus | - |
-| 16-17 | - | Campus | - | Campus | - |
-| 17-18 | - | Campus | - | - | - |
+| 15-16 | - | - | Discord | Discord | - |
+| 16-17 | - | Discord | - | Discord | - |
+| 17-18 | - | Discord | - | - | - |
 
 In the table **Campus** means that the guidance session will be on campus, **Discord** means its remotely on Discord. During the on-campus sessions there might be help available also on Discord if the assistants have time to follow the course Discord.
 
 *The schedule is subject to change.*
 
-**Note!** Exactum doors will be locked at 16:00 during the summer, so if you are coming to the campus sessions please arrive before that. You can stay in the room until the end of the session as long as you can get in.
 
-**The campus is closed 26.6. - 27.8. During this time there is only remote guidance on Discord.**
+**The campus is closed 26.6. - 27.8. During this time the only on schedule guidance is remote guidance on Discord. On campus guidance will be arranged based on email requests**
+
+If you want on campus guidance during the summer break, please send an email to ohjelmoinnin-mooc@helsinki.fi. In your message, please mention that you would like on campus guidance and specify your preferred time. We will try to arrange guidance sessions based on the requests.
 
 #### Discord
 
