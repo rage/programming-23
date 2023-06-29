@@ -81,8 +81,8 @@ Notice Python also has an integer division operator `//`. If the operands are in
 x = 3
 y = 2
 
-print(f"/ operator {x/y}")
-print(f"// operator {x//y}")
+print(f"/ operator {x / y}")
+print(f"// operator {x // y}")
 ```
 
 prints out
@@ -119,7 +119,7 @@ year = int(input("Which year were you born? "))
 print(f"Your age at the end of the year 2021: {2021 - year}" )
 ```
 
-Similarly, a string can be converted into a floating point number with the function `float`. This programs asks the user for their height and weight, and uses these to calculate their BMI:
+Similarly, a string can be converted into a floating point number with the function `float`. This program asks the user for their height and weight, and uses these to calculate their BMI:
 
 ```python
 height = float(input("What is your height? "))
