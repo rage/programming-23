@@ -1,9 +1,9 @@
 ---
 path: "/exam-intro"
-title: "Introduction to Programming extra exam 01.07."
+title: "Introduction to Programming extra exam 05.08."
 information_page: true
 sidebar_priority: 4900
-hide_in_sidebar: true
+hide_in_sidebar: false
 ---
 
 <!--# Introduction to Programming-->
@@ -19,7 +19,7 @@ hide_in_sidebar: true
 #### Exam arrangements
 
 * Your solutions to the programming tasks in the exam will be submitted in the Visual Studio Code programming environment, in the same manner as the weekly exercises on the course.
-* The course exam can be taken on July 1st 2023 **between 10:00 (UTC+3) AM and 10:00 PM (UTC+3)**.
+* The course exam can be taken on August 5th 2023 **between 10:00 (UTC+3) AM and 10:00 PM (UTC+3)**.
 * The exam ends at 10:00 PM (UTC+3) at the latest. If you want to be able to spend the maximum time allowed on the exam, you should **start at 6:00 PM (UTC+3) at the latest**.
 * You will have **four hours** to complete the exam. If you have been granted extra time through special arrangements, you will have five hours to complete the exam, and should start at 5:00 PM (UTC+3) at the latest.
 
@@ -43,7 +43,7 @@ hide_in_sidebar: true
 2. Select the `My courses` view in the TMC menu.
 3. Click the `Add new course` button.
 4. Select the organization `Helsingin yliopisto`.
-5. Select the course `Introduction to Programming, summer 2023, Online Exam 1`.
+5. Select the course `Introduction to Programming, summer 2023, Online Exam 2`.
 6. Fetch the programming task templates.
 7. Try submitting the programming tasks.
 8. If you are able to submit the tasks, you are ready to take the exam. If not, get in touch with course instructors. Don't panic, we will work it out.
@@ -55,8 +55,8 @@ Please do not ask any questions about specific programming tasks assigned to you
 
 * The exam questions, in the form of programming task instructions, will become available at courses.mooc.fi at 10:00 AM on the day of the exam.
 * You should use your usual mooc.fi login details to log in at the exam page.
-* The exam questions can be found from here: <a href="https://courses.mooc.fi/org/uh-cs/exams/ea6b8e96-984f-4d8e-ae95-087de6eec804">https://courses.mooc.fi/org/uh-cs/exams/ea6b8e96-984f-4d8e-ae95-087de6eec804</a>
-* If you have been granted extra time through special arrangements, open the exam questions from this link: <a href="https://courses.mooc.fi/org/uh-cs/exams/e4c1088f-922a-404f-86ad-889be9e2b9bb">https://courses.mooc.fi/org/uh-cs/exams/e4c1088f-922a-404f-86ad-889be9e2b9bb</a>
+* The exam questions can be found from here: <a href="https://courses.mooc.fi/org/uh-cs/exams/86f4840f-eace-4ea3-8198-b6580dbfe003">https://courses.mooc.fi/org/uh-cs/exams/86f4840f-eace-4ea3-8198-b6580dbfe003</a>
+* If you have been granted extra time through special arrangements, open the exam questions from this link: <a href="https://courses.mooc.fi/org/uh-cs/exams/62065537-31f1-4e66-889d-b0d86b0616d8">https://courses.mooc.fi/org/uh-cs/exams/62065537-31f1-4e66-889d-b0d86b0616d8</a>
 * Your allocated exam time will begin when you click on the button `START THE EXAM!`.
 
 #### Submitting your solutions
@@ -68,7 +68,7 @@ Please do not ask any questions about specific programming tasks assigned to you
 #### Finishing the exam
 
 * Please submit all your programming tasks one final time, within the exam time allocated to you, before finishing.
-* You can check the arrival of the exercises you have submitted to the server by logging in to the page [https://tmc.mooc.fi/org/hy/courses/1230](https://tmc.mooc.fi/org/hy/courses/1230). The programming task has arrived on the server if you can see the name of the task template and the time when you submitted the task.
+* You can check the arrival of the exercises you have submitted to the server by logging in to the page [https://tmc.mooc.fi/org/hy/courses/1239](https://tmc.mooc.fi/org/hy/courses/1239). The programming task has arrived on the server if you can see the name of the task template and the time when you submitted the task.
 * When you are done, you can close all Visual Studio Code tabs and windows, along with the exam question page. There is no need to do anything else.
 
 #### Exam results
