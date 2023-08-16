@@ -276,7 +276,7 @@ The exercise template contains the class definition for a `ClimbingRoute`. It wo
 
 ```python
 route1 = ClimbingRoute("Edge", 38, "6A+")
-route2 = ClimbingRoute("Smooth operator", 9, "7A")
+route2 = ClimbingRoute("Smooth operator", 11, "7A")
 route3 = ClimbingRoute("Synchro", 14, "8C+")
 
 
@@ -288,7 +288,7 @@ print(route3.name, route3.length, route3.grade)
 <sample-output>
 
 Edge, length 38 metres, grade 6A+
-Smooth operator, length 9 metres, grade 7A
+Smooth operator, length 11 metres, grade 7A
 Synchro 14 8C+
 
 </sample-output>
@@ -316,7 +316,7 @@ for route in sort_by_length(routes):
 Edge, length 38 metres, grade 6A+
 Synchro, length 14 metres, grade 8C+
 Small steps, length 12 metres, grade 6A+
-Smooth operator, length 9 metres, grade 7A
+Smooth operator, length 11 metres, grade 7A
 
 </sample-output>
 
