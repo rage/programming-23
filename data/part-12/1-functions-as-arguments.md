@@ -165,7 +165,6 @@ orange 2 pcs
 apple 3 pcs
 banana 12 pcs
 watermelon 22 pcs
-
 </sample-output>
 
 </programming-exercise>
@@ -187,7 +186,6 @@ for show in sort_by_seasons(shows):
 Dexter 9 seasons
 Friends 10 seasons
 Simpsons 32 seasons
-
 </sample-output>
 
 </programming-exercise>
