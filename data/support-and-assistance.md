@@ -27,7 +27,7 @@ In the table **Campus** means that the guidance session will be on campus, **Dis
 *The schedule is subject to change.*
 
 
-**The campus is closed 26.6. - 27.8. During this time the only on schedule guidance is remote guidance on Discord. On campus guidance will be arranged based on email requests**
+**The official guidance sessions are on pause from 21th of August to 25th of August. During this time only peer-to-peer support is available**
 
 If you want on campus guidance during the summer break, please send an email to ohjelmoinnin-mooc@helsinki.fi. In your message, please mention that you would like on campus guidance and specify your preferred time. We will try to arrange guidance sessions based on the requests.
 
