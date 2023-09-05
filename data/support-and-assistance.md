@@ -27,7 +27,7 @@ In the table **Campus** means that the guidance session will be on campus, **Dis
 *The schedule is subject to change.*
 
 
-**The official guidance sessions are on pause from 21th of August to 25th of August. During this time only peer-to-peer support is available**
+**The official guidance sessions are on pause from 4th of September to 9th of September. The guidance sessions for Autumn begins at 11th of September.**
 
 If you want on campus guidance during the summer break, please send an email to ohjelmoinnin-mooc@helsinki.fi. In your message, please mention that you would like on campus guidance and specify your preferred time. We will try to arrange guidance sessions based on the requests.
 
