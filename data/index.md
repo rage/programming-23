@@ -30,9 +30,11 @@ The course will be open until the end of the year 2023.
 
 ## Lectures
 
-The lecture captures are from years 2021 and 2022. Live lectures are organized on Fall 2023.
+Live lectures can be followed on Thursdays at 10:15 in [Zoom](https://helsinki.zoom.us/j/67196324222?pwd=VGVKdlA5S1pFb1pOS3QzNnRGcVBBdz09)
 
-Please note, that exam dates and similar information in the lectures may not concern this year's course.
+The lecture recordings are shared on this page after the lectures.
+
+Please note, that exam dates and similar information in the older recordings may not concern this year's course.
 
 <table>
   <thead>
@@ -43,11 +45,11 @@ Please note, that exam dates and similar information in the lectures may not con
   </thead>
   <tbody>
     <tr>
-      <td>Part 1 (2022)</td>
-      <td><a href="https://youtu.be/AWkZLibDfg4">Recording</a></td>
+      <td>Part 1 (2023)</td>
+      <td><a href="https://youtu.be/0UrIgF5qKFM">Recording 07.09.2023</a></td>
     </tr>
     <tr>
-      <td>Part 2</td>
+      <td>Part 2 (2022)</td>
       <td><a href="https://youtu.be/W1ybi4ZGaLY">Recording</a></td>
     </tr>
     <tr>
