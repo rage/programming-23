@@ -41,12 +41,14 @@ Please note, that exam dates and similar information in the older recordings may
     <tr>
       <td>Part</td>
       <td>Recording</td>
+      <td>Slides</td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Part 1 (2023)</td>
       <td><a href="https://youtu.be/0UrIgF5qKFM">Recording 07.09.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1PIT9gEO5qFJQ6TS8fGs9j_qdeVlYc1sh5xy7VYOOCN8/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
       <td>Part 2 (2022)</td>
