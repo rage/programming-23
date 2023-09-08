@@ -13,23 +13,21 @@ In the spring of 2023 the course will have guidance in both Kumpula campus and o
 
 | Time / Date | MON | TUE | WED | THU | FRI |
 |-----|----|----|----|----|----|
-| 10-11 |  Discord | Discord | - | - | Discord |
-| 11-12 |  Discord | Discord | - | - | Discord |
-| 12-13 | - | - | - | - | - |
+| 10-11 | Campus | Campus | - | - | - |
+| 11-12 | Campus | Campus | - | Campus | - |
+| 12-13 | - | - | - | Campus | - |
 | 13-14 | - | - | - | - | - |
-| 14-15 | - | - | Discord | - | - |
-| 15-16 | - | - | Discord | Discord | - |
-| 16-17 | - | Discord | - | Discord | - |
-| 17-18 | - | Discord | - | - | - |
+| 14-15 | Campus | - | Discord | - | - |
+| 15-16 | Campus | - | Discord | - | - |
+| 16-17 | - | - | - | - | Discord |
+| 17-18 | - | - | - | - | Discord |
 
 In the table **Campus** means that the guidance session will be on campus, **Discord** means its remotely on Discord. During the on-campus sessions there might be help available also on Discord if the assistants have time to follow the course Discord.
 
 *The schedule is subject to change.*
 
 
-**The official guidance sessions are on pause from 4th of September to 9th of September. The guidance sessions for Autumn begins at 11th of September.**
-
-If you want on campus guidance during the summer break, please send an email to ohjelmoinnin-mooc@helsinki.fi. In your message, please mention that you would like on campus guidance and specify your preferred time. We will try to arrange guidance sessions based on the requests.
+**The guidance sessions for Autumn begins on 11th of September.**
 
 #### Discord
 
