@@ -176,7 +176,7 @@ Orwell
 
 <in-browser-programming-exercise name="Absolute value" tmcname="part01-22_absolute_value">
 
-Please write a program which asks the user for an integer number. If the number is less than zero, the program should print out the number multiplied by -1. Otherwise the program prints out the the number as is. Please have a look at the examples of expected behaviour below.
+Please write a program which asks the user for an integer number. If the number is less than zero, the program should print out the number multiplied by -1. Otherwise the program prints out the number as is. Please have a look at the examples of expected behaviour below.
 
 <sample-output>
 
