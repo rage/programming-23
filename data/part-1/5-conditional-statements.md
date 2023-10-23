@@ -271,7 +271,7 @@ Thank you!
 
 ## Boolean values and Boolean expressions
 
-Any condition used in a conditional statement will result in a one of two values, that is, either true or false. For example, the condition `a < 5` is true if `a` is less than 5, and false if `a` is equal to or greater than 5.
+Any condition used in a conditional statement will result in one of two values, that is, either true or false. For example, the condition `a < 5` is true if `a` is less than 5, and false if `a` is equal to or greater than 5.
 
 These types of values are often called _Boolean_ values, named after the English mathematician George Boole. In Python they are handled by the `bool` data type. Variables of type `bool` can only have two values: `True` or `False`.
 
