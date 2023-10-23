@@ -3,7 +3,7 @@ path: "/exam-intro"
 title: "Introduction to Programming exam 21.10."
 information_page: true
 sidebar_priority: 4900
-hide_in_sidebar: false
+hide_in_sidebar: true
 ---
 
 <!--# Introduction to Programming-->
@@ -67,7 +67,7 @@ Please do not ask any questions about specific programming tasks assigned to you
 
 #### Finishing the exam
 
-* Please submit all your programming tasks one final time, within the exam time allocated to you, before finishing.
+* Please make sure you have submitted all your programming tasks before finishing.
 * You can check the arrival of the exercises you have submitted to the server by logging in to the page [https://tmc.mooc.fi/org/hy/courses/1291](https://tmc.mooc.fi/org/hy/courses/1291). The programming task has arrived on the server if you can see the name of the task template and the time when you submitted the task.
 * When you are done, you can close all Visual Studio Code tabs and windows, along with the exam question page. There is no need to do anything else.
 
