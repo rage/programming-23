@@ -129,10 +129,10 @@ This would print out the following:
 
 <sample-output>
 
-first
-second
-third
-fourth
+First
+Second
+Third
+Fourth
 print the same again:
 
 </sample-output>
@@ -539,7 +539,7 @@ my_list = [2, 3, 1, 5]
 # a helper function for reduce, adds one value to the current reduced sum
 def sum_helper(reduced_sum, item):
   print(f"the reduced sum is now {reduced_sum}, next item is {item}")
-  # the new reduced sum is the old sum + the next item 
+  # the new reduced sum is the old sum + the next item
   return reduced_sum + item
 
 sum_of_numbers = reduce(sum_helper, my_list, 0)
@@ -581,7 +581,7 @@ print(product_of_list)
 
 </sample-output>
 
-As we are dealing with multiplication the initial value is not zero. Instead, we use 1. What would happen if we used 0 as the initial value? 
+As we are dealing with multiplication the initial value is not zero. Instead, we use 1. What would happen if we used 0 as the initial value?
 
 Above we have dealt largely with integers, but `map`, `filter` and `reduce` can all handle a collection of objects of any type.
 
@@ -646,7 +646,7 @@ sum_of_numbers = reduce(lambda reduced_sum, item: reduced_sum + item, my_list)
 print(sum_of_numbers)
 ```
 
-If the initial value is left out, `reduce` takes the first item in the list as the initial value and starts reducing from the second item onwards. 
+If the initial value is left out, `reduce` takes the first item in the list as the initial value and starts reducing from the second item onwards.
 
 </text-box>
 
@@ -666,7 +666,7 @@ In the above case, when `reduce` tries to execute the `balance_sum_helper` funct
 
 <programming-exercise name='Study credits' tmcname='part12-13_credits'>
 
-In this exercise we will work with a slightly modified version of the `CourseAttempt` class. The name of the student is omitted, but the number of credits is included. The class works as follows: 
+In this exercise we will work with a slightly modified version of the `CourseAttempt` class. The name of the student is omitted, but the number of credits is included. The class works as follows:
 
 ```python
 attempt = CourseAttempt("Data Structures and Algorithms", 3, 10)

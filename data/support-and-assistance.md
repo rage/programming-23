@@ -13,18 +13,21 @@ In the spring of 2023 the course will have guidance in both Kumpula campus and o
 
 | Time / Date | MON | TUE | WED | THU | FRI |
 |-----|----|----|----|----|----|
-| 10-11 | Campus / Discord | Campus | - | - | Discord |
-| 11-12 | Campus / Discord | Campus | - | - | Discord |
-| 12-13 | - | - | - | - | - |
+| 10-11 | Campus | Campus | - | - | - |
+| 11-12 | Campus | Campus | - | Campus | - |
+| 12-13 | - | - | - | Campus | - |
 | 13-14 | - | - | - | - | - |
-| 14-15 | - | - | Discord | - | - |
-| 15-16 | - | - | Discord | Campus | - |
-| 16-17 | - | Campus | - | Campus | - |
-| 17-18 | - | Campus | - | - | - |
+| 14-15 | Campus | - | Discord | - | - |
+| 15-16 | Campus | - | Discord | - | - |
+| 16-17 | - | - | - | - | Discord |
+| 17-18 | - | - | - | - | Discord |
 
 In the table **Campus** means that the guidance session will be on campus, **Discord** means its remotely on Discord. During the on-campus sessions there might be help available also on Discord if the assistants have time to follow the course Discord.
 
 *The schedule is subject to change.*
+
+
+**The guidance sessions for Autumn begins on 11th of September.**
 
 #### Discord
 

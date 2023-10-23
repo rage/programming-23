@@ -139,7 +139,7 @@ print("32 weeks and 15 days after Midsummer it will be", midsummer + long_time)
 <sample-output>
 
 A week after Midsummer it will be 2021-07-03 00:00:00
-32 weeks and 15 days after Midsummer it will be 2021-02-20 00:00:00
+32 weeks and 15 days after Midsummer it will be 2022-02-20 00:00:00
 
 </sample-output>
 

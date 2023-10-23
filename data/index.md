@@ -18,7 +18,7 @@ The Introduction to Programming course consists of parts 1 through 7 in the mate
 
 ## Support channels on the course
 
-The official course support channels are available through Zoom and Discord. The course channels in Discord are available through [this link](https://study.cs.helsinki.fi/discord/join/ohjelmoinnin_mooc).
+The official course support channels are available through workshop guidance on campus and Discord. The course channels in Discord are available through [this link](https://study.cs.helsinki.fi/discord/join/ohjelmoinnin_mooc).
 
 Please see the [Support and assistance](/support-and-assistance) page for more details.
 
@@ -30,45 +30,55 @@ The course will be open until the end of the year 2023.
 
 ## Lectures
 
-The lecture captures are from years 2021 and 2022. Live lectures are organized on Fall 2023.
+Live lectures can be followed on Thursdays at 10:15 in [Zoom](https://helsinki.zoom.us/j/67196324222?pwd=VGVKdlA5S1pFb1pOS3QzNnRGcVBBdz09)
 
-Please note, that exam dates and similar information in the lectures may not concern this year's course.
+The lecture recordings are shared on this page after the lectures.
+
+Please note, that exam dates and similar information in the older recordings may not concern this year's course.
 
 <table>
   <thead>
     <tr>
       <td>Part</td>
       <td>Recording</td>
+      <td>Slides</td>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Part 1 (2022)</td>
-      <td><a href="https://youtu.be/AWkZLibDfg4">Recording</a></td>
+      <td>Part 1 (2023)</td>
+      <td><a href="https://youtu.be/0UrIgF5qKFM">Recording 07.09.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1PIT9gEO5qFJQ6TS8fGs9j_qdeVlYc1sh5xy7VYOOCN8/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
-      <td>Part 2</td>
-      <td><a href="https://youtu.be/W1ybi4ZGaLY">Recording</a></td>
+      <td>Part 2 (2023)</td>
+      <td><a href="https://youtu.be/xjBP3awP-I8">Recording 14.09.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1zKxONZbjNRkaULUW_T2geSq7RO003ipNvHR3ASPKPhc/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
-      <td>Part 3 (2022)</td>
-      <td><a href="https://youtu.be/Xqb_SnPETUY">Recording</a></td>
+      <td>Part 3 (2023)</td>
+      <td><a href="https://youtu.be/G0zdNWCm8h8">Recording 21.09.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1OWiZt29hFynu_50B1FmzbzOYC7-z8iyx4mQ3TJTPjs0/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
-      <td>Part 4 (2022)</td>
-      <td><a href="https://youtu.be/qmOpBRKzgZc">Recording</a></td>
+      <td>Part 4 (2023)</td>
+      <td><a href="https://youtu.be/U7MFzDabDqg">Recording 28.09.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1xm5bRqeMhFj2S-iDnDj2f0qzbJfXWjqQ2uX_ZAItWzo/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
-      <td>Part 5 (2022)</td>
-      <td><a href="https://youtu.be/X-XTcZuMj_k">Recording</a></td>
+      <td>Part 5 (2023)</td>
+      <td><a href="https://youtu.be/OclzsDLgckQ">Recording 05.10.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1PBVezc4Bm2Be9cRBtVComzJlLYVURC_5DUEFG_jtb8o/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
-      <td>Part 6</td>
-      <td><a href="https://youtu.be/ePghbQDhOKU">Recording</a></td>
+      <td>Part 6 (2023)</td>
+      <td><a href="https://youtu.be/UjWu85v73YI">Recording 12.10.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1kVjKar8gVwIyFerqMmgg6y1RRGlWHVC2Xh0oKH_hjJI/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
-      <td>Part 7</td>
-      <td><a href="https://youtu.be/yftLKzcNhh4">Recording</a></td>
+      <td>Part 7 (2023)</td>
+      <td><a href="https://youtu.be/lMPptaf_EpI">Recording 19.10.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1Q6vO88F5fNjDpVqmyzrS8vcrxyNgZ84s67MOuM8UPa4/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
       <td>Part 8 (2022)</td>

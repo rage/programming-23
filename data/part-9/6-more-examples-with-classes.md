@@ -281,6 +281,10 @@ print(student2.completed_courses)
 
 Even though the following exercise finishes off this part of the material, the techniques required to solve it were all covered already in the section named [objects as attributes](/part-9/2-objects-as-attributes). Specifically, you are not required to use the `@property` decorator or default values for parameters in this exercise. This exercise is very similar to the exercises [a box of presents](/part-9/2-objects-as-attributes#programming-exercise-a-box-of-presents) and [the shortest person in the room](/part-9/2-objects-as-attributes#programming-exercise-the-shortest-person-in-the-room).
 
+
+#### Important information regarding the next exercise
+Please note that there is an issue resulting from an update in Python, which conflicts with the inbuilt library and the original file name for this exercise. If you experience any issues, we recommend redownloading the exercise folder. Once you have obtained the new local test files, you can use either "code.py" or "code_1.py" as the file name. While using Visual Studio Code, you may receive notifications about problems in the test file. However, these notifications can be safely ignored, as they are caused by the test's inability to import from either the "code.py" or "code_1.py" files.
+
 <programming-exercise name='Item, Suitcase and Cargo hold' tmcname='part09-15_item_suitcase_hold'>
 
 In this series of exercises you will create the classes `Item`, `Suitcase` and `Cargo Hold`, which will let you further practice working on objects which contain references to other objects.

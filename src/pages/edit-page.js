@@ -2,7 +2,6 @@ import React from "react"
 import Helmet from "react-helmet"
 import Layout from "../templates/Layout"
 import Container from "../components/Container"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { withLoginStateContext } from "../contexes/LoginStateContext"
 import { Button, Typography } from "@material-ui/core"
 import CourseSettings from "../../course-settings"
@@ -45,31 +44,31 @@ class EditPage extends React.Component {
           <p>{this.props.t("editPage1")}</p>
           <p>
             {this.props.t("editPage2")}{" "}
-            <OutboundLink
+            <a
               external="true"
               href={`${this.state.loginThenEditPath}`}
               target="_blank"
               rel="noopener noreferrer"
             >
               {this.props.t("editPage3")}
-            </OutboundLink>
+            </a>
           </p>
 
           <p>
             {this.props.t("editPage4")}{" "}
-            <OutboundLink
+            <a
               external="true"
               href={`${CourseSettings.githubUrl.concat("/pulls")}`}
               target="_blank"
               rel="noopener noreferrer"
             >
               {this.props.t("editPage3")}
-            </OutboundLink>{" "}
+            </a>{" "}
             {this.props.t("editPage5")}
           </p>
 
           <center>
-            <OutboundLink
+            <a
               external="true"
               href={`${this.state.editPath}`}
               target="_blank"
@@ -79,7 +78,7 @@ class EditPage extends React.Component {
                 {this.props.t("editPageButtonText")}
                 {this.state.path}
               </Button>
-            </OutboundLink>
+            </a>
           </center>
 
           <br />
