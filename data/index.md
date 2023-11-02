@@ -82,7 +82,8 @@ Please note, that exam dates and similar information in the older recordings may
     </tr>
     <tr>
       <td>Part 8 (2022)</td>
-      <td><a href="https://youtu.be/IvaVCaNGNis">Recording</a></td>
+      <td><a href="https://youtu.be/B6tm0FAy9wE">Recording 02.11.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1gBegxAXVWdm47AebP5gIGfFerwP1K0vyLRzX4GJtLjY/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
       <td>Part 9 (2022)</td>
