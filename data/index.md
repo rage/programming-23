@@ -30,7 +30,7 @@ The course will be open until the end of the year 2023.
 
 ## Lectures
 
-Live lectures can be followed on Thursdays at 10:15 in [Zoom](https://helsinki.zoom.us/j/67196324222?pwd=VGVKdlA5S1pFb1pOS3QzNnRGcVBBdz09)
+Live lectures can be followed on Thursdays at 10:15 in [Zoom](https://helsinki.zoom.us/j/61997878100?pwd=VkJYZmRoN1M5R21uZVlFaUdkYlJDUT09) (Link updated for Advanced Course!)
 
 The lecture recordings are shared on this page after the lectures.
 
