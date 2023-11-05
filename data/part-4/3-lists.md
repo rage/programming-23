@@ -610,7 +610,7 @@ In this version, following the programming logic is more difficult, as it is no 
 
 Organising your code into separate functions will improve you program's readability, but also make it easier to handle logical wholes. This in turn helps you that verify the program works as intended, as each function can be tested separately.
 
-Another important use for functions is making code _reusable_. If you need to achieve some functionality twice is your program, it is a good idea to create your own function and name it appropriately:
+Another important use for functions is making code _reusable_. If you need to achieve some functionality twice in your program, it is a good idea to create your own function and name it appropriately:
 
 ```python
 print("Shoe sizes:")
