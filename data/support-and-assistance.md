@@ -8,26 +8,22 @@ sidebar_priority: 4000
 
 ### Guidance during the autumn
 
-In the spring of 2023 the course will have guidance in both Kumpula campus and on Discord. The sessions on campus are held in Exactum BK107. The guidance sessions are the following
-
+The 2023 course will offer guidance at both the Kumpula campus and on Discord. The sessions on campus are held in Exactum BK107. The guidance sessions are the following
 
 | Time / Date | MON | TUE | WED | THU | FRI |
 |-----|----|----|----|----|----|
-| 10-11 | Campus | Campus | - | - | - |
-| 11-12 | Campus | Campus | - | Campus | - |
-| 12-13 | - | - | - | Campus | - |
-| 13-14 | - | - | - | - | - |
-| 14-15 | Campus | - | Discord | - | - |
-| 15-16 | Campus | - | Discord | - | - |
-| 16-17 | - | - | - | - | Discord |
-| 17-18 | - | - | - | - | Discord |
+| 10-11 | Campus | Campus | - | Discord | - |
+| 11-12 | Campus | Campus | - | Discord | - |
+| 12-13 | Campus | Campus | - | - | - |
+| 13-14 | Campus | Campus | - | - | - |
+| 14-15 | Campus | Campus | - | - | - |
+| 15-16 | Campus | Campus | - | - | - |
+| 16-17 | - | Campus | - | - | - |
+| 17-18 | - | - | - | - | - |
 
 In the table **Campus** means that the guidance session will be on campus, **Discord** means its remotely on Discord. During the on-campus sessions there might be help available also on Discord if the assistants have time to follow the course Discord.
 
 *The schedule is subject to change.*
-
-
-**The guidance sessions for Autumn begins on 11th of September.**
 
 #### Discord
 
