@@ -32,6 +32,8 @@ The course will be open until the end of the year 2023.
 
 Live lectures can be followed on Thursdays at 10:15 in [Zoom](https://helsinki.zoom.us/j/61997878100?pwd=VkJYZmRoN1M5R21uZVlFaUdkYlJDUT09) (Link updated for Advanced Course!)
 
+There is no lecture on Thursday 9.11.2023. Instead the lecture will be held on Monday 13.11.2023 at 12:15 in the same zoom link as above.
+
 The lecture recordings are shared on this page after the lectures.
 
 Please note, that exam dates and similar information in the older recordings may not concern this year's course.
