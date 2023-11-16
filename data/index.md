@@ -83,7 +83,7 @@ Please note, that exam dates and similar information in the older recordings may
       <td><a href="https://docs.google.com/presentation/d/1Q6vO88F5fNjDpVqmyzrS8vcrxyNgZ84s67MOuM8UPa4/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
-      <td>Part 8 (2022)</td>
+      <td>Part 8 (2023)</td>
       <td><a href="https://youtu.be/B6tm0FAy9wE">Recording 02.11.2023</a></td>
       <td><a href="https://docs.google.com/presentation/d/1gBegxAXVWdm47AebP5gIGfFerwP1K0vyLRzX4GJtLjY/edit?usp=sharing">Slides</a></td>
     </tr>
@@ -92,8 +92,9 @@ Please note, that exam dates and similar information in the older recordings may
       <td><a href="https://youtu.be/r6vV5SXpmWs">Recording</a></td>
     </tr>
     <tr>
-      <td>Part 10 (2022)</td>
-      <td><a href="https://youtu.be/xD1Sh2vwbOI">Recording</a></td>
+      <td>Part 10 (2023)</td>
+      <td><a href="https://youtu.be/C3jfc3Np4nA">Recording</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1ntybDeCoPykmTz0R8rjHAU03F8pGr1VZHQzj4UGId7g/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
       <td>Part 11</td>
