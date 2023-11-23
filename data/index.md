@@ -93,12 +93,13 @@ Please note, that exam dates and similar information in the older recordings may
     </tr>
     <tr>
       <td>Part 10 (2023)</td>
-      <td><a href="https://youtu.be/C3jfc3Np4nA">Recording</a></td>
+      <td><a href="https://youtu.be/C3jfc3Np4nA">Recording 16.11.2023</a></td>
       <td><a href="https://docs.google.com/presentation/d/1ntybDeCoPykmTz0R8rjHAU03F8pGr1VZHQzj4UGId7g/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
-      <td>Part 11</td>
-      <td><a href="https://youtu.be/vp18ipCMSag">Recording</a></td>
+      <td>Part 11 (2023)</td>
+      <td><a href="https://youtu.be/LI9LITLkF30">Recording 23.11.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1qWc6ilCxCYqsjkk5dwKpGdHLMnA588BEyakJOrfZw9c/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
       <td>Part 12</td>
