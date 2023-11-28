@@ -147,6 +147,7 @@ def read_small_integer():
         print("This input is invalid")
 
 number = read_small_integer()
+print("Thank you!")
 print(number, "to the power of three is", number**3)
 ```
 
