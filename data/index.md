@@ -102,8 +102,9 @@ Please note, that exam dates and similar information in the older recordings may
       <td><a href="https://docs.google.com/presentation/d/1qWc6ilCxCYqsjkk5dwKpGdHLMnA588BEyakJOrfZw9c/edit?usp=sharing">Slides</a></td>
     </tr>
     <tr>
-      <td>Part 12</td>
-      <td><a href="https://youtu.be/eTAn4yu1xFQ">Recording</a></td>
+      <td>Part 12 (2023)</td>
+      <td><a href="https://youtu.be/ZcfqkDfJG_Y">Recording 30.11.2023</a></td>
+      <td><a href="https://docs.google.com/presentation/d/1zxc6lYSWK50wy_8Y2s1FKgCAOe9Nz1-0gS6tba2idg0/edit?usp=sharing">Slides</a></td>
     </tr>
   </tbody>
 </table>
