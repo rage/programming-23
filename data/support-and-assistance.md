@@ -25,6 +25,8 @@ In the table **Campus** means that the guidance session will be on campus, **Dis
 
 *The schedule is subject to change.*
 
+**The official guidance is on a christmas break from 18th of December 2023 to 12th of January 2024.**
+
 #### Discord
 
 Discord is a communication platform which allows both text-based and voice/video chats. You can find out more about the platform [on the Discord website](https://discord.com/).
