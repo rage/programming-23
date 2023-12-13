@@ -199,7 +199,7 @@ After the breakpoint has been set, choose _Start debugging_ from the _Run_ menu.
 
 <img src="4_1_6.png">
 
-This starts the debugger, which executes your code as usual until the execution reaches a breakpoint and halts. If your code asks for input, remember to type that in in the terminal:
+This starts the debugger, which executes your code as usual until the execution reaches a breakpoint and halts. If your code asks for input, remember to type that in the terminal:
 
 <img src="4_1_7.png">
 
