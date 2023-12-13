@@ -14,7 +14,7 @@ After this section
 
 </text-box>
 
-Thus far, every program we have written has been executed line by line in order. Instead of executing every line of code every single time a program is run, it is often useful to create sections of the program which are are only executed in certain situations.
+Thus far, every program we have written has been executed line by line in order. Instead of executing every line of code every single time a program is run, it is often useful to create sections of the program which are only executed in certain situations.
 
 For example, the following code checks whether the user is of age:
 
@@ -271,7 +271,7 @@ Thank you!
 
 ## Boolean values and Boolean expressions
 
-Any condition used in a conditional statement will result in a truth value, that is, either true or false. For example, the condition `a < 5` is true if `a` is less than 5, and false if `a` is equal to or greater than 5.
+Any condition used in a conditional statement will result in one of two values, that is, either true or false. For example, the condition `a < 5` is true if `a` is less than 5, and false if `a` is equal to or greater than 5.
 
 These types of values are often called _Boolean_ values, named after the English mathematician George Boole. In Python they are handled by the `bool` data type. Variables of type `bool` can only have two values: `True` or `False`.
 
