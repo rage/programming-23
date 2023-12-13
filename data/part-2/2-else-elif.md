@@ -218,7 +218,7 @@ The greater number was: 5
 
 <sample-output>
 
-Please type in the first number:: **5**
+Please type in the first number: **5**
 Please type in another number: **8**
 The greater number was: 8
 
