@@ -26,7 +26,7 @@ Use Discord primarily for communication. You can be in contact with the course t
 
 ## Timetable
 
-The course will be open until the end of the year 2023.
+The course will be open until the end of the year 2023. However, if you're taking one of the exams at 2024, you can keep on collecting points until the exam day morning.
 
 ## Lectures
 
