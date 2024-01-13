@@ -56,7 +56,7 @@ Please do not ask any questions about specific programming tasks assigned to you
 * The exam questions, in the form of programming task instructions, will become available at courses.mooc.fi at 10:00 AM on the day of the exam.
 * You should use your usual mooc.fi login details to log in at the exam page.
 * The exam questions can be found from here: <a href="https://courses.mooc.fi/org/uh-cs/exams/92614d43-d449-43b2-bb75-da4ae8290cff">https://courses.mooc.fi/org/uh-cs/exams/92614d43-d449-43b2-bb75-da4ae8290cff</a>
-* If you have been granted extra time through special arrangements, open the exam questions from this link: <a href="https://courses.mooc.fi/org/uh-cs/exams/a886b9d0-d82c-4e21-8432-ea8025674cb7">https://courses.mooc.fi/org/uh-cs/exams/a886b9d0-d82c-4e21-8432-ea8025674cb7</a>
+* If you have been granted extra time through special arrangements, open the exam questions from this link: <a href="https://courses.mooc.fi/org/uh-cs/exams/93c8a699-8621-4802-b53a-02e6d6641ed3">https://courses.mooc.fi/org/uh-cs/exams/93c8a699-8621-4802-b53a-02e6d6641ed3</a>
 * Your allocated exam time will begin when you click on the button `START THE EXAM!`.
 
 #### Submitting your solutions
