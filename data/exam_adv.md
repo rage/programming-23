@@ -64,6 +64,7 @@ Please do not ask any questions about specific programming tasks assigned to you
 * Your solutions to the programming tasks in the exam are submitted in the same manner as your solutions to the programming exercises on the course.
 * The programming tasks in the exam **will not have automated tests**.
 * Any attempt to submit tasks after the exam time allocated to you have ended will lead to an automatic fail.
+* **If submitting isn't working with the "Run Tests" button, you can follow this picture to submit without running local tests, try to submit with this guide (first click 1, then 2): [https://drive.google.com/file/d/1XalUmwEpog3mCALzO_uNCtkRzGoL5Gj7/view?usp=sharing](https://drive.google.com/file/d/1XalUmwEpog3mCALzO_uNCtkRzGoL5Gj7/view?usp=sharing)**
 
 #### Finishing the exam
 
