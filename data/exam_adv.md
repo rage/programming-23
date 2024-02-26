@@ -83,4 +83,4 @@ Please do not ask any questions about specific programming tasks assigned to you
 * Your programming task submissions will be checked with a plagiarism detector. Any cheating detected leads to a failed exam at minimum, but may also lead to expulsion from the course.
 * The programming tasks in the exam will be similar to the programming tasks in the course material. The best way to prepare for the exam is to revisit the course material.
 * Your course results will be emailed to you after the exam, along with instructions for registering your course credits.
-* You are only allowed to use libraries that comes with the standard installation of Pyhton. Using libraries that requires installation will lead to the submission not being graded.
+* You are only allowed to use libraries that comes with the standard installation of Python. Using libraries that requires installation will lead to the submission not being graded.
