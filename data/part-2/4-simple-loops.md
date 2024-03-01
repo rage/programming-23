@@ -507,7 +507,7 @@ Once upon a time there was a girl
 
 ### Part 2
 
-Change the program so that the loop ends also if the user types in the same word twice.
+Change the program so that the loop ends also if the user types in the same word twice in a row.
 
 <sample-output>
 
