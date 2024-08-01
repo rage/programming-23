@@ -74,7 +74,7 @@ The `int` function is unable to parse the input string `twenty-three` as a valid
 
 Errors that occur while the program is already running are called _exceptions_. It is possible to prepare for exceptions, and handle them so that the execution continues despite them occurring.
 
-Exception handling in Python is accomplished with `try` and `except` statements. The idea is that if something within a `try` block causes an exception, Python checks if there is a corresponding `except` block. If such a block exists, it is executed and the program themn continues as if nothing happened.
+Exception handling in Python is accomplished with `try` and `except` statements. The idea is that if something within a `try` block causes an exception, Python checks if there is a corresponding `except` block. If such a block exists, it is executed and the program then continues as if nothing happened.
 
 Let's change the above example so that the program is prepared for the `ValueError` exception:
 
