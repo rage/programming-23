@@ -31,7 +31,7 @@ The second method is considering each segment of the argument as a separate argu
 print("Hi", name, "your age is", age, "years" )
 ```
 
-This code produces the exact same result as the previous version. The `print` command normally adds a space character between each argument.The advantage here is that the segments can be of different types, so there is no need to convert anything into a string.
+This code produces the exact same result as the previous version. The `print` command normally adds a space character between each argument. The advantage here is that the segments can be of different types, so there is no need to convert anything into a string.
 
 If you want to remove the automatically added spaces, you can add a special named argument `sep`:
 
