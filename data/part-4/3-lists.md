@@ -389,7 +389,7 @@ Notice how the method modifies the list itself. Sometimes we don't want to chang
 
 ```python
 my_list = [2,5,1,2,4]
-print(sorted(my_list)))
+print(sorted(my_list))
 ```
 
 <sample-output>
@@ -454,9 +454,9 @@ The functions `max` and `min`, short for maximum and minimum, return the greates
 ```python
 my_list = [5, 2, 3, 1, 4]
 
-greatest = max(my_list))
-smallest = min(my_list))
-list_sum = sum(my_list))
+greatest = max(my_list)
+smallest = min(my_list)
+list_sum = sum(my_list)
 
 print("Smallest:", smallest)
 print("Greatest:", greatest)
@@ -494,9 +494,9 @@ Some _functions_ are happy to take a list as an argument. Above we saw the funct
 my_list = [3, 2, 7, 1]
 
 # function calls take the list as an argument
-greatest = max(my_list))
-smallest = min(my_list))
-length = len(my_list))
+greatest = max(my_list)
+smallest = min(my_list)
+length = len(my_list)
 
 print("Smallest:", smallest)
 print("Greatest:", greatest)
@@ -504,7 +504,7 @@ print("Length of the list:", length)
 
 # another function call 
 # the list itself is an argument, the function returns a sorted copy
-in_order = sorted(my_list))
+in_order = sorted(my_list)
 print(in_order)
 ```
 
@@ -523,7 +523,7 @@ Just like the built-in functions above, our own functions can also take a list a
 
 ```python
 def median(my_list: list):
-    ordered = sorted(my_list))
+    ordered = sorted(my_list)
     list_centre = len(ordered) // 2
     return ordered[list_centre]
 ```
@@ -629,7 +629,7 @@ Please write a function named `length` which takes a list as its argument and re
 
 ```python
 my_list = [1, 2, 3, 4, 5]
-result = length(my_list))
+result = length(my_list)
 print("The length is", result)
 
 # the list given as an argument doesn't need to be stored in any variable
@@ -652,7 +652,7 @@ Please write a function named `mean`, which takes a list of integers as an argum
 
 ```python
 my_list = [1, 2, 3, 4, 5]
-result = mean(my_list))
+result = mean(my_list)
 print("mean value is", result)
 ```
 
@@ -671,7 +671,7 @@ Please write a function named  `range_of_list`, which takes a list of integers a
 
 ```python
 my_list = [1, 2, 3, 4, 5]
-result = range_of_list(my_list))
+result = range_of_list(my_list)
 print("The range of the list is", result)
 ```
 
