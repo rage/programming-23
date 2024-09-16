@@ -107,7 +107,7 @@ if __name__ == "__main__":
     print(factorials)
 ```
 
-List comprehensions allow us to express the same functionality more consisely, usually without losing any of the readability.
+List comprehensions allow us to express the same functionality more concisely, usually without losing any of the readability.
 
 We can also return a list comprehension statement from a function directly. If we needed a function for producing factorials for lists of numbers, we could achieve it very concisely:
 
