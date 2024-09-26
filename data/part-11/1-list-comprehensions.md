@@ -38,7 +38,7 @@ numbers = [1, 2, 3, 6, 5, 4, 7]
 strings = [str(number) for number in numbers]
 ```
 
-The second line above contains many of the same elements as the more traditional iterative apporach, but the syntax is different. One way of generalising a list comprehension statement would be
+The second line above contains many of the same elements as the more traditional iterative approach, but the syntax is different. One way of generalising a list comprehension statement would be
 
 `[<expression> for <item> in <series>]`
 
