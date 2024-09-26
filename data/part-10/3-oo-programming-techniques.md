@@ -59,11 +59,11 @@ class Product:
     def price(self):
         return self.__price
 
-    def cheaper(self, Product):
-        if self.__price < Product.price:
+    def cheaper(self, other: Product) -> Product:
+        if self.__price < other.price:
             return self
         else:
-            return Product
+            return other
 ```
 
 ```python
