@@ -7,7 +7,7 @@ banner: true
 sidebar_priority: 7000
 ---
 
-**The course start on January 16th 2023.**
+**The course started on January 16th 2023.**
 This is the course material page for the Introduction to Programming course (BSCS1001, 5 cr) and the Advanced Course in Programming (BSCS1002, 5 cr) from the Department of Computer Science at the University of Helsinki.
 
 To pass either of the two courses you are expected to complete programming exercises and take part in an exam. Please see the [Grading and exams](/grading-and-exams) page for more details.
@@ -26,7 +26,7 @@ Use Discord primarily for communication. You can be in contact with the course t
 
 ## Timetable
 
-The course will be open until the end of the year 2023. However, if you're taking one of the exams at 2024, you can keep on collecting points until the exam day morning.
+The course will be open until the end of the year 2023. However, if you're taking one of the exams in 2024, you can keep on collecting points until the exam day morning.
 
 ## Lectures
 
